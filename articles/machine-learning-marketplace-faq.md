@@ -3,7 +3,7 @@
 	description="Frequently Asked Questions" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/05/2015" 
 	ms.author="luisca"/> 
 
 #Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
@@ -38,7 +38,7 @@ You should use your Marketplace account as the username and the primary account 
 
 **An unexpected error occurred while processing your request. Please try again.**
 
-One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace **Explore this dataset** page. The services can be called with a longer input length by using HTTP POST methods. For examples, see [Sample solutions using R on Machine Learning and published to Marketplace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-r-csharp-web-service-examples/).
+One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace **Explore this dataset** page. The services can be called with a longer input length by using HTTP POST methods. For examples, see [Sample solutions using R on Machine Learning and published to Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
 **4. Why do I not see anything in the "API EXPLORER" tab int the Store in the Azure Management Portal?** 
 

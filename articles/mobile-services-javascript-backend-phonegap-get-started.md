@@ -10,15 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-phonegap" 
 	ms.devlang="multiple" 
 	ms.topic="hero-article" 
-	ms.date="11/21/2014" 
-	ms.author="glenga"/>
+	ms.date="04/24/2015" 
+	ms.author="ggailey777"/>
+
+# Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
-
-# <a name="getting-started"> </a>Get started with Mobile Services
 
 This tutorial shows you how to add a cloud-based backend service to an app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 
@@ -26,24 +26,26 @@ A screenshot from the completed app is below:
 
 ![][3]
 
-### <a name="additional-requirements"></a>Additional Requirements
+### Additional Requirements
 
-Completing this tutorial requires the PhoneGap tools (v3.2+ required for Windows Phone 8 projects). 
+Completing this tutorial requires the following:
 
-PhoneGap supports developing for multiple platforms. In addition to the PhoneGap tools themselves, you must install the tools for each platform you are targeting:
++ PhoneGap tools (v3.2+ required for Windows Phone 8 projects). 
+ 
++ An active Microsoft Azure account. 
 
-- Windows Phone: Install [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-- iOS: Install [Xcode] (v4.4+ required)
-- Android: Install the [Android Developer Tools][Android SDK]
-	<br/>(The Mobile Services SDK for Android supports apps for Android 2.2 or a later version. Android 4.2 or higher is required to run the quick start app.)
++ PhoneGap supports developing for multiple platforms. In addition to the PhoneGap tools themselves, you must install the tools for each platform you are targeting:
 
-## <a name="create-new-service"> </a>Create a new mobile service
+	- Windows Phone: Install [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
+	- iOS: Install [Xcode] (v4.4+ required)
+	- Android: Install the [Android Developer Tools][Android SDK]
+		<br/>(The Mobile Services SDK for Android supports apps for Android 2.2 or a later version. Android 4.2 or higher is required to run the quick start app.)
+
+## Create a new mobile service
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-<h2>Create a new PhoneGap app</h2>
-
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
+## Create a new PhoneGap app 
 
 In this section you will create a new PhoneGap app that is connected to your mobile service.
 
@@ -75,17 +77,17 @@ The final stage of this tutorial is to build and run your new app.
 
 	+ **Windows Phone 8**
 
-	1. Windows Phone 8: Open the .sln file in the **platforms\wp8** folder in Visual Studio 2012 Express for Windows Phone.
-	
-	2. Press the **F5** key to rebuild the project and start the app.
+		1. Windows Phone 8: Open the .sln file in the **platforms\wp8** folder in Visual Studio 2012 Express for Windows Phone.
+		
+		2. Press the **F5** key to rebuild the project and start the app.
 	
 	  	![][2]
 
 	+ **iOS**
 
-	1. Open the project in the **platforms/ios** folder in Xcode.
-	
-	2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
+		1. Open the project in the **platforms/ios** folder in Xcode.
+		
+		2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
 	
 	  	![][3]
 
@@ -108,7 +110,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	> [AZURE.IMPORTANT] Changes to this platform project will be overwritten if the main project is rebuilt with the PhoneGap tools. Instead, make changes in the project's root www directory as outlined in the section below.
 
-4. Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItem</strong> table.
+4. Back in the Management Portal, click the **Data** tab and then click the **TodoItem** table.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -143,19 +145,18 @@ The final stage of this tutorial is to build and run your new app.
 
 		    phonegap local build android
 
-
 4. Open each project in the appropriate development environment as outlined in the previous section.
 
 >[AZURE.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the js/index.js file.
 
-## <a name="next-steps"> </a>Next Steps
+## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with data]
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* [Get started with authentication]
+* [Add authentication to your app]
   <br/>Learn how to authenticate users of your app with an identity provider.
+
+* [Add push notifications to your app](https://msdn.microsoft.com/magazine/dn879353.aspx)
+  <br/>Learn how to register for and send push notifications to your app.
   
 <!-- Images. -->
 [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
@@ -165,9 +166,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-html-get-started-users
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/mobile-services-html-get-started-push
+[Add Mobile Services to an existing app]: mobile-services-html-get-started-data.md
+[Add authentication to your app]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532

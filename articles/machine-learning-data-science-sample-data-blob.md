@@ -1,7 +1,20 @@
+<properties 
+	pageTitle="Sample data in Azure Blob Storage| Azure" 
+	description="Sample data in Azure Blob Storage" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="msolhab" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<properties title="Sample data in SQL Server on Azure" pageTitle="Sample data in SQL Server on Azure| Azure" description="Sample data in SQL Server on Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="liang,msolhab,fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
-
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/27/2015" ms.author="liang,msolhab,fashah,garye" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/12/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample Data in Azure Blob Storage
 
@@ -72,8 +85,12 @@ You can use the following sample code to down-sample the data and use it directl
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Read the data from the Azure blob using Azure ML *Reader Module* as shown in the screen grab below:
+3. Read the data from the Azure blob using Azure ML [Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) as shown in the image below:
  
 ![reader blob][1]
 
 [1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
+
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

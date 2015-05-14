@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/25/2015" 
 	ms.author="robmcm"/>
 
 #Using Azure Storage with a Hudson Continuous Integration solution
@@ -61,7 +61,7 @@ You will need the following to use the Blob service with your Hudson CI solution
 
         While a typical Hudson CI solution would be set up to run as a service, running the Hudson war at the command line will be sufficient for this tutorial.
 
-- An Azure account. You can sign up for an Azure account at <http://www.windowsazure.com>.
+- An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
 
 - An Azure storage account. If you don't already have a storage account, you can create one using the steps at [How to Create a Storage Account][].
 
@@ -151,7 +151,7 @@ The following provides an overview of the Blob service components.
 
 - **Storage Account**: All access to Azure Storage is done through a storage account. This is the highest level of the namespace for accessing blobs. An account can contain an unlimited number of containers, as long as their total size is under 100TB.
 - **Container**: A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs.
-- **Blob**: A file of any type and size. There are two types of blobs that can be stored in Azure Storage: block and page blobs. Most files are block blobs. A single block blob can be up to 200GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1TB in size, and are more efficient when ranges of bytes in a file are modified frequently. For more information about blobs, see [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx).
+- **Blob**: A file of any type and size. There are two types of blobs that can be stored in Azure Storage: block and page blobs. Most files are block blobs. A single block blob can be up to 200GB in size. This tutorial uses block blobs. Page blobs, another blob type, can be up to 1TB in size, and are more efficient when ranges of bytes in a file are modified frequently. For more information about blobs, see [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 - **URL format**: Blobs are addressable using the following URL format:
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`

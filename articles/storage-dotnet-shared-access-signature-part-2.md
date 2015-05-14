@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Overview
 
-[Part 1](../storage-dotnet-shared-access-signature-part-1/) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET. The scenarios covered include these aspects of working with shared access signatures:
+[Part 1](storage-dotnet-shared-access-signature-part-1.md) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET. The scenarios covered include these aspects of working with shared access signatures:
 
 - Generating a shared access signature on a container
 - Generating a shared access signature on a blob
@@ -33,7 +33,7 @@ In this tutorial, we'll focus on creating shared access signatures for container
 
 ## Part 1: Create a Console Application to Generate Shared Access Signatures
 
-First, ensure that you have the Azure Storage Client Library for .NET installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](http://www.windowsazure.com/en-us/downloads/).
+First, ensure that you have the Azure Storage Client Library for .NET installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](http://azure.microsoft.com/downloads/).
 
 In Visual Studio, create a new Windows console application and name it **GenerateSharedAccessSignatures**. Add references to  **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, using either of the following approaches:
 
@@ -537,9 +537,9 @@ Run the console application and observe the output to see which operations are p
 
 [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/)
 
-[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/library/azure/ee393343.aspx)
 
-[Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
 [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

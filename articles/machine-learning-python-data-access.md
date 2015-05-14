@@ -1,14 +1,20 @@
 <properties 
-title="" pageTitle="Access datasets from Python with the Machine Learning Python client library  | Azure" 
-description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
-services="machine-learning" 
-documentationCenter="python" 
-authors="huvalo, bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+	pageTitle="Access datasets from Python with the Machine Learning Python client library  | Azure" 
+	description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
+	services="machine-learning" 
+	documentationCenter="python" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/10/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/21/2015" 
+	ms.author="huvalo;bradsev" />
 
 
 #Access datasets with Python using the Azure Machine Learning Python client library 
@@ -21,6 +27,8 @@ This topic provides instructions on how to:
 * access and upload datasets, including instructions on how to get authorization to access Azure Machine Learning datasets from your local Python environment
 *  access intermediate datasets from experiments
 *  use the Python client library to enumerate datasets, access metadata, read the contents of a dataset, create new datasets and update existing datasets
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
  
 ##<a name="prerequisites"></a>Prerequisites
@@ -113,11 +121,11 @@ The following formats are supported (constants for these are in the `azureml.Dat
 
 You can determine the format by hovering over a module output node. It is displayed along with the node name, in a tooltip.
 
-Some of the modules, such as the **Split** module, output to a format named `Dataset`, which is not supported by the Python client library.
+Some of the modules, such as the [Split][split] module, output to a format named `Dataset`, which is not supported by the Python client library.
 
 ![Dataset Format][dataset-format]
 
-You'll need to use a conversion module, such as **Convert to CSV**, to get an output into a supported format.
+You'll need to use a conversion module, such as [Convert to CSV][convert-to-csv], to get an output into a supported format.
 
 ![GenericCSV Format][csv-format]
 
@@ -127,13 +135,13 @@ The following steps show an example that creates an experiment, runs it and acce
 
 2. Insert an **Adult Census Income Binary Classification dataset** module.
 
-3. Insert a **Split** module, and connect its input to the dataset module output.
+3. Insert a [Split][split] module, and connect its input to the dataset module output.
 
-4. Insert a **Convert to CSV** module and connect its input to one of the **Split** module outputs.
+4. Insert a [Convert to CSV][convert-to-csv] module and connect its input to one of the [Split][split] module outputs.
 
 5. Save the experiment, run it, and wait for it to finish running.
 
-6. Click on the output node on the **Convert to CSV** module.
+6. Click on the output node on the [Convert to CSV][convert-to-csv] module.
 
 7. A context menu will appear, select **Generate Data Access Code**.
 
@@ -349,3 +357,8 @@ If your data is already serialized, use `update_from_raw_data` instead of `updat
 [intermediate-dataset-access-code]:./media/machine-learning-python-data-access/intermediate-dataset-access-code.png
 [ipython-intermediate-dataset]:./media/machine-learning-python-data-access/ipython-intermediate-dataset.png
 [ipython-histogram]:./media/machine-learning-python-data-access/ipython-histogram.png
+
+
+<!-- Module References -->
+[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
+[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

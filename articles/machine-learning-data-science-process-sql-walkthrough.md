@@ -1,23 +1,27 @@
-<properties title="Azure Data Science Process in Action" pageTitle="Azure Data Science Process in Action | Azure" description="Azure Data Science Process in Action" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Azure Advanced Analytics Process in Action: using SQL Sever | Azure" 
+	description="Azure Advanced Analytics Process in Action" metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab,fashah" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/12/2015" 
+	ms.author="mohabib;fashah;bradsev"/> 
 
                 
-# Azure Data Science Process in Action
+# Azure Advanced Analytics Process in Action: using SQL Sever
 
-In this tutorial, you will follow the Azure Data Science Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
+In this tutorial, you will follow the Azure Advanced Analytics Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
 
-The following sections are organized as follows:
-
-- [NYC Taxi Trips Dataset Description](#dataset)
-- [Examples of Prediction Problems](#mltasks)
-- [Setting Up the Azure Data Science Environment](#setup)
-- [Get the Data from Public Source](#getdata)
-- [Bulk Import Data into SQL Server Database](#dbload)
-- [Data Exploration and Feature Engineering in SQL Server](#dbexplore)
-- [Data Exploration and Feature Engineering in IPython Notebook](#ipnb)
-- [Building Models in Azure Machine Learning](#mlmodel)
-- [Deploying Models in Azure Machine Learning](#mldeploy)
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
 
@@ -60,9 +64,9 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 3. Regression task: To predict the amount of tip paid for a trip.  
 
 
-## <a name="setup"></a>Setting Up the Azure Data Science Environment
+## <a name="setup"></a>Setting Up the Azure data science environment for advanced analytics
 
-As you can see from the [Plan Your Environment](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-your-environment/) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
+As you can see from the [Plan Your Environment](machine-learning-data-science-plan-your-environment.md) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
 
 - Work with the data in Azure blobs then model in Azure Machine Learning
 - Load the data into a SQL Server database then model in Azure Machine Learning
@@ -71,11 +75,11 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/)
+1. [Create a storage account](storage-create-storage-account.md)
 
-2. [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
+2. [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
-3. [Provision a Data Science Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as a SQL Server as well an IPython Notebook server.
+3. [Provision a Data Science Virtual Machine](machine-learning-data-science-setup-sql-server-virtual-machine.md), which will serve as a SQL Server as well an IPython Notebook server.
 
 	> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
 	> - Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
@@ -83,11 +87,11 @@ To set up your Azure Data Science environment:
 	> where `<user_name>` is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
 
 
-Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-plan-sample-scenarios/#largelocaltodb).
+Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Get the Data from Public Source
 
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-move-azure-blob/) to copy the data to your new virtual machine.
+To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](machine-learning-data-science-move-azure-blob.md) to copy the data to your new virtual machine.
 
 To copy the data using AzCopy:
 
@@ -105,7 +109,7 @@ To copy the data using AzCopy:
 
 ## <a name="dbload"></a>Bulk Import Data into SQL Server Database
 
-The performance of loading/transferring large amounts of data to an SQL database and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables) to create a new database and load the data into partitioned tables in parallel.
+The performance of loading/transferring large amounts of data to an SQL database and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) to create a new database and load the data into partitioned tables in parallel.
 
 1. While logged in to your VM, start **SQL Server Management Studio**.
 
@@ -173,8 +177,8 @@ In this exercise, we will:
 
 When you are ready to proceed to Azure Machine Learning, you may either:  
 
-1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a Reader module in Azure Machine Learning, or 
-2. Persist the sampled and engineered data you plan to use for model building in a new database table and use the new table in the Reader module in Azure Machine Learning.
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a [Reader][reader] module in Azure Machine Learning, or 
+2. Persist the sampled and engineered data you plan to use for model building in a new database table and use the new table in the [Reader][reader] module in Azure Machine Learning.
 
 In this section we will save the final query to extract and sample the data. The second method is demonstrated in the [Data Exploration and Feature Engineering in IPython Notebook](#ipnb) section.
 
@@ -264,7 +268,7 @@ The label generation and geography conversion exploration queries can also be us
 
 #### Preparing Data for Model Building
 
-The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a 1% random sample from the full joined dataset. This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) Reader module for direct data ingestion from the SQL Server database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
+The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a 1% random sample from the full joined dataset. This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) [Reader][reader] module for direct data ingestion from the SQL Server database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -285,7 +289,7 @@ The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, ge
 ## <a name="ipnb"></a>Data Exploration and Feature Engineering in IPython Notebook
 
 In this section, we will perform data exploration and feature generation
-using both Python and SQL queries against the SQL Server database created earlier. A sample IPython notebook named **machine-Learning-data-science-process-sql-story.ipynb** is provided in the **Sample IPython Notebooks** folder. This notebook is also available on [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
+using both Python and SQL queries against the SQL Server database created earlier. A sample IPython notebook named **machine-Learning-data-science-process-sql-story.ipynb** is provided in the **Sample IPython Notebooks** folder. This notebook is also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
 The recommended sequence when working with big data is the following:
 
@@ -297,8 +301,8 @@ The recommended sequence when working with big data is the following:
 
 When ready to proceed to Azure Machine Learning, you may either:  
 
-1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a Reader module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.    
-2. Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the Reader module.
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly into a [Reader][reader] module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.    
+2. Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the [Reader][reader] module.
 
 The following are a few data exploration, data visualization, and feature engineering examples. For more examples, see the sample SQL IPython notebook in the **Sample IPython Notebooks** folder.
 
@@ -421,7 +425,7 @@ Similarly we can check the relationship between **rate\_code** and **trip\_dista
 
 ### Sub-Sampling the Data in SQL
 
-When preparing data for model building in [Azure Machine Learning Studio](https://studio.azureml.net), you may either decide on the **SQL query to use directly in the Reader module** or persist the engineered and sampled data in a new table, which you could use in the Reader module with a simple **SELECT * FROM <your\_new\_table\_name>**.
+When preparing data for model building in [Azure Machine Learning Studio](https://studio.azureml.net), you may either decide on the **SQL query to use directly in the Reader module** or persist the engineered and sampled data in a new table, which you could use in the [Reader][reader] module with a simple **SELECT * FROM <your\_new\_table\_name>**.
 
 In this section we will create a new table to hold the sampled and engineered data. An example of a direct SQL query for model building is provided in the [Data Exploration and Feature Engineering in SQL Server](#dbexplore) section.
 
@@ -569,7 +573,7 @@ This example transforms a continuous numeric field into preset category ranges, 
 
 #### Feature Engineering: Extract Location Features from Decimal Latitude/Longitude
 
-This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/en-us/library/ff701710.aspx). 
+This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/library/ff701710.aspx). 
 
     nyctaxi_one_percent_insert_col = '''
 		ALTER TABLE nyctaxi_one_percent 
@@ -610,13 +614,13 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 ## <a name="mlmodel"></a>Building Models in Azure Machine Learning
 
-To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/).
+To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](machine-learning-create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-ml-studio/)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 
-3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. Fore more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](http://azure.microsoft.com/en-us/documentation/services/machine-learning/).
+3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. Fore more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](http://azure.microsoft.com/documentation/services/machine-learning/).
 
 A typical training experiment consists of the following:
 
@@ -633,7 +637,7 @@ A typical training experiment consists of the following:
 
 In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure ML. To build one or more of the prediction models we decided:
 
-1. Get the data to Azure ML using the **Reader** module, available in the **Data Input and Output** section. For more information, see the [Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004) module reference page.
+1. Get the data to Azure ML using the [Reader][reader] module, available in the **Data Input and Output** section. For more information, see the [Reader][reader] module reference page.
 
 	![Azure ML Reader][17]
 
@@ -655,11 +659,11 @@ An example of a binary classification experiment reading data directly from the 
 
 > [AZURE.IMPORTANT] In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For e.g., when using binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter are target leaks since they imply the tip paid.
 >
-> To exclude unnecessary columns and/or target leaks, you may use the **Project Columns** module or the **Metadta Editor**. For more information, see [Project Columns](https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223) and [Metadata Editor](https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66) reference pages.
+> To exclude unnecessary columns and/or target leaks, you may use the [Project Columns][project-columns] module or the [Metadata Editor][metadata-editor]. For more information, see [Project Columns][project-columns] and [Metadata Editor][metadata-editor] reference pages.
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Publish an Azure Machine Learning web service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-a-machine-learning-web-service/).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Publish an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 
@@ -676,7 +680,7 @@ Azure Machine Learning will attempt to create a scoring experiment based on the 
 2. Identify a logical **input port** to represent the expected input data schema.
 3. Identify a logical **output port** to represent the expected web service output schema.
 
-When the scoring experiment is created, review it and adjust as needed. A typical adjustment is to replace the input dataset and/or query with one which excludes label fields, as these will not be available when the service is called. It is also a good practice to reduce the size of the input dataset and/or query to a few records, just enough to indicate the input schema. For the output port, it is common to exclude all input fields and only include the **Scored Labels** and **Scored Probabilities** in the output using the **Project Columns** module.
+When the scoring experiment is created, review it and adjust as needed. A typical adjustment is to replace the input dataset and/or query with one which excludes label fields, as these will not be available when the service is called. It is also a good practice to reduce the size of the input dataset and/or query to a few records, just enough to indicate the input schema. For the output port, it is common to exclude all input fields and only include the **Scored Labels** and **Scored Probabilities** in the output using the [Project Columns][project-columns] module.
 
 A sample scoring experiment is in the figure below. When ready to publish, click the **PUBLISH WEB SERVICE** button in the lower action bar.
 
@@ -713,3 +717,9 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [16]: ./media/machine-learning-data-science-process-sql-walkthrough/bulkimport.png
 [17]: ./media/machine-learning-data-science-process-sql-walkthrough/amlreader.png
 [18]: ./media/machine-learning-data-science-process-sql-walkthrough/amlscoring.png
+
+
+<!-- Module References -->
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

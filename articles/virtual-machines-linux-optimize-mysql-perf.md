@@ -67,7 +67,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
 ####Step 2: Create RAID with the additional disks
 Follow this article for detailed RAID setup steps:  
 
-[http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/)
+[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
 >[AZURE.NOTE] If you are using the XFS file system, follow the steps below after you have created RAID.
 
@@ -220,7 +220,7 @@ The following configuration items are the main factors that affect MySQL perform
 -	**Innodb_log_buffer_size**: The log buffer allows transactions to run without having to flush the log to disk before the transactions commit. However, if there is large binary object or text field, the cache will be consumed very quickly and frequent disk I/O will be triggered. It is better increase the buffer size if Innodb_log_waits state variable is not 0.
 -	**query_cache_size**:  The best option is to disable it from the outset. Set query_cache_size to 0 (this is now the default setting in MySQL 5.6) and use other methods to speed up queries .  
   
-See [Appendix D](AppendixD) for comparing performance after the optimization.
+See [Appendix D](#AppendixD) for comparing performance after the optimization.
 
 
 ##Turn on the MySQL slow query log for analyzing the performance bottleneck

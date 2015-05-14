@@ -19,7 +19,7 @@
 
 # Work with a JavaScript backend mobile service
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
  
 This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. 
 
@@ -232,7 +232,7 @@ The value for the `id` must be unique and it must not include characters from th
 +  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  The ids "." and ".."
 
-You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/en-us/documentation/articles/command-line-tools/#Mobile_Tables).
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
 
 ###<a name="access-headers"></a>How to: Access custom parameters
@@ -1009,43 +1009,43 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
-[Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
-[Schedule backend jobs in Mobile Services]: /en-us/develop/mobile/tutorials/schedule-backend-tasks/
-[request object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-[response object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
-[User object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
-[push object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
-[insert function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
-[insert]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
-[update function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
-[delete function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
-[read function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
-[update]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
-[delete]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
-[read]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
-[query object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx
-[apns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj839711.aspx
-[mpns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj871025.aspx
-[wns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860484.aspx
-[table object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx
-[tables object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx
-[mssql object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-[console object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554209.aspx
-[Read and write data]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631640.aspx
-[Validate data]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631638.aspx
-[Modify the request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631635.aspx
-[Modify the response]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631631.aspx
+[Mobile Services server script reference]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
+[Schedule backend jobs in Mobile Services]: /develop/mobile/tutorials/schedule-backend-tasks/
+[request object]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[response object]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[User object]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[insert function]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[update function]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete function]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read function]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[query object]: http://msdn.microsoft.com/library/windowsazure/jj613353.aspx
+[apns object]: http://msdn.microsoft.com/library/windowsazure/jj839711.aspx
+[mpns object]: http://msdn.microsoft.com/library/windowsazure/jj871025.aspx
+[wns object]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
+[table object]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[tables object]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
+[mssql object]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+[console object]: http://msdn.microsoft.com/library/windowsazure/jj554209.aspx
+[Read and write data]: http://msdn.microsoft.com/library/windowsazure/jj631640.aspx
+[Validate data]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
+[Modify the request]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
+[Modify the response]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [Management Portal]: https://manage.windowsazure.com/
-[Schedule jobs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx
-[Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[Commands to manage Azure Mobile Services]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
-[Windows Store Push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Windows Phone Push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
-[iOS Push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
-[Android Push]: /en-us/develop/mobile/tutorials/get-started-with-push-android/
+[Schedule jobs]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
+[Commands to manage Azure Mobile Services]: virtual-machines-command-line-tools.md#Mobile_Scripts
+[Windows Store Push]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Windows Phone Push]: /develop/mobile/tutorials/get-started-with-push-wp8/
+[iOS Push]: /develop/mobile/tutorials/get-started-with-push-ios/
+[Android Push]: /develop/mobile/tutorials/get-started-with-push-android/
 [Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[Send HTTP request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx
-[Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
+[Send HTTP request]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
+[Send email from Mobile Services with SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
 [Get started with authentication]: http://go.microsoft.com/fwlink/p/?LinkId=287177
 [crypto API]: http://go.microsoft.com/fwlink/p/?LinkId=288802
 [path API]: http://go.microsoft.com/fwlink/p/?LinkId=288803
@@ -1053,14 +1053,14 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
-[Custom API]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-[Call a custom API from the client]: /en-us/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
+[Custom API]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
+[Call a custom API from the client]: /develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [express.js library]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-[Define a custom API that supports periodic notifications]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet/
+[Define a custom API that supports periodic notifications]: /develop/mobile/tutorials/create-pull-notifications-dotnet/
 [express object in express.js]: http://expressjs.com/api.html#express
-[Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
-[Leverage shared code and Node.js modules in your server scripts]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-[service object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
-[App settings]: http://msdn.microsoft.com/en-us/library/dn529070.aspx
-[config module]: http://msdn.microsoft.com/en-us/library/dn508125.aspx
+[Store server scripts in source control]: /develop/mobile/tutorials/store-scripts-in-source-control/
+[Leverage shared code and Node.js modules in your server scripts]: /develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
+[service object]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
+[App settings]: http://msdn.microsoft.com/library/dn529070.aspx
+[config module]: http://msdn.microsoft.com/library/dn508125.aspx
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036

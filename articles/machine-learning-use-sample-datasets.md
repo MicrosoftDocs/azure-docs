@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2014" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
@@ -22,10 +22,10 @@
 [top]: #machine-learning-sample-datasets
 
 When you create a new workspace in Azure Machine Learning, a number of sample experiments and datasets are included by default.
-Many of these sample datasets are used by the sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/en-us/documentation/services/machine-learning/models/), and others are included as examples of various types of data used in machine learning. 
+Many of these sample datasets are used by the sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/), and others are included as examples of various types of data used in machine learning. 
 
 Some of these datasets are available in Azure BLOB storage. For these datasets the tables below provide a direct link.
-You can use these datasets in your experiments by using the **Reader** module - to see an example of how to access a dataset, view the properties of the **Reader** module in the sample experiment associated with the dataset.
+You can use these datasets in your experiments by using the [Reader][reader] module - to see an example of how to access a dataset, view the properties of the [Reader][reader] module in the sample experiment associated with the dataset.
 
 The rest of these sample datasets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
 You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
@@ -34,14 +34,14 @@ You can use any of these datasets in your own experiment by dragging it to your 
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
-[sample-experiments]: ../machine-learning-sample-experiments/
+[sample-experiments]: machine-learning-sample-experiments.md
 -->
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ## Datasets associated with sample models
 
-The following datasets are used by sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/en-us/documentation/services/machine-learning/models/). 
+The following datasets are used by sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/). 
 For more information about the model and its associated experiment, follow the link in the table to see the model details.
 
 <table>
@@ -54,7 +54,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=bill-gates-rgb-image>
-  <td valign=top><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/">Color quantization using K-Means clustering</a></td>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/">Color quantization using K-Means clustering</a></td>
   <td valign=top>Sample Experiment - Color Based Image Compression using K-Means Clustering - Development</td>
   <td valign=top>Bill Gates RGB Image</td>
   <td valign=top>
@@ -63,7 +63,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=german-credit-card-uci-dataset>
-  <td valign=top><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-credit-risk-prediction/">Credit risk prediction</a></td>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-credit-risk-prediction/">Credit risk prediction</a></td>
   <td valign=top>Sample Experiment - German Credit - Development</td>
   <td valign=top>German Credit Card UCI dataset</td>
   <td valign=top>
@@ -72,7 +72,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=crm-dataset-shared>
-  <td rowspan=4 valign=top><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-crm-task/">CRM task</a></td>
+  <td rowspan=4 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-crm-task/">CRM task</a></td>
   <td rowspan=4 valign=top>Sample Experiments - CRM - Development</td>
   <td valign=top>CRM Dataset Shared</td>
   <td valign=top>
@@ -99,7 +99,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
-  <td valign=top><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-finding-similar-companies/">Finding similar companies</a></td>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-finding-similar-companies/">Finding similar companies</a></td>
   <td valign=top>Sample Experiment - S & P 500 Company Clustering - Development</td>
   <td valign=top>Wikipedia SP 500 Dataset</td>
   <td valign=top>
@@ -108,7 +108,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=airport-codes-dataset>
-  <td rowspan=3 valign=top><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-flight-delay-prediction/">Flight delay prediction</a></td>
+  <td rowspan=3 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-flight-delay-prediction/">Flight delay prediction</a></td>
   <td rowspan=3 valign=top>Sample Experiment - Flight Delay Prediction - Development</td>
   <td valign=top>Airport Codes Dataset</td>
   <td valign=top>
@@ -131,7 +131,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=intrusion-detection>
-  <td valign=top> <a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-network-intrusion-detection/">Network intrusion detection</a></td>
+  <td valign=top> <a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-network-intrusion-detection/">Network intrusion detection</a></td>
   <td valign=top>Sample Experiment - Network Intrusion Detection - Development</td>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td valign=top>
@@ -140,7 +140,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
-  <td valign=top><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/">Prediction of the number of bike rentals</a></td>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/">Prediction of the number of bike rentals</a></td>
   <td valign=top>Sample Experiment - Demand Forecasting of Bikes</td>
   <td valign=top>Bike Rental UCI dataset</td>
   <td valign=top>
@@ -149,7 +149,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=student-performance>
-  <td valign=top><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-student-performance/">Prediction of student performance</a></td>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-student-performance/">Prediction of student performance</a></td>
   <td valign=top>Sample Experiment - Student Performance - Development</td>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td valign=top>
@@ -158,7 +158,7 @@ For more information about the model and its associated experiment, follow the l
 </tr>
 
 <tr ID=book-reviews-from-amazon>
-  <td valign=top><a href="http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-sentiment-analysis/">Sentiment analysis</a></td>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-sentiment-analysis/">Sentiment analysis</a></td>
   <td valign=top>Sample Experiment - Sentiment Classification - Development</td>
   <td valign=top>Book Reviews from Amazon</td>
   <td valign=top>
@@ -172,7 +172,7 @@ For more information about the model and its associated experiment, follow the l
 
 ## Datasets used in sample experiments
 
-The following datasets are used by sample experiments that are included in Azure ML Studio but are not used by models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/en-us/documentation/services/machine-learning/models/). 
+The following datasets are used by sample experiments that are included in Azure ML Studio but are not used by models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/). 
 
 You can find these datasets listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
 You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
@@ -376,3 +376,7 @@ You can use any of these datasets in your own experiment by dragging it to your 
 
 
 </table>
+
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

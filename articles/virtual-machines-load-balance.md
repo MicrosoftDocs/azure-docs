@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/12/2015" 
 	ms.author="cherylmc"/>
 
 
-#Load Balancing for Azure Infrastructure Services#
+# Load Balancing for Azure Infrastructure Services#
 
 There are two levels of load balancing available for Azure infrastructure services:
 
 - **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints. This is done with Traffic Manager and the Round Robin load balancing method.
 - **Network Level**:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network. This is done with the Azure load balancer.
 
-##Traffic Manager load balancing for cloud services and websites##
+## Traffic Manager load balancing for cloud services and websites##
 
 Azure Traffic Manager allows you to control the distribution of user traffic to endpoints, which can include cloud services, websites, external sites, and other Traffic Manager profiles. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or websites can be running in different datacenters across the world. 
 
@@ -36,7 +36,7 @@ Azure Traffic Manager uses three load-balancing methods to distribute traffic:
 - **Performance**:  Use this method when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
 - **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.
 
-For more information, see [About Traffic Manager Load Balancing Methods](http://msdn.microsoft.com/en-us/library/azure/dn339010.aspx).
+For more information, see [About Traffic Manager Load Balancing Methods](http://msdn.microsoft.com/library/azure/dn339010.aspx).
 
 The following figure shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
 
@@ -49,7 +49,7 @@ The basic process is the following:
 3.	Traffic Manager chooses the next cloud service in the round robin list and sends back the DNS name. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
 4.	The Internet client connects with the cloud service chosen by Traffic Manager.
 
-For more information, see [Traffic Manager](http://msdn.microsoft.com/en-us/library/azure/hh745750.aspx).
+For more information, see [Traffic Manager](http://msdn.microsoft.com/library/azure/hh745750.aspx).
 
 ## Azure load balancing for virtual machines ##
 
@@ -61,7 +61,7 @@ The following figure shows a load-balanced endpoint for standard (unencrypted) w
 
 ![loadbalancing](./media/load-balancing-vms/LoadBalancing.png)
 
-For more information, see [Azure Load Balancer](http://msdn.microsoft.com/en-us/library/azure/dn655058.aspx). For the steps to create a load-balanced set, see [Configure a load-balanced set](http://msdn.microsoft.com/en-us/library/azure/dn655055.aspx).
+For more information, see [Azure Load Balancer](http://msdn.microsoft.com/library/azure/dn655058.aspx). For the steps to create a load-balanced set, see [Configure a load-balanced set](http://msdn.microsoft.com/library/azure/dn655055.aspx).
 
 Azure can also load balance within a cloud service or virtual network. This is known as internal load balancing and can be used in the following ways:
 
@@ -75,7 +75,11 @@ The following figure shows an example of an internal load-balanced endpoint for 
 
 ![loadbalancing](./media/load-balancing-vms/LOBServers.png)
 
-For more information, see [Internal load balancing](http://msdn.microsoft.com/en-us/library/azure/dn690121.aspx). For the steps to create a load-balanced set, see [Configure an internal load-balanced set](http://msdn.microsoft.com/en-us/library/azure/dn690125.aspx).
+## Next Steps
+
+For the steps to create a load-balanced set, see [Configure an internal load-balanced set](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+
+For more information about load balancer, see [Internal load balancing](http://msdn.microsoft.com/library/azure/dn690121.aspx). 
 
 <!-- LINKS -->
 

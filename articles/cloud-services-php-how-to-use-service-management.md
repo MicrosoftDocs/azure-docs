@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to use Azure service management APIs (PHP)" 
 	description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." 
-	services="" 
+	services="web-sites" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -20,44 +20,25 @@
 
 This guide will show you how to programmatically perform common service management tasks from PHP. The [ServiceManagementRestProxy] class in the [Azure SDK for PHP][download-SDK-PHP] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
 
-##Table of Contents
-
-* [What is Service Management](#WhatIs)
-* [Concepts](#Concepts)
-* [Create a PHP application](#CreateApplication)
-* [Get the Azure Client Libraries](#GetClientLibraries)
-* [How to: Connect to service management](#Connect)
-* [How to: List available locations](#ListAvailableLocations)
-* [How to: Create a cloud service](#CreateCloudService)
-* [How to: Delete a cloud service](#DeleteCloudService)
-* [How to: Create a deployment](#CreateDeployment)
-* [How to: Update a deployment](#UpdateDeployment)
-* [How to: Move deployments between staging and production](#MoveDeployments)
-* [How to: Delete a deployment](#DeleteDeployment)
-* [How to: Create a storage service](#CreateStorageService)
-* [How to: Delete a storage service](#DeleteStorageService)
-* [How to: Create an affinity group](#CreateAffinityGroup)
-* [How to: Delete an affinity group](#DeleteAffinityGroup)
-
-##<a id="WhatIs"></a>What is Service Management
+## What is Service Management
 The Service Management API provides programmatic access to much of the service management functionality available through the [management portal][management-portal]. The Azure SDK for PHP allows you to manage your cloud services, storage accounts, and affinity groups.
 
 To use the Service Management API, you will need to [create an Azure account][win-azure-account]. 
 
-##<a id="Concepts"></a>Concepts
+## Concepts
 The Azure SDK for PHP wraps the [Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
-##<a id="CreateApplication"></a>Create a PHP application
+## Create a PHP application
 
 The only requirement for creating a PHP application that uses Azure Service Management is the referencing of classes in the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
-##<a id="GetClientLibraries"></a>Get the Azure Client Libraries
+## Get the Azure Client Libraries
 
 [AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-##<a id="Connect"></a>How to: Connect to service management
+## How to: Connect to service management
 
 To connect to the Service Management endpoint, you need your Azure subscription ID and the path to a valid management certificate. You can obtain your subscription ID through the [management portal][management-portal], and you can create management certificates in a number of ways. In this guide [OpenSSL](http://www.openssl.org/) is used, which you can [download for Windows](http://www.openssl.org/related/binaries.html) and run in a console.
 
@@ -69,7 +50,7 @@ To create the `.cer` certificate, execute this:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-For more information about Azure certificates, see [Overview of Certificates in Azure](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+For more information about Azure certificates, see [Overview of Certificates in Azure](http://msdn.microsoft.com/library/azure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 If you have downloaded and imported your publish settings file using the [Azure Command Line Tools][command-line-tools], you can use the `.pem` file that the tools create instead of creating your own. The tools create a `.cer` for you and upload it to Azure, and they put the corresponding `.pem` file in the `.azure` directory on your computer (in your user directory).
 
@@ -87,7 +68,7 @@ After you have obtained your subscription ID, created a certificate, and uploade
 
 In the example above, `$serviceManagementRestProxy` is a [ServiceManagementRestProxy] object. The **ServiceManagementRestProxy** class is the primary class used to manage Azure services. 
 
-##<a id="ListAvailableLocations"></a>How to: List Available Locations
+## How to: List Available Locations
 
 To list the locations that are available for hosting services, use the **ServiceManagementRestProxy->listLocations** method:
 
@@ -110,7 +91,7 @@ To list the locations that are available for hosting services, use the **Service
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -130,10 +111,9 @@ When you create a cloud service, storage service, or affinity group, you will ne
 - West US 
 - East US
 
-> [AZURE.NOTE]
-> In the code examples that follow, locations are passed to methods as strings. However, you can also pass locations as enumerations using the <code>WindowsAzure\ServiceManagement\Models\Locations</code> class. For example, instead of passing "West US" to a method that accepts a location, you could pass <code>Locations::WEST_US</code>.
+In the code examples that follow, locations are passed to methods as strings. However, you can also pass locations as enumerations using the <code>WindowsAzure\ServiceManagement\Models\Locations</code> class. For example, instead of passing "West US" to a method that accepts a location, you could pass <code>Locations::WEST_US</code>.
 
-##<a id="CreateCloudService"></a>How to: Create a cloud service
+## How to: Create a cloud service
 
 When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service]  - known as a *hosted service* in earlier Azure releases. The **createHostedServices** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (the base 64-endcoded hosted service name), and a **CreateServiceOptions** object. The [CreateServiceOptions] object allows you to set the location *or* the affinity group for your service. 
 
@@ -159,7 +139,7 @@ When you create an application and run it in Azure, the code and configuration t
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -200,7 +180,7 @@ You can delete a cloud service by passing the service name to the **deleteHosted
 
 Note that before you can delete a service, all deployments for the the service must first be deleted. (See [How to: Delete a deployment](#DeleteDeployment) for details.)
 
-##<a id="CreateDeployment"></a>How to: Create a deployment
+## How to: Create a deployment
 
 The **createDeployment** method uploads a new [service package] and creates a new deployment in the staging or production environment. The parameters for this method are as follows:
 
@@ -244,7 +224,7 @@ The following example creates a new deployement in the production slot of a host
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -272,7 +252,7 @@ You can access deployment properties with the **getDeployment** method. The foll
 	}
 	echo "------<br />";
 
-##<a id="UpdateDeployment"></a>How to: Update a deployment
+## How to: Update a deployment
 
 A deployment can be updated by using the **changeDeploymentConfiguration** method or the **updateDeploymentStatus** method.
 
@@ -302,7 +282,7 @@ The **changeDeploymentConfiguration** method allows you to upload a new service 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -332,13 +312,13 @@ The **updateDeploymentStatus** method allows you to set a deployment status to R
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="MoveDeployments"></a>How to: Move deployments between staging and production
+## How to: Move deployments between staging and production
 
 Azure provides two deployment environments: staging and production. Typically a service is deployed to the staging environment to test it before deploying the service to the production environment. When it is time to promote the service in staging to the production environment, you can do so without redeploying the service. This can be done by swapping the deployments. (For more information on swapping deployments, see [Overview of Managing Deployments in Azure].)
 
@@ -358,13 +338,13 @@ The following example shows how to use the **swapDeployment** method to swap two
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="DeleteDeployment"></a>How to: Delete a deployment
+## How to: Delete a deployment
 
 To delete a deployment, use the **deleteDeployment** method. The following example shows how to delete a deployment in the staging environment by using the **setSlot** method on a [GetDeploymentOptions] object, then passing it to **deleteDeployment**. Instead of specifying a deployment by slot, you can use the **setName** method on the [GetDepolymentOptions] class to specify a deployment by deployment name.
 
@@ -387,13 +367,13 @@ To delete a deployment, use the **deleteDeployment** method. The following examp
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateStorageService"></a>How to: Create a storage service
+## How to: Create a storage service
 
 A [storage service] gives you access to Azure [Blobs][azure-blobs], [Tables][azure-tables], and [Queues][azure-queues]. To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure), a label (a base-64 encoded name for the service, up to 100 characters), and either a location or an affinity group. Providing a description for the service is optional. The location, affinity group, and description are set in a [CreateServiceOptions] object, which is passed to the **createStorageService** method. The following example shows how to create a storage service by specifying a location. If you want to use an affinity group, you have to create an affinity group first (see [How to: Create an affinity group](#CreateAffinityGroup)) and set it with the **CreateServiceOptions->setAffinityGroup** method.
 
@@ -422,7 +402,7 @@ A [storage service] gives you access to Azure [Blobs][azure-blobs], [Tables][azu
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -445,7 +425,7 @@ You can list your storage accounts and their properties with the **listStorageSe
 		echo "------<br />";
 	}
 
-##<a id="DeleteStorageService"></a>How to: Delete a storage service
+## How to: Delete a storage service
 
 You can delete a storage service by passing the storage service name to the **deleteStorageService** method. Deleting a storage service will delete all data stored in the service (blobs, tables and queues).
 
@@ -463,13 +443,13 @@ You can delete a storage service by passing the storage service name to the **de
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateAffinityGroup"></a>How to: Create an affinity group
+## How to: Create an affinity group
 
 An affinity group is a logical grouping of Azure services that tells Azure to locate the services for optimized performance. For example, you might create an affinity group in the “West US” location, then create a [cloud Service](#CreateCloudService) in that affinity group. If you then create a storage service in the same affinity group, Azure knows to put it in the “West US” location and optimize within the data center for the best performance with the cloud services in the same affinity group.
 
@@ -497,7 +477,7 @@ To create an affinity group, you need a name, label (the base 64-encoded name), 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -518,7 +498,7 @@ You can list affinity groups and inspect their properties by calling the  **list
 		echo "------<br />";
 	}
 
-##<a id="DeleteAffinityGroup"></a>How to: Delete an affinity group
+## How to: Delete an affinity group
 	
 You can delete an affinity group by passing the group name to the **deleteAffinityGroup** method. Note that before you can delete an affinity group, the affinity group must be disassociated from any services (or services that use the affintiy group must be deleted).
 
@@ -538,7 +518,7 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -546,31 +526,31 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-[win-azure-account]: /en-us/pricing/free-trial/
-[storage-account]: ../storage-create-storage-account/
+[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[win-azure-account]: /pricing/free-trial/
+[storage-account]: storage-create-storage-account.md
 
-[download-SDK-PHP]: ../php-download-sdk/
-[command-line-tools]: ../command-line-tools/
+[download-SDK-PHP]: php-download-sdk.md
+[command-line-tools]: virtual-machines-command-line-tools.md
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
-[cloud service]: ../cloud-services-what-is/
+[cloud service]: cloud-services-what-is.md
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
-[service package]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433093
-[Azure PowerShell cmdlets]: ../install-configure-powershell/
-[cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
+[service package]: http://msdn.microsoft.com/library/windowsazure/gg433093
+[Azure PowerShell cmdlets]: install-configure-powershell.md
+[cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
 [GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
-[Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
-[storage service]: ../storage-whatis-account/
-[azure-blobs]: ../storage-php-how-to-use-blobs/
-[azure-tables]: ../storage-php-how-to-use-table-storage/
-[azure-queues]: ../storage-php-how-to-use-queues/
+[Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+[storage service]: storage-whatis-account.md
+[azure-blobs]: storage-php-how-to-use-blobs.md
+[azure-tables]: storage-php-how-to-use-table-storage.md
+[azure-queues]: storage-php-how-to-use-queues.md
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx

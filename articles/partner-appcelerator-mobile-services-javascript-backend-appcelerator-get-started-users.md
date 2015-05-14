@@ -110,4 +110,4 @@ Next, you will update the app to authenticate users before requesting resources 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Get started with Mobile Services]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md

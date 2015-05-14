@@ -155,14 +155,8 @@ When following the integration procedure described above, the Engagement service
 
 To benefit from "Any time" push, you need to use one or more Native Push services depending on devices you target:
 
-  - Google Play devices: Use [Google Cloud Messaging] by following the :doc:`How to Integrate GCM with Engagement` guide.
-  - Amazon devices: Use `Amazon Device Messaging <https://developer.amazon.com/sdk/adm.html>`_ by following the :doc:`How to Integrate ADM with Engagement` guide.
-
-
--   The recommended method is to integrate Native Push, you can integrate as many services as you want, different devices use different Native Push services.
-    -   [Google Cloud Messaging] by following the [How to Integrate GCM with Engagement guide](../mobile-engagement-android-gcm-integrate/).
-    -   [Amazon Device Messaging] by following the [How to Integrate ADM with Engagement guide](../mobile-engagement-android-adm-integrate/).
-   
+  - Google Play devices: Use [Google Cloud Messaging] by following the [How to Integrate GCM with Engagement guide](mobile-engagement-android-gcm-integrate.md) guide.
+  - Amazon devices: Use [Amazon Device Messaging] by following the [How to Integrate ADM with Engagement guide](mobile-engagement-android-adm-integrate.md) guide.
 
 If you want to target both Amazon and Google Play devices, its possible to have everything inside 1 AndroidManifest.xml/APK for development. But when submitting to Amazon, they may reject your application if they find GCM code.
 
@@ -180,7 +174,7 @@ There are two types of notifications: system and in-app notifications which use 
 
 #### System notifications
 
-To customize system notifications you need to use the **categories**. You can jump to android-sdk-categories.
+To customize system notifications you need to use the **categories**. You can jump to [Categories](#categories).
 
 #### In-app notifications
 
@@ -238,7 +232,7 @@ If you don't want the overlay to be added to your activity, and if you don't inc
 			  <meta-data android:name="engagement:notification:overlay" android:value="false"/>
 			</activity>
 
-#### Categories
+#### <a name="categories"></a> Categories
 
 When you modify the provided layouts, you modify the look of all your notifications. Categories allow you to define various targeted looks (possibly behaviors) for notifications. A category can be specified when you create a Reach campaign. Keep in mind that categories also let you customize announcements and polls, that is described later in this document.
 

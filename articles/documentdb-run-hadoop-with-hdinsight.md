@@ -2,7 +2,7 @@
 	pageTitle="Run a Hadoop job using DocumentDB and HDInsight | Azure" 
 	description="Learn how to run a simple Hive, Pig, and MapReduce job with DocumentDB and Azure HDInsight."
 	services="documentdb" 
-	authors="andrewhoh" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="mimig"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/13/2015" 
+	ms.date="05/01/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
@@ -26,15 +26,38 @@ After completing this tutorial, you'll be able to answer the following questions
 - How do I load data from DocumentDB using a Hive, Pig, or MapReduce job?
 - How do I store data in DocumentDB using a Hive, Pig, or MapReduce job?
 
+We recommend getting started by watching the following video, where we run through a Hive job using DocumentDB and HDInsight.
+
+> [AZURE.VIDEO use-azure-documentdb-hadoop-connector-with-azure-hdinsight]
+
+Then, return to this article, where you'll receive the full details on how you can run analytics jobs on your DocumentDB data.
+
 > [AZURE.TIP] This tutorial assumes that you have prior experience using Apache Hadoop, Hive, and/or Pig. If you are new to Apache Hadoop, Hive, and Pig, we recommend visiting the [Apache Hadoop documentation][apache-hadoop-doc]. This tutorial also assumes that you have prior experience with DocumentDB and have a DocumentDB account. If you are new to DocumentDB or you do not have a DocumentDB account, please check out our [Getting Started][getting-started] page.
 
 Don't have time to complete the tutorial and just want to get the full sample PowerShell scripts for Hive, Pig, and MapReduce? Not a problem, get them [here][documentdb-hdinsight-samples]. The download also contains the hql, pig, and java files for these samples.
 
+## <a name="NewestVersion"></a>Newest Version
+
+<table border='1'>
+	<tr><th>Hadoop Connector Version</th>
+		<td>1.0.0</td></tr>
+	<tr><th>Script Uri</th>
+		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v02.ps1</td></tr>
+	<tr><th>Date Modified</th>
+		<td>04/08/2015</td></tr>
+	<tr><th>Supported HDInsight Versions</th>
+		<td>3.1, 3.2</td></tr>
+	<tr><th>Change Log</th>
+		<td>Added ability to change output collection offer type (S3 offer by default)</br>
+			Minor bug fixes</br>
+		</td></tr>
+</table>
+
 ## <a name="Prerequisites"></a>Prerequisites
 Before following the instructions in this tutorial, ensure that you have the following:
 
-- A DocumentDB account, a database, and a collection with documents inside. For more information, see [Getting Started with DocumentDB][getting-started].
-- Throughput. Reads and writes from HDInsight will be counted towards your Capacity Unit's (CUs) allotted request units. For more information, see [Provisioned throughput, request units, and database operations][documentdb-manage-throughput].
+- A DocumentDB account, a database, and a collection with documents inside. For more information, see [Getting Started with DocumentDB][getting-started]. Import sample data into your DocumentDB account with the [DocumentDB import tool][documentdb-import-data].
+- Throughput. Reads and writes from HDInsight will be counted towards your allotted request units for your collections. For more information, see [Provisioned throughput, request units, and database operations][documentdb-manage-throughput].
 - Capacity for an additional stored procedure within each output collection. The stored procedures are used for transferring resulting documents. For more information, see [Collections and provisioned throughput][documentdb-manage-document-storage].
 - Capacity for the resulting documents from the Hive, Pig, or MapReduce jobs. For more information, see [Manage DocumentDB capacity and performance][documentdb-manage-collections].
 - [*Optional*] Capacity for an additional collection. For more information, see [Provisioned document storage and index overhead][documentdb-manage-document-storage].
@@ -51,11 +74,11 @@ When you provision an HDInsight cluster, you specify an Azure Storage account. A
 
 **To create an Azure Storage account**
 
-1. Sign into the [Azure Management portal][azure-management-portal].
+1. Sign into the [Azure management portal][azure-classic-portal].
 	
-	> [AZURE.NOTE] Azure HDInsight is currently supported in the Azure Management portal, while Azure DocumentDB only exists in the Azure Preview portal.
+	> [AZURE.NOTE] Azure HDInsight is currently supported in the Azure management portal, while Azure DocumentDB only exists in the Microsoft Azure  portal.
 
-2. Click **NEW** on the lower left corner, point to **DATA SERVICES**, point to **STORAGE**, and then click **QUICK CREATE**.
+2. Click **+ NEW** on the lower left corner, point to **DATA SERVICES**, point to **STORAGE**, and then click **QUICK CREATE**.
 	![Azure portal where you can use Quick Create to set up a new storage account.][image-storageaccount-quickcreate]
 
 3. Enter the **URL**, select the **LOCATION** and **REPLICATION** values, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. 
@@ -67,9 +90,9 @@ When you provision an HDInsight cluster, you specify an Azure Storage account. A
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
 
 ## <a name="ProvisionHDInsight"></a>Step 2: Create a customized HDInsight cluster
-This tutorial uses Script Action from the Azure Management portal to customize your HDInsight cluster. In this tutorial we will use the Azure Management portal to create your customized cluster. For instructions on how to use PowerShell cmdlets or the HDInsight .NET SDK, check out the [Customize HDInsight clusters using Script Action][hdinsight-custom-provision] article.
+This tutorial uses Script Action from the Azure management portal to customize your HDInsight cluster. In this tutorial we will use the Azure management portal to create your customized cluster. For instructions on how to use PowerShell cmdlets or the HDInsight .NET SDK, check out the [Customize HDInsight clusters using Script Action][hdinsight-custom-provision] article.
 
-1. Sign in to the [Azure Management portal][azure-management-portal]. You may be already signed in from the previous step.
+1. Sign in to the [Azure management portal][azure-classic-portal]. You may be already signed in from the previous step.
 
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **CUSTOM CREATE**.
 
@@ -82,8 +105,12 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 		<tr><td>Cluster name</td><td>Name the cluster.<br/>
 			DNS name must start and end with an alpha numeric character, and may contain dashes.<br/>
 			The field must be a string between 3 and 63 characters.</td></tr>
+		<tr><td>Subscription Name</td>
+			<td>If you have more than one Azure Subscription, select the subscription corresponding to the storage account from <strong>Step 1</strong>. </td></tr>
 		<tr><td>Cluster Type</td>
 			<td>For cluster type, select <strong>Hadoop</strong>.</td></tr>
+		<tr><td>Operating System</td>
+			<td>For operating system, select <strong>Windows Server 2012 R2 Datacenter</strong>.</td></tr>
 		<tr><td>HDInsight version</td>
 			<td>Choose the version. </br>Select <Strong>HDInsight version 3.1</strong>.</td></tr>
 		</table>
@@ -131,7 +158,7 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 			<td>Specifies the default container on the storage account that is used as the default file system for the HDInsight cluster. If you choose <strong>Use Existing Storage</strong> for the <strong>Storage Account</strong> field, and there are no existing containers in that account, the container is created by default with the same name as the cluster name. If a container with the name of the cluster already exists, a sequence number will be appended to the container name.
         </td></tr>
 		<tr><td>Additional Storage Accounts</td>
-			<td>HDInsight supports multiple storage accounts. There is no limit on the additional storage accounts that can be used by a cluster. However, if you create a cluster using the Management portal, you have a limit of seven due to the UI constraints. Each additional storage account you specify adds an extra Storage Account page to the wizard where you can specify the account information.</td></tr>
+			<td>HDInsight supports multiple storage accounts. There is no limit on the additional storage accounts that can be used by a cluster. However, if you create a cluster using the Azure portal, you have a limit of seven due to the UI constraints. Each additional storage account you specify adds an extra Storage Account page to the wizard where you can specify the account information.</td></tr>
 	</table>
 
 	Click the right arrow.
@@ -146,7 +173,7 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 			<td>Specify a name for the script action.</td></tr>
 		<tr><td>Script URI</td>
 			<td>Specify the URI to the script that is invoked to customize the cluster.</br></br>
-			Please enter: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v01.ps1</strong>.</td></tr>
+			Please enter: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v02.ps1</strong>.</td></tr>
 		<tr><td>Node Type</td>
 			<td>Specifies the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.</br></br>
 			Please select <strong>All Nodes</strong>.</td></tr>
@@ -161,7 +188,7 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 
 1. Install Azure PowerShell. Instructions can be found [here][powershell-install-configure].
 
-	> [AZURE.NOTE] Alternatively, just for Hive queries, you can use HDInsight's online Hive Editor. To do so, sign in to the [Azure Management portal][azure-management-portal], click **HDInsight** on the left pane to view a list of your HDInsight clusters. Click the cluster you want to run Hive queries on, and then click **Query Console**.
+	> [AZURE.NOTE] Alternatively, just for Hive queries, you can use HDInsight's online Hive Editor. To do so, sign in to the [Azure management portal][azure-classic-portal], click **HDInsight** on the left pane to view a list of your HDInsight clusters. Click the cluster you want to run Hive queries on, and then click **Query Console**.
 
 2. Open the Azure PowerShell Integrated Scripting Environment:
 	- On a computer running Windows 8 or Windows Server 2012 or higher, you can use the built-in Search. From the Start screen, type **powershell ise** and click **Enter**. 
@@ -198,6 +225,7 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 
     > [AZURE.NOTE] **Naming DocumentDB.inputCollections was not a mistake.** Yes, we allow adding multiple collections as an input: </br>
     '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' </br> The collection names are separated without spaces, using only a single comma.
+
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
@@ -266,7 +294,7 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 
 9. **Run** your new script! **Click** the green execute button.
 
-10. Check the results. Sign into the [Azure Preview Portal][azure-preview-portal]. 
+10. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel. </br>
 	2. Click <strong>everything</strong> at the top-right of the browse panel. </br>
 	3. Find and click <strong>DocumentDB Accounts</strong>. </br>
@@ -353,7 +381,7 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 		
 9. **Run** your new script! **Click** the green execute button.
 
-10. Check the results. Sign into the [Azure Preview portal][azure-preview-portal]. 
+10. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel. </br>
 	2. Click <strong>everything</strong> at the top-right of the browse panel. </br>
 	3. Find and click <strong>DocumentDB Accounts</strong>. </br>
@@ -396,7 +424,7 @@ This tutorial uses Script Action from the Azure Management portal to customize y
 
 5. **Run** your new script! **Click** the green execute button.
 
-6. Check the results. Sign into the [Azure Preview portal][azure-preview-portal]. 
+6. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel.
 	2. Click <strong>everything</strong> at the top-right of the browse panel.
 	3. Find and click <strong>DocumentDB Accounts</strong>.
@@ -427,27 +455,28 @@ To learn more, see the following articles:
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
 [apache-hive]: http://hive.apache.org/
 [apache-pig]: http://pig.apache.org/
-[getting-started]: ../documentdb-get-started/
+[getting-started]: documentdb-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-classic-portal]: https://manage.windowsazure.com/
 [azure-powershell-diagram]: ./media/documentdb-run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
-[documentdb-java-application]: ../documentdb-java-application/
-[documentdb-manage-collections]: ../documentdb-manage/#Collections
-[documentdb-manage-document-storage]: ../documentdb-manage/#IndexOverhead
-[documentdb-manage-throughput]: ../documentdb-manage/#ProvThroughput
+[documentdb-java-application]: documentdb-java-application.md
+[documentdb-manage-collections]: documentdb-manage.md#Collections
+[documentdb-manage-document-storage]: documentdb-manage.md#IndexOverhead
+[documentdb-manage-throughput]: documentdb-manage.md#ProvThroughput
+[documentdb-import-data]: documentdb-import-data.md
 
-[hdinsight-custom-provision]: ../hdinsight-provision-clusters/#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
-[hdinsight-hadoop-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
-[hdinsight-get-started]: ../hdinsight-get-started/ 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-custom-provision]: hdinsight-provision-clusters.md#powershell
+[hdinsight-develop-deploy-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-hadoop-customize-cluster]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-get-started]: hdinsight-get-started.md 
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
 
 [image-customprovision-page1]: ./media/documentdb-run-hadoop-with-hdinsight/customprovision-page1.png
 [image-customprovision-page4]: ./media/documentdb-run-hadoop-with-hdinsight/customprovision-page4.png
@@ -457,4 +486,4 @@ To learn more, see the following articles:
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
-[powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: install-configure-powershell.md

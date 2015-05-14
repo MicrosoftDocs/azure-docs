@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="How to use Service Bus queues (Node.js) - Azure" 
-	description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." 
+	description="Learn how to use Service Bus queues in Azure from a Node.js app." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/10/2015" 
-	ms.author="sethm"/>
+	ms.author="mwasson"/>
 
 
 
@@ -202,19 +202,19 @@ processed using **receiveQueueMessage**. The example first receives and
 deletes a message, and then receives a message using **isPeekLock** set
 to true, then deletes the message using **deleteMessage**:
 
-    serviceBusService.receiveQueueMessage('taskqueue', function(error, receivedMessage){
+    serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
         if(!error){
             // Message received and deleted
         }
     });
-    serviceBusService.receiveQueueMessage(queueName, { isPeekLock: true }, function(error, lockedMessage){
+    serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
         if(!error){
             // Message received and locked
             serviceBusService.deleteMessage(lockedMessage, function (deleteError){
                 if(!deleteError){
                     // Message deleted
                 }
-            }
+            });
         }
     });
 
@@ -272,10 +272,10 @@ links to learn more.
   
   
   
-  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
+  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
-  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
+  [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/

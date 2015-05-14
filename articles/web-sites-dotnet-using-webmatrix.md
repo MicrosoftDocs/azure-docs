@@ -1,27 +1,27 @@
 <properties 
-	pageTitle=".NET website with WebMatrix - Azure tutorials" 
-	description="Learn how to develop and deploy an Azure website with WebMatrix." 
-	services="web-sites" 
+	pageTitle="Develop and deploy a web app with Microsoft WebMatrix" 
+	description="Learn how to develop and deploy an ASP.NET web application to Azure App Service Web Apps with Microsoft WebMatrix." 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/5/2015" 
+	ms.date="04/21/2015" 
 	ms.author="tomfitz"/>
 
 
-#Develop and deploy a website with Microsoft WebMatrix
+# Develop and deploy a web app with Microsoft WebMatrix
 
 ## Overview
 
-This guide describes how to use Microsoft WebMatrix to create and deploy a website to Azure.  You will use a sample application from a WebMatrix site template.
+This guide describes how to use Microsoft WebMatrix to create and deploy a .NET website to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. You will use a sample application from a WebMatrix site template.
 
 You will learn:
 
@@ -29,9 +29,9 @@ You will learn:
 * How to create a site using a built in template with WebMatrix 
 * How to deploy the customized website directly from WebMatrix to Azure.
 
-> [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">sign up for a free trial</a>.
-> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## Sign into Azure
 
@@ -55,11 +55,11 @@ You will learn:
 
 	![Create Site from Template][sitefromtemplatedetails]
 
-3. If you are signed into Azure, you now have the option to create an Azure Website for your local site.  Choose a unique name, and select the data center where you would like your site to be created: 
+3. If you are signed into Azure, you now have the option to create an Azure App Service Web Apps instance for your local site. Choose a unique name, and select the data center where you would like your Web Apps instance to be created: 
 
 	![Create site on Azure][sitefromtemplateazure]
 
-	After WebMatrix finishes building the website, the WebMatrix IDE is displayed:
+	After WebMatrix finishes building the local site and the Web Apps instance in Azure, the WebMatrix IDE is displayed:
 
 	![WebMatrix IDE][howtowebmatrixide] 
 
@@ -160,19 +160,19 @@ The bakery sample includes a simulated order form that sends an email message wi
 
 	![WebMatrix Publish Preview][howtopublishpreview]
 
-2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated website on Azure is displayed at the bottom of the WebMatrix IDE.  
+2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated web app in Azure App Service is displayed at the bottom of the WebMatrix IDE.  
 
 	![Publishing Complete][publishcomplete]
 
-3. Click on the link to open the website in your browser:
+3. Click on the link to open the website (a Web Apps instance in Azure) in your browser:
 
 	![Bakery Sample Site][bakerysample]
 
-	The URL for the website can also be found in the Azure portal by clicking **Websites** to display all websites for your subscription. The URL for each website is displayed in the URL column on the websites page.
+	The URL for the Web Apps instance can also be found in the [Azure Portal](https://portal.azure.com) by clicking **Browse** > **Web Apps** to display all Web Apps instances for your subscription, then select a web app. The URL for the web app is displayed the web app's blade.
 
-## Modify the website and republish it to the Azure website
+## Modify the website and republish it to Web Apps
 
-You can use WebMatrix to modify the site and republish it to your Azure website. In the following procedure you will add a check box to indicate that the order is a gift.
+You can use WebMatrix to modify the site and republish it to your Web Apps instance. In the following procedure you will add a check box to indicate that the order is a gift.
 
 1. Open the *Order.cshtml* page.
 
@@ -209,16 +209,15 @@ You can use WebMatrix to modify the site and republish it to your Azure website.
 
 7. On the **Publish Preview** dialog box, make sure both the Order.cshtml is checked, and click continue.
 
-8. Click on the link to open the website in your browser and test the update on your Azure website.
+8. Click on the link to open the website in your browser and test the update on your Web Apps instance.
 
-# Next Steps
-
-You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
-
-* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+## Next Steps
 
 * [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -248,4 +247,4 @@ You've seen how to create and deploy a website from WebMatrix to Azure. To learn
 
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
-[sendgridexample]: http://azure.microsoft.com/en-us/documentation/articles/sendgrid-dotnet-how-to-send-email/
+[sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/

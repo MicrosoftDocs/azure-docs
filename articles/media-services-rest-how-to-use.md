@@ -3,7 +3,7 @@
 	description="Media Services REST API overview" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -30,7 +30,7 @@ For every call you make into Media Services, there is a set of required headers 
 <table border="1">
 <tr><th>Header</th><th>Type</th><th>Value</th></tr>
 <tr><td>Authorization</td><td>Bearer</td><td>Bearer is the only accepted authorization mechanism. The value must also include the access token provided by ACS.</td></tr>
-<tr><td>x-ms-version</td><td>Decimal</td><td>2.8</td></tr>
+<tr><td>x-ms-version</td><td>Decimal</td><td>2.9</td></tr>
 <tr><td>DataServiceVersion</td><td>Decimal</td><td>3.0</td></tr>
 <tr><td>MaxDataServiceVersion</td><td>Decimal</td><td>3.0</td></tr>
 </table><br/>

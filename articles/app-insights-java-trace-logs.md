@@ -2,6 +2,7 @@
 	pageTitle="Explore Java trace logs in Application Insights" 
 	description="Search Log4J or Logback traces in Application Insights" 
 	services="application-insights" 
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-29" 
+	ms.date="03/05/2015" 
 	ms.author="awills"/>
 
 # Explore Java trace logs in Application Insights
 
-If you’re using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
+If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 
 Install [Application Insights SDK for Java][java], if you haven't already done that.
 
@@ -79,8 +80,20 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '0.9.+'
 
+#### Otherwise ...
 
-### Add an appender to your logging framework
+Download and extract the appropriate appender, then add the appropriate library to your project:
+
+
+Logger | Download | Library
+----|----|----
+Logback|[SDK with Logback appender](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[SDK with Log4J v2 appender](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4j v1.2|[SDK with Log4J v1.2 appender](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
+
+
+
+## Add the appender to your logging framework
 
 To start getting traces, merge the relevant snippet of code to the Log4J or Logback configuration file: 
 
@@ -121,7 +134,7 @@ The Application Insights appenders can be referenced by any configured logger, a
 
 ## Explore your traces in the Application Insights portal
 
-Now that you’ve configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Diagnostic Search][diagnostic] blade.
+Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Diagnostic Search][diagnostic] blade.
 
 ![In the Application Insights portal, open Diagnostic Search](./media/app-insights-java-get-started/10-diagnostics.png)
 
@@ -129,8 +142,8 @@ Now that you’ve configured your project to send traces to Application Insights
 
 [Diagnostic search][diagnostic]
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[diagnostic]: app-insights-diagnostic-search.md
+[java]: app-insights-java-get-started.md
 

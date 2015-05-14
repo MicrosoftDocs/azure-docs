@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/06/2014" 
+	ms.date="02/28/2015" 
 	ms.author="glenga"/>
 
 # Call a custom API from the client
@@ -24,13 +24,13 @@ This topic shows you how to call a custom API from a Windows Phone app. A custom
 
 The custom API created in this topic gives you the ability to send a single POST request that sets the completed flag to `true` for all the todo items in the table. Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.
 
-You will add this functionality to the app that you created when you completed the [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/) tutorial. To do this, you will complete the following steps:
+You will add this functionality to the app that you created when you completed the [Add Mobile Services to an existing app](mobile-services-windows-phone-get-started-data.md) tutorial. To do this, you will complete the following steps:
 
 1. [Define the custom API]
 2. [Update the app to call the custom API]
 3. [Test the app] 
 
-This tutorial is based on the GetStartedWithData sample, a simple TodoList app. Before you start this tutorial, you must first complete [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/).
+This tutorial is based on the GetStartedWithData sample, a simple TodoList app. Before you start this tutorial, you must first complete [Add Mobile Services to an existing app](mobile-services-windows-phone-get-started-data.md).
 
 ## <a name="define-custom-api"></a>Define the custom API
 
@@ -59,9 +59,9 @@ Now that you have created a custom API and called it from your Windows Phone app
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-push/
+[Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
+[Get started with data]: mobile-services-windows-phone-get-started-data.md
+[Get started with authentication]: mobile-services-windows-phone-get-started-users.md
+[Get started with push notifications]: mobile-services-windows-phone-get-started-push.md
 
-[Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+[Store server scripts in source control]: mobile-services-store-scripts-source-control.md

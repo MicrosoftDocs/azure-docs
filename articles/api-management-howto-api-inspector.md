@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 # How to use the API Inspector to trace calls in Azure API Management
 
 API Management provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programatically from your applications, and can also be used directly from the developer portal. This guide provides a walk-through of using API Inspector.
-
-## In this topic
-
--	[Use API Inspector to trace a call][]
--	[Inspect the trace][]
--	[Next steps][]
-
 
 ## <a name="trace-call"> </a> Use API Inspector to trace a call
 
@@ -206,13 +199,13 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [Inspect the trace]: #inspect-trace
 [Next steps]: #next-steps
 
-[Configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
-[Responses]: ../api-management-howto-add-operations/#responses
-[How create and publish a product]: ../api-management-howto-add-products
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [Management Portal]: https://manage.windowsazure.com/
 
 

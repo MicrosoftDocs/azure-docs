@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="04/02/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -44,11 +44,13 @@ The Copy Activity supports the following data movement scenarios:
 - Copy data from an Azure SQL Database to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS
 - Copy data from an Azure Table to an Azure Blob, Azure Table, or Azure SQL Database.
 - Copy data from an On-premises SQL Server/SQL Server on IaaS to Azure Blob or Azure SQL Database
+- Copy data from an On-premises Oracle database to an Azure blob
+- Copy data from an On-premises file system to Azure Blob
  
 
 <table border="1">	
 	<tr>
-		<th><i>Sink/Source<i></th>
+		<th><i>Source/Sink<i></th>
 		<th>Azure Blob</th>
 		<th>Azure Table</th>
 		<th>Azure SQL Database</th>
@@ -101,6 +103,25 @@ The Copy Activity supports the following data movement scenarios:
 		<td></td>
 		<td></td>
 	</tr>
+
+	<tr>
+		<td><b>On-premises File System</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>On-premises Oracle Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
 
 </table>
 
@@ -336,22 +357,50 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
+> [AZURE.NOTE] See [Examples for using Copy Activity in Azure Data Factory][copy-activity-examples] for more examples for using the Copy Activity.
+
+## Security
+This section includes overall security guidelines and best practices that help establish secure access to data stores for the Copy Activity.
+
+For data stores offering HTTPS connection, choose HTTPS connection for the copy activity to establish secure communication over the network. For example, for **Azure Storage**, use **DefaultEndpointsProtocol=https** is in the connection string.
+
+For **Azure SQL Database**, explicitly request an encrypted connection and do not trust the server certificates to avoid the "man in the middle" attack. To achieve this, use **Encrypt=True** and **TrustServerCertificate=False** in the connection string. See Azure [SQL Database Security Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ff394108.aspx) for details.
+
+For traditional databases such as **SQL Server**, especially when the instances are in an Azure Virtual Machine, enable encrypted connection option by configuring a signed certificate, with **Encrypt=True** and **TrustServerCertificate=False** in the connection string. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) and [Connection String Syntax.](https://msdn.microsoft.com/library/ms254500.aspx).
+
 ## Advanced scenarios
-See [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced] article. 
+- **Column filtering using structure definition**. Depending on the type of the table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source.
+- **Transformation rules - Column mapping**. Column mapping can be used to specify how columns in source table map to columns in the sink table.
+- **Data Type Handling by the Copy Activity**. Explains in which case the data types specified in the Structure section of the Table definition are honored/ignored.
+- **Invoke stored procedure for SQL Sink**. When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked.
+
+See [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced] article for details on these scenarios. 
 
 ## Walkthroughs
 See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that shows how to copy data from a Azure blob storage to an Azure SQL Database using the Copy Activity.
  
 See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity
 
+## See Also
+- [Copy Activity - Examples][copy-activity-examples]
+- [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
+- [Copy Activity topic on MSDN Library][msdn-copy-activity]
+- [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced]
+
+[msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
+[msdn-tables-topic]: https://msdn.microsoft.com/library/dn835002.aspx
 [msdn-supported-sources-sinks]: https://msdn.microsoft.com/library/dn894007.aspx
-[copy-activity-video]: http://azure.microsoft.com/en-us/documentation/videos/introducing-azure-data-factory-copy-activity/
-[table-valued-parameters]: http://msdn.microsoft.com/en-us/library/bb675163.aspx
+[copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
+[table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
+[copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-[adfgetstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[copy-activity-advanced]: ../data-factory-copy-activity-advanced
+[adfgetstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[copy-activity-examples]: data-factory-copy-activity-examples.md
+
+[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 

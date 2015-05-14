@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" 
-	description="Managing role-based access control with cross-platform command-line interface" 
+	pageTitle="Managing Role-Based Access Control with the Azure CLI for Mac, Linux, and Windows" 
+	description="Managing role-based access control with Azure CLI." 
 	services="" 
 	documentationCenter="" 
-	authors="guangyang" 
-	manager="terrylan" 
-	editor="mollybos"/>
+	authors="squillace" 
+	manager="timlt" 
+	editor="tomfitz"/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="command-line-interface" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2014" 
-	ms.author="guayan"/>
+	ms.date="04/26/2015" 
+	ms.author="tomfitz"/>
 
-# Managing Role-Based Access Control with Cross-Platform Command-Line Interface #
+# Managing Role-Based Access Control with the Azure Command-Line Interface for Mac, Linux, and Windows#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/en-us/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">Azure CLI</a></div>
 
-Role-Based access control (RBAC) in Azure preview portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for active directory users, groups or service principals by assigning some roles to them at a particular scope.
+Role-Based access control (RBAC) in the Azure portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for active directory users, groups or service principals by assigning some roles to them at a particular scope.
 
-In this tutorial, you'll learn how to use Azure Cross-Platform Command-Line Interface (xplat-cli) to manage RBAC. It walks you through the process of creating and checking role assignments.
+In this tutorial, you'll learn how to use the Azure CLI to manage RBAC. It walks you through the process of creating and checking role assignments.
 
 **Estimated time to complete:** 15 minutes
 
@@ -30,8 +30,8 @@ In this tutorial, you'll learn how to use Azure Cross-Platform Command-Line Inte
 
 Before you can use xplat-cli to manage RBAC, you must have the following:
 
-- Azure Cross-Platform Command-Line Interface version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/).
-- Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Azure Cross-Platform Command-Line Interface: [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/)
+- Azure Cross-Platform Command-Line Interface version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [install](xplat-cli-install.md).
+- Please also read the following tutorials to get familiar with set up and using the Azure Resource Manager in the Azure CLI: [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md)
 
 ## In this tutorial ##
 
@@ -47,13 +47,13 @@ Since RBAC only works with Azure Resource Manager, the first thing to do is to s
 
     azure config mode arm
 
-For more information, please refer to [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/)
+For more information, please refer to [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md)
 
 To connect o your Azure subscriptions, type:
 
     azure login -u <username>
 
-In the command line prompt, enter you Azure account password (only supporting organizational ID). Xplat-cli will get all the subscriptions you have with this account and figure itself to use the first one as default. Notice that with RBAC, you will only be able to get the subscriptions where you have some permissions by either being its co-admin or having some role assignment. 
+In the command line prompt, enter you Azure account password (only supporting work or school IDs -- also called an **organizational ID**). Azure CLI will get all the subscriptions you have with this account and figure itself to use the first one as default. Notice that with RBAC, you will only be able to get the subscriptions where you have some permissions by either being its co-admin or having some role assignment. 
 
 If you have multiple subscriptions and want to switch to another one, type:
 
@@ -62,7 +62,7 @@ If you have multiple subscriptions and want to switch to another one, type:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-For more information, please refer to [Install and Configure the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/).
+For more information, please refer to [the Azure CLI commands](azure-cli-arm-commands.md).
 
 ## <a id="check"></a>Check existing role assignments ##
 
@@ -139,7 +139,6 @@ Then when you try to run other cmdlet like `azure group create`, you will get an
 
 To learn more about managing role-based access control with xplat-cli and related topics:
 
-- [Install and Configure the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/)
-- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/)
-- [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
-- [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
+- [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli-install.md)
+- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md)
+- [Using Resource groups to manage your Azure resources](resource-groups-overview.md): Learn how to create and manage resource groups in the Azure Management Portal.

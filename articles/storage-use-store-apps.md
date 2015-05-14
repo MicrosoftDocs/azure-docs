@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2014" 
+	ms.date="03/05/2015" 
 	ms.author="tamram"/>
 
 
@@ -28,9 +28,9 @@ This guide shows how to get started with developing a Windows Store app that mak
 
 ## Download Required Tools ##
 
-- [Visual Studio 2012](http://msdn.microsoft.com/en-us/library/windows/apps/br211384) makes it easy to build, debug, localize, package, and deploy Windows Store apps.
-- [Windows Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) provides a class library for working with Azure Storage.
-- [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/en-us/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store Apps in Visual Studio 2012 and later.
+- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) makes it easy to build, debug, localize, package, and deploy Windows Store apps.
+- [Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) provides a class library for working with Azure Storage.
+- [WCF Data Services Tools for Windows Store Apps](http://www.microsoft.com/download/details.aspx?id=30714) extends the Add Service Reference experience with client-side OData support for Windows Store Apps in Visual Studio 2012 and later.
 
 ## Develop Apps ##
 
@@ -51,7 +51,7 @@ At this point, your app is ready to call the Blob and Queue services. Add the fo
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-Next, add a button to your page. Add the following code to its **Click** event and modify your event handler method with the [async keyword](http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx):
+Next, add a button to your page. Add the following code to its **Click** event and modify your event handler method with the [async keyword](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);

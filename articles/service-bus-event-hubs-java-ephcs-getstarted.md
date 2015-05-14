@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Get Started with Event Hubs" 
 	description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving in C# using EventProcessorHost" 
-	services="service-bus" 
+	services="event-hubs,service-bus" 
 	documentationCenter="" 
 	authors="fsautomata" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
+	ms.service="event-hubs" 
 	ms.workload="core" 
 	ms.tgt_pltfrm="csharp" 
 	ms.devlang="csharp" 
@@ -34,7 +34,7 @@ In order to complete this tutorial you will need the following:
 
 + Microsoft Visual Studio Express 2013 for Windows
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
++ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ## Create an event hub
 
@@ -103,4 +103,4 @@ Now you are ready to run the applications.
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn836025.aspx
+[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx

@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="How to use Azure storage for SQL Server backup and restore | Azure" 
-	description="" 
-	services="storage" 
+	description="Backup SQL Server and SQL Database to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage, and which SQL Server and Azure Storage components are required" 
+	services="sql-database, virtual-machines" 
 	documentationCenter="" 
 	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2014" 
+	ms.date="03/06/2015" 
 	ms.author="jeffreyg"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Overview
 
-The feature that provides the ability to write SQL Server backups to the Azure Blob storage service was released in SQL Server 2012 SP1 CU2. You can use this functionality to back up to and restore from the Azure Blob service from a on-premises SQL Server database or a SQL Server database in an Azure Virtual Machine. Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud.   In this release, you can issue BACKUP or RESTORE statements by using T-SQL or SMO. Back up to or restore from the Azure Blob storage service by using SQL Server Management Studio Backup or Restore Wizard is not available.
+The feature that provides the ability to write SQL Server backups to the Azure Blob storage service was released in SQL Server 2012 SP1 CU2. You can use this functionality to back up to and restore from the Azure Blob service from a on-premises SQL Server database or a SQL Server database in an Azure Virtual Machine. Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud.   In this release, you can issue BACKUP or RESTORE statements by using T-SQL or SMO.
 
 ## Benefits of Using the Azure Blob Service for SQL Server Backups
 
@@ -46,12 +46,12 @@ For a complete walkthrough of creating a storage account and performing a simple
 ## Azure Blob Storage Service Components 
 
 * Storage Account: The storage account is the starting point for all storage services. To access an Azure Blob Storage service, first create an Azure Storage account. The storage account name and its access key properties are required to authenticate to the Azure Blob Storage service and its components. 
-For more information about Azure Blob storage service, see [How to use the Azure Blob Storage Service](http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/)
+For more information about Azure Blob storage service, see [How to use the Azure Blob Storage Service](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
 * Container: A container provides a grouping of a set of Blobs, and can store an unlimited number of Blobs. To write a SQL Server backup to an Azure Blob service, you must have at least the root container created. 
 
 * Blob: A file of any type and size. There are two types of blobs that can be stored in the Azure Blob storage service: block and page blobs.  SQL Server backup uses page Blobs as the Blob type. Blobs are addressable using the following URL format: `https://<storage account>.blob.core.windows.net/<container>/<blob>`
-For more information about page Blobs, see [Understanding Block and Page Blobs](http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx)
+For more information about page Blobs, see [Understanding Block and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx)
 
 ## SQL Server Components
 
@@ -63,7 +63,7 @@ Following is an example of the URL you would specify in the BACKUP command:
 <b>Important</b>
 If you choose to copy and upload a backup file to the Azure Blob storage service, you must use a page blob type as your storage option if you are planning to use this file for restore operations. RESTORE from a block blob type will fail with an error. 
 
-* Credential: The information that is required to connect and authenticate to Azure Blob storage service is stored as a Credential.  In order for SQL Server to write backups to an Azure Blob or restore from it, a SQL Server credential must be created. The Credential stores the name of the storage account and the storage account access key.  Once the credential is created, it must be specified in the WITH CREDENTIAL option when issuing the BACKUP/RESTORE statements. For more information about how to view, copy or regenerate storage account access keys, see [Storage Account Access Keys](http://msdn.microsoft.com/en-us/library/windowsazure/hh531566.aspx).
+* Credential: The information that is required to connect and authenticate to Azure Blob storage service is stored as a Credential.  In order for SQL Server to write backups to an Azure Blob or restore from it, a SQL Server credential must be created. The Credential stores the name of the storage account and the storage account access key.  Once the credential is created, it must be specified in the WITH CREDENTIAL option when issuing the BACKUP/RESTORE statements. 
 For step by step instructions about how to create a SQL Server Credential, see [Getting Started with Azure Storage Service for SQL Server Backup and Restore](http://go.microsoft.com/fwlink/?LinkId=271615).
 
 ## SQL Server Database Backups and Restore with Azure Blobs- Concepts and Tasks:

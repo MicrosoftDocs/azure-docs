@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2014" 
-	ms.author="szarkos"/>
+	ms.date="03/13/2015" 
+	ms.author="szark"/>
 
 #How to Use SSH with Linux on Azure
 
 The current version of the Azure Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate. Follow the steps below to generate and use SSH keys with Azure.
 
-## Generate Windows Azure Compatible Keys in Linux ##
+## Generate Azure Compatible Keys in Linux ##
 
 1. Install the `openssl` utility if needed:
 
@@ -53,16 +53,16 @@ The current version of the Azure Management Portal only accepts SSH public keys 
 
 
 ## Generate a Key from an Existing OpenSSH Compatible Key
-The previous example describes how to create a new key for use with Windows Azure. In some cases you may already have an existing OpenSSH compatible public & private key pair and wish to use the same keys with Windows Azure.
+The previous example describes how to create a new key for use with Azure. In some cases you may already have an existing OpenSSH compatible public & private key pair and wish to use the same keys with Azure.
 
-OpenSSH private keys are directly readable by the `openssl` utility. The following command will take an existing SSH private key (id_rsa in the example below) and create the `.pem` public key that is needed for Windows Azure:
+OpenSSH private keys are directly readable by the `openssl` utility. The following command will take an existing SSH private key (id_rsa in the example below) and create the `.pem` public key that is needed for Azure:
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-The **myCert.pem** file is the public key that may then be used to provision a Linux virtual machine on Windows Azure. During provisioning the `.pem` file will be translated into an `openssh` compatible public key and placed in `~/.ssh/authorized_keys`.
+The **myCert.pem** file is the public key that may then be used to provision a Linux virtual machine on Azure. During provisioning the `.pem` file will be translated into an `openssh` compatible public key and placed in `~/.ssh/authorized_keys`.
 
 
-## Connect to an Windows Azure Virtual Machine from Linux
+## Connect to an Azure Virtual Machine from Linux
 
 1. In some cases the SSH endpoint for a Linux virtual machine may be configured for a port other then the default port 22. You can find the correct port number on the Dashboard for the VM in the Management Portal (under "SSH Details").
 

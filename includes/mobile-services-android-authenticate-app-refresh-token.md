@@ -186,8 +186,6 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
 	                                    public void run() {
 	                                        // Force a token refresh during authentication.
 	                                        authenticate(true);
-				// ToDoActivity.mMainActivity.authenticate(true);
-	
 	                                    }
 	                                });
 	                            }

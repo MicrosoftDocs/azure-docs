@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Step 1: Lexicon Based Sentiment Analysis | Azure" 
+	pageTitle="Lexicon Based Sentiment Analysis | Azure" 
 	description="Lexicon Based Sentiment Analysis" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
+	ms.date="04/21/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -73,10 +73,10 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 The input is “Today is a good day.” The output is “1”, which indicates a positive sentiment associated with the input sentence. 
 
 ##Creation of web service
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 
-From within Azure Machine Learning, a new blank experiment was created. The figure below shows the experiment flow of lexicon-based sentiment analysis. The “sent_dict.csv” file is the MPQA subjectivity lexicon, and is set as one of the inputs of “Execute R Script”. Another input is a sampled review from the Amazon review dataset for test, where we performed selection, column name modification, and split operations. We use a hash package to store the subjectivity lexicon in the memory and accelerate the score computation process. The whole text will be tokenized by “tm” package and compared with the word in the sentiment dictionary. Finally, a score will be calculated by adding the weight of each subjective word in the text. 
+From within Azure Machine Learning, a new blank experiment was created. The figure below shows the experiment flow of lexicon-based sentiment analysis. The “sent_dict.csv” file is the MPQA subjectivity lexicon, and is set as one of the inputs of [Execute R Script][execute-r-script]. Another input is a sampled review from the Amazon review dataset for test, where we performed selection, column name modification, and split operations. We use a hash package to store the subjectivity lexicon in the memory and accelerate the score computation process. The whole text will be tokenized by “tm” package and compared with the word in the sentiment dictionary. Finally, a score will be calculated by adding the weight of each subjective word in the text. 
 
 ###Experiment flow:
 
@@ -146,15 +146,12 @@ From within Azure Machine Learning, a new blank experiment was created. The figu
 From an algorithm perspective, lexicon-based sentiment analysis is a general sentiment analysis tool, which may not perform better than the classification method for specific fields. The negation problem is not well dealt with. We hardcode several negation words in our program, but a better way is using a negation dictionary and build some rules. The web service performs better on short and simple sentences, such as tweets and Facebook posts, than on long and complex sentences such as Amazon reviews. 
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png
 [2]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png
 
 
-
-
-
-
-
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 

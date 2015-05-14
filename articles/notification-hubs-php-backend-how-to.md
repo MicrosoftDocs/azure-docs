@@ -3,33 +3,33 @@
 	description="Learn how to use Azure Notification Hubs from a PHP back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
-	ms.author="piyushjo"/>
+	ms.date="04/14/2015" 
+	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from PHP
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/en-us/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/en-us/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-You can access all Notification Hubs features from a Java/PHP/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/en-us/library/dn223264.aspx).
+You can access all Notification Hubs features from a Java/PHP/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 In this topic we show how to:
 
 * Build a REST client for Notification Hubs features in PHP;
-* Follow the [Get started tutorial](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/) for your mobile platform of choice, implementing the back-end portion in PHP.
+* Follow the [Get started tutorial](notification-hubs-ios-get-started.md) for your mobile platform of choice, implementing the back-end portion in PHP.
 
 ## Client interface
-The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/en-us/library/jj933431.aspx), this will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.
+The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), this will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.
 
 You can find all the code available in the [PHP REST wrapper sample].
 
@@ -46,7 +46,7 @@ To send an iOS native notification:
 If you did not already, please follow our [Get started tutorial] up to the last section where you have to implement the back-end.
 Also, if you want you can use the code from the [PHP REST wrapper sample] and go directly to the [Complete the tutorial](#complete-tutorial) section.
 
-All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/en-us/library/dn530746.aspx). In this section we will describe the PHP implementation of the main steps required to access Notification Hubs REST endpoints:
+All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In this section we will describe the PHP implementation of the main steps required to access Notification Hubs REST endpoints:
 
 1. Parse the connection string
 2. Generate the authorization token
@@ -90,7 +90,7 @@ Here is the main class implementing the client, whose constructor that parses th
 
 
 ### Create security token
-The details of the security token creation are available [here](http://msdn.microsoft.com/en-us/library/dn495627.aspx).
+The details of the security token creation are available [here](http://msdn.microsoft.com/library/dn495627.aspx).
 The following method has to be added to the **NotificationHub** class to create the token based on the URI of the current request and the credentials extracted from the connection string.
 
 	private function generateSasToken($uri) {
@@ -133,7 +133,7 @@ First, let use define a class representing a notification.
 
 This class is a container for a native notification body, or a set of properties on case of a template notification, and a set of headers which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).
 
-Please refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/en-us/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
+Please refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
 
 Armed with this class, we can now write the send notification methods inside of the **NotificationHub** class.
 
@@ -257,4 +257,4 @@ In this topic we showed how to create a simple Java REST client for Notification
 
 
 [PHP REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Get started tutorial]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

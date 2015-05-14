@@ -1,7 +1,7 @@
 <properties 
 	writer="ricksal" 
 	pageTitle="Call a custom API from an Android client | Mobile Dev Center" 
-	description="Learn how to define a custom API and then call it from an Android app that uses Windows Azure Mobile Services." 
+	description="Learn how to define a custom API and then call it from an Android app that uses Microsoft Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -57,9 +57,9 @@ Now that you have created a custom API and called it from your Android app, cons
 [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Get started with Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 
-[Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
+[Store server scripts in source control]: mobile-services-store-scripts-source-control.md

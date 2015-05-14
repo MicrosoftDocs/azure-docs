@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="patshea"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
 
-### Using Mobile Services with Cordova Projects in Visual Studio 2015 Preview
+# Using Mobile Services with Cordova Projects in Visual Studio 2015 Preview
 
 In order to use Azure Mobile Services in Cordova projects in Visual Studio 2015 Preview, you need to apply the following workaround.
 
-1. In your Visual Studio 2015 Preview Cordova project, open Config.xml, and under the **Plugins** tab, enable the **Windows Azure Mobile Services** plugin.<br/>
+1. In your Visual Studio 2015 Preview Cordova project, open Config.xml, and under the **Plugins** tab, enable the **Azure Mobile Services** plugin.<br/>
 ![][1]
 
 2. In index.html, delete the lines that references **MobileServices.Web-1.2.2.min.js**.<br/>

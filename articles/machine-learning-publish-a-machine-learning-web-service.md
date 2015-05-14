@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="03/04/2015" 
 	ms.author="garye"/>
 
 #Publish an Azure Machine Learning web service
@@ -22,9 +22,24 @@ Azure Machine Learning enables you to build, test, and deploy predictive analyti
 
 From a high-level point-of-view, this is done in three steps:
 
-- Create a training experiment - Azure Machine Learning Studio is a collaborative visual development environment that you use to train and test a predictive analytics model using training data that you supply.
-- Convert to a scoring experiment - Once your model has been trained with existing data and you're ready to use it to score new data, you prepare and streamline your experiment for scoring.
-- Publish a web service - With just a click, you can publish your scoring experiment as an Azure web service. Users can send data to your model and receive your model's predictions.
+- **[Create a training experiment]** - Azure Machine Learning Studio is a collaborative visual development environment that you use to train and test a predictive analytics model using training data that you supply.
+- **[Convert it to a scoring experiment]** - Once your model has been trained with existing data and you're ready to use it to score new data, you prepare and streamline your experiment for scoring.
+- **[Publish it as a web service]** - With just a click, you can publish your scoring experiment as an Azure web service. Users can send data to your model and receive your model's predictions.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
+Once you've published the web service, you can:
+
+- **[Access]** it through the web service API
+- **[Manage]** it through the Azure management portal, and
+- **[Update]** it if your model changes
+
+[Create a training experiment]: #create-a-training-experiment
+[Convert it to a scoring experiment]: #convert-the-training-experiment-to-a-scoring-experiment
+[Publish it as a web service]: #publish-the-scoring-experiment-as-a-web-service
+[Access]: #access-the-web-service
+[Manage]: #manage-the-web-service-in-the-azure-management-portal
+[Update]: #update-the-web-service
 
 
 ##Create a training experiment
@@ -33,20 +48,19 @@ To train a predictive analytics model, you use Azure Machine Learning Studio to 
 
 The process of creating and managing training experiments is covered more thoroughly elsewhere - see these articles for more information and examples:
 
-- [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/)
-- [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)
-- [Import your training data into Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-import-data/)
-- [Manage experiment iterations in Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-manage-experiment-iterations/)
+- [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md)
+- [Develop a predictive solution with Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+- [Import your training data into Azure Machine Learning Studio](machine-learning-import-data.md)
+- [Manage experiment iterations in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md)
 
 ##Convert the training experiment to a scoring experiment
 
 Once you've trained your model, you're ready to use it to score new data. To do this, you convert your training experiment into a scoring experiment. 
 By converting to a scoring experiment, you're getting your trained model ready to be published as a scoring web service. Users of the web service will send input data to your model and your model will send back the prediction results. So as you convert to a scoring experiment you will want to keep in mind how you expect your model to be used by others.
 
-For more details on how to do this conversion, see [Convert a Machine Learning training experiment to a scoring experiment][convert]
+![Convert to scoring experiment](./media/machine-learning-publish-web-service/figure-1.png)
 
-[convert]: ../machine-learning-convert-training-experiment-to-scoring-experiment/
-
+For more details on how to do this conversion, see [Convert a Machine Learning training experiment to a scoring experiment](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 
 
 ##Publish the scoring experiment as a web service
@@ -55,9 +69,16 @@ Now that the scoring experiment has been sufficiently prepared, you can publish 
 
 To publish your scoring experiment, click **Run** at the bottom of the experiment canvas, then click **PUBLISH WEB SERVICE**. The web service is set up and you are placed in the web service dashboard.
 
+![Publish the web service](./media/machine-learning-publish-web-service/figure-2.png)
+
 To test the web service, click the **Test** link in the **DASHBOARD** tab. A dialog pops up to ask you for the input data for the service. These are the columns expected by the scoring experiment. Enter a set of data and then click **OK**. The results generated by the web service are displayed at the bottom of the dashboard.
 
-On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Windows Azure Management Portal where you manage your web services.
+![Test the web service](./media/machine-learning-publish-web-service/figure-3.png)
+
+On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Azure Management Portal where you manage your web services.
+You can also enable logging to diagnose any failures that you're seeing when hitting your web service. For more information, see [Enable logging for Machine Learning web services](machine-learning-web-services-logging.md).
+
+![Configure the web service](./media/machine-learning-publish-web-service/figure-4.png)
 
 You can also provide a description for your input data, output data, and web service parameters by providing entering a string for each column under **INPUT SCHEMA**, **OUTPUT SCHEMA**, and **WEB SERVICE PARAMETER**. These descriptions are used in the sample code documentation provided for the web service.
 
@@ -67,19 +88,18 @@ Once you publish your web service from Machine Learning Studio, you can send dat
 
 The dashboard provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service, and API help pages are provided to help you get started writing your code.
 
-For more information about accessing a Machine Learning web service, see [How to consume a published machine learning web services](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/machine-learning-consume-web-services/).
+For more information about accessing a Machine Learning web service, see [How to consume a published Azure Machine Learning web service](machine-learning-consume-web-services.md).
 
 
 ##Manage the web service in the Azure Management Portal
 
 In the Azure Management Portal, you can manage your web services by clicking the **Machine Learning** service, opening your Machine Learning workspace, and then opening the web service from the **WEB SERVICES** tab. From this page you can monitor the web service, update it, and delete it. You can also add a second endpoint for your web service in addition to the default endpoint that is created when you publish it.
 
-For more information, see [Manage a Machine Learning workspace][manage].
+For more information, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
-[manage]: ../machine-learning-manage-workspace/
 
 ##Update the web service
 

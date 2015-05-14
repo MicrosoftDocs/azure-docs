@@ -13,32 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
-This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
+# Walkthrough Step 5: Publish the Azure Machine Learning web service
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
-1.	[Create an ML workspace][create-workspace]
-2.	[Upload existing data][upload-data]
-3.	[Create a new experiment][create-new]
-4.	[Train and evaluate the models][train-models]
+1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
+2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
+3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
+4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 5.	**Publish the web service**
-6.	[Access the web service][access-ws]
-
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
+6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
-
-# Step 5: Publish the Azure Machine Learning web service
 
 To make this predictive model useful to others, we'll publish it as a web service on Azure. 
 
@@ -50,14 +41,14 @@ To do this, we need to:
 - Publish the scoring experiment as a web service
 
 But first, we need to trim this experiment down a little. We currently have two different models in the experiment, but we now need to select one model to publish.  
-Let's say we've decided that the boosted tree model was the better model to use. So the first thing to do is remove the **Two-Class Support Vector Machine** module and the modules that were used for training it. You may want to make a copy of the experiment first by clicking **Save As** at the bottom of the experiment canvas.
+Let's say we've decided that the boosted tree model was the better model to use. So the first thing to do is remove the [Two-Class Support Vector Machine][two-class-support-vector-machine] module and the modules that were used for training it. You may want to make a copy of the experiment first by clicking **Save As** at the bottom of the experiment canvas.
 
 We need to delete the following modules:  
 
-1.	**Two-Class Support Vector Machine**
-2.	**Train Model** and **Score Model** modules that were connected to it
-3.	**Normalize Data** (both of them)
-4.	**Evaluate Model**
+1.	[Two-Class Support Vector Machine][two-class-support-vector-machine]
+2.	[Train Model][train-model] and [Score Model][score-model] modules that were connected to it
+3.	[Normalize Data][normalize-data] (both of them)
+4.	[Evaluate Model][evaluate-model]
 
 Now we're ready to publish this model. 
 
@@ -75,18 +66,18 @@ When you click **Create Scoring Experiment**, several things happen:
 
 - The model we trained is saved as a **Trained Model** module in the module palette to the left of the experiment canvas (you can find it in the palette under **Trained Models**).
 - Modules that were used for training are removed. Specifically:
-  - **Two-Class Boosted Decision Tree**
-  - **Train Model** 
-  - **Split**
-  - the second **Execute R Script** module that was used for test data
+  - [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree]
+  - [Train Model][train-model] 
+  - [Split][split]
+  - the second [Execute R Script][execute-r-script] module that was used for test data
 - The saved trained model is added to the experiment.
 - **Web service input** and **Web service output** modules are added.
 
 > [AZURE.NOTE] The experiment has been saved in two parts: the original training experiment, and the new scoring experiment. You can access either one using the tabs at the top of the experiment canvas.
 
 We need to take an additional step with our experiment. 
-Machine Learning Studio removed one **Execute R Script** module when it removed the **Split** module, but it left the other **Execute R Script** module. 
-Since that module was only used for training and testing (it provided a weighting function on the sample data), we can now remove it and connect **Metadata Editor** to **Score Model**.    
+Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module, but it left the other [Execute R Script][execute-r-script] module. 
+Since that module was only used for training and testing (it provided a weighting function on the sample data), we can now remove it and connect [Metadata Editor][metadata-editor] to [Score Model][score-model].    
 
 Our experiment should now look like this:  
 
@@ -97,7 +88,7 @@ You may be wondering why we left the UCI German Credit Card Data dataset in the 
 
 It's true that the service doesn't need the original credit card data. But it does need the schema for that data, which includes information such as how many columns there are and which columns are numeric. This schema information is necessary in order to interpret the user's data. We leave these components connected so that the scoring module will have the dataset schema when the service is running. The data isn't used, just the schema.  
 
-Run the experiment one last time (click **RUN**). If you want to verify that the model is still working, right-click the output of the **Score Model** module and select **Visualize**. You'll see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities").  
+Run the experiment one last time (click **RUN**). If you want to verify that the model is still working, right-click the output of the [Score Model][score-model] module and select **Visualize**. You'll see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities").  
 
 ##Publish the web service
 
@@ -117,9 +108,21 @@ The results generated by the web service are displayed at the bottom of the dash
 
 ----------
 
-**Next: [Access the web service][access-ws]**
+**Next: [Access the web service](machine-learning-walkthrough-6-access-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+
+
+<!-- Module References -->
+[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
+[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
+[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
+[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/

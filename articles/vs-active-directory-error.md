@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="05/06/2015" 
 	ms.author="kempb"/>
 
-###Error During Authentication Detection 
+# Error During Authentication Detection
+
 While detecting previous authentication code, the wizard detected an incompatible authentication type.   
 
 ###What is being checked?

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Service Bus queues (Ruby) - Azure" 
-	description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." 
-	services="service-bus" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use Service Bus queues (Ruby) - Azure"
+	description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby."
+	services="service-bus"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
+<tags
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="03/20/2015"
 	ms.author="tomfitz"/>
 
 
@@ -47,7 +47,7 @@ one message consumer.
 Service Bus queues are a general-purpose technology that can be used for
 a wide variety of scenarios:
 
--   Communication between web and worker roles in a multi-tier 
+-   Communication between web and worker roles in a multi-tier
     Azure application
 -   Communication between on-premises apps and Azure hosted apps
     in a hybrid solution
@@ -59,39 +59,37 @@ Using queues can enable you to scale out your applications better, and
 enable more resiliency to your architecture.
 
 ## Create a service namespace
-To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within your application. You must create the 
+To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within your application. You must create the
 namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
 
 To create a service namespace:
 
 1. Open an Azure Powershell console.
 
-2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application. 
+2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application.
 
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -CreateACSNamespace $true
+    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
 
     ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
 
 ## Obtain management credentials for the namespace
-In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace.
+In order to perform management operations, such as creating a queue on the new
+namespace, you must obtain the management credentials for the namespace.
 
-1. Log on to the [Azure Management Portal](http://manage.windowsazure.com/).
+The PowerShell cmdlet you ran to create the Azure service bus namespace displays
+the key you can use to manage the namespace. Copy the **DefaultKey** value. You
+will use this value in your code later in this tutorial.
 
-2. Select the service bus namespace that you created.
+![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-     ![Select namespace](./media/service-bus-ruby-how-to-use-queues/selectns.png)
-
-3. At the bottom, select **Connection Information**.
-
-      ![Select connection](./media/service-bus-ruby-how-to-use-queues/selectconnection.png)
-
-4. Copy the default key. You will use this value in your code.
-
-       ![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
+> [AZURE.NOTE]
+> You can also find this key if you log on to the
+> [Azure Management Portal](http://manage.windowsazure.com/) and navigate to the
+> connection information for your service bus namespace.
 
 ## Create a Ruby application
 
-Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configure your application to use Service Bus
 
@@ -111,13 +109,13 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
 ## Set up an Azure Service Bus connection
 
-The azure module will read the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS_KEY** 
+The azure module will read the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS_KEY**
 for information required to connect to your Azure service bus namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
 
-Set the service bus namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net". 
+Set the service bus namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net".
 
 ## How to create a queue
 
@@ -160,7 +158,7 @@ If the **:peek\_lock** parameter is set to **false**, reading and deleting the m
 
 The example below demonstrates how messages can be received and processed using **receive\_queue\_message()**. The example first receives and deletes a message by using **:peek\_lock** set to **false**, then it receives another message and then deletes the message using **delete\_queue\_message()**:
 
-    message = azure_service_bus_service.receive_queue_message("test-queue", 
+    message = azure_service_bus_service.receive_queue_message("test-queue",
 	  { :peek_lock => false })
     message = azure_service_bus_service.receive_queue_message("test-queue")
     azure_service_bus_service.delete_queue_message(message)
@@ -177,7 +175,7 @@ In the event that the application crashes after processing the message but befor
 
 Now that you've learned the basics of Service Bus queues, follow these links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
 -   Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use the Azure Queue Service](/en-us/develop/ruby/how-to-guides/queue-service/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use the Azure Queue Service](/develop/ruby/how-to-guides/queue-service/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)

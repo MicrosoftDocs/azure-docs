@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="05/01/2015" 
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -32,11 +32,11 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 Completing this tutorial requires Xamarin.Android and Android SDK 4.2 or a later version. 
 
-<h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
+##<a name="register"></a>Register your app for authentication and configure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
+##<a name="permissions"></a>Restrict permissions to authenticated users
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
@@ -50,26 +50,26 @@ Completing this tutorial requires Xamarin.Android and Android SDK 4.2 or a later
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a>Add authentication to the app</h2>
+##<a name="add-authentication"></a>Add authentication to the app
 
 1. Add the following property to the **TodoActivity** class:
 
-			private MobileServiceUser user;
+		private MobileServiceUser user;
 
 2. Add the following method to the **TodoActivity** class: 
 
-	        private async Task Authenticate()
-	        {
-	            try
-	            {
-	                user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.MicrosoftAccount);
-	                CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
-	            }
-	            catch (Exception ex)
-	            {
-	                CreateAndShowDialog(ex, "Authentication failed");
-	            }
-	        }
+        private async Task Authenticate()
+        {
+            try
+            {
+                user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.MicrosoftAccount);
+                CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
+            }
+            catch (Exception ex)
+            {
+                CreateAndShowDialog(ex, "Authentication failed");
+            }
+        }
 
     This creates a new method to handle the authentication process. The user is authenticated by using a Microsoft Account login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
@@ -83,21 +83,21 @@ Next, you will update the app to authenticate users before requesting resources 
 
 4. Move the remaining code after `await Authenticate();` in the **OnCreate** method to a new **CreateTable** method, which looks like this:
 
-	        private async Task CreateTable()
-	        {
-	            // Get the Mobile Service Table instance to use
-	            todoTable = client.GetTable<TodoItem>();
+        private async Task CreateTable()
+        {
+            // Get the Mobile Service Table instance to use
+            todoTable = client.GetTable<TodoItem>();
 
-	            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
 
-	            // Create an adapter to bind the items with the view
-	            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-	            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
-	            listViewTodo.Adapter = adapter;
+            // Create an adapter to bind the items with the view
+            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+            listViewTodo.Adapter = adapter;
 
-	            // Load the items from the Mobile Service
-	            await RefreshItemsFromTableAsync();
-	        }
+            // Load the items from the Mobile Service
+            await RefreshItemsFromTableAsync();
+        }
 
 5. Then call the new **CreateTable** method in **OnCreate** after the **Authenticate** call added in step 2:
 
@@ -130,16 +130,6 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [15]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
-
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
-
+[Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328

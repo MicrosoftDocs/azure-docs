@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="01/13/2015" 
+	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
 <h1>Azure Search Developer Case Study</h1>
@@ -62,12 +62,12 @@ The diagram below illustrates the high-level components used in the WhatToPedia 
 
 Looking at the green boxes in the previous diagram, you’ll see that the WhatToPedia solution is built on these services:
 
-- [Azure Search](http://azure.microsoft.com/en-us/services/search/)
-- [Azure Websites using MVC 4](http://azure.microsoft.com/en-us/services/websites/)
-- [Azure WebJobs for scheduled tasks](http://azure.microsoft.com/en-us/documentation/articles/websites-webjobs-resources/)
-- [Azure SQL Database](http://azure.microsoft.com/en-us/services/sql-database/)
-- [Azure BLOB Storage](http://azure.microsoft.com/en-us/services/storage/)
-- [SendGrid Email Delivery](http://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/)
+- [Azure Search](http://azure.microsoft.com/services/search/)
+- [Azure Websites using MVC 4](http://azure.microsoft.com/services/websites/)
+- [Azure WebJobs for scheduled tasks](websites-webjobs-resources.md)
+- [Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
+- [Azure BLOB Storage](http://azure.microsoft.com/services/storage/)
+- [SendGrid Email Delivery](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
 
 The very heart of the solution is data and search. The flow of data from the Reseller provider to the end customer is illustrated below:
 
@@ -118,14 +118,14 @@ This is how we built the prototype.
 **Develop a Search Indexer Job – Windows Console**
 
 1. Read all resellers from database.
-2. Call the Azure Search Service API to upload resellers one by one (see: http://msdn.microsoft.com/en-us/library/azure/dn798930.aspx).
+2. Call the Azure Search Service API to upload resellers one by one (see: http://msdn.microsoft.com/library/azure/dn798930.aspx).
 3. Set a property in database that reseller is indexed for incremental indexing. We did this by adding an ‘indexer’ field that stores the index status of each profile (indexed or not). 
 
 See the appendix for the code snippet that builds the indexer job.
 
 **Develop a Search Web Portal – MVC**
 
-1. Call Azure Search Service to get all documents from search (see: http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx)
+1. Call Azure Search Service to get all documents from search (see: http://msdn.microsoft.com/library/azure/dn798927.aspx)
 2. Extract following from the search service response (by using json.net http://james.newtonking.com/json)
    - Results
    - Facets
@@ -180,7 +180,7 @@ We designed a multi-tiered backup strategy to recover from a range of scenarios,
 
 First, by keeping the web site source code in TFS Online, we know that if the site goes down, we can rebuild it by republishing from TFS. 
 
-Subscriber data in Azure SQL Database is the most sensitive asset. We back this up using the built-in feature (see [Azure SQL Database Backup and Restore](http://msdn.microsoft.com/en-us/library/azure/jj650016.aspx)). The backup schedule is full database backup once a week, differential database backups once a day, and transaction log backups every 5 minutes.  Given the size of the data, this solution is more than adequate for our immediate and projected data volumes.
+Subscriber data in Azure SQL Database is the most sensitive asset. We back this up using the built-in feature (see [Azure SQL Database Backup and Restore](http://msdn.microsoft.com/library/azure/jj650016.aspx)). The backup schedule is full database backup once a week, differential database backups once a day, and transaction log backups every 5 minutes.  Given the size of the data, this solution is more than adequate for our immediate and projected data volumes.
 
 Third, we store image and video files in Azure BLOB storage. We are still evaluating the ultimate backup plan for this data, considering Cloudberry Explorer for Azure as a potential solution. For now, we use a WebJob to copy images and videos to another location.
 
@@ -200,7 +200,7 @@ The greatest challenge during implementation was that it was a Preview version a
 
 One of our learnings during the proof-of-concept was to plan facets carefully upfront. After loading a lot of data into the solution, we saw that the sheer volume of facets was too high to present to the users. 
 
-We solved this by constraining the facet count parameter. The count parameter imposes a hard limit on the number of facets returned to the user. A link that includes a discussion of the count parameter can be found [here](http://azure.microsoft.com/en-us/documentation/articles/search-faceted-navigation/).
+We solved this by constraining the facet count parameter. The count parameter imposes a hard limit on the number of facets returned to the user. A link that includes a discussion of the count parameter can be found [here](search-faceted-navigation.md).
 
 ###WebJobs for scheduling tasks
 
@@ -216,10 +216,10 @@ Thanks to the great folks at WhatToPedia for allowing us to share their story!
 
 We hope you found this case study useful. If you go on to use Azure Search, I recommend a few resources to speed you along:
 
-- [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch)
+- [MSDN forum dedicated to Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)
 - [StackOverflow also has a tag](http://stackoverflow.com/questions/tagged/azure-search)
-- [Documentation page on Azure.com](http://azure.microsoft.com/en-us/documentation/services/search/)
-- [Azure Search documentation on MSDN](http://msdn.microsoft.com/en-us/library/azure/dn798933.aspx)
+- [Documentation page on Azure.com](http://azure.microsoft.com/documentation/services/search/)
+- [Azure Search documentation on MSDN](http://msdn.microsoft.com/library/azure/dn798933.aspx)
 
 
 ##Appendix: Search Indexer WebJob
@@ -417,6 +417,6 @@ The following code builds the indexer mentioned in the section on building the p
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

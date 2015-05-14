@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -25,7 +25,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 ## Prerequisites
 
 - Visual Studio 2012 or 2013
-- Download and install [Windows Azure .NET SDK][azure-developer-center]
+- Download and install [Azure .NET SDK][azure-developer-center]
 - Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.
 
 ## Walkthrough
@@ -69,7 +69,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.WindowsAzure; 
+		using Microsoft.Azure; 
 6. Add the following code that creates an instance of  **DataPipelineManagementClient** class to the **Main** method. You will use this object to create a data factory, a linked service, input and output tables, and a pipeline. You will also this object to monitor slices of a table at runtime.    
 
         // create data pipeline management client
@@ -374,20 +374,15 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 Article | Description
 ------ | ---------------
-[Introduction to Azure Data Factory][data-factory-introduction] | This article introduces you to the Azure Data Factory service, concepts, the value it provides, and scenarios it supports.
-[Get started with Azure Data Factory][adf-getstarted] | This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
-[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
+[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for .NET class library, cmdlets, JSON script, functions, etc… 
 
 
-[data-factory-introduction]: ../data-factory-introduction
-[adf-getstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
+[data-factory-introduction]: data-factory-introduction.md
+[adf-getstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  
 [adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
-[azure-developer-center]: http://azure.microsoft.com/en-us/downloads/
+[azure-developer-center]: http://azure.microsoft.com/downloads/

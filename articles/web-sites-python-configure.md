@@ -1,61 +1,57 @@
 <properties 
-	pageTitle="Configuring Python with Azure Websites" 
-	description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." 
-	services="web-sites" 
+	pageTitle="Configuring Python with Azure App Service Web Apps" 
+	description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure App Service Web Apps." 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
-	ms.author="huvalo"/>
+	ms.date="04/15/2015" 
+	ms.author="huguesv"/>
 
 
 
 
-# Configuring Python with Azure Websites
+# Configuring Python with Azure App Service Web Apps
 
-This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on Azure Websites.
+This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.
 
 
 ## Bottle, Django or Flask?
 
-The Azure gallery contains templates for the Bottle, Django and Flask frameworks.  If you are developing your first Azure website, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
+The Azure Marketplace contains templates for the Bottle, Django and Flask frameworks. If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
 
-- [Creating Websites with Bottle][]
-- [Creating Websites with Django][]
-- [Creating Websites with Flask][]
+- [Creating web apps with Bottle](web-sites-python-create-deploy-bottle-app.md)
+- [Creating web apps with Django](web-sites-python-create-deploy-django-app.md)
+- [Creating web apps with Flask](web-sites-python-create-deploy-flask-app.md)
 
 
-## Website Creation on Portal
+## Web app creation on Azure Preview Portal
 
-This tutorial assumes an existing Azure subscription and access to the Azure Management Portal.
+This tutorial assumes an existing Azure subscription and access to the Azure Preview Portal.
 
-If you do not have an existing website, you can create one from the Azure Management Portal.  Click the NEW button in the bottom left corner. A window will appear. Click COMPUTE, WEB SITE, then QUICK CREATE.
-
-![](./media/web-sites-python-configure/configure-python-create-website.png)
-
+If you do not have an existing web app, you can create one from the [Azure Preview Portal](https://portal.azure.com).  Click the NEW button in the bottom left corner, then click **Web + Mobile** > **Web app**.
 
 ## Git Publishing
 
-Use the QUICK START or DASHBOARD tabs for your newly created website to configure Git publishing.  This tutorial uses Git to create, manage, and publish our Python website to Azure Websites.
+Configure Git publishing for your newly created web app by following the instructions at [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md). This tutorial uses Git to create, manage, and publish our Python web app to Azure App Service.
 
-![](./media/web-sites-python-configure/configure-python-git.png)
-
-Once Git publishing is set up, a Git repository will be created and associated with your website.  The repository's URL will be displayed and can henceforth be used to push data from the local development environment to the cloud. To publish applications via Git, make sure a Git client is also installed and use the instructions provided to push your website content to Azure Websites.
+Once Git publishing is set up, a Git repository will be created and associated with your web app. The repository's URL will be displayed and can henceforth be used to push data from the local development environment to the cloud. To publish applications via Git, make sure a Git client is also installed and use the instructions provided to push your web app content to Azure App Service.
 
 
 ## Application Overview
 
-In the next sections, the following files are created.  They should be placed in the root of the Git repository.
+In the next sections, the following files are created. They should be placed in the root of the Git repository.
 
     app.py
     requirements.txt
@@ -66,7 +62,7 @@ In the next sections, the following files are created.  They should be placed in
 
 ## WSGI Handler
 
-WSGI is a Python standard described by [PEP 3333](http://www.python.org/dev/peps/pep-3333/) defining an interface between the web server and Python. It provides a standardized interface for writing various web applications and frameworks using Python.  Popular Python web frameworks today use WSGI.  Azure Websites gives you support for any such frameworks; in addition, advanced users can even author their own as long as the custom handler follows the WSGI specification guidelines.
+WSGI is a Python standard described by [PEP 3333](http://www.python.org/dev/peps/pep-3333/) defining an interface between the web server and Python. It provides a standardized interface for writing various web applications and frameworks using Python. Popular Python web frameworks today use WSGI. Azure App Service Web Apps gives you support for any such frameworks; in addition, advanced users can even author their own as long as the custom handler follows the WSGI specification guidelines.
 
 Here's an example of an `app.py` that defines a custom handler:
 
@@ -92,14 +88,14 @@ Although the example app above doesn't require any external packages, it is like
 
 To help manage external package dependencies, Azure Git deployment supports the creation of virtual environments.
 
-When Azure detects a requirements.txt in the root of the repository, it automatically creates a virtual environment named `env`.  This only occurs on the first deployment, or during any deployment after the selected Python runtime has changed.
+When Azure detects a requirements.txt in the root of the repository, it automatically creates a virtual environment named `env`. This only occurs on the first deployment, or during any deployment after the selected Python runtime has changed.
 
 You will probably want to create a virtual environment locally for development, but don't include it in your Git repository.
 
 
 ## Package Management
 
-Packages listed in requirements.txt will be installed automatically in the virtual environment using pip.  This happens on every deployment, but pip will skip installation if a package is already installed.
+Packages listed in requirements.txt will be installed automatically in the virtual environment using pip. This happens on every deployment, but pip will skip installation if a package is already installed.
 
 Example `requirements.txt`:
 
@@ -221,7 +217,7 @@ Example `web.config` for Python 3.4:
 
 Static files will be handled by the web server directly, without going through Python code, for improved performance.
 
-In the above examples, the location of the static files on disk should match the location in the URL.  This means that a request for `http://pythonapp.azurewebsites.net/static/site.css` will serve the file on disk at `\static\site.css`.
+In the above examples, the location of the static files on disk should match the location in the URL. This means that a request for `http://pythonapp.azurewebsites.net/static/site.css` will serve the file on disk at `\static\site.css`.
 
 It's possible configure the rule `Static Files` to serve files from a location on disk that differs from the location in the URL.  In the following rule definition, a request for `http://pythonapp.azurewebsites.net/static/site.css` will serve the file on disk at `\FlaskWebProject\static\site.css`, instead of `\static\site.css`.
 
@@ -230,7 +226,7 @@ It's possible configure the rule `Static Files` to serve files from a location o
       <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
     </rule>
 
-`WSGI_ALT_VIRTUALENV_HANDLER` is where you specify the WSGI handler.  In the above examples, it's `app.wsgi_app` because the handler is a function named `wsgi_app` in `app.py` in the root folder.
+`WSGI_ALT_VIRTUALENV_HANDLER` is where you specify the WSGI handler. In the above examples, it's `app.wsgi_app` because the handler is a function named `wsgi_app` in `app.py` in the root folder.
 
 `PYTHONPATH` can be customized, but if you install all your dependencies in the virtual environment by specifying them in requirements.txt, you shouldn't need to change it.
 
@@ -366,11 +362,6 @@ Contents of `ptvs_virtualenv_proxy.py`:
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-deployment.md)]
 
 
-## Troubleshooting - Deployment
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
-
-
 ## Troubleshooting - Package Installation
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
@@ -380,8 +371,13 @@ Contents of `ptvs_virtualenv_proxy.py`:
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[Creating Websites with Bottle]: ../web-sites-python-create-deploy-bottle-app
-[Creating Websites with Django]: ../web-sites-python-create-deploy-django-app
-[Creating Websites with Flask]: ../web-sites-python-create-deploy-flask-app
+
+
+

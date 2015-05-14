@@ -13,9 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-compute" 
-	ms.date="02/02/2015" 
-	ms.author="yidingz, kabatta"/>
-
+	ms.date="03/19/2015" 
+	ms.author="yidingz"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # API basics for Azure Batch
@@ -31,22 +30,6 @@ The following are some of the scenarios that you can enable by using the Batch s
 - Daily cleanup of files
 
 - Batch processing
-
-You can learn more about the Batch service by reading the following sections:
-
-- [Resources of the Batch service](#resource)
-
-- [Workflow of the Batch service](#workflow)
-
-- [Files and directories](#file)
-
-- [Scaling applications](#scaling)
-
-- [Certificates for applications](#cert)
-
-- [Scheduling Priority](#scheduling)
-
-- [Environment settings for tasks](#environment)
 
 ## <a name="resource"></a> Resources of the Batch service
 
@@ -64,17 +47,24 @@ When you use the Batch service, you take advantage of the following resources:
 
 - [Task](#task)
 
+	- [Start Task](#starttask)
+	
+	- [Job ManagerTask](#jobmanagertask)
+
 ### <a name="account"></a>Account
 
-A Batch account is a uniquely identified entity within the Batch service. All processing is done through a Batch account. When you perform operations with the Batch service, you need the name of the account and the key for the account. Currently, you must contact the Azure Batch team to create a new account. After the account is created, a key is provided to you.
+A Batch account is a uniquely identified entity within the Batch service. All processing is done through a Batch account. When you perform operations with the Batch service, you need the name of the account and the key for the account. To create a batch account, refer to Batch account section of [Azure Batch overview][].
+
 
 ### <a name="taskvm"></a>Task Virtual Machine
 
-A task virtual machine (TVM) is an Azure VM that is dedicated to a specific workload for your application. The size of a TVM determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the TVM. A TVM can be a small, large, or extralarge virtual machine as described in [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/en-us/library/dn197896.aspx).
+A task virtual machine (TVM) is an Azure VM that is dedicated to a specific workload for your application. The size of a TVM determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the TVM. A TVM can be a small, large, or extralarge virtual machine as described in [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
 The types of programs that a TVM can run include executable files (.exe), command files (.cmd), batch files (.bat), and script files. A TVM also has the following attributes:
 
-- File system folders that are both task-specific and shared
+- File system folders that are both task-specific and shared. A folder structure and environment variables are created on each pool VM. The following folder structure is created with a “shared” folder for applications and data shared between tasks, plus a folder for each task.
+
+![][1]
 
 - Stdout.txt and stderr.txt files that are written to a task-specific folder
 
@@ -82,9 +72,16 @@ The types of programs that a TVM can run include executable files (.exe), comman
 
 - Firewall settings that are configured to control access
 
+>VM Access
+>
+>If access to a VM is required, for debugging for example, the RDP file can be obtained which can then be used to access the VM via remote desktop.
+
+
 ### <a name="pool"></a>Pool
 
 A pool is a collection of TVMs on which your application runs. The pool can be created by you, or the Batch service automatically creates the pool when you specify the work to be accomplished. You can create and manage a pool that meets the needs of your application. A pool can only be used by the Batch account in which it was created. A Batch account can have more than one pool.
+
+Azure Batch pools build on top of the core Azure compute platform; Batch pools provide large-scale allocation, application & data installation, data movement, health monitoring, and flexible scaling of VM’s.
 
 Every TVM that is added to a pool is assigned a unique name and an associated IP address. When a TVM is removed from a pool, it loses the changes that were made to the operating system, all of its local files, its name, and its IP address. When a TVM leaves a pool, its lifetime is over.
 
@@ -92,15 +89,28 @@ You can configure a pool to allow communication between TVMs within it. If intra
 
 When you create a pool, you can specify the following attributes:
 
-- The size of TVMs in the pool.
+- The **size of VMs** in the pool.
+	- The appropriate VM size needs to be chosen, depending on the characteristics and requirements of the application or applications that are going to be used on the VM. Normally the VM size will be picked assuming one task will be run at once on the VM; for example, whether the application is multi threaded and how much memory it requires will determine the most suitable and cost-effective VM size.  It is possible to have multiple tasks assigned and multiple application instances being run in parallel, in which case a larger VM will usually be chosen – see below on “maximum tasks per VM”. 
+	- All the VM’s in a pool have to be the same size. If different applications are to be run with different system requirements and/or with different load then separate pools should be created.
+	- All cloud service VM sizes can be configured for a pool, except for A0.
 
-- The operating system family and version that runs on the TVMs.
+- The operating system family and version that runs on the VMs.
+	- As with worker roles, the OS Family and OS Version can be configured.
+	- The OS Family also determines which versions of .NET are installed with the OS.
+	- As with worker roles, for the OS Version it is recommended that “*” be used so that the VM’s are automatically upgraded and there is no work required to cater for new versions.  The main use case for picking a specific OS version is to ensure application compatibility is maintained, by allowing backward compatibility testing to be performed before allowing the version to be updated.  Once validated, the OS version for the pool can be updated and the new OS image installed – any running task will be interrupted and re-queued.
 
-- The target number of TVMs that should be available for the pool.
+- The target number of VMs that should be available for the pool.
 
-- The scaling policy for the pool.
+- The scaling policy for the pool. Besides number of VMs, you can also specify a auto-scaling formula for each pool. Batch service will execute the formula to adjust number of VM based on pool and workitem statistics.
 
-- The communication status of the TVMs in the pool.
+- Scheduling configuration
+	- The default configuration is for one task to be run at any time on a pool VM, but there are scenarios where it is beneficial to have more than one task be able to run at the same time on a VM.  One example is to increase VM utilization if an application has to wait for I/O; having more than one application execute will increase CPU utilization.  Another example is to reduce the number of VM’s in the pool; this could reduce the amount of data copies required for large reference data sets.  If an A1 would the correct size for the application, then an A4 could be chosen and the configuration set to run up to 8 tasks at once, each consuming a core.
+	- The “max tasks per VM” configuration determines the maximum number of tasks that can be run in parallel.
+	- A “fill policy” can also be specified which determines whether Batch fills VM’s first or whether tasks are spread out over all the VM’s.
+ 
+- The communication status of the VMs in the pool.
+ 	- In a large proportion of scenarios tasks operate independently and do not need to communicate with other tasks, but there are some applications where tasks will communicate (e.g. applications using MPI).
+	- There is configuration that controls whether the VM’s will be able to communicate, which is used to configure the underlying network infrastructure and impacts placement of the VM’s.
 
 - The start task for TVMs in the pool.
 
@@ -108,17 +118,15 @@ When you create a pool, you can specify the storage account with which the pool 
 
 ### <a name="workitem"></a>Workitem
 
-A workitem specifies how computation is performed on TVMs in a pool. A workitem includes the following configuration items:
+A workitem specifies how computation is performed on TVMs in a pool.
 
-1.The program that performs the processing on the TVM.
-
-2.The command-line parameters for the program.
-
-3.The priority of the computation.
-
-4.The schedule of the computation, which includes defining whether the computation should reoccur.
-
-A workitem is always assigned to a pool, and the pool can already exist or it can be automatically created when the workitem is created.
+- A work item can have one or multiple jobs associated with it. An optional schedule can be specified for a work item in which case one job is created for each occurrence of the schedule. If no schedule is specified, for on-demand work, then a job is created immediately.
+- The work item specifies the pool on which the work will be run.  The pool can be an existing, already created pool that is used by many work items, but a pool can alternatively be created for each job associated with the work item or for all jobs associated with the work item.
+- An optional priority can be specified.  When a work item is submitted with a higher-priority than other work items still in progress, then the higher priority work item tasks get inserted into the queue ahead of the lower priority work item tasks.  Lower-priority tasks that are already running will not be pre-empted.
+- Constraints can be specified which will be applied to the associated job or jobs.
+	- A maximum wallclock time can be set for the jobs.  If the jobs runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.
+	- Azure Batch can detect tasks that fail and retry the tasks.  The default maximum number of task retries can be specified as a constraint, including specifying that a task is always retried or never retried.  Retrying a tasks means that the task is re-queued and will be run again.
+- Tasks to be executed for the work item job can be specified by the client in the same way that the work item has been created, but a Job Manager task can alternatively be specified. A job manager task uses the Batch API and contains the code to create the required tasks for a job with the task being run on one of the pool VM’s.  The job manager tasks is handled specifically by Batch – it is queued as soon as the job is created and is restarted if it fails for any reason.  A Job Manager is required for work items with an associated schedule as it is the only way to define the tasks before job is instantiated.
 
 ### <a name="job"></a>Job
 
@@ -126,7 +134,7 @@ A job is a running instance of a work item and consists of a collection of tasks
 
 ### <a name="task"></a>Task
 
-A task is a unit of computation that is associated with a job and runs on a TVM. A task uses the following resources:
+A task is a unit of computation that is associated with a job and runs on a TVM. Tasks are assigned to a VM for execution or are queued until a VM becomes free. A task uses the following resources:
 
 - The program that was specified in the workitem.
 
@@ -144,9 +152,18 @@ In addition to tasks that you can define to perform computation on a TVM, you ca
 
 #### <a name="starttask"></a>Start task
 
-You can configure the operating system of TVMs in a pool by associating a start task with the pool. Installing software and starting background processes are some of the actions that a start task can perform. The start task runs every time a TVM starts for as long as it remains in the pool.
+You can configure the operating system of VMs in a pool by associating a start task with the pool. Installing software and starting background processes are some of the actions that a start task can perform. The start task runs every time a VM starts for as long as it remains in the pool.
 
-A start task is defined by adding an XML section to the request body for the Add Pool operation. The following example shows a basic definition of a start task:
+As with any Batch task a list of files in Azure storage can be specified in addition to a command line that is executed by Batch.  Azure Batch will first copy the files from Azure Storage and then run the command line.
+For a pool start task, the file list usually contains the applications files or package, but it could also include reference data that will be used by all tasks running on the pool VM’s.  The command line could perform any PowerShell script or robocopy, for example, to copy application files to the “shared” folder; it could also run an MSI.
+
+Normally it is desirable for Batch to wait for the start task to complete and then consider the VM ready to be assigned tasks, but this is configurable.
+
+If a start task fails for a pool VM, then the state of the VM is updated to reflect the failure and the VM will not be available for tasks to be assigned.  A start task can fail if there is an issue copying the files specified for the start task or the start task process returns non-zero.
+
+The fact that all the information necessary to configure the VM’s and install the applications is declared means that increasing the number of VM’s in a pool is as simple as specifying the new required number; Batch has all the information required to configure the VM’s and get them ready to accept tasks.
+
+A start task is defined by adding an JSON section to the request body for the Add Pool operation. The following example shows a basic definition of a start task:
 
 	{
 		“commandLine”:”mypoolsetup.exe”,
@@ -163,6 +180,15 @@ A start task is defined by adding an XML section to the request body for the Add
 		],
 		“maxTaskRetryCount”:0
 	}
+
+A C# interface looks like this:
+
+	ICloudPool pool = pm.CreatePool(poolName, targetDedicated: 3, vmSize: "small", osFamily: "3");
+	pool.StartTask = new StartTask();
+	pool.StartTask.CommandLine = "mypoolsetup.exe";
+	pool.StartTask.ResourceFiles = new List<IResourceFile>();
+	pool.StartTask.ResourceFiles.Add(new ResourceFile("http://account.blob.core.windows.net/container/myapp1.exe?st=2013-08-09T08%3a49%3a37.0000000Z&se=2013-08-10T08%3a49%3a37.0000000Z&sr=c&sp=d&si=YWJjZGTVMZw%3d%3d&sig= %2bSzBm0wi8xECuGkKw97wnkSZ%2f62sxU%2b6Hq6a7qojIVE%3d", "mypoolsetup.exe"));
+	pool.Commit();
 
 
 #### <a name="jobmanagertask"></a>Job manager task
@@ -241,9 +267,21 @@ The root directory contains the following sub-directories:
 
 When a TVM is removed from the pool, all of the files that are stored on the TVM are removed.
 
+## <a name="lifetime"></a>Pool and VM Lifetime
+
+A fundamental design decision is when pools are created and how long VM’s are kept available. 
+
+At one extreme a pool could be created for each job when the job is submitted and the VM’s removed as tasks finish execution.  This will maximize utilization as the VM’s are only allocated when absolutely needed and shutdown as soon as they become idle.  It does mean that the job must wait for the VM’s to be allocated, although it is important to note that tasks will be scheduled to VM’s as soon as they are individually available, allocated and the start task has completed; i.e. Batch does NOT wait until all VM’s in a pool are available as that would lead to poor utilization.
+
+If having jobs start executing immediately is the priority then a pool should be created and VM’s available before the job is submitted.  The tasks can start immediately, but VM’s could be idle waiting for job tasks, depending on load.
+
+One common pattern for when there is a variable amount of ongoing load is to have a pool to which multiple jobs are submitted, but scale up or down the number of VM’s according to load; this could be done reactively or pro-actively if load can be predicted.
+
 ## <a name="scaling"></a>Scaling applications
 
 Your application can easily be automatically scaled up or down to accommodate the computation that you need. You can dynamically adjust the number of TVMs in a pool according to current work load and resource usage statistics. You can also optimize the overall cost of running your application by configuring it to be automatically scaled. You can specify the scaling settings for a pool when it is created and you can update the configuration at any time.
+
+For a decrease in the number of VM’s, there could be tasks running on VM’s which need to be considered.  A de-allocation policy is specified which determines whether running tasks are stopped to remove the VM immediately or whether tasks are allowed to finish before the VM’s are removed.  Setting the target number of VM’s down to zero at the end of a job, but allowing running tasks to finish, will maximize utilization.
 
 You specify automatic scaling of an application by using a set of scaling formulas. The formulas that can be used to determine the number of TVMs that are in the pool for the next scaling interval. For example, you need to submit a large number of tasks to be scheduled on a pool. You can assign a scaling formula to the pool that specifies the size of the pool based on the current number of pending tasks and the completion rate of the tasks. The Batch service periodically evaluates the formula and resizes the pool based on workload.
 
@@ -256,6 +294,10 @@ A formula can be based on the following metrics:
 - **Task metrics** – Based on the status of tasks, such as Active, Pending, and Completed.
 
 For more information about automatically scaling an application, see Configure Autoscaling of Task Virtual Machines.
+
+>Delete VM’s
+>
+>It is not often required, but it is possible to specify individual VM’s to remove from a pool.  If there’s a VM that is suspected of being less reliable it could be removed, for example.
 
 ## <a name="cert"></a>Certificates for applications
 
@@ -347,9 +389,45 @@ For every task that is scheduled under a job, a specific set of environment vari
 </td>
 </table>
 
-
 **Note** 
 
 You cannot overwrite these system-defined variables.
 
 You can retrieve the value of environment settings by using the Get Task operation.
+
+## <a name="errorhandling"></a>Error Handling
+
+###Task Failure Handling
+Task failures fall into the following categories:
+
+- Scheduling Failures:
+	- If files are specified for the task, then the copy of one or more of the files could fail.  This could be because the files have moved, the storage account is no longer available, etc.
+	- A “scheduling error” is set for the task in this case.
+- Application Failures:
+	- The task process specified by the command line can also fail.  The process is deemed to have failed when a non-zero exit code is returned.
+	- For application failures it is possible to configure Batch to automatically retry the task up to a specified number of times. 
+- Constraint Failures:
+	- A constraint can be specified for the maximum amount of time a job or task can run for.  The can be useful to terminate a task that has hung.
+	- When the maximum amount of time has been exceeded then the task is marked as completed but the exit code will marked as `0xC000013A` and schedulingError field will be marked as `{ category:“ServerError”, code=“TaskEnded”}`.
+
+###Debugging Application Failures
+
+An application may produce diagnostics which can be used to troubleshoot issues. Often applications will write information to stdout and stderr files or output to custom files. In these cases an API is provided to get files, by specifying either the task or VM.
+
+It is also possible to login into pool VM’s. An API returns the RDP file for a VM, which can then be used to login to the VM.
+
+###Catering for Task Failures and Issues
+
+Tasks can fail or be interrupted for a few reasons.  The task application itself may fail, the VM on which the task is running gets rebooted, or the VM is removed by a pool resize with the de-allocation policy set to remove the VM immediately without waiting for the task to finish.  In all cases the task can be automatically re-queued by Batch and execute on another VM.
+
+It is also possible for an intermittent issue to cause a task to hang or take too long to execute.  The maximum execution time can be set for a task and if exceeded Batch will interrupt the task application.  Currently, automatic re-queuing is not possible for this case, but the case can be detected by the client which can submit a new task.
+
+###Catering for “Bad” VM’s
+
+Each VM in a pool is given a unique name and the VM on which a task runs included in the task meta-data.  In the case where there is a VM that for some reason is causing tasks to fail, then this can be determined by the client and the suspect VM deleted from the pool. If a task was running on the VM that was deleted, then it will be automatically re-queued and executed on another VM.
+
+
+<!--Image references-->
+[1]: ./media/batch-api-basics/batch-api-basics-01.png
+
+[Azure Batch overview]: batch-technical-overview.md

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade SQL Database Web/Business Databases to New Service Tiers" 
-	description="Upgrade Azure SQL Database Web or Business database to the new Azure SQL Database service tiers/performance levels." 
+	pageTitle="Upgrade SQL Database Web or Business Databases to New Service Tiers" 
+	description="Upgrade Azure SQL Database Web or Business databases to the new Azure SQL Database Basic, Standard, and Premium service tiers and performance levels." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="jenniehubbard" 
@@ -8,12 +8,13 @@
 	editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.date="2/10/2015" 
-	ms.author="jhubbard" 
-	ms.workload="" 
-	ms.topic="" 
-	ms.tgt_pltfrm=""/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="03/23/2015" 
+	ms.author="jhubbard; sstein" 
+	ms.workload="data-management" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="NA"/>
 
 
 # Upgrade SQL Database Web or Business Databases to New Service Tiers
@@ -88,7 +89,21 @@ The Azure SQL Database service exposes information in the management portal, and
 Since Web and Business databases do not have any guaranteed DTUs/resource limits associated with them, we normalize the percentage values in terms of the amount of resources available to an S2 performance level database. The average DTU percentage consumption of a database at any specific interval can be calculated as the highest percentage value among CPU, IO and Log usage at that interval.
 
 
-Use the management portal for a high-level overview of DTU percentage usage, and then drill into the details using system views.
+Use the management portal for a high-level overview of DTU percentage usage, and then drill into the details using system views. 
+
+You can also use the new Azure management portal to view the recommended service tier for your Web or Business database when you upgrade a server to Azure SQL Database V12 ([at preview in some regions](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+
+### How to view the recommended service tier in the new Azure Management Portal
+The management portal recommends the appropriate service tier for your Web or Business database during the process of upgrading a server to Azure SQL Database V12. The recommendation is based on a historical analysis of the resource consumption of the database.
+
+**New Management Portal**
+
+1. Log on to the [new management portal](https://portal.azure.com) and navigate to a server containing a Web or Business database.
+2. Click the **Latest Update** part in the server blade.
+3. Click **Upgrade this server**.
+
+The **Upgrade this server** blade now shows a list of Web or Business databases on the server along with the recommended service tier.
+
 
 
 ### How to view DTU consumption in the Management Portal
@@ -118,7 +133,11 @@ To drill into the details of a database's resource consumption you can use the p
 ### System Views
 
 
-Web and Business database resource consumption data is accessed through the [sys.resource_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) view in the master database of the logical server where your current database is located. It displays resource consumption data in percentages of the limit of the performance level. This view provides data for up to the last 14 days, at 5 minute intervals.  Run the following query on the master database to retrieve the average DTU consumption for a database:
+Web and Business database resource consumption data is accessed through the [sys.resource_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) view in the master database of the logical server where your current database is located. It displays resource consumption data in percentages of the limit of the performance level. This view provides data for up to the last 14 days, at 5 minute intervals.  
+
+> [AZURE.NOTE] You can now use the [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) view in Web and Business databases for a higher granularity view (every 15 seconds) of resource consumption data. Because sys.dm_db_resource_stats only retains historical data for one hour you can query this DMV every hour and store the data for additional analysis.
+
+Run the following query on the master database to retrieve the average DTU consumption for a database:
 
  
                    
@@ -132,7 +151,9 @@ Web and Business database resource consumption data is accessed through the [sys
     WHERE database_name = '<your db name>'
     ORDER BY end_time DESC;
 
-DTU consumption information in terms of an S2 database level allows you to normalize the current consumption of your Web/Business databases in terms of new tier databases and see where they fit better. For example, if your average DTU percentage consumption shows a value of 80%, it indicates that the database is consuming DTU at the rate of 80% of the limit of a database at S2 performance level. If you see values greater than 100% in the **sys.resource_stats** view, it means that you need a performance tier larger than S2. As an example, let’s say you see a peak DTU percentage value of 300%.  This tells you that you are using three times more resources than would be available in an S2. To determine a reasonable starting size, compare the DTUs available in an S2 (50 DTUs) with the next higher sizes (S3/P1 = 100 DTUs, or 200% of S2, P2 = 200 DTUs or 400% of S2). Because you are at 300% of S2 you may want to start with a P2 and re-test. 
+The data returned by [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) and [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) for Web and Business tiers indicate the percentages in terms of the Standard S2 performance tier. For example, when executing against a Web or Business database, if values return 70%, that indicates 70% of the S2 tier limit. In addition, for Web and Business, the percentages may reflect numbers in excess of 100%, which is also based on the S2 tier limit.
+
+DTU consumption information in terms of an S2 database level allows you to normalize the current consumption of your Web and Business databases in terms of new tier databases and see where they fit better. For example, if your average DTU percentage consumption shows a value of 80%, it indicates that the database is consuming DTU at the rate of 80% of the limit of a database at S2 performance level. If you see values greater than 100% in the **sys.resource_stats** view, it means that you need a performance tier larger than S2. As an example, let’s say you see a peak DTU percentage value of 300%.  This tells you that you are using three times more resources than would be available in an S2. To determine a reasonable starting size, compare the DTUs available in an S2 (50 DTUs) with the next higher sizes (S3/P1 = 100 DTUs, or 200% of S2, P2 = 200 DTUs or 400% of S2). Because you are at 300% of S2 you may want to start with a P2 and re-test. 
 
 Based on the DTU usage percent and the largest edition that was required to fit your workload, you can determine which service tier  and performance level is best suited for your database workload (as indicated through DTU percentage and relative DTU powers of various [performance levels)](http://msdn.microsoft.com/library/azure/dn741336.aspx). Here is a table that provides a mapping of the Web/Business resource consumption percentage to equivalent new tier performance levels: 
 
@@ -219,7 +240,7 @@ After you determine the appropriate service tier and performance level for your 
 | Management Tool | To change the service tier and performance level of a database|
 | :---| :---|
 | [Azure Management Portal](https://manage.windowsazure.com) | click the **SCALE** tab on your database's dashboard page. |
-| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use the [Set-AzureSqlDatabase](http://msdn.microsoft.com/en-us/library/azure/dn546732.aspx) cmdlet. |
+| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use the [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx) cmdlet. |
 | [Service Management REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) | use the [Update Database](http://msdn.microsoft.com/library/dn505718.aspx) command.|
 | [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | use the [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) statement. |
 
@@ -264,7 +285,7 @@ Additional [documentation](http://msdn.microsoft.com/library/dn800981.aspx) cont
 
 - **Alerts:** Set up 'Alerts' in the Azure Management Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Management Portal for various performance metrics like DTU, CPU, IO, and Log. 
 
-	For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://msdn.microsoft.com/en-us/library/azure/dn306638.aspx) to learn more about how to configure alert notifications.
+	For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [How to: Receive Alert Notifications and Manage Alert Rules in Azure](http://msdn.microsoft.com/library/azure/dn306638.aspx) to learn more about how to configure alert notifications.
 
 
 - **Scheduled performance level upgrade/downgrade:** If your application has specific scenarios that require more performance only at certain times of the day/week, you can use [Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx) to upsize/downsize your database to a higher/lower performance level as a planned operation.

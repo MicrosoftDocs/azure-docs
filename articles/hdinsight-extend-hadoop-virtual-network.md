@@ -1,115 +1,116 @@
 <properties
-   pageTitle="Extend HDInsight with Azure Virtual Network | VNet" metaKeywords="virtual network, vnet, azure, hdinsight" description="Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter"
-   services="hdinsight"
-   documentationCenter=""
-   authors="blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Extend HDInsight with Virtual Network | Microsoft Azure"  
+	description="Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/2/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
 
-#Extend HDInsight capabilities using Azure Virtual Network
+#Extend HDInsight capabilities by using Azure Virtual Network
 
-Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on premise resources such as SQL Server, or to create secure private networks between resources in the cloud.
+Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on-premises resources such as SQL Server, or to create secure private networks between resources in the cloud.
 
-> [AZURE.NOTE] Currently HDInsight does not support affinity-based Azure Virtual Networks. When using HDInsight, you must use location-based Virtual networks.
+> [AZURE.NOTE] HDInsight does not support affinity-based Azure virtual networks. When using HDInsight, you must use location-based virtual networks.
 
 ##<a id="whatis"></a>What is Azure Virtual Network?
 
-[Azure Virtual Network](/en-us/documentation/services/virtual-network/) allows you to create a secure, persistent, network containing the resources you need for your solution. A virtual network allows you to:
+[Azure Virtual Network](/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
 
-* Connect cloud resources together in a private network (cloud-only)
+* Connect cloud resources together in a private network (cloud-only).
 
 	![diagram of cloud-only configuration](.\media\hdinsight-provision-clusters\cloud-only.png)
 
-	Using Virtual Network to link Azure Services with HDInsight enables the following scenarios.
+	Using Virtual Network to link Azure services with Azure HDInsight enables the following scenarios:
 
-	* **Invoking HDInsight services or jobs** from Azure Websites or services running in Azure Virtual Machines.
+	* **Invoking HDInsight services or jobs** from Azure websites or services running in Azure virtual machines.
 
-	* **Directly transferring data** between HDInsight and SQL Database, or SQL Server or other data storage solution running on a Virtual machine.
+	* **Directly transferring data** between HDInsight and Azure SQL Database, SQL Server, or another data storage solution running on a virtual machine.
 
-	* **Combining multiple HDInsight servers** into a single solution. Such as using an HDInsight Storm server to consume incoming data, then storing the processed data to an HDInsight HBase server. The raw data might also be stored to an HDInsight Hadoop server for future analysis using MapReduce.
+	* **Combining multiple HDInsight servers** into a single solution. An example is using an HDInsight Storm server to consume incoming data, and then storing the processed data to an HDInsight HBase server. The raw data might also be stored to an HDInsight Hadoop server for future analysis by using MapReduce.
 
-* Connect your cloud resources to your local datacenter network (site-to-site or point to site) using a Virtual Private Network (VPN)
+* Connect your cloud resources to your local datacenter network (site-to-site or point-to-site) by using a virtual private network (VPN).
 
-	Site-to-site configuration allows you to connect multiple resources from your data center to the Azure Virtual Network using a hardware VPN or the Routing and Remote Access Service
+	Site-to-site configuration allows you to connect multiple resources from your datacenter to the Azure virtual network by using a hardware VPN or the Routing and Remote Access service.
 
 	![diagram of site-to-site configuration](.\media\hdinsight-provision-clusters\site-to-site.png)
 
-	Point-to-site configuration allows you to connect a specific resource to the Azure Virtual Network using software VPN
+	Point-to-site configuration allows you to connect a specific resource to the Azure virtual network by using software VPN.
 
 	![diagram of point-to-site configuration](.\media\hdinsight-provision-clusters\point-to-site.png)
 
-	Using Virtual Network to link the cloud and your data center enables similar scenarios to the cloud-only configuration, but instead of being limited to working with resources in the cloud, you can also work with resources in your data center.
+	Using Virtual Network to link the cloud and your datacenter enables similar scenarios to the cloud-only configuration. But instead of being limited to working with resources in the cloud, you can also work with resources in your datacenter.
 
-	* **Directly transferring data** between HDInsight and your data center. For example, using Sqoop to transfer data to or from SQL Server or reading data generated by a Line of Business (LOB) application.
+	* **Directly transferring data** between HDInsight and your datacenter. An example is using Sqoop to transfer data to or from SQL Server or reading data generated by a line-of-business (LOB) application.
 
-	* **Invoking HDInsight services or jobs** from a LOB application. For example, using HBase Java APIs to to store and retrieve data from an HDInsight HBase cluster.
+	* **Invoking HDInsight services or jobs** from an LOB application. An example is using HBase Java APIs to store and retrieve data from an HDInsight HBase cluster.
 
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [WACOM.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/en-us/library/azure/jj156206.aspx).
+> [AZURE.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 >
-> Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
+> Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
 >
 > It is highly recommended to designate a single subnet for each cluster.
 
-For more information on provisioning an HDInsight cluster on a Virtual Network, see [Provisioning Hadoop clusters in HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/).
+For more information on provisioning an HDInsight cluster on a virtual network, see [Provisioning Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
 ##<a id="tasks"></a>Tasks and information
 
-This section contains information on common tasks and information you may need when using HDInsight with a Virtual Network.
+This section contains information on common tasks and information you may need when using HDInsight with a virtual network.
 
-###Determine the Fully Qualified Domain Name
+###Determine the FQDN
 
-The HDInsight cluster will be assigned a specific FQDN for the Virtual Network interface. This is the address that you should use when connecting to the cluster from other resources on the Virtual Network. To determine the FQDN, use the following to URL to query the Ambari management service.
+The HDInsight cluster will be assigned a specific fully qualified domain name (FQDN) for the Virtual Network interface. This is the address that you should use when connecting to the cluster from other resources on the virtual network. To determine the FQDN, use the following to URL to query the Ambari management service:
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE] For more information on using Ambari with HDInsight, see [Monitor Hadoop clusters in HDInsight using the Ambari API](/en-us/documentation/articles/hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] For more information on using Ambari with HDInsight, see [Monitor Hadoop clusters in HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 You must specify the cluster name and a service and component running on the cluster, such as the YARN resource manager.
 
-> [AZURE.NOTE] The data returned is a JSON document that contains a lot of information about the component. To extract just the FQDN, you should use a JSON parer to retrieve the `host_components[0].HostRoles.host_name` value.
+> [AZURE.NOTE] The data returned is a JavaScript Object Notation (JSON) document that contains a lot of information about the component. To extract just the FQDN, you should use a JSON parser to retrieve the `host_components[0].HostRoles.host_name` value.
 
-For example, to return the FQDN from an HDInsight Hadoop cluster, you could use one of the following methods to retrieve the data for the YARN resource manager.
+For example, to return the FQDN from an HDInsight Hadoop cluster, you can use one of the following methods to retrieve the data for the YARN resource manager:
 
-* [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](powershell-install-configure.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
 		$Password = <cluster admin password>
 		$DnsSuffix = ".azurehdinsight.net"
 		$ClusterFQDN = $ClusterDnsName + $DnsSuffix
-		
+
 		$webclient = new-object System.Net.WebClient
 		$webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
-		
+
 		$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/		components/resourcemanager"
 		$Response = $webclient.DownloadString($Url)
 		$JsonObject = $Response | ConvertFrom-Json
 		$FQDN = $JsonObject.host_components[0].HostRoles.host_name
 		Write-host $FQDN
 
-* [Curl](http://curl.haxx.se/) and [jq](http://stedolan.github.io/jq/)
+* [cURL](http://curl.haxx.se/) and [jq](http://stedolan.github.io/jq/)
 
 		curl -G -u <username>:<password> https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/yarn/components/resourcemanager | jq .host_components[0].HostRoles.host_name
 
 ###Connecting to HBase
 
-To connect to HBase remotely using the Java API, you must determine the Zookeeper quorum addresses for the HBase cluster and specify this in your application.
+To connect to HBase remotely by using the Java API, you must determine the ZooKeeper quorum addresses for the HBase cluster and specify this in your application.
 
-To get the zookeeper quorum address, use one of the following methods to query the Ambari management service.
+To get the ZooKeeper quorum address, use one of the following methods to query the Ambari management service:
 
-* [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](powershell-install-configure.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -125,15 +126,15 @@ To get the zookeeper quorum address, use one of the following methods to query t
         $JsonObject = $Response | ConvertFrom-Json
         Write-host $JsonObject.items[0].properties.'hbase.zookeeper.quorum'
 
-* [Curl](http://curl.haxx.se/) and [jq](http://stedolan.github.io/jq/)
+* [cURL](http://curl.haxx.se/) and [jq](http://stedolan.github.io/jq/)
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE] For more information on using Ambari with HDInsight, see [Monitor Hadoop clusters in HDInsight using the Ambari API](/en-us/documentation/articles/hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] For more information on using Ambari with HDInsight, see [Monitor Hadoop clusters in HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 Once you have the quorum information, use it in your client application.
 
-For example, a Java application that uses the HBase API, you would add an **hbase-site.xml** file to the project and specify the quorum information in the file as follows.
+For example, for a Java application that uses the HBase API, you would add an **hbase-site.xml** file to the project and specify the quorum information in the file as follows:
 
 ```
 <configuration>
@@ -156,18 +157,18 @@ For example, a Java application that uses the HBase API, you would add an **hbas
 
 Some services, such as SQL Server, can limit incoming network connections. This will prevent HDInsight from successfully working with these services.
 
-If you encounter problems accessing a service from HDInsight, consult the documentation for the service to ensure that you have enabled network access. You can also verify network access by creating an Azure Virtual Machine on the same Virtual Network, and use client utilities to verify that the VM can connect to the service over the Virtual Network.
+If you encounter problems accessing a service from HDInsight, consult the documentation for the service to ensure that you have enabled network access. You can also verify network access by creating an Azure virtual machine on the same virtual network, and use client utilities to verify that the virtual machine can connect to the service over the virtual network.
 
-##<a id="nextsteps"></a>Next Steps
+##<a id="nextsteps"></a>Next steps
 
-The following examples demonstrate how to use HDInsight with Azure Virtual Network.
+The following examples demonstrate how to use HDInsight with Azure Virtual Network:
 
-* [Analyze sensor data with Storm and HBase in HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis/) - Demonstrates how to configure a Storm and HBase cluster in a Virtual Network, as well as how to remotely write data to HBase from Storm.
+* [Analyze sensor data with Storm and HBase in HDInsight](hdinsight-storm-sensor-data-analysis.md) - Demonstrates how to configure a Storm and HBase cluster in a virtual network, as well as how to remotely write data to HBase from Storm.
 
-* [Provision HBase clusters on Azure Virtual Network](/en-us/documentation/articles/hdinsight-hbase-provision-vnet/) - Provides information on provisioning an HBase cluster on an Azure Virtual Network
+* [Provision HBase clusters on Azure Virtual Network](hdinsight-hbase-provision-vnet.md) - Provides information on provisioning an HBase cluster on an Azure virtual network.
 
-* [Provision Hadoop clusters in HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/) - Provides information on provisioning Hadoop clusters, including information on using Azure Virtual Network
+* [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) - Provides information on provisioning Hadoop clusters, including information on using Azure Virtual Network.
 
-* [Use Sqoop with Hadoop in HDInsight](/en-us/documentation/articles/hdinsight-use-sqoop/) - Provides information on using Sqoop to transfer data with SQL Server over a Virtual Network
+* [Use Sqoop with Hadoop in HDInsight](hdinsight-use-sqoop.md) - Provides information on using Sqoop to transfer data with SQL Server over a virtual network.
 
-To learn more about Azure Virtual Networks, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+To learn more about Azure virtual networks, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).

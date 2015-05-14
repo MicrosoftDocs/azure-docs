@@ -2,8 +2,9 @@
 	pageTitle="Application Insights: platforms" 
 	description="Can I use Application Insights with...?" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,35 +12,61 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-14" 
+	ms.date="04/20/2015" 
 	ms.author="awills"/>
  
 # Application Insights: platforms
 
-## <a name="platforms"</a>Can I use Application Insights with ...?
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
+
+#### Can I use Application Insights with ...?
 
 
-+	[Android](https://github.com/Microsoft/AppInsights-Android)
-+	[Ruby](https://rubygems.org/gems/application_insights) 
-+	[PHP](https://github.com/Microsoft/AppInsights-PHP)
-+	[Node.JS](https://www.npmjs.com/package/applicationinsights)
-+	[Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-+	[WordPress](https://wordpress.org/plugins/application-insights/)
-+	[Angular](http://ngmodules.org/modules/angular-appinsights)
-+	[Cordova](#cordova)
-+	[Windows Store JavaScript apps](#cordova)
-+	[Log4Net, NLog, or System.Diagnostics.Trace][diagnostic]
-+	[Windows Store and Phone apps][windows]
-+	[An IIS website that's already running][redfield]
-+	[An Azure website][azure]
+## Languages
 
++ [C#, VB](app-insights-start-monitoring-app-health-usage.md)
++ [JavaScript web pages](app-insights-web-track-usage.md)
++ [Windows Store JavaScript apps](#cordova)
++ [Java](app-insights-java.md)
++ [Ruby](https://rubygems.org/gems/application_insights) 
++ [PHP](https://github.com/Microsoft/AppInsights-PHP)
++ [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
+
+## Platforms
+
++ [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [Azure web apps and VMs](insights-perf-analytics.md)
++ [Android](https://github.com/Microsoft/AppInsights-Android)
++ [iOS](https://github.com/Microsoft/AppInsights-iOS)
++ [Cordova](#cordova)
++ [Angular](https://www.npmjs.com/package/angular-applicationinsights)
++ [Node.JS](https://www.npmjs.com/package/applicationinsights)
++ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
++ [SharePoint](app-insights-sharepoint.md)
++ [WordPress](https://wordpress.org/plugins/application-insights/)
++ [Windows desktop](app-insights-windows-desktop.md)
+
+
+## Logging frameworks
+
++	[Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
++	[Java, Log4J, or Logback](app-insights-java-trace-logs.md)
+
+
+## Projects
 
 Please also visit the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home)
 
 
 ### <a name="cordova"></a>Cordova and Windows Store JavaScript apps
 
-Use the standard client-side [web app script][usage], but with one change.
+In Visual Studio, right-click your project and choose **Manage NuGet packages**.
+
+Select **Online** and search on Application Insights.
+
+Install **Application Insights API for JavaScript Applications**. 
+
+Use the standard client-side [web app script](app-insights-web-track-usage.md), but with one change.
 
 When you get the script from the Application Insights portal, insert a line after the instrumentation key:
 
@@ -48,9 +75,10 @@ When you get the script from the Application Insights portal, insert a line afte
         endpointUrl:"https://dc.services.visualstudio.com/v2/track"
     } ...
 
-[>Cordova](http://cordova.apache.org/)
-[>Windows Store apps using JavaScript](https://msdn.microsoft.com/en-us/library/windows/apps/br211385.aspx)
+[Cordova](http://cordova.apache.org/)
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[Windows Store apps using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
+
+<!--Link references-->
 
 

@@ -38,7 +38,7 @@ Monitoring displays in the Management Portal are highly configurable. You can ch
 By default, minimal monitoring is provided for a new cloud service using performance counters gathered from the host operating system for the roles instances (virtual machines). The minimal metrics are limited to CPU Percentage, Data In, Data Out, Disk Read Throughput, and Disk Write Throughput. By configuring verbose monitoring, you can receive additional metrics based on performance data within the virtual machines (role instances). The verbose metrics enable closer analysis of issues that occur during application operations.
 
 > [AZURE.NOTE]
-> If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-diagnostics/">Enabling Diagnostics in Azure Cloud Services and Virtual Machines</a>.
+> If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md).
 
 By default performance counter data from role instances is sampled and transferred from the role instance at 3-minute intervals. When you enable verbose monitoring, the raw performance counter data is aggregated for each role instance and across role instances for each role at intervals of 5 minutes, 1 hour, and 12 hours. The aggregated data is  purged after 10 days.
 
@@ -53,16 +53,16 @@ Use the following procedures to configure verbose or minimal monitoring in the M
 
 ###Before you begin###
 
-- Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
+- Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create a Storage Account](/manage/services/storage/how-to-create-a-storage-account/).
 
 
-- Enable Azure Diagnostics for your cloud service roles. <br /><br />For more information, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](/en-us/documentation/articles/cloud-services-dotnet-diagnostics/).
+- Enable Azure Diagnostics for your cloud service roles. <br /><br />For more information, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md).
 
 In the Management Portal, you can add or modify the diagnostics connection strings that Azure Diagnostics uses to access the storage accounts that store verbose monitoring data, and you can set the level of monitoring to verbose or minimal. Because verbose monitoring stores data in a storage account, you must configure the diagnostics connection strings before you set the monitoring level to verbose.
 
 ###To configure diagnostics connections strings for verbose monitoring###
 
-1. Copy a storage access key for the storage account that that you'll use to storage the verbose monitoring data. In the [Azure Management Portal](https://manage.windowsazure.com/), you can use **Manage Keys** on the **Storage Accounts** page. For more information, see [How to Manage Cloud Services](/en-us/documentation/articles/cloud-services-how-to-manage/), or see help for the **Storage Accounts** page. 
+1. Copy a storage access key for the storage account that that you'll use to storage the verbose monitoring data. In the [Azure Management Portal](https://manage.windowsazure.com/), you can use **Manage Keys** on the **Storage Accounts** page. For more information, see [How to Manage Cloud Services](cloud-services-how-to-manage.md), or see help for the **Storage Accounts** page. 
 
 2. Open **Cloud Services**. Then, to open the dashboard, click the name of the cloud service you want to configure.
 

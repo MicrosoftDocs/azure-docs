@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="02/23/2015" 
 	ms.author="jeffreyg"/>
  
 # Get started with SQL database auditing 
@@ -21,7 +21,7 @@
 
 Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
 
-Auditing tools enable and facilitate adherence to compliance standards but don't guarantee compliance. For more information about Azure programs that support standards compliance, see the <a href="http://azure.microsoft.com/en-us/support/trust-center/compliance/" target="_blank">Azure Trust Center</a>.
+Auditing tools enable and facilitate adherence to compliance standards but don't guarantee compliance. For more information about Azure programs that support standards compliance, see the <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Trust Center</a>.
 
 + [Azure SQL Database Auditing basics] 
 + [Set up auditing for your database]
@@ -43,16 +43,22 @@ You can audit the following activities and events:
 - **Accounts, roles, and permissions (DCL)**
 - **Security exceptions**
 
-For further detail about the the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
+For further detail about the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
 
 You also choose the storage account where audit logs will be saved.
 
-###Security-enabled connection string
-When you set up auditing, Azure provides you with a security-enabled connection string for the database. Only client applications that use this connection string will have their activity and events logged, so you need to update existing client applications to use the new string format.
+###Security-enabled access
+There are two methods to get auditing for your connection:
+
+1. For clients which are using TDS version 7.4 and above switch the **SECURITY ENABLED ACCESS** to **REQUIRED**.
+
+2. For "Downlevel clients" which are using TDS version 7.3 and below there is a need to configure a security enabled connection string:
 
 Traditional connection string format: <*server name*>.database.windows.net
 
 Security-enabled connection string: <*server name*>.database.**secure**.windows.net
+
+**Remark:** a partial list of "Downlevel clients" includes: .NET 4.0 and below, and ODBC 10.0 and below. Regarding JDBC: While 4.0 does support TDS version 7.4, please use JDBC 4.1 and above due to a bug in JDBC 4.0.
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
@@ -84,7 +90,7 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 
 Audit logs are aggregated in a single Azure Store Table named **AuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
-A preconfigured dashboard report template is available as a <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">downloadable Excel spreadsheet</a> to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39379">here</a>. 
+A preconfigured dashboard report template is available as a <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">downloadable Excel spreadsheet</a> to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download <a href="http://www.microsoft.com/download/details.aspx?id=39379">here</a>. 
 
 The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account. 
 
@@ -136,9 +142,13 @@ In production you are likely to refresh your storage keys periodically. The Audi
 4. Go back to the storage UI and **regenerate** the *Secondary Access Key* (as preparation for the next keys refresh cycle.
   
 ##<a id="subheading-4"></a>Automation
-For PowerShell refer to the <a href="https://github.com/Azure/azure-powershell" target="_blank">PowerShell SDK</a>.
+There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database. To access the auditing cmdlets you must be running PowerShell in Azure Resource Manager mode.
 
-For REST API Refer to <a href="http://download.microsoft.com/download/D/8/D/D8D90BA1-977F-466B-A839-7823FF37FD02/04-Azure SQL DB Auditing REST API.docx">Azure SQL Database REST API</a>
+> [AZURE.NOTE] The AzureResourceManager module is currently in preview. It might not provide the same management capabilities as the Azure module.
+
+ [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) mode is accessed by running the Switch-AzureMode cmdlet (`Switch-AzureMode AzureResourceManager`). When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to list the available cmdlets.
+
+
 
 
 
@@ -168,7 +178,7 @@ For REST API Refer to <a href="http://download.microsoft.com/download/D/8/D/D8D9
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 

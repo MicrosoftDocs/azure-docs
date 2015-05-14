@@ -1,37 +1,37 @@
-#Enable HTTPS for an Azure website
+#Enable HTTPS for a web app in Azure App Service
 
 > [AZURE.NOTE]
-> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) a snap.
 
-You can secure the communication between the website and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to configure HTTPS for an Azure Website. 
+You can secure the communication between the web app and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your App are secure. This article discusses how to configure HTTPS for a web app in Azure App Service. 
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS for the \*.azurewebsites.net domain
 
-If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your website by Azure (for example, contoso.azurewebsites.net) then HTTPS is already enabled on your site with a certificate from Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site. However, \*.azurewebsites.net is a wildcard domain. Like [all wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), it is not as secure as using a custom domain with your own certificate. 
+If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web app by Azure (for example, contoso.azurewebsites.net) then HTTPS is already enabled on your site with a certificate from Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your App. However, \*.azurewebsites.net is a wildcard domain. Like [all wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), it is not as secure as using a custom domain with your own certificate. 
 
 The rest of this document provides details on enabling HTTPS for custom domains, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
 ##<a name="bkmk_domainname"></a>Enable SSL for your custom domain
 
-To enable HTTPS for a custom domain, such as **contoso.com**, you must first register a custom domain name with a domain name registrar. For more information on how to configure the domain name of an Azure Website, see [Configuring a custom domain name for an Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your website to respond to the custom name, you must request an SSL certificate for the domain. 
+To enable HTTPS for a custom domain, such as **contoso.com**, you must first register a custom domain name with a domain name registrar. For more information on how to configure the domain name of a web app, see [Configuring a custom domain name for an Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your web app to respond to the custom name, you must request an SSL certificate for the domain. 
 
-> [AZURE.NOTE] In order to enable HTTPS for custom domain names, you must configure your website for **Standard** web hosting plan mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. 
+> [AZURE.NOTE] In order to enable HTTPS for custom domain names, you must configure your web app for **Standard** mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and **Standard** pricing, see [Pricing Details][pricing]. 
 
 ##<a name="bkmk_getcert"></a>Get an SSL certificate
 
 Before requesting an SSL certificate you must first determine which domain names will be secured by the certificate. This will determine what type of certificate you must obtain. If you just need to secure a single domain name such as **contoso.com** or **www.contoso.com** a basic certificate is sufficient. If you need to secure multiple domain names, such as **contoso.com**, **www.contoso.com**, and **mail.contoso.com**, then you can get a [wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate), or a certificate with [Subject Alternate Name](http://en.wikipedia.org/wiki/SubjectAltName) (subjectAltName).
 
-SSL certificates used with Azure Websites must be signed by a [Certificate Authority](http://en.wikipedia.org/wiki/Certificate_authority) (CA). If you do not already have one, you will need to obtain one from a company that issues SSL certificates. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+SSL certificates used with Web Apps must be signed by a [Certificate Authority](http://en.wikipedia.org/wiki/Certificate_authority) (CA). If you do not already have one, you will need to obtain one from a company that issues SSL certificates. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
 
 The certificate must meet the following requirements for SSL certificates in Azure:
 
 * The certificate must contain a private key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
-* The certificate's subject name must match the domain used to access the website. If you need to serve multiple domains with this certificate, you will need to use a wildcard value or specify subjectAltName values as discussed previously.
+* The certificate's subject name must match the domain used to access the web app. If you need to serve multiple domains with this certificate, you will need to use a wildcard value or specify subjectAltName values as discussed previously.
 * The certificate should use a minimum of 2048-bit encryption.
-* Certificates issued from private CA servers are not supported by Azure Websites.
+* Certificates issued from private CA servers are not supported by Azure App Service.
 
-To get an SSL certificate for use with Azure Websites, you submit a Certificate Signing Request (CSR) to a Certificate Authority and then generate a .pfx file from the certificate you receive back. You can do this using the tool of your choice. Below are some of the common ways to get a certificate:
+To get an SSL certificate for use with Azure App Service, you submit a Certificate Signing Request (CSR) to a Certificate Authority and then generate a .pfx file from the certificate you receive back. You can do this using the tool of your choice. Below are some of the common ways to get a certificate:
 
 - [Get a certificate using Certreq.exe](#bkmk_certreq)
 - [Get a certificate using IIS Manager](#bkmk_iismgr)
@@ -41,16 +41,16 @@ To get an SSL certificate for use with Azure Websites, you submit a Certificate 
 
 > [AZURE.NOTE] When following the steps, you will be prompted to enter a **Common Name**, such as `www.contoso.com`. For wildcard certificates, this value should be \*.domainname (for example, \*.contoso.com). If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard subjectAltName certificate.
 >
-> Elliptic Curve Cryptography (ECC) certificates are supported with Azure Websites; however, they are relatively new and you should work with your CA on the exact steps to create the CSR.
+> Elliptic Curve Cryptography (ECC) certificates are supported with Azure App Service; however, they are relatively new and you should work with your CA on the exact steps to create the CSR.
 
-You may also need to obtain **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs website. The steps in this article provide steps to ensure that any intermediate certificates are merged with the certificate uploaded to your Azure website. 
+You may also need to obtain **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs website. The steps in this article provide steps to ensure that any intermediate certificates are merged with the certificate uploaded to your web apps. 
 
 <a name="bkmk_certreq"></a>
 ###Get a certificate using Certreq.exe (Windows only)
 
 Certreq.exe is Windows utility for creating certificate requests. It has been part of the base Windows installation since Windows XP/Windows Server 2000, so should be available on recent Windows systems. Use the following steps to obtain an SSL certificate using certreq.exe.
 
-1. Open **Notepad** and create a new document that contains the following. Replace **mysite.com** on the Subject line with the custom domain name of your website. For example, Subject = "CN=www.contoso.com".
+1. Open **Notepad** and create a new document that contains the following. Replace **mysite.com** on the Subject line with the custom domain name of your web app. For example, Subject = "CN=www.contoso.com".
 
 		[NewRequest]
 		Subject = "CN=mysite.com"
@@ -112,7 +112,7 @@ Certreq.exe is Windows utility for creating certificate requests. It has been pa
 
 	![provide a file path][certwiz4]
 
-You can now upload the exported PFX file to your Azure Website.
+You can now upload the exported PFX file to your Azure web app.
 
 <a name="bkmk_openssl"></a>
 ###Get a certificate using OpenSSL
@@ -163,7 +163,7 @@ You can now upload the exported PFX file to your Azure Website.
 
 	Save the file.
 
-5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Azure Websites:
+5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Azure App Service:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
@@ -178,11 +178,11 @@ You can now upload the exported PFX file to your Azure Website.
 	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
-	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Websites.
+	After running this command, you should have a **myserver.pfx** file suitable for use with Azure App Service.
 
 ###<a name="bkmk_iismgr"></a>Get a certificate using the IIS Manager
 
-If you are familiar with IIS Manager, you can use it to generate a certificate that can be used with Azure Websites.
+If you are familiar with IIS Manager, you can use it to generate a certificate that can be used with Azure App Service.
 
 1. Generate a CSR with IIS Manager to send to the Certificate Authority. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
 
@@ -194,7 +194,7 @@ If you are familiar with IIS Manager, you can use it to generate a certificate t
 
 	Once you have downloaded the certificate, right click on it in explorer and select **Install certificate**. Use the default values in the **Certificate Import Wizard**, and continue selecting **Next** until the import has completed.
 
-4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Azure for use with your Azure Website.
+4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Azure for use with your web app.
 
 	> [AZURE.NOTE] During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.
 
@@ -282,7 +282,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 
 	Save the file.
 
-5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Azure Websites:
+5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Azure App Service:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
@@ -297,12 +297,12 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
-	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Websites.
+	After running this command, you should have a **myserver.pfx** file suitable for use with Azure App Service.
 
 
 ###<a name="bkmk_selfsigned"></a>Generate a self-signed certificate (for testing only)
 
-In some cases you may wish to obtain a certificate for testing, and delay purchasing one from a trusted CA until you go into production. Self-signed certificates can fill this gap. A self-signed certificate is a certificate you create and sign as if you were a Certificate Authority. While this certificate can be used to secure a website, most browsers will return errors when visiting the site as the certificate was not signed by a trusted CA. Some browsers may even refuse to allow you to view the site.
+In some cases you may wish to obtain a certificate for testing, and delay purchasing one from a trusted CA until you go into production. Self-signed certificates can fill this gap. A self-signed certificate is a certificate you create and sign as if you were a Certificate Authority. While this certificate can be used to secure a web app, most browsers will return errors when visiting the site as the certificate was not signed by a trusted CA. Some browsers may even refuse to allow you to view the site.
 
 - [Generate a self-signed certificate using makecert](#bkmk_ssmakecert)
 - [Generate a self-signed certificate using OpenSSL](#bkmk_ssopenssl)
@@ -316,7 +316,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 
 	If you receive a User Account Control dialog, select **Yes** to continue.
 
-2. From the Developer Command Prompt, use the following command to create a new self-signed certificate. You must substitute **serverdnsname** with the DNS of your website.
+2. From the Developer Command Prompt, use the following command to create a new self-signed certificate. You must substitute **serverdnsname** with the DNS of your web app.
 
 		makecert -r -pe -b 01/01/2013 -e 01/01/2014 -eku 1.3.6.1.5.5.7.3.1 -ss My -n CN=serverdnsname -sky exchange -sp "Microsoft RSA SChannel Cryptographic Provider" -sy 12 -len 2048
 
@@ -351,7 +351,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
         localityName			= Locality Name (eg, city)
         0.organizationName		= Organization Name (eg, company)
         organizationalUnitName		= Organizational Unit Name (eg, section)
-        commonName			= Common Name (eg, your website's domain name)
+        commonName			= Common Name (eg, your app's domain name)
         commonName_max			= 64
         emailAddress			= Email Address
         emailAddress_max		= 40
@@ -368,7 +368,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
          keyUsage=nonRepudiation, digitalSignature, keyEncipherment
          extendedKeyUsage = serverAuth
 
-	This specifies the configuration settings required to produce an SSL certificate that can be used by Azure Websites.
+	This specifies the configuration settings required to produce an SSL certificate that can be used by Azure App Service.
 
 2. Generate a new self-signed certificate by using the following from a command-line, bash or terminal session:
 
@@ -376,58 +376,48 @@ You can create a test certificate from a Windows system that has Visual Studio i
 
 	This creates a new certificate using the configuration settings specified in the **serverauth.cnf** file.
 
-3. To export the certificate to a .PFX file that can be uploaded to an Azure Website, use the following command:
+3. To export the certificate to a .PFX file that can be uploaded to a web app, use the following command:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	When prompted, enter a password to secure the .pfx file.
 
-	The **myserver.pfx** produced by this command can be used to secure your Azure Website for testing purposes.
+	The **myserver.pfx** produced by this command can be used to secure your web app for testing purposes.
 
 <a name="bkmk_standardmode"></a><h2>Configure Standard mode</h2>
 
-Enabling HTTPS for a custom domain is only available for the **Standard** web hosting plan mode of Azure websites. Use the following steps to switch to **Standard** mode.
+Enabling HTTPS for a custom domain is only available for the **Standard** mode of web app. Use the following steps to switch to **Standard** mode.
 
-> [AZURE.NOTE] Before switching a website from the free website mode to **Standard** mode, you should remove spending caps in place for your Website subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** mode pricing, see [Pricing Details][pricing].
+> [AZURE.NOTE] Before switching a web app from the **Free** mode to **Standard** mode, you should remove spending caps in place for your web app subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** mode pricing, see [Pricing Details][pricing].
 
-1. In your browser, open the [Management Portal][portal].
-
-2. In the **Websites** tab, click the name of your website.
-
-	![selecting a web site][website]
-
-3. Click the **SCALE** tab.
-
+1.	In your browser, open the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
+2.	Click the **Browse** option on the left side of the page.
+3.	Click the **Web Apps** blade.
+4.	Click the name of your web app.
+5.	In the **Essentials** page, click **Settings**.
+6.	Click **Scale**
 	![The scale tab][scale]
+7.	In the **Scale** section, set the App Service plan mode by clicking **Select**.
+	![The Pricing tier][sslreserved]
 
-4. In the **general** section, set the web hosting plan mode by clicking **STANDARD**.
-
-	![standard mode selected][standard]
-
-5. Click **Save**. When prompted, click **Yes**.
-
-	> [AZURE.NOTE] If you receive a "Configuring scale for website '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/en-us/support/options/).
+	> [AZURE.NOTE] If you receive a "Configuring scale for web app '&lt;app name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](/support/options/).
 
 
 ##<a name="bkmk_configuressl"></a>Configure SSL
 
-Before performing the steps in this section, you must have associated a custom domain name with your Azure Website. For more information, see [Configuring a custom domain name for an Azure Web Site][customdomain].
+Before performing the steps in this section, you must have associated a custom domain name with your web app. For more information, see [Configuring a custom domain name for a web app][customdomain].
 
-1. In your browser, open the [Azure Management Portal][portal].
-
-2. In the **Websites** tab, click the name of your site and then select the **CONFIGURE** tab.
-
-	![the configure tab][configure]
-
-3. In the **certificates** section, click **upload a certificate**
-
-	![upload a certificate][uploadcert]
-
-4. Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **check** to upload the certificate.
-
-	![upload certificate dialog][uploadcertdlg]
-
-5. In the **ssl bindings** section of the **CONFIGURE** tab, use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use [Server Name Indication][sni] (SNI) or IP based SSL.
+1.	In your browser, open the [Azure Management Portal](https://portal.azure.com).
+2.	Click the **Browse** option on the left side of the page.
+3.	Click the **Web Apps** blade.
+4.	Click the name of your web app.
+5.	In the **Essentials** page, click **Settings**.	
+6.	Click **Custom domains and SSL**.
+	![The config tab][sslconfig]
+7.	In the **certificates** section, click **Upload**
+8.	Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **Save** to upload the certificate.
+	![ssl upload][ssluploadcert]
+9. In the **ssl bindings** section of the **SSL Settings** tab, use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use [Server Name Indication][sni] (SNI) or IP based SSL.
 
 	![ssl bindings][sslbindings]
 	
@@ -435,11 +425,11 @@ Before performing the steps in this section, you must have associated a custom d
 
 	* SNI based SSL is an extension to SSL and [Transport Layer Security][tls] (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the [Server Name Indication][sni] article on Wikipedia.
 
-6. Click **Save** to save the changes and enable SSL.
+10. Click **Save** to save the changes and enable SSL.
 
 > [AZURE.NOTE] If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
 >
-> 1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your website. You can find this IP address on the **Dashboard** page of your website, in the **quick glance** section. It will be listed as **Virtual IP Address**:
+> 1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web app. You can find this IP address on the **Dashboard** page of your web app, in the **quick glance** section. It will be listed as **Virtual IP Address**:
 >    
 >     ![Virtual IP address](./media/configure-ssl-web-site/staticip.png)
 >    
@@ -448,13 +438,13 @@ Before performing the steps in this section, you must have associated a custom d
 > 2. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
 
 
-At this point, you should be able to visit your website using `HTTPS://` instead of `HTTP://` to verify that the certificate has been configured correctly.
+At this point, you should be able to visit your web app using `HTTPS://` instead of `HTTP://` to verify that the certificate has been configured correctly.
 
-##<a name="bkmk_enforce"></a>Enforce HTTPS on your Azure website
+##<a name="bkmk_enforce"></a>Enforce HTTPS on your web app
 
-Azure Websites do *not* enforce HTTPS. Visitors may still access your site using HTTP, which may compromise your website's security. If you want to enforce HTTPS for your website, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure Websites, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure Websites.** 
+Azure App Service do *not* enforce HTTPS. Visitors may still access your web app using HTTP, which may compromise your web app's security. If you want to enforce HTTPS for your web app, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure App Service, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure .** 
 
-> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to a web app](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 > 
 > For information on programmatic redirection of requests using other programming languages and frameworks, consult the documentation for those technologies.
 
@@ -481,7 +471,7 @@ URL Rewrite rules are defined in a **web.config** file stored in the root of you
 
 This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, HTTP://contoso.com would be redirected to HTTPS://contoso.com.
 
-> [AZURE.NOTE] If your application is written in  **Node.js**, **PHP**, **Python Django**, or **Java**, it probably doesn't include a web.config file. However **Node.js**, **Python Django**, and **Java** all actually do use a web.config when hosted on Azure Websites - Azure creates the file automatically during deployment, so you never see it. If you include one as part of your application, it will override the one that Azure automatically generates.
+> [AZURE.NOTE] If your application is written in  **Node.js**, **PHP**, **Python Django**, or **Java**, it probably doesn't include a web.config file. However **Node.js**, **Python Django**, and **Java** all actually do use a web.config when hosted on Azure App Service- Azure creates the file automatically during deployment, so you never see it. If you include one as part of your application, it will override the one that Azure automatically generates.
 
 ###.NET
 
@@ -491,13 +481,13 @@ If your web.config file already includes a **&lt;rewrite>** section, add the **&
 
 ###PHP
 
-For PHP applications, simply save the [example](#example) as a web.config file in the root of your application, then re-deploy the application to your Azure Website.
+For PHP applications, simply save the [example](#example) as a web.config file in the root of your application, then re-deploy the application to your web app.
 
 ###Node.js, Python Django, and Java
 
 A web.config file is automatically created for Node.js, Python Django, and Java apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
 
-To retrieve and modify the auto-generated file from the Website, use the following steps.
+To retrieve and modify the auto-generated file from the web app, use the following steps.
 
 1. Download the file using FTP (see [Uploading/downloading files over FTP and collecting diagnostics logs](http://blogs.msdn.com/b/avkashchauhan/archive/2012/06/19/windows-azure-website-uploading-downloading-files-over-ftp-and-collecting-diagnostics-logs.aspx)).
 
@@ -520,17 +510,23 @@ Once you deploy a web.config with a rewrite rule to force HTTPS, it should take 
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation. 
 
 ## More Resources ##
-- [Microsoft Azure Trust Center](/en-us/support/trust-center/security/)
+- [Microsoft Azure Trust Center](/support/trust-center/security/)
 - [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Enable diagnostic logging](/en-us/documentation/articles/web-sites-enable-diagnostic-log/)
-- [Configuring Web Sites](/en-us/documentation/articles/web-sites-configure/)
+- [Enable diagnostic logging](../articles/web-sites-enable-diagnostic-log.md)
+- [Configuring Web Sites](../articles/web-sites-configure.md)
 - [Azure Management Portal](https://manage.windowsazure.com)
 
-[customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
-[iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+[customdomain]: ../articles/web-sites-custom-domain-name.md
+[iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
-[installcertiis]: http://technet.microsoft.com/en-us/library/cc771816(WS.10).aspx
-[exportcertiis]: http://technet.microsoft.com/en-us/library/cc731386(WS.10).aspx
+[installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
+[exportcertiis]: http://technet.microsoft.com/library/cc731386(WS.10).aspx
 [openssl]: http://www.openssl.org/
 [portal]: https://manage.windowsazure.com/
 [tls]: http://en.wikipedia.org/wiki/Transport_Layer_Security
@@ -538,7 +534,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 [website]: ./media/configure-ssl-web-site/sslwebsite.png
 [scale]: ./media/configure-ssl-web-site/sslscale.png
 [standard]: ./media/configure-ssl-web-site/sslreserved.png
-[pricing]: https://www.windowsazure.com/en-us/pricing/details/
+[pricing]: /pricing/details/
 [configure]: ./media/configure-ssl-web-site/sslconfig.png
 [uploadcert]: ./media/configure-ssl-web-site/ssluploadcert.png
 [uploadcertdlg]: ./media/configure-ssl-web-site/ssluploaddlg.png

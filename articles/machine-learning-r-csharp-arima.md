@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
+	ms.date="04/21/2015" 
 	ms.author="jaymathe"/> 
 
  
@@ -85,9 +85,9 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ##Creation of web service 
 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
-From within Azure Machine Learning, a new blank experiment was created. Sample input data was uploaded with a predefined data schema. Linked to the data schema is an “Execute R Script” module, which generates the ARIMA forecasting model by using ‘auto.arima’ and ‘forecast’ functions from R. 
+From within Azure Machine Learning, a new blank experiment was created. Sample input data was uploaded with a predefined data schema. Linked to the data schema is an [Execute R Script][execute-r-script] module, which generates the ARIMA forecasting model by using ‘auto.arima’ and ‘forecast’ functions from R. 
 
 ###Experiment flow:
 
@@ -131,8 +131,12 @@ From within Azure Machine Learning, a new blank experiment was created. Sample i
 This is a very simple example for ARIMA forecasting. As can be seen from the example code above, no error catching is implemented, and the service assumes that all the variables are continuous/positive values and the frequency should be an integer greater than 1. The length of the date and value vectors should be the same. The date variable should adhere to the format ‘mm/dd/yyyy’.
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to marketplace, see [here](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
 [2]: ./media/machine-learning-r-csharp-arima/arima-img2.png
 [3]: ./media/machine-learning-r-csharp-arima/arima-img3.png
+
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/

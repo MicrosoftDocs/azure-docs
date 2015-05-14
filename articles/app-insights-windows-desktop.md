@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Get started with Application Insights for Windows desktop apps" 
+	pageTitle="Application Insights for Windows desktop apps" 
 	description="Analyze usage and performance of your Windows app with Application Insights." 
 	services="application-insights" 
+    documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,28 +12,33 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-10" 
+	ms.date="04/04/2015" 
 	ms.author="awills"/>
 
-# Application Insights
-
-## Monitor usage and performance in Windows desktop applications
+# Application Insights on Windows Desktop apps
 
 *Application Insights is in preview.*
 
-Application Insights lets you monitor your deployed application for:
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
-* **Usage** - Learn how many users you have and what they are doing with your app.
-* **Performance issues and exceptions** - Monitor performance and understand its impact on users.
+Application Insights lets you monitor your deployed application for usage and performance.
 
-In Windows Desktop applications, you have to use the API to send telemetry to the Application Insights portal. There is no automatic telemetry.
+*Although the Application Insights SDK can be made to work in a desktop app, it isn't a scenario we currently support. But if you'd like to try it experimentally, here are some tips for doing so.*
+
+
+
 
 ## <a name="add"></a> Create an Application Insights resource
 
 
-1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose Windows Store app. (This sets the content of the Overview blade. You could choose ASP.NET instead, but there would be more charts on the Overview blade that aren't applicable.)
+1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app or Windows Store app. 
+
     ![Click New, Application Insights](./media/app-insights-windows-get-started/01-new.png)
+
+    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
+
 2.  Take a copy of the Instrumentation Key.
+
     ![Click Properties, select the key, and press ctrl+C](./media/app-insights-windows-get-started/02-props.png)
 
 ## <a name="sdk"></a>Install the SDK in your application
@@ -41,18 +47,31 @@ In Windows Desktop applications, you have to use the API to send telemetry to th
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Install the Application Insights SDK for Web apps.
-   ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
+2. Install the Application Insights SDK core.
+
+    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
+
+    (As an alternative, you could choose Application Insights SDK for Web Apps. This provides some built-in performance counter telemetry. )
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
     &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
 
+    As an alternative you can achieve the same effect with this code:
+    
+    `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+4. If you installed the Web Apps SDK, you might also want to comment out the web telemetry modules from ApplicationInsights.config
+
 ## <a name="telemetry"></a>Insert telemetry calls
 
-Create a `TelemetryClient` instance and then use it to send telemetry.
+Create a `TelemetryClient` instance and then [use it to send telemetry][track].
+
+Use `TelemetryClient.Flush` to send messages before closing the app. (This is not recommended for other types of app.)
 
 For example, in a Windows Forms application, you could write:
+
+```C#
 
     public partial class Form1 : Form
     {
@@ -64,6 +83,17 @@ For example, in a Windows Forms application, you could write:
             ...
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            stop = true;
+            if (tc != null)
+            {
+                tc.Flush(); // only for desktop apps
+            }
+            base.OnClosing(e);
+        }
+
+```
 
 Use any of the [Application Insights API][track] to send telemetry. In Windows Desktop applications, no telemetry is sent automatically. Typically you'd use:
 
@@ -114,12 +144,8 @@ The first events will appear in Diagnostic Search.
 
 Click Refresh after a few seconds if you're expecting more data.
 
-Return to the Overview blade to see charts. (You won't see data for Crashes.) Click any chart to see more detail.
+If you used TrackMetric or the measurements parameter of TrackEvent, open [Metric Explorer][metrics] and open the Filters blade, where you'll see your metrics.
 
-
-## <a name="deploy"></a>Release your application to users
-
-[Publish your application](http://dev.windows.com/publish) and watch the data accumulate as users download and use it.
 
 
 ## <a name="usage"></a>Next Steps
@@ -133,6 +159,11 @@ Return to the Overview blade to see charts. (You won't see data for Crashes.) Cl
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[track]: app-insights-custom-events-metrics-api.md
 

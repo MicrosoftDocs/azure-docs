@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="05/06/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -21,8 +21,7 @@
 To enable your pipelines in an Azure data factory to work with an on-premises data source, you need to add the on-premises data source as a linked service to the data factory by using either Azure Management Portal or Azure PowerShell.
  
 To be able to add an on-premises data source as a linked service to a data factory, you first need to download and install Microsoft Data Management Gateway on an on-premises computer and configure linked service for the on-premises data source to use the gateway .
- 
-> [AZURE.NOTE] Only SQL Server is the supported on-premises data source at this moment.
+
 
 ## <a href="DMG"></a> Data Management Gateway
 
@@ -36,7 +35,7 @@ To be able to add an on-premises data source as a linked service to a data facto
 
 Data Management Gateway has a full range of on-premises data connection capabilities that include the following:
 
-- **Non-intrusive to corporate firewall** – Data Management Gateway just works after installation, without having to open up a firewall connection or requiring intrusive changes to your corporate network infrastructure.
+- **Non-intrusive to corporate firewall** – Data Management Gateway just works after installation, without having to open up a firewall connection or requiring intrusive changes to your corporate network infrastructure. 
 - **Encrypt credentials with your certificate** – Credentials used to connect to data sources are encrypted with a certificate fully owned by a user. Without the certificate, no one can decrypt the credentials into plain text, including Microsoft.
 
 ### Considerations for using Data Management Gateway
@@ -44,13 +43,23 @@ Data Management Gateway has a full range of on-premises data connection capabili
 2.	You can have **only one instance of Data Management Gateway** installed on your machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install gateways on two on-premises computers where each gateway tied to a separate data factory.
 3.	The **gateway does not need to be on the same machine as the data source**, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts on-premises data source so that the gateway does not compete for resources with data source.
 4.	You can have **multiple gateways on different machines connecting to the same on-premises data source**. For example, you may have two gateways serving two data factories but the same on-premises data source is registered with both the data factories. 
-5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine. 
+5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine.
 
+### Ports and security considerations 
+- The Data Management Gateway installation program opens **8050** and **8051** ports on the gateway machine. These ports are used by the **Credentials Manager** (ClickOnce application), which allows you to set credentials for an on-premises linked service and to test connection to the data source. These ports cannot be reached from internet and you do not need have these opened in the corporate firewall.
+- When copying data from/to an on-premises SQL Server database to/from an Azure SQL database, ensure the following:
+ 
+	- Firewall on the gateway machine allows outgoing TCP communication on **TCP** port **1433**
+	- Configure [Azure SQL firewall settings](https://msdn.microsoft.com/library/azure/jj553530.aspx) to add the **IP address of the gateway machine** to the **allowed IP addresses**.
+
+- When copying data to/from on-premises SQL Server to any destination and the gateway and SQL Server machines are different, do the following: [configure Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) on the SQL Server machine so that the gateway can access the database via ports that the SQL Server instance listens on. For the default instance, it is port 1433.  
+
+- You must launch the **Credentials Manager** application on a computer that is able to connect to the Data Management Gateway to be able to set credentials for the data source and to test connection to the data source.
 
 ### Gateway installation - prerequisites 
 
-1.	The supported Operating System versions are Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012.
-2.	The recommended configuration for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
+1.	The supported **Operating System** versions are Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012.
+2.	The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
 3.	If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.  
 
 
@@ -63,12 +72,10 @@ In this walkthrough, you create a data factory with a pipeline that moves data f
 ## Step 1: Create an Azure data factory
 In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
-1.	After logging into the [Azure Preview Portal][
-2.	azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade.
+1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** on the **Data analytics** blade.
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu] 
-	
-	If you do not see **Data Factory** on the **New** blade, scroll down.  
+  
 6. In the **New data factory** blade:
 	1. Enter **ADFTutorialOnPremDF** for the **name**.
 	2. Click **RESOURCE GROUP NAME** and select **ADFTutorialResourceGroup** (if you had done the tutorial from [Get started with Azure Data Factory][adfgetstarted]. You can select an existing resource group or create a new one. To create a new resource group:
@@ -80,23 +87,18 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 	![Add to Startboard][image-data-factory-add-to-startboard]
 
 8. In the **New data factory** blade, click **Create**.
-9. Look for notifications from the creation process in the **NOTIFICATIONS** hub on the left.
+
+	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.  
+9. Look for notifications from the creation process in the **NOTIFICATIONS** hub on the left. Click **X** to close the **NOTIFCATIONS** blade if it is open.
 
 	![NOTIFICATIONS hub][image-data-factory-notifications-hub]
 
-11. After creation is complete, you will see the Data Factory blade as shown below:
+11. After creation is complete, you will see the **Data Factory** blade as shown below:
 
 	![Data Factory Home Page][image-data-factory-datafactory-homepage]
 
-12. You should also see it on the **Startboard** as shown below. Click it to open the **Data Factory blade** if it is not already open.
-
-	![Startboard][image-data-factory-startboard]
-
-## Step 2: Create linked services 
-In this step, you will create two linked services: **MyBlobStore** and **OnPremSqlLinkedService**. The **OnPremSqlLinkedService** links an on-premises SQL Server database and the **MyBlobStore** linked service links an Azure blob store to the **ADFTutorialDataFactory**. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
-
-### Add a linked service to an on-premises SQL Server database
-1.	On the **Data Factory** blade for **ADFTutorialOnPremDF**, click **Linked Services**. 
+## Step 2: Create a data management gateway
+5.	On the **Data Factory** blade for **ADFTutorialOnPremDF**, click **Linked Services**. 
 
 	![Data Factory Home Page][image-data-factory-home-age]
 
@@ -108,10 +110,9 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 
 	![Create Gateway blade][image-data-factory-create-gateway-blade]
 
-3. In the **Configure** blade, click **Install directly on this computer**. This will download the installation package for the gateway, install, configure, and register the gateway on the computer.
+3. In the **Configure** blade, click **Install directly on this computer**. This will download the installation package for the gateway, install, configure, and register the gateway on the computer.  
 
-	**NOTE: It requires Internet Explorer or a Microsoft ClickOnce compatible web browser.**
-
+	> [AzURE.NOTE] Please use Internet Explorer or a Microsoft ClickOnce compatible web browser.
 
 	![Gateway - Configure blade][image-data-factory-gateway-configure-blade]
 
@@ -119,9 +120,18 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 
 	You can also download and install gateway manually by using the links in this blade and register it using the key shown in the **REGISTER WITH KEY** text box.
 	
-	See [Data Management Gateway](#DMG) section for details about the gateway including best practices and important considerations. 
+	See [Data Management Gateway](#DMG) section for details about the gateway including best practices and important considerations.
 
-4. Click **OK** on the **New data gateway** blade.
+	>[AZURE.NOTE] You must be an administrator on the local computer to install and configure the Data Management Gateway successfully. You can add additional users to the Data Management Gateway Users local Windows group. The members of this group will be able to use the Data Management Gateway Configuration Manager tool to configure the gateway. 
+
+4. Click the **NOTIFICATIONS** hub on the left. Wait until you see **Express setup for 'adftutorialgateway' succeeded** message in the **Notifications** blade.
+
+	![Express setup succeeded][express-setup-succeeded]
+5. Click **OK** on the **Create** blade and then on the **New data gateway** blade.
+6. Close the **Linked Services** blade (by pressing **X** button in the top-right corner) and reopen the **Linked Services** blade to see the latest status of the gateway. 
+7. Confirm that the **status** of the gateway is **Online**. 
+
+	![Gateway status][gateway-status]
 5. Launch **Microsoft Data Management Gateway Configuration Manager** application  on your computer.
 
 	![Gateway Configuration Manager][image-data-factory-gateway-configuration-manager]
@@ -131,72 +141,88 @@ In this step, you will create two linked services: **MyBlobStore** and **OnPremS
 	2. **Gateway name** is set to **adftutorialgateway**.
 	3. **Instance name** is set to **adftutorialgateway**.
 	4. **Gateway key status** is set to **Registered**.
-	5. The status bar the bottom displays **Connected to Data Management Gateway Cloud Service** along with a **green check mark**.  
-
-7. On the **Linked Services** blade, confirm that the **status** of the gateway is **Good** and click **+ Data store**. You may need to close and reopen the blade to refresh the blade. 
-
-	![Add Data Store button][image-data-factory-add-datastore-SQL-button]
-
-8. In the **New data store** blade, enter **OnPremSqlLinkedService** for the **name**.
-9. Click **TYPE (Settings required)** and select **SQL Server**. 
-10. In the **New data store** blade, click **DATA GATEWAY (Configure required settings)**.
-
-	![Data Gateway Configure link][image-data-factory-gateway-configure-link]
-  
-11. Select **adftutorialgateway** you created earlier. 
-12.	In the **New data store** blade, click **CREDENTIALS** to see the **Credentials** blade.
-
-	![Data Source Credentials Blade][image-data-factory-credentials-blade]
-
-13.	In the **Credentials** blade, click **Click here to set Credentials securely**. It will launch the following pop up dialog box.
-
-	**NOTE: It requires Internet Explorer or a Microsoft ClickOnce compatible web browser.**
-
-	![One Click application install][image-data-factory-oneclick-install]
-
-14. Click **Run** to install the **Credentials Manager** application and you see the Setting Credentials dialog box. 
-15.	In the **Setting Credentials** dialog box, enter **user name** and **password** that the service can use to access the on-premises SQL Server database, and click **OK**. Only **SQL Authentication** is supported by this dialog box. Wait until the dialog box closes.
-16.	Click **OK** on **Credentials** blade and click **OK** on **New data store** blade. You should see the **OnPremSqlLinkedService** linked service you added on the Linked Services blade.
-
-	![Linked Services Blade with OnPrem Store][image-data-factory-linkedservices-blade-onprem]
-
+	5. The status bar the bottom displays **Connected to Data Management Gateway Cloud Service** along with a **green check mark**.
 	
-   
+7. On the **Linked Services** blade, confirm that the **status** of the gateway is **Good**. 
+8. Close all the blades until you get to the **Data Factory** home page. 
 
+## Step 2: Create linked services 
+In this step, you will create two linked services: **StorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links an on-premises SQL Server database and the **StorageLinkedService** linked service links an Azure blob store to the **ADFTutorialDataFactory**. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
+
+### Add a linked service to an on-premises SQL Server database
+1.	In the **DATA FACTORY** blade, clcik **Author and deploy** tile to launch the **Editor** for the data factory.
+
+	![Author and Deploy Tile][image-author-deploy-tile] 
+
+	> [AZURE.NOTE] See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor.
+2.	In the **Editor**, click **New data store** button on the toolbar and select **On-premises SQL server database** from the drop down menu. 
+
+	![Editor New data store button][image-editor-newdatastore-onpremsql-button]
+    
+3.	You should see the JSON template for creating an on-premises SQL Server linked service in the right pane. 
+	![On-prem SQL Linked Service - settings][image-editor-newdatastore-onpremsql-settings]
+
+4.	do the following in the JSON pane: 
+	1.	For the **gatewayName** property, enter **adftutorialgateway** to replace all the text inside the double quotes.  
+	2.	If you are using **SQL Authentication**: 
+		1.	For the **connectionString** property, replace **<servername\>**, **<databasename\>**, **<username\>**, and **<password\>** with names of your on-premises SQL server, database, user account, and  password.	
+		2.	Remove last two properties (**username** and **password**) from the JSON file and remove the **comma (,)** character at the end of the last line from the remaining JSON script.
+		
+				{
+	    			"name": "SqlServerLinkedService",
+	    			"properties": {
+		        		"type": "OnPremisesSqlLinkedService",
+		        		"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+		        		"gatewayName": "adftutorialgateway"
+	    			}
+				}
+	3.	if you are using **Windows Authentication**:
+		1. For the **connectionString** property, replace **<servername\>** and **<databasename\>** with names of your on-premises SQL server and database. Set **Integrated Security** to **True**. Remove **ID** and **Password** from the connection string.
+			
+				{
+    				"name": "SqlServerLinkedService",
+    				"properties": {
+        				"type": "OnPremisesSqlLinkedService",
+        				"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+		   				"gatewayName": "adftutorialgateway",
+				        "username": "<Specify user name if you are using Windows Authentication>",
+				        "password": "<Specify password for the user account>"
+    				}
+				}		
+		
+6. Click **Deploy** on the toolbar to deploy the SqlServerLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar. You should also see the **SqlServerLinkedService** in the tree view on the left. 
+		   
+	![SqlServerLinkedService deployment successful][image-editor-sql-linked-service-successful]
+	
+  
+> [AZURE.NOTE] You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
 
 #### Add a linked service for an Azure storage account
+ 
+1. In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage linked service in the right pane. 
 
-1.	In the **Data Factory** blade, click **Linked Services** tile to launch the **Linked Services** blade.
-2. In the **Linked Services** blade, click **Add data store**.	
-3. In the **New data store** blade:
-	1. Enter a **name** for the data store. For the purpose of the tutorial, enter **MyBlobStore** for the **name**.
-	2. Enter **description (optional)** for the data store.
-	3. Click **Type**.
-	4. Select **Azure storage account**, and click **OK**.
-		
-		![Azure Storage Account][image-data-factory-azure-storage-account]
+	![Editor New data store button][image-editor-newdatastore-button]
+    
+6. Replace **<accountname\>** and **<accountkey\>** with the account name and account key values for your Azure storage account. 
 
-4. Now, you are back to **New data store** blade that looks as below:
+	![Editor Blob Storage JSON][image-editor-blob-storage-json]    
+	
+	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
-	![Azure Storage settings][image-data-factory-azure-storage-settings]
+6. Click **Deploy** on the toolbar to deploy the StorageLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar.
 
-5. Enter the **Account Name** and **Account Key** for your Azure Storage Account, and click **OK**.
-
-  
-6. After you click **OK** on the **New data store** blade, you should see **MyBlobStore** in the list of **DATA STORES** on the **Linked Services** blade. Check **NOTIFICATIONS** Hub (on the left) for any messages.
-
-	![Linked Services blade with MyBlobStore][image-data-factory-linkedservices-with-storage]
+	![Editor Blob Storage Deploy][image-editor-blob-storage-deploy]
 
  
 ## Step 3: Create input and output datasets
-In this step, you will create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage). Creating datasets and pipelines is not supported by the Azure Portal yet, so you will be using Azure PowerShell cmdlets to create tables and pipelines. Before creating datasets or tables (rectangular datasets), you need to do the following (detailed steps follows the list):
+In this step, you will create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage). Before creating datasets or tables (rectangular datasets), you need to do the following (detailed steps follows the list):
 
 - Create a table named **emp** in the SQL Server Database you added as a linked service to the data factory and insert couple of sample entries into the table.
 - - If you haven’t gone through the tutorial from [Get started with Azure Data Factory][adfgetstarted] article, create a blob container named **adftutorial** in the Azure blob storage account you added as a linked service to the data factory.
 
 ### Prepare On-premises SQL Server for the tutorial
 
-1. In the database you specified for the on-premises SQL Server linked service (**OnPremSqlLinkedService**), use the following SQL script to create the **emp** table in the database.
+1. In the database you specified for the on-premises SQL Server linked service (**SqlServerLinkedService**), use the following SQL script to create the **emp** table in the database.
 
 
         CREATE TABLE dbo.emp
@@ -219,8 +245,8 @@ In this step, you will create input and output datasets that represent input and
 
 ### Create input table
 
-1.	Create a JSON file for a Data Factory table that represents data from the **emp** table in the SQL Server database. Launch **Notepad**, copy the following JSON script, and save it as **EmpOnPremSQLTable.json** in the C:\ADFGetStarted\**OnPrem** folder. Create **OnPrem** subfolder in **C:\ADFGetStarted** folder if it doesn't exist. 
-
+1.	In the **Data Factory Editor**, click **New dataset** on the command bar, and click **On-premises SQL**. 
+2.	Replace the JSON in the right pane with the following text:    
 
         {
     		"name": "EmpOnPremSQLTable",
@@ -230,7 +256,7 @@ In this step, you will create input and output datasets that represent input and
         		{
             		"type": "OnPremisesSqlServerTableLocation",
             		"tableName": "emp",
-            		"linkedServiceName": "OnPremSqlLinkedService"
+            		"linkedServiceName": "SqlServerLinkedService"
         		},
         		"availability": 
         		{
@@ -251,25 +277,18 @@ In this step, you will create input and output datasets that represent input and
 	
 	- location **type** is set to **OnPremisesSqlServerTableLocation**.
 	- **tableName** is set to **emp**.
-	- **linkedServiceName** is set to **OnPremSqlLinkedService** (you had created this linked service in Step 2).
+	- **linkedServiceName** is set to **SqlServerLinkedService** (you had created this linked service in Step 2).
 	- For an input table that is not generated by another pipeline in Azure Data Factory, you must specify **waitOnExternal** section in the JSON. It denotes the input data is produced external to the Azure Data Factory service.   
 
 	See [JSON Scripting Reference][json-script-reference] for details about JSON properties.
 
-2. The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode. Launch **Azure PowerShell**, and execute the following command to switch to the **AzureResourceManager** mode.     
+2. Click **Deploy** on the command bar to deploy the dataset (table is a rectangular dataset). Confirm that you see a message on the title bar that says **TABLE DEPLOYED SUCCESSFULLY**. 
 
-        switch-azuremode AzureResourceManager
-
-	Download [Azure PowerShell][azure-powershell-install] if you don't have it installed on it your computer.
-3. Use the **New-AzureDataFactoryTable** cmdlet to create the input table using the **EmpOnPremSQLTable.json** file.
-
-		New-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF –File C:\ADFGetStarted\OnPrem\EmpOnPremSQLTable.json  
-	
-	Update the command if you are using a different resource group.
 
 ### Create output table
 
-1.	Create a JSON file for a Data Factory table to be used as an output for the pipeline you will be creating in the next step. Launch Notepad, copy the following JSON script, and save it as **OutputBlobTable.json** in the **C:\ADFGetStarted\OnPrem** folder.
+1.	In the **Data Factory Editor**, click **New dataset** on the command bar, and click **Azure Blob storage**.
+2.	Replace the JSON in the right pane with the following text: 
 
 		{
     		"name": "OutputBlobTable",
@@ -284,7 +303,7 @@ In this step, you will create input and output datasets that represent input and
                 		"type": "TextFormat",
                 		"columnDelimiter": ","
             		},
-            		"linkedServiceName": "MyBlobStore"
+            		"linkedServiceName": "StorageLinkedService"
         		},
         		"availability": 
         		{
@@ -297,7 +316,7 @@ In this step, you will create input and output datasets that represent input and
 	Note the following: 
 	
 	- location **type** is set to **AzureBlobLocation**.
-	- **linkedServiceName** is set to **MyBlobStore** (you had created this linked service in Step 2).
+	- **linkedServiceName** is set to **StorageLinkedService** (you had created this linked service in Step 2).
 	- **folderPath** is set to **adftutorial/outfromonpremdf** where outfromonpremdf is the folder in the adftutorial container. You just need to create the **adftutorial** container.
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service will generate an output data slice every hour in the **emp** table in the Azure SQL Database. 
 
@@ -321,15 +340,15 @@ In this step, you will create input and output datasets that represent input and
 
 	See [JSON Scripting Reference][json-script-reference] for details about JSON properties.
 
-2.	In the **Azure PowerShell**, execute the following command to create another Data Factory table to represent the table in the Azure SQL Database.
-
-		New-AzureDataFactoryTable -DataFactoryName ADFTutorialOnPremDF -File C:\ADFGetStarted\OnPrem\OutputBlobTable.json -ResourceGroupName ADFTutorialResourceGroup  
+2.	Click **Deploy** on the command bar to deploy the dataset (table is a rectangular dataset). Confirm that you see a message on the title bar that says **TABLE DEPLOYED SUCCESSFULLY**.
+  
 
 ## Step 4: Create and run a pipeline
 In this step, you create a **pipeline** with one **Copy Activity** that uses **EmpOnPremSQLTable** as input and **OutputBlobTable** as output.
 
-1.	Create a JSON file for the pipeline. Launch Notepad, copy the following JSON script, and save it as **ADFTutorialPipelineOnPrem.json** in the **C:\ADFGetStarted\OnPrem** folder.
-	 
+1.	Click **New pipeline** on the command bar. If you do not see the button, click **... (ellipsis)** to expand the command bar.
+2.	Replace the JSON in the right pane with the following text:   
+
 
         {
 			"name": "ADFTutorialPipelineOnPrem",
@@ -366,7 +385,10 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 						}		
 
 				     }
-	        	]
+	        	],
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z",
+        		"isPaused": false
 			}
 		}
 
@@ -377,28 +399,27 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 	- In the **transformation** section, **SqlSource** is specified as the **source type** and **BlobSink **is specified as the **sink type**.
 	- SQL query **select * from emp** is specified for the **sqlReaderQuery** property of **SqlSource**.
 
-2. Use the **New-AzureDataFactoryPipeline** cmdlet to create a pipeline using the **ADFTutorialPipeline.json** file you created.
+	> [AZURE.NOTE] Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
+	> If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property. 
+	> You are defining the time duration in which the data slices will be processed based on the **Availability** properties that were defined for each Azure Data Factory table.
+	> In the example above, there will be 24 data slices as each data slice is produced hourly.
+	
+2. Click **Deploy** on the command bar to deploy the dataset (table is a rectangular dataset). Confirm that you see a message on the title bar that says **PIPELINE DEPLOYED SUCCESSFULLY**.  
+5. Now, close the **Editor** blade by clicking **X**. Click **X** again to close the ADFTutorialDataFactory blade with the toolbar and tree view. If you see **your unsaved edits will be discarded** message, click **OK**.
+6. You should be back to the **DATA FACTORY** blade for the **ADFTutorialOnPremDF**.
 
-		New-AzureDataFactoryPipeline  -DataFactoryName ADFTutorialOnPremDF -File C:\ADFGetStarted\OnPrem\ADFTutorialPipelineOnPrem.json -ResourceGroupName ADFTutorialResourceGroup  
+**Congratulations!** You have successfully created an Azure data factory, linked services, tables, and a pipeline and scheduled the pipeline.
 
-3. Once the pipeline is created, you can specify the duration in which data processing will occur. By specifying the active period for a pipeline, you are defining the time duration in which the data slices will be processed based on the **Availability** properties that were defined for each Azure Data Factory table.  Execute the following PowerShell command to set active period on pipeline and enter Y to confirm. 
-
-
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF -StartDateTime 2014-09-29Z –EndDateTime 2014-09-30Z –Name ADFTutorialPipelineOnPrem  
-
-	> [AZURE.NOTE] Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z.The EndDateTime is optional, but we will use in this tutorial.
-	> If you do not specify **EndDateTime**, it is calculated as "**StartDateTime + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the **EndDateTime**.
-
-	In the example above, there will be 24 data slices as each data slice is produced hourly.
-4. In the **Azure Preview Portal**, click **Diagram** tile on the home page for the **ADFTutorialOnPremDF** data factory. :
+### View the data factory in a Diagram View 
+1. In the **Azure Preview Portal**, click **Diagram** tile on the home page for the **ADFTutorialOnPremDF** data factory. :
 
 	![Diagram Link][image-data-factory-diagram-link]
 
-5. You should see the diagram similar to the following:
+2. You should see the diagram similar to the following:
 
 	![Diagram View][image-data-factory-diagram-view]
 
-	**Congratulations!** You have successfully created an Azure data factory, linked services, tables, and a 	pipeline and started the workflow.
+	You can zoom in, zoom out, zoom to 100%, zoom to fit, automatically position pipelines and tables, and show lineage information (highlights upstream and downstream items of selected items).  You can double-blick on an object (input/output table or pipeline) to see properties for it. 
 
 ## Step 5: Monitor the datasets and pipelines
 In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about using cmdlets for monitoring, see [Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-powershell].
@@ -414,13 +435,28 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 	![EmpOnPremSQLTable slices][image-data-factory-onprem-sqltable-slices]
 
 6. Notice that the data slices up to the current time have already been produced and they are **Ready**. It is because you have inserted the data in the SQL Server database and it is there all the time. Confirm that no slices show up in the **Problem slices** section at the bottom.
+
+
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
+    
+
+	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
+	
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.
+
 7. Now, In the **Datasets** blade, click **OutputBlobTable**.
 
 	![OputputBlobTable slices][image-data-factory-output-blobtable-slices]
-8. Confirm that slices up to the current time are produced and **Ready**.
+8. Confirm that slices up to the current time are produced and **Ready**. Wait until the statuses of slices up to the current time are set to **Ready**.
 9. Click on any data slice from the list and you should see the **DATA SLICE** blade.
 
 	![Data Slice Blade][image-data-factory-dataslice-blade]
+
+	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
+
 10. Click on the **activity run** from the list at the bottom to see **activity run details**.
 
 	![Activity Run Details blade][image-data-factory-activity-run-details]
@@ -487,27 +523,14 @@ You can remove a gateway using the **Remove-AzureDataFactoryGateway** cmdlet and
 
 
 
-
-## See Also
-
-Article | Description
------- | ---------------
-[Get started with Azure Data Factory][adf-getstarted] | This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
-[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issues.  
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
-
-
-
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[adf-getstarted]: ../data-factory-get-started
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[adf-getstarted]: data-factory-get-started.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md
+[data-factory-editor]: data-factory-editor.md
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -517,8 +540,8 @@ Article | Description
 [32bit-download-link]: http://go.microsoft.com/fwlink/?LinkId=517624
 
 [azure-preview-portal]: http://portal.azure.com
-[adfgetstarted]: ../data-factory-get-started
-[monitor-manage-powershell]: ../data-factory-monitor-manage-using-powershell
+[adfgetstarted]: data-factory-get-started.md
+[monitor-manage-powershell]: data-factory-monitor-manage-using-powershell.md
 
 
 
@@ -529,9 +552,18 @@ Article | Description
 
 
 
-[azure-powershell-install]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+[azure-powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[image-author-deploy-tile]: ./media/data-factory-use-onpremises-datasources/author-deploy-tile.png
+[image-editor-newdatastore-button]: ./media/data-factory-use-onpremises-datasources/editor-newdatastore-button.png
+[image-editor-blob-storage-json]: ./media/data-factory-use-onpremises-datasources/editor-blob-storage-settings.png
+[image-editor-blob-storage-deploy]: ./media/data-factory-use-onpremises-datasources/editor-deploy-blob-linked-service.png
+[image-editor-newdatastore-onpremsql-button]: ./media/data-factory-use-onpremises-datasources/editor-newdatastore-onpremsql-button.png
+[image-editor-newdatastore-onpremsql-settings]: ./media/data-factory-use-onpremises-datasources/editor-onprem-sql-settings.png
+[image-editor-sql-linked-service-successful]: ./media/data-factory-use-onpremises-datasources/editor-sql-linked-service-successful.png
 
+[gateway-status]: ./media/data-factory-use-onpremises-datasources/gateway-status.png
+[express-setup-succeeded]:./media/data-factory-use-onpremises-datasources/express-setup-succeeded.png
 [image-data-factory-onprem-new-everything]: ./media/data-factory-use-onpremises-datasources/OnPremNewEverything.png
 
 [image-data-factory-onprem-datastorage-cache-backup]: ./media/data-factory-use-onpremises-datasources/OnPremDataStorageCacheBackup.png
@@ -558,13 +590,7 @@ Article | Description
 
 [image-data-factory-new-datastore-blade]: ./media/data-factory-use-onpremises-datasources/OnPremNewDataStoreBlade.png
 
-[image-data-factory-azure-storage-account]: ./media/data-factory-use-onpremises-datasources/OnPremAzureStorageAccount.png
-
-[image-data-factory-azure-storage-settings]: ./media/data-factory-use-onpremises-datasources/OnPremAzureStorageSettings.png
-
 [image-data-factory-get-storage-key]: ./media/data-factory-use-onpremises-datasources/OnPremGetStorageKey.png
-
-[image-data-factory-linkedservices-with-storage]: ./media/data-factory-use-onpremises-datasources/OnPremLinkedServicesWithMyBlobStore.png
 
 [image-data-factory-linkedservices-add-gateway-button]: ./media/data-factory-use-onpremises-datasources/OnPremLinkedServicesAddGaewayButton.png
 
@@ -573,12 +599,6 @@ Article | Description
 [image-data-factory-gateway-configure-blade]: ./media/data-factory-use-onpremises-datasources/OnPremGatewayConfigureBlade.png
 
 [image-data-factory-gateway-configuration-manager]: ./media/data-factory-use-onpremises-datasources/OnPremDMGConfigurationManager.png
-
-[image-data-factory-add-datastore-SQL-button]: ./media/data-factory-use-onpremises-datasources/OnPremLinkedServicesAddSQLDataStoreButton.png
-
-[image-data-factory-gateway-configure-link]: ./media/data-factory-use-onpremises-datasources/OnPremNewDataStoreDataGatewayConfigureLink.png
-
-[image-data-factory-credentials-blade]: ./media/data-factory-use-onpremises-datasources/OnPremCredentionlsBlade.png
 
 [image-data-factory-oneclick-install]: ./media/data-factory-use-onpremises-datasources/OnPremOneClickInstall.png
 
@@ -591,8 +611,6 @@ Article | Description
 [image-data-factory-stroage-explorer]: ./media/data-factory-use-onpremises-datasources/OnPremAzureStorageExplorer.png
 
 [image-data-factory-home-age]: ./media/data-factory-use-onpremises-datasources/DataFactoryHomePage.png
-
-[image-data-factory-linkedservices-blade-onprem]: ./media/data-factory-use-onpremises-datasources/LinkedServiceBladeWithOnPremSql.png
 
 [image-data-factory-onprem-sqltable-slices]: ./media/data-factory-use-onpremises-datasources/OnPremSQLTableSlicesBlade.png
 

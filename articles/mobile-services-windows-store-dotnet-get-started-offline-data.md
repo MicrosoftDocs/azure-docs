@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Using offline data in Mobile Services (Windows Store) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
+	documentationCenter="mobile-services" 
+	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services"/>
@@ -10,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2014" 
-	ms.author="wesmc"/>
+	ms.date="04/16/2015" 
+	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
 
@@ -36,7 +36,7 @@ In this tutorial, you will update the Universal app project from the [Get starte
 
 >[AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. If this is your first experience with Mobile Services, you should complete the tutorial [Get started with Mobile Services] first.
 >
->To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 >
 >The older Windows Phone 8 tutorial for Visual Studio 2012 is still available here, [Windows Phone 8 Tutorial for Visual Studio 2012].
 
@@ -52,16 +52,16 @@ This tutorial requires the following:
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of the [Get started with Mobile Services].
 * [Azure Mobile Services SDK version 1.3.0 (or later)][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store nuget]
 * [SQLite for Windows 8.1](www.sqlite.org/downloads)
 
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 
 ## <a name="enable-offline-app"></a>Update the app to support offline features
 
 Azure Mobile Services offline features allow you to interact with a local database when you are in an offline scenario with your Mobile Service. To use these features in your app, you initialize a `MobileServiceClient.SyncContext` to a local store. Then reference your table through the `IMobileServiceSyncTable` interface. In this tutorial we use SQLite for the local store.
 
->[AZURE.NOTE] You can skip this section and just get the example project that already has offline support from the Github samples repository for Mobile Services. The sample project with offline support enabled is located here, [TodoList Offline Sample].
+>[AZURE.NOTE] You can skip this section and just get the example project that already has offline support from the GitHub samples repository for Mobile Services. The sample project with offline support enabled is located here, [TodoList Offline Sample].
 
 1. Install the SQLite runtime for Windows 8.1 and Windows Phone 8.1. 
 
@@ -206,7 +206,7 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
 In this section, you will modify the app so that it does not sync on the insert and update operations, but only when the **Refresh** button is pressed. Then, you will break the app connection with the mobile service to simulate an offline scenario. When you add data items, they will be held in the local store, but not synced to the mobile service.
 
-1. Open App.xaml.cs in the shared project. Edit the methods `InsertTodoItem` and `UpdateCheckedTodoItem` to comment out the calls to `SyncAsync`.
+1. Open MainPage.cs in the shared project. Edit the methods `InsertTodoItem` and `UpdateCheckedTodoItem` to comment out the calls to `SyncAsync`.
 
 2. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following lines, which use an invalid mobile service URL:
 
@@ -282,16 +282,16 @@ In this section you reconnect the app to the mobile service. This simulates the 
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md 
 [TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Getting Started]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
-[Windows Phone 8 Tutorial for Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data/
-[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Windows Phone 8 Tutorial for Visual Studio 2012]: mobile-services-windows-phone-get-started-offline-data.md
+[Soft Delete]: mobile-services-using-soft-delete.md
 
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0

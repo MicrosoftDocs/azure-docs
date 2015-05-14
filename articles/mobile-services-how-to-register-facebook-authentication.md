@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 # Register your apps for Facebook authentication with Mobile Services
 
 This topic shows you how to register your apps to be able to use Facebook to authenticate with Azure Mobile Services. 
 
-> [AZURE.NOTE] This tutorial is about [Azure Mobile Services], a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/">Get Started with Authentication</a> tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/">Get Started with Mobile Services</a>.
+> [AZURE.NOTE] This tutorial is about [Azure Mobile Services], a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Get Started with Authentication</a> tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Get Started with Mobile Services</a>.
 	
 To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
 
@@ -52,7 +52,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
    	![][5]
 
-	> [AZUTE.NOTE] **Security Note**
+	> [AZURE.NOTE] **Security Note**
 	The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
 
@@ -84,6 +84,6 @@ You are now ready to use a Facebook login for authentication in your app by prov
 
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Azure Mobile Services]: http://azure.microsoft.com/en-us/services/mobile-services/
+[Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/

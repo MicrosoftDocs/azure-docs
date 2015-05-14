@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk Services: Backup and Restore | Azure" 
+	pageTitle="Create and restore a backup in BizTalk Services | Azure" 
 	description="BizTalk Services includes Backup and Restore. Learn how to create and restore a backup and determine what gets backed up. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,24 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/25/2015" 
 	ms.author="mandia"/>
 
 
 # BizTalk Services: Backup and Restore
 
-Azure BizTalk Services includes Backup and Restore capabilities. This topic describes how to backup and restore BizTalk Services using the Azure Management Portal, including: 
-
-- [Before you Begin](#beforebackup)
-- [Create a backup](#createbu)
-- [Restore a backup](#restore)
-- [What gets backed up](#budata)
+Azure BizTalk Services includes Backup and Restore capabilities. This topic describes how to backup and restore BizTalk Services using the Azure Management Portal.
 
 You can also back up BizTalk Services using the [BizTalk Services REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
 
-## <a name="beforebackup"></a>Before you Begin
+## Before you Begin
 
-- Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](http://azure.microsoft.com/en-us/documentation/articles/biztalk-editions-feature-chart/).
+- Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
 
 	**Note**  Hybrid Connections are NOT backed up, regardless of the Edition.
 
@@ -51,7 +46,7 @@ You can also back up BizTalk Services using the [BizTalk Services REST API](http
 - Optional: In the BizTalk Services Portal, stop any management operations.
 
 
-## <a name="createbu"></a>Create a backup
+## Create a backup
 
 A backup can be taken at any time and is completely controlled by you. This section lists the steps to create backups using the Azure Management Portal, including:
 
@@ -91,7 +86,7 @@ If the BizTalk Service dashboard shows a **Failed** status:
 
 The link opens the Management Services Operation Logs to help troubleshoot. See [BizTalk Services: Troubleshoot using operation logs](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
-## <a name="restore"></a>Restore
+## Restore
 
 You can restore backups from the Azure Management Portal or from the [Restore BizTalk Service REST API](http://go.microsoft.com/fwlink/p/?LinkID=325582). This section lists the steps to restore using the Management Portal.
 
@@ -148,7 +143,7 @@ To start the BizTalk Service in the Azure Management Portal, select the restored
 
 
 
-## <a name="budata"></a>What gets backed up
+## What gets backed up
 
 When a backup is created, the following items are backed up:
 

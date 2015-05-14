@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations API Documentation" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="oranms" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 <tags 
@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="04/07/2015" 
 	ms.author="v-ahgumn"/>
 
 
 #Azure Machine Learning Recommendations API Documentation
 
 Version: 1.0<br>
-Latest version can be found [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-recommendation-api-documentation)
+Latest version can be found [here](machine-learning-recommendation-api-documentation.md)
 
 This document depicts Azure ML Recommendations APIs.
 
@@ -2426,8 +2426,4 @@ Deletes all notifications for all models
 
 HTTP Status code: 200
 
-##12. Legal
-This document is provided “as-is”. Information and views expressed in this document, including URL and other Internet Web site references, may change without notice.<br><br>
-Some examples depicted herein are provided for illustration only and are fictitious. No real association or connection is intended or should be inferred.<br><br>
-This document does not provide you with any legal rights to any intellectual property in any Microsoft product. You may copy and use this document for your internal, reference purposes.<br><br>
-© 2014 Microsoft. All rights reserved.
+

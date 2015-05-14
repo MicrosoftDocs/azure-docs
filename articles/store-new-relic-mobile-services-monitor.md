@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/25/2014" 
+	ms.date="03/16/2015" 
 	ms.author="stepsic"/>
 
 # Use New Relic to monitor Mobile Services
@@ -142,16 +142,16 @@ Next, you will enable New Relic monitoring of your mobile service in the [Manage
 [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
 
 <!-- URLs. -->
-[Source control]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
-[Work with server scripts in Mobile Services]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts.md
+[Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Work with server scripts in Mobile Services]: /develop/mobile/how-to-guides/work-with-server-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
-[Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
+[Store server scripts in source control]: /develop/mobile/tutorials/store-scripts-in-source-control/
 [newrelic]: https://npmjs.org/package/newrelic
-[New Relic page in the Azure Store]: /en-us/gallery/store/new-relic/new-relic/
+[New Relic page in the Azure Store]: /gallery/store/new-relic/new-relic/
 [Applications Overview]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
 [New Relic Mobile]: http://newrelic.com/mobile-monitoring
 

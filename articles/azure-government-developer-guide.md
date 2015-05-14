@@ -42,7 +42,7 @@ Microsoft provides a number of tools to create and deploy cloud applications to 
 
 When creating and deploying applications to the Azure Government Services, as opposed to the Global Service, developers need to know the key differences of the two services.  Specifically around setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying them as services to Azure Government.
 
-The information in this document summarizes those differences and supplements the information available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information may also be available in many other locations such as the [Microsoft Azure Trust Center](http://azure.microsoft.com/en-us/support/trust-center/ "Microsoft Azure Trust Center"), [Azure Documentation Center](http://azure.microsoft.com/en-us/documentation/) and in [Azure Blogs](http://azure.microsoft.com/blog/ "Azure Blogs"). 
+The information in this document summarizes those differences and supplements the information available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information may also be available in many other locations such as the [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"), [Azure Documentation Center](http://azure.microsoft.com/documentation/) and in [Azure Blogs](http://azure.microsoft.com/blog/ "Azure Blogs"). 
 
 This content is intended for partners and developers who are deploying to Microsoft Azure Government.
 
@@ -67,7 +67,7 @@ Azure Government currently has the following services available in both US GOV I
 - Virtual Networking
 - SQL Database
 
-Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/en-us/regions/#services) which will highlight each available region and their services.  
+Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 
 Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.  Please refer to the regions page above for current data centers and services available.
 
@@ -114,6 +114,6 @@ If you are interested in learning more and about Azure Government and how your o
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

@@ -1,32 +1,39 @@
 <properties 
- pageTitle="How to Map Content Delivery Network (CDN) Content to a Custom Domain" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="zhangmanling" 
- manager="dwrede" 
- editor=""/>
+	 pageTitle="How to Map Content Delivery Network (CDN) Content to a Custom Domain" 
+	 description="This topic demonstrate how to map a CDN content to a Custom Domain." 
+	 services="cdn" 
+	 documentationCenter="" 
+	 authors="zhangmanling" 
+	 manager="dwrede" 
+	 editor=""/>
 <tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="08/01/2014" 
- ms.author="mazha"/>
+	 ms.service="cdn" 
+	 ms.workload="media" 
+	 ms.tgt_pltfrm="na" 
+	 ms.devlang="na" 
+	 ms.topic="article" 
+	 ms.date="03/05/2015" 
+	 ms.author="mazha"/>
 
-#How to Map Content Delivery Network (CDN) Content to a Custom Domain
+#How to map Custom Domain to Content Delivery Network (CDN) endpoint
 
-You can map a custom subdomain to a Content Delivery Network (CDN) endpoint in order to use your own domain name in URLs to cached content, rather than the CDN endpoint provided for you.  
-  
-There are two ways to map your custom domain to a CDN endpoint. The simplest way is to create a CNAME record with your domain registrar that maps your custom domain and subdomain to the CDN endpoint. A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain — note that the subdomain is always required. The destination domain is your CDN endpoint.  
+You can map a custom domain to a CDN endpoint in order to use your own domain name in URLs to cached content, rather than using the CDN endpoint provided to you. 
 
-The process of mapping your custom domain to your CDN endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure Management Portal. If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure **cdnverify** subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.  
+There are two ways to map your custom domain to a CDN endpoint. 
+
+1. **Create a CNAME record with your domain registrar and map your custom domain and subdomain to the CDN endpoint** 
+	
+	A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain (subdomain is always required). The destination domain is your CDN endpoint.  
+
+	The process of mapping your custom domain to your CDN endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure Management Portal. 
+2. **Add an intermediate registration step with Azure cdnverify**
+
+	If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure **cdnverify** subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.  
 
 > AZURE.NOTE   
 > 
--	You must create a CNAME record with your domain registrar to map your domain to the CDN endpoint. CNAME records map a specific subdomain such as www.mydomain.com or myblog.mydomain.com. It is not possible to map a CNAME record to a root domain, such as mydomain.com.
--	You must associate a dedicated subdomain with a CDN endpoint. The CNAME record that you create will route all traffic addressed to the subdomain to the specified endpoint. For example, if you associate the subdomain www.mydomain.com with your CDN endpoint, then you cannot associate that subdomain with any other kind of Azure endpoint, such as a storage account endpoint or a cloud service endpoint. However, you can use different subdomains on the same domain for different service endpoints. And you can also map different subdomains to the same CDN endpoint.
+-	You must create a CNAME record with your domain registrar to map your domain to the CDN endpoint. CNAME records map specific subdomains such as www.mydomain.com or myblog.mydomain.com. It is not possible to map a CNAME record to a root domain, such as mydomain.com.
+-	A subdomain can only be associated with one CDN endpoint. The CNAME record that you create will route all traffic addressed to the subdomain to the specified endpoint. E.g. If you associate www.mydomain.com with your CDN endpoint, then you cannot associate it with other Azure endpoints, such as a storage account endpoint or a cloud service endpoint. However, you can use different subdomains from the same domain for different service endpoints. You can also map different subdomains to the same CDN endpoint.
 
 The procedures in this topic will show you how to:    
 
@@ -48,7 +55,7 @@ For this procedure, ignore the text that refers to the **cdnverify** subdomain.
 
 	Azure will verify that the CNAME record exists for the domain name you have entered. If the CNAME is correct, your custom domain is validated and ready to use with your CDN content.  
 
-	Note that in some cases it can take time for the CNAME record to propagate to name servers on the Internet. If your domain is not validated immediately, and you believe the CNAME record is correct, then wait a few minutes and try checking the domain again.
+	Note that in some cases it can take time for the CNAME record to propagate to name servers on the Internet. If your domain is not validated immediately, and you believe the CNAME record is correct, then wait a few minutes and try again.
 
 ##<a name="subheading2"></a>Register a custom domain for an Azure CDN endpoint using the intermediary cdnverify subdomain  
 

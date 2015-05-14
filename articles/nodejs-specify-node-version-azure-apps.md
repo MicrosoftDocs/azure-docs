@@ -1,6 +1,6 @@
-<properties pageTitle="Specifying a Node.js Version" description="Learn how to specify the version of Node.js used by Azure Web Sites and Cloud Services" services="" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Specifying a Node.js Version" description="Learn how to specify the version of Node.js used by Azure Web Sites and Cloud Services" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
 
 
 
@@ -14,6 +14,7 @@ When hosting a Node.js application, you may want to ensure that your application
 
 The Node.js versions provided by Azure are constantly updated. Unless otherwise specified, the latest available version will be used. Currently included are the following versions:
 
+- 0.12.x: 0.12.0
 - 0.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
 - 0.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
 - 0.6.x: 0.6.20, 0.6.17
@@ -87,7 +88,7 @@ While Azure provides several default versions of Node.js, you may want to use a 
 
 Now that you understand how to specify the version of Node.js used by your application, learn how to [work with modules], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Tools for Mac and Linux].
 
-[How to use the Azure Command-Line Tools for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
-[Azure Command-line tools]: /en-us/documentation/articles/xplat-cli/
-[work with modules]: /en-us/documentation/articles/nodejs-use-node-modules-azure-apps/
-[build and deploy a Node.js Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[How to use the Azure Command-Line Tools for Mac and Linux]: xplat-cli.md
+[Azure Command-line tools]: xplat-cli.md
+[work with modules]: nodejs-use-node-modules-azure-apps.md
+[build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md

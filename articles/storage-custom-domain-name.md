@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 
@@ -24,9 +24,7 @@
 You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for the Blob service is https://<*mystorageaccount*>.blob.core.windows.net. If you map a custom domain and subdomain such as **www.contoso.com** to the blob endpoint for your storage account, then your users can also access blob data in your storage account using that domain. 
 
 
-> [AZURE.NOTE]	The procedures in this task apply to Azure storage accounts. For cloud services, see <a href = "/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name for an Azure Cloud Service</a>; for Websites, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for an Azure Website</a>. 
-
-> [AZURE.NOTE]	A premium storage account cannot be mapped to a custom domain name. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for information about premium storage accounts.
+> [AZURE.NOTE]	The procedures in this task apply to Azure storage accounts. For cloud services, see <a href = "/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name for an Azure Cloud Service</a>; for Websites, see <a href="/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for an Azure Website</a>. 
 
 There are two ways to point your custom domain to the blob endpoint for your storage account. The simplest way is to create a CNAME record mapping your custom domain and subdomain to the blob endpoint. A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain--note that the subdomain is always required. The destination domain is your Blob service endpoint.
 
@@ -151,4 +149,4 @@ For example, you might use the following URI to access a web form via a
 
 ## Additional Resources
 
--   <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx">How to Map CDN Content to a Custom Domain</a>
+-   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">How to Map CDN Content to a Custom Domain</a>

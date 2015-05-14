@@ -5,8 +5,6 @@ Next, you need to change the way that push notifications are registered to make 
 
 In this method, the wizard generated a new push.register.cs file in your project.
 
->[AZURE.NOTE]The Add Push Notification Wizard is currently only supported for a .NET backend mobile service.
-
 1. In Visual Studio in Solution Explorer, open the app.xaml.cs project file and in the **OnLaunched** event handler comment-out or delete the call to the **UploadChannel** method. 
 
 2. Open the push.register.cs project file and replace the **UploadChannel** method, with the following code:

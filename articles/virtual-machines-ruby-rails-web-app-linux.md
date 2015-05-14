@@ -3,7 +3,7 @@
 	description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="ruby" 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 
@@ -38,21 +38,6 @@ The following is a screenshot of the completed application:
 
 ![a browser displaying Listing Posts][blog-rails-cloud]
 
-##In this article
-
-* [Set up your development environment](#setup)
-
-* [Create a Rails application](#create)
-
-* [Test the application](#test)
-
-* [Create an Azure Virtual Machine](#createvm)
-
-* [Copy the application to the VM](#copy)
-
-* [Install gems and start the application](#start)
-
-* [Next steps](#next)
 
 ##<a id="setup"></a>Set up your development environment
 
@@ -73,8 +58,8 @@ The following is a screenshot of the completed application:
 	>````` 
 	sudo gem install rails
 	`````
-
-	> [AZURE.NOTE] Version 3.2.12 of the Rails gem was used for this tutorial.
+	>
+	> Version 3.2.12 of the Rails gem was used for this tutorial.
 
 3. You must also install a JavaScript interpreter, which will be used by Rails to compile CoffeeScript assets used by your Rails application. A list of supported interpreters is available at [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme).
 	
@@ -136,7 +121,11 @@ Follow the instructions given [here][vm-instructions] to create an Azure virtual
 
 > [AZURE.NOTE] the steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.
 
+ 
+
 > [AZURE.IMPORTANT] You **only** need to create the virtual machine. Stop after learning how to connect to the virtual machine using SSH.
+
+
 
 After creating the Azure Virtual Machine, perform the following steps to install Ruby and Rails on the virtual machine:
 
@@ -274,17 +263,17 @@ To learn how to use the Azure SDK for Ruby to access Azure services from your Ru
 
 
 <!-- WA.com links -->
-[blobs]: /en-us/documentation/articles/storage-ruby-how-to-use-blob-storage
+[blobs]: storage-ruby-how-to-use-blob-storage.md
 
-[cdn-howto]: /en-us/develop/ruby/app-services/
+[cdn-howto]: /develop/ruby/app-services/
 
 [management-portal]: https://manage.windowsazure.com/
 
-[tables]: /en-us/develop/ruby/how-to-guides/table-service/
+[tables]: /develop/ruby/how-to-guides/table-service/
 
-[unicorn-nginx-capistrano]: /en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
+[unicorn-nginx-capistrano]: virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md
 
-[vm-instructions]: /en-us/documentation/articles/virtual-machines-linux-tutorial
+[vm-instructions]: virtual-machines-linux-tutorial.md
 
 
 <!-- External Links -->

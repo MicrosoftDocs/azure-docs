@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
+	ms.date="04/21/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -73,10 +73,10 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 
 ##Creation of web service  
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-overview-of-azure-ml-process/), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 
-From within Azure Machine Learning, a new blank experiment was created and two “Execute R Scripts” were pulled onto the workspace. This web service runs an Azure Machine Learning experiment with an underlying R script. There are 2 parts to this experiment: schema definition, and training model + scoring. The first module defines the expected structure of the input dataset, where the first variable is the dependent variable and the remaining variables are independent. The second module fits a generic linear regression model for the input data.  
+From within Azure Machine Learning, a new blank experiment was created and two [Execute R Script][execute-r-script] modules were pulled onto the workspace. This web service runs an Azure Machine Learning experiment with an underlying R script. There are 2 parts to this experiment: schema definition, and training model + scoring. The first module defines the expected structure of the input dataset, where the first variable is the dependent variable and the remaining variables are independent. The second module fits a generic linear regression model for the input data.  
   
 ![Experiment flow][3]
 
@@ -106,8 +106,12 @@ From within Azure Machine Learning, a new blank experiment was created and two �
 This is a very simple example of a multiple linear regression web service. As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service. Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called. 
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img1.png
 [2]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img2.png
 [3]: ./media/machine-learning-r-csharp-multivariate-linear-regression/multireg-img3.png
+
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/

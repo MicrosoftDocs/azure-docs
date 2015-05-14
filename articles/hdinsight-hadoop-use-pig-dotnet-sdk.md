@@ -1,22 +1,22 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
+   pageTitle="Use Hadoop Pig with .NET in HDInsight | Microsoft Azure"
    description="Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight."
    services="hdinsight"
-   documentationCenter=""
+   documentationCenter=".net"
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-#Run Pig jobs using the .NET SDK for Hadoop
+#Run Pig jobs using the .NET SDK for Hadoop in HDInsight
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
@@ -221,10 +221,10 @@ As you can see, the .NET SDK for Hadoop allows you to create .NET applications t
 
 For general information on Pig in HDInsight.
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

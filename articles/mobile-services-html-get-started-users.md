@@ -138,9 +138,9 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-html-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
-[Authorize users with scripts]: /en-us/documentation/articles/mobile-services-javascript-backend-service-side-authorization/
+[Get started with Mobile Services]: mobile-services-html-get-started.md
+[Get started with data]: mobile-services-html-get-started-data.md
+[Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /documentation/articles/mobile-services-html-how-to-use-client-library

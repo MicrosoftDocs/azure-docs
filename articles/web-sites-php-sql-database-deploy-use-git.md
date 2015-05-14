@@ -1,89 +1,92 @@
 <properties 
-	pageTitle="PHP website with SQL Database and Git - Azure tutorial" 
-	description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." 
-	services="web-sites, sql-database" 
+	pageTitle="Create a PHP-SQL web app and deploy to Azure App Service using Git" 
+	description="A tutorial that demonstrates how to create a PHP web app that stores data in Azure SQL Database and use Git deployment to Azure App Service." 
+	services="app-service\web, sql-database" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
-#Create a PHP website with a SQL Database and deploy using Git
+# Create a PHP-SQL web app and deploy to Azure App Service using Git
 
-This tutorial shows you how to create a PHP Azure Website with an Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database website running in Azure.
+This tutorial shows you how to create a PHP web app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) that connects to Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL web app running in Azure.
 
 > [AZURE.NOTE]
-> You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.
+> You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
 You will learn:
 
-* How to create an Azure Website and a SQL Database using the Azure Management Portal. Because PHP is enabled in Azure Websites by default, nothing special is required to run your PHP code.
+* How to create an Azure web app and a SQL Database using the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
  
 By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
 
-![Azure PHP Web Site][running-app]
+![Azure PHP Web Site](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
 
-> [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">sign up for a free trial</a>.
-> 
-> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##Create an Azure Website and set up Git publishing
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-Follow these steps to create an Azure Website and a SQL Database:
+##Create an Azure web app and set up Git publishing
 
-1. Login to the [Azure Management Portal][management-portal].
-2. Click the **New** icon on the bottom left of the portal.
-![Create New Azure Web Site][new-website]
+Follow these steps to create an Azure web app and a SQL Database:
 
-3. Click **Website**, then **Custom Create**.
+1. Log in to the [Azure preview portal](https://portal.azure.com/).
 
-	![Custom Create a new Web Site][custom-create]
+2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + mobile** and then **Azure Marketplace** at the bottom.
+	
+3. In the Marketplace, select **Web Apps**.
 
-	Enter a value for **URL**, select **Create a New SQL Database** from the **Database** dropdown,  and select **Publish from source control**. Click the arrow at the bottom of the dialog.
+4. Click the **Web app + SQL** icon.
 
-	![Fill in web site details][website-details-sqlazure]
+5. After reading the description of the Web app + SQL app, select **Create**.
 
-4. Enter a value for the **Name** of your database, select **NEW SQL Database server**, provide login credentials, and select a region. Click the arrow at the bottom of the dialog.
+6. Click on each part (**Resource Group**, **Web App**, **Database**, and **Subscription**) and enter or select values for the required fields:
+	
+	- Enter a URL name of your choice	
+	- Configure database server credentials
+	- Select the region closest to you
 
-	![Fill in SQL Database settings][database-settings]
+	![configure your app](./media/web-sites-php-sql-database-deploy-use-git/configure-db-settings.png)
 
-5. Select **Local Git repository** for your source code.
+7. When finished defining the web app, click **Create**.
 
-	![where is your source code][where-is-code]
+	When the web app has been created, the **Notifications** button will flash a green **SUCCESS** and the resource group blade open to show both the web app and the SQL database in the group.
 
-	If you have not set up a Git repository before, you must provide a user name and password.
+4. Click the web app's icon in the resource group blade to open the web app's blade.
 
-6. After the web site has been created, open the site's dashboard, and select **View deployments**.
+	![web app's resource group](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 
-	![Web site dashboard][go-to-dashboard]
+5. Click **Set up continuous deployment** > **Choose Source**. Select **Local Git Repository** and click **OK**.
 
-9. You will see instructions for pushing your application files to the repository. Make note of these instructions - you will need them later.
+	![where is your source code](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	![Git instructions][git-instructions]
+	If you have not set up a Git repository before, you must provide a user name and password. To do this, click **Set deployment credentials** in the web app's blade.
+
+	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
+
+6. **Set up continous deployment** becomes **No deployment found**. Click it to see the Git remote URL you need to use to deploy your PHP app later.
 
 ##Get SQL Database connection information
 
-To connect to the SQL Database instance that is running in Azure Websites, your will need the connection information. To get SQL Database connection information, follow these steps:
+To connect to the SQL Database instance that is linked to your web app, your will need the connection information, which you specified when you created the database. To get the SQL Database connection information, follow these steps:
 
-1. From the Azure Management Portal, click **Linked Resources**, then click the database name.
+1. Back in the resource group's blade, click the SQL database's icon.
 
-	![Linked Resources][linked-resources]
+2. In the SQL database's blade, click **Properties**, then click **Show database connection strings**. 
 
-2. Click **View connection strings**.
-
-	![Connection string][connection-string]
+	![View database properties](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
-3. From the **PHP** section of the resulting dialog, make note of the values for `SERVER`, `DATABASE`, and `USERNAME`.
+3. From the **PHP** section of the resulting dialog, make note of the values for `Server`, `SQL Database`, and `User Name`. You will use these values later when publishing your PHP web app to Azure App Service.
 
 ##Build and test your application locally
 
@@ -230,25 +233,25 @@ You can now browse to **http://localhost/registration/index.php** to test the ap
 
 ##Publish your application
 
-After you have tested your application locally, you can publish it to your Azure Website using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get SQL Database connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+After you have tested your application locally, you can publish it to App Service Web Apps using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get SQL Database connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
 
 	// DB connection info
-	$host = "tcp:<value of SERVER>";
-	$user = "<value of USERNAME>@<server ID>";
+	$host = "tcp:<value of Server>";
+	$user = "<value of User Name>";
 	$pwd = "<your password>";
-	$db = "<value of DATABASE>";
+	$db = "<value of SQL Database>";
 
 > [AZURE.NOTE]
-> In the <code>$host</code>, the value of SERVER must be prepended with <code>tcp:</code>, and the value of <code>$user</code> is the concatenation of the value of USERNAME, '@', and your server ID. Your server ID is the first 10 characters of the value of SERVER.
+> In the <code>$host</code>, the value of Server must be prepended with <code>tcp:</code>.
 
 
 Now, you are ready to set up Git publishing and publish the application.
 
 > [AZURE.NOTE]
-> These are the same steps noted at the end of the Create an Azure Website and Set up Git Publishing section above.
+> These are the same steps noted at the end of the **Create an Azure web app and set up Git publishing** section above.
 
 
-1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
+1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application (the **registration** directory), and run the following commands:
 
 		git init
 		git add .
@@ -258,8 +261,8 @@ Now, you are ready to set up Git publishing and publish the application.
 
 	You will be prompted for the password you created earlier.
 
-2. Browse to **http://[site name].azurewebsites.net/createtable.php** to create the MySQL table for the application.
-3. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application.
+2. Browse to **http://[web app name].azurewebsites.net/createtable.php** to create the SQL database table for the application.
+3. Browse to **http://[web app name].azurewebsites.net/index.php** to begin using the application.
 
 After you have published your application, you can begin making changes to it and use Git to publish them. 
 
@@ -276,27 +279,17 @@ To publish changes to application, follow these steps:
 
 	You will be prompted for the password you created earlier.
 
-3. Browse to **http://[site name].azurewebsites.net/index.php** to see your changes.
+3. Browse to **http://[web app name].azurewebsites.net/index.php** to see your changes.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+
+
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-[install-Drivers]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
+[install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
-[running-app]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
-[new-website]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
-[custom-create]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
-[website-details-sqlazure]: ./media/web-sites-php-sql-database-deploy-use-git/createphpgitsite.png
-[database-settings]: ./media/web-sites-php-sql-database-deploy-use-git/setupdb.png
-[create-server]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
-[go-to-dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/viewdeploy.png
-[setup-git-publishing]: ./media/web-sites-php-sql-database-deploy-use-git/setup_git_publishing.png
-[credentials]: ./media/web-sites-php-sql-database-deploy-use-git/git-deployment-credentials.png
-
-
-[git-instructions]: ./media/web-sites-php-sql-database-deploy-use-git/gitsettings.png
-[linked-resources]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
-[connection-string]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
-[management-portal]: https://manage.windowsazure.com/
-[sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
-[where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png

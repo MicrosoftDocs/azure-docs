@@ -1,6 +1,20 @@
-<properties title="Machine Learning app: Anomaly Detection Service | Azure" pageTitle="Machine Learning app: Anomaly Detection Service | Azure " description="Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time." services="machine-learning" documentationCenter="" authors="LuisCabrer" manager="paulettm" /> 
+<properties 
+	pageTitle="Machine Learning app: Anomaly Detection Service | Azure " 
+	description="Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm"
+	editor="cgronlun" /> 
 
-<tags ms.service="machine-learning" ms.devlang="na" ms.topic="reference" ms.tgt_pltfrm="na" ms.workload="multiple" ms.date="01/27/2015" ms.author="luisca"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.devlang="na" 
+	ms.topic="reference" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="multiple" 
+	ms.date="05/05/2015" 
+	ms.author="luisca"/>
 
 
 # Machine Learning Anomaly Detection Service#
@@ -105,7 +119,6 @@ which is a representation of the following table:
    </tr>
    </table>
    
-
 
 [1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg
 

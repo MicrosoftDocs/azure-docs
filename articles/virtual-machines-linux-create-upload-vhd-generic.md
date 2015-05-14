@@ -19,19 +19,19 @@
 
 # <a id="nonendorsed"> </a>Information for Non-Endorsed Distributions #
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](../virtual-machines-linux-endorsed-distributions) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
+**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](virtual-machines-linux-endorsed-distributions.md) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
 
-- [Linux on Azure - Endorsed Distributions](../virtual-machines-linux-endorsed-distributions)
+- [Linux on Azure - Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md)
 - [Support for Linux images in Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
 All distributions running on Azure will need to meet a number of prerequisites to have a chance to properly run on the platform.  This article is by no means comprehensive as every distribution is different; and it is quite possible that even if you meet all the criteria below you will still need to significantly tweak your Linux system to ensure that it properly runs on the platform.
 
-It is for this reason that we recommend that you start with one of our [Linux on Azure Endorsed Distributions](../linux-endorsed-distributions) when possible. The following articles will guide you through how to prepare the various endorsed Linux distributions that are supported on Azure:
+It is for this reason that we recommend that you start with one of our [Linux on Azure Endorsed Distributions](linux-endorsed-distributions.md) when possible. The following articles will guide you through how to prepare the various endorsed Linux distributions that are supported on Azure:
 
-- **[CentOS-based Distributions](../virtual-machines-linux-create-upload-vhd-centos)**
-- **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
+- **[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
-- **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
+- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
 The rest of this article will focus on general guidance for running your Linux distribution on Azure.
 
@@ -40,7 +40,7 @@ The rest of this article will focus on general guidance for running your Linux d
 
 - The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](../virtual-machines-linux-configure-raid) may be used on data disks if preferred.
+- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
 - NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37. This issue primarily impacts distributions using the upstream Red Hat 2.6.32 kernel. Manual installation of the Azure Linux agent (waagent) will automatically disable NUMA in the GRUB configuration for the Linux kernel.
 
@@ -71,7 +71,7 @@ VHD images on Azure must have a virtual size aligned to 1MB.  Typically, VHDs cr
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
-To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/en-us/library/hh848535.aspx) Powershell cmdlet.
+To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet.
 
 If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD:
 
@@ -103,7 +103,7 @@ If you are not running in a Windows environment then it is recommended to use qe
 
 ## Linux Kernel Requirements ##
 
-The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (i.e. 3.x) will have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible it is recommended to run an [endorsed distribution](../linux-endorsed-distributions) that will include these fixes and updates.
+The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (i.e. 3.x) will have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible it is recommended to run an [endorsed distribution](linux-endorsed-distributions.md) that will include these fixes and updates.
 
 If you are running a variant of Red Hat Enterprise Linux versions **6.0-6.3**, then you will need to install the latest LIS drivers for Hyper-V. The drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). As of RHEL **6.4+** (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed to run those systems on Azure.
 
@@ -129,7 +129,7 @@ At a very minimum, the absence of the following patches have been known to cause
 
 ## The Azure Linux Agent ##
 
-The [Azure Linux Agent](../virtual-machines-linux-agent-user-guide) (waagent) is required to properly provision a Linux virtual machine in Azure. You can get the latest version, file issues or submit pull requests at the [Linux Agent GitHub repo](https://github.com/Azure/WALinuxAgent).
+The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) (waagent) is required to properly provision a Linux virtual machine in Azure. You can get the latest version, file issues or submit pull requests at the [Linux Agent GitHub repo](https://github.com/Azure/WALinuxAgent).
 
 - The Linux agent is released under the Apache 2.0 license. Many distributions already provide RPM or deb packages for the agent, and so in some cases this can be installed and updated with little effort.
 
@@ -158,7 +158,7 @@ The [Azure Linux Agent](../virtual-machines-linux-agent-user-guide) (waagent) is
 
 - Installing the Azure Linux Agent
 
-	The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../virtual-machines-linux-agent-user-guide).
+	The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').  The agent can also be installed manually by following the steps in the [Linux Agent Guide](virtual-machines-linux-agent-user-guide.md).
 
 - Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 

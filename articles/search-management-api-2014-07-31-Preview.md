@@ -24,7 +24,7 @@ The Azure Search Service Management REST API provides programmatic access to muc
 - Create, change, or retrieve `api-keys` to automate regular changes to the administrative keys used for authenticating search data operations. 
 - Adjust the scale of an Azure Search service in response to changes in query volume or storage requirements.
 
-To fully administer your service programmatically, you will need two APIs: The Management REST API of Azure Search, plus the common [Azure Resource Manager REST API](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx). The Resource Manager API is used for general purpose operations that are not service specific, such as querying subscription data, listing geo-locations, and so forth. To create and manage Azure Search services in your subscription, make sure your HTTP request includes the Resource Manager endpoint, subscription ID, provider (in this case, Azure Search), and the Search service-specific operation.
+To fully administer your service programmatically, you will need two APIs: The Management REST API of Azure Search, plus the common [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx). The Resource Manager API is used for general purpose operations that are not service specific, such as querying subscription data, listing geo-locations, and so forth. To create and manage Azure Search services in your subscription, make sure your HTTP request includes the Resource Manager endpoint, subscription ID, provider (in this case, Azure Search), and the Search service-specific operation.
 
 [Get started with Azure Search Management REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) is a walkthrough of sample code that demonstrates application configuration and service management operations. The sample application issues requests to the Azure Resource Manager API as well as the service management API for Azure Search, giving you an idea of how to piece together a cohesive application that draws on both APIs.
 
@@ -45,11 +45,11 @@ The Azure Search Management REST API is an extension of the Azure Resource Manag
 Note that if your application code handles *service management operations* as well as *data operations* on indexes or documents, you'll be using two authentication approaches for each of the Azure Search APIs:
 
 - Service and key administration, due to the dependency on Resource Manager, relies on Active Directory for authentication.
-- Data requests against the Azure Search service endpoint, such as Create Index or Search Documents, use an `api-key` in the request header. See [Azure Search Service REST API](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) for information about authenticating a data request.
+- Data requests against the Azure Search service endpoint, such as Create Index or Search Documents, use an `api-key` in the request header. See [Azure Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) for information about authenticating a data request.
 
 The sample application documented in [Get started with Azure Search Management REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) demonstrates the authentication techniques for each type of operation. Instructions for configuring a client application to use Active Directory are included in the getting started. 
 
-Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in Azure Preview portal](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/).
+Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in Azure Preview portal](role-based-access-control-configure.md).
 
 
 ### Summary of APIs ##
@@ -160,7 +160,7 @@ The **Create Search Service** operation provisions a new Search service with the
 
 `tags`: Optional. A list of key value pairs that describe the resource. These tags can be used in viewing and grouping a resource across resource groups. A maximum of 10 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.   
 
-`sku`: Required. Valid values are `free` and `standard`. `standard2` is also valid, but can only be used when it's enabled for your Azure subscription by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters. You can only create one Search service at the free pricing tier. Additional services must be created at the standard pricing tier. By default, a service is created with one partition and one replica. Additional partitions and replicas are priced in terms of search units. See [Limits and constraints](http://msdn.microsoft.com/en-us/library/azure/dn798934.aspx) for details. You cannot change the `sku` once the service is created.
+`sku`: Required. Valid values are `free` and `standard`. `standard2` is also valid, but can only be used when it's enabled for your Azure subscription by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters. You can only create one Search service at the free pricing tier. Additional services must be created at the standard pricing tier. By default, a service is created with one partition and one replica. Additional partitions and replicas are priced in terms of search units. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for details. You cannot change the `sku` once the service is created.
 
 `replicaCount`: Optional. Default is 1. Valid values include 1 through 6. Valid only when `sku` is `standard`. 
 

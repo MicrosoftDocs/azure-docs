@@ -21,21 +21,21 @@
 
 ## Azure Automation Service 
 
-[Azure Automation](http://azure.microsoft.com/en-us/documentation/services/automation/) brings a powerful, much needed PowerShell Workflow execution service to the Azure platform. Now you can automate maintenance tasks that are difficult from within the common Azure portal experience.  Simply author a PowerShell Workflow (called a **runbook** in Azure Automation), upload it to the cloud, and schedule when you want the runbook to execute. This document provides end-to-end setup of Azure Automation for a handful of shard elasticity examples. For more information, see the [preview announcement](http://blogs.technet.com/b/in_the_cloud/archive/2014/04/15/announcing-the-microsoft-azure-automation-preview.aspx). Or sign up for an Azure [subscription](https://account.windowsazure.com/PreviewFeatures?fid=automation).
+[Azure Automation](http://azure.microsoft.com/documentation/services/automation/) brings a powerful, much needed PowerShell Workflow execution service to the Azure platform. Now you can automate maintenance tasks that are difficult from within the common Azure portal experience.  Simply author a PowerShell Workflow (called a **runbook** in Azure Automation), upload it to the cloud, and schedule when you want the runbook to execute. This document provides end-to-end setup of Azure Automation for a handful of shard elasticity examples. For more information, see the [preview announcement](http://blogs.technet.com/b/in_the_cloud/archive/2014/04/15/announcing-the-microsoft-azure-automation-preview.aspx). Or sign up for an Azure [subscription](https://account.windowsazure.com/PreviewFeatures?fid=automation).
 
 In this example, Azure Automation is used as the schedule and workload execution framework. Think of Azure Automation as your [SQL Agent in the Cloud](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/). 
 
 In addition to this document, here are other resources:
 
-* [Get started with Azure Automation](http://azure.microsoft.com/en-us/documentation/articles/automation-create-runbook-from-samples/)
+* [Get started with Azure Automation](automation-create-runbook-from-samples.md)
 * [Step-by-Step: Getting Started with NEW Microsoft Azure Automation preview feature](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) 
 * [Microsoft Azure Automation](http://blogs.technet.com/b/cbernier/archive/2014/04/08/microsoft-azure-automation.aspx) 
-* Ask Azure Automation specific questions on the [Automation forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
+* Ask Azure Automation specific questions on the [Automation forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
 
 
 ## Prerequisites
 
-[Sign-up](http://azure.microsoft.com/en-us/services/preview/) and [familiarize](http://azure.microsoft.com/en-us/documentation/articles/automation-create-runbook-from-samples/) yourself with the Microsoft Azure Automation Preview service. 
+[Sign-up](http://azure.microsoft.com/services/preview/) and [familiarize](automation-create-runbook-from-samples.md) yourself with the Microsoft Azure Automation Preview service. 
 
 
 ## Shard Elasticity PowerShell Files
@@ -62,18 +62,18 @@ These examples illustrate how to use the PowerShell sample modules to perform ba
 
 ## Costs
 
-Note that the execution of the PowerShell example scripts will result in the creation of databases that will incur real costs to the subscription owner. The underlying Azure SQL DBs will be [charged at a rate](http://azure.microsoft.com/en-us/pricing/details/sql-database/) no different than any other Azure SQL DB database.  The costs starting November 1 are: 
+Note that the execution of the PowerShell example scripts will result in the creation of databases that will incur real costs to the subscription owner. The underlying Azure SQL DBs will be [charged at a rate](http://azure.microsoft.com/pricing/details/sql-database/) no different than any other Azure SQL DB database.  The costs starting November 1 are: 
 
 * SetupShardedEnvironment runbook creates the shard map manager on a Basic database ($0.0069/hour) and provisions the first shard on a Basic database ($0.0069/hour) as well. 
 
 * Both ProvisionBySize and ProvisionByDate runbooks will provision a Standard S0 database ($0.0208/hour).  To counter act these costs, if run in conjunction with the ReduceServiceTier runbook, the service tier of the newly provisioned database will be reduced from a Standard S0 ($0.0208/hour) to a Basic ($0.0069/hour) after a day’s time. 
 
-Lastly, within the scope of the provided examples, the use of [Azure Automation](http://azure.microsoft.com/en-us/pricing/details/automation/) currently will not incur any charges to the subscription owner.  Please see the [Azure Automation pricing page](http://azure.microsoft.com/en-us/pricing/details/automation/) for more details. 
+Lastly, within the scope of the provided examples, the use of [Azure Automation](http://azure.microsoft.com/pricing/details/automation/) currently will not incur any charges to the subscription owner.  Please see the [Azure Automation pricing page](http://azure.microsoft.com/pricing/details/automation/) for more details. 
 
 ## To load the runbooks 
 
 1. Download the **ShardElasticity.zip** file and extract contents.
-2. [Add references to the Elastic Scale binaries using NuGet](./sql-database-elastic-scale-add-references-visual-studio.md)
+2. [Add references to the Elastic Scale binaries using NuGet](sql-database-elastic-scale-add-references-visual-studio.md)
 3. Find the Elastic Scale client binary (**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**).
 4. Place the DLL in the ShardElasticityModule folder and zip the folder. 
 3. In your Azure Automation account, upload the ShardElasticityModule.zip file as an **Asset**. 
@@ -122,7 +122,7 @@ The first step is to create a PowerShell module that references the Elastic Scal
 
 ## Sign up for the Azure Automation Preview
 
-1. Go to the [Azure Preview Features](http://azure.microsoft.com/en-us/services/preview/).
+1. Go to the [Azure Preview Features](http://azure.microsoft.com/services/preview/).
     
 2. Click **Try It**.
 

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="What are the StorSimple components?" 
-   description="Describes the Azure StorSimple device, services, and management technologies." 
+   description="Describes the StorSimple device, services, and management technologies." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -19,15 +19,15 @@
 
 # What are the StorSimple components? 
 
-Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage. Azure StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.
+Welcome to Microsoft Azure StorSimple, an integrated storage solution that manages storage tasks between on-premises devices and Microsoft Azure cloud storage.  StorSimple is designed to reduce storage costs, simplify storage management, improve disaster recovery capability and efficiency, and provide data mobility.
 
 The following sections describe the Microsoft Azure StorSimple components, and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection. 
 
 > [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website applies to the StorSimple 8000 series devices only. For information about the 7000 series device, go to: [StorSimple Help](http://onlinehelp.storsimple.com/).
 
-## Azure StorSimple device
+## StorSimple device
 
-The Microsoft Azure StorSimple device is an on-premises hybrid storage device that provides primary storage and iSCSI access to data stored elsewhere. It manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the Microsoft Azure StorSimple system.
+The Microsoft Azure StorSimple device is an on-premises hybrid storage array that provides primary storage and iSCSI access to data stored elsewhere. It manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the Microsoft Azure StorSimple solution.
 
 The StorSimple device includes solid state drives (SSDs) and hard disk drives (HDDs), as well as support for clustering and automatic failover. It contains a shared processor, shared storage, and two mirrored controllers. Each controller provides the following:
 
@@ -42,11 +42,11 @@ Only one controller is active at any point in time. If the active controller fai
 
 For more information, see [StorSimple Devices](https://msdn.microsoft.com/library/azure/dn772363.aspx).
 
-## Azure StorSimple virtual device
+## StorSimple virtual device
 
-You can use Azure StorSimple to create a virtual device that replicates the architecture and capabilities of the actual hybrid storage device. 
+You can use StorSimple to create a virtual device that replicates the architecture and capabilities of the actual hybrid storage device. 
 
-The StorSimple virtual device runs on a single node in an Azure virtual machine. (A virtual device can only be created on an Azure virtual machine. You cannot create one on a StorSimple device or an on-premises server.) A StorSimple virtual device differs from a physical StorSimple device as follows: 
+The StorSimple virtual device (also known as the StorSimple Virtual Appliance) runs on a single node in an Azure virtual machine. (A virtual device can only be created on an Azure virtual machine. You cannot create one on a StorSimple device or an on-premises server.) A StorSimple virtual device differs from a physical StorSimple device as follows: 
 
 - The virtual device has only one interface, whereas the physical device has six network interfaces. 
 - You register the virtual device during device configuration, rather than as a separate task.
@@ -66,31 +66,31 @@ In addition to the dedicated StorSimple device and virtual device, Microsoft Azu
 - Thin provisioning 
 - Deduplication and compression 
 
-###Automatic storage tiering
+### Automatic storage tiering
 
 Microsoft Azure StorSimple automatically arranges data in logical tiers based on current usage, age, and relationship to other data. Data that is most active is stored locally, while less active and inactive data is automatically migrated to the cloud. The following diagram illustrates this storage approach.
  
 ![StorSimple storage tiers](./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png)
 
-**Azure StorSimple storage tiers**
+**StorSimple storage tiers**
 
-To enable quick access, Azure StorSimple stores very active data (hot data) on SSDs in the StorSimple device. It stores data that is used occasionally (warm data) on HDDs in the device or on servers at the datacenter. It moves inactive data, backup data, and data retained for archival or compliance purposes to the cloud. 
+To enable quick access, StorSimple stores very active data (hot data) on SSDs in the StorSimple device. It stores data that is used occasionally (warm data) on HDDs in the device or on servers at the datacenter. It moves inactive data, backup data, and data retained for archival or compliance purposes to the cloud. 
 
-Azure StorSimple adjusts and rearranges data and storage assignments as usage patterns change. For example, some information might become less active over time. As it becomes progressively less active, it is migrated from SSD to HDD and then to the cloud. If that same data becomes active again, it is migrated back to the storage device.
+StorSimple adjusts and rearranges data and storage assignments as usage patterns change. For example, some information might become less active over time. As it becomes progressively less active, it is migrated from SSD to HDD and then to the cloud. If that same data becomes active again, it is migrated back to the storage device.
 
-###Thin provisioning
+### Thin provisioning
 
-Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, Azure StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because Azure StorSimple can increase or decrease cloud storage to meet changing demands. 
+Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance,  StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because  StorSimple can increase or decrease cloud storage to meet changing demands. 
 
-###Deduplication and compression
+### Deduplication and compression
 
-Azure StorSimple uses deduplication and data compression to further reduce storage requirements.
+Microsoft Azure StorSimple uses deduplication and data compression to further reduce storage requirements.
 
-Deduplication compresses data by eliminating redundancy in the stored data set. As information changes, Azure StorSimple ignores the unchanged data and captures only the changes. In addition, Azure StorSimple reduces the amount of stored data by identifying and removing unnecessary information. 
+Deduplication reduces the overall amount of data stored by eliminating redundancy in the stored data set. As information changes, StorSimple ignores the unchanged data and captures only the changes. In addition, StorSimple reduces the amount of stored data by identifying and removing unnecessary information. 
 
-##Windows PowerShell for StorSimple
+## Windows PowerShell for StorSimple
 
-Windows PowerShell for StorSimple provides a command-line interface that you can use to create and manage the Azure StorSimple service and set up and monitor StorSimple devices. It is a Windows PowerShell–based, command-line interface that includes dedicated cmdlets for managing your StorSimple device. Windows PowerShell for StorSimple has features that allow you to:
+Windows PowerShell for StorSimple provides a command-line interface that you can use to create and manage the Microsoft Azure StorSimple service and set up and monitor StorSimple devices. It is a Windows PowerShell–based, command-line interface that includes dedicated cmdlets for managing your StorSimple device. Windows PowerShell for StorSimple has features that allow you to:
 
 - Register a device.
 - Configure the network interface on a device.
@@ -102,7 +102,7 @@ You can access Windows PowerShell for StorSimple from a serial console (on a hos
 
 For more information, see [Windows PowerShell for StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
 
-##StorSimple Manager service
+## StorSimple Manager service
 
 Microsoft Azure StorSimple provides a web-based user interface (the StorSimple Manager service) that enables you to centrally manage datacenter and cloud storage. You can use the StorSimple Manager service to perform the following tasks:
 
@@ -119,7 +119,7 @@ You can use the StorSimple Manager service to perform all administration tasks e
 
 For more information, see [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx).
 
-##StorSimple Snapshot Manager
+## StorSimple Snapshot Manager
 
 StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that you can use to create consistent, point-in-time backup copies of local and cloud data. The snap-in runs on a Windows Server–based host. You can use StorSimple Snapshot Manager to:
 
@@ -134,7 +134,7 @@ If a disaster occurs or if you need to restore data for another reason, StorSimp
 
 For more information, see [StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-##StorSimple Adapter for SharePoint
+## StorSimple Adapter for SharePoint
 
 Microsoft Azure StorSimple includes the StorSimple Adapter for SharePoint, an optional component that transparently extends StorSimple storage and data protection features to SharePoint server farms. The adapter works with a Remote Blob Storage (RBS) provider and the SQL Server RBS feature, allowing you to move BLOBs to a server backed up by the Microsoft Azure StorSimple system. Microsoft Azure StorSimple then stores the BLOB data locally or in the cloud, based on usage.
 
@@ -145,9 +145,8 @@ For more information, see [StorSimple Adapter for SharePoint](https://msdn.micro
 
 ## Next steps
 
-[StorSimple release notes](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+Review the [StorSimple release notes](https://msdn.microsoft.com/library/azure/dn772367.aspx)
 
-[Terminology](https://msdn.microsoft.com/en-us/library/azure/dn757725.aspx)
 
 
 

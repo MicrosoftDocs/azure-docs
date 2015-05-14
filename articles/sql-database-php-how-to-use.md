@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="2/12/2015" 
+	ms.date="03/25/2015" 
 	ms.author="tomfitz"/>
 
 #How to Access Azure SQL Database from PHP 
@@ -38,8 +38,8 @@ The recommended way to set up your development environment is to use the [Micros
 Alternatively, you can set up your environment manually:
 
 * Install PHP and configure IIS: [http://php.net/manual/en/install.windows.iis7.php][manual-config].
-* Download and install SQL Server Express: [http://www.microsoft.com/en-us/download/details.aspx?id=29062][install-sql-express]
-* Download and install the Microsoft Drivers for PHP for SQL Server: [http://php.net/manual/en/sqlsrv.requirements.php][install-drivers].
+* Download and install SQL Server Express: [http://www.microsoft.com/download/details.aspx?id=29062][install-sql-express]
+* Download and install the [Microsoft Drivers for PHP for SQL Server][download-drivers].
 
 ##<a id="CreateServer"></a>How to: Create a SQL Database
 
@@ -110,13 +110,13 @@ As mentioned earlier, using SQL Database is very similar to using SQL Server. On
 A sample that shows how to use SQL Database with PHP on Azure is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
 
 [download-drivers]: http://www.microsoft.com/download/en/details.aspx?id=20098
-[limitations]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
+[limitations]: http://msdn.microsoft.com/library/windowsazure/ff394102.aspx
 [odbc-php]: http://www.php.net/odbc
 [manual-config]: http://php.net/manual/en/install.windows.iis7.php
 [install-drivers]: http://php.net/manual/en/sqlsrv.requirements.php
-[driver-docs]: http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx
+[driver-docs]: http://msdn.microsoft.com/library/dd638075(SQL.10).aspx
 [access-php-odbc]: http://social.technet.microsoft.com/wiki/contents/articles/accessing-sql-azure-from-php.aspx
-[install-sql-express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+[install-sql-express]: http://www.microsoft.com/download/details.aspx?id=29062
 [management-portal]: https://manage.windowsazure.com
 [prod-portal-instructions]: http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx
 [new-website]: ./media/sql-database-php-how-to-use-sql-database/plus-new.png

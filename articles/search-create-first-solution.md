@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="heidist"/>
 
 # Create your first search solution using Azure Search
@@ -35,8 +35,8 @@ The demo gets you started with Azure Search by walking you through these exercis
 <a id="sub-1"></a>
 ## Prerequisites
 
-+	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/en-us/evalcenter/dn434042.aspx).
-+	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](../search-get-started/) for details.
++	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
++	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](search-get-started.md) for details.
 +	[Adventure Works Azure Search Demo project on CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). On the Source tab, click **Download** to get a zip file of the solution. 
 
     ![][12]
@@ -74,7 +74,7 @@ Press **Enter** to close the application. At this point, you have successfully c
 > Use **Run as Administrator** to start Visual Studio. 
 > Open the solution, build it, and then press **F5** to create the index.
 
-To verify index creation and document upload, go to your Search service dashboard in the [Azure Preview portal](https://portal.azure.com). In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.
+To verify index creation and document upload, go to your Search service dashboard in the [Azure management portal](https://portal.azure.com). In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.
 
 Click the **Indexes** tile to show the index list. The indexes list slides out to show the new index and document count.
 
@@ -96,7 +96,7 @@ Let’s take a closer look at the **CatalogIndexer** project to understand how i
 
 4.	Move to `ApplyChanges` in the same file. Notice how this function deletes the index if it already exists (`DeleteCatalogIndex`) and then creates a new index called "catalog" (`CreateCatalogIndex`).  
 
-5.	Move to the `CreateCatalogIndex` function, and notice how the index is created with a schema that matches the columns from the Products table in SQL Server. Each field has a Type (i.e., `Edm.String` or `Edm.Double`) as well as attributes that define what these fields are used for. Refer to the [Azure Search REST API documentation](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) for more details on these attributes.
+5.	Move to the `CreateCatalogIndex` function, and notice how the index is created with a schema that matches the columns from the Products table in SQL Server. Each field has a Type (i.e., `Edm.String` or `Edm.Double`) as well as attributes that define what these fields are used for. Refer to the [Azure Search REST API documentation](http://msdn.microsoft.com/library/azure/dn798935.aspx) for more details on these attributes.
 
 6.	Go back to the `ApplyChanges` function. Notice how this function loops through all of the data in the enumerated changes `ChangeSet`. Rather than applying the changes one by one, they are batched into groups of 1000 and then applied to the Search service. This is much more efficient than applying the documents one by one.
 
@@ -155,7 +155,7 @@ Let’s drill into these two functions in more detail.
 
 5.	Stop the application if it’s still running, and open **Index.cshtml** file under Views | Home.  At the end of this file, you will see a JavaScript function that uses `JQuery $(function ())`. This function is called when the page loads. It uses the JQuery autocomplete function and links this function as a callback from the search text box, identified as "q". Whenever someone types into the text box, this autosuggest function is called which in turn calls /home/suggest with what is entered.  `/home/suggest` is a reference to the function in **HomeController.cs** called `Suggest`.
 
-6.	Open **HomeController.cs** and move to the Suggest function. This code is very similar to the Search function that uses the `_catalogSearch` object to call a function in **CatalogSearch.cs** called `Suggest`. Rather than making a search query, the `Suggest` function makes a call to the [Suggestions API](http://msdn.microsoft.com/en-us/library/azure/dn798936.aspx). This uses the terms entered in the text box and build out a list of potential suggestions. The values are returned to the **Index.cshtml** file that are automatically listed in the Search box as type-ahead options.
+6.	Open **HomeController.cs** and move to the Suggest function. This code is very similar to the Search function that uses the `_catalogSearch` object to call a function in **CatalogSearch.cs** called `Suggest`. Rather than making a search query, the `Suggest` function makes a call to the [Suggestions API](http://msdn.microsoft.com/library/azure/dn798936.aspx). This uses the terms entered in the text box and build out a list of potential suggestions. The values are returned to the **Index.cshtml** file that are automatically listed in the Search box as type-ahead options.
 
 You might be asking yourself at this point how Azure Search knows what fields to build suggestions over. The answer to this is back when you created the Index. In the `CreateCatalogIndex`  function within the file Program.cs of the **CatalogIndexer** project, there is an attribute called `Suggestions`.  Whenever this attribute is set to `True`, it means that Azure Search can use it as a field for retrieving suggestions
 
@@ -186,11 +186,11 @@ When building AdventureWorksWeb, if you get "Could not load file or assembly 'Sy
 
 For additional self-study, consider adding a Details page that opens when a user clicks one of the Search results. To prepare, you could do the following:
 
-+	Read up on the [Lookup API](http://msdn.microsoft.com/en-us/library/azure/dn798929.aspx) that allows you to make a query to Azure Search to bring back a specific document (for example you could pass the productID).
++	Read up on the [Lookup API](http://msdn.microsoft.com/library/azure/dn798929.aspx) that allows you to make a query to Azure Search to bring back a specific document (for example you could pass the productID).
 +	Try adding a new function in the **HomeController.cs** file called Details. Add a corresponding **Details.cshtml** view that receives the results of this Lookup and displays the results.
 +	Check out this additional code sample and video on geospatial search: [Channel 9 - Azure Search and Geospatial Data](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) and [CodePlex: Azure Search GeoSearch Sample](http://azuresearchgeospatial.codeplex.com)
 
-You can also review the [Azure Search REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) on MSDN.
+You can also review the [Azure Search REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) on MSDN.
 
 
 <!--Anchors-->

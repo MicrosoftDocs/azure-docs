@@ -16,7 +16,7 @@
 	ms.date="02/02/2015" 
 	ms.author="rasquill"/>
 # Using the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)
-This topic describes how to create a VM with the Docker VM Extension from the xplat-cli on any platform. [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) to create a Docker VM that hosts any number of containers for your applications on Azure. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+This topic describes how to create a VM with the Docker VM Extension from the xplat-cli on any platform. [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) to create a Docker VM that hosts any number of containers for your applications on Azure. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 + [How to use the Docker VM Extension with Azure]
 + [Virtual Machine Extensions for Linux and Windows] 
@@ -39,23 +39,23 @@ The complete process to use Docker on Azure is simple:
 > [AZURE.NOTE] The xplat-cli (command line interface) is currently the only way to create a Docker-controlled VM on Azure to host Docker containers. 
 
 ### Install the Cross-Platform Command-Line Interface (xplat-cli)
-To install and configure the Cross-Platform Command-Line Interface, see [How to install the Azure Cross-Platform Command-Line Interface](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install). To confirm the installation, type `azure` at the command prompt and after a short moment you should see the xplat-cli ASCII art, which lists the basic commands available to you. If the installation worked correctly, you should be able to type `azure help vm` and see that one of the listed commands is "docker".
+To install and configure the Cross-Platform Command-Line Interface, see [How to install the Azure Cross-Platform Command-Line Interface](xplat-cli.md#install). To confirm the installation, type `azure` at the command prompt and after a short moment you should see the xplat-cli ASCII art, which lists the basic commands available to you. If the installation worked correctly, you should be able to type `azure help vm` and see that one of the listed commands is "docker".
 
 > [AZURE.NOTE] If you are using an Ubuntu 14.04 LTS installation, that image has a slightly different node installation that may require some extra work. One suggestion that seems to work well is located [here](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server) in the **How To Install Using a PPA** section, which describes how to install the most recent version of nodejs directly and seems to work well on an Ubuntu 14.04 LTS distribution. 
 
 ### Connect the xplat-cli to to your Azure Account
-Before you can use the xplat-cli you must associate your Azure account credentials with the xplat-cli on your platform. The section [How to connect to your Azure subscription](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure) explains how to either download and import your **.publishsettings** file or associate your xplat-cli command-line with an organizational id. 
+Before you can use the xplat-cli you must associate your Azure account credentials with the xplat-cli on your platform. The section [How to connect to your Azure subscription](xplat-cli.md#configure) explains how to either download and import your **.publishsettings** file or associate your xplat-cli command-line with an organizational id. 
 
 > [AZURE.NOTE] There are some differences in behavior when using one or the other methods of authentication, so do be sure to read the document above to understand the different functionality. 
 
 ### Install Docker and use the Docker VM Extension for Azure
 Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. For most operating systems and distributions, this means typing `apt-get install docker.io`. Confirm that the Docker version is at 1.0 or greater.
 
-To use Docker with an Azure Virtual Machine, the Linux image used for the VM must have the [Azure Linux VM Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) installed. Currently, there are only two types of images that provide this:
+To use Docker with an Azure Virtual Machine, the Linux image used for the VM must have the [Azure Linux VM Agent](virtual-machines-linux-agent-user-guide.md) installed. Currently, there are only two types of images that provide this:
 
 + An Ubuntu image from the Azure Image Gallery or 
 
-+ A custom Linux image that you have created with the Azure Linux VM Agent installed and configured. See [Azure Linux VM Agent](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/) for more information about how to build a custom Linux VM with the Azure VM Agent.
++ A custom Linux image that you have created with the Azure Linux VM Agent installed and configured. See [Azure Linux VM Agent](virtual-machines-linux-agent-user-guide.md) for more information about how to build a custom Linux VM with the Azure VM Agent.
 
 ### Using the Azure Image Gallery
 
@@ -131,9 +131,9 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. To create
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
-[How to use the Docker VM Extension with the Portal]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-portal/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+[How to use the Docker VM Extension with the Portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Docker User Guide]: https://docs.docker.com/userguide/

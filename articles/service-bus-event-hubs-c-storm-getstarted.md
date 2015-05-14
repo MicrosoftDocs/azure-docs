@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Get Started with Event Hubs" 
 	description="Follow this tutorial to get started using Azure Event Hubs sending events with C and receiving them in an Apache Storm cluster" 
-	services="service-bus" 
+	services="event-hubs,service-bus" 
 	documentationCenter="" 
 	authors="fsautomata" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
+	ms.service="event-hubs" 
 	ms.workload="core" 
 	ms.tgt_pltfrm="c" 
 	ms.devlang="java" 
@@ -30,11 +30,11 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 In order to complete this tutorial you will need the following:
 
-+ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial/) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
++ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](virtual-machines-linux-tutorial.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
++ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ## Create an Event Hub
 
@@ -104,9 +104,9 @@ The following resources are available for developing applications integrating Ev
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn836025.aspx
+[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
 [Apache Storm]: https://storm.incubator.apache.org
-[HDInsight Storm Overview]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-overview/
-[Analyzing sensor data with Storm and HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[HDInsight Storm Overview]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
+[Analyzing sensor data with Storm and HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/

@@ -1,42 +1,42 @@
 <properties 
-	pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" 
-	description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." 
-	services="web-sites, virtual-machines" 
+	pageTitle="Create a Node.js web app on Azure with MongoDB in a Virtual Machine" 
+	description="How to use MongoDB to store data in a Node.js application hosted on Azure."
+	tags="azure-portal" 
+	services="app-service\web, virtual-machines" 
 	documentationCenter="nodejs" 
-	authors="blackmist" 
-	writer="" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="04/23/2015" 
+	ms.author="mwasson"/>
 
 
-# Create a Node.js Application on Azure with MongoDB in a Virtual Machine
+# Create a Node.js web app on Azure with MongoDB in a Virtual Machine
 
-This tutorial shows you how to use [MongoDB] hosted on an Azure Virtual Machine to store data, and access the data from a [node] application hosted in an Azure Website. [MongoDB] is a popular open source, high performance NoSQL database.
+This tutorial shows you how to use [MongoDB] hosted on an Azure Virtual Machine to store data, and access the data from a [node] application hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. [MongoDB] is a popular open source, high performance NoSQL database.
 
 You will learn:
 
 * How to set up a virtual machine running Ubuntu and MongoDB from the VM Depot.
 * How to access MongoDB from a node application
-* How to use the Cross-Platform Tools for Azure to create an Azure Website
+* How to use the Cross-Platform Tools for Azure to create a web app in Azure App Service
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
 
-> [AZURE.NOTE] This tutorial uses an instance of MongoDB installed on a virtual machine. If you would rather use a hosted MongoDB instance provided  by MongoLabs, see <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On</a>.
+> [AZURE.NOTE] This tutorial uses an instance of MongoDB installed on a virtual machine. If you would rather use a hosted MongoDB instance provided  by MongoLabs, see [Create a Node.js web app on Azure with MongoDB using the MongoLab add-on](store-mongolab-web-sites-nodejs-store-data-mongodb).
  
 The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
 
 ![A web page displaying an empty tasklist][node-mongo-finished]
 
-> [AZURE.NOTE] Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as __Windows PowerShell__ (Windows) or __Bash__ (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
+> [AZURE.NOTE] Many of the steps below mention using the command-line. For these steps, use the command-line for your operating system, such as **Windows PowerShell** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the Terminal application.
 
 ##Prerequisites
 
@@ -46,53 +46,30 @@ Additionally, the [Git] must be available from the command-line in your developm
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 ##Create a virtual machine
 
-<!--This tutorial assumes you have created a virtual machine in Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
-
-* To create a Linux virtual machine and install MongoDB, see [Installing MongoDB on a Linux Virtual machine].
-
+<!--
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
 
-While it is possible to create a new VM, and then install MongoDB into it following the [MongoDB installation guides][installguides], most of this work has already been performed by the community, and is available in the VM Depot. The following steps demonstrate how to use an image from VM Depot that already has Mongo DB installed and configured. 
+While it is possible to create a new VM, and then install MongoDB into it following the [MongoDB installation guides][installguides], a VM preinstalled with MongoDB is available in the Azure Marketplace. The following steps demonstrate how to use one of many such VM templates. 
 
 > [AZURE.NOTE] The community image used by this tutorial stores MongoDB data on the OS disk. While this is sufficient for tutorial purposes, storing MongoDB data on a data disk will provide greater performance. For steps on creating a new VM, including a data disk, and storing MongoDB data on the data disk, see [Install MongoDB on Linux on Azure][mongodbonazure].
 
-1. Log in to the [Azure Management portal][azureportal], select __Virtual Machines__, select __Images__, and then select __VM Depot__.
+1. Log in to the [Azure portal][azureportal].
+
+3. Click **New** > **Data + Storage** > **Marketplace**.
 
 	![screenshot of selecting VM Depot][selectdepo]
 
-2. Select an image that includes MongoDB. In this case, I selected Ubuntu to narrow the list to only images based on the Ubuntu Linux distribution. Finally, I selected the MongoDB v2.2.3 on Hardened Ubuntu image.
+2. In the search box at the top, type "mongodb", then select **MongoDB v2.2.3 on Hardened Ubuntu 12.04 LTS**. Click **Create** to continue.
 
 	![screenshot of selected mongodb v2.2.3 on hardened ubuntu image][selectedimage]
 
-	> [AZURE.NOTE] Be sure to select __More__ to see all information about the image. Some images may have additional configuration that is required after you have created a VM using the image.
-
 	Click the arrow at the bottom to proceed to the next screen.
 
-3. Select the region and storage account that will be used to store the VHD for this image. Click the check mark to continue.
-	
-	![screenshot of choose a storage account][selectstorage]
-
-	> [AZURE.NOTE] This will start a copy process that copies the image from the VM Depot to the specified storage account. This can take quite a bit of time, 15 minutes or longer.
-
-4. Once the status for the image changes to __Pending registration__, select __Register__ and enter a friendly name for the new image. Click the check mark to continue.
-
-	![screenshot of registering an image][register]
-
-5. Once the status for the image changes to __Available__, select __+ New__, __Virtual Machine__, __From Gallery__. When asked to __Choose an Image__, select __My Images__, and then the image created in previous steps. Click the arrow to continue.
-
-	![screenshot of the image][myimage]
-
-6. Provide the name of the VM, size, user name. Click the arrow to continue.
-
-	![screenshot of the vm name, user name, etc.][vmname]
-
-	>[AZURE.NOTE] For this tutorial, you will not need to use SSH to remotely connect to your VM. Select **Use a password** and provide a password if you are not familiar with using a certificate with SSH.
-	>
-	> For more information on using SSH with a Linux VM on Azure, see [How to use SSH with Linux on Azure][sshazure].
-
-7. Select whether to use a new or existing Cloud Service, and the region that the VM will be created in. Click the arrow to continue.
+7. Configure the VM's **Host Name**, administrator **User Name** and **Password**, and **Resource Group**. Then, click **Optional Configuration**.
 
 	![screenshot of the vm configuration][vmconfig]
 
@@ -110,11 +87,11 @@ While it is possible to create a new VM, and then install MongoDB into it follow
 	* Public port - 28017
 	* Private port - 28017
 	
-	Finally, select the check mark to configure the virtual machine.
-
 	![screenshot of the endpoint configuration][vmendpoint]
 
-9. Once the virtual machine status has changed to __Running__, you should be able to open a web browser to __http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/__ to verify that MongoDB is running. At the bottom of the page should be a log that displays information about the service, similar to the following:
+9. Click **OK** twice, then click **Create** to create the VM. 
+
+	Once the virtual machine is created, your will see it on your Startboard, and you can click it to open the VM's blade. You should be able to open a web browser to **http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/** to verify that MongoDB is running. At the bottom of the page should be a log that displays information about the service, similar to the following:
 
 		Fri Mar  7 18:57:16 [initandlisten] MongoDB starting : pid=1019 port=27017 dbpath=/var/lib/mongodb 64-bit host=localhost.localdomain
            18:57:16 [initandlisten] db version v2.2.3, pdfile version 4.5
@@ -136,7 +113,7 @@ In this section you will create a new Node application on your development envir
 
 1. From the command-line, change directories to the **tasklist** directory. If the **tasklist** directory does not exist, create it.
 
-	> [AZURE.NOTE] This tutorial makes reference to the __tasklist__ folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as __~/node/tasklist__ or __c:\node\tasklist__
+	> [AZURE.NOTE] This tutorial makes reference to the **tasklist** folder. The full path to this folder is omitted, as path semantics differ between operating systems. You should create this folder in a location that is easy for you to access on your local file system, such as **~/node/tasklist** or **c:\node\tasklist**
 
 2. Enter the following command to install the express command.
 
@@ -150,7 +127,7 @@ In this section you will create a new Node application on your development envir
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)                                                                         
  
-	> [AZURE.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the ___express___ command to generate website scaffolding without having to type in additional path information.
+	> [AZURE.NOTE] The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the ___express___ command to generate web app scaffolding without having to type in additional path information.
 
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -184,7 +161,7 @@ In this section you will create a new Node application on your development envir
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
 
-3. Copy the **tasklist/bin/www** file to a file named **server.js** in the **tasklist** folder. Azure Websites expects the entry point for a Node.js application to be either **server.js** or **app.js**. Since **app.js** already exists, but is not the entry point, we must use **server.js**.
+3. Copy the **tasklist/bin/www** file to a file named **server.js** in the **tasklist** folder. App Service Web Apps expects the entry point for a Node.js application to be either **server.js** or **app.js**. Since **app.js** already exists, but is not the entry point, we must use **server.js**.
 
 4. Modify the **server.js** file to remove one of the '.' characters from the following line.
 
@@ -198,7 +175,7 @@ In this section you will create a new Node application on your development envir
 
 ###Install additional modules
 
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Website, this file will be used to determine which modules need to be installed on Azure to support your application.
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to App Service Web Apps, this file will be used to determine which modules need to be installed on Azure to support your application.
 	
 1. From the **tasklist** folder, use the following to install the modules described in the **package.json** file:
 
@@ -460,25 +437,25 @@ To test the application on your local machine, perform the following steps:
 
 ##Deploy your application to Azure
 
-The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
+The steps in this section use the Azure command-line tools to create a new web app in Azure App Service, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-> [AZURE.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Website</a>.
+> [AZURE.NOTE] These steps can also be performed by using the Azure Portal. For steps on using the Azure Portal to deploy a Node.js application, see [Build and deploy a Node.js web app in Azure App Service](web-sites-nodejs-develop-deploy-mac.md).
 
-> [AZURE.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
+> [AZURE.NOTE] If this is the first App Service web app you have created, you must use the Azure Portal to deploy this application.
 
 ###Install the Azure cross-platform command-line interface
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perform management operations for Azure services. If you have not already installed and configured the xplat-cli on your development environment, see [Install and configure the Azure Cross-Platform Command-Line Interface][xplatcli] for instructions.
 
-###Create an Azure Website
+###Create an App Service web app
 
 1. From the command-line, change directories to the **tasklist** directory.
 
-2. Use the following command to create a new Azure Website. Replace 'myuniquesitename' with a unique site name for your website. This value is used as part of the URL for the resulting website.
+2. Use the following command to create a new App Service web app. Replace 'myuniqueappname' with a unique name for your web app. This value is used as part of the URL for the resulting web app.
 
-		azure site create myuniquesitename --git
+		azure site create myuniqueappname --git
 		
-	You will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your location.
+	You will be prompted for the datacenter that the web app will be located in. Select the datacenter geographically close to your location.
 	
 	The `--git` parameter will create a Git repository locally in the **tasklist** folder if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Azure. It will create an [iisnode.yml], which contains settings used by Azure to host node applications. Finally it will also create a .gitignore file to exclude the node-modules folder for being published to .git.
 	
@@ -486,7 +463,7 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perfor
 	
 	> [AZURE.NOTE] If the '--git' parameter is omitted, yet the directory contains a Git repository, the 'azure' remote will still be created.
 	
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the website.
+	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created website at** contains the URL for the App Service web app.
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
@@ -499,15 +476,15 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perfor
 		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE> If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Azure Websites</a>.
+	> [AZURE.NOTE> If this is the first App Service web app for your subscription, you will be instructed to use the portal to create the web app. For more information, see [Build and deploy a Node.js web app in Azure App Service](web-sites-nodejs-develop-deploy-mac.md).
 
 ###Set the MONGODB_URI environment variable
 
-The application expects the connection string for the MongoDB instance to be available in the MONGODB_URI environment variable. To set this value for the website, use the following command:
+The application expects the connection string for the MongoDB instance to be available in the MONGODB_URI environment variable. To set this value for the web app, use the following command:
 
 	azure site config add MONGODB_URI=mongodb://mymongodb.cloudapp.net/tasks
 
-This will create a new application setting for the website, which will be used to populate the MONGODB_URI environment variable read by the website. Replace the value of 'mymongodb.cloudapp.net' with the name of the virtual machine that MongoDB was installed on.
+This will create a new application setting for the web app, which will be used to populate the MONGODB_URI environment variable read by the web app. Replace the value of 'mymongodb.cloudapp.net' with the name of the virtual machine that MongoDB was installed on.
 
 ###Publish the application
 
@@ -518,7 +495,7 @@ This will create a new application setting for the website, which will be used t
 		git add .
 		git commit -m "adding files"
 
-3. When pushing the latest Git repository changes to the Azure Website, you must specify that the target branch is **master** as this is used for the website content.
+3. When pushing the latest Git repository changes to the App Service web app, you must specify that the target branch is **master** as this is used for the web app content.
 
 		git push azure master
 	
@@ -540,21 +517,25 @@ This will create a new application setting for the website, which will be used t
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-4. Once the push operation has completed, browse to the website by using the `azure site browse` command to view your application.
+4. Once the push operation has completed, browse to the web app by using the `azure site browse` command to view your application.
 
 ##Next steps
 
-While the steps in this article describe using MongoDB to store information, you can also use the Azure Table Service. See [Node.js Web Application with the Azure Table Service] for more information.
+While the steps in this article describe using MongoDB to store information, you can also use the Azure Table Service. See [Node.js web app using the Azure Table Service] for more information.
 
-To learn how to use a hosted instance of MongoDB provided by MongoLab, see [Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
+To learn how to use a hosted instance of MongoDB provided by MongoLab, see [Create a Node.js web app on Azure with MongoDB using the MongoLab add-on](store-mongolab-web-sites-nodejs-store-data-mongodb.md).
 
 To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 
 ##Additional resources
 
 [Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Azure Web Sites]    
-[Publishing to Azure Web Sites with Git]    
+[Build and deploy a Node.js web app in Azure App Service]    
+[Continuous deployment using GIT in Azure App Service]    
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [mongosecurity]: http://docs.mongodb.org/manual/security/
 [node]: http://nodejs.org
@@ -562,25 +543,24 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[for free]: /en-us/pricing/free-trial
+[for free]: /pricing/free-trial
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Azure Developer Center]: /en-us/develop/nodejs/
-[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
-[Installing MongoDB on a Linux Virtual machine]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[Node.js Web Application with the Azure Table Service]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+[Azure command-line tool for Mac and Linux]: virtual-machines-command-line-tools.md
+[Azure Developer Center]: /develop/nodejs/
+[Build and deploy a Node.js web app in Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
+[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
+[Node.js web app using the Azure Table Service]: storage-nodejs-use-table-storage-web-site.md
 [node-mongo-finished]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_empty.png
 [node-mongo-express-results]: ./media/store-mongodb-web-sites-nodejs-use-mac/express_output.png
 [node-mongo-add-item]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_add_item.png
 [node-mongo-list-items]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_items.png
 [download-publishing-settings]: ./media/store-mongodb-web-sites-nodejs-use-mac/azure-account-download-cli.png
 [installguides]: http://docs.mongodb.org/manual/installation/
-[azureportal]: https://manage.windowsazure.com/
+[azureportal]: https://portal.azure.com
 [mongodocs]: http://docs.mongodb.org/manual/
-[xplatcli]: /en-us/documentation/articles/xplat-cli/
+[xplatcli]: xplat-cli.md
 
 [selectdepo]: ./media/web-sites-nodejs-store-data-mongodb/browsedepot.png
 [selectedimage]: ./media/web-sites-nodejs-store-data-mongodb/selectimage.png
@@ -590,5 +570,4 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [vmname]: ./media/web-sites-nodejs-store-data-mongodb/vmname.png
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
-[sshazure]: http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/ 

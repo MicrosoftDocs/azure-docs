@@ -6,13 +6,14 @@
 	authors="AharonGumnik" 
 	manager="paulettm" 
 	editor="cgronlun"/>
+
 <tags 
 	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/29/2015" 
 	ms.author="AharonGumnik"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -31,7 +32,7 @@ The Azure Machine Learning Recommendations API can be divided into 8 groups:
 2.	<ins>Model Advanced</ins> – APIs that enable you to get advanced data insights on the model.
 3.	<ins>Model Business Rules</ins> – APIs that enable you to manage business rules on the model recommendation results.
 4.	<ins>Catalog</ins> – APIs that enable you to do basic operations on a model catalog. A catalog contains metadata information on the items of the usage data.
-5.	<ins>Usage Data</ins> – APIs that enable you to do basic operations on the model usage data. Usage data in the basic form consists of rows that include pairs of <userId>,<itemId>.
+5.	<ins>Usage Data</ins> – APIs that enable you to do basic operations on the model usage data. Usage data in the basic form consists of rows that include pairs of &#60;userId&#62;,&#60;itemId&#62;.
 6.	<ins>Build</ins> – APIs that enable you to trigger a model build and do basic operations that are related to this build. You can trigger a model build once you have valuable usage data.
 7.	<ins>Recommendation</ins> – APIs that enable you to consume recommendations once the build of a model ends.
 8.	<ins>Notifications</ins> – APIs that enable you to receive notifications on problems related to your API operations. (For example, you are reporting usage data via Data Acquisition and most of the events processing are failing. An error notification will be raised.)
@@ -328,6 +329,8 @@ OData XML
 ###6.1.	Model Data Insight
 Returns statistical data on the usage data that this model was built with.
 
+Available only for Recommendation build.
+
 | HTTP Method | URI |
 |:--------|:--------|
 |GET     |`<rootURI>/GetDataInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Example:<br>`<rootURI>/GetDataInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`|
@@ -562,6 +565,8 @@ OData XML
 ###6.2.	Model Insight
 Returns model insight on the active build or (if given) on a specific build.
 
+Available only for Recommendation build.
+
 | HTTP Method | URI |
 |:--------|:--------|
 |GET     |With active build ID:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>With specific build ID:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`|
@@ -792,7 +797,12 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 ##7. Model Business Rules
-There are 2 types of rules that you can add, <strong>BlockList</strong> and <strong>Upsale</strong>. BlockList enables you to provide a list of items that you do not want to return in the recommendation results. Upsale enables you to enforce items to return in the recommendation results.
+There are 4 types of rules:
+<strong>BlockList</strong> - BlockList enables you to provide a list of items that you do not want to return in the recommendation results.
+<strong>Upsale</strong> - Upsale enables you to enforce items to return in the recommendation results.
+<strong>WhiteList</strong> - White List enables you to provide list of items that only them can be return as recommendation results (opposite of BlockList).
+<strong>PerSeedBlockList</strong> - Per Seed Block List enables you to provide per item a list of items that cannot be returned as recommendation results.
+
 
 ###7.1.	Get Model Rules
 
@@ -812,7 +822,7 @@ There are 2 types of rules that you can add, <strong>BlockList</strong> and <str
 HTTP Status code: 200
 
 - `feed/entry/content/properties/Id` – Unique identifier of this rule.
-- `feed/entry/content/properties/Type` – Type of the rule: BlockList or Upsale.
+- `feed/entry/content/properties/Type` – Type of the rule.
 - `feed/entry/content/properties/Parameter` – Rule parameter.
 
 OData XML
@@ -862,7 +872,7 @@ OData XML
 |:--------			|:--------								|
 |	apiVersion		| 1.0 |
 |||
-| Request Body | <ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
+| Request Body | <ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>For adding Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding WhiteList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>For adding PerSeedBlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Response**:
 
@@ -955,8 +965,7 @@ Note: The maximum file size is 200MB.
 | Item Name | Yes | Any alphanumeric characters<br> Max length: 255 | Item name. | 
 | Item Category | Yes | Any alphanumeric characters <br> Max length: 255 | Category to which this item belongs (e.g. Cooking Books, Drama…); can be empty. |
 | Description | No, unless features are present (but can be empty) | Any alphanumeric characters <br> Max length: 4000 | Description of this item. |
-| Features list | No | Any alphanumeric characters <br> Max length: 4000 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation; see [Advanced Topics](21-advanced-topics) section. |
-
+| Features list | No | Any alphanumeric characters <br> Max length: 4000 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation; see [Advanced topics](#2-advanced-topics) section. |
 
 
 | HTTP Method | URI |
@@ -1400,7 +1409,7 @@ Gets usage statistics.
 
 HTTP Status code: 200
 
-A collection of key/value information. Each one contains the sum of events for a specific event type grouped by hour.
+A collection of key/value elements. Each one contains the sum of events for a specific event type grouped by hour.
 
 - `feed\entry[i]\content\properties\Key` – Contains the time (grouped by hour) and the event type.
 - `feed\entry[i]\content\properties\Value` – Total event count.
@@ -1769,7 +1778,11 @@ OData
 
 ##11. Build
 
-This section explains the different APIs related to builds. Currently, two types of builds are possible: a recommendation build and a rank build. The recommendation build is used to generate a recommendation model used for predictions. A rank build is a technical build that allows you to learn about the usefulness of your features. Usually, in order to get the best result for a recommendation model involving features, you should take the following steps:
+  This section explains the different APIs related to builds. There are 3 types of build: a recommendation build, a rank build and an FBT build.
+
+The recommendation build is used to generate a recommendation model used for predictions.
+
+A rank build is a technical build that allows you to learn about the usefulness of your features. Usually, in order to get the best result for a recommendation model involving features, you should take the following steps:
 - Trigger a rank build (unless the score of your features is stable) and wait till you get the feature score.
 - Retrieve the rank of your features by calling the [Get Features Info](#101-get-features-info-for-last-rank-build) API.
 - Configure a recommendation build with the following parameters:
@@ -1782,6 +1795,11 @@ This section explains the different APIs related to builds. Currently, two types
 Note: If you do not configure any parameters (e.g. invoke the recommendation build without parameters) or you do not explicitly disable the usage of features (e.g. `UseFeatureInModel` set to False), the system will set up the feature-related parameters to the explained values above in case a rank build exists.
 
 There is no restriction on running a rank build and a recommendation build concurrently for the same model. Nevertheless, you cannot run two builds of the same type on the same model in parallel.
+
+An FBT (Frequently bought together) build is yet another recommendations algorithm called sometimes "conservative" recommender, which is good for catalogs that are not homogeneous in nature (homogeneous: books, movies, some food, fashion; non-homogeneous: computer and devices, cross-domain, highly diverse).
+
+Note: if the usage files that you uploaded contain the optional field "event type" then for FBT modeling only "Purchase" events will be used. If no event type is provided all events will be taken for modeling.
+
 
 ####11.1 Build parameters
 
@@ -1817,15 +1835,23 @@ The table below depicts the build parameters for recommendation build.
 | Description | Build description. | String | Any text, maximum 512 chars |
 | EnableModelingInsights | Allows you to compute metrics on the recommendation model. | Boolean | True/False |
 | UseFeaturesInModel | Indicates if features can be used in order to enhance the recommendation model. | Boolean | True/False |
-| ModelingFeatureList | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. | String | Feature name, up to 512 chars |
+| ModelingFeatureList | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. | String | Feature names, up to 512 chars |
 | AllowColdItemPlacement | Indicates if the recommendation should also push cold items via feature similarity. | Boolean | True/False |
 | EnableFeatureCorrelation | Indicates if features can be used in reasoning. | Boolean | True/False |
-| ReasoningFeatureList | Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).  | String | Feature name, up to 512 chars |
+| ReasoningFeatureList | Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).  | String | Feature names, up to 512 chars |
 
+#####11.1.4. FBT build parameters
+The table below depicts the build parameters for recommendation build.
+
+|Key|Description|Type|Valid Value (Default)|
+|:-----|:----|:----|:---|
+|FbtSupportThreshold | How conservative the model is. Number of co-occurrences of items to be considered for modeling.| Integer | 3-50 (6) |
+|FbtMaxItemSetSize | Bounds the number of items in a frequent set.| Integer | 2-3 (2) |
+|FbtMinimalScore | Minimal score that a frequent set should have in order to be included in the returned results. The higher the better.| Double | 0 and above (0) |
 
 ###11.2. Trigger a Recommendation Build
 
-By default this API will request the creation of a recommendation model, in order to create a rank build (in order to score  features). The build API with build type variant should be used.
+  By default this API will trigger a recommendation model build. To trigger a rank build (in order to score  features), the build API variant with build type parameter should be used.
 
 
 | HTTP Method | URI |
@@ -1838,7 +1864,7 @@ By default this API will request the creation of a recommendation model, in orde
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
 | apiVersion | 1.0 |
 |||
-| Request Body | If left empty then the build will be executed with the default build parameters.<br><br>If you want to set the build parameters, send the parameters as XML into the body as in the following sample. (See the "Build parameters" section for an explanation of the parameters.)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasonningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| Request Body | If left empty then the build will be executed with the default build parameters.<br><br>If you want to set the build parameters, send the parameters as XML into the body as in the following sample. (See the "Build parameters" section for an explanation of the parameters.)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Response**:
 
@@ -1900,7 +1926,7 @@ OData XML
   	</entry>
 	</feed>
 
-###11.3. Trigger Build (Rank or Recommendation)
+###11.3. Trigger Build (Recommendation, Rank or FBT)
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1910,7 +1936,7 @@ OData XML
 |:--------			|:--------								|
 | modelId |	Unique identifier of the model  |
 | userDescription | Textual identifier of the catalog. Note that if you use spaces you must encode it with %20 instead. See example above.<br>Max length: 50 |
-| buildType | Type of the build to invoke: <br> - 'Ranking' for rank build <br/> - 'Recommendation' for recommendation build
+| buildType | Type of the build to invoke: <br/> - 'Recommendation' for recommendation build <br> - 'Ranking' for rank build <br/> - 'Fbt' for FBT build
 | apiVersion | 1.0 |
 |||
 | Request Body | If left empty then the build will be executed with the default build parameters.<br><br>If you want to set the build parameters, send the parameters as XML into the body as in the following sample. (See the "Build parameters" section for an explanation of the parameters.)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
@@ -2062,7 +2088,7 @@ OData XML
 	</feed>
 
 
-###11.5. Get Builds Status of a User
+###11.5. Get Builds Status
 Retrieves build statuses of all models of a user.
 
 | HTTP Method | URI |
@@ -2181,7 +2207,7 @@ Cancels a build that is in building status.
 
 HTTP Status code: 200
 
-###11.7. Get Build Parameters
+###11.8. Get Build Parameters
 Retrieves build parameters.
 
 | HTTP Method | URI |
@@ -2214,10 +2240,10 @@ The table below depicts the value that each key represents.
 | Description | Build description. | String | Any text, maximum 512 chars |
 | EnableModelingInsights | Allows you to compute metrics on the recommendation model. | Boolean | True/False |
 | UseFeaturesInModel | Indicates if features can be used in order to enhance the recommendation model. | Boolean | True/False |
-| ModelingFeatureList | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. | String | Feature name, up to 512 chars |
+| ModelingFeatureList | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. | String | Feature names, up to 512 chars |
 | AllowColdItemPlacement | Indicates if the recommendation should also push cold items via feature similarity. | Boolean | True/False |
 | EnableFeatureCorrelation | Indicates if features can be used in reasoning. | Boolean | True/False |
-| ReasoningFeatureList | Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).  | String | Feature name, up to 512 chars |
+| ReasoningFeatureList | Comma-separated list of feature names to be used for reasoning sentences (e.g. recommendation explanations).  | String | Feature names, up to 512 chars |
 
 
 OData XML
@@ -2390,6 +2416,8 @@ OData XML
 ##12. Recommendation
 ###12.1. Get Recommendations
 
+Get recommendations of the active build of type "Recommendation" or "Fbt".
+
 | HTTP Method | URI |
 |:--------|:--------|
 |GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
@@ -2397,7 +2425,7 @@ OData XML
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
-| itemIds | Comma-separated list of the items to recommend for.<br>Max length: 200 |
+| itemIds | Comma-separated list of the items to recommend for. <br>If the active build is of type FBT then you can send only one item. <br>Max length: 1024 |
 | numberOfResults | Number of required results |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
@@ -2566,6 +2594,36 @@ OData XML
  	 </entry>
 	</feed>
 
+###12.2. Get Recommendations (of a specific build)
+
+Get recommendations of a specific build of type "Recommendation" or "Fbt".
+
+| HTTP Method | URI |
+|:--------|:--------|
+|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=1234&apiVersion=%271.0%27`|
+
+|	Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+| modelId | Unique identifier of the model |
+| itemIds | Comma-separated list of the items to recommend for. <br>If the active build is of type FBT then you can send only one item. <br>Max length: 1024 |
+| numberOfResults | Number of required results |
+| includeMetatadata | Future use, always false
+| buildId | the build id to use for this recommendation request |
+| apiVersion | 1.0 |
+
+**Response:**
+
+HTTP Status code: 200
+
+
+The response includes one entry per recommended item. Each entry has the following data:
+- `Feed\entry\content\properties\Id` – Recommended item ID.
+- `Feed\entry\content\properties\Name` – Name of the item.
+- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+
+See a response example in 12.1
+
 ##13. Notifications
 Azure Machine Learning Recommendations creates notifications when persistent errors happen in the system. There are 3 types of notifications:
 1.	Build failure - This notification is triggered for every build failure.
@@ -2644,7 +2702,7 @@ Deletes all read notifications for a model.
 
 HTTP Status code: 200
 
-###11.3. Delete User Notifications
+###13.3. Delete User Notifications
 Deletes all notifications for all models.
 
 | HTTP Method | URI |

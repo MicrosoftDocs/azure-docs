@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="remoteapp" 
-	ms.workload="tbd" 
+	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/17/2015" 
+	ms.date="04/08/2015" 
 	ms.author="elizapo"/>
 
 # How to create a cloud collection of RemoteApp
@@ -37,20 +37,19 @@ You need to do the following before creating the collection:
 - [Sign up](http://azure.microsoft.com/services/remoteapp/) for RemoteApp. 
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
 - This procedure assumes you are either going to use one of the template images provided as part of your subscription or that you have already uploaded the template image you want to use. If you need to upload a different template image, you can do that from the Template Images page. Just click **upload a template image** and follow the steps in the wizard. 
-- Want to provide custom apps or LOB programs? Create a new [custom template image](../remoteapp-create-custom-image/) and use it in your cloud collection.
+- Want to provide custom apps or LOB programs? Create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
 
 ## Step 1: Create a RemoteApp collection ##
 
 
 
-1. In the [Windows Azure Management Portal](http://manage.windowsazure.com), go to the RemoteApp page.
+1. In the management portal, go to the RemoteApp page.
 2. Click **New > Quick Create**.
-
 3. Enter a name for your collection, and select your region.
 4. Choose the plan that you want to use - standard or basic.
 5. Choose the template to use for this collection. 
 
-	**Tip:** Your subscription for RemoteApp comes with [template images](../remoteapp-images/) that contain Office 365 or Office 2013 (for trial use) programs, some published (such as Word) and others ready to publish. You can also create a new [custom template image](../remoteapp-create-custom-image/) and use it in your cloud collection.
+	**Tip:** Your subscription for RemoteApp comes with [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs, some published (such as Word) and others ready to publish. You can also create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
 
 
 1. Click **Create RemoteApp collection**.
@@ -62,7 +61,7 @@ After your RemoteApp collection has been created, go to the RemoteApp **Quick St
 
 ## Step 2: Configure Active Directory directory synchronization (optional) ##
 
-If you want to use Active Directory, RemoteApp requires directory synchronization between Azure Active Directory and your on-premises Active Directory to synchronize users,  contacts, and passwords to your Azure Active Directory tenant. See [Configuring Active Directory for Azure RemoteApp](../remoteapp-ad/) for planning information.
+If you want to use Active Directory, RemoteApp requires directory synchronization between Azure Active Directory and your on-premises Active Directory to synchronize users,  contacts, and passwords to your Azure Active Directory tenant. See [Configuring Active Directory for Azure RemoteApp](remoteapp-ad.md) for planning information.
 
 ## Step 3: Publish RemoteApp apps ##
 

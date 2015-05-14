@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
-   description="Learn how to use Pig with Hadoop on HDInsight through SSH."
+   pageTitle="Use Hadoop Pig with SSH on an HDInsight cluster | Microsoft Azure"
+   description="Learn how connect to a Linux-based Hadoop cluster with SSH, and then use the Pig command to run Pig Latin statements interactively, or as a batch job."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -9,18 +9,18 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/18/2015"
    ms.author="larryfr"/>
  
-#Run Pig jobs using the Pig command (SSH)
+#Run Pig jobs on a Linux-based cluster with the Pig command (SSH)
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-In this document you will walk through the process of connecting to a Linux-based HDInsight cluster using SSH, then using the Pig command to run Pig Latin statements interactively, or as a batch job.
+In this document you will walk through the process of connecting to a Linux-based Azure HDInsight cluster by using Secure Shell (SSH), then using the Pig command to run Pig Latin statements interactively, or as a batch job.
 
 The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
 
@@ -30,13 +30,13 @@ The Pig Latin programming language allows you to describe transformations that a
 
 To complete the steps in this article, you will need the following.
 
-* A Linux-based HDInsight (Hadoop on HDInsight) cluster
+* A Linux-based HDInsight (Hadoop on HDInsight) cluster.
 
-* An SSH client. Linux, Unix, and Mac OS should come with an ssh client. Windows users must download a client, such as <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>
+* An SSH client. Linux, Unix, and Mac OS should come with an SSH client. Windows users must download a client, such as <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>.
 
 ##<a id="ssh"></a>Connect with SSH
 
-Connect to the fully qualified domain name (FQDN) of your HDInsight cluster using the SSH command. The FQDN will be the name you gave the cluster, then **.azurehdinsight.net**. For example, the following would connect to a cluster named **myhdinsight**.
+Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by using the SSH command. The FQDN will be the name you gave the cluster, then **.azurehdinsight.net**. For example, the following would connect to a cluster named **myhdinsight**.
 
 	ssh admin@myhdinsight-ssh.azurehdinsight.net
 
@@ -46,17 +46,17 @@ Connect to the fully qualified domain name (FQDN) of your HDInsight cluster usin
 
 **If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
 
-###Putty (Windows clients)
+###PuTTY (Windows-based clients)
 
-Windows does not provide a built-in SSH client. We recommend using **Putty**, which can be downloaded from <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
+Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
-For more information on using Putty, see the **Use Putty to Connect to a Linux Machine** section of <a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">How to use SSH with Linux on Azure</a>.
+For more information on using PuTTY, see the **Use Putty to Connect to a Linux Machine** section of <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">How to use SSH with Linux on Azure</a>.
 
-> [AZURE.NOTE] If you used a certificate for SSH authentication for the HDInsight cluster, you will also need to see the **Create a PPK for Putty** section of <a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">How to use SSH with Linux on Azure</a>
+> [AZURE.NOTE] If you used a certificate for SSH authentication for the HDInsight cluster, you will also need to see the **Create a PPK for Putty** section of <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">How to use SSH with Linux on Azure</a>.
 
 ##<a id="pig"></a>Use the Pig command
 
-2. Once connected, start the Pig Command-Line Interface (CLI) using the following command.
+2. Once connected, start the Pig command-line interface (CLI) by using the following command.
 
         pig
 
@@ -70,11 +70,11 @@ For more information on using Putty, see the **Use Putty to Connect to a Linux M
 
 		DUMP LOGS;
 
-4. Next, transform the data by applying a regular expression to extract only the logging level from each record using the following.
+4. Next, transform the data by applying a regular expression to extract only the logging level from each record by using the following.
 
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-	You can use **DUMP** to view the data after the transformation. In this case, `DUMP LEVELS;`.
+	You can use **DUMP** to view the data after the transformation. In this case, use `DUMP LEVELS;`.
 
 5. Continue applying transformations by using the following statements. Use `DUMP` to view the result of the transformation after each step.
 
@@ -89,14 +89,14 @@ For more information on using Putty, see the **Use Putty to Connect to a Linux M
 	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Groups the rows by log level and stores the results into GROUPEDLEVELS.</td>
 	</tr>
 	<tr>
-	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Creates a new set of data that contains each unique log level value and how many times it occurs. This is stored into FREQUENCIES</td>
+	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Creates a new set of data that contains each unique log level value and how many times it occurs. This is stored into FREQUENCIES.</td>
 	</tr>
 	<tr>
-	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Orders the log levels by count (descending,) and stores into RESULT</td>
+	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Orders the log levels by count (descending) and stores into RESULT.</td>
 	</tr>
 	</table>
 
-6. You can also save the results of a transformation using the `STORE` statement. For example, the following saves the `RESULT` to the **/example/data/pigout** directory on the default storage container for your cluster.
+6. You can also save the results of a transformation by using the `STORE` statement. For example, the following saves the `RESULT` to the **/example/data/pigout** directory on the default storage container for your cluster.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -114,7 +114,7 @@ You can also use the Pig command to run Pig Latin contained in a file.
 
 		cat > ~/pigbatch.pig
 
-4. Type or paste the following lines, then use Ctrl+D when finished.
+4. Type or paste the following lines, and then use Ctrl+D when finished.
 
 		LOGS = LOAD 'wasb:///example/data/sample.log';
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -124,11 +124,11 @@ You can also use the Pig command to run Pig Latin contained in a file.
 		RESULT = order FREQUENCIES by COUNT desc;
 		DUMP RESULT;
 
-5. Use the following to run the **pigbatch.pig** file using the pig command.
+5. Use the following to run the **pigbatch.pig** file by using the Pig command.
 
 		pig ~/pigbatch.pig
 
-	Once the batch job completes, you should see the following output, which should be the same as when you used `DUMP RESULT;` in the previous steps.
+	Once the batch job finishes, you should see the following output, which should be the same as when you used `DUMP RESULT;` in the previous steps.
 
 		(TRACE,816)
 		(DEBUG,434)
@@ -139,16 +139,16 @@ You can also use the Pig command to run Pig Latin contained in a file.
 
 ##<a id="summary"></a>Summary
 
-As you can see, the Pig command allows you to interactively run MapReduce operations using Pig Latin, as well as run statements stored in a batch file.
+As you can see, the Pig command allows you to interactively run MapReduce operations by using Pig Latin, as well as run statements stored in a batch file.
 
 ##<a id="nextsteps"></a>Next steps
 
 For general information on Pig in HDInsight.
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

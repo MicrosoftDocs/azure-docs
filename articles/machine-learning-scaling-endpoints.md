@@ -1,19 +1,21 @@
 <properties 
-   pageTitle="Scaling API Endpoints" 
-   description="Scaling web service endpoints in Azure Machine Learning" 
-   services="machine-learning" 
-   authors="hiteshmadan" 
-   manager="padou" 
-   editor=""/>
+	pageTitle="Scaling API Endpoints" 
+	description="Scaling web service endpoints in Azure Machine Learning" 
+	services="machine-learning" 
+	authors="hiteshmadan" 
+	manager="padou" 
+	editor=""/>
 
 <tags
-   ms.service="machine-learning"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="02/19/2015"
-   ms.author="himad"/>
+	ms.service="machine-learning"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd" 
+	ms.date="02/19/2015"
+	ms.author="himad"/>
+
+
 # Scaling API Endpoints
 
 Web service endpoints in Azure Machine Learning have selectable throttle levels to match the rate at which the endpoint will be consumed.

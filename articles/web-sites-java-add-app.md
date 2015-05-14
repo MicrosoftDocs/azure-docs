@@ -1,30 +1,35 @@
 <properties 
-	pageTitle="Add an application to your Java website" 
-	description="This tutorial shows you how to add a page or application to your Java website on Microsoft Azure." 
-	services="web-sites" 
+	pageTitle="Add a Java application to Azure App Service Web Apps" 
+	description="This tutorial shows you how to add a page or application to your instance of Azure App Service Web Apps that is already configured to use Java." 
+	services="app-service\web" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="04/21/2015" 
 	ms.author="robmcm"/>
 
-# Adding an application to your Java website on Azure
+# Add a Java application to Azure App Service Web Apps
 
-Once you have initialized your Java website as documented at [Get started with Microsoft Azure Web Sites and Java](../web-sites-java-get-started), you can upload your application by placing your WAR in the **webapps** folder.
+Once you have initialized your Java web app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) as documented at [Create a Java web app in Azure App Service](web-sites-java-get-started.md), you can upload your application by placing your WAR in the **webapps** folder.
 
-The navigation path to the **webapps** folder differs based on how you set up your website.
+The navigation path to the **webapps** folder differs based on how you set up your Web Apps instance.
 
-- If you set up your website by using the Azure application gallery, the path to the **webapps** folder is in the form **d:\home\site\wwwroot\bin\application\_server\webapps**, where **application\_server** is the name of the application server in effect for your website. 
-- If you set up your website by using the Azure configuration UI, the path to the **webapps** folder is in the form **d:\home\site\wwwroot\webapps**. 
+- If you set up your web app by using the Azure Marketplace, the path to the **webapps** folder is in the form **d:\home\site\wwwroot\bin\application\_server\webapps**, where **application\_server** is the name of the application server in effect for your Web Apps instance. 
+- If you set up your web app by using the Azure configuration UI, the path to the **webapps** folder is in the form **d:\home\site\wwwroot\webapps**. 
 
-Note that you can use source control to upload your application or web pages, including in continuous integration scenarios. Instructions for using source control with your website are available at [Publishing from Source Control to Azure Web Sites](../web-sites-publish-source-control). FTP is also an option for uploading your application or web pages.
+Note that you can use source control to upload your application or web pages, including continuous integration scenarios. Instructions for using source control with your web app are available at [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md). FTP is also an option for uploading your application or web pages.
 
-Note for Tomcat websites: Once you've uploaded your WAR file to the **webapps** folder, the Tomcat application server will detect that you've added it and will automatically load it. Note that if you copy files (other than WAR files) to the ROOT directory, the application server will need to be restarted before those files are used. The autoload functionality for the Tomcat Java websites running on Azure is based on a new WAR file being added, or new files or directories added to the **webapps** folder. 
+Note for Tomcat web apps: Once you've uploaded your WAR file to the **webapps** folder, the Tomcat application server will detect that you've added it and will automatically load it. Note that if you copy files (other than WAR files) to the ROOT directory, the application server will need to be restarted before those files are used. The autoload functionality for the Tomcat Java web apps running on Azure is based on a new WAR file being added, or new files or directories added to the **webapps** folder. 
+
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 

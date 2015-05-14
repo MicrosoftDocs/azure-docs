@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
+	ms.date="05/01/2015" 
 	ms.author="glenga"/>
 
 
@@ -23,7 +23,7 @@
 
 ##Overview
 
-This guide shows you how to perform common scenarios using an HTML/JavaScript client for Azure Mobile Services, which includes Windows Store JavaScript and PhoneGap/Cordova apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the Mobile Services [Windows Store JavaScript quickstart] or [HTML quickstart]. The quickstart tutorial helps you configure your account and create your first mobile service.
+This guide shows you how to perform common scenarios using an HTML/JavaScript client for Azure Mobile Services, which includes Windows Store JavaScript and PhoneGap/Cordova apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart](mobile-services-html-get-started.md). The quickstart tutorial helps you configure your account and create your first mobile service.
 
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
@@ -44,7 +44,7 @@ In the editor, open or create a JavaScript file, and add the following code that
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [GettingStarted with Data in Windows Store JavaScript] or [Getting Started with Data in HTML/JavaScript].
+You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Add Mobile Services to an existing app](mobile-services-html-get-started-data.md).
 
 >[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#caching).
 
@@ -284,11 +284,11 @@ This inserts data from the supplied JSON object into the table. You can also spe
 
 Mobile Services supports unique custom string values for the table's **id** column. This allows applications to use custom values such as email addresses or user names for the ID. For example, the following code inserts a new item as a JSON object, where the unique ID is an email address:
 
-			todoItemTable.insert({
-			   id: "myemail@domain.com",
-			   text: "New Item",
-			   complete: false
-			})
+	todoItemTable.insert({
+	   id: "myemail@domain.com",
+	   text: "New Item",
+	   complete: false
+	});
 
 String IDs provide you with the following benefits:
 
@@ -296,75 +296,95 @@ String IDs provide you with the following benefits:
 + Records are easier to merge from different tables or databases.
 + IDs values can integrate better with an application's logic.
 
-When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
+When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](mobile-services-how-to-use-server-scripts.md#generate-guids). 
 
-You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/en-us/documentation/articles/command-line-tools/#Mobile_Tables).
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
 ##<a name="modifying"></a>How to: Modify data in a mobile service
 
 The following code illustrates how to update data in a table. The client requests that a row of data be updated by sending a PATCH request to the mobile service. The request body contains the specific fields to be updated, as a JSON object. It updates an existing item in the table `todoItemTable`.
 
-			todoItemTable.update({
-			   id: idToUpdate,
-			   text: newText
-			})
+	todoItemTable.update({
+	   id: idToUpdate,
+	   text: newText
+	})
 
 The first parameter specifies the instance to update in the table, as specified by its ID.
 
 You can also specify a callback function to be invoked when the update is complete:
 
-			todoItemTable.update({
-			   id: idToUpdate,
-			   text: newText
-			}).done(function (result) {
-			   alert(JSON.stringify(result));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	todoItemTable.update({
+	   id: idToUpdate,
+	   text: newText
+	}).done(function (result) {
+	   alert(JSON.stringify(result));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 ##<a name="deleting"></a>How to: Delete data in a mobile service
 
 The following code illustrates how to delete data from a table. The client requests that a row of data be deleted by sending a DELETE request to the mobile service. It deletes an existing item in the table todoItemTable.
 
-			todoItemTable.del({
-			   id: idToDelete
-			})
+	todoItemTable.del({
+	   id: idToDelete
+	})
 
 The first parameter specifies the instance to delete in the table, as specified by its ID.
 
 You can also specify a callback function to be invoked when the delete is complete:
 
-			todoItemTable.del({
-			   id: idToDelete
-			}).done(function () {
-			   /* Do something */
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	todoItemTable.del({
+	   id: idToDelete
+	}).done(function () {
+	   /* Do something */
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
-<h2><a name="binding"></a>How to: Display data in the user interface</h2>
+##<a name="binding"></a>How to: Display data in the user interface
 
 This section shows how to display returned data objects using UI elements. To query items in `todoItemTable` and display it in a very simple list, you can run the following example code. No selection, filtering or sorting of any kind is done.
 
-			var query = todoItemTable;
+	var query = todoItemTable;
 
-			query.read().then(function (todoItems) {
-			   // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
-			   var listOfItems = document.getElementById('placeToInsert');
-			   for (var i = 0; i < todoItems.length; i++) {
-			      var li = document.createElement('li');
-			      var div = document.createElement('div');
-			      div.innerText = todoItems[i].text;
-			      li.appendChild(div);
-			      listOfItems.appendChild(li);
-			   }
-			}).read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	query.read().then(function (todoItems) {
+	   // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
+	   var listOfItems = document.getElementById('placeToInsert');
+	   for (var i = 0; i < todoItems.length; i++) {
+	      var li = document.createElement('li');
+	      var div = document.createElement('div');
+	      div.innerText = todoItems[i].text;
+	      li.appendChild(div);
+	      listOfItems.appendChild(li);
+	   }
+	}).read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 In a Windows Store app, the results of a query can be used to create a [WinJS.Binding.List] object, which can be bound as the data source for a [ListView] object. For more information, see [Data binding (Windows Store apps using JavaScript and HTML)].
+
+##<a name="#custom-api"></a>How to: Call a custom API
+
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For a complete example, including how to create a custom API in your mobile service, see [Call a custom API from the client].
+
+You call a custom API from the client by calling the [invokeApi](https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L337) method on **MobileServiceClient**. For example, the following line of code sends a POST request to the **completeAll** API on the mobile service:
+
+    client.invokeApi("completeall", {
+        body: null,
+        method: "post"
+    }).done(function (results) {
+        var message = results.result.count + " item(s) marked as complete.";
+        alert(message);
+        refreshTodoItems();
+    }, function(error) {
+        alert(error.message);
+    });
+
+ 
+For more realistic examples and a more a complete discussion of **invokeApi**, see [Custom API in Azure Mobile Services Client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
 ##<a name="caching"></a>How to: Authenticate users
 
@@ -380,52 +400,52 @@ Two authentication flows are supported: a _server flow_ and a _client flow_. The
 
 ###Server flow
 To have Mobile Services manage the authentication process in your Windows Store or HTML5 app,
-you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the "Get started with authentication" tutorial ([Windows Store][Get started with authentication Windows Store]/[HTML][Get started with authentication]).
+you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the tutorial [Add authentication to your app](mobile-services-html-get-started-users.md).
 
 Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, to login with Facebook use the following code.
 
-		client.login("facebook").done(function (results) {
-		     alert("You are now logged in as: " + results.userId);
-		}, function (err) {
-		     alert("Error: " + err);
-		});
+	client.login("facebook").done(function (results) {
+	     alert("You are now logged in as: " + results.userId);
+	}, function (err) {
+	     alert("Error: " + err);
+	});
 
 If you are using an identity provider other than Facebook, change the value passed to the `login` method above to one of the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `windowsazureactivedirectory`.
 
 In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider. The [login] function, when complete, returns a JSON object (**user**) that exposes both the user ID and Mobile Services authentication token in the **userId** and **authenticationToken** fields, respectively. This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
 
 > [AZURE.NOTE] **Windows Store app**
-When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") method by supplying a value of **true** for the <em>useSingleSignOn</em> parameter to re-use the credentials.
+When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") method by supplying a value of **true** for the <em>useSingleSignOn</em> parameter to re-use the credentials.
 
 ###Client flow
 Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
 
 The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
 
-		WL.login({ scope: "wl.basic"}).then(function (result) {
-		      client.login(
-		            "microsoftaccount",
-		            {"authenticationToken": result.session.authentication_token})
-		      .done(function(results){
-		            alert("You are now logged in as: " + results.userId);
-		      },
-		      function(error){
-		            alert("Error: " + err);
-		      });
-		});
+	WL.login({ scope: "wl.basic"}).then(function (result) {
+	      client.login(
+	            "microsoftaccount",
+	            {"authenticationToken": result.session.authentication_token})
+	      .done(function(results){
+	            alert("You are now logged in as: " + results.userId);
+	      },
+	      function(error){
+	            alert("Error: " + err);
+	      });
+	});
 
 This simplified example gets a token from Live Connect, which is supplied to Mobile Services by calling the [login] function. For a more complete example of how to use Microsoft Account to provide a single sign-in experience, see [Authenticate your app with single sign-in].
 
 When you are using the Facebook or Google APIs for client authentication, the example changes slightly.
 
-		client.login(
-		     "facebook",
-		     {"access_token": token})
-		.done(function (results) {
-		     alert("You are now logged in as: " + results.userId);
-		}, function (err) {
-		     alert("Error: " + err);
-		});
+	client.login(
+	     "facebook",
+	     {"access_token": token})
+	.done(function (results) {
+	     alert("You are now logged in as: " + results.userId);
+	}, function (err) {
+	     alert("Error: " + err);
+	});
 
 This example assumes that the token provided by the respective provider SDK is stored in the `token` variable.
 Twitter cannot be used for client authentication at this time.
@@ -433,19 +453,19 @@ Twitter cannot be used for client authentication at this time.
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
-        // After logging in
-        sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
+    // After logging in
+    sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
 
-        // Log in
-        if (sessionStorage.loggedInUser) {
-           client.currentUser = JSON.parse(sessionStorage.loggedInUser);
-        } else {
-           // Regular login flow
-       }
+    // Log in
+    if (sessionStorage.loggedInUser) {
+       client.currentUser = JSON.parse(sessionStorage.loggedInUser);
+    } else {
+       // Regular login flow
+   }
 
-         // Log out
-        client.logout();
-        sessionStorage.loggedInUser = null;
+     // Log out
+    client.logout();
+    sessionStorage.loggedInUser = null;
 
 ##<a name="push-notifications"></a>How to: Register for push notifications
 
@@ -459,106 +479,96 @@ There are several ways to encounter, validate, and work around errors in Mobile 
 
 As an example, server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. Imagine defining and registering a server script that validate and modify data, like so:
 
-			function insert(item, user, request) {
-			   if (item.text.length > 10) {
-				  request.respond(statusCodes.BAD_REQUEST, { error: "Text cannot exceed 10 characters" });
-			   } else {
-			      request.execute();
-			   }
-			}
+	function insert(item, user, request) {
+	   if (item.text.length > 10) {
+		  request.respond(statusCodes.BAD_REQUEST, { error: "Text cannot exceed 10 characters" });
+	   } else {
+	      request.execute();
+	   }
+	}
 
 This server-side script validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
 Now that the mobile service is validating data and sending error responses on the server-side, you can update your HTML app to be able to handle error responses from validation.
 
-		todoItemTable.insert({
-		   text: itemText,
-		   complete: false
-		})
-		   .then(function (results) {
-		   alert(JSON.stringify(results));
-		}, function (error) {
-		   alert(JSON.parse(error.request.responseText).error);
-		});
+	todoItemTable.insert({
+	   text: itemText,
+	   complete: false
+	})
+	   .then(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (error) {
+	   alert(JSON.parse(error.request.responseText).error);
+	});
 
 
 To tease this out even further, you pass in the error handler as the second argument each time you perform data access:
 
-			function handleError(message) {
-			   if (window.console && window.console.error) {
-			      window.console.error(message);
-			   }
-			}
+	function handleError(message) {
+	   if (window.console && window.console.error) {
+	      window.console.error(message);
+	   }
+	}
 
-			client.getTable("tablename").read().then(function (data) { /* do something */ }, handleError);
+	client.getTable("tablename").read()
+		.then(function (data) { /* do something */ }, handleError);
 
-<h2><a name="promises"></a>How to: Use promises</h2>
+##<a name="promises"></a>How to: Use promises
 
 Promises provide a mechanism to schedule work to be done on a value that has not yet been computed. It is an abstraction for managing interactions with asynchronous APIs.
 
 The `done` promise is executed as soon as the function provided to it has either successfully completed or has gotten an error. Unlike the `then` promise, it is guaranteed to throw any error that is not handled inside the function, and after the handlers have finished executing, this function throws any error that would have been returned from then as a promise in the error state. For more information, see [done].
 
-			promise.done(onComplete, onError);
+	promise.done(onComplete, onError);
 
 Like so:
 
-			var query = todoItemTable;
-			query.read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	var query = todoItemTable;
+	query.read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 The `then` promise is the same as the as the `done` promise, but unlike the `then` promise, `done` is guaranteed to throw any error that is not handled inside the function. If you do not provide an error handler to `then` and the operation has an error, it does not throw an exception but rather returns a promise in the error state. For more information, see [then].
 
-			promise.then(onComplete, onError).done( /* Your success and error handlers */ );
+	promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
 Like so:
 
-			var query = todoItemTable;
-			query.read().done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+	var query = todoItemTable;
+	query.read().done(function (results) {
+	   alert(JSON.stringify(results));
+	}, function (err) {
+	   alert("Error: " + err);
+	});
 
 You can use promises in a number of different ways. You can chain promise operations by calling `then` or `done` on the promise that is returned by the previous `then` function. Use `then` for an intermediate stage of the operation (for example `.then().then()`), and `done` for the final stage of the operation (for example `.then().then().done()`).  You can chain multiple `then` functions, because `then` returns a promise. You cannot chain more than one `done` method, because it returns undefined. [Learn more about the  differences between then and done].
 
- 			todoItemTable.insert({
- 			   text: "foo"
- 			}).then(function (inserted) {
- 			   inserted.newField = 123;
- 			   return todoItemTable.update(inserted);
- 			}).done(function (insertedAndUpdated) {
- 			   alert(JSON.stringify(insertedAndUpdated));
- 			})
+	todoItemTable.insert({
+	   text: "foo"
+	}).then(function (inserted) {
+	   inserted.newField = 123;
+	   return todoItemTable.update(inserted);
+	}).done(function (insertedAndUpdated) {
+	   alert(JSON.stringify(insertedAndUpdated));
+	})
 
-<h2><a name="customizing"></a>How to: Customize client request headers</h2>
+##<a name="customizing"></a>How to: Customize client request headers
 
 You can send custom request headers using the `withFilter` function, reading and writing arbitrary properties of the request about to be sent within the filter. You may want to add such a custom HTTP header if a server-side script needs it or may be enhanced by it.
 
-			var client = new WindowsAzure.MobileServiceClient('https://your-app-url', 'your-key')
-			   .withFilter(function (request, next, callback) {
-			   request.headers.MyCustomHttpHeader = "Some value";
-			   next(request, callback);
-			});
+	var client = new WindowsAzure.MobileServiceClient('https://your-app-url', 'your-key')
+	   .withFilter(function (request, next, callback) {
+	   request.headers.MyCustomHttpHeader = "Some value";
+	   next(request, callback);
+	});
 
 Filters are used for a lot more than customizing request headers. They can be used to examine or change requests, examine or change  responses, bypass networking calls, send multiple calls, etc.
 
-<h2><a name="hostnames"></a>How to: Use cross-origin resource sharing</h2>
+##<a name="hostnames"></a>How to: Use cross-origin resource sharing
 
 To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist. For a JavaScript backend mobile service, you can configure the whitelist on the Configure tab in the [Azure Management portal](https://manage.windowsazure.com). You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications. 
-
-
-<h2><a name="nextsteps"></a>Next steps</h2>
-
-Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
-
-* [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-html-get-started-data)
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* [Add authentication to your mobile services app](/en-us/documentation/articles/mobile-services-html-get-started-users)
-  <br/>Learn how to authenticate users of your app with an identity provider.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -585,32 +595,18 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-html
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Getting Started with Data]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-html
-[Get started with authentication Windows Store]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[then]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
-[done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
-[Learn more about the  differences between then and done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
-[how to handle errors in promises]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700337.aspx
+[then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
+[Learn more about the  differences between then and done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[how to handle errors in promises]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
-[sessionStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
-[localStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
+[localStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
 
-[ListView]: http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx
-[Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx
-[Windows Store JavaScript quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started
-[HTML quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html
-[Getting Started with Data in Windows Store JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js
-[Getting Started with Data in HTML/JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[You can see a full example of how to set up this scenario here]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-html
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-html
-[login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
-[Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
+[Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[login]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L301
+[Authenticate your app with single sign-in]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [OData system query options reference]: http://go.microsoft.com/fwlink/p/?LinkId=444502
+[Call a custom API from the client]: mobile-services-html-call-custom-api.md

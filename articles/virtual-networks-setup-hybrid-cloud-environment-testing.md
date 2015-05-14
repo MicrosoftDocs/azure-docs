@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/07/2015" 
 	ms.author="josephd"/>
 
-#Set up a hybrid cloud environment for testing
+# Set up a hybrid cloud environment for testing
 
 This topic steps you through creating a hybrid cloud environment with Microsoft Azure for testing. Here is the resulting configuration.
 
@@ -42,11 +42,13 @@ There are five major phases to setting up this hybrid cloud test environment:
 4.	Create the site-to-site VPN connection.
 5.	Configure DC2. 
 
-If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this topic for more information.
 
-##Phase 1: Configure the computers on the Corpnet subnet
+This configuration requires a test subnet of up to four computers connected directly to the Internet using a public IP address. If you don't have these resources, you can also [Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). The simulated hybrid cloud test environment requires only an Azure subscription.
+
+## Phase 1: Configure the computers on the Corpnet subnet
 
 Use the instructions in the "Steps for Configuring the Corpnet Subnet" section of the [Test Lab Guide: Base Configuration for Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) to configure the DC1, APP1, and CLIENT1 computers on a subnet named Corpnet. **This subnet must be isolated from your organization network because it will be connected directly to the Internet through the RRAS1 computer.** 
 
@@ -61,7 +63,7 @@ This is your current configuration.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_1.png)
  
-##Phase 2: Configure RRAS1
+## Phase 2: Configure RRAS1
 
 RRAS1 provides traffic routing and VPN device services between the computers on the Corpnet subnet and the TestVNET virtual network. RRAS1 must have two network adapters installed.
 
@@ -101,9 +103,9 @@ This is your current configuration.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_2.png)
 
-#Phase 3: Create the cross-premises Azure Virtual Network
+## Phase 3: Create the cross-premises Azure Virtual Network
 
-First, log on to the [Azure Management Portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) with your Azure subscription credentials and create a virtual network named TestVNET.
+First, log on to the [Azure Management Portal](https://manage.windowsazure.com/) with your Azure subscription credentials and create a virtual network named TestVNET.
 
 1.	In the task bar of the Azure Management Portal, click **New > Network Services > Virtual Network > Custom Create**.
 2.	On the Virtual Network Details page, type **TestVNET** in **Name**.
@@ -124,7 +126,7 @@ First, log on to the [Azure Management Portal](https://manage.windowsazure.com/m
 	- Click **Add Gateway Subnet**.
 11.	Click the Complete icon. Wait until the virtual network is created before continuing.
 
-Next, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell/) to install Azure PowerShell on your local computer.
+Next, use the instructions in [How to install and configure Azure PowerShell](install-configure-powershell.md) to install Azure PowerShell on your local computer.
 
 Next, create a new cloud service for the TestVNET virtual network. You must pick a unique name. For example, you could name it TestVNET-*UniqueSequence*, in which *UniqueSequence* is an abbreviation of your organization. For example, if your organization is named Tailspin Toys, you could name the cloud service TestVNET-Tailspin.
 
@@ -150,7 +152,7 @@ This is your current configuration.
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_3.png)
 
  
-#Phase 4: Create the site-to-site VPN connection
+## Phase 4: Create the site-to-site VPN connection
 
 First, you create a virtual network gateway.
 
@@ -213,16 +215,16 @@ This is your current configuration.
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_4.png)
 
 
-#Phase 5: Configure DC2
+## Phase 5: Configure DC2
 
 First, create an Azure Virtual Machine for DC2 with these commands at the Azure PowerShell command prompt on your local computer.
 
 	$ServiceName="<Your cloud service name from Phase 3>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
@@ -285,17 +287,22 @@ This is your current configuration.
  
 Your hybrid cloud environment is now ready for testing.
 
-##Additional Resources
+## Additional Resources
 
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-##Minimizing the ongoing costs of this environment
+[Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
-To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the Test_VNET virtual network at the end of each business day. For more information, see [Get started with Azure Automation](../automation-create-runbook-from-samples/). 
+[Azure hybrid cloud test environments](virtual-machines-hybrid-cloud-test-environments.md)
+
+
+## Minimizing the ongoing costs of this environment
+
+To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the Test_VNET virtual network at the end of each business day. For more information, see [Get started with Azure Automation](automation-create-runbook-from-samples.md). 
 
 The Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/pricing/details/virtual-network/). To minimize the costs of the VPN gateway, create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateway with these steps. 
 

@@ -16,16 +16,19 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store">Windows Store</a><a href="/en-us/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" class="current">Android</a></div>
-
-
 #How to Integrate Engagement on Android
 
-> [AZURE.IMPORTANT] Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
+> [AZURE.SELECTOR] 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+- [iOS](mobile-engagement-ios-integrate-engagement.md) 
+- [Android](mobile-engagement-android-integrate-engagement.md) 
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your Android application.
 
-The following steps are enough to activates the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see android-sdk-engagement-advanced) since these statistics are application dependent.
+> [AZURE.IMPORTANT] Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
+ 
+The following steps are enough to activates the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Android](mobile-engagement-android-use-engagement-api.md) since these statistics are application dependent.
 
 ##Embed the Engagement SDK and service into your Android project
 

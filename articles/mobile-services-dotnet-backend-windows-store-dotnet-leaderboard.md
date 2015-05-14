@@ -10,29 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/23/2015" 
 	ms.author="mwasson"/>
 
 # Creating a Leaderboard App with Azure Mobile Services .NET Backend
 
 This tutorial shows how build a Windows Store app using Azure Mobile Services with a .NET backend. Azure Mobile Services provides a scalable and secure backend with built-in authentication, monitoring, push notifications, and other features, plus a cross-platform client library for building mobile apps. The .NET backend for Mobile Services is based on [ASP.NET Web API](http://asp.net/web-api), and gives .NET developers a first-class way to create REST APIs.   
-
-+ [Overview] 
-+ [About the sample app] 
-+ [Add data models]
-+ [Add Web API controllers]
-+ [Use a DTO to return related entities]
-+ [Define a custom API to submit scores]
-+ [Create the Windows Store app]
-+ [Add model classes]
-+ [Create a view model]
-+ [Add a MobileServiceClient instance]
-+ [Create the main page]
-+ [Publish your mobile service]
-+ [Next Steps]
 
 ## Overview
 
@@ -51,7 +37,7 @@ In this tutorial you will:
 - Use Entity Framework (EF) to create foreign key relations and data transfer objects (DTOs).
 - Use ASP.NET Web API to define a custom API.
 
-This tutorial uses [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/p/?LinkID=390465). 
+This tutorial uses [Visual Studio 2013 latest update](http://go.microsoft.com/fwlink/p/?LinkID=390465). 
 
 
 ## About the sample app
@@ -82,7 +68,7 @@ Launch Visual Studio and create a new ASP.NET Web Application project. Name the 
 
 ![][3]
 
-In Visual Studio 2013 Update 3, the ASP.NET Web Application project includes a template for Windows Azure Mobile Service. Select this template and click **OK**.
+In Visual Studio 2013, the ASP.NET Web Application project includes a template for Azure Mobile Service. Select this template and click **OK**.
 
 ![][4]
  
@@ -94,7 +80,7 @@ These aren't needed for the tutorial, so you can delete them from the project. A
 
 ## Add data models
 
-You will use [EF Code First](http://msdn.microsoft.com/en-US/data/ee712907#codefirst) to define the database tables. Under the DataObjects folder, add a class named `Player`.
+You will use [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst) to define the database tables. Under the DataObjects folder, add a class named `Player`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -123,19 +109,19 @@ Add another class named `PlayerRank`.
 	    }
 	}
 
-Notice that both classes inherit from the **EntityData** class. Deriving from **EntityData** makes it easy for the app consume the data, using the cross-platform client library for Azure Mobile Services. **EntityData** also makes it easier for an app to [handle database write conflicts](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/).
+Notice that both classes inherit from the **EntityData** class. Deriving from **EntityData** makes it easy for the app consume the data, using the cross-platform client library for Azure Mobile Services. **EntityData** also makes it easier for an app to [handle database write conflicts](http://azure.microsoft.commobile-services-windows-store-dotnet-handle-database-conflicts.md).
 
-The `PlayerRank` class has a [navigation property](http://msdn.microsoft.com/en-us/data/jj713564.aspx) that points to the related `Player` entity. The **[ForeignKey]** attribute tells EF that the `Player` property represents a foreign key.
+The `PlayerRank` class has a [navigation property](http://msdn.microsoft.com/data/jj713564.aspx) that points to the related `Player` entity. The **[ForeignKey]** attribute tells EF that the `Player` property represents a foreign key.
 
 # Add Web API controllers
 
 Next, you will add Web API controllers for `Player` and `PlayerRank`. Instead of plain Web API controllers, you will add a special kind of controller called a *table controller*, designed specifically for Azure Mobile Services.
 
-Right click the Controllers folder, select Add, then select New Scaffolded Item.
+Right click the Controllers folder >  **Add** > **New Scaffolded Item**.
 
 ![][6] 
 
-In the **Add Scaffold** dialog, expand **Common** on the left and select **Windows Azure Mobile Services**. Then select **Windows Azure Mobile Services Table Controller**. Click **Add**.
+In the **Add Scaffold** dialog, expand **Common** on the left and select **Azure Mobile Services**. Then select **Azure Mobile Services Table Controller**. Click **Add**.
 
 ![][7] 
  
@@ -153,7 +139,7 @@ This step adds a file named PlayerController.cs to the project.
 
 The controller derives from **TableController<T>**. This class inherits **ApiController**, but is specialized for Azure Mobile Services.
  
-- Routing: The default route for a **TableController** is `/tables/{table_name}/{id}`, where *table_name* matches the entity name. So the route for the Player controller is */tables/player/{id}*. This routing convention makes **TableController** consistent with the Mobile Services [REST API](http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx).
+- Routing: The default route for a **TableController** is `/tables/{table_name}/{id}`, where *table_name* matches the entity name. So the route for the Player controller is */tables/player/{id}*. This routing convention makes **TableController** consistent with the Mobile Services [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx).
 - Data access: For database operations, the **TableController** class uses the **IDomainManager** interface, which defines an abstraction for data access.  The scaffolding uses **EntityDomainManager**, which is a concrete implementation of **IDomainManager** that wraps an EF context. 
 
 Now add a second controller for PlayerRank entities. Follow the same steps, but choose PlayerRank for the model class. Use the same data context class; don't create a new one. Name the controller "PlayerRankController".
@@ -328,7 +314,7 @@ The `PostPlayerScore` method takes a `PlayerScore` instance as input. (The clien
 2.	Updates the player's score.
 3.	Run a SQL query that batch updates all of the player ranks.
 
-The **[Route]** attribute to define a custom route for this method:
+The **[Route]** attribute defines a custom route for this method:
 
 	[Route("api/score")]
 
@@ -603,7 +589,7 @@ Finally, add methods that call through to the service layer.
 
 ## Add a MobileServiceClient instance
 
-Open the App.xaml.cs file and add a **MobileServiceClient** instance to the `App` class.
+Open the *App.xaml.cs*file and add a **MobileServiceClient** instance to the `App` class.
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
@@ -680,7 +666,7 @@ In Solution Explorer, right-click the Leaderboard project and select **Publish**
  
 ![][12]
 
-In the **Publish** dialog, click **Windows Azure Mobile Services**.
+In the **Publish** dialog, click **Azure Mobile Services**.
 
 ![][13]
  
@@ -769,8 +755,9 @@ Now when you run the app, it communicates with the real service.
 
 <!-- URLs. -->
 
-[Learn more about Azure Mobile Services]: /en-us/develop/mobile/resources/
+[Learn more about Azure Mobile Services]: /develop/mobile/resources/
 [Learn more about Web API]: http://asp.net/web-api
-[Handle database write conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[Add push notifications]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Handle database write conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[Add push notifications]: notification-hubs-windows-store-dotnet-get-started.md
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+

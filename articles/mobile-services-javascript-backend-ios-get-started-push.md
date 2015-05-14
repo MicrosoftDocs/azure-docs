@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/24/2015" 
 	ms.author="krisragh"/>
 
 # Add push notifications to your Mobile Services app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-This topic shows you how to use Azure Mobile Services to send push notifications through Apple Push Notification service (APNS) to an iOS app. In this tutorial, you enable push notifications using Azure Notification Hubs to the [quickstart project](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/). When complete, your mobile service will send a push notification each time a record is inserted.
+This topic shows you how to use Azure Mobile Services to send push notifications through Apple Push Notification service (APNS) to an iOS app. In this tutorial, you enable push notifications using Azure Notification Hubs to the [quickstart project](http://azure.microsoft.commobile-services-ios-get-started.md/). When complete, your mobile service will send a push notification each time a record is inserted.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -238,18 +238,18 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-ios-get-started-users
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
+[Get started with authentication]: mobile-services-ios-get-started-users.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
+[Send push notifications to authenticated users]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-breaking-news/
-[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+[What are Notification Hubs?]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
 
-[Mobile Services Objective-C how-to conceptual reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md

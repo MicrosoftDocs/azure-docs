@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Data Dependent Routing" 
-	description="How to use the ShardMapManager for data-dependent routing, a feature of Elastic Scale for Azure SQL DB" 
+	pageTitle="Data dependent routing" 
+	description="How to use the ShardMapManager for data-dependent routing, a feature of elastic databases for Azure SQL DB" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="stuartozer" 
-	authors="stuartozer" 
+	manager="jeffreyg" 
+	authors="sidneyh" 
 	editor=""/>
 
 <tags 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2015" 
-	ms.author="stuartozer@microsoft.com"/>
+	ms.date="04/16/2015" 
+	ms.author="sidneyh"/>
 
-#Data-Dependent Routing
+#Data dependent routing
 
 The **ShardMapManager** class provides ADO.NET applications the ability to easily direct database queries and commands to the appropriate physical database in a sharded environment. This is called **data-dependent routing** and it is a fundamental pattern when working with sharded databases. Each specific query or transaction in an application using data-dependent routing is restricted to accessing a single database per request.  
 
-Using data-dependent routing, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the sharded environment. Rather, the [Shard Map Manager](./sql-database-elastic-scale-shard-map-management.md) takes responsibility for handing out open connections to the correct database when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
+Using data-dependent routing, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the sharded environment. Rather, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) takes responsibility for handing out open connections to the correct database when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
 
-## Using a ShardMapManager in a Data-Dependent Routing Application 
+## Using a ShardMapManager in a data dependent routing application 
 
 For applications using data-dependent routing, a **ShardMapManager** should be instantiated once per app domain, during initialization, using the factory call **GetSQLShardMapManager**.
 
@@ -32,9 +32,9 @@ For applications using data-dependent routing, a **ShardMapManager** should be i
 
 In this example, both a **ShardMapManager** and a specific **ShardMap** that it contains are initialized. 
 
-For an application that is not manipulating the shard map itself, the credentials used in the factory method to get the **ShardMapManager** (in the above example, *smmConnectionString*) should be credentials that have just read-only permissions on the **Global Shard Map** database referenced by the connection string. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Managing Elastic Scale Credentials](sql-database-elastic-scale-manage-credentials.md). 
+For an application that is not manipulating the shard map itself, the credentials used in the factory method to get the **ShardMapManager** (in the above example, *smmConnectionString*) should be credentials that have just read-only permissions on the **Global Shard Map** database referenced by the connection string. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Using credentials in the elastic database client libraries](sql-database-elastic-scale-manage-credentials.md). 
 
-##Invoking Data-Dependent Routing 
+## Invoking data dependent routing 
 
 The method **ShardMap.OpenConnectionForKey(key, connectionString, connectionOptions)** returns an ADO.Net connection ready for issuing commands to the appropriate database based on the value of the **key** parameter. Shard information is cached in the application by the **ShardMapManager**, so these requests do not typically involve a database lookup against the **Global Shard Map** database. 
 
@@ -50,7 +50,7 @@ The only time that **ConnectionOptions.None** (do not validate) is acceptable oc
 
 This is an example of code that uses the Shard Map Manager to perform data-dependent routing based on the value of an integer key **CustomerID**, using a **ShardMap** object named **customerShardMap**.  
 
-##Example: Data Dependent Routing 
+## Example: data dependent routing 
 
     int customerId = 12345; 
     int newPersonId = 4321; 
@@ -72,13 +72,15 @@ This is an example of code that uses the Shard Map Manager to perform data-depen
 
 Notice that rather than using a constructor for a **SqlConnection**, followed by an **Open()** call to the connection object, the **OpenConnectionForKey** method is used, and it delivers a new already-open connection to the correct database. Connections utilized in this way still take full advantage of ADO.Net connection pooling. As long as transactions and requests can be satisfied by one shard at a time, this should be the only modification necessary in an application already using ADO.Net. 
 
-##Integrating with Transient Fault Handling 
+The method **OpenConnectionForKeyAsync** is also available if your application makes use asynchronous programming with ADO.Net.  Its behavior is the data-dependent routing equivalent of ADO.Net's **Connection.OpenAsync** method.
+
+## Integrating with transient fault handling 
 
 A best practice in developing data access applications in the cloud is to ensure that transient faults in connecting to or querying the database are caught by the app, and that the operations are retried several times before throwing an error. Transient fault handling for cloud applications is discussed at [Transient Fault Handling](http://msdn.microsoft.com/en-us/library/dn440719\(v=pandp.60\).aspx). 
  
 Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
 
-###Example – Data Dependent Routing with Transient Fault Handling 
+### Example – data dependent routing with transient fault handling 
 
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
@@ -106,9 +108,9 @@ int newPersonId = 4321;
 </code></pre>
 
 
-Packages necessary to implement transient fault handling are downloaded automatically when you build the Elastic Scale Starter Kit application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
+Packages necessary to implement transient fault handling are downloaded automatically when you build the elastic database sample application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
 
-##Transactional Consistency 
+## Transactional consistency 
 
 Transactional properties are guaranteed for all operations local to a shard. For example, transactions submitted through data-dependent routing execute within the scope of the target shard for the connection. At this time, there are no capabilities provided for enlisting multiple connections into a transaction, and therefore there are no transactional guarantees for operations performed across shards.  
 

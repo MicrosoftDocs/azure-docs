@@ -10,15 +10,15 @@
 <tags 
 	ms.service="documentdb" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="01/08/2015" 
+	ms.date="04/29/2015" 
 	ms.author="andrl"/>
 
 # Build a Java web application using DocumentDB #
 
-This tutorial shows you how to use the [Microsoft Azure DocumentDB (Preview)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
+This tutorial shows you how to use the [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
 
 - How to build a basic JSP application in Eclipse.
 - How to work with the Azure DocumentDB service using the [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
@@ -32,19 +32,20 @@ This tutorial shows you how to create a web-based task-management application th
 ##<a id="Prerequisites"></a>Prerequisites ##
 Before you begin this tutorial, you must have the following:
 
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](http://azure.microsoft.com/en-us/documentation/articles/web-sites-java-get-started/)
+- [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](web-sites-java-get-started.md)
 
 If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article. 
 
 ##<a id="CreateDB"></a>Step 1: Create a DocumentDB database account ##
 To provision a DocumentDB database account in Azure:
 
-1. If you don't already have a database account, create one by following the instructions in [Create a database account](/documentation/articles/documentdb-create-account/). If you already have an account, proceed to step 2.
+1. If you don't already have a database account, create one by following the instructions in [Create a database account](documentdb-create-account.md). If you already have an account, proceed to step 2.
 2. Using the **Keys** blade shown in the following illustration, copy your endpoint **URI** and the **PRIMARY KEY** to your clipboard and keep them handy as we will use these values in the web application we create next.
 
-![][1]
+![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
 
 
 ##<a id="CreateJSP"></a>Step 2: Create the JSP application ##
@@ -87,7 +88,7 @@ To do this, you will need to convert your project to a maven project by completi
 4. In the **Select Dependency** window, do the following:
  - In the **GroupId** box, enter com.microsoft.azure.
  - In the **Artifact Id** box enter azure-documentdb.
- - In the **Version** box enter 0.9.0.
+ - In the **Version** box enter 1.0.0.
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -96,7 +97,7 @@ To do this, you will need to convert your project to a maven project by completi
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>0.9.0</version>
+		    <version>1.0.0</version>
 	    </dependency>
 
 5. Click **Ok** and Maven will install the DocumentDB Java SDK.
@@ -208,10 +209,14 @@ To do this, you will need to convert your project to a maven project by completi
 		                try {
 		                    DocumentCollection collectionDefinition = new DocumentCollection();
 		                    collectionDefinition.setId(COLLECTION_ID);
+
+		                    // Configure the new collection performance tier to S1.
+		                    RequestOptions requestOptions = new RequestOptions();
+		                    requestOptions.setOfferType("S1");
 		
 		                    collectionCache = documentClient.createCollection(
 		                            getTodoDatabase().getSelfLink(),
-		                            collectionDefinition, null).getResource();
+		                            collectionDefinition, requestOptions).getResource();
 		                } catch (DocumentClientException e) {
 		                    // TODO: Something has gone terribly wrong - the app wasn't
 		                    // able to query or create the collection.
@@ -739,7 +744,7 @@ Azure Websites makes deploying Java Applications as simple as exporting your app
  - In the Destination box, choose a destination to save the WAR file.
  - Click **Finish**.
 
-3. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory. For instructions on uploading the file, see [Adding an application to your Java website on Azure](../web-sites-java-add-app/).
+3. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory. For instructions on uploading the file, see [Adding an application to your Java website on Azure](web-sites-java-add-app.md).
 
 	Once the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 4. To view your finished product, navigate to http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ and start adding your tasks!
@@ -771,4 +776,4 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 21. In a browser, navigate to http://localhost:8080/azure-documentdb-java-sample/ and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
 22. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Websites](#Deploy). 
 
-[1]: ./media/documentdb-java-application/keys.png
+[1]: ../includes/media/documentdb-keys/keys.png

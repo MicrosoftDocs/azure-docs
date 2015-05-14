@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
-	ms.date="08/18/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -28,7 +28,7 @@ In this tutorial, you will create both a new mobile service and a simple *To do 
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express for Windows] 
 
 ## Create a new mobile service
@@ -69,16 +69,13 @@ In this section you will create a new universal Windows app that is connected to
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with data]
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* [Get started with authentication]
+* [Add authentication to your app][Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications] 
+* [Add push notifications to your app][Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
-For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](/en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -89,9 +86,9 @@ For more information about universal Windows apps, see [Supporting multiple devi
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[Get started with data]: mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/

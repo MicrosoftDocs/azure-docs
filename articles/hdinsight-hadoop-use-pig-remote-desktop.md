@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
-   description="Learn how to use Pig with Hadoop on HDInsight through Remote Desktop."
+   pageTitle="Use Hadoop Pig with Remote Desktop in HDInsight | Microsoft Azure"
+   description="Learn how to use the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based Hadoop cluster in HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -9,18 +9,20 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
-#Run Pig jobs using the Pig command (Remote Desktop)
+#Run Pig jobs from a Remote Desktop connection
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-This document provides a walkthrough of using the Pig command to run Pig Latin statements interactively, or as a batch job, on a Linux-based Hadoop on HDInsight cluster. Pig Latin allows you to create MapReduce applications by describing data transformations, rather than map and reduce functions.
+This document provides a walkthrough for using the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based HDInsight cluster. Pig Latin allows you to create MapReduce applications by describing data transformations, rather than map and reduce functions.
+
+In this document, learn how to
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -28,31 +30,31 @@ To complete the steps in this article, you will need the following.
 
 * A Windows-based HDInsight (Hadoop on HDInsight) cluster
 
-* A Windows 7, 8 or 10 client
+* A client computer running Windows 10, Windows 8, or Windows 7
 
-##<a id="connect"></a>Connect with remote desktop
+##<a id="connect"></a>Connect with Remote Desktop
 
-Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at <a href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
 
 ##<a id="pig"></a>Use the Pig command
 
-2. Once connected, start the **Hadoop Command Line** using the icon on the desktop.
+2. After you have a Remote Desktop connection, start the **Hadoop Command Line** by using the icon on the desktop.
 
-2. Use the following to start the Pig command-line.
+2. Use the following to start the Pig command:
 
 		%pig_home%\bin\pig
 
-	You will be presented with a `grunt>` prompt. 
+	You will be presented with a `grunt>` prompt.
 
-3. Enter the following statement.
+3. Enter the following statement:
 
 		LOGS = LOAD 'wasb:///example/data/sample.log';
 
-	This command loads the contents of the sample.log file into LOGS. You can view the contents of the file by using the following.
+	This command loads the contents of the sample.log file into the LOGS file. You can view the contents of the file by using the following command:
 
 		DUMP LOGS;
 
-4. Next, transform the data by applying a regular expression to extract only the logging level from each record using the following.
+4. Transform the data by applying a regular expression to extract only the logging level from each record:
 
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
@@ -78,11 +80,11 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
 	</tr>
 	</table>
 
-6. You can also save the results of a transformation using the `STORE` statement. For example, the following saves the `RESULT` to the **/example/data/pigout** directory on the default storage container for your cluster.
+6. You can also save the results of a transformation by using the `STORE` statement. For example, the following command saves the `RESULT` to the **/example/data/pigout** directory in the default storage container for your cluster:
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
-	> [AZURE.NOTE] The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error.
+	> [AZURE.NOTE] The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
 
 7. To exit the grunt prompt, enter the following statement.
 
@@ -90,11 +92,11 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
 
 ###Pig Latin batch files
 
-You can also use the Pig command to run Pig Latin contained in a file.
+You can also use the Pig command to run Pig Latin that is contained in a file.
 
 3. After exiting the grunt prompt, open **Notepad** and create a new file named **pigbatch.pig** in the **%PIG_HOME%** directory.
 
-4. Type or paste the following lines into the **pigbatch.pig** file, then save when done.
+4. Type or paste the following lines into the **pigbatch.pig** file, and then save it:
 
 		LOGS = LOAD 'wasb:///example/data/sample.log';
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -108,7 +110,7 @@ You can also use the Pig command to run Pig Latin contained in a file.
 
 		pig %PIG_HOME%\pigbatch.pig
 
-	Once the batch job completes, you should see the following output, which should be the same as when you used `DUMP RESULT;` in the previous steps.
+	When the batch job completes, you should see the following output, which should be the same as when you used `DUMP RESULT;` in the previous steps:
 
 		(TRACE,816)
 		(DEBUG,434)
@@ -119,16 +121,16 @@ You can also use the Pig command to run Pig Latin contained in a file.
 
 ##<a id="summary"></a>Summary
 
-As you can see, the Pig command allows you to interactively run MapReduce operations using Pig Latin, as well as run statements stored in a batch file.
+As you can see, the Pig command allows you to interactively run MapReduce operations, or run Pig Latin jobs that are stored in a batch file.
 
 ##<a id="nextsteps"></a>Next steps
 
-For general information on Pig in HDInsight.
+For general information about Pig in HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-For information on other ways you can work with Hadoop on HDInsight.
+For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

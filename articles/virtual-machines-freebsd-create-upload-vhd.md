@@ -23,13 +23,13 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ##Prerequisites##
 This article assumes that you have the following items:
 
-- **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://azure.microsoft.com/en-us/documentation/articles/php-create-account/). 
+- **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](php-create-account.md). 
 
-- **Azure PowerShell tools** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Azure Downloads](http://azure.microsoft.com/en-us/downloads/). A tutorial to install and configure the module is available here. You'll use the [Azure Downloads](http://azure.microsoft.com/en-us/downloads/) cmdlet to upload the VHD.
+- **Azure PowerShell tools** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Azure Downloads](http://azure.microsoft.com/downloads/). A tutorial to install and configure the module is available here. You'll use the [Azure Downloads](http://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
 
 - **FreeBSD operating system installed in a .vhd file**  - You have installed a supported FreeBSD operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
 
-> [AZURE.NOTE] The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the cmdlet [convert-vhd](https://technet.microsoft.com/en-us/library/hh848454.aspx).
+> [AZURE.NOTE] The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
 This task includes the following five steps.
 
@@ -86,7 +86,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
     **Important**: After installation, please double check it is running.
 
-		# service ñe | grep waagent
+		# service ‚Äìe | grep waagent
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
@@ -96,7 +96,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
     Below command also deletes the last provisioned user account and associated data.
 
-		# waagent ñdeprovision+user
+		# waagent ‚Äìdeprovision+user
 
 ## Step 2: Create a storage account in Azure ##
 
@@ -174,9 +174,9 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
-   For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
+   For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
-   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/). 
+   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](install-configure-powershell.md). 
 
 ## Step 4: Upload the .vhd file ##
 
@@ -194,7 +194,7 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    **Important**: Please use Linux as OS type for now since current Azure PowerShell version only accepts ìLinuxî or ìWindowsî as parameter.
+    **Important**: Please use Linux as OS type for now since current Azure PowerShell version only accepts ‚ÄúLinux‚Äù or ‚ÄúWindows‚Äù as parameter.
 
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure management portal.  
 

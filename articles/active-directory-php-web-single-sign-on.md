@@ -35,14 +35,7 @@ The following development environment prerequisites are required for this walkth
 * Windows PowerShell
 * [Office 365 PowerShell Commandlets]
 
-###Table of Contents
-* [Introduction][]
-* [Step 1: Create a PHP Application][]
-* [Step 2: Provision the Application in a Company's Directory Tenant][]
-* [Step 3: Protect the Application Using WS-Federation for Employee Sign In][]
-* [Summary][]
-
-##<a name="createapp"></a>Step 1: Create a PHP Application
+## Step 1: Create a PHP Application
 This step describes how to create a simple PHP application that will represent a protected resource. Access to this resource will be granted through federated authentication managed by the company's STS, which is described later in the tutorial.
 
 1. Open a new instance of Eclipse.
@@ -75,13 +68,13 @@ This step describes how to create a simple PHP application that will represent a
 
 12. The **index.php** page will open in a new tab in Eclipse. The page should simply display the text: *Index Page*. 
 
-##<a name="provisionapp"></a>Step 2: Provision the Application in a Company's Directory Tenant
+## Step 2: Provision the Application in a Company's Directory Tenant
 This step describes how an administrator of an Azure Active Directory customer provisions the PHP application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
 
 The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Azure Active Directory to register and authenticate applications to the directory.
 
 1. Download and install the Office 365 PowerShell Commandlets if you haven't done so already.
-2. From the **Start** menu, run the **Windows Azure Active Directory Module for Windows PowerShell** console. This console provides a command-line environment for configuring attributes about your Office 365 tenant, such as creating and modifying Service Principals.
+2. From the **Start** menu, run the **Azure Active Directory Module for Windows PowerShell** console. This console provides a command-line environment for configuring attributes about your Office 365 tenant, such as creating and modifying Service Principals.
 3. To import the required **MSOnlineExtended** module, type the following command and press Enter:
 
 		Import-Module MSOnlineExtended -Force
@@ -116,7 +109,7 @@ This step will output information similar to the following:
 	
 The web application has now been provisioned in the directory and it can be used for web single sign-on by company employees.
 
-##<a name="protectapp"></a>Step 3: Protect the Application Using WS-Federation for Employee Sign In
+## Step 3: Protect the Application Using WS-Federation for Employee Sign In
 This step shows you how to add support for federated login using Windows Identity Foundation (WIF) and the simpleSAML.php libraries you downloaded with the sample code in the prerequisites. You will also add a login page and configure trust between the application and the directory tenant.
 
 1. In Eclipse, right-click the **phpSample** project, click **New**, then click **File**. 
@@ -191,7 +184,7 @@ This step shows you how to add support for federated login using Windows Identit
 
 8. From the **Run** menu, click **Run**. You should automatically be redirected to the Office 365 Identity Provider page, where you can log in using your directory tenant credentials. For example, *john.doe@fabrikam.onmicrosoft.com*.
 
-##<a name="summary"></a>Summary
+## Summary
 This tutorial has shown you how to create and configure a single tenant PHP application that uses the single sign-on capabilities of Azure Active Directory.
 
 A sample that shows how to use Azure Active Directory and single sign-on for PHP websites is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
@@ -203,9 +196,9 @@ A sample that shows how to use Azure Active Directory and single sign-on for PHP
 [Summary]: #summary
 [Introduction]: #introduction
 [Developing Multi-Tenant Cloud Applications with Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
-[Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
-[Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
-[Office 365 Powershell Commandlets]: http://msdn.microsoft.com/en-us/library/azure/jj151815.aspx
-[ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
+[Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/download/details.aspx?id=4451
+[Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/download/details.aspx?id=17331
+[Office 365 Powershell Commandlets]: http://msdn.microsoft.com/library/azure/jj151815.aspx
+[ASP.NET MVC 3]: http://www.microsoft.com/download/details.aspx?id=4211
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
 [PHP Sample Code for Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP 

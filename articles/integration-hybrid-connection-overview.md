@@ -13,17 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/03/2015" 
 	ms.author="mandia"/>
 
 
 
 # Hybrid Connections Overview
-This topic introduces Hybrid Connections, lists the supported configurations, and lists the required TCP Ports. Specifically:
+This topic introduces Hybrid Connections, lists the supported configurations, and lists the required TCP Ports. 
 
-- [What is a Hybrid Connection](#HCOverview)
-- [Supported Configurations](#KnownIssues)
-- [Security and Ports](#HCSecurity)
 
 ## <a name="HCOverview"></a>What is a Hybrid Connection
 
@@ -76,7 +73,7 @@ Hybrid Connections use Shared Access Signature (SAS) authorization to secure the
 
 Hybrid Connections provide for seamless and secure distribution of the keys to the applications and the on-premises Hybrid Connection Manager. 
 
-See [Create and Manage Hybrid Connections](../integration-hybrid-connection-create-manage). 
+See [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md). 
 
 **Application authorization is separate from the Hybrid Connection**. Any appropriate authorization method can be used. The authorization method depends on the end-to-end authorization methods supported across the Azure cloud and the on-premises components. For example, your Azure application accesses an on-premises SQL Server. In this scenario, SQL Authorization may be the authorization method that is supported end-to-end.
 
@@ -111,15 +108,15 @@ The following TCP ports are used by Hybrid Connections:
 
 ## Next
 
-- [Create and Manage Hybrid Connections](../integration-hybrid-connection-create-manage)
+- [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 - [Connect an Azure Website to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website](http://go.microsoft.com/fwlink/p/?LinkID=397979)
-- [Azure Mobile Services and Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Azure Mobile Services and Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## See Also
 
-- [REST API for Managing BizTalk Services on Windows Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
+- [REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
 - [BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 - [Create a BizTalk Service using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>

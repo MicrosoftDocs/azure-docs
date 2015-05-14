@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Node.js application using Socket.io - Azure tutorial" 
-	description="A tutorial that demonstrates using socket.io in a node.js application hosted on Azure." 
+	description="Learn how to use socket.io in a node.js application hosted on Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="wpickett"/>
+	ms.date="02/25/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -144,11 +144,11 @@ Azure emulator:
 
 	> [AZURE.IMPORTANT] Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.
 	> 
-	> If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/)
+	> If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
 
     ![A browser window displaying the service hosted on Azure][completed-app]
 
-	> [AZURE.NOTE] If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/)
+	> [AZURE.NOTE] If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
 
 Your application is now running on Azure, and can relay chat
 messages between different clients using Socket.IO.
@@ -159,13 +159,13 @@ messages between different clients using Socket.IO.
 
 In this tutorial you learned how to create a basic chat application hosted in an Azure Cloud Service. To learn how to host this application in an Azure Website, see [Build a Node.js Chat Application with Socket.IO on an Azure Web Site][chatwebsite].
 
-  [chatwebsite]: /en-us/develop/nodejs/tutorials/website-using-socketio/
+  [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
-  [Azure SLA]: http://www.windowsazure.com/en-us/support/sla/
+  [Azure SLA]: http://www.windowsazure.com/support/sla/
   [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
   [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
-  [Azure SDK for Node.js]: https://www.windowsazure.com/en-us/develop/nodejs/
-  [Node.js Web Application]: https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
+  [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
   [Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io/tree/0.9.14
   [Azure Considerations]: #windowsazureconsiderations
   [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" 
-	description="Learn basic concepts about Azure Batch and how to use the Batch service with a simple scenario" 
-	services="batch" 
-	documentationCenter=".net" 
-	authors="yidingzhou" 
-	manager="timlt" 
+<properties
+	pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET"
+	description="Learn basic concepts about Azure Batch and how to develop for the Batch service with a simple scenario"
+	services="batch"
+	documentationCenter=".net"
+	authors="yidingzhou"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="batch" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="big-compute" 
-	ms.date="12/03/2014" 
-	ms.author="yidingz, kabatta"/>
+<tags
+	ms.service="batch"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-compute"
+	ms.date="05/04/2015"
+	ms.author="yidingz"/>
 
 #Getting Started with the Azure Batch Library for .NET  
 
@@ -24,19 +24,19 @@ This article contains the following two tutorials to help you get started develo
 -	[Tutorial 2: Azure Batch Apps library for .NET](#tutorial2)  
 
 
-For background information and scenarios for Azure Batch, see [Azure Batch technical overview](http://azure.microsoft.com/en-us/documentation/articles/batch-technical-overview/).
+For background information and scenarios for Azure Batch, see [Azure Batch technical overview](batch-technical-overview.md).
 
 ##<a name="tutorial1"></a>Tutorial 1: Azure Batch library for .NET
-  	
+
 This tutorial will show you how to create a console application that sets up distributed computation among a pool of virtual machines by using the Azure Batch service. The tasks that are created in this tutorial evaluate text from files in Azure storage and return the words that are most commonly used. The samples are written in C# code and use the Azure Batch Library for .NET.
 
 
->[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). 
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 >
 >You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Batch package and dependencies.
 >
 >Please make sure your Nuget Package Manager version is 2.8 or later. You can find the version number from Visual Studio -> "Help" -> "About Microsoft Visual Studio" dialog. If you have an older version of Nuget Package Manager, you need to update your Visual Studio or you might have problems downloading the correct version of Nuget dependencies.
-> 
+>
 >Also, you can refer to the [Azure Batch Hello World sample](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) on MSDN for a sample similar to the code discussed here.
 
 
@@ -56,7 +56,7 @@ The Batch service is used for scheduling scalable and distributed computation. I
 Let's start with the most basic usage.
 
 ###Create an Azure Batch account
-You can use the Management Portal to create a Batch account. A key is provided to you after the account is created. For more information, see [Azure Batch technical overview](http://azure.microsoft.com/en-us/documentation/articles/batch-technical-overview/).  
+You can use the Management Portal to create a Batch account. A key is provided to you after the account is created. For more information, see [Azure Batch technical overview](batch-technical-overview.md).  
 
 ###How to: Add a pool to an account
 A pool of task virtual machines is the first set of resources that you must create when you want to run tasks.  
@@ -99,11 +99,11 @@ A pool of task virtual machines is the first set of resources that you must crea
 		   {
 		      Console.WriteLine("The pool does not exist, creating now...");
 		      ICloudPool newPool = pm.CreatePool(
-		         PoolName, 
-		         osFamily: "3", 
-		         vmSize: "small", 
+		         PoolName,
+		         osFamily: "3",
+		         vmSize: "small",
 		         targetDedicated: NumOfMachines);
-		       newPool.Commit();                  
+		       newPool.Commit();
 		    }
 		}
 		Console.WriteLine("Created pool {0}", PoolName);
@@ -124,17 +124,17 @@ If you don’t know the name of an existing pool, you can get a list of them in 
 
 		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
 		IBatchClient client = BatchClient.Connect(Uri, cred);
-		
+
 		using (IPoolManager pm = client.OpenPoolManager())
 		{
 		    IEnumerable<ICloudPool> pools = pm.ListPools();
-		
+
 		    Console.WriteLine("Listing Pools\n=================");
 		    foreach (var p in pools)
 		    {
 		        Console.WriteLine("Pool: " + p.Name + " State:" + p.State);
 		    }  
-		
+
 		    if (!pools.Select(pool => pool.Name).Contains(PoolName))
 		    {
 		        Console.WriteLine("The pool does not exist, creating now...");
@@ -168,9 +168,9 @@ If you don’t know the name of an existing workitem, you can get a list of them
 		   foreach (var w in workitems)
 		   {
 		      Console.WriteLine("Workitem: " + w.Name + " State:" + w.State);
-		   }   
+		   }
 		}
-		Console.WriteLine("Press <Enter> to continue."); 
+		Console.WriteLine("Press <Enter> to continue.");
 		Console.ReadLine();
 7.	Save and run the program. You'll probably see nothing since we haven't submitted any workitem. We'll talk about adding workitem in next section.  
 
@@ -197,9 +197,9 @@ You must create a workitem to define how the tasks will run in the pool.
 		=================
 		Pool: gettingstarted State:Active
 		Created pool gettingstarted. Press <Enter> to continue.
-		
+
 		Workitem successfully added. Press <Enter> to continue.
-		
+
 		Listing Workitems
 		=================
 		Workitem: yidingz20141106-111211 State:Active
@@ -228,7 +228,7 @@ A workitem without task will do nothing. After you create the workitem and the j
 		        job.Commit();
 		        job.Refresh();
 		    }
-		
+
 		    ICloudJob listjob = wm.GetJob(WorkItemName, JobName);
 		    client.OpenToolbox().CreateTaskStateMonitor().WaitAll(listjob.ListTasks(),
 		       TaskState.Completed, new TimeSpan(0, 30, 0));
@@ -246,10 +246,10 @@ A workitem without task will do nothing. After you create the workitem and the j
 		The tasks completed successfully. Terminating the workitem...
 		Task taskdata1 says:
 		I am taskdata1
-		
+
 		Task taskdata2 says:
 		I am taskdata2
-		
+
 		Task taskdata3 says:
 		I am taskdata3
 
@@ -266,10 +266,10 @@ Now that we can run hello world on VM, let's do something real. We'll create a t
 
 		string blobName = args[0];
 		int numTopN = int.Parse(args[1]);
-		
+
 		WebClient myWebClient = new WebClient();
 		string content = myWebClient.DownloadString(blobName);
-		
+
 		string[] words = content.Split(' ');
 		var topNWords =
 		   words.
@@ -278,7 +278,7 @@ Now that we can run hello world on VM, let's do something real. We'll create a t
 		   OrderByDescending(x => x.Value).
 		   Take(numTopN).
 		   ToList();
-		
+
 		foreach (var pair in topNWords)
 		{
 		    Console.WriteLine("{0} {1}", pair.Key, pair.Value);
@@ -311,9 +311,9 @@ You will need a storage account to continue complete the rest of this tutorial. 
 3. Create three text files (taskdata1.txt, taskdata2.txt, taskdata3.txt) with each one containing one of the following paragraphs and upload them to the container:
 
 		You can use Azure Virtual Machines to provision on-demand, scalable compute infrastructure when you need flexible resources for your business needs. From the gallery, you can create virtual machines that run Windows, Linux, and enterprise applications such as SharePoint and SQL Server. Or, you can capture and use your own images to create customized virtual machines.
-		
+
 		Quickly deploy and manage powerful applications and services with Azure Cloud Services. Simply upload your application and Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability. Your application is backed by an industry leading 99.95% monthly SLA. You just focus on the application and not the infrastructure.
-		
+
 		Azure Web Sites provide a scalable, reliable, and easy-to-use environment for hosting web applications. Select from a range of frameworks and templates to create a web site in seconds. Use any tool or OS to develop your site with .NET, PHP, Node.js or Python. Choose from a variety of source control options including TFS, GitHub, and BitBucket to set up continuous integration and develop as a team. Expand your site functionality over time by leveraging additional Azure managed services like storage, CDN, and SQL Database.
 
 
@@ -328,7 +328,7 @@ You will need a storage account to continue complete the rest of this tutorial. 
 
 1.	Add the following variables to the Program class:
 
-		private const string BlobPath = "[storage-path]"; 
+		private const string BlobPath = "[storage-path]";
 	Replace the following values:
 	-	**[storage-path]** - The path to the blob in storage. For example: http://yiding.blob.core.windows.net/gettingstarted/
 
@@ -348,7 +348,7 @@ You will need a storage account to continue complete the rest of this tutorial. 
 		    taskToAdd.ResourceFiles.Add(supportFile);
 		    job.AddTask(taskToAdd);
 		}
-		job.Commit(); 
+		job.Commit();
 
 3. Save and run the program. You should see:
 
@@ -356,25 +356,25 @@ You will need a storage account to continue complete the rest of this tutorial. 
 		=================
 		Pool: gettingstarted State:Active
 		Created pool gettingstarted. Press <Enter> to continue.
-		
+
 		Workitem successfully added. Press <Enter> to continue.
-		
+
 		Listing Workitems
 		=================
 		Workitem: yidingz20141106-132140 State:Active
 		Press <Enter> to continue.
-		
+
 		The tasks completed successfully. Terminating the workitem...
 		Task taskdata1 says:
 		can 3
 		you 3
 		and 3
-		
+
 		Task taskdata2 says:
 		and 5
 		application 3
 		the 3
-		
+
 		Task taskdata3 says:
 		a 5
 		and 5
@@ -420,7 +420,7 @@ Before you can run the code in this tutorial, you must have access to a storage 
 6.	Optionally, you can enable geo-replication.
 7.	Click **CREATE STORAGE ACCOUNT**.  
 
-For more information about Azure Storage, see [How to use the Azure Blob Storage Service in .NET](http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/).  
+For more information about Azure Storage, see [How to use the Azure Blob Storage Service in .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).  
 
 
 ##<a name="tutorial2"></a>Tutorial 2: Azure Batch Apps Library for .NET
@@ -430,16 +430,16 @@ Batch Apps is a feature of Azure Batch that provides an application-centric way 
 
 In the Batch Apps scenario, you write code using the Batch Apps Cloud SDK to partition jobs into parallel tasks, describe any dependencies between these tasks, and specify how to execute each task.  This code is deployed to the Batch account.  Clients can then execute jobs simply by specifying the kind of job and the input files to a REST API.
 
->[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). You can use NuGet to obtain both the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> assembly and the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. You can also download the Visual Studio Extension for Batch Apps which includes a project template to cloud-enable applications and ability to deploy an application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">here</a> or via searching for **Batch Apps** in Visual Studio via the Extensions and Updates menu item.  You can also find <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">end-to-end samples on MSDN.</a>
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). You can use NuGet to obtain both the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> assembly and the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. You can also download the Visual Studio Extension for Batch Apps which includes a project template to cloud-enable applications and ability to deploy an application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">here</a> or via searching for **Batch Apps** in Visual Studio via the Extensions and Updates menu item.  You can also find <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">end-to-end samples on MSDN.</a>
 >
 
-###Fundamentals of Azure Batch Apps 
+###Fundamentals of Azure Batch Apps
 Batch is designed to work with existing compute-intensive applications. It leverages your existing application code and runs it in a dynamic, virtualized, general-purpose environment. To enable an application to work with Batch Apps there are a couple of things that need to be done:
 
 1.	Prepare a zip file of your existing application executables – the same executables that would be run in a traditional server farm or cluster – and any support files it needs. This zip file is then uploaded to your Batch account using the management portal or REST API.
 2.	Create a zip file of the "cloud assemblies" that dispatch your workloads to the application, and upload it via the management portal or REST API. A cloud assembly contains two components which are built against the Cloud SDK:
-	1.	Job Splitter – which breaks the job down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie job and break it down into individual frames. 
-	2.	Task Processor – which invokes the application executable for a given task. For example, in an animation scenario, the task processor would invoke a rendering program to render the single frame specified by the task at hand. 
+	1.	Job Splitter – which breaks the job down into tasks that can be processed independently. For example, in an animation scenario, the job splitter would take a movie job and break it down into individual frames.
+	2.	Task Processor – which invokes the application executable for a given task. For example, in an animation scenario, the task processor would invoke a rendering program to render the single frame specified by the task at hand.
 3.	Provide a way to submit jobs to the enabled application in Azure. This might be a plugin in your application UI or a web portal or even an unattended service as part of your execution pipeline. See the <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">samples</a> on MSDN for examples.
 
 
@@ -460,7 +460,7 @@ A **merge task** is a special kind of task that assembles the results of individ
 A **file** is a piece of data used as an input to a job. A job can have no input file associated with it or have one or many. The same file can be used in multiple jobs as well, e.g. for a movie rendering job, the files might be textures, models, etc. For a data analysis job, the files might be a set of observations or measurements.
 
 ###Enabling the Cloud Application
-Your Application must contain a static field or property containing all the details of your application. It specifies the name of the application and the job type or job types handled by the application. This is provided when using the template in the SDK that can be downloaded via Visual Studio Gallery. 
+Your Application must contain a static field or property containing all the details of your application. It specifies the name of the application and the job type or job types handled by the application. This is provided when using the template in the SDK that can be downloaded via Visual Studio Gallery.
 
 Here is an example of a cloud application declaration for a parallel workload:
 
@@ -476,13 +476,13 @@ Here is an example of a cloud application declaration for a parallel workload:
 	}
 
 ####Implementing Job Splitter and Task Processor
-For embarrassingly parallel workloads, you must implement a job splitter and a task processor. 
+For embarrassingly parallel workloads, you must implement a job splitter and a task processor.
 
 ####Implementing JobSplitter.SplitIntoTasks
-Your SplitIntoTasks implementation must return a sequence of tasks. Each task represents a separate piece of work that will be queued for processing by a compute node. Each task must be self-contained and must be set up with all the information that the task processor will need. 
+Your SplitIntoTasks implementation must return a sequence of tasks. Each task represents a separate piece of work that will be queued for processing by a compute node. Each task must be self-contained and must be set up with all the information that the task processor will need.
 
 The tasks specified by the job splitter are represented as TaskSpecifier objects. TaskSpecifier has a number of properties which you can set before you return the task.
-  
+
 
 -	TaskIndex is ignored, but is available to task processors. You can use this to pass an index to the task processor. If you don’t need to pass an index, you don’t need to set this property.
 -	Parameters is an empty collection by default. You can add to it or replace it with a new collection. You can copy entries from the job parameters collection using the WithJobParameters or WithAllJobParameters method.  
@@ -496,7 +496,7 @@ You can specify a task that depends on a specific other task. To do this, set th
 	    DependsOn = TaskDependency.OnId(5)
 	}
 
-The task will not run until the output of the depended on task is available.   
+The task will not run until the output of the depended on task is available.
 
 You can also specify that a whole group of tasks should not start processing until another group has completely finished. In this case you can set the TaskSpecifier.Stage property. Tasks with a given Stage value will not begin processing until all tasks with lower Stage values have finished; for example, tasks with Stage 3 will not begin processing until all tasks with Stage 0, 1 or 2 have finished. Stages must begin at 0, the sequence of stages must have no gaps, and SplitIntoTasks must return tasks in stage order: for example, it is an error to return a task with Stage 0 after a task with Stage 1.
 
@@ -520,7 +520,7 @@ The following code demonstrates a simple implementation of SplitIntoTasks.
 	    int start = Int32.Parse(job.Parameters["startIndex"]);
 	    int end = Int32.Parse(job.Parameters["endIndex"]);
 	    int count = (end - start) + 1;
-	 
+
 	    // Processing tasks
 	    for (int i = 0; i < count; ++i)
 	    {
@@ -550,22 +550,22 @@ The following code demonstrates a simple implementation of ParallelTaskProcessor
 	{
 	    var inputFile = LocalPath(task.RequiredFiles[0].Name);
 	    var outputFile = LocalPath(task.TaskId.ToString() + ".jpg");
-	 
+
 	    var exePath = ExecutablePath(@"application\application.exe");
 	    var arguments = String.Format("-in:{0} -out:{1}", inputFile, outputFile);
-	 
+
 	    var result = new ExternalProcess {
 	        CommandPath = exePath,
 	        Arguments = arguments,
 	        WorkingDirectory = LocalStoragePath,
 	        CancellationToken = settings.CancellationToken
 	    }.Run();
-	
+
 	    return TaskProcessResult.FromExternalProcessResult(result, outputFile);
 	}
 ####Implementing ParallelTaskProcessor.RunExternalMergeProcess
 
-This is called for the merge task. It should invoke the application to combine outputs of the previous tasks, in whatever way is appropriate to your application and return the combined output. 
+This is called for the merge task. It should invoke the application to combine outputs of the previous tasks, in whatever way is appropriate to your application and return the combined output.
 
 The implementation of RunExternalMergeProcess is very similar to RunExternalTaskProcess, except that:  
 
@@ -580,24 +580,24 @@ The following code demonstrates a simple implementation of ParallelTaskProcessor
 	    TaskExecutionSettings settings)
 	{
 	    var outputFile =  "output.zip";
-	 
+
 	    var exePath =  ExecutablePath(@"application\application.exe");
 	    var arguments = String.Format("a -application {0} *.jpg", outputFile);
-	 
+
 	    new ExternalProcess {
 	        CommandPath = exePath,
 	        Arguments = arguments,
 	        WorkingDirectory = LocalStoragePath
 	    }.Run();
-	 
+
 	    return new JobResult {
 	        OutputFile = outputFile
 	    };
 	}
 
-###Submitting Jobs to Batch Apps 
-A job describes a workload to be run and needs to include all the information about the workload except for file content. For example, the job contains configuration settings which flow from the client through the job splitter and on to tasks. The samples provided on MSDN are examples of how to submit jobs and provide multiple clients including a web portal and a command line client. 
- 
+###Submitting Jobs to Batch Apps
+A job describes a workload to be run and needs to include all the information about the workload except for file content. For example, the job contains configuration settings which flow from the client through the job splitter and on to tasks. The samples provided on MSDN are examples of how to submit jobs and provide multiple clients including a web portal and a command line client.
+
 
 <!--Anchors-->
 
@@ -607,5 +607,3 @@ A job describes a workload to be run and needs to include all the information ab
 [2]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-02.jpg
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
-
-

@@ -3,7 +3,7 @@
 	description="Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/12/2015" 
 	ms.author="juliako"/>
 
 
 #How to: Get a Media Processor Instance
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
+
 
 ##Overview
 
@@ -38,24 +39,34 @@ The following table provides the name and description of each available media pr
   <tbody>
     <tr>
        <td>Azure Media Encoder</td>
-       <td>Lets you run encoding tasks using the Media Encoder.</td>
-       <td><a href="http://msdn.microsoft.com/en-us/library/jj129582.aspx"> Task Preset Strings for the Azure Media Encoder</a></td>
+       <td>Lets you run encoding tasks using the Azure Media Encoder.</td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Task Preset Strings for the Azure Media Encoder</a></td>
+    </tr>
+    <tr>
+       <td>Media Encoder Premium Workflow</td>
+       <td>Lets you run encoding tasks using Media Encoder Premium Workflow.</td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Encode with Media Encoder Premium Workflow.</a></td>
+    </tr>    
+	<tr>
+        <td>Azure Media Indexer</td>
+        <td>Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.</td>
+		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Indexing Media Files with Azure Media Indexer</a>.</td>
     </tr>
     <tr>
         <td>Windows Azure Media Packager</td>
         <td>Lets you convert media assets from .mp4 to smooth streaming format. Also, lets you convert media assets from smooth streaming to the Apple HTTP Live Streaming (HLS) format.</td>
-		<td><a href="http://msdn.microsoft.com/en-us/library/hh973635.aspx">Task Preset Strings for the Azure Media Packager</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Task Preset Strings for the Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Windows Azure Media Encryptor</td>
         <td>Lets you encrypt media assets using PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/en-us/library/hh973610.aspx">Task Preset Strings for the Azure Media Packager</a></td>
+        <td><a href=" http://go.microsoft.com/fwlink/?LinkId=613274">Task Preset Strings for the Azure Media Packager</a></td>
     </tr>
-    <tr>
-        <td>Azure Media Indexer</td>
-        <td>Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.</td>
-		<td>N/A</td>
-    </tr>
+	<tr>
+		<td>Azure Media Hyperlapse (preview)</td>
+		<td>Enables you to smooth out the "bumps" in your video with video stabilization. Also allows you to speed up your content into a consumable clip.</td>
+		<td><a href="http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db">Azure Media Hyperlapse</a></td>
+	</tr>
     <tr>
         <td>Storage Decryption</td>
         <td>Lets you decrypt media assets that were encrypted using storage encryption.</td>
@@ -69,9 +80,9 @@ The following table provides the name and description of each available media pr
 
 >[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
 >
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](../media-services-rest-how-to-use).
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/). 
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect_programmatically.md). 
 
 
 
@@ -86,7 +97,7 @@ Request:
 	Accept: application/json
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-477b-2233-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
 	x-ms-version: 2.8
 	Host: media.windows.net
 	
@@ -112,6 +123,6 @@ Response:
 ##Next Steps
 Now that you know how to get a media processor instance, go to the [How to Encode an Asset][] topic which will show you how to use the Azure Media Encoder to encode an asset.
 
-[How to Encode an Asset]: ../media-services-rest-encode-asset/
-[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/jj129582.aspx
+[How to Encode an Asset]: media-services-rest-encode-asset.md
+[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Enable logging for Machine Learning web services | Azure" 
-   description="Learn how to enable logging for Machine Learning web services." 
-   services="machine-learning" 
-   documentationCenter="" 
-   authors="raymondlag" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+	pageTitle="Enable logging for Machine Learning web services | Azure" 
+	description="Learn how to enable logging for Machine Learning web services." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="raymondlaghaeian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
 <tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="big-data" 
-   ms.date="02/12/2015"
-   ms.author="raymondl"/>
+	ms.service="machine-learning"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm=""
+	ms.workload="big-data" 
+	ms.date="02/12/2015"
+	ms.author="raymondl,garye"/>
 
 #Enable logging for Machine Learning web services  
 

@@ -13,14 +13,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="heidist"/>
 
 # Create a geospatial search app using Azure Search
 
 This tutorial demonstrates how to add geospatial search to web applications using Azure Search and Bing Maps. Using geo-search, you can find search targets within a certain distance of a point (such as finding all restaurants within 5 KM of my current location). The geo-spatial capability in Azure Search supports commonly used mapping techniques. For example, if you want to use polygon shapes in a real estate app showing houses for sale within a polygon boundary, you can easily do that using either OData or our simple search syntax.
 
-For more overview, watch this Channel 9 video about [Azure Search and Geospatial Data](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
+For more overview, watch this Channel 9 video about [Azure Search and Geospatial Data](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
 ![][7]
 
@@ -31,8 +31,8 @@ This tutorial builds on the [Azure Search – Adventure Works Demo](http://azure
 <a id="sub-1"></a>
 ## Prerequisites
 
-+	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/en-us/evalcenter/dn434042.aspx).
-+	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](../search-get-started/) for details.
++	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
++	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](search-get-started.md) for details.
 +	A Bing map service and a key to access it. Instructions are provided in the next section
 +	[Azure Search GeoSearch Sample on CodePlex](https://azuresearchgeospatial.codeplex.com/). On the Source tab, click **Download** to get a zip file of the solution. 
 
@@ -54,7 +54,7 @@ We are going to use the Bing Maps API for two things.
 
 + **Bing Maps:** When the app runs, we’ll use Bing Maps to display store locations, overlayed on top of a Bing Map.
 
-<h3>Create an account for Bing Maps</h3>
+### Create an account for Bing Maps
 
 1. Go to the [Bing Maps Portal](https://www.bingmapsportal.com/) and create a new account. Enter the details to create the account.
 

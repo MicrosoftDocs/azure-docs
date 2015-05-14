@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="DocumentDB limits for the preview release | Azure" 
-	description="Learn about the limits and quota enforcements of DocumentDB for the preview release." 
+	pageTitle="DocumentDB limits and quotas | Azure" 
+	description="Learn about the limits and quota enforcements of DocumentDB." 
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -13,41 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="05/04/2015" 
 	ms.author="mimig"/>
 
 
-#DocumentDB Limits for the Preview Release
-The following table describes the limits and quota enforcements of DocumentDB during the Preview release. In most cases the limits are enforced either with an intent to get your feedback or based on the current capacity constraints. If you have business need to relax the limits, please call us and we will do our best to accommodate within the constraints of the public offer.    
+#DocumentDB limits and quotas
 
-|Entity |Quota (Standard Offer for the Preview release)|
+The following table describes the limits and quota enforcements of DocumentDB. Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md).    
+
+|Entity |Quota (Standard Offer)|
 |-------|--------|
-|Database Accounts     |5
+|Database Accounts*     |5
 |Number of databases per database account     |100
 |Number of users per database account – across all databases |500,000
 |Number of permissions per database account – across all databases   |2,000,000
-|Attachment storage per database account      |2 GB
-|Maximum number of capacity units per database account       |50
-|Number of collections per capacity unit      |3
-|Minimum Allocated Storage per collection with minimum 1 document    |3.3 GB
-|Minimum Allocated Throughput per collection with minimum 1 document |667 RUs
-|Elasticity of a collection    |0-10 GB
-|Maximum Request Units / sec per collection   |2000
-|Number of stored procedures, triggers and UDFs per collection       |25 each
+|Attachment storage per database account (Preview Feature)      |2 GB
+|Maximum Request Units / second per collection   |2500
+|Number of stored procedures, triggers and UDFs per collection*       |25 each
 |Maximum execution time for stored procedure and trigger     |5 seconds
-|Provisioned document storage / capacity unit |10 GB
-|Provisioned Request Units / sec / capacity unit     |2000
-|Maximum document storage per database (5 capacity units)    |500 GB
+|Provisioned document storage / collection |10 GB
+|Maximum collections per database account*    |100
+|Maximum document storage per database (100 collections)*    |1 TB
 |Maximum Length of the Id property    |255 characters
-|Default number of items per page     |100
 |Maximum items per page        |1000
 |Maximum request size of document and attachment       |512KB
-|Maximum request size of stored procedure, trigger and UDF        |256KB
+|Maximum request size of stored procedure, trigger and UDF        |512KB
 |Maximum response size |1MB
-|Maximum number of unique paths per collection       |100
 |String |All strings must conform to the UTF-8 encoding. Since UTF-8 is a variable width encoding, string sizes are determined using the UTF-8 bytes.
 |Maximum length of property or value  |No practical limit
-|Maximum number of UDFs per query     |1
-|Maximum number of JOINs per query    |2
-|Maximum number of AND clauses per query      |5
-|Maximum number of OR clauses per query       |5
+|Maximum number of UDFs per query*     |1
+|Maximum number of built-in functions per query     |No practical limit
+|Maximum number of JOINs per query*    |2
+|Maximum number of AND clauses per query*      |5
+|Maximum number of OR clauses per query*       |5
+|Maximum number of values per IN expression*       |100
+|Maximum number of collection creates per minute*      |5
+|Maximum number of scale operations per minute*       |5

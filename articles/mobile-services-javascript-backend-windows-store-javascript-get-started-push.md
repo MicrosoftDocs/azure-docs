@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="04/14/2015" 
 	ms.author="glenga"/>
 
 
@@ -24,7 +24,7 @@
 This topic shows you how to use Azure Mobile Services to send push notifications to a Windows Store app. 
 In this tutorial you enable push notifications using Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
->[AZURE.NOTE]This topic shows you how to manually configure push notifications using Windows Notification Service (WNS) for a Windows Store app. You can use Visual Studio 2013 tools to automatically configure the same push notifications in a Windows app project. For more information, see the [universal Windows app version](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push) of this tutorial.
+>[AZURE.NOTE]This topic shows you how to manually configure push notifications using Windows Notification Service (WNS) for a Windows Store app. You can use Visual Studio 2013 tools to automatically configure the same push notifications in a Windows app project. For more information, see the [universal Windows app version](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md) of this tutorial.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -120,16 +120,16 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
+[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
 
-[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
+[Send push notifications to authenticated users]: mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-javascript-send-breaking-news/
-[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-javascript-send-localized-breaking-news/
+[What are Notification Hubs?]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-windows-store-javascript-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-windows-store-javascript-send-localized-breaking-news.md

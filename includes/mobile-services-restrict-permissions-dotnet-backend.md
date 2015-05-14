@@ -12,8 +12,14 @@ By default, all requests to mobile service resources are restricted to clients t
 
 	>[AZURE.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
 
-3. If you wish to debug authentication locally, expand the App_Start folder, open **WebApiConfig.cs**, and add the following code to the **Register** method. This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the _AuthorizeLevel_ settings. Without this setting, all HTTP requests to *localhost* are permitted without authentication despite the _AuthorizeLevel_ setting.  
+3. (Optional) If you wish to debug authentication locally, expand the `App_Start` folder, open **WebApiConfig.cs**, and add the following code to the **Register** method.  
 
 		config.SetIsHosted(true);
 
+	This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the *AuthorizeLevel* settings. Without this setting, all HTTP requests to localhost are permitted without authentication despite the *AuthorizeLevel* setting. When you enable self-hosted mode, you also need to set a value for the local application key.
+
+4. (Optional) In the web.config project file, set a string value for the `MS_ApplicationKey` app setting. This is the password that you use (with no username) to test the API help pages when you run the service locally.
+
+	[AZURE.NOTE] This string value is not used by the live site in Azure, and you do not need to use the actual application key; any valid string value will work.
+ 
 4. Republish your project.

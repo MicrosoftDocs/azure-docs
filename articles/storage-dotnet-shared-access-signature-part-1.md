@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Overview
 
-Using a shared access signature (SAS) is a powerful way to grant limited access to blobs, tables, and queues in your storage account to other clients, without having to expose your account key. In Part 1 of this tutorial on shared access signatures, we'll provide an overview of the SAS model and review SAS best practices. [Part 2](../storage-dotnet-shared-access-signature-part-2/) of the tutorial walks you through the process of creating shared access signatures with the Blob service.
+Using a shared access signature (SAS) is a powerful way to grant limited access to blobs, tables, and queues in your storage account to other clients, without having to expose your account key. In Part 1 of this tutorial on shared access signatures, we'll provide an overview of the SAS model and review SAS best practices. [Part 2](storage-dotnet-shared-access-signature-part-2.md) of the tutorial walks you through the process of creating shared access signatures with the Blob service.
 
 ## What Is a Shared Access Signature? ##
 
@@ -228,9 +228,9 @@ Shared access signatures are useful for providing limited permissions to your st
 
 [Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../storage-dotnet-shared-access-signature-part-2/)
 
-[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/library/azure/ee393343.aspx)
 
-[Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
 [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png

@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/24/2015" 
 	ms.author="krisragh"/>
 
 
@@ -86,7 +86,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
     This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
+##<a name="publish-the-service"></a>Publish the mobile service to Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -256,15 +256,15 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/
+[Send push notifications to authenticated users]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-breaking-news/
-[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+[What are Notification Hubs?]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md

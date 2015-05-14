@@ -13,26 +13,21 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/25/2015" 
 	ms.author="wesmc"/>
 
 # Handling database write conflicts
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#" class="current">Windows Store C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">Windows Store JavaScript</a>
-<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>	
 
+
+##Overview
 
 This tutorial is intended to help you better understand how to handle conflicts that occur when two or more clients write to the same database record in a Windows Store app. Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Azure Mobile Services provides support for detecting and resolving these conflicts. This topic walks you through the steps that allow you to handle database write conflicts on both the server and in your application.
 
-In this tutorial you will add functionality to the quickstart app to handle contentions that occur when updating the TodoItem database. This tutorial walks you through these basic steps:
+In this tutorial you will add functionality to the quickstart app to handle contentions that can occur when updating the TodoItem database. 
 
-1. [Update the application to allow updates]
-2. [Enable Conflict Detection in your application]
-3. [Test database write conflicts in the application]
-4. [Automatically handling conflict resolution in server scripts]
 
+##Prerequisites
 
 This tutorial requires the following
 
@@ -51,7 +46,7 @@ This tutorial requires the following
 
  
 
-<h2><a name="uiupdate"></a>Update the application to allow updates</h2>
+##Update the application to allow updates
 
 In this section you will update the TodoList user interface to allow updating the text of each item in a ListBox control. The ListBox will contain a CheckBox and TextBox control for each item in the database table. You will be able to update the text field of the TodoItem. The application will handle the `LostFocus` event from that TextBox to update the item in the database.
 
@@ -113,7 +108,7 @@ In this section you will update the TodoList user interface to allow updating th
 
 The application now writes the text changes to each item back to the database when the TextBox loses focus.
 
-<h2><a name="enableOC"></a>Enable Conflict Detection in your application</h2>
+##Enable Conflict Detection in your application
 
 Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` system property. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact. For more information on the System Properties for Mobile Services, see [System Properties].
 
@@ -204,7 +199,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 
-<h2><a name="test-app"></a>Test database write conflicts in the application</h2>
+##Test database write conflicts in the application
 
 In this section you will build a Windows Store app package to install the app on a second machine or virtual machine. Then you will run the app on both machines generating a write conflict to test the code. Both instances of the app will attempt to update the same item's `text` property requiring the user to resolve the conflict.
 
@@ -264,7 +259,7 @@ In this section you will build a Windows Store app package to install the app on
 
 
 
-<h2><a name="scriptsexample"></a>Automatically handling conflict resolution in server scripts</h2>
+##Automatically handling conflict resolution in server scripts
 
 You can detect and resolve write conflicts in server scripts. This is a good idea when you can use scripted logic instead of user interaction to resolve the conflict. In this section, you will add a server side script to the TodoItem table for the application. The logic this script will use to resolve conflicts is as follows:
 
@@ -342,30 +337,17 @@ The following steps walk you through adding the server update script and testing
 	App Instance 2	
 	![][18]
 
-## <a name="next-steps"> </a>Next steps
+##Next steps
 
-This tutorial demonstrated how to enable a Windows Store app to handle write conflicts when working with data in Mobile Services. Next, consider completing one of the following tutorials in our data series:
+This tutorial demonstrated how to enable a Windows Store app to handle write conflicts when working with data in Mobile Services. Next, consider completing one of the following Windows Store tutorials:
 
-* [Validate and modify data with scripts]
-  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
-
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
-
-Once you have completed the data series, you can also try one of the following Windows Store tutorials:
-
-* [Get started with authentication] 
+* [Add authentication to your app] 
   <br/>Learn how to authenticate users of your app.
 
-* [Get started with push notifications] 
+* [Add push notifications to your app] 
   <br/>Learn how to send a very basic push notification to your app with Mobile Services.
  
-<!-- Anchors. -->
-[Update the application to allow updates]: #uiupdate
-[Enable Conflict Detection in your application]: #enableOC
-[Test database write conflicts in the application]: #test-app
-[Automatically handling conflict resolution in server scripts]: #scriptsexample
-[Next Steps]:#next-steps
+
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
@@ -392,14 +374,14 @@ Once you have completed the data series, you can also try one of the following W
 
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Azure Account]: http://www.windowsazure.com/pricing/free-trial/
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Add authentication to your app]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Add push notifications to your app]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

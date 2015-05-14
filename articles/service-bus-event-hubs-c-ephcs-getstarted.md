@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Get Started with Event Hubs" 
 	description="Follow this tutorial to get started using Azure Event Hubs sending events with C and receiving in C# using EventProcessorHost" 
-	services="service-bus" 
+	services="event-hubs,service-bus" 
 	documentationCenter="" 
 	authors="fsautomata" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
+	ms.service="event-hubs" 
 	ms.workload="core" 
 	ms.tgt_pltfrm="c" 
 	ms.devlang="csharp" 
 	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+	ms.date="04/22/2015" 
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -30,11 +30,11 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 In order to complete this tutorial you will need the following:
 
-+ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial/) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
++ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](virtual-machines-linux-tutorial.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 
 + Microsoft Visual Studio Express 2013 for Windows
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
++ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ## Create an Event Hub
 
@@ -103,4 +103,4 @@ Now you are ready to run the applications.
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn836025.aspx
+[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx

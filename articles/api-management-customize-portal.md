@@ -13,28 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # Customizing the developer portal in Azure API Management
 
 This guide shows you how to modify the look and feel of the developer portal in API Management for consistency with your brand.
 
-## In this topic
-
--	[Change the text/logo in the page headers][]
--	[Change the styling of the headers][]
--	[Edit the contents of a page][]
--	[Next steps][]
-
-
 ## <a name="change-page-headers"> </a>Change the text/logo in the page header
 
 One of the key aspects of portal customization is replacing the text at the top of all pages with your company name or logo.
 
-Content within the Developer Portal is modified via the Publisher portal, which is accessed through the Azure management portal. To reach the API Management console, click **Management Console** in the Azure Portal for your API Management service.
+Content within the Developer Portal is modified via the Publisher portal, which is accessed through the Azure management portal. To reach the API publisher portal, click **Manage** in the Azure Portal for your API Management service.
 
-![Management console][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 The developer portal is based on a Content Management System or CMS. The header that appears on every page is a special type of content known as a widget. To edit the contents of that widget click **Widgets** from the **Developer Portal** menu on the left, and then select the **Header** widget from the list.
 
@@ -44,7 +36,7 @@ The contents of the header is editable from within the **Body** field. Change th
 
 Now you should be able to see the new header on every page within the developer portal!
 
-> To open the developer portal while in the management console, click on **Developer portal** in the top bar.
+> To open the developer portal while in the publisher portal, click on **Developer portal** in the top bar.
 
 ## <a name="change-headers-styling"> </a>Change the styling of the headers
 
@@ -76,7 +68,7 @@ When you are done with making changes to the styles of the selected element clic
 
 The developer portal consists of automatically generated pages like APIs, Products, Applications, Issues and manually written content. Since it is based on a content management system you can create such content as necessary.
 
-To see the list of all existing content pages click on **Content** from the **Developer portal** menu in the Management console.
+To see the list of all existing content pages click on **Content** from the **Developer portal** menu in the publisher portal.
 
 ![Manage content][api-management-customization-manage-content]
 
@@ -103,6 +95,6 @@ Click on the "Welcome" page to edit what is displayed on the home page of the de
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/

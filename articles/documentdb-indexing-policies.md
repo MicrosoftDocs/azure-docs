@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="DocumentDB Indexing Policies | Azure" 
-	description="Understand how indexing works in DocumentDB and learn how to configure the indexing policy." 
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="DocumentDB Indexing Policies | Azure" 
+    description="Understand how indexing works in DocumentDB and learn how to configure the indexing policy." 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="" 
-	ms.devlang="may be required" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="may be required" 
-	ms.workload="required" 
-	ms.date="01/05/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="03/27/2015" 
+    ms.author="mimig"/>
 
 
 DocumentDB indexing policies
@@ -61,15 +61,6 @@ index precision in bytes to improve query performance. This article
 describes the various indexing configuration options available in
 DocumentDB, and how to customize indexing policy for your workloads.
 
-## In this article ##
-
-Section | Description
------| -----------
-[How DocumentDB indexing works](#HowWorks) | Explains how DocumentDB represented JSON documents as trees for indexing.  
-[Configuring the indexing policy of a collection](#ConfigPolicy) | In this step, you create a hello world project in Eclipse.
-[Performance tuning](#Perf) | In this step, you add the DocumentDB SDK as a dependency to the project.
-
-
 <a id="HowWorks"></a>How DocumentDB indexing works
 -----------------------------
 
@@ -105,30 +96,33 @@ the indexing policy expressed in terms of paths, index types,
 and precisions.
 
 
-	POST https://<REST URI>/colls HTTP/1.1                                                  
- 	...                                                             
- 	Accept: application/json 
+    POST https://<REST URI>/colls HTTP/1.1                                                  
+     ...                                                             
+     Accept: application/json 
                                                                                                                          
- 	{                                                                     
-	 "name":"customIndexCollection",                                     
-	 "indexingPolicy":{                                                 
-     "automatic":true,                                            
-	 "indexingMode":"Consistent",                                     
-	 "IncludedPaths":[                                       
-	           {                                                             
-	              "IndexType":"Hash",                                        
-	              "Path":"/"                                                 
-	           }                                                  
-	        ],                                                               
-	        "ExcludedPaths":[                                                
-	           "/\"nonIndexedContent\"/*"                                 
-	        ]                                                               
-	     }                                                                 
-	 }                                                                                                                                                
- 	...                                                                      
+    {                                                                     
+        "id":"customIndexCollection",                                     
+        "indexingPolicy":
+        {                                                 
+            "automatic":true,                                            
+            "indexingMode":"Consistent",                                     
+            "IncludedPaths":
+            [                                       
+                {                                                            
+                    "IndexType":"Hash",                                        
+                    "Path":"/"                                                 
+                }                                                  
+            ],                                                               
+            "ExcludedPaths":
+            [                                                
+                "/\"nonIndexedContent\"/*"                                 
+            ]                                                               
+        }                                                                 
+     }                                                                                                                                                
+     ...                                                                      
                   
                                                         
-	 HTTP/1.1 201 Created                                                     
+     HTTP/1.1 201 Created                                                     
 
 
 **Note:** The indexing policy of a collection must be specified at
@@ -161,17 +155,14 @@ or replacing a document.
 For example, the following sample shows how to include a document explicitly
 using the [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
 
-	// If you want to override the default collection behavior to either     
-	// exclude (or include) a Document from indexing,                                                                                           
-	// use the RequestOptions.IndexingDirective property.                                  
-	                                                                         
-	client.CreateDocumentAsync(defaultCollection.SelfLink,  
-	    new { Name = "AndersenFamily", isRegistered = true },                            
-		new RequestOptions                               
-		    {                                                                    
-			    IndexingDirective = IndexingDirective.Include                                                                                      
-			}
-		);                                                                  
+    // If you want to override the default collection behavior to either     
+    // exclude (or include) a Document from indexing,                                                                                           
+    // use the RequestOptions.IndexingDirective property.                                  
+                                                                             
+    client.CreateDocumentAsync(defaultCollection.SelfLink,  
+        new { id = "AndersenFamily", isRegistered = true },                            
+        new RequestOptions { IndexingDirective = IndexingDirective.Include });                                                                 
+        
 
 
 ### Indexing modes
@@ -197,23 +188,20 @@ The following sample show how create a DocumentDB collection using the
 .NET SDK with consistent automatic indexing on all document insertions.
 
 
-	 // Default collection creates a hash index for all string and numeric    
-	 // fields. Hash indexes are compact and offer efficient                                                                                           
-	 // performance for equality queries.                                     
-	                                                                          
-	 var defaultCollection = new DocumentCollection { Name ="defaultCollection" };                                                   
-	                                                                          
-	 // Optional. Override Automatic to false for opt-in indexing of documents.                                                                
-	                                                                          
-	 defaultCollection.IndexingPolicy.Automatic = true;                       
-	                                                                          
-	 // Optional. Set IndexingMode to Lazy for bulk import/read heavy        
-	 // collections. Queries might return stale results with Lazy indexing.       
-	                                                                          
-	 defaultCollection.IndexingPolicy.IndexingMode = IndexingMode.Consistent; 
-	                                                                          
-	 defaultCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,defaultCollection);                                                      
-
+     // Default collection creates a hash index for all string and numeric    
+     // fields. Hash indexes are compact and offer efficient                                                                                           
+     // performance for equality queries.                                     
+                                                                              
+     var defaultCollection = new DocumentCollection { Id ="defaultCollection" };                                                   
+                                                                              
+     // Optional. Override Automatic to false for opt-in indexing of documents.
+     defaultCollection.IndexingPolicy.Automatic = true;                       
+                                                                              
+     // Optional. Set IndexingMode to Lazy for bulk import/read heavy        
+     // collections. Queries might return stale results with Lazy indexing.
+     defaultCollection.IndexingPolicy.IndexingMode = IndexingMode.Consistent; 
+                                                                              
+     defaultCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,defaultCollection);
 
 ### Index types and precision
 
@@ -228,7 +216,7 @@ The index precision for values at any path can be between 3 and 7 bytes.
 Since the same path might have numeric and string
 values in different documents, these can be controlled separately. In
 the .NET SDK, these values correspond to the [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) and
-[StringPrecision](http://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx) properties.
+[StringPrecision](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx) properties.
 
 There are two supported kinds of index types: Hash and Range. Choosing
 an index type of **Hash** enables efficient equality queries. For most
@@ -247,20 +235,21 @@ custom index policy.
   
 The following example shows how to increase the precision for range
 indexes in a collection using the .NET SDK. Note that this uses a
-special path “/" – which is explained in the next section.
+special path "/" – which is explained in the next section.
 
 
-	 // If your collection has numeric fields that need to be queried    
-	 // against ranges (>,>=,<=,<), then you can configure the collection to 
-	 // use range queries for all numeric values.                                                                                                      
+     // If your collection has numeric fields that need to be queried    
+     // against ranges (>,>=,<=,<), then you can configure the collection to 
+     // use range queries for all numeric values.
  
-	var rangeDefault = new DocumentCollection { Name = "rangeCollection" };                                                              
-	rangeDefault.IndexingPolicy.IncludedPaths.Add(                                                             
-												 new IndexingPath {   
-													IndexType = IndexType.Range, Path = "/", 
-													NumericPrecision = 7 }
-												 ); 
-	 rangeDefault = await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+    var rangeDefault = new DocumentCollection { Id = "rangeCollection" };                                                              
+    rangeDefault.IndexingPolicy.IncludedPaths.Add(
+        new IndexingPath {
+            IndexType = IndexType.Range, 
+            Path = "/",
+            NumericPrecision = 7 });
+            
+    rangeDefault = await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
 
 
 ### Index paths
@@ -335,10 +324,56 @@ Here are the common patterns for specifying index paths:
             </td>
             <td valign="top">
                 <p>
-                    Index path for all paths under the specified label. Specified only for exclusion from indexing.
+                    Index path for all paths under the specified label. Works with the following queries
+                </p>
+                <p>
+                    SELECT * FROM collection c WHERE c.prop = "value"
+                </p>
+                <p>
+                    SELECT * FROM collection c WHERE c.prop.subprop &gt; 5
+                </p>
+                <p>
+                    SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value"
+                </p>
+
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    /"props"/[]/?
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Index path required to serve iteration and JOIN queries against arrays of scalars like ["a", "b", "c"]:
+                </p>
+                <p>
+                    SELECT tag FROM tag IN collection.props WHERE tag = "value"
+                </p>
+                <p>
+                    SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5
                 </p>
             </td>
         </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    /"props"/[]/"subprop"/?
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Index path required to serve iteration and JOIN queries against arrays of objects like [{subprop: "a"}, {subprop: "b"}]:
+                </p>
+                <p>
+                    SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"
+                </p>
+                <p>
+                    SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"
+                </p>
+            </td>
+        </tr>        
         <tr>
             <td valign="top">
                 <p>
@@ -380,29 +415,27 @@ The following example configures a specific path with range indexing and a
 custom precision value of 7 bytes:
 
 
- 	// If you only want to specify range queries against a specific field,   
- 	// then use a range index against that field. Doing so reduces the   
-	// amount of storage required for indexes for the collection. In this    
- 	// case, the query creates an index against the JSON path                   
- 	// /"CreatedTimestamp"/?    
- 	// allowing queries of the form WHERE CreatedTimestamp [>] X            
-	
-	var pathRange = new DocumentCollection { Name = "rangeSinglePathCollection" };    
-	
-	pathRange.IndexingPolicy.IncludedPaths.Add(
-								new IndexingPath { 
-										IndexType = IndexType.Range, 
-										Path = "/\"CreatedTimestamp\"/?",   
-										NumericPrecision = 7   
-							 			}
-									);   
-	
-	pathRange.IndexingPolicy.IncludedPaths.Add(   
-											 new IndexingPath {  
-											  	 Path = "/"  
-											 });                                                                      
-                                                   
-	 pathRange = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);      
+    // If you only want to specify range queries against a specific field,   
+    // then use a range index against that field. Doing so reduces the   
+    // amount of storage required for indexes for the collection. In this    
+    // case, the query creates an index against the JSON path                   
+    // /"CreatedTimestamp"/? allowing queries of the form WHERE CreatedTimestamp [>] X            
+    
+    var pathRange = new DocumentCollection { Id = "rangeSinglePathCollection" };    
+    
+    pathRange.IndexingPolicy.IncludedPaths.Add(
+        new IndexingPath {
+            IndexType = IndexType.Range,
+            Path = "/\"CreatedTimestamp\"/?",
+            NumericPrecision = 7
+        });
+    
+    pathRange.IndexingPolicy.IncludedPaths.Add(
+        new IndexingPath {
+            Path = "/"
+        });
+        
+    pathRange = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);
 
 
 DocumentDB returns an error when a query uses a range operator but does
@@ -415,12 +448,11 @@ AllowScanInQueryrequest option using the .NET SDK.               
 The next example excludes a sub-tree of paths from indexing using the
 "*" wildcard.
 
-	var excluded = new DocumentCollection { Name = "excludedPathCollection" };                                                                       
-  	excluded.IndexingPolicy.IncludedPaths.Add(
-	newIndexingPath {  Path = "/" });  
-
-	excluded.IndexingPolicy.ExcludedPaths.Add("/\" nonIndexedContent\"/*");    
-	excluded = await client.CreateDocumentCollectionAsync(database.SelfLink,excluded);                                                               
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IndexingPath {  Path = "/" });
+    excluded.IndexingPolicy.ExcludedPaths.Add("/\" nonIndexedContent\"/*");
+    
+    excluded = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
 
 
 Performance tuning
@@ -432,37 +464,45 @@ the DocumentDB APIs.
 
 To check the storage quota and usage of a collection, run a HEAD or GET request
 against the collection resource, and inspect the x-ms-request-quota and
-the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/en-us/library/dn850325.aspx)
-and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/en-us/library/dn799209.aspx) contain these
+the x-ms-request-usage headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx)
+and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contain these
 corresponding values.
 
 
- 	// Measure the document size usage (which includes the index size) against   
- 	// different policies.        
-	 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(collectionSelfLink);  
-	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
+     // Measure the document size usage (which includes the index size) against   
+     // different policies.        
+     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(collectionSelfLink);  
+     Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);
 
 
 To measure the overhead of indexing on each write operation (create,
 update, or delete), inspect the x-ms-request-charge header (or the
-equivalent [RequestCharge](http://msdn.microsoft.com/en-us/library/dn799099.aspx) property in [ResourceResponse<T\>](http://msdn.microsoft.com/en-us/library/dn799209.aspx) in the .NET
+equivalent [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) property in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) in the .NET
 SDK) to measure the number of request units consumed by these
 operations.
 
 
- 	// Measure the performance (request units) of writes.     
- 	ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);              
-                                                                    
- 	Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);                                                 
-                                                                          
- 	// Measure the performance (request units) of queries.    
-	 IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();                                          
-                                                                          
- 	while (queryable.HasMoreResults)                                                                            
- 	{                                                                         
- 	   FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>(); 
-	   Console.WriteLine("Query batch consumed {0} request units",queryResponse.RequestCharge);
-	}                                                                        
+     // Measure the performance (request units) of writes.     
+     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);              
+     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
+     
+     // Measure the performance (request units) of queries.    
+     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();                                  
+     double totalRequestCharge = 0;
+     while (queryable.HasMoreResults)
+     {
+        FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>(); 
+        Console.WriteLine("Query batch consumed {0} request units",queryResponse.RequestCharge);
+        totalRequestCharge += queryResponse.RequestCharge;
+     }
+     
+     Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
+Next Steps
+------------------
+Try out the samples below for managing indexing policy, and learn more about DocumentDB's query language in the links below.
 
+1.	[DocumentDB .NET Index Management code samples](https://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af/sourcecode?fileId=134860&pathId=1399591856)
+2.	[DocumentDB REST API Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+3.	[Query with DocumentDB SQL](documentdb-sql-query.md)
 

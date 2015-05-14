@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/22/2015" 
 	ms.author="glenga"/>
 
 # Upload images to Azure Storage by using Mobile Services
@@ -93,14 +93,14 @@ Now that you have been able to securely upload images by integrating your mobile
 
 
 <!-- URLs. -->
-[Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
-[Schedule backend jobs in Mobile Services]: /en-us/documentation/articles/mobile-services-schedule-recurring-tasks
+[Send email from Mobile Services with SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
+[Schedule backend jobs in Mobile Services]: mobile-services-schedule-recurring-tasks.md
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

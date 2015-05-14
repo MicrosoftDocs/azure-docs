@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2014" 
+	ms.date="03/20/2015" 
 	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
@@ -29,7 +29,7 @@ Offline sync has several potential uses:
 * Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
 >
 > If this is your first experience with Mobile Services, you should first complete [Get started with Mobile Services].
 
@@ -107,17 +107,32 @@ This section walks through the offline sync related code in `QSTodoService.cs`.
 
 In this section, you will modify the app so that it does not sync on app launch or on the insert and update operations, but only when the refresh gesture is performed. Then, you will break the app connection with the mobile service to simulate an offline scenario. When you add data items, they will be held in the local store, but not immediately synced to the mobile service.
 
-1. Open `QSTodoService.cs`. Edit the methods `InsertTodoItemAsync()` and `CompleteItemAsync()` and comment out the calls to `SyncAsync()`.
+1. Open `QSTodoService.cs`. Comment out the calls to `SyncAsync()` in the following methods:
+
+    - `InsertTodoItemAsync`
+    - `CompleteItemAsync`
+    - `RefreshAsync`
+
+    Now, `RefreshAsync()` will only load data from the local store, but will not connect to the app backend.
 
 2. In `QSTodoService.cs`, comment out the definitions of the members `applicationURL` and `applicationKey`. Add the following lines, which reference an invalid mobile service URL:
 
         const string applicationURL = @"https://your-mobile-service.azure-mobile.xxx/";
         const string applicationKey = @"AppKey";
 
-3. To change the initialization of the UI so that it does not sync on app launch, edit the method `QSTodoListViewController.ViewDidLoad()`. Remove the call to `RefreshAsync()` at the end of the method and replace with a call to `ReloadData()`:
+3. To ensure that data is synchronized when the refresh gesture is performed, edit the method `QSTodoListViewController.RefreshAsync()`. Add a call to `SyncAsync()` before the call to `RefreshDataAsync()`:
 
-            // RefreshAsync();  // don't sync on app launch
-            TableView.ReloadData (); // load UI only
+        private async Task RefreshAsync ()
+        {
+            RefreshControl.BeginRefreshing ();
+
+            await todoService.SyncAsync();
+            await todoService.RefreshDataAsync (); // add this line
+
+            RefreshControl.EndRefreshing ();
+
+            TableView.ReloadData ();
+        }
 
 4. Build and run the app. Add some new todo items. These new items exist only in the local store until they can be pushed to the mobile service. The client app behaves as if is connected to the mobile service supporting all create, read, update, delete (CRUD) operations.
 
@@ -159,11 +174,11 @@ In this section you will reconnect the app to the mobile service. This simulates
 <!-- Images -->
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-xamarin-ios-handling-conflicts-offline-data/ 
-[Get started with data]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
-[How to use the Xamarin Component client for Azure Mobile Services]: /en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
-[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Handling conflicts with offline support for Mobile Services]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md 
+[Get started with data]: partner-xamarin-mobile-services-ios-get-started-data.md
+[Get started with Mobile Services]: partner-xamarin-mobile-services-ios-get-started.md
+[How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
+[Soft Delete]: mobile-services-using-soft-delete.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # Get started with Azure API Management
@@ -54,9 +54,9 @@ An API consists of a set of operations that can be invoked from a client applica
 
 Each API Management service instance comes pre-configured with a sample Echo API on which you can invoke any HTTP verb, and the return value will equal to the headers and body that you sent. This tutorial uses the backend web service for the Echo API to create a new API in API Management called **My Echo Service**.
 
-APIs are created and configured from the API Management console, which is accessed through the Azure management portal. To reach the API Management console, click **Management Console** in the Azure Portal for your API Management service.
+APIs are created and configured from the API publisher portal, which is accessed through the Azure portal. To reach the API publisher portal, click **Manage** in the Azure portal for your API Management service.
 
-![New API Management console][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 To create the **My Echo API**, click **APIs** from the **API Management** menu on the left, and then click **add API**.
 
@@ -170,7 +170,7 @@ After an operation is invoked, the developer portal displays the **Requested URL
 -   Customize the developer portal
 -   Trace calls using API inspector
 
-[Azure Free Trial]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[Azure Free Trial]: http://www.windowsazure.com/pricing/free-trial/
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api
@@ -181,17 +181,17 @@ After an operation is invoked, the developer portal displays the **Requested URL
 [View analytics]: #view-analytics
 [Next steps]: #next-steps
 
-[Configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
-[Configure Notifications]: ../api-management-howto-configure-notifications
-[Responses]: ../api-management-howto-add-operations/#responses
-[How create and publish a product]: ../api-management-howto-add-products
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[Configure Notifications]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 [Management Portal]: https://manage.windowsazure.com/
 
-[Configure policies]: ../api-management-howto-policies
-[Customize the developer portal]: ../api-management-customize-portal
-[Trace calls using API inspector]: ../api-management-howto-api-inspector
+[Configure policies]: api-management-howto-policies.md
+[Customize the developer portal]: api-management-customize-portal.md
+[Trace calls using API inspector]: api-management-howto-api-inspector.md
 
 [api-management-management-console]: ./media/api-management-get-started-b/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started-b/api-management-create-instance-menu.png

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -31,20 +31,6 @@ and **enabling ASP.NET page output caching using the cache**. For more
 information on using In-Role Cache, refer to the [Next Steps][] section.
 
 >For guidance on choosing the right Azure Cache offering for your application, see [Which Azure Cache offering is right for me?][].
-
-## Table of Contents
-
--   [What is In-Role Cache?][]
--	[Getting Started with In-Role Cache]
-	-	[Configure the cache cluster][]
-	-	[Configure the cache clients][]
--	[Working with caches][]
-	-	[How To: Create a DataCache Object][]
-	-   [How To: Add and Retrieve an Object from the Cache][]
-	-   [How To: Specify the Expiration of an Object in the Cache][]
-	-   [How To: Store ASP.NET Session State in the Cache][]
-	-   [How To: Store ASP.NET Page Output Caching in the Cache][]
--   [Next Steps][]
 
 <a name="what-is"></a>
 ## What is In-Role Cache?
@@ -439,24 +425,24 @@ follow these links to learn how to do more complex caching tasks.
   
 <!-- LINKS -->
 [How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
-[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
-[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
-[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [In-Role Cache Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=252651
-[In-Role Cache Samples]: http://msdn.microsoft.com/en-us/library/jj189876.aspx
+[In-Role Cache Samples]: http://msdn.microsoft.com/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
-[In-Role Cache]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
+[In-Role Cache]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
 [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[Migrate to In-Role Cache]: http://msdn.microsoft.com/en-us/library/hh914163.aspx
+[Migrate to In-Role Cache]: http://msdn.microsoft.com/library/hh914163.aspx
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Output Cache Provider for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx
+[Output Cache Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Overview of In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Session State Provider for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx
+[Session State Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[Troubleshooting and Diagnostics for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx
-[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Troubleshooting and Diagnostics for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure Management Portal]: http://windows.azure.com/
-[Azure Shared Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278356.aspx
+[Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx
+[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/library/azure/dn766201.aspx

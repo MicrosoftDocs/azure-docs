@@ -13,17 +13,53 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="04/10/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
 
+## Notes for 04/10/2015 release of Data Factory
+You will see the **Recently updated slices** and **Recently failed slices** lists on the **TABLE** blade now. These lists are sorted by the update time of the slice. The update time of a slice is changed in the following situations.    
+
+-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+
+Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.
+ 
+You can still view slices sorted by the slice times by clicking **Data slices (by slice time)** tile. The slices in those collections are ordered by slice time. For example, if it’s an hourly schedule, the slices would be:
+- 4/4/2015 5pm In progress 
+- 4/4/2015 4pm Succeeded
+- 4/4/2015 3pm Failed
+
+But, if an older slice is re-run, it would not show up on the top of this list, even though that’s probably what the user is more interested in.
+
+## Notes for 3/31/2015 release of Data Factory
+- Updated **Data Management Gateway** installation package has been posted to [Microsoft Download Center][adf-gateway-download].
+- Copying from **on-premises file system to Azure blob** is supported now. See the following topics for more information.
+	-  [On-premises File System Linked Service](https://msdn.microsoft.com/library/dn930836.aspx)
+	-  [OnPremisesFileSystemLocation properties in a table JSON](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem)
+	-  [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx). See the updated copy matrix and **FileSystemSource** properties. 
+-  Copying from **on-premises Oracle database to Azure blob** is supported now. See the following topics for more informaiton. 
+	-  [On-premises Oracle Linked Service](https://msdn.microsoft.com/library/dn948537.aspx)
+	-  [OnPremisesOracleTableLocation properties in a table JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
+	-  [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx). See the updated copy matrix and **OracleSource** properties.
+-  You can specify encoding for text files in an Azure Blob. See the new [encodingName property](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
+- You can invoke a stored procedure with additional parameters when copying into SQL Sink. See [Invoke stored procedure for SQL Sink][adf-copy-advanced] for details.   
+
+See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) for additional information including examples.  
+
+## Notes for 2/27/2015 release of Data Factory
+
+### New improvements
+- **Azure Data Factory Editor**. The Data Factory Editor, which is part of the Azure Preview Portal, allows you to create, edit, and deploy JSON files that define linked services, data sets, and pipelines.The main goal of the editor is to provide you a fast and light-weight user-interface (UI) to create Azure Data Factory artifacts without requiring you to install Azure PowerShell and ramp up on using PowerShell cmdlets. See the [Azure Data Factory Editor - A Light Weight Web Editor][adf-editor-blog] blog post for a quick overview and a video on Data Factory Editor. For detailed overview of the editor, see the [Data Factory Editor][adf-editor] article.          
+
+### Changes
+
 ## Notes for 1/26/2015 release of Data Factory ##
 
-
-### New changes
+### Changes
 - Updated **Data Management Gateway** installation package has been posted to [Microsoft Download Center][adf-gateway-download]. Starting from this release, you can find the latest Data Management Gateway to use with Azure Data Factory at this download location. This installation package serves both Azure Data Factory and Power BI for Office 365 services. If you are using both the services, note that gateways for Data Factory and Power BI must be installed on different machines, and configured differently as per guidance from the Data Factory or Power BI documentation.
-- The **Copy Activity** now supports copying data between on-premises SQL Server database and an Azure SQL database.  See [Copy Activity][adf-copy-activity] for details and [Github][adf-github-samples] for JSON samples.
+- The **Copy Activity** now supports copying data between on-premises SQL Server database and an Azure SQL database.  See [Copy Activity][adf-copy-activity] for details and [GitHub][adf-github-samples] for JSON samples.
 - **SqlSink** supports a new property: **WriteBatchTimeout**. This property gives you the flexibility to configure how long to wait for the batch insert operation to complete before the operation times out. For a hybrid copy (copy operation that involves an on-premises data source and a cloud data source), you must have the gateway of version 1.4 or higher to use this property. 
 - **SQL Server linked service** now supports **Windows Authentication**. 
 	- When creating a SQL Server linked service using the portal, you can now choose to use Windows Authentication and set appropriate credentials. This requires you to have the gateway of version 1.4 or higher. 
@@ -61,11 +97,15 @@
     
   		See [Use custom activities in an Azure Data Factory pipeline][adf-custom-activities] for a walkthrough on how to create a custom activity and use it in an Azure Data Factory pipeline.  
 
-[adf-azure-ml]: ../data-factory-create-predictive-pipelines
-[adf-custom-activities]: ../data-factory-use-custom-activities
-[adf-copy-activity]: ../data-factory-copy-activity
+[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-custom-activities]: data-factory-use-custom-activities.md
+[adf-copy-activity]: data-factory-copy-activity.md
+[adf-editor]: data-factory-editor.md
+[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
-[on-demand-hdi-parameters]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
+[adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
+[adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
+[on-demand-hdi-parameters]: http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clustercreateparameters_properties.aspx
 [adf-gateway-download]: http://www.microsoft.com/download/details.aspx?id=39717
 [adf-github-samples]: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON
 [adf-msdn-linked-services]: https://msdn.microsoft.com/library/dn834986.aspx

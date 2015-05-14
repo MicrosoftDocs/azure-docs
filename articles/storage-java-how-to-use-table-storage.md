@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="How to use table storage (Java) | Microsoft Azure" 
+	pageTitle="How to use Table storage from Java | Microsoft Azure" 
 	description="Learn how to use the table storage service in Azure. Code samples are written in Java code." 
 	services="storage" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="03/11/2015" 
 	ms.author="robmcm"/>
 
-# How to use Table Storage from Java
+
+# How to use Table storage from Java
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview
 
@@ -36,7 +39,7 @@ To do so, you will need to install the Java Development Kit (JDK) and create an 
 
 ## Configure your application to access table storage
 
-Add the following import statements to the top of the Java file where you want to use Windows Azure storage APIs to access tables:
+Add the following import statements to the top of the Java file where you want to use Microsoft Azure storage APIs to access tables:
 
     // Include the following imports to use table APIs
     import com.microsoft.azure.storage.*;
@@ -551,10 +554,10 @@ Now that you've learned the basics of table storage, follow these links to learn
 - [Azure Storage REST API]
 - [Azure Storage Team Blog]
 
-[Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
-[Azure Storage REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+[Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

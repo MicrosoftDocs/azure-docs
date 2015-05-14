@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade to the Latest SQL Database Update V12 (preview)" 
-	description="Upgrade to the Latest SQL Database Update V12 (preview)" 
+	pageTitle="Upgrade to SQL Database V12" 
+	description="Explains how to upgrade to Azure SQL Database V12." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="sonalmm" 
@@ -13,19 +13,20 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="12/11/2014" 
+	ms.date="05/04/2015" 
 	ms.author="sonalm"/>
 
 
+# Upgrade to SQL Database V12 in place
 
-# Upgrade to the Latest SQL Database Update V12 (preview)
+
+[Sign up](https://portal.azure.com) for SQL Database V12 to take advantage of the next generation of  SQL Database on Microsoft Azure. First, you need a subscription to Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information. 
 
 
-[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 to take advantage of the next generation of  SQL Database on Microsoft Azure. First, you need a subscription to Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information. 
+## Steps to upgrade to SQL Database V12
 
-## How to Upgrade a Server In Place with the Latest SQL Database Update ##
 
-| Upgrade  | Screen shot |
+| Upgrade step  | Screen shot |
 | :--- | :--- |
 | 1. Sign in to [http://portal.azure.com/](http://portal.azure.com/). | ![New Azure Portal][1] |
 | 2. Click **BROWSE**. | ![Browse Services][2] |
@@ -34,17 +35,22 @@
 | 5. Click **Latest SQL Database Update V12**. | ![Latest preview feature][5] |
 | 6. Click **UPGRADE THIS SERVER**. | ![Upgrades the SQL Server to the preview][6] |
 
-> [AZURE.NOTE] **IMPORTANT**: Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database Update V12 features, and you will not be able to reverse that. To upgrade servers to SQL Database Update V12, you require a Basic, Standard or Premium service tier. For more information on the  service tiers,see [Upgrade SQL Database Web/Business Databases to New Service Tiers"](http://azure.microsoft.com/en-us/documentation/articles/sql-database-upgrade-new-service-tiers/).
 
-> **IMPORTANT**: Geo-replication is not supported with SQL Database Update V12 (preview). For more information, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](http://azure.microsoft.com/en-us/documentation/articles/sql-database-preview-plan-prepare-upgrade).
+> [AZURE.NOTE] Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database V12 features, and you will not be able to reverse that. To upgrade servers to SQL Database V12, you require a Basic, Standard or Premium service tier. For more information on the  service tiers,see [Upgrade SQL Database Web/Business Databases to New Service Tiers"](sql-database-upgrade-new-service-tiers.md).
+
+
+> [AZURE.IMPORTANT] Geo-replication is not supported with SQL Database V12 (preview). For more information, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](sql-database-v12-plan-prepare-upgrade.md).
 
 
 Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a message about a validation process. 
 
+
 - The validation process checks the service tier of your database and checks whether Geo-replication is enabled. The blade will show the results after the validation is complete. 
-- After the validation process is complete, you will see a list of database names that require you to take action to meet the requirements of upgrading to SQL Database Update V12. **You need to complete the actions for each of those databases to be able to upgrade to SQL Database update V12**.
+- After the validation process is complete, you will see a list of database names that require you to take action to meet the requirements of upgrading to SQL Database V12.
+ - **You need to complete the actions for each of those databases to be able to upgrade to SQL Database V12**.
 - As you click on each database name, a new blade provides service pricing tier recommendation based on your current usage. You can also browse various pricing tiers and select the one that suits your environment best. All the databases that are setup for Geo Replication need to be reconfigured to stop replication. 
 - Note that a recommendation on pricing tier will not be displayed if enough data is not found. 
+
 
 | Action | Screen shot |
 | :--- | :--- |
@@ -52,10 +58,10 @@ Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a 
 | 8. The upgrade process is initiated. Upgrade can take up to 24 hours. During this time all databases on this server will remain online but server and database management actions will be restricted. Once the process is complete, the status **Enabled** is displayed on the server blade. | ![Confirms preview features are enabled][8] |
  
 
-# Related Links  #
+## Related Links
 
--  [What's new in the SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/)
-- [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/)
+-  [What's new in SQL Database V12](sql-database-v12-whats-new.md)
+- [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->

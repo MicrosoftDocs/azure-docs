@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="02/18/2015"
+	ms.date="04/06/2015"
 	ms.author="cherylmc"/>
 
-#Configure a virtual network using a network configuration file
+# Configure a virtual network using a network configuration file
 
 ## Overview
 
@@ -26,14 +26,14 @@ You might prefer to use the Management Portal wizard to initially create your vi
 
 Or, if you want to make changes to your network configuration settings before deploying cloud services or virtual machines to the network, you can export the file, edit it, and then import it back to Azure. You can also use a network configuration file to backup your network configuration settings if you want to recreate your virtual network.
 
-##Creating and modifying a network configuration file 
+## Creating and modifying a network configuration file 
 The easiest way to author a network configuration file is to export the network settings from an existing virtual network configuration, then modify the file to contain the settings that you want to configure for your virtual networks. You can also obtain a sample file and modify it.
 
 To edit the network configuration file, you can simply open the file, make the appropriate changes, and save them. You can use any *xml* editor to make changes to the network configuration file. 
 
 You should closely follow the guidance for network configuration file schema settings. When you author your network configuration file, the settings in the file will overwrite the settings you currently have for that subscription in Azure. If you make changes to values in the file that are not compatible with the settings guidelines, your virtual network may not be configured in the way that you intended, and in some cases, Azure will not allow you to import the file. For information about the specific settings contained in a network configuration file, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
-Azure considers a subnet that has something deployed to it as "in use". When a subnet is in use, it cannot be modified. Before modifying, move anything that you have deployed to the subnet to a different subnet that isn't being modified.   See [Move a VM or Role Instance to a Different Subnet](https://msdn.microsoft.com/en-us/library/azure/dn643636.aspx).
+Azure considers a subnet that has something deployed to it as "in use". When a subnet is in use, it cannot be modified. Before modifying, move anything that you have deployed to the subnet to a different subnet that isn't being modified.   See [Move a VM or Role Instance to a Different Subnet](https://msdn.microsoft.com/library/azure/dn643636.aspx).
 
 
 
@@ -56,7 +56,7 @@ When you export, all of the settings for the virtual networks in your subscripti
 4. On the **Building your network** page, you'll see information on the screen showing which sections of your network configuration will be changed or created. If the changes look correct to you, click the checkmark to proceed to update or create your virtual network. 
 
 
-## Additional Resources
+## See Also
 For more information about virtual network, see:
 
 -  [Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)

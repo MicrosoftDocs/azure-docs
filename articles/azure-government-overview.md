@@ -1,31 +1,24 @@
 <properties 
-	pageTitle="Azure Government Overview" 
-	description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " 
-	services="azure-government" 
-	documentationCenter="" 
-	authors="joharve2" 
-	manager="required"/>
+   pageTitle="Azure Government Overview" 
+   description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " 
+   services="Azure-Government" 
+   documentationCenter="" 
+   authors="joharve2" 
+   manager="chrisnie" 
+   editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="azure-government" 
-	ms.date="1/9/2014" 
-	ms.author="jharve"/>
+<tags
+   ms.service="multiple"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="azure-government" 
+   ms.date="03/13/2015"
+   ms.author="john.harvey@microsoft.com"/>
 
 #  Microsoft Azure Government Overview 
 
 <p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
-
-
-## In this topic
-
-
-+ [Overview](#Overview)
-+ [Features currently available in Microsoft Azure Government](#Features)
-+ [Next Steps](#next)
 
 
 ## <a name="Overview"></a>Overview
@@ -34,7 +27,7 @@ Azure Government is a government-community cloud (GCC) designed to support strat
 
 In addition, Azure Government is designed to meet the higher level security and compliance needs for sensitive, dedicated, U.S. Public Sector workloads found in regulations such as United States Federal Risk and Authorization Management Program (FedRAMP), Department of Defense Enterprise Cloud Service Broker (ECSB), Criminal Justice Information Services (CJIS) Security Policy and Health Insurance Portability and Accountability Act (HIPAA).     
 
-Below is a summary view of the Azure Government Cloud infrastructure, fabric, services and frameworks that are available to help government organizations build hybrid cloud solutions to meet their goals.  As some services below are only available in preview, please see the [regions page](http://azure.microsoft.com/en-us/regions/#services) as the most up to date services that are generally available are listed.
+Below is a summary view of the Azure Government Cloud infrastructure, fabric, services and frameworks that are available to help government organizations build hybrid cloud solutions to meet their goals.  As some services below are only available in preview, please see the [regions page](http://azure.microsoft.com/regions/#services) as the most up to date services that are generally available are listed.
 
 ![][2]
 
@@ -76,8 +69,12 @@ Azure Government currently has the following services available in both US GOV I
 - Scheduler
 - Virtual Networking
 - SQL Database
+- Azure Files
+- Media Services
+- Traffic Manager
+- Service Bus
 
-Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/en-us/regions/#services) which will highlight each available region and their services.  
+Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 
 Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.  Please refer to the regions page above for current data centers and services available.
 
@@ -102,6 +99,6 @@ If you are interested in learning more and about Azure Government please leverag
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

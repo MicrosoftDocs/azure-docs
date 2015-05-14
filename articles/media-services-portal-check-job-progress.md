@@ -18,7 +18,7 @@
 
 #How to: Check Job Progress
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
 
 ##Use Portal to check the job status
 

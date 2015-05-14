@@ -9,11 +9,11 @@ Before you can store data in your new mobile service, you must create a new stor
 
 2. Expand **Advanced**, verify that the table operation permissions default to **Anybody with the Application Key**, then click **Create**. 
 
-	![create table in VS 2013 part 2](./media/mobile-services-create-new-table-vs2013/mobile-create-table-vs2013-2.png)
-
 	This creates the TodoItem table on the server, where anyone that has the application key can access and change data in the table without having to first be authenticated. 
 
-	>[AZURE.NOTE]The application key is distributed with the application. Because this key is not securely distributed, it cannot be considered a security token. To secure access to your mobile service data, you must instead authenticate users before accessing. For more information, see [Permissions](http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx).
+	>[AZURE.NOTE]The application key is distributed with the application. Because this key is not securely distributed, it cannot be considered a security token. To secure access to your mobile service data, you must instead authenticate users before accessing. For more information, see [Permissions](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx).
+	>
+	>New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 
 

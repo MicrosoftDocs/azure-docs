@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Azure SQL Split and Merge Service Tutorial" 
-	description="Splitting and Merging with Elastic Scale" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="stuartozer" 
-	authors="torsteng" 
-	editor=""/>
+	title="Elastic database Split-Merge tool tutorial" 
+	pageTitle="Elastic database Split-Merge tool tutorial" 
+	description="Splitting and Merging with elastic database tools" 
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases" 
+	services="sql-database" documentationCenter=""  
+	manager="jeffreyg" 
+	authors="sidneyh"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="torsteng@microsoft.com"/>
+	ms.date="04/17/2015" 
+	ms.author="sidneyh" />
 
-#Elastic Scale Split and Merge Service Tutorial
+#Elastic database Split-Merge tool tutorial
 
 ## Download the Split-Merge packages 
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
@@ -26,11 +26,11 @@
 
 The steps above download the Split-Merge files to the current directory. The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the Split-Merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client .dlls) in the **content\splitmerge\powershell** sub-directory.
 
-##Prerequisites 
+## Prerequisites 
 
-1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure Management Portal](https://manage.windowsazure.com). At the bottom left, click **New**, then click **Data Services** -> **SQL Database** -> **Custom Create**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
+1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure preview portal](https://ms.portal.azure.com). Create a new **SQL Database**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
 
-2. Ensure that your Azure SQL DB server allows Windows Azure Services to connect to it. Go to the [Azure Management Portal](https://manage.windowsazure.com), on the left pane, click **SQL Databases**. Then click **Servers** on the ribbon at the top of the screen, and select your server. Then click **Configure** at the top and ensure that the **Windows Azure Services** setting is set to **Yes**.
+2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the [preview portal](https://ms.portal.azure.com), in the **Firewall Settings**, ensure that the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon. 
 
     ![Allowed services][1]
 
@@ -41,7 +41,7 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 ## Configuring your Split-Merge service 
 
-### Split-Merge Service Configuration 
+### Split-Merge service configuration 
 
 1. In the folder where you downloaded the Split/Merge bits, create a copy of the **ServiceConfiguration.Template.cscfg** file that shipped alongside **SplitMergeService.cspkg** and call it **ServiceConfiguration.cscfg**.
 
@@ -56,18 +56,18 @@ The steps above download the Split-Merge files to the current directory. The fil
 
         "DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccessKey" 
     
-To determine the access key, go to the [Azure Management portal](https://manage.windowsazure.com), click the **Storage** tab on the left, select the name corresponding to your storage account, and click **Manage Access Keys** on the bottom. Click the **copy** button for **Primary Access Key**.
+To determine the access key, go to the [Azure Management Portal](https://manage.windowsazure.com), find the storage account. In the **Essentials** pane, and click the **Key icon**. Click the **copy** button for **Primary Access Key**.
 
 ![manage access keys][2]
 
 6.    Enter the name of the storage account and one of the access keys provided into the placeholders in the storage connection string. This connection string is used under both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** setting. You can potentially use different storage accounts for the different roles. 
 
-### Configuring Security 
-For detailed instructions to configure the security of the service, refer to the [Elastic Scale Security Configurations](./sql-database-elastic-scale-configure-security.md).
+### Configuring security 
+For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](sql-database-elastic-scale-configure-security.md).
 
 For the purposes of  a simple test deployment suitable to complete this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
-### Creating a Self-signed Certificate 
+### Creating a self-signed certificate 
 
 Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/en-us/library/ms229859.aspx) window:
 
@@ -80,13 +80,13 @@ Create a new directory and from this directory execute the following command usi
 
 You are asked for a password to protect the private key. Enter a strong password and confirm it. You are then prompted for the password to be used once more after that. Click **Yes** at the end to import it to the Trusted Certification Authorities Root store.
 
-###    Create a PFX File 
+### Create a PFX file 
 
 Execute the following command from the same window where makecert was executed; use the same password that you used to create the certificate:
 
     pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 
-### Import the Client Certificate into the Personal Store
+### Import the client certificate into the personal store
 1. In Windows Explorer, double-click **MyCert.pfx**.
 2. In the **Certificate Import Wizard** select **Current User** and click **Next**.
 3. Confirm the file path and click **Next**.
@@ -94,7 +94,7 @@ Execute the following command from the same window where makecert was executed; 
 5. Leave **Automatically select the certificate store[…]** checked and click **Next**.
 6. Click **Finish** and **OK**.
 
-### Upload the PFX File to the Cloud Service
+### Upload the PFX file to the cloud service
 
 Go to the [Azure Management Portal](https://manage.windowsazure.com).
 
@@ -105,18 +105,27 @@ Go to the [Azure Management Portal](https://manage.windowsazure.com).
 5. Select the PFX file and enter the same password as above.
 6. Once completed, copy the certificate thumbprint from the new entry in the list.
 
-### Update the Service Configuration File
+### Update the service configuration file
 
-Paste the certificate thumbprint copied above into the thumbprint/value attribute of these settings:
+Paste the certificate thumbprint copied above into the thumbprint/value attribute of these settings.
+For the web role:
+
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" /> 
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
+For the worker role:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Please note that for production deployments separate certificates should be used for the CA, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](./sql-database-elastic-scale-configure-security.md).
 
-## Deploying your Split-Merge Service
+Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-configure-security.md).
+
+### Deploying your Split-Merge service
 1. Go to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier. 
 3. Click **Dashboard**. 
@@ -131,7 +140,7 @@ Please note that for production deployments separate certificates should be used
 ![Upload][4]
 
 
-## Deployment Troubleshooting
+## Deployment troubleshooting
 If your web role fails to come online, it is likely a problem with the security configuration. Check that the SSL is configured as described above.
 
 If your worker role fails to come online, but your web role succeeds, it is most likely a problem connecting to the status database that you created earlier. 
@@ -143,20 +152,18 @@ If your worker role fails to come online, but your web role succeeds, it is most
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
 * Ensure that the server name does not begin with **https://**.
-* Ensure that your Azure SQL DB server allows Windows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Windows Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
+* Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
 
-* Review the diagnostics logs for your Split/Merge service instance. Open a Visual Studio instance, and in the menu bar click **View**, and **Server Explorer**. Click the **Windows Azure** icon to connect to your Azure subscription. Then navigate to Windows Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) 
+* Review the diagnostics logs for your Split/Merge service instance. Open a Visual Studio instance, and in the menu bar click **View**, and **Server Explorer**. Click the **Azure** icon to connect to your Azure subscription. Then navigate to Azure -> Storage -> <*your storage account*> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx) 
 
     ![][5]
 
-    ![][6]
-
-## Testing your Split-Merge Service Deployment
-### Connecting with a Web Browser
+## Testing your Split-Merge service deployment
+### Connecting with a web browser
 
 Determine the web endpoint of your Split-Merge service. You can find this in the Azure Management Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
 
-### Testing with PowerShell Scripts
+### Testing with PowerShell scripts
 
 The deployment and your environment can be tested by running the included sample PowerShell scripts.
 
@@ -212,7 +219,7 @@ The script files included are:
   </tr>
 </table>
 
-##Using PowerShell to Verify your Deployment
+##Using PowerShell to verify your deployment
 
 1.    Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
 2.    Create an Azure SQL database server (or choose an existing server) where the shard map manager and shards will be created. 
@@ -292,9 +299,9 @@ The script files included are:
 
 6.    Experiment with other data types! All of these scripts take an optional -ShardKeyType parameter that allows you to specify the key type. The default is Int32, but you can also specify Int64, Guid, or Binary. 
 
-## Creating your own Requests 
+## Creating your own requests 
 
-The service can be used either by using the web UI or by importing and using the SplitMerge.psm1 PowerShell module.
+The service can be used either by using the web UI or by importing and using the SplitMerge.psm1 PowerShell module which will submit your requests through the web role.
 
 The Split-Merge service can move data in both sharded tables and reference tables. A sharded table has a sharding key column and has different row data on each shard. A reference table is not sharded so it contains the same row data on every shard. Reference tables are useful for data that does not change often and is used to JOIN with sharded tables in queries.
 
@@ -321,9 +328,9 @@ This error means that your SSL certificate is not configured correctly. Please f
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
  
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/allowed-services.png
-[2]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/manage.png
-[3]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/staging.png
-[4]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/upload.png
-[5]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/storage.png
-[6]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/logs.png
+[1]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/allowed-services.png
+[2]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/manage.png
+[3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
+[4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
+[5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
+

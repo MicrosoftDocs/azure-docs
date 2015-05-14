@@ -40,28 +40,11 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
->[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
-
 [AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
-
-Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of your app.
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
-
-2. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, then click **Save**.
-
-	>[AZURE.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
-
-   	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
-
-	> [AZURE.IMPORTANT] When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.
-
-
-Both your mobile service and your app are now configured to work with GCM and Notification Hubs.
+[AZURE.INCLUDE [mobile-services-android-configure-push](../includes/mobile-services-android-configure-push.md)]
 
 ##<a id="add-push"></a>Add push notifications to your app
 
@@ -183,7 +166,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 * [Get started with data]
   <br/>Learn more about storing and querying data using mobile services.
 
-* [Get started with authentication]
+* [Add authentication to your app][Get started with authentication]
   <br/>Learn how to authenticate users of your app with different account types using mobile services.
 
 * [What are Notification Hubs?]
@@ -214,23 +197,23 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-android-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-android-get-started-users
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Get started with data]: mobile-services-android-get-started-data.md
+[Get started with authentication]: mobile-services-android-get-started-users.md
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How to use the Android client library for Mobile Services]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+[How to use the Android client library for Mobile Services]: mobile-services-android-how-to-use-client-library.md
 
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/
+[Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-android-send-breaking-news/
-[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-android-send-localized-breaking-news/
+[What are Notification Hubs?]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-android-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-android-send-localized-breaking-news.md

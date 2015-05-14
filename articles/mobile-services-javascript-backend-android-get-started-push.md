@@ -39,30 +39,11 @@ This topic shows how to use Azure Mobile Services to send push notifications to 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-> [AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
-
-[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
-
-Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of your app.
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configure Mobile Services to send push requests
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
-
-2. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, then click **Save**.
-
-	>[WACOM.NOTE]When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the **Push** tab that says **Enable Enhanced Push**. Click this now to upgrade your mobile service to integrate with Notification Hubs. This change cannot be reverted. For details on how to enable enhanced push notifications in a production mobile service, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">this guidance</a>.
-
-   	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
-
-    <div class="dev-callout"><b>Important</b>
-	<p>When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.</p>
-    </div>
-
-
-Both your mobile service and your app are now configured to work with GCM and Notification Hubs.
+[AZURE.INCLUDE [mobile-services-android-configure-push](../includes/mobile-services-android-configure-push.md)]
 
 ##<a id="add-push"></a>Add push notifications to your app
 
@@ -85,53 +66,14 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 
 ##<a id="update-scripts"></a>Update the registered insert script in the Management Portal
 
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
+[AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
-   	![](./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png)
-
-2. In **todoitem**, click the **Script** tab and select **Insert**.
-   
-  	![](./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png)
-
-   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
-
-3. Replace the insert function with the following code, and then click **Save**:
-
-		function insert(item, user, request) {
-		// Define a payload for the Google Cloud Messaging toast notification.
-		var payload = {
-		    data: {
-		        message: item.text 
-		    }
-		};		
-		request.execute({
-		    success: function() {
-		        // If the insert succeeds, send a notification.
-		        push.gcm.send(null, payload, {
-		            success: function(pushResponse) {
-		                console.log("Sent push:", pushResponse, payload);
-		                request.respond();
-		                },              
-		            error: function (pushResponse) {
-		                console.log("Error Sending push:", pushResponse);
-		                request.respond(500, { error: pushResponse });
-		                }
-		            });
-		        },
-		    error: function(err) {
-		        console.log("request.execute error", err)
-		        request.respond();
-		    }
-		  });
-		}
-
-   	This registers a new insert script, which uses the [gcm object] to send a push notification to all registered devices after the insert succeeds. 
 
 ##<a id="test"></a>Test push notifications in your app
 
 You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 
-###Setting up the emulator for testing
+###Setting up the Android emulator for testing
 
 When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
@@ -212,26 +154,26 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 
 <!-- URLs. -->
-[Get started with push notifications (Eclipse)]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push-EC
+[Get started with push notifications (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-android-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-android-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-android-get-started-users
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Get started with data]: mobile-services-android-get-started-data.md
+[Get started with authentication]: mobile-services-android-get-started-users.md
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How to use the Android client library for Mobile Services]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+[How to use the Android client library for Mobile Services]: mobile-services-android-how-to-use-client-library.md
 
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/
+[Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-android-send-breaking-news/
-[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-android-send-localized-breaking-news/
+[What are Notification Hubs?]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-android-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-android-send-localized-breaking-news.md

@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="How to use the SendGrid email service (.NET) - Azure" 
 	description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." 
-	services="" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="thinkingserious" 
 	manager="sendgrid" 
 	editor="erikre"/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="app-service-web" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
+	ms.date="02/24/2015" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
@@ -22,7 +22,9 @@
 
 # How to Send Email Using SendGrid with Azure
 
-Last Update: October 27, 2014
+Last Update: Feburary 24, 2015
+
+<h2><a name="overview"></a><span  class="short-header">Overview</span></h2>
 
 This guide demonstrates how to perform common programming tasks with the
 SendGrid email service on Azure. The samples are written in C\#
@@ -30,18 +32,6 @@ and use the .NET API. The scenarios covered include **constructing
 email**, **sending email**, **adding attachments**, and **using
 filters**. For more information on SendGrid and sending email, see the
 [Next steps][] section.
-
-<h2><a name="toc"></a>Table of contents</h2>
-
-[What is the SendGrid email service?][]   
-[Create a SendGrid account][]   
-[Reference the SendGrid .NET class library][]   
-[How to: Create an email][]   
-[How to: Send an email][]   
-[How to: Add an attachment][]   
-[How to: Use apps to enable footers, tracking, and analytics][]   
-[How to: Use additional SendGrid services][]   
-[Next steps][]
 
 <h2><a name="whatis"></a><span  class="short-header">What is the SendGrid email service?</span></h2>
 
@@ -109,9 +99,9 @@ the SendGrid APIs.
 
 <h2><a name="createemail"></a>How to: Create an email</h2>
 
-Use the static **SendGrid.GetInstance** method to create an email
-message that is of type **SendGrid**. Once the message is created, you
-can use **SendGrid** properties and methods to set values including the
+Use the **SendGridMessage** object to create an email
+message. Once the message object is created, you
+can set properties and methods, including the
 email sender, the email recipient, and the subject and body of the
 email.
 

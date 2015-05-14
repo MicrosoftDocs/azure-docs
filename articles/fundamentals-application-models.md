@@ -3,7 +3,9 @@
 	description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." 
 	headerExpose="" 
 	footerExpose="" 
+	services="cloud-services,virtual-machines"
 	authors="Thraka" 
+	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
@@ -12,25 +14,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/20/2015" 
+	ms.date="03/31/2015" 
 	ms.author="adegeo"/>
 
-#Compute Hosting Options Provided by Azure
+
+
+
+# Compute Hosting Options Provided by Azure
 
 Azure provides different hosting models for running applications. Each one provides a different set of services, and so which one you choose depends on exactly what you're trying to do. This article looks at the options, describing each technology and giving examples of when you'd use it.
 
-##Table of Contents
+## Virtual Machines
+Azure Virtual Machines lets developers, IT operations people, and others create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, this technology can be used in variety of ways. Figure 1 shows its basic components.
 
-- [Virtual Machines](#VMachine)
-- [Websites](#WebSites)
-- [Cloud Services](#CloudServices)
-- [Other options](#other)
-- [What Should I Use? Making a Choice](#WhatShouldIUse)
-
-<h2><a id="VMachine"></a>Virtual Machines</h2>
-Azure Virtual Machines lets developers, IT operations people, and others create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, this technology can be used in variety of ways. [Figure 1](#Fig1) shows its basic components.
-
-<a name="Fig1"></a>![01_CreatingVMs][01_CreatingVMs]
+<a name="fig2"></a>
+![01_CreatingVMs][01_CreatingVMs]
 
 **Figure 1: Azure Virtual Machines provides Infrastructure as a Service.**
 
@@ -51,7 +49,7 @@ The VHDs in the gallery and on VMDepot include clean Microsoft and Linux operati
 -	BizTalk Server 
 -	SharePoint Server
 
-Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Azure library](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx).  
+Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Azure library](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).  
 
 -	**Extra Small**, with a shared core and 768MB  of memory.
 -	**Small**, with 1 core and 1.75GB  of memory.
@@ -84,17 +82,18 @@ Azure Virtual Machines can be used in a variety of ways. The primary scenarios t
 
 These aren't the only possibilities, but they're good examples of how you might use Azure Virtual Machines.  
 
-<h2><a id="WebSites"></a>Websites</h2>
+## Websites
 
 Azure Virtual Machines can handle a wide range of cloud hosting tasks. But creating and managing a VM infrastructure requires specialized skills and substantial effort. If you don't need complete control over the VMs that run your website or compute workload, there's an easier (and cheaper) solution: *Platform as a Service* (PaaS). With PaaS, Azure handles most of the management work for the VMs that run your applications. Azure Websites is a fully managed PaaS offering that allows you to build, deploy, and scale enterprise-grade web apps in seconds.
 
 Websites is the best Azure Compute choice for many kinds of web apps and compute workloads. A corporation might want to build or migrate a commercial website that can handle millions of hits a week and is deployed in several data centers across the globe. The same corporation might also have a line-of-business app that tracks expense reports for authenticated users from the corporate Active Directory. The expense reports might require periodic background jobs to calculate and summarize large volumes of information. An IT consultant might adapt a popular open source application to set up a content management system for a small business. Figure 2 shows some of the kinds of web apps that can run in Azure Websites.
 
-<a name="Fig2"></a>![05_Websites][05_Websites]
+<a name="fig2"></a>
+![05_Websites][05_Websites]
  
 **Figure 2: Azure Websites supports static websites, popular web applications, and custom web applications built with various technologies. You can also run non-web compute workloads using the WebJobs feature.** 
 
-The Azure Websites service is not only for web applications: you can run any kind of compute workload on Websites using the [WebJobs](../websites-webjobs-resources/) feature. 
+The Azure Websites service is not only for web applications: you can run any kind of compute workload on Websites using the [WebJobs](websites-webjobs-resources.md) feature. 
 
 Websites gives you the option of running on shared VMs that contain multiple websites created by multiple users, or on VMs that are used only by you. VMs are a part of a pool of resources managed by Azure Websites and thus allow for high reliability and fault tolerance.
 
@@ -102,14 +101,15 @@ Getting started is easy. With Azure Websites, users can select from a range of a
 
 Developers can create large, scalable web applications with Websites. The technology supports creating applications using ASP.NET, PHP, Node.js and Python. Applications can use sticky sessions, for example, and many existing web applications can be moved to this cloud platform with no changes. Applications built on Websites are free to use other aspects of Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Websites automatically load balancing requests across them. And because new Websites instances are created in VMs that already exist, starting a new application instance happens very quickly; it's significantly faster than waiting for a new VM to be created.
 
-As [Figure 2](#Fig2) shows, you can publish code and other web content into Websites in several ways. You can use FTP, FTPS, or Microsoft's WebDeploy technology. Websites also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
+As [Figure 2](#fig2) shows, you can publish code and other web content into Websites in several ways. You can use FTP, FTPS, or Microsoft's WebDeploy technology. Websites also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
 
 
-<h2><a id="CloudServices"></a>Cloud Services</h2>
+## Cloud Services
 
-The third compute option, Cloud Services, is another example of Platform-as-a-Service (PaaS). Like Websites, this technology is designed to support applications that are scalable, reliable, and cheap to operate. Like Websites, Cloud Services relies on VMs, but gives you more control over the VMs than you get with Websites. You can install your own software on Cloud Service VMs and you can remote into them. [Figure 3](#Fig3) illustrates the idea.
+The third compute option, Cloud Services, is another example of Platform-as-a-Service (PaaS). Like Websites, this technology is designed to support applications that are scalable, reliable, and cheap to operate. Like Websites, Cloud Services relies on VMs, but gives you more control over the VMs than you get with Websites. You can install your own software on Cloud Service VMs and you can remote into them. Figure 3 illustrates the idea.
 
-<a name="Fig3"></a>![06_CloudServices2][06_CloudServices2] 
+<a name="fig3"></a>
+![06_CloudServices2][06_CloudServices2] 
 
 **Figure 3: Azure Cloud Services provides Platform as a Service.**
 
@@ -117,7 +117,7 @@ More control also means less ease of use; unless you need the  additional contro
 
 The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
 
-For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../fundamentals-service-bus-hybrid-solutions/) or [Azure Queues](../storage-introduction/).)
+For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](fundamentals-service-bus-hybrid-solutions.md) or [Azure Queues](storage-introduction.md).)
 
 As the figure suggests, all of the VMs in a single application run in the same cloud service. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform will deploy the VMs in a Cloud Services application in a way that avoids a single point of hardware failure.
 
@@ -132,15 +132,15 @@ Cloud Services also provides monitoring. Like Azure Virtual Machines, it will de
 The PaaS nature of Cloud Services has other implications, too. One of the most important is that applications built on this technology should be written to run correctly when any web or worker role instance fails. To achieve this, a Cloud Services application shouldn't maintain state in the file system of its own VMs. Unlike VMs created with Azure Virtual Machines, writes made to Cloud Services VMs aren't persistent; there's nothing like a Virtual Machines data disk. Instead, a Cloud Services application should explicitly write all state to SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure, both important goals of Cloud Services.
 
 
-## <a id="other"></a>Other Options
+## Other Options
 
 Azure also offers other compute hosting models for more specialized purposes, such as the following:
 
-* [Mobile Services](/en-us/services/mobile-services/). Optimized to provide a cloud back-end for apps that run on mobile devices.
-* [Batch](/en-us/services/batch/) (currently in Preview). Optimized for processing large volumes of similar tasks, ideally workloads which lend themselves to running as parallel tasks on multiple computers.
-* [HDInsight (Hadoop)](/en-us/services/hdinsight/). Optimized for running [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) jobs on Hadoop clusters. 
+* [Mobile Services](/services/mobile-services/). Optimized to provide a cloud back-end for apps that run on mobile devices.
+* [Batch](/services/batch/) (currently in Preview). Optimized for processing large volumes of similar tasks, ideally workloads which lend themselves to running as parallel tasks on multiple computers.
+* [HDInsight (Hadoop)](/services/hdinsight/). Optimized for running [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) jobs on Hadoop clusters. 
 
-<h2><a id="WhatShouldIUse"></a>What Should I Use? Making a Choice</h2>
+## What Should I Use? Making a Choice
 
 All three of the general purpose Azure compute hosting models let you build scalable, reliable applications in the cloud. Given this essential similarity, which one should you use?
 
@@ -150,9 +150,10 @@ If you need more control over the web server environment, such as the ability to
 
 If you have an existing application that would require substantial modifications to run in Azure Websites or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure Websites and Cloud Services. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.
 
-Sometimes, no single option is right. In situations like this, it's perfectly legal to combine options. For example, suppose you're building an application where you'd like the management benefits of Cloud Services web roles, but you also need to use standard SQL Server for compatibility or performance reasons. In this case, the best option is to combine compute hosting options, as [Figure 4](#Fig4) shows.
+Sometimes, no single option is right. In situations like this, it's perfectly legal to combine options. For example, suppose you're building an application where you'd like the management benefits of Cloud Services web roles, but you also need to use standard SQL Server for compatibility or performance reasons. In this case, the best option is to combine compute hosting options, as Figure 4 shows.
 
-<a name="Fig4"></a>![07_CombineTechnologies][07_CombineTechnologies] 
+<a name="fig4"></a>
+![07_CombineTechnologies][07_CombineTechnologies] 
  
 **Figure 4: A single application can use multiple hosting options.**
 

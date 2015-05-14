@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="command-line-interface" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/16/2015" 
+	ms.date="03/10/2015" 
 	ms.author="rasquill"/>
 
 # Install and Configure the Azure Cross-Platform Command-Line Interface
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
@@ -26,13 +26,6 @@ The xplat-cli is written in JavaScript, and requires Node.js. It is implemented 
 
 This document describes how to install and configure the Azure Cross-Platform Command-Line Interface, as well as how to use it to perform basic tasks with the Azure platform.
 
-##In this document
-
-* [How to install the Azure Cross-Platform Command-Line Interface](#install)
-* [How to connect to your Azure subscription](#configure)
-* [How to use the Azure Cross-Platform Command-Line Interface](#use)
-* [How to script the Azure Cross-Platform Command-Line Interface](#script)
-* [Additional resources](#additional-resources)
 
 ## <a id="install">How to install the Azure Cross-Platform Command-Line Interface</a>
 
@@ -123,7 +116,7 @@ To help you choose the authentication method that's appropriate for your needs, 
 
 *  The log in method can make it easier to manage access to subscription, but may disrupt automation, as the credentials may time out and require you to log in again.
 
-	> [AZURE.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> [AZURE.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organization's Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	> 
 	> 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
 	> 
@@ -230,9 +223,9 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
-	info:    Windows Azure: Microsoft's Cloud Platform
+	info:    Microsoft Azure: Microsoft's Cloud Platform
 	info:
-	info:    Tool version 0.8.0
+	info:    Tool version 0.8.10
 	help:
 	help:    Display help for a given command
 	help:      help [options] [command]
@@ -257,7 +250,7 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	help:      -h, --help     output usage information
 	help:      -v, --version  output the application version
 
-The top level commands listed above contain commands for working with a specific area of Azure. For example, the `azure account` command contains commands that relate to your Azure subscription, such as the `download` and `import` settings used previously.
+The top level commands listed above contain commands for working with a specific area of Azure. For example, the `azure account` command contains commands that relate to your Azure subscription, such as the `download` and `import` settings used previously. See [Using the Azure Cross-Platform Command Line Interface] for details on the available commands and options.
 
 Most commands are formatted as `azure <command> <operation> [parameters]` and perform an operation on a service or object such as your account configuration. Other commands provide sub-commands and follow the format `azure <command> <subcommand> <operation> [parameters]`. The following are example commands that work with your account configuration:
 
@@ -427,9 +420,13 @@ If you are writing a script that relies on the exit status, please verify that t
 
 <h2><a id="additional-resources"></a>Additional resources</h2>
 
+* [List of detailed Service Management commands][Using the Azure Cross-Platform Command Line Interface]
+
+* [Using the Azure Cross-platform command line interface with the Resource Manager][xplatarm]
+
 * For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
-* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
+* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
 * For more information on Azure, see [http://azure.microsoft.com/](http://azure.microsoft.com).
 
@@ -438,15 +435,16 @@ If you are writing a script that relies on the exit status, please verify that t
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[authandsub]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[authandsub]: http://msdn.microsoft.com/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
 [Azure Web Site]: ../media/freetrial.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png
-[free-trial]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+[free-trial]: http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
-[batch]: http://technet.microsoft.com/en-us/library/bb490890.aspx
-[xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
+[batch]: http://technet.microsoft.com/library/bb490890.aspx
+[xplatarm]: xplat-cli-azure-resource-manager.md
 [portal]: https://manage.windowsazure.com
-[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
+[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[Using the Azure Cross-Platform Command Line Interface]: virtual-machines-command-line-tools.md

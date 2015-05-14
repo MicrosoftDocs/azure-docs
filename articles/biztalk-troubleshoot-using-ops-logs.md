@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" 
+	pageTitle="Troubleshoot BizTalk Services using operation logs | Azure" 
 	description="Troubleshoot BizTalk Services using operation logs. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
-	authors="nitinme" 
+	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/25/2015" 
 	ms.author="mandia"/>
 
 
@@ -25,7 +25,7 @@ Operation Logs is a Management Services feature available in the Azure Managemen
 > [AZURE.NOTE] This feature only captures logs for management operations on BizTalk Services, such as when the service was started, backed up, and so on. Such operations are tracked irrespective of whether they are performed from the Azure Management Portal or by using the [BizTalk Service REST APIs](http://msdn.microsoft.com/library/azure/dn232347.aspx). For a complete list of operations that are tracked using Management Services, see [Operations Tracked Using Azure Management Services](#bizops).<br/><br/>
 This does not capture the logs for activities related to BizTalk Service runtime (such as message processed by bridges, and so on.). To view these logs, use the Tracking view from the BizTalk Services portal. For more information, see [Tracking Messages](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 
-## <a name="viewlogs"></a>View BizTalk Services Operation Logs
+## View BizTalk Services Operation Logs
 1. In the Azure Management Portal, select **Management Services**, and then select the **Operation Logs** tab.
 2. You can filter the logs based on different parameters like subscription, date range, service type (e.g. BizTalk Services), service name, or status of the operation (Succeeded, Failed).
 3. Select the checkmark to view the filtered list. The following image shows activities related to testbiztalkservice:

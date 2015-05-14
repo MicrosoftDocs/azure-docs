@@ -3,7 +3,7 @@
 	description="Describes how to create a new Media Services account in Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,34 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="04/20/2015" 
 	ms.author="juliako"/>
-
 
 
 #How to Create a Media Services Account
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+> [AZURE.SELECTOR]
+- [Portal](media-services-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
 
 The Azure Management Portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account. 
 
 This topic explains how to use the Quick Create method to create a new Media Services account and then associate it with a storage account. 
 
-##Table of Contents
-
--  [Concepts][]
--  [How to: Create a Media Services account using Quick Create][]
-
-
-<h2><a id="concepts"></a>Concepts</h2>
+##<a id="concepts"></a>Concepts
 Accessing Media Services requires two associated accounts:
 
 -   **A Media Services account**. Your account gives you access to a set of cloud-based Media Services that are available in Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account. 
+
     > [AZURE.NOTE]
     > Available Media Services regions include the following: **North Europe**, **West Europe**, **West US**, **East US**, **Southeast Asia**, **East Asia**, **Japan West**, **Japan East**. Media Services does not use affinity groups. 
 -   **An associated storage account**. Your storage account is an Azure storage account that is associated with your Media Services account. The storage account provides blob storage for media files, and must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted. 
 
-<h2><a id="quick"></a>How to: Create a Media Services account using Quick Create</h2>
+##<a id="quick"></a>How to: Create a Media Services account using Quick Create
 
 1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
    
@@ -58,7 +57,10 @@ Accessing Media Services requires two associated accounts:
 
 	You can monitor the status of the process in the message area at the bottom of the window.
 
-	The **media services** page opens with the new account displayed. When the status changes to Active, it means the account is successfully created.
+	The status changes to Active when the account is successfully created. The **media services** page opens with the new account displayed. 
+	
+	At the bottom of the page, the **MANAGE KEYS** button appears. When you click on this button, a dialog with the Media Services account name and the primary and secondary keys is displayed. You will need the account name and the primary key information to programmatically access the Media Services account. 
+
 
 	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
 

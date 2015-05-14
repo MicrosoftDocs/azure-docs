@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Marketplace App examples show how you can publish your machine learning services to the Azure Marketplace for paying subscribers to use in their apps." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="luiscabrer"/> 
+	ms.date="05/05/2015" 
+	ms.author="luisca"/> 
 
 # Machine Learning Apps in the Azure Marketplace
 
@@ -31,21 +31,21 @@ For example, these apps include :
 
 [Data Market Link](http://datamarket.azure.com/dataset/amla/recommendations)
 
-[Quick Start Guide](../machine-learning-recommendation-api-quick-start-guide/) 
+[Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) 
   
 ##Frequently Bought Together##
 An API that helps your customers discover items in your catalog that are frequently purchased together. Use your customer purchase history to add Frequently Bought Together recommendations to your website and to improve conversion in your digital store.
 
 [Data Market Link](https://datamarket.azure.com/dataset/amla/mba)
 
-[Documentation](../machine-learning-apps-frequently-bought-together-api/)
+[Documentation](machine-learning-apps-frequently-bought-together-api.md)
 
 ##Anomaly Detection##
 An API that can spot anomalous events in time series data (for example, server telemetry or sensor-based data).
 
 [Data Market Link](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
 
-[Documentation](../machine-learning-apps-anomaly-detection/)
+[Documentation](machine-learning-apps-anomaly-detection.md)
 
 These APIs allow you to consume powerful machine learning-based services built on Azure Machine Learning, without needing to be a data scientist or spend a lot of time developing apps yourself. Simply bring your own data and start using them.
 
@@ -54,5 +54,6 @@ This API can be used to analyze unstructured text for tasks such as sentiment an
 
 [Data Market Link](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
 
-[Documentation](../machine-learning-apps-text-analytics/)
+[Documentation](machine-learning-apps-text-analytics.md)
 
+ 

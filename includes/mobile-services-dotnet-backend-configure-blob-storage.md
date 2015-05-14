@@ -1,3 +1,4 @@
+
 ##<a name="storage-client-server"></a>Install the storage client in the mobile service project
 
 To be able to generate an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library in the mobile service project. 
@@ -25,7 +26,7 @@ The TodoItem class defines the data object, and you need to add the same propert
 
 	These properties are used to generate the SAS and to store image information. Note that the casing on these properties matches the JavaScript backend version. 
 
-	>[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database when it detects a data model change in the Code First definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database when it detects a data model change in the Code First definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 ##<a name="update-scripts"></a>Update the TodoItem controller to generate a shared access signature 
 
@@ -35,12 +36,8 @@ The existing **TodoItemController** is updated so that the **PostTodoItem** meth
 
 1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
 
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
-
 2. Make a note of the **Storage Account Name** and **Access Key**.
-
-   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
-
+ 
 3. In your mobile service, click the **Configure** tab, scroll down to **App settings** and enter a **Name** and **Value** pair for each of the following that you obtained from the storage account, then click **Save**.
 
 	+ `STORAGE_ACCOUNT_NAME`
@@ -144,5 +141,5 @@ Next, you will update the quickstart app to add image upload functionality by us
 [10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

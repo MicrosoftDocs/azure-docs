@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to Use Azure Managed Cache Service" 
-	description="" 
+	description="Learn how to improve the performance of your Azure applications with Azure Managed Cache Service" 
 	services="cache" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Managed Cache Service
@@ -26,21 +26,6 @@ and **enabling ASP.NET page output caching using the cache**. For more
 information on using Azure Cache, refer to the [Next Steps][] section.
 
 >For guidance on choosing the right Azure Cache offering for your application, see [Which Azure Cache offering is right for me?][].
-
-## Table of Contents
-
--   [What is Azure Managed Cache Service?][]
--	[Getting Started with Managed Cache Service]
-	-	[Create the cache][]
-	-	[Configure the cache][]
-	-	[Configure the cache clients][]
--	[Working with caches][]
-	-	[How To: Create a DataCache Object][]
-	-   [How To: Add and Retrieve an Object from the Cache][]
-	-   [How To: Specify the Expiration of an Object in the Cache][]
-	-   [How To: Store ASP.NET Session State in the Cache][]
-	-   [How To: Store ASP.NET Page Output Caching in the Cache][]
--   [Next Steps][]
 
 <a name="what-is"></a>
 ## What is Azure Managed Cache Service?
@@ -503,24 +488,24 @@ follow these links to learn how to do more complex caching tasks.
    
 <!-- LINKS -->
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure Shared Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278356.aspx
+[Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[Azure Caching]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
+[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
 [How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
-[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Overview of Azure Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Managed Cache Service]: http://go.microsoft.com/fwlink/?LinkId=320830
 [OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Troubleshooting and Diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Cache Pricing Details]: http://www.windowsazure.com/en-us/pricing/details/cache/
+[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
 [Management Portal]: https://manage.windowsazure.com/
 [Cache offerings]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
@@ -532,7 +517,7 @@ follow these links to learn how to do more complex caching tasks.
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Azure Managed Cache Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=398555
 [How to install and configure Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
-[Add-AzureAccount]: http://msdn.microsoft.com/en-us/library/dn495128.aspx
-[Select-AzureSubscription]: http://msdn.microsoft.com/en-us/library/dn495203.aspx
+[Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
+[Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx
+[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/library/azure/dn766201.aspx

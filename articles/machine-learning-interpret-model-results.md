@@ -3,7 +3,7 @@
 	description="How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2015" 
+	ms.date="04/21/2015" 
 	ms.author="bradsev" />
 
 
 # How to interpret model results in Azure Machine Learning 
  
 **Understanding & Visualizing 'Score Model' Output**
-This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result you have obtained. 
+This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result you have obtained.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
 There are four major kinds of machine learning models in Azure Machine Learning: 
 
@@ -31,15 +33,15 @@ There are four major kinds of machine learning models in Azure Machine Learning:
 
 The modules used do prediction on top of these modules, called "scoring" them, given some test data, are:
 
-* **Score Model** module for classification and regression, 
-* **Assign to Clusters** module for clustering 
-* **Score Matchbox Recommender** for recommendation systems 
+* [Score Model][score-model] module for classification and regression, 
+* [Assign to Clusters][assign-to-clusters] module for clustering 
+* [Score Matchbox Recommender][score-matchbox-recommender] for recommendation systems 
  
-This document explains how to interpret prediction results for each of these modules. For an overview of these kinds of models, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-parameters-optimize).
+This document explains how to interpret prediction results for each of these modules. For an overview of these kinds of models, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-evaluate-model-performance).
+This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
-If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/) in the Azure Machine Learning Studio. 
+If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) in the Azure Machine Learning Studio. 
 
 ##Classification
 There are two sub-categories of classification problems: 
@@ -58,7 +60,7 @@ An example of two-class classification problem is the classification of Iris flo
 
 Figure 1 Experiment of Iris Two-Class Classification Problem
 
-An experiment has been performed to solve this problem, as shown in Figure 1. A two-class boosted decision tree model has been trained and scored. Now we can visualize the prediction results from **Score Model** module by clicking on the output port of **Score Model** module and then clicking on **Visualize** in the appeared menu. This will bring up the scoring results as shown in Figure 2.
+An experiment has been performed to solve this problem, as shown in Figure 1. A two-class boosted decision tree model has been trained and scored. Now we can visualize the prediction results from [Score Model][score-model] module by clicking on the output port of [Score Model][score-model] module and then clicking on **Visualize** in the appeared menu. This will bring up the scoring results as shown in Figure 2.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/1_1.png)
 
@@ -72,13 +74,13 @@ There are six columns in the results table. The left four columns are the four f
 
 **Web service publication**
 
-Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that we can deploy it in various applications and be called to obtain class predictions on any new iris flower. For the procedure on how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-5-publish-web-service/). Following this procedure provides you with a scoring experiment as shown in Figure 3.
+Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that we can deploy it in various applications and be called to obtain class predictions on any new iris flower. For the procedure on how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). Following this procedure provides you with a scoring experiment as shown in Figure 3.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/3.png)
 
 Figure 3 Scoring Experiment of Iris Two-Class Classification Problem
 
-Now we need to set the input and output for the web service. Obviously, the input is the right input port of **Score Model**, which is the Iris flower features input. The choice of the output depends on whether we are interested in the predicted class (scored label), the scored probability, or both. Here,  it is assumed that we are interested in both. To select the desired output columns, we need to use a **Project Columns** module. We click on **Project Columns** module, click on **Launch column selector** in the right panel, and select **Scored Labels** and Scored Probabilities. After setting the output port of Project Columns module and running it again, we should be ready to publish the scoring experiment as a web service by clicking on PUBLISH WEB SERVICE button at the bottom. The final experiment looks like Figure 4.
+Now we need to set the input and output for the web service. Obviously, the input is the right input port of [Score Model][score-model], which is the Iris flower features input. The choice of the output depends on whether we are interested in the predicted class (scored label), the scored probability, or both. Here,  it is assumed that we are interested in both. To select the desired output columns, we need to use a [Project Columns][project-columns] module. We click on [Project Columns][project-columns] module, click on **Launch column selector** in the right panel, and select **Scored Labels** and **Scored Probabilities**. After setting the output port of [Project Columns][project-columns] module and running it again, we should be ready to publish the scoring experiment as a web service by clicking on **PUBLISH WEB SERVICE** button at the bottom. The final experiment looks like Figure 4.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/4.png)
 
@@ -103,7 +105,7 @@ In this experiment we will perform a letter recognition task as an example of mu
 
 Figure 6 Experiment of Letter Recognition Multi-Class Classification Problem
 
-Visualizing the results from Score Model module by right/left clicking on the output port of Score Model module and then clicking **Visualize**, you should see a window as in Figure 7.
+Visualizing the results from [Score Model][score-model] module by right/left clicking on the output port of [Score Model][score-model] module and then clicking **Visualize**, you should see a window as in Figure 7.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/7.png)
 
@@ -115,7 +117,7 @@ The left sixteen columns represent the feature values of the test set. The colum
 
 **Web service publication**
 
-This time, instead of using Project Columns to select some columns as the output of our web service, we would like to get the scored label for each entry and the probability of the scored label. The basic logic is to find the largest probability among all the scored probabilities. To do this, we need to use **Execute R Script** module. The R code is shown in Figure 8 and the experiment is as Figure 9.
+This time, instead of using [Project Columns][project-columns] to select some columns as the output of our web service, we would like to get the scored label for each entry and the probability of the scored label. The basic logic is to find the largest probability among all the scored probabilities. To do this, we need to use [Execute R Script][execute-r-script] module. The R code is shown in Figure 8 and the experiment is as Figure 9.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/8.png)
 
@@ -145,7 +147,7 @@ We use automobile price prediction as our example for regression. We are trying 
 
 Figure 11 Experiment of Automobile Price Regression Problem
 
-Visualizing Score Model module, the result looks like Figure 12.
+Visualizing [Score Model][score-model] module, the result looks like Figure 12.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/12.png)
 
@@ -183,7 +185,7 @@ Figure 15 Experiment of Iris Clustering Problem
 
 Clustering differs from classification in that the training dataset doesn’t have ground-truth labels by itself. Rather, we are interested in how to group the training dataset instances into distinct clusters. During the training process, the model labels the entries by learning the differences between their features. After that, the trained model can be further used to classify future entries. There are two parts of the result we are interested in within a clustering problem. The first part is how to label the training dataset, the second part is how to classify a new dataset with the trained model.
 
-The first part of the result can be visualized by clicking on the left output port of **Train Clustering Model** module and clicking on **Visualize** afterwards. The visualization window is shown in Figure 16.
+The first part of the result can be visualized by clicking on the left output port of [Train Clustering Model][train-clustering-model] module and clicking on **Visualize** afterwards. The visualization window is shown in Figure 16.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/16.png)
 
@@ -224,14 +226,14 @@ For recommender systems, we will use the restaurant recommendation problem as an
 * customer feature data 
 * restaurant feature data 
 
-There are several things we can do with Azure Machine Learning’s built-in **Matchbox Recommender** module: 
+There are several things we can do with Azure Machine Learning’s built-in [Train Matchbox Recommender][train-matchbox-recommender] module: 
 
 - Predict ratings for a given user and item
 - Recommend items to a given user
 - Find users related to a given user
 - Find items related to a given item
 
-We can choose what we want to do by selecting from the four options in the **Recommender prediction kind** menu on the right panel. Here, we will walk through all of the four scenarios. A typical Azure Machine Learning experiment for recommender system looks like Figure 20. For details on how to use those recommender system modules, please see help page for [Train Matchbox Recommender module](http://help.azureml.net/Content/html/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c.htm) and [Score Matchbox Recommender module](http://help.azureml.net/Content/html/55544522-9a10-44bd-884f-9a91a9cec2cd.htm).
+We can choose what we want to do by selecting from the four options in the **Recommender prediction kind** menu on the right panel. Here, we will walk through all of the four scenarios. A typical Azure Machine Learning experiment for recommender system looks like Figure 20. For details on how to use those recommender system modules, please see help page for [Train Matchbox Recommender][train-matchbox-recommender] and [Score Matchbox Recommender][score-matchbox-recommender].
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/19_1.png)
 
@@ -243,7 +245,7 @@ Figure 20 Recommender System Experiment
 
 *Predict ratings for a given user and item*
 
-By selecting Rating Prediction in the **Recommender prediction kind** menu, we ask the recommender system to predict the rating for a given user and item. The visualization of the **Score Matchbox Recommender** output looks like Figure 21.
+By selecting Rating Prediction in the **Recommender prediction kind** menu, we ask the recommender system to predict the rating for a given user and item. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 21.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/21.png)
 
@@ -253,7 +255,7 @@ There are three columns. The first two columns are the user-item pairs provided 
 
 *Recommend items to a given user*
 
-By selecting **Item Recommendation** in the **Recommender prediction kind** menu, we ask the recommender system to recommend items to a given user. There is one more parameter we need to choose in this scenario, Recommended item selection. The option **From Rated Items (for model evaluation)** is primarily for model evaluation during the training process. For this prediction stage, we will choose **From All Items**. The visualization of the **Score Matchbox Recommender** output looks like Figure 22.
+By selecting **Item Recommendation** in the **Recommender prediction kind** menu, we ask the recommender system to recommend items to a given user. There is one more parameter we need to choose in this scenario, Recommended item selection. The option **From Rated Items (for model evaluation)** is primarily for model evaluation during the training process. For this prediction stage, we will choose **From All Items**. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 22.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/22.png)
 
@@ -263,7 +265,7 @@ There are six columns. The first column represents the given user IDs to recomme
 
 *Find users related to a given user*
 
-By selecting Related Users in the “Recommender prediction kind” menu, we ask the recommender system to find related users to a given user. Related users are the users who have similar preferences. There is one more parameter we need to choose in this scenario, Related user selection. The option “From Users That Rated Items (for model evaluation)” is primarily for model evaluation during the training process. We choose “From All Users” for this prediction stage. The visualization of the Score Matchbox Recommender output looks like Error! Reference source not found..
+By selecting Related Users in the “Recommender prediction kind” menu, we ask the recommender system to find related users to a given user. Related users are the users who have similar preferences. There is one more parameter we need to choose in this scenario, Related user selection. The option “From Users That Rated Items (for model evaluation)” is primarily for model evaluation during the training process. We choose “From All Users” for this prediction stage. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 23.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/23.png)
 
@@ -273,7 +275,7 @@ There are six columns. The first column are the given user IDs to find related u
 
 **Find items related to a given item**
 
-By selecting **Related Items** in the **Recommender prediction kind** menu, we ask the recommender system to find related items to a given item. Related items are the items most likely to be liked by the same user. There is one more parameter we need to choose in this scenario, Related item selection. The option **From Rated Items (for model evaluation)** is primarily for model evaluation during the training process. We choose **From All Items** for this prediction stage. The visualization of the **Score Matchbox Recommender** output looks like Figure 24.
+By selecting **Related Items** in the **Recommender prediction kind** menu, we ask the recommender system to find related items to a given item. Related items are the items most likely to be liked by the same user. There is one more parameter we need to choose in this scenario, Related item selection. The option **From Rated Items (for model evaluation)** is primarily for model evaluation during the training process. We choose **From All Items** for this prediction stage. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 24.
  
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/24.png)
 
@@ -299,3 +301,11 @@ Running the web service, the returned result looks like Figure 14. The five reco
 Figure 26 Web Service Result of Restaurant Recommendation Problem
 
 
+<!-- Module References -->
+[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
+[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
+[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
+[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/

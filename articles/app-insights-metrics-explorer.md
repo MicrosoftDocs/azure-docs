@@ -2,8 +2,9 @@
 	pageTitle="Exploring Metrics in Application Insights" 
 	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-05" 
+	ms.date="05/07/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -35,7 +36,11 @@ Hover your mouse over the chart to display the values of the metrics at that poi
 
 ![Hover the mouse over a chart](./media/app-insights-metrics-explorer/02-focus.png)
 
-The value of the metric at a particular point is averaged over the preceding sampling interval. This can vary depending on the time range of the whole chart. So relative heights are a better guide than absolute values.
+The value of the metric at a particular point is aggregated over the preceding sampling interval. This can vary depending on the time range of the whole chart.
+
+The sampling interval or "grain" is shown at the top of the blade. 
+
+![The header of a blade.](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## Time range
 
@@ -43,7 +48,13 @@ You can change the Time range covered by most of the charts or grids on any blad
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/03-range.png)
 
+
 Click Refresh if you're expecting some data that hasn't appeared yet. Charts don't update automatically. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
+
+In the Overview blade, drag over a part of the chart to zoom into it in a new chart.
+
+
+![Drag across part of a chart.](./media/app-insights-metrics-explorer/12-drag.png)
 
 
 ## Metrics Explorer
@@ -58,6 +69,9 @@ For example, click through the web app's Failed Requests chart:
 ## What do the figures mean?
 
 The legend at the side by default shows the aggregated value over the period of the chart.
+
+Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "grain". The grain is shown at the top of the blade, and varies with the overall timescale of the chart.
+
 Different metrics are aggregated in different ways: 
 
  * For a metric such as response time, values are **averaged** over the period of the chart.
@@ -66,7 +80,7 @@ Different metrics are aggregated in different ways:
 
 To find out whether the value is a sum, average, or unique click the chart and scroll down to the selected value. You can also get a short description of the metric.
 
-![](./media/app-insights-metrics-explorer/06-total.png)
+![Hover over (i)](./media/app-insights-metrics-explorer/06-total.png)
  
 
 
@@ -74,11 +88,11 @@ To find out whether the value is a sum, average, or unique click the chart and s
 
 To add a new chart to the blade:
 
-![](./media/app-insights-metrics-explorer/04-add.png)
+![In Metrics Explorer, choose Add Chart](./media/app-insights-metrics-explorer/04-add.png)
 
 Select an existing or new chart to edit what it shows:
 
-![](./media/app-insights-metrics-explorer/08-select.png)
+![Select one or more metrics](./media/app-insights-metrics-explorer/08-select.png)
 
 You can display more than one metric on a chart, though there are restrictions about the combinations that can be displayed together. As soon as you choose one metric, some of the others are disabled. 
 
@@ -86,16 +100,16 @@ If you coded [custom metrics][track] into your app (calls to TrackMetric and Tra
 
 ## Segment your data
 
-Select a chart or grid, switch on segmenting and pick a property to segment by:
+Select a chart or grid, switch on grouping and pick a property to group by:
 
-![](./media/app-insights-metrics-explorer/15-segment.png)
+![Select Grouping On, then set select a property in Group By](./media/app-insights-metrics-explorer/15-segment.png)
 
 If you coded [custom metrics][track] into your app and they include property values, you'll be able to select the property in the list.
 
 Is the chart too small for segmented data? Adjust its height:
 
 
-![](./media/app-insights-metrics-explorer/18-height.png)
+![Adjust the slider](./media/app-insights-metrics-explorer/18-height.png)
 
 
 ## Filter your data
@@ -108,46 +122,48 @@ If you don't select any values for a particular property, it's the same as selec
 
 Notice the counts of events alongside each property value. When you select values of one property, the counts alongside other property values are adjusted.
 
+## Remove bot and web test traffic
+
+Use the filter **Real or synthetic traffic** and check **Real**.
+
+You can also filter by **Source of synthetic traffic**.
+
 ## Edit the chart type
 
 In particular, notice that you can switch between grids and graphs:
 
 ![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
+## Save your metrics blade
+
+When you've created some charts, save them as a favorite. You can choose whether to share it with other team members, if you use an organizational account.
+
+![Choose Favorite](./media/app-insights-metrics-explorer/21-favorite-save.png)
+
+To see the blade again, **go to the overview blade** and open Favorites:
+
+![In the Overview blade, choose Favorites](./media/app-insights-metrics-explorer/22-favorite-get.png)
+
+If you chose Relative time range when you saved, the blade will be updated with the latest metrics. If you chose Absolute time range, it will show the same data every time.
+
 ## Reset the blade
 
-When you click on a chart, for example on the overview blade, it opens a relevant set of charts and grids to show you more detail.
-
-If, after your edits, you'd like to get back to that default set, just click Reset.
+If you edit a blade but then you'd like to get back to the original saved set, just click Reset.
 
 ![In the buttons at the top of Metric Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
-## <a name="alerts"></a> Set alerts
+## Set alerts
 
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
 
-![](./media/appinsights/appinsights-413setMetricAlert.png)
+![In Metrics Explorer, choose Alert rules, Add Alert](./media/appinsights/appinsights-413setMetricAlert.png)
 
-Set the resource before the other properties. Don't choose the webtest resources if you want to set alerts on performance or usage metrics.
-
-Be careful to note the units in which you're asked to enter the threshold value.
-
-*I don't see the Add Alert button.* - Are you using a group account? Do you have read-only access to this application resource? Take a look at the Roles tile near the bottom of the Overview blade. 
-
-#### See your alerts
-
-Alerts are emailed to you. 
-
-They also appear in the Operations Events log:
-
-![On the Overview blade, near the bottom, click 'Events in the past week'](./media/app-insights-metrics-explorer/09-alerts.png)
-
-*Are these "events" related to telemetry events or custom events?*
-
-No. These operational events are just a log of things that have happened to this application resource. 
+[Learn more][alerts].
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
+[alerts]: app-insights-alerts.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
 

@@ -19,9 +19,9 @@
 
 
 
-#How to add encoding units using .NET SDK
+#How to Scale Encoding with .NET SDK
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series.
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series.
   
 ##Overview
 
@@ -48,7 +48,7 @@ By default every Media Services account can scale to up to 25 Encoding and 5 On-
 To open a support ticket do the following: 
 
 1. Log in to your Azure account at [Management Portal](http://manage.windowsazure.com).
-2. Go to [Support](http://www.windowsazure.com/en-us/support/contact/).
+2. Go to [Support](http://www.windowsazure.com/support/contact/).
 3. Click on "Get Support".
 4. Select your subscription.
 5. Under support type select "Technical".

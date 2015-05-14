@@ -1,107 +1,103 @@
 <properties 
-	pageTitle="How to create a PHP website in Azure Websites" 
-	description="Learn how to create a PHP website in Azure Websites" 
+	pageTitle="Create a PHP web app in Azure App Service" 
+	description="Learn how to create a PHP web app in Azure App Service" 
 	documentationCenter="php" 
-	services="" 
+	services="app-service\web" 
 	editor="mollybos" 
 	manager="wpickett" 
 	authors="tfitzmac"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="2/5/2015" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
-#How to create a PHP website in Azure Websites
+# Create a PHP web app in Azure App Service
 
 ## Overview
-This article will show you how to create a PHP website in [Azure Web Sites][waws] by using the [Azure Management Portal], the [Azure Command Line Tools for Mac and Linux][xplat-tools], or the [Azure PowerShell cmdlets][powershell-cmdlets].
+This article will show you how to create a PHP web app in [Azure App Service] by using the [Azure preview portal](https://portal.azure.com), the [Azure CLI for Mac, Linux, and Windows][xplat-tools], or the [Azure PowerShell cmdlets][powershell-cmdlets].
 
-In general, creating a PHP website is no different that creating *any* website in Azure Websites. By default, PHP is enabled for all websites. For information about configuring PHP (or providing your own customized PHP runtime), see [How to configure PHP in Azure Web Sites][configure-php].
+In general, creating a PHP web app is no different that creating *any* web app in Azure App Service. By default, PHP is enabled for all web apps. For information about configuring PHP (or providing your own customized PHP runtime), see [Configure PHP in Azure App Service Web Apps].
 
-Each option described below shows you how to create a website in a shared hosting environment at no cost, but with some limitations on CPU usage and bandwidth usage. For more information, see [Azure Web Sites Pricing][websites-pricing]. For information about how to upgrade and scale your website, see [How to scale Web Sites][scale-websites].
+Each option described below shows you how to create a web app in a shared hosting environment at no cost, but with some limitations on CPU usage and bandwidth usage. For more information, see [App Service Pricing]. For information about how to upgrade and scale your web app in App Service, see [Scale a web app in Azure App Service].
 
-> [AZURE.NOTE]
-> If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-<h2><a name="portal"></a>Create a PHP website using the Azure Management Portal</h2>
+## Create a PHP web app using the Azure preview portal
 
-When you create a website in the Azure Management Portal, you have three options: **Quick Create**, **Create with Database**, and **From Gallery**. The instructions below will cover the **Quick Create** option. For information about the other two options, see [Create a PHP-MySQL Azure web site and deploy using Git][website-mysql-git] and [Create a WordPress web site from the gallery in Azure][wordpress-gallery].
+When you create a PHP web app in the Azure preview portal, you have three options: 
 
-To create a PHP website using the Azure Management Portal, do the following:
+- **Quick create** - see [How to: Create a web app Using the Azure preview portal](web-sites-create-deploy.md#createawebsiteportal)
+- **Create with database** - see [Create a PHP-MySQL web app in Azure App Service and deploy using Git] 
+- **From the Marketplace** - see [Create a WordPress web app in Azure App Service]
 
-1. Login to the [Azure Management Portal].
-1. Click **New** at the bottom of the page, then click **Compute**, **Website**, and **Quick Create**. Provide a **URL** for your website and select the **Region** for your website. Finally, click **Create Website**.
+## Create a PHP web app using the Azure CLI
 
-	![Select Quick Create web site](./media/web-sites-php-create-web-sites/select-quickcreate-website.png)
+To create a PHP web app using the Azure CLI do the following:
 
-<h2><a name="XplatTools"></a>Create a PHP website using the Azure Command Line Tools for Mac and Linux</h2>
+1. Install the Azure CLI by following the instructions here: [How to install the Azure CLI for Mac, Linux and Windows](xplat-cli.md#install).
 
-To create a PHP website using the Azure Command Line Tools for Mac and Linux do the following:
-
-1. Install the Azure Command Line Tools by following the instructions here: [How to install the Azure Command Line Tools for Mac and Linux](/en-us/develop/php/how-to-guides/command-line-tools/#Download).
-
-1. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](/en-us/develop/php/how-to-guides/command-line-tools/#Account).
+1. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](xplat-cli.md#configure).
 
 1. Run the following command from a command prompt:
 
-		azure site create MySiteName
+		azure site create MyWebAppName
 
-The URL for the newly created website will be  `http://MySiteName.azurewebsites.net`.  
+The URL for the newly created web app will be  `http://MyWebAppName.azurewebsites.net`.  
  
 Note that you can execute the `azure site create` command with any of the following options:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
-* `--git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+* `--location [location name]`. This option allows you to specify the location of the data center in which your web app is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
+* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your web app.
+* `--git`. This option allows you to use git to publish to your web app by creating git repositories in both your local application directory and in your web app's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your web app's data center.
 
-For information about additional options, see [How to create and manage an Azure Web Site](/en-us/develop/php/how-to-guides/command-line-tools/#WebSites).
+## Create a PHP web app using the Azure PowerShell cmdlets
 
-<h2><a name="PowerShell"></a>Create a PHP website using the Azure PowerShell cmdlets</h2>
+To create a PHP web app using the Azure PowerShell cmdlets, do the following:
 
-To create a PHP website using the Azure PowerShell cmdlets, do the following:
+1. Install the Azure PowerShell cmdlets by following the instructions here: [Get started with Azure PowerShell](/develop/php/how-to-guides/powershell-cmdlets/#GetStarted).
 
-1. Install the Azure PowerShell cmdlets by following the instructions here: [Get started with Azure PowerShell](/en-us/develop/php/how-to-guides/powershell-cmdlets/#GetStarted).
-
-1. Download and import your publish settings file by following the instructions here: [How to: Import publish settings](/en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
+1. Download and import your publish settings file by following the instructions here: [How to: Import publish settings](/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
 
 1. Open a PowerShell command prompt and execute the following command:
 
-		New-AzureWebSite MySiteName
+		New-AzureWebsite MyWebAppName
 
-The URL for the newly created website will be  `http://MySiteName.azurewebsites.net`.  
+The URL for the newly created web app will be  `http://MyWebAppName.azurewebsites.net`.  
  
-Note that you can execute the `New-AzureWebSite` command with any of the following options:
+Note that you can execute the `New-AzureWebsite` command with any of the following options:
 
-* `-Location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `-Hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
-* `-Git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+* `-Location [location name]`. This option allows you to specify the location of the data center in which your web app is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
+* `-Hostname [custom host name]`. This option allows you to specify a custom hostname for your web app.
+* `-Git`. This option allows you to use git to publish to your web app by creating git repositories in both your local application directory and in your web app's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your web app's data center.
 
-For information about additional options, see [How to: Create and manage an Azure Web Site](/en-us/develop/php/how-to-guides/powershell-cmdlets/#WebSite).
+## Next steps
 
-<h2><a name="NextSteps"></a>Next steps</h2>
+Now that you have created a PHP web app in Azure App Service, you can manage, configure, monitor, deploy to, and scale your app. For more information, see the following links:
 
-Now that you have created a PHP website in Azure Websites, you can manage, configure, monitor, deploy to, and scale your site. For more information, see the following links:
+* [Configure web apps in Azure App Service](web-sites-configure.md)
+* [Configure PHP in Azure App Service Web Apps]
+* [Manage web apps using the Azure Portal](web-sites-manage.md)
+* [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
+* [Scale a web app in Azure App Service]
+* [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md)
 
-* [How to configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/)
-* [How to configure PHP in Azure Web Sites][configure-php]
-* [How to manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/)
-* [How to monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
-* [How to scale Web Sites](/en-us/manage/services/web-sites/how-to-scale-websites/)
-* [Publishing with Git](/en-us/develop/php/common-tasks/publishing-with-git/)
+For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/develop/php/tutorials/) page.
 
-For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/develop/php/tutorials/) page.
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[waws]: /en-us/manage/services/web-sites/
-[Azure Management Portal]: http://manage.windowsazure.com/
-[xplat-tools]: /en-us/develop/php/how-to-guides/command-line-tools/
-[powershell-cmdlets]: /en-us/develop/php/how-to-guides/powershell-cmdlets/
-[configure-php]: /en-us/develop/php/common-tasks/configure-php-web-site/
-[website-mysql-git]: /en-us/develop/php/tutorials/website-w-mysql-and-git/
-[wordpress-gallery]: /en-us/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/en-us/pricing/details/#header-1
-[scale-websites]: /en-us/manage/services/web-sites/how-to-scale-websites/
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Azure Portal]: http://go.microsoft.com/fwlink/?LinkId=529715
+[xplat-tools]: xplat-cli.md
+[powershell-cmdlets]: powershell-install-configure.md
+[Configure PHP in Azure App Service Web Apps]: web-sites-php-configure.md
+[Create a PHP-MySQL web app in Azure App Service and deploy using Git]: web-sites-php-mysql-deploy-use-git.md
+[Create a WordPress web app in Azure App Service]: web-sites-php-web-site-gallery.md
+[App Service Pricing]: /pricing/details/app-service/
+[Scale a web app in Azure App Service]: web-sites-scale.md

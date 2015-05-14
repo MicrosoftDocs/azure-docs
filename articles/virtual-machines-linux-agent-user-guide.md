@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2014" 
-	ms.author="szarkos"/>
-
-
+	ms.date="04/07/2015" 
+	ms.author="szark"/>
 
 
 
@@ -24,7 +22,7 @@
 
 ##Introduction
 
-The Azure Linux Agent (waagent) manages interaction between a virtual machine and the Azure Fabric Controller. It does the following:
+The Azure Linux Agent (/usr/sbin/waagent) manages interaction between a virtual machine and the Azure Fabric Controller. It does the following:
 
 * **Image Provisioning**
   - Create a user account
@@ -47,6 +45,12 @@ The Azure Linux Agent (waagent) manages interaction between a virtual machine an
   - Redirects the console to the serial port
 * **SCVMM Deployments**
     - Detects and bootstraps the VMM agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
+* **VM Extension**
+    - Inject component authored by Microsoft and Partners into Linux VM (IaaS) to enable software and configuration automation
+    - VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+
+
+##Communication
 
 The information flow from the platform to the agent occurs via two channels:
 
@@ -58,10 +62,15 @@ The information flow from the platform to the agent occurs via two channels:
 You can get the Latest Linux Agent directly from:
 
 - [The different Distribution providers endorsing Linux on Azure](http://support.microsoft.com/kb/2805216)
-- or from the [Github Open Source Repository for the Azure Linux Agent](https://github.com/WindowsAzure/WALinuxAgent)
+- or from the [GitHub Open Source Repository for the Azure Linux Agent](https://github.com/Azure/WALinuxAgent)
 
+
+## Requirements
+The following systems have been tested and are known to work with the Azure Linux Agent. **Please note that this list may differ from the official list of supported systems on the Microsoft Azure Platform**, as described here:
+[http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
 
 ###Supported Linux Distributions
+
 * CoreOS
 * CentOS 6.2+
 * Debian 7.0+
@@ -72,29 +81,28 @@ You can get the Latest Linux Agent directly from:
 
 Other Supported Systems:
 
-* FreeBSD 9+ (WALinuxAgent v2.0.0+)
+* FreeBSD 9+ (Azure Linux Agent v2.0.10+)
 
 
-###Requirements
+The Linux agent depends on some system packages in order to function properly:
 
-Waagent depends on some system packages in order to function properly:
-
-* Python 2.5+
+* Python 2.6+
 * Openssl 1.0+
 * Openssh 5.3+
-* Filesystem utilities: sfdisk, fdisk, mkfs
+* Filesystem utilities: sfdisk, fdisk, mkfs, parted
 * Password tools: chpasswd, sudo
 * Text processing tools: sed, grep
 * Network tools: ip-route
 
+
 ##Installation
 
-Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Windows Azure Linux Azure.
+Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent.
 
-If installing manually, waagent should be copied to /usr/sbin/waagent and installed by running: 
+If installing manually, the 'waagent' script should be copied to /usr/sbin/waagent and installed by running: 
 
 	# sudo chmod 755 /usr/sbin/waagent
-	# /usr/sbin/waagent -install -verbose
+	# sudo /usr/sbin/waagent -install -verbose
 
 The agent's log file is kept at /var/log/waagent.log.
 
@@ -182,10 +190,7 @@ A sample configuration file is shown below:
 	OS.RootDeviceScsiTimeout=300
 	OS.OpensslPath=None
 
-The various configuration options are described in detail below. 
-Configuration options are of three types : Boolean, String or Integer. 
-The Boolean configuration options can be specified as "y" or "n". 
-The special keyword "None" may be used for some string type configuration entries as detailed below.
+The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 
 **Role.StateConsumer:**
 
@@ -214,6 +219,8 @@ Type: Boolean
 Default: y
 
 This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.
+
+	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -308,113 +315,25 @@ Default: None
 
 This can be used to specify an alternate path for the openssl binary to use for cryptographic operations.
 
-##Appendix
 
-###Sample Role Configuration File
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
-	  <StoredCertificates>
-	    <StoredCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateId="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" storeName="My" configurationLevel="System" />
-	  </StoredCertificates>
-	  <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-	    <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-	    <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-	  </Deployment>
-	  <Incarnation number="1" instance="LinuxVM_IN_2" guid="{5c87ab8b-2f6a-4758-9f74-37e68c3e957b}" />
-	  <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" hostingEnvironmentVersion="1" software="" softwareType="ApplicationPackage" entryPoint="" parameters="" settleTimeSeconds="10" />
-	  <HostingEnvironmentSettings name="full" Runtime="rd_fabric_stable.111026-1712.RuntimePackage_1.0.0.9.zip">
-	    <CAS mode="full" />
-	    <PrivilegeLevel mode="max" />
-	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
-	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
-	      <Setting name="startpage" value="Hello World!" />
-	      <Setting name="Certificate|Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" value="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" />
-	    </ApplicationSettings>
-	    <ResourceReferences>
-	      <Resource name="DiagnosticStore" type="directory" request="Microsoft.Cis.Fabric.Controller.Descriptions.ServiceDescription.Data.Policy" sticky="true" size="1" path="a99549a92e38498f98cf2989330cd2f1.LinuxVM.DiagnosticStore\" disableQuota="false" />
-	    </ResourceReferences>
-	  </HostingEnvironmentConfig>
+##Ubuntu Cloud Images
 
-###Sample Role Topology File
+Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent.  Please note the following differences:
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<SharedConfig version="1.0.0.0" goalStateIncarnation="2">
-	  <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-	    <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-	    <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-	  </Deployment>
-	  <Incarnation number="1" instance="LinuxVM_IN_1" guid="{a7b94774-db5c-4007-8707-0b9e91fd808d}" />
-	  <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" settleTimeSeconds="10" />
-	  <LoadBalancerSettings timeoutSeconds="32" waitLoadBalancerProbeCount="8">
-	    <Probes>
-	      <Probe name="LinuxVM" />
-	      <Probe name="03F7F19398C4358108B7ED059966EEBD" />
-	      <Probe name="47194D0E3AB3FCAD621CAAF698EC82D8" />
-	    </Probes>
-	  </LoadBalancerSettings>
-	  <OutputEndpoints>
-	    <Endpoint name="LinuxVM:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" type="SFS">
-	      <Target instance="LinuxVM_IN_0" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	      <Target instance="LinuxVM_IN_1" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	      <Target instance="LinuxVM_IN_2" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	    </Endpoint>
-	  </OutputEndpoints>
-	  <Instances>
-	    <Instance id="LinuxVM_IN_1" address="10.115.38.202">
-	      <FaultDomains randomId="1" updateId="1" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="HTTP" address="10.115.38.202:80" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:80" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="80" to="80" />
-	          </LocalPorts>
-	        </Endpoint>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.38.202:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	          <RemoteInstances>
-	            <RemoteInstance instance="LinuxVM_IN_0" />
-	            <RemoteInstance instance="LinuxVM_IN_2" />
-	          </RemoteInstances>
-	        </Endpoint>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" address="10.115.38.202:20000" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:3389" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="20000" to="20000" />
-	          </LocalPorts>
-	        </Endpoint>
-	        <Endpoint name="SSH" address="10.115.38.202:22" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:22" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="22" to="22" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	    <Instance id="LinuxVM_IN_0" address="10.115.58.82">
-	      <FaultDomains randomId="0" updateId="0" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.82:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	    <Instance id="LinuxVM_IN_2" address="10.115.58.148">
-	      <FaultDomains randomId="0" updateId="2" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.148:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	  </Instances>
-	</SharedConfig>
+
+- **Provisioning.Enabled** defaults to "n" on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
+
+- The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
+
+ - **ResourceDisk.Format**
+ - **ResourceDisk.Filesystem**
+ - **ResourceDisk.MountPoint**
+ - **ResourceDisk.EnableSwap**
+ - **ResourceDisk.SwapSizeMB**
+
+- Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
+
+ - [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+ - [Injecting Custom Data into an Azure Virtual Machine](./virtual-machines-how-to-inject-custom-data.md)
+

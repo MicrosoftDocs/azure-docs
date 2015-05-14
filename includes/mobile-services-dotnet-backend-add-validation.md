@@ -1,7 +1,7 @@
 
 It is always a good practice to validate the length of data that is submitted by users. In this section you will add code to the mobile service that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
-1. Start Visual Studio with the **Run as administrator** option and open the solution that contains the mobile service project that you worked with in the [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)  tutorial.
+1. Start Visual Studio with the **Run as administrator** option and open the solution that contains the mobile service project that you worked with in the [Getting Started] or [Get started with data](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)  tutorial.
 
 2. In the Solution Explorer window expand the todo list service project and expand **Contollers**. Open the TodoItemController.cs file which is part of the mobile service project.  
 
@@ -29,9 +29,9 @@ It is always a good practice to validate the length of data that is submitted by
 
    	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png)
 
-5. Right click the service project and click **Publish**. Publish the mobile service to your Microsoft Azure account using the publishing settings you previously used in the [Getting Started] or [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)  tutorial.
+5. Right click the service project and click **Publish**. Publish the mobile service to your Microsoft Azure account using the publishing settings you previously used in the [Getting Started] or [Get started with data](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)  tutorial.
  
-     >[AZURE.NOTE] You can alternatively test with the service hosted locally in IIS Express. For more information see the [Get started with data](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) tutorial.
+     >[AZURE.NOTE] You can alternatively test with the service hosted locally in IIS Express. For more information see the [Get started with data](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md) tutorial.
 
     ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png)
 
@@ -40,4 +40,4 @@ It is always a good practice to validate the length of data that is submitted by
 
 
 <!-- URLs. -->
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Getting Started]: ../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started.md

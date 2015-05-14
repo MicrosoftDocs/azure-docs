@@ -1,27 +1,30 @@
 <properties 
-	pageTitle="Learning Guide: How to create a Machine Learning service" 
-	description="Use this map to walk through the basic steps of creating a Machine Learning service" 
-	services="machine-learning" 
+	pageTitle="Advanced Analytics Process guide for Azure Machine Learning | Azure" 
+	description="Use this guide to understand the steps for using Azure for data science and machine learning in the cloud." 
+	services="machine-learning,hdinsight" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sidneyh" 
+	authors="bradsev" 
 	videoId="" 
 	scriptId="" 
-	manager="jhubbard" />
+	manager="paulettm" />
 
 <tags 
 	ms.service="machine-learning" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="may be required" 
+	ms.tgt_pltfrm="na" 
 	ms.workload="required" 
-	ms.date="02/18/2015" 
-	ms.author="sidneyh" />
-# How to Do Data Science in Azure
+	ms.date="05/08/2015" 
+	ms.author="bradsev;sachouks" />
 
-This Azure Data Science Process map demonstrates the use of the Azure platform for data science and building operationalized models using Azure Machine Learning. The map walks a user through typical data science tasks such as ingesting data from various sources, preparing it for use in Azure Machine Learning, and using Azure Machine Learning to create operational models that can be consumed by end user applications (programmatically or otherwise). While the map shows the core steps involved in a typical end-to-end data science exercise, not all steps are required and their sequence can vary depending on the location, size and complexity of the data.
+# Advanced Analytics Process guide for Azure Machine Learning
 
-The step titled **Advanced data processing in Azure** links to a second map. If and you are returning from that map, continue down from that point to ingesting the processed data in Azure Machine Learning studio and building and deploying models.
+This advanced analytics process guide provides a map of the data science tasks typically involved in building and deploying predictive models using Azure Machine Learning. It shows how the Azure platform enables tasks such as ingesting data from various sources, preparing it for use in Azure Machine Learning, and then creating operationalized models with an Azure Machine Learning  experiment that can be consumed by end user applications, programmatically or otherwise. While the map shows the core series steps involved in a typical end-to-end data science exercise, not all steps are required and their precise sequence can vary depending on the location, size and complexity of the data.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
+The step titled **Advanced data processing in Azure** links to a second guide that walks through the process of preparing data to be used in an Azure Machine Learning experiment. If you are returning from that guide, continue from the subsequent step in this guide of ingesting the processed data in Azure Machine Learning studio through to the final step of consuming the model.
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%">
 </object>

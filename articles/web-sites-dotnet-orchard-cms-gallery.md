@@ -1,87 +1,84 @@
 <properties 
-	pageTitle="Create an Orchard CMS website from the gallery in Azure" 
-	description="A tutorial that teaches you how to create a new website in Azure. Also learn how to launch and manage your site using the Management Portal." 
-	services="web-sites" 
+	pageTitle="Create an Orchard CMS web app from the Azure Marketplace" 
+	description="A tutorial that teaches you how to create a new web app in Azure. Also learn how to launch and manage your web app using the Azure Portal." 
+	tags="azure-portal"
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/5/2015" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
-# Create an Orchard CMS website from the gallery in Azure
+# Create an Orchard CMS web app from the Azure Marketplace
 
 ## Overview
 
-The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the [Azure Management Portal](http://manage.windowsazure.com). For more information about the web applications in the gallery, see [Windows Web App Gallery](http://www.microsoft.com/web/gallery/categories.aspx).
+The Marketplace makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the Marketplace do not require installation of any software other than the browser used to connect to the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). For more information about the web applications in the Marketplace, see [Azure Marketplace](/marketplace/).
 
 In this tutorial, you'll learn:
 
-- How to create a new site from the gallery
+- How to create a new web app from the Marketplace
 
-- How to launch and manage your site from the Management Portal
+- How to launch and manage your web app from the Azure Portal
  
-You'll build an Orchard CMS site that uses a default template. [Orchard](http://www.orchardproject.net/) is a free, open-source, .NET-based CMS application that allows you to create customized, content-driven websites. Orchard CMS includes an extensibility framework through which you can [download additional modules and themes](http://gallery.orchardproject.net/) to customize your site. The following illustration shows the Orchard CMS site that you will create.
+You'll build an Orchard CMS web app that uses a default template. [Orchard](http://www.orchardproject.net/) is a free, open-source, .NET-based CMS application that allows you to create customized, content-driven web apps and websites. Orchard CMS includes an extensibility framework through which you can [download additional modules and themes](http://gallery.orchardproject.net/) to customize your web app. The following illustration shows the Orchard CMS web app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) that you will create.
 
 ![Orchard blog][13]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-<h2>Create an Orchard website from the gallery</h2>
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-1. Login to the [Azure Management Portal](http://manage.windowsazure.com).
+## Create an Orchard web app from the Marketplace
 
-2. Click the **New** icon on the bottom left of the portal.
+1. Login to the [Azure preview portal](http://portal.azure.com).
+
+2. Click **New** > **Web + Mobile** > **Azure Marketplace**.
 	
 	![Create New][1]
 
-3. Click the **Website** icon, and then click **From Gallery**.
+3. Click **Web Apps** > **Orchard CMS**. In the next blade, click **Create**.
 	
-	![Create From Gallery][2]
+	![Create From Marketplace][2]
 
-4. Locate and click the **Orchard CMS** icon in the list, and then click the arrow to continue.
+4. Configure the web app's URL, App Service plan, resource group, and location. When you're done, click **Create**.
 	
-	![Orchard from list][3]
+	![Configure the app][3]
 
-5. On the **Configure Your App** page, enter or select values for all fields:
-	
-- Enter a URL name of your choice.	
-- Select the region closest to your users. (This will ensure best performance.)
+	Once your web app is created, the **Notifications** button will show a green "SUCCESS" and your web app's blade will be displayed.
 
-	![configure your app][4]
+## Launch and manage your Orchard web app
 
-6. Click the checkmark in the lower right corner of the box to start the deployment of your new Orchard CMS website.
-
-Azure will initiate build and deploy operations. While the website is being built and deployed, the status of these operations is displayed at the bottom of the Websites Management Portal. After all operations are performed, a message will indicate that your website has been created.
-
-<h2>Launch and manage your Orchard site</h2>
-
-1. Click the name of your new site on the **Websites** page, and then click **Browse** at the bottom of the portal to open your website's welcome page.
-
-	![launch dashboard][5]
+1. In your web app's blade, click **Browse** to open your web app's welcome page.
 
 	![browse button][12]
 
-2. Enter the configuration information required by Orchard, and then click **Finish Setup** to complete the configuration and open the website's home page.
+2. Enter the configuration information required by Orchard, and then click **Finish Setup** to complete the configuration and open the web app's home page.
 
 	![login to Orchard][7]
 
-	You'll have a new Orchard site that looks similar to the screenshot below.  
+	You'll have a new Orchard web app that looks similar to the screenshot below.  
 
-	![your Orchard site][13]
+	![your Orchard web app][13]
 
-3. Follow the details in the [Orchard Documentation](http://docs.orchardproject.net/) to learn more about Orchard and configure your new site.
+3. Follow the details in the [Orchard Documentation](http://docs.orchardproject.net/) to learn more about Orchard and configure your new web app.
 
-<h2>Next step</h2>
-* [Develop and deploy a web site with Microsoft WebMatrix](/en-us/develop/net/tutorials/website-with-webmatrix/) -- Learn how to edit an Azure website in WebMatrix. 
-* [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site](/en-us/develop/net/tutorials/web-site-with-sql-database/)-- Learn how to create a new website from Visual Studio.
+## Next step
+
+* [Develop and deploy a web app with Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) -- Learn how to edit an App Service web app in WebMatrix. 
+* [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)-- Learn how to create a new web app in Azure App Service from Visual Studio.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
 [2]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png

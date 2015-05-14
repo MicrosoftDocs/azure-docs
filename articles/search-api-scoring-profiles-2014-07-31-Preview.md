@@ -51,7 +51,7 @@ To use this scoring profile, your query is formulated to specify the profile on 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](https://msdn.microsoft.com/en-us/library/azure/dn798927.aspx).
+This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Click [Example](#bkmk_ex) to review a more detailed example of a scoring profile.
 
@@ -77,7 +77,7 @@ As noted, customized scoring is implemented through scoring profiles defined in 
 
 This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.
 
-[Try this example](http://azure.microsoft.com/en-us/documentation/articles/search-get-started-scoring-profiles/).
+[Try this example](search-get-started-scoring-profiles.md).
 
     {
       "name": "musicstoreindex",
@@ -142,7 +142,7 @@ To implement custom scoring behavior, add a scoring profile to the schema that d
 
 Start with the [Template][#bkmk_template] provided in this topic.
 
-Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming Rules](http://msdn.microsoft.com/en-us/library/azure/dn857353.aspx) for more information.
+Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming Rules](http://msdn.microsoft.com/library/azure/dn857353.aspx) for more information.
 
 The body of the scoring profile is constructed from weighted fields and functions.
 
@@ -172,7 +172,7 @@ Function type (freshness, magnitude, distance) must be lower case.
 <br>
 Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
 <br>
-Functions can only be applied to filterable fields. See [Create Index (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#createindex) for more information about filterable fields.
+Functions can only be applied to filterable fields. See [Create Index (Azure Search API)](search-api-2014-10-20-preview.md#createindex) for more information about filterable fields.
 <br>
 Functions can only be applied to fields that are defined in the fields collection of an index.
 <td>
@@ -181,7 +181,7 @@ Functions can only be applied to fields that are defined in the fields collectio
 </table>
 </font>
 
-After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#createindex) and [Add or Update Documents (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
+After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index (Azure Search API)](search-api-2014-10-20-preview.md#createindex) and [Add or Update Documents (Azure Search API)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 <a name="bkmk_template"></a>
 ##Template##
@@ -283,7 +283,7 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents (Azure Search API)](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-07-31-preview/#SearchDocs) for descriptions of query parameters.</td>
+<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents (Azure Search API)](search-api-2014-07-31-preview.md#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>A number that indicates the distance in kilometers from the reference location where the boosting range ends.</td>
 </tr><tr>
@@ -342,9 +342,9 @@ The following table provides several examples.
 **See Also**
 
 For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.org/TR/xmlschema11-2/).
-[Azure Search Service REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) on MSDN <br/>
-[Create Index (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798941.aspx) on MSDN<br/>
-[Add a scoring profile to a search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) on MSDN<br/>
+[Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) on MSDN <br/>
+[Create Index (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798941.aspx) on MSDN<br/>
+[Add a scoring profile to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) on MSDN<br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2014-07-31-Preview/scoring_interpolations.png

@@ -1,35 +1,34 @@
 <properties 
-	pageTitle=".NET REST service using Web API - Azure tutorial" 
-	description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." 
-	services="web-sites" 
+	pageTitle="Create a REST service using ASP.NET Web API and SQL Database in Azure App Service" 
+	description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure web app by using Visual Studio." 
+	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="riande" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/06/2014" 
+	ms.date="03/24/2015" 
 	ms.author="riande"/>
 
-# REST service using ASP.NET Web API and SQL Database 
+# Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra.***
-
-This tutorial shows how to deploy an ASP.NET web application to an Azure Website by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. 
+This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. 
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
-This tutorial assumes that you have no prior experience using Azure. On completing this tutorial, you'll have a simple web application up and running in the cloud.
+This tutorial assumes that you have no prior experience using Azure. On completing this tutorial, you'll have a simple web app up and running in the cloud.
  
 You'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
-* How to create a Visual Studio ASP.NET MVC 5 project and publish it to an Azure Website.
+* How to create a Visual Studio ASP.NET MVC 5 project and publish it to an Azure app.
 * How to use the ASP.NET Web API to enable Restful API calls.
 * How to use a SQL database to store data in Azure.
 * How to publish application updates to Azure.
@@ -38,84 +37,18 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of web site][intro001]
 
-In this tutorial:
-
-* [Set up the development environment][setupdbenv]
-* [Set up the Azure environment][setupwindowsazureenv]
-* [Create an ASP.NET MVC 5 application][createapplication]
-* [Deploy the application to Azure][deployapp1]
-* [Add a database to the application][adddb]
-* [Add a Controller and a view for the data][addcontroller]
-* [Add a Web API Restful interface][addwebapi]
-* [Add XSRF Protection][]
-* [Publish the application update to Azure and SQL Database][deploy2]
-
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/ -->
+<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
-
-<h2><a name="bkmk_setupwindowsazure"></a>Set up the Azure environment</h2>
-
-Next, set up the Azure environment by creating an Azure Website and a SQL database.
-
-### Create a website and a SQL database in Azure
-
-The next step is to create the Azure website and the SQL database that your application will use.
-
-Your Azure Website will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
-
-SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
-
-1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Websites** in the left tab, and then click  **New**.
-
-2. Click **CUSTOM CREATE**.
-
-	![Create with Database link in Management Portal](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
-
-	The **New Website - Custom Create** wizard opens. 
-
-3. In the **New Website** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr11", but that URL is probably taken so you'll have to choose a different one.
-
-1. In the **Region** drop-down list, choose the region that is closest to you.
-
-1. In the **Database** drop-down list, choose **Create a free 20 MB SQL database**.
-
-	![Create a New Website step of New Website - Create with Database wizard](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
-
-6. Click the arrow that points to the right at the bottom of the box.
-
-	The wizard advances to the **Database Settings** step.
-
-7. In the **Name** box, enter *ContactDB*.
-
-8. In the **Server** box, select **New SQL Database server**. Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
-
-9. Click the arrow that points to the right at the bottom of the box.
-
-10. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you've created previously, you'll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced ** box. The **Advanced ** box allows you to set the DB size (the default is 1 GB but you can increase this to 150 GB) and the collation.
-
-11. Click the check mark at the bottom of the box to indicate you're finished.
-
-	![Database Settings step of New Website - Create with Database wizard][setup007]
-
-	 The following image shows using an existing SQL Server and Login.
-	
-	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
-
-	The Management Portal returns to the Websites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Websites** icon, and the number of databases appears next to the **SQL Databases** icon.
-
-<!-- [Websites page of Management Portal, website created][setup009] -->
-
-<h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 5 application</h2>
-
-You have created an Azure Website, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
 
 ### Create the project
 
 1. Start Visual Studio 2013.
 1. From the **File** menu click **New Project**.
-3. In the **New Project** dialog box, expand **Visual C#** and select **Web**  and then select **ASP.NET MVC 5 Web Application**. Keep the default **.NET Framework 4.5**. Name the application **ContactManager** and click **OK**.
+3. In the **New Project** dialog box, expand **Visual C#** and select **Web**  and then select **ASP.NET MVC 5 Web Application**. Name the application **ContactManager** and click **OK**.
+
 	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+
 1. In the **New ASP.NET Project** dialog box, select the **MVC** template, check **Web API** and then click **Change Authentication**.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
@@ -128,7 +61,18 @@ You have created an Azure Website, but there is no content in it yet. Your next 
 
 1. In the **New ASP.NET Project** dialog box, click **OK**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+
+If you have not previously signed in to Azure, you will be prompted to sign in.
+
+1. The configuration wizard will suggest a unique name based on *ContactManager* (see the image below). Select a region near you. You can use [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") to find the lowest latency data center. 
+2. If you haven't created a database server before, select **Create new server**, enter a database user name and password.
+
+	![Configure Azure Website](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configAz.PNG)
+
+If you have a database server, use that to create a new database. Database servers are a precious resource, and you generally want to create multiple databases on the same server for testing and development rather than creating a database server per database. Make sure your web site and database are in the same region.
+
+![Configure Azure Website](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configWithDB.PNG)
 
 ### Set the page header and footer
 
@@ -137,7 +81,7 @@ You have created an Azure Website, but there is no content in it yet. Your next 
 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Replace the contents of the *_Layout.cshtml* file with the following code:
+1. Replace the contents of the *Views\Shared_Layout.cshtml* file with the following code:
 
 
 		<!DOCTYPE html>
@@ -194,43 +138,11 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	The **Publish Web** wizard opens.
 
-2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.
-
-	![Import publish settings][ImportPublishSettings]
-
-	The **Import Publish Profile** dialog box appears.
-
- 3.	Select Import from an Azure Website. You must first sign in if you have not previously done so. Click **Sign In**. Enter the user associated with your subscription and follow the steps to sign in.
-
-	![sign in](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr7.png)
-
-	Select your website from the drop-down list, and then click **OK**.
-
-	![Import Publish Profile](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr8.png)
-
-8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.
-
-	![Validate connection][ValidateConnection]
-
-9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.
-
-	![connection successful icon and Next button in Connection tab][firsdeploy007]
-
-1. Click **Next**.
-
-	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
-
-	You can accept the default settings on this tab.  You're deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder. If you want to debug on the live Azure site, you will need to deploy a debug configuration (not release). See the [Next Steps](#nextsteps) section at the end of this tutorial.
-
-12. In the **Preview** tab, click **Start Preview**.
-
-	The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. The next time you publish, only the files that have changed will be in the preview list.
-
-	![StartPreview button in the Preview tab][firsdeploy009]
-
 12. Click **Publish**.
 
-	Visual Studio begins the process of copying the files to the Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
+![Settings tab](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/pw.png)
+
+Visual Studio begins the process of copying the files to the Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
 14. The default browser automatically opens to the URL of the deployed site.
 
@@ -817,9 +729,11 @@ When you see that the item you enter is saved and appears on the contact manager
 
 The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Azure, delete it. The application is public and doesn't have a mechanism to limit access.
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
-A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/) is based on this tutorial and shows how to deploy a web application with the membership database.
+A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) is based on this tutorial and shows how to deploy a web application with the membership database.
 
 Another way to store data in an Azure application is to use Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure.
  
@@ -827,11 +741,15 @@ Another way to store data in an Azure application is to use Azure storage, which
 * [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
 * [Intro to ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Your First ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-* [Debugging WAWS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+* [Debugging WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
 
 This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
 Please leave feedback on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. We are especially interested in finding out how much interest there is in more automation for the process of configuring and deploying the membership database. 
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -849,7 +767,7 @@ Please leave feedback on what you liked or what you would like to see improved, 
 
 <!-- links -->
 [EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-[dbcontext-link]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx
+[dbcontext-link]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx
 
 
 <!-- images-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/29/2015" 
 	ms.author="jaymathe"/>
 
 # Quick start guide for the Machine Learning Recommendations API
 
-This document depicts how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. 
+This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -48,7 +48,26 @@ All the steps above are done through the Azure Machine Learning Recommendations 
 ##Integration
 
 ###Authentication
-Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either the Basic or OAuth authentication method.
+Micosoft Azure Marketplace supports either the Basic or OAuth authentication method.
+####Basic Authentication
+Add the Authorization header:
+
+	Authorization: Basic <creds>
+               
+	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	
+Convert to Base64 (C#)
+
+	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var creds = Convert.ToBase64String(bytes);
+	
+Convert to Base64 (JavaScript)
+
+	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
+	
+You get your account key [here]( https://datamarket.azure.com/account/keys). 
+
+
 
 ###Service URI
 The service root URI for the Azure Machine Learning Recommendations APIs is [here.](https://api.datamarket.azure.com/amla/recommendations/v2/)
@@ -488,7 +507,7 @@ OData XML
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
 | modelId | Unique identifier of the model (case sensitive) |
-| itemIds | Comma-separated list of the items to recommend for.<br>Max length: 200 |
+| itemIds | Comma-separated list of the items to recommend for.<br>Max length: 1024 |
 | numberOfResults | Number of required results |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |

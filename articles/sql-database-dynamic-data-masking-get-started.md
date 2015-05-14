@@ -1,22 +1,25 @@
 <properties 
-   pageTitle="Get started with SQL Database Dynamic Data Masking" 
-   description="How to get started with SQL Database Dynamic Data Masking" 
-   services="Azure SQL Database, dynamic data masking" 
+   pageTitle="Get started with SQL Database Dynamic Data Masking (Azure Preview portal)" 
+   description="How to get started with SQL Database Dynamic Data Masking in the Azure Preview portal" 
+   services="sql-database" 
    documentationCenter="" 
-   authors="nadavhelfman" 
+   authors="rmca14" 
    manager="jeffreyg" 
    editor="v-romcal"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="multiple"
+   ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sql-database" 
-   ms.date="02/13/2015"
-   ms.author="nadavh; ronmat; v-romcal; v-stste"/>
+   ms.workload="data-services" 
+   ms.date="04/02/2015"
+   ms.author="nadavh; ronmat; v-romcal; sstein"/>
 
-# Get started with SQL Database Dynamic Data Masking 
+# Get started with SQL Database Dynamic Data Masking (Azure Preview portal)
+
+> [AZURE.SELECTOR]
+- [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## Overview
 
@@ -28,7 +31,7 @@ For example, a call center support person may identify callers by several digits
 
 ## SQL Database Dynamic Data Masking basics
 
-You set up dynamic data masking policy in the Azure Management Portal and complete the setup by using the security-enabled connection string used by the application or other clients that access the database.
+You set up dynamic data masking policy in the Azure Preview portal and complete the setup by using the security-enabled connection string used by the application or other clients that access the database.
 
 ### Dynamic data masking permissions
 
@@ -70,9 +73,9 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 ![Navigation pane][Image3]<br/><br/>
 
-## Set up dynamic data masking for your database using the Azure Management Portal
+## Set up dynamic data masking for your database using the Azure Preview portal
 
-1. Launch the Azure Management Portal at [https://portal.azure.com](https://portal.azure.com).
+1. Launch the Azure Preview portal at [https://portal.azure.com](https://portal.azure.com).
 	 
 2. Navigate to the configuration blade of the database that includes the sensitive data you want to mask.
 	
@@ -94,7 +97,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 6. Click **Add Mask** to open the **Add Masking Rule** configuration blade.
 	
-7. Choose **Mask By** to indicate if the masking is done at the source or destination. Masking can be configured at the source level by identifying the **Table** name and the **Column** name, or at the results level by identifying the **Alias** which is used in the query. If you are familiar with the data architecture of your database and want to limit the exposure of all query results, you may prefer a source mask rule. You may add a results mask rule when you want to limit the exposure to query results without analyzing the database data architecture or for a field that may arrive from different sources.
+7. Choose **Mask By** to indicate if the masking is done at the source or destination. Masking can be configured at the source level by identifying the **Table** name and the **Column** name, or at the results level by identifying the **Alias** which is used in the query. Please notice that the **Table** name refers to all of the schemas in the database and should not include a schema prefix. If you are familiar with the data architecture of your database and want to limit the exposure of all query results, you may prefer a source mask rule. You may add a results mask rule when you want to limit the exposure to query results without analyzing the database data architecture or for a field that may arrive from different sources.
 
 8. Type the **Table** name and **Column** name, or **Alias** name, to define the designated fields that will be masked.
 
@@ -112,39 +115,9 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 	![Navigation pane][Image8]
 	
-## Set up dynamic data masking for your database using the Classic Azure Management Portal
-
-1. Launch the Classic Azure Management Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).
-
-2. Click the database you want to mask, and then click the **AUDITING & SECURITY** tab.
-
-3. Under **dynamic data masking**, click **ENABLED** to enable the dynamic data masking feature.  
-
-4. Type the privileged logins that should have access to the unmasked sensitive data.
-
-	>[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the application login that is being used to query and the database. It’s highly recommended that this list should include a minimal number of logins to minimize exposure of the sensitive data.
-
-	![Navigation pane][Image9]
-
-5. At the bottom of the page in the menu bar, click **Add MASK** to open the masking rule configuration window.
-
-6. Choose **Mask By** to indicate if the masking is done at the source or destination. Masking can be configured at the source level by identifying the **Table** name and the **Column** name, or at the results level by identifying the **Alias** which is used in the query. If you are familiar with the data architecture of your database and want to limit the exposure of all query results, you may prefer a source mask rule. You may add a results mask rule when you want to limit the exposure to query results without analyzing the database data architecture or for a field that may arrive from different sources.
-
-7. Type the **Table** name and **Column** name, or **Alias** name, to define the designated fields that will be masked.
-
-8. Choose a **MASKING FUNCTION** from the list of sensitive data masking categories.
-
-	![Navigation pane][Image10] 
- 	
-9. Click **Update** in the data masking rule window to update the set of masking rules in the dynamic data masking policy.
-
-10. Consider selecting **USE EXTENDED RESTRICTIONS** which limits the exposure of sensitive data through ad hoc queries.
-
-11. Click **SAVE** to save the new or updated masking rule.
-
 ## Set up dynamic data masking for your database using REST API
 
-See [Operations for Azure SQL Databases](https://msdn.microsoft.com/en-us/library/dn505719.aspx).
+See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
 
 [Image1]: ./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png
 [Image2]: ./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png
@@ -154,5 +127,3 @@ See [Operations for Azure SQL Databases](https://msdn.microsoft.com/en-us/librar
 [Image6]: ./media/sql-database-dynamic-data-masking-get-started/6_DDM_Privileged_Logins.png
 [Image7]: ./media/sql-database-dynamic-data-masking-get-started/7_DDM_Add_Masking_Rule.png
 [Image8]: ./media/sql-database-dynamic-data-masking-get-started/8_DDM_Security_Enabled_Access.png
-[Image9]: ./media/sql-database-dynamic-data-masking-get-started/9_DMM_Policy_Classic_Portal.png
-[Image10]: ./media/sql-database-dynamic-data-masking-get-started/10_DDM_Add_Masking_Rule_Classic_Portal.png

@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Application Insights: Get started with Windows Phone and Store apps" 
+	pageTitle="Application Insights for Windows Phone and Store apps" 
 	description="Analyze usage and performance of your Windows device app with Application Insights." 
 	services="application-insights" 
+    documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,48 +12,58 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-10" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
 
-# Application Insights: Get started with Windows Phone and Store apps
+# Application Insights for Windows Phone and Store apps
 
 *Application Insights is in preview.*
 
-Application Insights lets you monitor your published application for:
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
-* **Usage** - Learn how many users you have and what they are doing with your app.
-* **Crashes** - Get diagnostic reports of crashes and understand their impact on users.
+Visual Studio Application Insights lets you monitor your published application for:
+
+* [**Usage**][windowsUsage] - Learn how many users you have and what they are doing with your app.
+* [**Crashes**][windowsCrash] - Get diagnostic reports of crashes and understand their impact on users.
 
 ![](./media/appinsights/appinsights-d018-oview.png)
 
+For many application types, [Visual Studio can add Application Insights to your app](#ide) almost without you noticing. But since you're reading this to get a better understanding of what's going on, we'll take you through the steps manually.
 
-## <a name="add"></a>1. Add Application Insights
+You'll need:
 
-**If you're creating a new Windows Phone 8 or Windows 8.1 project** select Application Insights in the New Project dialog. 
+* A subscription to [Microsoft Azure][azure].
+* Visual Studio 2013 or later.
 
-If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).
+## 1. Create an Application Insights resource 
 
-![](./media/appinsights/appinsights-d21-new.png)
+In the [Azure portal][portal], create a new Application Insights resource.
+
+![Choose New, Developer Services, Application Insights](./media/app-insights-windows-get-started/01-new.png)
+
+A [resource][roles] in Azure is an instance of a service. This resource is where telemetry from your app will be analyzed and presented to you.
+
+#### Copy the Instrumentation Key
+
+The key identifies the resource. You'll need it soon, to configure the SDK to send the data to the resource.
+
+![Open the Essentials drop-down drawer and select the instrumentation key](./media/app-insights-windows-get-started/02-props.png)
 
 
-**If you already have a project** add Application Insights from Solution Explorer.
+## 2. Add the Application Insights SDK to your apps
 
+In Visual Studio, add the appropriate SDK to your project.
 
-![](./media/appinsights/appinsights-d22-add.png)
-
-**If yours is a Windows Universal app** create the app in Visual Studio, and then:
-
-1.  In the [Azure portal][portal], create a new Application Insights resource.
-    ![](./media/app-insights-windows-get-started/01-new.png)
-2.  Go to the Properties blade and copy the Instrumentation Key.
-    ![](./media/app-insights-windows-get-started/02-props.png)
-
-In Visual Studio, repeat the following steps for both the Windows Phone project and the Windows project:
+If it's a Windows Universal app, repeat the steps for both the Windows Phone project and the Windows project.
 
 1. Right-click the project in Solution Explorer and choose **Manage NuGet Packages**.
+
     ![](./media/app-insights-windows-get-started/03-nuget.png)
+
 2. Select **Online**, **Include prerelease**, and search for "Application Insights".
+
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
+
 3. Pick the latest version of the appropriate package - one of:
    * Application Insights for Windows applications - *for Windows Store apps*
    * Application Insights for Windows Phone applications
@@ -61,12 +72,13 @@ In Visual Studio, repeat the following steps for both the Windows Phone project 
 
     `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
 
+**Windows Universal apps**: Repeat the steps for both the Phone and the Store projecct.
 
-## <a name="network"></a>2. Enable network access for your app
+## <a name="network"></a>3. Enable network access for your app
 
 If your app doesn't already [request outgoing network access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), you'll have to add that to its manifest as a [required capability](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
-## <a name="run"></a>3. Run your project
+## <a name="run"></a>4. Run your project
 
 [Run your application with F5](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx) and use it, so as to generate some telemetry. 
 
@@ -76,7 +88,7 @@ In Visual Studio, you'll see a count of the events that have been received.
 
 In debug mode, telemetry is sent as soon as it's generated. In release mode, telemetry is stored on the device and sent only when the app resumes.
 
-## <a name="monitor"></a>4. See monitor data
+## <a name="monitor"></a>5. See monitor data
 
 Open Application Insights from your project.
 
@@ -96,6 +108,26 @@ Click any chart to see more detail.
 
 [Publish your application](http://dev.windows.com/publish) and watch the data accumulate as users download and use it.
 
+## <a name="ide"></a>The automated way
+
+If you prefer to use Visual Studio to perform the setup steps, you can do that with Windows Phone, Windows Store, and many other types of apps.
+
+###<a name="new"></a> If you're creating a new Windows app project ...
+
+Select Application Insights in the New Project dialog. 
+
+If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Online account).
+
+![](./media/appinsights/appinsights-d21-new.png)
+
+
+###<a name="existing"></a> Or if it's an existing project ...
+
+Add Application Insights from Solution Explorer.
+
+
+![](./media/appinsights/appinsights-d22-add.png)
+
 
 ## <a name="usage"></a>Next Steps
 
@@ -105,11 +137,20 @@ Click any chart to see more detail.
 
 [Capture and search diagnostic logs][diagnostic]
 
+[Use the API to send custom telemetry][api]
+
 [Troubleshooting][qna]
 
 
 
+<!--Link references-->
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
-
+[api]: app-insights-api-custom-events-metrics.md
+[azure]: insights-perf-analytics.md
+[diagnostic]: app-insights-diagnostic-search.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[roles]: app-insights-resources-roles-access-control.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
 

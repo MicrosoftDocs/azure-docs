@@ -13,31 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
-This is the first step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
+# Walkthrough Step 1: Create a Machine Learning workspace
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+This is the first step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
+
 
 1.	**Create a Machine Learning workspace**
-2.	[Upload existing data][upload-data]
-3.	[Create a new experiment][create-new]
-4.	[Train and evaluate the models][train-models]
-5.	[Publish the web service][publish]
-6.	[Access the web service][access-ws]
-
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
+2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
+3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
+4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
+6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
-
-# Step 1: Create an Azure Machine Learning workspace
 
 To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 
@@ -56,13 +48,10 @@ After your Machine Learning workspace is created, you will see it listed on the 
 
 > [AZURE.TIP] You can share the experiments you're working on by inviting others to your workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
 
-<!-- Uncomment this when this article has more content
-For more information, see [Manage an Azure Machine Learning workspace][manageworkspace]
+For more information, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 
-[manageworkspace]: ../machine-learning-manage-workspace/
--->
 ----------
 
-**Next: [Upload existing data][upload-data]**
+**Next: [Upload existing data](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png

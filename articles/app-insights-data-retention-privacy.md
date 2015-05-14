@@ -2,8 +2,9 @@
 	pageTitle="Data retention and storage in Application Insights" 
 	description="Retention and privacy policy statement" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,98 +12,179 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-11" 
+	ms.date="05/11/2015" 
 	ms.author="awills"/>
 
-# Data retention and storage in Application Insights 
+# Data collection, retention and storage in Application Insights 
 
 *Application Insights is in preview.*
 
 ## Overview
 
-This article answers questions about how we store the telemetry that your application sends to Application Insights.
+This article answers questions about the data collected by  [Visual Studio Application Insights][start] and how it is processed and stored.
 
-Application Insights stores data in Microsoft Azure servers in the United States of America. Download [Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?LinkId=392408) for details of the Microsoft Azure policy. Some specifics about Application Insights are answered below. 
+Application Insights is an Azure Service in Preview. While in Preview we are working towards protecting your data per the policies described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
 
-## How much data is stored? 
 
-While Application Insights is in this free Preview stage, for each account, we store: 
+## Collection
 
-* Up to 500 telemetry messages per second (or 30K per minute). 
+#### How is data collected by Application Insights?
 
-* Up to 10M page views or events per month. 
+Application Insights SDKs and agents that you combine with your application send data to the Application Insights service.  The data is processed by the service to provide you with reports, alerts and other functionality.  This can include data that you choose to capture by using the API, for example in properties and custom events.
 
-*What happens if I go over the limits?* 
+#### How much data can be captured? 
 
-* Over the short limits, we drop some messages after counting them. You won't see them in Diagnostic Search. Event counts will be correct. Average metrics are based on the events we keep, and should be valid. 
+Currently, up to 500 events per second per instrumentation key (that is, per application).
 
-* Over the monthly limit, the events stop being recorded, so your metrics show zeros after some date. 
 
-## How long is the telemetry kept? 
+#### How long is the data kept? 
 
-* 7 days for instance data visible in Diagnostic Search. Individual page views, events, log messages, traces, and exceptions. 
+Up to 30 days for individual events (that is, data items that you can inspect in Diagnostic Search). 
 
-* 13 months for aggregated data visible in Metric Explorer. Statistics on metrics, events and exceptions (counts of type, failed function, and so on) are retained at 1 min (or less) grain for 30 days and 1 hour grain for 13 months. 
+Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for 13 months.
 
-## Where is the data held? 
+#### What limits are there on different types of data?
+
+1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key not scoped to data type.
+2.	[Properties][apiproperties] can be used for filtering and group by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
+3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as “Other values”. The original value can still be used for full text search and filtering.
+
+
+## Access
+
+#### Who can see the data?
+
+The data is visible to you and, if you have an organization account, your team members. 
+
+It can be exported by you and your team members and could be copied to other locations and passed on to other people.
+
+#### What does Microsoft do with the information my app sends to Application Insights?
+
+Microsoft uses the data only in order to provide the service to you.
+
+
+## Location
+
+#### Where is the data held? 
 
 * In the USA. 
 
-Do you have an option to store it in Europe or somewhere else? 
+#### Can it be stored somewhere else, for example in Europe? 
 
 * Not yet. 
 
-## How secure is my telemetry data? 
+## Security 
 
-The data is stored in Microsoft Azure servers, and for accounts in the Azure Preview Portal, account restrictions are described in the Azure Security, Privacy, and Compliance document. For accounts in the Visual Studio Online Portal, the VS Online Data Protection document applies. 
+#### How secure is my data? 
+
+The data is stored in Microsoft Azure servers. For accounts in the Azure Preview Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408). For accounts in the Visual Studio Online Portal, the [Visual Studio Online Data Protection](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) document applies. 
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 
-## Is the data encrypted in Application Insights servers? 
+Data in aggregate across all our customers' applications (such as data rates and average size of traces) is used to improve Application Insights.
 
-Not at present. 
+#### Could someone else's telemetry interfere with my Application Insights data?
 
-## Is the data encrypted in transit from my application to Application Insights servers?
+They could send additional telemetry to your account by using the instrumentation key, which can be found in the code of your web pages. With enough additional data, your metrics would not correctly represent your app's performance and usage.
 
-Yes, we use https to send data from the SDKs to the portal. The only exception is telemetry sent from plain http web pages.
+If you share code with other projects, remember to remove your instrumentation key.
+
+## Encryption
+
+#### Is the data encrypted in Application Insights servers? 
+
+Not inside the servers at present.
+
+All data is encrypted as it moves between data centers.
+
+#### Is the data encrypted in transit from my application to Application Insights servers?
+
+Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
+
+## Personally Identifiable Information
+
+#### Could Personally Identifiable Information (PII) be sent to Application Insights? 
+
+Yes. 
+
+As general guidance:
+
+* Most standard telemetry (that is, telemetry sent without you writing any code) does not include explicit PII. However, it might be possible to identify individuals by inference from a collection of events.
+* Exception and trace messages could contain PII
+* Custom telemetry - that is, calls such as TrackEvent that you write in code using the API or log traces - can contain any data you choose.
 
 
-## Could Personally Identifiable Information (PII) be sent to Application Insights? 
-
-Yes. Both PII sent to Application Insights by your code in custom telemetry, and PII included in the standard telemetry. The Azure privacy statement applies to Application Insights. 
-
-There are several ways in which data might be sent to the portal. It might then be displayed in Diagnostic Search. Members of your organization could also export and download the data. 
-
-* If you install Status Monitor or add Application Insights to your project, stack traces are captured when exceptions or performance alerts occur. These can include actual parameter data such as SQL data. 
-
-* If you insert telemetry calls such as TrackEvent in your code, or if you capture logging framework messages, the properties could include PII. The Microsoft Online Services Terms also applies. For Application Insights particularly, you must comply with laws and regulations applicable to privacy and data collection. You should determine whether Notification or other Consent is needed before collecting the information. 
+The table at the end of this document contains more detailed descriptions of the data collected.
 
 
-## What telemetry is sent when I use Application Insights? 
 
-There are several components you can install. (Refer to [Application Insights - get started][start].) 
+#### Am I responsible for complying with laws and regulations in regard to PII?
 
-<table>
-<tr><th>What you set up</th><th>Telemetry sent to portal</th><th>Could contain sensitive data?</th></tr>
-<tr><td><a href="../app-insights-start-monitoring-app-health-usage/">Add Application Insights to your web project</a></td>
-  <td>Metrics: server request count, server response time</td>
-  <td>No</td></tr>
-<tr><td></td>
-  <td>Exception reports from server</td><td>Stack dumps can contain parameter values</td></tr>
-<tr><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Track custom events and metrics</a></td>
-  <td>Events with properties attached by your code</td>
-  <td>Yes, if your code sends PII in properties or titles</td></tr>
-<tr><td><a href="../app-insights-search-diagnostic-logs/#trace">Log and trace telemetry</a></td><td>Log and trace messages</td><td>Log messages could contain PII</td></tr>
-<tr><td><a href="../app-insights-web-track-usage/">Insert the AI script in your web pages</a></td>
-  <td>Anonymized user and account id</td><td>No</td></tr>
-<tr><td></td><td>Anonymous user session start and end</td><td>No</td></tr>
-<tr><td></td><td>Page URI, load times, session timing</td><td>No</td></tr>
-<tr><td><a href="../app-insights-monitor-performance-live-website-now/">Install Status Monitor on your server</a></td>
-  <td>Dependency calls and durations</td>
-  <td>Call data can contain parameters - for example SQL fields</td></tr>
-<tr><td></td><td>CPU, memory, network and other resource counters</td><td>No</td></tr>
-<tr><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Availability and response times as seen from web</td><td>No</td></tr>
-</table>
+Yes. It is your responsibility to ensure that the collection and use of the data complies with laws and regulations, and with the Microsoft Online Services Terms.
+
+You should inform your customers appropriately about the data your application collects and how the data is used.
+
+#### Can my users turn off Application Insights?
+
+Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
+
+However, you can implement such a feature in your application. All the SDKs include an API setting that turns off telemetry collection. 
+
+#### My application is unintentionally collecting sensitive information. Can Application Insights scrub this data so it isn't retained?
+
+Application Insights does not filter or delete your data. You should manage the data appropriately and avoid sending such data to Application Insights.
+
+
+
+## Data sent by Application Insights
+
+The SDKs vary between platforms, and there are are several components that you can install. (Refer to [Application Insights - get started][start].) Each component sends different data.
+
+#### Classes of data sent in different scenarios
+
+Your action  | Data classes collected (see next table)
+---|---
+[Add Application Insights SDK to a .NET web project][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
+[Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
+[Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
+[Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
+[Add SDK to Windows Store app][windows]|DeviceContext<br/>Users<br/>Crash data
+[Define default properties][apiproperties]|**Properties** on all standard and custom events
+[Call TrackMetric][api]|Numeric values<br/>**Properties**
+[Call Track*][api]|Event name<br/>**Properties**
+[Call TrackException][api]|**Exceptions**<br/>Stack dump<br/>**Properties**
+SDK can't collect data. For example: <br/> - can't access perf counters<br/> -  exception in telemetry initializer | SDK diagnostics
+ 
+
+For [SDKs for other platforms][platforms], see their documents.
+
+
+
+#### The classes of collected data
+
+Collected data class | Includes (not an exhaustive list) 
+---|---
+**Properties**|**Any data - determined by your code**
+DeviceContext |Id, IP, Locale, Device model, network, network type, OEM name, screen resolution, Role Instance, Role Name, Device Type
+ClientContext |OS, locale, language, network, window resolution
+Session | session id
+ServerContext |Machine name, locale, OS, device, user session, user context, operation 
+Inferred |geo location from IP address, timestamp, OS, browser
+Metrics | Metric name and value
+Events | Event name and value
+PageViews | URL and page name or screen name
+Client perf | URL/page name, browser load time
+Requests |URL, duration, response code
+Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Status Monitor)
+**Exceptions** | Type, **message**, call stacks, source file and line number, thread id
+Crashes | Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type
+Trace | **Message** and severity level
+Perf counters | Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length
+Availability | Web test response code, duration of each test step
+SDK diagnostics | Trace message or Exception 
+
+You can [switch off some of the data by editing ApplicationInsights.config][config]
+
 
 ## <a name="video"></a>Videos
 
@@ -117,6 +199,17 @@ There are several components you can install. (Refer to [Application Insights - 
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiproperties]: app-insights-api-custom-events-metrics.md#properties
+[azure]: insights-perf-analytics.md
+[client]: app-insights-javascript.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[platforms]: app-insights-platforms.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[windows]: app-insights-windows-get-started.md
 

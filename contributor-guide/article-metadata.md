@@ -14,13 +14,14 @@ All Azure technical articles contain two metadata sections - a properties sectio
 The properties section uses this syntax:
 
     <properties 
-       pageTitle="article-title" 
-       description="Article description that will be displayed on landing pages and in some search results" 
+       pageTitle="Page title that displays in search results and the browser tab" 
+       description="Article description that will be displayed on landing pages and in most search results" 
        services="service-name" 
        documentationCenter="dev-center-name" 
-       authors="GitHub-alias-of-author" 
+       authors="GitHub-alias-of-only-one-author" 
        manager="manager-alias" 
-       editor=""/>
+       editor=""
+       tags=""/>
 
 The tags section uses this syntax:
 
@@ -31,7 +32,7 @@ The tags section uses this syntax:
        ms.tgt_pltfrm="may be required"
        ms.workload="required" 
        ms.date="mm/dd/yyyy"
-       ms.author="Your MSFT alias or your full email address"/>
+       ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
 ##Usage
 
@@ -41,36 +42,57 @@ The tags section uses this syntax:
 
 ## Attributes and values for the properties section
 
-![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The title you enter for this attribute appears in the browser address bar and as the title in a search result.
+![](./media/article-metadata/checkmark-small.png)**pageTitle**: Required; important to SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Azure* (typed as: space pipe space Microsoft Azure).
  
-![](./media/article-metadata/checkmark-small.png)**description**: Required; important to SEO and site functionalities. Up to 150 characters. The value you enter should be rich in keywords for the topic covered. The value is:
+![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionalities. Use at least 140 characters, but don't exceed 170 characters including spaces. Describe the  purpose of your content so customers will know whether to choose it from a list of search results. The value is:
 
-- Sometimes displayed as the search results description in search results
+- Usually displayed as the description or abstract paragraph in search results
 - Will soon be displayed automatically on documentation landing pages as the description that appears when you click "More". It may appear in other contexts on azure.microsoft.com.
 
-![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. Values:
+![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
 - active-directory
+- api-management
+- app-service\api
+- app-service\logic
+- app-service\mobile
+- app-service\web
+- automation
 - backup
+- batch
 - biztalk-services
 - cache
+- cdn
 - cloud-services
+- data-factory
+- documentdb
 - hdinsight
+- key-vault
+- machine-learning
 - media-services
+- mobile-engagement
 - mobile-services
 - multi-factor-authentication
 - notification-hubs
+- operational-insights
 - recovery-manager
+- redis-cache
+- remoteapp
+- search
 - service-bus
+- service-fabric
 - scheduler
+- site-recovery
 - sql-database
 - storage
+- storsimple
+- stream-analytics
 - virtual-machines
 - virtual-network
 - visual-studio-online
 - web-sites
 
-![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. Values:
+![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
 - **.net** 
 - **nodejs** 
@@ -80,15 +102,17 @@ The tags section uses this syntax:
 - **ruby** 
 - **mobile**: Deprecated. Replace with specific mobile platform.
 - **ios**: Verifing this new value
-- **android**: Verifing this new value
-- **windows**: Verifing this new value
-- **xamarin**: Verifing this new value
+- **android**: Verifying this new value
+- **windows**: Verifying this new value
+- **xamarin**: Verifying this new value
 
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
 
-![](./media/article-metadata/checkmark-small.png)**editor**: not required.
+![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
+
+![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the following approved values: mysql, billing, architecture. This value does not support free-form tags or hashtags.
 
 ## Attributes and values for the tags section
 
@@ -98,6 +122,11 @@ The tags section uses this syntax:
 
  - **active-directory**
  - **api-management**
+ - **app-service**: Only applies to general conceptual material on App Service
+ - **app-service-api**
+ - **app-service-logic**
+ - **app-service-mobile**
+ - **app-service-web**
  - **application-insights**	
  - **automation**	
  - **backup**	
@@ -111,7 +140,8 @@ The tags section uses this syntax:
  - **key-vault**	
  - **machine-learning**	
  - **marketplace**: Articles about the Azure marketplace
- - **media-services**	
+ - **media-services**
+ - **mobile-engagement**	
  - **mobile-services**	
  - **multi-factor-authentication**	
  - **multiple**: The page applies to multiple services equally
@@ -121,6 +151,7 @@ The tags section uses this syntax:
  - **remoteapp**	
  - **scheduler**	
  - **service-bus**	
+ - **service-fabric**
  - **site-recovery**: formerly recovery-services
  - **sql-database**	
  - **sql-reporting**	
@@ -155,25 +186,25 @@ The tags section uses this syntax:
 
  - **article**: A conceptual topic, tutorial, feature guide, or other non-reference article
 
- - **campaign-page**: Azure.com only.  A page that is specifically designed as a landing page for external campaigns, and is not included as part of the primary site IA.  Should not be used for documentation articles or regular doc landing pages.  Examples: azure.microsoft.com/en-us/develop/net/aspnet/; azure.microsoft.com/en-us/develop/mobile/ios/
+ - **campaign-page**: Azure.com only.  A page that is specifically designed as a landing page for external campaigns, and is not included as part of the primary site IA.  Should not be used for documentation articles or regular doc landing pages.  Examples: azure.microsoft.com/develop/net/aspnet/; azure.microsoft.com/develop/mobile/ios/
 
  - **dev-center-home-page**: Azure.com only.  A dev center home page, e.g. /develop/net/
 
  - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations
 
- - **home-page**: Top level documentation home page. We only have two: azure.microsoft.com/en-us/documentation/ and msdn.microsoft.com/en-us/library/azure/
+ - **home-page**: Top level documentation home page. We only have two: azure.microsoft.com/documentation/ and msdn.microsoft.com/library/azure/
 
- - **index-page**: Second-level landing pages for programming languages, services, or features. These are spread across Azure.com and the library, and are used as entry points for more specific, scoped information. Examples: http://azure.microsoft.com/en-us/develop/mobile/resources-wp8/, http://msdn.microsoft.com/library/azure/jj673460.aspx, http://msdn.microsoft.com/en-us/library/azure/hh689864.aspx
+ - **index-page**: Second-level landing pages for programming languages, services, or features. These are spread across Azure.com and the library, and are used as entry points for more specific, scoped information. Examples: http://azure.microsoft.com/develop/mobile/resources-wp8/, http://msdn.microsoft.com/library/azure/jj673460.aspx, http://msdn.microsoft.com/library/azure/hh689864.aspx
 
- - **infographic-page**: Azure.com only. A page that features a browsable infographic or poster, for instance http://azure.microsoft.com/en-us/documentation/infographics/windows-azure/
+ - **infographic-page**: Azure.com only. A page that features a browsable infographic or poster, for instance http://azure.microsoft.com/documentation/infographics/windows-azure/
 
  - **reference**: An API reference page (including REST API) or PowerShell cmdlet reference page
 
  - **service-home-page**: Azure.com only.  A doc service home page, e.g. /documentation/services/virtual-machines/
 
- - **site-section-home-page**: Azure.com only. A "home page" for a particular type of content on azure.com Examples: http://azure.microsoft.com/en-us/documentation/infographics/, http://azure.microsoft.com/en-us/documentation/scripts/, http://azure.microsoft.com/en-us/documentation/videos/home/, http://azure.microsoft.com/en-us/downloads/
+ - **site-section-home-page**: Azure.com only. A "home page" for a particular type of content on azure.com Examples: http://azure.microsoft.com/documentation/infographics/, http://azure.microsoft.com/documentation/scripts/, http://azure.microsoft.com/documentation/videos/home/, http://azure.microsoft.com/downloads/
 
- - **video-page**: Azure.com only.  A page that features a video, for instance http://azure.microsoft.com/en-us/documentation/videos/azure-webjobs-hosting-testing-net/
+ - **video-page**: Azure.com only.  A page that features a video, for instance http://azure.microsoft.com/documentation/videos/azure-webjobs-hosting-testing-net/
 
 ![](./media/article-metadata/checkmark-small.png)**ms.tgt_pltfrm**: Required. Specifies the target platform, for instance Windows, Linux, Windows Phone, iOS, Android, or special cache platforms. One value per page. This value will be **NA** for most topics except mobile and virtual machines.
 
@@ -241,7 +272,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png) **ms.date**: Required. Specifies the date the article was last reviewed for relevance, accuracy, correct screen shots, and working links. Enter the date in mm/dd/yyyy format. This date also appears on the published article as the last updated date.
 
-![](./media/article-metadata/checkmark-small.png) **ms.author**: Required. Specifies the author(s) associated with the topic. To specify multiple values you should spearate them with semicolons. Either Microsoft aliases or complete email addresses are acceptable. The length can be no longer than 200 characters.
+![](./media/article-metadata/checkmark-small.png) **ms.author**: Required. Specifies the author(s) associated with the topic. To specify multiple values you should separate them with semicolons. Either Microsoft aliases or complete email addresses are acceptable. The length can be no longer than 200 characters.
 
 
 ###Contributors' Guide Links

@@ -20,9 +20,9 @@ This topic describes quotas and limitations associated with Microsoft Azure Medi
  
 - The maximum number of jobs in your account should not exceed 50,000.
  
-- You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request. For more information, see [Job record limit for Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) and [Managing Assets](https://msdn.microsoft.com/en-us/library/azure/dn642436.aspx). 
+- You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request. For more information, see [Job record limit for Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) and [Managing Assets](https://msdn.microsoft.com/library/azure/dn642436.aspx). 
  
-- When making a request to list Job entities, a maximum of 1,000 will be returned per request. If you need to keep track of all submitted Jobs, you can use top/skip as described in [OData system query options](http://msdn.microsoft.com/en-us/library/gg309461.aspx).  
+- When making a request to list Job entities, a maximum of 1,000 will be returned per request. If you need to keep track of all submitted Jobs, you can use top/skip as described in [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx).  
 
 
 - You cannot have more than 5 unique Locators associated with a given asset at one time. 
@@ -32,7 +32,7 @@ This topic describes quotas and limitations associated with Microsoft Azure Medi
 
 - You cannot have more than 25 Media Services accounts in a single subscription.
 
-- Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code. For more information, see the description of the 503 error in the [Azure Media Services Error Codes](http://msdn.microsoft.com/en-us/library/azure/dn168949.aspx) topic.
+- Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code. For more information, see the description of the 503 error in the [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) topic.
 
 - By default, you can add up to 5 Live channels to your Media Services account. 
 

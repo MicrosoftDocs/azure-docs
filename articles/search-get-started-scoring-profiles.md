@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/10/2015" 
+	ms.date="04/27/2015" 
 	ms.author="heidist"/>
 
 # How to use scoring profiles in Azure Search
@@ -27,9 +27,9 @@ The sample application demonstrates scoring behaviors using fictional data, call
 <a id="sub-1"></a>
 ## Prerequisites
 
-The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
+The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
 
-You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Get started with Azure Search](../search-get-started/) for help with setting up the service.
+You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Create a Search service in the portal](search-create-service-portal.md) for help with setting up the service.
 
 [AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
@@ -47,7 +47,7 @@ On the Source Code tab, click **Download** to get a zip file of the solution.
 
 1. After you extract the files, open the solution in Visual Studio to edit the configuration file.
 1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the management portal.
-1. Sign in to the [Azure Preview Portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 1. Go to the service dashboard for Azure Search.
 1. Click the **Properties** tile to copy the service URL
 1. Click the **Keys** tile to copy the `api-key`.
@@ -62,7 +62,7 @@ When you are finished adding the URL and `api-key` to app.config, application se
 
 You're almost ready to build and run the app, but before you do, take a look at the JSON files used to create and populate the index.
 
-**Schema.json** defines the index, including the scoring profiles that are emphasized in this demo. Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as `margin`, that you can use in a scoring profile. Scoring profile syntax is documented in [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx).
+**Schema.json** defines the index, including the scoring profiles that are emphasized in this demo. Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as `margin`, that you can use in a scoring profile. Scoring profile syntax is documented in [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 **Data1-3.json** provides the data, 246 albums across a handful of genres. The data is a combination of actual album and artist information, with fictional fields like `price` and `margin` used to illustrate search operations. The data files conform to the index and are uploaded to your Azure Search service. After the data is uploaded and indexed, you can issue queries against it.
 
@@ -80,7 +80,8 @@ You're almost ready to build and run the app, but before you do, take a look at 
 
 - Queries the index using four queries. Notice that the scoring profiles are specified as a query parameter. All of the queries search for the same term, 'best'. The first query demonstrates default scoring. The remaining three queries use a scoring profile.
 
-<h2 id="sub-5">Build and run the application</h2>
+<a id="sub-5"></a>
+## Build and run the application
 
 To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press enter to continue”, the program completed successfully. 
 
@@ -102,11 +103,12 @@ The next illustration shows the fourth and final query, boosted by 'margin'. The
 
 Now that you have experimented with scoring profiles, try changing the program to use different query syntax, scoring profiles, or richer data. Links in the next section provide more information.
 
-<h2 id="next-steps">Next steps</h2>
+<a id="next-steps"></a>
+## Next steps
 
-Learn more about scoring profiles. See [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) for details.
+Learn more about scoring profiles. See [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
 
-Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx) for details.
+Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for details.
 
 Need to step back and learn more about index creation? [Watch this video](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) to understand the basics.
 

@@ -19,17 +19,11 @@
 	ms.author="jeffreyg"/>
 
 
-<h1><a id="swap"></a>How to Manage SQL Database</h1>
+# How to Manage SQL Database
 
-This documentation shows you how to perform simple management tasks in Azure SQL Database. 
+This article shows you how to perform simple management tasks in Azure SQL Database. 
 
-##Table of Contents##
-
-* [How to: Connect to SQL Database in Azure using Management Studio](#connect)
-* [How to: Add logins and users to SQL Database in Azure](#addlogins)
-
-
-<h2><a id="connect"></a>How to: Connect to SQL Database in Azure using Management Studio</h2>
+## How to: Connect to SQL Database in Azure using Management Studio
 
 Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premises SQL Server instance, you can open a connection to both the on-premises instance and a logical server on Azure to perform tasks side by side.
 
@@ -39,7 +33,7 @@ In the following step, you'll use Management Studio to connect to a logical serv
 
 Before you can connect, it is sometimes necessary to create a firewall exception that allows outbound requests on port 1433 on your local system. Computers that are secure by default typically do not have port 1433 open. 
 
-##Configure the firewall for an on-premises server
+## Configure the firewall for an on-premises server
 
 1. In Windows Firewall with Advanced Security, create a new outbound rule.
 
@@ -48,7 +42,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 3. Provide a meaningful name, such as *WindowsAzureSQLDatabase (tcp-out) port 1433*. 
 
 
-##Connect to a logical server
+## Connect to a logical server
 
 1. In Management Studio, in Connect to Server, make sure that Database Engine is selected, then enter the logical server name in this format: *servername*.database.widnows.net
 
@@ -61,14 +55,14 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 4. In Connect to database, specify **master**.
 
 
-##Connect to an on-premises server
+## Connect to an on-premises server
 
 1. In Management Studio, in Connect to Server, make sure that Database Engine is selected, then enter the name of a local instance in this format: *servername*\\*instancename*. If the server is local and a default instance, enter *localhost*.
 
 2. In Authentication, choose **Windows Authentication** and then enter a Windows account that is a member of the sysadmin role.
 
 
-<h2><a id="addlogins"></a>How to: Add logins and users to SQL Database in Azure</h2>
+## How to: Add logins and users to Azure SQL Database
 
 After you deploy a database, you need to configure logins and assign permissions. In the next step, you’ll run two scripts.
 
@@ -78,7 +72,7 @@ The logins you create must be SQL Server authentication logins. If you already h
 
 The second script assigns database user permissions. For this script, you will connect to a database already loaded on Azure.
 
-##Create logins
+## Create logins
 
 1. In Management Studio, connect to a logical server on Azure, expand the Databases folder, right-click **master**, and select **New Query**.
 
@@ -98,7 +92,7 @@ The second script assigns database user permissions. For this script, you will c
 </pre></div>
 
 
-##Create database users
+## Create database users
 
 1. Expand the Databases folder, right-click **school**, and select **New Query**.
 
@@ -120,7 +114,7 @@ The second script assigns database user permissions. For this script, you will c
     GRANT VIEW DATABASE STATE to 'sqlops';
 </pre></div>
 
-##View and test logins
+## View and test logins
 
 1. In a new query window, connect to **master** and execute the following statement: 
 
@@ -141,9 +135,9 @@ The second script assigns database user permissions. For this script, you will c
 
 You have now created and tested several logins. For more information, see [Managing Databases and Logins in SQL Database][] and [Monitoring SQL Database Using Dynamic Management Views][].
 
-[Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
-[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
-[Managing SQL Database using Management Studio]: http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/
+[Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
+[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+[Managing SQL Database using Management Studio]: http://www.windowsazure.com/develop/net/common-tasks/sql-azure-management/
 
 
 

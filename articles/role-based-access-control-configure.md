@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Role Based Access Control in Azure Preview Portal" 
+	pageTitle="Role-based access control in the Microsoft Azure portal" 
 	description="Describes how role based access control works and how to set it up" 
 	services="" 
 	documentationCenter="" 
@@ -13,34 +13,17 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="Ibiza" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/06/2015" 
+	ms.date="05/05/2015" 
 	ms.author="justinha"/>
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+# Role-based access control in the Microsoft Azure portal 
 
-<!--Properties section (above): this is required in all topics. Please fill it out!-->
+We’ve added support for role-based access control (RBAC) in the Microsoft Azure portal to help organizations meet their access management requirements simply and precisely. The [blog post](http://go.microsoft.com/fwlink/?LinkId=511576) will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases.
 
-<!--The next line, with one pound sign at the beginning, is the page title--> 
-# Role-based access control in Azure Preview portal 
 
-<p> We’ve added support for role-based access control (RBAC) in the Azure Preview portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. </p>
-
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-
-##Table of Contents##
-
-* [RBAC in Azure](#whatisrbac) 
-* [Co-existence of RBAC with subscription co-admins](#coexist)
-* [Authorization for management versus data operations](#authmgmt)
-* [How to add and remove access](#addremoveaccess)
-* [Known issues when using role-based access control](#knownissues)
-* [Built-in roles](#builtinroles)
-* [How to provide feedback](#feedback)
-* [Next steps](#next)
-
-<h2><a id="whatisrbac"></a>RBAC in Azure</h2>
+## RBAC in Azure
                                                                    
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using Azure Management portal or Azure Resource Manager API first need to authenticate with that Azure Active Directory.
+Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Microsoft Azure Management Portal or Azure Resource Manager API first need to authenticate with that Azure Active Directory.
 
 ![][1] 
 
@@ -58,9 +41,9 @@ Access is granted to Azure AD users and services by assigning the appropriate ro
 
 Roles can be assigned to the following types of Azure AD security principals:
 
-+ **Users**: roles can be assigned to organizational users that are in the Azure AD with which the Azure subscription is associated. Roles can also be assigned to external Microsoft account users (such as joe@outlook.com) by using the Invite action to assign the user to a role in the Azure Preview portal. Assigning a role to an external Microsoft account user causes a guest account to be created in the Azure AD for it. If this guest account is disabled in the directory, the external user won’t be allowed to access any Azure resource that the user has been granted access to.
++ **Users**: roles can be assigned to organizational users that are in the Azure AD with which the Azure subscription is associated. Roles can also be assigned to external Microsoft account users (such as joe@outlook.com) by using the Invite action to assign the user to a role in the Azure portal. Assigning a role to an external Microsoft account user causes a guest account to be created in the Azure AD for it. If this guest account is disabled in the directory, the external user won’t be allowed to access any Azure resource that the user has been granted access to.
 + **Groups**: roles can be assigned to Azure AD security groups. A user is automatically granted access to a resource if the user becomes a member of a group that has access. The user also automatically loses access to the resource after getting removed from the group. Managing access via groups by assigning roles to groups and adding users to those groups is the best practice, instead of assigning roles directly to users. Azure RBAC does not allow assigning roles to distribution lists.
-	The ability to assign roles to groups lets an organization extend its existing access control model from its on-premises directory to the cloud, so security groups that are already established to control access on-premises can be re-used to control access to resources in the Azure Preview portal. For more information about different options for synchronizing users and groups from an on-premises directory, see [Directory integration](http://technet.microsoft.com/library/jj573653.aspx). Azure AD Premium also offers a [delegated group management feature](http://msdn.microsoft.com/library/azure/dn641267.aspx) with which the ability to create and manage groups can be delegated to non-administrator users from Azure AD.
+	The ability to assign roles to groups lets an organization extend its existing access control model from its on-premises directory to the cloud, so security groups that are already established to control access on-premises can be re-used to control access to resources in the Azure portal. For more information about different options for synchronizing users and groups from an on-premises directory, see [Directory integration](http://technet.microsoft.com/library/jj573653.aspx). Azure AD Premium also offers a [delegated group management feature](http://msdn.microsoft.com/library/azure/dn641267.aspx) with which the ability to create and manage groups can be delegated to non-administrator users from Azure AD.
 + **Service principals**: service identities are represented as service principals in the directory. They authenticate with Azure AD and securely communicate with one another. Services can be granted access to Azure resources by assigning roles via the Azure module for Windows PowerShell to the Azure AD service principal representing that service. 
 
 #### Resource scope
@@ -69,26 +52,26 @@ Access does not need to be granted to the entire subscription. Roles can also be
 
 ![][2]
 
-<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-administrators</h2>
+## Co-existence of RBAC with subscription co-administrators
 
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
-However, the new RBAC model is supported only by the Azure Preview portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure Preview portal does not make that user a co-administrator of the subscription in the full Azure portal.
+However, the new RBAC model is supported only by the Azure portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management Portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure portal does not make that user a co-administrator of the subscription in the full Azure portal.
 
-If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure Preview portal, you should add them to the subscription co-administrators using the full Azure Management portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
+If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure portal, you should add them to the subscription co-administrators using the Azure Management Portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
 
-<h2><a id="authmgmt"></a>Authorization for management versus data operations</h2>
+## Authorization for management versus data operations
 
-Role-based access control is supported only for management operations of the Azure resources in Azure Preview portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
+Role-based access control is supported only for management operations of the Azure resources in Azure portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
 
-<h2><a id="addremoveaccess"></a>How to add and remove access</h2>
+## How to add and remove access
 
 Let’s take a look at an example of how a resource owner in an organization can manage access. In this scenario, you have multiple people working on a variety of test and production projects that are built using Azure resources. You want to follow best practices for granting access. Users should have access to all resources that they need, but no additional access. You want to re-use all the investments you have made in processes and tooling to use security groups that are mastered in an on-premises Active Directory. These sections cover how you set up access to these resources:
 
-* [Add access](#add)
-* [Remove access](#remove)
-* [Add or remove access for external user](#addremoveext)
+* [Add access](#add-access)
+* [Remove access](#remove-access)
+* [Add or remove access for external user](#add-or-remove-access-for-external-user)
 
-<h3><a id="add"></a>Add access</h3>
+### Add access
 
 Here is a summary of the access requirements and how they are set up in Azure.
 
@@ -119,9 +102,9 @@ Role assignments can also be managed by using the Microsoft Azure module for Win
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/). 
+For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](role-based-access-control-powershell.md). 
 
-<h3><a id="remove"></a>Remove access</h3>
+### Remove access
 
 You can also remove assignments easily. Let’s say you want to remove a user named Brad Adams from the Reader role for a resource group named TestDB. Open the resource group blade, click **Reader > Brad Adams > Remove**.
 
@@ -131,10 +114,10 @@ Here is an example of how to remove Brad Adams by using the Remove-AzureRoleAssi
 
 	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
-<h3><a id="addremoveext"></a>Add or remove access for external user</h3>
+### Add or remove access for external user
 
 The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator. 
-To open the **Configure** tab in the full Azure portal, click **Active Directory**, and then click the name of the directory.
+To open the **Configure** tab in the Azure portal, click **Active Directory**, and then click the name of the directory.
 
 ![][10]
 
@@ -158,12 +141,12 @@ When you add an external user, a guest is created in the directory. Thereafter, 
 
 You can also remove a guest from any role, just as you would remove any user. Removing the guest from a role on a resource does not remove the guest from the directory. 
  
-<h2><a id="knownissues"></a>Known issues when using role-based access control</h2>
+## Known issues when using role-based access control
 
-If you encounter a problem when you use role based access control feature while it is in preview, see [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/) for any known issues that may be related to the problem.
+If you encounter a problem when you use role based access control feature, see [Troubleshooting role-based access control](role-based-access-control-troubleshooting.md) for any known issues that may be related to the problem.
 
 
-<h2><a id="builtinroles"></a>Built-in roles</h2>
+## Built-in roles
 
 Azure role-based access control comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
 
@@ -172,32 +155,32 @@ Click the corresponding link to see the **actions** and **not actions** properti
 
 Role name  | Description  	
 ------------- | -------------  
-[API Management Service Contributor](#APIMgmt) | Lets you manage API Management service, but not access to them.
-[Application Insights Component Contributor](#AppInsights) | Lets you manage Application Insights components, but not access to them.
-[BizTalk Contributor](#BizTalk) | Lets you manage BizTalk services, but not access to them.
-[ClearDB MySQL DB Contributor](#ClearDB) | Lets you manage ClearDB MySQL databases, but not access to them.
-[Contributor](#Contributor) | Contributors can manage everything except access.
-[Data Factory Contributor](#DataFactory) | Lets you manage data factories, but not access to them.
-[Document DB Account Contributor](#DocDBContrib) | Lets you manage DocumentDB accounts, but not access to them.
-[Intelligent Systems Account Contributor](#IntelliSysContrib) | Lets you manage Intelligent Systems accounts, but not access to them.
-[NewRelic APM Account Contributor](#NewRelicContrib) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.
-[Owner](#Owner) | Owner can manage everything, including access.
-[Reader](#Reader) | Readers can view everything, but can't make changes.
-[Redis Cache Contributor](#Redis) | Lets you manage Redis caches, but not access to them.
-[SQL DB Contributor](#SQLDBContrib) | Lets you manage SQL databases, but not access to them. Also, you can’t manage their security-related policies or their parent SQL servers.
-[SQL Security Manager](#SQLSecMgr) | Lets you manage the security-related policies of SQL servers and databases, but not access to them.
-[SQL Server Contributor](#SQLSrvContrib) | Lets you manage SQL servers and databases, but not access to them, and not their security-related policies.
-[Scheduler Job Collections Contributor](#SchedContrib) | Lets you manage Scheduler job collections, but not access to them.
-[Search Service Contributor](#SearchContrib) | Lets you manage Search services, but not access to them.
-[Storage Account Contributor](#StorageContrib) | Lets you manage storage accounts, but not access to them.
-[User Access Administrator](#UserAccessAdmin) | Lets you manage user access to Azure resources.
-[Virtual Machine Contributor](#VMContrib) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.
-[Virtual Network Contributor](#VNetContrib) | Lets you manage virtual networks, but not access to them.
-[Web Plan Contributor](#WebPlanContrib) | Lets you manage the web plans for websites, but not access to them.
-[Website Contributor](#WebsiteContrib) | Lets you manage websites (not web plans), but not access to them.
+[API Management Service Contributor](#api-management-service-contributor) | Lets you manage API Management service, but not access to them.
+[Application Insights Component Contributor](#application-insights-component-contributor) | Lets you manage Application Insights components, but not access to them.
+[BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them.
+[ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) | Lets you manage ClearDB MySQL databases, but not access to them.
+[Contributor](#contributor) | Contributors can manage everything except access.
+[Data Factory Contributor](#data-factory-contributor) | Lets you manage data factories, but not access to them.
+[Document DB Account Contributor](#document-db-account-contributor) | Lets you manage DocumentDB accounts, but not access to them.
+[Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Lets you manage Intelligent Systems accounts, but not access to them.
+[NewRelic APM Account Contributor](#newrelic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.
+[Owner](#owner) | Owner can manage everything, including access.
+[Reader](#reader) | Readers can view everything, but can't make changes.
+[Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Redis caches, but not access to them.
+[SQL DB Contributor](#sql-db-contributor) | Lets you manage SQL databases, but not access to them. Also, you can’t manage their security-related policies or their parent SQL servers.
+[SQL Security Manager](#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them.
+[SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security-related policies.
+[Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them.
+[Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them.
+[Storage Account Contributor](#storage-account-contributor) | Lets you manage storage accounts, but not access to them.
+[User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources.
+[Virtual Machine Contributor](#virtual-machine-contributor) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.
+[Virtual Network Contributor](#virtual-network-contributor) | Lets you manage virtual networks, but not access to them.
+[Web Plan Contributor](#web-plan-contributor) | Lets you manage the web plans for websites, but not access to them.
+[Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them.
 
 
-<h3><a id="APIMgmt"></a>API Management Service Contributor</h3>
+### API Management Service Contributor
 
 <table style=width:100%">
 <tr>
@@ -229,7 +212,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="AppInsights"></a>Application Insights Component Contributor</h3>
+### Application Insights Component Contributor
 
 <table style=width:100%">
 <tr>
@@ -264,7 +247,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="BizTalk"></a>BizTalk Contributor</h3>
+### BizTalk Contributor
 
 <table style=width:100%">
 <tr>
@@ -296,7 +279,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="ClearDB"></a>ClearDB MySQL DB Contributor</h3>
+### ClearDB MySQL DB Contributor
 
 <table style=width:100%">
 <tr>
@@ -328,7 +311,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="Contributor"></a>Contributor</h3>
+### Contributor
 
 <table style=width:100%">
 <tr>
@@ -351,7 +334,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="DataFactory"></a>Data Factory Contributor</h3>
+### Data Factory Contributor
 
 <table style=width:100%">
 <tr>
@@ -380,7 +363,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="DocDBContrib"></a>Document DB Account Contributor</h3>
+### Document DB Account Contributor
 
 <table style=width:100%">
 <tr>
@@ -412,7 +395,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="IntelliSysContrib"></a>Intelligent Systems Account Contributor</h3>
+### Intelligent Systems Account Contributor
 
 <table style=width:100%">
 <tr>
@@ -444,7 +427,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="NewRelicContrib"></a>NewRelic APM Account Contributor</h3>
+### NewRelic APM Account Contributor
 
 <table style=width:100%">
 <tr>
@@ -476,7 +459,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="Owner"></a>Owner</h3>
+### Owner
 
 <table style=width:100%">
 <tr>
@@ -488,7 +471,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="Reader"></a>Reader</h3>
+### Reader
 
 <table style=width:100%">
 <tr>
@@ -500,7 +483,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="Redis"></a>Redis Cache Contributor</h3>
+### Redis Cache Contributor
 
 <table style=width:100%">
 <tr>
@@ -529,7 +512,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SQLDBContrib"></a>SQL DB Contributor</h3>
+### SQL DB Contributor
 
 <table style=width:100%">
 <tr>
@@ -584,7 +567,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SQLSecMgr"></a>SQL Security Manager</h3>
+### SQL Security Manager
 
 <table style=width:100%">
 <tr>
@@ -640,7 +623,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SQLSrvContrib"></a>SQL Server Contributor</h3>
+### SQL Server Contributor
 
 <table style=width:100%">
 <tr>
@@ -695,7 +678,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SchedContrib"></a>Scheduler Job Collections Contributor</h3>
+### Scheduler Job Collections Contributor
 
 <table style=width:100%">
 <tr>
@@ -727,7 +710,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SearchContrib"></a>Search Service Contributor</h3>
+### Search Service Contributor
 
 <table style=width:100%">
 <tr>
@@ -759,7 +742,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="StorageContrib"></a>Storage Account Contributor</h3>
+### Storage Account Contributor
 
 <table style=width:100%">
 <tr>
@@ -791,7 +774,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="UserAccessAdmin"></a>User Access Administrator</h3>
+### User Access Administrator
 
 <table style=width:100%">
 <tr>
@@ -809,9 +792,9 @@ Role name  | Description
 <td>Microsoft.Support/*</td>
 <td>Create and Manage Support Tickets</td>
 </tr>
-</table>
+</table> 
 
-<h3><a id="VMContrib"></a>Virtual Machine Contributor</h3>
+### Virtual Machine Contributor
 
 <table style=width:100%">
 <tr>
@@ -871,7 +854,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="VNetContrib"></a>Virtual Network Contributor</h3>
+### Virtual Network Contributor
 
 <table style=width:100%">
 <tr>
@@ -903,7 +886,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="WebPlanContrib"></a>Web Plan Contributor</h3>
+### Web Plan Contributor
 
 <table style=width:100%">
 <tr>
@@ -935,7 +918,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="WebsiteContrib"></a>Website Contributor</h3>
+### Website Contributor
 
 <table style=width:100%">
 <tr>
@@ -980,24 +963,21 @@ Role name  | Description
 </table>
 
 
-<h2><a id="feedback"></a>How to provide feedback</h2>
+## How to provide feedback
 
 Please try Azure RBAC and send us [feedback](http://aka.ms/azurerbacfeedback). 
 
 
-<h2><a id="next"></a>Next steps</h2>
+## Next steps
 
 Here are some additional resources to help you use role-based access control: 
 
-+ [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/)
-+ [Managing role-based access control with XPLAT CLI](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-xplat-cli/)
-+ [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/)
-+ [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx)
-+ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx)
++ [Managing role-based access control with Windows PowerShell](role-based-access-control-powershell.md)
++ [Managing role-based access control with Azure CLI](role-based-access-control-xplat-cli.md)
++ [Troubleshooting role-based access control](role-based-access-control-troubleshooting.md)
++ [Azure Active Directory Premium and Basic](active-directory-editions.md)
++ [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)
 + For an introduction to self-service group management for security groups, see the [Active Directory Team Blog](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
-
-
 
 <!--Image references-->
 [1]: ./media/role-based-access-control-configure/RBACSubAuthDir.png

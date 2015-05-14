@@ -1,6 +1,21 @@
-<properties title="How to consume an Azure Machine Learning web service" pageTitle="How to consume a Machine Learning web service that has been published from a Machine Learning experiment | Azure" description="required" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="bradsev" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="How to consume a Machine Learning web service that has been published from a Machine Learning experiment | Azure" 
+	description="Once a machine learning service is published, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service." 
+	services="machine-learning" 
+	solutions="big-data" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="machine-learning" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="tbd" ms.date="02/09/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="tbd" 
+	ms.date="02/20/2015" 
+	ms.author="bradsev" />
 
 
 # How to consume a published Azure Machine Learning web service
@@ -13,7 +28,9 @@ When published as a web service, Azure Machine Learning experiments provide a RE
 * Has SSL capabilities to perform HTTPS requests
 * Has the ability to parse JSON (by hand or support libraries)
 
-This means the services can be consumed from web applications, mobile applications, custom desktop applications and even from within Excel!  
+This means the services can be consumed from web applications, mobile applications, custom desktop applications and even from within Excel.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]  
 
 An Azure Machine Learning web service can be consumed in two different ways, either as a request-response service or as a batch execution service. In each scenario the functionality is provided through the RESTFul web service that is made available for consumption once the experiment has been published. Deploying a Machine Learning web service in Azure with an Azure web service end-point, where the service is automatically scaled based on usage, you can avoid upfront and ongoing costs for hardware resources.
 
@@ -24,8 +41,8 @@ For more information on how to manage Azure Machine Learning web service endpoin
 For information about how to create and publish an Azure Machine Learning web service, 
 see [Publish an Azure Machine Learning web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and publishing it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
-[publish]: ../machine-learning-publish-a-machine-learning-web-service/
-[walkthrough]: ../machine-learning-walkthrough-develop-predictive-solution/
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 
 ## Request-Response Service (RRS)
@@ -61,30 +78,56 @@ On the API help page, aside from the URI, you will input and output definitions 
 **Sample Request**
 
 	{
-	  "Id": "score00001",
-	  "Instance": {
-	    "FeatureVector": {
-	      "cog_speed": "0"
-	    },
-	    "GlobalParameters": {}
-	  }
-	} 
+	  "Inputs": {
+	    "input1": {
+	      "ColumnNames": [
+	        "cog_speed"
+	      ],
+	      "Values": [
+	        [
+	          "0"
+	        ],
+	        [
+	          "1"
+	        ]
+	      ]
+	    }
+	  },
+	  "GlobalParameters": {}
+	}
 
 
 Similarly, the API response is also called out, again for this service specifically.
 
 **Sample Response**
 
-	["0"] 
+	{
+	  "Results": {
+	    "output1": {
+	      "type": "DataTable",
+	      "value": {
+	        "ColumnNames": [
+	          "cog_speed"
+	        ],
+	        "ColumnTypes": [
+	          "Numeric"
+	        ].
+	      "Values": [
+	        [
+	          "0"
+	        ],
+	        [
+	          "1"
+	        ]
+	      ]
+	    }
+	  },
+	  "GlobalParameters": {}
+	}
 
 Towards the bottom of the page you will find the code examples. Below is the code sample for the C# implementation 
                    
 **Sample Code**
-	// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
-	// Instructions for doing this in Visual Studio:
-	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.AspNet.WebApi.Client
-	
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
@@ -96,16 +139,10 @@ Towards the bottom of the page you will find the code examples. Below is the cod
 	
 	namespace CallRequestResponseService
 	{
-	    public class ScoreData
+	    public class StringTable
 	    {
-	        public Dictionary<string, string> FeatureVector { get; set; }
-	        public Dictionary<string, string> GlobalParameters { get; set; }
-	    }
-	
-	    public class ScoreRequest
-	    {
-	        public string Id { get; set; }
-	        public ScoreData Instance { get; set; }
+	        public string[] ColumnNames { get; set; }
+	        public string[,] Values { get; set; }
 	    }
 	
 	    class Program
@@ -119,30 +156,34 @@ Towards the bottom of the page you will find the code examples. Below is the cod
 	        {
 	            using (var client = new HttpClient())
 	            {
-	                ScoreData scoreData = new ScoreData()
+	                var scoreRequest = new
 	                {
-	                    FeatureVector = new Dictionary<string, string>() 
-	                    {
-	                        { "cog_speed", "0" },
-	                    },
-	                    GlobalParameters = 
-	                        new Dictionary<string, string>() ;
+	                    Inputs = new Dictionary<string, StringTable> () { 
+	                        { 
+	                            "input1", 
+	                            new StringTable() 
+	                            {
+	                                ColumnNames = new string[] {"cog_speed"},
+	                                Values = new string[,] {  { "0"},  { "1"}  }
+	                            }
+	                        },
+	                    GlobalParameters = new Dictionary<string, string>() { }
 	                };
-	
-	                ScoreRequest scoreRequest = new ScoreRequest()
-	                {
-	                    Id = "score00001",
-	                    Instance = scoreData
-	                };
-	
+	                
 	                const string apiKey = "abc123"; // Replace this with the API key for the web service
-	                const string apiUri = "https://somewhere.com"; // Replace this with the API key for the web service
-	
 	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
 	
-	                client.BaseAddress = new Uri(apiUri);
-	
+	                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/<workspace id>/services/<service id>/execute?api-version=2.0&details=true");
+	                
+	                // WARNING: The 'await' statement below can result in a deadlock if you are calling this code from the UI thread of an ASP.Net application.
+	                // One way to address this would be to call ConfigureAwait(false) so that the execution does not attempt to resume on the original context.
+	                // For instance, replace code such as:
+	                //      result = await DoSomeTask()
+	                // with the following:
+	                //      result = await DoSomeTask().ConfigureAwait(false)
+
 	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
+	
 	                if (response.IsSuccessStatusCode)
 	                {
 	                    string result = await response.Content.ReadAsStringAsync();
@@ -156,7 +197,6 @@ Towards the bottom of the page you will find the code examples. Below is the cod
 	        }
 	    }
 	}
-
 
 ### BES Example
 On the API help page, in addition to the URI, you will find information about several calls that are available. Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed. But it does not actually execute it before the API response is received. There are three things a developer can do with the BES service, which are described below.

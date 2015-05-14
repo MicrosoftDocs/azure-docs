@@ -1,17 +1,27 @@
-<properties title="" pageTitle="How to choose parameters to optimize your algorithms in Azure Machine Learning | Azure" 
-description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning." 
-services="machine-learning"
-documentationCenter="" 
-authors="bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	pageTitle="How to choose parameters to optimize your algorithms in Azure Machine Learning | Azure" 
+	description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/14/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/21/2015" 
+	ms.author="bradsev;garye" />
 
 
 # How to choose parameters to optimize your algorithms in Azure Machine Learning
 
 This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning. Most machine learning algorithms are dependent on various parameters. When we train a model, we need to provide values for those parameters. The efficacy of the trained model is dependent on the model parameters that we choose. The process of finding out the optimal set of parameters is known as model selection. 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 There are various ways in which model selection can be done. In machine learning, cross-validation is one of the most widely used methods for model selection and it is the default model selection mechanism in Azure Machine Learning. Since both R and Python are supported by Azure Machine Learning, users can always implement their own model selection mechanism using either R or Python. 
 
@@ -33,18 +43,18 @@ The parameter set can be defined at the model initialization step. The parameter
 ![image3](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
 ## Cross-validation fold definition
-The **Partition and Sample** module can be used to assign folds to the data randomly. In the following figure, we see an example configuration for the module where we define 5 folds and randomly assign fold number to the sample instances. 
+The [Partition and Sample][partition-and-sample] module can be used to assign folds to the data randomly. In the following figure, we see an example configuration for the module where we define 5 folds and randomly assign fold number to the sample instances. 
 
 ![image4](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
 
 ## Define Metric
-The **Sweep Parameters** module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. The properties pane of this module includes, in addition to other information regarding training the model, the metric to be used for determining the best parameter set. It has two different drop down lists for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm the regression metric is ignored and vice versa. In this specific example, we chose **Accuracy** as the metric.   
+The [Sweep Parameters][sweep-parameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. The properties pane of this module includes, in addition to other information regarding training the model, the metric to be used for determining the best parameter set. It has two different drop down lists for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm the regression metric is ignored and vice versa. In this specific example, we chose **Accuracy** as the metric.   
  
 ![image5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## Train, evaluate and compare  
-The same **Sweep Parameters** module trains all the models corresponding to the parameter set, evaluates various metrics and then outputs the best trained model based on the metric chosen by the user. This module has two mandatory inputs
+The same [Sweep Parameters][sweep-parameters] module trains all the models corresponding to the parameter set, evaluates various metrics and then outputs the best trained model based on the metric chosen by the user. This module has two mandatory inputs
 
 * the untrained learner 
 * the dataset 
@@ -55,3 +65,8 @@ and an optional dataset input. We connect the dataset with fold information to t
 ![image7](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
  
 We can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model. 
+
+
+<!-- Module References -->
+[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
+[sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
