@@ -129,7 +129,7 @@ There are three portals for Azure, and each has different abilities regarding SQ
 
 - [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>This Azure portal might eventually be phased out. This portal:
  - Can manage your V12 server and database.
- - Can *not* upgrade your V12 database to V12.
+ - Can *not* upgrade your V11 database to V12.
 
 
 - (http://*yourservername*.database.windows.net)<br/>

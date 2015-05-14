@@ -27,6 +27,8 @@ This tutorial shows how to use the App Service SDK to write code that calls an [
 
 Each of these tutorial sections is independent -- you can follow the instructions for the second scenario without having completed the steps for the first one.
 
+For information about how to call an **Internal** API app, see [Consume an internal API app from a .NET client](app-service-api-dotnet-consume-internal.md).
+
 ## Prerequisites
 
 the tutorial assumes that you are familiar with how to create projects and add code to them in Visual Studio, and how to [manage API apps in the Azure preview portal](app-service-api-apps-manage-in-portal.md).
