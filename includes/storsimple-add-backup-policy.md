@@ -15,7 +15,6 @@ properties
    ms.date="05/13/2015"
    ms.author="v-sharos" />
 
-
 #### To add a StorSimple backup policy
 
 1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.

@@ -15,7 +15,6 @@ properties
    ms.date="05/14/2015"
    ms.author="v-sharos" />
 
-
 #### To create a custom backup policy
 
 1. On the **Devices** page, click **Backup Policies** and then click **Add**.
