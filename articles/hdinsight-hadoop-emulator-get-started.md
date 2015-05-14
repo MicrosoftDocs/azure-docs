@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/07/2015" 
 	ms.author="nitinme"/>
 
 # Get started in the Hadoop ecosystem with the HDInsight Emulator, a Hadoop sandbox 

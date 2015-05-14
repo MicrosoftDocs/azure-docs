@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="05/08/2014" 
+	ms.date="05/12/2014" 
 	ms.author="lauraa"/>
 
 
 # Azure Site Recovery: Frequently asked questions
 ## About this article
 
-This article includes frequently asked questions about Azure Site Recovery. For an introduction to Site Recovery and related deployment scenarios, read the [Site Recovery Overview](hyper-v-recovery-manager-overview/).
+This article includes frequently asked questions about Azure Site Recovery. For an introduction to Site Recovery and related deployment scenarios, read the [Site Recovery Overview](hyper-v-recovery-manager-overview.md).
 
-If you have other questions after reading this article, you can post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+If you have other questions after reading this article, you can post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Between enterprise Hyper-V sites: Hyper-V replica

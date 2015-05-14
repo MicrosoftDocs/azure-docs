@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/13/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -515,7 +515,13 @@ For Azure Active Directory (AD), please see the following topic:
 
  - [Azure Active Directory service limits and restrictions][adlimitsandrestrictions]
 
+## RemoteApp Limits
 
+For Azure RemoteApp, please see the following topic:
+
+- [RemoteApp service limits and default values](remoteapp-servicelimits.md)
+
+ 
 ## See Also
 
 [Understanding Azure Limits and Increases][azurelimitsblogpost]
