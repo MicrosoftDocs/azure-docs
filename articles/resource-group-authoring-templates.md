@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service=""
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
