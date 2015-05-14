@@ -33,7 +33,7 @@ To complete this tutorial, you must have the following:
 - A Client ID and Client Secret for a web application registered with Azure Active Directory that has access to your Key Vault
 - A web application. We will be showing the steps for an ASP.NET MVC application deployed in Azure as a Web App. 
 
-It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](keyvault-get-started.md). 
+[AZURE.NOTE]  It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](keyvault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application. 
 
 The web application that will be accessing the Key Vault is the one that is registered in Azure Active Directory and has been given access to your Key Vault. If this is not the case, go back to Register an Application in the Get Started tutorial and repeat the steps listed. 
 
@@ -50,7 +50,7 @@ There are three packages that your web application needs to have installed.
 
 All three of these packages can be installed using the Package Manager Console using the Install-Package command. 
 
-	// this is the latest stable version of ADAL
+	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
 	//this is a preview version of the Key Vault Library
