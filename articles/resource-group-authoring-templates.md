@@ -1,7 +1,7 @@
 <properties
    pageTitle="Authoring Azure Resource Manager Templates"
    description="Create Azure Resource Manager templates using declarative JSON syntax to deploy applications to Azure."
-   services="azure-portal"
+   services="multiple"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
