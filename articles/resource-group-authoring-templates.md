@@ -264,9 +264,6 @@ The following example shows a **Microsoft.Web/serverfarms** resource and a **Mic
                   "apiVersion": "2014-06-01",
                   "type": "Extensions",
                   "name": "MSDeploy",
-                  "dependsOn": [
-                    "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-                  ],
                   "properties": {
                     "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
                     "dbType": "None",
@@ -280,7 +277,6 @@ The following example shows a **Microsoft.Web/serverfarms** resource and a **Mic
         }
     ]
 
->[AZURE.NOTE] Dependency between a parent resource and nested resources is not implied by the current template schema. Therefore, you must use the **dependsOn** element to note a dependency.
 
 ## Outputs
 
