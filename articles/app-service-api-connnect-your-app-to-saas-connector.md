@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use a SaaS connector from code" 
+	pageTitle="Deploy and configure a SaaS connector API app" 
 	description="Learn how to configure a SaaS connector that you install in your Azure subscription from the Azure Marketplace." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="04/07/2015" 
 	ms.author="tdykstra"/>
 
-# Use a SaaS connector from code
+# Deploy and configure a SaaS connector API app in Azure App Service
 
 ## Overview
 

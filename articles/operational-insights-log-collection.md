@@ -36,7 +36,7 @@ The page details the following categories:
 
 - Windows event logs
 - IIS logs
-- Other logs that you’ve added
+- Other logs that you've added
 
 ![image of Log Management dashboard](./media/operational-insights-log-collection/gallery-logmgt-01.png)
 
@@ -44,7 +44,7 @@ The page details the following categories:
 
 ## IIS Log File Format
 
-The only IIS log format supported at the moment is W3C. Don't worry - it's the most common format, and the default format in IIS 7 and IIS 8. So, if you log in NCSA or IIS native format, Operational Insights won't pick those logs up at all. Even in W3C format, you’ll see that not all fields are logged by default. You can read more about the format at [Select W3C Fields to Log (IIS 7)](https://technet.microsoft.com/library/cc754702(v=WS.10).aspx).
+The only IIS log format supported at the moment is W3C. Don't worry - it's the most common format, and the default format in IIS 7 and IIS 8. So, if you log in NCSA or IIS native format, Operational Insights won't pick those logs up at all. Even in W3C format, you'll see that not all fields are logged by default. You can read more about the format at [Select W3C Fields to Log (IIS 7)](https://technet.microsoft.com/library/cc754702(v=WS.10).aspx).
 
 
 > [AZURE.TIP] For the best log search experience, we recommend selecting all logging fields for each website using **Logging** in IIS. We also recommend changing the **Log File Rollover** schedule for new logs to **Hourly** - so smaller files will be uploaded to the cloud, saving bandwidth.
@@ -56,7 +56,7 @@ The only IIS log format supported at the moment is W3C. Don't worry - it's the m
 
 2. On the **Log Management** dashboard, click the **Configure** tile.
 
-3. Type the name of the event log that you want to collect information from. If you’re unsure of the name to use, select the properties of the Windows event log in **Event Viewer**, copy the name in the **FullName** field, and paste it in the **Collect events from the following Event Logs** box.
+3. Type the name of the event log that you want to collect information from. If you're unsure of the name to use, select the properties of the Windows event log in **Event Viewer**, copy the name in the **FullName** field, and paste it in the **Collect events from the following Event Logs** box.
 
 4. Click **+** to add the log.
 
