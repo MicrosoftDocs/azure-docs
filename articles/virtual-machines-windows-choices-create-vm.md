@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Different ways to create a Linux virtual machine" 
-	description="Lists the different ways to create a Linux virtual machine and gives links to instructions." 
+	pageTitle="Different ways to create a Windows virtual machine" 
+	description="Lists the different ways to create a Windows virtual machine and gives links to instructions." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -10,13 +10,13 @@
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/14/2015" 
 	ms.author="kathydav"/>
 
-# Different Ways to Create a Linux Virtual Machine
+# Different Ways to Create a Windows Virtual Machine
 
 Azure offers different ways to create a VM because VMs are suited for different users and purposes. This means you'll need to make some choices about the VM and how you'll create it. This article gives you a summary of these choices and links to instructions.
 
@@ -26,7 +26,9 @@ Azure Resource Manager templates were recently introduced as a way to create and
 
 ### GUI: The Azure Portal or Preview Portal 
 
-The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the Azure portal or the Azure preview portal to create the VM. For general instructions, see [Create a Virtual Machine Running Linux][].
+The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the Azure portal or the Azure preview portal to create the VM:
+
+[Create a Virtual Machine Running Windows][]
 
 ### Command Shell: Azure CLI or Azure PowerShell
 
@@ -34,7 +36,7 @@ If you prefer working in a command shell, choose between the Azure command-line 
 
 For Azure CLI, see [Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows][]. To use a template, see [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI][].
 
-For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines][]. To use a template, see [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell][].
+For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines][] To use a template, see [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell][].
 
 ### Development Environment: Visual Studio
 
@@ -44,47 +46,48 @@ For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Linux
 
 ## Operating System and Image Choices
 
-### Images from Azure or an Azure partner, or Your Own Images
-
 Choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools. Or, use one of your own images. 
 
-#### Azure images
+### Azure Images
 
-These instructions show you how to use an Azure image to create a virtual machine that's customized with options for networking, load balancing, and more. See [How to Create a Custom Virtual Machine Running Linux in Azure][].
+These instructions show you how to use an Azure image to create a virtual machine that's customized with options for networking, load balancing, and more. See [How to Create a Custom Virtual Machine Running Windows][].
 
-#### Use your own image
+### Use Your Own Image
 
 Use an image based on an existing Azure virtual machine by *capturing* that VM, or upload an image of your own, stored in a virtual hard disk (VHD):
 
-- [How to Capture a Linux Virtual Machine to Use as a Template with the CLI][]
-- [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System][]
+- [How to Capture a Windows Virtual Machine to Use as a Template][].
+- [Create and upload a Windows Server VHD to Azure][]
 
 ##Additional resources
-[About Azure VM configuration settings]
+[About Azure VM configuration settings][]
 
-[Base Configuration Test Environment]
+[Base Configuration Test Environment][]
 
-[Azure hybrid cloud test environments]
+[Azure hybrid cloud test environments][]
 
 <!-- LINKS -->
-[overview]:resource-group-overview.md
+[overview]: resource-group-overview.md
 
 [Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
-[Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
 
 [Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows]:xplat-cli-azure-manage-vm-asm-arm.md 
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell]:  virtual-machines-deploy-rmtemplates-powershell.md
-[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines]: virtual-machines-ps-create-preconfigure-linux-vms.md
+[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines]: virtual-machines-ps-create-preconfigure-windows-vms.md
 
-[How to Create a Custom Virtual Machine Running Linux in Azure]: virtual-machines-linux-create-custom.md
-[How to Capture a Linux Virtual Machine to Use as a Template with the CLI]: virtual-machines-vm-capture-image-cli.md
+[How to Create a Custom Virtual Machine Running Windows]: virtual-machines-windows-create-custom.md
 
-[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System]: virtual-machines-linux-create-upload-vhd.md
+[How to Capture a Windows Virtual Machine to Use as a Template]: virtual-machines-capture-image-windows-server.md
+
+[Create and upload a Windows Server VHD to Azure]: virtual-machines-create-upload-vhd-windows-server.md
+
 
 [Creating a virtual machine for a website with Visual Studio]: virtual-machines-dotnet-create-visual-studio-powershell.md
 [Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries]: virtual-machines-arm-deployment.md
 
 [About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+
 [Base Configuration Test Environment]: virtual-machines-base-configuration-test-environment.md
+
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md  
