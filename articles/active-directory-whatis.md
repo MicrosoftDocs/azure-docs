@@ -41,11 +41,11 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 * [Sign up for Azure as an organization](sign-up-organization.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-whatis/Azure_Active_Directory.png
-[2]: ./media/active-directory-whatis/AzureADSingleSignon.png
-[3]: ./media/active-directory-whatis/AzureADReportingAnalytics.png
-[4]: ./media/active-directory-whatis/AzureADSelfService.png
-[5]: ./media/active-directory-whatis/AzureADOnPremApps.png
-[6]: ./media/active-directory-whatis/AzureADSLA.png
-[7]: ./media/active-directory-whatis/AzureADIdentityManagement.png
-[8]: ./media/active-directory-whatis/AzureADAccessManagement.png
+[1]: ../articles/media/active-directory-whatis/Azure_Active_Directory.png
+[2]: ../articles/media/active-directory-whatis/AzureADSingleSignon.png
+[3]: ../articles/media/active-directory-whatis/AzureADReportingAnalytics.png
+[4]: ../articles/media/active-directory-whatis/AzureADSelfService.png
+[5]: ../articles/media/active-directory-whatis/AzureADOnPremApps.png
+[6]: ../articles/media/active-directory-whatis/AzureADSLA.png
+[7]: ../articles/media/active-directory-whatis/AzureADIdentityManagement.png
+[8]: ../articles/media/active-directory-whatis/AzureADAccessManagement.png
