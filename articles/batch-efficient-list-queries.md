@@ -9,10 +9,10 @@
 
 <tags 
 	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.workload="multiple"
 	ms.date="05/09/2015" 
 	ms.author="davidmu"/>
 
