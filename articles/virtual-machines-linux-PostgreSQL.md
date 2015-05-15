@@ -5,15 +5,16 @@
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+    tags=""/>
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="3/12/2015"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="03/12/2015"
 	ms.author="mingzhan"/>
 
 
@@ -27,28 +28,28 @@ PostgreSQL is the world’s most advanced open source database. Developed over 2
 
 PostgreSQL supports standards such as ANSI SQL and SQL/MED (including foreign data wrappers for Oracle, MySQL, MongoDB and many others) and yet is highly extensible with support for over 12 procedural languages, GIN and GIST Indexes, Spatial data support, and multiple NoSQL like features for document (JSON) or key-value based applications. 
 
-PostgreSQL can be easily deployed in Windows azure. 
+PostgreSQL can be easily deployed in Microsoft Azure. 
 
 
 ##2. Create a virtual machine on Microsoft Azure 
 
 To create a Linux virtual machine in the Microsoft Azure Management Portal by using the Image Gallery, take reference from following link. It assumes you do not have any experience on using Azure.
   
-http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial/  
+http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/  
 
 
 ##3. Create virtual network  
 
 Virtual network is required to deploy your VM.  To get a detail step, take the reference from here.
 
-https://msdn.microsoft.com/en-us/library/azure/dn631643.aspx
+https://msdn.microsoft.com/library/azure/dn631643.aspx
 
 
 ##4. Create endpoint  
 
 To create an endpoint is easy in the Azure Management. Navigate to the following link and it shows you how to do this and assumes that you don't have any experience on using Azure. 
 
-http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/ 
+http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/ 
 
 In this case, use 1999 port as the PostgreSQL port.  
 
