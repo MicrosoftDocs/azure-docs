@@ -34,8 +34,7 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 
 
 ## What can Azure Active Directory do for me?
-It's easy to check out the top capabilities provided by Azure Active Directory. Click a tile here to read more.<br><br>
-[![Single sign-on](./media/active-directory-whatis/AzureADSingleSignon.png)](http://azure.microsoft.com/marketplace/active-directory/) [![Reporting + analytics](./media/active-directory-whatis/AzureADReportingAnalytics.png)](active-directory-view-access-usage-reports.md) [![Self-service](./media/active-directory-whatis/AzureADSelfService.png)](http://aka.ms/ssproverview) [![On-premises applications](./media/active-directory-whatis/AzureADOnPremApps.png)](active-directory-application-proxy-configure.md) [![Service level agreement](./media/active-directory-whatis/AzureADSLA.png)](https://msdn.microsoft.com/library/azure/dn532272.aspx) [![Identity management](./media/active-directory-whatis/AzureADIdentityManagement.png)](fundamentals-identity.md) [![Access management](./media/active-directory-whatis/AzureADAccessManagement.png)](active-directory-application-proxy-configure.md)
+[![Single sign-on][2]](http://azure.microsoft.com/marketplace/active-directory/) [![Reporting + analytics][3]](active-directory-view-access-usage-reports.md) [![Self-service][4]](http://aka.ms/ssproverview) [![On-premises applications][5]](active-directory-application-proxy-configure.md) [![Service level agreement][6]](https://msdn.microsoft.com/library/azure/dn532272.aspx) [![Identity management][7](./media/active-directory-whatis/AzureADIdentityManagement.png)](fundamentals-identity.md) [![Access management][8]](active-directory-application-proxy-configure.md)
 
 ## Additional Resources
 
@@ -43,3 +42,10 @@ It's easy to check out the top capabilities provided by Azure Active Directory. 
 
 <!--Image references-->
 [1]: ./media/active-directory-whatis/Azure_Active_Directory.png
+[2]: ./media/active-directory-whatis/AzureADSingleSignon.png
+[3]: ./media/active-directory-whatis/AzureADReportingAnalytics.png
+[4]: ./media/active-directory-whatis/AzureADSelfService.png
+[5]: ./media/active-directory-whatis/AzureADOnPremApps.png
+[6]: ./media/active-directory-whatis/AzureADSLA.png
+[7]: ./media/active-directory-whatis/AzureADIdentityManagement.png
+[8]: ./media/active-directory-whatis/AzureADAccessManagement.png
