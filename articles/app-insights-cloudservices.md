@@ -151,7 +151,15 @@ Here's a typical run loop for a worker role:
 
 
 
+[api]: app-insights-api-custom-events-metrics.md
 [apidefaults]: app-insights-api-custom-events-metrics.md#default-properties
 [apidynamicikey]: app-insights-api-custom-events-metrics.md#dynamic-ikey
+[availability]: app-insights-monitor-web-app-availability.md
+[client]: app-insights-javascript.md
+[diagnostic]: app-insights-diagnostic-search.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
