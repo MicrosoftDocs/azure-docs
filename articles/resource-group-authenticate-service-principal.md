@@ -36,7 +36,7 @@ You will start by creating a service principal. To do this we must use create an
 
         PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
-     The Azure AD application is returned:
+     The Azure AD application is returned. The **ApplicationId** property is needed for creating service principals, role assignments and acquiring JWT tokens. Save the output or capture it in a variable.
 
         Type                    : Application
         ApplicationId           : a41acfda-d588-47c9-8166-d659a335a865
@@ -65,8 +65,6 @@ You will start by creating a service principal. To do this we must use create an
                             "lang": null
                           }}
 
-
-     >[AZURE.NOTE] The **ApplicationId** property is needed for creating service principals, role assignments and acquiring JWT tokens. Save the output or capture it in a variable.
 
 2. Create a service principal for your application.
 
