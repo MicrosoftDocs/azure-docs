@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 
 
 ## What can Azure Active Directory do for me?
-[![Single sign-on](2)](http://azure.microsoft.com/marketplace/active-directory/) [![Reporting + analytics][3]](active-directory-view-access-usage-reports.md) [![Self-service][4]](http://aka.ms/ssproverview) [![On-premises applications][5]](active-directory-application-proxy-configure.md) [![Service level agreement][6]](https://msdn.microsoft.com/library/azure/dn532272.aspx) [![Identity management][7]](fundamentals-identity.md) [![Access management][8]](active-directory-application-proxy-configure.md)
+[![Single sign-on][2]](http://azure.microsoft.com/marketplace/active-directory/) [![Reporting + analytics][3]](active-directory-view-access-usage-reports.md) [![Self-service][4]](http://aka.ms/ssproverview) [![On-premises applications][5]](active-directory-application-proxy-configure.md) [![Service level agreement][6]](https://msdn.microsoft.com/library/azure/dn532272.aspx) [![Identity management][7]](fundamentals-identity.md) [![Access management][8]](active-directory-application-proxy-configure.md)
 
 ## Additional Resources
 
