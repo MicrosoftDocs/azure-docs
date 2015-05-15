@@ -2,7 +2,7 @@
    pageTitle="Application Insights for Azure Cloud Services"
    description="Monitor your web and worker roles effectively with Application Insights"
    services="application-insights"
-   documentationCenter="na"
+   documentationCenter=""
    authors="soubhagyadash"
    manager="victormu"
    editor="alancameronwills"/>
@@ -10,8 +10,9 @@
 <tags
    ms.service="application-insights"
    ms.devlang="na"
+   ms.tgt_pltfrm="ibiza"
    ms.topic="article"
-   ms.workload="cloud services"
+   ms.workload="tbd"
    ms.date="05/12/2015"
    ms.author="sdash"/>
 
