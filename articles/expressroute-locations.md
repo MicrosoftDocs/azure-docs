@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2015"
+   ms.date="05/14/2015"
    ms.author="cherylmc" />
 
 # ExpressRoute Partners and Peering Locations
@@ -72,6 +72,8 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Singapore                                                       |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)**                                        | Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore      |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**         | Melbourne+, Sydney                                              |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |       London, Hong Kong, Silicon Valley, Washington DC          |
+
 
  **+** denotes coming soon
 

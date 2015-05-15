@@ -399,11 +399,11 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
 
 
-## Set default properties for all telemetry
+## <a name="default-properties"></a>Set default properties for all telemetry
 
-You can set up a universal initializer so that all new TelemetryClients automatically use your context. 
+You can set up a universal initializer so that all new TelemetryClients automatically use your context. This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
 
-This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
+A typical use is to identify telemetry coming from different versions or components of your app. In the portal, you can filter or group results by this property.
 
 *C#*
 
@@ -442,11 +442,11 @@ This includes standard telemetry sent by the platform-specific telemetry modules
 
 
 
-## Set instrumentation key in code for all telemetry
+## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-Instead of getting the instrumentation key from the configuration file, you can set it in your code. You might want to do this, for example, to send telemetry from test installations to a different Application Insights resource than telemetry from the live application.
+To avoid mixing up telemetry from development, test and production environments, you can [create separate Application Insights resources][create] and change their keys depending on the environment.
 
-Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
+Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
 *C#*
 
@@ -592,8 +592,15 @@ There are some limits on the number of metrics and events per application.
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
 
+## Questions
 
-* *Q: Is there a REST API?*
+* *What exceptions might Track * calls throw?*
+    
+    None. You shouldn't need to wrap them in catch clauses.
+
+
+
+* *Is there a REST API?*
 
     Yes, but we aren't publishing it yet.
 
@@ -609,6 +616,7 @@ There are some limits on the number of metrics and events per application.
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
