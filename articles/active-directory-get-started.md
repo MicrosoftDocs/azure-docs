@@ -24,7 +24,8 @@
 [Learn more](active-directory-learn-map.md)
 
 
-Ready to get started? You should try out some of the really cool stuff we've released with Azure Active Directory. Use these capabilities to really add value to your organization's identity and access management.
+Ready to get started? You should try out some of the really cool stuff we've released with Azure Active Directory. Use these capabilities to really add value to your organization's identity and access management. Read documentation to learn how to configure these features. Then see how you can start testing these capabilities by taking the first step and assigning trial licenses to administrators and users.
+
 
 > [AZURE.NOTE] Azure AD is available to everyone for free. Sign up now for an Azure trial subscription and your directory will be waiting for you. The directory is yours whether you buy anything or not. [Try Azure AD now](http://azure.microsoft.com/trial/get-started-active-directory/)
 
