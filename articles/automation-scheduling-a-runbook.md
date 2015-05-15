@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Scheduling a Runbook in Azure Automation"
+   pageTitle="Scheduling a runbook in Azure Automation"
    description="Describes how to create a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule."
    services="automation"
    documentationCenter=""

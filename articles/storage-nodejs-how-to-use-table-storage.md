@@ -330,6 +330,44 @@ The following code deletes a table from a storage account.
 
 If you are uncertain whether the table exists, use **deleteTableIfExists**.
 
+## How to: Use continuation tokens
+
+When you are querying tables for large amounts of results, you should look for 
+continuation tokens. There may be large amounts of data available for your 
+query that you might not realize if you do not build to recognize when a 
+continuation token is present.
+
+The results object returned when querying entities sets a `continuationToken` 
+property when such a token is present. You can then use this when performing 
+a query to continue to move across the partition and table entities.
+
+When querying, a continuationToken parameter may be provided between the 
+query object instance and the callback function:
+
+```
+var nextContinuationToken = null;
+dc.table.queryEntities(tableName,
+    query,
+    nextContinuationToken,
+    function (error, results) {
+        if (error) throw error;
+
+        // iterate through results.entries with results
+
+        if (results.continuationToken) {
+            nextContinuationToken = results.continuationToken;
+        }
+
+    });
+```
+
+If you inspect the `continuationToken` object, you will find properties such as 
+`nextPartitionKey`, `nextRowKey` and `targetLocation` which can be used to 
+iterate through all the results.
+
+There is also a continuation sample within the Azure Storage Node.js repo on 
+GitHub, look for `examples/samples/continuationsample.js`.
+
 ## How to: Work with Shared Access Signatures
 
 Shared Access Signatures (SAS) are a secure way to provide granular access to tables without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.

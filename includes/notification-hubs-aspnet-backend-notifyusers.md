@@ -32,9 +32,9 @@ The following steps show how to create the new ASP.NET WebAPI backend:
 
 ## Authenticating Clients to the WebAPI Backend
 
-In this section, you will create a new message handler class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. All requests that include an *Authorization* header will be handled by this handler. If the request uses *basic* authentication, and the user name string matches the password string, then it will be authorized by the back end. Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+In this section, you will create a new message handler class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. 
 
-If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request. 
+
 
 1. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class will be used to authenticate users using *Basic Authentication*. Note that your app can use any authentication scheme.
 
@@ -46,7 +46,11 @@ If the request message is authenticated and authorized by the `AuthenticationTes
         using System.Net;
         using System.Web;
 
-3. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following:
+3. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following code. 
+
+	This handler will handle all requests that include an *Authorization* header. If the request uses *basic* authentication, and the user name string matches the password string, then it will be authorized by the back end. Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+
+	If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller (RegisterController) to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -105,7 +109,7 @@ If the request message is authenticated and authorized by the `AuthenticationTes
 
 ## Registering for Notifications using the WebAPI Backend
 
-In this section, we will add a new controller to the WebAPI backend to handle requests to register a user and device for notifications. The controller will add a user tag for the user that was authenticated and attached to the HttpContext by the `AuthenticationTestHandler`. The tag will have the string format, `"username:<actual username>"`.
+In this section, we will add a new controller to the WebAPI backend to handle requests to register a user and device for notifications using the client library for notification hubs, which is the Azure Service Bus client library. The controller will add a user tag for the user that was authenticated and attached to the HttpContext by the `AuthenticationTestHandler`. The tag will have the string format, `"username:<actual username>"`.
 
 
  
@@ -265,7 +269,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 ## Sending Notifications from the WebAPI Backend
 
-In this section you add a new controller that exposes a way for client devices to send a notification based on the username tag.
+In this section you add a new controller that exposes a way for client devices to send a notification based on the username tag using Azure Service Bus client library in the ASP.NET WebAPI backend.
 
 
 1. Create another new controller named **NotificationsController**. Create it the same way you created the **RegisterController** in the previous section.
@@ -276,30 +280,52 @@ In this section you add a new controller that exposes a way for client devices t
         using System.Threading.Tasks;
         using System.Web;
 
-3. Add the following code inside the **NotificationsController** class definition and make sure to comment out the snippets for platforms you are not working with.
+3. Add the following method to the **NotificationsController** class.
 
-        public async Task<HttpResponseMessage> Post()
+	This code send a notification type based on the Platform Notification Service (PNS) `pns` parameter. The value of `to_tag` is used to set the *username* tag on the message. This tag must match a username tag of an active notification hub registration. The notification message is pulled from the body of the POST request. 
+
+        public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
             var user = HttpContext.Current.User.Identity.Name;
+            string[] userTag = new string[2];
+            userTag[0] = "username:" + to_tag;
+            userTag[1] = "from:" + user;
 
-			// You can support additional custom tags here, but this example is only sending
-			// the username tag based on what the AuthenticationTestHandler set on the HttpContext.
-            var userTag = "username:"+user;
+            Microsoft.ServiceBus.Notifications.NotificationOutcome outcome = null;
+            HttpStatusCode ret = HttpStatusCode.InternalServerError;
 
-            // windows
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello, " + user + "</text></binding></visual></toast>";
-            await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+            switch (pns.ToLower())
+            {
+                case "wns":
+                    // Windows 8.1 / Windows Phone 8.1
+                    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + 
+                                "From " + user + ": " + message + "</text></binding></visual></toast>";
+                    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+                    break;
+                case "apns":
+                    // iOS
+                    var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
+                    outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
+                    break;
+                case "gcm":
+                    // Android
+                    var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
+                    outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                    break;
+            }
 
-            // apns
-            var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
-            await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
+            if (outcome != null)
+            {
+                if (!((outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Abandoned) ||
+                    (outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Unknown)))
+                {
+                    ret = HttpStatusCode.OK;
+                }
+            }
 
-            // gcm
-            var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
-            await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
-
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(ret);
         }
+
 
 4. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
 

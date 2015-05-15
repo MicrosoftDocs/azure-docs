@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 #Azure Data Factory - Terminology
@@ -25,7 +25,7 @@ An **Azure data factory** has one or more pipelines that process data in linked 
 A **linked service** is a service that is linked to an Azure data factory. A linked service can be one of the following:
 
 - A **data storage** service such as Azure Storage, Azure SQL Database or on-premises SQL Server database. A data store is a container of input/output data sets.    
-- A **compute** service such as Azure HDInsight and Azure Machine Learning. A compute service process the input data and produces the output data.  
+- A **compute** service such as Azure HDInsight, Azure Machine Learning, and Azure Batch. A compute service process the input data and produces the output data.  
 
 ## Data set
 A **data set** is a named view of data. The data being described can vary from simple bytes, semi-structured data like CSV files all the way up to relational tables or even models. A  Data Factory **table** is a data set that has a schema and is rectangular. After creating a linked service in a data store that refers to a data store, you define data sets that represent input/output data that is stored in the data store. 
@@ -69,13 +69,10 @@ The Data Hub allows a data factory to be divided into logical or domain specific
 
 An important characteristic of Hub is that a pipeline runs on a single hub. This means that when defining a pipeline, all of the linked services referenced by tables or activities within that pipeline must have the same hub name as the pipeline itself. If the HubName property is not specified for a linked service, the linked service is placed in the “Default” Hub.
 
-# See Also
+## See Also
 
 1. [Introduction to Azure Data Factory][adf-intro]. This article provides an overview of the Azure Data Factory service, the value it provides, and the scenarios it supports.
 2. [Get started with Data Factory][datafactory-getstarted]. This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
-2. [Tutorial: Move and process log files using Data Factory][adf-tutorial]. This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
-3. [Data Factory - Frequently Asked Questions][adf-faq]. This article provides a list of frequently asked questions and the answers. 
-3. [Common scenarios for using Azure Data Factory][adf-common-scenarios]. This article describes a few common scenarios for using the Azure Data Factory service.
 
 
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx

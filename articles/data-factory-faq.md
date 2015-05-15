@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="04/23/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -79,8 +79,8 @@ You can author/create data factories using one of the following:
 ## Activities - FAQ
 ### Q: What are the supported data sources and activities?
 
-- **Supported data sources:** Azure Storage (Blob and Tables), SQL Server, Azure SQL Database, File System. 
-- **Supported activities:**: Copy Activity (on-premises to cloud, and cloud to on-premises), HDInsight Activity (Pig, Hive, and MapReduce transformations), Azure Machine Learning Batch Scoring Activity, Stored Procedure activity, and custom C# activities.
+- **Supported data sources:** Azure Storage (Blob and Tables), SQL Server, Azure SQL Database, File System, Oracle Database.
+- **Supported activities:**: Copy Activity (on-premises to cloud, and cloud to on-premises), HDInsight Activity (Pig, Hive, MapReduce, Hadoop Streaming transformations), Azure Machine Learning Batch Scoring Activity, Stored Procedure activity, and custom C# activities.
 
 ### When does an activity run?
 The **availability** configuration setting in the output data table determines when the activity is run. The activity checks whether all the input data dependencies are satisfied (i.e., **Ready** state) before it starts running.
@@ -88,14 +88,12 @@ The **availability** configuration setting in the output data table determines w
 ## Copy Activity - FAQ
 ### Q: What regions are supported by the Copy Activity ?
 
-The Copy Activity supports copying data into the following regions: East US, East US 2, West US,  Central US, North Europe, West Europe, and South East Asia.
+The Copy Activity supports copying data into the following regions: East US, East US 2, West US, Central US, North Central US, South Central US, North Europe, West Europe, and South East Asia.
 
 Copying data into other regions is also supported, by using one of the regions above for routing the data.  Copy operation is metered based on the region where data is routed through.
 
 Region of copy destination | Region used for routing
 -------------------------- | -----------------------
-North Central US | East US 2
-South Central US | West US
 East Asia | South East Asia
 Japan East | West US
 Japan West | West US
@@ -175,10 +173,6 @@ If you need to stop the pipeline from executing, you can use [Suspend-AzureDataF
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline. 
 
 
-## See Also
-[Introduction to Azure Data Factory][adf-introduction]
-[Get started with Azure Data Factory][adfgetstarted]
-[Troubleshooting Guide for Data Factory][adf-troubleshoot]
 
 [image-rerun-slice]: ./media/data-factory-faq/rerun-slice.png
 

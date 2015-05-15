@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Stream Analytics monitor and manage jobs using PowerShell | Azure" 
-	description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs" 
+	pageTitle="Monitor and manage Stream Analytics jobs using PowerShell | Microsoft Azure" 
+	description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/01/2015" 
+	ms.date="05/07/2015" 
 	ms.author="jeffstok"/>
 
 
-# Monitor and manage Stream Analytics jobs by using Azure PowerShell
+# Monitor and manage Stream Analytics jobs with Azure PowerShell
 
 Learn how to manage Azure Stream Analytics resources by using Azure PowerShell.
 
@@ -266,15 +266,19 @@ Tests the ability of Stream Analytics to connect to a specified output.
 	Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 This command tests the connection status of the output Output in StreamingJob.  
 
+> [AZURE.NOTE] Stream Analytics jobs created programmatically no not have monitoring enabled by default.  You can manually enable monitoring in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can do this programmatically by following the steps located at [Azure Stream Analytics - Monitor Stream Analytics Jobs Programatically](stream-analytics-monitor-jobs.md)
 
-## See also
+## Get support
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
 
-- [Introduction to Azure Stream Analytics][stream.analytics.introduction]
-- [Get started with Stream Analytics][stream.analytics.get.started]
-- [Limits in the Stream Analytics preview release][stream.analytics.limitations]
-- [Developer guide for Stream Analytics][stream.analytics.developer.guide]
-- [Query language reference for Stream Analytics][stream.analytics.query.language.reference]
-- [REST API reference for Stream Analytics][stream.analytics.rest.api.reference]
+
+## Next steps
+
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
 

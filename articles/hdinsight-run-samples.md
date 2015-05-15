@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Run the Hadoop samples in HDInsight | Azure"
+	pageTitle="Run the Hadoop samples in HDInsight | Microsoft Azure"
 	description="Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters."
 	services="hdinsight"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2014" 
+	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
 
@@ -23,7 +23,7 @@
 
 A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight. These samples are made available on each of the HDInsight managed clusters that you create. Running these samples will familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.
 
-MapReduce programs can also be run programmatically from an application by using the Microsoft .NET API for HDInsight. For more information about using the HDInsight APIs for job submission, see [Submit Hadoop Jobs in HDInsight][hdinsight-submit-hadoop-jobs-programmatically].
+MapReduce programs can also be run programmatically from an application by using the Microsoft .NET API for HDInsight. For more information about using the HDInsight APIs for job submission, see [Submit Hadoop Jobs in HDInsight] [hdinsight-submit-jobs].
 
 Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting. For more information about these resources, see the final **Resources for HDInsight** section of [Introduction to Azure HDInsight][hdinsight-introduction].
 
@@ -38,7 +38,8 @@ Much additional documentation exists on the web for Hadoop-related technologies,
 
 - You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Provision Hadoop clusters in HDInsight by using custom options](hdinsight-provision-clusters.md)
 
-- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions about how to do this, see [How to install and configure Azure PowerShell][powershell-install-configure].
+- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions about how to do this, see  [How to install and configure Azure PowerShell] [powershell-install-configure].
+
 
 ## The samples ##
 
@@ -61,9 +62,9 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]
 * [Use Pig with Hadoop on HDInsight][hdinsight-use-pig]
 * [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
-* [Submit Hadoop Jobs in HDInsight][hdinsight-submit-jobs]
+* [Submit Hadoop Jobs in HDInsight] [hdinsight-submit-jobs]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
-* [Debug Hadoop in HDInsight: Error messages][hdinsight-errors]
+* [Debug Hadoop in HDInsight: Error messages] [hdinsight-errors]
 
 
 [hdinsight-errors]: hdinsight-debug-jobs.md

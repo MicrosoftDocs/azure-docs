@@ -1,37 +1,35 @@
-<properties 
-    pageTitle="Set up your workspace and manage setings" 
-    description="Learn about how to set up your workspace and manage settings in Microsoft Azure Operational Insights" 
-    services="operational-insights" 
-    documentationCenter="" 
-    authors="bandersmsft" 
-    manager="jwhit" 
+<properties
+    pageTitle="Set up your workspace and manage setings"
+    description="Learn about how to set up your workspace and manage settings in Microsoft Azure Operational Insights"
+    services="operational-insights"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
     editor=""/>
 
-<tags 
-    ms.service="operational-insights" 
-    ms.workload="operational-insights" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="04/07/2015" 
+<tags
+    ms.service="operational-insights"
+    ms.workload="operational-insights"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/07/2015"
     ms.author="banders"/>
 
-# Set up your workspace and manage settings 
+# Set up your workspace and manage settings
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 To create a new Microsoft Azure Operational Insights workspace, you choose a workspace name, associate it with your account, and you choose a geographical location. An Operational Insights workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple Operational Insights workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
 After the workspace is created, you can perform other tasks using the workspace, such as manage Operational Insights, view your usage data in the dashboard, select storage accounts, and directly connect agents or to connect to System Center Operations Manager. And, you can manage the settings for each workspace.
 
-To learn out more on how to create a workspace using Azure, watch the following video:
-
-> [AZURE.VIDEO creating-a-workspace-for-azure-customers-opinsights]
-
 
 ## How many workspaces do I need?
 A workspace is seen as an Azure resource within the Azure Management Portal.
 
-You can either create a new workspace or link to an existing Preview workspace you might have opened earlier for use with System Center Operations Manager, but you haven't yet associated with an Azure subscription (necessary for billing).
-A workspace represents the level at which data is collected, aggregated, analyzed, and presented in the Operational Insights portal. 
+You can either create a new workspace or link to an existing workspace you might have opened earlier for use with System Center Operations Manager, but you haven't yet associated with an Azure subscription (necessary for billing).
+A workspace represents the level at which data is collected, aggregated, analyzed, and presented in the Operational Insights portal.
 You might choose to have multiple workspaces to segregate data from different environments and systems; each Operations Manager management group (and all its agents) or individual VMs/agents can each be connected with only one workspace.
 
 Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple Operational Insights workspaces.
@@ -58,7 +56,7 @@ It is possible to create a workspace from [opinsights.azure.com](http://opinsigh
 
 There are three workspace plan types for Operational Insights: **Free**, **Standard** and **Premium**.  If you are on a *free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a '**pay-as-you-go plan**' in order to collect data beyond this limit. At any time your can convert your plan type.  For more information on Operational Insights pricing, see [Pricing Details](http://azure.microsoft.com/pricing/operational-insights/)
 
->[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace from [opinsights.azure.com](http://opinsights.azure.com), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#linkworkspace). 
+>[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace from [opinsights.azure.com](http://opinsights.azure.com), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#linkworkspace).
 
 ### Change plan type
 
@@ -89,7 +87,7 @@ If you are the administrator of an Microsoft Azure Operational Insights workspac
 ![configure icon](./media/operational-insights-setup-workspace/settings02.png)
 <p>
 3. On the **Settings** page  in Operational Insights, in the **Manage User Accounts** section, click **Manage users**.
-<p> 
+<p>
 ![manage users](./media/operational-insights-setup-workspace/settings03.png)
 <p>
 4. In the Operational Insights portal, on the **Settings** page enter the new name in the **Workspace name** field.
@@ -132,7 +130,7 @@ Use the following steps to add a user or group to an Operational Insights worksp
 1. Click your workspace name.
 2. Click the configure icon.
 3. On the **Settings** page  in Operational Insights, in the **Manage User Accounts** section, click **Manage users**.
-<p> 
+<p>
 ![manage users](./media/operational-insights-setup-workspace/settings04.png)
 <p>
 4. In the **Manage Users** window, click **Add**.
@@ -146,17 +144,17 @@ Use the following steps to add a user or group to an Operational Insights worksp
 ![add user account type](./media/operational-insights-setup-workspace/manage-users02.png)
 <p>
 6. Enter the new user information for the Microsoft account or the organizational account.If you are adding an organizational account, you can enter part of the user or group’s name or email alias, and then click **Check Names** to locate the specific user or group.
- 
+
     >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single Operational Insights account to two—one for administrators and one for users. Using more groups might impact the performance of Operational Insights.
 
 7. Select the role for this new user: **Administrator** or **User**.
-<p> 
-![add user workspace role](./media/operational-insights-setup-workspace/manage-users03.png) 
+<p>
+![add user workspace role](./media/operational-insights-setup-workspace/manage-users03.png)
 <p>
 8. Click **OK**.
-    
+
     If you are adding a Microsoft account, an invitation to join your account is sent to the email you provided. After the user follows the instructions in the invitation to join Operational Insights, the user can view the alerts and account information for this Operational Insights account, and you will be able to view the user information in the **Manage Users** window.
- 
+
     If you are adding an organizational account, the user will be able to access Operational Insights immediately.
 <p>
 ![invitation](./media/operational-insights-setup-workspace/manage-users04.png)
@@ -176,8 +174,8 @@ You can associate your Operational Insights workspace with an Azure Active Direc
 3. Enter the identity information for the administrator of your Azure Active Directory domain, and then click **Sign in**.
 
 4. Click **Grant access** to enable Operational Insights to use the identity information in your Active Directory domain.
-<p> 
-![linked](./media/operational-insights-setup-workspace/ad-existing01.png) 
+<p>
+![linked](./media/operational-insights-setup-workspace/ad-existing01.png)
 
 ## Edit an existing user account
 
@@ -221,4 +219,3 @@ If you are an administrator, and there are multiple users associated with the wo
 2. Select one of the reasons for closing your workspace, or enter a different reason in the text box.
 
 3. Click **Close workspace**.
-

@@ -63,7 +63,8 @@ Once your API app is created, you can now use the POP3 connector as a trigger fo
 5.	You can now use POP3 connector in the flow. Select "Get Email" trigger and configure frequency and interval. You can use the email retrieved from the POP3 trigger in other actions in the flow.
 		 
 	
-	![][5]![][6]
+	![][5]
+	![][6]
 
 
 	<!--Image references-->

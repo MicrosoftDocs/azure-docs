@@ -3,7 +3,7 @@
    description="Troubleshooting Guides for Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,17 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
-   ms.author="v-micada"/>
-
-> [AZURE.SELECTOR]
-- [Introduction](mobile-engagement-troubleshooting-guide.md)
-- [Analytics](mobile-engagement-troubleshooting-guide-analytics.md)
-- [APIs](mobile-engagement-troubleshooting-guide-apis.md)
-- [Push/Reach](mobile-engagement-troubleshooting-guide-push-reach.md)
-- [Service](mobile-engagement-troubleshooting-guide-service.md)
-- [SDK](mobile-engagement-troubleshooting-guide-sdk.md)
-- [Service Request Info](mobile-engagement-troubleshooting-guide-sr-info.md)
+   ms.date="05/12/2015"
+   ms.author="piyushjo"/>
 
 # Azure Mobile Engagement - Troubleshooting Guides
 

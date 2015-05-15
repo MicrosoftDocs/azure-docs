@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
-   description="Learn how to use Pig with Hadoop on HDInsight using SSH."
+   pageTitle="Use Hadoop Pig with Curl in HDInsight | Microsoft Azure"
+   description="Learn how to use Curl to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -89,7 +89,7 @@ To complete the steps in this article, you will need the following:
 
 When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasb:///example/pigcurl**. This address stores the output of the job in the **example/pigcurl** directory in the default storage container used by your HDInsight cluster.
 
-You can list and download these files by using the <a href="../xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface (xplat-cli)</a>. For example, to list files in **example/pigcurl**, use the following command:
+You can list and download these files by using the [Azure CLI for Mac, Linux and Windows](xplat-cli.md). For example, to list files in **example/pigcurl**, use the following command:
 
 	azure storage blob list <container-name> example/pigcurl
 

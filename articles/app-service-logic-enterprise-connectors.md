@@ -57,12 +57,7 @@ System-specific properties | When using enterprise systems, there are system-spe
 
 
 ## Create a Connector
-A connector can be created using the Azure portal or using REST APIs. 
-
-
-### Create a Connector using REST APIs
-[See the documentation on how to use the REST APIs.](http://go.microsoft.com/fwlink/p/?LinkId=529766)
-
+A connector can be created using the Azure portal. 
 
 ### Create a Connector in the Azure Portal
 In the Azure portal, you can create an enterprise connector when creating Logic Apps, Web Apps, or Mobile Apps. Or, you can create one using its own blade. Both ways are easy so it depends on your needs or preferences. Some users prefer to create all the connectors with their specific properties first. Then, create the Logic, Web, or Mobile Apps, and add the connector you created.  
@@ -79,7 +74,7 @@ Name | Enter any name for your connector. For example, you can name it *SAPConne
 Package Settings | Enter the enterprise system settings, like *SAP User Name* or *SugarCRM Server URL*. See [Enterprise system-specific Properties](#AddProperties) in this topic. 
 App Service Plan | Lists your payment plan. You can change it if you need more or less resources.
 Pricing Tier | Read-only property that lists the pricing category within your Azure subscription. 
-Resource Group | Create a new one or use an existing group. All API Apps and connectors for your Logic Apps, Web Apps, and Mobile Apps must be in the same Resource Group. <br/><br/>[Using resource groups](azure-preview-portal-using-resource-groups.md) explains this property. 
+Resource Group | Create a new one or use an existing group. All API Apps and connectors for your Logic Apps, Web Apps, and Mobile Apps must be in the same Resource Group. <br/><br/>[Using resource groups](resource-group-overview.md) explains this property. 
 Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
 Add to Startboard | Select this to add the connector to your Starboard (the home page).
@@ -144,6 +139,9 @@ The following steps add an enterprise connector to Logic Apps, Mobile Apps, or W
 Some of the enterprise connectors us OAuth security. When you add the connector to your App, you **Authorize** the connector by connecting to the enterprise system with your sign-in account and agree to the terms. When you do this, your App and the connector use the sign-in account to authenticate with the system. 
 
 
+### Access Connector using REST APIs
+[See the documentation on how to use Connector REST APIs.](http://go.microsoft.com/fwlink/p/?LinkId=529766)
+
 ## More Enterprise Connector resources
 [Integrate with an on-premises SAP server](app-service-logic-integrate-with-an-on-premise-SAP-server.md)<br/>
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
@@ -151,7 +149,7 @@ Some of the enterprise connectors us OAuth security. When you add the connector 
 
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md)<br/>
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)
+[Websites and Web Apps in Azure App Service](app-service-web-overview.md)
 
 
 

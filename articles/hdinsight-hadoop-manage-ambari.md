@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Manage HDInsight clusters using Ambari | Aure"
+   pageTitle="Manage HDInsight clusters using Ambari | Microsoft Azure"
    description="Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters."
    services="hdinsight"
    documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="05/12/2015"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using Ambari (preview)

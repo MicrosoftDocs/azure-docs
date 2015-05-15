@@ -2,7 +2,7 @@
 	pageTitle="Get started with Application Insights with Java in Eclipse" 
 	description="Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights" 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 
@@ -37,10 +37,13 @@ You'll need:
 You only have to do this one time per machine. This step installs a toolkit which can then add the SDK to each Dynamic Web Project.
 
 1. In Eclipse, click Help, Install New Software.
-    ![](./media/app-insights-java-eclipse/0-plugin.png)
+
+    ![Help, Install New Software](./media/app-insights-java-eclipse/0-plugin.png)
+
 2. The SDK is in http://dl.msopentech.com/eclipse, under Azure Toolkit. 
 3. Uncheck **Contact all update sites...**
-    ![](./media/app-insights-java-eclipse/1-plugin.png)
+
+    ![For Application Insights SDK, clear Contact all update sites](./media/app-insights-java-eclipse/1-plugin.png)
 
 Follow the remaining steps for each Java project.
 
@@ -62,8 +65,10 @@ Your usage and performance analytics will be displayed in an Azure resource in t
 ## Add the SDK to your Java project
 
 1. Add Application Insights from the context menu of your web project.
+
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/4-addai.png)
 2. Paste the instrumentation key that you got from the Azure portal.
+
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/5-config.png)
 
 
@@ -77,12 +82,12 @@ Return to your Application Insights resource in Microsoft Azure.
 
 HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![](./media/app-insights-java-track-http-requests/5-results.png)
+![Server response, request counts, and failures ](./media/app-insights-java-track-http-requests/5-results.png)
  
 
 Click through any chart to see more detailed metrics. 
 
-![](./media/app-insights-java-track-http-requests/6-barchart.png)
+![Request counts by name](./media/app-insights-java-track-http-requests/6-barchart.png)
 
 
 [Learn more about metrics.][metrics]
@@ -91,7 +96,7 @@ Click through any chart to see more detailed metrics.
 
 And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
  
-![](./media/app-insights-java-track-http-requests/7-instance.png)
+![All traces for this request](./media/app-insights-java-track-http-requests/7-instance.png)
 
 
 ## Client-side telemetry
@@ -100,7 +105,7 @@ From the Quick Start tile on the overview blade, you can get a script to add to 
 
 Page view, user, and session metrics will appear on the overview blade:
 
-![](./media/appinsights/appinsights-47usage-2.png)
+![Sessions, users and page views](./media/appinsights/appinsights-47usage-2.png)
 
 [Learn more about setting up client-side telemetry.][usage]
 
@@ -116,7 +121,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 
 ## Diagnostic logs
 
-If you’re using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
+If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 
 [Learn more about diagnostic logs][javalogs]
 
@@ -145,8 +150,13 @@ You can insert code both in web page JavaScript and in the server-side Java.
 * [Track custom events and metrics][track] to learn about how your application is used, both at the client and the server.
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[metrics]: app-insights-metrics-explorer.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 

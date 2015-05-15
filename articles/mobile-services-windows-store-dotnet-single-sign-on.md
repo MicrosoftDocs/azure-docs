@@ -133,7 +133,7 @@ Finally, you add the Live SDK and use it to authenticate users in your app.
 		
 9. Press the F5 key to run the app and sign into Live Connect with your Microsoft account. 
 
-   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 10. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.
 

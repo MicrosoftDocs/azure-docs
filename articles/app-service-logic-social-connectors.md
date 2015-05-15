@@ -96,11 +96,7 @@ Let's get started.
 
 
 ## Create a Connector
-
-There are two ways to create connectors:
-
-- by using the Microsoft Azure portal (no coding required!)
-- by using REST APIs. 
+Connectors can be created at the Azure Portal 
 
 ### Create a Social Connector in the Microsoft Azure Portal
 
@@ -122,9 +118,9 @@ There are two ways to create connectors:
 Now that you've created your first connector, consider building a web, mobile or logic app with it. 
 
 
-### Create a Connector using REST APIs
+### Access Connector using REST APIs
 
-[Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
+[Access connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 
 ## Add your connector to an application 
@@ -152,7 +148,7 @@ Connectors use either OAuth or user names and passwords.
 
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md) |
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md) |
+[Websites and Web Apps in Azure App Service](app-service-web-overview.md) |
 
 
 ## More Connectors

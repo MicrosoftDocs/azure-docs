@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Ingest Telemetry and Application Events at Scale" 
 	description="Learn how to ingest telemetry and application events at scale across your business solutions." 
-	services="service-bus" 
+	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
+	ms.service="event-hubs" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 

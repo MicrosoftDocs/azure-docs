@@ -1,25 +1,27 @@
-<properties 
-   pageTitle="Optimize your environment with Assessment intelligence packs"
-   description="Use Assessment intelligence packs to assess the risk and health of your server environments on a regular interval"
+<properties
+   pageTitle="Optimize your environment with Assessment solutions"
+   description="Use Assessment solutions to assess the risk and health of your server environments on a regular interval"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="05/11/2015"
    ms.author="banders" />
 
-# Optimize your environment with Assessment intelligence packs
+# Optimize your environment with Assessment solutions
 
-You can use Assessment intelligence packs to assess the risk and health of your server environments on a regular interval. They provide a prioritized list of recommendations specific to your deployed server infrastructure. Recommendations are categorized across six focus areas which helps your quickly understand the risk and health of your infrastructure and to help you easily take action to decrease risk and improve health.
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
-Currently, the following Assessment intelligence packs are available:
+You can use Assessment solutions to assess the risk and health of your server environments on a regular interval. They provide a prioritized list of recommendations specific to your deployed server infrastructure. Recommendations are categorized across six focus areas which helps your quickly understand the risk and health of your infrastructure and to help you easily take action to decrease risk and improve health.
+
+Currently, the following Assessment solutions are available:
 
 - Active Directory
 
@@ -29,14 +31,14 @@ The recommendations made are based on the knowledge and experiences gained by Mi
 
 You can choose focus areas that are most important to your organization and track your progress toward running a risk free and healthy environment.
 
-You install the intelligence packs to update the Operations Manager agent and base configuration module for Operational Insights and add the AdvisorAssessment.exe file to monitored servers. Configuration data is read and then the data is sent to the Operational Insights service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. When assessments are completed, summary information for focus areas are shown on the **Assessment** dashboard for the infrastructure in your environment. By using the information on the **Assessment** dashboard, you can view and then take recommended actions for your server infrastructure.
+You install the solutions to update the Operations Manager agent and base configuration module for Operational Insights and add the AdvisorAssessment.exe file to monitored servers. Configuration data is read and then the data is sent to the Operational Insights service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. When assessments are completed, summary information for focus areas are shown on the **Assessment** dashboard for the infrastructure in your environment. By using the information on the **Assessment** dashboard, you can view and then take recommended actions for your server infrastructure.
 
 ![image of SQL Assessment tile](./media/operational-insights-assessment/overview-sql-assess.png)
 
 ![image of SQL Assessment dashboard](./media/operational-insights-assessment/gallery-ad-01.png)
 
 
-## Assessment Intelligence Packs FAQ
+## Assessment solutions FAQ
 
 *How often does an assessment run?*<br>
 The assessment runs every 7 days.
@@ -44,7 +46,7 @@ The assessment runs every 7 days.
 *Is there a way to configure how often the assessment runs?*<br>
 Not at this time.
 
-*If another server for is discovered after I’ve added an assessment intelligence pack, will it be assessed?*<br>
+*If another server for is discovered after I’ve added an assessment solution, will it be assessed?*<br>
 Yes, once it is discovered it is assessed from then on, every 7 days.
 
 *If a server is decommissioned, when will it be removed from the assessment?*<br>
@@ -71,7 +73,7 @@ Not at this time.
 For SQL Server, a small number of SQL queries are run. In order for them to run, a Run As Account with VIEW SERVER STATE permissions to SQL must be used.  In addition, in order to query WMI, local administrator credentials are required.
 
 *Why display only the top 10 recommendations?*<br>
-Instead of giving you an exhaustive overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using the Operational Insights search.
+Instead of giving you an exhaustive overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using the Operational Insights log search.
 
 *Is there a way to ignore a recommendation?*<br>
 Not at this time.
@@ -114,7 +116,7 @@ Every recommendation made includes guidance about why the recommendation might b
 
 ## Use assessment focus area recommendations
 
-Before you can use an assessment intelligence pack in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-pack.md). After it is installed, you can view the summary of recommendations by using the Assessment tile on the Overview page in Operational Insights.
+Before you can use an assessment solution in Microsoft Azure Operational Insights, you must have the solution installed. To read more about installing solutions, see [Use the Solution Gallery to add or remove solutions](operational-insights-add-solution.md). After it is installed, you can view the summary of recommendations by using the Assessment tile on the Overview page in Operational Insights.
 
 You can summary compliance assessments for your infrastructure and then drill-into recommendations.
 

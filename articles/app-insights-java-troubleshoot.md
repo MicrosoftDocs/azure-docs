@@ -2,7 +2,7 @@
 	pageTitle="Troubleshoot Application Insights in a Java web project" 
 	description="Troubleshooting guide and question and answer." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 
@@ -24,7 +24,7 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 
 *In Eclipse, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.*
 
-* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[0.9,)</version>` or (Gradle) `version:'0.9.+'`), try specifying a specific version instead like `0.9.2`.
+* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[0.9,)</version>` or (Gradle) `version:'0.9.+'`), try specifying a specific version instead like `0.9.3`.
 
 ## No data 
 
@@ -36,6 +36,12 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 * In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 * In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 * Turn on logging to the IDE console window, by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with [Error].
+
+
+#### I used to see data, but it has stopped
+
+* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/)
+
 
 
 ## No usage data
@@ -116,8 +122,13 @@ See [Data retention and privacy][data].
 
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-[AZURE.INCLUDE [app-insights-java-learn-more](../includes/app-insights-java-learn-more.md)]
+<!--Link references-->
 
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[data]: app-insights-data-retention-privacy.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[platforms]: app-insights-platforms.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 

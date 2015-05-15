@@ -21,18 +21,24 @@
 
 ##Overview
 
-When working with Media Services, one of the common scenarios is:
+When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions. 
 
-1. Upload an input file (called a mezzanine file) into an asset. For example, H.264, MP4, or WMV.
-1. Encode the asset into a set of adaptive bitrate MP4s.
-1. Publish the asset. 
-2. Use [Dynamic Packaging](http://msdn.microsoft.com/library/azure/jj889436.aspx) to deliver the content to your clients in any of the following formats: MPEG DASH, Apple HLS, or Smooth Streaming. 
+To achieve this goal:
 
-This topic gives an overview of main [concepts](media-services-deliver-content.md#concepts) and links to topics that show how to perform content delivery related [tasks](media-services-deliver-content.md#tasks).
+- encode your stream to multi-bitrate (adaptive bitrate) video stream (this will take care of quality and network conditions) and 
+- use Media Services [Dynamic Packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols (this will take care of streaming on different devices). Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
+
+This topic gives an overview of  [content delivery concepts](media-services-deliver-content-overview.md#concepts) and links to topics that show how to perform content delivery [tasks](media-services-deliver-content-overview.md#tasks).
 
 ##<a id="concepts"></a>Concepts
 
 The following list describes useful terminology and concepts when delivering media.
+
+###Dynamic packaging
+
+It is recommended to use dynamic packaging to deliver your content. For more information see [Dynamic Packaging](media-services-dynamic-packaging-overview.md).  
+
+To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
 ###Locators
 
@@ -43,13 +49,15 @@ To provide your user with a URL that can be used to stream or download your cont
 
 An **Access Policy** is used to define the permissions (such as read, write, and list) and duration that a client has access to a given asset. Note, that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.
 
->[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a one year expiration date were created.  
+Locators have an expiration date. When using Portal to publish your assets, locators with a 100 years expiration date are created. 
+
+>[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a two years expiration date were created.  
 
 To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
-
+ 
 Locators are not designed to manage per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions. For more information, see [Securing Media](http://msdn.microsoft.com/library/azure/dn282272.aspx).
 
-When you create a locator for media content, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
+Note that when you create a locator, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
 
 
 ###Adaptive streaming 
@@ -64,15 +72,6 @@ Note that you can only stream over SSL if the streaming endpoint from which you 
 
 
 ####Streaming URL formats:
-
-**Smooth Streaming format**
-
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-
-Example:
-
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
-
 
 **MPEG DASH format**
 
@@ -94,6 +93,22 @@ Example
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+**Smooth Streaming format**
+
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+
+Example:
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+
+**Smooth Streaming 2.0 manifest (legacy manifest)**
+
+By default Smooth Streaming manifest format contains the repeat tag (r-tag). However, some players do not support the r-tag. Such clients can use format that disables the r-tag:
+
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+
 **HDS (for Adobe PrimeTime/Access licensees only)**
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
@@ -107,7 +122,7 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of dynamic packaging, you need to do the following:
 
-- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
+- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.
 - Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-manage-origins.md#scale_streaming_endpoints/).
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
@@ -118,7 +133,7 @@ Note that in addition to being able to use the dynamic packaging capabilities, O
 
 Progressive download allows you to start playing media before the entire file has been downloaded. You cannot progressively download .ism* (ismv, isma, ismt, ismc) files. 
 
-To progressively download content, use the OnDemandOrigin type of locator. The following example shows the URL that is based on the OnDemandOrigin type of locator.r:
+To progressively download content, use the OnDemandOrigin type of locator. The following example shows the URL that is based on the OnDemandOrigin type of locator:
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
@@ -147,6 +162,23 @@ The following considerations apply:
 A **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming reserved units. You should allocate at least one reserved unit for applications in a production environment. For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
 ##<a id="tasks"></a>Tasks related to delivering assets
+
+
+###Configuring streaming endpoints
+
+For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md).
+
+###Uploading media 
+
+Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
+
+###Encoding assets
+
+Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
+ 
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
 ###Configuring asset delivery policy
 

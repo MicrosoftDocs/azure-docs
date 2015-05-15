@@ -13,20 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2015" 
+	ms.date="05/04/2015" 
 	ms.author="spelluru"/>
 
-# Tutorial: Move and process log files using Data Factory
-This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights.
+# Tutorial: Measuring effectiveness of a marketing campaign  
+Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). These games produce a lot of logs and Contoso’s goal is to collect and analyze these logs to gain insights into customer preferences, demographics, usage behavior etc. to identify up-sell and cross-sell opportunities, develop new compelling features to drive business growth and provide a better experience to customers.
 
-## Scenario
-Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). Each of these games produces tons of logs. Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify up-sell and cross-sell opportunities, develop new compelling features etc. to improve business and provide better experience to customers.
- 
-In this walkthrough, we will collect sample logs, process and enrich them with reference data, and transform the data to evaluate the effectiveness of a marketing campaign that Contoso has recently launched.
+In this tutorial, you will create Data Factory pipelines to evaluate the effectiveness of a marketing campaign that Contoso has recently launched by collecting sample logs, processing and enriching them with reference data, and transforming the data. It has the following three pipelines:
+
+1.	The **PartitionGameLogsPipeline** reads the raw game events from blob storage and creates partitions based on year, month, and day.
+2.	The **EnrichGameLogsPipeline** joins partitioned game events with geo code reference data and enriches the data by mapping IP addresses to the corresponding geo-locations.
+3.	The **AnalyzeMarketingCampaignPipeline** pipeline leverages the enriched data and processes it with the advertising data to create the final output that contains marketing campaign effectiveness.
 
 ## Getting ready for the tutorial
 1.	Read [Introduction to Azure Data Factory][adfintroduction] to get an overview of Azure Data Factory and understanding of the top level concepts.
-2.	You must have an Azure subscription to perform this tutorial. For information about obtaining a subscription, see [Purchase Options] [azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+2.	You must have an Azure subscription to perform this tutorial. For information about obtaining a subscription, see [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), [Member Offers](http://azure.microsoft.com/pricing/member-offers/), or [Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 3.	You must download and install [Azure PowerShell][download-azure-powershell] on your computer. You will execute Data Factory cmdlets to upload sample data and pig/hive scripts to your blob storage. 
 2.	**(recommended)** Review and practice the tutorial in the [Get started with Azure Data Factory][adfgetstarted] article for a simple tutorial to get familiar with the portal and cmdlets.
 3.	**(recommended)** Review and practice the walkthrough in the [Use Pig and Hive with Azure Data Factory][usepigandhive] article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.
@@ -364,6 +365,17 @@ In this step, you will create the following pipelines:
 6. In the TABLE blade for **RawGameEventsTable**, you see all the slices. In the following screen shot, all the slices are in **Ready** state and there are no problem slices. It means that the data is ready to be processed.	
 
 	![RawGameEventsTable TABLE blade][image-data-factory-monitoring-raw-game-events-table]
+
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations.    
+
+	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
+	
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.  
+
+	![Data Slices by Slice Time][DataSlicesBySliceTime]
  
 7. Now, on the **PIPELINE** blade for **PartiionGameLogsPipeline**, click **Produced**. 
 8. You should see the list of data sets that this pipeline produces: 
@@ -374,6 +386,8 @@ In this step, you will create the following pipelines:
 	![RawGameEventsTable DATA SLICE blade][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
 	If there was an error, you would see a **Failed **status here.  You might also see either both slices with status **Ready**, or both with status **PendingValidation**, depending on how quickly the slices are processed.
+
+	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
  
 	Refer to the [Azure Data Factory Developer Reference][developer-reference] to get an understanding of all possible slice statuses.
 
@@ -394,15 +408,7 @@ In the last step of log processing scenario from the walkthrough in this article
 In order to copy the marketing campaign effectiveness data from Azure Blob to on-premises SQL Server, you need to create additional on-premises Linked Service, Table and Pipeline introduced in the walkthrough in this article.
 
 Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] to learn how to create a pipeline to copy marketing campaign effectiveness data to an on-premises SQL Server database.
- 
-## See Also
 
-Article | Description
------- | ---------------
-[Use Pig and Hive with Data Factory][usepigandhive] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issues. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc…
-[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the Data Factory cmdlets. 
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -410,7 +416,7 @@ Article | Description
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [data-factory-editor]: data-factory-editor.md
 
-
+[adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
 [adftutorial-using-powershell]: data-factory-tutorial-using-powershell.md
 [adfintroduction]: data-factory-introduction.md
@@ -431,6 +437,7 @@ Article | Description
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
+[DataSlicesBySliceTime]: ./media/data-factory-tutorial/DataSlicesBySliceTime.png
 [image-author-deploy-tile]: ./media/data-factory-tutorial/author-deploy-tile.png
 [image-editor-newdatastore-button]: ./media/data-factory-tutorial/editor-newdatastore-button.png
 [image-editor-blob-storage-json]: ./media/data-factory-tutorial/editor-blob-storage-json.png

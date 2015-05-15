@@ -383,9 +383,9 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 
 ## See Also
 - [Copy Activity - Examples][copy-activity-examples]
+- [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
 - [Copy Activity topic on MSDN Library][msdn-copy-activity]
-- [Linked Services topic on MSDN Library][msdn-linkedservices]
-- [Tables topic on MSDN Library][msdn-tables-topic]
+- [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -394,6 +394,7 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 [table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
+[copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md

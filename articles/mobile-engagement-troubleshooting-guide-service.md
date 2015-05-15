@@ -3,7 +3,7 @@
    description="Troubleshooting Guides for Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -14,16 +14,8 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.author="piyushjo"/>
 
-> [AZURE.SELECTOR]
-- [Introduction](mobile-engagement-troubleshooting-guide.md)
-- [Analytics](mobile-engagement-troubleshooting-guide-analytics.md)
-- [APIs](mobile-engagement-troubleshooting-guide-apis.md)
-- [Push/Reach](mobile-engagement-troubleshooting-guide-push-reach.md)
-- [Service](mobile-engagement-troubleshooting-guide-service.md)
-- [SDK](mobile-engagement-troubleshooting-guide-sdk.md)
-- [Service Request Info](mobile-engagement-troubleshooting-guide-sr-info.md)
 
 # Troubleshooting guide for Service issues
 
@@ -38,18 +30,11 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 - Issues that appear to be caused by Azure Mobile Engagement Service Outages can be caused by several different issues:
     - Isolated issues that originally appear systemic to all of Azure Mobile Engagement
     - Known issues caused by server outages (not always shows in server status):
-o    Scheduling delays, Targeting errors, Badge update issues, Statistics stop collecting, Push stops working, API's stop working, New apps or users can't be created, DNS errors, and Timeout errors in the UI, API, or Apps on a device.
-1.    Cloud Dependency Outages
-<Azure Service Status><Amazon Web Services (AWS) Status>
-2.    Push Notification Services (PNS) Dependency Outages
-<Google - Service><Apple - Service><Android - Google GCM><Android - Amazon ADM><Apple - APNS><Windows Phone - WNS><Windows Phone - MPNS><Windows - WNS>
-3.    App Store Outages
-<GooglePlay><iTunes><Windows Phone Store><Windows Store>
-
+	- Scheduling delays, Targeting errors, Badge update issues, Statistics stop collecting, Push stops working, API's stop working, New apps or users can't be created, DNS errors, and Timeout errors in the UI, API, or Apps on a device.
     - Cloud Dependency Outages
-[Azure Service Status]( http://status.azure.com/), [Amazon Web Services (AWS) Status]( http://status.aws.amazon.com/) 
+[Azure Service Status](http://status.azure.com/), [Amazon Web Services (AWS) Status](http://status.aws.amazon.com/) 
     - Push Notification Services (PNS) Dependency Outages
-[Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service]( http://www.apple.com/support/systemstatus/), [Android - Google GCM]( http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM]( https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS](http://msdn.microsoft.com/library/windows/apps/ff402558(v=vs.105).aspx), [Windows - WNS](https://developer.windows.com/)
+[Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
     - App Store Outages
 [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Windows Phone Store](http://www.windowsphone.com/), [Windows Store](http://windows.microsoft.com/)
 
@@ -162,3 +147,4 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+[LinkMPNS]: http://msdn.microsoft.com/library/windows/apps/ff402558(v=vs.105).aspx

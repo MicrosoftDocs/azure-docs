@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="04/14/2015" 
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
@@ -146,7 +146,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 		
 		/**
-		  * Just a modal AlertDialog for displaying a message on the UI thread
+		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when theres an exception or message to report.
 		  * 
 		  * @param title   Title for the AlertDialog box. 
@@ -261,12 +261,14 @@ You can run your app and send test notifications to your app from the Notificati
 ![][30]
 
 
-Push notifications with Notification Hubs are normally sent in a back-end service like Mobile Services or an ASP.NET WebAPI back-end. You can use the Notification Hub <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a> to send notification messages.  
+Push notifications with Notification Hubs are normally sent in a back-end service like Mobile Services or an ASP.NET WebAPI back-end. You can use the REST API or a library to send notification messages. In this tutorial, you will just use the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) to send the notification hub message but, here is a list of some other options.
 
-For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see [Get started with push notifications in Mobile Services](mobile-services-javascript-backend-android-get-started-push.md).  For more information on how to send notifications using the REST APIs, see [How to use Notification Hubs from Java](notification-hubs-java-backend-how-to.md) or [How to use Notification Hubs from PHP](notification-hubs-php-backend-how-to.md).
+- Azure Mobile Services : For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see [Get started with push notifications in Mobile Services](mobile-services-javascript-backend-android-get-started-push.md).  
+- Azure Notification Hub Java SDK: See [How to use Notification Hubs from Java](notification-hubs-java-backend-how-to.md) for sending notifications from Java. This has been tested in Eclipse for Android Development
+- PHP: [How to use Notification Hubs from PHP](notification-hubs-php-backend-how-to.md).
 
 
-In this section of the tutorial you will add code to send notifications to the hub directly from the Android client app. So if multiple devices have registered for GCM notifications, a single device can send notifications to all the registered devices.
+In this section of the tutorial you will add code to use the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) to send notifications to the hub directly from the Android client app. So if multiple devices have registered for GCM notifications, a single device can send notifications to all the registered devices.
 
 ![][31]
 
@@ -458,7 +460,12 @@ In this section of the tutorial you will add code to send notifications to the h
 
 ##Testing your app
 
-If you want to test on an emulator, make sure your emulator image supports the Google API level you choose for your app.    
+####Emulator Testing
+If you want to test on an emulator, make sure your emulator image supports the Google API level you choose for your app. If your image doesn't support the Google APIs you will end up with the **SERVICE\_NOT\_AVAILABLE** exception.
+
+Also make sure you have added your Google account to your running emulator under **Settings**->**Accounts**. Otherwise, your attempts to register with GCM may result in the **AUTHENTICATION\_FAILED** exception.
+
+####Testing the app     
 
 1. Run the app and notice the registration id is reported for a successful registration.
 

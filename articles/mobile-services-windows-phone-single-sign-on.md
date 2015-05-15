@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/09/2015" 
 	ms.author="glenga"/>
 
 # Authenticate your Windows Phone app with client managed authentication using Microsoft account

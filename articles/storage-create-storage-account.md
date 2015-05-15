@@ -49,18 +49,17 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. In **URL**, enter a name for your storage account. See [Storage account endpoints](#account-endpoints) below for details about how this name will be used to address objects that you store in Azure Storage.
+3. In **URL**, enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) below for details about how this name will be used to address objects that you store in Azure Storage.
 
 4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs. 
 
 	> [AZURE.NOTE] Note that you must select an affinity group when your storage account is created; you cannot move an existing account to an affinity group.
-
-	For details about affinity groups, see [Service co-location with an affinity group](#affinity-group) below.
-
 	
+	For more information on affinity groups, see [Service co-location with an affinity group](#service-co-location-with-an-affinity-group) below.
+
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
 
-6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Storage account replication options](#replication-options) below.
+6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Storage account replication options](#storage-account-replication-options) below.
 
 6. Click **Create Storage Account**.
 
@@ -109,7 +108,7 @@ When you create a storage account, Azure generates two 512-bit storage access ke
 
 In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
 
-### Copy a storage access key ### 
+### Copy a storage access key  
 
 You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/library/azure/ee758697.aspx).
 

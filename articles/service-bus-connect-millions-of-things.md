@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Connect Millions of Things to the Cloud" 
 	description="Learn how to connect millions of things to the cloud using Microsoft Azure." 
-	services="service-bus" 
+	services="service-bus,event-hubs" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 

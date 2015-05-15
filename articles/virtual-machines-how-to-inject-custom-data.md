@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="04/07/2015" 
 	ms.author="rasquill"/>
 
 
@@ -53,10 +53,25 @@ This feature is currently supported only in the [Microsoft Azure Cross-Platform 
     + At `/var/lib/waagent/ovf-env.xml`
     + At `/var/lib/waagent/CustomData` 
 
+
+
+## Cloud-Init on Azure
+
+If your Azure Virtual Machine is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. Or if your custom data file is a script then cloud-init can simply execute it.
+
+### Ubuntu Cloud Images
+
+In most Azure Linux images you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent User Guide](./virtual-machines-linux-agent-user-guide.md) for more information.
+
+However, on the Ubuntu Cloud Images we must use cloud-init to configure the resource disk (aka "ephemeral" disk) and swap partition.  Please see the following page on the Ubuntu wiki for more details:
+
+ - [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps: Using cloud-init
 
-If your Azure Virtual Machine is an Ubuntu image, then you can use cloud-init to launch a script to use your custom data automatically (or, if your custom data file is a script, execute it). For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
+For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
 [Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)

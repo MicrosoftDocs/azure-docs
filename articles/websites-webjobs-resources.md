@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure WebJobs resources" 
+	pageTitle="Azure WebJobs documentation resources" 
 	description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="05/12/2015" 
 	ms.author="tdykstra"/>
 
-# Azure WebJobs resources
+# Azure WebJobs documentation resources
 
 ## Overview
 
@@ -33,6 +33,7 @@ The WebJobs dashboard in the Azure portal provides powerful management capabilit
 * [Introduction to Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [Azure WebJobs Features](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md)
+* [Background Jobs Guidance by Microsoft Patterns and Practices](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
 * [Announcing the 1.0.0 RTM of Microsoft Azure WebJobs SDK](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
 * [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 * [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -100,11 +101,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ##<a name="additionalsdk"></a>Additional WebJobs SDK resources
 
-* [Triggers, Bindings, and Route parameters in AzureJobs](http://blogs.msdn.com/b/jmstall/archive/2014/01/28/trigger-bindings-and-route-parameters-in-azurejobs.aspx) 
-* Azure Storage Bindings
-	* [Blobs](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-1-blobs.aspx)
-	* [Queues](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-2-queues.aspx)
-	* [Tables](http://blogs.msdn.com/b/jmstall/archive/2014/03/06/azure-storage-bindings-part-3-tables.aspx)
+* [WebJobs SDK source code](https://github.com/Azure/azure-webjobs-sdk)
 * [How does [BlobTrigger] work?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
 * [Advanced bindings with the Azure Web Jobs SDK](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [WebJob to upload FREB files to Azure Storage using the WebJobs SDK](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)

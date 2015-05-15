@@ -105,6 +105,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
+        using Microsoft.Azure.Mobile.Server.Config;
 
 4. Add the following snippet to the `PostTodoItem` method after the **InsertAsync** call:  
 

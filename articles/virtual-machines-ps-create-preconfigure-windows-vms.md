@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines" 
-	description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines"
+	description="Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/02/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/22/2015"
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-machines-windows-tutorial.md)
-- [Azure Preview Portal](virtual-machines-windows-tutorial-azure-preview.md)
+- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
+- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
@@ -35,7 +35,7 @@ If you haven't done so already, use the instructions in [How to install and conf
 
 ## Step 2: Set your subscription and storage account
 
-Set your Azure subscription and storage account by running theses commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
+Set your Azure subscription and storage account by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -49,19 +49,19 @@ You can get the correct subscription name from the SubscriptionName property of 
 Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create. Here are some examples from the Gallery in the Azure Management Portal.
 
 ![](./media/virtual-machines-use-PS-create-preconfigure-windows-vms/PSPreconfigWindowsVMs_1.png)
- 
+
 You can get the list of available ImageFamily values with this command.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
 Here are some examples of ImageFamily values for Windows-based computers:
 
-- Windows Server 2012 R2 Datacenter 
-- Windows Server 2008 R2 SP1 
-- Windows Server Technical Preview 
-- SQL Server 2012 SP1 Enterprise on Windows Server 2012 
+- Windows Server 2012 R2 Datacenter
+- Windows Server 2008 R2 SP1
+- Windows Server Technical Preview
+- SQL Server 2012 SP1 Enterprise on Windows Server 2012
 
-If you find the image you are looking for, open a fresh instance of the text editor of your choice (or an instance of the PowerShell Integrated Scripting Environment [ISE]) and copy the following into the new text file, substituting the ImageFamily value. 
+If you find the image you are looking for, open a fresh instance of the text editor of your choice (or an instance of the PowerShell Integrated Scripting Environment [ISE]) and copy the following into the new text file, substituting the ImageFamily value.
 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -70,7 +70,7 @@ In some cases, the image name is in the Label property instead of the ImageFamil
 
 	Get-AzureVMImage | select Label -Unique
 
-If you find the right image with this command, open a fresh instance of the text editor of your choice (or an instance of the PowerShell ISE) and copy the following into the new text file, substituting the Label value. 
+If you find the right image with this command, open a fresh instance of the text editor of your choice (or an instance of the PowerShell ISE) and copy the following into the new text file, substituting the Label value.
 
 	$label="<Label value>"
 	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -125,7 +125,7 @@ Optionally, assign the virtual machine to a specific subnet in an Azure virtual 
 
 	$vm1 | Set-AzureSubnet -SubnetNames "<name of the subnet>"
 
-Optionally, add a single data disk to the virtual machine. 
+Optionally, add a single data disk to the virtual machine.
 
 	$disksize=<size of the disk in GB>
 	$disklabel="<the label on the disk>"
@@ -149,17 +149,13 @@ Optionally, add the virtual machine to an existing load-balanced set for externa
 
 Finally, start the virtual machine creation process by choosing one of these command blocks (required).
 
-Option 1: Create the virtual machine in a new cloud service. 
-
-	New-AzureVM –Location "<An Azure location, such as US West>" -VMs $vm1
-
-Option 2: Create the virtual machine in an existing cloud service. 
+Option 1: Create the virtual machine in an existing cloud service.
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Management Portal or in the list of Resource Groups in the Azure Preview Portal. 
+The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Management Portal or in the list of Resource Groups in the Azure Preview Portal.
 
-Option 3: Create the virtual machine in an existing cloud service and virtual network.
+Option 2: Create the virtual machine in an existing cloud service and virtual network.
 
 	$svcname="<short name of the cloud service>"
 	$vnetname="<name of the virtual network>"
@@ -171,10 +167,10 @@ Review the Azure PowerShell command set you built in your text editor consisting
 
 Copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine.
 
-If you will be creating this virtual machine again or a similar one, you can: 
+If you will be creating this virtual machine again or a similar one, you can:
 
 - Save this command set as a text file or as a PowerShell script file (*.ps1)
-- Save this command set as an Azure automation runbook in the **Automation** section of the Azure Management Portal 
+- Save this command set as an Azure automation runbook in the **Automation** section of the Azure Management Portal
 
 ## <a id="examples"></a>Examples
 
@@ -185,7 +181,7 @@ Here are two examples of using the steps above to build Azure PowerShell command
 I need a PowerShell command set to create the initial virtual machine for an Active Directory domain controller that:
 
 - Uses the Windows Server 2012 R2 Datacenter image
-- Has the name AZDC1 
+- Has the name AZDC1
 - Is a standalone computer
 - Has an additional data disk of 20 GB
 - Has the static IP address 192.168.244.4
@@ -224,7 +220,7 @@ I need a PowerShell command set to create a virtual machine for a line-of-busine
 - Uses the Windows Server 2012 R2 Datacenter image
 - Has the name LOB1
 - Is a member of the corp.contoso.com domain
-- Has an additional data disk of 200 GB 
+- Has an additional data disk of 200 GB
 - Is in the FrontEnd subnet of the AZDatacenter virtual network
 - Is in the Azure-TailspinToys cloud service
 

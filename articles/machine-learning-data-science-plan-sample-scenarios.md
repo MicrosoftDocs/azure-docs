@@ -1,27 +1,41 @@
-<properties title="Cloud Data Science Process Walkthroughs" pageTitle="Cloud Data Science Process Walkthroughs | Azure" description="Cloud Data Science Process Walkthroughs" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties
+	pageTitle="Scenarios for the Advanced Analytics Process in Azure Machine Learning | Azure" 
+	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning." 
+	metaKeywords="" 
+	services="data-science-process" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab" 
+	manager="paulettm" 
+	editor="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/12/2015" 
+	ms.author="msolhab;bradsev" /> 
 
-Cloud Data Science Process in Azure Machine Learning
-========================================
 
-This article walks through the Cloud Data Science Process map and some sample data source and target scenarios. It illustrates some of the option choices and processing sequences based on data characteristics, source location, and target repositories in Azure. The Cloud Data Science Process flow for the sample scenarios is summarized in the last section.
+# Scenarios for the Advanced Analytics Process in Azure Machine Learning
 
-#### For all scenarios, you need:
+This article outlines the variety of sample data sources and target scenarios that can be handled with the Advanced Analytics Process in Azure Machine Learning. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure. 
 
-   [Create a storage account](storage-whatis-account.md)
+The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
-  [Create an Azure ML workspace](machine-learning-create-workspace.md)
+>[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-**The following sections present a few sample scenarios. For each scenario, a possible Data Science flow and supporting Azure resources are listed.**
+Each of the following sections presents a sample scenario. For each scenario, a possible data science or advanced analytics flow and supporting Azure resources are listed.
 
-- [Scenario \#1: Small to medium tabular dataset in a local files](#smalllocal)
-- [Scenario \#2: Small to medium dataset in a local files, requiring processing](#smalllocalprocess)
-- [Scenario \#3: Large dataset in local files, target Azure blobs](#largelocal)
-- [Scenario \#4: Small to medium dataset in a local files, target SQL Server in Azure VM](#smalllocaltodb)
-- [Scenario \#5: Large dataset in local files, target SQL Server in Azure VM](#largelocaltodb)
-- [Scenario \#6: Large dataset in a SQL Server database on-prem, target SQL Server in Azure VM](#largedbtodb)
-- [Scenario \#7: Big data in local files, target Hive database in Azure HDInsight Hadoop clusters](#largedbtohive)
+>[AZURE.NOTE] **For all of the following scenarios, you need to:**
+
+*   [Create a storage account](storage-whatis-account.md)
+*   [Create an Azure ML workspace](machine-learning-create-workspace.md)
+
+
+
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in a local files
 
@@ -54,7 +68,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 6.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-7.  Read the data from Azure blobs using the Reader module.
+7.  Read the data from Azure blobs using the [Reader][reader] module.
 
 8. Build an Azure Machine Learning experiment flow starting with ingested dataset(s).
 
@@ -80,7 +94,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 8. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data from Azure blobs using the Reader module.
+9. Read the data from Azure blobs using the [Reader][reader] module.
 
 10. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -123,7 +137,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 9. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-10. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+10. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 11. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -169,7 +183,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset
 
@@ -213,7 +227,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset.
 
@@ -278,21 +292,25 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
 8.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data directly from the `Hive Queries` using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+9. Read the data directly from the `Hive Queries` using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 10. Simple Azure ML experiment flow starting with uploaded dataset.
 
-Sample Scenarios Summary
+## <a name="decisiontree"></a>Decision tree for scenario selection
 ------------------------
 
-The following diagram summarizes the scenarios described above and the Cloud Data Science Process choices made in each scenario. Note that data processing, exploration, feature engineering, and sampling may take place in one or
-more method/environment -- at the source, intermediate, and/or target environment – and may proceed iteratively as needed. The diagram serves as an illustration of some of possible flows only.
+The following diagram summarizes the scenarios described above and the Advanced Analytics Process choices made that take you to each of the itemized scenarios. Note that data processing, exploration, feature engineering, and sampling may take place in one or more method/environment -- at the source, intermediate, and/or target environments – and may proceed iteratively as needed. The diagram only serves as an illustration of some of possible flows and does not provide an exhaustive enumeration.
 
 ![Sample DS process walkthrough scenarios][8]
 
-### Azure Data Science in Action Example
+### Advanced Analytics in action Eeamples
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
+For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process using a public dataset, see: 
+
+
+* [Advanced Analytics Process in action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+* [Advanced Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
+
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png
@@ -303,3 +321,7 @@ For an end-to-end walkthrough example of the Azure Data Science Process using a 
 [7]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-attach-db.png
 [8]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-sample-scenarios.png
 [9]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-to-hive.png
+
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Use Hive in HDInsight | Azure"
+   pageTitle="Hive query with Hadoop tools for Visual Studio | Microsoft Azure"
    description="Learn how to use Hive with HDInsight through Visual Studio."
    services="hdinsight"
    documentationCenter=""

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Viewing the Status of a Runbook Job in Azure Automation"
+   pageTitle="Viewing the status of a runbook job in Azure Automation"
    description="When you start a runbook in Azure Automation, a job is created. This article provides information on how to track each job and view its current status."
    services="automation"
    documentationCenter=""

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 
-# Walkthrough: Copy campaign effectiveness data to an on-premises SQL Server database
+# Walkthrough: Copy campaign effectiveness data to an on-premises SQL Server database 
 In this walkthrough, you will learn how to set up the environment to enable the pipeline to work with your on-premises data.
  
 In the last step of log processing scenario from the first walkthrough with Partition -> Enrich -> Analyze workflow, the marketing campaign effectiveness output was copied to an Azure SQL database. You could also move this data to on-premises SQL Server for analytics within your organization.
@@ -145,14 +145,6 @@ When you see the status of a slice of the table **MarketingCampaignEffectiveness
  
 Congratulations! You have successfully gone through the walkthrough to use your on-premises data source. 
  
-## See Also
-
-Article | Description
------- | ---------------
-[Enable your pipelines to work with on-premises data][useonpremisesdatasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob. 
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issues
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc…
-[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the Data Factory cmdlets. 
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Deploying and managing Storm topologies on HDInsight | Azure" 
-   description="Learn how to deploy, monitor and manage Storm topologies using the Storm Dashboard included with Apache Storm on HDInsight." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="Blackmist" 
-   manager="paulettm" 
+<properties
+   pageTitle="Deploy and manage Apache Storm topologies on HDInsight | Microsoft Azure"
+   description="Learn how to deploy, monitor and manage Storm topologies using the Storm Dashboard included with Apache Storm on HDInsight. Use Hadoop tools for Visual Studio."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="java"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="03/27/2015"
+   ms.workload="big-data"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
 #Deploy and manage Apache Storm topologies on HDInsight
@@ -54,7 +54,7 @@ From the top of the Storm Dashboard, select **Submit Topology**. Follow the inst
 
 From the Storm Dashboard, select the **Storm UI** link. This will display information about the cluster, in addition to any running topologies.
 
-![the storm ui][storm-dashboard-ui] 
+![the storm ui][storm-dashboard-ui]
 
 > [AZURE.NOTE] With some versions of Internet Explorer, you may discover that the Storm UI does not refresh after you have first visited it. For example, it may not show the new topologies you submitted, or it may show a topology as active when you previously deactivated it. Microsoft is aware of this issue and is working on a solution.
 
@@ -79,13 +79,13 @@ Selecting a link from the **Topology summary** section displays the following in
 * **Topology actions**: Management actions that you can perform for the topology.
 
 	* **Activate**: Resumes processing of a deactivated topology.
-	
+
 	* **Deactivate**: Pauses a running topology.
-	
+
 	* **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
-	
+
 		For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
-	
+
 	* **Kill**: Terminates a Storm topology after the specified timeout.
 
 * **Topology stats**: Statistics about the topology. Use the links in the **Window** column to set the timeframe for the remaining entries on the page.
@@ -156,7 +156,7 @@ The base URI for the REST API on HDInsight clusters is **https://&lt;clustername
 
 ###Authentication
 
-Requests to the REST API must use **basic authentication**, so you use the HDInsight cluster administrator name and password. 
+Requests to the REST API must use **basic authentication**, so you use the HDInsight cluster administrator name and password.
 
 > [AZURE.NOTE] Because basic authentication is sent by using clear text, you should **always** use HTTPS to secure communications with the cluster.
 
@@ -166,11 +166,13 @@ Information that is returned from the REST API may only be usable from within th
 
 ##Next Steps
 
-Now that you've learned how to deploy and monitor topologies by using the Storm Dashboard, learn how to: 
+Now that you've learned how to deploy and monitor topologies by using the Storm Dashboard, learn how to:
 
 * [Develop C# topologies using the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [Develop Java-based topologies using Maven](hdinsight-storm-develop-java-topology.md)
+
+For a list of more example topologies, see [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor/submit.png

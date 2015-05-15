@@ -13,23 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2015" 
+	ms.date="05/04/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Azure PowerShell
+> [AZURE.SELECTOR]
+- [Tutorial Overview](data-factory-get-started.md)
+- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+
 The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Preview Portal][azure-preview-portal]. 
 In this tutorial, you will create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial copies data from an Azure blob to an Azure SQL database.       
 
 > [AZURE.NOTE] This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
 ##Prerequisites
-Before you begin this tutorial, you must have the following:
-
-- An Azure subscription. If you do not have a subscription, you can start with a [Free Trial][azure-free-trial].
-- Azure PowerShell installed on your computer. If you do not have it already, download and install [Azure PowerShell][download-azure-powershell] on your computer.
-- Azure Storage Account. You will use the blob storage as a source data store in this tutorial. See [About Storage Accounts][data-factory-create-storage] for steps to create an Azure storage. You will need the **storage account name** and **account key** to do this tutorial. 
-- Azure SQL Database. You will create a sample database and use it as a destination data store in this tutorial. See [How to create and configure an Azure SQL Database][data-factory-create-sql-database] for steps to create an Azure SQL database. You will need the **server name**, **database name**, **user name**, and **password** to do this tutorial.
-- Read through [Introduction to Azure Data Factory][data-factory-introduction] topic for a conceptual overview of the Azure Data Factory service.
+Apart from prerequisites listed in the Tutorial Overview topic, you need to have Azure PowerShell installed on your computer. If you do not have it already, download and install [Azure PowerShell][download-azure-powershell] on your computer.
 
 ##In This Tutorial
 The following table lists the steps you will perform as part of the tutorial and their descriptions. 
@@ -392,6 +391,27 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 		Type                : Copy
 
 > [AZURE.NOTE] See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+
+## Next steps
+
+Article | Description
+------ | ---------------
+[Copy data with Azure Data Factory - Copy Activity][copy-activity] | This article provides detailed description of the **Copy Activity** you used in this tutorial. 
+[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an **on-premises SQL Server database** to an Azure blob. 
+[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use **HDInsight Activity** to run a **hive/pig** script to process input data to produce output data.
+[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
+[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a **custom activity** and using it in a pipeline. 
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to **troubleshoot** Azure Data Factory issues. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
+[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
+
+[copy-activity]: data-factory-copy-activity.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

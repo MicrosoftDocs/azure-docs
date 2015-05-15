@@ -18,7 +18,7 @@
 
 #Windows Phone Silverlight SDK Release Notes
 
-##3.0.0 (04/01/2015)
+##3.0.0 (04/03/2015)
 
 -   Default notification icon updated.
 -   Send back system notification action feedback when a notification is clicked.

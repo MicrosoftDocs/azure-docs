@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
 	ms.devlang="multiple" 
 	ms.topic="hero-article" 
-	ms.date="11/24/2014" 
+	ms.date="04/24/2015" 
 	ms.author="mahender"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -84,7 +84,7 @@ The final stage of this tutorial is to build and run your new app.
 
     ![][7]
 
-This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+This sends a POST request to the new mobile service hosted in Microsoft Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 ![][8]
 

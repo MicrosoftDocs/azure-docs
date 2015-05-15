@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="05/06/2015" 
 	ms.author="spelluru"/>
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
@@ -193,7 +193,7 @@ In this sample, a SQL query (vs. table in the previous sample) is used to extrac
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', Time.AddHours(SliceStart, 0))"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
 			},
 			"sink":
 			{
@@ -327,7 +327,7 @@ Though UTF-8 encoding is quite popular, often time text files in Azure Blob foll
 - [Examples for using Copy Activity][copy-activity-examples]
 - [Copy data with Azure Data Factory][adf-copyactivity]
 - [Copy Activity - JSON Scripting Reference](https://msdn.microsoft.com/library/dn835035.aspx)
-
+- [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
 
 
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/

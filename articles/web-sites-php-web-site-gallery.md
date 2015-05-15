@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a WordPress web app in Azure App Service" 
-	description="A tutorial that teaches you how to create a new Azure web app for a WordPress blog, and then deploy it through the Azure Portal." 
+	description="A tutorial that teaches you how to create a new Azure web app for a WordPress blog, and then deploy it through the Azure Preview Portal." 
 	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="04/10/2015" 
 	ms.author="tomfitz"/>
 
 # Create a WordPress web app in Azure App Service

@@ -29,27 +29,10 @@ Add the SDK to your application project. When your app is released and running, 
 If your web pages have substantial scripts you'll probably also want to:
 * [Add Application Insights to web pages][track]
 
-## Track performance
-
-## Set alerts
-
-## Track Exceptions
-
-## Trace logs
 
 ## Diagnostic search
 
 
-
-[Application Insights][start] includes a powerful [Diagnostic Search][diagnostic] tool that enables you to explore and drill in to telemetry sent by the Application Insights SDK from your application. Many events such as user page views are automatically sent by the SDK.
-
-You can also write code to send custom events, exception reports, and traces. And if you already use a logging framework such as log4J, log4net, NLog, or System.Diagnostics.Trace, you can capture those logs and include them in the search. This makes it easy to correlate log traces with user actions, exceptions and other events.
-
-## <a name="send"></a>Before you write custom telemetry
-
-If you haven't yet [set up Application Insights for your project][start], do that now.
-
-When you run your application, it will send some telemetry that will show up in Diagnostic Search, including requests received by the server, page views logged at the client, and uncaught exceptions.
 
 Open Diagnostic Search to see the telemetry that the SDK automatically sends.
 
@@ -61,7 +44,7 @@ The details vary from one application type to another. You can click through any
 
 ##<a name="events"></a>Custom events
 
-Custom events show up both in [Diagnostic Search][diagnostics] and in [Metric Explorer][metrics]. You can send them from devices, web pages and server applications. They can be used both for diagnostic purposes and to [understand usage patterns][track].
+Custom events show up both in [Diagnostic Search][diagnostic] and in [Metric Explorer][metrics]. You can send them from devices, web pages and server applications. They can be used both for diagnostic purposes and to [understand usage patterns][track].
 
 A custom event has a name, and can also carry properties that you can filter on, together with numeric measurements.
 
@@ -117,18 +100,6 @@ Drill into an individual event to see its detailed properties.
 
 ![](./media/appinsights/appinsights-23-customevents-4.png)
 
-##<a name="pages"></a> Page views
-
-Page view telemetry is sent by the trackPageView() call in [the JavaScript snippet you insert in your web pages][usage]. Its main purpose is to contribute to the counts of page views that you see on the overview page.
-
-Usually it is called once in each HTML page, but you can insert more calls - for example, if you have a single-page app and you want to log a new page whenever the user gets more data.
-
-    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm"); 
-
-It's sometimes useful to attach properties that you can use as filters in diagnostic search:
-
-    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm",
-     {Game: currentGame.name, Difficulty: currentGame.difficulty});
 
 
 ##<a name="trace"></a> Trace telemetry
@@ -247,6 +218,8 @@ You can also open Diagnostic Search directly, filter on exceptions, and choose t
 
 Application Insights reports unhandled exceptions where it can, from devices, [web browsers][usage], or web servers, whether instrumented by [Status Monitor][redfield] or [Application Insights SDK][greenbrown]. 
 
+> [AZURE.NOTE] In a web browser; if you include script files from CDNs or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"``` and the server sends CORS headers to get a stack trace and detail for unhandled javascript execptions from these resources.
+
 However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. Please see [this blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx) for details. 
 
 ### Correlating with a build
@@ -302,8 +275,17 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
+[platforms]: app-insights-platforms.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 

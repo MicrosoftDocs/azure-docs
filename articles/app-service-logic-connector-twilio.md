@@ -27,7 +27,7 @@ Twilio connector lets you send and receive SMSes from your Twilio account. It al
 To use the Twilio connector, you need to first create an instance of the Twilio connector API app. This can be done as follows:
 
 1.	Open the Azure Marketplace using the + NEW option at the bottom left of the Azure Portal.
-2.	Browse to “Web and Mobile > API Apps” and search for “Twilio connector”.
+2.	Browse to “API Apps” and search for “Twilio connector”.
 3.	Configure the Twilio connector as follows:
  
 	![][1]
@@ -38,8 +38,8 @@ To use the Twilio connector, you need to first create an instance of the Twilio 
 	- **Pricing tier** - choose a pricing tier for the connector
 	- **Name** - give a name for your Twilio Connector
 	- **Package settings**
-		- **Account SID** - The unique identifier of the account. Account SID for your account can be retrieved from https://www.twilio.com/user/account/settings 
-		- **Auth Token** - Authorization token associated with the account. Authorization Token for your account can be retrieved from https://www.twilio.com/user/account/settings
+		- **Account SID** - The unique identifier of the account. Account SID for your account can be retrieved from <https://www.twilio.com/user/account/settings>
+		- **Auth Token** - Authorization token associated with the account. Authorization Token for your account can be retrieved from <https://www.twilio.com/user/account/settings>
 
 
 4.	Click on Create. A new Twilio Connector will be created.
@@ -64,7 +64,8 @@ Once your API app is created, you can now use the Twilio connector as an action 
 	- **To Phone Number** - The destination phone number. The format accepted is: +, followed by the country code, then the phone number. For example, +16175551212. If you omit the +, Twilio will use the country code you entered in the 'From' number.
 	- **Text** - The text of the message you want to send.
  
-	![][5]![][6] 
+	![][5]
+	![][6] 
 
 
 

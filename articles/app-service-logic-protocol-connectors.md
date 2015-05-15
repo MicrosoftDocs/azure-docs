@@ -99,15 +99,13 @@ Let's get started.
 
 ## Create a Connector
 
-A Connector can be created using the Azure portal or using REST APIs.
-
-[Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
+A Connector can be created using the Azure portal.
 
 ### Create a Connector in the Azure Portal
 
 Let's walk through the creation of an SMTP connector using the Azure Marketplace
 
-1. Sign in to the Microsoft Azure [portal](https://manage.windowsazure.com).
+1. Sign in to the Microsoft Azure [preview portal](https://portal.azure.com).
 2. Select **NEW** > **Web + mobile** > **Azure Marketplace**.
 3. In the **Search box** then enter **protocol** then press **Enter**. You can also select it from the list. Once selected, a new blade or window opens. Select **Create**. 
 4. Enter the following properties:
@@ -124,15 +122,15 @@ Let's walk through the creation of an SMTP connector using the Azure Marketplace
 <tr><td>Add to Startboard</td> <td>Select this to add the API App to your Starboard (the home page)</td></tr>
 </table> 
 
-### Create a Connector using REST APIs
-[Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
+### Access connectors using REST APIs
+[Access connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 ## Add a Connector to your application 
 Microsoft Azure App Service exposes different application types that can use these Connectors. For example, you can create a *Logic* app by combining one or more of your connectors *logically* into a single app.
 
 To use your connectors within your *Logic* app, you select a per-configured connector from the list, add it to your design work-flow, make the needed configuration changes and its ready to be used. 
 
-To follow these steps, you need a Web App, Mobile App, or Logic App. See <> for the specific steps. Once your application is available, add your connectors. Here's how:
+To follow these steps, you need a Web App, Mobile App, or Logic App. Once your application is available, add your connectors. Here's how:
 
 Use the following steps to add a connector to a Logic App: 
 
@@ -152,7 +150,7 @@ Connectors use either OAuth or user names and passwords.
 
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md) |
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md) |
+[Websites and Web Apps in Azure App Service](app-service-web-overview.md) |
 
 
 ## More Connectors
