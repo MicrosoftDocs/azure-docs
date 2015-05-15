@@ -119,7 +119,7 @@ These articles provide foundation reference for REST and authentication library 
 ## Social
 
 - **[Active Directory Team Blog](http://blogs.technet.com/b/ad/)**: Keep abreast of the latest developments in the world of Azure AD.
-- 
+
 - **[Azure AD Graph Blog](http://blogs.msdn.com/b/aadgraphteam)**: Azure AD information specific to the Graph API.
 
 - **[Cloud Identity](http://www.cloudidentity.net)**: Thoughts on Identity Management as a Service, from a Principle Azure Active Directory PM.  
