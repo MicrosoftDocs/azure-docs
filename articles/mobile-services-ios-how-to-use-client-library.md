@@ -16,9 +16,6 @@
 	ms.date="03/18/2015"
 	ms.author="krisragh"/>
 
-
-
-
 # How to Use iOS Client Library for Azure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../includes/mobile-services-selector-client-library.md)]
