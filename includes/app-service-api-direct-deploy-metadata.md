@@ -26,6 +26,8 @@ To provide a URL endpoint for a dynamic [Swagger](http://swagger.io/) API defini
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
+> **Note:** If you are using Swashbuckle to generate a Swagger API definition, HTTP method overloads in your Web API controllers result in duplicate operation ids. For more information, see [Customize Swashbuckle-generated operation identifiers](app-service-api-dotnet-swashbuckle-customize.md).
+  
 ### Static Swagger API definition
 
 To provide a static [Swagger](http://swagger.io/) 2.0 API definition file, store the file in the *Metadata* folder and name the file *apiDefinition.swagger.json*
