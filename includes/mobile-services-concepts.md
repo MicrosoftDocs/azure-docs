@@ -5,7 +5,7 @@ Azure Mobile Services is a highly scalable mobile application development platfo
 With Mobile Services you can: 
 
 + **Build native and cross platform apps** - Connect your iOS, Android, Windows, or cross-platform Xamarin or Cordova (Phonegap) apps to your backend mobile service using native SDKs.  
-+ **Send push notifications to your users** - Sending push notifications to your users of your app.
++ **Send push notifications to your users** - Send push notifications to your users of your app.
 + **Authenticate your users** - Leverage popular identity providers like Facebook and Twitter to authenticate your app users.
 + **Store data in the cloud** - Store user data in a SQL Database (by default) or in Mongo DB, DocumentDB, Azure Tables, or Azure Blobs. 
 + **Build offline-ready apps with sync** - Make your apps work offline and use Mobile Services to sync data in the background.
