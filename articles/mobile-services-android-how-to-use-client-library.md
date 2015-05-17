@@ -25,6 +25,8 @@ This guide shows you how to perform common scenarios using the Android client fo
 
 If you are new to Mobile Services, you should first complete the quickstart tutorial [Get started with Mobile Services]. Successfully completing that tutorial ensures that you will have  installed Android Studio; it will help you configure your account and create your first mobile service, and install the Mobile Services SDK, which supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
 
+You can find the Javadocs API reference for the Android client library [here](http://go.microsoft.com/fwlink/p/?LinkId=298735).
+
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="setup"></a>Setup and Prerequisites
@@ -884,11 +886,6 @@ So far all of our serialization examples have involved primitive types such as i
 To see an example of how to do this, check out the blog post <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">Customizing serialization using the <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> library in the Mobile Services Android client</a>.
 
 This general method can be used whenever we have a complex object that is not automatically serializable into JSON and the mobile services table.
-
-
-## <a name="next-steps"></a>Next steps
-
-The Javadocs reference for the Android client API is at [http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/p/?LinkId=298735 "here")
 
 <!-- Anchors. -->
 
