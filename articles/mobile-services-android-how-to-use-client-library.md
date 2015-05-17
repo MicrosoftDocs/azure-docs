@@ -816,7 +816,7 @@ Mobile Services assumes by default that the table names, column names and data t
 
 You might want to do the following kinds of customizations:
 
--The column names used in the mobile-  service table don't match the names you are using in the client
+- The column names used in the mobile-  service table don't match the names you are using in the client
 - Use a mobile service table that has a different name than the class it maps to in the client
 - Turn on automatic property capitalization
 - Add complex properties to an object
