@@ -73,7 +73,7 @@ The following steps show how to customize Swashbuckle by using the *SwaggerConfi
 
 		c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
 
-	![](./media/app-service-api-dotnet-swashbuckle-customize/multiplegetsinjson.png)
+	![](./media/app-service-api-dotnet-swashbuckle-customize/usefilter.png)
 
 	The *SwaggerConfig.cs* file that is dropped in by the Swashbuckle NuGet package contains many commented-out examples of extensibility points. The additional comments are not shown here. 
 
