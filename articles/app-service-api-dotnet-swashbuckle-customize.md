@@ -43,7 +43,7 @@ The following steps show how to customize Swashbuckle by using the *SwaggerConfi
 
 1. Create a custom `IOperationFilter` implementation 
 
-	The `IOperationFilter` interface provides an extensibility point for Swashbuckle users who want to customize various aspects of the Swagger metadata process. The following code demonstrates one method of changing the operation-id-generation behavior. The following code shows how to append parameter names to the operation id name.  
+	The `IOperationFilter` interface provides an extensibility point for Swashbuckle users who want to customize various aspects of the Swagger metadata process. The following code demonstrates one method of changing the operation-id-generation behavior. The code appends parameter names to the operation id name.  
 
 		using Swashbuckle.Swagger;
 		using System.Web.Http.Description;
