@@ -3,7 +3,7 @@
 	description="This article provides guidance for how to start using Azure Premium Storage with SQL Server running on Azure Virtual Machines. This includes examples of new deployments and migrations of existing deployments of SQL Server on IaaS." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="rothja" 
+	authors="danielsollondon" 
 	manager="jeffreyg"
 	editor=""/>
 
@@ -31,6 +31,8 @@ It is important to understand the end-to-end process of utilizing Azure Premium 
 - Full end-to-end example showing Azure, Windows, and SQL Server steps for  the migration of an existing AlwaysOn implementation.
 
 For more background information on SQL Server in Azure Virtual Machines, see [SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
+
+**Technical Reviewers:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
 
 ## Prerequisites for Premium Storage
 
