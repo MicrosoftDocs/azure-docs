@@ -283,7 +283,7 @@ When you use analytics, it becomes an integrated part of your development cycle 
 * Determine the key metric of your application. Do you want as many users as possible, or would you prefer a small set of very happy users? Do you want to maximize visits or sales?
 * Plan to measure each story. When you sketch a new user story or feature, or plan to update an existing one, always think about how you will measure the success of the change. Before coding starts, ask "What effect will this have on our metrics, if it works? Should we track any new events?"
 And of course, when the feature is live, make sure you look at the analytics and act on the results. 
-* Relate other metrics to the key metric. For example, if you add a Ã¢â‚¬ËœfavoritesÃ¢â‚¬â„¢ feature, youÃ¢â‚¬â„¢d like to know how often users add favorites. But itÃ¢â‚¬â„¢s perhaps more interesting to know how often they come back to their favorites. And, most importantly, do customers who use favorites ultimately buy more of your product?
+* Relate other metrics to the key metric. For example, if you add a "favorites" feature, you'd like to know how often users add favorites. But it's perhaps more interesting to know how often they come back to their favorites. And, most importantly, do customers who use favorites ultimately buy more of your product?
 * Canary testing. Set up a feature switch that allows you to make a new feature visible only to some users. Use Application Insights to see whether the new feature is being used in the way you envisaged. Make adjustments, then release it to a wider audience.
 * Talk to your users! Analytics is not enough on its own, but complementary to maintaining a good customer relationship.
 

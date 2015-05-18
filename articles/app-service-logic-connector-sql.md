@@ -28,7 +28,7 @@ Connectors can be used in Logic apps to fetch, process or push data as a part of
 For these scenarios, the following needs to be done: 
 
 1. Create an instance of the SQL Connector API App
-2. Establish hybrid connectivity for the API App to communicate with the on-premise SQL. This step is optional and required only for on-premises SQL server and not for SQL Azure.
+2. Establish hybrid connectivity for the API App to communicate with the on-premise SQL. This step is optional and required only for on-premises SQL server and not for Azure SQL Database.
 3. Use the created API App in a logic app to achieve the desired business process
 
 	###Basic Triggers and Actions
