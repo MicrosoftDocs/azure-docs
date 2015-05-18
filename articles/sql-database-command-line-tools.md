@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage SQL Azure Resources with PowerShell" 
-	description="SQL Azure Manage with Command Line" 
+	pageTitle="Manage Azure SQL Database Resources with PowerShell" 
+	description="Azure SQL Database Manage with Command Line" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="TigerMint" 
@@ -16,10 +16,10 @@
 	ms.date="04/13/2015" 
 	ms.author="vinsonyu"/>
 
-# Manage SQL Azure Resources with PowerShell
+# Manage Azure SQL Database Resources with PowerShell
 
 
-In this topic you use a PowerShell script to create an Azure SQL Database logical server, a database, and a firewall rule.
+In this topic you use a PowerShell script to create an Azure SQL Database Database logical server, a database, and a firewall rule.
 
 ## Step 1: Install Azure SDK
 
@@ -39,7 +39,7 @@ This PowerShell script creates a server, database, and server firewall rule.
 		New-AzureSqlDatabase -ServerName $AzureServer.ServerName -DatabaseName  "<Database1>" -Edition "Standard" -verbose
 		New-AzureSqlDatabaseServerFirewallRule -ServerName $AzureServer.ServerName -RuleName "<FirewallRuleName>" -StartIpAddress "<IP4StartRange>" -EndIpAddress "<IP4EndRange>" -verbose
 
-2. Replace everything within the < >, with the desired values. For a list of valid Azure SQL Server Locations you can run the following cmdlets in your Azure Powershell Command Prompt
+2. Replace everything within the < >, with the desired values. For a list of valid Azure SQL Database Server Locations you can run the following cmdlets in your Azure Powershell Command Prompt
 
 		Switch-AzureMode -Name AzureResourceManager
 		$AzureSQLLocations = Get-AzureLocation | Where-Object Name -Like "*SQL/Servers"
