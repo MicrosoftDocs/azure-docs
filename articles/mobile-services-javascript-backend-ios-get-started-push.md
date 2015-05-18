@@ -35,11 +35,11 @@ This topic shows you how to add push notifications to the [quickstart project](m
 
 ## <a id="update-scripts"></a>Update Registered Insert Script
 
-1. In the Management Portal, click the **Data** tab and then click **todoitem**.
+* In the Management Portal, click the **Data** tab and then click **todoitem**.
 
-2. In **todoitem**, click the **Script** tab and select **Insert**. This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+* In **todoitem**, click the **Script** tab and select **Insert**. This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
-3. Replace the insert function with the following code, and then click **Save**.  This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. This script delays sending the notification to give you time to close the app to receive a push notification.
+* Replace the insert function with the following code, and then click **Save**.  This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. This script delays sending the notification to give you time to close the app to receive a push notification.
 
 
 ```
@@ -60,13 +60,13 @@ This topic shows you how to add push notifications to the [quickstart project](m
 
 ## <a id="add-push"></a>Add Push Notifications to App
 
-1. In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
+* In QSAppDelegate.m, insert the following snippet to import the Mobile Services iOS SDK:
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 ```
 
-2. In QSAppDelegate.m, replace the following handler method inside the implementation:
+* In QSAppDelegate.m, replace the following handler method inside the implementation:
 
 ```
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
@@ -79,7 +79,7 @@ This topic shows you how to add push notifications to the [quickstart project](m
         }
 ```
 
-3. In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the Mobile Service URL and Application Key values and switch them in for the placeholders:
+* In QSAppDelegate.m, add the following handler method inside the implementation. Make sure you copy the Mobile Service URL and Application Key values and switch them in for the placeholders:
 
 ```
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
@@ -95,7 +95,7 @@ This topic shows you how to add push notifications to the [quickstart project](m
         }
 ```
 
-4. In QSAppDelegate.m, add the following handler method inside the implementation:
+* In QSAppDelegate.m, add the following handler method inside the implementation:
 
 ```
         // Handle any failure to register.
@@ -105,7 +105,7 @@ This topic shows you how to add push notifications to the [quickstart project](m
         }
 ```
 
-5. In QSAppDelegate.m, add the following handler method inside the implementation:  
+* In QSAppDelegate.m, add the following handler method inside the implementation:  
 
 ```
         // Because alerts don't work when the app is running, the app handles them.
@@ -124,15 +124,15 @@ Your app is now updated to support push notifications.
 
 ## <a id="test"></a>Test Push Notifications in App
 
-1. Press **Run** in Xcode and start the app on an actual iOS device (not the simulator). Then click **OK** to accept push notifications. You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+* Press **Run** in Xcode and start the app on an actual iOS device (not the simulator). Then click **OK** to accept push notifications. You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
-2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
+* In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 
-3. Verify that a notification is received, then click **OK** to dismiss the notification.
+* Verify that a notification is received, then click **OK** to dismiss the notification.
 
   	![][25]
 
-4. Repeat step 2 and immediately close the app, then verify that the following push is shown.
+* Repeat step 2 and immediately close the app, then verify that the following push is shown.
 
   	![][26]
 
