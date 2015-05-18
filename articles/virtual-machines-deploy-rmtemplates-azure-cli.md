@@ -49,9 +49,9 @@ Type `azure --version` to see whether you have already installed version 0.9.0 o
 
 If your version is not 0.9.0 or later, you'll need to either [install the Azure CLI](xplat-cli-install.md) or update using either one of the native installers or through **npm** by typing `npm update -g azure-cli`.
 
-You can also run Azure CLI as a Docker container using the following [Docker image](https://registry.hub.docker.com/u/kmouss/azure-cli/)
+You can also run Azure CLI as a Docker container using the following [Docker image](https://registry.hub.docker.com/u/microsoft/azure-cli/). From a Docker host, run the following command:
 
-	docker run -it kmouss/azure-cli
+	docker run -it microsoft/azure-cli
 
 ### Set your Azure account and subscription
 
