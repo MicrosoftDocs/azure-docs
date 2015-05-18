@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="05/18/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -31,17 +31,10 @@ Learn how to manage Azure Stream Analytics resources by using Azure PowerShell.
 
 		Add-AzureAccount
 
-	To select your Azure subscription with the Azure Stream Analytics service enabled:
+	To select your Azure subscription with the Azure Stream Analytics service enabled use the method:
 
 		Select-AzureSubscription
 
-	>[AZURE.NOTE] The following error message indicates that Azure Stream Analytics is not enabled on the subscription:
-	>
-		Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
-	
-	>To resolve this issue, please enable the Stream Analytics preview on the subscription and then run the following cmdlets to switch the subscription:
-	>
-		Select-AzureSubscription –SubscriptionId xxxxxxxx
 
 2.	Configure the Azure mode.
 
