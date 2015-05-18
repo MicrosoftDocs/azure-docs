@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Use Azure Stream Analytics Management .NET SDK | Azure" 
-	description="Learn how to use Stream Analytics Management .NET SDK" 
+	pageTitle="Learn how to use Stream Analytics Management .NET SDK | Microsoft Azure" 
+	description="Learn how to use Stream Analytics Management .NET SDK to set up and run analytics jobs. Create a project, inputs, outputs, and transformations, and then stop and start jobs." 
+	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -17,11 +18,13 @@
 	ms.author="jeffstok"/>
 
 
-# Use Azure Stream Analytics Management .NET SDK
+# Set up and run analytics jobs using the Azure Stream Analytics Management .NET SDK
 
-Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud. In the preview release, Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
+Learn how to set up an run analytics jobs using the Stream Analytics Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, can stream data from Blob storage or from an event hub.
 
-This article demonstrates how to use the Azure Stream Analytics Management .NET SDK.
+Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud. Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
+
+For the .NET API reference, see [Stream Analytics Management .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
 
 ## Prerequisites
@@ -49,6 +52,8 @@ Before you begin this article, you must have the following:
 
 
 ## Set up a project
+
+To create an analytics job, first set up your project.
 
 1. Create a Visual Studio C# .NET console application.
 2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Active Directory client that will be used for authentication.
@@ -175,7 +180,7 @@ The following code creates a Stream Analytics job under the resource group that 
 
 ## Create a Stream Analytics input source
 
-The following code creates a Stream Analytics input source with the blob input source type and CSV serialization. To create an event-hub input source, use **EventHubStreamInputDataSource** instead of **BlobStreamInputDataSource**. Similarly, you can customize the serialization type of the input source.
+The following code creates a Stream Analytics input source with the blob input source type and CSV serialization. To create an event hub input source, use **EventHubStreamInputDataSource** instead of **BlobStreamInputDataSource**. Similarly, you can customize the serialization type of the input source.
 
 	// Create a Stream Analytics input source
 	InputCreateOrUpdateParameters jobInputCreateParameters = new InputCreateOrUpdateParameters()
@@ -216,7 +221,7 @@ The following code creates a Stream Analytics input source with the blob input s
 	InputCreateOrUpdateResponse inputCreateResponse = 
 		client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
 
-Input sources are tied to a specific job. To use the same input source for different jobs, you must call the method again and specify a different job name.
+Input sources, whether from Blob storage or an event hub, are tied to a specific job. To use the same input source for different jobs, you must call the method again and specify a different job name.
 
 
 ## Test a Stream Analytics input source
@@ -326,9 +331,12 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 ## Next steps
 
+You've learning some basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
+
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Management .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

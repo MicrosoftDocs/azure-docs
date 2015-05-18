@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Learn about Stream Analytics key concepts | Microsoft Azure" 
-	description="Reference guide to key concepts of Stream Analytics: Components of an event processing job, including supported inputs and outputs, job configuration, and exposed metrics." 
-	keywords="event processing,data stream,key concepts,reference guide,serialization"	
+	pageTitle="Learn about Stream Analytics key concepts | Microsoft Azure 
+	description="Guide to key concepts of Stream Analytics: Components of an event processing job, including supported inputs and outputs, job configuration, and exposed metrics." 
+	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -18,24 +18,24 @@
 	ms.author="jeffstok"/>
 
 
-# Stream Analytics key concepts: Reference guide to the basics of a stream analytics job 
+# Stream Analytics key concepts: Guide to the basics of a stream analytics job 
 
-A reference guide to of Azure Stream Analytics, this article helps you understand key concepts for this service. Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over data streams in the cloud. In Stream Analytics, set up streaming jobs for processing data and analyzing data streams in near real-time.  
+Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over data stream in the cloud. Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics. This article explains the key concepts of a Stream Analytics job.
 
 ## What can you do in Stream Analytics?
-With Azure Stream Analytics, you can:
+With Stream Analytics, you can:
 
-- Perform complex event processing on high-volume and high-velocity data streams.  
+- Perform complex event processing on high-volume and high-velocity data streams.   
 - Collect event data from globally distributed assets or equipment, such as connected cars or utility grids. 
 - Process telemetry data for near real-time monitoring and diagnostics. 
-- Capture and archive real-time events for future processing.
+- Capture and archive real-time events for future processing
 
 For more information, see [Introduction to Azure Stream Analytics](stream.analytics.introduction). 
 
 A Stream Analytics job includes all of the following:
 * One or more input sources
 * A query over the incoming data stream
-* An output target.  
+* An output target.    
 
 
 ## Inputs
@@ -97,11 +97,9 @@ Depending on the input type used in the job, some additional fields with event m
 </table>
 
 ###Partition(s) with slow or no input data
-When reading from input sources that have multiple partitions, and one or more partitions lag behind or do not have data, the streaming job needs to decide how to handle this situation in order to keep events flowing through the system. 
+When reading from input sources that have multiple partitions, and one or more partitions lag behind or do not have data, the streaming job needs to decide how to handle this situation in order to keep events flowing through the system. Input setting ‘Maximum allowed arrival delay’ controls that behavior and is set by default to wait for the data indefinitely, which means events’ timestamps will not be altered, but also that events will flow based on the slowest input partition, and will stop flowing if one or more input partitions do not have data. This is useful if the data is distributed uniformly across input partitions, and time consistency among events is critical. 
 
-Input setting **Maximum allowed arrival delay** controls that behavior and is set by default to wait for the data indefinitely. This means that event timestamps will not be altered, and also that events will flow based on the slowest input partition and will stop flowing if one or more input partitions do not have data. This is useful if the data is distributed uniformly across input partitions, and time consistency among events is critical. 
-
-You can also decide to only wait for a limited time: **Maximum allowed arrival delay** determines the delay after which the job will decide to move forward, leaving the lagging input partitions behind, and acting on events according to **Action for late events** setting, dropping their events or adjusting their event timestamps if data arrives later. This is useful if latency is critical and timestamp shift is tolerated, but input may not be uniformly distributed.
+You can also decide to wait for only a limited time: ‘Maximum allowed arrival delay’ determines the delay after which the job will decide to move forward, leaving the lagging input partitions behind, and acting on events according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps if data arrives later. This is useful if latency is critical and timestamp shift is tolerated, but input may not be uniformly distributed.
 
 ###Partition(s) with out of order events
 When streaming job query uses the TIMESTAMP BY keyword, there are no guarantees about the order in which the events will arrive to input, Some events in the same input partition may be lagging, parameter ‘Maximum allowed disorder within an input’ causes the streaming job to act on events that are outside of the order tolerance, according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps.
@@ -139,15 +137,15 @@ To learn more about the query language, see [Azure Stream Analytics Query Langua
 ## Output
 The output target is where the results of the Stream Analytics job will be written to. Results are written continuously to the output target as the job processes input events. The following output targets are supported:
 
-- Azure Event Hubs: Choose Event Hubs as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
-- Azure Blob storage: Use Blob storage for long-term archival of output or for storing data for later processing.
-- Azure Table storage: Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage.introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
-- Azure SQL Database: This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
+- Azure Event Hubs - Choose Event Hubs as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
+- Azure Blob storage - Use Blob storage for long-term archival of output or for storing data for later processing.
+- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage.introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
+- Azure SQL Database - This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
 ## Scale jobs
 
-A Stream Analytics job can be scaled through configuring streaming units, which define the amount of processing power a job receives. Each streaming unit corresponds to roughly 1MB/second of throughput. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
+A Stream Analytics job can be scaled through configuring streaming units, which define the amount of data processing power a job receives. Each streaming unit corresponds to roughly 1MB/second of throughput. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
 
 For details, see [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs).
 
@@ -161,11 +159,12 @@ To enable job monitoring, Stream Analytics requires you to designate an Azure St
 ### Metrics
 The following metrics are available for monitoring the usage and performance of Stream Analytics jobs:
 
-- Errors: Number of error messages incurred by a Stream Analytics job.
-- Input events: Amount of data received by the Stream Analytics job, in terms of event count.
-- Output events: Amount of data sent by the Stream Analytics job to the output target, in terms of event count.
-- Out-of-order events: Number of events received out of order that were either dropped or given an adjusted timestamp, based on the out-of-order policy.
-- Data conversion errors: Number of data conversion errors incurred by a Stream Analytics job.
+- Errors - Number of error messages incurred by a Stream Analytics job.
+- Input events - Amount of data received by the Stream Analytics job, in terms of 
+- event count.
+- Output events - Amount of data sent by the Stream Analytics job to the output target, in terms of event count.
+- Out-of-order events - Number of events received out of order that were either dropped or given an adjusted timestamp, based on the out-of-order policy.
+- Data conversion errors - Number of data conversion errors incurred by a Stream Analytics job.
 
 ### Operation logs
 The best approach to debugging or troubleshooting a Stream Analytics job is through Azure operation logs. Operation logs can be accessed in the **Management Services** section of the portal. To inspect logs for your job, set **Service Type** to **Stream Analytics** and **Service Name** to the name of your job.
@@ -180,7 +179,7 @@ When starting a job, you're prompted to specify a **Start Output** value, which 
 You can adjust the following top-level settings for a Stream Analytics job:
 
 - **Start output** - Use this setting to specify when this job will start producing resulting output. If the associated query includes a window, the job will begin picking up input from the input sources at the start of the window duration required in order to produce the first output event at the specified time. There are two options, **Job Start Time** and **Custom**. The default setting is **Job Start Time**. For the **Custom** option, you must specify a date and time. This setting is useful for specifying how much historical data in the input sources to consume or for picking up data ingestion from a specific time, such as when a job was last stopped. 
-- **Out of order policy** - Settings for handling events that do not arrive to the Stream Analytics job sequentially. You can designate a time threshold to reorder events within by specifying a tolerance window and also determine an action to take on events outside this window: **Drop** or **Adjust**. **Drop** will drop all events received out of order, and **Adjust** will change the System.Timestamp of out-of-order events to the timestamp of the most recently received ordered event. 
+- **Out of order policy** - Settings for handling events that do not arrive to the Stream Analytics job sequentially. You can designate a time threshold to reorder events within by specifying a tolerance window and also determine an action to take on events outside this window: **Drop** or **Adjust**. **Drop** will drop all events received out of order, and **Adjust** will change the System. Timestamp of out-of-order events to the timestamp of the most recently received ordered event. 
 - **Late arrival policy** - When reading from input sources that have multiple partitions, and one or more partitions lag behind or do not have data, the streaming job needs to decide how to handle this situation in order to keep events flowing through the system. Input setting ‘Maximum allowed arrival delay’ controls that behavior and is set by default to wait for the data indefinitely, which means events’ timestamps will not be altered, but also that events will flow based on the slowest input partition, and will stop flowing if one or more input partitions do not have data. This is useful if the data is distributed uniformly across input partitions, and time consistency among events is critical. User can also decide to only wait for a limited time, ‘Maximum allowed arrival delay’ determines the delay after which the job will decide to move forward, leaving the lagging input partitions behind, and acting on events according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps if data arrives later. This is useful if latency is critical and timestamp shift is tolerated, but input may not be uniformly distributed.
 - **Locale** - Use this setting to specify the internationalization preference for the Stream Analytics job. While timestamps of data are locale neutral, settings here impact how the job will parse, compare, and sort data. For the preview release, only **en-US** is supported.
 
@@ -189,7 +188,7 @@ You can adjust the following top-level settings for a Stream Analytics job:
 The status of Stream Analytics jobs can be inspected in the Azure portal. Running jobs can be in one of three states: **Idle**, **Processing**, or **Degraded**. The definition for each of these states is below:
 
 - **Idle** - No input bytes have been seen since the job was created or in the in the last 2 minutes. If a job is in the **Idle** state for a long period of time, it is likely that the input exists but there are no raw bytes to process.
-- **Processing** - A nonzero amount of filtered input events has been successfully consumed by the Stream Analytics job. If a job is stuck in the **Processing** state without producing output, it is likely that the event processing time window is large or the query logic is complicated.
+- **Processing** - A nonzero amount of filtered input events has been successfully consumed by the Stream Analytics job. If a job is stuck in the **Processing** state without producing output, it is likely that the data processing time window is large or the query logic is complicated.
 - **Degraded** - This state indicates that a Stream Analytics job is encountering one of the following errors: input/output communication errors, query errors, or retry-able run-time errors. To distinguish what type of error(s) the job is encountering, view the operation logs.
 
 
@@ -198,6 +197,8 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 
 ## Next steps
+
+Now that you're familiar with the key concepts of Stream Analytics, try:
 
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
