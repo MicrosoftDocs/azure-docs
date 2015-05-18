@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="How to Use docker-machine with Azure" 
-   description="Shows how to get up and running on Azure with Docker Machine on Ubuntu." 
-   services="virtual-machines" 
-   documentationCenter="virtual-machines" 
-   authors="squillace" 
-   manager="timlt" 
+<properties
+   pageTitle="How to Use docker-machine with Azure"
+   description="Shows how to get up and running on Azure with Docker Machine on Ubuntu."
+   services="virtual-machines"
+   documentationCenter="virtual-machines"
+   authors="squillace"
+   manager="timlt"
    editor="tysonn"/>
 
 <tags
@@ -12,18 +12,18 @@
    ms.devlang="n/a"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure" 
+   ms.workload="infrastructure"
    ms.date="02/20/2015"
    ms.author="rasquill"/>
 
 # How to use docker-machine with Azure
 
-This topic describes how to use [Docker](https://www.docker.com/) with [machine](https://github.com/docker/machine) and the [Azure xplat-cli](https://github.com/Azure/azure-xplat-cli) to create an Azure Virtual Machine to quickly and easily manage Linux containers from a computer running Ubuntu. To demonstrate, the tutorial shows how to deploy both the [busybox Docker Hub image](https://registry.hub.docker.com/_/busybox/) image and also the [nginx Docker Hub image](https://registry.hub.docker.com/_/nginx/) and configures the container to route web requests to the nginx container. (The Docker **machine** documentation describes how to modify these instructions for other platforms.)
+This topic describes how to use [Docker](https://www.docker.com/) with [machine](https://github.com/docker/machine) and the [Azure CLI](https://github.com/Azure/azure-xplat-cli) to create an Azure Virtual Machine to quickly and easily manage Linux containers from a computer running Ubuntu. To demonstrate, the tutorial shows how to deploy both the [busybox Docker Hub image](https://registry.hub.docker.com/_/busybox/) image and also the [nginx Docker Hub image](https://registry.hub.docker.com/_/nginx/) and configures the container to route web requests to the nginx container. (The Docker **machine** documentation describes how to modify these instructions for other platforms.)
 
 There are some prerequisites for completing this tutorial. You will need to install the following:
 
 1. [npm](https://docs.npmjs.com/) and [Node.js](http://nodejs.org/)
-2. [The Azure xplat-cli](https://github.com/Azure/azure-xplat-cli)
+2. [The Azure CLI](https://github.com/Azure/azure-xplat-cli)
 3. A [Docker client](https://docs.docker.com/installation/)
 
 If you install those items in that order, your Ubuntu computer will be ready for the tutorial. (This tutorial should be largely the same for any other dpkg-based distro such as Debian. Let us know in comments if you discover extra requirements or steps.)
@@ -42,7 +42,7 @@ You can also build your **docker-machine** yourself by following the steps for [
 
 ## Create the certificate and key files for docker, machine, and Azure
 
-Now you must create the certificate and key files that Azure needs to confirm your identity and permissions as well as those **docker-machine** needs to communicate with your Azure Virtual Machine to create and manage containers remotely. If you already have these files in a directory -- perhaps for use with docker -- you can reuse them. However, the best practice for testing **docker-machine** would be to create them in a separate directory and point docker-machine at them. 
+Now you must create the certificate and key files that Azure needs to confirm your identity and permissions as well as those **docker-machine** needs to communicate with your Azure Virtual Machine to create and manage containers remotely. If you already have these files in a directory -- perhaps for use with docker -- you can reuse them. However, the best practice for testing **docker-machine** would be to create them in a separate directory and point docker-machine at them.
 
 > [AZURE.NOTE] If you end up trying **docker-machine** over and over again, be sure to either reuse the same certificate and key files. **docker-machine** creates a set of client certs as well -- everything it creates can be examined in `~/.docker/machine`. If you move those certs to another computer, you'll need to move the **docker-machine** certificate folders as well. This makes a difference if you're going to use **docker-machine** on another platform, for example, just to see how it all works.
 
@@ -61,13 +61,13 @@ If you have experience with Linux distributions, you may already have these file
 
 	![][portalsettingsitem]
 
-	and then click **Management Certificates**: 
+	and then click **Management Certificates**:
 
 	![][managementcertificatesitem]
 
 	and then **Upload** (at the bottom of the page) ![][uploaditem] to upload the **mycert.cer** file you created in the previous step.
 
-3. In the same **Settings** pane in the portal, click **Subscriptions** and capture the subscription ID to use when creating your VM, because you'll use it in the next step. (You can also locate the subscription id on the command line using the xplat-cli command `azure account list`, which displays the subscription id for each subscription you have in the account.) 
+3. In the same **Settings** pane in the portal, click **Subscriptions** and capture the subscription ID to use when creating your VM, because you'll use it in the next step. (You can also locate the subscription id on the command line using the Azure CLI command `azure account list`, which displays the subscription id for each subscription you have in the account.)
 
 4. Create a docker host VM on Azure using the **docker-machine create** command. The command requires the subscription ID you just captured in the previous step and the path to the **.pem** file you created in step 1. This topic uses "machine-name" as the Azure Cloud Service (and your VM) name, but you should replace that with your own choice and remember to use your cloud service name in any other step that requires the vm name. (Remember that in this example, we are using the full binary name and not a **docker-machine** symlink.)
 
@@ -77,10 +77,10 @@ If you have experience with Linux distributions, you may already have these file
 	    --azure-subscription-cert="mycert.pem" \
 	    machine-name
 
-	As the first two steps require the creation of a new VM and the loading of the Linux Azure agent as well as the updating of the new VM, you should see something like the following. 
-	
-		INFO[0001] Creating Azure machine...                    
-	    INFO[0049] Waiting for SSH...                           
+	As the first two steps require the creation of a new VM and the loading of the Linux Azure agent as well as the updating of the new VM, you should see something like the following.
+
+		INFO[0001] Creating Azure machine...
+	    INFO[0049] Waiting for SSH...
 	    modprobe: FATAL: Module aufs not found.
 	    + sudo -E sh -c sleep 3; apt-get update
 	    + sudo -E sh -c sleep 3; apt-get install -y -q linux-image-extra-3.13.0-36-generic
@@ -98,10 +98,10 @@ If you have experience with Linux distributions, you may already have these file
 	    + sudo -E sh -c echo deb https://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/docker.list
 	    + sudo -E sh -c sleep 3; apt-get update; apt-get install -y -q lxc-docker
 	    + sudo -E sh -c docker version
-	    INFO[0368] "machine-name" has been created and is now the active machine. 
-	    INFO[0368] To point your Docker client at it, run this in your shell: $(docker-machine_linux-amd64 env machine-name) 
+	    INFO[0368] "machine-name" has been created and is now the active machine.
+	    INFO[0368] To point your Docker client at it, run this in your shell: $(docker-machine_linux-amd64 env machine-name)
 
-    > [AZURE.NOTE] Because a VM is being created, it may take a few minutes to be in a ready state. While you're waiting, you can check the state of your new Docker host by typing `azure vm list` using the xplat-cli until you see your VMs with the **ReadyRole** status. 
+    > [AZURE.NOTE] Because a VM is being created, it may take a few minutes to be in a ready state. While you're waiting, you can check the state of your new Docker host by typing `azure vm list` using the Azure CLI until you see your VMs with the **ReadyRole** status.
 
 5. Set the docker and machine environment variables for the terminal session. The last line of feedback suggest that you immediately run the **env** command to export the environment variables necessary to use your docker client directly with a specific machine.
 
@@ -140,36 +140,36 @@ If you have experience with Linux distributions, you may already have these file
 ## We're done. Let's run some applications remotely using docker and images from the Docker Hub.
 
 You can now use docker in the normal way to create an application in the container. The easiest to demonstrate is [busybox](https://registry.hub.docker.com/_/busybox/):
- 
+
 	    $  docker run busybox echo hello world
 	    Unable to find image 'busybox:latest' locally
-	    511136ea3c5a: Pull complete 
-	    df7546f9f060: Pull complete 
-	    ea13149945cb: Pull complete 
-	    4986bf8c1536: Pull complete 
+	    511136ea3c5a: Pull complete
+	    df7546f9f060: Pull complete
+	    ea13149945cb: Pull complete
+	    4986bf8c1536: Pull complete
 	    busybox:latest: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be relied on to provide security.
 	    Status: Downloaded newer image for busybox:latest
 	    hello world
 
-However, you may want to create an application that you can see immediately on the internet, such as the [nginx](https://registry.hub.docker.com/_/nginx/) from the [Docker Hub](https://registry.hub.docker.com/). 
+However, you may want to create an application that you can see immediately on the internet, such as the [nginx](https://registry.hub.docker.com/_/nginx/) from the [Docker Hub](https://registry.hub.docker.com/).
 
 > [AZURE.NOTE] Remember to use the **-P** option to have **docker** assign random ports to the image, and **-d** to ensure that the container runs in the background continuously. (If you forget, you'll start nginx and then it will immediately shut down. Don't forget!)
 
 	$ docker run --name machinenginx -P -d nginx
     Unable to find image 'nginx:latest' locally
-    30d39e59ffe2: Pull complete 
-    c90d655b99b2: Pull complete 
-    d9ee0b8eeda7: Pull complete 
-    3225d58a895a: Pull complete 
-    224fea58b6cc: Pull complete 
-    ef9d79968cc6: Pull complete 
-    f22d05624ebc: Pull complete 
-    117696d1464e: Pull complete 
-    2ebe3e67fb76: Pull complete 
-    ad82b43d6595: Pull complete 
-    e90c322c3a1c: Pull complete 
-    4b5657a3d162: Pull complete 
-    511136ea3c5a: Already exists 
+    30d39e59ffe2: Pull complete
+    c90d655b99b2: Pull complete
+    d9ee0b8eeda7: Pull complete
+    3225d58a895a: Pull complete
+    224fea58b6cc: Pull complete
+    ef9d79968cc6: Pull complete
+    f22d05624ebc: Pull complete
+    117696d1464e: Pull complete
+    2ebe3e67fb76: Pull complete
+    ad82b43d6595: Pull complete
+    e90c322c3a1c: Pull complete
+    4b5657a3d162: Pull complete
+    511136ea3c5a: Already exists
     nginx:latest: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be relied on to provide security.
     Status: Downloaded newer image for nginx:latest
     5883e2ff55a4ba0aa55c5c9179cebb590ad86539ea1d4d367d83dc98a4976848
@@ -177,17 +177,17 @@ However, you may want to create an application that you can see immediately on t
 To see it from the internet, create a public endpoint on port 80 for the Azure VM and map that port to the nginx container's port. First, use `docker ps -a` to locate the container and find which ports **docker** has assigned to the container's port 80. (Below the displayed information is edited to show only port information; you'll see more.)
 
 	$ docker ps -a
-    IMAGE               PORTS                                           
-    nginx:latest        0.0.0.0:49153->80/tcp, 0.0.0.0:49154->443/tcp   
-    busybox:latest                                                      
- 
-We can see that docker has assigned the container's port 80 to the VM's port 49153. We can now use the xplat-cli to map the external Cloud Service's public port 80 to port 49153 on the VM. Docker then ensures that inbound tcp traffic on VM port 49153 is routed to the nginx container. 
+    IMAGE               PORTS
+    nginx:latest        0.0.0.0:49153->80/tcp, 0.0.0.0:49154->443/tcp
+    busybox:latest
+
+We can see that docker has assigned the container's port 80 to the VM's port 49153. We can now use the Azure CLI to map the external Cloud Service's public port 80 to port 49153 on the VM. Docker then ensures that inbound tcp traffic on VM port 49153 is routed to the nginx container.
 
 	$ azure vm endpoint create machine-name 80 49153
     info:    Executing command vm endpoint create
-    + Getting virtual machines                                                     
-    + Reading network configuration                                                
-    + Updating network configuration                                               
+    + Getting virtual machines
+    + Reading network configuration
+    + Updating network configuration
     info:    vm endpoint create command OK
 
 Open your favorite browser and have a look.
