@@ -578,6 +578,31 @@ You can now build and deploy your service. Press **F5** in Visual Studio to buil
 
 Once the service is running, open a browser and navigate to [http://localhost/api](http://localhost/api) to test it out.
 
+## Scale it out
+
+Scaling out stateless web apps typically means adding more machines and spinning up the web app on them. Service Fabric's orchestration engine can do this for you whenever new nodes are added to a cluster. When creating instances of a stateless service, you can specify the number of instances you want to create. Service Fabric will place that number of instances on nodes in the cluster accordingly, making sure not to create more than one instance on any one node. You can also instruct Service Fabric to always create an instance on every node by specifying "-1" for the instance count. This guarantees that whenever you add nodes to scale out your cluster, an instance of your stateless service will be created on the new nodes. This value is a property of the service instance, so it is set when creating a service instance either through PowerShell: 
+
+```powershell
+
+New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -ServiceName "fabric:/WebServiceApplication/WebService" -ServiceTypeName "WebServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1
+
+```
+
+Or when defining a default service in a Visual Studio Stateless Service project:
+
+```xml
+
+<DefaultServices>
+  <Service Name="WebService">
+    <StatelessService ServiceTypeName="WebServiceType" InstanceCount="-1">
+      <SingletonPartition />
+    </StatelessService>
+  </Service>
+</DefaultServices>
+
+```
+
+For more information on creating application and service instances, see [how to deploy and remove applications](service-fabric-deploy-remove-applications.md).
 
 ## ASP.NET 5
 
