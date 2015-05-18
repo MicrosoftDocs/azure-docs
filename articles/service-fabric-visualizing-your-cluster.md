@@ -24,7 +24,7 @@ Service Fabric Explorer is a visual tool for inspecting and managing cloud appli
 
 ## Introduction to Service Fabric Explorer
 
-Ensure your local development environment is setup by following the instructions at [Setting up your Service Fabric development environment](service-fabric-setup-your-development-environment.md).
+Ensure your local development environment is setup by following the instructions at [set up your Service Fabric development environment](service-fabric-get-started.md).
 
 Run Service Fabric Explorer from your local installation path (%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). The tool will automatically connect to a local development cluster, if one exists.  It displays information on the cluster such as:
 
