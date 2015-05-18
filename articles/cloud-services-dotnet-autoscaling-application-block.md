@@ -198,7 +198,7 @@ Autoscaler, and then call the **Autoscaler.Start** method to run the
 
 ## <a id="DefineServiceModel"> </a>How To: Define your Service Model
 
-Typically, you store your service model (a description of your Windows
+Typically, you store your service model (a description of your 
 Azure environment that includes information about subscriptions, hosted
 services, roles, and storages accounts) in an XML file. You can find a
 copy of the schema for this XML file in the
