@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="04/17/2015"
-   ms.author="vturecek@microsoft.com"/>
+   ms.date="05/18/2015"
+   ms.author="vturecek"/>
 
-# Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)
+# Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host
 
 Service Fabric puts the power in your hands when deciding how you want your services to communicate with users and with each other. This tutorial focuses on implementing service communication using ASP.NET Web API with OWIN self-hosting in Service Fabric's *Reliable Services* API. We'll go in depth into the *Reliable Services* pluggable communication API and show you step-by-step how to set up a custom communication listener for you service with Web API used as an example. To see a complete example of a Web API communication listener, check out the [Service Fabric WebApplication sample on GitHub](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/WebApplication).
 
