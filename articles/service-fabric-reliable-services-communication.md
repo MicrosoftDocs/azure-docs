@@ -227,4 +227,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 
 * [WCF based communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-wcf.md)
 
-* [Writing a Service using Reliable Services API that uses WebAPI communication stack](service-fabric-fabsrv-communication-webapi.md)
+* [Writing a Service using Reliable Services API that uses WebAPI communication stack](service-fabric-reliable-services-communication-webapi.md)

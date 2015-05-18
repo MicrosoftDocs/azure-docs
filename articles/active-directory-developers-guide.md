@@ -69,6 +69,7 @@ These articles describe how to perform specific tasks using Azure Active Directo
 
 - [How to get an Azure AD tenant](active-directory-howto-tenant.md)
 - [How to list your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
+- [How to get started with the Office 365 APIs in apps](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 
 
 ## Reference
@@ -118,6 +119,8 @@ These articles provide foundation reference for REST and authentication library 
 ## Social
 
 - **[Active Directory Team Blog](http://blogs.technet.com/b/ad/)**: Keep abreast of the latest developments in the world of Azure AD.
+
+- **[Azure AD Graph Blog](http://blogs.msdn.com/b/aadgraphteam)**: Azure AD information specific to the Graph API.
 
 - **[Cloud Identity](http://www.cloudidentity.net)**: Thoughts on Identity Management as a Service, from a Principle Azure Active Directory PM.  
 
