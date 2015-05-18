@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Connect mobile and web apps to SaaS APIs (O365/SharePoint/Salesforce) in Azure App Service" 
-   description="This tutorial shows you how to consume a SaaS API App from an ASP.NET hosted in Azure App Service Web Apps." 
+   pageTitle="Connect a web app to an API app in Azure App Service" 
+   description="This tutorial shows you how to consume an API app from an ASP.NET web app hosted in Azure App Service." 
    services="app-service\web" 
-   documentationCenter="" 
+   documentationCenter=".net" 
    authors="syntaxc4" 
    manager="yochayk" 
-   editor=""/>
+   editor="jimbe"/>
 
 <tags
    ms.service="app-service-web"
@@ -16,28 +16,21 @@
    ms.date="03/24/2015"
    ms.author="cfowler"/>
 
-# Connect mobile and web apps to SaaS APIs (O365/SharePoint/Salesforce) in Azure App Service
+# Connect a web app to an API app in Azure App Service
 
-This tutorial shows you how to consume an API App from an ASP.NET hosted in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
-
-## Overview
-
-You will learn:
-
-- How to consume an API app from ASP.NET hosted in Web Apps.
+This tutorial shows how to consume an API app from an ASP.NET web app hosted in [App Service](app-service.md).
 
 ## Prerequisites
 
 This tutorial builds upon the series from the API App tutorials:
 
 1. [Create an Azure API App](../app-service-dotnet-create-api-app)
-2. [Publish an Azure API App](../app-service-dotnet-publish-api-app)
 3. [Deploy an Azure API App](../app-service-dotnet-deploy-api-app)
 4. [Debug an Azure API App](../app-service-dotnet-remotely-debug-api-app)
 
 ## Make the API app publicly accessible
 
-In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), select the API App. Click on the **Settings** button in the command bar. Under the **Basic Settings** blade, change the **Access Level** to **Public (anonymous)**.
+In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715), select the API app. Click on the **Settings** button in the command bar. In the **Application Settings** blade, change the **Access Level** to **Public (anonymous)**.
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 

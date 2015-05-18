@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Real-Time Event Processing with Stream Analytics | Azure" 
+	pageTitle="Real-time event processing with Stream Analytics | Microsoft Azure" 
 	description="Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics." 
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
-	authors="charlesfeddersen" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/16/2015" 
-	ms.author="charlesf"/>
+	ms.date="04/24/2015" 
+	ms.author="jeffstok"/>
 
-# Reference Architecture: Real-Time Event Processing with Microsoft Azure Stream Analytics
+# Reference Architecture: Real-time event processing with Microsoft Azure Stream Analytics
 
 The reference architecture for real-time event processing with Azure Stream Analytics is intended to provide a generic blueprint for deploying a real-time platform as a service (PaaS) stream-processing solution with Microsoft Azure.
 
@@ -47,3 +47,16 @@ Microsoft Azure provides an extensive catalog of analytics technologies that are
 **Revision:** 1.0
 
 **Download:** [Real-Time Event Processing with Microsoft Azure Stream Analytics](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
+
+
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+## Next steps
+
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+

@@ -26,14 +26,14 @@ Dropbox Connector allows you to upload or download files from your Dropbox accou
 To use the Dropbox connector, you need to first create an instance of the Dropbox connector API app. This can be done as follows:
 
 1.	Open the Azure Marketplace using the + NEW option at the bottom left of the Azure Portal.
-2.	Browse to “Web and Mobile > API Apps” and search for “Dropbox connector”.
+2.	Browse to “Web and Mobile --> Azure Marketplace” and search for “Dropbox connector”.
 3.	Configure the Dropbox connector as follows:
  
 	![][1] 
 	- **Location** - choose the geographic location where you would like the connector to be deployed
 	- **Subscription** - choose a subscription you want this connector to be created in
 	- **Resource group** - select or create a resource group where the connector should reside
-	- **Web hosting plan** - select or create a web hosting plan
+	- **App Service plan** - select or create a web hosting plan
 	- **Pricing tier** - choose a pricing tier for the connector
 	- **Name** - give a name for your Dropbox Connector
 4. Click on Create. A new Dropbox Connector will be created.
@@ -53,17 +53,20 @@ Once your API app is created, you can now use the Dropbox connector as an action
 	![][4]
 4.	You can drop the Dropbox Connector API app into the editor by clicking on the “Dropbox Connector”. Click on the Authorize button. Provide your Dropbox credentials. Click “Allow”
  
-	![][5]![][6]![][7]
+	![][5]
+	![][6]
+	![][7]
 6.	You can now use Dropbox connector in the flow. You can use the Dropbox action "upload File" to upload a file to your Dropbox account.
  
-	![][8]![][9]
+	![][8]
+	![][9]
 
 Configure the input properties for "Upload File" action as follows:
 
-- **File Path** - Specify the file path of the file to be uploaded
-- **Content** - Specifies the content of the file to be uploaded
-- **Content Transfer Encoding** - Specify none or base64
-- **Overwrite** - Specify "true" to overwrite the file if it already exists
+- **File Path** - Specify the destination Dropbox file path of the file to be uploaded. Example: Photos/image.png
+- **Content** - Specifies the content of the file to be uploaded. Often, this will come from a previous step in your Logic App.
+- **Content Transfer Encoding** - Specify none or base64.
+- **Overwrite** - Specify "true" to overwrite the file if it already exists.
 
 
 <!-- Image reference -->

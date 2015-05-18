@@ -9,31 +9,31 @@
 
 <tags
 	ms.service="machine-learning"
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm=""
-	ms.workload="big-data" 
-	ms.date="02/20/2015"
+	ms.date="04/22/2015"
 	ms.author="raymondl;garye"/>
 
 
-
 #Retrain Machine Learning models programmatically  
-
-##Overview  
-As part of the process of Operationalization Machine Learning models in Azure ML, a model needs to be trained and saved, then used to create a Scoring Web Service. The Web Service can then be consumed in web sites, dashboards and mobile apps.  
-
-Frequently, however, there is a need to retrain the model created in the first step with new data. Previously, this was only possible through the Azure ML UI, but with the introduction of the Programmatic Retraining API feature, you now can retrain the model and update the Web Service, to use the newly trained model, programmatically using the Retraining APIs.  
-
-This document describes the above process, and shows how to use the Retraining APIs.   
  
-##Retraining Machine Learning models  
-###Why retrain: defining the problem  
+As part of the process of operationalization of machine learning models in Azure Machine Learning, a model needs to be trained and saved, then used to create a scoring web service. The web service can then be consumed in web sites, dashboards, and mobile apps.  
+
+Frequently, you need to retrain the model created in the first step with new data. Previously, this was only possible through the Azure ML UI, but with the introduction of the Programmatic Retraining API feature, you now can retrain the model and update the Web Service, to use the newly trained model, programmatically using the Retraining APIs.  
+
+This document describes the above process, and shows how to use the Retraining APIs. 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]  
+ 
+
+##Why retrain: defining the problem  
 As part of the ML training process, a model is trained using a set of data. The models needs to be retrained in scenarios where new data becomes available, or when the consumer of the API has their own data to train the model, or when the data needs to be filtered and the model trained with the subset of data, etc.  
 
 In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web Service API to use the newly trained model.  
 
-###How to retrain: the end to end process  
+##How to retrain: the end to end process  
 To start, the process involves the following components: a Training Experiment and a Scoring Experiment published as a Web Service. To enable retraining of a trained model, the Training Experiment has to also be published as a Web Service with the output of a trained model. This enables API access to the model for retraining. The process for setting up retraining involves the following steps:  
 
 ![][1]
@@ -54,7 +54,7 @@ Diagram 1: Retraining process overview
 
 	After experiment run is completed, clicking on “Publish Web Service” will publish the Scoring Experiment as a Web Service and create a default endpoint. The trained model in this webservice is updatable, as shown below. The details for this endpoint will then show up on the screen.  
 3. *Publish the Training Experiment as a Web Service* 	
-	To re-train the trained model, we need to publish the Training Experiment we created in step 1 above as a Web Service. This Web Service will need a Web Service Output module connected to the "Train Model" module, to be able to produce new trained models.
+	To re-train the trained model, we need to publish the Training Experiment we created in step 1 above as a Web Service. This Web Service will need a Web Service Output module connected to the [Train Model][train-model] module, to be able to produce new trained models.
 Click on the Experiments icon in the left pane, then click on the experiment called Census Model to go back to the training experiment.  
 
 	We then add one Web Service Input and two Web Service Output modules to the workflow. The Web Service output for Train Model will give us the new trained model. The output attached to Evaluate Model will return that module’s Evaluate Model output.   
@@ -97,7 +97,7 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
   
 	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard.
 
-	With the success of this call, the new endpoint will start using a retrained model.   
+	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
 
 ##Summary  
 Using the Retraining APIs, we can update the trained model of a predictive Web Service enabling scenarios such as periodic model retraining with new data or distribution of models to customers with the goal of letting them retrain the model using their own data.  
@@ -109,3 +109,7 @@ Using the Retraining APIs, we can update the trained model of a predictive Web S
 [5]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE05.png
 [6]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
 [7]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE07.png
+
+
+<!-- Module References -->
+[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/

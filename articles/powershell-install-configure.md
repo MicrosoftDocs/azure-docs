@@ -5,7 +5,7 @@
 	manager="stevenka"
 	documentationCenter=""
 	services=""
-	authors="coreyp69"/>
+	authors="coreyp-at-msft"/>
 
 <tags
 	ms.service="multiple"
@@ -81,8 +81,7 @@ For more information about authentication and subscription management in Azure, 
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
 
-    > For more information on security and using credentials, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure Websites](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
-
+	> [AZURE.NOTE] For more information on security and using credentials, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure Websites](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 	> [AZURE.NOTE] This non-interactive login method only works with a work or school account.  A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	>

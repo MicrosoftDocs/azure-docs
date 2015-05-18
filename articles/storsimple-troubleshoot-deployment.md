@@ -30,7 +30,7 @@ This article also describes the tools for troubleshooting StorSimple deployments
 If you run into an issue when deploying your device for the first time, consider the following:
 
 - If you are troubleshooting a physical device, make sure that the hardware has been installed and configured as described in [Hardware installation of your device](https://msdn.microsoft.com/library/azure/dn772375.aspx).
-- Check prerequisites for deployment. Make sure that you have all the information described in the [deployment checklist](storsimple-deployment-walkthrough.md#pre-installation checklist).
+- Check prerequisites for deployment. Make sure that you have all the information described in the [deployment checklist](storsimple-deployment-walkthrough.md#pre-installation-checklist).
 - Review the StorSimple Release Notes to see if the problem is described. The release notes include workarounds for known installation problems. 
 
 During device deployment, the most common issues that users face occur when they run the setup wizard and when they register the device via Windows PowerShell for StorSimple. (You use Windows PowerShell for StorSimple to register and configure your StorSimple device. For more information on device registration, see [Register your device](https://msdn.microsoft.com/library/azure/dn757742.aspx).)
@@ -39,7 +39,7 @@ The following sections can help you resolve issues that you encounter when you c
 
 ## First-time setup wizard process
 
-The following steps summarize the setup wizard process. For detailed setup information, see the [StorSimple deployment walkthrough](storsimple-deployment-walkthrough.md).
+The following steps summarize the setup wizard process. For detailed setup information, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
 1. Run the [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) cmdlet to start the setup wizard that will guide you through the remaining steps. 
 2. Configure the network: the setup wizard lets you configure network settings for the DATA 0 network interface on your StorSimple device. These settings include the following:
@@ -48,12 +48,12 @@ The following steps summarize the setup wizard process. For detailed setup infor
   - NTP server – The [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet is executed in the background. It configures the NTP server settings for your StorSimple solution.
   - Optional web proxy – The [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) cmdlet is executed in the background. It sets and enables the web proxy configuration for your StorSimple solution.
 3. Set up the passwords: the next step is to set up device administrator and StorSimple Snapshot Manager passwords.
-  - The device administrator password is used to log on to your device. The default device password is *Password1*.
+  - The device administrator password is used to log on to your device. The default device password is **Password1**.
   - The StorSimple Snapshot Manager password is required when you configure a device to use StorSimple Snapshot Manager. You need to first set the password in the setup wizard, and then you can set and change it from the StorSimple Manager service. This password authenticates the device with StorSimple Snapshot Manager.
  
     > [AZURE.IMPORTANT] Passwords are collected before registration, but applied only after you successfully register the device. If there is a failure to apply a password, you will be prompted to supply the password again until the required passwords (that meet the complexity requirements) are collected.
 
-4. Register the device: the final step is to register the device with the StorSimple Manager service running in Microsoft Azure. The registration requires you to [get the service registration key](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) from the Azure Management Portal, and provide it in the setup wizard. After the device is successfully registered, a service data encryption key is provided to you. Be sure to keep this encryption key in a safe location because it will be required to register all subsequent devices with the service.
+4. Register the device: the final step is to register the device with the StorSimple Manager service running in Microsoft Azure. The registration requires you to [get the service registration key.](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) from the Azure Management Portal, and provide it in the setup wizard. After the device is successfully registered, a service data encryption key is provided to you. Be sure to keep this encryption key in a safe location because it will be required to register all subsequent devices with the service.
 
 ## Common errors during device deployment
 
@@ -88,7 +88,7 @@ The following tables list the common errors that you might encounter when you:
 
 ### Errors that occur when you set up the device administrator and StorSimple Snapshot Manager passwords
 
-The default device administrator password is *Password1*. This password expires after the first log on; therefore, you will need to use the setup wizard to change it. You must provide a new device administrator password when you register the device for the first time. 
+The default device administrator password is **Password1**. This password expires after the first log on; therefore, you will need to use the setup wizard to change it. You must provide a new device administrator password when you register the device for the first time. 
 
 If you use the StorSimple Snapshot Manager software running on the Windows Server host to manage the device, then you must also provide a StorSimple Snapshot Manager password during first-time registration. 
 
@@ -300,9 +300,7 @@ Use the Test-HcsmConnection cmdlet for a device that is already connected to and
    - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name. .
    - ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
    
-   If it does not throw a web exception, check for the following:
-
-   - ErrorCode.CiSApplianceFailure – this indicates that the appliance failed.
+    If it does not throw a web exception, check for ErrorCode.CiSApplianceFailure. This indicates that the appliance failed.
 
 5. Check the cloud service connectivity. If the service throws a web exception, you might see the following errors:
 
@@ -311,8 +309,7 @@ Use the Test-HcsmConnection cmdlet for a device that is already connected to and
   - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name. .
   - ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
   
-  If it does not throw a web exception, check for the following: 
-  - ErrorCode.CiSApplianceSaasServiceError – this indicates a problem with the StorSimple Manager service.
+    If it does not throw a web exception, check for ErrorCode.CiSApplianceSaasServiceError. This indicates a problem with the StorSimple Manager service.
  
 6. Check Azure Service Bus connectivity. ErrorCode.CiSApplianceServiceBusError indicates that the device cannot connect to the Service Bus.
  
@@ -399,12 +396,12 @@ The error could be caused by any of the following:
 
 7. Check for firewall interference. If you have verified that the virtual IP (VIP), subnet, gateway, and DNS settings are all correct, and you still see connectivity issues, then it is possible that your firewall is blocking communication between your device and the outside network. You need to ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see [Networking requirements for StorSimple device](https://msdn.microsoft.com/library/azure/dn772371.aspx).
 
-8. Look at the logs. Go to [Support packages and device logs available for troubleshooting](#support-packages-and-device logs-for-troubleshooting).
+8. Look at the logs. Go to [Support packages and device logs available for troubleshooting](#support-packages-and-device-logs-available-for-troubleshooting).
 
 9. If the preceding steps do not resolve the problem, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) for assistance.
 
 ## Next steps
-[Troubleshoot an operational device](storsimple-troubleshoot-an-operational-device.md)
+[Troubleshoot an operational device](storsimple-troubleshoot-operational-device.md)
 
 <!--Link references-->
 

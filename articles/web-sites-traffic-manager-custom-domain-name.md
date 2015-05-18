@@ -3,7 +3,7 @@
 	description="Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing." 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="cephalin"/>
+	ms.date="05/12/2015" 
+	ms.author="mwasson"/>
 
 #Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
 
@@ -27,13 +27,6 @@ This article provides generic instructions for using a custom domain name with A
 [AZURE.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
-
-In this article:
-
--   [Understanding DNS records](#understanding-records)
--   [Configure your web apps for Standard mode](#bkmk_configsharedmode)
--   [Add a DNS record for your custom domain](#bkmk_configurecname)
--   [Enable Traffic Manager for your web app](#enabledomain)
 
 <a name="understanding-records"></a>
 ## Understanding DNS records
@@ -67,8 +60,7 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 

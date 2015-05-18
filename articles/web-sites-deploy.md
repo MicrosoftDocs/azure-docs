@@ -79,14 +79,14 @@ For more information, see the following resources:
 * [Continuous delivery to Azure using Visual Studio Online and TFVC](cloud-services-continuous-delivery-use-vso.md). Step-by-step tutorial that shows how to set up continuous delivery from Visual Studio Online to a web app, using TFVC. TFVC is the centralized source control option, as opposed to Git, which is the distributed source control option.
 * [Continuous delivery to Azure using Visual Studio Online and Git](cloud-services-continuous-delivery-use-vso-git.md). Similar to the previous tutorial but uses Git instead of TFVC.
 
-##<a name="git"></a>Repository webbsites using Git
+##<a name="git"></a>Repository websites using Git
 
 [Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) is a popular distributed source control system. Azure has built-in features that make it easy to automate deployment to a web app from popular web-based repository sites that store Git repositories, including [GitHub](http://www.github.com), [CodePlex](http://www.codeplex.com/), and [BitBucket](https://bitbucket.org/). An advantage of using Git to deploy is that it's relatively easy to roll back to an earlier deployment if that ever becomes necessary.
 
 For more information, see the following resources:
 
 * [Publishing from Source Control to Web Apps with Git](web-sites-publish-source-control.md). How to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
-* [Deploying to Web Apps with GitHub using Kudu](/documentation/videos/deploying-to-azure-from-github/). Video by Scott Hanselman and David Ebbo that shows how to deploy a web app directly from GitHub to Web Apps.
+* [Deploying to Web Apps with GitHub using Kudu](http://azure.microsoft.com/en-us/documentation/videos/deploying-to-azure-from-github/). Video by Scott Hanselman and David Ebbo that shows how to deploy a web app directly from GitHub to Web Apps.
 * [Deploy to Azure Button for Web Apps](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog about a method for triggering deployment from a Git repository.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 

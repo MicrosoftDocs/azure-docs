@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Get started with SQL Database" 
+<properties
+	pageTitle="Get started with SQL Database"
 	description="Create your first cloud database in minutes with Azure SQL Database, Microsoft's relational database management service (RDBMS) in the cloud, using the Azure Portal and the AdventureWorks sample database."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/14/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/14/2015"
 	ms.author="genemi"/>
 
 
@@ -109,4 +109,3 @@ You are now ready to write a small client program that can connect to your datab
 [2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
 [3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
-

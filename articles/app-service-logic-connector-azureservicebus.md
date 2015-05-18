@@ -61,10 +61,12 @@ Once your API app is created, you can now use the Azure Service Bus connector as
  
 5.	You can now use Azure Service Bus connector in the flow. You can use the message retrieved from the Azure Service Bus trigger ("Message Available") in other actions in the flow.
  
-	![][5]![][6] 
+	![][5]
+	![][6] 
 6.	In the similar way you can use the Azure Service Bus action "Send Message" to send message
 
-	![][7]![][8]
+	![][7]
+	![][8]
 
 
 	<!--Image references-->

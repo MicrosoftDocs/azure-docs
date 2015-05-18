@@ -30,7 +30,7 @@ The Azure Active Directory tenant that you use can be can have an Azure-only dir
 You will build a simple line-of-business Create-Read-Update-Delete (CRUD) application in App Service Web Apps that tracks work items with the following features:
 
 - Authenticates users against Azure Active Directory
-- Sign-in and sign-out functionality
+- Implements sign-in and sign-out functionality
 - Uses `[Authorize]` to authorize users for different CRUD actions
 - Queries Azure Active Directory data using [Azure Active Directory Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)
 - Uses [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (instead of Windows Identity Foundation, i.e. WIF), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF
@@ -64,17 +64,21 @@ The sample application in this tutorial, [WebApp-GroupClaims-DotNet](https://git
 ## Run the sample application ##
 
 1.	Clone or download the sample solution at [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet) to your local directory.
+
 2.	Follow the instructions at [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md) to set up the Azure Active Directory application and project.
 
-	> [AZURE.NOTE] The permissions configured in the Azure Active Directory application only requires the <strong>User</strong> role, not **Global Administrator**.
+	> [AZURE.NOTE] The permissions configured in the Azure Active Directory application requires the <strong>User</strong> role; not **Global Administrator**.
 	
-3.	Once you're finished configuring the application, Type `F5` to run the application.
+3.	Once you're finished configuring the application, type `F5` to run the application.
+
 4.	Once the application loads, click **Sign In**. 
+
 5.	If you configured the Azure Active Directory application properly and set the corresponding settings in Web.config, you should be redirected to the log in. Simply log in with the account you used to create the Azure Active Directory application in the Azure portal, since it's the Azure Active Directory application's default owner. 
 	
 	> [AZURE.NOTE] In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediatley start managing application roles in the <code>Roles</code> controller.
 	
 4.	Once signed in, click **Roles** to manage application roles.
+
 5.	In **Search for Users/Groups**, start typing the desired user name or group name and notice that a dropdown list shows a filtered list of users and/or groups from your Azure Active Directory tenant.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png) 
@@ -98,13 +102,17 @@ Here, you will publish the application to a web app in Azure App Service. There 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/publish-app.png)
 
 2. Select **Microsoft Azure Web Apps**.
+
 3. If you haven't signed in to Azure, click **Sign In** and use the Microsoft account for your Azure subscription to sign in.
+
 4. Once signed in, click **New** to create a new web app in Azure.
+
 5. Fill in all required fields. You will need a database connection for this application to store role mappings, cached tokens, and any application data.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
 
-6. Click **Create**. Once the web app is created, the Publish Web dialog is opened.
+6. Click **Create**. Once the web app is created, the **Publish Web** dialog is opened.
+
 7. In **Destination URL**, change **http** to **https**. Copy the entire URL to a text editor. You will use it later. Then, click **Next**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/5-change-to-https.png)
@@ -114,21 +122,29 @@ Here, you will publish the application to a web app in Azure App Service. There 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/6-disable-organizational-authentication.png)
 
 9. Instead of clicking **Publish** to go through with the web publish, click **Close**. Click **Yes** to save the changes to the publishing profile.
+
 2. In the [Azure management portal](https://manage.windowsazure.com), go to your Azure Active Directory tenant and click the **Applications** tab.
+
 2. Click **Add** at the bottom of the page.
+
 3. Select **Web Application And/Or Web API**.
+
 4. Give the application a name and click **Next**.
+
 5. In App Properties, set **Sign-On URL** to the web app URL that you saved earler (e.g. `https://<site-name>.azurewebsites.net`), and the **APP ID URI** to `https://<aad-tenanet-name>/<app-name>`. Then, click **Complete**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/7-app-properties.png)
 
 6. Once the application is created, click **Configure**.
+
 7. Under **Keys**, create a new key by selecting **1 year** in the dropdown.
+
 8. Under **Permissions to other applications**, for the **Azure Active Directory** entry, select **Access your organization's directory** in the **Delegated Permissions** dropdown.
 
 	> [AZURE.NOTE] The exact permissions you need here depends on the desired functionality of your application. Some permissions require the **Global Administrator** role to set, but the permissions required by this tutorial only requires the **User** role.
 
-9.  Clic **Save**.  
+9.  Click **Save**.  
+
 10.  Before you navigate away from the saved configuration page, copy the following information into a text editor.
 
 	-	Client ID
@@ -144,12 +160,13 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 	Make sure that the value of ida:PostLogoutRedirectUri ends with a slash "/".
 
-1. Right-click your project again and select **Publish**.
+1. Right-click your project and select **Publish**.
+
 2. Click **Publish** to publish to Azure App Service Web Apps.
 
-When you're done, you have two Azure Active Directory applications configured in the Azure management portal, one for your debug environment in Visual Studio, and one for the published web app in Azure. During debugging, the app settings in Web.config is used to make your **Debug** configuration work with Azure Active Directory, and when it's published (by default, the **Release** configuration is published), a transformed Web.config is uploaded that incorporates the app setting changes in Web.Release.config.
+When you're done, you have two Azure Active Directory applications configured in the Azure management portal: one for your debug environment in Visual Studio, and one for the published web app in Azure. During debugging, the app settings in Web.config are used to make your **Debug** configuration work with Azure Active Directory, and when it's published (by default, the **Release** configuration is published), a transformed Web.config is uploaded that incorporates the app setting changes in Web.Release.config.
 
-If you want to attach the published web app to the debugger (i.e. you must upload debug symbols of your code in the published web app), you can create a clone of the Debug configuration for Azure debugging, but with its own custom Web.config transform (e.g. Web.AzureDebug.config) that uses the Azure Active Directory settings from Web.Release.config. This allows you to maintain a static configuration across the different environments.
+If you want to attach the published web app to the debugger (you must upload debug symbols of your code in the published web app), you can create a clone of the Debug configuration for Azure debugging, but with its own custom Web.config transform (e.g. Web.AzureDebug.config) that uses the Azure Active Directory settings from Web.Release.config. This allows you to maintain a static configuration across the different environments.
 
 <a name="bkmk_crud"></a>
 ## Add line-of-business functionality to the sample application
@@ -194,8 +211,11 @@ In this part of the tutorial, you will learn how to build out the desired line-o
     }</pre>
 
 7.	Build the project to make your new model accessible to the scaffolding logic in Visual Studio.
-8.	Add new scaffolded item `WorkItemsController` to the Controllers folder. To do this, right-click **Controllers**, point to **Add**, and select **New scaffolded item**. 
+
+8.	Add a new scaffolded item `WorkItemsController` to the Controllers folder. To do this, right-click **Controllers**, point to **Add**, and select **New scaffolded item**. 
+
 9.	Select **MVC 5 Controller with views, using Entity Framework** and click **Add**.
+
 10.	Select the model that you just created and click **Add**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/8-add-scaffolded-controller.png)
@@ -252,6 +272,7 @@ In this part of the tutorial, you will learn how to build out the desired line-o
 13.	In Create() and Edit() add following code to make some variables available to your JavaScript later:
             ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
             ViewData["tenant"] = ConfigHelper.Tenant;
+
 14.	In Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the `Html.BeginForm` helper method and modify it as follows:  
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
 	{
@@ -352,6 +373,6 @@ Now that you have configured the authorizations and line-of-business functionali
 - [Directory Sync with Single Sign-On Scenario](http://technet.microsoft.com/library/dn441213.aspx)
 - [Azure Active Directory Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx)
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]

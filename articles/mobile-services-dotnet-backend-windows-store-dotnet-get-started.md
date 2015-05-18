@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" 
-	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#, VB, or JavaScript." 
+	pageTitle="Get Started with Mobile Services for Windows Universal apps | Mobile Dev Center" 
+	description="Follow this tutorial to get started using Azure Mobile Services for universal Windows app development in C#." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+	ms.date="05/03/2015" 
 	ms.author="glenga"/>
 
 
@@ -33,8 +33,8 @@ In this tutorial, you will create both a new mobile service and a simple *To do 
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. 
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F).
+* [Visual Studio 2013]. 
 
 ## Create a new mobile service
 
@@ -54,7 +54,7 @@ In this section you will create a new universal Windows app that is connected to
 
   	![Mobile Services quickstart steps](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
-3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Visual Studio 2013] on your local computer or virtual machine.
 
 4. Under **Download and run your app and service locally**, select a language for your Windows Store app, then click **Download**. 
 
@@ -110,16 +110,13 @@ Now that you have completed the quickstart, learn how to perform additional impo
 For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
-[Getting started with Mobile Services]:#getting-started
-[Create a new mobile service]:#create-new-service
-[Define the mobile service instance]:#define-mobile-service-instance
-[Next Steps]:#next-steps
 
 <!-- Images. -->
 
 
 
 <!-- URLs. -->
+[Visual Studio 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Get started with data]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md
 [Get started with data]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md

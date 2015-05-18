@@ -47,20 +47,20 @@ Follow these steps to create a web app and enable Git publishing.
 
 6. Click **Create**.
 
-7. Once the status changes to **Running**, the portal will automatically open the blade for your web app. 
+7. Once the status changes to **Running**, the portal will automatically open the blade for your web app. You can also reach the blade by clicking **Browse**.
 
 	![][go-to-dashboard]
 
-8. Click **Deployment**. (You may need to scroll to see this part of the blade.)
+8. Click **Deployment**. You may need to scroll to see this part of the blade.
 
 	![][deployment-part]
 
 9. Click **Choose Source**, then **Local Git Repository**. Click **OK**.
 
-	![][setup-git-publishing]
+	![][setup-git-publishing] 
 
 
-10. Click the **deployment credentials** part. Create a user name and password. Click **Save**. (If you have previously enabled publishing for an web app, you don't need to do this step.)
+10. Click the **deployment credentials** part (outlined in red below). Create a user name and password. Click **Save**. If you have previously enabled publishing for an web app, you don't need to do this step.
 
 	![][deployment-credentials]
 

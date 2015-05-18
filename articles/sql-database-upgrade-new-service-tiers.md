@@ -21,6 +21,8 @@
 
 Azure SQL Web and Business databases are being deprecated and [retired September 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx) so it's time to start planning to upgrade existing Web or Business databases to the Basic,  Standard, or Premium service tiers.
 
+> [AZURE.NOTE] [Pricing tier recommendations](http://azure.microsoft.com/en-us/documentation/articles/sql-database-pricing-tier-recommendations/) for Web and Business databases is now available.
+
 ## Overview
 
 <p> Azure Web and Business SQL databases run in a shared, multi-tenant environment without any reserved resource capacity for the database. The activity of other databases within this shared resource environment can impact your performance. Resource availability at any given point depends heavily on other concurrent workloads running in the system. This can result in highly varying and unpredictable database application performance. Customer feedback is that this unpredictable performance is difficult to manage, and more predictable performance is preferred. 

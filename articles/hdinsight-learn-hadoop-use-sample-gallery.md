@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Learn Hadoop in HDInsight by using the Sample Gallery" 
-   description="Learn Hadoop in HDInsight by using the HDInsight Sample Gallery" 
+   pageTitle="Learn Hadoop in HDInsight with the Sample Gallery | Microsoft Azure" 
+   description="HDInsight Getting Started Gallery is quick way learn Hadoop by running sample applications in HDInsight. Some samples have sample data, or you can supply your own." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -18,7 +18,7 @@
 
 # Learn Hadoop by using the HDInsight Getting Started Gallery
 
-The HDInsight Getting Started Gallery provides an easy and quick way to run Hadoop sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
+The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoop by running sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
 
 - Solutions with your Azure data
 	- Microsoft Azure website log analysis
@@ -29,16 +29,16 @@ The HDInsight Getting Started Gallery provides an easy and quick way to run Hado
 	- Website log analysis
 	- Mahout movie recommendation
 
-![HDInsight Hadoop/Storm/HBase Getting Started Gallery][hdinsight.sample.gallery]
+![HDInsight Hadoop, Storm, and HBase Getting Started Gallery solutions including sample data.][hdinsight.sample.gallery]
 
 The following video clip shows how to run the Twitter trend analysis sample:
 
-<center><iframe width="650" height="388" src="https://www.youtube.com/embed/7ePbHot1SN4" frameborder="0" allowfullscreen></iframe></center>
+<center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
 
 **To run a sample from the Getting Started Gallery**
 
-1.	Sign in to the [Azure portal][azure.management.portal].
+1.	Sign in to the [Azure portal][azure.portal].
 2.	Click **HDInsight** in the left menu. You will see a list of existing HDInsight clusters, including Hadoop, Storm, and HBase clusters. 
 3.	Click the cluster where you want to run the sample.
 4.	Click **QUERY CONSOLE** at the bottom of the page.
@@ -59,5 +59,6 @@ Other ways to learn about HDInsight include:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learning.map]: hdinsight-learn-map.md
+[hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
+[azure.portal]:https://manage.windowsazure.com

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/18/2015" 
-	ms.author="luisca"/>
+	ms.author="tedway"/>
 
 
 # Consuming an Azure Machine Learning Web Service from Excel #

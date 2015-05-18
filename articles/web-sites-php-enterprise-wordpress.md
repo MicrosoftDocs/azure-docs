@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="03/24/2015" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
 #Enterprise-class WordPress on Azure App Service
@@ -24,7 +24,7 @@ Azure App Service provides a scalable, secure and easy to use environment for mi
 
 A basic WordPress installation has only two requirements.
 
-* **MySQL Database** - available through [ClearDB in the Azure Store][cdbnstore], or you can manage your own MySQL installation on Azure Virtual Machines using either [Windows][mysqlwindows] or [Linux][mysqllinux].
+* **MySQL Database** - available through [ClearDB in the Azure Marketplace][cdbnstore], or you can manage your own MySQL installation on Azure Virtual Machines using either [Windows][mysqlwindows] or [Linux][mysqllinux].
 
     > [AZURE.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or [ClearDB pricing](http://www.cleardb.com/pricing.view) for offerings directly from ClearDB.
     
@@ -104,7 +104,7 @@ There are two methods of migrating an existing WordPress site to Azure App Servi
 
 ### Create a new WordPress site
 
-1. Use the [Azure Store][cdbnstore] to create a MySQL database of the size you identified in the [Architecture and planning](#planning) section, in the region(s) that you will host your site.
+1. Use the [Azure Marketplace][cdbnstore] to create a MySQL database of the size you identified in the [Architecture and planning](#planning) section, in the region(s) that you will host your site.
 
 2. Follow the steps in [Create a WordPress web app in Azure App Service][createwordpress] to create a new WordPress web app. When creating the web app, select **Use an existing MySQL Database** and select the database created in step 1.
 
@@ -134,7 +134,7 @@ Use one of the following sections to migrate your site.
 
 6. Click **Submit**. You will be prompted that the import was successful.
 
-8. Once you have completed all these steps, restart your site from its web app blade in the [Azure Portal][mgmtportal].
+8. Once you have completed all these steps, restart your site from its web app blade in the [Azure preview portal][mgmtportal].
 
 After importing the site, you may need to perform the following steps to enable settings not contained in the import file.
 
@@ -153,7 +153,7 @@ If you were using this... | Do this...
 
 3. Create a new database and restore the backup.
 
-	1. Purchase a new database from the [Azure Store][cdbnstore], or setup a  MySQL database on a [Windows][mysqlwindows] or [Linux][mysqllinux] VM.
+	1. Purchase a new database from the [Azure Marketplace][cdbnstore], or setup a  MySQL database on a [Windows][mysqlwindows] or [Linux][mysqllinux] VM.
 
 	2. Using a MySQL client like [MySQL Workbench][workbench], connect to the new database and import your WordPress database.
 
@@ -161,7 +161,7 @@ If you were using this... | Do this...
 
 4. Create a new web app in the Azure Portal and publish the WordPress backup.
 
-	1. Create a new web app in the [Azure Portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
+	1. Create a new web app in the [Azure preview portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
 
 	2. In your WordPress backup, locate the **wp-config.php** file and open it in an editor. Replace the following entries with the information for your new MySQL database.
 
@@ -236,7 +236,7 @@ To do this... | Use this...
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [performance-diagram]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-enterprise-wordpress/basic-diagram.png
