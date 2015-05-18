@@ -21,7 +21,7 @@
 
 Azure SQL Web and Business databases are being deprecated and [retired September 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx) so it's time to start planning to upgrade existing Web or Business databases to the Basic,  Standard, or Premium service tiers.
 
-> [AZURE.NOTE] [Pricing tier recommendations](http://azure.microsoft.com/en-us/documentation/articles/sql-database-pricing-tier-recommendations/) for Web and Business databases are now available.
+> [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md) for Web and Business databases are now available.
 
 ## Overview
 
