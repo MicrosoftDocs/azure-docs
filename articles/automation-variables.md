@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Variable Assets in Azure Automation"
+   pageTitle="Variable assets in Azure Automation"
    description="Variable assets are values that are available to all runbooks in Azure Automation.  This topic explains the details of variables and how to work with them in both textual and graphical authoring."
    services="automation"
    documentationCenter=""
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2015"
+   ms.date="05/18/2015"
    ms.author="bwren" />
 
-# Variable Assets in Azure Automation
+# Variable assets in Azure Automation
 
 Variable assets are values that are available to all runbooks in your automation account.  They can be created, modified, and retrieved from the Azure portal, Windows PowerShell, and from within a runbook. Automation variables are useful for the following scenarios:
 
@@ -31,7 +31,7 @@ When a variable is created, you can specify that it be stored encrypted.  When a
 
 >[AZURE.NOTE]Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account. This key is encrypted by a master certificate and stored in Azure Automation. Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.
 
-## Variable Types
+## Variable types
 
 When you create a variable with the Azure portal, you must specify a data type from the dropdown list so the portal can display the appropriate control for entering the variable value. The variable is not restricted to this data type, but you must set the variable using Windows PowerShell if you want to specify a value of a different type. If you specify **Not defined**, then the value of the variable will be set to **$null**, and you must set the value with the [Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet or **Set-AutomationVariable** activity.  You cannot create or change the value for a complex variable type in the portal, but you can provide a value of any type using Windows PowerShell. Complex types will be returned as a [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
 
@@ -57,7 +57,7 @@ The workflow activities in the following table are used to access Automation var
 
 >[AZURE.NOTE] You should avoid using variables in the –Name parameter of **Get-AutomationVariable**  in a runbook since this can complicate discovering dependencies between runbooks and Automation variables at design time.
 
-## Creating a New Automation variable
+## Creating a new Automation variable
 
 ### To create a new variable with the Azure portal
 
@@ -70,7 +70,7 @@ The workflow activities in the following table are used to access Automation var
 ### To create a new variable with the Azure preview portal
 
 1. From your automation account, click the **Assets** part to open the **Assets** blade.
-1. Click the **Variables** part to topen the **Variables** blade.
+1. Click the **Variables** part to open the **Variables** blade.
 1. Click **Add a variable** at the top of the blade.
 1. Complete the form and click **Create** to save the new variable.
 
@@ -158,9 +158,9 @@ In a graphical runbook, you add the **Get-AutomationVariable** or **Set-Automati
 
 ![Add variable to canvas](media/automation-variables/add-variable-canvas.png)
 
-#### Setting a value in a variable
+#### Setting values in a variable
 
-The following image shows sample activities to update a variable with a simple value in a graphical runbook. In this sample, a single Azure virtual machine is retrieved with **Get-AzureVM** and the computer name is saved to an existing Automation variable with a type of String.
+The following image shows sample activities to update a variable with a simple value in a graphical runbook. In this sample, a single Azure virtual machine is retrieved with **Get-AzureVM** and the computer name is saved to an existing Automation variable with a type of String.  It doesn't matter whether the [link is a pipeline or sequence](automation-graphical-authoring-intro.md#links-and-workflow) since we only expect a single object in the output.
 
 ![Set simple variable](media/automation-variables/set-simple-variable.png)
 
@@ -168,19 +168,19 @@ The following image shows the activities used to update a variable with a comple
 
 ![Set complex variable](media/automation-variables/set-complex-variable.png)
 
-The following image shows similar functionality as the previous example, with multiple virtual machines saved to the Automation variable.  There is no change to the **Set-AutomationVariable** activity to accept a collection since it will simply store any output from the previous activity.  As explained in [Variable types](#variable-types), this is stored as a collection of PSCustomObjects.
+The following image shows similar functionality as the previous example, with multiple virtual machines saved to the variable.  A [sequence link](automation-graphical-authoring-intro.md#links-and-workflow) must be used here so that the **Set-AutomationVariable** activity receives the entire set of virtual machines as one collection.  If a [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) was used, then the **Set-AutomationVariable** activity would run separately for each object with the result being that only the last virtual machine in the collection would be saved.  As explained in [Variable types](#variable-types), this is stored as a collection of PSCustomObjects.
 
 ![Set complex collection variable](media/automation-variables/set-complex-variable-collection.png)
 
-#### Retrieving a value from a variable
+#### Retrieving values from a variable
 
-The following image shows sample activities to retrieve and use a variable in a graphical runbook.  The first activity retrieves the virtual machines that were saved to the variable in the previous example.  Since the link is a [pipeline](automation-graphical-authoring-intro.md#links-and-workflow), the **Start-AzureVM** activity runs for each object sent from the **Get-AutomationVariable** activity, whether it is a single object or multiple objects.  Note that the **Start-AzureVM** activity uses properties of the PSCustomObject that represents each virtual machine. 
+The following image shows sample activities that retrieve and use a variable in a graphical runbook.  The first activity retrieves the virtual machines that were saved to the variable in the previous example.  The link needs to be a [pipeline](automation-graphical-authoring-intro.md#links-and-workflow) so that the **Start-AzureVM** activity runs once for each object sent from the **Get-AutomationVariable** activity.  This will work the same whether a a single object or multiple objects are stored in the variable.  The **Start-AzureVM** activity uses properties of the PSCustomObject that represents each virtual machine. 
 
-![Set complex variable](media/automation-variables/get-complex-variable.png)
+![Get complex variable](media/automation-variables/get-complex-variable.png)
 
-The following image shows how to filter the objects stored in a variable in a graphical runbook.  A [conditional link](automation-graphical-authoring-intro.md#links-and-workflow) is used to filter only those virtual machines that were stopped when the variable was set.
+The following image shows how to filter the objects that are stored to a variable in a graphical runbook.  A [condition](automation-graphical-authoring-intro.md#links-and-workflow) is added to the link in the previous example to filter only those virtual machines that were stopped when the variable was set.
 
-![Set complex variable](media/automation-variables/get-complex-variable-filter.png)
+![Get complex variable filtered](media/automation-variables/get-complex-variable-filter.png)
 
 
 ## Related articles
