@@ -531,8 +531,16 @@ Role name  | Description
 <td>Read Roles and Role Assignments</td>
 </tr>
 <tr>
+<td>Microsoft.Resources/subscriptions/resources/read</td>
+<td>Read subscription resources</td>
+</tr>
+<tr>
 <td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
 <td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/resources/read</td>
+<td>Read Resource Group resources</td>
 </tr>
 <tr>
 <td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
@@ -630,16 +638,24 @@ Role name  | Description
 <th colspan="2">Actions</th>
 </tr>
 <tr>
-<td>Microsoft.ApiManagement/Services/*</td>
-<td>Create and Manage API Management Services</td>
+<td>Microsoft.Sql/servers/*</td>
+<td>Create and Manage SQL Servers</td>
 </tr>
 <tr>
 <td>Microsoft.Authorization/*/read</td>
 <td>Read Roles and Role Assignments</td>
 </tr>
 <tr>
+<td>Microsoft.Resources/subscriptions/resources/read</td>
+<td>Read subscription resources</td>
+</tr>
+<tr>
 <td>Microsoft.Resources/subscriptions/resourceGroups/read</td>
 <td>Read Resource Groups</td>
+</tr>
+<tr>
+<td>Microsoft.Resources/subscriptions/resourceGroups/resources/read</td>
+<td>Read Resource Group resources</td>
 </tr>
 <tr>
 <td>Microsoft.Resources/subscriptions/resourceGroups/deployments/*</td>
@@ -990,5 +1006,3 @@ Here are some additional resources to help you use role-based access control:
 [8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
-
-
