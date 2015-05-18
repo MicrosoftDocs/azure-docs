@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/11/2015"
+   ms.date="05/15/2015"
    ms.author="tomfitz"/>
 
 # Authenticating a Service Principal with Azure Resource Manager
@@ -23,7 +23,7 @@ This topic shows you how to permit a service principal (such as an automated pro
 
 ## Concepts
 1. Azure Active Directory (AAD) - an identity and access management service for the cloud. For more information, see [What is Azure active Directory](./active-directory-whatis.md)
-2. Service Principal - An instance of an application in a directory.
+2. Service Principal - An instance of an application in a directory that needs to access other resources.
 3. AD Application - Directory record that identifies an application to AAD. For more information, see [Basics of Authentication in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
 ## Grant access to and authenticate a service principal using PowerShell
@@ -36,7 +36,7 @@ You will start by creating a service principal. To do this we must use create an
 
         PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
-     The Azure AD application is returned:
+     The Azure AD application is returned. The **ApplicationId** property is needed for creating service principals, role assignments and acquiring JWT tokens. Save the output or capture it in a variable.
 
         Type                    : Application
         ApplicationId           : a41acfda-d588-47c9-8166-d659a335a865
@@ -65,8 +65,6 @@ You will start by creating a service principal. To do this we must use create an
                             "lang": null
                           }}
 
-
-     >[AZURE.NOTE] The **ApplicationId** property is needed for creating service principals, role assignments and acquiring JWT tokens. Save the output or capture it in a variable.
 
 2. Create a service principal for your application.
 
@@ -105,18 +103,46 @@ You will start by creating a service principal. To do this we must use create an
 
 If you do not have Azure CLI for Mac, Linux and Windows installed, see [Install and Configure the Azure CLI](xplat-cli-install.md)
 
-You must already have an AD application and service principal to perform these steps. For information about how to set up an AD application and service principal through the Azure classic portal, 
-see [Create a new Azure Service Principal using the Azure classic portal](./resource-group-create-service-principal-portal.md).
+1. Create a new AAD Application by running the **azure ad app create** command. Provide a display name for your application, the URI to a page that describes your application (the link is not verified), the URIs that identify your application, and the password for your application identity.
 
-1. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](./resource-group-rbac.md)
+        azure ad app create --name "<Your Application Display Name>" --home-page "<https://YourApplicationHomePage>" --identifier-uris "<https://YouApplicationUri>" --password <Your_Password>
+        
+    The Azure AD application is returned. The ApplicationId property is needed for creating service principals, role assignments and acquiring JWT tokens. 
 
-        azure role assignment create --objectId {service-principal-object-id} -o Reader -c /subscriptions/{subscriptionId}/
+        info:    Executing command ad app create
+        + Creating application exampleapp                                                
+        data:    Application Id:          b57dd71d-036c-4840-865e-23b71d8098ec
+        data:    Application Object Id:   d5c519e2-6149-447e-b323-88d2c4ea27de
+        data:    Application Permissions:  
+        data:                             claimValue:  user_impersonation
+        data:                             description:  Allow the application to access exampleapp on behalf of the signed-in user.
+        ...
+        info:    ad app create command OK
 
-2. Determine the **TenantId** of the tenant that the service principal's role assignment resides by listing the accounts and looking for the **TenantId** property in the output.
+2. Create a service principal for your application. Provide the application id that was returned in the previous step.
+
+        azure ad sp create b57dd71d-036c-4840-865e-23b71d8098ec
+        
+    The new service principal is returned. The Object Id is needed when granting permissions.
+    
+        info:    Executing command ad sp create
+        + Creating service principal for application b57dd71d-036c-4840-865e-23b71d8098ec
+        data:    Object Id:               47193a0a-63e4-46bd-9bee-6a9f6f9c03cb
+        data:    Display Name:            exampleapp
+        ...
+        info:    ad sp create command OK
+
+    You have now created a service principal in the directory, but the service does not have any permissions or scope assigned. You will need to explicitly grant the service principal permissions to perform operations at some scope.
+
+3. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](./resource-group-rbac.md)
+
+        azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
+
+4. Determine the **TenantId** of the tenant that the service principal's role assignment resides by listing the accounts and looking for the **TenantId** property in the output.
 
         azure account list
 
-3. Sign-in using the service principal as your identity. For the user name, use the **ApplicationId** that you used when creating the application. For the password, use the one you specified when creating the account.
+5. Sign-in using the service principal as your identity. For the user name, use the **ApplicationId** that you used when creating the application. For the password, use the one you specified when creating the account.
 
         azure login -u "<ApplicationId>" -p "<password>" --service-principal --tenant "<TenantId>"
 

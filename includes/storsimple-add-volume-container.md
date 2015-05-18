@@ -19,7 +19,7 @@
 
 1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
 
-2. Click **Add** at the bottom of the page. In the **Manage volume containers** dialog box, do the following:
+2. Click **Add** at the bottom of the page. In the **Create volume container** dialog box, do the following:
 
   1. Supply a unique **Name** for your volume container. This name can contain a maximum of 32 characters.
   2. Select a **Storage Account** to be associated with this volume container. You can choose from an existing storage account within the same subscription or select **Add more** to select a storage account from another subscription. You can also choose the storage account that was first generated when the service was created.
