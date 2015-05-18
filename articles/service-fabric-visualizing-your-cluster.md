@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="05/18/2015"
    ms.author="jesseb"/>
 
 # Visualizing your cluster using Service Fabric Explorer
