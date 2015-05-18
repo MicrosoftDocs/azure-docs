@@ -1,30 +1,9 @@
-After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
 
-1. In Keychain Access, right-click the quickstart app's new certificate in **Keys** or **My Certificates**, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
+1. After you have registered your app with Apple and configured your Xcode project, you must next configure your Azure mobile service. Follow the steps [Installing a Client SSL Signing Identity on the Server](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW15) to export the certificate you downloaded in the previous step to a .p12 file.
 
-   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
+2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app. Click the **Push** tab and click **Upload**. This displays the Upload Certificate dialog.
 
-  Make a note of the file name and location of the exported certificate.
-
->[AZURE.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
-
-2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-services-selection.png)
-
-3. Click the **Push** tab and click **Upload**.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios.png)
-
-	This displays the Upload Certificate dialog.
-
-4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected (either Dev/Sandbox or Prod/Production), click the check icon, then click **Save**.
-
-   	![](./media/mobile-services-apns-configure-push/mobile-push-tab-ios-upload.png)
-
-    > [AZURE.NOTE] This tutorial uses developement certificates.
-
-Your mobile service is now configured to work with APNS.
+3. Upload the .p12 file you exported earlier, making sure that the correct **Mode** is selected (either development or production.) Your mobile service is now configured to work with push notifications on iOS!
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
