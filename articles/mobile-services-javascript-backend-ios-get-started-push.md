@@ -35,9 +35,7 @@ This topic shows you how to add push notifications to the [quickstart project](m
 
 ## <a id="update-scripts"></a>Update Registered Insert Script
 
-* In the Management Portal, click the **Data** tab and then click **todoitem**.
-
-* In **todoitem**, click the **Script** tab and select **Insert**. This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+* In the Management Portal, click the **Data** tab and then click **todoitem**. In **todoitem**, click the **Script** tab and select **Insert**. This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 * Replace the insert function with the following code, and then click **Save**.  This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. This script delays sending the notification to give you time to close the app to receive a push notification.
 
@@ -124,7 +122,7 @@ Your app is now updated to support push notifications.
 
 ## <a id="test"></a>Test Push Notifications in App
 
-* Press **Run** in Xcode and start the app on an actual iOS device (not the simulator). Then click **OK** to accept push notifications. You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+* Press **Run** in Xcode and start the app on an actual iOS device (not the simulator.) Then click **OK** to accept push notifications. You must explicitly accept push notifications from your app; this request occurs only the first time that the app runs.
 
 * In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 

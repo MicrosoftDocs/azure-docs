@@ -1,9 +1,7 @@
 
-The [Apple Push Notification Service (APNS)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) uses certificates to authenticate your mobile service. First, follow these instructions to create and upload the necessary certificates.
-
 ## <a id="register"></a>Register App for Push Notifications
 
-* Follow the instructions at [Registering App IDs](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991) to register an App ID for the app. Check the **Push Notifications** option in **App Services**.
+* The [Apple Push Notification Service (APNS)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) uses certificates to authenticate your mobile service. Follow the instructions at [Registering App IDs](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991) to register an App ID for the app. Check the optional **Push Notifications** option in **App Services** when registering the app.
 
 > [AZURE.NOTE] The **Bundle ID** you supply must be identical to the **Bundle ID** of your Xcode project. Use the exact bundle ID value that you already use in your [quickstart project](mobile-services-ios-get-started.md).
 
