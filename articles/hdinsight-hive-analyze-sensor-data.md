@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Analyzing sensor data using Hive and Microsoft Azure HDInsight (Hadoop)" 
-	description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" 
+	pageTitle="Analyze sensor data using Hive and Hadoop | Microsoft Azure" 
+	description="Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel with PowerView." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -16,7 +16,7 @@
 	ms.date="02/20/2015" 
 	ms.author="larryfr"/>
 
-#Analyzing sensor data using Hive with HDInsight
+#Analyze sensor data using the Hive Query Console on Hadoop in HDInsight
 
 Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel by using Power View.
 
@@ -49,6 +49,6 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 
 	When prompted, authenticate by using the administrator user name and password you used when provisioning this cluster.
 
-2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Samples** category, click the **Website Log Analysis** sample.
+2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Solutions with Sample Data** category, click the **Sensor Data Analysis** sample.
 
 3. Follow the instructions provided on the web page to finish the sample.

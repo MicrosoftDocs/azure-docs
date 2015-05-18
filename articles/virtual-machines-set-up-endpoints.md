@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Set up endpoints on a virtual machine in Azure" 
-	description="Learn how to setup communication with a virtual machine in Azure." 
+	description="Learn to set up endpoints in the classic portal to allow communication with a virtual machine in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/29/2015" 
 	ms.author="kathydav"/>
 
 #How to Set Up Endpoints to a Virtual Machine
@@ -29,7 +29,7 @@ Each endpoint has a public port and a private port:
 
 Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Management Portal. For custom endpoints, you must specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you must create a load-balanced set consisting of multiple endpoints.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based its source IP address. However, if the virtual machine is in an Azure virtual network, you should use Network Security Groups instead. For more information, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use Network Security Groups instead. For more information, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
 
 **Important**: Firewall configuration for Azure virtual machines is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration.
 
@@ -57,7 +57,7 @@ You will now see the endpoint listed on the Endpoints page.
 
 ![Endpoint creation successful](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
  
-For PowerShell configuration, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
+To use an Azure PowerShell cmdlet to set this up, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 
 ##Manage the ACL on an Endpoint
 
@@ -65,7 +65,7 @@ To define the set of computers that can send traffic, the ACL on an endpoint can
 
 > [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
 
-If the virtual machine is in an Azure virtual network, you should use Network Security Groups instead. For more information, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+If the virtual machine is in an Azure virtual network, you should use Network Security Groups instead. For details, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
 
 
 1.	If you have not already done so, sign in to the Azure Management Portal.
@@ -83,15 +83,15 @@ If the virtual machine is in an Azure virtual network, you should use Network Se
 
 You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?linkid=303816&clcid=0x409).
+The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?linkid=303816).
 
-For PowerShell configuration of ACLs, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+To use an Azure PowerShell cmdlet to set this up, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
 
-##Additional Resources
+## Additional Resources
 
-[Load Balancing Virtual Machines](http://www.windowsazure.com/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)
+[Load Balancing for Azure Infrastructure Services](virtual-machines-load-balance.md)
 
-[About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?linkid=303816&clcid=0x409)
+[About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?linkid=303816)
 
 [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx)
 

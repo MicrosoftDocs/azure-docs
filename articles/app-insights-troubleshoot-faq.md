@@ -2,17 +2,17 @@
 	pageTitle="Troubleshooting and Questions about Application Insights" 
 	description="Something in Visual Studio Application Insights unclear or not working? Try here." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
-	ms.workload="tbd" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="04/20/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -80,35 +80,17 @@ The details depend on the type of project. For a web application:
 
 ####<a name="NuGetBuild"></a> I get "NuGet package(s) are missing" on my build server, though everything builds OK on my dev machines
 
-This error can occur in some situations if the relative paths to the package directory are different on the development and build machines.
-
-Explanation:
-
-During the installation of NuGet package Microsoft.ApplicationInsights.Web, a dependent package is installed, Microsoft.Diagnostics.Instrumentation.Extensions.Intercept. This modifies the project file, adding an import: 
-
-`<Import Project="**..\packages**\Microsoft .... Intercept.targets" />`
-
-And it also adds assembly references like:
-
-`< Reference .... >< HintPath>**..\packages**\...Intercept.dll ...`
-
-The problem is in the relative path name, which is correct in the dev machine, but can be wrong for the package cache on the build machine.
-
-Solution: 
-
-* After you have added Application Insights to your project (or installed the NuGets manually):
-* Edit the project file and globally replace "..\packages" with "$(PackageDir)".
-* Insert a default definition:
-    `<PackageDir Condition=" '$(PackageDir)' == '' ">..\packages</PackageDir>`
-* Define $(PackageDir) in an appropriate place in your build system - for example, as a parameter of the build definition.
-
+Please see [NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore)
+and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## No data
 
 #### <a name="q03"></a>I added Application Insights successfully and ran my app, but I've never seen data in the portal.
 
++ On the Overview page, click the Search tile to open Diagnostic Search. Data appears here first.
 + Click the Refresh button. In the current version, the content of a blade doesn't refresh automatically.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
++ Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
 + In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 
 #### <a name="q04"></a>I see no data under Usage Analytics for my web site
@@ -159,6 +141,17 @@ The help pages you're looking at refer to [Application Insights for Microsoft Az
 
 Take a look at [Data Retention and Privacy][data].
 
+## Logging
+
+#### <a name="post"></a>How do I see POST data in Diagnostic search?
+
+We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. This has a longer size limit than the limits on string properties, though you can't filter on it. 
+
+## Security
+
+#### Is my data secure in the portal? How long is it retained?
+
+See [Data Retention and Privacy][data].
 
 
 ## <a name="q17"></a> Have I enabled everything in Application Insights?
@@ -180,12 +173,10 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
-
-
-
+<!--Link references-->
 
 [azurediagnostic]: insights-how-to-use-diagnostics.md
-
-[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[data]: app-insights-data-retention-privacy.md
+[platforms]: app-insights-platforms.md
+[start]: app-insights-get-started.md
 

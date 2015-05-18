@@ -66,7 +66,7 @@ To use the Oracle Connector, you need to create an instance of the Oracle Connec
 }
 </style><table class="tableizer-table">
 <tr class="tableizer-firstrow"><th>Name</th><th>Required</th><th>Description</th></tr>
- <tr><td>Data Source</td><td>Yes</td><td>A data source (net service) name that is specified in the tnsnames.ora file on the machine where the Oracle client is installed. For more information about data source names and tnsnames.ora, see <a href=\"https://msdn.microsoft.com/en-us/library/dd787872.aspx\" target=\"_blank\">Configuring the Oracle Client</a></td></tr>
+ <tr><td>Data Source</td><td>Yes</td><td>A data source (net service) name that is specified in the tnsnames.ora file on the machine where the Oracle client is installed. For more information about data source names and tnsnames.ora, see [Configuring the Oracle Client]</td></tr>
  <tr><td>User Name</td><td>Yes</td><td>Specify a valid user name to connect to the Oracle server.</td></tr>
  <tr><td>Password</td><td>Yes</td><td>Specify a valid password to connect to the Oracle server.</td></tr>
  <tr><td>Service Bus Connection String</td><td>Yes</td><td>Optional. Specify this parameter if your Oracle Server is on-premises. This should be a valid Service Bus Namespace connection string. You need to install a listener agent on a server that can access your Oracle server. You can go to your API App summary page and click on 'Hybrid Connection' to install the agent.</td></tr>
@@ -167,4 +167,6 @@ You can test the Logic App by adding a new record in the table that is being pol
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.jpg
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.jpg
 
+<!--Links-->
+[Configuring the Oracle Client]: https://msdn.microsoft.com/en-us/library/dd787872.aspx
 

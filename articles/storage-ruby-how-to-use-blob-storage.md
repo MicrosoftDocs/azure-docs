@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -69,6 +69,8 @@ To obtain these values:
 4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
 
 ## How To: Create a Container
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../includes/storage-container-naming-rules-include.md)]
 
 The **Azure::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
 

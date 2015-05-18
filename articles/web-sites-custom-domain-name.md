@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
 # Configure a custom domain name in Azure App Service
@@ -28,21 +28,9 @@
 
 When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
-<!--todo:![contoso.azurewebsites.net subdomain][subdomain]-->
-
 For a production web app, you probably want users to see a custom domain name. This article explains how to configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
-
-In this article:
-
-
--   [Overview]
--   [DNS record types]
--   [Find the virtual IP address]
--   [Create the DNS records]
--   [Create an “awverify” record (A records only)](#awverify)
--   [Enable the domain name on your web app]
 
 
 ## Overview
@@ -78,7 +66,7 @@ If the IP address changes, a CNAME entry is still valid, whereas an A record mus
 
 Skip this step if you are creating a CNAME record. To create an A record, you need the virtual IP address of your web app. To get the IP address:
 
-1.	In your browser, open the [Azure Management Portal](https://portal.azure.com).
+1.	In your browser, open the [Azure Portal](https://portal.azure.com).
 2.	Click the **Browse** option on the left side of the page.
 3.	Click the **Web Apps** blade.
 4.	Click the name of your web app.
@@ -122,7 +110,7 @@ Assuming the custom domain name is ‘contoso.com’, this would create the foll
 - **www.contoso.com** mapped to **contoso.azurewebsites.net**.
 
 <a name="awverify" />
-## Create an “awverify” record (A records only)
+## Create an awverify record (A records only)
 
 If you create an A record, web app also requires a special CNAME record, which is used to verify that you own the domain you are attempting to use. This CNAME record must have the following form.
 
@@ -136,6 +124,10 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## Buy domain for your web app
+
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-buydomains-web-app.md)]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

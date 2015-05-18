@@ -1,10 +1,11 @@
 <properties
-   pageTitle="Extend HDInsight with Azure Virtual Network | VNet" metaKeywords="virtual network, vnet, azure, hdinsight" description="Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter"
-   services="hdinsight"
-   documentationCenter=""
-   authors="blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Extend HDInsight with Virtual Network | Microsoft Azure"  
+	description="Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -12,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/02/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
 
@@ -20,7 +21,7 @@
 
 Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on-premises resources such as SQL Server, or to create secure private networks between resources in the cloud.
 
-> [AZURE.NOTE] Currently HDInsight does not support affinity-based Azure virtual networks. When using HDInsight, you must use location-based virtual networks.
+> [AZURE.NOTE] HDInsight does not support affinity-based Azure virtual networks. When using HDInsight, you must use location-based virtual networks.
 
 ##<a id="whatis"></a>What is Azure Virtual Network?
 
@@ -89,10 +90,10 @@ For example, to return the FQDN from an HDInsight Hadoop cluster, you can use on
 		$Password = <cluster admin password>
 		$DnsSuffix = ".azurehdinsight.net"
 		$ClusterFQDN = $ClusterDnsName + $DnsSuffix
-		
+
 		$webclient = new-object System.Net.WebClient
 		$webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
-		
+
 		$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/		components/resourcemanager"
 		$Response = $webclient.DownloadString($Url)
 		$JsonObject = $Response | ConvertFrom-Json

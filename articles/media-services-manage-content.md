@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to manage media content wtih Azure Media Services" 
-	description="Learn how to manage your media content in Azure Media Services." 
+	pageTitle="How to manage media content with Azure Media Services using Azure Management Portal" 
+	description="Learn how to manage your media content in Azure Media Services. This includes: uploading, indexing, encoding, encrypting, and publishing." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# How to: Manage Content with Azure Media Services 
+# Manage Content with Azure Media Services using Azure Management Portal
 
 This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
 

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="04/29/2015" 
 	ms.author="mimig"/>
 
 #Monitor a DocumentDB account  
 
-You can monitor your DocumentDB accounts in the [Azure Preview portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics (such as requests and server errors) and usage metrics (such as storage consumption) are available.
+You can monitor your DocumentDB accounts in the [Microsoft Azure Preview portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics (such as requests and server errors) and usage metrics (such as storage consumption) are available.
 
 ## <a id="metrics"></a>  How to: View performance metrics for a DocumentDB account
 1.	In the [Azure Preview portal](https://portal.azure.com/), click **Browse**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
@@ -50,7 +50,7 @@ You can monitor your DocumentDB accounts in the [Azure Preview portal](https://p
 
 
 ## <a id="create"></a>Create side-by-side performance metric charts
-The Azure Preview portal allows you to create side-by-side metric charts.  
+The Azure Preview Preview portal allows you to create side-by-side metric charts.  
 
 1.	First, right-click on the chart you want to clone and modify and select **Customize**. 
 

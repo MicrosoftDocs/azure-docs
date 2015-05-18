@@ -2,7 +2,7 @@
 	pageTitle="Application Insights for Windows desktop apps" 
 	description="Analyze usage and performance of your Windows app with Application Insights." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="windows"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 
@@ -19,9 +19,12 @@
 
 *Application Insights is in preview.*
 
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
+
 Application Insights lets you monitor your deployed application for usage and performance.
 
 *Although the Application Insights SDK can be made to work in a desktop app, it isn't a scenario we currently support. But if you'd like to try it experimentally, here are some tips for doing so.*
+
 
 
 
@@ -64,7 +67,11 @@ Application Insights lets you monitor your deployed application for usage and pe
 
 Create a `TelemetryClient` instance and then [use it to send telemetry][track].
 
+Use `TelemetryClient.Flush` to send messages before closing the app. (This is not recommended for other types of app.)
+
 For example, in a Windows Forms application, you could write:
+
+```C#
 
     public partial class Form1 : Form
     {
@@ -76,6 +83,17 @@ For example, in a Windows Forms application, you could write:
             ...
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            stop = true;
+            if (tc != null)
+            {
+                tc.Flush(); // only for desktop apps
+            }
+            base.OnClosing(e);
+        }
+
+```
 
 Use any of the [Application Insights API][track] to send telemetry. In Windows Desktop applications, no telemetry is sent automatically. Typically you'd use:
 
@@ -141,6 +159,11 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 
 
 
-[AZURE.INCLUDE [app-insights-windows-learn-more](../includes/app-insights-windows-learn-more.md)]
+<!--Link references-->
 
+[diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[track]: app-insights-custom-events-metrics-api.md
 

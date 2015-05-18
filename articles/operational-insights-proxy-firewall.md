@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configure proxy and firewall settings for Operational Insights"
    description="Learn about the proxy and firewall settings that you need to configure for the type of agent that you use with Operational Insights"
    services="operational-insights"
@@ -6,16 +6,18 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/02/2015"
+   ms.date="05/07/2015"
    ms.author="banders" />
 
 # Configure proxy and firewall settings for Operational Insights
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Actions needed to configure proxy and firewall settings for Operational Insights differ when you use Operations Manager and it’s agents versus Microsoft Monitoring agents that connect directly to servers. Review the following sections for the type of agent that you use.
 
@@ -59,26 +61,26 @@ Copy the following sample, update it with information specific to your environme
 
 
     param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
-    
+
     # First we get the health service configuration object.  We need to determine if we
     # have the right update rollup with the API we need.  If not, no need to run the rest of the script.
     $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
-      
+
     $proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
-    
+
     if (!$proxyMethod)
     {
         Write-Output 'Health Service proxy API not present, will not update settings.'
         return
     }
-    
-    
+
+
     Write-Output "Clearing proxy settings."
     $healthServiceSettings.SetProxyInfo('', '', '')
-    
+
     $ProxyUserName = $cred.username;
-    
-    
+
+
     Write-Output "Setting Proxy to ${ProxyDomainName} with proxy username of (${ProxyUserName})."
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
@@ -155,7 +157,7 @@ For an Operations Manager management group to connect to and register with the O
     </tr>
 
     </tbody>
-    </table> 
+    </table>
 
 Use the following procedures to register your Operations Manager management group with the Operational Insights service. If you are having communication problems between the management group and the Operational Insights service, use the validation procedures to troubleshoot data transmission to the Operational Insights service.
 
@@ -211,7 +213,7 @@ Use the following procedures to register your Operations Manager management grou
 
 ### To validate that Operational Insights management packs are downloaded
 
-1. If you added intelligence packs by using Operational Insights, you can view them in the Operations Manager console as management packs under **Administration**. Search for Operational Insights to quickly find them.
+1. If you added solutions by using Operational Insights, you can view them in the Operations Manager console as management packs under **Administration**. Search for Operational Insights to quickly find them.
 
 2. You can also check for Operational Insights management packs by using the following Windows PowerShell commands in the Operations Manager management server:
 
@@ -228,4 +230,3 @@ Use the following procedures to register your Operations Manager management grou
 3. Add all the counters that start with **HTTP**.
 
 4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in Operational Insights and the configured log collection policy.
-

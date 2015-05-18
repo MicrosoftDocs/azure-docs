@@ -15,8 +15,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
-	ms.author="fashah;garye;mohabib" /> 
+	ms.date="05/12/2015" 
+	ms.author="fashah;garye;mohabib;bradsev" /> 
 
 #Move data to SQL Server on Azure
 
@@ -53,12 +53,13 @@ This document covers the movement of data from flat files (csv/tsv) or an on-pre
 </tr>
 </table>
 
-Please note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
+Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
+
 
 
 ## <a name="sqlonazurevm"></a>Moving your data to a SQL Server VM on an Azure
 
-This section documents the process of moving data to a SQL Server VM on Azure. If you haven't set up the SQL Server VM, provision a new SQL Server virtual machine for Data Science as described in [Set up a Data Science Virtual Machine in Azure](machine-learning-data-science-setup-sql-server-virtual-machine.md). 
+This section documents the process of moving data to a SQL Server VM on Azure. If you haven't set up the SQL Server VM, provision a new SQL Server virtual machine for advanced analytics as described in [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](machine-learning-data-science-setup-sql-server-virtual-machine.md). 
 
 This document describes moving data from the following data sources: 
   

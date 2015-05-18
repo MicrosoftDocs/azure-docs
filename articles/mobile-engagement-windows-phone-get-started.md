@@ -11,18 +11,19 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="04/30/2015" 
 	ms.author="piyushjo" />
 	
 # Get Started with Azure Mobile Engagement for Windows Phone Silverlight Apps
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS](mobile-engagement-ios-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
+- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [Android](mobile-engagement-android-get-started.md) 
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Phone  Silverlight application. 
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Windows Phone Silverlight app that collects basic data and receives push notifications using Microsoft Push Notification Service (MPNS). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties (using MPNS). Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
@@ -38,7 +39,7 @@ This tutorial requires the following:
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your Windows Phone Silverlight App
 
- Log on to the Azure Management Portal, and then click **+NEW** at the bottom of the screen.
+1. Log on to the Azure Management Portal, and then click **+NEW** at the bottom of the screen.
 
 2. Click on **App Services**, then **Mobile Engagement**, and then **Create**.
 
@@ -49,7 +50,7 @@ This tutorial requires the following:
    	![][8]
 
 	- **Application Name**: type the name of your application. Feel free to use any character.
-	- **Platform**: Select the target platform (**Windows**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform). 
+	- **Platform**: Select the target platform (**Windows Phone Silverlight**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform). 
 	- **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto generated name should provide you a strong basis. You should also append the platform name to avoid any name clash as this name must be unique.
 	- **Location**: Select the data center where this app (and more importantly its Collection) will be hosted.
 	- **Collection**: If you have already created an application, select a previously created Collection, otherwise select New Collection.
@@ -223,7 +224,7 @@ We will now create a simple Push Notification campaign that will send a push not
 
 <!-- URLs. -->
 [Mobile Engagement Windows Phone SDK]: http://go.microsoft.com/?linkid=9874664
-[Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
+[Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/ 
 
 <!-- Images. -->
 [7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png

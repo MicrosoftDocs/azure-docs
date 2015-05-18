@@ -16,7 +16,7 @@
    ms.author="v-sharos" />
 
 
-### To get the StorSimple service registration key
+#### To get the StorSimple service registration key
 
 1. On the **StorSimple Manager service** page, click the service that you created. This will take you to the **Quick Start** page. (You can click the quick start icon ![StorSimple Quick Start icon ](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) to access the **Quick Start** page at any time.)
 

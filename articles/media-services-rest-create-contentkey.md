@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="04/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -170,16 +170,6 @@ One of the values that you must set when create the content key is the type. Cho
         /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
         /// </summary>
         ConfigurationEncryption = 2,
-
-        /// <summary>
-        /// Specifies a content key for url encryption.  Only used internally.
-        /// </summary>
-        UrlEncryption = 3,
-
-        /// <summary>
-        /// Specifies a content key for Envelope encryption.  Only used internally.
-        /// </summary>
-        EnvelopeEncryption = 4
     }
 
 

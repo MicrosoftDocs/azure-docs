@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter=".net" 
    authors="cawaMS" 
-   manager="manager-alias" 
+   manager="dwrede" 
    editor=""/>
 
 <tags

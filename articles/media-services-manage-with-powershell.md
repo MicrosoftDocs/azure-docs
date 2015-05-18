@@ -19,6 +19,11 @@
 
 #Manage Azure Media Services Accounts with PowerShell
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+
 ##Overview 
 
 This articles shows you how to use PowerShell cmdlets to manage Azure Media Services accounts.

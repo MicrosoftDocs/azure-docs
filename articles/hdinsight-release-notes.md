@@ -1,6 +1,6 @@
 <properties
-	pageTitle="HDInsight Release Notes | Azure"
-	description="HDInsight release notes."
+	pageTitle="Release notes for Hadoop components on Azure HDInsight | Microsoft Azure"
+	description="Learning about the latest release of Hadoop components for HDInsight. Get development tips and details for Hadoop, Storm, and HBase on Azure HDInsight."
 	services="hdinsight"
 	documentationCenter=""
 	editor="cgronlun"
@@ -13,11 +13,51 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="04/27/2015"
 	ms.author="nitinme"/>
 
 
-#Microsoft HDInsight release notes
+# Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 04/27/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.537.1486660	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.537.1486660	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.3.537.1486660	(HDP 2.1.12.0-2329 - unchanged)
+* HDInsight		3.2.3.537.1486660	(HDP 2.2.2.2-4)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Fix DLL dependency</td>
+<td>Removes HDInsight dependency on Unit Test Framework.</td>
+<td>SDK</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Bug fix for race condition</td>
+<td>A cluster create request now waits on PUT request to be accepted before polling on the status</td>
+<td>SDK</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+</table>
 
 ## Notes for 04/14/2015 release of HDInsight ##
 
@@ -685,8 +725,8 @@ Learn how to work with HDInsight by walking through some basic scenarios (such a
 
 **Note**: To demonstrate the new capabilities made available by cluster customization, the procedures using Script Action to install Spark and R modules on a cluster have been documented. For further information, see:
 
-* [Install and use Spark 1.0 on HDInsight clusters][hdinsight-install-spark]
-* [Install and use R on HDInsight Hadoop clusters][hdinsight-r-scripts]
+* [Install and use Spark 1.0 on HDInsight clusters](hdinsight-hadoop-spark-install.md)
+* [Install and use R on HDInsight Hadoop clusters](hdinsight-hadoop-r-scripts.md)
 
 
 
@@ -1013,7 +1053,7 @@ The following version changes were made between HDInsight 2.x (HDP1.x) and HDIns
 
 
 ###Drivers
-The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC].
+The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Bug fixes ###

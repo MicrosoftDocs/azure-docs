@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Using offline data in Mobile Services (Windows Phone) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services with sync offline data in your Windows Phone application" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
+	documentationCenter="mobile-services" 
+	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services"/>
@@ -10,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2014" 
-	ms.author="wesmc"/>
+	ms.date="04/16/2015" 
+	ms.author="wesmc;donnam"/>
 
 # Using offline data sync in Mobile Services
 

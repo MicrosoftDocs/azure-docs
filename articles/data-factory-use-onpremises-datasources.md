@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="05/06/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -120,7 +120,9 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 	You can also download and install gateway manually by using the links in this blade and register it using the key shown in the **REGISTER WITH KEY** text box.
 	
-	See [Data Management Gateway](#DMG) section for details about the gateway including best practices and important considerations. 
+	See [Data Management Gateway](#DMG) section for details about the gateway including best practices and important considerations.
+
+	>[AZURE.NOTE] You must be an administrator on the local computer to install and configure the Data Management Gateway successfully. You can add additional users to the Data Management Gateway Users local Windows group. The members of this group will be able to use the Data Management Gateway Configuration Manager tool to configure the gateway. 
 
 4. Click the **NOTIFICATIONS** hub on the left. Wait until you see **Express setup for 'adftutorialgateway' succeeded** message in the **Notifications** blade.
 
@@ -139,8 +141,8 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 	2. **Gateway name** is set to **adftutorialgateway**.
 	3. **Instance name** is set to **adftutorialgateway**.
 	4. **Gateway key status** is set to **Registered**.
-	5. The status bar the bottom displays **Connected to Data Management Gateway Cloud Service** along with a **green check mark**.  
-
+	5. The status bar the bottom displays **Connected to Data Management Gateway Cloud Service** along with a **green check mark**.
+	
 7. On the **Linked Services** blade, confirm that the **status** of the gateway is **Good**. 
 8. Close all the blades until you get to the **Data Factory** home page. 
 
@@ -188,7 +190,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
     				}
 				}		
 		
-5. Click **Deploy** on the toolbar to deploy the SqlServerLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar. You should also see the **SqlServerLinkedService** in the tree view on the left. 
+6. Click **Deploy** on the toolbar to deploy the SqlServerLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar. You should also see the **SqlServerLinkedService** in the tree view on the left. 
 		   
 	![SqlServerLinkedService deployment successful][image-editor-sql-linked-service-successful]
 	
@@ -435,7 +437,7 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 6. Notice that the data slices up to the current time have already been produced and they are **Ready**. It is because you have inserted the data in the SQL Server database and it is there all the time. Confirm that no slices show up in the **Problem slices** section at the bottom.
 
 
-	Both **Recently updated slices** and **Recently failed slices** lists are sorts by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
     
 
 	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
@@ -452,6 +454,9 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 9. Click on any data slice from the list and you should see the **DATA SLICE** blade.
 
 	![Data Slice Blade][image-data-factory-dataslice-blade]
+
+	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
+
 10. Click on the **activity run** from the list at the bottom to see **activity run details**.
 
 	![Activity Run Details blade][image-data-factory-activity-run-details]

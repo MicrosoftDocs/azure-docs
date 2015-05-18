@@ -1,27 +1,29 @@
-<properties 
+<properties
    pageTitle="View alerts from Operations Manager"
    description="Learn about managing alerts from Operations Manager for monitored servers in your infrastructure"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="05/11/2015"
    ms.author="banders" />
 
 
 
 # View Operations Manager alerts
 
-Before you can use Alert Management in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). The intelligence pack only works when you your servers are monitored by to Operations Manager agents. See [Collect machine data](operational-insights-collect-data.md) for information about using Operations Manager with Operational Insights.
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
-After the intelligence pack is installed, you can view alerts for your monitored servers by using the **Alert Management** tile on the **Overview** dashboard in Operational Insights. 
+Before you can use Alert Management in Microsoft Azure Operational Insights, you must have the solution installed. To read more about installing solutions, see [Use the Solutions Gallery to add or remove solutions](operational-insights-add-solution.md). The solution only works when  your servers are monitored by to Operations Manager agents. See [Connect to Operational Insights from System Center Operations Manager](operational-insights-connect-scom.md) for information about using Operations Manager with Operational Insights.
+
+After the solution is installed, you can view alerts for your monitored servers by using the **Alert Management** tile on the **Overview** dashboard in Operational Insights.
 
 ![image of Alert Management tile](./media/operational-insights-alerts/overview-alert.png)
 
@@ -50,9 +52,6 @@ On the **Alert Management** dashboard, you can view all the alerts that Microsof
 ## To view Operational Insights alerts
 
 1. On the **Overview** page, click the **Alert Management** tile.
-
 2. On the **Alert Management** dashboard, view the alert categories and choose one to work with.
-
 3. Click a tile or any item to view detailed information about it in the **Search** page.
-
 4. By using the information you've found, you can investigate the alert and determine additional actions you might need to take to resolve it.

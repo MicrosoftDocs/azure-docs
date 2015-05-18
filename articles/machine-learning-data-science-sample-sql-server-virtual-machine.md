@@ -13,20 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="05/12/2015" 
+	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample Data in SQL Server on Azure
 
-This document covers sampling data stored in SQL Server on Azure in the following ways:
+This document covers sampling data stored in SQL Server on Azure using SQL and using the Python Programming Language.
 
-1. [Using SQL](#sql)
-2. [Using the Python Programming Language](#python) 
+>[AZURE.NOTE] The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it isn't, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic in the [Advanced Data Process guide](machine-learning-data-science-advanced-data-processing.md) for instructions to move your data to a SQL Server in Azure.
 
-**Note**
->The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it isn't, please refer to the cloud data science process map for instructions to move your data to a SQL Server in Azure.
-
-###<a name="SQL"></a>Using SQL
+##<a name="SQL"></a>Using SQL
 
 This section describes several methods using SQL to perform simple random sampling against the data in the database. Please choose a method based on your data size and its distribution.
 
@@ -52,13 +48,13 @@ Tablesample can be used for sampling as well as demonstrated below. This may be 
 > You can explore and generate features from this sampled data by storing it in a new table
 
 
-####<a name="sql-aml"></a>Connecting to Azure Machine Learning
+###<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
 You can directly  use the sample queries above in the Azure ML Reader module to down-sample the data on the fly and bring it into an Azure ML experiment. A screen shot of using the reader module to read the sampled data is shown below:
    
 ![reader sql][1]
 
-###<a name="python"></a>Using the Python programming language 
+##<a name="python"></a>Using the Python programming language 
 
 This section demonstrates using the pyodbc library to connect to a SQL server database in Python. The database connection string is as follows: (replace servername, dbname, username and password with your configuration):
 
@@ -75,7 +71,7 @@ The [Pandas ](http://pandas.pydata.org/) library in Python provides a rich set o
 
 You can now work with the sampled data in the Pandas data frame. 
 
-####<a name="python-aml"></a>Connecting to Azure Machine Learning
+###<a name="python-aml"></a>Connecting to Azure Machine Learning
 
 You can use the following sample code to save the down-sampled data to a file and upload it to an Azure blob. The data in the blob can be directly read into an Azure ML Experiment using the *Reader Module*. The steps are as follows: 
 
@@ -109,9 +105,9 @@ You can use the following sample code to save the down-sampled data to a file an
  
 ![reader blob][2]
 
-### Azure Data Science in Action Example
+## Advanced analytics in action example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Advanced Data Process using a public dataset, see [Azure Advanced Analytics Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
