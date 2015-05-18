@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Stream Analytics: Real-time fraud detection | Microsoft Azure"
-	description="Learn how to use Stream Analytics to build a real-time fraud detection solution over generated telecommunication data. Use an Event Hub"
+	description="Learn how to use Stream Analytics to build a real-time fraud detection solution over generated telecommunication data. Use an event hub for real-time event processing."
 	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
