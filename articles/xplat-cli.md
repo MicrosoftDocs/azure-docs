@@ -1,6 +1,6 @@
 <properties
 	pageTitle="The Azure CLI for Mac, Linux, and Windows"
-	description="Install and configure the Azure CLI for Mac, Linux, and Windows and manage Azure Services"
+	description="Install and configure the Azure CLI for Mac, Linux, and Windows to manage Azure Services"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
