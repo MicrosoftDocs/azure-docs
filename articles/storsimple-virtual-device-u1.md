@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,12 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/15/2015"
+   ms.date="05/18/2015"
    ms.author="alkohli" />
 
 # StorSimple virtual device
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../includes/storsimple-version-selector-sva.md)]
+
 ##Overview
 The StorSimple virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. The following topics will help you learn about, configure, and use the StorSimple virtual device.
 
@@ -130,10 +131,10 @@ Perform the following steps to create the StorSimple virtual device
 	a. **Name** – A unique name for your virtual device.
 
 
-	b. **Version** - Choose the version of the virtual device. This option will be grayed out if you only have Update 1 physical devices registered with this service. A dropdown list is presented only if you have a combination of pre-update 1 and Update 1 physical devices registered with the service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
+	b. **Version** - Choose the version of the virtual device. This option will be absent if you only have Update 1 physical devices registered with this service. This field is presented only if you have a combination of pre-update 1 and Update 1 physical devices registered with the service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
 
 	- Version Update 0.3 if you will failover or DR from a physical device with GA Release or Updates 0.1 to 0.3. 
-	- Version Update 1 if you will failover or clone from an Update 1 physical device. 
+	- Version Update 1 if you will failover or clone from a physical device with Update 1. 
 
  
 	b. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
@@ -143,7 +144,7 @@ Perform the following steps to create the StorSimple virtual device
 	d. **Storage Account for Virtual Device Creation** – The storage account that will be used to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. 
 	
 
->[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP and Openstack (that are supported for the physical device) are not supported for the StorSimple virtual device.
+>[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
 	
 - Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](#security-considerations-for-using-a-virtual-device).
 
