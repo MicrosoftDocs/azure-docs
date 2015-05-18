@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="" 
 	ms.topic="article" 
-	ms.date="05/18/2014" 
+	ms.date="05/18/2015" 
 	ms.author="cabailey"/>
 
 # Set up billing alerts for your Microsoft Azure subscriptions
