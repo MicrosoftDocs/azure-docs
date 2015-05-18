@@ -58,21 +58,21 @@ The test deployment consisted of two on-premises sites with a VMM server in each
 
 - The graph below shows the steady state IOPS overhead for replication. We can see that the IOPS overhead due to replication is around 5% which is quite low.
 
-![Primary results](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744913.png)
+![Primary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744913.png)
 
 Hyper-V Replica utilizes memory on the primary server to optimize disk performance. As shown in the following graph, memory overhead on all servers in the primary cluster is marginal. The memory overhead shown is the percentage of memory used by replication compared to the total installed memory on the Hyper-V server.
 
-![Primary results](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744914.png)
+![Primary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744914.png)
 
 Hyper-V Replica has minimum CPU overhead. As shown in the graph, replication overhead is in the range of 2-3%.
 
-![Primary results](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744915.png)
+![Primary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
 
 ### Secondary (recovery) server performance
 
 Hyper-V Replica uses a small amount of memory on the recovery server to optimize the number of storage operations. The graph summarizes the memory usage on the recovery server. The memory overhead shown is the percentage of memory used by replication compared to the total installed memory on the Hyper-V server.
 
-![Secondary results](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744916.png)
+![Secondary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744916.png)
 
 The amount of I/O operations on the recovery site is a function of the number of write operations on the primary site. Let’s look at the total I/O operations on the recovery site in comparison with the total I/O operations and write operations on the primary site. The graphs show that the total IOPS on the recovery site is
 
@@ -80,15 +80,15 @@ The amount of I/O operations on the recovery site is a function of the number of
 
 - Around 37% of the total IOPS on the primary site.
 
-![Secondary results](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744917.png)
+![Secondary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744917.png)
 
-![Secondary results](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744918.png)
+![Secondary results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744918.png)
 
 ### Effect of replication on network utilization
 
 An average of 275 MB per second of network bandwidth was used between the primary and recovery nodes (with compression enabled) against an existing bandwidth of 5 GB per second.
 
-![Results network utilization](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744919.png)
+![Results network utilization](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
 ### Effect of replication on virtual machine performance
 
@@ -96,11 +96,11 @@ An important consideration is the impact of replication on production workloads 
 
 This graph shows IOPS performed by virtual machines running different workloads before and after replication was enabled. You can observe that there is no difference between the two.
 
-![Replica effect results](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744920.png)
+![Replica effect results](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744920.png)
 
 The following graph shows the throughput of virtual machines running different workloads before and after replication was enabled. You can observe that replication has no significant impact.
 
-![Results replica effects](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744921.png)
+![Results replica effects](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744921.png)
 
 ### Conclusion
 
@@ -120,7 +120,7 @@ The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica,
 
 - Two of the network cards are connected to an iSCSI private network and two are connected to an external enterprise network. One of the external networks is reserved for cluster communications only.
 
-![Primary hardware requirements](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744922.png)
+![Primary hardware requirements](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
 |Server|RAM|Model|Processor|Number of processors|NIC|Software|
 |---|---|---|---|---|---|---|
@@ -133,7 +133,7 @@ The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica,
 
 - Storage for the cluster node is provided by an iSCSI SAN. Model – Hitachi HUS130.
 
-![Primary hardware specification](./media/performance-and-scaling-testing---on-premises-to-on-premises/IC744923.png)
+![Primary hardware specification](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
 
 |Server|RAM|Model|Processor|Number of processors|NIC|Software|
 |---|---|---|---|---|---|---|
