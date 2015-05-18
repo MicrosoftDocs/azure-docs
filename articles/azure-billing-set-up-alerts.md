@@ -3,7 +3,7 @@
 	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises." 
 	services="" 
 	documentationCenter="" 
-	authors="cabailey" 
+	authors="mbaldwin" 
 	manager="mbaldwin" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
+	ms.date="05/18/2014" 
 	ms.author="cabailey"/>
 
 # Set up billing alerts for your Microsoft Azure subscriptions
