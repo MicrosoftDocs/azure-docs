@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache samples 
@@ -24,7 +24,17 @@ This topic provides a list of Azure Redis Cache samples, covering scenarios such
 
 The samples in this section show the basics of connecting to an Azure Redis Cache instance and reading and writing data to the cache using a variety of languages and Redis clients.
 
-The [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample shows how to read and write items from a cache using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .NET client.
+The [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample shows how to perform various cache operations using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .NET client.
+
+This sample shows how to:
+
+-	Use various connection options
+-	Read and write objects to and from the cache using synchronous and asynchronous operations
+-	Use Redis MGET/MSET commands to return values of specified keys
+-	Perform Redis transactional operations
+-	Work with Redis lists and sorted sets
+-	Store .NET objects using JsonConvert serializers
+-	Use Redis sets to implement tagging
 
 [How to use Azure Redis Cache with Node.js](cache-nodejs-get-started.md) shows you how to get started with Azure Redis Cache using Node.js and the [node_redis](https://github.com/mranney/node_redis) client.
 
