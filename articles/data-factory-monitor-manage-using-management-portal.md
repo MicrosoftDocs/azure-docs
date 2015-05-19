@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="05/18/2015" 
 	ms.author="spelluru"/>
 
 # Monitor Azure Data Factory using Azure Preview Portal
@@ -55,6 +55,9 @@ In the **DATA FACTORY** blade for the data factory, click **Diagram** tile to se
 
 ![Data Factory Diagram View][image-data-factory-diagram-view]
  
+### Open a pipeline in the Diagram View
+You can view all the activities in a pipeline by right-clicking the pipeline in the Diagram View, and clicking **Open Pipeline**.
+	![Open pipeline](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
 
 ## <a name="DataFactoryLinkedServices"></a> View linked services in a data factory
 In the **DATA FACTORY** blade for the data factory, click **Linked Services** tile to see all the linked services in a list. 
