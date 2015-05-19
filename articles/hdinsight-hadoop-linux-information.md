@@ -1,6 +1,6 @@
 <properties
-   pageTitle="What you need to know about Hadoop on Linux-based HDInsight | Azure"
-   description="Linux-based HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud."
+   pageTitle="Tips for Hadoop on Linux-based HDInsight | Microsoft Azure"
+   description="Get help for using Linux-based HDInsight clusters. Use Hadoop on a familiar Linux environment, running in the Azure cloud."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use Python with Hive and Pig in Azure HDInsight"
+	pageTitle="Use Python with Hive and Pig in Azure HDInsight | Microsoft Azure"
 	description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight."
 	services="hdinsight"
 	documentationCenter=""

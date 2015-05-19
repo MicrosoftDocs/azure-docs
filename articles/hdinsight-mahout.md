@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)"
-	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)"
+	pageTitle="Generate recommendations using Mahout and Hadoop | Microsoft Azure"
+	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -16,7 +16,7 @@
 	ms.date="04/06/2015"
 	ms.author="larryfr"/>
 
-#Generate movie recommendations by using Apache Mahout with HDInsight
+#Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight
 
 Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" 
+	pageTitle="Develop C# Hadoop streaming programs for HDInsight | Microsoft Azure" 
 	description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
