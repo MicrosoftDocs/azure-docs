@@ -39,7 +39,7 @@
 * In QSAppDelegate.m, add the following handler method inside the implementation:
 
 ```
-        // Handle any failure to register.
+        // Handle failures to register.
         - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
         (NSError *)error {
             NSLog(@"Failed to register for remote notifications: %@", error);
