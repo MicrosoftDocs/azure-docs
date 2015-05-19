@@ -161,7 +161,7 @@ We now have two versions of the Detailed Usage csv file: **.csv version 1** cont
 
 Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the .csv version files.
 
-**.csv version 1 ** |  **.csv version 2**  |  **Description**|
+** .csv version 1 ** |  **.csv version 2**  |  **Description**|
 :---------------| :---------------- | --------|
 Billing Period | Billing Period | The billing period when the resource was consumed.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
@@ -186,7 +186,7 @@ Depending on your usage, there can be thousands of rows of daily usage data. If 
   |Sample Files|
   |:----------:|
   |[Detailed Usage .csv v1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
-  |[Detailed Usage .csv v2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)|
+  |[Detailed Usage .csv v2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
 
 
 ![csv2screenshot](./media/azure-billing-understand-your-bill/csv2screenshot.png)
