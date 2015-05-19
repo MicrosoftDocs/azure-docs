@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learning Map for Hadoop in HDInsight | Microsoft Azure" 
+	pageTitle="Learning path for Hadoop in HDInsight | Microsoft Azure" 
 	description="Follow this learning path for Hadoop in HDInsight. Get a suggested flow of resources to go through for learning all you need to know about HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="nitinme"/>
 
 
-# Learning map for HDInsight
+# Learning path for HDInsight
 In HDInsight, you can work with big data in the cloud by using Hadoop, HBase, and customized clusters. Follow the guidance on this page for an effective learning path through HDInsight documentation:
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%">

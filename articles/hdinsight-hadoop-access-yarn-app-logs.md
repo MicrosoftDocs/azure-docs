@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Access HDInsight YARN application logs programmatically | Microsoft Azure" 
-	description="Access HDInsight Application Logs Programmatically." 
+	description="Access HDInsight YARN application logs programmatically." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
