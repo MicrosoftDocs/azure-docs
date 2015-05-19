@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Submit Hadoop jobs in HDInsight | Azure" 
+	pageTitle="Submit Hadoop jobs in HDInsight | Microsoft Azure" 
 	description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop." 
 	editor="cgronlun" 
 	manager="paulettm" 
