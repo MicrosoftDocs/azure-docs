@@ -130,6 +130,11 @@ The following table lists all the available connectors and API Apps created by M
 </tr>
 
 <tr>
+<td>HTTP</td>
+<td>An HTTP connector lets you send data to HTTP servers using the HTTP or HTTPS protocol.The HTTP connector can make POST, GET, DELETE and PUT requests.</td>
+</tr>
+
+<tr>
 <td>POP3<br/>IMAP</td>
 <td>POP3 (Post Office Protocol) is the protocol used by an email client to retrieve email from a mail server. The POP3 Connector connects to a POP3 server and includes a trigger to retrieve emails with attachments.</td>
 </tr>

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Hadoop MapReduce word count example in HDInsight | Microsoft Azure"
-	description="Run a MapReduce word count example on an Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file."
+	description="Run a MapReduce word count example on a Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
