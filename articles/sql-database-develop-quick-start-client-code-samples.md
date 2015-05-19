@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,7 +30,7 @@ This topic provides links to quick start code samples you can use to connect to 
 - Code samples that convert relational result sets into an object  oriented format.
 
 
-> [AZURE.NOTE] As of April 20 2015, code samples for more languages are being prepared, and links to them will be added to this topic.
+> [AZURE.NOTE] As of May 18 2015, code samples for more languages are being prepared, and links to them will be added to this topic.
 
 
 ## Clients on Linux
@@ -55,7 +55,7 @@ This section provides links to code sample topics for client programs that run o
 | :-- | :-- | :-- | :-- |
 | C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [ODBC driver](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
-| Java | [Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
+| Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [Node.js](sql-database-develop-nodejs-simple-windows.md) | . | . |
 | PHP | [PHP](sql-database-develop-php-simple-windows.md) | . | . |
 | Python | [Python](sql-database-develop-python-simple-windows.md) | . | . |
