@@ -29,7 +29,7 @@ To use this scenario you will need:
 
 ##Getting your connectors
 
-First, you need to create the two connectors you will be using: [**Dropbox Connector**](http://azure.microsoft.com/en-us/documentation/articles/app-service-logic-connector-dropbox/) and [**Twitter Connector**](http://azure.microsoft.com/en-us/documentation/articles/app-service-logic-connector-twitter/). To create these:
+First, you need to create the two connectors you will be using: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) and [**Twitter Connector**](app-service-logic-connector-twitter.md). To create these:
 
 0. Sign in to the Azure portal. 
 
