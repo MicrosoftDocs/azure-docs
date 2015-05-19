@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/19/2015" 
 	ms.author="stbaro"/>
 
 # View, edit, create, and upload JSON documents using the DocumentDB Document Explorer #
@@ -73,6 +73,8 @@ Document Explorer allows you to easily create, edit and delete documents.
 	![Screenshot of Document Explorer save command](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
 	> [AZURE.NOTE] If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value. 
+
+- If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data) to quickly import your data.
 
 - To edit an existing document, simply select it in Document Explorer, edit the document as you see fit, and click the **Save** command.
 
