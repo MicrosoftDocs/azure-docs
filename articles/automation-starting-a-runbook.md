@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Starting a runbook in Azure Automation"
-   description="Summarizes the different methods that can be used to start a runbook in Azure Automation and provides details on using both the Azure Management Portal and using Windows PowerShell."
+   description="Summarizes the different methods that can be used to start a runbook in Azure Automation and provides details on using both the Azure portal and Windows PowerShell."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/30/2015"
+   ms.date="05/19/2015"
    ms.author="bwren" />
 
 # Starting a runbook in Azure Automation
