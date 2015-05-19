@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/19/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs documentation resources
@@ -54,7 +54,8 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [How to Deploy Azure WebJobs using Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [How to deploy WebJobs using the Azure Management Portal](web-sites-create-web-jobs.md)
 * [Enabling Command-line or Continuous Delivery of Azure WebJobs](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
-* [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/) 
+* [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
+* [Deploying an F# Web Job to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * Videos
 	* [Introducing WebJobs Tooling for Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [WebJobs Tooling and Remote Debugging](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
