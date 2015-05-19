@@ -11,7 +11,7 @@
 ms.tgt_pltfrm="vm-multiple" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/29/2015" 
+ms.date="05/19/2015" 
 ms.author="diviso"/>
 
 # Automating Azure Virtual Machine Deployment with Chef

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analyze sensor data with Apache Storm and HBase | Microsoft Azure"
-   description="Learn how to use Apache Storm and HBase on HDInsight to process sensor data from Azure Event Hub and visualize it with D3.js. Also, connect to Storm with a virtual network."
+   description="Learn how to connect to Apache Storm with a virtual network. Use Storm with HBase to process sensor data from an event hub and visualize it with D3.js."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

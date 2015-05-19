@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Use Hadoop Oozie in HDInsight | Microsoft Azure" 
-	description="Use Hadoop Oozie in HDInsight, a big data solution. Learn how to define an Oozie workflow, and submit an Oozie job." 
+	description="Use Hadoop Oozie in HDInsight, a big data service. Learn how to define an Oozie workflow, and submit an Oozie job." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
