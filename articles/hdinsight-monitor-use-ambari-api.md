@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitor Hadoop clusters using the Ambari API | Microsoft Azure" 
-	description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Intuitive Ambari operator tools and APIs hide the complexity of Hadoop." 
+	description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Intuitive Ambari operator tools and APIs hide Hadoop’s complexity." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
