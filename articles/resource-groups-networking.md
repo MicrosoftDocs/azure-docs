@@ -1,13 +1,13 @@
 <properties 
    pageTitle="Network Resource Provider"
    description="Network Resource Provider"
-   services="virtual-networks"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-networks"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"

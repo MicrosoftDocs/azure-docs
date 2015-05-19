@@ -18,7 +18,44 @@
 
 # Manage your first API in Azure API Management
 
+## <a name="overview"> </a>Overview
+
 This guide shows you how to quickly get started using API Management and make your first API call.
+
+## <a name="concepts"> </a>What is Azure API Management?
+
+Azure API Management allows you to take any backend and launch a full-fledged API program based on it. 
+
+Common scenarios include:
+
+* **Securing mobile infrastructure** by gating access with API keys, preventing DOS attacks using throttling or using advanced security policies like JWT token validation
+* **Enabling ISV partner ecosystems** by offering fast partner onboarding through the developer portal and building an API facade to decouple from an  internal implementations not ripe for partner consumption
+* **Running an internal API program** by offering a centralized location for the organization to communicate about the availability and latest changes to APIs, gating access based on organizational accounts, all based on a secured channel between the API gateway and the backend
+
+
+The system is made-up of the following components:
+
+* The **API gateway** is the endpoint that:
+  * accepts API calls and routes them to your backends
+  * verifies API keys, JWT tokens, certificates and other credentials
+  * enforces usage quotas and rate limits
+  * transforms your API on the fly without code modifications
+  * caches backend responses where setup
+  * logs call metadata for analytics purposes
+
+* The **publisher portal** is the administrative interface where you set-up your API program:
+	* define or import API schema
+	* package APIs into products
+	* set-up policies like quotas or transformations on the APIs
+	* get insights from analytics
+	* manage users
+
+* The **developer portal** serves as the main web presence for developers where they can:
+	* read API documentation
+	* try out an API via the interactive console
+	* create an account and subscribe to get API keys
+	* access analytics on their own usage
+
 
 ## <a name="create-service-instance"> </a>Create an API Management instance
 

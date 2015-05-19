@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="05/18/2015" 
 	ms.author="spelluru"/>
 
-# Tutorial: Move and process log files using Data Factory 
-This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights.
+# Tutorial: Measuring effectiveness of a marketing campaign  
+Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). These games produce a lot of logs and Contoso’s goal is to collect and analyze these logs to gain insights into customer preferences, demographics, usage behavior etc. to identify up-sell and cross-sell opportunities, develop new compelling features to drive business growth and provide a better experience to customers.
 
-## Scenario
-Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). Each of these games produces tons of logs. Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify up-sell and cross-sell opportunities, develop new compelling features etc. to improve business and provide better experience to customers.
- 
-In this walkthrough, we will collect sample logs, process and enrich them with reference data, and transform the data to evaluate the effectiveness of a marketing campaign that Contoso has recently launched.
+In this tutorial, you will create Data Factory pipelines to evaluate the effectiveness of a marketing campaign that Contoso has recently launched by collecting sample logs, processing and enriching them with reference data, and transforming the data. It has the following three pipelines:
+
+1.	The **PartitionGameLogsPipeline** reads the raw game events from blob storage and creates partitions based on year, month, and day.
+2.	The **EnrichGameLogsPipeline** joins partitioned game events with geo code reference data and enriches the data by mapping IP addresses to the corresponding geo-locations.
+3.	The **AnalyzeMarketingCampaignPipeline** pipeline leverages the enriched data and processes it with the advertising data to create the final output that contains marketing campaign effectiveness.
 
 ## Getting ready for the tutorial
 1.	Read [Introduction to Azure Data Factory][adfintroduction] to get an overview of Azure Data Factory and understanding of the top level concepts.
@@ -337,7 +338,14 @@ In this step, you will create the following pipelines:
 
 	![Diagram View][image-data-factory-tutorial-diagram-view]
 
-	**Congratulations!** You have successfully created the Azure Data Factory, Linked Services, Pipelines, Tables and started the workflow. 
+3. Right-click **AnalyzeMarketingCampaignPipeline**, and click **Open Pipeline**. You should see all the activities in the pipeline.
+ 
+	![Open pipeline](./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline-OpenPipeline.png)
+
+	Click **Data factory** in the breadcrumb at the top to get back to the diagram view with all the pipelines.  
+
+
+**Congratulations!** You have successfully created the Azure Data Factory, Linked Services, Pipelines, Tables and started the workflow. 
 
 
 ## <a name="MainStep6"></a> Step 6: Monitor pipelines and data slices 
@@ -415,7 +423,7 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] t
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [data-factory-editor]: data-factory-editor.md
 
-
+[adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
 [adftutorial-using-powershell]: data-factory-tutorial-using-powershell.md
 [adfintroduction]: data-factory-introduction.md

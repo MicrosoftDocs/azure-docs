@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="04/03/2015" 
+	ms.date="05/07/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -58,7 +58,7 @@ To expose this `CustomAddRows` function as an Azure Machine Learning module, an 
 	<!-- Defined a module using an R Script -->
 	<Module name="Custom Add Rows">
 	    <Owner>Microsoft Corporation</Owner>
-	    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is false; & vice versa when Swap is true.</Description>
+	    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is false, and vice versa when Swap is true.</Description>
 	
 	<!-- Specify the base language, script file and R function to use for this module. -->		
 	    <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />  
@@ -80,7 +80,7 @@ To expose this `CustomAddRows` function as an Azure Machine Learning module, an 
 	<!-- Define module parameters -->
 	    <Arguments>
 			<Arg id="swap" name="Swap" type="bool" >
-				<Description>Swap inputs datasets.</Description>
+				<Description>Swap input datasets.</Description>
 			</Arg>
 	    </Arguments>
 	</Module>
@@ -317,13 +317,17 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 **DropDown**: a user specified enumerated (dropdown) list. The dropdown items are specified within the **Properties** element using an **Item** element. The **id** for each **Item** must be unique and a valid R variable and the name of the item is both the text that appears to users and the value that is passed to the R function.
 
 	<Arg id="color" name="Color" type="DropDown">
-      <Properties default="Red Value">
+      <Properties default="red">
         <Item id="red" name="Red Value"/>
         <Item id="green" name="Green Value"/>
         <Item id="blue" name="Blue Value"/>
       </Properties>
       <Description>Select a color.</Description>
     </Arg>	
+
+* *Optional Properties*:
+	* **default** - The value for the default property must correspond with an id value from one of the **Item** elements.
+
 
 ### Auxiliary Files
 

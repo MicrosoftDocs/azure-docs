@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Script Action in HDInsight to install Solr on Hadoop cluster| Azure" 
-	description="Learn how to customize HDInsight cluster to install Solr. You'll use a Script Action configuration option to use a script to install Solr" 
+	pageTitle="Use Script Action to install Solr on Hadoop cluster | Microsoft Azure" 
+	description="Learn how to customize HDInsight cluster with Solr. You'll use a Script Action configuration option to use a script to install Solr." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -360,7 +360,7 @@ Provide a cluster name and press ENTER to provision a cluster with Solr installe
 
 
 
-
+[powershell-install-configure]: install-configure-powershell.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md

@@ -44,7 +44,7 @@ In Quick Start, get the script for web pages:
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
-* In an ASP.NET MVC project, you'd put it in View\Shared\\_Layout.cshtml
+* In an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
 * In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
 
 The script contains the instrumentation key that directs the data to your Application Insights resource.
@@ -53,13 +53,15 @@ The script contains the instrumentation key that directs the data to your Applic
 
 #### If your app isn't a web page...
 
-If your JavaScript app isn't a web page - for example, if it's a [Cordova](http://cordova.apache.org/) app or a [Windows Runtime app using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx) - insert an extra line after the instrumentation key:
+If your JavaScript app is a [Cordova](http://cordova.apache.org/) app, insert an extra line after the instrumentation key:
 
     ...{
         instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
         endpointUrl:"https://dc.services.visualstudio.com/v2/track"
     } ...
 
+If it's a [Windows Runtime app using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx), add the NuGet package *Application Insights for Javascript Apps* to your project. 
+(In Solution Explorer, right-click your project and choose Manage NuGet Packages. Check "Include prerelease" and search for Application Insights.)
  
 ## <a name="run"></a>Run your app
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2015" 
+	ms.date="05/07/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -36,7 +36,11 @@ Hover your mouse over the chart to display the values of the metrics at that poi
 
 ![Hover the mouse over a chart](./media/app-insights-metrics-explorer/02-focus.png)
 
-The value of the metric at a particular point is averaged over the preceding sampling interval. This can vary depending on the time range of the whole chart. So relative heights are a better guide than absolute values.
+The value of the metric at a particular point is aggregated over the preceding sampling interval. This can vary depending on the time range of the whole chart.
+
+The sampling interval or "grain" is shown at the top of the blade. 
+
+![The header of a blade.](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## Time range
 
@@ -44,7 +48,13 @@ You can change the Time range covered by most of the charts or grids on any blad
 
 ![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/03-range.png)
 
+
 Click Refresh if you're expecting some data that hasn't appeared yet. Charts don't update automatically. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
+
+In the Overview blade, drag over a part of the chart to zoom into it in a new chart.
+
+
+![Drag across part of a chart.](./media/app-insights-metrics-explorer/12-drag.png)
 
 
 ## Metrics Explorer
@@ -59,6 +69,9 @@ For example, click through the web app's Failed Requests chart:
 ## What do the figures mean?
 
 The legend at the side by default shows the aggregated value over the period of the chart.
+
+Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "grain". The grain is shown at the top of the blade, and varies with the overall timescale of the chart.
+
 Different metrics are aggregated in different ways: 
 
  * For a metric such as response time, values are **averaged** over the period of the chart.

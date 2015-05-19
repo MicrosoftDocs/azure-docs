@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="05/11/2015" 
 	ms.author="tamram"/>
 
 
@@ -62,7 +62,9 @@ account object we retrieved above:
 
 ## Create a container
 
-Every blob in Azure storage must reside in a container. This example shows how to create a container if it does not already exist:
+[AZURE.INCLUDE [storage-container-naming-rules-include](../includes/storage-container-naming-rules-include.md)]
+
+This example shows how to create a container if it does not already exist:
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

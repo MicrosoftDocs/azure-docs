@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get started with Azure DNS" 
-   description="Learn how to create DNS zones for Azure DNS - Step by step to get your first DNS zone created to start hosting your DNS domain on Microsoft Azure" 
+   pageTitle="Get started with Azure DNS | Microsoft Azure" 
+   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain." 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -9,11 +9,11 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en-us"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma"/>
 
 # Get started with Azure DNS
@@ -50,11 +50,32 @@ Create a new resource group (skip this step if using an existing resource group)
 
 		PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
+
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.<BR>
 
-The Azure DNS service is managed by the Microsoft.Network resource provider.  Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS.  This is a one-time operation for each subscription.<BR>
+### Step 5
 
-		PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
+The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one time operation for each subscription.
+
+	PS c:\> Register-AzureProvider -ProviderNamespace Microsoft.Network 
+
+
+## Sign up to the Azure DNS Public Preview
+
+To register your subscription to use the Azure DNS Public Preview, please execute the following PowerShell command:
+
+	PS C:\> Register-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
+
+You can check your registration status as follows:
+
+	PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
+
+	FeatureName                       ProviderName                RegistrationState  
+	-----------                       ------------                -----------------  
+	azurednspreview                   Microsoft.Network           Registered 
+
+
+Your RegistrationState may show as ‘Pending’, in which case please check back later.
 
 ## Etags and Tags
 ### Etags
@@ -141,7 +162,8 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 ## Next Steps
 
 
-[Get started creating Record Sets and records](../dns-getstarted-create-record)<BR>
-[Perform operations on DNS zones](../dns-operations-dnszones)<BR>
-[Perform operations on DNS records](../dns-operations-recordsets)<BR>
-[Automate Azure Operations with .NET SDK](../dns-sdk)
+[Get started creating Record Sets and records](dns-getstarted-create-recordset.md)<BR>
+[How to manage DNS zones](dns-operations-dnszones.md)<BR>
+[How to manage DNS records](dns-operations-recordsets.md)<BR>
+[Automate Azure Operations with .NET SDK](dns-sdk.md)<BR>
+[Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)
