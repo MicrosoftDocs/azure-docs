@@ -212,7 +212,7 @@ Consumed | Consumed Quantity | Contains the amount of the resource that has been
 Sub Region | Resource Location | Identifies the datacenter where the resource is running.
 Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.
 N/A | Resource Group | The resource group in which the deployed resource is running in. Refer to http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
-Component | Instance ID | Where applicable, this column identifies further the resource that is being consumed. For hosted compute services for example, this column reports the size of the Virtual Machine, if it is not already stated in Resources.
+Component | Instance ID | The identifier for the running resource. The identifier contains the name you specify for the resource when it was created.
 N/A | Tags | New resource types in Azure allow you to tag resources. Refer to http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/
 Additional Info | Additional Info | Additional metadata related to the service.
 Service Info 1 | Service Info 1 | This column provides the project name that the service belongs to on your subscription.
