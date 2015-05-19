@@ -183,7 +183,7 @@ Value | Value | Displays the result of multiplying the Billable column by the Ra
 ## Analyze Daily Usage Data
 Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click **Download Usage** and choose a comma-separated variable file (.csv) version to see your daily usage data for the appropriate billing period.  For your reference, you can download a sample .csv file below.
 
-  |Sample Files|
+  |Sample Files
   |:----------:|
   |[Detailed Usage .csv v1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
   |[Detailed Usage .csv v2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
