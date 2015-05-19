@@ -33,28 +33,30 @@ PostgreSQL can be easily deployed in Microsoft Azure.
 
 ##2. Create a virtual machine on Microsoft Azure 
 
-To create a Linux virtual machine in the Microsoft Azure Management Portal by using the Image Gallery, take reference from following link. It assumes you do not have any experience on using Azure.
+To create a Linux virtual machine in the Microsoft Azure Management Portal by using the Image Gallery, take reference from [Azure Linux VM Tutorial](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/). It assumes you do not have any experience on using Azure.
   
-http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/  
+  
 
 
 ##3. Create virtual network  
 
-Virtual network is required to deploy your VM.  To get a detail step, take the reference from here.
+Virtual network is required to deploy your VM.  To get a detail step, take the reference from [here](https://msdn.microsoft.com/library/azure/dn631643.aspx).
 
-https://msdn.microsoft.com/library/azure/dn631643.aspx
+
 
 
 ##4. Create endpoint  
 
-To create an endpoint is easy in the Azure Management. Navigate to the following link and it shows you how to do this and assumes that you don't have any experience on using Azure. 
+To create an endpoint is easy in the Azure Management. Navigate to the doc [how to set up endpoints](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) and it shows you how to do this and assumes that you don't have any experience on using Azure. 
 
-http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/ 
+ 
 
 In this case, use 1999 port as the PostgreSQL port.  
 
 
 ##5. Compiling and installing PostgreSQL 
+
+Connect to the Linux VM you created via putty. If this is the first time you use Azure Linux VM, see how to use putty connect to a Linux VM [here](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/).
 
 To elevate permissions, run command and switch to root user 
 
@@ -77,7 +79,7 @@ If your Linux OS is Suse family, run the following command
 
 Download PostgreSQL into root directory 
 
-Note: Following is a example, more detailed download address is https://ftp.postgresql.org/pub/source/ 
+**Note:** Following is a example, more detailed download address is https://ftp.postgresql.org/pub/source/ 
 
 	[root@test ~]# wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/ 
 
@@ -113,7 +115,7 @@ Create database storage directory
 
 Create a non-root user and modify user’s profile, and switch to this user (postgres) 
 
-Note: For security, PostgreSQL Database will use a non-root user to initialize the database, start or shut down the database. 
+**Note:** For security, PostgreSQL Database will use a non-root user to initialize the database, start or shut down the database. 
 
 	[root@test ~]# useradd postgres 
 
