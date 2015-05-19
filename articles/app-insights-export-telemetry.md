@@ -70,7 +70,7 @@ To download this data programmatically, use the [blob store REST API](storage-do
 
 Or consider [DataFactory](http://azure.microsoft.com/services/data-factory/), in which you can set up pipelines to manage data at scale.
 
-We start writing a new blob in each hour (if events are received). So you should always process up to the previous hour, but wait for the current hour to complete.
+We write a new blob each minute.
 
 [Code sample][exportcode]
 

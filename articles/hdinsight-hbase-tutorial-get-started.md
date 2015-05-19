@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HBase tutorial: Query HBase tables using Hive | Microsoft Azure"
+	pageTitle="HBase tutorial: Get started with HBase in Hadoop | Microsoft Azure"
 	description="Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive."
 	keywords="apache hbase,hbase,hbase shell,hbase tutorial"	
 	services="hdinsight"
@@ -14,16 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2015"
+	ms.date="05/07/2015"
 	ms.author="jgao"/>
 
 
 
-# HBase tutorial: Learn to query Apache HBase tables with Hive in HDInsight
+# HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight
 
 In this HBase tutorial, you'll learn how to create HBase tables from the HBase shell and query the tables by using Hive in HDInsight.
 
-HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster that is integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance and cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. For more information about HBase and the scenarios it can be used for, see [HDInsight HBase overview][hdinsight-hbase-overview].
+[Apache HBase(HBase)](http://hbase.apache.org/) is a distributed, scalable, big data store. It is a sub-project of the Apache Hadoop project and is used to provide real-time read and write access to your big data. 
+
+HBase is offered as a managed cluster that is integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance and cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. For more information about HBase and the scenarios it can be used for, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
 > [AZURE.NOTE] HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
@@ -32,7 +34,6 @@ HBase is a low-latency NoSQL database that allows online transactional processin
 Before you begin this HBase tutorial, you must have the following:
 
 - **An Azure subscription**: For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-- **An Azure storage account**: For instructions, see [How To Create a Storage Account][azure-create-storageaccount].
 - **A workstation** with Visual Studio 2013 installed: For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## Provision an HBase cluster
@@ -52,54 +53,64 @@ Before you begin this HBase tutorial, you must have the following:
 
 	The default HTTP USER NAME is admin. You can customize the name by using the CUSTOM CREATION option.
 
+	An Azure storage account is required using the default HBase provision process. For instructions, see [How To Create a Storage Account][azure-create-storageaccount]. The custom create option gives the option to create a storage account with the cluster provision process.  
+
 	> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
 4. Click the checkmark icon in the lower right to create the HBase cluster.
 
 >[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob. The new cluster will pick up the HBase tables you created in the original cluster.
 
-## Create an HBase sample table from the HBase shell
-This section describes how to use the HBase shell to create HBase tables, add rows, and list rows. To access the HBase shell, you must first enable Remote Desktop Protocol (RDP), and then make an RDP connection to the HBase cluster. For instructions, see [Manage Hadoop clusters in HDInsight using the Azure Portal][hdinsight-manage-portal].
+## Use the HBase shell
+This section describes how to use the HBase shell to create HBase tables, add rows, and list rows. Here is the data you will use:
+
+![hdinsight hbase table data][img-hbase-sample-table]
+
+To access the HBase shell, you must first enable Remote Desktop Protocol (RDP), and then make an RDP connection to the HBase cluster. For instructions, see [Manage Hadoop clusters in HDInsight using the Azure Portal][hdinsight-manage-portal].
 
 
-### To use the HBase shell
+**To use the HBase shell**
 
 1. Within your RDP session, click the **Hadoop Command Line** shortcut located on the desktop.
-2. Change the folder to the HBase home directory:
-
-		cd %HBASE_HOME%\bin
 3. Open the HBase shell:
 
+		cd %HBASE_HOME%\bin
 		hbase shell
 
-4. Create an HBase with one column family and insert a row:
-
-		create 'sampletable', 'cf1'
-		put 'sampletable', 'row1', 'cf1:col1', 'value1'
-		scan 'sampletable'
-
-	For more information about the Hbase table schema, see [Introduction to HBase Schema Design][hbase-schema]. For more HBase commands, see [Apache HBase reference guide][hbase-quick-start].
-5. List the HBase tables:
-
-		list
-
-### Check cluster status in the HBase WebUI
-
-HBase also ships with a WebUI that you can use to help monitor your cluster. For example, you could request statistics or information about regions. On the HBase cluster, you can find the WebUI under the address of the zookeepernode:
-
-
-	http://zookeepernode:60010/master-status
-
-In a high availability cluster, you will find a link to the current active HBase master node that is hosting the WebUI.
-
-### Bulk load a sample table
-
-1. From the HBase shell, create an HBase table with two column families:
+4. Create an HBase with two column families:
 
 		create 'Contacts', 'Personal', 'Office'
+		list
+5. Insert some data:
+
+		put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+		put 'Contacts', '1000', 'Personal:HomePhone', '17043334175'
+		put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+		scan 'Contacts'
+
+	![hdinsight hadoop hbase shell][img-hbase-shell]
+
+	For more information about the Hbase table schema, see [Introduction to HBase Schema Design][hbase-schema]. For more HBase commands, see [Apache HBase reference guide][hbase-quick-start].
+
+6. Exit the shell
+
+		exit
+
+**To bulk load data into the contacts HBase table**
+
+> [AZURE.NOTE] This procedure uses the Contacts HBase table you have created in the last procedure.
 
 
-3. Create a contacts list that contains the following data, and upload it to a folder called /tmp/contacts.txt in Azure Blob storage. For the instructions, see [Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data].
+1. Within your RDP session, click the **Hadoop Command Line** shortcut located on the desktop.
+2. Change directory:
+
+		cd %HBASE_HOME%\bin
+
+3. Run ImportTsv. ImportTsv is a tool that will load data in TSV format into HBase. It has two distinct usages: loading data from TSV format in the Hadoop distributed file system (HDFS) into HBase, and preparing files to be loaded. For more information, see [Apache HBase reference guide][hbase-reference].
+
+		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+
+	A sample data file has been uploaded to a public blob container, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt.  The content of the data file is:
 
 		8396	Calvin Raji	230-555-0191	5415 San Gabriel Dr.
 		16600	Karen Wu	646-555-0113	9265 La Paz
@@ -112,26 +123,30 @@ In a high availability cluster, you will find a link to the current active HBase
 		4761	Caleb Alexander	670-555-0141	4775 Kentucky Dr.
 		16443	Terry Chander	998-555-0171	771 Northridge Drive
 
-2. In a Hadoop command line, change the folder to the HBase home directory:
+	You can create a text file and upload the file to your own storage account if you want. For the instructions, see [Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data].
 
-		cd %HBASE_HOME%\bin
 
-3. Run ImportTsv. ImportTsv is a tool that will load data in TSV format into HBase. It has two distinct usages: loading data from TSV format in the Hadoop distributed file system (HDFS) into HBase, and preparing files to be loaded. For more information, see [Apache HBase reference guide][hbase-reference].
 
-		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts /tmp/contacts.txt
+## Check cluster status
 
-4. Load the output from the prior command into HBase:
+HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions. 
 
-		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
+To open the Web UI, you must RDP into the cluster, and then click the HMaster Info Web UI shortcut on your desktop, or use the following URL in a web browser: 
+
+	http://zookeeper[0-2]:60010/master-status
+
+In a high availability cluster, you will find a link to the current active HBase master node that is hosting the Web UI.
+
+
 
 ## Use Hive to query an HBase table
 
-Now that you have provisioned an HBase cluster and created an HBase table, you can query data in the table by using Hive. This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.
+You can query data in HBase tables by using Hive. This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.
 
 **To open the cluster dashboard**
 
 1. Sign in to the [Azure portal][azure-management-portal].
-2. Click **HDINSIGHT** in the left pane. You will see a list of clusters, including the one you created in the last section.
+2. Click **HDINSIGHT** in the left pane. You will see a list of clusters, including the one you created earlier in this tutorial.
 3. Click the cluster name where you want to run the Hive job.
 4. Click **QUERY CONSOLE** at the bottom of the page to open the cluster dashboard. It opens a webpage in a different browser tab.
 5. Enter the Hadoop user account user name and password. The default user name is **admin** and the password is what you entered during the provisioning process. A new browser tab opens.
@@ -171,7 +186,7 @@ Now that you have provisioned an HBase cluster and created an HBase table, you c
 
 1. Enter the following HiveQL script into Hive Editor and click **SUBMIT** to create an Hive Table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
 
-		CREATE EXTERNAL TABLE hbasecontactstable(rowkey STRING, name STRING, homephone STRING, office STRING)
+		CREATE EXTERNAL TABLE hbasecontactstable(rowkey STRING, name STRING, homephone STRING, officeaddress STRING)
 		STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
 		WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:HomePhone,Office:Address')
 		TBLPROPERTIES ('hbase.table.name' = 'Contacts');
@@ -319,3 +334,5 @@ Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sent
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-quick-create.png
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-hive-editor.png
 [img-hdinsight-hbase-file-browser]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-file-browser.png
+[img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-shell.png
+[img-hbase-sample-table]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts.png

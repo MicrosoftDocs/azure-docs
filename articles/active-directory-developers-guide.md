@@ -13,19 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/04/2015"
+   ms.date="05/08/2015"
    ms.author="mbaldwin"/>
 
 
 # Azure Active Directory Developer's Guide
 
 ## Overview
-
-_Read these overview topics to learn the basics of Azure Active Directory, or jump to [getting started](#getting-started)._
-
-Azure Active Directory offers developers an effective way to integrate identity management in their applications. Industry standard protocols such as SAML 2.0, WS-Federation, and OpenID Connect makes sign-in possible on a variety of platforms such as .Net, Java, Node.js, and PHP. The REST-based Graph API enables developers to read and write to the directory from any platform. Through support for OAuth 2.0, developers can build mobile and web applications that integrate with Microsoft and third party web APIs, and build their own secure web APIs. Open source client libraries are available for .Net, Windows Store, iOS and Android with additional libraries under development.
-
-These articles provide developers with high-level information about the use, implementation, and key features of Azure Active Directory. We suggest you read them in order.
+As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation, and key features of Azure Active Directory. We suggest you read them in order, or jump to [getting started](#getting-started) if you're ready to dig in.
 
 
 1. **[How To Integrate with Azure AD](active-directory-how-to-integrate.md)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
@@ -38,12 +33,18 @@ These articles provide developers with high-level information about the use, imp
 
 1. **[Libraries](https://msdn.microsoft.com/library/azure/dn151135.aspx)**: Easily authenticate users to obtain access tokens with the Azure Authentication Libraries.
 
+#### Videos
+If you prefer to learn from video, check out these overview presentations on developing apps with Azure Active Directory.  They typically feature speakers that work directly in the engineering team, and walk-through fundamental topics including IDMaaS, authentication, identity federation, and single sign-on.
+
+- **[Azure Active Directory: Identity Management as a Service for Modern Applications](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
+- **[Develop Modern Web Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
+- **[Develop Modern Native Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
 
 ## Getting Started
 
 These tutorials are tailored for multiple platforms, and allow you to quickly start developing with Azure Active Directory. As a prerequisite you must [get an Azure Active Directory tenant](active-directory-howto-tenant.md).
 
-###Mobile or PC application quickstart guides
+#### Mobile or PC application quickstart guides
 
 - [iOS](active-directory-devquickstarts-ios.md)
 - [Android](active-directory-devquickstarts-android.md)
@@ -54,7 +55,7 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 - [Cordova](active-directory-devquickstarts-cordova.md)
 
 
-###Web Application or Web API quickstart guides
+####Web Application or Web API quickstart guides
 
 - [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
 - [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
@@ -68,30 +69,31 @@ These articles describe how to perform specific tasks using Azure Active Directo
 
 - [How to get an Azure AD tenant](active-directory-howto-tenant.md)
 - [How to list your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
+- [How to get started with the Office 365 APIs in apps](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 
 
 ## Reference
 
 These articles provide foundation reference for REST and authentication library APIs, protocols, errors, code samples, and endpoints.  
 
-###  Support
+####  Support
 - **[Where to get support](http://stackoverflow.com/questions/tagged/azure-active-directory)**: Find Azure AD solutions on Stack Overflow by searching for the tags [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) and [adal](http://stackoverflow.com/questions/tagged/adal).
 
-### Code
+#### Code
 
 - **[Azure AD open source libraries](http://github.com/AzureAD)**: The easiest way to find a library’s source is using our [library list](https://msdn.microsoft.com/library/azure/dn151135.aspx).
 
 - **[Azure AD samples](http://github.com/AzureADSamples)**: The easiest way to navigate the list of samples is using the [Code Samples Index](active-directory-code-samples.md).
 
 
-### Graph API
+#### Graph API
 
 - **[Graph API Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: REST reference for the Azure Active Directory Graph API. [View the new interactive Graph API reference experience](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - **[Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)**: The OAuth 2.0 permission scopes that are used to control the access an app has to directory data in a tenant.
 
 
-### Authentication Protocols
+#### Authentication Protocols
 
 - **[SAML 2.0 Protocol Reference](https://msdn.microsoft.com/library/azure/dn195591.aspx)**: The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
 
@@ -106,23 +108,19 @@ These articles provide foundation reference for REST and authentication library 
 
 - **[Supported Security Tokens and Claims](active-directory-token-and-claims.md)**: A guide of understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
 
-## Videos
+#### Videos
 
-### Build 2015
-- **[Azure Active Directory: Identity Management as a Service for Modern Applications](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
-- **[Develop Modern Web Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
-- **[Develop Modern Native Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) is a recurring Friday 1:1 video series dedicated to bringing you short 10-15 minute interviews with experts on a variety of Azure topics.  Use the Services Filter feature on the page to see all Azure Active Directory videos.
 
-
-### Azure Friday
 - **[Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
 - **[Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**
 - **[Azure Identity 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)**
 
-
 ## Social
 
 - **[Active Directory Team Blog](http://blogs.technet.com/b/ad/)**: Keep abreast of the latest developments in the world of Azure AD.
+
+- **[Azure AD Graph Blog](http://blogs.msdn.com/b/aadgraphteam)**: Azure AD information specific to the Graph API.
 
 - **[Cloud Identity](http://www.cloudidentity.net)**: Thoughts on Identity Management as a Service, from a Principle Azure Active Directory PM.  
 

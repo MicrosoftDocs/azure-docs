@@ -195,7 +195,7 @@ In a JWT token, Object ID appears in an oid claim.
 The Roles claim provides friendly strings that represent the subject's application role assignments in Azure AD, and can be used to enforce role-based access control. Application roles are defined on a per-application basis, through the "appRoles" property of the application manifest. The "value" property of each application role is the value that appears in the roles claim. The roles included in the roles claim represent all application roles that the subject has been granted both directly and indirectly through group membership.
 In a SAML token, the roles claim appears in the roles attribute.
 
-    <Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/roles">
+    <Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">
     <AttributeValue>Admin</AttributeValue>
 
 In a JWT token, the roles claim appears in the roles claim.

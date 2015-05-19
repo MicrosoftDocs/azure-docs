@@ -1,6 +1,6 @@
 <properties
-	pageTitle="HDInsight Release Notes | Azure"
-	description="HDInsight release notes."
+	pageTitle="Release notes for Hadoop components on Azure HDInsight | Microsoft Azure"
+	description="Latest release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Hadoop, Apache Storm, and HBase."
 	services="hdinsight"
 	documentationCenter=""
 	editor="cgronlun"
@@ -17,7 +17,7 @@
 	ms.author="nitinme"/>
 
 
-#Microsoft HDInsight release notes
+# Release notes for Hadoop components on Azure HDInsight
 
 ## Notes for 04/27/2015 release of HDInsight ##
 

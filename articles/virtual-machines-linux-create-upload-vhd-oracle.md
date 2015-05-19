@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szark"/>
 
 # Prepare an Oracle Linux Virtual Machine for Azure

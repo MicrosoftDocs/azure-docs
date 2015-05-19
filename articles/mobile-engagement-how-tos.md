@@ -3,7 +3,7 @@
    description="User Interface Overview for Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.date="05/12/2015"
+   ms.author="piyushjo"/>
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>

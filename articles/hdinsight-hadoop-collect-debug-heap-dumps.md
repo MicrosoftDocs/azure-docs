@@ -16,7 +16,8 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# Collect heap dumps for debugging and analysis of Hadoop services
+
+# Collect heap dumps in Blob storage to debug and analyze Hadoop services
 
 Heap dumps can be automatically collected for Hadoop services and placed inside the Azure Blob storage account of a user under HDInsightHeapDumps/. Dump files for a service with heaps contain a snapshot of the application's memory. This includes the values of variables at the time the dump was created.
 

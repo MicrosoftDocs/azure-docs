@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Analyze data from servers in Microsoft Azure" 
-   description="Search event and IIS logs for cloud services and virtual machines by enabling Azure diagnostics." 
-   services="operational-insights" 
-   documentationCenter="" 
-   authors="bandersmsft" 
-   manager="jwhit" 
+<properties
+   pageTitle="Analyze data from servers in Microsoft Azure"
+   description="Search event and IIS logs for cloud services and virtual machines by enabling Azure diagnostics."
+   services="operational-insights"
+   documentationCenter=""
+   authors="bandersmsft"
+   manager="jwhit"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/01/2015"
+   ms.workload="na"
+   ms.date="05/11/2015"
    ms.author="banders"/>
 # Analyze data from servers in Microsoft Azure
 
@@ -23,7 +23,7 @@ Operational Insights uses data from servers in your on-premises or cloud infrast
 
 Using the data you collect from Azure storage, you can quickly search event and IIS logs for cloud services and virtual machines by enabling [Azure diagnostics](operational-insights-log-collection.md). You can also get additional insights from your virtual machines by installing the Microsoft Monitoring Agent.
 
-The Update Assessment, Change Tracking, and SQL Assessment intelligence packs all work with the Microsoft Monitoring Agent to provide deeper insights on your virtual machines. If you haven’t already, you can [add intelligence packs](operational-insights-add-intelligence-pack.md) when you’re signed into the [Operational Insights portal](https://preview.opinsights.azure.com/).
+The Update Assessment, Change Tracking, and SQL Assessment solutions all work with the Microsoft Monitoring Agent to provide deeper insights on your virtual machines. If you haven’t already, you can [add solutions](operational-insights-add-solution.md) when you’re signed into the [Operational Insights portal](https://preview.opinsights.azure.com/).
 
 For Azure virtual machines, there are two easy ways to enable agent-based data collection:
 
@@ -33,8 +33,8 @@ For Azure virtual machines, there are two easy ways to enable agent-based data c
 
 When using agent-based collection for log data, you must configure which logs to collect in the Log Management configuration page of the [Operational Insights portal](https://preview.opinsights.azure.com/).
 
- >[AZURE.NOTE] If you’ve configured Operational Insights to index log data using Azure diagnostics and you configure the agent to collect logs, then the same logs will be indexed twice. 
-You will be charged normal data rates for both data sources. 
+ >[AZURE.NOTE] If you’ve configured Operational Insights to index log data using Azure diagnostics and you configure the agent to collect logs, then the same logs will be indexed twice.
+You will be charged normal data rates for both data sources.
 If you have the agent installed, then you should collect log data using the agent and not index the logs collected by Azure diagnostics.
 
 ## Microsoft Azure Management Portal
@@ -173,20 +173,20 @@ To enable Windows Event Logs, or to change the scheduledTransferPeriod, configur
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
           configurationChangePollInterval="PT1M"
           overallQuotaInMB="4096">
-     
+
       <Directories bufferQuotaInMB="0"
          scheduledTransferPeriod="PT10M">  
         <!-- IISLogs are only relevant to Web roles -->
         <IISLogs container="wad-iis" directoryQuotaInMB="0" />
       </Directories>
-     
+
       <WindowsEventLog bufferQuotaInMB="0"
          scheduledTransferLogLevelFilter="Verbose"
          scheduledTransferPeriod="PT10M">
         <DataSource name="Application!*" />
         <DataSource name="System!*" />
       </WindowsEventLog>
-     
+
     </DiagnosticMonitorConfiguration>
 
 
@@ -211,7 +211,7 @@ Use the following procedure to enable Azure diagnostics in a virtual machine for
 1. Install the VM Agent when you create a virtual machine. If the virtual machine already exists, verify that the VM Agent is already installed.
 	- If you use the default Azure management portal to create the virtual machine, perform a **Custom Create** and select **Install the VM Agent**.
 	- If you use the new Azure management portal to create a virtual machine, select **Optional Configuration**, then **Diagnostics** and set **Status** to **On**.
-	
+
 	Upon completion, the VM will automatically have the Azure Diagnostics extension installed and running which will be responsible for collecting your diagnostics data.
 
 2. Enable monitoring and configure event logging on an existing VM. You can enable diagnostics at the VM level. To enable diagnostics and then configure event logging, perform the following steps:
@@ -232,32 +232,32 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 
 
 	#Connect to Azure
-	Add-AzureAccount 
-	
+	Add-AzureAccount
+
 	# settings to change:
 	$wad_storage_account_name = "myStorageAccount"
 	$service_name = "myService"
 	$vm_name = "myVM"
-	
-	#Construct Azure Diagnostics public config and convert to config format 
-	
+
+	#Construct Azure Diagnostics public config and convert to config format
+
 	# Collect just system error events:
 	$wad_xml_config = "<WadCfg><DiagnosticMonitorConfiguration><WindowsEventLog scheduledTransferPeriod=""PT1M""><DataSource name=""System!* "" /></WindowsEventLog></DiagnosticMonitorConfiguration></WadCfg>"
-	
+
 	$wad_b64_config = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($wad_xml_config))
 	$wad_public_config = [string]::Format("{{""xmlCfg"":""{0}""}}",$wad_b64_config)
-	
+
 	#Construct Azure diagnostics private config
-	
+
 	$wad_storage_account_key = (Get-AzureStorageKey $wad_storage_account_name).Primary
 	$wad_private_config = [string]::Format("{{""storageAccountName"":""{0}"",""storageAccountKey"":""{1}""}}",$wad_storage_account_name,$wad_storage_account_key)
-	
+
 	#Enable Diagnostics Extension for Virtual Machine
-	
+
 	$wad_extension_name = "IaaSDiagnostics"
 	$wad_publisher = "Microsoft.Azure.Diagnostics"
 	$wad_version = (Get-AzureVMAvailableExtension -Publisher $wad_publisher -ExtensionName $wad_extension_name).Version # Gets latest version of the extension
-	
+
 	(Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
 
 

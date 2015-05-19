@@ -148,7 +148,7 @@ Connectors use either OAuth or user names and passwords.
 
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md) |
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md) |
+[Websites and Web Apps in Azure App Service](app-service-web-overview.md) |
 
 
 ## More Connectors

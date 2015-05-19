@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Customize HDInsight Clusters using Script Action | Microsoft Azure" 
+	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure" 
 	description="Learn how to customize HDInsight clusters using Script Action." 
 	services="hdinsight" 
 	documentationCenter="" 

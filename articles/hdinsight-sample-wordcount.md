@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Run an Hadoop MapReduce word count example in HDInsight | Azure"
-	description="Run a MapReduce word count example on an Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file."
+	pageTitle="Hadoop MapReduce word count example in HDInsight | Microsoft Azure"
+	description="Run a MapReduce word count example on a Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-#Run a MapReduce word count example on a Hadoop cluster in HDInsight
+#Run a MapReduce word count example written in Java on a Hadoop cluster in HDInsight
 
 This tutorial shows you how to run a MapReduce word count example on a Hadoop cluster in HDInsight. The program is written in Java. It counts word occurrences in a text file, and then outputs a new text file that contains each word paired with its frequency of occurrence. The text file analyzed in this sample is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci.
 
@@ -35,7 +35,7 @@ This tutorial shows you how to run a MapReduce word count example on a Hadoop cl
 
 - You must have installed Azure PowerShell, and have it configured for use with your account. For instructions about how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
-<h2><a id="run-sample"></a>Run the sample by using Azure PowerShell</h2>
+## <a id="run-sample"></a>Run the sample by using Azure PowerShell</h2>
 
 **To submit the MapReduce job**
 
@@ -109,8 +109,8 @@ The output from the WordCount script should appear in the command window:
 ![Word frequency results in PowerShell from the Hadoop MapReduce word count example in HDInsight.][image-hdi-sample-wordcount-output]
 
 Note that the output files of a MapReduce job are immutable. So if you rerun this sample, you need to change the name of the output file.
-
-<h2><a id="java-code"></a>Java code for the WordCount MapReduce program</h2>
+ 
+## <a id="java-code"></a>Java code for the WordCount MapReduce program</h2>
 
 
 
@@ -186,7 +186,7 @@ Note that the output files of a MapReduce job are immutable. So if you rerun thi
 
 In this tutorial, you have seen how to run a MapReduce program that counts word occurrences in a text file with HDInsight by using Azure PowerShell.
 
-<h2><a id="next-steps"></a>Next steps</h2>
+## <a id="next-steps"></a>Next steps</h2>
 
 For tutorials that run other samples and provide instructions about using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see:
 
@@ -195,7 +195,7 @@ For tutorials that run other samples and provide instructions about using Pig, H
 * [Sample: Pi Estimator][hdinsight-sample-pi-estimator]
 * [Sample: C# Steaming][hdinsight-sample-cs-streaming]
 * [Use Pig with HDInsight][hdinsight-use-pig]
-* [Use Hive with HDInsight][hdinsight-use-hive]
+* [Use Hive with HDInsight] [hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
@@ -210,6 +210,6 @@ For tutorials that run other samples and provide instructions about using Pig, H
 
 [hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png

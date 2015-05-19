@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Script Action in HDInsight to install Giraph on Hadoop cluster| Azure" 
+	pageTitle="Install and use Giraph on Hadoop clusters in HDInsight | Microsoft Azure" 
 	description="Learn how to customize HDInsight cluster with Giraph. You'll use a Script Action configuration option to use a script to install Giraph." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
-# Install and use Giraph on HDInsight Hadoop clusters
+# Install Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
 
 You can install Giraph on any type of cluster in Hadoop on Azure HDInsight by using **Script Action** cluster customization. Script Action lets you run scripts to customize a cluster, only when the cluster is being created. For more information, see [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize].
 
@@ -81,7 +81,7 @@ We use the SimpleShortestPathsComputation example to demonstrate the basic <a hr
 
 	
 
-4. Run the SimpleShortestPathsComputation example. Use the following Azure PowerShell cmdlets to run the example by using the tiny_graph.txt file as input. This requires that you have installed and configured [Azure PowerShell][powershell-install-configure].
+4. Run the SimpleShortestPathsComputation example. Use the following Azure PowerShell cmdlets to run the example by using the tiny_graph.txt file as input. This requires that you have installed and configured [Azure PowerShell][powershell-install].
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -152,7 +152,7 @@ We use the SimpleShortestPathsComputation example to demonstrate the basic <a hr
 
 ## <a name="usingPS"></a>Install Giraph on HDInsight Hadoop clusters by using Azure PowerShell
 
-In this section, we use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information on configuring a workstation to run Azure Powershell cmdlets for HDInsight, see [Install and configure Azure PowerShell][powershell-install-configure].
+In this section, we use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information on configuring a workstation to run Azure Powershell cmdlets for HDInsight, see [Install and configure Azure PowerShell][powershell-install].
 
 Perform the following steps:
 
@@ -348,6 +348,7 @@ Provide a cluster name and press ENTER to provision a cluster with Giraph instal
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[powershell-install]: powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md

@@ -53,7 +53,7 @@ To remove the VIP added to your service in the example above, run the following 
 ## How to retrieve VIP information from a Cloud Service
 To retrieve the VIPs associated with a cloud service, run the following PowerShell script:
 
-    $deployment = Get-AzureService -ServiceName myService
+    $deployment = Get-AzureDeployment -ServiceName myService
     $deployment.VirtualIPs
 
 The script above will display a result similar to the sample below:
@@ -94,7 +94,7 @@ The command above creates and endpoint linked to the VIP called *Vip2* on port *
 
 To verify the configuration, run the following PowerShell command:
 
-    $deployment = Get-AzureService -ServiceName myService
+    $deployment = Get-AzureDeployment -ServiceName myService
     $deployment.VirtualIPs
 
 And the output will look similar to the results below:
