@@ -14,7 +14,3 @@ This tutorial is built on **GetStartedWithData**, which is an Android app. The U
 
 	The project is now ready for you to work with.
  
->[AZURE.NOTE] If you want to get the sample file used in the preceding version of the Mobile Services Android SDK, you can get it [here][GitHub].
-
-<!-- URLs. -->
-[GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122

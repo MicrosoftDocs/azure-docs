@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2015" 
+    ms.date="05/13/2015" 
     ms.author="elizapo" />
 
 # What is in the RemoteApp template images?
@@ -24,12 +24,12 @@ Your Azure RemoteApp subscription includes three template images:
 - Microsoft Office 365 ProPlus (Office 365 subscription required)
 - Microsoft Office 2013 Professional Plus (trial only)
 
-Regardless of the image you use, there are licensing considerations anytime you share an app with your users. Check out the [RemoteApp licensing details](remoteapp-licensing.md) for more information.
+> [AZURE.IMPORTANT]Regardless of the image you use, there are licensing considerations anytime you share an app with your users. Check out the [RemoteApp licensing details](remoteapp-licensing.md) for more information.
 
 Read on for details on what each image contains.
 
 ## Windows Server 2012 R2  ("the vanilla image")
-This image is based on Microsoft Windows Server 2012 R2 Datacenter operating system and has the following roles and features installed to meet the requirements of Azure RemoteApp template images:
+This image is based on Microsoft Windows Server 2012 R2 Datacenter operating system and has the following roles and features installed to meet the requirements for Azure RemoteApp template images:
 
 
 - .NET Framework 4.5, 3.5.1, 3.5
@@ -98,4 +98,4 @@ This image is an extension of the vanilla image and has the following components
 - Word
 - Microsoft Office Proofing Tools
 
-**Important legal information:** This image does not include a Microsoft Office license and *cannot be used for production*. The Office 2013 Professional Plus image is intended for trial use only. If you want to use Office apps in Azure RemoteApp for production, you need to use the Office 365 ProPlus image. For more details on licensing in RemoteApp, see [How does licensing work in Azure RemoteApp?](remoteapp-licensing.md)
+> [AZURE.IMPORTANT]**Legal information:** This image does not include a Microsoft Office license and *cannot be used for production*. The Office 2013 Professional Plus image is intended for trial use only. If you want to use Office apps in Azure RemoteApp for production, you need to use the Office 365 ProPlus image. For more details on licensing in RemoteApp, see [How does licensing work in Azure RemoteApp?](remoteapp-licensing.md)

@@ -188,14 +188,21 @@ Wait for the connections to initialize. Once the Gateway has initialized, the ga
 
 **Concepts**
 
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+- [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
-[Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx)
+- [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx)
 
-[Operations on Virtual Networks](https://msdn.microsoft.com/library/azure/jj157182.aspx)
+- [Operations on Virtual Networks](https://msdn.microsoft.com/library/azure/jj157182.aspx)
 
-[Operations on Virtual Network Gateways](https://msdn.microsoft.com/library/azure/jj154113.aspx)
+- [Operations on Virtual Network Gateways](https://msdn.microsoft.com/library/azure/jj154113.aspx)
 
 **Other Resources**
 
-[Blog Post - VNet to VNet connections across different regions](http://azure.microsoft.com/blog/2014/06/17/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)
+- [Blog Post - VNet to VNet connections across different regions](http://azure.microsoft.com/blog/2014/06/17/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)
+- [Tutorial - Configure a VPN connection between two Azure virtual networks][1]
+- [Video - Configure a VPN connection between two Azure virtual networks][2]
+
+
+
+[1]: hdinsight-hbase-geo-replication-configure-vnets.md
+[2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks

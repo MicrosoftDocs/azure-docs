@@ -238,7 +238,7 @@ In this section of the tutorial, you change the **h1** heading of the home page,
 
 The [Azure Management Portal](/services/management-portal/) is a web interface that enables you to manage and monitor your Azure services, such as the web app you just created. In this section of the tutorial you look at some of what you can do in the portal.
   
-1. In your browser, go to [http://portal.azure.com](), and sign in with your Azure credentials.
+1. In your browser, go to [https://portal.azure.com](), and sign in with your Azure credentials.
 
 2. Click **Browse > Web Apps**, then click the name of your web app.
 

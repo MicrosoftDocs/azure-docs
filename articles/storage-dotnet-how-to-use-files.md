@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="article"
-      ms.date="04/24/2015"
+      ms.date="05/13/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with PowerShell and .NET
@@ -77,6 +77,8 @@ For details about how to name shares, directories, and files, see [Naming and Re
 Azure File storage is currently in preview. To request access to the preview, navigate to the [Microsoft Azure Preview page](/services/preview/), and request access to **Azure Files**. Once your request is approved, you'll be notified that you can access the File storage preview. You can then create a storage account for accessing File storage.
 
 > [AZURE.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
+> 
+> Azure File storage does not currently support shared access signatures.
 
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
