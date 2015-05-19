@@ -45,7 +45,7 @@ Learn how to monitor and manage Stream Analytics resources with Azure PowerShell
 		Switch-AzureMode AzureResourceManager
 
 ## Azure PowerShell cmdlets for Stream Analytics
-The following Azure PowerShell cmdlets can be used to monitor and manage Azure Stream Analytics jobs. For the cmdlets, example PowerShell commands are provided.
+The following Azure PowerShell cmdlets can be used to monitor and manage Azure Stream Analytics jobs. 
 
 ### Get-AzureStreamAnalyticsJob
 Lists all Stream Analytics jobs defined in the Azure subscription or specified resource group, or gets job information about a specific job within a resource group.

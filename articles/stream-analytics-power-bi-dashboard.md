@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Stream Analytics Power BI dashboard | Microsoft Azure" 
-	description="Learn how to analyze high-volume streaming data in real time from a Stream Analytics job and get the insight on a live Power BI dashboard." 
+	pageTitle="Power BI dashboard on Stream Analytics | Microsoft Azure" 
+	description="Use a real-time streaming Power BI dashboard to gather business intelligence and analyze high-volume data from a Stream Analytics job." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -16,11 +17,11 @@
 	ms.date="05/12/2015" 
 	ms.author="jeffstok"/>
 	
-#Azure Stream Analytics & Power BI: Live dashboard for real-time analytics of streaming data
+# Azure Stream Analytics & Power BI: Live dashboard for analytics in real-time on streaming data
 
-One of the common use case for Azure Stream Analytics is to analyze high volume streaming data in real time and get the insight in a live dashboard (a dashboard that updates in real time without user having to refresh the browser).  
+Azure Stream Analytics allows you to take advantage of one of the leading business intelligence tools, Power BI. Learn how to use Azure Stream Analytics to analyze high-volume, streaming data and get the insight in a real-time Power BI dashboard.
 
-[Microsoft Power BI](https://powerbi.com/) is perfect for building live dashboard in no time. [Here is an example video to illustrate the scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). In this article, learn how to use Power BI as an output for your Azure Stream Analytics job. 
+Use [Microsoft Power BI](https://powerbi.com/) to build a live dashboard quickly. [Here is an example video to illustrate the scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). In this article, learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. 
 
 > [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. 
 
@@ -76,7 +77,7 @@ For this tutorial, we are assuming you are using EventHub as an input with JSON 
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE] Note - Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
+> [AZURE.NOTE] Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
 
 2.  Select **Power BI** and then click the right button.
 3.  You will see a screen like the following:
@@ -94,7 +95,7 @@ Provide values as below:
 * **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
 *	**Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from ASA jobs may only have one table in a dataset.
 
->	[AZURE.NOTE] Note - You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
 
 *	Click **OK**, **Test Connection** and now you output configuraiton is complete.
 
@@ -154,7 +155,7 @@ You will now get a line chart of average over time.  Using the pin option as bel
 
 Now when you view the dashboard with this pinned report, you will see report updating in real time. Try changing the data in your events – spike temp or something like that and you will see the real-time effect of that reflected in your dashboard.
 
-Note that this tutorial demonstrated how to create but one kind of chart for a dataset. However, the possibilities with Power BI are unlimited. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
+Note that this tutorial demonstrated how to create but one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
 
 Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
