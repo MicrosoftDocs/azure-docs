@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Learn Hadoop in HDInsight with the Sample Gallery | Microsoft Azure" 
-   description="HDInsight Getting Started Gallery is quick way learn Hadoop by running sample applications in HDInsight. Some samples have sample data, or you can supply your own." 
+   description="Quickly learn Hadoop by running sample applications from the HDInsight Getting Started Gallery. Some samples include sample data, or use your own data." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 

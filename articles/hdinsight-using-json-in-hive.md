@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analyze and Process JSON documents with Hive in HDInsight | Microsoft Azure"
-   description="Learn how to use JSON documents and analyze them using Hive in HDInsight"
+   description="Learn how to use JSON documents and analyze them using Hive in HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="rashimg"
