@@ -161,7 +161,7 @@ We now have two versions of the Detailed Usage csv file: **.csv version 1** cont
 
 Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the .csv version files.
 
-** .csv version 1 ** |  **.csv version 2**  |  **Description**|
+**.csv version 1** |  **.csv version 2**  |  **Description**|
 :---------------| :---------------- | --------|
 Billing Period | Billing Period | The billing period when the resource was consumed.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
@@ -200,7 +200,7 @@ In the .csv file, the items are broken down to display a list of how much of eac
 The following columns display details that affect the rates at the beginning of the billing period:
 
 **.csv version 1 ** |  **.csv version 2**  |  **Description** |
-:---------------| :----------------|
+:---------------| :----------------| -----|
 Usage Date | Usage Date | The date when the resource was emitted.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
 Resource GUID | Meter ID | The billed meter identifier.  This is used as the identifier used to price billing usage
