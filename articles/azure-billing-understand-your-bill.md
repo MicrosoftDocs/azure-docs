@@ -199,7 +199,7 @@ In the .csv file, the items are broken down to display a list of how much of eac
 
 The following columns display details that affect the rates at the beginning of the billing period:
 
-**.csv version 1 ** |  **.csv version 2**  |  **Description** |
+**.csv version 1** |  **.csv version 2**  |  **Description** |
 :---------------| :----------------| -----|
 Usage Date | Usage Date | The date when the resource was emitted.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
