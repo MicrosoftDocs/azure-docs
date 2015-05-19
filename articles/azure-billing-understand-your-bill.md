@@ -185,8 +185,8 @@ Depending on your usage, there can be thousands of rows of daily usage data. If 
 
   Sample Files|
   :----------|
-  [Detailed Usage .csv v1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)|
-  [Detailed Usage .csv v2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)|
+  [Detailed Usage .csv version 1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)|
+  [Detailed Usage .csv version 2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)|
 
 
 ![csv2screenshot](./media/azure-billing-understand-your-bill/csv2screenshot.png)
