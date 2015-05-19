@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/14/2015"
+   ms.date="05/18/2015"
    ms.author="kareni"/>
 
 
@@ -78,8 +78,8 @@ To view or download a bill:
  :--------- |:-------- | :----------------: | :-------|
 Azure MSDN-Visual Studio Ultimate| Benefits Program | Yes* | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
 Pay-As-You-Go | Consumption | No| [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_PAYG_Sample.pdf)
-Detailed Usage - csv v1 | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
-Detailed Usage - csv v2 | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
+Detailed Usage - .csv v1 | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
+Detailed Usage - .csv v2 | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
 
 ## Header - Customer Information
 
@@ -114,7 +114,7 @@ The Invoice Summary section of the bill summarizes transactions since your last 
 The Balances, Payments & Other Credits section of the bill summarizes transactions since your last bill.
 
 ### Previous Balance
-Previous balance is the total amount due on your last bill.
+Previous balance is the total amount due from your last bill.
 
 ### Payments
 Payments are your total payments applied to your last bill.
@@ -144,7 +144,7 @@ The additional information page gives you references to other resources to under
 ![additional information](./media/azure-billing-understand-your-bill/AdditionalInformation.png)
 
 ### Detailed Usage
-A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.  There are now two versions available to download.  **csv Version 1** contains the old naming convention and usage fields and **csv Version 2** contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure.
+A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.  There are now two versions available to download:  **.csv version 1** contains the old naming convention and usage fields and **.csv version 2** contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure.
 
 ### Additional Information and Useful Resources
 This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.
@@ -157,11 +157,11 @@ This section is the payment instructions of where to send checks, wire transfers
 
 ## Understand Detailed Usage Charges
 
-We now have two versions of the Detailed Usage csv file.  csv Version 1 contains the same naming convention for the service categories prior to May 2015.  csv Version 2 contains more user friendly service categories to help you understand the meaning of each service better.
+We now have two versions of the Detailed Usage csv file: **.csv version 1** contains the same naming convention for the service categories prior to May 2015, while **.csv version 2** contains more user friendly service categories to help you understand the meaning of each service better.
 
 Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the csv versions files.
 
-**csv Version 1 ** |  **csv Version 2**  |  **Description** |
+**.csv version 1 ** |  **.csv version 2**  |  **Description** |
 :---------------| :----------------|
 Billing Period | Billing Period | The billing period when the resource was consumed.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
@@ -172,7 +172,7 @@ SKU | SKU | Identifies the unique system identifier for each Azure resource.
 Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed during the billing period.
 Included | Included Quantity | Contains the amount of the resource that is included at no charge in your current billing period.
-Billable | Overage Quantity | If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For pay-as-you-go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
+Billable | Overage Quantity | If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For Pay-As-You-Go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
 Within Commitment | Within Commitment | Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer. Note that your resource charges are decremented from your commitment amount in chronological order.
 Currency | Currency | Identifies the currency reflected in your current billing period.
 Overage | Overage | Contains the resource charges that exceed your commitment amount associated with your 6 or 12 month offer.
@@ -181,18 +181,25 @@ Rate | Rate | Rate displays the rate you are charged per billable unit.
 Value | Value | Displays the result of multiplying the Billable column by the Rate column. If the Consumed amount does not exceed the included amount, there will be no charge in this column.
 
 ## Analyze Daily Usage Data
-Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click **Download Usage** and choose the file version you would like to download to export daily usage data for the current billing period to a comma-separated variable file (CSV), which can then be viewed in Microsoft Office Excel and other programs.  For your reference, you can download a sample CSV file.
+Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click **Download Usage** and choose a comma-separated variable file (.csv) version to see your daily usage data for the appropriate billing period.  For your reference, you can download a sample .csv file below.
+
+  |Sample Files|
+  |:----------:|
+  |[Detailed Usage .csv v1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
+  |[Detailed Usage .csv v2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
 
 
 ![csv2screenshot](./media/azure-billing-understand-your-bill/csv2screenshot.png)
 
-In the CSV file, the items are broken down to display a list of how much of each resource was consumed within the current billing period.
+
+
+In the .csv file, the items are broken down to display a list of how much of each resource was consumed within the current billing period.
 
 ![csv snapshot](./media/azure-billing-understand-your-bill/csvsnapshotportal.png)
 
 The following columns display details that affect the rates at the beginning of the billing period:
 
-**csv Version 1 ** |  **csv Version 2**  |  **Description** |
+**.csv version 1 ** |  **.csv version 2**  |  **Description** |
 :---------------| :----------------|
 Usage Date | Usage Date | The date when the resource was emitted.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
@@ -212,9 +219,9 @@ Service Info 1 | Service Info 1 | This column provides the project name that the
 Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata
 N/A | Order Number (3rd Party Software) | If you are using resources from Azure Marketplace that are published by partners, this show the order number for the partner resource that was purchased.
 
-Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanations of these columns. Note: some of these columns may be empty.
+Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanation of these columns. Note: some of these columns may be empty.
 
-Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from **May 2015** onwards. Below is the base file URL for the Service Download Fields:
+Please see these additional sources for more details on each service. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from **May 2015** onwards. Below is the base file URL for the Service Download Fields:
 
 >>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx
 >>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v2_MMYYYY.xlsx
