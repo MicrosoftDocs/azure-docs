@@ -7,13 +7,8 @@
 
 * Verify that a notification is received, then click **OK** to dismiss the notification.
 
-  	![][25]
+  	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
 
-* Repeat step 2 and immediately close the app, then verify that the following push is shown.
+* Add another item and immediately close the app. Verify that the following push is shown. You have now successfully completed this tutorial.
 
-  	![][26]
-
-You have successfully completed this tutorial.
-
-[25]: ../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
-[26]: ../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
+  	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png)
