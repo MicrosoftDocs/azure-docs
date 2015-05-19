@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Reserved Public IP"
+   pageTitle="Reserved IP"
    description="Understand reserved IPs, VIP, ILPIP, and how to manage them"
    services="virtual-networks"
    documentationCenter="na"
@@ -15,7 +15,7 @@
    ms.date="04/22/2015"
    ms.author="telmos" />
 
-# Reserved Public IP Overview
+# Reserved IP Overview
 IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, including when resources are restarted or allocated.
 
 To prevent IP addresses from changing, you can reserve an IP address. Reserved IPs can be used as a VIP or ILPIP, ensuring that the IP address for the resource will be the same even as resources are restarted or allocated. Furthermore, you can convert existing dynamic IPs used as a VIP or ILPIP to a reserved IP address.
@@ -23,7 +23,7 @@ To prevent IP addresses from changing, you can reserve an IP address. Reserved I
 ![Difference between ILPIP and VIP](./media/virtual-networks-reserved-public-ip/Figure1.png)
 
 
-As shown in Figure 1, the cloud service is accessed using a VIP, while the individual VMs are normally accessed using VIP:<port number>. By assigning an ILPIP to a specific VM, that VM can be accessed directly using that ILPIP.
+As shown in Figure 1, the cloud service is accessed using a VIP, while the individual VMs are normally accessed using VIP:&lt;port number>. By assigning an ILPIP to a specific VM, that VM can be accessed directly using that ILPIP.
 
 ## When do I need a reserved IP?
 - **You want to ensure that the IP is reserved in your subscription**. If you want to reserve an IP address that will not be released from your subscription under any circumstance, you should use a reserved public IP.  
