@@ -131,7 +131,7 @@ Of course, to actually run the preceding Java code sample, you would have to put
 - your_password
 
 
-## INSERT two rows into the table.
+## INSERT two rows into the table
 
 
 This Java segment issues a Transact-SQL INSERT statement to insert two rows into the Person table. The general sequence is as follows:
@@ -195,7 +195,7 @@ Copy-and-paste this short Java segment into the primary code sample where you se
 	connection.setAutoCommit(true);
 
 
-## SELECT rows from a table.
+## SELECT rows from a table
 
 
 This Java segment executes a Transact-SQL SELECT statement to see all the updated rows from the Person table. The general sequence is as follows:
