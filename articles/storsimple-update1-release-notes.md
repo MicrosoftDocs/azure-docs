@@ -106,6 +106,6 @@ This release updates the driver and the firmware on the SAS controller of your p
 
 This release does not contain any updates for the virtual device. Applying this update will not change the software version of a virtual device.
 
-## See also
+## Next steps
 
 - [Install Update 1 on your device](storsimple-install-update-1.md)
