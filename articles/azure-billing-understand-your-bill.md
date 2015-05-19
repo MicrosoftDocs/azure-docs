@@ -161,24 +161,24 @@ We now have two versions of the Detailed Usage csv file: **.csv version 1** cont
 
 Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the csv versions files.
 
-**.csv version 1 ** |  **.csv version 2**  |  **Description**
-:---------------| :---------------- |
-Billing Period | Billing Period | The billing period when the resource was consumed.
-Name | Meter Category | Identifies the top-level service for which this usage belongs.
-Type | Meter Sub-Category | Azure service may be further defined by type in this column, which can affect the rate.
-Resource | Meter Name | Identifies the unit of measure for the resource being consumed.
-Region | Meter Region | Identifies the location of the datacenter for certain services that are priced based on datacenter location.
-SKU | SKU | Identifies the unique system identifier for each Azure resource.
-Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s
-Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed during the billing period.
-Included | Included Quantity | Contains the amount of the resource that is included at no charge in your current billing period.
-Billable | Overage Quantity | If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For Pay-As-You-Go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
-Within Commitment | Within Commitment | Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer. Note that your resource charges are decremented from your commitment amount in chronological order.
-Currency | Currency | Identifies the currency reflected in your current billing period.
-Overage | Overage | Contains the resource charges that exceed your commitment amount associated with your 6 or 12 month offer.
-Commitment Rate | Commitment Rate | Contains the commitment rate based on your total commitment amount associated with your 6 or 12 month offer.
-Rate | Rate | Rate displays the rate you are charged per billable unit.
-Value | Value | Displays the result of multiplying the Billable column by the Rate column. If the Consumed amount does not exceed the included amount, there will be no charge in this column.
+|**.csv version 1 ** |  **.csv version 2**  |  **Description**
+|:---------------| :---------------- |
+|Billing Period | Billing Period | The billing period when the resource was consumed.
+|Name | Meter Category | Identifies the top-level service for which this usage belongs.
+|Type | Meter Sub-Category | Azure service may be further defined by type in this column, which can affect the rate.
+|Resource | Meter Name | Identifies the unit of measure for the resource being consumed.
+|Region | Meter Region | Identifies the location of the datacenter for certain services that are priced based on datacenter location.
+|SKU | SKU | Identifies the unique system identifier for each Azure resource.
+|Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s
+|Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed during the billing period.
+|Included | Included Quantity | Contains the amount of the resource that is included at no charge in your current billing period.
+|Billable | Overage Quantity | If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For Pay-As-You-Go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
+|Within Commitment | Within Commitment | Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer. Note that your resource charges are decremented from your commitment amount in chronological order.
+|Currency | Currency | Identifies the currency reflected in your current billing period.
+|Overage | Overage | Contains the resource charges that exceed your commitment amount associated with your 6 or 12 month offer.
+|Commitment Rate | Commitment Rate | Contains the commitment rate based on your total commitment amount associated with your 6 or 12 month offer.
+|Rate | Rate | Rate displays the rate you are charged per billable unit.
+|Value | Value | Displays the result of multiplying the Billable column by the Rate column. If the Consumed amount does not exceed the included amount, there will be no charge in this column.
 
 ## Analyze Daily Usage Data
 Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click **Download Usage** and choose a comma-separated variable file (.csv) version to see your daily usage data for the appropriate billing period.  For your reference, you can download a sample .csv file below.
