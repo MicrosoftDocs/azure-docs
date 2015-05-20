@@ -123,36 +123,36 @@ You need the following prerequisitesbefore trying to run the PowerShell commands
 
 1. Select a VM image from Azure VM image gallery. Note that images change frequently and are available by region. The image specified in the example below may change or might not be in your region, so be sure to specify the image you need. 
 
-    $image = Get-AzureVMImage `
-    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
+	    $image = Get-AzureVMImage `
+	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
 1. Create a VM configuration. 
 
-	$vm = New-AzureVMConfig -Name "MultiNicVM" -InstanceSize "ExtraLarge" `
-		-Image $image.ImageName –AvailabilitySetName "MyAVSet"
+		$vm = New-AzureVMConfig -Name "MultiNicVM" -InstanceSize "ExtraLarge" `
+			-Image $image.ImageName –AvailabilitySetName "MyAVSet"
 
 1. Create the default administrator login. 
 
-	Add-AzureProvisioningConfig –VM $vm -Windows -AdminUserName "<YourAdminUID>" `
-		-Password "<YourAdminPassword>"
+		Add-AzureProvisioningConfig –VM $vm -Windows -AdminUserName "<YourAdminUID>" `
+			-Password "<YourAdminPassword>"
 
 1. Add additional NICs to the VM configuration. 
 
-	Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
-		-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm 
-	Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
-		-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
+		Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
+			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm 
+		Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
+			-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
 
 1. Specify the subnet and IP address for the default NIC. 
 
-	Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
-		-IPAddress "10.1.0.100" -VM $vm
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
+			-IPAddress "10.1.0.100" -VM $vm
 
-1. Create the VM your virtual network. 
+1. Create the VM in your virtual network. 
+
+		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
 >[AZURE.NOTE] The VNet that you specify here must already exist (as mentioned in the prerequisites). The example below specifies a virtual network named “MultiNIC-VNet”. 
-
-	New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
 ## See Also
 
