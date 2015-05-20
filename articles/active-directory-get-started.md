@@ -33,7 +33,7 @@ Ready to get started? You should try out some of the really cool stuff we've rel
 Protect your organization's identity data in the cloud using Multi-Factor Authentication to ensure secure local and remote access. [Learn more about multi-factor authentication](multi-factor-authentication.md)
 
 ##Change and reset passwords
-Empower users to change or reset their Active Directory or Azure Active Directory passwords from any device, at any location. An administrator can manage password and notification policies, and can see detailed audit activity of these password reset operations the moment they occur. [Learn more about managing passwords with Azure Active Directory](active-directory-manage-passwords.md)
+Cut costs and decrease helpdesk calls by empowering users to change or reset their Active Directory or Azure Active Directory passwords from any device, at any location. An administrator can manage password and notification policies, and can see detailed audit activity of these password reset operations the moment they occur. [Learn more about managing passwords with Azure Active Directory](active-directory-manage-passwords.md)
 
 ##Create and edit users
 Create an account for every user who will access a Microsoft cloud service. By default, users do not have administrator permissions, but you can assign them. [Learn more about creating Azure AD users](active-directory-create-users.md).
