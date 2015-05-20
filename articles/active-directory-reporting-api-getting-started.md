@@ -119,7 +119,7 @@ Next, you'll retrieve your access token by making an HTTP request to an OAuth en
 curl -X POST https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/token  \
 	-F redirect_uri=http://localhost
 	-F grant_type=authorization_code 
-	-F resource=https://management.core.windows.net/
+	-F resource=https://graph.windows.net/
 	-F client_id=<<INSERT-YOUR-CLIENT-ID-HERE>>
 	-F code=<<INSERT-YOUR-AUTHORIZATION-CODE-HERE>>
 	-F client_secret=<<INSERT-YOUR-CLIENT-SECRET-HERE>>
@@ -134,11 +134,9 @@ curl -X POST https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-
   "expires_in": "3600",
   "expires_on": "1428701563",
   "not_before": "1428697663",
-  "resource": "https://management.core.windows.net/",
+  "resource": "https://graph.windows.net/",
   "access_token": "<<YOUR-ACCESS-TOKEN>>",
-  "refresh_token": "AAABA...WjCAA",
-  "scope": "user_impersonation",
-  "id_token": "eyJ0e...20ifQ."
+  "refresh_token": "AAABA...WjCAA"
 }
 ```
 
@@ -152,7 +150,6 @@ curl -X POST https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-
 
 ```
 curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/$metadata?api-version=beta
-  -H "x-ms-version: 2013-08-01"
   -H "Authorization: Bearer <<INSERT-YOUR-ACCESS-TOKEN-HERE>>"
 ```
 
@@ -160,8 +157,12 @@ curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/$met
 - You'll recieve an OData object containing the contents of your audit report.
 
 ```
+curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/auditEvents?api-version=beta
+  -H "Authorization: Bearer <<INSERT-YOUR-ACCESS-TOKEN-HERE>>"
+
+Result:
 {
-  "@odata.context":"https://graph.windows.net/<<DIRECTORY-ID>>/reports/?api-version=beta/reports/$metadata#auditEvents",
+  "@odata.context":"https://graph.windows.net/<<DIRECTORY-ID>>/reports/auditEvents?api-version=beta",
   "value":[
     {
       "id":"SN2GR1RDS104.GRN001.msoprd.msft.net_4515449","timeStampOffset":"2015-04-13T21:27:55.1777659Z","actor":"thekenhoff_outlook.com#EXT#@kenhoffdemo.onmicrosoft.com","action":"Add service principal","target":"04670e0d84264acb86dac2
