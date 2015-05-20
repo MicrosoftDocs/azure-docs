@@ -309,7 +309,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
 		The upper limit for concurrent operations is 512.</td>
     <td>Y</td>
     <td>Y<br /> (preview only)</td>
-    <td>N</td>
+    <td>Y<br /> (preview only)</td>
   </tr>
   <tr>
     <td><b>/SourceType:Blob|Table</b></td>

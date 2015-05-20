@@ -56,8 +56,10 @@ In the **DATA FACTORY** blade for the data factory, click **Diagram** tile to se
 ![Data Factory Diagram View][image-data-factory-diagram-view]
  
 ### Open a pipeline in the Diagram View
-You can view all the activities in a pipeline by right-clicking the pipeline in the Diagram View, and clicking **Open Pipeline**.
+You can view all the activities in a pipeline by right-clicking the pipeline in the Diagram View, and clicking **Open Pipeline**. You should see the activities in the pipeline along with input and output datasets for the activities.
 	![Open pipeline](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
+
+Click **Data factory** in the breadcrumb in the top-left corner to get back to the diagram view. The diagram view displays all the pipelines. In this example, you have only created one pipeline.
 
 ## <a name="DataFactoryLinkedServices"></a> View linked services in a data factory
 In the **DATA FACTORY** blade for the data factory, click **Linked Services** tile to see all the linked services in a list. 

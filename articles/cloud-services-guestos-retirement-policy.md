@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="02/23/2015"
+   ms.date="05/19/2015"
    ms.author="adegeo"/>
 
 # Azure Guest OS Supportability and Retirement Policy

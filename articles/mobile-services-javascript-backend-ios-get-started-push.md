@@ -58,25 +58,6 @@ This topic shows you how to add push notifications to the [quickstart project](m
 
 [AZURE.INCLUDE [Test Push Notifications in App](../includes/test-push-notifications-in-app.md)]
 
-## <a id="next-steps"></a>Related Topics
-
-* [Send push notifications to authenticated users]
-
-* [Send broadcast notifications to subscribers]
-
-* [Send template-based notifications to subscribers]
-
-* [Get started with data]
-
-* [Get started with authentication]
-
-* [What are Notification Hubs?]
-
-* [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
-
-* [Mobile Services Objective-C how-to conceptual reference]
-
-* [Mobile Services server script reference]
 
 <!-- Anchors. -->
 
@@ -132,9 +113,7 @@ This topic shows you how to add push notifications to the [quickstart project](m
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
-
 [What are Notification Hubs?]: notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
-
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
