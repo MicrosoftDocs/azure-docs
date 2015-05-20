@@ -203,7 +203,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
 3. Follow the wizard instructions. You'll need to download and install MySQL Server and specify credentials for it. On the **Azure Site Recovery Registration** page browse to the key file you copied to the server.
 
-	![Registration key](./media/site-recovery-vmware-to-azure/ASRVMWareRegister2.png)
+	![Registration key](./media/site-recovery-vmware-to-azure/passphrase.png)
 
 4. After registration finishes a passphrase is generated. Copy it to a secure location. You'll need it to authenticate and register the process and master target servers with the configuration server. It's also used to ensure channel integrity in configuration server communications. You can regenerate the passphrase but then you'll need to reregister the master target and process servers using the new passphrase.
 
