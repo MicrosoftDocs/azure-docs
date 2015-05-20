@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="05/20/2015"
 	ms.author="jgao"/>
 
 
@@ -213,7 +213,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 	![HDInsight HBase Hive Editor File Browser][img-hdinsight-hbase-file-browser]
 
-## Use the HBase REST API client library for .NET C#  to create and retrieve data from an HBase table
+## Use the HBase REST API client library for .NET
 
 You must download the HBase REST API client library for .NET from GitHub and build the project so that you can use the HBase .NET SDK. The following procedure includes the instructions for this task.
 
