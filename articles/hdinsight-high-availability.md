@@ -19,7 +19,7 @@
 
 #Availability and reliability of Hadoop clusters in HDInsight
 
-## Introduction ##
+## Introduction 
 A second head node has been added to the Hadoop clusters deployed by Azure HDInsight to increase the availability and reliability of the service needed to manage workloads. Standard implementations of Hadoop clusters typically have a single head node. These clusters are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the head node would cause the cluster to cease to work. 
 
 ![Diagram of the highly reliable head nodes in the HDInsight Hadoop implementation.](http://i.imgur.com/jrUmrH4.png)
@@ -34,7 +34,7 @@ Once you have remoted into the cluster, double-click on the **Hadoop Service Ava
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
-## How to access log files on the secondary head node ##
+## How to access log files on the secondary head node \
 
 To access job logs on the secondary head node in the event that it has become the active head node, browsing the JobTracker UI still works as it does for the primary active node. To access JobTracker, you must connect to the Hadoop cluster by using RDP as described in the previous section. Once you have remoted into the cluster, double-click on the **Hadoop Name Node** icon located on the desktop and then click on the **NameNode logs** to get to the directory of logs on the secondary head node.
 

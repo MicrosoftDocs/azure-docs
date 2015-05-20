@@ -79,7 +79,7 @@ We see drawbacks of “stateless service” in building scalable services to pro
 
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 

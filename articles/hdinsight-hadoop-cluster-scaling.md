@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cluster Scaling in HDInsight | Azure"
-   description="Change the number of data nodes in a cluster that is running on HDInsight without having to delete and recreate the cluster."
+   pageTitle="Scale Hadoop, HBase, or Apache Storm clusters in HDInsight | Microsoft Azure"
+   description="Change the number of data nodes in a Hadoop, Apache Storm, or HBase cluster that is running on HDInsight without having to delete and recreate the cluster."
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
@@ -16,7 +16,7 @@
    ms.date="04/02/2015"
    ms.author="jgao"/>
 
-#Cluster scaling in HDInsight
+#Scale Hadoop, HBase, or Apache Storm clusters to change their number of data nodes in HDInsight 
 
 The cluster scaling feature allows you to change the number of data nodes used by a cluster that is running in Azure HDInsight without having to delete and re-create the cluster. The operation can be performed via Azure PowerShell, the HDInsight SDK, or the Azure portal.
 
@@ -24,7 +24,7 @@ The cluster scaling feature allows you to change the number of data nodes used b
 This section describes the impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
 * Hadoop
-* Storm
+* Apache Storm
 * HBase 
 
 ## Hadoop 

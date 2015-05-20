@@ -1544,7 +1544,7 @@ The client application can call multiple asynchronous methods like this one, and
 
 
 ### Credits
-We would like to thank the following members of the Azure team for their contributions: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah and Serdar Ozler.  
+We would like to thank the following members of the Azure team for their contributions: Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah and Serdar Ozler as well as  Tom Hollander from Microsoft DX. 
 
 We would also like to thank the following Microsoft MVP’s for their valuable feedback during review cycles: Igor Papirov and Edward Bakker.
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Stream Analytics monitor and manage jobs using PowerShell | Azure" 
-	description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs" 
+	pageTitle="Monitor and manage Stream Analytics jobs using PowerShell | Microsoft Azure" 
+	description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="05/20/2015" 
 	ms.author="jeffstok"/>
 
 
-# Monitor and manage Stream Analytics jobs by using Azure PowerShell
+# Monitor and manage Stream Analytics jobs with Azure PowerShell
 
 Learn how to manage Azure Stream Analytics resources by using Azure PowerShell.
 
@@ -31,17 +31,10 @@ Learn how to manage Azure Stream Analytics resources by using Azure PowerShell.
 
 		Add-AzureAccount
 
-	To select your Azure subscription with the Azure Stream Analytics service enabled:
+	To select your Azure subscription with the Azure Stream Analytics service enabled use the method:
 
 		Select-AzureSubscription
 
-	>[AZURE.NOTE] The following error message indicates that Azure Stream Analytics is not enabled on the subscription:
-	>
-		Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
-	
-	>To resolve this issue, please enable the Stream Analytics preview on the subscription and then run the following cmdlets to switch the subscription:
-	>
-		Select-AzureSubscription –SubscriptionId xxxxxxxx
 
 2.	Configure the Azure mode.
 
@@ -49,7 +42,7 @@ Learn how to manage Azure Stream Analytics resources by using Azure PowerShell.
 
 		Switch-AzureMode AzureResourceManager
 
->[AZURE.NOTE] There is a temporary limitation where Stream Analytics jobs created via Azure PowerShell do not have monitoring enabled. To work around this issue, navigate to the job’s **Monitor** page in the Azure portal and click the **Enable** button.  
+> [AZURE.NOTE] Stream Analytics jobs created programmatically do not have monitoring enabled by default.  You can manually enable monitoring in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can do this programmatically by following the steps located at [Azure Stream Analytics - Monitor Stream Analytics Jobs Programatically](stream-analytics-monitor-jobs.md)
 
 ## Azure PowerShell cmdlets for Stream Analytics
 The following Azure PowerShell cmdlets can be used to monitor and manage Azure Stream Analytics jobs.
@@ -265,8 +258,6 @@ Tests the ability of Stream Analytics to connect to a specified output.
 
 	Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 This command tests the connection status of the output Output in StreamingJob.  
-
-> [AZURE.NOTE] Stream Analytics jobs created programmatically no not have monitoring enabled by default.  You can manually enable monitoring in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can do this programmatically by following the steps located at [Azure Stream Analytics - Monitor Stream Analytics Jobs Programatically](stream-analytics-monitor-jobs.md)
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 

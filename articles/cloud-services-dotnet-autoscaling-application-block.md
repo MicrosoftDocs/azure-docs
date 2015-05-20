@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="05/18/2015" 
 	ms.author="rasquill"/>
 
 
@@ -44,7 +44,7 @@ more information on the Autoscaling Application Block, see the [Next Steps][] se
 
 ## <a id="WhatIs"> </a>What is the Autoscaling Application Block?
 
-The Autoscaling Application Block can automatically scale your Windows
+The Autoscaling Application Block can automatically scale your 
 Azure application based on rules that you define specifically for your
 application. You can use these rules to help your Azure
 application maintain its throughput in response to changes in its
@@ -198,7 +198,7 @@ Autoscaler, and then call the **Autoscaler.Start** method to run the
 
 ## <a id="DefineServiceModel"> </a>How To: Define your Service Model
 
-Typically, you store your service model (a description of your Windows
+Typically, you store your service model (a description of your 
 Azure environment that includes information about subscriptions, hosted
 services, roles, and storages accounts) in an XML file. You can find a
 copy of the schema for this XML file in the

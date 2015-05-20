@@ -1,6 +1,6 @@
 <properties
  pageTitle="Process vehicle sensor data with Apache Storm on HDInsight | Microsoft Azure"
- description="Learn how to process vehicle sensor data from Event Hubs using Apache Storm on HDInsight. Add vehicle model data from DocumentDB, and store output to Azure Storage."
+ description="Learn how to process vehicle sensor data from Event Hubs using Apache Storm on HDInsight. Add model data from DocumentDB, and store output to storage."
  services="hdinsight,documentdb,notification-hubs"
  documentationCenter=""
  authors="Blackmist"
