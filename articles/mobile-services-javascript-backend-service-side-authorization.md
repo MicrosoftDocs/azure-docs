@@ -59,10 +59,6 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
-[1]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
-[2]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-insert-script-users.png
-[3]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
 
