@@ -56,7 +56,8 @@ You can enable CDN from your websites to cache your web contents, such as images
 When you enable CDN access for a website, the Management Portal provides you with a CDN domain name in the following format: http://<identifier>.vo.msecnd.net/. This domain name can be used to retrieve objects from a website. For example, given a public container named cdn and an image file called music.png, users can access the object using either of the following two URLs:
 
 - **Azure Website URL**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
-- **Azure CDN URL**: `http://<identifier>.vo.msecnd.net/cdn/music.png` 
+- **Azure CDN URL**: `http://<identifier>.vo.msecnd.net/cdn/music.png`
+ 
 ##Caching content from Azure cloud services
 
 You can cache objects to the CDN that are provided by a Azure cloud service. 
