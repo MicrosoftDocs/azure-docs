@@ -83,15 +83,15 @@ The tables in the following sections provide a logical grouping of queue feature
 
 ## Foundational capabilities
 
-This section compares some of the fundamental queuing capabilities provided by Microsoft Azure Queues and Microsoft Azure Service Bus queues.
+This section compares some of the fundamental queuing capabilities provided by Azure Queues and Service Bus queues.
 
 |Comparison Criteria|Azure Queues|Service Bus Queues|
 |---|---|---|
 |Ordering guarantee|**No** <br/><br>For more information, see the first note in the “Additional Information” section.</br>|**Yes - First-In-First-Out (FIFO)**<br/><br>(through the use of messaging sessions)|
 |Delivery guarantee|**At-Least-Once**|**At-Least-Once**<br/><br/>**At-Most-Once**|
 |Transaction support|**No**|**Yes**<br/><br/>(through the use of local transactions)|
-|Receive behavior|**Non-blocking**<br/><br/>(completes immediately if no new message is found)|**Blocking with/without timeout**<br/><br/>(offers long polling, or the "[Comet technique](http://en.wikipedia.org/wiki/Comet_(programming))")<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only)|
-|Push-style API|**No**|**Yes**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/jj908682.aspx) and [OnMessage sessions](https://msdn.microsoft.com/library/dn790528.aspx) managed (.NET) API.|
+|Receive behavior|**Non-blocking**<br/><br/>(completes immediately if no new message is found)|**Blocking with/without timeout**<br/><br/>(offers long polling, or the ["Comet technique"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only)|
+|Push-style API|**No**|**Yes**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/jj908682.aspx) and [OnMessage sessions](https://msdn.microsoft.com/library/dn790528.aspx) .NET API.|
 |Receive mode|**Peek & Lease**|**Peek & Lock**<br/><br/>**Receive & Delete**|
 |Exclusive access mode|**Lease-based**|**Lock-based**|
 |Lease/Lock duration|**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API.)|**60 seconds (default)**<br/><br/>You can renew a message lock using the [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API.|
@@ -295,7 +295,7 @@ This section compares Azure Queues and Service Bus queues from a cost perspectiv
 
 - Given the support for long polling, using Service Bus queues can be cost effective in situations where low-latency delivery is required.
 
->[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date pricing information for Azure, see the [Azure Storage Pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing]((http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing]((http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 
