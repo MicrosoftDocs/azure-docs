@@ -20,7 +20,7 @@ This topic describes the available sizes and options for the virtual machine-bas
 
 Azure Virtual Machines and Cloud Services are two of several types of compute resources offered by Azure. For explanations, see [Compute Hosting Options Provided by Azure](http://go.microsoft.com/fwlink/p/?LinkID=311926).
 
->[AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/)
+>[AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md)
 
 ## Sizes for Virtual Machines
 
@@ -28,7 +28,7 @@ Virtual machines are available in two tiers – basic and standard. Both types o
 
 *   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
 
-*   DS-series VMs can use Premium storage, which provides high-performance, low-latency storage for I/O intensive workloads. It uses solid-state drives (SSDs) to host a virtual machine’s disks and offers a local SSD disk cache. Premium storage is in Preview and is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/).  
+*   DS-series VMs can use Premium storage, which provides high-performance, low-latency storage for I/O intensive workloads. It uses solid-state drives (SSDs) to host a virtual machine’s disks and offers a local SSD disk cache. Premium storage is in Preview and is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md).  
 
 *   G-series VMs offer the biggest size and best performance and run on hosts with Intel Xeon E5 V3 family processors.  
 
@@ -98,7 +98,7 @@ The following tables show the sizes and the capacities offered by each.
 |Standard_DS13\(same)|8|56|<p>OS = 1023 GB</p><p>Local SSD disk = 112 GB</p>|16|288|<p>25,600</p><p>256 MB per second</p>|
 |Standard_DS14\(same)|16|112|<p>OS = 1023 GB</p><p>Local SSD disk = 224 GB</p>|32|576|<p>50,000</p><p>512 MB per second</p>|
 
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/).
+*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md).
 
 ### Standard tier – G series
 
@@ -119,5 +119,5 @@ The following tables show the sizes and the capacities offered by each.
 
 #### Other Resources
 
-[Azure Subscription and Service Limits, Quotas, and Constraints](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/)  
+[Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md)  
  [About the A8, A9, A10, and A11 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?linkid=328042)
