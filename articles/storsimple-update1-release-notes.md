@@ -28,7 +28,7 @@ Please review the information contained in the release notes before you deploy t
 >[AZURE.IMPORTANT]
 > 
 - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.0.
-- It takes approximately 3 hours to install this update (not including the Windows Updates). 
+- It takes approximately 5-10 hours to install this update (including the Windows Updates). 
 
 ## What's new in the October release
 
@@ -41,7 +41,7 @@ This update contains the following new features and improvements:
 
     Refer to the migration guide for details on how to migrate a StorSimple 5000-7000 series to an 8000 series device. 
 
-- **Availability in the Azure Government Portal** – StorSimple is now available in the Azure Government portal. See how to [deploy a StorSimple device in Azure Government Portal](storsimple-deployment-walkthrough-gov).
+- **Availability in the Azure Government Portal** – StorSimple is now available in the Azure Government portal. See how to [deploy a StorSimple device in Azure Government Portal](storsimple-deployment-walkthrough-gov.md).
 
 - **Support for other cloud service providers** – The other cloud service providers supported are Amazon S3, Amazon S3 with RRS, HP, and OpenStack (beta).
 
@@ -49,7 +49,7 @@ This update contains the following new features and improvements:
 
 - **Support for Zone Redundant Storage (ZRS)** – With the upgrade to the latest version of the Storage APIs, the StorSimple 8000 series will support Zone Redundant Storage (ZRS) in addition to Locally Redundant Storage (LRS) and Geo-redundant Storage (GRS). Refer to this [article on Azure Storage redundancy options](storage-redundancy.md) for ZRS details.
 
-- **Enhanced initial deployment and update experience** – In this release, the installation and update processes have been enhanced. The initial installation through the setup wizard now performs in-place network validations. Additional diagnostic cmdlets have been provided to help you with troubleshooting networking and initial deployment of the device. The update process now incorporates pre-checks for controller, hardware component health, DATA 0 connectivity, and network connectivity within and outside of the datacenter network.
+- **Enhanced initial deployment and update experience** – In this release, the installation and update processes have been enhanced. The installation through the setup wizard is improved to provide feedback to the user if the network configuration and firewall settings are incorrect. Additional diagnostic cmdlets have been provided to help you with troubleshooting networking of the device. See [this article]() for more information about the new diagnostic cmdlets used for troubleshooting.
 
 ## Issues fixed in Update 1
 
@@ -58,14 +58,14 @@ The following table provides a summary of issues that were fixed in this update.
 
 | No. | Feature | Issue | Applies to physical device | Applies to virtual device |
 |-----|---------|-------|---------------------------------|--------------------------------|
-| 1 | Windows PowerShell for StorSimple  | The previous version had limited diagnostic capabilities to aid with networking issues during the initial deployment of the device. In this version, diagnostic cmdlets such as `Enable-HcsPing, Disable-HcsPing, Trace-HcsRoute`, and `Get-HcsRoutingTable` are available in Windows PowerShell for StorSimple. | Yes | Yes |
-| 2 | Windows PowerShell for StorSimple | When a user remotely accessed the StorSimple device by using Windows PowerShell for StorSimple and then started the setup wizard, a crash occurred as soon as Data 0 IP was input. This bug is now fixed in Update 1. | Yes | Yes |
-| 3 | Factory reset | In some instances, when you performed a factory reset, the StorSimple device became stuck and displayed this message: **Reset to factory is in progress (phase 8)**. This happened if you pressed CTRL+C while the cmdlet was in progress. This bug is now fixed.| Yes | No |
-| 4 | Factory reset | After a failed dual controller factory reset, you were allowed to proceed with device registration. This resulted in an unsupported system configuration. In Update 1, an error message is shown and registration is blocked on a device that has a failed factory reset. | Yes | No |
-| 5 | Factory reset | In the previous version, you could see false positive firmware alerts when you performed a factory reset for a device running Update 0.1. Incorrect firmware mismatch alerts will no longer be generated on devices running Update 1. | Yes | No |
-| 6 | Factory reset | If a factory reset was interrupted prior to completion, the device entered recovery mode and did not allow you to access Windows PowerShell for StorSimple. This bug is now fixed. | Yes | No |
-| 7 | Disaster recovery | A disaster recovery (DR) bug was fixed wherein DR would fail during the discovery of backups on the target device. | Yes | Yes |
-| 8 | Monitoring LEDs | In certain instances, monitoring LEDs at the back of appliance did not indicate correct status. The blue LED was turned off. DATA 0 and DATA 1 LEDs were flashing even when these interfaces were not configured. The issue has been fixed and monitoring LEDs now indicate the correct status.  | Yes | No |
+| 1 | Windows PowerShell for StorSimple | When a user remotely accessed the StorSimple device by using Windows PowerShell for StorSimple and then started the setup wizard, a crash occurred as soon as Data 0 IP was input. This bug is now fixed in Update 1. | Yes | Yes |
+| 2 | Factory reset | In some instances, when you performed a factory reset, the StorSimple device became stuck and displayed this message: **Reset to factory is in progress (phase 8)**. This happened if you pressed CTRL+C while the cmdlet was in progress. This bug is now fixed.| Yes | No |
+| 3 | Factory reset | After a failed dual controller factory reset, you were allowed to proceed with device registration. This resulted in an unsupported system configuration. In Update 1, an error message is shown and registration is blocked on a device that has a failed factory reset. | Yes | No |
+| 4 | Factory reset | In some instances, false positive mismatch alerts were raised. Incorrect mismatch alerts will no longer be generated on devices running Update 1. | Yes | No |
+| 5 | Factory reset | If a factory reset was interrupted prior to completion, the device entered recovery mode and did not allow you to access Windows PowerShell for StorSimple. This bug is now fixed. | Yes | No |
+| 6 | Disaster recovery | A disaster recovery (DR) bug was fixed wherein DR would fail during the discovery of backups on the target device. | Yes | Yes |
+| 7 | Monitoring LEDs | In certain instances, monitoring LEDs at the back of appliance did not indicate correct status. The blue LED was turned off. DATA 0 and DATA 1 LEDs were flashing even when these interfaces were not configured. The issue has been fixed and monitoring LEDs now indicate the correct status.  | Yes | No |
+| 8 | Network interfaces | In previous versions, a StorSimple device configured with a non-routable gateway could go offline. In this release, the routing metric for Data 0 has been made the lowest; therefore, even if other network interfaces are cloud-enabled, all the cloud traffic from the device will be routed via Data 0. | Yes | Yes | 
 
 ## Known issues in Update 1
 
@@ -86,7 +86,6 @@ The following table provides a summary of known issues in this release.
 | 11| Migration | After the restore, volumes are not added to the backup policy or the virtual disk group. | You will need to add these volumes to a backup policy in order to create backups. | Yes | Yes |
 | 12| Migration | After the migration is complete, the 5000/7000 series device must not access the migrated data containers. | We recommend that you delete the migrated data containers after the migration is complete and committed. | Yes | No |
 | 13| Clone and DR | A StorSimple device running Update 1 cannot clone or perform Disaster Recovery to a device running pre-update 1 software. | You will need to update the target device to Update 1 to allow these operations | Yes | Yes |
-| 14| Network interface | There are side effects if you make the cost metric for Data 0 the lowest across all network interfaces | | Yes | Yes |
 
 ## Physical device updates in Update 1
 
