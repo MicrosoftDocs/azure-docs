@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="02/02/2015"
+	ms.date="05/20/2015"
 	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
