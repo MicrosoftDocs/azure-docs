@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Queues and Service Bus Queues - Compared and Contrasted"
+   pageTitle="Azure Queues and Service Bus queues - compared and contrasted"
    description="analyzes differences and similarities between two types of queues offered by Azure"
    services="service-bus"
    documentationCenter="na"
@@ -15,7 +15,7 @@
    ms.date="05/21/2015"
    ms.author="sethm" />
 
-# Azure Queues and Service Bus Queues - Compared and Contrasted
+# Azure Queues and Service Bus queues - compared and contrasted
 
 This article analyzes the differences and similarities between the two types of queues offered by Microsoft Azure today: Azure Queues and Service Bus Queues. By using this information, you can compare and contrast the respective technologies and be able to make a more informed decision about which solution best meets your needs.
 
