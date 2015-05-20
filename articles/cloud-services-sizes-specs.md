@@ -14,13 +14,15 @@
  ms.workload="tbd"
  ms.date="05/20/2015" 
  ms.author="adegeo"/>
+ 
+#Sizes for cloud services
 
 ##Overview
 This topic describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads. These resources are available to you as Azure Virtual Machines (sometimes called “IaaS virtual machines” or “persistent virtual machines”), and Cloud Service role instances (web roles and worker roles). This topic also provides deployment considerations to be aware of when planning to use these resources.
 
 Azure Virtual Machines and Cloud Services are two of several types of compute resources offered by Azure. For explanations, see [Compute Hosting Options Provided by Azure](http://go.microsoft.com/fwlink/p/?LinkID=311926).
 
->[AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/)
+>[AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md)
 
 ###Sizes for Web and Worker Role Instances
 
@@ -70,5 +72,5 @@ The following considerations might help you decide on a size:
 
 #### Other Resources
 
-[Azure Subscription and Service Limits, Quotas, and Constraints](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/)  
+[Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md)  
  [About the A8, A9, A10, and A11 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?linkid=328042)
