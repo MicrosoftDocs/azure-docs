@@ -13,12 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="05/20/2015"
    ms.author="joaoma"/>
 # Creating DNS zones and record sets using the .NET SDK
-You can automate operations to create , delete or update DNS zones, recordsets and records using DNS SDK with .NET DNS Management library.
-
->[AZURE.NOTE] You can download a visual studio sample clicking [here.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
+You can automate operations to create , delete or update DNS zones, recordsets and records using DNS SDK with .NET DNS Management library. A full Visual Studio project is available [here.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
 ## NuGet Packages & Namespace Declarations
 In order to use the DNS Client, it is necessary to install the “Azure DNS Management Library” NuGet package and add the DNS management namespaces to your project. Go to Visual Studio, open a project or new project and go to tools, Nuget package manager console. Download the Azure DNS management library:
@@ -26,7 +24,6 @@ In order to use the DNS Client, it is necessary to install the “Azure DNS Mana
 	using Microsoft.Azure;
 	using Microsoft.Azure.Management.Dns;
 	using Microsoft.Azure.Management.Dns.Models;
-
 
 ## Initializing the DNS Management Client
 
@@ -107,3 +104,5 @@ The following example shows how to get a list of DNS zones and Record sets:
 [Traffic Manager Overview](../traffic-manager-overview)
 
 [Azure DNS Overview](../dns-overview)
+
+[Visual Studio SDK sample project](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
