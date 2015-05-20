@@ -1227,15 +1227,216 @@ Parameter options:
 **Commands to manage public ip addresses**
 	
 	network public-ip create [options] <resource-group> <name> <location>
+Creates a public ip resource. You will create the public ip resource and associate to a domain name.
+
+	azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l eastus -d xplatclitest -a "Dynamic"
+	info:    Executing command network public-ip create
+	+ Looking up the public ip "mytestpublicip1"
+	+ Creating public ip address "mytestpublicip1"
+	+ Looking up the public ip "mytestpublicip1"
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip1
+	data:    Name:                 mytestpublicip1
+	data:    Type:                 Microsoft.Network/publicIPAddresses
+	data:    Location:             eastus
+	data:    Provisioning state:   Succeeded
+	data:    Allocation method:    Dynamic
+	data:    Idle timeout:         4
+	data:    Domain name label:    xplatclitest
+	data:    FQDN:                 xplatclitest.eastus.cloudapp.azure.com
+	info:    network public-ip create command OK
+	
+
+Parameter options:
+	-h, --help                                   output usage information
+	-v, --verbose                                use verbose output
+	--json                                       use json output
+	-g, --resource-group <resource-group>        the name of the resource group
+	-n, --name <name>                            the name of the public ip
+	-l, --location <location>                    the location
+	-d, --domain-name-label <domain-name-label>  the domain name label.
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              the idle timeout in minutes
+	-f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>            the subscription identifier
+<br>
+	
 	network public-ip set [options] <resource-group> <name>
+Updates the properties of an existing public ip resource. In the following example we changed the public IP address from Dynamic to Static.
+
+	azure network public-ip set -g group-1 -n mytestpublicip1 -d xplatclitest -a "Static"
+	info:    Executing command network public-ip set
+	+ Looking up the public ip "mytestpublicip1"
+	+ Updating public ip address "mytestpublicip1"
+	+ Looking up the public ip "mytestpublicip1"
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip1
+	data:    Name:                 mytestpublicip1
+	data:    Type:                 Microsoft.Network/publicIPAddresses
+	data:    Location:             eastus
+	data:    Provisioning state:   Succeeded
+	data:    Allocation method:    Static
+	data:    Idle timeout:         4
+	data:    IP Address:           (static IP address)
+	data:    Domain name label:    xplatclitest
+	data:    FQDN:                 xplatclitest.eastus.cloudapp.azure.com
+	info:    network public-ip set command OK
+	
+Parameter options:
+
+	-h, --help                                   output usage information
+	-v, --verbose                                use verbose output
+	--json                                       use json output
+	-g, --resource-group <resource-group>        the name of the resource group
+	-n, --name <name>                            the name of the public ip
+	-d, --domain-name-label [domain-name-label]  the domain name label.
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              the idle timeout in minutes
+	-f, --reverse-fqdn [reverse-fqdn]            the reverse fqdn
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	--no-tags                                    remove all existing tags
+	-s, --subscription <subscription>            the subscription identifier
+	
+<br>	
 	network public-ip list [options] <resource-group>
+Lists all public IP resources within a resource group.
+
+	azure network public-ip list -g myresourcegroup
+
+	info:    Executing command network public-ip list
+	+ Getting the public ip addresses
+	data:    Name             Location  Allocation  IP Address    Idle timeout  DNS Name
+	data:    ---------------  --------  ----------  ------------  ------------  -------------------------------------------
+	data:    mypubip5         westus    Dynamic                   4             "domain name".westus.cloudapp.azure.com
+	data:    myPublicIP       eastus    Dynamic                   4             "domain name".eastus.cloudapp.azure.com
+	data:    mytestpublicip   eastus    Dynamic                   4             "domain name".eastus.cloudapp.azure.com
+	data:    mytestpublicip1  eastus   Static (Static IP address) 4             xplatclitest.eastus.cloudapp.azure.com
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-s, --subscription <subscription>      the subscription identifier
+<BR>	
 	network public-ip show [options] <resource-group> <name>
+Displays public ip properties for a public ip resource within a resource group.
+
+	azure network public-ip show -g myresourcegroup -n mytestpublicip
+
+	info:    Executing command network public-ip show
+	+ Looking up the public ip "mytestpublicip1"
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip
+	data:    Name:                 mytestpublicip
+	data:    Type:                 Microsoft.Network/publicIPAddresses
+	data:    Location:             eastus
+	data:    Provisioning state:   Succeeded
+	data:    Allocation method:    Static
+	data:    Idle timeout:         4
+	data:    IP Address:           (static IP address)
+	data:    Domain name label:    xplatclitest
+	data:    FQDN:                 xplatclitest.eastus.cloudapp.azure.com
+	info:    network public-ip show command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the public IP
+	-s, --subscription <subscription>      the subscription identifier
+
+
 	network public-ip delete [options] <resource-group> <name>
-   
+
+Deletes public ip resource.
+	
+	azure network public-ip delete -g group-1 -n mypublicipname
+	info:    Executing command network public-ip delete
+	+ Looking up the public ip "mypublicipname"
+	Delete public ip address "mypublicipname"? [y/n] y
+	+ Deleting public ip address "mypublicipname"
+	info:    network public-ip delete command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the public IP
+	-q, --quiet                            quiet mode, do not ask for delete confirmation
+	-s, --subscription <subscription>      the subscription identifier
+
+
 **Commands to manage network interfaces**
 
 	network nic create [options] <resource-group> <name> <location>
+Creates a resource called network interface (NIC) which can be used for load balancers or associate to a Virtual Machine.
+
+	azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
+	
+	info:    Executing command network nic create
+	+ Looking up the network interface "testnic1"
+	+ Looking up the subnet "subnet-1"
+	+ Creating network interface "testnic1"
+	+ Looking up the network interface "testnic1"
+	data:    Id:                     /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/networkInterfaces/testnic1
+	data:    Name:                   testnic1
+	data:    Type:                   Microsoft.Network/networkInterfaces
+	data:    Location:               eastus
+	data:    Provisioning state:     Succeeded
+	data:    IP configurations:
+	data:       Name:                         NIC-config
+	data:       Provisioning state:           Succeeded
+	data:       Private IP address:           10.0.0.5
+	data:       Private IP Allocation Method: Dynamic
+	data:       Subnet:                       /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/virtualNetworks/myVNET/subnets/Subnet-1
+
+Parameter options:
+
+	-h, --help                                                       output usage information
+	-v, --verbose                                                    use verbose output
+	--json                                                           use json output
+	-g, --resource-group <resource-group>                            the name of the resource group
+	-n, --name <name>                                                the name of the network interface
+	-l, --location <location>                                        the location
+	-w, --network-security-group-id <network-security-group-id>      the network security group identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
+	-o, --network-security-group-name <network-security-group-name>  the network security group name.
+	This network security group must exist in the same resource group as the nic.
+	Please use network-security-group-id if that is not the case.
+	-i, --public-ip-id <public-ip-id>                                the public IP identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
+	-p, --public-ip-name <public-ip-name>                            the public IP name.
+	This public ip must exist in the same resource group as the nic.
+	Please use public-ip-id if that is not the case.
+	-a, --private-ip-address <private-ip-address>                    the private IP address
+	-u, --subnet-id <subnet-id>                                      the subnet identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
+	--subnet-name <subnet-name>                                  the subnet name
+	-m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
+	-t, --tags <tags>                                                the comma seperated list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>                                the subscription identifier
+	data:
+	info:    network nic create command OK
+	
+<BR>
+
 	network nic set [options] <resource-group> <name>
+	
 	network nic list [options] <resource-group>
 	network nic show [options] <resource-group> <name>
 	network nic delete [options] <resource-group> <name>
