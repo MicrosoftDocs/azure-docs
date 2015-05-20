@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Create an Operational Insights account and sign in"
    description="Learn about how to create an Operational Insights account and then sign in"
    services="operational-insights"
@@ -6,13 +6,13 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="05/20/2015"
    ms.author="banders" />
 
 # Create an Operational Insights account and sign in
