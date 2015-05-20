@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Upload data for Hadoop jobs in HDInsight | Microsoft Azure" 
 	description="Learn how to upload and access data for Hadoop jobs in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." 
-	services="storage, hdinsight" 
+	services="hdinsight,storage" 
 	documentationCenter="" 
 	authors="mumian" 
 	manager="paulettm" 
