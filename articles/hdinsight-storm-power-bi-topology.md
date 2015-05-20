@@ -1,6 +1,6 @@
 <properties
  pageTitle="Write data to Power BI from Apache Storm | Microsoft Azure"
- description="An exmaple of how to write data to Power BI from a C# topology running on an Apache Storm on HDInsight cluster. After writing the data, you will learn how to create a report and real-time dashboard using Power BI."
+ description="Write data to Power BI from a C# topology running on an Apache Storm cluster in HDInsight. Also, create a report and real-time dashboard using Power BI."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"

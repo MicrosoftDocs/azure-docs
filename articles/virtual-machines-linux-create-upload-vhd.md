@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="05/15/2015" 
 	ms.author="kathydav"/>
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
@@ -73,6 +73,25 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 	`azure login`
 
 	When prompted, type your username and password.
+
+**OR**, to use a PublishSettings file instead:
+
+1. Open an Azure CLI window
+
+2. Type:
+
+	`azure account download`
+
+	This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Azure subscription. 
+
+3. Save the .publishsettings file
+
+4. Type:
+
+	`azure account import <PathToFile>`
+
+	Where `<PathToFile>` is the full path to the .publishsettings file.
+
 
 ### If using Azure PowerShell
 

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Hive query with Hadoop tools for Visual Studio | Microsoft Azure"
-   description="Learn how to use Hive with HDInsight through Visual Studio."
+   description="Learn how to use Hive with Hadoop in HDInsight using Visual Studio Hadoop tools."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
