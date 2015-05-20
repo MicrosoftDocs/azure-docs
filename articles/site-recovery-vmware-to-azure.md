@@ -207,7 +207,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
 4. After registration finishes a passphrase is generated. Copy it to a secure location. You'll need it to authenticate and register the process and master target servers with the configuration server. It's also used to ensure channel integrity in configuration server communications. You can regenerate the passphrase but then you'll need to reregister the master target and process servers using the new passphrase.
 
-	![Passphrase](./media/site-recovery-vmware-to-azure/ASRVMWareRegister2.png)
+	![Passphrase](./media/site-recovery-vmware-to-azure/passphrase.png)
 
 After registration the configuration server will be listed on the **Configuration Servers** page in the vault.
 
