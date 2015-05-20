@@ -39,7 +39,7 @@ This update contains the following new features and improvements:
     - **Business continuity**, by enabling migration of existing data on 5000-7000 series appliances to 8000 series appliances.
     - **Improved feature offerings of the 8000 series appliances**, such as efficient centralized management of multiple appliances through StorSimple Manager service, better class of hardware and updated firmware, virtual appliances, data mobility, and features in the future roadmap.
 
-    Refer to the migration guide for details on how to migrate a StorSimple 5000-7000 series to an 8000 series device. 
+    Refer to the [migration guide]() for details on how to migrate a StorSimple 5000-7000 series to an 8000 series device. 
 
 - **Availability in the Azure Government Portal** – StorSimple is now available in the Azure Government portal. See how to [deploy a StorSimple device in Azure Government Portal](storsimple-deployment-walkthrough-gov.md).
 
@@ -49,7 +49,7 @@ This update contains the following new features and improvements:
 
 - **Support for Zone Redundant Storage (ZRS)** – With the upgrade to the latest version of the Storage APIs, the StorSimple 8000 series will support Zone Redundant Storage (ZRS) in addition to Locally Redundant Storage (LRS) and Geo-redundant Storage (GRS). Refer to this [article on Azure Storage redundancy options](storage-redundancy.md) for ZRS details.
 
-- **Enhanced initial deployment and update experience** – In this release, the installation and update processes have been enhanced. The installation through the setup wizard is improved to provide feedback to the user if the network configuration and firewall settings are incorrect. Additional diagnostic cmdlets have been provided to help you with troubleshooting networking of the device. See [this article]() for more information about the new diagnostic cmdlets used for troubleshooting.
+- **Enhanced initial deployment and update experience** – In this release, the installation and update processes have been enhanced. The installation through the setup wizard is improved to provide feedback to the user if the network configuration and firewall settings are incorrect. Additional diagnostic cmdlets have been provided to help you with troubleshooting networking of the device. See  the [troubleshooting deployment article](http://azure.microsoft.com/en-us/documentation/articles/storsimple-troubleshoot-deployment/#cmdlets-available-for-troubleshooting) for more information about the new diagnostic cmdlets used for troubleshooting.
 
 ## Issues fixed in Update 1
 
