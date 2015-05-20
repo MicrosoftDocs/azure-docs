@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Scale Stream Analytics jobs | Azure"
-	description="Learn how to scale Stream Analytics jobs"
+	pageTitle="Scale Stream Analytics jobs to increase throughput | Microsoft Azure"
+	description="Learn how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units."
+	keywords="analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -16,21 +17,23 @@
 	ms.date="05/08/2015"
 	ms.author="jeffstok"/>
 
-# Scale Azure Stream Analytics jobs
+# Scale Azure Stream Analytics jobs to increase throughput
 
-Learn how to calculate *Streaming Units* for a Stream Analytics job, and how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
+Learn how to calculate *streaming units* for Stream Analytics jobs, and how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units. 
 
-An Azure Stream Analytics job definition includes inputs, a query, and output. Inputs are from where the job reads the data stream, the query is used to transform the input stream, and the output is where the job sends the job results to.  
+## What are the parts of a Stream Analytics job?
+An Azure Stream Analytics job definition includes inputs, a query, and output. Inputs are from where the job reads the data stream, the query is used to transform the data input stream, and the output is where the job sends the job results to.  
 
-A job requires at least one data stream input source. The data stream input source can be stored in an Azure Service Bus Event Hub or in Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md), [Get started using Azure Stream Analytics](stream-analytics-get-started.md), and [Azure Stream Analytics developer guide](stream-analytics-developer-guide.md).
+A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure Service Bus Event Hub or in Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md), [Get started using Azure Stream Analytics](stream-analytics-get-started.md), and [Azure Stream Analytics developer guide](stream-analytics-developer-guide.md).
 
-The resource available for processing Stream Analytics jobs is measured by a streaming unit. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can select up to your quota in streaming units for a Stream Analytics job by using the Azure portal. Each Azure subscription by default has a quota of up to 50 streaming units for all the jobs in a specific region. To increase streaming units for your subscriptions, contact [Microsoft Support](http://support.microsoft.com).
+## What is a streaming unit?
+The resource available for processing Stream Analytics jobs is measured by a streaming unit. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can select up to your quota in streaming units for a Stream Analytics job by using the Azure portal. Each Azure subscription by default has a quota of up to 50 streaming units for all the analytics jobs in a specific region. To increase streaming units for your subscriptions, contact [Microsoft Support](http://support.microsoft.com).
 
 The number of streaming units that a job can utilize depends on the partition configuration for the inputs and the query defined for the job. Note also that a valid value for the stream units must be used. The valid values start at 1, 3, 6 and then upwards in increments of 6, as shown below.
 
 ![Azure Stream Analytics Stream Units Scale][img.stream.analytics.streaming.units.scale]
 
-This article will show you how to calculate and tune the query to increase throughput.
+This article will show you how to calculate and tune the query to increase throughput for analytics jobs.
 
 ## Calculate the maximum streaming units of a job
 The total number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions for each step.
@@ -135,7 +138,7 @@ Each of the Input1 partitions will be processed separately by Stream Analytics, 
 
 This query can be scaled to 24 streaming units.
 
->[AZURE.NOTE] If you are joining two streams, please ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
+>[AZURE.NOTE] If you are joining two streams, ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
 
 
 ## Configure Stream Analytics job partition
