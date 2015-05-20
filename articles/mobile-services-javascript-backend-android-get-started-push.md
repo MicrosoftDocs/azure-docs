@@ -19,7 +19,7 @@
 	ms.author="ricksal"/>
 
 
-# Add push notifications to your Mobile Services app
+# Add push notifications to your Android Mobile Services app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
@@ -30,10 +30,8 @@ This topic shows how to use Azure Mobile Services to send push notifications to 
 <!-- [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStartedWithPush/AndroidStudio" target="_blank">here</a>.
 -->
 
-> [AZURE.NOTE] If you would like to see the Eclipse version of this tutorial, go to : [Get started with push notifications (Eclipse)].
 
-
-##Prerequisites
+## Prerequisites
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -47,9 +45,7 @@ This topic shows how to use Azure Mobile Services to send push notifications to 
 
 ##<a id="add-push"></a>Add push notifications to your app
 
-###Verify Android SDK Version
 
-[AZURE.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. 
 
@@ -95,7 +91,7 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 ###Running the test
 
-1. From the **Run** menu in Eclipse, then click **Run** to start the app.
+1. From the **Run** menu item, click **Run app** to start the app.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
 
@@ -106,6 +102,21 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 You have successfully completed this tutorial.
 
+## Troubleshooting
+
+### Verify Android SDK Version
+
+[AZURE.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
+
+
+## Older Code Versions
+
+If you would like to see the Eclipse version of this tutorial, go to [Get started with push notifications (Eclipse)].
+
+
+To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
+
+If you want to get the sample file used in the preceding version of the Azure Mobile Services Android SDK, you can get it [here](http://go.microsoft.com/fwlink/p/?LinkID=282122).
 
 ## <a name="next-steps"> </a>Next steps
 
