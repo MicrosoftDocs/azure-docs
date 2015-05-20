@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="05/20/2015" 
 	ms.author="huvalo"/>
 
 
