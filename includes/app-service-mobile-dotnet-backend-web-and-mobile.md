@@ -18,7 +18,7 @@ Then, you will create a web app, using the same database as your mobile app. At 
 
 In this section, you will create a new web app using a sample Web Application solution. You will modify the sample to use the same database schema name and the same connection string as the mobile app.
 
-    > [AZURE.NOTE] Before completing these steps, ensure that you've initialized your mobile app backend database by connecting a client to it. Otherwise, the web app will not be able to connect to the same database.
+>[AZURE.NOTE] Before completing these steps, ensure that you've initialized your mobile app backend database by connecting a client to it. Otherwise, the web app will not be able to connect to the same database.
 
 1. In the [Azure Portal](https://portal.azure.com/), create a new web app, using the same Resource Group and Hosting Plan as your mobile app.
 

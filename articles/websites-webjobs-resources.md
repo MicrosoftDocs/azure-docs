@@ -131,6 +131,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [Azure App Service Web Apps forum](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Azure Web Apps User Voice site](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/). Use the hashtag #AzureWebJobs.
+* [Report a WebJobs bug or issue](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

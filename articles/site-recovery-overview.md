@@ -44,9 +44,9 @@ Secondary datacenter | VMM server with SAN | Replicate virtual machines on on-pr
 Secondary datacenter | Single VMM server | Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary cloud on the same VMM server | [Read more](site-recovery-single-vmm) 
 
 
-## Supported workloads
+## Workload Guidance
 
-This table summarizes the workload replication scenarios that have been tested by Microsoft. 
+ASR replication technologies are compatible with any application running in a virtual machine. We have conducted additional testing in partnership with application product teams to further support each application.
 
 **Workload** | <p>**Replicate Hyper-V virtual machines**</p> <p>**(to secondary site)**</p> | <p>**Replicate Hyper-V virtual machines**</p> <p>**(to Azure)**</p> | <p>**Replicate VMware virtual machines**</p> <p>**(to secondary site)**</p> | <p>**Replicate VMware virtual machines**</p><p>**(to Azure)**</p>
 ---|---|---|---|---
@@ -54,12 +54,12 @@ Active Directory, DNS | Y | Y | Y | Coming soon
 Web apps (IIS, SQL) | Y | Y | Y | Coming soon
 SCOM | Y | Y | Y | Coming soon
 <p>SAP</p><p>Replicate SAP site to Azure for non cluster</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Coming soon
-Exchange (non-DAG) | Y | Y | Y | Coming soon
+Exchange (non-DAG) | Y | Coming soon | Y | Coming soon
 Remote Desktop/VDI | Y | Y | Y | Coming soon 
 <p>Linux</p> <p>(operating system and apps)</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Coming soon 
 Dynamics AX | Y | Y | Y | Coming soon
 Dynamics CRM | Coming soon | Coming soon | Y | Coming soon
-Oracle | Coming soon | Coming soon | Y | Coming soon
+Oracle | Coming soon | Coming soon | Y (tested by Microsoft) | Coming soon
 
 
 ## Features and requirements 
