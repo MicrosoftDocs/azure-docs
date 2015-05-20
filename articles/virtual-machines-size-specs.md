@@ -15,6 +15,8 @@ ms.service="virtual-machines"
  ms.date="05/20/2015" 
  ms.author="kathydav"/>
 
+#Virtual machine sizes
+
 ##Overview
 This topic describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads. These resources are available to you as Azure Virtual Machines (sometimes called “IaaS virtual machines” or “persistent virtual machines”), and Cloud Service role instances (web roles and worker roles). This topic also provides deployment considerations to be aware of when planning to use these resources.
 
