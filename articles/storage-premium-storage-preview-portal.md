@@ -414,7 +414,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 #### Create a DS-series virtual machine
 
-	azure vm create -z "Standard_DS2" -l "East US 2" -e 22 "premium-test-vm"
+	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
 		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
 
 #### Display information about the virtual machine
