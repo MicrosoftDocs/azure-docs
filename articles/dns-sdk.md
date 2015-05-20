@@ -18,6 +18,7 @@
 # Creating DNS zones and record sets using the .NET SDK
 You can automate operations to create , delete or update DNS zones, recordsets and records using DNS SDK with .NET DNS Management library.
 
+>[AZURE.NOTE] You can download a visual studio sample using the following [link](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 ## NuGet Packages & Namespace Declarations
 In order to use the DNS Client, it is necessary to install the “Azure DNS Management Library” NuGet package and add the DNS management namespaces to your project. Go to Visual Studio, open a project or new project and go to tools, Nuget package manager console. Download the Azure DNS management library:
 
@@ -55,7 +56,7 @@ create a DNS zone:
 	dnsClient.Zones.CreateOrUpdate("myresgroup", "myzone.com", zoneParams);
 
 
-Azure DNS supports optimistic concurrency called [Etags](../dns-getstarted-create-dnszone.md#Etags-and-tags)  The Etag is a property of the Zone and IfNoneMatch is a property in ZoneCreateOrUpdateParameters.
+Azure DNS supports optimistic concurrency called [Etags](../dns-getstarted-create-dnszone#Etags-and-tags)  The Etag is a property of the Zone and IfNoneMatch is a property in ZoneCreateOrUpdateParameters.
 
 ## Creating or Updating DNS Records
 DNS records are managed as a record set.  A record set is the set of records with the same name and record type within a zone.  To create or update a record set, a RecordSet object is created and passed to dnsClient.RecordSets.CreateOrUpdate.  Note that the record set name is relative to the zone name as opposed to being the fully qualified DNS name.  Again the location is set to "global".
@@ -75,7 +76,7 @@ make some records sets
 	"myzone.com", "www", RecordType.A, recordParams);
 	
     
-Azure DNS supports optimistic concurrency [Etags](../dns-getstarted-create-dnszone.md#Etags-and-tags).  The Etag is a property of the RecordSet and IfNoneMatch is a property in RecordSetCreateOrUpdateParameters.
+Azure DNS supports optimistic concurrency [Etags](../dns-getstarted-create-dnszone#Etags-and-tags).  The Etag is a property of the RecordSet and IfNoneMatch is a property in RecordSetCreateOrUpdateParameters.
 
 ## Getting Zones and RecordSets
 The Zones and RecordSets collections provide the ability to get zones and record sets respectively.  RecordSets are identified by their type, name and the zone (and resource group) they exist in.  Zones are identified by their name and the resource group they exist in.
@@ -103,3 +104,5 @@ The following example shows how to get a list of DNS zones and Record sets:
 	}
 ## See Also 
 [Traffic Manager Overview](../traffic-manager-overview)
+
+[Azure DNS Overview](../dns-overview)
