@@ -39,9 +39,9 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 	This script adds the user ID of the authenticated user to the item before insertion.
 
-    > [AZURE.NOTE] Make sure that [dynamic schema](https://msdn.microsoft.com/library/azure/jj193175.aspx) is enabled. Otherwise, the *userId* column is not added automatically. This setting is enabled by default for a new mobile service.
+    >[AZURE.NOTE] Make sure that [dynamic schema](https://msdn.microsoft.com/library/azure/jj193175.aspx) is enabled. Otherwise, the *userId* column is not added automatically. This setting is enabled by default for a new mobile service.
 
-5. Similarly, replace the existing **Read** operation with the following function. This script filters returned TodoItem objects so that a user receives only the items that they insert themselves.
+3. Similarly, replace the existing **Read** operation with the following function. This script filters returned TodoItem objects so that a user receives only the items that they insert themselves.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
