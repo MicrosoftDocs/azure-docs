@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Operations Manager considerations with Operational Insights"
    description="If you use Microsoft Azure Operational Insights with Operations Manager, then your configuration relies on a distribution of Operations Manager agents and management groups to collect and send data to the Operational Insights service for analysis"
    services="operational-insights"
@@ -6,13 +6,13 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="05/20/2015"
    ms.author="banders" />
 
 # Operations Manager considerations with Operational Insights
@@ -100,4 +100,3 @@ As an example, if you assume a daily upload size of 100 KB per agent and the de
 ## Geographic locations
 
 If you want to analyze data from servers in diverse geographic locations, consider having one management group per location. This can improve the performance of data transfer from the agent to the management group.
-
