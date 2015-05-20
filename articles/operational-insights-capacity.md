@@ -1,4 +1,4 @@
-<properties
+<properties 
    pageTitle="Manage infrastructure capacity"
    description="Learn about using the Capacity Planning intelligence pack in Operational Insights to help you understand the capacity of your server infrastructure"
    services="operational-insights"
@@ -6,13 +6,13 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags
+<tags 
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2015"
+   ms.date="03/20/2015"
    ms.author="banders" />
 
 # Manage infrastructure capacity
@@ -23,7 +23,7 @@ For example, a projection might identify when additional processor cores or addi
 
 ## Capacity Management dashboard
 
-Before you can use the Capacity Management dashboard in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). After the Capacity Planning intelligence pack is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in Operational Insights.
+Before you can use the Capacity Management dashboard in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). After the Capacity Planning intelligence pack is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in Operational Insights. 
 
 ![image of Capacity Planning tile](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -159,3 +159,4 @@ By using the projection tool, you can view historical trends for your disk space
 3. In the **Disk Performance** area, you can view disk throughput and latency information.
 
 4. In the **Projection tool**, move the date slider to display a projection of the capacity that will be used on the date you choose.
+

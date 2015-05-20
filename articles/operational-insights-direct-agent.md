@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Connect computers directly to Operational Insights "
-	description="You can connect computers directly to Operational Insights by installing the Operational Insights agent to each computer you want to on board."
-	services="operational-insights"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
+<properties 
+	pageTitle="Connect computers directly to Operational Insights " 
+	description="You can connect computers directly to Operational Insights by installing the Operational Insights agent to each computer you want to on board." 
+	services="operational-insights" 
+	documentationCenter="" 
+	authors="bandersmsft" 
+	manager="jwhit" 
 	editor=""/>
 
-<tags
-	ms.service="operational-insights"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/20/2015" 
+<tags 
+	ms.service="operational-insights" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/30/2015" 
 	ms.author="banders"/>
-# Connect computers directly to Operational Insights
+# Connect computers directly to Operational Insights 
 
-You can connect computers directly to Operational Insights by installing the Operational Insights agent on each computer you want to on board.
+You can connect computers directly to Operational Insights by installing the Operational Insights agent on each computer you want to on board. 
 
 
 ## Download and install the agent
@@ -74,4 +74,4 @@ $healthServiceSettings.ReloadConfiguration()
 ## Configure proxy and firewall settings (optional)
 If you have proxy servers or firewalls in your environment that restrict access to the Internet, you might need to follow the following procedures to enable Operations Manager or agents to communicate to the Operational Insights service.
 
-- [Configure proxy and firewall settings (Optional)](operational-insights-proxy-firewall.md)
+- [Configure proxy and firewall settings (Optional)](operational-insights-proxy-firewall.md) 
