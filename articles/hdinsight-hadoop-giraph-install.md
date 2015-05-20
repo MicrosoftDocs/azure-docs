@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Install and use Giraph on Hadoop clusters in HDInsight | Microsoft Azure" 
-	description="Learn how to customize HDInsight cluster to install Giraph. You'll use a Script Action configuration option to use a script to install Giraph." 
+	description="Learn how to customize HDInsight cluster with Giraph. You'll use a Script Action configuration option to use a script to install Giraph." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
