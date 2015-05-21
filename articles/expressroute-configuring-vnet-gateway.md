@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/20/2015"
+   ms.date="05/21/2015"
    ms.author="cherylmc"/>
 
 #  Configure a Virtual Network for ExpressRoute
@@ -29,19 +29,19 @@
 
 	- **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 	- **Configure Site-To-Site VPN** - Select the checkbox for **Configure a site-to-site VPN**.
-	- **Select ExpressRoute** – Select the checkbox **Use ExpressRoute**. This option only appears if you selected Configure a site-to-site VPN in the previous step.
-	- **Local Network** – A local network represents your physical on-premises location. You can select a local network that you’ve previously created, or you can create a new local network.
+	- **Select ExpressRoute** – Select the checkbox **Use ExpressRoute**. This option only appears if you selected ***Configure a Site-to-Site VPN*** in the previous step.
+	- **Local Network** - A local network represents your physical on-premises location. You can select a local network that you’ve previously created, or you can create a new local network.
 
 	If you select an existing local network, skip step 5.
 
 5. If you’re creating a new local network, you’ll see the **Site-To-Site Connectivity** page. If you selected a local network that you previously created, this page will not appear in the wizard and you can move on to the next section. To configure your local network, enter the following information and then click the next arrow. For more information about the settings on this page, see [Site-To-Site Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETSITE).
 
 	- **Name** - The name you want to call your local (on-premises) network site.
-	- **Address Space** - including Starting IP and CIDR (Address Count). You can specify any address range as long as it doesn't overlap with the address range for your virtual network.
+	- **Address space** - including Starting IP and CIDR (Address Count). You can specify any address range as long as it doesn't overlap with the address range for your virtual network.
 	- **Add address space** - This setting is not relevant for ExpressRoute.
 
 6. On the **Virtual Network Address Spaces** page, enter the following information and then click the checkmark on the lower right to configure your network. There are quite a few rules regarding virtual network address space, so you may want to see the 
-[Virtual Network Address Spaces page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) for more information.
+[Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) page for more information.
 
 	- **Address space** - including starting IP and address count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your local network.
 	- **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have dynamic IP addresses (DIPS). Or you might want to have your VMs in a subnet that is separate from your PaaS instances.
@@ -68,7 +68,7 @@
 ## Next Steps
 If you want to add virtual machines to your virtual network, see [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md).
 
-If you want to learn more about ExpressRoute, see [ExpresRoute Technical Overview](expressroute-introduction.md).
+If you want to learn more about ExpressRoute, see [ExpressRoute Technical Overview](expressroute-introduction.md).
 
-If you want to learn more about virtual networks, see the [Virtual Network FAQ](https://msdn.microsoft.com/library/azure/dn133803.aspx). 
+If you want to learn more about virtual networks, see the [Virtual Network FAQ](https://msdn.microsoft.com/library/azure/dn133803.aspx).
 
