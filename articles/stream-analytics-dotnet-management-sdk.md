@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Learn how to use Stream Analytics Management .NET SDK | Microsoft Azure" 
-	description="Learn how to use Stream Analytics Management .NET SDK to set up and run analytics jobs. Create a project, inputs, outputs, and transformations, and then stop and start jobs." 
+	description="Get started with Stream Analytics Management .NET SDK. Learn how to set up and run analytics jobs: Create a project, inputs, outputs, and transformations." 
 	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -20,9 +20,9 @@
 
 # Set up and run analytics jobs using the Azure Stream Analytics Management .NET SDK
 
-Learn how to set up an run analytics jobs using the Stream Analytics Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, can stream data from Blob storage or from an event hub.
+Learn how to set up an run analytics jobs using the Stream Analytics Management .NET SDK. Set up a project, create input and output sources, transformations, and start and stop jobs. For your analytics jobs, you can stream data from Blob storage or from an event hub.
 
-Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud. Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
+Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud. Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows them to drive near real-time analytics.  
 
 For the .NET API reference, see [Stream Analytics Management .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
@@ -331,7 +331,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 ## Next steps
 
-You've learning some basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
+You've learning the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
 
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)

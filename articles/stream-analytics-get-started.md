@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Stream Analytics: Real-time fraud detection | Microsoft Azure"
-	description="Learn how to use Stream Analytics to build a real-time fraud detection solution over generated telecommunication data. Use an event hub for real-time event processing."
+	description="Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing."
 	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
@@ -21,7 +21,7 @@
 
 # Get started using Azure Stream Analytics: Real-time fraud detection
 
-Learn how to create an end-to-end solution for real-time fraud detection with Stream Analytics. Bring events into Azure Event Hubs, write Stream Analytics queries for aggregation or alerting, and send the results to an output sink to gain insight over data with real-time processing.
+Learn how to create an end-to-end solution for real-time fraud detection with Stream Analytics. Bring events into an Azure event hub, write Stream Analytics queries for aggregation or alerting, and send the results to an output sink to gain insight over data with real-time processing.
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md).
 

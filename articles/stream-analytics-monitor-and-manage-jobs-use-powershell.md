@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitor and manage Stream Analytics jobs with PowerShell | Microsoft Azure" 
-	description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs." 
+	description="Learn how to use Azure PowerShell and cmdlets to monitor and manage Stream Analytics jobs." 
 	keywords="azure powershell,azure powershell cmdlets,powershell command"	
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -88,7 +88,7 @@ Lists all of the outputs that are defined in a specified Stream Analytics job, o
 **Example 1**
 
 	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
-This command returns information about the outputs defined in the job StreamingJob.
+This PowerShell command returns information about the outputs defined in the job StreamingJob.
 
 **Example 2**
 

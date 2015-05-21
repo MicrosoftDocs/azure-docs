@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Real-time Twitter sentiment analysis with Stream Analytics | Microsoft Azure"
-	description="Learn how to use Stream Analytics for real-time Twitter sentiment analysis. This tutorial includes steps from event generation to data on a live dashboard."
+	description="Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard."
 	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""

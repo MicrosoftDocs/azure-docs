@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Learn about Stream Analytics key concepts | Microsoft Azure" 
-	description="Guide to key concepts of Stream Analytics: Components of an event processing job, including supported inputs and outputs, job configuration, and exposed metrics." 
+	description="Learn key concepts of Azure Stream Analytics: Components of a stream analytics job, including supported inputs and outputs, job configuration, and metrics." 
 	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -20,7 +20,7 @@
 
 # Stream Analytics key concepts: Guide to the basics of a stream analytics job 
 
-Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over data stream in the cloud. Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics. This article explains the key concepts of a Stream Analytics job.
+Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over a data stream in the cloud. Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics. This article explains the key concepts of a Stream Analytics job.
 
 ## What can you do in Stream Analytics?
 With Stream Analytics, you can:
@@ -34,7 +34,7 @@ For more information, see [Introduction to Azure Stream Analytics](stream.analyt
 
 A Stream Analytics job includes all of the following:
 * One or more input sources
-* A query over the incoming data stream
+* A query over an incoming data stream
 * An output target.    
 
 
@@ -208,10 +208,6 @@ Now that you're familiar with the key concepts of Stream Analytics, try:
 
 
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
