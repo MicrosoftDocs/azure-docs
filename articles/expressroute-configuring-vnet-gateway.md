@@ -41,7 +41,7 @@
 	- **Add address space** - This setting is not relevant for ExpressRoute.
 
 6. On the **Virtual Network Address Spaces** page, enter the following information and then click the checkmark on the lower right to configure your network. There are quite a few rules regarding virtual network address space, so you may want to see the 
-[Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) page for more information.
+[Virtual Network Address Spaces page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) for more information.
 
 	- **Address space** - including starting IP and address count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your local network.
 	- **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have dynamic IP addresses (DIPS). Or you might want to have your VMs in a subnet that is separate from your PaaS instances.
