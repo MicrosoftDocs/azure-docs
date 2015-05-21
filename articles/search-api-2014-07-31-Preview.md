@@ -4,7 +4,7 @@
 
 # Azure Search Service REST API Version: 2014-07-31-Preview
 
-This document describes the older **2014-07-31-Preview** version of the Azure Search Service REST API, released for the Azure Search Public Preview in August 2014. Documentation for the current, generally released version of the Azure Search REST API can be found on MSDN. See [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) for more information.
+This document describes the older **2014-07-31-Preview** version of the Azure Search Service REST API, released for the Azure Search Public Preview in August 2014. Documentation for the current, generally available version of the Azure Search REST API can be found on MSDN. See [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) for more information.
 
 If you are using a preview version of the API in your application code, we strongly encourage you to migrate to the generally available release.
 For guidance, see [Transition from preview to the generally available API version](search-transition-from-preview.md).

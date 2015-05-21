@@ -1103,7 +1103,7 @@ All analyzers with names annotated with <i>lucene</i> are powered by [Apache Luc
 
 **Suggesters**
 
-A `suggester` defines which fields in an index are used to support auto-complete in searches. Typically partial search strings are sent to the [Suggestions (Azure Search Service REST API)](#Suggestions) while the user is typing a search query, and the API returns a set of suggested phrases. A suggester that you define in the index determines which fields are used to build the type-ahead query strings. See [Suggesters](#Suggesters) for configuration details.
+A `suggester` defines which fields in an index are used to support auto-complete in searches. Typically partial search strings are sent to the [Suggestions API](#Suggestions) while the user is typing a search query, and the API returns a set of suggested phrases. A suggester that you define in the index determines which fields are used to build the type-ahead search terms. See [Suggesters](#Suggesters) for configuration details.
 
 **Scoring profiles**
 
@@ -1166,11 +1166,9 @@ The suggestions feature in Azure Search is a type-ahead or auto-complete query c
 
 - Enable suggestions by adding a **suggester** construction in your index, giving the name, search mode, and a list of fields for which type-ahead is invoked. For example, if you specify "cityName" as a source field, typing a partial search string of "Sea" will result in "Seattle", "Seaside", and "Seatac" (all three are actual city names) offered up as query suggestions to the user.
 
-- Invoke suggestions by calling the [Suggestions (Azure Search Service REST API)](#Suggestions) in your application code. Typically partial search strings are sent to the service while the user is typing a search query, and this API returns a set of suggested phrases.
+- Invoke suggestions by calling the [Suggestions API](#Suggestions) in your application code. Typically partial search strings are sent to the service while the user is typing a search query, and this API returns a set of suggested phrases.
 
-This article explains how to configure a **suggester**. You should also review the [Suggestions (Azure Search Service REST API)](#Suggestions) for details on how a suggester is used.
-
-> [AZURE.NOTE] The equivalent of this API in the .NET client library is the [Suggester class](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx).
+This article explains how to configure a **suggester**. You should also review the [Suggestions API](#Suggestions) for details on how a suggester is used.
 
 **Usage**
 
@@ -1179,7 +1177,7 @@ This article explains how to configure a **suggester**. You should also review t
 As part of the index definition, you can add a single suggester to the `suggesters` collection. Properties that define a suggester include the following:
 
 - `name`: The name of the suggester. You use the name of the suggester when calling the `suggest` API.
-- `searchMode`: The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in middle of sentences.
+- `searchMode`: The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in the middle of sentences.
 - `sourceFields`: A list of one or more fields that are the source of the content for suggestions. Only fields of type `Edm.String` and `Collection(Edm.String)` may be sources for suggestions. Only fields that don't have a custom language analyzer set can be used.
 
 **Suggester Example**
