@@ -185,11 +185,11 @@ Use the following Windows PowerShell cmdlets to detect connectivity errors.
 
 - Test-HcsmConnection: Use this cmdlet to check the connectivity of a successfully registered device.
 
-If you are running Update 1 on your StorSimple device, the following diagnostic cmdlets will also be available.
+If you are running Update 1 on your StorSimple device, the following diagnostic cmdlets are also available.
 
 - Sync-HcsTime: Use this cmdlet to display device time and force a time sync with the NTP server.
 
-- Enable-HcsPing and Disable-HcsPing: Use this cmdlet to allow the hosts to ping the network interfaces on your StorSimple device. By default, the StorSimple network interfaces do not respond to ping requests.
+- Enable-HcsPing and Disable-HcsPing: Use these cmdlets to allow the hosts to ping the network interfaces on your StorSimple device. By default, the StorSimple network interfaces do not respond to ping requests.
 
 - Trace-HcsRoute: Use this cmdlet as a route tracing tool. It sends packets to each router on the way to a final destination over a period of time, and then computes results based on the packets returned from each hop. Since Trace-HcsRoute shows the degree of packet loss at any given router or link, you can pinpoint which routers or links might be causing network problems. 
 
