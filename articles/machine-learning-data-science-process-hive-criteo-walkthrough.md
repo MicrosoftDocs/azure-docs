@@ -20,7 +20,7 @@
 
 # Advanced Analytics Process Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
 
-In this walkthrough, we demonstrate the Advanced Analytics Process Technology (ADAPT) end-to-end using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/en-us/services/hdinsight/) to store, explore and feature engineer data from the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary classification and regression predictive tasks.
+In this walkthrough, we demonstrate the Advanced Analytics Process Technology (ADAPT) end-to-end using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary classification and regression predictive tasks.
 
 This walkthrough shows how to use the headnode of an HDInsight cluster to explore, featurize, and down sample a large dataset to prepare it for  modeling with Azure Machine Learning. It also walks you through the steps in the modeling process and shows how to publish the model as a Web service.
 
@@ -98,7 +98,7 @@ The [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dat
 
 Click on **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in a public [Azure blob storage](storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Windows Azure Blob Storage location. 
+The data resides in a public [Azure blob storage](storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
 
 1. The data in this public blob storage consists of three sub-folders of unzipped data.
 		
@@ -176,7 +176,7 @@ The script [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;table
 	LINES TERMINATED BY '\n'
 	STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/test/day_23';
 
-We note that all these tables are external as we simply point to Windows Azure Blob Storage (wasb) locations. 
+We note that all these tables are external as we simply point to Azure Blob Storage (wasb) locations. 
 
 **There are two ways to execute ANY Hive query that we now mention.**
 
