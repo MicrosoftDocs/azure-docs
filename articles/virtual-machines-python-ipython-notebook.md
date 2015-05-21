@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="05/20/2015" 
 	ms.author="huvalo"/>
 
 
@@ -22,19 +22,10 @@
 
 # IPython Notebook on Azure
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>The <a href="http://ipython.org">IPython project</a> provides a collection of tools for scientific computing that include powerful interactive shells, high-performance and easy to use parallel libraries and a web-based environment called the IPython Notebook. The Notebook provides a working environment for interactive computing that combines code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/python/ipy-youtube2.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">5:22</span></div>
-</div>
+The [IPython project](http://ipython.org) provides a collection of tools for scientific computing that include powerful interactive shells, high-performance and easy to use parallel libraries and a web-based environment called the IPython Notebook. The Notebook provides a working environment for interactive computing that combines code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying.
 
-Whether you're absolutely new to Python and want to learn it in a fun,
-interactive environment or do some serious parallel/technical computing, the
-IPython Notebook is a great choice. As an illustration of its capabilities, the
-following screenshot shows the IPython Notebook being used, in combination with
-the SciPy and matplotlib packages, to analyze the structure of a sound
-recording:
+Whether you're absolutely new to Python and want to learn it in a fun, interactive environment or do some serious parallel/technical computing, the IPython Notebook is a great choice. As an illustration of its capabilities, the
+following screenshot shows the IPython Notebook being used, in combination with the SciPy and matplotlib packages, to analyze the structure of a sound recording:
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
 

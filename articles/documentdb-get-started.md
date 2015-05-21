@@ -56,7 +56,8 @@ Lets get started by creating a DocumentDB account. If you already have an accoun
 5. Then without leaving the menu, click on **Manage NuGet Packages...**
 6. On the left most panel of the **Manage NuGet Packages** window, click **Online** / **nuget.org**.
 7. In the **Search Online** input box, search for **DocumentDB Client Library**.
-8. Within the results, find **Microsoft Azure DocumentDB Client Library** and click **Install**.
+8. Within the results, find **Microsoft Azure DocumentDB Client Library** and click **Install**.  
+   The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 
 Great! You are now ready to start working with DocumentDB.
 

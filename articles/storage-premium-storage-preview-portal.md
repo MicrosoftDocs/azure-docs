@@ -27,7 +27,7 @@ With the introduction of new Premium Storage, Microsoft Azure now offers two typ
 
 Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. You can attach several Premium Storage disks to a virtual machine (VM). With Premium Storage, your applications can have up to 32 TB of storage per VM and achieve 64,000 IOPS (input/output operations per second) per VM with extremely low latencies for read operations.
 
-To get started with Azure Premium Storage, visit [Get started for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
+To get started with Azure Premium Storage, visit [Get started for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
 This article provides an in-depth overview of Azure Premium Storage.
 
@@ -218,7 +218,7 @@ The following table describes the scalability targets for Premium storage accoun
 For more information, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
 ## Throttling when using Premium Storage
-You may see throttling if your application’s IOPS or throughput exceed the allocated limits for a Premium Storage disk or if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for disk based on based on the scalability and performance targets for the disk you have provisioned and based on the disk bandwidth available to the VM.  
+You may see throttling if your application’s IOPS or throughput exceed the allocated limits for a Premium Storage disk or if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for disk based on the scalability and performance targets for the disk you have provisioned and based on the disk bandwidth available to the VM.  
 
 Your application can achieve the lowest latency when it is designed to avoid throttling. On the other hand, if the number of pending I/O requests for the disk is too small, your application cannot take advantage of the maximum IOPS and throughput levels that are available to the disk.
 
@@ -414,7 +414,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 #### Create a DS-series virtual machine
 
-	azure vm create -z "Standard_DS2" -l "East US 2" -e 22 "premium-test-vm"
+	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
 		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
 
 #### Display information about the virtual machine
