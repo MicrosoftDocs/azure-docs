@@ -16,7 +16,7 @@
 	ms.date="04/02/2015" 
 	ms.author="shoatman"/>
 
-# Upgrading DirSycn to Azure Active Director Connect
+# Upgrading DirSync to Azure Active Directory Connect
 
 The following documentation will help you upgrade your existing DirSync installation to Azure AD Connect
 
@@ -31,9 +31,9 @@ Before you install Azure AD Connect, and upgrade from DirSync here are a few thi
 - An Enterprise Administrator account for your local Active Directory
 - Optional: If you configured DirSync to use a full version of SQL Server - The information for that database instance.
 
-### Parallel install
+### Parallel deployment
 
-If you are currently synchronizing more than 50K objects then you will be given an option to perform a parallel install.  Parallel install requires a separate server or set of servers (if you require a separate server for SQL Server).  The benefit of parallel install is the opportunity to avoid synchronization downtime.  The Azure AD Connect installation will attempt to estimate the downtime that we expect, but if you've upgraded DirSync in the past your own experience is likely to be the best guide possible.
+If you are currently synchronizing more than 50K objects then you will be given an option to perform a parallel deployment.  Parallel deployment requires a separate server or set of servers (if you require a separate server for SQL Server).  The benefit of parallel deployment is the opportunity to avoid synchronization downtime.  The Azure AD Connect installation will attempt to estimate the downtime that we expect, but if you've upgraded DirSync in the past your own experience is likely to be the best guide possible.
 
 ## Installing Azure AD Connect
 
@@ -60,6 +60,8 @@ Additional steps/information is required when:
 
 ## In-place upgrade - less than 50K objects - SQL Express (Walkthrough)
 
+0. Launch the Azure AD Connect Installer (MSI)
+
 1. Review and agree to license terms and privacy notice.
 <center>![Welcome to Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/welcome.png)</center>
 
@@ -74,6 +76,85 @@ Additional steps/information is required when:
 
 5. Provide an enterprise admin account for Active Directory.
 <center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/connecttoadds.png)</center>
+
+6. You're now ready to configure.  When you clieck next DirSync will be uninstalled and AAD Connect will be configured and begin synchronizing.  
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/readytoconfigure.png)</center>
+
+
+## In-place upgrade - more than 50K objects
+At step #3 you will see a different message if you have more than 50K objects in scope for synchronization.  A screen similar to the following will be displayed:
+
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)</center>
+
+In this case we recommend you consider a parallel upgrade on a separate server.  Our reason for this recommendation is that depending on the size of your organization an in-place upgrade may impact your service level agreements with your business regarding how quickly changes in local Active Directory are reflected in Azure AD / Office 365.  We attempt to estimate how long it may take for the first synchronization using Azure AD Connect.  As mentioned above, your own experience with the original installation of DirSync or upgrades to DirSync are likely to be the best indicator.  
+
+Parallel deployment requires a separate server or servers (if you are required to run SQL Server on a separate server from AAD Connect).  For that reason it's completely reasonable to consider an in-place upgrade if it can be scheduled in way to avoid impacts within your organization.  
+
+To proceed with an in-place upgrade click the checkbox next to the message: "Continue upgrading DirSync on this computer".
+
+## In-place upgrade - Full SQL Server
+
+At step #3 you will see a different message if your DirSync installation is using a local or remote full version of SQL Server.  A screen similar to the following will be displayed:
+
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)</center>
+
+The information regarding the existing SQL Server database server being used by DirSync is displayed to you.  If need be make the appropriate adjustments.  Clicking "Next" will continue the installation.
+
+## Parallel deployment - more than 50K objects
+
+At step #3 if you have more than 50K objects the Azure AD Connect installation will recommend a parallel deployment.  See "In-place upgrade - more than 50K objects" above for information on whether to choose in-place or pallell deployment of Azure AD Connect.   A screen similar to the following will be displayed:
+
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)</center>
+
+If you want to proceed with parallel deployment you will need to perform the following steps:
+
+- Click the "Export settings" button.  When you install Azure AD Connect on a separate server these settings will be imported to migrate any settings from your Current DirSync to your new AAD Connect installation.
+
+Once your settings have beens successfully exported you can exit the Azure AD Connect wizard on the DirSync server.
+
+### Installation of Azure AD Connect on separate server
+
+When you install Azure AD Connect on a new server it won't find DirSync and will assume that you want to perform a clean install of Azure AD Connect.  There are a couple of special steps here:
+
+1. Run the Azure AD Connect installer (MSI)
+2. When you see the "Welecome to Azure AD Connect" screen.  Exit the wizard by clicking the "X" in the top right corner of the windows.
+3. Open a command prompt
+4. From the install location of Azure AD Connect (Default: C:\Program Files\Microsoft Azure Active Directory Connect) execute the following command:
+    * AzureADConnect.exe /migrate
+
+Azure AD Connects and presents you with the following UI:
+
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsettings.png)</center>
+
+5. Select the settings file that exported from your DirSync installation.
+6. Configure any advanced options including:
+    * A custom installation location for Azure AD Connect
+	* An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2012 Express)
+	* A service account used to connect to SQL Server (If your SQL Server database is remote then this account must be a domain service account)
+
+See those options in the following UI:
+
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)</center>
+
+7. Click Next. 
+8. On the "Ready to configure" page uncheck "Start the synchronization process as soon as the configuration completes"
+8. Click "Install".
+
+[AZURE.NOTE] We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running and Azure AD Connect do not attempt to write to AAD at the same time.    
+
+### Check that Azure AD Connect is ready to begin sychronization
+
+In order to determinw whether or not Azure AD Connect is ready to takeover from DirSync you'll need to open the Azure AD Connect Synchronization Service Manager.  Searching using "Synchronization" at the Start menu of Windows will reveal this application.
+
+Within the application you will will need to view the "Operations" tab.  On this tab you are looking to confirm that the following operations have been completed:
+
+- Import on the AD Management Agent
+- Import on the Azure AD Management Agent
+- Full Sync on the AD Management Agent
+- Full Sync on the Azure AD Management Agent
+
+Once these 4 operations have been completed you're ready to uninstall DirSync and enable AAD Connect Synchronization.  
+  
 
 ## Azure AD Connect supporting components
 
