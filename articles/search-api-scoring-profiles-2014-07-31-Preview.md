@@ -42,7 +42,7 @@ To use this scoring profile, your query is formulated to specify the profile on 
 
 This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)]().
 
-Click Example [#bkmk_ex] to review a more detailed example of a scoring profile.
+Click [Example](#bkmk_ex) to review a more detailed example of a scoring profile.
 
 ## What is default scoring?
 
@@ -128,9 +128,9 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
 
 To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query. 
 
-Start with the [Template][#bkmk_template] provided in this topic.
+Start with the [Template](#bkmk_template) provided in this topic.
 
-Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Azure Search Service REST API]() for naming rules.
+Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming rules](https://msdn.microsoft.com/library/dn857353.aspx) for more information.
 
 The body of the scoring profile is constructed from weighted fields and functions.
 
@@ -142,7 +142,7 @@ The body of the scoring profile is constructed from weighted fields and function
 <tr>
 <td><b>Weights</b></td>
 <td>
-Specify name-value pairs that assign a relative weight to a field. In the Example [#bkmk_ex], the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, ‘rock’ appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+Specify name-value pairs that assign a relative weight to a field. In the [Example](#bkmk_ex), the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, ‘rock’ appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
 </td>
 </tr>
 <tr>
@@ -172,7 +172,7 @@ Functions can only be applied to fields that are defined in the fields collectio
 After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index (Azure Search API)]() and [Add or Update Documents (Azure Search API)]() for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 ##Template
-This section shows the syntax and template for scoring profiles. Refer to Index attribute reference [#bkmk_indexref] in the next section for descriptions of the attributes.
+This section shows the syntax and template for scoring profiles. Refer to [Index attribute reference](#bkmk_indexref) in the next section for descriptions of the attributes.
 
     ...
     "scoringProfiles": [
@@ -244,7 +244,7 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>Fieldname</td>	<td>Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, and distance with location fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field.</td>
 </tr><tr>
-<td>Interpolation</td>	<td>Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See [Set interpolations]([#bkmk_interpolation]) for details.</td>
+<td>Interpolation</td>	<td>Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See [Set interpolations](#bkmk_interpolation) for details.</td>
 </tr><tr>
 <td>magnitude</td>	<td>The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are: 
 <br>

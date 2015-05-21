@@ -2,16 +2,6 @@
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
 
-<!--
-
-Internal Only: 
-
-- Contains the HTTP request-response structures used for Azure Search service administration.
-- Placement in MSDN: Appears as peer to Azure Search REST API. It has a different endpoint.
-- Sourced from [this spec](https://microsoft.sharepoint.com/teams/findable/Shared%20Documents/Engineering/Azure%20Search%20Service%20Resource%20Provider%20APIs.docx?web=1).
-- Service start-stop is documented in the spec, but is not exposed publicly to avoid confusion WRT to billing.
-
--->
 # Management API: Version 2014-07-31-Preview
 
 This document describes the **2014-07-31-Preview** version of the Azure Search Management REST API. It has since been replaced by the generally available version, [Azure Search Management REST API 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) on MSDN.
