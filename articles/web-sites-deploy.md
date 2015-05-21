@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="05/21/2015"
 	ms.author="tdykstra"/>
 
 #Deploy a web app in Azure App Service
@@ -69,6 +69,11 @@ Azure simplifies site management tasks that you might have to do for deployment 
 * [.NET management API](#api)
 * [Cross-platform command line (xplat-cli)](#cli)
 * [Web Deploy command line](#webdeploy)
+ 
+###<a name="octopus"></a>Octopus Deploy
+
+[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy) can be used with App Service Web Apps. For more information, see [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -152,7 +157,7 @@ For more information, see the following resources:
 * [Deploying TWO websites to Azure from one Git Repository](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Blog post by Scott Hanselman.
 
 
-##<a name=msbuild></a>MSBuild
+##<a name="msbuild"></a>MSBuild
 
 If you use the [Visual Studio IDE](#vs) for development, you can use [MSBuild](http://msbuildbook.com/) to automate anything you can do in your IDE. You can configure MSBuild to use either [Web Deploy](#webdeploy) or [FTP/FTPS](#ftp) to copy files. Web Deploy can also automate many other deployment-related tasks, such as deploying databases.
 
