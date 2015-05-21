@@ -1,36 +1,31 @@
 
 ## <a id="add-push"></a>Add Push Notifications to App
 
-* In QSAppDelegate.m, import the Mobile Services iOS SDK and QSTodoService.h if they aren't imported already:
+* In QSAppDelegate.m, import the Mobile Services iOS SDK and QSTodoService.h:
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
         #import "QSTodoService.h"
 ```
 
-* In QSAppDelegate.m, replace the following handler method:
+* In `didFinishLaunchingWithOptions` in QSAppDelegate.m, insert the following line right before `return YES;`:
 
 ```
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotifications];
-            return YES;
-        }
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        return YES;
 ```
 
 * In QSAppDelegate.m, add the following handler methods. Your app is now updated to support push notifications.
 
 ```
-        // Registration with APNS is successful
+        // Registration with APNs is successful
         - (void)application:(UIApplication *)application
-            didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+        didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
             QSTodoService *todoService = [QSTodoService defaultService];
             MSClient *client = todoService.client;
 
-            [client.push registerDeviceToken:deviceToken completion:^(NSError *error) {
+            [client.push registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError *error) {
                 if (error != nil) {
                     NSLog(@"Error registering for notifications: %@", error);
                 }
