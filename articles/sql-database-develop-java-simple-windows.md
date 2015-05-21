@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.date="05/20/2015" 
 	ms.author="lbosq"/>
 
 
@@ -39,13 +39,13 @@ The Java code example in this topic assumes the following test table already exi
 
 
 <!--
-Could this instead be a #tempPerson table, so that the Java code sample could be fully self-sufficient and be runnable (with automatic cleanup)??
+Could this instead be a #tempPerson table, so that the Java code sample could be fully self-sufficient and be runnable (with automatic cleanup)?
 -->
 
 
 	CREATE TABLE Person
 	(
-		id         INT    PRIMARY KEY    AUTO_INCREMENT,
+		id         INT    PRIMARY KEY    IDENTITY(1,1),
 		firstName  VARCHAR(32),
 		lastName   VARCHAR(32),
 		age        INT
@@ -55,7 +55,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 ## Connection string for your SQL Database
 
 
-The code sample creates a `Connection` object by using a connection string. You can find the connection string by using the [Azure portal](http://portal.azure.com/). For details about finding the connection string, see [Create your first Azure SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-get-started/).
+The code sample creates a `Connection` object by using a connection string. You can find the connection string by using the [Azure preview portal](http://portal.azure.com/). For details about finding the connection string, see [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
 ## Java code sample

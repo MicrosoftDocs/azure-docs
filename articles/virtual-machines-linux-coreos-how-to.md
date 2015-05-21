@@ -16,8 +16,6 @@
 	ms.date="03/16/2015"
 	ms.author="rasquill"/>
 
-
-<!--The next line, with one pound sign at the beginning, is the page title-->
 # How to Use CoreOS on Azure
 
 This topic describes [CoreOS] and shows how to create a cluster of three CoreOS virtual machines on Azure as a quick start to understanding CoreOS. It uses the very basic elements of CoreOS deployments and examples from [CoreOS with Azure], [Tim Park's CoreOS Tutorial], and [Patrick Chanezon's CoreOS Tutorial] to demonstrate the absolute minimum requirements to both understand the basic structure of a CoreOS deployment and get a cluster of three virtual machines running successfully.

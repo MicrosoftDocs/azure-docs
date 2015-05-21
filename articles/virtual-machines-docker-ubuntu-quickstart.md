@@ -16,7 +16,6 @@
 	ms.date="05/20/2015"
 	ms.author="rasquill"/>
 
-<!--The next line, with one pound sign at the beginning, is the page title-->
 # How to Get Started Quickly with Docker in the Azure Marketplace
 
 The fastest way to get started using [Docker] is to go to the Azure Marketplace and create a VM using the **Docker on Ubuntu Server** image template created by [Canonical] in conjunction with [MSOpenTech]. This creates an Ubuntu Server VM and automatically installs the [Docker VM Extension](virtual-machines-docker-vm-extension.md) along with the **latest** Docker engine pre-installed and running on on Azure.  

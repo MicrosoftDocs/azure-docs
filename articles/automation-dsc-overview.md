@@ -198,7 +198,7 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
  - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
  - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
  
-   >[AZURE.NOTE] Azure Automation DSC registration may take up to one hour to complete before the feature will become available for use.
+>[AZURE.NOTE] Azure Automation DSC registration may take up to one hour to complete before the feature will become available for use.
 
 - Azure Automation DSC does not support partial or composite DSC configurations at this time.
 
