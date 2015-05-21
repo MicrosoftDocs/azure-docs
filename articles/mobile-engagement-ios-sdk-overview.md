@@ -32,12 +32,9 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 
 ##Release notes
 
-###2.1.0 (04/24/2015)
+###2.2.0 (05/21/2015)
 
--   Add Swift compatibility.
--   When clicking on a notification, the action URL is now executed right after the application is opened.
--   Added missing header file in SDK package.
--   Fixed an issue when the Mobile Engagement crash reporter was disabled.
+-   The Mobile Engagement device id for devices < iOS 6 is now based on a GUID generated at installation time.
 
 For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)
 
