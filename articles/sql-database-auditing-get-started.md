@@ -29,23 +29,30 @@ Auditing tools enable and facilitate adherence to compliance standards but don't
 
 ##<a id="subheading-1"></a>Azure SQL Database Auditing basics
 
-You set up auditing in the Azure Preview Portal, but it makes no difference whether you created the database using the Azure Portal or the Azure Preview Portal. SQL Database auditing enables you to:
+The following sections describe the configuration of Auditing using the Azure Preview Portal. You may also [Set up auditing for your database using the classic azure portal], It makes no difference whether you created the database using the Azure Portal or the Azure Preview Portal. 
+
+SQL Database auditing enables you to:
 
 - **Retain** an audit trail of selected events. Define categories of database actions and events to be logged.
 - **Report** on database activity. Use preconfigured reports and a dashboard to get started quickly with activity and event reporting.
 - **Analyze** reports. Find suspicious events, unusual activity, and trends.
 
-You can audit the following activities and events:
+You can configure auditing for the following event categories:
+
+**Plain SQL** and **Parameterized SQL** for which the collected Audit logs are classified as  
 
 - **Access to data**
 - **Schema changes (DDL)**
 - **Data changes (DML)**
 - **Accounts, roles, and permissions (DCL)**
-- **Security exceptions**
+
+**Stored Procedure**, **Login** and, **Transaction Management**.
+
+For each Event Category, Auditing of **Success** and **Failure** operations are configured separately.
 
 For further detail about the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
 
-You also choose the storage account where audit logs will be saved.
+You also choose the storage account where audit logs will be saved and may configure Audit Logs retention. 
 
 ###Security-enabled access
 There are two methods to get auditing for your connection:
@@ -68,17 +75,15 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 
 	![][1]
 
-3. In the auditing configuration blade, select the Azure storage account where logs will be saved. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
+3. In the auditing configuration blade, select STORAGE DETAILS to get the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
 
 	![][2]
 
-4. Under **Auditing Options**, click **All** to log all events, or choose individual event types.
-
-	![][3]
+4. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
 
 5. Check **Save these settings as server default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps. 
 
-6. Click **Show database connection strings** and then copy or make a note of the appropriate security enabled connection string for your application. Use this string for any client applications whose activity you want to audit.
+6. Click on **To enforce auditing click here ...** and on **SECURITY ENABLED ACCESS** select **REQUIRED**.
 
 	![][5]
 
@@ -102,31 +107,28 @@ For more detailed instructions on working with the report template, read the <a 
 ##<a id="subheading-4"></a>Set up auditing for your database using the classic azure portal
 
 1. Launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. 
-2. Click the database you want to audit, and then click the **Auditing & Secuirity Preview** tab.
-3. At the auditing section click "Enable".
+2. Click the database you want to audit, and then click the **Auditing & Security** tab.
+3. For **SECURITY ENABLED ACCESS** click **REQUIRED**.
+4. At the auditing section click **ENABLED**.
 
 ![][7]
 
-4. Edit the **EVENT TYPE** as needed.
+4. Edit the **LOGGING BY EVENT** as needed.
 
 ![][8]
 
-5. Select a **STORAGE ACCOUNT**.
+5. Select a **STORAGE ACCOUNT** and configure **RETENTION**. 
+
+![][11]
+
 6. Click **SAVE**.
-7. Click **Show secured connection string** for the connection string.
+
+
 
 
 ##<a id="subheading-3">Practices for usage in production</a>
 The description in this section refers to screen captures above. Either <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> may be used.
  
-
-##<a id="subheading-4"></a>Security Enabled Access
-
-In production you are likely to require that all traffic to the database from all applications and tools is audited. For that modify **Security Enabled Access** from *Optional* to *Required* and save the policy. Once *Required* is configured there is no option to access the Database through the original connection string but only through the security enabled connection string.
-
-
-![][9]
-
 
 ##<a id="subheading-4"></a>Storage Key Regeneration
 
@@ -171,6 +173,7 @@ There are several PowerShell cmdlets you can use to configure auditing in Azure 
 [8]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure.png
 [9]: ./media/sql-database-auditing-get-started/sql-database-auditing-security-enabled-access.png
 [10]: ./media/sql-database-auditing-get-started/sql-database-auditing-storage-account.png
+[11]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure-storage.png
 
 
 
