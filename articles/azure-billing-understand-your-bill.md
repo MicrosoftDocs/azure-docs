@@ -157,7 +157,7 @@ This section is the payment instructions of where to send checks, wire transfers
 
 ## Understand Detailed Usage Charges
 
-As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.  The download link contains two versions of the usage file: ** Version 1** uses the pre-existing format; **Version 2** includes additional information and updated column names in the Daily Usage section.  
+As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.  The download link contains two versions of the usage file: **Version 1** uses the pre-existing format; **Version 2** includes additional information and updated column names in the Daily Usage section.  
 
 Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the .csv version files.
 
@@ -169,7 +169,7 @@ Type | Meter Sub-Category | Azure service may be further defined by type in this
 Resource | Meter Name | Identifies the unit of measure for the resource being consumed.
 Region | Meter Region | Identifies the location of the datacenter for certain services that are priced based on datacenter location.
 SKU | SKU | Identifies the unique system identifier for each Azure resource.
-Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s
+Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s.
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed during the billing period.
 Included | Included Quantity | Contains the amount of the resource that is included at no charge in your current billing period.
 Billable | Overage Quantity | If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For Pay-As-You-Go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
@@ -203,11 +203,11 @@ The following columns display details that affect the rates at the beginning of 
 :---------------| :----------------| -----|
 Usage Date | Usage Date | The date when the resource was emitted.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
-Resource GUID | Meter ID | The billed meter identifier.  This is used as the identifier used to price billing usage
+Resource GUID | Meter ID | The billed meter identifier.  This is used as the identifier used to price billing usage.
 Type | Meter Sub-Category | Azure service may be further defined by type in this column, which can affect the rate.
 Resource | Meter Name | Identifies the unit of measure for the resource being consumed.
 Region | Meter Region | Identifies the location of the datacenter for certain services that are priced based on datacenter location.
-Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s
+Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s.
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed for that day.
 Sub Region | Resource Location | Identifies the datacenter where the resource is running.
 Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.
@@ -216,7 +216,7 @@ Component | Instance ID | The identifier for the running resource. The identifie
 N/A | Tags | New resource types in Azure allow you to tag resources. Refer to http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/
 Additional Info | Additional Info | Additional metadata related to the service.
 Service Info 1 | Service Info 1 | This column provides the project name that the service belongs to on your subscription.
-Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata
+Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata.
 N/A | Order Number (3rd Party Software) | If you are using resources from Azure Marketplace that are published by partners, this show the order number for the partner resource that was purchased.
 
 Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanation of these columns. Note: some of these columns may be empty.
