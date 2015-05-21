@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Certificates"
-   description="Certificates can be stored securely in Azure Automation so they can be accessed by runbooks to authenticate against Azure and third party resources.  This article explains the connections of variables and how to work with them in both textual and graphical authoring."
+   description="Certificates can be stored securely in Azure Automation so they can be accessed by runbooks to authenticate against Azure and third party resources.  This article explains the details of certificates and how to work with them in both textual and graphical authoring."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="05/21/2015"
    ms.author="bwren" />
 
 # Certificates
@@ -23,14 +23,14 @@ Certificates can be stored securely in Azure Automation so they can be accessed 
 
 ## Windows PowerShell Cmdlets
 
-The cmdlets in the following table are used to create and manage automation certificate assets with Windows PowerShell. They ship as part of the [Azure PowerShell module](http://aka.ms/runbookauthor/azurepowershell) which is available for use in Automation runbooks.
+The cmdlets in the following table are used to create and manage automation certificate assets with Windows PowerShell. They ship as part of the [Azure PowerShell module](powershell-install-configure.md) which is available for use in Automation runbooks.
 
 |Cmdlets|Description|
 |:---|:---|
-|[Get-AzureAutomationCertificate](http://aka.ms/runbookauthor/cmdlet/getazurecertificate)|Retrieves information about a certificate. You can only retrieve the certificate itself from Get-AutomationCertificate activity.|
-|[New- AzureAutomationCertificate](http://aka.ms/runbookauthor/cmdlet/newazurecertificate)|Imports a new certificate into Azure Automation.|
-|[Remove- AzureAutomationCertificate](http://aka.ms/runbookauthor/cmdlet/removeazurecertificate)|Removes a certificate from Azure Automation.|
-|[Set- AzureAutomationCertificate](http://aka.ms/runbookauthor/cmdlet/setazurecertificate)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
+|[Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx)|Retrieves information about a certificate. You can only retrieve the certificate itself from Get-AutomationCertificate activity.|
+|[New- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913764.aspx)|Imports a new certificate into Azure Automation.|
+|[Remove- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913773.aspx)|Removes a certificate from Azure Automation.|
+|[Set- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913763.aspx)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
 
 ## Runbook Activities
 
@@ -57,7 +57,7 @@ When you create a new certificate, you upload a cer or pfx file to Azure Automat
 1. Click the check mark to upload the certificate file and save the new certificate asset.
 
 
-### To create a new connection with the Azure preview portal
+### To create a new certificate with the Azure preview portal
 
 1. From your automation account, click the **Assets** part to open the **Assets** blade.
 1. Click the **Certificates** part to open the **Certificates** blade.
@@ -79,7 +79,9 @@ The following sample commands show how to create a new automation certificate an
 
 ## Using a certificate in a runbook
 
-You must use the **Get-AutomationCertificate** activity to use a certificate in a runbook. You cannot use the [Get-AzureAutomationCertificate](http://aka.ms/runbookauthor/cmdlet/getazurecertificate) cmdlet since it returns information about the certificate asset but not the certificate itself.
+You must use the **Get-AutomationCertificate** activity to use a certificate in a runbook. You cannot use the [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx) cmdlet since it returns information about the certificate asset but not the certificate itself.
+
+### Textual runbook sample
 
 The following sample code shows how to add a certificate to a cloud service in a runbook. In this sample, the password is retrieved from an encrypted automation variable.
 
@@ -87,6 +89,18 @@ The following sample code shows how to add a certificate to a cloud service in a
 	$cert = Get-AutomationCertificate -Name 'MyCertificate'
 	$certPwd = Get-AutomationVariable –Name 'MyCertPassword'
 	Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
+
+### Graphical runbook sample
+
+You add a **Get-AutomationCerticiate** to a graphical runbook by right-clicking on the certificate in the Library pane of the graphical editor and selecting **Add to canvas**.
+
+![](media/automation-certificates/certificate-add-canvas.png)
+
+The following image shows an example of using a certificate in a graphical runbook.  This is the same example shown above for adding a certificate to a cloud service from a textual runbook.  
+
+This example uses the **UseConnectionObject** parameter set for the Send-**TwilioSMS activity** that uses a connection object for authentication to the service.  A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) must be used here since a sequence link would return a collection containing containing a single object which the Connection parameter is not expecting.
+
+![](media/automation-certificates/add-certificate.png)
 
 
 ## See Also

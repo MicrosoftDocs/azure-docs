@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2015"
+   ms.date="05/21/2015"
    ms.author="bwren" />
 
 # Variable assets in Azure Automation
@@ -39,7 +39,7 @@ You can store multiple values to a single variable by creating an array or hasht
 
 ## Cmdlets and workflow activities
 
-The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](http://msdn.microsoft.com/library/dn690262.aspx) which is available for use in Automation runbooks.
+The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](powershell-install-configure.md) which is available for use in Automation runbooks.
 
 |Cmdlets|Description|
 |:---|:---|
@@ -156,7 +156,7 @@ In the following code, the collection is retrieved from the variable and used to
 
 In a graphical runbook, you add the **Get-AutomationVariable** or **Set-AutomationVariable** by right-clicking on the variable in the Library pane of the graphical editor and selecting the activity you want.
 
-![Add variable to canvas](media/automation-variables/add-variable-canvas.png)
+![Add variable to canvas](media/automation-variables/variable-add-canvas.png)
 
 #### Setting values in a variable
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2015"
+   ms.date="05/21/2015"
    ms.author="bwren" />
 
 # Credential assets in Azure Automation
@@ -23,7 +23,7 @@ An Automation credential asset holds a [PSCredential](http://msdn.microsoft.com/
 
 ## Windows PowerShell cmdlets
 
-The cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [Azure PowerShell module](http://aka.ms/runbookauthor/azurepowershell) which is available for use in Automation runbooks.
+The cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell.  They ship as part of the [Azure PowerShell module](powershell-install-configure.md) which is available for use in Automation runbooks.
 
 |Cmdlets|Description|
 |:---|:---|
@@ -75,7 +75,7 @@ The following sample commands show how to create a new automation credential. A 
 
 You retrieve a credential asset in a runbook with the **Get-AutomationPSCredential** activity. This returns a [PSCredential object](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) that you can use with an activity or cmdlet that requires a PSCredential parameter. You can also retrieve the properties of the credential object to use individually. The object has a property for the username and the secure password, or you can use the **GetNetworkCredential** method to return a [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) object that will provide an unsecured version of the password.
 
-### Textual runbook samples
+### Textual runbook sample
 
 The following sample commands show how to use a PowerShell credential in a runbook. In this example, the credential is retrieved and its username and password assigned to variables.
 
@@ -85,14 +85,14 @@ The following sample commands show how to use a PowerShell credential in a runbo
 	$password = $myCredential.GetNetworkCredential().Password
 
 
-### Graphical runbook samples
+### Graphical runbook sample
 
-You add a **Get-AutomationPSCredential** to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
+You add a **Get-AutomationPSCredential** activity to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
 
 
 ![Add credential to canvas](media/automation-credentials/credential-add-canvas.png)
 
-The following image shows an example of using a credential in a graphical runbook.  In this case, it is being used to provide authentication for the runbook to Azure resources as described in [Configuring authentication to Azure resources](#automation-configuring.md).  The first activity retrieves the credential that has access to the Azure subscription.  The **Add-AzureAccount** activity then uses this credential to provide authentication for any activities that come after it.  It doesn't matter whether a [pipeline or sequence link](automation-graphical-authoring-intro.md#links-and-workflow) is used because only a single object is returned from **Get-AutomationPSCredential**.  
+The following image shows an example of using a credential in a graphical runbook.  In this case, it is being used to provide authentication for a runbook to Azure resources as described in [Configuring authentication to Azure resources](#automation-configuring.md).  The first activity retrieves the credential that has access to the Azure subscription.  The **Add-AzureAccount** activity then uses this credential to provide authentication for any activities that come after it.  A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is here since **Get-AutomationPSCredential** is expecting a single object.  
 
 ![Add credential to canvas](media/automation-credentials/get-credential.png)
 

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Connection assets in Azure Automation"
-   description="Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook.  This article explains the connections of variables and how to work with them in both textual and graphical authoring."
+   description="Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook.  This article explains the details of connections and how to work with them in both textual and graphical authoring."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="05/21/2015"
    ms.author="bwren" />
 
 # Connection assets in Azure Automation
@@ -25,14 +25,14 @@ When you create a connection, you must specify a *connection type*. The connecti
 
 ## Windows PowerShell Cmdlets
 
-The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell They ship as part of the [Azure PowerShell module](http://azure.microsoft.com/documentation/articles/powershell-install-configure/) which is available for use in Automation runbooks.
+The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell They ship as part of the [Azure PowerShell module](powershell-install-configure.md) which is available for use in Automation runbooks.
 
 |Cmdlet|Description|
 |:---|:---|
-|[Get-AzureAutomationConnection](https://msdn.microsoft.com/library/dn921828.aspx)|Retrieves a connection. Includes a hashtable with the values of the connection’s fields.|
-|[New-AzureAutomationConnection](https://msdn.microsoft.com/library/dn921825.aspx)|Creates a new connection.|
-|[Remove-AzureAutomationConnection](https://msdn.microsoft.com/library/azure/jj554330.aspx)|Remove an existing connection.|
-|[Set-AzureAutomationConnectionFieldValue](http://aka.ms/runbookauthor/cmdlet/setazureconnection)|Sets the value of a particular field for an existing connection.|
+|[Get-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921828.aspx)|Retrieves a connection. Includes a hashtable with the values of the connection’s fields.|
+|[New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx)|Creates a new connection.|
+|[Remove-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921827.aspx)|Remove an existing connection.|
+|[Set-AzureAutomationConnectionFieldValue](http://msdn.microsoft.com/library/dn921826.aspx)|Sets the value of a particular field for an existing connection.|
 
 ## Runbook Activities
 
@@ -67,28 +67,51 @@ The activities in the following table are used to access connections in a runboo
 
 ### To create a new connection with Windows PowerShell
 
-Create a new connection with Windows PowerShell using the [New-AzureAutomationConnection](http://aka.ms/runbookauthor/cmdlet/newazureconnection) cmdlet. This cmdlet has a parameter named **ConnectionFieldValues** that expects a [hash table](http://go.microsoft.com/fwlink/?LinkID=324844) defining values for each of the properties defined by the connection type.
+Create a new connection with Windows PowerShell using the [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx) cmdlet. This cmdlet has a parameter named **ConnectionFieldValues** that expects a [hash table](http://technet.microsoft.com/en-us/library/hh847780.aspx) defining values for each of the properties defined by the connection type.
 
-The following sample commands create a new connection with the name MyConnection.  It uses a connection type called MyConnectionType that has two properties named **UserName** and **Password**.
 
-	$connectionName = "MyConnection"
-	$connectionUserName = "MyUser"
-	$connectionPassword = "P@ssw0rd"
-	$url = "http://mysite.contoso.com"
-	$fieldValues = @{"UserName"=$ connectionUserName;"Password"=$ connectionPassword;"Url"=$url} 
-	
-	New-AzureAutomationConnection –AutomationAccountName "MyAutomationAccount" –Name $connectionName –ConnectionTypeName "MyConnectionType" –ConnectionFieldValues $fieldValues
+The following sample commands create a new connection for [Twilio](http://www.twilio.com) which is a telephony service that allows you to send and receive text messages.  A sample integration module that includes a Twilio connection type is available in [Script Center](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8).  This connection type defines properties for Account SID and Authorization Token, which are required to validate your account when connecting to Twilio.  You must [download this module](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) and install it in your automation account for this sample code to work.
+
+	$AccountSid = "DAf5fed830c6f8fac3235c5b9d58ed7ac5"
+	$AuthToken  = "17d4dadfce74153d5853725143c52fd1"
+	$FieldValues = @{"AccountSid" = $AccountSid;"AuthToken"=$AuthToken}
+
+	New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
+
 
 ## Using a connection in a runbook
 
 You retrieve a connection in a runbook with the **Get-AutomationConnection** cmdlet.  This activity retrieves the values of the different fields in the connection and returns them as a [hash table](http://go.microsoft.com/fwlink/?LinkID=324844) which can then be used with the appropriate commands in the runbook.
 
-The following sample commands shows how to retrieve the properties of the connection in the previous example and assign to variables in a runbook.
+### Textual runbook sample
+The following sample commands show how to use the Twilio connection in the previous example to send a text message from a runbook.  The Send-TwilioSMS activity used here has two parameter sets that each use a different method for authenticating to the Twilio service.  One uses a connection object and another uses individual parameters for the Account SID and Authorization Token.  Both methods are shown in this sample.
 
-	$con = Get-AutomationConnection -Name 'MyConnection'
-	$userName = $con.UserName
-	$password = $con.Password
-	$url = $con.url
+	$Con = Get-AutomationConnection -Name "TwilioConnection"
+	$NumTo = "14255551212"
+	$NumFrom = "15625551212"
+	$Body = "Text from Azure Automation."
+
+	#Send text with connection object.
+	Send-TwilioSMS -Connection $Con -From $NumFrom -To $NumTo -Body $Body
+
+	#Send text with connection properties.
+	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken $Con -From $NumFrom -To $NumTo -Body $Body
+
+### Graphical runbook samples
+
+You add a **Get-AutomationConnection** activity to a graphical runbook by right-clicking on the connection in the Library pane of the graphical editor and selecting **Add to canvas**.
+
+![](media/automation-connections/connection-add-canvas.png)
+
+The following image shows an example of using a connection in a graphical runbook.  This is the same example shown above for sending a text message using Twilio from a textual runbook.  This example uses the **UseConnectionObject** parameter set for the **Send-TwilioSMS** activity that uses a connection object for authentication to the service.  A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the Connection parameter is expecting a single object.
+
+![](media/automation-connections/get-connection-object.png)
+
+The image below shows the same example as above but uses the **SpecifyConnectionFields** parameter set that expects the AccountSid and AuthToken parameters to be specified individually as opposed to using a connection object for authentication.  In this case, fields of the connection are specified instead of the object itself.  
+
+![](media/automation-connections/get-connection-properties.png)
+
+
 
 ## Related articles
 
