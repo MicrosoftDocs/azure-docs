@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Storage Scalability and Performance Targets | Azure"
+   pageTitle="Azure Storage Scalability and Performance Targets | Microsoft Azure"
    description="Learn about the scalability and performance targets for an Azure Storage account, including capacity, request rate, and inbound and outbound bandwidth. Understand performance targets for partitions within each of the Azure Storage services."
    services="storage"
    documentationCenter="na"

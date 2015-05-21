@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Supported configurations for Operational Insights"
    description="Learn about the configurations needed for Operational Insights"
    services="operational-insights"
@@ -6,13 +6,13 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="05/20/2015"
    ms.author="banders" />
 
 # Supported configurations for Operational Insights
@@ -105,4 +105,3 @@ For SQL Server, the following 32-bit and 64-bit editions are supported for analy
 - SQL Server 2008 and 2008 R2 Express
 
 In addition, the 32-bit edition of SQL Server is supported when running in the WOW64 implementation.
-

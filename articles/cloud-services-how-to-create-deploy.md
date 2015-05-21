@@ -25,7 +25,7 @@ The Azure Management Portal provides two ways for you to create and deploy a clo
 
 This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure Management Portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**.
 
-> [AZURE.NOTE] If you plan to publish your cloud service from Windows Team Foundation Services (TFS), use Quick Create, and then set up TFS publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][TFSTutorialForCloudService], or see help for the **Quick Start** page.
+> [AZURE.NOTE] If you plan to publish your cloud service from Visual Studio Online (VSO), use Quick Create, and then set up VSO publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
 ## Concepts
 Three components are required in order to deploy an application as a cloud service in Azure:

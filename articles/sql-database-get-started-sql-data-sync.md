@@ -110,7 +110,8 @@ To register a database with the agent, follow the instructions at [Register a SQ
 	![Image3](./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG)
 
 
-<a id="DefineHubDB"></a>### Step 4c: Define the sync hub
+<a id="DefineHubDB"></a>
+### Step 4c: Define the sync hub
 
 1. From the dropdown, select the SQL Database instance to serve as the sync group hub.
 2. Enter the credentials for this SQL Database instance - **HUB USERNAME** and **HUB PASSWORD**.

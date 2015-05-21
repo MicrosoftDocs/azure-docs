@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/08/2015"
+	ms.date="05/20/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs to increase throughput
@@ -41,7 +41,7 @@ The total number of streaming units that can be used by a Stream Analytics job d
 ### Steps in a query
 A query can have one or many steps. Each step is a sub-query defined by using the WITH keyword. The only query that is outside of the WITH keyword is also counted as a step, for example, the SELECT statement in the following query:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -49,7 +49,7 @@ A query can have one or many steps. Each step is a sub-query defined by using th
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute,3), TollBoothId, PartitionId
+	GROUP BY TumblingWindow(minute,3), TollBoothId
 
 The previous query has two steps.
 
@@ -126,7 +126,7 @@ When a query is partitioned, the input events are processed and aggregated in se
 
 Each of the Input1 partitions will be processed separately by Stream Analytics, and multiple records of the car-pass-through count for the same tollbooth in the same tumbling window will be created. If the input partition key can't be changed, this problem can be fixed by adding an additional non-partition step, for example:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -134,7 +134,7 @@ Each of the Input1 partitions will be processed separately by Stream Analytics, 
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute, 3), TollBoothId, ParititonId
+	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
 This query can be scaled to 24 streaming units.
 

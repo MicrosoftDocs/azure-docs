@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="05/10/2015"
+	ms.date="05/20/2015"
 	ms.author="krisragh"/>
 
 # Service-side Authorization of Users in Mobile Services
@@ -30,21 +30,18 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click on your mobile service. Click the **Data** tab, then click the **TodoItem** table.
 
-2. Click **Script**, then select the **Insert** operation.
-
-   	![][2]
-
-3. Replace the existing script with the following function, and then click **Save**. This script adds the user ID of the authenticated user to the item before insertion.
+2. Click **Script**, select the **Insert** operation, replace the existing script with the following function, and then click **Save**. 
 
         function insert(item, user, request) {
           item.userId = user.userId;
           request.execute();
         }
 
+	This script adds the user ID of the authenticated user to the item before insertion.
 
-    > [AZURE.NOTE] [Dynamic schema must be enabled](https://msdn.microsoft.com/library/azure/jj193175.aspx) for this to work. This setting is enabled by default for new mobile services.
+    >[AZURE.NOTE] Make sure that [dynamic schema](https://msdn.microsoft.com/library/azure/jj193175.aspx) is enabled. Otherwise, the *userId* column is not added automatically. This setting is enabled by default for a new mobile service.
 
-5. Similarly, replace the existing **Read** operation with the following function. This script filters returned TodoItem objects so that a user receives only the items that they insert themselves.
+3. Similarly, replace the existing **Read** operation with the following function. This script filters returned TodoItem objects so that a user receives only the items that they insert themselves.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
@@ -62,10 +59,6 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
-[1]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
-[2]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-insert-script-users.png
-[3]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
 
