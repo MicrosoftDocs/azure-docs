@@ -211,13 +211,13 @@ Unit | Unit | Identifies the Unit that the service is charged in. For example, G
 Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed for that day.
 Sub Region | Resource Location | Identifies the datacenter where the resource is running.
 Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.
-N/A | Resource Group | The resource group in which the deployed resource is running in. Refer to http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
+N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
 Component | Instance ID | The identifier for the running resource. The identifier contains the name you specify for the resource when it was created.
-N/A | Tags | New resource types in Azure allow you to tag resources. Refer to http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/
+N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/
 Additional Info | Additional Info | Additional metadata related to the service.
 Service Info 1 | Service Info 1 | This column provides the project name that the service belongs to on your subscription.
 Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata.
-N/A | Order Number (3rd Party Software) | If you are using resources from Azure Marketplace that are published by partners, this show the order number for the partner resource that was purchased.
+N/A | Order Number (3rd Party Software) | _**New column addition.**_  If you are using resources from Azure Marketplace that are published by partners, this show the order number for the partner resource that was purchased.
 
 Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanation of these columns. Note: some of these columns may be empty.
 
