@@ -157,11 +157,11 @@ This section is the payment instructions of where to send checks, wire transfers
 
 ## Understand Detailed Usage Charges
 
-We now have two versions of the Detailed Usage csv file: **.csv version 1** contains the same naming convention for the service categories prior to May 2015, while **.csv version 2** contains more user friendly service categories to help you understand the meaning of each service better.
+As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.  The download link contains two versions of the usage file: ** Version 1** uses the pre-existing format; **Version 2** includes additional information and updated column names in the Daily Usage section.  
 
 Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the .csv version files.
 
-**.csv version 1** |  **.csv version 2**  |  **Description**|
+**Version 1** |  **Version 2**  |  **Description**|
 :---------------| :---------------- | --------|
 Billing Period | Billing Period | The billing period when the resource was consumed.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
@@ -185,8 +185,8 @@ Depending on your usage, there can be thousands of rows of daily usage data. If 
 
   Sample Files|
   :----------:|
-  [Detailed Usage .csv version 1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)|
-  [Detailed Usage .csv version 2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)|
+  [Detailed Usage .csv Version 1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)|
+  [Detailed Usage .csv Version 2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)|
 
 
 ![csv2screenshot](./media/azure-billing-understand-your-bill/csv2screenshot.png)
@@ -199,7 +199,7 @@ In the .csv file, the items are broken down to display a list of how much of eac
 
 The following columns display details that affect the rates at the beginning of the billing period:
 
-**.csv version 1** |  **.csv version 2**  |  **Description** |
+**Version 1** |  **Version 2**  |  **Description** |
 :---------------| :----------------| -----|
 Usage Date | Usage Date | The date when the resource was emitted.
 Name | Meter Category | Identifies the top-level service for which this usage belongs.
