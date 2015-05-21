@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="04/28/2015" 
-	ms.author="jeffstok"/>
+	ms.author="jeffstok" />
 
 
 # Stream Analytics key concepts: Guide to the basics of a stream analytics job 
