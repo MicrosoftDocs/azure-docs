@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn about Stream Analytics key concepts | Microsoft Azure 
+	pageTitle="Learn about Stream Analytics key concepts | Microsoft Azure" 
 	description="Guide to key concepts of Stream Analytics: Components of an event processing job, including supported inputs and outputs, job configuration, and exposed metrics." 
 	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
