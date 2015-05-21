@@ -36,7 +36,7 @@ CDN origin is the location from which CDN fetch content and cache at the edge PO
 
 ## Step 2: Create a CDN endpoint pointing to your Azure origin
 
-Once your origin is set up, it will be available in the origin list when you [create a new CDN endpoint](http://azure.microsoft.com/en-us/documentation/articles/cdn-create-new-endpoint).  
+Once your origin is set up, it will be available in the origin list when you [create a new CDN endpoint](cdn-create-new-endpoint.md).  
 
 > [AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
 
@@ -52,4 +52,4 @@ To access cached content on the CDN, use the CDN URL provided in the portal. For
 
 ## See also
 
-[Overview of the Azure Content Delivery Network (CDN)](http://azure.microsoft.com/en-us/documentation/articles/cdn-overview)
+[Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
