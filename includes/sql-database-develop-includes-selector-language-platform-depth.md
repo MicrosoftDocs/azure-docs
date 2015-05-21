@@ -8,5 +8,5 @@
 - [(Node.js | Linux. Starter)](sql-database-develop-nodejs-simple-linux.md)
 - [(Node.js | Windows. Starter)](sql-database-develop-nodejs-simple-windows.md)
 - [(PHP | Windows. Starter)](sql-database-develop-php-simple-windows.md)
-- [(Python | Linux. Starter)](sql-database-develop-python-simple-unbutu-linux.md)
+- [(Python | Linux. Starter)](sql-database-develop-python-simple-ubuntu-linux.md)
 - [(Python | Windows. Starter)](sql-database-develop-python-simple-windows.md)
