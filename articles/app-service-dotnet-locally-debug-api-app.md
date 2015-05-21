@@ -59,7 +59,7 @@ Once you have an API app built, you can debug it locally by following these step
 
 13. When the project's property pages display, click the **Web** tab on the left.
 
-14. Copy the **Project URL** to the clipboard. It should have a value like *http://localhost:&gt;portNbr>*.
+14. Copy the **Project URL** to the clipboard. It should have a value like *http://localhost:&lt;portNbr>*.
 
 15. Open the console app's *program.cs* file.
 
