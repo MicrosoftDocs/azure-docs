@@ -325,7 +325,17 @@ Below is the list of supported analyzers together with a short description of th
 			<li>Filters out Arabic stop words</li>
 		</ul>
 		</td>
-	</tr>
+	</tr>   
+  <tr>
+    <td>Armenian</td>
+    <td>hy.lucene</td>
+    <td>
+    <ul>
+      <li>Applies light algorithmic stemming</li>
+      <li>Filters out Armenian stop words</li>
+    </ul>
+    </td>
+  </tr>
     <tr>
 		<td>Bangla</td>
 		<td>bg.microsoft</td>
@@ -335,6 +345,26 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
+  <tr>
+    <td>Basque</td>
+    <td>eu.lucene</td>
+    <td>
+    <ul>
+      <li>Applies light algorithmic stemming</li>
+      <li>Filters out Basque stop words</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Bulgarian</td>
+    <td>bn.lucene</td>
+    <td>
+    <ul>
+      <li>Applies light algorithmic stemming</li>
+      <li>Filters out Bulgarian stop words</li>
+    </ul>
+    </td>
+  </tr>
     <tr>
 		<td>Bulgarian</td>
 		<td>bn.microsoft</td>
@@ -344,6 +374,17 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
+  <tr>
+    <td>Catalan</td>
+    <td>ca.lucene</td>
+    <td>
+    <ul>
+      <li>Applies light algorithmic stemming</li>
+      <li>Filters out Catalan stop words</li>      
+      <li>Removes ellisions</li>
+    </ul>
+    </td>
+  </tr>
     <tr>
 		<td>Catalan</td>
 		<td>ca.microsoft</td>
@@ -539,6 +580,16 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
+  <tr>
+    <td>Galician</td>
+    <td>gl.lucene</td>
+    <td>
+    <ul>
+      <li>Applies light stemming</li>
+      <li>Filters out Galician stop words</li>      
+    </ul>
+    </td>
+  </tr>
     <tr>
 		<td>German</td>
 		<td>de.lucene</td>
@@ -671,6 +722,16 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
+      <tr>
+      <td>Irish</td>
+      <td>ga.lucene</td>
+      <td>
+      <ul>
+        <li>Applies light stemming</li>
+        <li>Filters out Irish stop words</li>
+      </ul>
+      </td>
+    </tr>
     <tr>
 		<td>Italian</td>
 		<td>it.lucene</td>
@@ -811,6 +872,17 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
+  <tr>
+    <td>Persian</td>
+    <td>fa.lucene</td>
+    <td>
+    <ul>
+      <li>Applies algorithmic stemming</li>
+      <li>Filters out Persian stop words</li>
+      <li>Implements Arabic and Persian orthographic normalization</li>
+    </ul>
+    </td>
+  </tr>
     <tr>
 		<td>Polish</td>
 		<td>pl.lucene</td>
