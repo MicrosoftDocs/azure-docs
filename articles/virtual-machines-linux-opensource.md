@@ -130,14 +130,14 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 17. [The Basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blogging the Basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blogging the Basics: Automate Provisioning Linux on Azure with xplat, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Create a multi-VM deployment using the Azure x-plat cli](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+19. [Create a multi-VM deployment using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
 20. [The Basics: The Azure Docker VM Extension](virtual-machines-docker-vm-extension.md)
 23. [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) reference
 24. [GlusterFS on Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
 ## Community Images and Repositories
 3. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index) &mdash; for community provided virtual machine images.
-4. [GitHub](https://github.com/Azure/) &mdash; for the xplat-cli, and many other tools and projects.
+4. [GitHub](https://github.com/Azure/) &mdash; for the Azure CLI, and many other tools and projects.
 5. [Docker Hub Registry](https://registry.hub.docker.com/) &mdash; the registry for Docker container images.
 
 ## Languages and Platforms
@@ -181,7 +181,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 Look for this section to fill up quickly. If you have suggestions, send us a PR or leave them in comments, below.
 
-1. [Create a multi-VM deployment using the Azure x-plat cli](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+1. [Create a multi-VM deployment using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
 2. [Patrick Chanezon's Azure Linux GitHub repository](https://github.com/chanezon/azure-linux)
 3. [Video: How to Move On-Premises USB data on Linux to Azure using **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Video: Accessing Linux-based GUI on Azure in the Browser with fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -248,7 +248,7 @@ This section starts with a blog entry containing a series of videos on [Video: A
 
 1. Docker
 	- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
-	- [Using the Docker VM Extension from the Azure Cross-Platform Command-line Interface (xplat-cli)](virtual-machines-docker-with-xplat-cli.md)
+	- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli.md)
 	- [Using the Docker VM Extension from the Azure Preview Portal](virtual-machines-docker-with-portal.md)
 	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
