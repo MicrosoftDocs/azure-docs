@@ -1,39 +1,46 @@
-<properties urlDisplayName="AzCopy" pageTitle="How to use AzCopy with Microsoft Azure Storage" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties 
+	pageTitle="How to use AzCopy with Microsoft Azure Storage" 
+	description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/15/2015" 
+	ms.author="tamram"/>
 
 # Getting Started with the AzCopy Command-Line Utility
 
+## Overview
+
 AzCopy is a command-line utility designed for high-performance uploading, downloading, and copying data to and from Microsoft Azure Blob, File, and Table storage. This guide provides an overview for using AzCopy.
 
-> [WACOM.NOTE] This guide assumes that you have installed AzCopy 3.0.0 or later. AzCopy 3.x is now in general availability.<br /> 
-> This guide also covers using AzCopy 4.0.0, which is a preview release of AzCopy. Throughout this guide, functions provided only in the preview release are designated as *preview*.<br />
+> [AZURE.NOTE] This guide assumes that you have installed AzCopy 3.1.0 or later. AzCopy 3.x is now in general availability.
+> 
+> This guide also covers using AzCopy 4.1.0, which is a preview release of AzCopy. Throughout this guide, functions provided only in the preview release are designated as *preview*.
+> 
 > Note that for AzCopy 4.x, command-line options and functionality may change in future releases.
 
-##Table of contents
-
-- [Download and install AzCopy](#install)
-- [Understand the AzCopy command-line syntax](#syntax)
-- [Limit concurrent writes while copying data](#limit-writes)
-- [Copy Azure blobs with AzCopy](#copy-blobs)
-- [Copy files in an Azure file share with AzCopy &#40;preview version only&#41;](#copy-files)
-- [Copy Azure Table Entities with AzCopy &#40;preview version only&#41;](#copy-entities)
-- [AzCopy versions](#versions)
-- [Next steps](#next-steps)
-
-##<a id="install"></a> Download and install AzCopy
+## Download and install AzCopy
 
 1. Download the [latest version of AzCopy](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr).
 2. Run the installation. By default, the AzCopy installation creates a folder named `AzCopy` under `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (on a machine running 64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\` (on a machine running 32-bit Windows). However, you can change the installation path from the setup wizard.
 3. If desired, you can add the AzCopy installation location to your system path.
 
-##<a id="syntax"></a> Understand the AzCopy command-line syntax
+## Understand the AzCopy command-line syntax
 
 Next, open a command window, and navigate to the AzCopy installation directory on your computer, where the `AzCopy.exe` executable is located. The basic syntax for AzCopy commands is:
 
 	AzCopy /Source:<source> /Dest:<destination> /Pattern:<filepattern> [Options]
 
-> [WACOM.NOTE] Beginning with AzCopy version 3.0.0, the AzCopy command-line syntax requires that every parameter be specified to include the parameter name, *e.g.*, `/ParameterName:ParameterValue`.
+> [AZURE.NOTE] Beginning with AzCopy version 3.0.0, the AzCopy command-line syntax requires that every parameter be specified to include the parameter name, *e.g.*, `/ParameterName:ParameterValue`.
 
 Parameters for AzCopy are described in the table below. You can also type one of the following commands from the command line for help in using AzCopy:
 
@@ -302,7 +309,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
 		The upper limit for concurrent operations is 512.</td>
     <td>Y</td>
     <td>Y<br /> (preview only)</td>
-    <td>N</td>
+    <td>Y<br /> (preview only)</td>
   </tr>
   <tr>
     <td><b>/SourceType:Blob|Table</b></td>
@@ -369,17 +376,33 @@ Parameters for AzCopy are described in the table below. You can also type one of
     <td>N</td>
     <td>Y<br /> (preview only)</td>
   </tr>
+  <tr>
+    <td><b>/SyncCopy</b></td>
+    <td>Indicates whether to synchronously copy blobs or files between two Azure Storage endpoints. <br />
+		AzCopy by default uses server-side asynchronous copy. Specify this option to perform a synchronous copy, which downloads blobs or files to local memory and then uploads them to Azure Storage. You can use this option when copying files within Blob storage, within File storage, or from Blob storage to File storage or vice versa.</td>
+    <td>Y</td>
+    <td>Y<br /> (preview only)</td>
+    <td>N</td>
+  </tr>
+  <tr>
+    <td><b>/SetContentType:&lt;content-type&gt;</b></td>
+    <td>Specifies the MIME content type for destination blobs or files. <br />
+		AzCopy sets the content type for a blob or file to <code>application/octet-stream</code> by default. You can set the content type for all blobs or files by explicitly specifying a value for this option. If you specify this option without a value, then AzCopy will set each blob or file's content type according to its file extension.</td>
+    <td>Y</td>
+    <td>Y<br /> (preview only)</td>
+    <td>N</td>
+  </tr>
 </table>
 
 <br/>
 
-##<a id="limit-writes"></a> Limit concurrent writes while copying data
+## Limit concurrent writes while copying data
 
 When you copy blobs or files with AzCopy, keep in mind that another application may be modifying the data while you are copying it. If possible, ensure that the data you are copying is not being modified during the copy operation. For example, when copying a VHD associated with an Azure virtual machine, make sure that no other applications are currently writing to the VHD. Alternately, you can create a snapshot of the VHD first and then copy the snapshot.
 
 If you cannot prevent other applications from writing to blobs or files while they are being copied, then keep in mind that by the time the job finishes, the copied resources may no longer have full parity with the source resources.
 
-##<a id="copy-blobs"></a> Copy Azure blobs with AzCopy
+## Copy Azure blobs with AzCopy
 
 The examples below demonstrate a variety of scenarios for copying blobs with AzCopy.
 
@@ -393,17 +416,19 @@ The examples below demonstrate a variety of scenarios for copying blobs with AzC
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
+For more information about working with your storage access keys, please see [View, copy, and regenerate storage access keys](../storage-create-storage-account/#regeneratestoragekeys).
+
 ### Copy a blob via server-side copy
 
 When you copy a blob within a storage account or across storage accounts, a server-side copy operation is performed. For more information about server-side copy operations, see [Introducing Asynchronous Cross-Account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
 **Copy a blob within a storage account:**
 
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt 
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt 
 
 **Copy a blob across storage accounts:**
 
-	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
+	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
  
 ### Copy a blob from the secondary region 
 
@@ -557,7 +582,7 @@ Note that the prefix applies to the virtual directory, which forms the first par
 
 ### Copy a blob and its snapshots to another storage account
 
-	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
+	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
 
 After the copy operation, the target container will include the blob and its snapshots. Assuming the blob in the example above has two snapshots, the container will include the following blob and snapshots:
 
@@ -700,12 +725,31 @@ Specify the `/MT` option to compare the last-modified time of the source blob an
 Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy will begin concurrent operations at eight times the number of core processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for this option to avoid failure caused by resource competition.
 
 
-###	Run AzCopy against blob resources in the storage emulator
+### 	Run AzCopy against blob resources in the storage emulator
 
 	AzCopy /Source:https://127.0.0.1:10004/myaccount/myfileshare/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
 
+### Synchronously copy blobs between two Azure Storage endpoints
 
-##<a id="copy-files"></a> Copy files in Azure File storage with AzCopy (preview version only)
+AzCopy by default copies data between two storage endpoints asynchronously. Therefore, the copy operation will run in the background using spare bandwidth capacity that has no SLA in terms of how fast a blob will be copied, and AzCopy will periodically check the copy status until the copying is completed or failed. 
+
+The `/SyncCopy` option, new in the 3.1.0 release, ensures that the copy operation will get consistent speed. AzCopy performs the synchronous copy by downloading the blobs to copy from the specified source to local memory, and then uploading them to the Blob storage destination.
+
+	AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
+
+Note that /SyncCopy might generate additional egress cost comparing to asynchronous copy, the recommended approach is to use this option in the Azure VM which is in the same region as your source storage account to avoid egress cost.
+
+### Specify the MIME content type of a destination blob
+
+By default, AzCopy sets the content type of a destination blob to `application/octet-stream`. Beginning with version 3.1.0, you can explicitly specify the content type via the option `/SetContentType:[content-type]`. This syntax sets the content type for all blobs in a copy operation.
+
+	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
+
+If you specify `/SetContentType` without a value, then AzCopy will set each blob or file's content type according to its file extension.
+
+	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
+
+## Copy files in Azure File storage with AzCopy (preview version only)
 
 The examples below demonstrate a variety of scenarios for copying Azure files with AzCopy.
 
@@ -733,13 +777,29 @@ Note that any empty folders will not be copied.
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
-##<a id="copy-entities"></a> Copy Entities in an Azure Table with AzCopy (preview version only)
+
+### Synchronously copy files in Azure File Storage
+
+With the new option /SyncCopy in 4.1.0-Preview version, user can copy files from File Storage to File Storage, from File Storage to Blob Storage and from Blob Storage to File Storage.
+
+	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
+
+	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
+	
+	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
+
+When copying from File Storage to Blob Storage, the default blob type is block blob, user can specify option /BlobType:page to change the destination blob type.
+
+Note that Azure Storage Service does not support asynchronous copy yet when AzCopy 4.1.0-preview released, therefore, the above copy operations will be failed if the option /SyncCopy is not specified.
+
+
+## Copy Entities in an Azure Table with AzCopy (preview version only)
 
 The examples below demonstrate a variety of scenarios for copying Azure Table Entities with AzCopy.
 
 ### Export entities to the local file system
 
-	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:D:\test\ /SourceKey:key
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
 
 ### Export entities to an Azure blob
 
@@ -751,9 +811,11 @@ AzCopy will generate a JSON data file into the local folder or blob container wi
 
 The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
+Note that when exporting Storage Table Entities to Storage Blob, AzCopy will export the Table entities to local temporary data files firstly and then upload them to Blob, these temporary data files are put into the journal file folder with the default path “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”, you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files’ size is decided by your table entities’ size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the Blob, please make sure you have enough local disk space to store these temporary data files before they are deleted, 
+
 ### Split the export files
 
-	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
+	AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 
 AzCopy uses a *volume index* in the split data file names to distinguish multiple files. The volume index consists of two parts, a *partition key range index* and a *split file index*. Both indexes are zero-based.
 
@@ -768,7 +830,7 @@ Note that the minimum possible value for option `/SplitSize` is 32MB. If the spe
 
 ### Export entities concurrently
 
-	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:D:\test\ /SourceKey:key /PKRS:"aa#bb"
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
 
 AzCopy will start concurrent operations to export entities when the user specifies option `/PKRS`. Each operation exports one partition key range.
 
@@ -776,7 +838,7 @@ Note that the number of concurrent operations is also controlled by option `/NC`
 
 ### Import entities concurrently
 
-	AzCopy /Source:D:\test\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
+	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
 
 When you export table entities, AzCopy writes a manifest file to the specified destination folder or blob container. The manifest file is used by the import process to locate the necessary data files and perform data validation during the import process. The manifest file uses the following naming convention:
 
@@ -791,12 +853,23 @@ The option `/EntityOperation` indicates how to insert entities into the table. P
 Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import entities. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
 
 
-##<a id="versions"></a> AzCopy versions
+## Known Issues and Best Practices
+
+#### Run one AzCopy instance on one machine.
+AzCopy is designed to maximize the utilization of your machine resource to accelerate the data transfer, we recommend you run only one AzCopy instance on one machine, and specify the option `/NC` if you need more concurrent operations. For more details, type `AzCopy /?:NC` at the command line.
+
+#### Make sure "Use FIPS compliant algorithms for encryption, hashing and signing" is disabled when using AzCopy, note that this option is disabled by default.
+You can type `secpol.msc` in your `Run` window and check this switch at `Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing`. Please note that this setting path might be different on the Windows operation system you are using.
+
+
+## AzCopy versions
 
 | Version | What's New                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
-| **V4.0.0**  | **Current preview version. Includes all the functionality from V3.0.0. Also supports copying files to or from Azure File storage, and copying entities to or from Azure Table storage.**	
-| **V3.0.0**  | **Current release version. Modifies AzCopy command-line syntax to require parameter names, and redesigns the command-line help. This version only supports copying to and from Azure Blob storage.**	
+| **V4.1.0**  | **Current preview version. Includes all the functionality from V3.1.0. Supports synchronously copying blobs and files and specifying content type for destination blobs and files**	
+| **V3.1.0**  | **Current release version. Supports synchronously copying blobs and specifying content type for destination blobs.**
+| V4.0.0  | Includes all the functionality from V3.0.0. Also supports copying files to or from Azure File storage, and copying entities to or from Azure Table storage.
+| V3.0.0  | Modifies AzCopy command-line syntax to require parameter names, and redesigns the command-line help. This version only supports copying to and from Azure Blob storage.	
 | V2.5.1  | Optimizes performance when using options /xo and /xn. Fixes bugs related to special characters in source file names and journal file corruption after user input the wrong command-line syntax.	
 | V2.5.0  | Optimizes performance for large-scale copy scenarios, and introduces several important usability improvements.	
 | V2.4.1  | Supports specifying the destination folder in the installation wizard.                     			
@@ -808,23 +881,23 @@ Note that you cannot specify option `/PKRS` in the import scenario. Unlike the e
 | V2.1    | Provides more than 20 options to support blob upload, download, and copy operations in an efficient way.		|
 
 
-##<a id="next-steps"></a> Next steps
+## Next steps
 
 For more information about Azure Storage and AzCopy, see the following resources.
 
 ### Azure Storage documentation:
 
-- [Introduction to Azure Storage](http://azure.microsoft.com/en-us/documentation/articles/storage-introduction/)
-- [Store files in Blob storage](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [Create an SMB file share in Azure with File storage](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Introduction to Azure Storage](storage-introduction.md)
+- [Store files in Blob storage](storage-dotnet-how-to-use-blobs.md)
+- [Create an SMB file share in Azure with File storage](storage-dotnet-how-to-use-files.md)
 
 ### Azure Storage blog posts:
-
-- [AzCopy 3.0: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy 2.5: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
+- [AzCopy: Introducing synchronous copy and customized content type] (http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+- [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+- [AzCopy: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 - [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-- [AzCopy: Uploading/downloading files for Windows Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+- [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 

@@ -1,10 +1,24 @@
-<properties pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" 
+	description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="hero-article" 
+	ms.date="04/24/2015" 
+	ms.author="mahender"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 This tutorial will show you how to leverage Azure Mobile Services in your Appcelerator-built applications.
 
@@ -18,7 +32,7 @@ If building for Android, you will also need Android 4.3 or greater SDK.
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Create a new Appcelerator app
 
@@ -70,12 +84,12 @@ The final stage of this tutorial is to build and run your new app.
 
     ![][7]
 
-This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+This sends a POST request to the new mobile service hosted in Microsoft Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 ![][8]
 
 
->[WACOM.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
+>[AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
@@ -113,5 +127,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Todolist application]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Get started with authentication]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[Get started with authentication]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
+[Get started with push notifications]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md

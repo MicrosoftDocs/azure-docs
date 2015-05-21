@@ -1,10 +1,25 @@
-<properties pageTitle="Get Started with Mobile Services for Xamarin.Android" metaKeywords="Azure Xamarin.Android application, mobile service XamarinAndroid, getting started Azure Xamarin.Android" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
+<properties 
+	pageTitle="Get Started with Mobile Services for Xamarin.Android" 
+	writer="craigd" 
+	description="Learn how to use Azure Mobile Services with your Xamarin.Android app." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="04/24/2015" 
+	ms.author="lindydonna"/>
 
 # <a name="getting-started"></a>Get started with Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -20,13 +35,13 @@ Completing this tutorial requires [Xamarin.Android], which installs Xamarin Stud
 
 The downloaded quickstart project contains the Azure Mobile services component for Xamarin.Android. While this project targets Android 4.2 or a later version, the Mobile Services SDK requires only Android 2.2 or a later version.
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure Free Trial</a>.</p></div>
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## <h2>Create a new Xamarin.Android app</h2>
+## Create a new Xamarin.Android app
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -62,7 +77,7 @@ The final stage of this tutorial is to build and run your new app.
 
 3. Press the **Run** button to build the project and start the app. You will be asked to select an emulator or a connected USB device. 
 
-	<div class="dev-callout"><strong>Note</strong> <p>To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.</p></div>
+	> [AUZRE.NOTE] To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 
 4. In the app, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
 
@@ -70,7 +85,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
    	> You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.cs C# file.
 
 6. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
@@ -84,11 +99,8 @@ The final stage of this tutorial is to build and run your new app.
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Get started with data]
-  <br/>Learn more about storing and querying data using Mobile Services.
-
 * [Get started with offline data sync]
-  <br/>Learn how to use offline data sync to make your app responsive and robust.
+  <br/>Learn how the quickstart uses offline data sync to make the app responsive and robust.
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
@@ -119,11 +131,11 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 
 <!-- URLs. -->
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with offline data sync]: mobile-services-xamarin-android-get-started-offline-data.md
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
 [Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[WindowsAzure.com]: http://www.windowsazure.com/
+[Azure]: http://azure.microsoft.com/
 [Management Portal]: https://manage.windowsazure.com/

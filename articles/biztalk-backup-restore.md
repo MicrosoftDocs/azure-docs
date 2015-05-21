@@ -1,22 +1,31 @@
-<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+<properties 
+	pageTitle="Create and restore a backup in BizTalk Services | Azure" 
+	description="BizTalk Services includes Backup and Restore. Learn how to create and restore a backup and determine what gets backed up. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="mandia"/>
 
 
 # BizTalk Services: Backup and Restore
 
-Azure BizTalk Services includes Backup and Restore capabilities. This topic describes how to backup and restore BizTalk Services using the Azure Management Portal, including: 
-
-- [Before you Begin](#beforebackup)
-- [Create a backup](#createbu)
-- [Restore a backup](#restore)
-- [What gets backed up](#budata)
+Azure BizTalk Services includes Backup and Restore capabilities. This topic describes how to backup and restore BizTalk Services using the Azure Management Portal.
 
 You can also back up BizTalk Services using the [BizTalk Services REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
 
-##<a name="beforebackup"></a>Before you Begin
+## Before you Begin
 
-- Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](http://azure.microsoft.com/en-us/documentation/articles/biztalk-editions-feature-chart/).
+- Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
 
 	**Note**  Hybrid Connections are NOT backed up, regardless of the Edition.
 
@@ -37,7 +46,7 @@ You can also back up BizTalk Services using the [BizTalk Services REST API](http
 - Optional: In the BizTalk Services Portal, stop any management operations.
 
 
-##<a name="createbu"></a>Create a backup
+## Create a backup
 
 A backup can be taken at any time and is completely controlled by you. This section lists the steps to create backups using the Azure Management Portal, including:
 
@@ -45,15 +54,15 @@ A backup can be taken at any time and is completely controlled by you. This sect
 
 [Schedule a backup](#backupschedule)
 
-####<a name="backupnow"></a>On Demand backup
-1. In the Azure Management Portal, select **BizTalk Services**, and then select the BizTalk Service to back up.
+#### <a name="backupnow"></a>On Demand backup
+1. In the Azure Management Portal, select **BizTalk Services**, and then select the BizTalk Service you want to backup.
 2. In the **Dashboard** tab, select **Back up** at the bottom of the page.
 3. Enter a backup name. For example, enter *myBizTalkService*BU*Date*.
 4. Choose a blob storage account and select the checkmark to start the backup.
 
 Once the backup completes, a container with the backup name you enter is created in the storage account. This container contains your BizTalk Service backup configuration.
 
-####<a name="backupschedule"></a>Schedule a backup
+#### <a name="backupschedule"></a>Schedule a backup
 
 1. In the Azure Management Portal, select **BizTalk Services**, select the BizTalk Service name you want to schedule the backup, and then select the **Configure** tab.
 2. Set the **Backup Status** to **Automatic**. 
@@ -62,32 +71,32 @@ Once the backup completes, a container with the backup name you enter is created
 	![][AutomaticBU]
 
 	**Notes** 	
-- In **Retention Days**, the retention period must be greater than the backup frequency.
-- Select **Always keep at least one backup**, even if it is past the retention period.
+	- In **Retention Days**, the retention period must be greater than the backup frequency.
+	- Select **Always keep at least one backup**, even if it is past the retention period.
 	
 
 4. Select **Save**.
 
 
-When a scheduled backup job runs, it creates a container (to store backup data) in the storage account you specified. The name of the container is named *BizTalk Service Name-date-time*. 
+When a scheduled backup job runs, it creates a container (to store backup data) in the storage account you entered. The name of the container is named *BizTalk Service Name-date-time*. 
 
 If the BizTalk Service dashboard shows a **Failed** status:
 
 ![Last scheduled backup status][BackupStatus] 
 
-The link opens the Management Services Operation Logs to help troubleshoot. See [BizTalk Services: Troubleshoot using operation logs](http://go.microsoft.com/fwlink/?LinkId=391211).
+The link opens the Management Services Operation Logs to help troubleshoot. See [BizTalk Services: Troubleshoot using operation logs](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
-##<a name="restore"></a>Restore
+## Restore
 
 You can restore backups from the Azure Management Portal or from the [Restore BizTalk Service REST API](http://go.microsoft.com/fwlink/p/?LinkID=325582). This section lists the steps to restore using the Management Portal.
 
-####Before restoring a backup
+#### Before restoring a backup
 
-- New tracking, archiving, and monitoring stores can be specified while restoring a BizTalk Service.
+- New tracking, archiving, and monitoring stores can be entered while restoring a BizTalk Service.
 
 - The same EDI Runtime data is restored. The EDI Runtime backup stores the control numbers. The restored control numbers are in sequence from the time of the backup. If messages are processed after the last backup, restoring this backup content can cause duplicate control numbers.
 
-####Restore a backup
+#### Restore a backup
 
 1. In the Azure Management Portal, select **New** > **App Services** > **BizTalk Service** > **Restore**:
 
@@ -101,7 +110,6 @@ Select **Open**.
 
 	![][RestoreBizTalkService]
 
-
 	Select the next arrow.
 
 4. 	Verify the name of the SQL database, enter the physical server where the SQL database will be created, and a username/password for that server.
@@ -111,19 +119,19 @@ Select **Open**.
 
 	Select the next arrow.
 
-5. Create a new storage account or specify an existing storage account for the BizTalk Service.
+5. Create a new storage account or enter an existing storage account for the BizTalk Service.
 
-7. Click the checkmark to start the restore.
+7. Select the checkmark to start the restore.
 
 Once the restoration successfully completes, a new BizTalk Service is listed in a suspended state on the BizTalk Services page in the Azure Management Portal.
 
 
 
-###<a name="postrestore"></a>After restoring a backup
+### <a name="postrestore"></a>After restoring a backup
 
-BizTalk Service is always restored in a **Suspended** state. In this state, you can make any configuration changes before the new environment is functional, including:
+The BizTalk Service is always restored in a **Suspended** state. In this state, you can make any configuration changes before the new environment is functional, including:
 
-- If you created BizTalk Service applications using the Azure BizTalk Services SDK, you may need to to update the ACS credentials in those applications to work with the restored environment.
+- If you created BizTalk Service applications using the Azure BizTalk Services SDK, you may need to to update the Access Control (ACS) credentials in those applications to work with the restored environment.
 
 - You restore a BizTalk Service to replicate an existing BizTalk Service environment. In this situation, if there are agreements configured in the original BizTalk Services portal that use a source FTP folder, you may need to update the agreements in the newly restored environment to use a different source FTP folder. Otherwise, there may be two different agreements trying to pull the same message.
 
@@ -135,7 +143,7 @@ To start the BizTalk Service in the Azure Management Portal, select the restored
 
 
 
-##<a name="budata"></a>What gets backed up
+## What gets backed up
 
 When a backup is created, the following items are backed up:
 

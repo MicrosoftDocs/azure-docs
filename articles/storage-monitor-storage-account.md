@@ -1,34 +1,35 @@
-<properties urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+<properties 
+	pageTitle="How to monitor a storage account | Microsoft Azure" 
+	description="Learn how to monitor a storage account in Azure by using the Management Portal." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/06/2015" 
+	ms.author="tamram"/>
+
+# Monitor a Storage Account in the Azure Management Portal
+
+## Overview
+
+You can monitor your storage account from the Azure Management Portal. When you configure your storage account for monitoring through the portal, Azure Storage uses [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) to track metrics for you account and log request data. 
+
+> [AZURE.NOTE] Additional costs are associated with examining monitoring data in the Management Portal. For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
+
+> The Azure File service does not currently support Storage Analytics.
+
+> For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting/).
 
 
-
-
-
-
-<h1><a id="createstorageaccount"></a>How To Monitor a Storage Account</h1>
-
-You can monitor your storage accounts in the Azure Preview Management Portal. For each storage service associated with the storage account (Blob, Queue, and Table), you can choose the level of monitoring - minimal or verbose - and specify the appropriate data retention policy. 
-
-Until you configure monitoring for a storage account, no monitoring data is collected, and the metrics charts on the dashboard and **Monitor** page are empty.
-
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Additional costs are associated with examining monitoring data in the Management Portal. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Storage Analytics and Billing</a>.</p> 
-</div>
-
-##Table of Contents##
-
-* [How to: Configure monitoring for a storage account](#configurestoragemonitoring)
-* [How to: Customize the dashboard for monitoring](#customizestoragemonitoring)
-* [How to: Customize the Monitor page](#customizemonitorpage)
-* [How to: Add metrics to the metrics table](#addmonitoringmetrics)
-* [How to: Customize the metrics chart on the Monitor page](#customizemetricschart)
-* [How to: Configure logging](#configurelogging)
-
-
-<h2><a id="configurestoragemonitoring"></a>How to: Configure monitoring for a storage account</h2>
+## How to: Configure monitoring for a storage account
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the storage account name to open the dashboard.
 
@@ -52,12 +53,14 @@ Until you configure monitoring for a storage account, no monitoring data is coll
 
 You should start seeing monitoring data on the dashboard and the **Monitor** page after about an hour.
 
-Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [About Storage Analytics Metrics](http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx).
+Until you configure monitoring for a storage account, no monitoring data is collected, and the metrics charts on the dashboard and **Monitor** page are empty.
 
 After you set the monitoring levels and retention policies, you can choose which of the available metrics to monitor in the Management Portal, and which metrics to plot on metrics charts. A default set of metrics are displayed at each monitoring level. You can use **Add Metrics** to add or remove metrics from the metrics list.
 
+Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [About Storage Analytics Metrics](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 
-<h2><a id="customizestoragemonitoring"></a>How to: Customize the dashboard for monitoring</h2>
+
+## How to: Customize the dashboard for monitoring
 
 On the dashboard, you can choose up to six metrics to plot on the metrics chart from nine available metrics. For each service (Blob, Table, and Queue), the Availability, Success Percentage, and Total Requests metrics are available. The metrics available on the dashboard are the same for minimal or verbose monitoring.
 
@@ -65,18 +68,18 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 
 2. To change the metrics that are plotted on the chart, take one of the following actions:
 
-- To add a new metric to the chart, click the check box by the metric header. In a narrow display, click ***n* more** to access headers that can't be displayed in the header area.
-
-- To hide a metric that is plotted on the chart, clear the check box by the metric header.
-
-	![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+	- To add a new metric to the chart, click the colored check box next to the metric header in the table below the chart.
+	
+	- To hide a metric that is plotted on the chart, clear the colored check box next to the metric header.
+	
+		![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
 3. By default, the chart shows trends, displaying only the current value of each metric (the **Relative** option at the top of the chart). To display a Y axis so you can see absolute values, select **Absolute**.
 
 4. To change the time range the metrics chart displays, select 6 hours, 24 hours, or 7 days at the top of the chart.
      
 
-<h2><a id="customizemonitorpage"></a>How to: Customize the Monitor page</h2>
+## How to: Customize the Monitor page
 
 On the **Monitor** page, you can view the full set of metrics for your storage account. 
 
@@ -86,7 +89,7 @@ On the **Monitor** page, you can view the full set of metrics for your storage a
 
 Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed on the **Monitor** page. These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.
 
-<h2><a id="addmonitoringmetrics"></a>How to: Add metrics to the metrics table</h2>
+## How to: Add metrics to the metrics table
 
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Storage**, and then click the name of the storage account to open the dashboard.
@@ -98,10 +101,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Storage Analytics and Billing</a>.</p> 
-</div>
+	> [AZURE.NOTE] Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see [Storage Analytics and Billing](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
 3. Click **Add Metrics**. 
 
@@ -127,7 +127,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 	![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
-<h2><a id="customizemetricschart"></a>How to: Customize the metrics chart on the Monitor page</h2>
+## How to: Customize the metrics chart on the Monitor page
 
 1. On the **Monitor** page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart. To select a metric, click the check box on its left side. To remove a metric from the chart, clear the check box.
 
@@ -137,7 +137,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 
 
-<h2><a id="configurelogging"></a>How to: Configure logging</h2>
+## How to: Configure logging
 
 For each of the storage services available with your storage account (Blob, Table, and Queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.
 
@@ -156,4 +156,4 @@ For each of the storage services available with your storage account (Blob, Tabl
 
 4. Click **Save**.
 
-The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx).
+The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/library/azure/hh343262.aspx).

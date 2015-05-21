@@ -1,21 +1,16 @@
 This tutorial is built on **GetStartedWithData**, which is an Android app. The UI for this app is identical to the one in the Mobile Services Android quickstart, except that items that are added to the list are stored locally in memory. You will add the code needed to persist the data to storage.
 
 
-1. Download the `mobile-services-samples` repository from gitHub by clicking <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures" target="blank">here</a> and then Click **Download ZIP**.
+1. Download the samples repository from gitHub by clicking <a href="https://github.com/Azure/mobile-services-samples" target="blank">here</a> and then Click **Download ZIP**.
 
-3. Unzip the downloaded file and make a note of its location.
+2. Unzip the downloaded file and make a note of its location, or move it to your Android Studio projects directory.
 
-2. In Eclipse, click **File** then **Import**, expand **Android**, click **Existing Android Code into Workspace**, and then click **Next.** 
+3. Open Android Studio. If you are working with a different project and it appears, close the project (**File => Close Project**).
 
- 	![](./media/download-android-sample-code/mobile-services-import-android-workspace.png)
+4. Select **Open an existing Android Studio project**, browse to the project location in the *AndroidStudio* folder of *GettingStartedWithData*, and then click **OK.** 
 
-3. Click **Browse**, browse to the location of the expanded gitHub repo that you noted earlier. Browse to the `GetStartedWithData` directory, and then click the `Android` directory. Click **OK**, and make sure that the `GetStartedWithData` project is checked. If you want the project copied into your workspace (recommended), check the **Copy projects into workspace** box. Finally, click **Finish**. 
 
- 	![](./media/download-android-sample-code/mobile-services-import-android-project.png)
+ 	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-	This imports the project files into the current workspace.
+	The project is now ready for you to work with.
  
->[AZURE.NOTE] If you want to get the sample file used in the preceding version of the Mobile Services Android SDK, you can get it [here][GitHub].
-
-<!-- URLs. -->
-[GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122

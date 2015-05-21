@@ -1,7 +1,7 @@
 > [AZURE.SELECTOR-LIST (Platform | Backend )]
-- [(C# | EventProcessorHost C#)](/en-us/documentation/articles/service-bus-event-hubs-csharp-ephcs-getstarted/)
-- [(C# | Apache Storm)](/en-us/documentation/articles/service-bus-event-hubs-csharp-storm-getstarted/)
-- [(Java | EventProcessorHost C#)](/en-us/documentation/articles/service-bus-event-hubs-java-ephcs-getstarted/)
-- [(Java | Apache Storm)](/en-us/documentation/articles/service-bus-event-hubs-java-storm-getstarted/)
-- [(C | EventProcessorHost C#)](/en-us/documentation/articles/service-bus-event-hubs-c-ephcs-getstarted/)
-- [(C | Apache Storm)](/en-us/documentation/articles/service-bus-event-hubs-c-storm-getstarted/)
+- [(C# | EventProcessorHost C#)](../articles/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+- [(C# | Apache Storm)](../articles/service-bus-event-hubs-csharp-storm-getstarted.md)
+- [(Java | EventProcessorHost C#)](../articles/service-bus-event-hubs-java-ephcs-getstarted.md)
+- [(Java | Apache Storm)](../articles/service-bus-event-hubs-java-storm-getstarted.md)
+- [(C | EventProcessorHost C#)](../articles/service-bus-event-hubs-c-ephcs-getstarted.md)
+- [(C | Apache Storm)](../articles/service-bus-event-hubs-c-storm-getstarted.md)

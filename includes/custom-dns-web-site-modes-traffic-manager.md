@@ -1,3 +1,3 @@
-Setting a custom domain name on a website that is load balanced by Traffic Manager is only available for Standard mode websites. Before switching a website from the Free website mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your Website subscription. 
+Setting a custom domain name on a web app in Azure App Service that is load balanced by Traffic Manager is only available for **Standard** mode websites. Before switching a web app from the Free App Service plan mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your App Service subscription. 
 
-For more information on the Website modes modes, including how to change the mode of your site, see [How to scale web sites](/en-us/documentation/articles/web-sites-scale/).
+For more information on the App Service plan modes, including how to change the mode of your site, see [How to scale web sites](../articles/web-sites-scale.md).

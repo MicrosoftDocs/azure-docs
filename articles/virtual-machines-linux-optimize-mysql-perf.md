@@ -1,6 +1,20 @@
-<properties urlDisplayName="Optimizing MySQL Performance on Azure Linux VMs" pageTitle="Optimizing MySQL Performance on Azure Linux VMs" metaKeywords="Azure Linux MySQL vm, Linux MySQL vm, MySQL vm performance" description="Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="ningk" solutions="" manager="timlt" editor="tysonn" />
+<properties 
+	pageTitle="Optimizing MySQL Performance on Azure Linux VMs" 
+	description="Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="NingKuang" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="ningk"/>
 
 #Optimizing MySQL Performance on Azure Linux VMs 
 
@@ -9,11 +23,11 @@ There are many factors that impact MySQL performance on Azure, both in virtual h
 ##Utilizing RAID on an Azure virtual machine 
 Storage is the key factor that impacts database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID Levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more detail.   
 
-Disk I/O throughput and I/O response time in Azure can be significantly improved through RAID. Our lab tests show disk I/O throughput can be doubled and I/O response time can be reduced by half on average when the number of RAID disks is doubled (from 2 to 4, 4 to 8, etc.). See [Appendix A](AppendixA) for details.  
+Disk I/O throughput and I/O response time in Azure can be significantly improved through RAID. Our lab tests show disk I/O throughput can be doubled and I/O response time can be reduced by half on average when the number of RAID disks is doubled (from 2 to 4, 4 to 8, etc.). See [Appendix A](#AppendixA) for details.  
 
-In addition to disk I/O, MySQL performance improves when you increase the RAID level.  See [Appendix B](AppendixB) for details.  
+In addition to disk I/O, MySQL performance improves when you increase the RAID level.  See [Appendix B](#AppendixB) for details.  
 
-You may also want to consider the chunk size. In general when you have a larger chunk size, you will get lower overhead, especially for large writes. However, when the chunk size is too large, it might add additional overhead and you cannot take advantage of the RAID. The current default size is 512KB, which is proven to be optimal for most general production environments. See [Appendix C](AppendixC) for details.   
+You may also want to consider the chunk size. In general when you have a larger chunk size, you will get lower overhead, especially for large writes. However, when the chunk size is too large, it might add additional overhead and you cannot take advantage of the RAID. The current default size is 512KB, which is proven to be optimal for most general production environments. See [Appendix C](#AppendixC) for details.   
 
 Please note that there are limits on how many disks you can add for different virtual machine types. These limits are detailed in [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). You will need 4 attached data disks to follow the RAID example in this article, although you could choose to set up RAID with fewer disks.  
 
@@ -53,7 +67,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
 ####Step 2: Create RAID with the additional disks
 Follow this article for detailed RAID setup steps:  
 
-[http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-RAID/)
+[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
 >[AZURE.NOTE] If you are using the XFS file system, follow the steps below after you have created RAID.
 
@@ -206,7 +220,7 @@ The following configuration items are the main factors that affect MySQL perform
 -	**Innodb_log_buffer_size**: The log buffer allows transactions to run without having to flush the log to disk before the transactions commit. However, if there is large binary object or text field, the cache will be consumed very quickly and frequent disk I/O will be triggered. It is better increase the buffer size if Innodb_log_waits state variable is not 0.
 -	**query_cache_size**:  The best option is to disable it from the outset. Set query_cache_size to 0 (this is now the default setting in MySQL 5.6) and use other methods to speed up queries .  
   
-See [Appendix D](AppendixD) for comparing performance after the optimization.
+See [Appendix D](#AppendixD) for comparing performance after the optimization.
 
 
 ##Turn on the MySQL slow query log for analyzing the performance bottleneck

@@ -1,26 +1,51 @@
-<properties urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+<properties 
+	pageTitle="Learn about features in BizTalk Services editions | Azure" 
+	description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
-
-
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/03/2015" 
+	ms.author="mandia"/>
 
 
 # BizTalk Services: Editions Chart
 
-Azure BizTalk Services offers the following editions: Free, Developer, Basic, Standard, and Premium:
-
-**Free (Preview)**: Includes the ability to create and manage Hybrid Connections. A Hybrid Connection is an easy way to connect an Azure Website to an on-premise system, like SQL Server. 
-
-**Developer**: Includes Hybrid Connections, EAI & EDI message processing with an easy-to-use trading partner management portal, and support for common EDI schemas and rich EDI processing over X12 and AS2. Can create common EAI scenarios connecting services in the cloud with any HTTP/S, REST, FTP, WCF and SFTP protocols to read and write messages.  Utilize connectivity to on-premises LOB systems with ready-to-use SAP, Oracle eBusiness, Oracle DB, Siebel, and SQL Server adapters. All in a developer centric environment with Visual Studio tools for easy development and deployment. Limited to development and test purposes only with no Service Level Agreement (SLA).
-
-**Basic**: Includes most of the Developer capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also offers high availability, and the option to scale with a Service Level Agreement (SLA).
-
-**Standard**: Includes all the Basic capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also offers high availability, and the option to scale with a Service Level Agreement (SLA).
+Azure BizTalk Services offers several editions to choose. Use this topic to determine which edition is right for your scenario and business needs.
 
 
-**Premium**: Includes all the Standard capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also includes archiving, high availability, and the option to scale with a Service Level Agreement (SLA).
+## Describing the Editions
+
+**FREE (Preview)**
+
+Can create and manage Hybrid Connections. A Hybrid Connection is an easy way to connect an Azure Website to an on-premises system, like SQL Server. 
+
+**DEVELOPER**
+
+Includes Hybrid Connections, EAI & EDI message processing with an easy-to-use trading partner management portal, and support for common EDI schemas and rich EDI processing over X12 and AS2. Can create common EAI scenarios connecting services in the cloud with any HTTP/S, REST, FTP, WCF and SFTP protocols to read and write messages.  Utilize connectivity to on-premises LOB systems with ready-to-use SAP, Oracle eBusiness, Oracle DB, Siebel, and SQL Server adapters. Use a developer centric environment with Visual Studio tools for easy development and deployment. Limited to development and test purposes only with no Service Level Agreement (SLA).
+
+**BASIC**
+
+Includes most of the Developer capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also offers high availability, and the option to scale with a Service Level Agreement (SLA).
+
+**STANDARD** 
+
+Includes all the Basic capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also offers high availability, and the option to scale with a Service Level Agreement (SLA).
+
+**PREMIUM** 
+
+Includes all the Standard capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also includes archiving, high availability, and the option to scale with a Service Level Agreement (SLA).
 
 
+## Editions Chart
 The following table lists the differences:
 
 <table border="1">
@@ -32,13 +57,10 @@ The following table lists the differences:
         <th>Standard</th>
         <th>Premium</th>
 </tr>
+
 <tr>
 <td><strong>Starting price</strong></td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure Pricing Calculator</a></td>
 </tr>
 <tr>
 <td><strong>Default Minimum Configuration</strong></td>
@@ -99,7 +121,7 @@ Includes TPM Agreements</td>
 <td>500</td>
 </tr>
 <tr>
-<td><strong>BizTalk Adapter Service connections to on-premise LOB systems</strong></td>
+<td><strong>BizTalk Adapter Service connections to on-premises LOB systems</strong></td>
 <td>Not included</td>
 <td>1 connection</td>
 <td>2 connections</td>
@@ -182,7 +204,9 @@ Includes Non-repudiation of Receipt (NRR) and downloading tracked messages</td>
 **Note**
 <br/>For resiliency against hardware failures, High Availability implies having multiple VMs within a single BizTalk Unit.
 
+
 ## FAQs
+
 #### What is a BizTalk Unit?
 A "unit" is the atomic level of an Azure BizTalk Services deployment. Each edition comes with a unit that has different compute capacity and memory. For example, a Basic Unit has more compute than Developer, Standard has more compute than Basic, and so on. When you scale a BizTalk Service, you scale in terms of Units.
 
@@ -198,7 +222,11 @@ BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service
 If you are looking at building new integration solutions that minimize your infrastructure management effort, use BizTalk Services. If you are looking to quickly migrate your existing BizTalk solutions or looking for an on-demand environment to develop and test BizTalk Server applications, use BizTalk Server on an Azure Virtual Machine.
 
 #### What is the difference between BizTalk Adapter Service and Hybrid Connections?
-The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Adapter Service uses the BizTalk Adapter Pack to connect to an on-premise Line of Business (LOB) system. A Hybrid Connection provides an easy and convenient way to connect Azure applications, like Websites and Mobile Services, to an on-premises resource. 
+The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Adapter Service uses the BizTalk Adapter Pack to connect to an on-premises Line of Business (LOB) system. A Hybrid Connection provides an easy and convenient way to connect Azure applications, like Websites and Mobile Services, to an on-premises resource. 
+
+#### What does "Hybrid Connection Data Transfer (GB) per Unit" mean? Is this per minute/hour/day/week/month? What happens when the limit is reached?
+
+The Hybrid Connection cost per unit depends on the BizTalk Services edition. Simply put, costs  depend on how much data you transfer. For example, transferring 10GB data daily costs less than transferring 100GB daily. Use the [Pricing Calculator](http://azure.microsoft.com/pricing/calculator/?scenario=full) for BizTalk Services to determine specific costs. Typically, the limits are enforced daily. If you exceed the limit, any overage is charged at the rate of $1 per GB.
 
 #### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one? 
 
@@ -206,7 +234,7 @@ Each agreement comprises of two different bridges, a send side communication bri
 
 ####  What happens when I hit the quota limit on number of bridges or agreements? 
 
-You will not be able to deploy any new bridges or create any new agreements. In order to deploy more, you will need to scale up to more units of the BizTalk service, or upgrade to a higher Edition.
+You are not able to deploy any new bridges or create any new agreements. To deploy more, you  need to scale up to more units of the BizTalk service, or upgrade to a higher Edition.
 
 #### How do I migrate from one tier of BizTalk Services to another? 
 
@@ -218,7 +246,7 @@ Yes, the BizTalk Adapter Service with the BizTalk Adapter Pack are included with
 
 ## Next
 
-To provision Azure BizTalk Services in the Azure Management Portal, go to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+To create Azure BizTalk Services in the Azure Management Portal, go to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## See Also
 - [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>

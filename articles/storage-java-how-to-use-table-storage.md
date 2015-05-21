@@ -1,57 +1,52 @@
-<properties urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="robmcm" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="How to use Table storage from Java | Microsoft Azure" 
+	description="Learn how to use the table storage service in Azure. Code samples are written in Java code." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+	ms.author="robmcm"/>
 
-# How to use Table Storage from Java
+
+# How to use Table storage from Java
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
+
+## Overview
 
 This guide will show you how to perform common scenarios using the Azure Table storage service. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#NextSteps) section.
 
 Note: An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][]. 
 
-## <a name="Contents"> </a>Table of Contents
+[AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
-* [What is Table Storage](#what-is)
-* [Concepts](#Concepts)
-* [Create an Azure storage account](#CreateAccount)
-* [Create a Java application](#CreateApplication)
-* [Configure your application to access Table Storage](#ConfigureStorage)
-* [Setup an Azure storage connection string](#ConnectionString)
-* [How to: Create a table](#CreateTable)
-* [How to: List the tables](#ListTables)
-* [How to: Add an entity to a table](#AddEntity)
-* [How to: Insert a batch of entities](#InsertBatch)
-* [How to: Retrieve all entities in a partition](#RetrieveEntities)
-* [How to: Retrieve a range of entities in a partition](#RetrieveRange)
-* [How to: Retrieve a single entity](#RetriveSingle)
-* [How to: Modify an entity](#ModifyEntity)
-* [How to: Query a subset of entity properties](#QueryProperties)
-* [How to: Insert or Replace an entity](#InsertOrReplace)
-* [How to: Delete an entity](#DeleteEntity)
-* [How to: Delete a table](#DeleteTable)
-* [Next steps](#NextSteps)
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
-
-##<a name="CreateAccount"></a>Create an Azure storage account
-
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-## <a name="CreateApplication"></a>Create a Java application
+## Create a Java application
 
 In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.
 
 To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the [Azure Storage SDK for Java][] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
 
-## <a name="ConfigureStorage"> </a>Configure your application to access table storage
+## Configure your application to access table storage
 
-Add the following import statements to the top of the Java file where you want to use Windows Azure storage APIs to access tables:
+Add the following import statements to the top of the Java file where you want to use Microsoft Azure storage APIs to access tables:
 
     // Include the following imports to use table APIs
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.table.*;
     import com.microsoft.azure.storage.table.TableQuery.*;
 
-## <a name="ConnectionString"> </a>Setup an Azure storage connection string
+## Setup an Azure storage connection string
 
 An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
 
@@ -69,7 +64,7 @@ In an application running within a role in Microsoft Azure, this string can be s
 
 The following samples assume that you have used one of these two methods to get the storage connection string.
 
-## <a name="CreateTable"> </a>How to: Create a table
+## How to: Create a table
 
 A **CloudTableClient** object lets you get reference objects for tables
 and entities. The following code creates a **CloudTableClient** object
@@ -95,7 +90,7 @@ and uses it to create a new **CloudTable** object which represents a table named
         e.printStackTrace();
     }
 
-## <a name="ListTables"></a>How to: List the tables
+## How to: List the tables
 
 To get a list of tables, call the **CloudTableClient.listTables()** method to retrieve an iterable list of table names.
 
@@ -121,7 +116,7 @@ To get a list of tables, call the **CloudTableClient.listTables()** method to re
         e.printStackTrace();
     }
 
-## <a name="AddEntity"> </a>How to: Add an entity to a table
+## How to: Add an entity to a table
 
 Entities map to Java objects using a custom class implementing **TableEntity**. For convenience, the **TableServiceEntity** class implements **TableEntity** and uses reflection to map properties to getter and setter methods named for the properties. To add an entity to a table, first create a class that defines the properties of your entity. The following code defines an entity class which uses the customer's first name as the row key, and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than those with different partition keys.
 
@@ -184,7 +179,7 @@ Table operations involving entities require a **TableOperation** object. This ob
         e.printStackTrace();
     }
 
-## <a name="InsertBatch"> </a>How to: Insert a batch of entities
+## How to: Insert a batch of entities
 
 You can insert a batch of entities to the table service in one write operation. The following code creates a **TableBatchOperation** object, then adds three insert operations to it. Each insert operation is added by creating a new entity object, setting its values, and then calling the **insert** method on the **TableBatchOperation** object to associate the entity with a new insert operation. Then the code calls **execute** on the **CloudTable** object, specifying the "people" table and the **TableBatchOperation** object, which sends the batch of table operations to the storage service in a single request.
 
@@ -237,7 +232,7 @@ Some things to note on batch operations:
 - All entities in a single batch operation must have the same partition key.
 - A batch operation is limited to a 4MB data payload.
 
-## <a name="RetrieveEntities"> </a>How to: Retrieve all entities in a partition
+## How to: Retrieve all entities in a partition
 
 To query a table for entities in a partition, you can use a **TableQuery**. Call **TableQuery.from** to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Smith' is the partition key. **TableQuery.generateFilterCondition** is a helper method to create filters for queries. Call **where** on the reference returned by the **TableQuery.from** method to apply the filter to the query. When the query is executed with a call to **execute** on the **CloudTable** object, it returns an **Iterator** with the **CustomerEntity** result type specified. You can then use the **Iterator** returned in a for each loop to consume the results. This code prints the fields of each entity in the query results to the console.
 
@@ -283,7 +278,7 @@ To query a table for entities in a partition, you can use a **TableQuery**. Call
         e.printStackTrace();
     }
 
-## <a name="RetrieveRange"> </a>How to: Retrieve a range of entities in a partition
+## How to: Retrieve a range of entities in a partition
 
 If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition "Smith" where the row key (first name) starts with a letter up to 'E' in the alphabet. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise Smith); Jeff Smith is not included.
 
@@ -340,7 +335,7 @@ If you don't want to query all the entities in a partition, you can specify a ra
         e.printStackTrace();
     }
 
-## <a name="RetriveSingle"> </a>How to: Retrieve a single entity
+## How to: Retrieve a single entity
 
 You can write a query to retrieve a single, specific entity. The following code calls **TableOperation.retrieve** with partition key and row key parameters to specify the customer "Jeff Smith", instead of creating a **TableQuery** and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. The **getResultAsType** method casts the result to the type of the assignment target, a **CustomerEntity** object. If this type is not compatible with the type specified for the query, an exception will be thrown. A null value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
 
@@ -379,7 +374,7 @@ You can write a query to retrieve a single, specific entity. The following code 
         e.printStackTrace();
     }
 
-## <a name="ModifyEntity"> </a>How to: Modify an entity
+## How to: Modify an entity
 
 To modify an entity, retrieve it from the table service, make changes to the entity object, and save the changes back to the table service with a replace or merge operation. The following code changes an existing customer's phone number. Instead of calling **TableOperation.insert** like we did to insert, this code calls **TableOperation.replace**. The **CloudTable.execute** method calls the table service, and the entity is replaced, unless another application changed it in the time since this application retrieved it. When that happens, an exception is thrown, and the entity must be retrieved, modified, and saved again. This optimistic concurrency retry pattern is common in a distributed storage system.
 
@@ -418,7 +413,7 @@ To modify an entity, retrieve it from the table service, make changes to the ent
         e.printStackTrace();
     }
 
-## <a name="QueryProperties"> </a>How to: Query a subset of entity properties
+## How to: Query a subset of entity properties
 
 A query to a table can retrieve just a few properties from an entity. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the following code uses the **select** method to return only the email addresses of entities in the table. The results are projected into a collection of **String** with the help of an **EntityResolver**, which does the type conversion on the entities returned from the server. You can learn more about projection in this [blog post][]. Note that projection is not supported on the local storage emulator, so this code runs only when using an account on the table service.
 
@@ -459,7 +454,7 @@ A query to a table can retrieve just a few properties from an entity. This techn
         e.printStackTrace();
     }
 
-## <a name="InsertOrReplace"> </a>How to: Insert or Replace an entity
+## How to: Insert or Replace an entity
 
 Often you want to add an entity to a table without knowing if it already exists in the table. An insert-or-replace operation allows you to make a single request which will insert the entity if it does not exist or replace the existing one if it does. Building on prior examples, the following code inserts or replaces the entity for "Walter Harp". After creating a new entity, this code calls the **TableOperation.insertOrReplace** method. This code then calls **execute** on the **CloudTable** object with the table and the insert or replace table operation as the parameters. To update only part of an entity, the **TableOperation.insertOrMerge** method can be used instead. Note that insert-or-replace is not supported on the local storage emulator, so this code runs only when using an account on the table service. You can learn more about insert-or-replace and insert-or-merge in this [blog post][].
 
@@ -492,7 +487,7 @@ Often you want to add an entity to a table without knowing if it already exists 
         e.printStackTrace();
     }
 
-## <a name="DeleteEntity"> </a>How to: Delete an entity
+## How to: Delete an entity
 
 You can easily delete an entity after you have retrieved it. Once the entity is retrieved, call **TableOperation.delete** with the entity to delete. Then call **execute** on the **CloudTable** object. The following code retrieves and deletes a customer entity.
 
@@ -527,7 +522,7 @@ You can easily delete an entity after you have retrieved it. Once the entity is 
         e.printStackTrace();
     }
 
-## <a name="DeleteTable"> </a>How to: Delete a table
+## How to: Delete a table
 
 Finally, the following code deletes a table from a storage account. A table which has been deleted will be unavailable to be recreated for a period of time following the deletion, usually less than forty seconds.
 
@@ -550,7 +545,7 @@ Finally, the following code deletes a table from a storage account. A table whic
         e.printStackTrace();
     }
 
-## <a name="NextSteps"> </a>Next steps
+## Next steps
 
 Now that you've learned the basics of table storage, follow these links to learn how to do more complex storage tasks.
 
@@ -559,10 +554,10 @@ Now that you've learned the basics of table storage, follow these links to learn
 - [Azure Storage REST API]
 - [Azure Storage Team Blog]
 
-[Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
-[Azure Storage REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+[Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

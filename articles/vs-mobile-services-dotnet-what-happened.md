@@ -1,10 +1,26 @@
-<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="" 
+	description="Describes what happened in your Azure Mobile Services .NET project in Visual Studio" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="patshea123" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# What happened to my project?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
-> - [What Happened](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 ###<span id="whathappened">What happened to my project?</span>
 

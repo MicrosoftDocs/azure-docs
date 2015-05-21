@@ -1,6 +1,20 @@
-<properties pageTitle="Policies in Azure API Management" metaKeywords="" description="Learn how to create, edit, and configure policies in API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="Policies in Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Policies in Azure API Management" 
+	description="Learn how to create, edit, and configure policies in API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/10/2015" 
+	ms.author="sdanie"/>
 
 
 #Policies in Azure API Management
@@ -11,7 +25,9 @@ See the [Policy Reference][] for a full list of policy statements and their sett
 
 Policies are applied inside the proxy which sits between the API consumer and the managed API. The proxy receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
-##How to configure policies
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][].
+
+## <a name="scopes"> </a>How to configure policies
 Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the Publisher Portal.
 
 ![Policies menu][policies-menu]
@@ -59,7 +75,7 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 
 When complete configuring the statements for the policy, click Save and the changes will be propagated to the API Management proxy immediately.
 
-#Understanding policy configuration
+#<a name="sections"> </a>Understanding policy configuration
 
 A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into an inbound (request) and outbound (policy) as shown in the configuration.
 
@@ -88,10 +104,15 @@ In the example policy definition above, the cross-domain statement would execute
 
 Note: A global policy has no parent policy and using the `<base>` element in it has no effect. 
 
-[Policy Reference]: ../api-management-policy-reference
-[Product]: ../api-management-howto-add-products
-[API]: ../api-management-howto-add-products/#add-apis 
-[Operation]: ../api-management-howto-add-operations
+[Policy Reference]: api-management-policy-reference.md
+[Product]: api-management-howto-add-products.md
+[API]: api-management-howto-add-products.md#add-apis 
+[Operation]: api-management-howto-add-operations.md
+
+[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
+[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
+[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
+[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png

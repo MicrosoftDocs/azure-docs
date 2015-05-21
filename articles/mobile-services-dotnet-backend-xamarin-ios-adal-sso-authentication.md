@@ -1,25 +1,35 @@
-<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Xamarin.iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your Xamarin.iOS application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
+<properties 
+	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Xamarin.iOS) | Mobile Dev Center" 
+	description="Learn how to authentication users for single sign-on with ADAL in your Xamarin.iOS application." 
+	documentationCenter="xamarin" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="mahender"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
 
-[WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
+[AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
+
+##Overview
 
 In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library. 
 
 To be able to authenticate users, you must register your application with the Azure Active Directory (AAD). This is done in two steps. First, you must register your mobile service and expose permissions on it. Second, you must register your Xamarin.iOS app and grant it access to those permissions
 
 
->[WACOM.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to do single sign-on Azure Active Directory authentication for Xamarin.iOS apps. If this is your first experience with Mobile Services, complete the tutorial [Get started with Mobile Services].
+>[AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to do single sign-on Azure Active Directory authentication for Xamarin.iOS apps. If this is your first experience with Mobile Services, complete the tutorial [Get started with Mobile Services].
 
-This tutorial walks you through these basic steps:
-
-1. [Register your mobile service with the Azure Active Directory]
-2. [Register your app with the Azure Active Directory] 
-3. [Configure the mobile service to require authentication]
-4. [Add authentication code to the client app]
-5. [Test the client using authentication]
+##Prerequisites
 
 This tutorial requires the following:
 
@@ -29,15 +39,15 @@ This tutorial requires the following:
 * Microsoft Azure Mobile Services SDK
 * A [Xamarin binding for the Active Directory Authentication Library for iOS].
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
 
-## <a name="require-authentication"></a>Configure the mobile service to require authentication
+##Configure the mobile service to require authentication
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-## <a name="add-authentication-code"></a>Add authentication code to the client app
+##Add authentication code to the client app
 
 1. Add your Xamarin binding for the Active Directory Authentication Library to your Xamarin.iOS project. In Visual Studio 2013, right click on **References** and select **Add Reference**. Then browse to your binding library and click **Add**. Be sure to also add the storyboards from the ADAL source.
 
@@ -112,7 +122,7 @@ This tutorial requires the following:
             await QSTodoService.DefaultService.Authenticate();
         }
 
-## <a name="test-client"></a>Test the client using authentication
+##Test the client using authentication
 
 1. From the Run menu, click Run to start the app 
 2. You will receive a prompt to login against your Azure Active Directory.  
@@ -120,17 +130,12 @@ This tutorial requires the following:
 
    ![](./media/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/mobile-services-app-run.png)
 
-<!-- Anchors. -->
-[Register your mobile service with the Azure Active Directory]: #register-mobile-service-aad
-[Register your app with the Azure Active Directory]: #register-app-aad
-[Configure the mobile service to require authentication]: #require-authentication
-[Add authentication code to the client app]: #add-authentication-code
-[Test the client using authentication]: #test-client
+
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Get started with data]: partner-xamarin-mobile-services-ios-get-started-data.md
+[Get started with Mobile Services]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
+[How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Xamarin binding for the Active Directory Authentication Library for iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [Xamarin extension]: http://xamarin.com/visual-studio

@@ -1,12 +1,26 @@
-<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="" 
+	description="How to get started with Azure Mobile Services in a Visual Studio .NET project" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="patshea123" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Getting Started with Mobile Services (.NET Projects)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
-> - [What Happened](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
-
-## Getting Started with Mobile Services (.NET Projects)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.
 
@@ -31,7 +45,7 @@ The following code gets a reference to a table that contains data for a TodoItem
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-This code works if your table has permissions set to **Anybody with an Application Key**. If you change the permissions to secure your mobile service, you'll need to add user authentication support. See [Get Started with Authentication](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+This code works if your table has permissions set to **Anybody with an Application Key**. If you change the permissions to secure your mobile service, you'll need to add user authentication support. See [Get Started with Authentication](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 #####Add entry 
 

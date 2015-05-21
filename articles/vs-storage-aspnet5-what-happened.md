@@ -1,10 +1,31 @@
-<properties title="Getting Started with Azure Storage" pageTitle="Getting Started with Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="Getting Started with Azure Storage" 
+	description="Describes what happened when creating an Azure storage in a Visual Studio ASP.NET 5 project" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/20/2015" 
+	ms.author="kempb"/>
+
+# What happened to my project?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [What Happened](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [Getting Started](vs-storage-aspnet5-getting-started-blobs.md)
+> - [What Happened](vs-storage-aspnet5-what-happened.md)
+
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 ###<span id="whathappened">What happened to my project?</span>
 

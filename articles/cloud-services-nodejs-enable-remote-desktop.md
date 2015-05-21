@@ -1,6 +1,20 @@
-<properties urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Enabling Remote Desktop in Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Enable remote desktop for cloud services (Node.js)" 
+	description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/24/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -14,19 +28,10 @@ running in Azure. You can use a remote desktop connection to
 configure the virtual machine or troubleshoot problems with your
 application.
 
-<div class="dev-callout">
-	<b>Note</b>
-	<p>The steps in this article only apply to node applications hosted as an Azure Cloud Service.</p>
-	</div>
+> [AZURE.NOTE] This article applies to node applications hosted as an Azure Cloud Service.
 
-This task includes the following steps:
 
--   [Step 1: Configure the service for Remote Desktop access using Azure PowerShell]
--   [Step 2: Connect to the role instance]
--   [Step 3: Configure the service to disable Remote Desktop access
-    using Azure PowerShell]
-
-## <a name="step1"> </a>Step 1: Configure the service for Remote Desktop access using Azure PowerShell
+## Step 1: Use Azure PowerShell to configure the service for Remote Desktop access
 
 To use Remote Desktop, you need to configure your service definition and
 service configuration with a username, password, and certificate to
@@ -56,7 +61,7 @@ definition was created.
 When these steps have been completed, the role instances of the service
 in the cloud are configured for Remote Desktop access.
 
-## <a name="step2"> </a>Step 2: Connect to the role instance
+## Step 2: Connect to the role instance
 
 With your deployment up and running in Azure, you can connect to
 the role instance.
@@ -91,7 +96,7 @@ manage your application.
 
 ![Remote desktop session][7]
 
-## <a name="step3"> </a>Step 3: Configure the service to disable Remote Desktop access using Azure PowerShell
+## Step 3: Configure the service to disable Remote Desktop access 
 
 When you no longer require remote desktop connections to the role
 instances in the cloud, disable remote desktop access using the [Azure PowerShell]
@@ -110,9 +115,7 @@ instances in the cloud, disable remote desktop access using the [Azure PowerShel
 - [Remotely Accessing Role Instances in Azure] 
 - [Using Remote Desktop with Azure Roles]
 
-  [Step 1: Configure the service for Remote Desktop access using Azure PowerShell]: #step1
-  [Step 2: Connect to the role instance]: #step2
-  [Step 3: Configure the service to disable Remote Desktop access using Azure PowerShell]: #step3
+
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
 [Azure Management Portal]: http://manage.windowsazure.com
@@ -126,5 +129,5 @@ instances in the cloud, disable remote desktop access using the [Azure PowerShel
   [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
   [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
-  [Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
+  [Remotely Accessing Role Instances in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+  [Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx

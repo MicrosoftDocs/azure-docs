@@ -1,418 +1,240 @@
-<properties urlDisplayName="Using Offline Data" pageTitle="Using Offline data sync in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using Offline data sync in Mobile Services" authors="krisragh" manager="dwrede" />
+<properties
+	pageTitle="Get Started with Offline Data Sync in Mobile Services (iOS) | Mobile Dev Center"
+	description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
+	editor=""
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="03/19/2015"
+	ms.author="krisragh;donnam"/>
 
-# Get started with offline data sync in Mobile Services
+# Get Started with Offline Data Sync in Mobile Services
 
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+Offline sync allows you to view, add, or modify data in a mobile app even when there is no network connection. In this tutorial, you'll learn how your app can automatically store changes in a local offline database and sync those changes whenever it's back online.
 
+Offline sync has several advantages:
 
-This tutorial covers the offline sync feature of Mobile Services on iOS, which allows developers to write apps that are usable even when the end user has no network access.
+* Improves app responsiveness by caching server data locally on device
+* Makes apps resilient against intermittent network connectivity
+* Allows you to create and modify data even with little or no connectivity
+* Syncs data across multiple devices
+* Detects conflicts when same record is modified by two devices
 
-Offline sync has several potential uses:
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get [free mobile services that you can keep using even after your trial ends](http://azure.microsoft.com/pricing/details/mobile-services/). For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
 
-* Improve app responsiveness by caching server data locally on the device
-* Make apps resilient against intermittent network connectivity
-* Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
-* Sync data across multiple devices and detect conflicts when the same record is modified by two devices
+This tutorial is based on the [Mobile Services Quick Start tutorial], which you must complete first. Let's first review the code related to offline sync already in the Quick Start.
 
-This tutorial will show how to update the app from [Get Started with Mobile Services] tutorial to support the offline features of Azure Mobile Services. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
+## <a name="review-sync"></a>Review Mobile Services Sync Code
 
->[WACOM.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
+Azure Mobile Services offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize the sync context of `MSClient` and reference a local store. Then reference your table through the `MSSyncTable` interface.
 
-This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data in a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get Started with Mobile Services].
+* In **QSTodoService.m**, notice the type of member `syncTable` is `MSSyncTable`. Offline sync uses this instead of `MSTable`. When a sync table is used, all operations go to the local store and are synchronized with the remote service only with explicit push and pull operations.
 
->[WACOM.NOTE] You can skip these sections and jump to downloading a version of the Getting Started project that already has offline support and everything described in this topic.  To download a project with offline support enabled, see [Getting Started Offline iOS Sample].
+```
+		@property (nonatomic, strong)   MSSyncTable *syncTable;
+```
 
+To get a reference to a sync table, use the method `syncTableWithName`. To remove offline sync functionality, use `tableWithName` instead.
 
-This tutorial walks you through these basic steps:
+* In **QSTodoService.m**, before table operations are performed, the local store is initialized in `QSTodoService.init`:
 
-1. [Get the Sample Quickstart App]
-2. [Download the Preview SDK and Update the Framework]
-3. [Set Up Core Data]
-4. [Defining the Core Data Model]
-5. [Initializing and Using Sync Table and Sync Context]
-6. [Test the App]
+```
+		MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
+		self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
+```
 
-## <a name="get-app"></a>Get the Sample Quickstart App
+This creates a local store using the `MSCoreDataStore` interface. You may provide a different local store by implementing the `MSSyncContextDataSource` protocol.
 
-Follow the instructions at [Get started with Mobile Services] and download the quickstart project.
+The first parameter of `initWithDelegate` specifies a conflict handler, but since we've passed `nil`, we get the default conflict handler which fails on any conflict. For details on how to implement a custom conflict handler, see [Handling Conflicts with Offline Support for Mobile Services].
 
-## <a name="update-app"></a>Download the preview SDK and update the framework
+* In **QSTodoService.m**, `syncData` first pushes new changes, and then calls `pullData` to get data from the remote service.     In `syncData`, we first call `pushWithCompletion` on the sync context. This method is a member of `MSSyncContext` -- rather than the sync table itself -- because it pushes changes across all tables. Only records that are modified in some way locally -- through creation, update, or delete operations -- are sent to the server. At the end of `syncData`, we call the helper `pullData`.
 
-1. To add offline support to our application, let's get a version of the Mobile Services iOS SDK which supports offline sync. Since we're launching it as a preview feature, it is not yet in the officially downloadable SDK. [Download the preview SDK here].
+In this example, the push operation is not strictly necessary. If there are changes pending in the sync context for the table that is doing a push operation, pull always issues a push first. However, if you have more than one sync table, call push explicitly to have consistency across tables.
 
-2. Then, remove the existing **WindowsAzureMobileServices.framework** reference from the project in Xcode by selecting it, clicking the **Edit** menu, selecting "Move to Trash" to really delete the files.
+```
+      -(void)syncData:(QSCompletionBlock)completion
+      {
+          // push all changes in the sync context, then pull new data
+          [self.client.syncContext pushWithCompletion:^(NSError *error) {
+              [self logErrorIfNotNil:error];
+              [self pullData:completion];
+          }];
+      }
 
-      ![][update-framework-1]
+```
 
-3. Unzip the contents of the new preview SDK, and in place of the old SDK, drag and drop over the new **WindowsAzureMobileServices.framework** SDK. Make sure the "Copy items into destination group's folder (if needed)" is selected.
+* Next in **QSTodoService.m**, `pullData` gets new data that matches a query. `pullData` calls `MSSyncTable.pullWithQuery` to retrieve remote data and store it locally. `pullWithQuery` also allows you to specify a query to filter the records you wish to retrieve. In this example, the query just retrieves all records in the remote `TodoItem` table.
 
-      ![][update-framework-2]
+The second parameter to `pullWithQuery` is a query ID for _incremental sync_. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp, called `ms_updatedAt` in the local store. The query ID is descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. This is inefficient since it will retrieve all records on every pull operation.
 
+```
+      -(void)pullData:(QSCompletionBlock)completion
+      {
+          MSQuery *query = [self.syncTable query];
 
-## <a name="setup-core-data"></a>Set Up Core Data
+          // Pulls data from the remote server into the local table.
+          // We're pulling all items and filtering in the view
+          // query ID is used for incremental sync
+          [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
+              [self logErrorIfNotNil:error];
 
-1. The iOS Mobile Services SDK lets you use any persistent store as long as it complies with the **MSSyncContextDataSource** protocol. Included in the SDK is a data source implementing this protocol based on [Core Data].
+              // Let the caller know that we have finished
+              if (completion != nil) {
+                  dispatch_async(dispatch_get_main_queue(), completion);
+              }
+          }];
+      }
+```
 
-2. Since the app uses Core Data, navigate to **Targets** --> **Build Phases**, and under **Link Binary with Libraries**, add **CoreData.framework**.
 
-      ![][core-data-1]
+>[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
 
-      ![][core-data-2]
 
-3. We are adding Core Data to an existing project in Xcode that does not already support Core Data. As such, we need to add additional boilerplate code to various parts of the project. First add the following code in **QSAppDelegate.h**:
+* In **QSTodoService.m**, the methods `addItem` and `completeItem` invoke `syncData` after modifying data. In **QSTodoListViewController.m**, the method `refresh` also invokes `syncData` so that the UI displays the latest data on every refresh and at launch (`init` calls `refresh`.)
 
-        #import <UIKit/UIKit.h>  
-        #import <CoreData/CoreData.h>  
+Because the app calls `syncData` whenever you modify data, the app assumes you are online whenever you edit data in the app.
 
-        @interface QSAppDelegate : UIResponder <UIApplicationDelegate>  
+## <a name="review-core-data"></a>Review Core Data Model
 
-        @property (strong, nonatomic) UIWindow *window;  
+When using the Core Data offline store, you need to define particular tables and fields in your data model. The sample app already includes a data model with the right format. In this section we walk through these tables and how they are used.
 
-        @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;  
-        @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;  
-        @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;  
+- Open **QSDataModel.xcdatamodeld**. There are four tables defined, three used by the SDK and one for the todo items themselves:
 
-        - (void)saveContext;  
-        - (NSURL *)applicationDocumentsDirectory;  
+      * MS_TableOperations: For tracking items to be synchronized with server
+      * MS_TableOperationErrors: For tracking errors that happen during offline sync
+      * MS_TableConfig: For tracking last updated time for last sync operation for all pull operations
+      * TodoItem: For storing todo items. The system columns **ms_createdAt**, **ms_updatedAt**, and **ms_version** are optional system properties.
 
-        @end
+>[AZURE.NOTE] The Mobile Services SDK reserves column names that begin with "**`ms_`**". Do not use this prefix on anything other than system columns. Otherwise, your column names will be modified when using the remote service.
 
-4. Next, replace the contents of **QSAppDelegate.m** with the following code. This is almost the same code that you get when you create a new application in Xcode and select the "Use Core Data" checkbox, except that you're using a private queue concurrency type when initializing **_managedObjectContext**. With this change, you're almost ready to use Core Data, but you're not doing anything with it yet.
+- When using the offline sync feature, you must define the system tables as shown below.
 
-        #import "QSAppDelegate.h"
+    ### System Tables
 
-        @implementation QSAppDelegate
-
-        @synthesize managedObjectContext = _managedObjectContext;
-        @synthesize managedObjectModel = _managedObjectModel;
-        @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-        {
-            return YES;
-        }
-
-        - (void)saveContext
-        {
-            NSError *error = nil;
-            NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-            if (managedObjectContext != nil) {
-                if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                    abort();
-                }
-            }
-        }
-
-        #pragma mark - Core Data stack
-
-        // Returns the managed object context for the application.
-        // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-        - (NSManagedObjectContext *)managedObjectContext
-        {
-            if (_managedObjectContext != nil) {
-                return _managedObjectContext;
-            }
-
-            NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-            if (coordinator != nil) {
-                _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-                [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-            }
-            return _managedObjectContext;
-        }
-
-        // Returns the managed object model for the application.
-        // If the model doesn't already exist, it is created from the application's model.
-        - (NSManagedObjectModel *)managedObjectModel
-        {
-            if (_managedObjectModel != nil) {
-                return _managedObjectModel;
-            }
-            NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"QSTodoDataModel" withExtension:@"momd"];
-            _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-            return _managedObjectModel;
-        }
-
-        // Returns the persistent store coordinator for the application.
-        // If the coordinator doesn't already exist, it is created and the application's store added to it.
-        - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-        {
-            if (_persistentStoreCoordinator != nil) {
-                return _persistentStoreCoordinator;
-            }
-
-            NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"qstodoitem.sqlite"];
-
-            NSError *error = nil;
-            _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-            if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-                /*
-                 Replace this implementation with code to handle the error appropriately.
-
-                 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                 Typical reasons for an error here include:
-                 * The persistent store is not accessible;
-                 * The schema for the persistent store is incompatible with current managed object model.
-                 Check the error message to determine what the actual problem was.
-
-                 If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-
-                 If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-                 * Simply deleting the existing store:
-                 [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-
-                 * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-                 @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-
-                 Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-
-                 */
-
-                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
-            }
-
-            return _persistentStoreCoordinator;
-        }
-
-        #pragma mark - Application's Documents directory
-
-        // Returns the URL to the application's Documents directory.
-        - (NSURL *)applicationDocumentsDirectory
-        {
-            return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        }
-
-        @end
-
-## <a name="defining-core-data"></a>Defining the Core Data Model
-
-1. Let's continue to set up the application with Core Data by defining the data model. We won't start using this data model just. First, let's define the Core Data model or schema. To get started, click **File** -> **New File** and select **Data Model** in the **Core Data** section. When prompted for a file name, use **QSTodoDataModel.xcdatamodeld**.
-
-      ![][defining-core-data-main-screen]
-
-2. Next, let's define the actual entities (tables) we need. We'll create three tables (entities) using the Core Data model editor. To learn more, see [Core Data Model Editor Help].
-
-  * TodoItem: For storing the items themselves
-  * MS_TableOperations: For tracking the items that need to be synchronized with the server (necessary for offline feature to work)
-  * MS_TableOperationErrors: For tracking any errors that happen during offline synchronization (necessary for offline feature to work)
-
-      ![][defining-core-data-model-editor]
-
-3. Define the three entities as shown below. Save the model, and build the project to make sure that everything is fine. Now we have finished setting up the application to work with Core Data, but the app is not using it yet.
-
-      ![][defining-core-data-todoitem-entity]
-
-      ![][defining-core-data-tableoperations-entity]
-
-      ![][defining-core-data-tableoperationerrors-entity]
-
-
-    **TodoItem**
-
-    | Attribute  |  Type   |
-    |----------- |  ------ |
-    | id         | String  |
-    | complete   | Boolean |
-    | text       | String  |
-    | ms_version | String  |
-
-    **MS_TableOperations**
+    #### MS_TableOperations
 
     | Attribute  |    Type     |
     |----------- |   ------    |
     | id         | Integer 64  |
-    | properties | Binary Data |
     | itemId     | String      |
+    | properties | Binary Data |
     | table      | String      |
+    | tableKind  | Integer 16  |
 
-    **MS_TableOperationErrors**
+    #### MS_TableOperationErrors
+
+    | Attribute   |    Type     |
+    |------------ | ----------  |
+    | id          | String      |
+    | operationId | Integer 64  |
+    | properties  | Binary Data |
+    | tableKind   | Integer 16  |
+
+    #### MS_TableConfig
+
 
     | Attribute  |    Type     |
-    |----------- |   ------    |
+    |----------- | ----------  |
     | id         | String      |
-    | properties | Binary Data |
+    | key        | String      |
+    | keyType    | Integer 64  |
+    | table      | String      |
+    | value      | String      |
 
-## <a name="setup-sync"></a> Initializing and Using Sync Table and Sync Context
+    ### Data Table
 
-1. To start caching data offline, let's replace usage of **MSTable** with **MSSyncTable** to access the mobile service. Unlike a regular **MSTable**, a sync table is like a local table that adds the ability to push changes made locally to a remote table and to pull those changes locally. In **QSTodoService.h**, remove the definition of the **table** property:
+    #### TodoItem
 
-        @property (nonatomic, strong)   MSTable *table;
+    | Attribute    |  Type   |
+    |-----------   |  ------ |
+    | id           | String  |
+    | complete     | Boolean |
+    | text         | String  |
+    | ms_createdAt | Date    |
+    | ms_updatedAt | Date    |
+    | ms_version   | String  |
 
-    Add a new line to define the **syncTable** property:
 
-        @property (nonatomic, strong)   MSTable *syncTable;
+## <a name="setup-sync"></a>Change Sync Behavior of App
 
-2. Add the following import statement at the top of **QSTodoService.m**:
+In this section, you modify the app so that it does not sync on app start, or when inserting and updating items, but only when the refresh gesture  is performed.
 
-        #import "QSAppDelegate.h"
+* In **QSTodoListViewController.m**, change `viewDidLoad` to remove the call to `[self refresh]` at the end of the method. Now, the data will not be synced with the server on app start, but instead will be only stored locally.
 
-3. In **QSTodoService.m**, remove the following two lines in **init**:
+* In **QSTodoService.m**, modify `addItem` so that it doesn't sync after the item is inserted. Remove the `self syncData` block and replace it with the following:
 
-        // Create an MSTable instance to allow us to work with the TodoItem table
-        self.table = [_client tableWithName:@"TodoItem"];
-
-    Instead, add these two new lines in its place:
-
-        // Create an MSSyncTable instance to allow us to work with the TodoItem table
-        self.syncTable = [self.client syncTableWithName:@"TodoItem"];
-
-4. Next, again in **QSTodoService.m**, let's initialize the synchronization context in the **MSClient** with the Core Data-based data store implementation above. The context is responsible for tracking which items have been changed locally, and sending those to the server when a push operation is started. To initialize the context we need a data source (the **MSCoreDataStore** implementation of the protocol) and an optional **MSSyncContextDelegate** implementation. Insert these lines right above the two lines you inserted above.
-
-        QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = delegate.managedObjectContext;
-        MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
-
-        self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
-
-5. Next, let's update the operations in **QSTodoService.m** to use the sync table instead of the regular table. First, replace **refreshDataOnSuccess** with the following implementation. This retrieves data from the service, so let's update it to use a sync table, ask the sync table to pull only items that match our criteria, and start loading data from the local sync table into the **items** property of the service. With this code,  **refreshDataOnSuccess** pulls the data from the remote table into the local (sync) table. We should generally pull only a subset of the table so that we don't overload the client with information that it may not need.
-
-    For this and the remaining operations further below, we wrap the calls to the completion blocks in a **dispatch_async** call to the main thread. When we initialize the sync context, we do not pass a callback parameter, so the framework creates a default serial queue that dispatches the results of all syncTable operations into a background thread. When modifying UI components, we need to dispatch the code back to the UI thread.
-
-          -(void) refreshDataOnSuccess:(QSCompletionBlock)completion
-          {
-              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
-
-              [query orderByAscending:@"text"];
-              [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
-                  [self logErrorIfNotNil:error];
-
-                  self.items = [result.items mutableCopy];
-
-                  // Let the caller know that we finished
-                  dispatch_async(dispatch_get_main_queue(), ^{
-                      completion();
-                  });
-              }];
-          }
-
-6. Next, replace **addItem** in **QSTodoService.m** as follows. With this change, you're queuing the operation so that you push the changes to the remote service and make it visible to everyone:
-
-        -(void)addItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
-        {
-            // Insert the item into the TodoItem table and add to the items array on completion
-            [self.syncTable insert:item completion:^(NSDictionary *result, NSError *error)
-             {
-                 [self logErrorIfNotNil:error];
-
-                 NSUInteger index = [items count];
-                 [(NSMutableArray *)items insertObject:result atIndex:index];
-
-                 // Let the caller know that we finished
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     completion(index);
-                 });
-             }];
+```
+        if (completion != nil) {
+            dispatch_async(dispatch_get_main_queue(), completion);
         }
+```
 
-7. Update **completeItem** in **QSTodoService.m** as follows. Unlike in **MSTable**, the completion block of the **update** operation for **MSSyncTable** does not have an updated item. With **MSTable**, the server modifies the item being updated, and that modification is reflected on the client. With **MSSyncTable**, the updated items are not modified and the completion block doesn't have a parameter.
+* Similarly, again in **QSTodoService.m**, in `completeItem`, remove the block for `self syncData` and replace with the following:
 
-        -(void) completeItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
-        {
-            // Cast the public items property to the mutable type (it was created as mutable)
-            NSMutableArray *mutableItems = (NSMutableArray *) items;
-
-            // Set the item to be complete (we need a mutable copy)
-            NSMutableDictionary *mutable = [item mutableCopy];
-            [mutable setObject:@YES forKey:@"complete"];
-
-            // Replace the original in the items array
-            NSUInteger index = [items indexOfObjectIdenticalTo:item];
-            [mutableItems replaceObjectAtIndex:index withObject:item];
-
-            // Update the item in the TodoItem table and remove from the items array on completion
-            [self.syncTable update:mutable completion:^(NSError *error) {
-
-                [self logErrorIfNotNil:error];
-
-                NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
-                if (index != NSNotFound)
-                {
-                    [mutableItems removeObjectAtIndex:index];
-                }
-
-                // Let the caller know that we have finished
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(index);
-                });
-
-            }];
+```
+        if (completion != nil) {
+            dispatch_async(dispatch_get_main_queue(), completion);
         }
+```
 
-8. Add the following operation declaration of **syncData** to **QSTodoService.h**:
+## <a name="test-app"></a>Test App
 
-        - (void)syncData:(QSCompletionBlock)completion;
+In this section, you will turn of Wi-Fi in the simulator to create an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile service.
 
-     Add the corresponding implementation of **syncData** to **QSTodoService.m**. We're adding this operation to update the sync table with remote changes.
+1. Turn off Wi-Fi in the iOS simulator. This simulates an offlien scenario.
 
-          -(void)syncData:(QSCompletionBlock)completion
-           {
-              // Create a predicate that finds items where complete is false
-              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+2. Add some todo items or complete some items. Quit the simulator (or forcibly close the app) and restart. Verify that your changes have been persisted. Notice that the data items are still displayed because they are held in the local Core Data store.
 
-              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
+3. View the contents of the remote TodoItem table. Verify that the new items have _not_ been synced to the server.
 
-              // Pulls data from the remote server into the local table. We're only
-              // pulling the items which we want to display (complete == NO).
-              [self.syncTable pullWithQuery:query completion:^(NSError *error) {
-                  [self logErrorIfNotNil:error];
-                  [self refreshDataOnSuccess:completion];
-           }];
-          }
+   - For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the `TodoItem` table.
+   - For the .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
 
-9. Back in **QSTodoListViewController.m**, change the implementation of **refresh** to call **syncData** instead of **refreshDataOnSuccess**:
+4. Turn on Wi-Fi in the iOS simulator. Next, perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".
 
-        -(void) refresh
-        {
-            [self.refreshControl beginRefreshing];
-            [self.todoService syncData:^
-             {
-                  [self.refreshControl endRefreshing];
-                  [self.tableView reloadData];
-             }];
-        }
+5. View the TodoItem data again. The new and changed TodoItems should now appear.
 
-10. Again in **QSTodoListViewController.m**, replace the call to **[self refresh]** at the end of the **viewDidLoad** operation with the following code:
+## Summary
 
-        // load the local data, but don't pull from server
-        [self.todoService refreshDataOnSuccess:^
-         {
-             [self.refreshControl endRefreshing];
-             [self.tableView reloadData];
-         }];
+In order to support the offline features of mobile services, you used the `MSSyncTable` interface and initialized `MSClient.syncContext` with a local store. In this case the local store was a Core Data-based database.
 
-11. Now, let's really test the app offline. Add a few items to the app, then visit the Azure Management Portal and look at the **Data** tab for your app. You'll see that no items are added yet.
+When using a Core Data local store, you define several tables with the [correct system properties][Review the Core Data model]. The normal  operations for mobile services work as if the app is still connected but all the operations occur against the local store.
 
-12. Next, perform the refresh gesture on the app by dragging it from the top. Then visit the Azure Management Portal again and look at the **Data** tab again. You'll see the data saved in the cloud now. You can also close the app after adding an item (or after editing one, if the app has the functionality enabled to edit items.) When the app is relaunched, it'll sync with the server and save the changes.
+To synchronize the local store with the server, you used `MSSyncTable.pullWithQuery` and `MSClient.syncContext.pushWithCompletion`:
 
-13. When the client performs some changes in the items locally, those changes are stored in the sync context to be sent to the server. A *push* operation sends the tracked changes to the remote server, but here, we have no push calls to the serve. However, *before a pull is executed, any pending operations are generally pushed to the server*, so a push is still happening automatically to prevent conflicts. This is why there are no explicit calls to *push* in this app.
+		* To push changes to the server, you called `pushWithCompletion`. This method is in `MSSyncContext` instead of the sync table because it will push changes across all tables. Only records that are modified in some way locally (through CUD operations) are be sent to the server.
 
-## <a name="test-app"></a>Test the App
-
-Finally, let's test the application offline. Add a few items in the app. Then go to the portal and browse the data (or use a networking tool such as PostMan or Fiddler to query the table directly).
-
-You'll see that the items have not been added to the service yet. Now perform the refresh gesture in the app by dragging it from the top. You'll see that the data has been saved in the cloud now. You can even close the app after adding some items. When you launch the app again it will sync with the server and your changes are saved.
+		* To pull data from a table on the server to the app, you called `MSSyncTable.pullWithQuery`. A pull always issues a push first. This is to ensure all tables in the local store along with relationships remain consistent. `pullWithQuery` can also be used to filter the data that is stored on the client, by customizing the `query` parameter.
 
 ## Next Steps
 
-* [Handling conflicts with offline support for Mobile Services]
+* [Handling Conflicts with Offline Support for Mobile Services]
+
+* [Using Soft Delete in Mobile Services][Soft Delete]
+
+## Additional Resources
+
+* [Cloud Cover: Offline Sync in Azure Mobile Services]
+
+* [Azure Friday: Offline-enabled apps in Azure Mobile Services] \(note: demos are for Windows, but feature discussion applies to all platforms\)
 
 <!-- URLs. -->
 
-[Get the Sample Quickstart App]: #get-app
-[Download the Preview SDK and Update the Framework]: #update-app
-[Set Up Core Data]: #setup-core-data
-[Defining the Core Data Model]: #defining-core-data
-[Initializing and Using Sync Table and Sync Context]: #setup-sync
-[Test the App]: #test-app
+[Get the sample app]: #get-app
+[Review the Core Data model]: #review-core-data
+[Review the Mobile Services sync code]: #review-sync
+[Change the sync behavior of the app]: #setup-sync
+[Test the app]: #test-app
 
 [core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
 [core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
@@ -421,12 +243,10 @@ You'll see that the items have not been added to the service yet. Now perform th
 [defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
 [defining-core-data-tableoperationerrors-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png
+[defining-core-data-tableconfig-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 [update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
 [update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
-
-
-
 
 [Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
 [Creating an Outlet Connection]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
@@ -436,10 +256,17 @@ You'll see that the items have not been added to the service yet. Now perform th
 
 [Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
 [Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: /en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/
-[Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[How to use the Mobile Services client library for iOS]: mobile-services-ios-how-to-use-client-library.md
+[Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[Mobile Services sample repository on GitHub]: https://github.com/Azure/mobile-services-samples
 
 
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
+[Handling Conflicts with Offline Support for Mobile Services]:  mobile-services-ios-handling-conflicts-offline-data.md
+[Soft Delete]: mobile-services-using-soft-delete.md
+
+[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+
+[Mobile Services Quick Start tutorial]: mobile-services-ios-get-started.md

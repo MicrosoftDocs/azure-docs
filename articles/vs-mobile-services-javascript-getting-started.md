@@ -1,12 +1,26 @@
-<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="" 
+	description="How to get started with Mobile Services in a JavaScript project in Visual Studio" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="patshea123" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="JavaScript" 
+	ms.topic="article" 
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Getting Started with Mobile Services
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-mobile-services-javascript-getting-started/)
-> - [What Happened](/documentation/articles/vs-mobile-services-javascript-what-happened/)
-
-## Getting Started with Mobile Services
+> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
+> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.
 

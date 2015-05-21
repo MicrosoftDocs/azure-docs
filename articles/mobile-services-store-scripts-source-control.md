@@ -1,12 +1,26 @@
-<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Store project code in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Store project code in source control - Azure Mobile Services" 
+	description="Learn how to store your server script files and modules in a local Git repo on your computer." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
-
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
-</div>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="04/24/2015" 
+	ms.author="ggailey777"/>
 
 # Store project code in source control
+
+<div class="dev-center-tutorial-subselector">
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
 
 This topic shows you how to use the source control provided by Azure Mobile Services to store your server scripts. Scripts and other JavaScript backend code files can be promoted from your local Git repository to your production mobile service. It also shows how to define shared code that can be required by multiple scripts and how to use the package.json file to add Node.js modules to your mobile service. 
 
@@ -21,7 +35,7 @@ To complete this tutorial, you must have already created a mobile service by com
 
 ##<a name="enable-source-control"></a>Enable source control in your mobile service
 
-[WACOM.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
+[AZURE.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
 
 ##<a name="clone-repo"></a>Install Git and create the local repository
 
@@ -29,7 +43,7 @@ To complete this tutorial, you must have already created a mobile service by com
 
 	The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
@@ -111,10 +125,7 @@ The recommended way to add Node.js modules to your mobile service is by adding r
 
 	NPM creates the `node_modules` directory in the current location and installs the [node-uuid] module in the `\node-uuid` subdirectory. 
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>When <code>node_modules</code> already exists in the directory hierarchy, NPM will create the <code>\node-uuid</code> subdirectory there instead of creating a new <code>node_modules</code> in the repository. In this case, just delete the existing <code>node_modules</code> directory.</p>
-	</div>
+	> [AZURE.NOTE] When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
 
 4. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
 
@@ -122,7 +133,7 @@ The recommended way to add Node.js modules to your mobile service is by adding r
 		    var uuid = require('node-uuid');
 		    item.uuid = uuid.v1();
 		    request.execute();
-		    console.log(JSON.stringify(item, null, 4));
+		    console.log(item);
 		}
 
 	This code adds a uuid column to the table, populating it with unique GUID identifiers.
@@ -158,12 +169,12 @@ Now that you have completed this tutorial you know how to store your scripts in 
 
 <!-- URLs. -->
 [Git website]: http://git-scm.com
-[Source control]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Add Mobile Services to an existing app]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Work with server scripts in Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-use-server-scripts/
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Add Mobile Services to an existing app]: mobile-services-ios-get-started-data.md
+[Work with server scripts in Mobile Services]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Call a custom API from the client]: /en-us/documentation/articles/mobile-services-ios-call-custom-api/
+[Call a custom API from the client]: mobile-services-ios-call-custom-api.md
 [Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid

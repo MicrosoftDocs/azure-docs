@@ -1,6 +1,20 @@
-<properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties 
+	pageTitle="Security offerings for Azure Virtual Machines" 
+	description="Quick overview of key security features for Azure VMs and links to details" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #Security offerings for Azure Virtual Machines
 
@@ -24,6 +38,6 @@ Azure offers several options for anti-virus/antimalware solutions, but it’s up
 Network access control lists (ACLs) let you selectively permit or deny inbound traffic to a virtual machine endpoint. This packet filtering capability provides an additional layer of security. For details on how this works and links to instructions, see [About Network Access Control Lists (ACLs)](http://go.microsoft.com/fwlink/?LinkId=506655).
 
 ##Additional resources
-[Resources](http://azure.microsoft.com/en-us/support/trust-center/resources/) on the Microsoft Azure Trust Center
+[Resources](http://azure.microsoft.com/support/trust-center/resources/) on the Microsoft Azure Trust Center
 
 

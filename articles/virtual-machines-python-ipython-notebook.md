@@ -1,6 +1,20 @@
-<properties urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Azure" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="IPython Notebook - Azure tutorial" 
+	description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." 
+	services="virtual-machines" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -32,7 +46,7 @@ libraries.  Since all installation is done in the cloud, users can access these
 resources without the need for any local configuration beyond a modern web
 browser.
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Create and Configure a VM on Azure
 
@@ -43,7 +57,7 @@ virtual machines, and we will cover the setup of IPython on both types of virtua
 
 ### Linux VM
 
-Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *OpenSUSE* or *Ubuntu* distribution. This tutorial uses OpenSUSE 13.1 and Ubuntu Server 14.04 LTS. We'll assume the default user name *azureuser*.
+Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *OpenSUSE* or *Ubuntu* distribution. This tutorial uses OpenSUSE 13.2 and Ubuntu Server 14.04 LTS. We'll assume the default user name *azureuser*.
 
 ### Windows VM
 
@@ -89,6 +103,10 @@ Install [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] and other I
 To install IPython and its dependencies, SSH into the Linux VM and carry out 
 the following steps.
 
+First, retrieve new lists of packages:
+
+    sudo apt-get update
+
 Install [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] and other IPython's dependencies by doing:
 
     sudo apt-get install python-matplotlib
@@ -103,15 +121,7 @@ using the Windows PowerShell to run all command line actions.
 
 **Note**: In order to download anything using Internet Explorer, you'll need to change some security settings.  From **Server Manager**, click on **Local Server**, then on **IE Enhanced Security Configuration** and turn it off for administrators.  You can enable it again once you're done installing IPython.
 
-1.  Install Python 2.7.8 (32 bit) from [python.org](http://www.python.org/download). 
-    You will also need to add `C:\Python27` and `C:\Python27\Scripts` to your `PATH` 
-    environment variable.
-
-1.  Install pip and setuptools by downloading the file **get-pip.py**
-    from [https://pip.pypa.io/en/latest/installing.html](https://pip.pypa.io/en/latest/installing.html) and then running the
-    command:
-
-        python get-pip.py
+1.  Download and install the latest 32-bit version of [Python 2.7][].  You will need to add `C:\Python27` and `C:\Python27\Scripts` to your `PATH` environment variable.
 
 1.  Install [Tornado][tornado] and [PyZMQ][pyzmq] and other IPython's dependencies by doing:
 
@@ -122,23 +132,23 @@ using the Windows PowerShell to run all command line actions.
         easy_install python-dateutil
         easy_install pyparsing
 
-1.  Download and install [NumPy][numpy] using the
-    `.exe` binary installer available on their website.  As of this writing, the latest version is **numpy-1.9.0-win32-superpack-python2.7.exe**.
+1.  Download and install [NumPy][numpy] using the `.exe` binary installer available on their website.  As of this writing, the latest version is **numpy-1.9.1-win32-superpack-python2.7.exe**.
 
-1.  Download and install [Matplotlib][matplotlib] using the
-    `.exe` binary installer available on their website.  As of this writing, the latest version is **matplotlib-1.4.0.win32-py2.7.exe**.
+1.  Install [Matplotlib][matplotlib] by doing:
 
-1.  Download and install OpenSSL. You can find Windows versions of OpenSSL at [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html).
+        pip install matplotlib==1.4.2
 
-	* If you install a **Light** version, you must also install the **Visual C++ 2008 Redistributable** (also available from this page.)
+1.  Download and install [OpenSSL][].
 
-	* You will  need to add `C:\OpenSSL-Win32\bin` to your `PATH` environment variable.
+	* You'll find the required **Visual C++ 2008 Redistributable** on the same download page.
 
-	> [WACOM.NOTE] When installing OpenSSL, use version 1.0.1g or higher as these include a fix for the Heartbleed security vulnerability.
+	* You will need to add `C:\OpenSSL-Win32\bin` to your `PATH` environment variable.
 
-1.  Install the IPython using the command:
+	> [AZURE.NOTE] When installing OpenSSL, use version 1.0.1g or higher as these include a fix for the Heartbleed security vulnerability.
 
-        easy_install ipython
+1.  Install IPython using the command:
+
+        pip install ipython==2.4
 
 1.  Open a port in Windows Firewall.  On Windows Server 2012, the firewall will block incoming connections by default.  To open port 9999, follow these steps:
 
@@ -164,11 +174,7 @@ IPython configuration profile to encapsulate the configuration information:
 Next we `cd` to the profile directory to create our SSL certificate and edit
 the profiles configuration file.
 
-On Linux (OpenSUSE):
-
-    cd ~/.config/ipython/profile_nbserver/
-
-On Linux (Ubuntu):
+On Linux:
 
     cd ~/.ipython/profile_nbserver/
 
@@ -176,7 +182,7 @@ On Windows:
 
     cd \users\azureuser\.ipython\profile_nbserver
 
-On both platforms create the SSL certificate as follows:
+Create the SSL certificate as follows (Linux and Windows):
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -213,10 +219,7 @@ has at least the following content:
     
     # You must give the path to the certificate file.
     
-    # If using a Linux VM (OpenSUSE):
-    c.NotebookApp.certfile = u'/home/azureuser/.config/ipython/profile_nbserver/mycert.pem'
-
-    # If using a Linux VM (Ubuntu):
+    # If using a Linux VM:
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
@@ -317,12 +320,8 @@ can be used:
 
 * and more...
 
-If you go to the IPython source code repository, you will find an entire
-directory with [notebook
-examples](https://github.com/ipython/ipython/tree/master/examples/notebooks)
-which you can download and then experiment with on your own Azure IPython VM.
-Simply download the `.ipynb` files from the site and upload them onto the
-dashboard of your notebook Azure VM (or download them directly into the VM).
+If you go to the IPython source code [repository][], you will find an entire
+directory with notebook examples which you can download and then experiment with on your own Azure IPython VM.  Simply download the `.ipynb` files from the site and upload them onto the dashboard of your notebook Azure VM (or download them directly into the VM).
 
 ## Conclusion
 
@@ -335,7 +334,7 @@ can be shared with other IPython users.  The IPython Notebook can be used as a
 local application, but it is ideally suited for cloud deployments on Azure
 
 The core features of IPython are also available inside Visual Studio via the 
-[Python Tools for Visual Studio](http://pytools.codeplex.com) (PTVS). PTVS is a free and open-source plug-in 
+[Python Tools for Visual Studio][] (PTVS). PTVS is a free and open-source plug-in 
 from Microsoft that turns Visual Studio into an advanced Python development 
 environment that includes an advanced editor with IntelliSense, debugging, 
 profiling and parallel computing integration.
@@ -347,5 +346,11 @@ profiling and parallel computing integration.
 [NumPy]:        http://www.numpy.org/               "NumPy"
 [Matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
 
-[portal-vm-windows]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
-[portal-vm-linux]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
+
+[repository]: https://github.com/ipython/ipython
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+
+[Python 2.7]: http://www.python.org/download
+[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html

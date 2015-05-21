@@ -1,6 +1,20 @@
-<properties urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="szarkos" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Use root privileges on Linux virtual machines in Azure" 
+	description="Learn how to use root privileges on a Linux virtual machine in Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="szark"/>
 
 
 
@@ -23,6 +37,12 @@ Log into the Linux virtual machine using SSH key or password authentication, the
 
 In this case the user will be prompted for a password. After entering the password `sudo` will run the command with `root` privileges.
 
+You can also enable passwordless sudo by editing the `/etc/sudoers.d/waagent` file, for example:
+
+	#/etc/sudoers.d/waagent
+	azureuser (ALL) = (ALL) NOPASSWD: ALL
+
+This change will allow for passwordless sudo by the azureuser user.
 
 ## SSH Key Only
 

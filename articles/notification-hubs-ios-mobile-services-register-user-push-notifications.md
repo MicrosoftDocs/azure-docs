@@ -1,11 +1,25 @@
-<properties urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="Register current user for push notifications using a mobile service - Notification Hubs" 
+	description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="04/24/2015" 
+	ms.author="yuaxu"/>
 
 # Register the current user for push notifications by using a mobile service
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
 This topic shows you how to request push notification registration with Azure Notification Hubs when registration is performed by Azure Mobile Services. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
@@ -43,9 +57,7 @@ This topic shows you how to request push notification registration with Azure No
 
 	This updates the **deviceToken** property.
 
-	<div class="dev-callout"><b>Note</b>
-	<p>At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Get Started with Notification Hubs</a> tutorial, you must comment-out or remove that call.</p>
-	</div>
+	> [AZURE.NOTE] At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") tutorial, you must comment-out or remove that call.
 
 5.  (Optional) In the QSAppDelegate.m file, add the following handler method:
 
@@ -93,10 +105,8 @@ This topic shows you how to request push notification registration with Azure No
 			    }];
 			}
 
-	<div class="dev-callout"><b>Note</b>
-	<p>This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.</p>
-	</div>
-
+	> [AZURE.NOTE] This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.
+	
 Now that the client app has been updated, return to the [Notify users with Notification Hubs] and update the mobile service to send notifications by using Notification Hubs.
 
 <!-- Anchors. -->
@@ -105,8 +115,8 @@ Now that the client app has been updated, return to the [Notify users with Notif
 
 
 <!-- URLs. -->
-[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios/
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Get Started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/

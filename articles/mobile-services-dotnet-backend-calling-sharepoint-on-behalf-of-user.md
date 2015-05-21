@@ -1,6 +1,20 @@
-<properties urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" metaKeywords="" description="Learn how to make calls to SharePoint on behalf of the user" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" manager="dwrede" />
+<properties 
+	pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" 
+	description="Learn how to make calls to SharePoint on behalf of the user" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="04/13/2015" 
+	ms.author="mahender"/>
 
 # Access SharePoint on behalf of the user
 
@@ -69,7 +83,7 @@ In order to access SharePoint, you need a special access token with SharePoint a
 
 1. Open your Mobile Services backend project in Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 2. In your Mobile Services backend project, crate a new class called SharePointUploadContext. In it, add the following:
 
@@ -201,5 +215,5 @@ To create a Word document, you will use the OpenXML NuGet package. Install this 
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
-[Authenticate your app with Active Directory Authentication Library Single Sign-On]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[SharePoint Online]: http://office.microsoft.com/sharepoint/
+[Authenticate your app with Active Directory Authentication Library Single Sign-On]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/

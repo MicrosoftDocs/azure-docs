@@ -14,7 +14,7 @@ To be able to store app data in the new mobile service, you must first create a 
 
   This creates a new storage table **TodoItem** with the default permissions set. This means that anyone with the application key, which is distributed with your app, can access and change data in the table. 
 
-> [WACOM.NOTE] 
+> [AZURE.NOTE] 
 > The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
@@ -52,9 +52,7 @@ To be able to store app data in the new mobile service, you must first create a 
 
   	This is the minimum requirement for a table in Mobile Services. 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</p>
-    </div>
+    > [AZURE.NOTE] When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.
 
 You are now ready to use the new mobile service as data storage for the app.
 

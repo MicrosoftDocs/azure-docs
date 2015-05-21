@@ -1,14 +1,28 @@
-<properties urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2012 R2 Datacenter virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Python web app with Django - Azure tutorial" 
+	description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2012 R2 Datacenter virtual machine." 
+	services="virtual-machines" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
 
 # Django Hello World Web Application
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
 This tutorial describes how to host a Django-based website on Microsoft 
 Azure using a Windows Server virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
@@ -25,7 +39,7 @@ A screenshot of the completed application is below:
 
 ![A browser window displaying the hello world page on Azure][1]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Creating and configuring an Azure virtual machine to host Django
 
@@ -51,7 +65,6 @@ A screenshot of the completed application is below:
 	1. Start Web Platform Installer.
 	1. Type WFastCGI in the search bar. 
 	1. Select the WFactCGI entry for the version of Python you wish to use (2.7 or 3.4).  Note that this will install Python as a dependency of WFastCGI. 
-1. If you installed Python 2.7, [follow these instructions to install pip manually](https://pip.pypa.io/en/latest/installing.html) (Python 3.4 comes with pip already installed).
 1. Install Django using pip.
 
     Python 2.7:
@@ -185,7 +198,7 @@ When you're done with this tutorial, shutdown and/or remove your newly created A
 
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
 
-[portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 

@@ -1,26 +1,40 @@
-<properties pageTitle="Get Started with Event Hubs" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties
+	pageTitle="Get Started with Event Hubs"
+	description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost"
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="csharp"
+	ms.devlang="csharp"
+	ms.topic="hero-article"
+	ms.date="04/27/2015"
+	ms.author="sethm"/>
 
-# <a name="getting-started"> </a>Get started with Event Hubs
+# Get started with Event Hubs
 
-[WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
+[AZURE.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
 
-Event Hubs is a highly scalable ingestion system that can process millions of events per second, enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster. For more information about Event Hubs, see the [Event Hubs developer guide]. 
+## Introduction
 
-For more information, please see [Event Hubs Overview].
+Event Hubs is a service that you can use to process large amounts of event data from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
 
-In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using the C# [Event Processor Host] library.
+This tutorial shows how to use the Azure management portal to create an Event Hub. It also shows you how to collect messages into an Event Hub using a console application written in C#, and how to retrieve them in parallel using the C# [Event Processor Host] library.
 
-In order to complete this tutorial you will need the following:
+In order to complete this tutorial you'll need the following:
 
-+ Microsoft Visual Studio Express 2013 for Windows
++ Microsoft Visual Studio 2013, or Microsoft Visual Studio Express 2013 for Windows.
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
++ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ## Create an Event Hub
 
-1. Log on to the [Azure Management Portal], and click **NEW** at the bottom of the screen.
+1. Log on to the [Azure management portal], and click **NEW** at the bottom of the screen.
 
 2. Click **App Services**, then **Service Bus**, then **Event Hub**, then **Quick Create**.
 
@@ -42,16 +56,16 @@ In order to complete this tutorial you will need the following:
 
    	![][5]
 
-7. Click the **Dashboard** tab at the top of the page, and then click **Connection Information**. Take note of the two connection strings.
+7. Click the **Dashboard** tab at the top of the page, and then click **Connection Information**. Take note of the two connection strings, or copy them somewhere to use later in this tutorial.
 
    	![][6]
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Run the applications
 
@@ -64,6 +78,14 @@ Now you are ready to run the applications.
 2.	Run the **Sender** project, press **Enter** in the console windows, and see the events appear in the receiver window.
 
    	![][22]
+
+## Next steps
+
+Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
+
+- A complete [sample application that uses Event Hubs].
+- The [Scale out Event Processing with Event Hubs] sample.
+- A [queued messaging solution] using Service Bus queues.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
@@ -79,4 +101,7 @@ Now you are ready to run the applications.
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview]: http://msdn.microsoft.com/en-us/library/azure/dn836025.aspx
+[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[queued messaging solution]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md

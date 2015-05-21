@@ -1,42 +1,42 @@
-<properties urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="robmcm" solutions="" manager="adinah" editor="" />
+<properties 
+	pageTitle="How to use Blob storage from Java | Microsoft Azure" 
+	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="05/11/2015" 
+	ms.author="robmcm"/>
 
-# How to use Blob Storage from Java
+# How to use Blob storage from Java
+
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
+
+## Overview
 
 This guide will show you how to perform common scenarios using the Microsoft Azure Blob storage service. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
 
-Note: An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][]. 
+> [AZURE.NOTE] An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][]. 
 
-## <a name="Contents"> </a>Table of Contents
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-* [What is Blob Storage](#what-is)
-* [Concepts](#Concepts)
-* [Create an Azure storage account](#CreateAccount)
-* [Create a Java application](#CreateApplication)
-* [Configure your application to access Blob Storage](#ConfigureStorage)
-* [Setup an Azure storage connection string](#ConnectionString)
-* [How to: Create a container](#CreateContainer)
-* [How to: Upload a blob into a container](#UploadBlob)
-* [How to: List the blobs in a container](#ListBlobs)
-* [How to: Download a blob](#DownloadBlob)
-* [How to: Delete a blob](#DeleteBlob)
-* [How to: Delete a blob container](#DeleteContainer)
-* [Next steps](#NextSteps)
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
-
-<h2><a id="CreateAccount"></a>Create an Azure storage account</h2>
-
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-## <a name="CreateApplication"> </a>Create a Java application
+## Create a Java application
 
 In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.
 
 To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the [Azure Storage SDK for Java][] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
 
-## <a name="ConfigureStorage"> </a>Configure your application to access Blob Storage
+## Configure your application to access Blob Storage
 
 Add the following import statements to the top of the Java file where you want to use the Azure storage APIs to access blobs:
 
@@ -44,7 +44,7 @@ Add the following import statements to the top of the Java file where you want t
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
 
-## <a name="ConnectionString"> </a>Setup an Azure storage connection string
+## Setup an Azure storage connection string
 
 An Azure storage client uses a storage connection string to store
 endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
@@ -63,11 +63,13 @@ In an application running within a role in Microsoft Azure, this string can be s
 
 The following samples assume that you have used one of these two methods to get the storage connection string.
 
-## <a name="CreateContainer"> </a>How to: Create a container
+## How to: Create a container
 
 A CloudBlobClient object lets you get reference objects for containers and blobs. The following code creates a **CloudBlobClient** object. (Note: There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].)
 
-All blobs reside in a container. Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container.
+[AZURE.INCLUDE [storage-container-naming-rules-include](../includes/storage-container-naming-rules-include.md)]
+
+Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container.
 
 	try
     {
@@ -90,7 +92,7 @@ All blobs reside in a container. Use the **CloudBlobClient** object to get a ref
         e.printStackTrace();
     }
 
-###Optional: Configure a container for public access ###
+### Optional: Configure a container for public access
 
 A container's permissions are configured for private access by default, but you can easily configure a container's permissions to allow public, read-only access for all users on the Internet:
 
@@ -103,7 +105,7 @@ A container's permissions are configured for private access by default, but you 
     // Set the permissions on the container.
     container.uploadPermissions(containerPermissions);
 
-## <a name="UploadBlob"> </a>How to: Upload a blob into a container
+## How to: Upload a blob into a container
 
 To upload a file to a blob, get a container reference and use it to get a blob reference. Once you have a blob reference, you can upload any stream by calling upload on the blob reference. This operation will create the blob if it doesn't exist, or overwrite it if it does. This code sample shows this, and assumes that the container has already been created.
 
@@ -132,7 +134,7 @@ To upload a file to a blob, get a container reference and use it to get a blob r
         e.printStackTrace();
     }
 
-## <a name="ListBlobs"> </a>How to: List the blobs in a container
+## How to: List the blobs in a container
 
 To list the blobs in a container, first get a container reference like you did to upload a blob. You can use the container's **listBlobs** method with a **for** loop. The following code outputs the Uri of each blob in a container to the console.
 
@@ -167,7 +169,7 @@ the **useFlatBlobListing** parameter set to true. This will result in
 every blob being returned, regardless of directory. For more
 information, see **CloudBlobContainer.listBlobs** in the [Azure Storage Client SDK Reference].
 
-## <a name="DownloadBlob"> </a>How to: Download a blob
+## How to: Download a blob
 
 To download blobs, follow the same steps as you did for uploading a blob in order to get a blob reference. In the uploading example, you called upload on the blob object. In the following example, call download to transfer the blob contents to a stream object such as a **FileOutputStream** that you can use to persist the blob to a local file.
 
@@ -198,7 +200,7 @@ To download blobs, follow the same steps as you did for uploading a blob in orde
         e.printStackTrace();
     }
 
-## <a name="DeleteBlob"> </a>How to: Delete a blob
+## How to: Delete a blob
 
 To delete a blob, get a blob reference, and call **deleteIfExists**.
 
@@ -225,7 +227,7 @@ To delete a blob, get a blob reference, and call **deleteIfExists**.
         e.printStackTrace();
     }
 
-## <a name="DeleteContainer"> </a>How to: Delete a blob container
+## How to: Delete a blob container
 
 Finally, to delete a blob container, get a blob container reference, and
 call **deleteIfExists**.
@@ -250,18 +252,18 @@ call **deleteIfExists**.
         e.printStackTrace();
     }
 
-## <a name="NextSteps"> </a>Next steps
+## Next steps
 
-Now that you've learned the basics of blob storage, follow these links to learn how to do more complex storage tasks.
+Now that you've learned the basics of blob storage, follow these links to learn about more complex storage tasks.
 
 - [Azure Storage SDK for Java]
 - [Azure Storage Client SDK Reference]
 - [Azure Storage REST API]
 - [Azure Storage Team Blog]
 
-[Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
-[Azure Storage REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+[Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

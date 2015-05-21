@@ -1,18 +1,23 @@
 Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
 
-1. If you don't already have the [Mobile Services Android SDK], download it now and expand the compressed files.
+1. Verify that you have the following lines in the **dependencies** tag in the *build.gradle (Module app)* file, and if not add them. This adds references to the Mobile Services Android Client SDK.
 
-2. Copy the `.jar` files from the `mobileservices` folder of the SDK into the `libs` folder of the GetStartedWithData project.
+		compile 'com.android.support:support-v4:21.0.3'
+    	compile 'com.google.code.gson:gson:2.2.2'
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2+'
 
-3. In Package Explorer in Eclipse, right-click the `libs` folder, click **Refresh**, and the copied jar files will appear
 
-  	This adds the Mobile Services SDK reference to the workspace.
+2. Now rebuild the project by clicking on **Sync Project with Gradle Files**.
 
-4. Open the AndroidManifest.xml file and add the following line, which enables the app to access Mobile Services in Azure.
+3. Open the AndroidManifest.xml file and add the following line, which enables the app to access Mobile Services in Azure.
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. From Package Explorer, Open the TodoActivity.java file located in the com.example.getstartedwithdata package, and uncomment the following lines of code: 
+
+4. In Project Explorer, open the TodoActivity.java file located in  the **GetStartedWithData => app => src => java** folder, and uncomment the following lines of code: 
+
+
 
 		import java.net.MalformedURLException;
 		import android.os.AsyncTask;
@@ -28,34 +33,34 @@ Now that your mobile service is ready, you can update the app to store items in 
 		import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
  
-6. Comment out the following lines:
+5. Comment out the following lines:
 
 		import java.util.ArrayList;
 		import java.util.List;
 
-7. We will remove the in-memory list currently used by the app, so we can replace it with a mobile service. In the **ToDoActivity** class, comment out the following line of code, which defines the existing **toDoItemList** list.
+6. We will remove the in-memory list currently used by the app, so we can replace it with a mobile service. In the **ToDoActivity** class, comment out the following line of code, which defines the existing **toDoItemList** list.
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-8. Save the file, and the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. This fully removes the in-memory list. 
+7. Save the file, and the project will indicate build errors. Search for the three remaining locations where the `toDoItemList` variable is used and comment out the sections indicated. This fully removes the in-memory list. 
 
-9. We now add our mobile service. Uncomment the following lines of code:
+8. We now add our mobile service. Uncomment the following lines of code:
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. Find the *ProgressFilter* class at the bottom of the file and uncomment it. This class displays a 'loading' indicator while *MobileServiceClient* is running network operations.
+9. Find the *ProgressFilter* class at the bottom of the file and uncomment it. This class displays a 'loading' indicator while *MobileServiceClient* is running network operations.
 
 
-11. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
+10. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
-12. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
+11. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
   	You will need these values when accessing the mobile service from your app code.
 
-13. In the **onCreate** method, uncomment the following lines of code that define the **MobileServiceClient** variable:
+12. In the **onCreate** method, uncomment the following lines of code that define the **MobileServiceClient** variable:
 
 		try {
 		// Create the Mobile Service Client instance, using the provided
@@ -73,11 +78,11 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   	This creates a new instance of *MobileServiceClient* that is used to access your mobile service. It also creates the *MobileServiceTable* instance that is used to proxy data storage in the mobile service.
 
-14. In the code above, replace `MobileServiceUrl` and `AppKey` with the URL and application key from your mobile service, in that order.
+13. In the code above, replace `MobileServiceUrl` and `AppKey` with the URL and application key from your mobile service, in that order.
 
 
 
-15. Uncommment these lines of the **checkItem** method:
+14. Uncommment these lines of the **checkItem** method:
 
 	    new AsyncTask<Void, Void, Void>() {
 	        @Override
@@ -101,7 +106,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
    	This sends an item update to the mobile service and removes checked items from the adapter.
     
-16. Uncommment these lines of the **addItem** method:
+15. Uncommment these lines of the **addItem** method:
 	
 		// Insert the new item
 		new AsyncTask<Void, Void, Void>() {
@@ -126,7 +131,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   	This code creates a new item and inserts it into the table in the remote mobile service.
 
-18. Uncommment these lines of the **refreshItemsFromTable** method:
+16. Uncommment these lines of the **refreshItemsFromTable** method:
 
 		// Get the items that weren't marked as completed and add them in the adapter
 	    new AsyncTask<Void, Void, Void>() {

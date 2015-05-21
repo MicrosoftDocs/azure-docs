@@ -1,16 +1,24 @@
-<properties pageTitle="How to delegate user registration and product subscription" metaKeywords="" description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="How to delegate user registration and product subscription" 
+	description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="antonba" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="antonba" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
 
 Delegation allows you to use your existing website for handling developer sign-in/sign-up and subscription to products as opposed to using the built-in functionality in the developer portal. This enables your website to own the user data and perform the validation of these steps in a custom way.
-
-
-## In this topic
-
--   [Delegating developer sign-in and sign-up][]
--   [Delegating product subscription][]
 
 ## <a name="delegate-signin-up"> </a>Delegating developer sign-in and sign-up
 
@@ -36,10 +44,10 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
 
 	Query parameters for the sign-in / sign-up case:
-	- **operation**: identifies what type of delegation request it is - it can only be "SignIn" in this case
+	- **operation**: identifies what type of delegation request it is - it can only be **SignIn** in this case
 	- **returnUrl**: the URL of the page where the user clicked on a sign-in or sign-up link
 	- **salt**: a special salt string used for computing a security hash
 	- **sig**: a computed security hash to be used for comparison to your own computed hash
@@ -66,6 +74,18 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 	* redirect the user to the above produced URL
 
+In addition to the **SignIn** operation, you can also perform account management by following the previous steps and using one of the following operations.
+
+-	**ChangePassword**
+-	**ChangeProfile**
+-	**CloseAccount**
+
+You must pass the following query parameters for account management operations.
+
+-	**operation**: identifies what type of delegation request it is (ChangePassword, ChangeProfile, or CloseAccount)
+-	**userId**: the user id of the account to manage
+-	**salt**: a special salt string used for computing a security hash
+-	**sig**: a computed security hash to be used for comparison to your own computed hash
 
 ## <a name="delegate-product-subscription"> </a>Delegating product subscription
 
@@ -83,7 +103,7 @@ Then ensure the delegation endpoint performs the following actions:
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
 
 	Query parameters for the product subscription case:
 	- **operation**: identifies what type of delegation request it is. For product subscription requests the valid options are:
@@ -115,17 +135,19 @@ These code samples show how to take the *delegation validation key*, which is se
 
 **C# code to generate hash of returnUrl**
 
-	using System.Security.Cryptography;
+    using System.Security.Cryptography;
 
-	string key = "delegation validation key";
-	string returnUrl = "returnUrl query parameter";
-	string salt = "salt query parameter";
-	string signature;
-	using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
-	{
-		signature = encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl));
-		// change to (salt + "\n" + productId + "\n" + userId) for point 2 above
-	}
+    string key = "delegation validation key";
+    string returnUrl = "returnUrl query parameter";
+    string salt = "salt query parameter";
+    string signature;
+    using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+    {
+        signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
+        // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+        // compare signature to sig query parameter
+    }
+
 
 **NodeJS code to generate hash of returnUrl**
 
@@ -137,7 +159,8 @@ These code samples show how to take the *delegation validation key*, which is se
 	
 	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
 	var digest = hmac.update(salt + '\n' + returnUrl).digest();
-	// change to (salt + '\n' + productId + '\n' + userId) for point 2 above
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
 	
 	var signature = digest.toString('base64');
 
