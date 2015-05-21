@@ -26,20 +26,6 @@ This walkthrough shows how to use the headnode of an HDInsight cluster to explor
 
 It is also possible to use an iPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
-The walkthrough is organized into the sections below:
-
-- [Criteo Dataset Description](#dataset)
-- [Examples of Prediction Problems](#mltasks)
-- [Setting Up A HDInsight cluster for data science](#setup)
-- [Getting the Data from Public Source](#getdata)
-- [Uploading the Data to the Default Container of Azure HDInsight Hadoop Cluster](#upload)
-- [Log in to to the cluster headnode for the walkthrough](#login)
-- [Creating Hive Database and Tables](#hive-db-tables)
-- [Data exploration in Hive](#exploration)
-- [Down sample data sets for Azure Machine Learning](#downsample)
-- [Build a model with Azure Machine Learning](#aml)
-
-
 
 ## <a name="dataset"></a>Criteo Dataset Description
 
