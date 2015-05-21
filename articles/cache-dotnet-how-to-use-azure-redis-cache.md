@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/30/2015" 
+	ms.date="05/20/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
 
 This guide shows you how to get started using 
 **Azure Redis Cache**. The samples are written in C\# code and
-use the .NET API. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, **adding and removing objects from the cache**, and **storing ASP.NET session state in the cache**. For more
+use the [StackExchange.Redis][] client. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, **adding and removing objects from the cache**, and **storing ASP.NET session state in the cache**. For more
 information on using Azure Redis Cache, refer to the [Next Steps][] section.
 
 <a name="what-is"></a>
@@ -127,7 +127,7 @@ To connect to an Azure Redis Cache and be returned an instance of a connected `C
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
->[AZURE.NOTE] Warning: Never store credentials in source code. To keep this sample simple, I’m showing them in the source code. See [How Application Strings and Connection Strings Work][] for information on how to store credentials.
+>[AZURE.IMPORTANT] Warning: Never store credentials in source code. To keep this sample simple, I’m showing them in the source code. See [How Application Strings and Connection Strings Work][] for information on how to store credentials.
 
 If you don't want to use SSL, either set `ssl=false` or just pass in the endpoint and key.
 
@@ -135,7 +135,7 @@ If you don't want to use SSL, either set `ssl=false` or just pass in the endpoin
 
 	connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
 
->[AZURE.NOTE] For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][].
+For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][].
 
 The cache endpoint and keys can be obtained from the **Redis Cache** blade for your cache instance.
 
@@ -217,7 +217,7 @@ Type **RedisSessionStateProvider** into the **Search Online** text box, select i
 
 The NuGet package downloads and adds the required assembly references and adds the following adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.
 
-  <sessionState mode="Custom" customProvider="MySessionStateStore">
+    <sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
@@ -236,8 +236,6 @@ The NuGet package downloads and adds the required assembly references and adds t
         <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />
       </providers>
     </sessionState>
-
-
 
 The commented section provides an example of the attributes and sample settings for them.
 
@@ -281,11 +279,11 @@ Now that you've learned the basics of Azure Redis Cache,
 follow these links to learn how to do more complex caching tasks.
 
 -	[Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. You can view the metrics in the portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
--	Learn more about the StackExchange.Redis client: [StackExchange.Redis cache client documentation][]
+-	Check out the [StackExchange.Redis cache client documentation][].
 	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][] and [Develop in other languages for Azure Redis Cache][].
 	-	Azure Redis Cache can also be used with services such as Redsmin. For more information, see  [How to retrieve an Azure Redis connection string and use it with Redsmin][].
 -	See the [redis][] documentation and read about [redis data types][] and [a fifteen minute introduction to Redis data types][].
--   See the MSDN Reference: [Azure Redis Cache][]
+-   See the MSDN Reference for [Azure Redis Cache][]. 
 
 
 <!-- INTRA-TOPIC LINKS -->
