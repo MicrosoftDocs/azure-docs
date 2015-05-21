@@ -96,7 +96,14 @@ It will make more sense after you finish the next procedure.
 
 	![hdinsight hadoop hbase shell][img-hbase-shell]
 
+6. Get a single row
+
+		get 'Contacts', '1000'
+
+	You will see the same results as using the scan command because there is only one row.
+
 	For more information about the Hbase table schema, see [Introduction to HBase Schema Design][hbase-schema]. For more HBase commands, see [Apache HBase reference guide][hbase-quick-start].
+
 
 6. Exit the shell
 
