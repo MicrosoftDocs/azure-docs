@@ -157,31 +157,20 @@ Now that you have provisioned an HDInsight cluster, the next step is to run a Hi
 
 	> [AZURE.NOTE] Note that the URL of the webpage is *&lt;ClusterName&gt;.azurehdinsight.net*. So instead of opening the dashboard from the portal, you can open the dashboard from a web browser by using the URL.
 
-6. On the **Hive Editor** tab, for **Query Name**, enter **HTC20**.  The query name is the job title.
-
-7. In the query pane, enter the following Hive query: 
-
-		SELECT * FROM hivesampletable
-			WHERE devicemake LIKE "HTC%"
-			LIMIT 20;
-
+6. On the **Hive Editor** tab, for **Query Name**, enter **HTC20**.  The query name is the job title. In the query pane, enter the Hive query as shown in the image:
+		
 	![Hive query entered in the query pane of the Hive Editor.][img-hdi-dashboard-query-select]
 
 4. Click **Submit**. It takes a few moments to get the results back. The screen refreshes every 30 seconds. You can also click **Refresh** to refresh the screen.
 
-    When the job completes, the screen looks like this:
+    ![Results from a Hive query in listed at the bottom of the cluster dashboard.][img-hdi-dashboard-query-select-result]
 
-	![Results from a Hive query in listed at the bottom of the cluster dashboard.][img-hdi-dashboard-query-select-result]
-
-5. Click the query name on the screen to see the output. Make a note of **Job Start Time (UTC)**. You will need it later. 
+5. After the status shows that the job is completed, click the query name on the screen to see the output. Make a note of **Job Start Time (UTC)**. You will need it later. 
 
     ![Job Start Time listed in the Job History tab of the HDInsight cluster dashboard.][img-hdi-dashboard-query-select-result-output]
 
     The page also shows the **Job Output** and the **Job Log**. You also have the option to download the output file (\_stdout) and the log file \(_stderr).
 
-
-	> [AZURE.NOTE] The **Job Session** table on the **Hive Editor** tab lists completed or running jobs if you stay on that tab. The table does not list any jobs if you navigate away from the page. The **Job History** tab maintains a list of all jobs, completed or running.
- 
 
 **To browse to the output file**
 
