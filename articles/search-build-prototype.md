@@ -75,7 +75,7 @@ In the prototype solution, there is one schema file and three data files: data1.
 
 If you can get your data into JSON files, you can overwrite the existing files with your data, and then run the application to create and load an index. Distributing data across multiple files helps demonstrate a batch upload operation. 
 
-Other approaches for loading data include using an indexer (requires either an Azure DocumentDB data source or an Azure SQL Database data source). Sample code that demonstrates additional ways of loading data can be found at [Azure Search Video and Tutorials List](https://msdn.microsoft.com/en-us/library/azure/dn818681.aspx) on MSDN.
+Other approaches for loading data include using an indexer (requires either an Azure DocumentDB data source or an Azure SQL Database data source). Sample code that demonstrates additional ways of loading data can be found at [Azure Search Video and Tutorials List](https://msdn.microsoft.com/library/azure/dn818681.aspx) on MSDN.
 
 ### Edit the query
 

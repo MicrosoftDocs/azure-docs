@@ -17,7 +17,7 @@ Internal Only:
 This document describes the **2014-07-31-Preview** version of the Azure Search Management REST API. It has since been replaced by the generally available version, [Azure Search Management REST API 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) on MSDN.
 ________________________________________
 
-# Service management operations
+## Service management operations
 
 The Azure Search Service Management REST API provides programmatic access to much of the functionality available through the portal, allowing administrators to automate the following operations:
 
