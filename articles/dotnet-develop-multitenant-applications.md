@@ -52,7 +52,7 @@ Azure provides many features that allow you to address the key problems encounte
 
 **Storage**
 
-Data management such as SQL Azure Database or Azure Storage services such as the Table service which provides services for storage of large amounts of unstructured data and the Blob service which provides services to store large amounts of unstructured text or binary data such as video, audio and images.
+Data management such as Azure SQL Database or Azure Storage services such as the Table service which provides services for storage of large amounts of unstructured data and the Blob service which provides services to store large amounts of unstructured text or binary data such as video, audio and images.
 
 - Securing Multitenant Data in SQL Database appropriate per-tenant SQL Server logins.
 - Using Azure Tables for Application Resources By specifying a container level access policy, you can the ability to adjust permissions without having to issue new URL's for the resources protected with shared access signatures.

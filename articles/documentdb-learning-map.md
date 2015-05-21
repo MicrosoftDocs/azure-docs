@@ -10,7 +10,7 @@
 <tags 
 	ms.service="documentdb" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="04/08/2015" 

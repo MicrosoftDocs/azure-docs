@@ -193,13 +193,16 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 
 ##Gotchas / Known Issues:##
 
-- Since the Azure Automation DSC feature is in preview, the first time you use this feature you will need to sign up for it using the Azure PowerShell cmdlets. You can sign up by calling the following two cmdlets:
+- Since Azure Automation DSC is in preview, the first time you use this feature you will need to sign up for it using Azure PowerShell cmdlets. You can sign up by calling the following two cmdlets:
+
  - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
- - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation`
+ - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
+ 
+>[AZURE.NOTE] Azure Automation DSC registration may take up to one hour to complete before the feature will become available for use.
 
 - Azure Automation DSC does not support partial or composite DSC configurations at this time.
 
-- The PowerShell DSC agent for Linux does not support communicating with Azure Automation at this time. This should be updated soon.
+- The latest version of WMF 5 must be installed for the PowerShell DSC agent for Windows to be able to communicate with Azure Automation. The PowerShell DSC agent for Linux does not support communicating with Azure Automation at this time. This should be updated soon.
 
 - Azure Automation does not support side by side use of PowerShell modules. This means all configurations within an Automation account must work with the last version of a PowerShell module imported into that Automation account, and with any PowerShell DSC resources that module contains that the configuration uses.
 

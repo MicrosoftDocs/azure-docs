@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/07/2015"
+   ms.date="05/11/2015"
    ms.author="banders" />
 
 # Identify differences with Change Tracking
@@ -25,7 +25,7 @@ You install the solution to update the Operations Manager agent and base configu
 
 ## Use Change Tracking
 
-Before you can use Change Tracking in Operational Insights, you must have the solution installed. To read more about installing solution, see [Use the Solution Gallery to add or remove solutions](operational-insights-add-intelligence-pack.md).
+Before you can use Change Tracking in Operational Insights, you must have the solution installed. To read more about installing solution, see [Use the Solution Gallery to add or remove solutions](operational-insights-add-solution.md).
 
 After it is installed, you can view the summary of changes for your monitored servers by using the **Change Tracking** tile on the **Overview** page in Operational Insights.
 
@@ -48,8 +48,8 @@ You can view changes to your infrastructure and then drill-into details for the 
 
 1. On the **Overview** page, click the **Change Tracking** tile.
 
-2. On the **Change Tracking** dashboard, review the summary information in one of the change type blades and then click one to view detailed information about it in the **Search** page.
+2. On the **Change Tracking** dashboard, review the summary information in one of the change type blades and then click one to view detailed information about it in the **log search** page.
 
-3. On any of the Search pages, you can view results by time, detailed results, and your search history. You can also filter by facets to narrow the results.
+3. On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
 
-4. On any page in Search, you can **Export** the results details into a CSV file that you can open with Excel or other application that you can then view or modify.
+4. On any page in Log Search, you can **Export** the results details into a CSV file that you can open with Excel or other application that you can then view or modify.

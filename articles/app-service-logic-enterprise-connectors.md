@@ -149,7 +149,7 @@ Some of the enterprise connectors us OAuth security. When you add the connector 
 
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md)<br/>
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)
+[Websites and Web Apps in Azure App Service](app-service-web-overview.md)
 
 
 

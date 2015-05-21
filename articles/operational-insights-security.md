@@ -32,7 +32,7 @@ The Operational Insights service manages your data securely by using the followi
 
 Each customer has a dedicated Azure blob that houses the long-term data. The blob is encrypted with unique per-customer keys, which are changed every 90 days.
 
-**Data retention:** Aggregated metrics for each of the solutions (previously called intelligence packs) is stored in a SQL Database hosted by Microsoft Azure. This data is stored for 390 days. Indexed search data is stored for 10 days on average before the data is groomed. If the upper limit of 20 million records for each data type is reached earlier, Operational Insights grooms the data earlier than 10 days. If the data limit is not reached by 10 days, Operational Insights waits until the limit is reached to groom it.
+**Data retention:** Aggregated metrics for each of the solutions (previously called intelligence packs) is stored in a SQL Database hosted by Microsoft Azure. This data is stored for 390 days. Indexed log search data is stored for 10 days on average before the data is groomed. If the upper limit of 20 million records for each data type is reached earlier, Operational Insights grooms the data earlier than 10 days. If the data limit is not reached by 10 days, Operational Insights waits until the limit is reached to groom it.
 
 **Physical security:** The Operational Insights service is manned by Microsoft personnel and all activities are logged and can be audited. The Operational Insights service runs completely in Azure and complies with the Azure common engineering criteria. You can view details about the physical security of Azure assets on page 18 of the [Microsoft Azure Security Overview](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf).
 
@@ -62,7 +62,7 @@ An Operational Insights account is where data is collected, aggregated, analyzed
 
 When the configuration wizard is complete, each Operations Manager management group establishes a connection with the Operational Insights service. You then use the Add Computers Wizard to choose which computers in the management group are allowed to send data to the service.
 
-Both types of agents collect data for Operational Insights. The type of data that is collected is dependent on the types of solutions used. A solution is a bundle of predefined views, search queries, data collection rules, and processing logic. Only Operational Insights administrators can use Operational Insights to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to the Operations Manager agents that you have chosen. Afterward, the agents collect the data.
+Both types of agents collect data for Operational Insights. The type of data that is collected is dependent on the types of solutions used. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only Operational Insights administrators can use Operational Insights to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to the Operations Manager agents that you have chosen. Afterward, the agents collect the data.
 
 The following table lists the available solutions in Operational Insights and the types of data they collect.
 

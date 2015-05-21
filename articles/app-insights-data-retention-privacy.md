@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="05/11/2015" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -34,7 +34,14 @@ Application Insights SDKs and agents that you combine with your application send
 
 #### How much data can be captured? 
 
-Currently, up to 500 events per second per instrumentation key (that is, per application).
+Currently, up to 500 data points per second per instrumentation key (that is, per application).
+
+
+A *data point* is an item of telemetry, such as:
+
+* API `Track...` calls such as `TrackEvent` or `trackPageView`.
+* Telemetry items sent by SDK modules, for example to report a request or crash.
+* Performance counter data - one point for each measurement.
 
 
 #### How long is the data kept? 
@@ -153,8 +160,12 @@ Your action  | Data classes collected (see next table)
 [Call TrackMetric][api]|Numeric values<br/>**Properties**
 [Call Track*][api]|Event name<br/>**Properties**
 [Call TrackException][api]|**Exceptions**<br/>Stack dump<br/>**Properties**
+SDK can't collect data. For example: <br/> - can't access perf counters<br/> -  exception in telemetry initializer | SDK diagnostics
+ 
 
 For [SDKs for other platforms][platforms], see their documents.
+
+
 
 #### The classes of collected data
 
@@ -171,14 +182,15 @@ Events | Event name and value
 PageViews | URL and page name or screen name
 Client perf | URL/page name, browser load time
 Requests |URL, duration, response code
-Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync|async, duration, success, SQL statement (with Status Monitor)
+Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Status Monitor)
 **Exceptions** | Type, **message**, call stacks, source file and line number, thread id
 Crashes | Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type
 Trace | **Message** and severity level
 Perf counters | Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length
 Availability | Web test response code, duration of each test step
+SDK diagnostics | Trace message or Exception 
 
-
+You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 
 ## <a name="video"></a>Videos
@@ -200,6 +212,7 @@ Availability | Web test response code, duration of each test step
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [azure]: insights-perf-analytics.md
 [client]: app-insights-javascript.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md

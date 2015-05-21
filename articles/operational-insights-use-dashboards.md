@@ -8,19 +8,19 @@
 	editor=""/>
 
 <tags
-	ms.service="operational-insights" 
+	ms.service="operational-insights"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="05/20/2015"
 	ms.author="evanhi"/>
 
 # Operational Insights dashboards
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
-This guide helps you understand how Operational Insights Dashboards can visualize all of your saved searches, giving you a single lens to view your environment.
+This guide helps you understand how Operational Insights Dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
 
 ![Example Dashboard](./media/operational-insights-use-dashboards/example-dash.png)
 
@@ -34,15 +34,15 @@ To begin, go to the Azure Operational Insights Overview by clicking the Overview
 
 ## Adding a tile
 
-In dashboards, tiles are powered by your saved searches. Operational Insights comes with many pre-made saved searches, so you can begin right away. You'll see the following pictorial outlining how to begin.
+In dashboards, tiles are powered by your saved log searches. Operational Insights comes with many pre-made saved log searches, so you can begin right away. You'll see the following pictorial outlining how to begin.
 
 ![Pictorial](./media/operational-insights-use-dashboards/pictorial.png)
 
-In the My Dashboard view, simply click on the 'customize' gear at the bottom of the page to enter customize mode. The panel that opens on the right side of the page shows all of your workspace's saved searches.
+In the My Dashboard view, simply click on the 'customize' gear at the bottom of the page to enter customize mode. The panel that opens on the right side of the page shows all of your workspace's saved log searches.
 
 ![Add Tiles 1](./media/operational-insights-use-dashboards/add-tile1.png)
 
-To visualize a saved search as a tile, just drag it onto the empty space to the left. As you drag it will turn into a tile.
+To visualize a saved log search as a tile, just drag it onto the empty space to the left. As you drag it will turn into a tile.
 
 ![Add Tiles 2](./media/operational-insights-use-dashboards/add-tile2.png)
 
@@ -61,13 +61,13 @@ There are two kinds of tile visualizations to choose from:
 <p>
 ![Bar Chart](./media/operational-insights-use-dashboards/bar-chart.png)
 
-This displays a timeline of your saved search's results, or a list of results by a field depending on if your search aggregates results by a field or not.
+This displays a timeline of your saved log search's results, or a list of results by a field depending on if your log search aggregates results by a field or not.
 
 **Metric**
 <p>
 ![Metric](./media/operational-insights-use-dashboards/metric.png)
 
-This displays your total search result hits as a number in a tile. Metric tiles allow you to set a threshold that will highlight the tile when the threshold is reached.
+This displays your total log search result hits as a number in a tile. Metric tiles allow you to set a threshold that will highlight the tile when the threshold is reached.
 
 ### Threshold
 You can create a threshold on a tile using the Metric visualization. Select on to create a threshold value on the tile. Choose whether to highlight the tile when the value is over or under the chosen threshold, then set the threshold value below.

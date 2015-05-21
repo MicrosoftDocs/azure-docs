@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB whitepaper by David Chappell | Azure" 
+	pageTitle="Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Azure" 
 	description="Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,25 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="adlevin"/>
+	ms.date="05/13/2015" 
+	ms.author="mimig"/>
 
-# DocumentDB whitepaper by David Chappell 
+# Introducing DocumentDB - A NoSQL Database for Microsoft Azure 
 
-**Summary:** Learn about DocumentDB, a managed NoSQL database on Microsoft Azure. DocumentDB is an ideal database technology choice, when:
+Not sure if DocumentDB is right for your application or data? Want to learn about how JSON data is stored and accessed in DocumentDB? If so, this introductory whitepaper by David Chappell is a good place to start. It discusses how you can benefit from the flexibility that schema-free JSON data provides, enabling you to handle changes to data structure effortlessly. 
 
-* Your application would benefit from a schema-free data model.
-* Your database needs to scale to lots of storage and throughput.
-* You want to use a familiar query language and development platform.
+The whitepaper also walks you through the following:
 
-This whitepaper also covers the following fundamental concepts:
+ - Using the DocumentDB data model to store JSON data in documents and collections within a database. 
+ - Working with your data by using the client libraries, the RESTful access methods, or DocumentDB SQL. 
+ - Running logic from the database itself by writing stored procedures (sprocs), triggers, or user defined functions (UDFs) and storing them in the collection.
+ - Choosing a consistency option to meet the reliability and performance needs of your application.
+ - Selecting a pricing option based on your throughput requirements.
 
-* The DocumentDB data model.
-* How applications work with data.
-* Options applications have for balancing performance with consistency.
-
-
-**Published:** 09 April 2015
-
-**Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
-
+**PDF Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)

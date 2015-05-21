@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="05/18/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Data Factory Editor
@@ -282,15 +282,21 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 **Congratulations!** You have successfully created an Azure data factory, linked services, tables, and a pipeline and scheduled the pipeline.   
  
 ### View the data factory in a Diagram View 
-4. In the **DATA FACTORY** blade, click **Diagram**.
+1. In the **DATA FACTORY** blade, click **Diagram**.
 
 	![Data Factory Blade - Diagram Tile][image-datafactoryblade-diagramtile]
 
-5. You should see the diagram similar to the following: 
+2. You should see the diagram similar to the following: 
 
 	![Diagram view][image-data-factory-get-started-diagram-blade]
 
 	You can zoom in, zoom out, zoom to 100%, zoom to fit, automatically position pipelines and tables, and show lineage information (highlights upstream and downstream items of selected items).  You can double-blick on an object (input/output table or pipeline) to see properties for it. 
+3. Right-click on **ADFTutorialPipeline** in the Diagram View and click **Open pipeline**. You should see the activities in the pipeline along with input and output datasets for the activities. In this tutorial, you have only one activity in the pipeline (Copy Activity) with EmpTableBlob as input dataset and EmpSQLTable as output dataset.   
+
+	![Open Pipeline](./media/data-factory-get-started-using-editor/DiagramView-OpenPipeline.png)
+
+4. Click **Data factory** in the breadcrumb in the top-left corner to get back to the diagram view. The diagram view displays all the pipelines. In this example, you have only created one pipeline.   
+ 
 
 ## <a name="MonitorDataSetsAndPipeline"></a>Step 5: Monitor the datasets and pipeline
 In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about using cmdlets for monitoring, see [Monitor and Manage Data Factory using PowerShell Cmdlets][monitor-manage-using-powershell].

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Set up an Azure virtual machine for data science | Azure"
-	description="Set up an Azure Virtual Machine for use in a cloud-based data science environment with IPython Server."
+	pageTitle="Set up an Azure virtual machine as an IPython Notebook server for advanced analytics | Azure"
+	description="Set up an Azure Virtual Machine for use in a data science environment with IPython Server for advanced analytics."
 	metaKeywords=""
 	services="machine-learning"
 	solutions="" 
@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2015"
+	ms.date="05/12/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
-# Set up an Azure virtual machine for data science
+# Set up an Azure virtual machine as an IPython Notebook server for advanced analytics
 
-This topic shows how to provision and configure an Azure virtual machine that can to be used as part of a cloud-based data science environment. The Windows virtual machine is configured with supporting tools such as such as IPython Notebook, Azure Storage Explorer, AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
+This topic shows how to provision and configure an Azure virtual machine for advanced analytics that can to be used as part of a data science environment. The Windows virtual machine is configured with supporting tools such as such as IPython Notebook, Azure Storage Explorer, AzCopy, as well as other utilities that are useful for advanced analytics projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
 
 ## <a name="create-vm"></a>Step 1: Create a general purpose Azure virtual machine
 
@@ -129,9 +129,9 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 
 ## Your Azure VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cloud Data Science Process.
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cloud Advanced Analytics Process.
 
-The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
+The next steps in the Advanced Analytics Process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png

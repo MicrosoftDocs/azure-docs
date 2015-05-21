@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="luisca"/>
+	ms.date="05/18/2015" 
+	ms.author="tedway"/>
 
 
 # Consuming an Azure Machine Learning Web Service from Excel #
 
- Azure Machine Learning Studio makes it easy to consume scoring web services directly from Excel without the need to write any code. 
+ Azure Machine Learning Studio makes it easy to call web services directly from Excel without the need to write any code. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
