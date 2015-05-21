@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/01/2015" 
 	ms.author="ricksal"/>
 
 # Add authentication to your Mobile Services app
@@ -38,23 +38,23 @@ This tutorial walks you through the basic steps to enable authentication in your
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
-<h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
+## Register your app for authentication and configure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
+## Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-3. In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
+1. In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
-4. From the **Run** menu, then click **Run app**; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
+2. From the **Run** menu, then click **Run app**; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
 
 	 This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a>Add authentication to the app</h2>
+## Add authentication to the app
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 

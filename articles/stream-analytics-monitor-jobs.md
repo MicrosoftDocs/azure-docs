@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/19/2015" 
+	ms.date="05/21/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -45,6 +45,9 @@ Before you begin this article, you must have the following:
     ```
     <appSettings>
     	<!--CSM Prod related values-->
+    	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
+    	<add key="JobName" value="YOUR JOB NAME" />
+    	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
     	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
     	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />

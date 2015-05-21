@@ -37,7 +37,7 @@ In this tutorial you will learn how to set up a basic Azure cloud-only virtual n
 ##  Prerequisites
 
 *  A Microsoft account with at least one valid, active Azure subscription. If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
-p
+
 ##  Create the Virtual Network for this tutorial
 
 To create this example cloud-only virtual network, do the following
