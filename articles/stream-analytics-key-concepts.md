@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Learn about Stream Analytics key concepts | Microsoft Azure" 
-	description="Guide to key concepts of Stream Analytics: Components of an event processing job, including supported inputs and outputs, job configuration, and exposed metrics." 
+	description="Learn key concepts of Azure Stream Analytics: Components of a stream analytics job, including supported inputs and outputs, job configuration, and metrics." 
 	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -14,13 +14,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/21/2015" 
+	ms.date="04/28/2015" 
 	ms.author="jeffstok" />
 
 
 # Stream Analytics key concepts: Guide to the basics of a stream analytics job 
 
-Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over data stream in the cloud. Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics. This article explains the key concepts of a Stream Analytics job.
+Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over a data stream in the cloud. Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics. This article explains the key concepts of a Stream Analytics job.
 
 ## What can you do in Stream Analytics?
 With Stream Analytics, you can:
@@ -30,11 +30,11 @@ With Stream Analytics, you can:
 - Process telemetry data for near real-time monitoring and diagnostics. 
 - Capture and archive real-time events for future processing
 
-For more information, see [Introduction to Azure Stream Analytics][stream.analytics.introduction].
+For more information, see [Introduction to Azure Stream Analytics](stream.analytics.introduction). 
 
 A Stream Analytics job includes all of the following:
 * One or more input sources
-* A query over the incoming data stream
+* A query over an incoming data stream
 * An output target.    
 
 
@@ -42,11 +42,10 @@ A Stream Analytics job includes all of the following:
 
 ### Data stream
 
-Each Stream Analytics job definition must contain at least one data-stream input source to be consumed and transformed by the job. [Azure Blob storage](azure.blob.storage) and [Azure Event Hubs](azure.event.hubs) are supported as data stream input sources. Event Hubs input sources are used to collect event streams from multiple different devices and services, while Blob storage can be used an input source for ingesting large amounts of data. Because blobs do not stream data, Stream Analytics jobs over blobs will not be temporal in nature unless the records in the blob contain timestamps.
-
+Each Stream Analytics job definition must contain at least one data stream input source to be consumed and transformed by the job. [Azure Blob storage](azure.blob.storage) and [Azure Event Hubs](azure.event.hubs) are supported as data stream input sources. Event Hubs input sources are used to collect event streams from multiple different devices and services, while Blob storage can be used an input source for ingesting large amounts of data. Because blobs do not stream data, Stream Analytics jobs over blobs will not be temporal in nature unless the records in the blob contain timestamps.
 
 ### Reference data
-Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. [Azure Blob storage][azure.blob.storage] is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
+Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. [Azure Blob storage](azure.blob.storage) is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
 
 To enable support for refreshing reference data the user needs to specify a list of blobs in the input configuration using the {date} and {time} tokens inside the path pattern. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone.
 
@@ -106,7 +105,7 @@ You can also decide to wait for only a limited time: ‘Maximum allowed arrival 
 When streaming job query uses the TIMESTAMP BY keyword, there are no guarantees about the order in which the events will arrive to input, Some events in the same input partition may be lagging, parameter ‘Maximum allowed disorder within an input’ causes the streaming job to act on events that are outside of the order tolerance, according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps.
 
 ### Additional resources
-For details on creating input sources, see [Azure Event Hubs developer guide][azure.event.hubs.developer.guide] and [Use Azure Blob Storage][azure.blob.storage.use].
+For details on creating input sources, see [Azure Event Hubs developer guide](azure.event.hubs.developer.guide) and [Use Azure Blob Storage](azure.blob.storage.use).  
 
 
 
@@ -133,7 +132,7 @@ For more complex queries, the standard SQL clause **WITH** can be used to specif
 	FROM step1 
 	GROUP BY TumblingWindow (day, 1) 
 
-To learn more about the query language, see [Azure Stream Analytics Query Language Reference][stream.analytics.query.language.reference].
+To learn more about the query language, see [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference). 
 
 ## Output
 The output target is where the results of the Stream Analytics job will be written to. Results are written continuously to the output target as the job processes input events. The following output targets are supported:
@@ -148,7 +147,7 @@ The output target is where the results of the Stream Analytics job will be writt
 
 A Stream Analytics job can be scaled through configuring streaming units, which define the amount of data processing power a job receives. Each streaming unit corresponds to roughly 1MB/second of throughput. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
 
-For details, see [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs].
+For details, see [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs).
 
 
 ## Monitor and troubleshoot jobs
@@ -161,7 +160,8 @@ To enable job monitoring, Stream Analytics requires you to designate an Azure St
 The following metrics are available for monitoring the usage and performance of Stream Analytics jobs:
 
 - Errors - Number of error messages incurred by a Stream Analytics job.
-- Input events - Amount of data received by the Stream Analytics job, in terms of event count.
+- Input events - Amount of data received by the Stream Analytics job, in terms of 
+- event count.
 - Output events - Amount of data sent by the Stream Analytics job to the output target, in terms of event count.
 - Out-of-order events - Number of events received out of order that were either dropped or given an adjusted timestamp, based on the out-of-order policy.
 - Data conversion errors - Number of data conversion errors incurred by a Stream Analytics job.
@@ -208,10 +208,6 @@ Now that you're familiar with the key concepts of Stream Analytics, try:
 
 
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
