@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="05/21/2015"
 	ms.author="jgao"/>
 
 
@@ -53,7 +53,7 @@ Before you begin this HBase tutorial, you must have the following:
 
 	> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
-	> [AZURE.NOTE] If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost. 
+	> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost. 
 
 4. Click **Create HDInsight Cluster** in the lower right to create the HBase cluster.
 
