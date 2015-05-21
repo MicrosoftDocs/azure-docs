@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/20/2015" 
 	ms.author="mohabib;fashah;bradsev"/> 
 
                 
-# Azure Advanced Analytics Process in Action: using SQL Sever
+# Azure Advanced Analytics Process in Action: using SQL Server
 
 In this tutorial, you will follow the Azure Advanced Analytics Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
 
