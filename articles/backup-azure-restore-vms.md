@@ -22,7 +22,7 @@
 ## Run a restore
 You can restore a virtual machine to a new VM from the backups stored in Azure backup vault using restore action.
 
-1. To restore a virtual machine from the backup on the **Protected Items** page click **Restore** to open the **Restore an Item** wizard.
+1. To restore a virtual machine from the backup on the **Protected Items** page click **Restore** to open the **Restore an Item** wizard.<br>
 
 > [AZURE.NOTE] The recovery point column in Protected Items page will tell you the number of recovery points you have for the virtual machine. Newest recovery point column tells you the latest snapshot time to which you can restore a virtual machine.
 
