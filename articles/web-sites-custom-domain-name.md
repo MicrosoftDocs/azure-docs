@@ -129,6 +129,10 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-buydomains-web-app.md)]
 
+## Next steps
+
+For more information please see: [Get started with Azure DNS](http://azure.microsoft.com/en-us/documentation/articles/dns-getstarted-create-dnszone) and [Delegate Domain to Azure DNS](http://azure.microsoft.com/en-us/documentation/articles/dns-domain-delegation) 
+
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
