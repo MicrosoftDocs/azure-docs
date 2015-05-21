@@ -27,7 +27,7 @@ With the introduction of new Premium Storage, Microsoft Azure now offers two typ
 
 Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. You can attach several Premium Storage disks to a virtual machine (VM). With Premium Storage, your applications can have up to 32 TB of storage per VM and achieve 64,000 IOPS (input/output operations per second) per VM with extremely low latencies for read operations.
 
-To get started with Azure Premium Storage, visit [Get started for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
+To get started with Azure Premium Storage, visit [Get started for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
 This article provides an in-depth overview of Azure Premium Storage.
 
