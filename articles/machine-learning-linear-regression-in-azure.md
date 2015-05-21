@@ -1,28 +1,28 @@
 <properties 
 	pageTitle="Using Linear Regression in Azure Machine Learning | Azure" 
-	description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
+	description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
 	metaKeywords="" 
-	services="machine-learning" 
+	services="machine-learning" 
 	solutions="" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
 	editor="cgronlun"  />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/21/2015" 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/21/2015" 
 	ms.author="kbaroni;garye" />
 
 # Using linear regression in Azure Machine Learning
 
 > *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft’s Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning.
 
-
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ## Goal
 

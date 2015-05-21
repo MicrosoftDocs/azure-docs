@@ -1,12 +1,11 @@
 <properties 
 	pageTitle="View, edit, create, and upload JSON documents using the DocumentDB Document Explorer | Azure" 
-	description="Learn about the DocumentDB Document Explorer, an Azure  portal tool to view, edit, create, and upload JSON documents with DocumentDB." 
+	description="Learn about the DocumentDB Document Explorer, an Azure Preview portal tool to view, edit, create, and upload JSON documents with DocumentDB." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="johnmac" 
 	editor="monicar" 
-	documentationCenter=""
-	tags="azure-portal"/>
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/19/2015" 
 	ms.author="stbaro"/>
 
 # View, edit, create, and upload JSON documents using the DocumentDB Document Explorer #
 
-This article provides an overview of the [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure portal tool that enables you to view, edit, create, and upload JSON documents with DocumentDB. 
+This article provides an overview of the [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure Preview portal tool that enables you to view, edit, create, and upload JSON documents with DocumentDB. 
 
 By completing this tutorial, you'll be able to answer the following questions:  
 
@@ -74,6 +73,8 @@ Document Explorer allows you to easily create, edit and delete documents.
 	![Screenshot of Document Explorer save command](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
 	> [AZURE.NOTE] If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value. 
+
+- If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
 
 - To edit an existing document, simply select it in Document Explorer, edit the document as you see fit, and click the **Save** command.
 

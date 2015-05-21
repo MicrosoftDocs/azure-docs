@@ -89,12 +89,12 @@ The following updates your existing logic app to use parameters for the query te
 		    "defaultValue" : "MicrosoftAzure"
 	    }
     
-2. Scroll to the `twitterconnector` action, locate the query value and replace it with `@concat('#', parameters('topic'))`.
-	The  **concat** function joins together two or more strings. 
+2. Scroll to the `twitterconnector` action, locate the query value and replace it with `#@{parameters('topic')}`.
+	You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
  
 3. Finally, go to the `dropboxconnector` action and add the topic parameter, as follows:
 
-    	@concat('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
+    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
 
 Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 

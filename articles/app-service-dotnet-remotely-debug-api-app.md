@@ -3,7 +3,7 @@
 	description="Learn how to debug an API App while it runs in Azure App Service, using Visual Studio." 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Debug an API App in Azure App Service 

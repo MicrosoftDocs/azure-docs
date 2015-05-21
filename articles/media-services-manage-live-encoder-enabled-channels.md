@@ -41,6 +41,16 @@ The following diagram represents a live streaming workflow where a channel recei
 
 ![Live workflow][live-overview]
 
+>[AZURE.NOTE]Not all data centers support Live Encoding with Azure Media Services. 
+>
+>If you are using Azure Management Portal to create Channels, you will have two Channel encoding type options available: **None** and **Standard**. If you only see the **None** option, it means your data center does not support Live Encoding with AMS.
+>
+>If you are using .NET SDK or REST API, do the following to check:
+>
+>1. Try to create a Channel with encoding type set to Standard. 
+>2. If the returned result HTTP Error Code 412 (Precondition Failed) with the following message: *"Live encoding is not supported in this region; EncodingType must be set to 'None'."*, your data center does not support Live Encoding.
+
+
 ##In this topic
 
 - Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
@@ -426,6 +436,10 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 ###Protecting assets
 
+**Overview**: 
+
+[Content Protection Overview](media-services-content-protection-overview.md)
+
 If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
 
 Use **.NET** or **REST API** to create keys.
@@ -435,6 +449,11 @@ Use **.NET** or **REST API** to create keys.
 Once you create the content key, you can configure key authorization policy using **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
+
+####Integrating with partners
+
+[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
+
 
 ###Publishing and delivering assets
 

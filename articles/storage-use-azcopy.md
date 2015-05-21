@@ -309,7 +309,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
 		The upper limit for concurrent operations is 512.</td>
     <td>Y</td>
     <td>Y<br /> (preview only)</td>
-    <td>N</td>
+    <td>Y<br /> (preview only)</td>
   </tr>
   <tr>
     <td><b>/SourceType:Blob|Table</b></td>
@@ -851,6 +851,15 @@ The option `/EntityOperation` indicates how to insert entities into the table. P
 - `InsertOrReplace`: Replaces an existing entity or inserts a new entity if it does not exist in the table.
 
 Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import entities. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
+
+
+## Known Issues and Best Practices
+
+#### Run one AzCopy instance on one machine.
+AzCopy is designed to maximize the utilization of your machine resource to accelerate the data transfer, we recommend you run only one AzCopy instance on one machine, and specify the option `/NC` if you need more concurrent operations. For more details, type `AzCopy /?:NC` at the command line.
+
+#### Make sure "Use FIPS compliant algorithms for encryption, hashing and signing" is disabled when using AzCopy, note that this option is disabled by default.
+You can type `secpol.msc` in your `Run` window and check this switch at `Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing`. Please note that this setting path might be different on the Windows operation system you are using.
 
 
 ## AzCopy versions

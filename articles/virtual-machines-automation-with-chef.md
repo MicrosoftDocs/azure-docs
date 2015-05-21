@@ -11,7 +11,7 @@
 ms.tgt_pltfrm="vm-multiple" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/29/2015" 
+ms.date="05/19/2015" 
 ms.author="diviso"/>
 
 # Automating Azure Virtual Machine Deployment with Chef
@@ -221,7 +221,6 @@ Don’t forget we can also connect through an RDP session from the Azure Portal 
 
 I hope this has been helpful! Go  and start your Infrastructure as Code journey with Azure today!
 
-Diego Viso [MSFT]
 
 <!--Image references-->
 [2]: ./media/virtual-machines-automation-with-chef/2.png

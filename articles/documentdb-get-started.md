@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="05/19/2015" 
 	ms.author="anhoh"/>
 
 #Get started with the DocumentDB .NET SDK  
@@ -56,7 +56,8 @@ Lets get started by creating a DocumentDB account. If you already have an accoun
 5. Then without leaving the menu, click on **Manage NuGet Packages...**
 6. On the left most panel of the **Manage NuGet Packages** window, click **Online** / **nuget.org**.
 7. In the **Search Online** input box, search for **DocumentDB Client Library**.
-8. Within the results, find **Microsoft Azure DocumentDB Client Library** and click **Install**.
+8. Within the results, find **Microsoft Azure DocumentDB Client Library** and click **Install**.  
+   The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 
 Great! You are now ready to start working with DocumentDB.
 
@@ -101,7 +102,7 @@ Call your asynchronous task from your Main method similar to the code below.
 
 The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for your DocumentDB account, which can be obtained from the [Keys](https://portal.azure.com) blade for your DocumentDB account. 
 
-![Screen shot of the Azure portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
+![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
  
 These keys grant administrative access to your DocumentDB account and the resources in it. DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key. For more information about resource keys, see [Permissions](documentdb-resources.md#permissions) and [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
 
@@ -131,7 +132,7 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
   		    });
     
 ##<a id="CreateDoc"></a>Step 6: Create documents
-A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) property.  With that information, we can now insert one or more documents. 
+A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) property.  With that information, we can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md).
 
 First, we need to create a **Parent**, **Child**, **Pet**, **Address** and **Family** class. Create these classes by adding the following internal sub-classes. 
 

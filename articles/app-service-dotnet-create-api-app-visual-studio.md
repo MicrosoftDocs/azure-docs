@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Configure a Web API project as an API app
@@ -57,16 +57,22 @@ This section shows how to configure an existing Web API project as an API app. Y
 
 	![](./media/app-service-dotnet-create-api-app-visual-studio/addapiappsdk.png)
 
-11. In the **Choose API App Metadata source** dialog, click **Automatic Metadata Generation**. This choice enables the dynamic Swagger UI, which you'll see later in the tutorial. For information about the static Swagger metadata file option, see the [Next steps](#next-steps) section later in this tutorial.
+11. In the **Choose API App Metadata source** dialog, click **Automatic Metadata Generation**. 
 
 	![](./media/app-service-dotnet-create-api-app-visual-studio/chooseswagger.png)
 
-12. Click **OK**. At this point, Visual Studio installs API app NuGet packages and adds API app metadata to the Web API project.  
+	This choice enables the dynamic Swagger UI, which you'll see later in the tutorial. If you choose to upload a Swagger metadata file, it is saved with the file name *apiDefinition.swagger.json*, as explained in the following section. 
 
-In the next section, we'll cover what files were added to your project.
+12. Click **OK**. 
+ 
+	At this point, Visual Studio installs API app NuGet packages and adds API app metadata to the Web API project.  
 
+[AZURE.INCLUDE [app-service-api-review-metadata](../includes/app-service-api-review-metadata.md)]
 
 [AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-define-api-app.md)]
 
-
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
+
+## Next steps
+
+Your API app is now ready to be deployed, and you can follow the [Deploy an API app](app-service-dotnet-deploy-api-app.md) tutorial to do that.

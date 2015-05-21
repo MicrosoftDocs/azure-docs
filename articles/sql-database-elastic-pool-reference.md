@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure SQL elastic database reference" 
-	description="This reference provides links and details to elastic pool articles and programmability information." 
+	pageTitle="Azure SQL elastic database pool reference" 
+	description="This reference provides links and details to elastic database pool articles and programmability information." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,11 +17,11 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# SQL Database elastic database reference (preview)
+# SQL Database elastic database pool reference (preview)
 
 For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases. 
 
-This reference provides links and details to elastic database articles and programmability information.
+This reference provides links and details to elastic pool articles and programmability information.
 
 ## Overview
 
@@ -39,7 +39,8 @@ An elastic pool is a collection of database throughput units (DTUs), and storage
 
 ## Restrictions for the current preview
 
-- The pricing tier for an elastic pool in the current preview is Standard.     
+- The pricing tier for an elastic pool in the current preview is Standard.  
+- Import of a database directly into an elastic pool is not supported. You can import into a stand-alone database and then move the database into a pool. Export of a database from within a pool is supported.
 
 
 ## List of articles
@@ -48,20 +49,23 @@ The following articles will help you get started using elastic databases and ela
 
 | Article | Description |
 | :-- | :-- |
-| [SQL Database elastic pools](sql-database-elastc-pool.md) | Overview of elastic pools |
+| [SQL Database elastic pools](sql-database-elastic-pool.md) | Overview of elastic pools |
 | [Create and manage a SQL Database elastic pool with the Azure portal](sql-database-elastic-pool-portal.md) | How to create and manage an elastic pool using the Azure portal |
 | [Create and manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-powershell.md) | How to create and manage an elastic pool using PowerShell cmdlets |
 | [Elastic database jobs overview](sql-database-elastic-jobs-overview.md) | An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool |
 | [Installing the elastic database job component](sql-database-elastic-jobs-service-installation.md) | How to install the elastic database job service |
-| [Creating and managing elastic database jobs]() | desc |
 | [Creating the required user for the elastic jobs service](sql-database-elastic-jobs-add-logins-to-dbs.md) | To run an elastic database job script, a user with the appropriate permissions must be added to every database in the pool. |
 | [How to uninstall the elastic database job components](sql-database-elastic-jobs-uninstall.md) | Recover from failures when attempting to install the elastic database job service |
 
 
 
-## Namespace details
-An elastic pool is an ARM resource of type “ElasticPool” in the Microsoft Azure SQL Database namespace:
-Microsoft.Sql/ElasticPool
+## Namespace and endpoint details
+An elastic pool is an ARM resource of type “ElasticPool” in the Microsoft Azure SQL Database.
+
+- **namespace**: Microsoft.Sql/ElasticPool
+- **secondary-endpoint** for REST API calls (Azure resource manager): https://management.azure.com
+
+
 
 ## Elastic database pool properties
 
@@ -76,11 +80,12 @@ Microsoft.Sql/ElasticPool
 | elasticPoolName | Name of the pool.  The name is unique relative to its parent server. |
 | location | Data center location where the pool was created. |
 | state | State is “Disabled” if payment of the bill for subscription is delinquent, and “Ready” otherwise. |
-| storageMB | Storage limit in MB for the pool.  Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.  The storage limit of the pool is determined by the amount of DTUs of the pool; each DTU = 1 GB storage.  For example, a 200 DTU pool has a storage limit of 200 GB. |
+| storageMB | Storage limit in MB for the pool.  Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.   |
 
 
 ## DTU and storage limits for elastic pools and elastic databases
 
+The storage limit of the pool is determined by the amount of DTUs of the pool; each DTU = 1 GB storage.  For example, a 200 DTU pool has a storage limit of 200 GB.
 
 | property | default value | valid values |
 | :-- | :-- | :-- |
@@ -123,7 +128,7 @@ An elastic pool requires an Azure SQL Database V12 server. Servers are located w
 
 The following PowerShell cmdlets and REST API commands are available for creating and managing elastic pools:
 
-| [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) | [REST API commands](https://msdn.microsoft.com/library/azure/dn790568.aspx) |
+| [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) | [REST API commands](https://msdn.microsoft.com/library/azure/mt163571.aspx) |
 | :-- | :-- |
 | Get-AzureSqlDatabase | Get Azure SQL database |
 | Get-AzureSqLElasticPool | Get Azure SQL Database elastic database pool |

@@ -2,7 +2,7 @@
 	pageTitle="Monitor usage and crashes in Windows Store and Phone apps" 
 	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="windows"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 

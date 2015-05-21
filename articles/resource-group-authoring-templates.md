@@ -1,14 +1,14 @@
 <properties
    pageTitle="Authoring Azure Resource Manager Templates"
    description="Create Azure Resource Manager templates using declarative JSON syntax to deploy applications to Azure."
-   services="na"
+   services="multiple"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -264,9 +264,6 @@ The following example shows a **Microsoft.Web/serverfarms** resource and a **Mic
                   "apiVersion": "2014-06-01",
                   "type": "Extensions",
                   "name": "MSDeploy",
-                  "dependsOn": [
-                    "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-                  ],
                   "properties": {
                     "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
                     "dbType": "None",
@@ -280,7 +277,6 @@ The following example shows a **Microsoft.Web/serverfarms** resource and a **Mic
         }
     ]
 
->[AZURE.NOTE] Dependency between a parent resource and nested resources is not implied by the current template schema. Therefore, you must use the **dependsOn** element to note a dependency.
 
 ## Outputs
 
@@ -402,7 +398,7 @@ The following template deploys a web app and provisions it with code from a .zip
 
 ## Next Steps
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploy an application with Azure Resource Manager Template](./resouce-group-template-deploy.md)
+- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)
 - [Advanced Template Operations](./resource-group-advanced-template.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
 

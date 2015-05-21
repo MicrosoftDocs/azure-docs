@@ -106,19 +106,19 @@ The Federations Migration Utility provides the abilities to:
 
 Although Elastic Scale offers many additional features (for example, [multi-shard querying](sql-database-elastic-scale-multishard-querying.md), [splitting and merging shards](sql-database-elastic-scale-overview-split-and-merge.md), [shard elasticity](sql-database-elastic-scale-elasticity.md), [client-side caching](sql-database-elastic-scale-shard-map-management.md), and more), there are a few noteworthy Federations features that are not supported in elastic database tools.
   
-- The use of **FILTERING=ON**. Elastic scale does not currently support row-level filtering. One mitigation is to build the filtering logic into the query issued against the shard as follows: 
+- The use of **FILTERING=ON**. Instead, it is recommended that you use row-level security (RLS) for row filtering. Like filtering in Federations, RLS automatically adds a predicate to all queries on a sharded table. For details, see [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md). 
+ 
+ Alternatively, you can build the filtering logic into the query issued against the shard. For example: 
 
         --Example of USE FEDERATION with FILTERING=ON
         USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=ON 
         SELECT * FROM customer
 
-Yields the same result as:
+ Yields the same result as:
 
         --Example of USE FEDERATION with filtering in the WHERE clause 
         USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF 
         SELECT * FROM customer WHERE CustomerId = 100 
-
-As an alternative, you can also use Row-Level Security (RLS) to help you with filtering. You can find the necessary steps described in the [RLS  blog post](http://azure.microsoft.com/blog/2015/03/02/building-more-secure-middle-tier-applications-with-azure-sql-database-using-row-level-security/). Note that RLS currently does not protect UPDATE and INSERT statements against changes that would place rows outside of the shardlet. If this is a concern for your application, use database constraints or triggers in addition to RLS to enforce these aspects.
 
 - The Elastic Scale **Split** feature is not fully online. During a split operation, each individual shardlet is taken offline during the duration of the move.
 - The Elastic Scale split feature requires manual database provisioning and schema management.

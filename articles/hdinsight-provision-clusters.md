@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Provision Hadoop clusters in HDInsight | Azure" 
-   description="Learn how to provision clusters for Azure HDInsight by using the Azure portal, Azure PowerShell, a command line, or the HDInsight .NET SDK" 
+   pageTitle="Custom-provision Hadoop clusters in HDInsight | Microsoft Azure" 
+   description="Learn how to custom-provision clusters for Azure HDInsight by using the Azure portal, Azure PowerShell, a command line, or a .NET SDK." 
    services="hdinsight" 
    documentationCenter="" 
    authors="nitinme" 
@@ -374,13 +374,13 @@ Another option for provisioning an HDInsight cluster is the cross-platform comma
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **Cross-platform CLI** - <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-For a general guide on how to use the command-line interface, see [Azure command-line tool for Mac and Linux](xplat-cli.md).
+For a general guide on how to use the command-line interface, see [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
 
 Instructions below guide you on how to install the cross-platform command line on Linux and Windows, and then how to use the command line to provision a cluster.
 
-- [Set up an Azure cross-platform command line for Linux](#clilin)
-- [Set up an Azure cross-platform command line for Windows](#cliwin)
-- [Provision HDInsight clusters by using an Azure cross-platform command line](#cliprovision)
+- [Set up the Azure CLI for Linux](#clilin)
+- [Set up the Azure CLI for Windows](#cliwin)
+- [Provision HDInsight clusters by using the Azure CLI](#cliprovision)
 
 #### <a id="clilin"></a>Set up a cross-platform command line for Linux
 
@@ -486,9 +486,9 @@ Before using the command-line interface, you must configure connectivity between
 
 		azure account import <path/to/the/file>
 
-#### <a id="cliprovision"></a>Provision HDInsight clusters by using an Azure cross-platform command line
+#### <a id="cliprovision"></a>Provision HDInsight clusters by using an Azure CLI
 
-The following procedures are needed to provision an HDInsight cluster by using a cross-platform command line:
+The following procedures are needed to provision an HDInsight cluster by using the Azure CLI:
 
 - Create an Azure Storage account
 - Provision a cluster
@@ -710,7 +710,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Use Sqoop with HDInsight](hdinsight-use-sqoop.md) - Learn how to copy data between HDInsight and SQL Database or SQL Server
 * [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md) - Learn how to work with HDInsight by using Azure PowerShell
 * [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
-* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation] - Discover the HDInsight SDK
+* [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
@@ -739,7 +739,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-customcreatecluster]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.png
 [image-hdi-customcreatecluster-clusteruser]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.ClusterUser.png

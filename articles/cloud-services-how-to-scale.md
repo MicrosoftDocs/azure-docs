@@ -32,11 +32,11 @@ You should consider the following information before you configure scaling for y
 
 - Scaling is affected by core usage. Larger role instances or Virtual Machines use more cores. You can only scale an application within the limit of cores for your subscription. For example, if your subscription has a limit of twenty cores and you run an application with two medium sized Virtual Machines (a total of four cores), you can only scale up other cloud service deployments in your subscription by sixteen cores. All Virtual Machines in an availability set that are used in scaling an application must be the same size. For more information about core usage and machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
-- You must create a queue and associate it with a role or availability set before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](http://www.windowsazure.com/develop/net/how-to-guides/queue-service).
+- You must create a queue and associate it with a role or availability set before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](storage-dotnet-how-to-use-queues.md).
 
-- You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](http://www.windowsazure.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
+- You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
-- To enable high availability of your application, you should ensure that it is deployed with two or more role instances or Virtual Machines. For more information, see [Service Level Agreements](https://www.windowsazure.com/support/legal/sla/).
+- To enable high availability of your application, you should ensure that it is deployed with two or more role instances or Virtual Machines. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
 
 
 ## Manually scale an application running Web Roles or Worker Roles

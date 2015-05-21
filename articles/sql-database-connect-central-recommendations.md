@@ -14,21 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/01/2015" 
 	ms.author="genemi"/>
 
 
 # Connecting to SQL Database: Links, Best Practices and Design Guidelines
-
-
-<!--
-GeneMi , 2015-April-21 Tuesday 12:44pm
-sql-database-connect-central-recommendations.md
-sql-database-connect-*.md
-
-Add link to sql-database-develop-quick-start-client-code-samples.md.
-Add a paragraph about why transient errors legitimately occur sometimes.
--->
 
 
 This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. Recommendations are given that apply generally regardless of the specific connection technology or programming language.
@@ -56,10 +46,7 @@ Regardless of which connection technology you use, certain firewall settings for
 - [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-### Quick recommendations
-
-
-#### Connection
+## Recommendations: Connection
 
 
 - In your client connection logic, override the default timeout to be 30 seconds.
@@ -77,7 +64,7 @@ Regardless of which connection technology you use, certain firewall settings for
  - You can configure the [firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx) settings on an SQL Database server or to an individual database.
 
 
-#### Authentication
+## Recommendation: Authentication
 
 
 - Use SQL Database authentication, not Windows authentication.
@@ -89,7 +76,7 @@ Regardless of which connection technology you use, certain firewall settings for
  - You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database.
 
 
-### Transient errors
+## Transient errors
 
 
 Cloud services such as Azure and its SQL Database service have the endless challenge of balancing workloads and managing resources. If two databases that are being served from the same computer are involved in exceptionally heavy processing at overlapping times, the management system might detect the necessary of shifting the workload of one database to another resource which has excess capacity.
@@ -123,24 +110,32 @@ The following topics contains links to code samples for several languages and dr
 Various code samples are given for clients that run on both Windows and Linux.
 
 
-Some code samples include demonstrations of *retry* logic for transient errors, which is essential for production clients that connect to a database that is in the cloud:
+**General samples:** There are code samples for a variety of programming languages, including PHP, Python, Node.js, and .NET CSharp. Also, samples are given for clients that run on Windows or Linux.
 
 
 - [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 
 
-For ADO.NET with Enterprise Library and the Transient Fault Handling classes, see:
+**Retry logic:** There are code samples designed with the sophistication necessary to handle transient errors with automatic retry logic.
 
 
 - [How to: Reliably connect to Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [How to: Connect to Azure SQL Database by using ADO.NET with Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
+- [How to: Connect to Azure SQL Database by using ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
 
 
-For information about connectivity to Elastic Scale databases, see:
+**Elastic scale:** For information about connectivity to Elastic Scale databases, see:
 
 
 - [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 - [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
+
+
+**Driver libraries:** For information about connection driver libraries, including recommended versions, see:
+
+
+- [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 
 ## See Also

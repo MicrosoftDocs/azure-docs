@@ -23,11 +23,10 @@ If you already have integrated an older version of Engagement into your applicat
 For each new version of the SDK you must first replace (remove and re-import in xcode) the EngagementSDK and EngagementReach folders.
 
 ##From 1.16.0 to 2.0.0
-The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
+The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.
+If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.16 first then apply the following procedure. 
 
 >[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
-
-If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.16 first then apply the following procedure
 
 ### Agent
 

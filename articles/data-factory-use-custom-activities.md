@@ -19,7 +19,7 @@
 # Use custom activities in an Azure Data Factory pipeline
 Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and process data. You can also create a custom .NET activity with your own transformation/processing logic and use the activity in a pipeline. You can configure the activity to run using either an **Azure HDInsight** cluster or an **Azure Batch** service.   
 
-This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity. The walkthrough uses the HDInsight linked service. To use the Azure Batch linked service instead, you create a linked service of type **AzureBatchLinkedService** and use it in the activity section of the pipeline JSON (**linkedServiceName**).   
+This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity. The walkthrough uses the HDInsight linked service. To use the Azure Batch linked service instead, you create a linked service of type **AzureBatchLinkedService** and use it in the activity section of the pipeline JSON (**linkedServiceName**). See the [Azure Batch Linked Service](#AzureBatch) section for details on using Azure Batch with the custom activity.
 
 ## Prerequisites
 Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the [walkthrough](#SupportedSourcesAndSinks) in this article.
@@ -452,7 +452,44 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
    
 See [Get started with Azure Data Factory][adfgetstarted] for detailed steps for monitoring datasets and pipelines.      
     
+## <a name="AzureBatch"></a> Using Azure Batch linked service 
+> [AZURE.NOTE] See [Azure Batch Technical Overview][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.  
 
+Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:
+
+1. Create an Azure Batch account using instructions in the [Azure Batch Technical Overview][batch-create-account] article if you don't have an account already. Note down the Azure Batch account name and account key. 
+2. Create an Azure Batch pool. You can download and use the [Azure Batch Explorer tool][batch-explorer] to create a pool (or) use [Azure Batch Library for .NET][batch-net-library] to create a pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+2. Create an Azure Batch Linked Service using the following JSON template. The Data Factory Editor displays a similar template for you to start with. Specify the Azure Batch account name, account key and pool name in the JSON snippet. 
+
+		{
+		    "name": "AzureBatchLinkedService",
+		    "properties": {
+		        "type": "AzureBatchLinkedService",
+		        "accountName": "<Azure Batch account name>",
+		        "accessKey": "<Azure Batch account key>",
+		        "poolName": "<Azure Batch pool name>",
+		        "linkedServiceName": "<Specify associated storage linked service reference here>"
+		  }
+		}
+
+	See [Azure Batch Linked Service MSDN topic](https://msdn.microsoft.com/library/mt163609.aspx) for descriptions of these properties. 
+
+2.  In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace **HDInsightLinkedService** with **AzureBatchLinkedService**.
+3.  You may want to change the start and end times for the pipeline so that you can test the scenario with the Azure Batch service. 
+4.  You can see the Azure Batch tasks associated with processing the slices in the Azure Batch Explorer as shown in the following diagram.
+
+	![Azure Batch tasks][image-data-factory-azure-batch-tasks]
+
+## See Also
+
+[Azure Data Factory Updates: Execute ADF Custom .NET activities using Azure Batch](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/). 
+
+[batch-net-library]: batch-dotnet-get-started.md
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-create-account]: batch-technical-overview.md/#BKMK_Account
+[batch-technical-overview]: batch-technical-overview.md
+[batch-get-started]: batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
@@ -480,3 +517,5 @@ See [Get started with Azure Data Factory][adfgetstarted] for detailed steps for 
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
+
+[image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png

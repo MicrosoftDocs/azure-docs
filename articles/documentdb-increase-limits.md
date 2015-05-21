@@ -5,8 +5,7 @@
 	authors="stephbaron" 
 	manager="johnmac" 
 	editor="monicar" 
-	documentationCenter=""
-	tags="azure-portal"/>
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/04/2015" 
 	ms.author="stbaro"/>
 
 # Request increased DocumentDB account limits
@@ -40,13 +39,14 @@ The following table describes the DocumentDB quotas that can be adjusted by cont
 |Maximum number of JOINs per query    |2
 |Maximum number of AND clauses per query      |5
 |Maximum number of OR clauses per query       |5
+|Maximum number of values per IN expression       |100
 |Maximum number of collection creates per minute    |5
 |Maximum number of scale operations per minute    |5
 
 ##<a id="RequestQuotaIncrease"></a> Request a quota adjustment
 The following steps show how to request a quota adjustment.
 
-1. In the [Azure portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
+1. In the [Azure Preview portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
 
 	![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
 

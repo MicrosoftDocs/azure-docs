@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="05/15/2015" 
 	ms.author="spelluru"/>
 
 # Creating alerts on Azure events
@@ -144,24 +144,6 @@ To retrieve the list of deployed Azure Resource Group deployments, use the cmdle
 <td>SliceDelayed</td>
 <td>In Progress</td>
 <td>Late</td>
-</tr>
-
-<tr>
-<td>CreateTablePublication</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>UpdateTablePublication</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>RemoveTablePublication</td>
-<td>Succeeded</td>
-<td></td>
 </tr>
 
 <tr>

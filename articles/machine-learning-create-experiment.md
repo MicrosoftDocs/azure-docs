@@ -20,6 +20,8 @@
  
 In this article, we'll create a machine learning model that will predict the price of an automobile based on different variables such as make and technical specifications. To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment. 
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 
 To open Machine Learning Studio, click this link: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For help getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/). 
@@ -92,9 +94,9 @@ First we'll remove the **normalized-losses** column, and then we'll remove any r
 
     > [AZURE.TIP] You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Project Columns][project-columns] module and type the comment "Exclude normalized-losses." 
 
-3. Drag the [Missing Values Scrubber][missing-values-scrubber] module to the experiment canvas and connect it to the [Project Columns][project-columns] module. In the **Properties** pane, select **Remove entire row** under **For missing values** to clean the data by removing rows that have missing values. Double-click the module and type the comment "Remove missing value rows."
+3. Drag the [Clean Missing Data][clean-missing-data] module to the experiment canvas and connect it to the [Project Columns][project-columns] module. In the **Properties** pane, select **Remove entire row** under **Cleaning mode** to clean the data by removing rows that have missing values. Double-click the module and type the comment "Remove missing value rows."
 
-	![Missing Values Scrubber properties][screen4a]
+	![Clean Missing Data properties][screen4a]
 
 4. Run the experiment by clicking **RUN** under the experiment canvas.
 
@@ -102,7 +104,7 @@ When the experiment finishes, all the modules will have a green check mark to in
 
 ![First experiment run][screen5]
 
-All we have done in the experiment to this point is clean the data. If you want to view the cleaned dataset, click the output port of the [Missing Values Scrubber][missing-values-scrubber] module and select **Visualize**. Notice that the **normalized-losses** column is no longer included, and there are no missing values.
+All we have done in the experiment to this point is clean the data. If you want to view the cleaned dataset, click the left output port of the [Clean Missing Data][clean-missing-data] module ("Cleaned dataset") and select **Visualize**. Notice that the **normalized-losses** column is no longer included, and there are no missing values.
 
 Now that the data is clean, we're ready to specify what features we're going to use in the predictive model.
 
@@ -114,13 +116,13 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. Drag another [Project Columns][project-columns] module to the experiment canvas and connect it to the [Missing Values Scrubber][missing-values-scrubber] module. Double-click the module and type "Select features for prediction."
+1. Drag another [Project Columns][project-columns] module to the experiment canvas and connect it to the left output port of the [Clean Missing Data][clean-missing-data] module. Double-click the module and type "Select features for prediction."
 
 2. Click **Launch column selector** in the **Properties** pane. 
 
 3. In the column selector, select **No columns** for **Begin With**, and then select **Include** and **column names** in the filter row. Enter our list of column names. This directs the module to pass through only columns that we specify.
 
-	> [AZURE.TIP] Because we've run the experiment, the column definitions for our data have passed from the original dataset through the [Missing Values Scrubber][missing-values-scrubber] module. When you connect [Project Columns][project-columns] to [Missing Values Scrubber][missing-values-scrubber], the [Project Columns][project-columns] module becomes aware of the column definitions in our data. When you click the **column names** box, a list of columns is displayed, and you can select the columns that you want to add to the list. 
+	> [AZURE.TIP] Because we've run the experiment, the column definitions for our data have passed from the original dataset through the [Clean Missing Data][clean-missing-data] module. When you connect [Project Columns][project-columns] to [Clean Missing Data][clean-missing-data], the [Project Columns][project-columns] module becomes aware of the column definitions in our data. When you click the **column names** box, a list of columns is displayed, and you can select the columns that you want to add to the list. 
 
 4. Click the check mark (OK) button.
 
@@ -148,13 +150,11 @@ We want to predict the price of an automobile, which can be any value, so we'll 
 
 4. Find and drag the [Train Model][train-model] module to the experiment. Connect the left input port to the output of the [Linear Regression][linear-regression] module. Connect the right input port to the training data output (left port) of the [Split][split] module.
 
-5. Run the experiment to pass the column definitions to the [Train Model][train-model] module.
- 
-6. Select the [Train Model][train-model] module, click **Launch column selector** in the **Properties** pane, and select the **price** column. This is the value that our model is going to predict.
+5. Select the [Train Model][train-model] module, click **Launch column selector** in the **Properties** pane, and select the **price** column. This is the value that our model is going to predict.
 
 	![Select "price" column][screen7]
 
-7. Run the experiment. 
+6. Run the experiment. 
 
 The result is a trained regression model that can be used to score new samples to make predictions. 
 
@@ -172,17 +172,19 @@ Now that we've trained the model using 75% of our data, we can use it to score t
 
 3. Finally, to test the quality of the results, select and drag the [Evaluate Model][evaluate-model] module to the experiment canvas, and connect the left input port to the output of the [Score Model][score-model] module. (There are two input ports because the [Evaluate Model][evaluate-model] module can be used to compare two models.)
  
-4. To run the experiment and view the output from the [Evaluate Model][evaluate-model] module, click the output port and select **Visualize**. The following statistics are shown for our model:
+4. Run the experiment. 
 
-	- **Mean Absolute Error** (MAE): The average of absolute errors (an *error* is the difference between the predicted value and the actual value).
-	- **Root Mean Squared Error** (RMSE): The square root of the average of squared errors of predictions made on the test dataset.
-	- **Relative Absolute Error**: The average of absolute errors relative to the absolute difference between actual values and the average of all actual values.
-	- **Relative Squared Error**: The average of squared errors relative to the squared difference between the actual values and the average of all actual values.
-	- **Coefficient of Determination**: Also known as the **R squared value**, this is a statistical metric indicating how well a model fits the data.
+To view the output from the [Evaluate Model][evaluate-model] module, click the output port and select **Visualize**. The following statistics are shown for our model:
+
+- **Mean Absolute Error** (MAE): The average of absolute errors (an *error* is the difference between the predicted value and the actual value).
+- **Root Mean Squared Error** (RMSE): The square root of the average of squared errors of predictions made on the test dataset.
+- **Relative Absolute Error**: The average of absolute errors relative to the absolute difference between actual values and the average of all actual values.
+- **Relative Squared Error**: The average of squared errors relative to the squared difference between the actual values and the average of all actual values.
+- **Coefficient of Determination**: Also known as the **R squared value**, this is a statistical metric indicating how well a model fits the data.
 	
-	For each of the error statistics, smaller is better. A smaller value indicates that the predictions more closely match the actual values. For **Coefficient of Determination**, the closer its value is to one (1.0), the better the predictions.
+For each of the error statistics, smaller is better. A smaller value indicates that the predictions more closely match the actual values. For **Coefficient of Determination**, the closer its value is to one (1.0), the better the predictions.
 
-	![Evaluation results][screen9]
+![Evaluation results][screen9]
 
 The final experiment should look like this:
 
@@ -224,7 +226,7 @@ For a more extensive and detailed walkthrough for creating, training, scoring, a
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[missing-values-scrubber]: https://msdn.microsoft.com/library/azure/ba668ff5-8720-4676-a0a5-ff14f5133da7/
+[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

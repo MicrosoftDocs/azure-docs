@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="05/20/2015"
    ms.author="jesseb"/>
 
 # Visualizing your cluster using Service Fabric Explorer
@@ -24,7 +24,7 @@ Service Fabric Explorer is a visual tool for inspecting and managing cloud appli
 
 ## Introduction to Service Fabric Explorer
 
-Ensure your local development environment is setup by following the instructions at [Setting up your Service Fabric development environment](service-fabric-setup-your-development-environment.md).
+Ensure your local development environment is setup by following the instructions at [set up your Service Fabric development environment](service-fabric-get-started.md).
 
 Run Service Fabric Explorer from your local installation path (%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). The tool will automatically connect to a local development cluster, if one exists.  It displays information on the cluster such as:
 
@@ -64,7 +64,7 @@ To view a remote Service Fabric cluster, click on **Connect** to bring up the **
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Importance of testability](service-fabric-testability-importance.md).
+- [Testability overview](service-fabric-testability-overview.md).
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 - [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)
 

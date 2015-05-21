@@ -18,9 +18,11 @@
 
 
 # Connect to an Azure Machine Learning Web Service 
-The Azure Machine Learning developer experience is a web service API to make predictions from input data in real time or in batch mode. You use the Azure Machine Learning Studio (ML Studio) to create predictions and publish an Azure ML web service. 
+The Azure Machine Learning developer experience is a web service API to make predictions from input data in real time or in batch mode. You use the Azure Machine Learning Studio to create predictions and publish an Azure Machine Learning web service. 
 
-To learn about how to create and publish an Azure Machine Learning web service using ML Studio:
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
+To learn about how to create and publish an Azure Machine Learning web service using Studio:
 
 - [Publish a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
 - [Getting Started with ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)

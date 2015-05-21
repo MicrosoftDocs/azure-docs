@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
 # How Azure subscriptions are associated with Azure AD
@@ -67,13 +66,13 @@ As with subscription administrators, the Azure AD administrative roles can be ei
 
 But the important point here is that Azure subscription admins and Azure AD directory admins are two separate concepts. Azure subscription admins can manage resources in Azure and can view the Active Directory extension in the Management Portal (because the Management Portal is an Azure resource). Directory admins can manage properties in the directory. 
 
-A person can be in both roles but this isn’t required. A user can be assigned to the directory global administrator role but not be assigned as Service administrator or co-administrator of an Azure subscription. Without being an administrator of the subscription, this user cannot sign in to the Azure Management Portal. But the user could perform directory administration tasks using other tools such as Azure AD PowerShell or Office 365 Admin Center.
+A person can be in both roles but this isn’t required. A user can be assigned to the directory global administrator role but not be assigned as Service administrator or co-administrator of an Azure subscription. Without being an administrator of the subscription, this user cannot sign in to the Management Portal. But the user could perform directory administration tasks using other tools such as Azure AD PowerShell or Office 365 Admin Center.
 
 ### Why can't I manage the directory with my current user account?
 
-Sometimes a user may try to sign in to the Azure Management Portal using a work or school account prior to signing up for an Azure subscription. In this case, the user will receive a message that there is no subscription for that account. The message will include a link to start a free trial subscription. 
+Sometimes a user may try to sign in to the Management Portal using a work or school account prior to signing up for an Azure subscription. In this case, the user will receive a message that there is no subscription for that account. The message will include a link to start a free trial subscription. 
 
-After signing up for the free trial, the user will see the directory for the organization in the Management Portal but be unable to manage it (that is, be unable to add users, or edit any existing user properties) because the user is not a directory global administrator. The subscription allows the user to use the Azure Management Portal and see the Active Directory extension, but the additional permissions of a global administrator are needed to manage the directory.
+After signing up for the free trial, the user will see the directory for the organization in the Management Portal but be unable to manage it (that is, be unable to add users, or edit any existing user properties) because the user is not a directory global administrator. The subscription allows the user to use the Management Portal and see the Active Directory extension, but the additional permissions of a global administrator are needed to manage the directory.
 
 ## Using your work or school account to manage an Azure subscription that was created by using a Microsoft account
 
@@ -81,7 +80,7 @@ As a best practice, you should [sign up for Azure as an organization](sign-up-or
 
 Work or school accounts can also be managed in more ways than a Microsoft account. For example, an administrator can reset the password of an a work or school account, or require multifactor authentication for it.
 
-In some cases, you may want a user from your organization to be able to manage resources that are associated with an Azure subscription for a consumer Microsoft account. For more information about how to transition to have different accounts manage subscriptions or directories, see [Manage the directory for your Office 365 subscription in Azure](#manage-directory-office365-subscription-azure).
+In some cases, you may want a user from your organization to be able to manage resources that are associated with an Azure subscription for a consumer Microsoft account. For more information about how to transition to have different accounts manage subscriptions or directories, see [Manage the directory for your Office 365 subscription in Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 
 ## Signing in when you used your work email for your Microsoft account
@@ -90,11 +89,11 @@ If at some point of time in the past you created a consumer Microsoft account us
 
 ![][3]
 
-You have user accounts with the same name, one in Azure AD and the other in the consumer Microsoft account system. You should pick the account that is associated with the Azure subscription you want to use. If you get an error saying a subscription does not exist for this user, you likely just chose the wrong option. Sign out and try again. For more information about errors that can prevent sign in, see [Troubleshooting "We were unable to find any subscriptions associated with your account" errors in Management Portal](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+You have user accounts with the same name, one in Azure AD and the other in the consumer Microsoft account system. You should pick the account that is associated with the Azure subscription you want to use. If you get an error saying a subscription does not exist for this user, you likely just chose the wrong option. Sign out and try again. For more information about errors that can prevent sign in, see [Troubleshooting "We were unable to find any subscriptions associated with your account" errors](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Manage the directory for your Office 365 subscription in Azure
 
-Let's say you signed up for Office 365 before you sign up for Azure. Now you want to manage the directory for the Office 365 subscription in the Azure Management Portal. There's two ways to do this, depending on whether you have signed up for Azure or you have not.
+Let's say you signed up for Office 365 before you sign up for Azure. Now you want to manage the directory for the Office 365 subscription in the Management Portal. There's two ways to do this, depending on whether you have signed up for Azure or you have not.
 
 ### I do not have a subscription for Azure
 

@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to Create a Web App in an App Service Environment" 
 	description="Creation flow for web apps and app service plans examined for an app service environment" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -18,9 +18,9 @@
 
 # How to Create a Web App in an App Service Environment #
 
-Creating web apps is nearly the same in an App Service Environments (ASE) as it is normally.  If you are unfamiliar with the App Service Environment capability then read the document here [What is an App Service Environment][WhatisASE]. 
+Creating web apps is nearly the same in an App Service Environments (ASE) as it is normally.  If you are unfamiliar with the App Service Environment capability then read the document here [What is an App Service Environment](app-service-app-service-environment-intro.md). 
 
-To create an web app in an ASE you need to first start by having an ASE.   For details around creating an ASE read the document here: [How to Create an App Service Environment][HowtoCreateASE] .
+To create an web app in an ASE you need to first start by having an ASE.   For details around creating an ASE read the document here: [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
 
 The first step to creating a web app is creating or selecting an App Service Plan (ASP).  Creating an ASP in an ASE starts the same as it does normally which is by going through the web app creation flow starting with New -> Web + Mobile -> Web App.
 
@@ -39,7 +39,7 @@ For now, your web app name needs to be unique across the entire Azure App Servic
 
 ### App Service Plans ###
 
-App Service Plans are a managed set of your web apps.  When you select pricing, the price charged is applied to the App Service Plan rather than to the individual apps.  To scale up the number of instances of a web app you scale up the instances of your ASP and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  You can learn more about App Service Plans from the document here: [Azure App Service plans in-depth][Appserviceplans] 
+App Service Plans are a managed set of your web apps.  When you select pricing, the price charged is applied to the App Service Plan rather than to the individual apps.  To scale up the number of instances of a web app you scale up the instances of your ASP and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  You can learn more about App Service Plans from the document here: [Azure App Service plans in-depth](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 If you are making a new App Service Plan, there are some differences to creating an ASP in an App Service Environment.  Among other things, your worker choices are different as there are no shared workers in an App Service Environment.  The workers you have to use are the ones that have been allocated to the App Service Environment by the admin.  This means that to create a new ASP, you need to have more workers allocated to your App Service Environment than the total number of instances across all of your ASPs in your App Service Environment.  If you don't have enough workers in your App Service Environment to create your ASP, you need to work with your App Service Environment admin to get them added.    
 
@@ -59,7 +59,7 @@ After selection the UI will update and replace the pricing plan picker with a wo
 
 Normally in the Azure App Service and outside of an App Service Environment, there are 3 sizes that are available with the selection of a dedicated price plan.  In a similar fashion, customers that own an ASE can define up to 3 pools of workers and specify the size of the VM that is used for that worker pool.  Instead of selecting a pricing plan for your ASP, you select what is called a Worker Pool.  
 
-The worker pool selection UI shows the size of the VMs used for that worker pool below the name.  The quantity available refers to how many VMs are available for use in that pool.  The total pool may actually have more VMs than this number but this value refers to simply how many are not in use.  If you need to adjust your App Service Environment to add more compute resources see the doc here [Configuring your App Service Environment][HowtoConfigureASE].
+The worker pool selection UI shows the size of the VMs used for that worker pool below the name.  The quantity available refers to how many VMs are available for use in that pool.  The total pool may actually have more VMs than this number but this value refers to simply how many are not in use.  If you need to adjust your App Service Environment to add more compute resources see the doc here [Configuring your App Service Environment](app-service-web-configure-an-app-service-environment.md).
 
 ![][4]
 
@@ -71,7 +71,11 @@ There are a few considerations to running web apps and managing ASPs in an ASE t
 
 As noted earlier, the owner of the ASE is responsible for the size of the system and as a result they are also responsible for ensuring that there is sufficient capacity to host the desired ASPs. If there are no available workers then you will not be able to create your ASP.  This is also true to scaling up your web app.  If you need more instances then you would have to get your App Service Environment admin to add more workers.
 
-After creating your web app and ASP it is a good idea to scale it up.  In an ASE you always need to have at least 2 instances of your ASP to provide fault tolerance for your apps.  Scaling an ASP in an ASE is the same as normal through the ASP UI.  For more details around scaling read the document here [How to scale a web app in an App Service Environment][HowtoScale]
+After creating your web app and ASP it is a good idea to scale it up.  In an ASE you always need to have at least 2 instances of your ASP to provide fault tolerance for your apps.  Scaling an ASP in an ASE is the same as normal through the ASP UI.  For more details around scaling read the document here [How to scale a web app in an App Service Environment](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspnewwebapp.png
@@ -82,6 +86,6 @@ After creating your web app and ASP it is a good idea to scale it up.  In an ASE
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [Appserviceplans]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
-[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment
+[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment

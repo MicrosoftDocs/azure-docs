@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Provision Hadoop clusters on Linux in HDInsight | Azure" 
+   pageTitle="Provision Hadoop clusters on Linux in HDInsight | Microsoft Azure" 
    description="Learn how to provision Hadoop clusters on Linux for HDInsight using the management portal, the command line, and the .NET SDK." 
    services="hdinsight" 
    documentationCenter="" 
@@ -72,7 +72,7 @@ When provisioning an HDInsight cluster, you can specify a SQL database that will
 
 You can provision an HDInsight Hadoop Linux cluster from a Linux computer as well as a Windows-based computer. The following table provides information on the provisioning options available from the different operating systems, and links to instructions for each.
 
-Provision Linux clusters from a computer running this OS| Using the Azure portal | Using the Azure Cross-Platform Command Line Interface | Using the .NET SDK | Using Azure PowerShell
+Provision Linux clusters from a computer running this OS| Using the Azure portal | Using the Azure Command Line Interface | Using the .NET SDK | Using Azure PowerShell
 -----------------| ------------------------| -------------------| ---------- | ---------
 Linux| Click [here](#portal) | Click [here](#cli)| Not applicable | Not applicable
 Windows | Click [here](#portal) | Click [here](#cli) | Click [here](#sdk) | Click [here](#powershell)
@@ -210,12 +210,12 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
 ###<a id="cli"></a> Using the cross-platform command line
 
-Another option for provisioning an HDInsight cluster is the Azure Cross-Platform Command-Line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the command-line interface from the following locations:
+Another option for provisioning an HDInsight cluster is the Azure Command-Line Interface for Mac, Linux, and Windows. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the command-line interface from the following locations:
 
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **Azure Cross-Platform Command-Line Interface** - <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
+- **Azure CLI for Mac, Linux and Windows** - <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-For a general guide on how to use the command-line interface, see [Azure command-line tool for Mac and Linux](xplat-cli.md).
+For a general guide on how to use the command-line interface, see [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
 
 Instructions below guide you on how to install the cross-platform command line on Linux and Windows, and then how to use the command line to provision a cluster.
 

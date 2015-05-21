@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 
@@ -101,7 +101,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 6. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open "/etc/default/grub" in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
 
-		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
 	Save and close this file, and then run '`sudo update-grub`'. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues. 
 

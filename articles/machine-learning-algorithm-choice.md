@@ -14,13 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/05/2015" 
 	ms.author="bradsev;garye" />
 
 
 # How to choose an algorithm in Azure Machine Learning
 
-This topic explains some basics aspects of the machine learning approach and outlines, in particular, how to select an appropriate algorithm to analyze a given type of data, to answer a question posed, to accomplish a specified task, or to provide criteria for making a decision. When using machine learning to do analytics, we are usually faced with two questions: 
+This topic explains some basics aspects of the machine learning approach and outlines, in particular, how to select an appropriate algorithm to analyze a given type of data, to answer a question posed, to accomplish a specified task, or to provide criteria for making a decision. 
+
+> [AZURE.TIP] The [Microsoft Azure Machine Learning Algorithm Cheat Sheet](machine-learning-algorithm-cheat-sheet.md) is a handy reference to accompany this article.
+
+When using machine learning to do analytics, we are usually faced with two questions: 
 
 * What kind of analysis do we need to accomplish our objectives with the data available? 
 * What is the most appropriate algorithm or model to use to do this analysis?
@@ -33,14 +37,16 @@ Three types of analysis are discussed and their use cases are compared:
 
 The various algorithms for each of these types of analysis and the modules that contain them that are available in Azure Machine Learning are also discussed. 
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 
 <a name="anchor-1"></a>
-##**Machine Learning**
+##Machine Learning
 
 Machine Learning is a discipline that studies a class of algorithms that are data-driven in the sense that they are designed to learn from the data and do not impose a specific, predetermined model to test against the data. The idea is to to acquire knowledge  more inductively by examining the patterns in a dataset instead of by using what is usually referred to as the hypothetical-deductive method where you try to guess the appropriate model for the entire dataset first and then test it empirically. This type of learning from data comes in two flavors: supervised learning and unsupervised learning. 
 
 <a name="anchor-2"></a>
-##**Supervised Learning**  
+##Supervised Learning  
 
 Supervised learning requires that the target variable is well defined and that a sufficient number of its values are given. 
 
@@ -64,7 +70,7 @@ Both of these examples require having some "supervision" in the sense that they 
 Speech recognition using hidden Markov models and Bayesian networks also rely on elements of supervision in order to adjust parameters to minimize the error on the given inputs. 
 
 <a name="anchor-3"></a>
-##**Unsupervised Learning**
+##Unsupervised Learning
 
 In machine learning, the problem of unsupervised learning is to find patterns or hidden structure in unlabeled data. The model is not provided with the "correct results" for a dataset on which to train. Since the examples given to the learner are unlabeled, there is no error or reward signal to evaluate a potential solution. The goal is to have the computer learn how to do something that we don't explicitly tell it how to do! In unsupervised learning situations, all variables are treated in the same way. There is no distinction between explanatory and dependent variables. However, there is still some objective to achieve. This objective might be as general as data reduction or more specific like finding clusters. 
 
@@ -73,7 +79,7 @@ In Azure Machine Learning we can perform both Unsupervised and Supervised Learni
    ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help2.png)
 
 <a name="anchor-4"></a>
-##**Clustering**  
+##Clustering
 Clustering is an example of unsupervised learning. In this type of learning, the goal is to find similarities in the training data and to partition the dataset into subsets that are demarcated by these similarities. The expectation that the most significant clusters discovered by these data-driven procedures are consistent with our intuitive classification is often, but not always, satisfied. 
 
 Although the algorithm won't assign appropriate names to these clusters, it can produce them and then use them to anticipate similarities expected in new examples by classifying them into the most appropriate cluster. This is a data-driven approach that can work well when there is sufficient data. For instance, social information filtering algorithms, such as those used by Amazon.com to recommend books, are based on finding similar groups of people and then assigning new users to these groups for the purpose of making recommendations.
@@ -97,7 +103,7 @@ Each data point is assigned to the cluster that has the closest centroid to the 
 Note that the K-means method might only find a locally optimum cluster configuration for a dataset. The method could find a different, perhaps superior, configuration given a different initial configuration.
 
 <a name="anchor-5"></a>
-##**Classification**  
+##Classification 
 In classification analysis we divide the samples into classes and use a trained set of previously labeled data. The technique is used to predict group membership for data instances. 
 In Azure Machine Learning the following classification algorithms are available.
 
@@ -172,7 +178,8 @@ One vs all is a strategy for reducing the problem of multi-class classification 
 
 
 <a name="anchor-6"></a>
-##**Regression**  
+##Regression
+ 
 In regression analysis we predict new values based on the past inference. The new values for a dependent variable are computed based on the value of one or more measured attributes. The various regression algorithms available in Azure Machine Learning are:
 
 ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help4.png)

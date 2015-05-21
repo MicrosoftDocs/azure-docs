@@ -2,7 +2,7 @@
 	pageTitle="Troubleshoot Application Insights in a Java web project" 
 	description="Troubleshooting guide and question and answer." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 
@@ -24,7 +24,7 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 
 *In Eclipse, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.*
 
-* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[0.9,)</version>` or (Gradle) `version:'0.9.+'`), try specifying a specific version instead like `0.9.2`.
+* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[0.9,)</version>` or (Gradle) `version:'0.9.+'`), try specifying a specific version instead like `0.9.3`.
 
 ## No data 
 

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
-	ms.author="sunliangms;sachouks;mohabib" />
+	ms.date="05/12/2015" 
+	ms.author="sunliangms;sachouks;mohabib;bradsev" />
 
 # Move Data to and from Azure Blob Storage
 
-The [Cloud data science sample scenarios](machine-learning-data-science-plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
+The [Scenarios for the Advanced Analytics Process in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
 
 - [Using Azure Storage Explorer](#explorer)
 - [Using AzCopy Command line utility](#AzCopy)
@@ -29,6 +29,7 @@ The [Cloud data science sample scenarios](machine-learning-data-science-plan-sam
 > [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](storage-dotnet-how-to-use-blobs.md) and  [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
 
 Before uploading/downloading data, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts](storage-create-storage-account.md). This document assumes that you have an Azure storage account and the corresponding storage key(s).
+
 
 <a id="explorer"></a>
 ## Use Azure Storage Explorer 
@@ -54,7 +55,7 @@ AzCopy is a command line utility to upload and download data.
 
 **Warning** If you are using a machine different from the VM that was set up earlier in the cloud data science process, please install AzCopy using the following installation instructions: [Download and install AzCopy](storage-use-azcopy.md#install).
 
-####Examples of uploading/downloading files to/from blobs:
+###Examples of uploading/downloading files to/from blobs:
 
 	# Uploading from local file system
 	AzCopy /Source:<your_local_directory> /Dest: https://<your_account_name>.blob.core.windows.net/<your_container_name> /DestKey:<your_account_key> /S 
@@ -80,7 +81,7 @@ AzCopy is a command line utility to upload and download data.
 For detailed usage of AzCopy, please refer to [Getting Started with the AzCopy Command-Line Utility](storage-use-azcopy.md#install).
 
 
-<a id="PythonSDK"></a>
+<a id="PythonSDK"></a> 
 ## Use Python
 
 With the Python API provided in Azure SDK, you can
@@ -95,7 +96,8 @@ This section documents how to list, upload and download blobs. For more details 
 
 > [AZURE.NOTE] If you are using a machine different from the VM that was set up earlier in the cloud data science process, you need to install the [Python Azure SDK](python-how-to-install.md) before using the sample code below.
 
-###Upload Data to Blob
+### Upload Data to Blob
+
 Add the following snippet near the top of any Python code in which you wish to programmatically access Azure Storage:
 
 	from azure.storage import BlobService
@@ -140,7 +142,7 @@ The following sample code uploads all the files (excluding directories) in a loc
 	    except:
 	        print "something wrong happened when uploading the data %s"%blob_name
 
-###Download Data from Blob
+### Download Data from Blob
 
 Use the following methods to download data from a blob:
 1. get\_blob\_to\_path

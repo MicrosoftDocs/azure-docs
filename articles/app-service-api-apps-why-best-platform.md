@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="05/05/2015" 
 	ms.author="tdykstra"/>
 
 # What are API Apps?
@@ -24,9 +24,13 @@ API Apps are part of the [Azure App Service](app-service-value-prop-what-is.md) 
 
 The API Apps part of this suite provides a rich platform and ecosystem for building, consuming and distributing APIs in the cloud and on-premises.
 
+>[AZURE.NOTE] [Azure API Management](/services/api-management/) is a separate service that offers features such as endpoint consolidation and throttling. You can use API Management with API Apps.
+>
+>API Apps is currently in public preview. It's built on top of [App Service Web Apps](app-service-web-overview.md), which is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing web apps and leveraging features of API Apps.
+
 ## Why API Apps?
 
-An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs.   
+An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs.
 
 That means API apps share with web apps all the web hosting features of the Azure App Service platform:
 
@@ -68,10 +72,14 @@ Many of these features, such the public marketplace and automatic updates, are a
 - **Gateway** - A web app that handles API administration functions and authentication for all API apps in a resource group. 
 - **Swagger** - A framework for interactive documentation and discovery of a RESTful API, used by default in API apps. For more information, see [http://swagger.io/](http://swagger.io/).
 - **Connector** - A type of API app that makes it easy to connect to SaaS platforms such as Salesforce and Office 365. For more information, see [What are connectors and BizTalk API apps](app-service-logic-what-are-biztalk-api-apps.md).
+- **Trigger** - A REST API that [logic apps](app-service-logic-what-are-logic-apps.md) can call to initiate a workflow process when a certain condition is met. For example, an API app could provide a method that the logic app calls periodically to look for a certain phrase in a Twitter feed. For more information, see [API app triggers](app-service-api-dotnet-triggers.md).
+- **Action** - A REST API that [logic apps](app-service-logic-what-are-logic-apps.md) can call to process data after a workflow has been started by a trigger. For example, an API app could provide a method that the logic app calls to respond to a tweet found by the Twitter trigger. Actions are API methods that are exposed by a Swagger API definition.
 
 ## Getting started
 
 To get started with API apps, follow the [Create an API app tutorial](app-service-dotnet-create-api-app.md).
+
+To see a list of known issues with API apps, please refer to [this MSDN forum post](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 For more information about the Azure App Service platform, see [Azure App Service](app-service-value-prop-what-is.md).
 

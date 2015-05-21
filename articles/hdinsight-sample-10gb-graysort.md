@@ -1,5 +1,5 @@
 <properties
-	pageTitle="The 10GB GraySort sample | Azure"
+	pageTitle="10GB GraySort Hadoop MapReduce sample | Microsoft Azure"
 	description="Learn how to run a general purpose GraySort for very large amounts of data, usually a 100 TB minimum, on Hadoop with HDInsight using Azure PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-# The 10GB GraySort Hadoop sample in HDInsight
+# The 10GB GraySort Hadoop MapReduce sample in HDInsight
 
 This sample topic shows how to run a general-purpose GraySort Hadoop MapReduce program on Azure HDInsight by using Azure PowerShell. GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100TB minimum.
 
@@ -42,7 +42,7 @@ The input and output format, used by all three applications, reads and writes th
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight clusters](hdinsight-provision-clusters.md).
 
-- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
+- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell] [powershell-install-configure].
 
 
 ##Run the sample with Azure PowerShell
@@ -56,7 +56,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 
 **To run the TeraGen program**
 
-1. Open Azure PowerShell. For instructions on opening the Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
+1. Open Azure PowerShell. For instructions on opening the Azure PowerShell console window, see [Install and configure Azure PowerShell] [powershell-install-configure].
 2. Set the two variables in the following commands, and then run them:
 
 		# Provide the Azure subscription name and the HDInsight cluster name
@@ -420,7 +420,7 @@ For tutorials that guide you through running other samples and that provide inst
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [hdinsight-get-started]: hdinsight-get-started.md
 

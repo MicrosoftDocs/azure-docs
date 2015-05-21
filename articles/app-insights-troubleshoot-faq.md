@@ -2,13 +2,13 @@
 	pageTitle="Troubleshooting and Questions about Application Insights" 
 	description="Something in Visual Studio Application Insights unclear or not working? Try here." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
-	ms.workload="tbd" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -25,10 +25,9 @@
 
 #### <a name="q01"></a>I don't see any option to Add Application Insights to my project in Visual Studio
 
-+ Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Application Insights Tools, which you should be able to see in Extension Manager.
-+ Application Insights on Microsoft Azure Preview is currently available only for ASP.NET web projects in C# or Visual Basic.
-+ If you have an existing project, go to Solution Explorer and make sure you click the web project (not another project or the solution). You should see a menu item 'Add Application Insights Telemetry to Project'.
-+ If you are creating a new project, in Visual Studio, open File > New Project, and select {Visual C#|Visual Basic} > Web > ASP.NET Web Application. There should be an option to Add Application Insights to Project.
++ Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Application Insights Tools.
++ Although the Tools don't support all types of application, you can probably still add an Application Insights SDK to your project manually. Use [this procedure][windows]. 
+
 
 #### <a name="q02"></a>My new web project was created, but adding Application Insights failed.
 
@@ -80,28 +79,8 @@ The details depend on the type of project. For a web application:
 
 ####<a name="NuGetBuild"></a> I get "NuGet package(s) are missing" on my build server, though everything builds OK on my dev machines
 
-This error can occur in some situations if the relative paths to the package directory are different on the development and build machines.
-
-Explanation:
-
-During the installation of NuGet package Microsoft.ApplicationInsights.Web, a dependent package is installed, Microsoft.Diagnostics.Instrumentation.Extensions.Intercept. This modifies the project file, adding an import: 
-
-`<Import Project="**..\packages**\Microsoft .... Intercept.targets" />`
-
-And it also adds assembly references like:
-
-`< Reference .... >< HintPath>**..\packages**\...Intercept.dll ...`
-
-The problem is in the relative path name, which is correct in the dev machine, but can be wrong for the package cache on the build machine.
-
-Solution: 
-
-* After you have added Application Insights to your project (or installed the NuGets manually):
-* Edit the project file and globally replace "..\packages" with "$(PackageDir)".
-* Insert a default definition:
-    `<PackageDir Condition=" '$(PackageDir)' == '' ">..\packages</PackageDir>`
-* Define $(PackageDir) in an appropriate place in your build system - for example, as a parameter of the build definition.
-
+Please see [NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore)
+and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## No data
 
@@ -199,4 +178,5 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-get-started.md
+[windows]: app-insights-windows-get-started.md
 

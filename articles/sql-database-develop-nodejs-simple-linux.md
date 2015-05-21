@@ -55,6 +55,7 @@ The code sample in this topic expects an **AdventureWorks** test database. If yo
 
 ## Connect to your SQL Database
 
+The [new Connection](http://pekim.github.io/tedious/api-connection.html) function is used to connect to SQL Database.
 
 	var Connection = require('tedious').Connection;
 	var config = {
@@ -72,6 +73,9 @@ The code sample in this topic expects an **AdventureWorks** test database. If yo
 
 
 ## Execute an SQL SELECT
+
+
+All SQL statements are executed using the [new Request()](http://pekim.github.io/tedious/api-request.html) function. If the statement returns rows, such as a select statement, you can retreive them using the [request.on()](http://pekim.github.io/tedious/api-request.html) function. If there are no rows, [request.on()](http://pekim.github.io/tedious/api-request.html) function returns empty lists.
 
 
 	var Connection = require('tedious').Connection;
@@ -120,6 +124,9 @@ The code sample in this topic expects an **AdventureWorks** test database. If yo
 ## Insert a row, apply parameters, and retrieve the generated primary key
 
 
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. In this example you will see how to execute an insert-statement, safely pass parameters which protects from SQL injection, and retrieve the auto-generated primary key value.
+
+
 The code sample in this section applies parameters to an SQL INSERT statement. The primary key value that is generated is retrieved by the program.
 
 
@@ -160,57 +167,5 @@ The code sample in this section applies parameters to an SQL INSERT statement. T
 		    });
 		});		
 		connection.execSql(request);
-	}
-
-
-## Transactions
-
-
-	var Connection = require('tedious').Connection;
-	var config = {
-		userName: 'yourusername',
-		password: 'yourpassword',
-		server: 'yourserver.database.windows.net',
-		// If you are on Microsoft Azure, you need this:
-		options: {encrypt: true, database: 'AdventureWorks'}
-	};
-	var connection = new Connection(config);
-	connection.on('connect', function(err) {
-		// If no error, then good to proceed.
-		console.log("Connected");
-		executeStatement2();
-	});
-	
-	var Request = require('tedious').Request;
-	var TYPES = require('tedious').TYPES;
-	
-	function executeStatement2() {
-	//TODO
-	}
-
-
-## Stored procedures
-
-
-	var Connection = require('tedious').Connection;
-	var config = {
-		userName: 'yourusername',
-		password: 'yourpassword',
-		server: 'yourserver.database.windows.net',
-		// If you are on Microsoft Azure, you need this:
-		options: {encrypt: true, database: 'AdventureWorks'}
-	};
-	var connection = new Connection(config);
-	connection.on('connect', function(err) {
-		// If no error, then good to proceed.
-		console.log("Connected");
-		executeStatement3();
-	});
-	
-	var Request = require('tedious').Request;
-	var TYPES = require('tedious').TYPES;
-	
-	function executeStatement3() {
-	//TODO
 	}
 

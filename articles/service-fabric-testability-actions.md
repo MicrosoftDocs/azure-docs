@@ -3,7 +3,7 @@
    description="This article talks about the testability actions found in Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="heeldin","motanv"
+   authors="heeldin"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2014"
-   ms.author="heeldin,motanv"/>
+   ms.date="03/17/2015"
+   ms.author="heeldin;motanv"/>
 
 # Testability actions
 In order to simulate an unreliable infrastructure, Service Fabric provides developers with ways to simulate various real world failures and state transitions. These are exposed as Testability actions. The actions are the low level APIs that cause a specific fault injection, state transition or validation. Combining these actions, a service developer can write comprehensive test scenarios for your services.
@@ -169,16 +169,14 @@ class Test
 
         // Create FabricClient with connection & security information here.
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
-
+        await fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
     }
 
     static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
     {
         // Create FabricClient with connection & security information here.
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
-
+        await fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
     }
 }
 ```

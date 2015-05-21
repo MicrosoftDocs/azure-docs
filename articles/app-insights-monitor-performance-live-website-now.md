@@ -2,7 +2,7 @@
 	pageTitle="Diagnose performance issues on a running website" 
 	description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK to get dependency telemetry." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="04/27/2015" 
 	ms.author="awills"/>
  
 
@@ -20,9 +20,7 @@
 
 *Application Insights is in preview.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
-
-The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your Azure or standalone IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. 
+The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. You can install it on any physical or virtual server to which you have admin access
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -30,10 +28,10 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code. This gives you:
  * A range of standard diagnostic and usage telemetry. 
- * The ability to use the [Application Insights API][api] if you want to write your own telemetry.
-* **Run time:** Use Status Monitor to instrument your web app on the server. Benefits include:
- * Apply it to web apps that are already running, without the need to modify the code or republish.
- * Standard diagnostic and usage telemetry.
+ * And you can use the [Application Insights API][api] if you want to write your own telemetry to track usage or diagnose problems.
+* **Run time:** Use Status Monitor to instrument your web app on the server.
+ * Monitor web apps that are already running: no need to rebuild or republish them.
+ * A range of standard diagnostic and usage telemetry.
  * Dependency diagnostics - locate faults or poor performance where your app uses other components such as databases, REST APIs, or other services.
  * Troubleshoot any issues with telemetry.
 * **Both:** Compile the SDK into your web app code, and run Status Monitor on your web server.  The best of both worlds:
@@ -44,15 +42,14 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
 
 
-> [AZURE.TIP] Is your app an [Azure App Service Web App](websites-learning-map.md)? Just [add the Application Insights extension](insights-perf-analytics.md) from the app's control panel in Azure.
+> [AZURE.TIP] Is your app an [Azure App Service Web App](websites-learning-map.md)? [Add the Application Insights SDK][greenbrown] and then [add the Application Insights extension](insights-perf-analytics.md) from the app's control panel in Azure.
 
 
 ## Install Application Insights Status Monitor on your IIS web server
 
 1. You need a [Microsoft Azure](http://azure.com) subscription. 
 
-1. On your IIS web server, log in with administrator credentials.
-
+1. On your IIS web server, login with administrator credentials.
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
 
 4. In the installation wizard, sign in to Microsoft Azure.
@@ -100,17 +97,17 @@ Click through any chart to see more details.
 
 ![](./media/appinsights/appinsights-038-dependencies.png)
 
-### Dependencies
+#### Dependencies
 
 The charts labeled HTTP, SQL, AZUREBLOB show the response times and counts of calls to dependencies: that is, external services that your application uses.
 
 
 
-### Performance counters
+#### Performance counters
 
 Click any performance counter chart to change what it shows. Or you can add a new chart. 
  
-### Exceptions
+#### Exceptions
 
 ![Click through the server exceptions chart](./media/appinsights/appinsights-039-1exceptions.png)
 
@@ -143,7 +140,7 @@ OS support for Application Insights Status Monitor on Server:
 
 with latest SP and .NET Framework 4.0 and 4.5
 
-On the client side: Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
+On the client side Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
 
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)

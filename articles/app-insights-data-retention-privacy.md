@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2015" 
+	ms.date="05/11/2015" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -34,7 +34,14 @@ Application Insights SDKs and agents that you combine with your application send
 
 #### How much data can be captured? 
 
-Currently, up to 500 events per second per instrumentation key (that is, per application).
+Currently, up to 500 data points per second per instrumentation key (that is, per application).
+
+
+A *data point* is an item of telemetry, such as:
+
+* API `Track...` calls such as `TrackEvent` or `trackPageView`.
+* Telemetry items sent by SDK modules, for example to report a request or crash.
+* Performance counter data - one point for each measurement.
 
 
 #### How long is the data kept? 
@@ -42,6 +49,13 @@ Currently, up to 500 events per second per instrumentation key (that is, per app
 Up to 30 days for individual events (that is, data items that you can inspect in Diagnostic Search). 
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for 13 months.
+
+#### What limits are there on different types of data?
+
+1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key not scoped to data type.
+2.	[Properties][apiproperties] can be used for filtering and group by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
+3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as “Other values”. The original value can still be used for full text search and filtering.
+
 
 ## Access
 
@@ -103,7 +117,7 @@ Yes.
 As general guidance:
 
 * Most standard telemetry (that is, telemetry sent without you writing any code) does not include explicit PII. However, it might be possible to identify individuals by inference from a collection of events.
-* Exception reports might include PII in parameter data.
+* Exception and trace messages could contain PII
 * Custom telemetry - that is, calls such as TrackEvent that you write in code using the API or log traces - can contain any data you choose.
 
 
@@ -137,38 +151,46 @@ The SDKs vary between platforms, and there are are several components that you c
 
 Your action  | Data classes collected (see next table)
 ---|---
-[Add Application Insights SDK to a .NET web project][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>Anon users<br/>**Auth users**
-[Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>Anon users<br/>**Auth users**
-[Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session
+[Add Application Insights SDK to a .NET web project][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
+[Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
+[Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
-[Add SDK to Windows Store app][windows]|DeviceContext<br/>**Auth users**<br/>Crashes
+[Add SDK to Windows Store app][windows]|DeviceContext<br/>Users<br/>Crash data
 [Define default properties][apiproperties]|**Properties** on all standard and custom events
 [Call TrackMetric][api]|Numeric values<br/>**Properties**
 [Call Track*][api]|Event name<br/>**Properties**
-[Call TrackException][api]|**Exception**
+[Call TrackException][api]|**Exceptions**<br/>Stack dump<br/>**Properties**
+SDK can't collect data. For example: <br/> - can't access perf counters<br/> -  exception in telemetry initializer | SDK diagnostics
+ 
 
 For [SDKs for other platforms][platforms], see their documents.
+
+
 
 #### The classes of collected data
 
 Collected data class | Includes (not an exhaustive list) 
----|---|---
-ServerContext |Machine name, locale, OS, 
-ClientContext |Browser type, OS, locale, language, network, window resolution
-DeviceContext |Locale, language, Device model, Device language, network, network type, OEM name, screen resolution
-Perf counters | Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length
-Requests |HTTP request string, duration, response code
-Dependencies|Type(SQL, HTTP, ...), connection string or URI
-**Exceptions** | Type, message, call stacks, **parameter data**
-Crashes | Process id, parent process id, crash thread id, application patch, obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type
-Session | session id
-Anon users | GUID 
-Page | URL and page name
-**Auth users** |
-Inferred |geo location from IP address, timestamp, OS, browser
+---|---
 **Properties**|**Any data - determined by your code**
+DeviceContext |Id, IP, Locale, Device model, network, network type, OEM name, screen resolution, Role Instance, Role Name, Device Type
+ClientContext |OS, locale, language, network, window resolution
+Session | session id
+ServerContext |Machine name, locale, OS, device, user session, user context, operation 
+Inferred |geo location from IP address, timestamp, OS, browser
+Metrics | Metric name and value
+Events | Event name and value
+PageViews | URL and page name or screen name
+Client perf | URL/page name, browser load time
+Requests |URL, duration, response code
+Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync/async, duration, success, SQL statement (with Status Monitor)
+**Exceptions** | Type, **message**, call stacks, source file and line number, thread id
+Crashes | Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type
+Trace | **Message** and severity level
+Perf counters | Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length
+Availability | Web test response code, duration of each test step
+SDK diagnostics | Trace message or Exception 
 
-
+You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 
 ## <a name="video"></a>Videos
@@ -190,6 +212,7 @@ Inferred |geo location from IP address, timestamp, OS, browser
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [azure]: insights-perf-analytics.md
 [client]: app-insights-javascript.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md

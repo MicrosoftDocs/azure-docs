@@ -1,6 +1,6 @@
 <properties
-   pageTitle="What you need to know about Hadoop on Linux-based HDInsight | Azure"
-   description="Linux-based HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud."
+   pageTitle="Tips for using Hadoop on Linux-based HDInsight | Microsoft Azure"
+   description="Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -16,7 +16,7 @@
    ms.date="04/17/2015"
    ms.author="larryfr"/>
 
-# Working with HDInsight on Linux (preview)
+# Information about using HDInsight on Linux (preview)
 
 Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
@@ -114,7 +114,7 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
-* [Azure Cross-Platform Command-Line Interface](xplat-cli.md): Cross-platform commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
+* [Azure CLI for Mac, Linux and Windows](xplat-cli.md): Cross-platform commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
 

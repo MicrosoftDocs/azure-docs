@@ -2,9 +2,9 @@
 	pageTitle="Add Application Insights SDK to monitor your ASP.NET app" 
 	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="05/14/2015" 
 	ms.author="awills"/>
 
 
@@ -86,6 +86,7 @@ In Visual Studio, you'll see a count of the events that have been sent.
 
 Return to the [Azure portal][portal] and Browse to your Application Insights resource.
 
+
 Look for data in the Overview charts. At first, you'll just see one or two points. For example:
 
 ![Click through to more data](./media/app-insights-asp-net/12-first-perf.png)
@@ -97,11 +98,9 @@ Now deploy your application and watch the data accumulate.
 
 When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app, data accumulates more slowly.
 
-[Next steps](#next-steps)
-
 #### No data?
 
-* Open the [Diagnostic Search][diagnostic] tile, to see individual events.
+* Open the [Search][diagnostic] tile, to see individual events.
 * Use the application, opening different pages so that it generates some telemetry.
 * Wait a few seconds and click Refresh.
 * See [Troubleshooting][qna].
@@ -111,6 +110,18 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
 
 
+## Complete your installation
+
+To get the full 360-degree view of your application, there are some more things you should do:
+
+
+* [Add the JavaScript SDK to your web pages][client] to get browser-based telemetry such as page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.
+* Add dependency tracking to diagnose issues caused by databases or other components used by your app:
+ * [in your Azure Web App or VM][azure]
+ * [in your on-premises IIS server][redfield]
+* [Capture log traces][netlogs] from your favorite logging framework
+* [Track custom events and metrics][api] in client or server or both, to learn more about how your application is used.
+* [Set up web tests][availability] to make sure your application stays live and responsive.
 
 ## <a name="ide"></a> The automated way
 
@@ -152,17 +163,6 @@ If this app is part of a bigger application, you might want to use **Configure s
 ![Right-click your project and open the Azure portal](./media/appinsights/appinsights-04-openPortal.png)
 
 
-## Next steps
-
-Now that you're sending data from the server side of your app, here are some steps to get a more 360-degree view:
-
-* [Set up web tests][availability] to make sure your application stays live and responsive.
-* [Add the JavaScript SDK to your web pages][client] to get browser-based telemetry such as page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.
-* Add dependency tracking to diagnose issues caused by databases or other components used by your app 
- * [Add dependency tracking in your IIS server][redfield]
- * [Add dependency tracking in your Azure Web App][azure]
-* [Capture log traces][netlogs] from your favorite logging framework
-* [Track custom events and metrics][api] in client or server or both, to learn more about how your application is used.
 
 
 ## <a name="video"></a>Video

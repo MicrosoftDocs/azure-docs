@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="What's new in SQL Database V12" 
-	description="Describes the latest features that have been added to Azure SQL Database for V12, but only up to April 2015." 
+	description="Describes the latest features that have been added to Azure SQL Database for V12, but only up to May 2015." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -28,6 +28,9 @@ Azure SQL Database version V12 ([at preview in some regions](sql-database-v12-wh
 
 
 Your path to planning and upgrading your earlier version databases to V12 starts at [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md).
+
+
+> [AZURE.TIP] The primary webpage for information about new features in Azure SQL Database is our "Service Updates" webpage, at [http://azure.microsoft.com/updates/](http://azure.microsoft.com/updates/). On the Service Updates webpage, in the **Services** control select **SQL Database**.
 
 
 ## Highlights
@@ -58,14 +61,13 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 - **New S3 performance level in the Standard tier:** offers more [pricing](sql-database-upgrade-new-service-tiers.md) flexibility between Standard and Premium. S3 will deliver more DTUs (database throughput units) and all the features available in the Standard tier.
 
 
-## V12 enhancements
-
-
-### Expanded database management
+## V12 enhancements: Expanded database management
 
 
 | Feature | Description |
 | :--- | :--- |
+| . | ***May 1, 2015:*** |
+| Powershell for upgrading to V12 from earlier version | New Powershell cmdlets are available to start, cancel, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.<br/><br/>For reference documentation about these cmdlets, see:<br/>* [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)<br/>* [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)<br/>* [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx) |
 | . | ***April 2015:*** |
 | TDE | Transparent Data Encryption (preview) helps protect against malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest. TDE does not require changes to your application.<br/><br/>For details see:<br/>- [Transparent Data Encryption with Azure SQL Database](http://msdn.microsoft.com/library/dn948096.aspx) - step-by-step instructions.<br/>- [Transparent Data Encryption (TDE)](http://msdn.microsoft.com/library/bb934049.aspx) - general description. |
 | Transact-SQL certificates, keys, and cryptographic functions | Certificates, symmetric keys, and asymmetric keys can now be created in Azure SQL Database V12. Most cryptographic functions are now supported.<br/><br/>For more information, see:<br/>- [CREATE CERTIFICATE (Transact-SQL)](http://msdn.microsoft.com/library/ms187798.aspx)<br/>- [CREATE SYMMETRIC KEY (Transact-SQL)](http://msdn.microsoft.com/library/ms188357.aspx)<br/>- [CREATE ASYMMETRIC KEY (Transact-SQL)](http://msdn.microsoft.com/library/ms174430.aspx)<br/>- [Cryptographic Functions (Transact-SQL)](http://msdn.microsoft.com/library/ms173744.aspx) |
@@ -85,11 +87,13 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | More DBCC commands | Several more [DBCC](http://msdn.microsoft.com/library/ms188796.aspx) commands are now available in V12. For details see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
 
 
-### Programming and application support
+## Programming and application support
 
 
 | Feature | Description |
 | :--- | :--- |
+| . | ***May 1, 2015:*** |
+| Increased index sizes | In SQL Database V12, up to 32 columns can be combined into a single composite index key. The maximum allowable size of index values is 900 bytes for a clustered index, or 1700 bytes for a nonclustered index.<br/><br/>The limits are 16 columns and 900 bytes for version V11 and any other versions before SQL Database V12. |
 | . | ***April 2015:*** |
 | Full-Text Search preview | [Full-Text Search (FTS)](http://msdn.microsoft.com/library/ms142571.aspx) enables you to query character-based columns in ways that are more powerful than the LIKE operator. For example:<br/><br/>- FREETEXT: Searches for phrases that match the *meaning* of your search phrase, even when the exact wording does not match.<br/>- CONTAINS: Searches for cell values that contain your two search terms in close *physical proximity* to each other.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use. The range of FTS preview functionality is a subset of the FTS range in Microsoft SQL Server. |
 | . | ***February 2015:*** |
@@ -105,7 +109,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Application roles | For security and permissions control, V12 enables you to issue [GRANT](http://msdn.microsoft.com/library/ms187965.aspx) - [DENY](http://msdn.microsoft.com/library/ms188338.aspx) - [REVOKE](http://msdn.microsoft.com/library/ms187728.aspx) commands against [application roles](http://msdn.microsoft.com/library/ms190998.aspx). |
 
 
-### Better customer insights
+## Better customer insights
 
 
 | Feature | Description |
@@ -116,7 +120,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Columnstore indexes | A columnstore index improves system performance for data warehouses when an indexed column contains repetitions of the same value. The [columnstore index compresses](http://msdn.microsoft.com/library/gg492088.aspx) the duplicate values to reduce the number of physical rows that must be accessed during queries. |
 
 
-### Performance improvements at the Premium service tier
+## Performance improvements at the Premium service tier
 
 
 These performance enhancements apply to the P2 and P3 levels within the Premium service tier.
@@ -131,17 +135,17 @@ These performance enhancements apply to the P2 and P3 levels within the Premium 
 | Log rate | V12 can log more data changes per second. |
 
 
-### V12 to become API default beginning August 1, 2015  
+## V12 to become API default beginning August 1, 2015  
 
 
-| Feature | Description |  
-| :--- | :--- |  
+| Feature | Description |
+| :--- | :--- |
 | . | ***August 2015:*** |
-| Create server using REST or PowerShell |  When you create a server without specifying a server version, the default version will change from V11 to V12.<br/><br/>This aligns with the [Azure preview portal](http://portal.azure.com). |  
-| Create database using Transact-SQL, REST, or PowerShell | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be S0 instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |  
+| Create server using REST or PowerShell |  When you create a server without specifying a server version, the default version will change from V11 to V12.<br/><br/>This aligns with the [Azure preview portal](http://portal.azure.com). |
+| Create database using Transact-SQL, [REST](http://msdn.microsoft.com/library/azure/gg715283.aspx), or [PowerShell](http://msdn.microsoft.com/library/azure/dn806332.aspx) | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be [S0](http://azure.microsoft.com/pricing/details/sql-database/) instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |
 
 
-### Summary of enhancements
+## Summary of enhancements
 
 
 V12 elevates our SQL Database close to full feature compatibility with our SQL Server product. V12 focuses on the most popular features, and on programmability support. This makes your development more efficient and more enjoyable.  It is now even easier to move your SQL database applications to the cloud.
@@ -216,7 +220,7 @@ This *what's new* topic for Azure SQL Database V12 will be finalized and no long
 
 - [Announcements](http://azure.microsoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
  - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
-- Follow us on Twitter: @SQLSchedCentral.
+- Follow us on Twitter: **@SQLTechCenter**.
 
 
 [V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable

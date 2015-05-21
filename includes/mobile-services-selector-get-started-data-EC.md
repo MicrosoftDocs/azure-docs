@@ -6,7 +6,7 @@
 - [(Windows universal JavaScript | .NET)](../articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data.md)
 - [(Windows universal JavaScript | Javascript)](../articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md)
 - [(Windows Phone | .NET)](../articles/mobile-services-dotnet-backend-windows-phone-get-started-data.md)
-- [(Windows Phone | Javascript)](../articles/mobile-services-javascript-backend-windows-phone-get-started-data.md)
+- [(Windows Phone | Javascript)](../articles/mobile-services-windows-phone-get-started-data.md)
 - [(Android | .NET)](../articles/mobile-services-dotnet-backend-android-get-started-data-EC.md)
 - [(Android | Javascript)](../articles/mobile-services-android-get-started-data-EC.md)
 - [(Xamarin iOS | Javascript)](../articles/partner-xamarin-mobile-services-ios-get-started-data.md)
