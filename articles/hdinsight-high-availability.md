@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="05/19/2014" 
 	ms.author="bradsev"/>
 
 
@@ -24,7 +24,7 @@ A second head node has been added to the Hadoop clusters deployed by Azure HDIns
 
 ![Diagram of the highly reliable head nodes in the HDInsight Hadoop implementation.](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight removes this single point of failure with the addition of a secondary head node (Head Node1). [ZooKeeper][zookeeper] nodes (ZKs) have been added and are used for leader election of head nodes and to insure that worker nodes and gateways (GWs) know when to fail over to the secondary head node (Head Node1) when the active head node (Head Node0) becomes inactive.
+HDInsight removes this single point of failure with the addition of a secondary head node (Head Node1). [ZooKeeper](http://zookeeper.apache.org/ ) nodes (ZKs) have been added and are used for leader election of head nodes and to insure that worker nodes and gateways (GWs) know when to fail over to the secondary head node (Head Node1) when the active head node (Head Node0) becomes inactive.
 
 
 ## How to check on the service status on the active head node ##
@@ -72,12 +72,10 @@ For the SDK, the story is similar. The creation and provisioning of a cluster by
 
 **References**	
 
-- [ZooKeeper][zookeeper]
+- [ZooKeeper](http://zookeeper.apache.org/ )
 - [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Using HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk) 
 
-
-[zookeeper]: http://zookeeper.apache.org/ 
 
 
 

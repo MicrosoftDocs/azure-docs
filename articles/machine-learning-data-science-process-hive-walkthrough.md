@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Advanced Analytics Process in Action: using HDInsight Hadoop clusters | Azure" 
-	description="End-to-end Azure Advanced Analytics Process using an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset." 
+	pageTitle="Advanced Analytics Process Technology in Action: using HDInsight Hadoop clusters | Azure" 
+	description="Using the Advanced Analytics Process Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset." 
 	metaKeywords="" 
 	services="machine-learning,hdinsight" 
 	solutions="" 
@@ -15,13 +15,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/21/2015" 
 	ms.author="hangzh;bradsev" /> 
 
                 
-# Azure Advanced Analytics Process in Action: using HDInsight Hadoop clusters
+# Advanced Analytics Process in Action Technology: using HDInsight Hadoop clusters
 
-In this walkthrough, you follow the Azure Advanced Analytics Process map in an end-to-end scenario using an Azure HDInsight Hadoop cluster to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built to handle binary and multiclass classification and regression predictive tasks with Azure Machine Learning.
+In this walkthrough, you use the Advanced Analytics Process Technology (ADAPT) in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/en-us/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
+
+For a walkthrough that shows how to handle a larger (1 terabit) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Advanced Analytics Process Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md).
+
+It is also possible to use an iPython notebook to accomplish the tasks presented the walkthrough using the 1 TB dataset. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset description
