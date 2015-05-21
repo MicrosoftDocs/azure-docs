@@ -12,7 +12,6 @@
 
 ```
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-        return YES;
 ```
 
 * In QSAppDelegate.m, add the following handler methods. Your app is now updated to support push notifications.
