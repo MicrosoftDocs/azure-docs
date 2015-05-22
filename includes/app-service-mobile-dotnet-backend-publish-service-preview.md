@@ -3,4 +3,4 @@
 
 2. Sign in with Azure credentials and select your service from **Existing Mobile Services**. Visual Studio downloads your publish settings directly from Azure. Finally, click **Publish**.
 
-		![Publish settings wizard final page](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-settings.png)
+	![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-settings.png)
