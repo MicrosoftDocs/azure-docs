@@ -21,9 +21,9 @@
 
 Azure AD includes a Reporting API that allows you to access your security, activity, and audit reports programmatically. It's a REST-based API, which allows you to query data for use in external reporting or compliance situations.
 
-This article will walk you through the necessary steps in order to make your first authenticated HTTP request to the Azure AD Reporting API. 
+This article will walk you through the necessary steps in order to make your first authenticated HTTP request to the Azure AD Reporting API.
 
-You will need:
+You will need: 
 
 - An [Azure Active Directory](active-directory-whatis.md)
 - A way to make HTTP GET and POST requests; either:
@@ -99,12 +99,12 @@ First, you need an authorization code. You can retrieve this by navigating to a 
 
 - Substitute this URL with your Azure AD Directory ID and your Application Client ID.
 	- ```https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/authorize?client_id=<<INSERT-YOUR-APPLICATION-CLIENT-ID-HERE>>&response_type=code```
-- After filling in the fields, open a browser window and navigate to the URL. Your browser will be redirected to a URL which contains your access code; there won't be any page content. This is OK. 
+- After filling in the fields, open a browser window and navigate to the URL. Your browser will be redirected to a URL which contains your access code; there won't be any page content. This is OK.
 
 - If prompted, sign in as a global administrator in your directory.
 	- If you run into issues, you may need to sign out of the Azure Management Portal or Office Portal and try again.
 - Inspect the URL for the redirected page. The URL contains your authorization code.
-	- ```http://localhost/?code=<<YOUR-AUTHORIZATION-CODE>>&session_state=<<YOUR-SESSION-STATE>>``` 
+	- ```http://localhost/?code=<<YOUR-AUTHORIZATION-CODE>>&session_state=<<YOUR-SESSION-STATE>>```
 - Copy ```YOUR-AUTHORIZATION-CODE``` into a separate place; you'll use it in the next step.
 
 
@@ -118,7 +118,7 @@ Next, you'll retrieve your access token by making an HTTP request to an OAuth en
 ```
 curl -X POST https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/token  \
 	-F redirect_uri=http://localhost
-	-F grant_type=authorization_code 
+	-F grant_type=authorization_code
 	-F resource=https://graph.windows.net/
 	-F client_id=<<INSERT-YOUR-CLIENT-ID-HERE>>
 	-F code=<<INSERT-YOUR-AUTHORIZATION-CODE-HERE>>
