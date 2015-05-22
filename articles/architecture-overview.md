@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Architecture" 
+	pageTitle="Application Architecture on Microsoft Azure" 
 	description="Architecture overview that covers common design patterns" 
 	services="" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="05/15/2015" 
 	ms.author="robb"/>
 
-#Architecture
+#Application Architecture on Microsoft Azure
 Resources for building applications that use Microsoft Azure.
 
 ##Microsoft Architecture Blueprints

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -116,7 +116,7 @@ The bakery sample includes a simulated order form that sends an email message wi
         }*/
 
 
-5. Add code to use SendGrid for sending emails instead of WebMail. Add the following code in place of the code you deleted in the previous step.
+5. Add code to use SendGrid for sending emails instead of WebMail. Add the following code in place of the code you deleted in the previous step. Make sure to add your SendGrid user name and password when creating the NetworkCredential.
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,14 +130,14 @@ The bakery sample includes a simulated order form that sends an email message wi
             myMessage.Text = body;
 
             // Create credentials, specifying your user name and password.
-            var credentials = new NetworkCredential("[your user name", "[your password]");
+            var credentials = new NetworkCredential("[your user name]", "[your password]");
 
             // Create an Web transport for sending email.
             var transportWeb = new Web(credentials);
 
             // Send the email.
             try {
-                transportWeb.Deliver(myMessage);
+                transportWeb.DeliverAsync(myMessage);
                 Response.Redirect("~/OrderSuccess");
             } catch {
                 ModelState.AddFormError("There was an error and your order could not be processed at this time");

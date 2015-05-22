@@ -146,10 +146,9 @@ You should change the access keys to your storage account periodically to help k
 
 To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
 
-> [AZURE.WARNING] There's no way to restore the content from a deleted storage account. Make 
-	sure you back up anything you want to save before you delete the account. <br />
-	If your storage account contains any VHD files or disks for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the Disks tab and delete any disks contained in the storage account. To delete images, navigate to the Images tab and delete any images stored in the account.
-
+> [AZURE.WARNING] It's not possible to restore a deleted storage account, nor retrieve any of the content it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account - once you delete a blob, table, queue, or file, it is permanently deleted.
+> 
+> If your storage account contains VHD files or disks for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the **Disks** tab and delete any disks there. To delete images, navigate to the **Images** tab and delete any images stored in the account.
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**.
 
