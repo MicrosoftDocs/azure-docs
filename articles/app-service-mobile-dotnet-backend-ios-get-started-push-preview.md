@@ -38,8 +38,8 @@ This topic shows you how to add push notifications to the [quickstart project](a
 * Open **Controllers** > TodoItemController.cs and add the following using statements:
 
 ```
-				using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
+			using System.Collections.Generic;
+			using Microsoft.Azure.NotificationHubs;
 ```
 
 * Add the following to `PostTodoItem` after the `InsertAsync` call. When a todo item is inserted, this code sends out a push notification with the item text.
