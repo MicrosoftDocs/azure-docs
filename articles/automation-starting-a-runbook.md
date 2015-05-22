@@ -85,7 +85,7 @@ The following table will help you determine the method to start a runbook in Azu
   </td>
  </tr>
  <tr>
-  <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">From another runbook</a></td>
+  <td><a href="http://msdn.microsoft.com/library/azure/dn857355.aspx">From another runbook</a></td>
   <td>
    <ul>
     <li>Use a runbook as an activity in another runbook</li>
