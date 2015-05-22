@@ -40,7 +40,7 @@ This update contains the following new features and improvements:
     - **Business continuity**, by enabling migration of existing data on 5000-7000 series appliances to 8000 series appliances.
     - **Improved feature offerings of the 8000 series appliances**, such as efficient centralized management of multiple appliances through StorSimple Manager service, better class of hardware and updated firmware, virtual appliances, data mobility, and features in the future roadmap.
 
-    Refer to the [migration guide]() for details on how to migrate a StorSimple 5000-7000 series to an 8000 series device. 
+    Refer to the [migration guide](http://www.microsoft.com/download/details.aspx?id=47322) for details on how to migrate a StorSimple 5000-7000 series to an 8000 series device. 
 
 - **Availability in the Azure Government Portal** – StorSimple is now available in the Azure Government portal. See how to [deploy a StorSimple device in Azure Government Portal](storsimple-deployment-walkthrough-gov.md).
 
