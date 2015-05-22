@@ -26,7 +26,7 @@ Following is the the basic process for converting Orchestrator runbooks to Azure
 
 1.  Download the [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) which contains the tools and modules discussed in this article. 
 2.  Install [Standard Activities Module](#standard-activities-module) into Azure Automation.  This includes converted versions of standard Orchestrator activities that may be used by converted runbooks.
-2.  Install [System Center Orchestrator Integration Modules](system-center-orchestrator-integration-modules) into Azure Automation for those integration packs used by your runbooks. 
+2.  Install [System Center Orchestrator Integration Modules](#system-center-orchestrator-integration-modules) into Azure Automation for those integration packs used by your runbooks. 
 3.  Convert custom and third party integration packs using the [Integration Pack Converter](#integration-pack-converter) and install in Azure Automation.
 4.  Manually recreate global assets in Orchestrator in Azure Automation since there is no automated method to perform this migration.
 5.  Convert Orchestrator runbooks using the [Runbook Converter](#runbook-converter-coming-soon) (coming soon) and install in Azure Automation.
@@ -34,7 +34,7 @@ Following is the the basic process for converting Orchestrator runbooks to Azure
 
 ## Service Management Automation
 
-[Service Management Automation](http://technet.microsoft.com/library/dn469260.aspx) (SMA) stores and runs runbooks in your local data center like Orchestrator, and it uses the same integration modules as Azure Automation.  When it is available, the [Runbook Converter](#runbook-converter-coming-soon) will convert Orchestrator runbooks to graphical runbooks though which are not supported in SMA.  You can still install the [Standard Activities Module](#standard-activities-module) and [System Center Orchestrator Integration Modules](system-center-orchestrator-integration-modules) into SMA, but you must manually [rewrite your runbooks](http://technet.microsoft.com/library/dn469262.aspx).
+[Service Management Automation](http://technet.microsoft.com/library/dn469260.aspx) (SMA) stores and runs runbooks in your local data center like Orchestrator, and it uses the same integration modules as Azure Automation.  When it is available, the [Runbook Converter](#runbook-converter-coming-soon) will convert Orchestrator runbooks to graphical runbooks though which are not supported in SMA.  You can still install the [Standard Activities Module](#standard-activities-module) and [System Center Orchestrator Integration Modules](#system-center-orchestrator-integration-modules) into SMA, but you must manually [rewrite your runbooks](http://technet.microsoft.com/library/dn469262.aspx).
 
 ## Hybrid Runbook Worker
 
