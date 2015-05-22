@@ -74,6 +74,7 @@ The steps below will walk you through obtaining your application's client ID and
 
 ## Modify the script
 To edit the PowerShell script below to work with your directory, replace $ClientID, $ClientSecret and $tenantdomain with the correct values from “Delegating Access in Azure AD”.
+
 ```
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID      = <<YOUR CLIENT ID HERE>>                # Should be a ~35 character string insert your info here
@@ -124,8 +125,8 @@ To edit the PowerShell script below to work with your directory, replace $Client
     } else {
         Write-Host "ERROR: No Access Token"
         }
-
 ```
+
 
 ## Execute the script
 Once you finish editing the script, run it and verify that the expected data from the is returned.
