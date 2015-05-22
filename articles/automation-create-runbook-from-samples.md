@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="5/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bwren"/>
 
 
