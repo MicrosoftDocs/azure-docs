@@ -21,7 +21,7 @@
 
 <div class="dev-center-tutorial-selector sublanding">
   <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a>
-  <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">Web Apps with External Domains</a>
+  <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps">Web Apps with External Domains</a>
   <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps with Traffic Manager">Web Apps with Traffic Manager</a>  <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
 
 
@@ -66,7 +66,9 @@ Use the following steps to buy domain names and assign to your web app.
 6. Now you can choose to,
 
 	a) "Auto renew" your domain every year
+	
 	b) Opt-in for "Privacy protection" which is included in the purchase price for FREE
+	
 	c) "Assign default hostnames" for WWW and root domain to the current Web App. 
 
   ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-2.5.png)
@@ -82,7 +84,7 @@ Use the following steps to buy domain names and assign to your web app.
 
   ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-5.png)
 
-7. If you successfully ordered a domain, you can manage the domain and assign to your web app. Click the **"..."** at the right side of your domain. Then you can **Cancel purchase** or **Manage domain**. Click **Manage domain**, then we can bind **subdomain** to our web app on **Manage domain** blade. If you want to bind a  **subdomain** to a different Web App then perform this step from within the context of the respective Web App. Over here you an choose to assign the domain to Traffic manager endpoint (if Web App is behind TM) by simply selecting Traffic manager name from the Drop down menu. By doing this, domain/subdomain will be automatically assigned to all the Web Apps behind that Traffic Manager endpoint. 
+8. If you successfully ordered a domain, you can manage the domain and assign to your web app. Click the **"..."** at the right side of your domain. Then you can **Cancel purchase** or **Manage domain**. Click **Manage domain**, then we can bind **subdomain** to our web app on **Manage domain** blade. If you want to bind a  **subdomain** to a different Web App then perform this step from within the context of the respective Web App. Over here you an choose to assign the domain to Traffic manager endpoint (if Web App is behind TM) by simply selecting Traffic manager name from the Drop down menu. By doing this, domain/subdomain will be automatically assigned to all the Web Apps behind that Traffic Manager endpoint. 
 
 	![](./media/custom-dns-web-site/dncmntask-cname-buydomains-6.png)
 
