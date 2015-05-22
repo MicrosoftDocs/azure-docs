@@ -254,7 +254,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 * **Adding new shards**: You must execute the T-SQL script to enable RLS (and add check constraints) on any new shards, otherwise queries on these shards will not be filtered.
 
-* **Adding new tables**: You must execute a T-SQL script on all shards to add a filter predicate on new tables, otherwise queries on these tables will not be filtered.
+* **Adding new tables**: You must add a filter predicate to the security policy on all shards whenever a new table is created, otherwise queries on the new table will not be filtered. This can be automated using a DDL trigger, as described in [Apply Row-Level Security automatically to newly created tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 
 ## Summary 
