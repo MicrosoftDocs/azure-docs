@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Enhance your API App for Logic Apps" 
-	description="This article demonstrates how to decorate your API App to work nicely with Logic Apps" 
-	services="app-service\api" 
-	documentationCenter=".net" 
+<properties
+	pageTitle="Enhance your API App for Logic Apps"
+	description="This article demonstrates how to decorate your API App to work nicely with Logic Apps"
+	services="app-service\api"
+	documentationCenter=".net"
 	authors="sameerch"
-	manager="wpickett" 
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/18/2015" 
+<tags
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/18/2015"
 	ms.author="sameerch;guayan;tarcher"/>
 
 # Enhance your API App for Logic Apps #
@@ -47,7 +47,7 @@ Avoid using a long text for the above properties.  We recommend you keep the len
 
 ### Using XML Comments in API Definition generation
 
-For development using Visual Studio, it is common practice to annotate your API Controllers using [XML comments](https://msdn.microsoft.com/en-us/library/b2s063f7.aspx).  When compiled with [/doc](https://msdn.microsoft.com/en-us/library/3260k4x7.aspx), the compiler will create an XML documentation file.  The swashbuckle toolset included with the API App SDK can incorporate those comments while generating the API metadata.
+For development using Visual Studio, it is common practice to annotate your API Controllers using [XML comments](https://msdn.microsoft.com/library/b2s063f7.aspx).  When compiled with [/doc](https://msdn.microsoft.com/library/3260k4x7.aspx), the compiler will create an XML documentation file.  The swashbuckle toolset included with the API App SDK can incorporate those comments while generating the API metadata.
 
 To enable this, follow the steps below:
 
@@ -56,12 +56,12 @@ To enable this, follow the steps below:
 2. Edit the SwaggerConfig.cs file and uncomment the line that calls GetXmlCommentsPath:
 
 
-            GlobalConfiguration.Configuration 
+            GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                     {
                         ...
                         // If you annonate Controllers and API Types with
-                        // Xml comments (http://msdn.microsoft.com/en-us/library/b2s063f7(v=vs.110).aspx), you can incorporate
+                        // Xml comments (http://msdn.microsoft.com/library/b2s063f7(v=vs.110).aspx), you can incorporate
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
@@ -111,7 +111,7 @@ As mentioned above, custom vendor extension properties are used to annotate the 
 For API apps that use dynamic metadata, you can make use of custom attributes to annotate your code.  And then, you can define an operation filter in the SwaggerConfig.cs file to look for the custom attributes and add the necessary vendor extension.  This approach is described in detail below for dynamically generating the **x-ms-summary** extension property.
 
 1. Define an attribute class **CustomSummaryAttribute** which will be used to annotate your code.
-	
+
 	    [AttributeUsage(AttributeTargets.All)]
 	    public class CustomSummaryAttribute : Attribute
 	    {
@@ -156,7 +156,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 3. Edit the SwaggerConfig.cs file and add the filter class defined above:
 
 
-            GlobalConfiguration.Configuration 
+            GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                     {
                         ...
@@ -213,7 +213,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 	        public void Apply(Schema schema, SchemaRegistry schemaRegistry, Type type)
 	        {
 	            SetCustomSummary(schema, type.GetCustomAttribute<CustomSummaryAttribute>());
-	
+
 	            if (schema.properties != null)
 	            {
 	                foreach (var property in schema.properties)
@@ -238,9 +238,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 	    }
 
 
- 
+
 ## Summary
 
 You have seen how you can enhance the user experience of your API App when it is used in the Logic Apps designer.  As a best practice, it is recommended that you provide proper friendly names for all operations (actions and triggers), parameters and properties.  We also recommend that you provide not more than 5 basic operations.  For input parameters, we recommend you restrict the number of basic properties to not more than 4.  And for properties, we recommend you keep this to 5 or less.  You should mark the rest as advanced as described above.
-
-
