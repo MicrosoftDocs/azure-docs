@@ -3,7 +3,7 @@
    description="Explains how you can use the StorSimple Manager service to create a backup policy."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
+   ms.date="05/22/2015"
+   ms.author="alkohli" />
 
 #### To add a StorSimple backup policy
 
@@ -24,7 +24,7 @@
 3. In the **Add Backup Policy** dialog box, do the following:
 
     1. Specify a backup policy name that contains between 3 and 150 characters.
-    2. Assign one or more volumes to this backup policy.
+    2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the dropdown list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
     3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
 
 The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
