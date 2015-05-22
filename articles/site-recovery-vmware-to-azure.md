@@ -419,15 +419,18 @@ When you add machines to a protection group, the mobility service is automatical
 
 1. Open **Protected Items** > **Protection Group** > **Machines** tab and add virtual or physical machines managed by a discovered vCenter server. We recommend that protection groups should mirror your workloads so that you add machines running a specific application to the same group.
 
-	![Add machines](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png)
-
 2. In the  **Select Virtual Machine** page of **Add Virtual Machine** select a V-Center server and then select machines from it.
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
 
     If you had a protection group already created and added a vCenter Server after that, it takes fifteen minutes for the Azure Site Recovery portal to refresh and for virtual machines to get listed in the Add machines to a protection group dialog. If you would like to proceed immediately with adding machines to protection group, please highlight the configuration server (don’t click it) and hit the Refresh button in the bottom action pane.
 
-3. When you add machines to a protection group, the Mobility service is automatically installed from the on-premises process server. For the automatic push mechanism to work make sure you've set up your protected machines as described in the previous step.
+    When you add virtual machines or physical machines to a protection group, the Mobility service gets automatically installed from the on-premises process server. For the automatic push installation to work make sure you've set up your machines as described in the previous step.
+
+3. For protecting physical machines, select **Add Physical Machines** and provide the IP address, Friendly Name and then select Operating System Family.
+	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_PhysicalMachineProtectDialog1.png)
+
+
 4. In **Select Virtual Machines** select the vCenter server that management the machines you want to protect and then select the virtual machines.
 
 4. Select the servers and storage to use for replication.
