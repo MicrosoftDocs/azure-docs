@@ -31,9 +31,9 @@ This topic shows you how to add push notifications to the [quickstart project](m
 
 [AZURE.INCLUDE [Configure Push Notifications in Azure Mobile Services](../includes/mobile-services-apns-configure-push.md)]
 
-## <a id="update-scripts"></a>Update Registered Insert Script
+## <a id="update-scripts"></a>Update Insert Script
 
-* In the Management Portal, click the **Data** tab and then click **todoitem**. In **todoitem**, click the **Script** tab and select **Insert**. This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+* In the Management Portal, click the **Data** tab and then click **TodoItem**. In **TodoItem**, click the **Script** tab and select **Insert**. This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 * Replace the insert function with the following code, and then click **Save**.  This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. This script delays sending the notification to give you time to close the app to receive a push notification.
 
