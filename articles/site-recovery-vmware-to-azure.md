@@ -428,7 +428,7 @@ When you add machines to a protection group, the mobility service is automatical
     When you add virtual machines or physical machines to a protection group, the Mobility service gets automatically installed from the on-premises process server. For the automatic push installation to work make sure you've set up your machines as described in the previous step.
 
 3. For protecting physical machines, select **Add Physical Machines** and provide the IP address, Friendly Name and then select Operating System Family.
-	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_PhysicalMachineProtectDialog1.png)
+	![Add V-Center server](./media/site-recovery-vmware-to-azure/asrvmware_physicalmachineprotectdialog1.png)
 
 4. Select the servers and storage to use for replication.
 
