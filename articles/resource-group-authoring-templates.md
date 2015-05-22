@@ -85,7 +85,7 @@ The following example shows how to use several of the functions when constructin
     }
 
 For now, you know enough about expressions and functions to understand the sections of the template. For more detailed information about all of the template functions, including parameters and the format of returned values, 
-see [Azure Resouce Manager template functions](./resource-group-template-functions.md). 
+see [Azure Resource Manager template functions](./resource-group-template-functions.md). 
 
 
 ## Parameters
@@ -226,7 +226,7 @@ You define resources with the following structure:
 | properties               |   No     | Resource specific configuration settings.
 | resources                |   No     | Child resources that depend on the resource being defined.
 
-If the resouce name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
+If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
 
 The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
 
