@@ -84,7 +84,7 @@ file **AddNewShardsSample.cs**. Details of this topic are covered here: [Shard M
 
 ## Cost
 
-The elastic database tools are free of charge. Elastic scale does not impose additional charges on top of the cost for your Azure usage. 
+The elastic database tools are free of charge. Elastic database tools does not impose additional charges on top of the cost for your Azure usage. 
 
 For example, the sample application creates new databases. The cost depends on the Azure SQL DB database edition you choose and the Azure usage of your application.
 
