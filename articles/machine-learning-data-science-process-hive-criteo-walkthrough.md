@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Advanced Analytics Process in Action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Azure" 
-	description="Using the Advanced Analytics Process Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset" 
+	pageTitle="Advanced Analytics Process and Technology in Action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Azure" 
+	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset" 
 	metaKeywords="" 
 	services="machine-learning,hdinsight" 
 	solutions="" 
@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="05/22/2015" 
 	ms.author="ginathan;mohabib;bradsev" /> 
 
-# Advanced Analytics Process Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
+# Advanced Analytics Process and Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
 
-In this walkthrough, we demonstrate the Advanced Analytics Process Technology (ADAPT) end-to-end using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary classification and regression predictive tasks.
+In this walkthrough, we demonstrate the Advanced Analytics Process and Technology (ADAPT) end-to-end using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary classification and regression predictive tasks.
 
 This walkthrough shows how to use the headnode of an HDInsight cluster to explore, featurize, and down sample a large dataset to prepare it for  modeling with Azure Machine Learning. It also walks you through the steps in the modeling process and shows how to publish the model as a Web service.
 
@@ -43,8 +43,8 @@ Here is an excerpt of two observations (rows) from this dataset:
 
 	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15	Col16	Col17	Col18	Col19	Col20	Col21	Col22	Col23	Col24	Col25	Col26	Col27	Col28	Col29	Col30	Col31	Col32	Col33	Col34	Col35	Col36	Col37	Col38	Col39	Col40
 
-	0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb        16e08b25        670da99c        2e4e821f        5fd89f4d        b21eb4c2        2974d88b        bf78d0d4        52e56658        484a5e08        330c9d3e   		1f7fc70b 5cc1303c        9512c20b        81ae47fc        405a6616        b9196e4d        9496de3d        1652193e        30436bfc        b757e957
-	0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb        4628641f        670da99c        7cee8453        e02b43b2        b59debeb        0e2dac06        a77a4a56        521d9fcb        484a5e08        330c9d3e   		753da5f3 b8170bba        9512c20b        09923add        a4b5cdff        887eac7c        21f683ca        7cc1f2ce        30436bfc        2ccea557
+	0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb        16e08b25        670da99c        2e4e821f        5fd89f4d        b21eb4c2        2974d88b        bf78d0d4        52e56658        484a5e08        330c9d3e   		1f7fc70b 	5cc1303c        9512c20b        81ae47fc        405a6616        b9196e4d        9496de3d        1652193e        30436bfc        b757e957
+	0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb        4628641f        670da99c        7cee8453        e02b43b2        b59debeb        0e2dac06        a77a4a56        521d9fcb        484a5e08        330c9d3e   		753da5f3 	b8170bba        9512c20b        09923add        a4b5cdff        887eac7c        21f683ca        7cc1f2ce        30436bfc        2ccea557
 
 Note that there are numeric values missing from this excerpt of the dataset, and also from the categorical columns in the full dataset. Later in this walkthrough, we describe a simple method for handling these non-occurrences. Additional details of the data are explored below when we store them into Hive tables.
 
@@ -64,7 +64,7 @@ Two sample prediction problems are addressed in this walkthrough:
 
 **Note:** This is typically an **Admin** task.
 
-Three steps are required to set up the Azure Data Science environment for working on HDInsight clusters:
+Three steps are required to set up the Azure Data Science environment for doing advanced analytics on HDInsight clusters:
 
 1. [Create a storage account](storage-whatis-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
 
@@ -436,16 +436,16 @@ To build count tables on the count data, we use the data in the folder raw/count
 
 Our model building process in Azure Machine Learning will follow these steps:
 
-	1. Get data from Hive tables into Azure Machine Learning
-	2. Accessing either the pre-built count tables or building count tables from scratch for encoding high-dimensional categorical variables
-	3. Training a model
-	4. Scoring the model on test data
-	5. Evaluating the model
-	6. Publishing the model as a web-service to be consumed
+1. [Get the data from Hive tables into Azure Machine Learning](#step1)
+2. [Create the experiment: clean the data, choose a learner, and featurize with count tables](#step2)
+3. [Train the model](#step3)
+4. [Score the model on test data](#step4)
+5. [Evaluate the model](#step5)
+6. [Publish the model as a web-service to be consumed](#step6)
 
 Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We will use the Azure Machine Learning Reader module to read this data. The credentials to access the storage account of this cluster are below.
 
-### Step 1: Hive tables into Azure Machine Learning using the Reader Module
+### <a name="step1"></a> Step 1: Get data from Hive tables into Azure Machine Learning using the Reader module and select it for a machine learning experiment
 
 For the **Reader** module, the values of the parameters that are set in the graphic are just examples. Here is the general guidance on 'filling out' the parameter set for the **Reader** module.
 
@@ -470,17 +470,16 @@ Once the **Reader** finishes getting data (you see the green tick on the Module)
 
 Right click on the output port of the **Reader** module. This reveals a **Save as dataset** option and a **Visualize** option. The **Visualize** option, if clicked, displays 100 rows of the data, along with a right panel that is useful for some summary statistics. To save data, simply select **Save as dataset** and follow instructions.
 
-### Step 2: Use the saved datasets in an experiment
-
-We are now ready to use the saved datasets in an experiment. To locate the datasets, simply use the **Search** as shown below and type out the name of the dataset partially. Dragging the dataset on to the main panel is enough to select it for use in machine learning modeling.
+To select the saved dataset for use in a machine learning experiment,
+locate the datasets using the **Search** shown below. Then simply type out the name of the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
 ![Locate dataset](http://i.imgur.com/rx4nnUH.png)
 
 Do this for both the train and the test datasets.
 
-### Step 3: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
+### <a name="step2"></a> Step 2: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
 
-We first show a simple experiment architecture, then drill down a bit into the specifics.
+We first show a simple experiment architecture, then drill down a bit into the specifics. First we clean the data, then choose a learner, and finally show how to featurize with count tables that are either pre-build or constructed from scratch by the user.
 
 ![Experiment architecture](http://i.imgur.com/R4iTLYi.png)
 
@@ -517,7 +516,7 @@ Clicking on this experiment leads to a page that looks like the below:
 
 Here, click **Open in studio** to copy the experiment over to your workspace. This automatically also copies over the datasets -- in this case, the two key datasets of interest are the count table and the count metadata, which we describe in more detail.
 
-### Count features in the dataset
+#### Count features in the dataset
 
 The next modules in our experiment involve the use of pre-built count tables. To use these pre-built count tables, search for "cr\_count\_" in the Search tab of a new experiment and you should see two datasets: "cr\_count\_cleanednulls\_metadata" and "cr\_count\_table\_cleanednulls". Drag and drop both of these on to the experiment pane to the right. Right clicking on the output ports, as always, enables us to visualize what these look like. 
 
@@ -537,7 +536,7 @@ How are the count features built into the datasets? For this, we use the count *
 
 ![Count Featurizer module](http://i.imgur.com/dnMdrR1.png)
 
-Once the count table is built (remember we are producing class-conditional counts of categorical features here), we use the count featurizer module shown above to build these count features into our dataset. As we see, the **Featurizer** module allows for choosing which features to count on, whether we need just the log odds or the counts as well, and other advanced options. 
+Once the count table is built (remember we are producing class-conditional counts of categorical features here), we use the **Count Featurizer** module shown above to build these count features into our dataset. As we see, the **Featurizer** module allows for choosing which features to count on, whether we need just the log odds or the counts as well, and other advanced options. 
 
 #### Build a count table from scratch
 
@@ -557,7 +556,7 @@ The latter part of the settings for this module follow:
 Clicking on **Run** allows us to build the count tables on the cluster chosen. The output is, as shown before, the count table and its associated metadata. With these tables ready, we can now build the experiment.
 
 
-#### Train the model, and scoring on a test dataset
+### <a name="step3"></a> Step 3: Train the model
 
 To select this, simply type "two class boosted" at the Search box and drag the module over. We use the default values of the boosted decision tree learner, shown below:
 
@@ -571,9 +570,13 @@ The first is a Train Model module ; while its first port takes the learner as in
 
 ![BDT Train Model module settings](http://i.imgur.com/nd7lHBL.png)
 
+### <a name="step4"></a> Step 4: Score the model on a test dataset
+
 The second component is a way to score on the test dataset. This is conveniently achieved by using the **Score Model** module - it takes as input the learned model from train data, and the test dataset to make predictions on. Below, we show what that looks like.
 
 ![Score BDT model connections](http://i.imgur.com/AwIH1rH.png)
+
+### <a name="step5"></a> Step 5: Evaluate the model
 
 Finally, we would like to see model performance. Usually, for two class (binary) classification problems, a good measure is the AUC. To visualize this, we hook up the "Score Model" module to an "Evaluate Model" module for this. Clicking **Visualize** on the **Evaluate Model** module yields a graphic like the below:
 
@@ -583,14 +586,14 @@ In binary (or two class) classification problems, a good measure of prediction a
 
 ![Visualize Evaluate Model module](http://i.imgur.com/IRfc7fH.png)
 
-## Publish the model as a web service
+### <a name="step6"></a> Step 6: Publish the model as a Web service
 Of great interest is the ability to be able to publish machine learning models as web services. Once that is done, we may make calls to the web service using data we need predictions for, and the model would ideally return a prediction of some kind.
 
 To do this, we first save our trained model as a Trained Model object. This is done by right clicking on the **Train Model** module and using the "Save as Trained Model" option.
 
 Next, we want to create an input and output port for our web service -- an input port that takes data in the same form as the data that we need predictions for, and an output port that returns the Scored Labels and the associated probabilities.
 
-### Select a few rows of data for the input port
+#### Select a few rows of data for the input port
 
 We now show how to select just a few rows of data for our input port.
 
@@ -598,7 +601,7 @@ We now show how to select just a few rows of data for our input port.
 
 We can conveniently use an Apply SQL transformation to select just 10 rows to serve as the input port data.
 
-### Web service
+#### Web service
 Now we are ready to run a small experiment that can be used to publish our web service.
 
 #### Generate input data for webservice
