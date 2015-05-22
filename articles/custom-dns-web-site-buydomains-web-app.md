@@ -17,7 +17,7 @@
 	ms.date="05/21/2015"
 	ms.author="mwasson"/>
 
-# Configure a custom domain name in Azure App Service
+# Buy and Configure a custom domain name in Azure App Service
 
 <div class="dev-center-tutorial-selector sublanding">
   <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a>
