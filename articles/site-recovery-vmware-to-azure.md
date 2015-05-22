@@ -430,9 +430,6 @@ When you add machines to a protection group, the mobility service is automatical
 3. For protecting physical machines, select **Add Physical Machines** and provide the IP address, Friendly Name and then select Operating System Family.
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_PhysicalMachineProtectDialog1.png)
 
-
-4. In **Select Virtual Machines** select the vCenter server that management the machines you want to protect and then select the virtual machines.
-
 4. Select the servers and storage to use for replication.
 
 	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
