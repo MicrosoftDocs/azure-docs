@@ -29,7 +29,7 @@ To use this sample, you will need an [Azure Active Directory](active-directory-w
 
 ## Creating an Azure AD application to access the API
 
-The Reporting API uses [OAuth](https://msdn.microsoft.com/en-us/library/azure/dn645545.aspx) to authorize access to the web APIs. To access information from your directory, you must create an application in your Active Directory, and grant it appropriate permissions to access the AAD data.
+The Reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs. To access information from your directory, you must create an application in your Active Directory, and grant it appropriate permissions to access the AAD data.
 
 
 ### Create an application
@@ -50,7 +50,7 @@ The Reporting API uses [OAuth](https://msdn.microsoft.com/en-us/library/azure/dn
 - Navigate to your newly created application.
 - Click the **Configure** tab.
 - In the "Permissions to Other Applications" section:
-	- In the Windows Azure Active Directory > Application Permissions, select **Read directory data**
+	- In the microsoft Azure Active Directory > Application Permissions, select **Read directory data**
 - Click **Save** on the bottom bar.
 
 
