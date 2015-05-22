@@ -24,7 +24,7 @@ The solutions provided by Microsoft today are limited, and customers have been r
 
 ## Get insights into your Azure consumption
 
-###**Azure Usage API (Preview)**
+### Azure Usage API (Preview)
 This REST API is planned to be part of the Azure Resource Management REST API, which customers and partners can use to get programmatic access to their estimated Azure consumption data. Here are some features:
 	
 - **Supports Azure Role-based Access Control** - customers and partners can configure their access policies on the Azure Preview Portal or through PowerShell cmdlets to dictate what users or applications can get access to the subscription’s usage data. Callers will be required to use standard Azure Active Directory tokens for authentication. The caller will need to be added to either the Reader, Owner or Contributor role to be authorized to get access to the usage data for a particular Azure subscription.
@@ -37,7 +37,7 @@ This REST API is planned to be part of the Azure Resource Management REST API, w
 
 - **Usage for all offer types** – Usage data will be accessible for all offer types including Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, EA among others.
 
-###**Azure RateCard API (Preview)**
+### Azure RateCard API (Preview)
 This REST API is also planned to be part of the Azure Resource Management REST API, which customers and partners can use to get programmatic access to the list of resources along with their estimated pricing information.
 
 - **Supports Azure Role-based Access Control** - customers and partners can configure their access policies on the Azure Preview Portal or through PowerShell cmdlets to dictate what users or applications can get access to the RateCard information. Callers will be required to use standard Azure Active Directory tokens for authentication. The caller will need to be added to either the Reader, Owner or Contributor role to be authorized to get access to the usage data for a particular Azure subscription.
