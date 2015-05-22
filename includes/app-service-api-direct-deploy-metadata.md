@@ -34,7 +34,3 @@ To provide a static [Swagger](http://swagger.io/) 2.0 API definition file, store
 
 Leave `endpoints.apiDefinition` out of the *apiapp.json* file or set its value to null. If you include both an `endpoints.apiDefinition` URL and an *apiDefinition.swagger.json* file, the URL will take precedence and the file will be ignored.
  
-### Other API app metadata
-
-For more information about the *apiapp.json* file and the *Metadata* folder, see [Create an API app package](app-service-api-create-package.md). 
-
