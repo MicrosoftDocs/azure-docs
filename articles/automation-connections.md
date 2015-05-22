@@ -19,7 +19,7 @@
 
 An Automation connection asset contains the information required to connect to an external service or application from a runbook.  This may include information required for authentication such as a username and password in addition to connection information such as a URL or a port. The value of a connection is keeping all of the properties for connecting to a particular application in one asset as opposed to creating multiple variables. The user can edit the values for a connection in one place, and you can pass the name of a connection to a runbook in a single parameter. The properties for a connection can be accessed in the runbook with the **Get-AutomationConnection** activity.
 
-When you create a connection, you must specify a *connection type*. The connection type is a template that defines a set of properties. The connection defines values for each property defined in its connection type. Connection types are added to Azure Automation in automation modules. The only connection types that are available when you create a connection are those defined in automation modules installed in your automation account.
+When you create a connection, you must specify a *connection type*. The connection type is a template that defines a set of properties. The connection defines values for each property defined in its connection type. Connection types are added to Azure Automation in integration modules or created with the [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163818.aspx). The only connection types that are available when you create a connection are those installed in your automation account.
 
 >[AZURE.NOTE] Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account. This key is encrypted by a master certificate and stored in Azure Automation. Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.
 
@@ -105,7 +105,7 @@ You add a **Get-AutomationConnection** activity to a graphical runbook by right-
 
 The following image shows an example of using a connection in a graphical runbook.  This is the same example shown above for sending a text message using Twilio from a textual runbook.  This example uses the **UseConnectionObject** parameter set for the **Send-TwilioSMS** activity that uses a connection object for authentication to the service.  A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the Connection parameter is expecting a single object.
 
-The reason that a PowerShell expression is used in the **To** parameter instead of a Constant value is that this parameter accepts a collection so that you can send to multiple numbers.  The graphical editor only allows a single string for a constant value, so it does not offer this option for a parameter accepting a collection.   
+The reason that a PowerShell expression is used for the value in the **To** parameter instead of a Constant value is that this parameter expects a string array value type so that you can send to multiple numbers.  A PowerShell expression allows you to provide a single value or an array.
 
 ![](media/automation-connections/get-connection-object.png)
 
