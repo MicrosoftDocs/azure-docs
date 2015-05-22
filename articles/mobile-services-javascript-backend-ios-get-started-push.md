@@ -16,7 +16,7 @@
 	ms.date="05/19/2015"
 	ms.author="krisragh"/>
 
-# Add Push Notifications to App | JavaScript Backend
+# Add Push Notifications to iOS App and JavaScript Backend
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 

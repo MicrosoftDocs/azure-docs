@@ -17,7 +17,7 @@
 	ms.author="krisragh"/>
 
 
-# Add Push Notifications to App | .NET Backend
+# Add Push Notifications to iOS App and .NET Backend
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
