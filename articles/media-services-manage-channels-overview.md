@@ -318,6 +318,8 @@ For information about scaling streaming units, see: [How to scale streaming unit
 
 ##Related topics
 
+[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+
 [Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
 
 [Media Services Concepts](media-services-concepts.md)

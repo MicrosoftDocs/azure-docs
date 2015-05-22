@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="05/11/2015"
+	ms.date="05/20/2015"
 	ms.author="alfran"/>
 
 # Solutions in Operational Insights
