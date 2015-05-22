@@ -105,6 +105,8 @@ You add a **Get-AutomationConnection** activity to a graphical runbook by right-
 
 The following image shows an example of using a connection in a graphical runbook.  This is the same example shown above for sending a text message using Twilio from a textual runbook.  This example uses the **UseConnectionObject** parameter set for the **Send-TwilioSMS** activity that uses a connection object for authentication to the service.  A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the Connection parameter is expecting a single object.
 
+The reason that a PowerShell expression is used in the **To** parameter instead of a Constant value is that this parameter accepts a collection so that you can send to multiple numbers.  The graphical editor only allows a single string for a constant value, so it does not offer this option for a parameter accepting a collection.   
+
 ![](media/automation-connections/get-connection-object.png)
 
 The image below shows the same example as above but uses the **SpecifyConnectionFields** parameter set that expects the AccountSid and AuthToken parameters to be specified individually as opposed to using a connection object for authentication.  In this case, fields of the connection are specified instead of the object itself.  
