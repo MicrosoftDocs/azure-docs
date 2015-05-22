@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="billing"
    ms.date="05/22/2015"
-   ms.author="bryanla"/>
+   ms.author="mobandyo;bryanla"/>
 
 # Get insights into your Azure consumption
 
