@@ -380,3 +380,7 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 - Click **Virtual Machines**, and then select the virtual device.
 
 - Click **Delete** and choose to delete all the virtual machine disks.
+
+## Next steps
+
+Learn how to [Restore from backup set](storsimple-restore-from-backupset.md)
