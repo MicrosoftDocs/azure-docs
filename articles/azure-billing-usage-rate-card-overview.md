@@ -16,16 +16,16 @@
    ms.date="05/22/2015"
    ms.author="mobandyo;bryanla"/>
 
-# Get insights into your Azure consumption
+# Azure Billing Usage and RateCard APIs
 
-## Summary
+Customers and partners struggle with the ability to accurately predict and manage their Azure costs using the tools provided by Microsoft.  As customers move from a Capex model to an Opex model and require the ability to do show-back or charge-back, the requirement to provide mode fidelity in estimation and billing is growing and becoming a basic requirement for large cloud deployments. 
 
-Customers and partners today struggle with the ability to accurately predict and manage their Azure costs using the tools provided by Microsoft.  As customers move from a Capex model to an Opex model and require the ability to do show-back or charge-back, the requirement to provide mode fidelity in estimation and billing is growing and becoming a basic requirement for large cloud deployments. The solutions provided by Microsoft today are limited, and customers have been requesting for a way to get better insights out of their consumption data. The suite of tools necessary to help customers understand their cloud spend is called IT Financial Management tools (for more details, refer to Gartner article [Market Guide for IT Financial Management Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb))
+The solutions provided by Microsoft today are limited, and customers have been requesting the ability to get better insights out of their consumption data.  The Azure Billing Usage and Rate Card APIs discussed in this article will dramatically improve the situation, by enabling new insights not previously available.  The suite of tools necessary to help customers understand their cloud spend are called IT Financial Management tools (for more details, refer to Gartner article [Market Guide for IT Financial Management Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)).
 
-## Solution 
+## Get insights into your Azure consumption
 
 ###**Azure Usage API (Preview)**
-This REST API is planned to be part of the Azure Resource Management REST API, which customers and partners can call to get programmatic access to their estimated Azure consumption data. Here are some features:
+This REST API is planned to be part of the Azure Resource Management REST API, which customers and partners can use to get programmatic access to their estimated Azure consumption data. Here are some features:
 	
 - **Supports Azure Role-based Access Control** - customers and partners can configure their access policies on the Azure Preview Portal or through PowerShell cmdlets to dictate what users or applications can get access to the subscription’s usage data. Callers will be required to use standard Azure Active Directory tokens for authentication. The caller will need to be added to either the Reader, Owner or Contributor role to be authorized to get access to the usage data for a particular Azure subscription.
 
@@ -38,7 +38,7 @@ This REST API is planned to be part of the Azure Resource Management REST API, w
 - **Usage for all offer types** – Usage data will be accessible for all offer types including Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, EA among others.
 
 ###**Azure RateCard API (Preview)**
-This REST API is also planned to be part of the Azure Resource Management REST API, which customers and partners can call to get programmatic access to the list of resources along with their estimated pricing information.
+This REST API is also planned to be part of the Azure Resource Management REST API, which customers and partners can use to get programmatic access to the list of resources along with their estimated pricing information.
 
 - **Supports Azure Role-based Access Control** - customers and partners can configure their access policies on the Azure Preview Portal or through PowerShell cmdlets to dictate what users or applications can get access to the RateCard information. Callers will be required to use standard Azure Active Directory tokens for authentication. The caller will need to be added to either the Reader, Owner or Contributor role to be authorized to get access to the usage data for a particular Azure subscription.
 	
@@ -58,7 +58,7 @@ Here are some of the scenarios that are made possible with the combination of th
 
 - What-if analysis:
 
-	- Customers and partners can find out whether it would be more cost-effective to run their workloads in another region or on another configuration of the azure resource. Azure resource costs can tend to differ based on the Azure region they are running in, so this can provide an opportunity for customers and partners to get cost optimizations.
+	- Customers and partners can determine whether it would be more cost-effective to run their workloads in another region or on another configuration of the azure resource. Azure resource costs can tend to differ based on the Azure region they are running in, so this can provide an opportunity for customers and partners to get cost optimizations.
 
 	- Customers and partners can find out if another Azure offer type gives a better rate on an Azure resource.
 
