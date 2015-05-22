@@ -35,7 +35,7 @@ This REST API is planned to be part of the Azure Resource Management REST API, w
 
 - **Resource metadata provided** - The resource details like the meter name, meter category, meter sub category, unit and region will also be passed in the response, to give the callers a better understanding of what was consumed. We are also aligning what the resource metadata is called across the Azure portal, Azure usage CSV, EA billing CSV and other public-facing experiences, to enable customers to correlate data across experiences.
 
-- **Usage for all offer types** – Usage data will be accessible for all offer types inclulding Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, EA amongst others.
+- **Usage for all offer types** – Usage data will be accessible for all offer types including Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, EA among others.
 
 ###**Azure RateCard API (Preview)**
 This REST API is also planned to be part of the Azure Resource Management REST API, which customers and partners can call to get programmatic access to the list of resources along with their estimated pricing information.
@@ -64,6 +64,6 @@ Here are some of the scenarios that are made possible with the combination of th
 
 ## Next Steps
 
-+ [TODO:Update link] Check out the reference documentation for the [Azure Commerce Provider APIs](https://msdn.microsoft.com/en-us/library/azure/dn948464.aspx) for more information on both APIs.
-+ Learn more about Azure Resource Manager, see the [Azure Resource Manager Overview](http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/) article.
++ [TODO:Update link] Check out the reference documentation for the [Azure Commerce Provider APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) for more information on both APIs.
++ Learn more about Azure Resource Manager, see the [Azure Resource Manager Overview](resource-group-overview/) article.
 
