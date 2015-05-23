@@ -335,7 +335,7 @@ These system functions are useful for working with statistics:
 
 ### A. Combine statistics columns and functions into one view
 
-This view brings columns that relate to statistics, and results from the STATS_DATE() funnction together.
+This view brings columns that relate to statistics, and results from the STATS_DATE() function together.
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -431,7 +431,7 @@ Load your data into the data warehouse.
 
 <!-- External Links -->
 [Cardinality Estimation]:https://msdn.microsoft.com/library/dn600374.aspx "Cardinality Estimation"
-[CREATE STATISTICS]:(https://msdn.microsoft.com/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
+[CREATE STATISTICS (Transact-SQL)]:(https://msdn.microsoft.com/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
 [DBCC SHOW_STATISTICS (Transact-SQL)]:(https://msdn.microsoft.com/library/ms174384.aspx "DBCC SHOW_STATISTICS (Transact-SQL)")
 [Statistics]:(https://msdn.microsoft.com/library/ms190397.aspx "Statistics")
 [STATS_DATE (Transact-SQL)]:(https://msdn.microsoft.com/library/ms190330.aspx "STATS_DATE ( Transact-SQL)")
