@@ -34,7 +34,7 @@ Single-column statistics are objects that contain information about the range an
 
 Multi-column statistics are statistics created on a list of columns. They include single column statistics on the first column in the list, plus some cross-column correlation information called densities. Multi-column statistics can improve query performance for some operations such as composite joins and group by's.
 
-For more details, see [DBCC SHOW_STATISTICS (Transact-SQL)][] on MSDN.
+For more details, see [DBCC SHOW_STATISTICS][] on MSDN.
 
 ### Why are statistics necessary?
 Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Indexes automatically have single-column statistics on the first column of each index. Tables and columns do not, and so you need to create them. It's best to create them when you create the table.
