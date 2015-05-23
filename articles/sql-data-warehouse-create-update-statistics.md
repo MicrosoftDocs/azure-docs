@@ -34,7 +34,7 @@ Single-column statistics are objects that contain information about the range an
 
 Multi-column statistics are statistics created on a list of columns. They include single column statistics on the first column in the list, plus some cross-column correlation information called densities. Multi-column statistics can improve query performance for some operations such as composite joins and group by's.
 
-For more details, see [DBCC SHOW_STATISTICS][] on MSDN.
+For more details, see [DBCC SHOW_STATISTICS (Transact-SQL)][] on MSDN.
 
 ### Why are statistics necessary?
 Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Indexes automatically have single-column statistics on the first column of each index. Tables and columns do not, and so you need to create them. It's best to create them when you create the table.
@@ -431,11 +431,11 @@ Load your data into the data warehouse.
 
 <!-- External Links -->
 [Cardinality Estimation]:https://msdn.microsoft.com/library/dn600374.aspx "Cardinality Estimation"
-[CREATE STATISTICS (Transact-SQL)]:https://msdn.microsoft.com/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)"
+[CREATE STATISTICS (Transact-SQL)]:https://msdn.microsoft.com/library/ms188038.aspx "CREATE STATISTICS"
 [DBCC SHOW_STATISTICS (Transact-SQL)]:https://msdn.microsoft.com/library/ms174384.aspx "DBCC SHOW_STATISTICS (Transact-SQL)"
 [Statistics]:https://msdn.microsoft.com/library/ms190397.aspx "Statistics"
-[STATS_DATE (Transact-SQL)]:https://msdn.microsoft.com/library/ms190330.aspx "STATS_DATE ( Transact-SQL)"
-[sys.columns (Transact-SQL)](https://msdn.microsoft.com/library/ms176106.aspx "sys.columns (Transact-SQL)"
+[STATS_DATE (Transact-SQL)]:https://msdn.microsoft.com/library/ms190330.aspx "STATS_DATE (Transact-SQL)"
+[sys.columns (Transact-SQL)]https://msdn.microsoft.com/library/ms176106.aspx "sys.columns (Transact-SQL)"
 [sys.objects (Transact-SQL)]:https://msdn.microsoft.com/library/ms190324.aspx "sys.objects (Transact-SQL"
 [sys.schemas (Transact-SQL)]:https://msdn.microsoft.com/library/ms190324.aspx "sys.objects (Transact-SQL)"
 [sys.stats (Transact-SQL)]:https://msdn.microsoft.com/library/ms177623.aspx "sys.stats (Transact-SQL)"
