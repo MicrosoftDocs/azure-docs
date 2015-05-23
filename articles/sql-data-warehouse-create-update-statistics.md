@@ -34,7 +34,7 @@ Single-column statistics are objects that contain information about the range an
 
 Multi-column statistics are statistics created on a list of columns. They include single column statistics on the first column in the list, plus some cross-column correlation information called densities. Multi-column statistics can improve query performance for some operations such as composite joins and group by's.
 
-For more details, see [DBCC SHOW_STATISTICS (Transact-SQL)] on MSDN.
+For more details, see [DBCC SHOW_STATISTICS (Transact-SQL)][] on MSDN.
 
 ### Why are statistics necessary?
 Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Indexes automatically have single-column statistics on the first column of each index. Tables and columns do not, and so you need to create them. It's best to create them when you create the table.
@@ -53,7 +53,7 @@ Creating single-column statistics on every column is a way to get started with s
 
 Multi-column statistics are only used by the query optimizer when the columns are in composite joins or group by clauses. Composite filters do not currently benefit from multi-column statistics.
 
-For further explanation, see  [Cardinality Estimation] on MSDN.
+For further explanation, see  [Cardinality Estimation][] on MSDN.
 
 ### When to update statistics
 One of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"  
@@ -69,7 +69,7 @@ For example, the date column in a data warehouse usually needs frequent statisti
 
 Conversely, statistics on a gender column on a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. If your data warehouse only contains one gender and a new requirement results in multiple genders then you definitely need to update statistics on the gender column.
 
-For further explanation, see [Statistics] on MSDN.
+For further explanation, see [Statistics][] on MSDN.
 
 ## Examples of creating statistics
 
@@ -138,7 +138,7 @@ You can, of course, combine the options together. The example below creates a fi
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-For the full reference, see [CREATE STATISTICS (Transact-SQL)] on MSDN.
+For the full reference, see [CREATE STATISTICS (Transact-SQL)][] on MSDN.
 
 
 ### F. Create multi-column statistics ###
@@ -179,7 +179,7 @@ CREATE STATISTICS stats_col3 on table3;
 
 ### H. Use a stored procedure to create statistics on all columns in a database ###
 
-SQL Data Warehouse does not have a system stored procedure equivalent to [sp_create_stats] in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+SQL Data Warehouse does not have a system stored procedure equivalent to [sp_create_stats][] in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 
 This will help you get started with your database design. Feel free to adapt it to your needs.
 
@@ -303,7 +303,7 @@ This statement is easy to use. Just remember this updates all statistics on the 
 
 > [AZURE.NOTE] For an implementation of an `UPDATE STATISTICS` procedure please see the temporary tables section of the behavior differences article. This implementation method is slightly different but the end result is the same.
 
-For the full syntax, see [Update Statistics (Transact-SQL)] on MSDN.
+For the full syntax, see [Update Statistics (Transact-SQL)][] on MSDN.
 
 ## Examples of viewing statistics ##
 
@@ -314,13 +314,13 @@ These system views provide information about statistics.
 
 | Catalog View | Description | MSDN Link |
 | ------------ | ----------- | --------- |
-| sys.columns  | One row for each column | [sys.columns (Transact-SQL)] |
-| sys.objects  | one row for each object in the database | [sys.objects (Transact-SQL)] |
-| sys.schemas  | One row for each schema in the database | [sys.schemas (Transact-SQL)] |
-| sys.stats | one row for each statistics object | [sys.stats (Transact-SQL)] |
-| sys.stats_columns | one row for each column in the statistics object. Links back to sys.columns | [sys.stats_columns (Transact-SQL)] |
-| sys.tables   | One row for each table (includes external tables) | [sys.tables (Transact-SQL)] |
-| sys.table_types    | One row for each data type | [sys.table_types (Transact-SQL)] |
+| sys.columns  | One row for each column | [sys.columns (Transact-SQL)][] |
+| sys.objects  | one row for each object in the database | [sys.objects (Transact-SQL)][] |
+| sys.schemas  | One row for each schema in the database | [sys.schemas (Transact-SQL)][] |
+| sys.stats | one row for each statistics object | [sys.stats (Transact-SQL)][] |
+| sys.stats_columns | one row for each column in the statistics object. Links back to sys.columns | [sys.stats_columns (Transact-SQL)][] |
+| sys.tables   | One row for each table (includes external tables) | [sys.tables (Transact-SQL)][] |
+| sys.table_types    | One row for each data type | [sys.table_types (Transact-SQL)][] |
 
 
 ### System functions for statistics
@@ -329,13 +329,13 @@ These system functions are useful for working with statistics:
 
 | System Function | Description | MSDN Link |
 | --------------- | ----------- | --------- |
-| STATS_DATE()    | Date Statistics Object was last updated | [STATS_DATE (Transact-SQL)] |
-| DBCC SHOW_STATISTICS | Provides summary level and detailed information about the distribution of values as understood by the statistics object | [DBCC SHOW_STATISTICS (Transact-SQL)] |
+| STATS_DATE()    | Date Statistics Object was last updated | [STATS_DATE (Transact-SQL)][] |
+| DBCC SHOW_STATISTICS | Provides summary level and detailed information about the distribution of values as understood by the statistics object | [DBCC SHOW_STATISTICS (Transact-SQL)][] |
 
 
 ### A. Combine statistics columns and functions into one view
 
-This view brings columns that relate to statistics, and results from the STATS_DATE() funciton together.
+This view brings columns that relate to statistics, and results from the STATS_DATE() function together.
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -408,7 +408,7 @@ For example:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-> [AZURE.NOTE] DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compared to SQL Server. Please take note of the SQL Data Warehouse [behavior differences] for this functionality.
+> [AZURE.NOTE] DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compared to SQL Server. Please take note of the SQL Data Warehouse behavior differences for this functionality.
 
 
 
@@ -424,13 +424,13 @@ Load your data into the data warehouse.
 
 
 <!--Link references--In actual articles, you only need a single period before the slash.
-[database design]:      ./sql-dw-develop-generate-statistics/
+[database design]:      ./sql-data-warehouse-develop-create-update-statistics/
 [query performance]:    ./sql-dw-develop-write-distributed-queries/
 [behavior differences]: ./sql-dw-develop-product-differences/
 -->
 
 <!-- External Links -->
-[Cardinality Estimation]:(https://msdn.microsoft.com/library/dn600374.aspx "Cardinality Estimation")
+[Cardinality Estimation]:https://msdn.microsoft.com/library/dn600374.aspx "Cardinality Estimation"
 [CREATE STATISTICS (Transact-SQL)]:(https://msdn.microsoft.com/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
 [DBCC SHOW_STATISTICS (Transact-SQL)]:(https://msdn.microsoft.com/library/ms174384.aspx "DBCC SHOW_STATISTICS (Transact-SQL)")
 [Statistics]:(https://msdn.microsoft.com/library/ms190397.aspx "Statistics")
