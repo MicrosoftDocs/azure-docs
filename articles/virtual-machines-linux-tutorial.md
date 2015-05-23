@@ -32,7 +32,7 @@ The first step [install the Azure CLI](xplat-cli-install.md).
 
 Good. Now make sure you're in the resource management mode by typing `azure config mode arm`. 
 
-Good. Now log in with your work or school id by typing `azure login` and following the prompts. 
+Even better. Now log in with your work or school id by typing `azure login` and following the prompts. 
 
 > [AZURE.NOTE] If you receive an error logging in, you may need to [create a work or school id from your personal Microsoft account](resource-group-create-work-id-from-personal.md). 
 
