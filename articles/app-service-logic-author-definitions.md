@@ -26,8 +26,11 @@ A common pattern is to have one step that gets a list of items, and then you hav
 ![Repeat over lists](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
 In this example there are 3 actions:
+
 1. Get a list of articles. This returns back an object that contains an array.
+
 2. An action that goes to a link property on each article, which will return back the actual location of the article.
+
 3. An action that iterates over all of the results from the second action to download the actual articles. 
 
 ```
@@ -379,7 +382,95 @@ Alternatively, when your first two branches both operate on a list of orders, fo
 ```
 ## Working with Strings
 
+There are variety of functions that can be used to maniplate string. Let's take an example where we have a string that we want to pass to a system, but we are not confident that character encoding will be handled properly. One option is to base64 encode this string. However, to avoid escaping in a URL we are going to replace a few characters. 
 
+We also want a substring of the the order's name because the first 5 characters are not used.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1",
+                "orderer": "NAME=Stèphén__Šīçiłianö"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {},
+    "actions": {
+        "order": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+Working from the inside out:
+
+1. Get the `length` of the orderer's name, this returns back the total number of characters
+
+2. Subtract 5 (because we'll want a shorter string)
+
+3. Actually take the `substring`. We start at index `5` and go the remainder of the string.
+
+4. Convert this substring to a `base64` string
+
+5. Replace all of the `+` characters with `-`
+
+6. Replace all of the `/` characters with `_`
 
 ## Working with Date Times
 
+Date Times can be useful, particularly when you are trying to pull data from a data source that doesn't naturally support **Triggers**.  You can also use Date Times to figure out how long various steps are taking. 
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {},
+    "actions": {
+        "order": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?id=@{parameters('order').id}"
+            }
+        },
+        "timingWarning": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}"
+            },
+            "conditions": [
+                {
+                    "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
+                }
+            ]
+        }
+    },
+    "outputs": {}
+}
+```
+
+In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :`addseconds(..., -1)`. Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
+
+Also note that we can use string formatters to format dates: in the query string I use `utcnow('r')` to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/en-us/library/azure/dn948512.aspx#utcnow). 
