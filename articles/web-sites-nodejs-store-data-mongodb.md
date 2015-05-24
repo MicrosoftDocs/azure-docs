@@ -26,7 +26,7 @@ You will learn:
 
 * How to set up a virtual machine running Ubuntu and MongoDB from the VM Depot.
 * How to access MongoDB from a node application
-* How to use the Cross-Platform Tools for Azure to create a web app in Azure App Service
+* How to use the Azure CLI to create a web app in Azure App Service
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
 
@@ -443,9 +443,9 @@ The steps in this section use the Azure command-line tools to create a new web a
 
 > [AZURE.NOTE] If this is the first App Service web app you have created, you must use the Azure Portal to deploy this application.
 
-###Install the Azure cross-platform command-line interface
+###Install the Azure Command-Line Interface (Azure CLI)
 
-The Azure Command-Line Interface (Azure CLI) allows you to perform management operations for Azure services. If you have not already installed and configured the Azure CLI on your development environment, see [Install and configure the Azure CLI][xplatcli] for instructions.
+Azure CLI allows you to perform management operations for Azure services. If you have not already installed and configured the Azure CLI on your development environment, see [Install and configure the Azure CLI][xplatcli] for instructions.
 
 ###Create an App Service web app
 

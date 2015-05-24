@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Microsoft Azure Storage Performance and Scalability Checklist" 
-	description="A checklist of proven practices for use with Azure Storage in developing performant applications." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+<properties
+	pageTitle="Microsoft Azure Storage Performance and Scalability Checklist"
+	description="A checklist of proven practices for use with Azure Storage in developing performant applications."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/26/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/26/2015"
 	ms.author="tamram"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
@@ -133,7 +133,7 @@ Sometimes, an application needs to serve the same content to many users (e.g. a 
 For more information about Azure CDN, see [Azure CDN](http://azure.microsoft.com/services/cdn/).  
 
 ###<a name="subheading6"></a>Using SAS and CORS
-When you need to authorize code such as JavaScript in a user’s web browser or a mobile phone app to access data in Azure Storage, one approach is to use an application in web role as a proxy: the user’s device authenticates with the web role, which in turn authenticates with the storage service. In this way, you can avoid exposing your storage account keys on insecure devices. However, this places a big overhead on the web role because all the data transferred between the user’s device and the storage service must pass through the web role. You can avoid using a web role as a proxy for the storage service by using Shared Access Signatures (SAS), sometimes in conjunction with Cross-Origin Resource Sharing headers (CORS). Using SAS, you can allow your user’s device to make requests directly to a storage service by means of a limited access token. For example, if a user wants to upload a photo to your application, your web role can generate and send to the user’s device a SAS token that grants permission to write to a specific blob or container for the next 30 minutes (after which the SAS token expires).   
+When you need to authorize code such as JavaScript in a user’s web browser or a mobile phone app to access data in Azure Storage, one approach is to use an application in web role as a proxy: the user’s device authenticates with the web role, which in turn authenticates with the storage service. In this way, you can avoid exposing your storage account keys on insecure devices. However, this places a big overhead on the web role because all the data transferred between the user’s device and the storage service must pass through the web role. You can avoid using a web role as a proxy for the storage service by using Shared Access Signatures (SAS), sometimes in conjunction with Cross-Origin Resource Sharing headers (CORS). Using SAS, you can allow your user’s device to make requests directly to a storage service by means of a limited access token. For example, if a user wants to upload a photo to your application, your web role can generate and send to the user’s device a SAS token that grants permission to write to a specific blob or container for the next 30 minutes (after which the SAS token expires).
 
 Normally, a browser will not allow JavaScript in a page hosted by a website on one domain to perform specific operations such as a “PUT” to another domain. For example, if you host a web role at “contosomarketing.cloudapp.net,” and want to use client side JavaScript to upload a blob to your storage account at “contosoproducts.blob.core.windows.net,” the browser’s “same origin policy” will forbid this operation. CORS is a browser feature that allows the target domain (in this case the storage account) to communicate to the browser that it trusts requests originating in the source domain (in this case the web role).  
 
@@ -148,14 +148,14 @@ For more information about CORS, see [Cross-Origin Resource Sharing (CORS) Suppo
 ####<a name="subheading7"></a>Getting Data
 In general, getting data from a service once is better than getting it twice. Consider the example of an MVC web application running in a web role that has already retrieved a 50MB blob from the storage service to serve as content to a user. The application could then retrieve that same blob every time a user requests it, or it could cache it locally to disk and reuse the cached version for subsequent user requests. Furthermore, whenever a user requests the data, the application could issue GET with a conditional header for modification time, which would avoid getting the entire blob if it hasn’t been modified. You can apply this same pattern to working with table entities.  
 
-In some cases, you may decide that your application can assume that the blob remains valid for a short period after retrieving it, and that during this period the application does not need to check if the blob was modified. 
+In some cases, you may decide that your application can assume that the blob remains valid for a short period after retrieving it, and that during this period the application does not need to check if the blob was modified.
 
 Configuration, lookup, and other data that are always used by the application are great candidates for caching.  
 
 For an example of how to get a blob’s properties to discover the last modified date using .NET, see [Set and Retrieve Properties and Metadata](http://msdn.microsoft.com/library/azure/hh225342.aspx) on MSDN. For more information about conditional downloads, see [Conditionally Refresh a Local Copy of a Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx) on MSDN.  
 
 ####<a name="subheading8"></a>Uploading Data in Batches
-In some application scenarios, you can aggregate data locally, and then periodically upload it in a batch instead of uploading each piece of data immediately. For example, a web application might keep a log file of activities: the application could either upload details of every activity as it happens as a table entity (which requires many storage operations), or it could save activity details to a local log file, and then periodically upload all activity details as a delimited file to a blob. If each log entry is 1KB in size, you can upload thousands in a single “Put Blob” transaction (you can upload a blob of up to 64MB in size in a single transaction). Of course, if the local machine crashes prior to the upload, you will potentially lose some log data: the application developer must design for the possibility of client device or upload failures.  If the activity data needs to be downloaded for timespans (not just single activity), then blobs are recommended over tables. 
+In some application scenarios, you can aggregate data locally, and then periodically upload it in a batch instead of uploading each piece of data immediately. For example, a web application might keep a log file of activities: the application could either upload details of every activity as it happens as a table entity (which requires many storage operations), or it could save activity details to a local log file, and then periodically upload all activity details as a delimited file to a blob. If each log entry is 1KB in size, you can upload thousands in a single “Put Blob” transaction (you can upload a blob of up to 64MB in size in a single transaction). Of course, if the local machine crashes prior to the upload, you will potentially lose some log data: the application developer must design for the possibility of client device or upload failures.  If the activity data needs to be downloaded for timespans (not just single activity), then blobs are recommended over tables.
 
 ###.NET Configuration
 If using the .NET Framework, this section lists several quick configuration settings that you can use to make significant performance improvements.  If using other languages, check to see if similar concepts apply in your chosen language.  
@@ -179,7 +179,7 @@ This code will increase the thread pool min threads:
 For more information, see [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx) on MSDN.  
 
 ####<a name="subheading11"></a>Take advantage of .NET 4.5 Garbage Collection
-Use .NET 4.5 or later for the client application to take advantage of performance improvements in server garbage collection.   
+Use .NET 4.5 or later for the client application to take advantage of performance improvements in server garbage collection.
 
 For more information, see the article [An Overview of Performance Improvements in .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx) on MSDN.  
 
@@ -187,7 +187,7 @@ For more information, see the article [An Overview of Performance Improvements i
 While parallelism can be great for performance, be careful about using unbounded parallelism (no limit on the number of threads and/or parallel requests) to upload or download data, using multiple workers to access multiple partitions (containers, queues, or table partitions) in the same storage account or to access multiple items in the same partition. If the parallelism is unbounded, your application can exceed the client device’s capabilities or the storage account’s scalability targets resulting in longer latencies and throttling.  
 
 ###<a name="subheading13"></a>Storage Client Libraries and Tools
-Always use the latest Microsoft provided client libraries and tools. At the time of writing, there are RTM libraries available for .NET, Windows Phone, Windows Runtime, and Java, as well as preview libraries in other languages like node.js and C++. In addition, Microsoft has released PowerShell cmdlets and cross-platform command-line tools developed in Node.js for working with Azure Storage. Microsoft actively develops these tools with performance in mind, keeps them up to date with the latest service versions, and ensures they handle many of the proven performance practices internally.  
+Always use the latest Microsoft provided client libraries and tools. At the time of writing, there are RTM libraries available for .NET, Windows Phone, Windows Runtime, and Java, as well as preview libraries in other languages like node.js and C++. In addition, Microsoft has released PowerShell cmdlets and Azure CLI commands for working with Azure Storage. Microsoft actively develops these tools with performance in mind, keeps them up to date with the latest service versions, and ensures they handle many of the proven performance practices internally.  
 
 ###Retries
 ####<a name="subheading14"></a>Throttling/ServerBusy
@@ -215,7 +215,7 @@ For more information about target throughput for blobs, see [Azure Storage Scala
 The storage REST API version 2012-02-12 introduced the useful ability to copy blobs across accounts: a client application can instruct the storage service to copy a blob from another source (possibly in a different storage account), and then let the service perform the copy asynchronously. This can significantly reduce the bandwidth needed for the application when you are migrating data from other storage accounts because you do not need to download and upload the data.  
 
 One consideration, however, is that, when copying between storage accounts, there is no time guarantee on when the copy will complete. If your application needs to complete a blob copy quickly under your control, it may be better to copy the blob by downloading it to a VM and then uploading it to the destination.  For full predictability in that situation, ensure that the copy is performed by a VM running in the same Azure region, or else network conditions may (and probably will) affect your copy performance.  In addition, you can monitor the progress of an asynchronous copy programmatically.  
- 
+
 Note that copies within the same storage account itself are generally completed quickly.  
 
 For more information, see [Copy Blob on MSDN](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
@@ -240,7 +240,7 @@ To upload a single large blob quickly, your client application should upload its
 -	.NET: Set ParallelOperationThreadCount on a BlobRequestOptions object to be used.
 -	Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js: Use parallelOperationThreadCount on either the request options or on the blob service.
--	C++: Use the blob_request_options::set_parallelism_factor method.   
+-	C++: Use the blob_request_options::set_parallelism_factor method.
 
 ####<a name="subheading22"></a>Uploading many blobs quickly
 To upload many blobs quickly, upload blobs in parallel. This is faster than uploading single blobs at a time with parallel block uploads because it spreads the upload across multiple partitions of the storage service. A single blob only supports a throughput of 60 MB/second (approximately 480 Mbps). At the time of writing, a US based LRS account supports up to 20 Gbps ingress which is far more than the throughput supported by an individual blob.  [AzCopy](#subheading18) performs uploads in parallel by default, and is recommended for this scenario.  
@@ -266,9 +266,9 @@ Within a single partition, the scalability target for accessing tables is 2,000 
 This section lists several quick configuration settings that you can use to make significant performance improvements in the table service:  
 
 ####<a name="subheading25"></a>Use JSON
-Beginning with storage service version 2013-08-15, the table service supports using JSON instead of the XML-based AtomPub format for transferring table data. This can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.   
+Beginning with storage service version 2013-08-15, the table service supports using JSON instead of the XML-based AtomPub format for transferring table data. This can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.
 
-For more information, see the post [Microsoft Azure Tables: Introducing JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx) on MSDN. 
+For more information, see the post [Microsoft Azure Tables: Introducing JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx) on MSDN.
 
 ####<a name="subheading26"></a>Nagle Off
 Nagle’s algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). For Azure Storage, Nagle’s algorithm has a negative impact on the performance of requests to the table and queue services, and you should disable it if possible.  
@@ -341,13 +341,13 @@ Batch transactions are known as Entity Group Transactions (ETG) in Azure Storage
 #####<a name="subheading36"></a>Upsert
 Use table **Upsert** operations wherever possible. There are two types of **Upsert**, both of which can be more efficient than a traditional **Insert** and **Update** operations:  
 
--	**InsertOrMerge**: Use this when you want to upload a subset of the entity’s properties, but aren’t sure whether the entity already exists. If the entity exists, this call updates the properties included in the **Upsert** operation, and leaves all existing properties as they are, if the entity does not exist, it inserts the new entity. This is similar to using projection in a query, in that you only need to upload the properties that are changing. 
--	**InsertOrReplace**: Use this when you want to upload an entirely new entity, but you aren’t sure whether it already exists. You should only use this when you know that the newly uploaded entity is entirely correct because it completely overwrites the old entity. For example, you want to update the entity that stores a user’s current location regardless of whether or not the application has previously stored location data for the user; the new location entity is complete, and you do not need any information from any previous entity. 
+-	**InsertOrMerge**: Use this when you want to upload a subset of the entity’s properties, but aren’t sure whether the entity already exists. If the entity exists, this call updates the properties included in the **Upsert** operation, and leaves all existing properties as they are, if the entity does not exist, it inserts the new entity. This is similar to using projection in a query, in that you only need to upload the properties that are changing.
+-	**InsertOrReplace**: Use this when you want to upload an entirely new entity, but you aren’t sure whether it already exists. You should only use this when you know that the newly uploaded entity is entirely correct because it completely overwrites the old entity. For example, you want to update the entity that stores a user’s current location regardless of whether or not the application has previously stored location data for the user; the new location entity is complete, and you do not need any information from any previous entity.
 
 #####<a name="subheading37"></a>Storing Data Series in a Single Entity
 Sometimes, an application stores a series of data that it frequently needs to retrieve all at once: for example, an application might track CPU usage over time in order to plot a rolling chart of the data from the last 24 hours. One approach is to have one table entity per hour, with each entity representing a specific hour and storing the CPU usage for that hour. To plot this data, the application needs to retrieve the entities holding the data from the 24 most recent hours.  
 
-Alternatively, your application could store the CPU usage for each hour as a separate property of a single entity: to update each hour, your application can use a single **InsertOrMerge Upsert** call to update the value for the most recent hour. To plot the data, the application only needs to retrieve a single entity instead of 24, making for a very efficient query (see above discussion on [query scope](#subheading30)). 
+Alternatively, your application could store the CPU usage for each hour as a separate property of a single entity: to update each hour, your application can use a single **InsertOrMerge Upsert** call to update the value for the most recent hour. To plot the data, the application only needs to retrieve a single entity instead of 24, making for a very efficient query (see above discussion on [query scope](#subheading30)).
 
 #####<a name="subheading38"></a>Storing structured data in blobs
 Sometimes structured data feels like it should go in tables, but ranges of entities are always retrieved together and can be batch inserted.  A good example of this is a log file.  In this case, you can batch several minutes of logs, insert them, and then you are always retrieving several minutes of logs at a time as well.  In this case, for performance, it’s better to use blobs instead of tables, since you can significantly reduce the number of objects written/returned, as well as usually the number of requests that need made.  

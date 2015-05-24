@@ -16,7 +16,7 @@
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
 
-# Create a multi-VM deployment using the Azure x-plat cli
+# Create a multi-VM deployment using the Azure CLI
 
 The following script will show you how to configure a multi-VM multi-cloud service deployment in a VNET using Azure Command-Line Interface (Azure CLI).
 

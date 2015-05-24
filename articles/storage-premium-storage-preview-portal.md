@@ -345,7 +345,7 @@ For detailed information on pricing for Premium Storage and DS-series VMs, see:
 
 ## Create and use a Premium Storage account for a virtual machine data disk
 
-This section demonstrates how to create a Premium Storage account using the Azure Preview Portal, Azure PowerShell, and the Azure Cross-Platform Command-Line Interface. In addition, it demonstrates a sample use case for premium storage accounts: creating a virtual machine and attaching a data disk to a virtual machine when using Premium Storage.
+This section demonstrates how to create a Premium Storage account using the Azure Preview Portal, Azure PowerShell, and the Azure Command-Line Interface (Azure CLI). In addition, it demonstrates a sample use case for premium storage accounts: creating a virtual machine and attaching a data disk to a virtual machine when using Premium Storage.
 
 ### Create an Azure virtual machine using Premium Storage via the Azure Preview Portal
 
@@ -402,7 +402,7 @@ This PowerShell example shows how to create a new Premium Storage account and at
     	$label = "Disk " + $LunNo
     	Add-AzureDataDisk -CreateNew -MediaLocation $path -DiskSizeInGB 128 -DiskLabel $label -LUN $LunNo -HostCaching ReadOnly -VM $vm | Update-AzureVm
 
-### Create an Azure virtual machine using Premium Storage via the Azure Cross-Platform Command-Line Interface
+### Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
 
 The [Azure Commnand-Line Interface](xplat-cli.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a premium storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
 

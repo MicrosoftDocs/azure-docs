@@ -16,9 +16,9 @@
 	ms.date="04/26/2015"
 	ms.author="tomfitz"/>
 
-# Managing Role-Based Access Control with the Azure Command-Line Interface for Mac, Linux, and Windows#
+# Managing Role-Based Access Control with the Azure Command-Line Interface (Azure CLI)#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">Azure CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Azure CLI">Azure CLI</a></div>
 
 Role-Based access control (RBAC) in the Azure portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for active directory users, groups or service principals by assigning some roles to them at a particular scope.
 
@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to use the Azure CLI to manage RBAC. It walks
 
 Before you can use Azure CLI to manage RBAC, you must have the following:
 
-- Azure Cross-Platform Command-Line Interface version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [install](xplat-cli-install.md).
+- Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [install](xplat-cli-install.md).
 - Please also read the following tutorials to get familiar with set up and using the Azure Resource Manager in the Azure CLI: [Using the Azure CLI with the Resource Manager](xplat-cli-azure-resource-manager.md)
 
 ## In this tutorial ##

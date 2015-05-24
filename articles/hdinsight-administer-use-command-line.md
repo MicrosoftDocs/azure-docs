@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage Hadoop clusters using a Command-Line interface | Microsoft Azure"
-	description="How to use the cross-platform command-line interface to manage Hadoop clusters in HDIsight on any OS supporting Node.js, including Windows, Mac, and Linux."
+	pageTitle="Manage Hadoop clusters using Azure CLI | Microsoft Azure"
+	description="How to use the Azure CLI to manage Hadoop clusters in HDIsight"
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
@@ -16,13 +16,13 @@
 	ms.date="03/31/2015"
 	ms.author="jgao"/>
 
-# Manage Hadoop clusters in HDInsight by using the Cross-Platform Command-line Interface
+# Manage Hadoop clusters in HDInsight by using the Azure Command-line Interface (Azure CLI)
 
-Learn how to use the Azure Command-Line interface for Mac, Linux and Windows to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. 
+Learn how to use the Azure CLI to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
 The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>.
 
-This article covers only using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux] [azure-command-line-tools].
+This article covers only using the Azure CLI from Windows. For a general guide on how to use Azure CLI, see [How to use the Azure CLI] [azure-command-line-tools].
 
 
 ##Prerequisites
@@ -64,7 +64,7 @@ The command-line interface can be installed via *Node.js Package Manager (NPM)* 
 
 ##Download and import an Azure account publishsettings file
 
-Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You need to import your publishsettings file only once.
+Before using the Azure CLI, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the Azure CLI will use for subsequent operations. You need to import your publishsettings file only once.
 
 > [AZURE.NOTE] The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. In Windows, modify the folder properties or use BitLocker Drive Encryption.
 
@@ -76,7 +76,7 @@ Before using the command-line interface, you must configure connectivity between
 
 		azure account download
 
-	![Command-line Interface downloading Azure account.][image-cli-account-download-import]
+	![Azure CLI downloading Azure account.][image-cli-account-download-import]
 
 	The command shows the instructions for downloading the file, including a URL.
 
@@ -190,7 +190,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 * [Administer HDInsight by using the Azure portal] [hdinsight-admin-portal]
 * [Administer HDInsight by using Azure PowerShell] [hdinsight-admin-powershell]
 * [Get started with Azure HDInsight] [hdinsight-get-started]
-* [How to use the Azure CLI for Mac, Linux and Windows] [azure-command-line-tools]
+* [How to use the Azure CLI] [azure-command-line-tools]
 
 
 [azure-command-line-tools]: xplat-cli.md

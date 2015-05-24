@@ -365,31 +365,31 @@ While provisioning a cluster, you can use the other configuration options such a
 		Get-AzureHDInsightCluster -Name <ClusterName>
 
 
-##<a id="cli"></a> Using a cross-platform command line
+##<a id="cli"></a> Using the Azure CLI
 
-> [AZURE.NOTE] As of 8/29/2014, the cross-platform command-line interface (CLI) cannot be used to associate a cluster with an Azure virtual network.
+> [AZURE.NOTE] As of 8/29/2014, Azure CLI cannot be used to associate a cluster with an Azure virtual network.
 
-Another option for provisioning an HDInsight cluster is the cross-platform command-line interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the CLI from the following locations:
+Another option for provisioning an HDInsight cluster is the Azure CLI. Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the CLI from the following locations:
 
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **Cross-platform CLI** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
+- **Azure CLI** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-For a general guide on how to use the command-line interface, see [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
+For a general guide on how to use Azure CLI, see [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
 
-Instructions below guide you on how to install the cross-platform command line on Linux and Windows, and then how to use the command line to provision a cluster.
+Instructions below guide you on how to install Azure CLI on Linux and Windows, and then how to use the command line to provision a cluster.
 
 - [Set up the Azure CLI for Linux](#clilin)
 - [Set up the Azure CLI for Windows](#cliwin)
 - [Provision HDInsight clusters by using the Azure CLI](#cliprovision)
 
-#### <a id="clilin"></a>Set up a cross-platform command line for Linux
+#### <a id="clilin"></a>Set up Azure CLI for Linux
 
 Perform the following procedures to set up your Linux computer to use Azure command-line tools:
 
-- Install a cross-platform command line by using Node.js Package Manager (NPM)
+- Install Azure CLI by using Node.js Package Manager (NPM)
 - Connect to your Azure subscription
 
-**To install the command-line interface by using NPM**
+**To install Azure CLI by using NPM**
 
 1.	Open a terminal window on your Linux computer and run the following command:
 
@@ -408,7 +408,7 @@ Perform the following procedures to set up your Linux computer to use Azure comm
 
 **To connect to your Azure subscription**
 
-Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You need to import your publish settings only once.
+Before using Azure CLI, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by Azure CLI to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that Azure CLI will use for subsequent operations. You need to import your publish settings only once.
 
 > [AZURE.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker Drive Encryption.
 
@@ -428,17 +428,17 @@ Before using the command-line interface, you must configure connectivity between
 		azure account import <path/to/the/file>
 
 
-#### <a id="cliwin"></a>Set up a cross-platform command line for Windows
+#### <a id="cliwin"></a>Set up Azure CLI for Windows
 
-Perform the following procedures to set up your Windows-based computer to use Azure command-line tools:
+Perform the following procedures to set up your Windows-based computer to use Azure CLI:
 
-- Install a cross-platform command line (by using NPM or Windows Installer)
+- Install Azure CLI (by using NPM or Windows Installer)
 - Download and import Azure account publish settings
 
 
-The command-line interface can be installed via NPM or Windows Installer. Microsoft recommends that you install by using only one of the two options.
+Azure CLI can be installed via NPM or Windows Installer. Microsoft recommends that you install by using only one of the two options.
 
-**To install the command-line interface by using NPM**
+**To install Azure CLI by using NPM**
 
 1.	Browse to **www.nodejs.org**.
 2.	Click **INSTALL** and follow the instructions, using the default settings.
@@ -460,14 +460,14 @@ The command-line interface can be installed via NPM or Windows Installer. Micros
 		azure hdinsight cluster -h
 		azure hdinsight cluster create -h
 
-**To install the command-line interface by using Windows Installer**
+**To install Azure CLI by using Windows Installer**
 
 1.	Browse to **http://azure.microsoft.com/downloads/**.
 2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
 **To download and import publish settings**
 
-Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You need to import your publish settings only once.
+Before using Azure CLI, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by Azure CLI to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that Azure CLI will use for subsequent operations. You need to import your publish settings only once.
 
 > [AZURE.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
 
@@ -535,7 +535,7 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 **To provision an HDInsight cluster by using a configuration file**
 
-Typically, you provision an HDInsight cluster, run the jobs, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.
+Typically, you provision an HDInsight cluster, run the jobs, and then delete the cluster to cut down the cost. Azure CLI gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.
 
 - From the command prompt window, run the following commands:
 
