@@ -1,6 +1,21 @@
-<properties pageTitle="Media Services quotas and limitation" description="This topic describes quotas and limitations associated with Microsoft Azure Media Services." services="media-services" documentationCenter="" authors="Juliako" manager="dwrede" />
+<properties 
+	pageTitle="Media Services quotas and limitation" 
+	description="This topic describes quotas and limitations associated with Microsoft Azure Media Services." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/23/2015" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/24/2015" 
+	ms.author="juliako"/>
+
 
 #Quotas and Limitations
 

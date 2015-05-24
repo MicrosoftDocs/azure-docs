@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 #Advanced encoding with Media Encoder Premium Workflow (public preview)
