@@ -16,22 +16,22 @@
 	ms.date="03/10/2015"
 	ms.author="rasquill"/>
 
-# Install and Configure the Azure CLI for Mac, Linux, and Windows
+# Install and Configure the Azure CLI
 
 > [AZURE.SELECTOR]
 - [PowerShell](powershell-install-configure.md)
-- [Cross-Platform CLI](xplat-cli.md)
+- [Azure CLI](xplat-cli.md)
 
-The Azure CLI for Mac, Linux, and Windows provides a set of open source, cross-platform commands for working with the Azure Platform. The Azure CLI provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
+The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. The Azure CLI provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
-The Azure CLI is written in JavaScript, and requires Node.js. It is implemented using the Azure SDK for Node.js, and released under an Apache 2.0 license. The project repository is located at [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
+The Azure CLI is written in JavaScript, and requires Node.js. It is implemented using the Azure SDK for Node.js, and released under an Apache 2.0 license. The project repository is located at [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
 This document describes how to install and configure the Azure CLI for Mac, Linux, and Windows, as well as how to use it to perform basic tasks with the Azure platform.
 
 <a id="install"></a>
-## How to install the Azure CLI for Mac, Linux, and Windows
+## How to install the Azure CLI
 
-To learn the installation steps for the Azure CLI, read the [Install the Azure CLI for Mac, Linux, and Windows](xplat-cli-install.md) page.
+To learn the installation steps for the Azure CLI, read the [Install the Azure CLI](xplat-cli-install.md) page.
 
 
 <a id="configure"></a>
@@ -41,7 +41,7 @@ While some commands provided by the Azure CLI will work without an Azure subscri
 
 
 <a id="use"></a>
-## How to use the Azure CLI for Mac, Linux, and Windows
+## How to use the Azure CLI
 
 The Azure CLI is accessed using the `azure` command. To see a list of commands available, use the `azure` command with no parameters. You should see help information similar to the following:
 
@@ -121,7 +121,7 @@ To change back to Azure service management mode, use the following command:
 
 >[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-For more information on working with the Resource Manager using the Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with the Resource Manager][xplatarm].
+For more information on working with the Resource Manager using the Azure CLI, see [Using the Azure CLI with the Resource Manager][xplatarm].
 
 ### Working with services in Azure service management mode
 
@@ -253,9 +253,9 @@ If you are writing a script that relies on the exit status, please verify that t
 
 * [List of detailed Service Management commands][Using the Azure CLI for Mac, Linux, and Windows]
 
-* [Using the Azure CLI for Mac, Linux, and Windows with the Resource Manager][xplatarm]
+* [Using the Azure CLI with the Resource Manager][xplatarm]
 
-* For more information on the Azure CLI, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI for Mac, Linux, and Windows](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
+* For more information on the Azure CLI, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
 * If you encounter problems using the Azure CLI, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
@@ -278,4 +278,4 @@ If you are writing a script that relies on the exit status, please verify that t
 [xplatarm]: xplat-cli-azure-resource-manager.md
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
-[Using the Azure CLI for Mac, Linux, and Windows]: virtual-machines-command-line-tools.md
+[Using the Azure CLI]: virtual-machines-command-line-tools.md
