@@ -1,5 +1,6 @@
 <properties
-   pageTitle="SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. "
+   pageTitle="Elasticity with the Data Warehouse Unit (DWU)
+   description="SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. "
    services="SQL Data Warehouse"
    documentationCenter="NA"
    authors="barbkess"
