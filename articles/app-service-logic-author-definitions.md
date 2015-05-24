@@ -21,16 +21,365 @@ This topic demonstrates how to use [App Services Logic Apps](app-service-logic-w
 
 ## Several steps that repeat over a list
 
+A common pattern is to have one step that gets a list of items, and then you have a series of two or more actions that you want to do on the list. 
+
+![Repeat over lists](./media/app-service-logic-author-definitions/repeatoverlists.png)
+
+In this example there are 3 actions:
+1. Get a list of articles. This returns back an object that contains an array.
+2. An action that goes to a link property on each article, which will return back the actual location of the article.
+3. An action that iterates over all of the results from the second action to download the actual articles. 
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "getArticles": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+            }
+        },
+        "readLinks": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@repeatItem().link"
+            },
+            "repeat": "@body('getArticles').responseData.feed.entries"
+        },
+        "downloadLinks": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@repeatOutputs().headers.location"
+            },
+            "conditions": [
+                {
+                    "expression": "@not(equals(actions('readLinks').status, 'Skipped'))"
+                }
+            ],
+            "repeat": "@actions('readLinks').outputs.repeatItems"
+        }
+    },
+    "outputs": {}
+}
+```
+
+As covered in [use logic app features](app-service-logic-use-logic-app-features.md), you iterate over the first list by using the `repeat:` property on the second action. However, for the third action, you need to select the `@actions('readLinks').outputs.repeatItems` property, because the second executed for each article.
+
+Inside the action you can use either the: `repeatItem()`, the `repeatOutputs()` or `repeatBody()` functions. In this example, I wanted to get the `location` header, so I used the `repeatOutputs()` function to get the outputs of the action execution from the second action that we are now iterating over.  
 
 ## Mapping items in a list to some different configuration
 
+Next, let's say that we want to get completely different content depending on a value of a property. We can create a map of values to destinations as a parameter. 
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "specialCategories": {
+            "defaultValue": [
+                "science",
+                "google",
+                "microsoft",
+                "robots",
+                "NSA"
+            ],
+            "type": "Array"
+        },
+        "destinationMap": {
+            "defaultValue": {
+                "science": "http://www.nasa.gov",
+                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
+                "google": "https://www.google.com",
+                "robots": "https://en.wikipedia.org/wiki/Robot",
+                "NSA": "https://www.nsa.gov/"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {},
+    "actions": {
+        "getArticles": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+            },
+            "conditions": []
+        },
+        "getSpecialPage": {
+            "repeat": "@body('getArticles').responseData.feed.entries",
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@parameters('destinationMap')[first(intersection(repeatItem().categories, parameters('specialCategories')))]"
+            },
+            "conditions": [
+                {
+                    "expression": "@greater(length(intersection(repeatItem().categories, parameters('specialCategories'))), 0)"
+                }
+            ]
+        }
+    }
+}
+```
+
+In this case, we first get a list of articles, and then the second step looks up in a map, based on the category that was defined as a parameter, which URL to get the content from. 
+
+Two items to pay attention here: the `intersection` function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
+
 ## A failure-handling step if something goes wrong
 
-## Two steps that execute in parellel
+You commonly want to be able to write a *remediation step* -- some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later.
 
-## Join two parallel executions
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dataFeeds": {
+            "defaultValue": [
+                "https://www.microsoft.com/en-us/default.aspx",
+                "https://gibberish.gibberish/"
+            ],
+            "type": "Array"
+        }
+    },
+    "triggers": {},
+    "actions": {
+        "readData": {
+            "repeat": "@parameters('dataFeeds')",
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@repeatItem()"
+            }
+        },
+        "postToErrorMessageQueue": {
+            "repeat": "@actions('readData').outputs.repeatItems",
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://www.example.com/?noteAnErrorFor=@{repeatItem().inputs.uri}"
+            },
+            "conditions": [
+                {
+                    "expression": "@equals(actions('readData').status, 'Failed')"
+                },
+                {
+                    "expression": "@equals(repeatItem().status, 'Failed')"
+                }
+            ]
+        }
+    },
+    "outputs": {}
+}
+```
 
+I am using two conditions because in the first step I am repeating over a list. If you just had a single action, you'd only need one condition (the first one). Also note that you can use the *inputs* to the failed action in your remediation step -- here I pass the failed URL to the second step. 
+
+![Remediation](./media/app-service-logic-author-definitions/remediation.png)
+
+Finally, because you have now handled the error, we no longer mark the run as **Failed**. As you can see here, this run is **Succeeded** even though one step Failed, because I wrote the step to handle this failure.
+
+## Two (or more) steps that execute in parellel
+
+To have multiple actions execution in parellel, rather than in sequence, you need to remove the `dependsOn` condition that links those two actions together. Once the dependency is removed, actions will automatically execute in parallel, unless they need data from each other. 
+
+![Branches](./media/app-service-logic-author-definitions/branches.png)
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dataFeeds": {
+            "defaultValue": [
+                "https://www.microsoft.com/en-us/default.aspx",
+                "https://office.live.com/start/default.aspx"
+            ],
+            "type": "Array"
+        }
+    },
+    "triggers": {},
+    "actions": {
+        "readData": {
+            "repeat": "@parameters('dataFeeds')",
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@repeatItem()"
+            }
+        },
+        "branch1": {
+            "repeat": "@actions('readData').outputs.repeatItems",
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://www.example.com/?branch1Logic=@{repeatItem().inputs.uri}"
+            }
+        },
+        "branch2": {
+            "repeat": "@actions('readData').outputs.repeatItems",
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://www.example.com/?branch2Logic=@{repeatItem().inputs.uri}"
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+As you can see in the example above, branch1 and branch2 just depend on the content from readData. As a result, both of these branches will run in parallel:
+
+![Parallel](./media/app-service-logic-author-definitions/parallel.png)
+
+You can see the timestamp for both branches is identical. 
+
+## Join two conditional branches of logic
+
+You can combine two conditional flows of logic (that may or may not have executed) by having a single action that takes data from both branches. 
+
+Your strategy for this varies depending on if you are handling one item, or a collection of items. In the case of a single item, you'll want to use the `colesce()` function:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "order": {
+            "defaultValue": {
+                "quantity": 10,
+                "id": "myorder1"
+            },
+            "type": "Object"
+        }
+    },
+    "triggers": {},
+    "actions": {
+        "handleNormalOrders": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?orderNormally=@{parameters('order').id}"
+            },
+            "conditions": [
+                {
+                    "expression": "@lessOrEquals(parameters('order').quantity, 100)"
+                }
+            ]
+        },
+        "handleSpecialOrders": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?orderSpecially=@{parameters('order').id}"
+            },
+            "conditions": [
+                {
+                    "expression": "@greater(parameters('order').quantity, 100)"
+                }
+            ]
+        },
+        "submitInvoice": {
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://www.example.com/?invoice=@{coalesce(outputs('handleNormalOrders')?.headers?.etag,outputs('handleSpecialOrders')?.headers?.etag )}"
+            },
+            "conditions": [
+                {
+                    "expression": "@or(equals(actions('handleNormalOrders').status, 'Succeeded'), equals(actions('handleSpecialOrders').status, 'Succeeded'))"
+                }
+            ]
+        }
+    },
+    "outputs": {}
+}
+```
+ 
+Alternatively, when your first two branches both operate on a list of orders, for example, you'll want to use the `union()` function to combine the data from both branches. 
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "orders": {
+            "defaultValue": [
+                {
+                    "quantity": 10,
+                    "id": "myorder1"
+                },
+                {
+                    "quantity": 200,
+                    "id": "specialOrder"
+                },
+                {
+                    "quantity": 5,
+                    "id": "myOtherOrder"
+                }
+            ],
+            "type": "Array"
+        }
+    },
+    "triggers": {},
+    "actions": {
+        "handleNormalOrders": {
+            "repeat": "@parameters('orders')",
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?orderNormally=@{repeatItem().id}"
+            },
+            "conditions": [
+                {
+                    "expression": "@lessOrEquals(repeatItem().quantity, 100)"
+                }
+            ]
+        },
+        "handleSpecialOrders": {
+            "repeat": "@parameters('orders')",
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.example.com/?orderSpecially=@{repeatItem().id}"
+            },
+            "conditions": [
+                {
+                    "expression": "@greater(repeatItem().quantity, 100)"
+                }
+            ]
+        },
+        "submitInvoice": {
+            "repeat": "@union(actions('handleNormalOrders').outputs.repeatItems, actions('handleSpecialOrders').outputs.repeatItems)",
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://www.example.com/?invoice=@{repeatOutputs().headers.etag}"
+            },
+            "conditions": [
+                {
+                    "expression": "@equals(repeatItem().status, 'Succeeded')"
+                }
+            ]
+        }
+    },
+    "outputs": {}
+}
+```
 ## Working with Strings
+
+
 
 ## Working with Date Times
 
