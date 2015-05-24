@@ -212,7 +212,7 @@ for the index. Choosing a lower precision means that more documents
 might have to be processed during query execution, but the storage
 overhead will be lower.
 
-The index precision for values at any path can be between 3 and 7 bytes. 
+The index precision for values at any path can be between 1 and 7, or set to -1 indicating that the path must utilize the maximum required precision. 
 Since the same path might have numeric and string
 values in different documents, these can be controlled separately. In
 the .NET SDK, these values correspond to the [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) and
@@ -223,8 +223,9 @@ an index type of **Hash** enables efficient equality queries. For most
 use cases, hash indexes do not need a higher precision than the default value
 of 3 bytes.
 
-Choosing an index type of **Range** enables range queries (using >, <, >=, <=, !=). For paths that have large ranges of values, it is recommended to use a higher precision like 6 bytes. A common use case
-that requires a higher precision range index is timestamps stored as epoch time.
+Choosing an index type of **Range** enables range queries (using >, <, >=, <=, !=) as well as **Order By** queries. Order By queries also by default require that the range index is created with the maximum index precision (-1) in order to guarantee the total order of results.
+
+For paths that have large ranges of values, it is recommended to use a higher precision like 6 bytes. A common use case that requires a higher precision range index is timestamps stored as epoch time.
 
 If your use case does not require efficient range queries, then the
 default of hash indexes offer the best tradeoff of storage and
