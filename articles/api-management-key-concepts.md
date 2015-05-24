@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
 #What is API Management?
@@ -41,13 +41,13 @@ For information, see [How to create and publish a product][].
 
 ## <a name="groups"> </a> Groups
 
-Groups are used to manage the visibility of products to developers. API Management has the following built-in groups.
+Groups are used to manage the visibility of products to developers. API Management has the following immutable system groups.
 
--	**Administrators** - Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
--	**Developers** - Developers are the customers that build applications using your APIs. Developers are granted access to the [developer portal][] and build applications that call the operations of an API.
--	**Guests** - Unauthenticated users, such as prospective customers, visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
+-	**Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
+-	**Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
+-	**Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-In addition to these built-in groups, administrators can create custom groups. Custom groups have the same privileges as the built-in developers group, and can be used to manage multiple groups of developers. For example, you could create one custom group for developers that will use the APIs from one product, and another group for developers that will use the APIs from a different product.
+In addition to these system groups, administrators can create custom groups and import Azure Active Directory external groups. Custom groups and external groups have the same privileges as the system developers group, and can be used to manage multiple groups of developers. For example, you could create one custom group for developers that will use the APIs from one product, and another group for developers that will use the APIs from a different product.
 
 For more information, see  [How to create and use groups][].
 

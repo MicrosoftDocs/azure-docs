@@ -60,22 +60,6 @@ The Azure DNS service is managed by the Microsoft.Network resource provider. You
 	PS c:\> Register-AzureProvider -ProviderNamespace Microsoft.Network 
 
 
-## Sign up to the Azure DNS Public Preview
-
-To register your subscription to use the Azure DNS Public Preview, please execute the following PowerShell command:
-
-	PS C:\> Register-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
-
-You can check your registration status as follows:
-
-	PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
-
-	FeatureName                       ProviderName                RegistrationState  
-	-----------                       ------------                -----------------  
-	azurednspreview                   Microsoft.Network           Registered 
-
-
-Your RegistrationState may show as ‘Pending’, in which case please check back later.
 
 ## Etags and Tags
 ### Etags

@@ -338,11 +338,11 @@ In this step, you will create the following pipelines:
 
 	![Diagram View][image-data-factory-tutorial-diagram-view]
 
-3. Right-click **AnalyzeMarketingCampaignPipeline**, and click **Open Pipeline**. You should see all the activities in the pipeline.
+3. Right-click **AnalyzeMarketingCampaignPipeline**, and click **Open Pipeline**. You should see all the activities in the pipeline along with input and output datasets for the activities. 
  
 	![Open pipeline](./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline-OpenPipeline.png)
 
-	Click **Data factory** in the breadcrumb at the top to get back to the diagram view with all the pipelines.  
+	Click **Data factory** in the breadcrumb in the top-left corner to get back to the diagram view with all the pipelines.  
 
 
 **Congratulations!** You have successfully created the Azure Data Factory, Linked Services, Pipelines, Tables and started the workflow. 

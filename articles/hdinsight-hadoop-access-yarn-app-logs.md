@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Access HDInsight YARN application logs programmatically | Microsoft Azure" 
-	description="Access HDInsight YARN application logs programmatically." 
+	pageTitle="Access Hadoop YARN application logs programmatically | Microsoft Azure" 
+	description="Access application logs programmatically on a Hadoop cluster in HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,7 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# Access YARN application logs in HDInsight programmatically
+# Access YARN application logs on Hadoop in HDInsight programmatically
 
 This topic explains how to programmatically enumerate the YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight, and how to programmatically access the application logs without having to connect to your clusters by using Remote Desktop Protocol (RDP). Specifically, a new component and a new API have been added:
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2015"
+   ms.date="05/20/2015"
    ms.author="jesseb"/>
 
 # Visualizing your cluster using Service Fabric Explorer
@@ -64,7 +64,7 @@ To view a remote Service Fabric cluster, click on **Connect** to bring up the **
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Importance of testability](service-fabric-testability-importance.md).
+- [Testability overview](service-fabric-testability-overview.md).
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 - [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)
 

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="05/12/2014" 
+	ms.date="05/12/2015" 
 	ms.author="lauraa"/>
 
 

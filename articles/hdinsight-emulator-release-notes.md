@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Microsoft Azure" 
-	description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." 
+	description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator, a Hadoop sandbox environment." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -19,7 +19,7 @@
 
 
 
-# Release notes: Microsoft HDInsight Emulator for Azure 
+# Release notes: Microsoft HDInsight Emulator for Hadoop 
 
 
 

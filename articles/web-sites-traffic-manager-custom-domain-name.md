@@ -41,6 +41,10 @@ This article provides generic instructions for using a custom domain name with A
 <a name="bkmk_configurecname"></a>
 ## Add a DNS record for your custom domain
 
+
+> [AZURE.NOTE] If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article. 
+
+
 To associate your custom domain with a web app in Azure App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by the domain registrar that you purchased your domain name from. Use the following steps to locate and use the DNS tools.
 
 1. Log on to your account at your domain registrar, and look for a page for managing DNS records. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**. Often a link to this page can be found be viewing your account information, and then looking for a link such as **My domains**.

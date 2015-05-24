@@ -174,11 +174,11 @@ When all of the previous steps have been completed, you’ll set the IPsec/IKE p
 
 For VNet1
 
-````PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4````
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
 For VNet2
 
-````PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4````
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 Wait for the connections to initialize. Once the Gateway has initialized, the gateway will look like the graphic below and your virtual networks are connected.
 

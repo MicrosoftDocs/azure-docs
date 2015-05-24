@@ -72,14 +72,15 @@ To create an updatable endpoint visit the Azure Portal and click on Add Endpoint
 
 	We then copy the sample C# code from the Training Web Service's API help page for batch execution (created in Step 3 above) and paste it into the Program.cs file, making sure the namespace remains intact.  
 
-	Note that sample code has comments which indicate parts of the code that need updates.  
+	Note that sample code has comments which indicate parts of the code that need updates. 
+	Also, when specifiying the "output1" location in the Reqeust Payload, the file extention of the "RelativeLocation" has to be changed an ".ileaner" as in "Outputs": {Global Parameters ... { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==", "RelativeLocation": "mycontainer/output1results.ilearner"}}.
 
 	1. Provide Azure Storage info
 The sample code for BES will upload a file from a local drive (e.g. “C:\temp\CensusIpnput.csv”) to Azure Storage, process it, and write the results back to Azure Storage.  
 
 		To accomplish that, you need to retrieve the Storage account name, key, and container information from the Azure Management Portal for your Storage account and the update the code here. You also need to ensure the input file is available at the location you specify in the code.  
 
-		We had set up this Training Experiment with two outputs, so the results will include storage location information for both of them, as seen below. “output1” is the output of the Trained Model, “output2” the output of Evaluate Model.  
+		We had set up this Training Experiment with two outputs, so the results will include storage location information for both of them, as seen below. “output1” is the output of the Trained Model, “output2” the output of Evaluate Model.  Also note that the file extention of the Output for the Trained Model (Output1) is ".ileaner" and not ".csv".
 
 		![][6]
  
