@@ -1,6 +1,5 @@
 <properties
-   pageTitle="Elasticity with the Data Warehouse Unit (DWU) | Microsoft Azure"
-   description="Enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds. "
+   pageTitle="SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. "
    services="SQL Data Warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -14,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.author="barbkess;JRJ@BigBangData.co.uk;micwa"/>
 
 # Elasticity with the Data Warehouse Unit (DWU)
 
