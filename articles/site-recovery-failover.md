@@ -218,7 +218,7 @@ Note that if a test failover continues for more than two weeks it’s completed 
 8. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover. 
 9. After replication is complete the virtual machines start up at the secondary location. 
 
-## Running an unplanned failover
+## Run an unplanned failover
 
 This procedure describes how to run an unplanned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
 
