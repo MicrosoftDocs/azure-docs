@@ -37,7 +37,7 @@ SQL Data Warehouse uses Microsoft’s massive parallel processing (MPP) architec
 
 - Much of the secret sauce is in Microsoft's distributed query technology. SQL Data Warehouse uses an advanced query optimizer that figures out how to optimize distributed queries based on assessing the cost of query operations. It also has advanced algorithms and techniques that efficiently move data among the computing resources as necessary to perform the query.
 - Columnstore indexes are key to achieving fast query performance on data warehouse queries. By using column-based storage, columnstore indexes get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains. Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table. In contrast, OLTP queries work great on binary tree indexes because they seek to specific rows in the table.
-- When you create a table, you can choose to distribute the data by using a deterministric hash function, or by using a round-robin method.  The hash function usually works best for large tables that will be used in joins, and the round-robin method is great for smaller tables. If you want to experiment, its easy to re-create the table with a different distribution method.
+
 
 ## Hybrid cloud with enterprise-class SQL Server experience
 SQL Data Warehouse is based on SQL Server’s proven relational database engine and includes the features you expect from an enterprise data warehouse including stored procedures, user-defined functions, table partitioning, indexes, and collations. 
