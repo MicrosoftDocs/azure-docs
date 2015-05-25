@@ -143,6 +143,7 @@ Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.c
 It can often be easier to manage your Logic Apps when they are more discreet. You can do this by factoring your logic into multiple definitions and calling them from the same parent definition. In this example, there will be a parent Logic app that receives orders, and a child logic app that executes some steps for each order.
 
 In the parent logic app:
+
 ```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
@@ -200,7 +201,7 @@ In the parent logic app:
 }
 ```
 
-Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerbody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
+Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
 
 ```
 {
@@ -235,7 +236,7 @@ Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.micro
 
 You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx). 
 
-	>[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
+>[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
 
 
 ## A failure-handling step if something goes wrong
