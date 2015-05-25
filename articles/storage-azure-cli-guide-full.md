@@ -26,7 +26,8 @@ Azure CLI provides a set of open source, cross-platform commands for working wit
 This guide assumes that you have prior experience using [Azure Storage](http://azure.microsoft.com/documentation/services/storage/). The guide provides a number of scripts to demonstrate the usage of xplat-cli with Azure Storage. You should update the script variables based on your configuration before running each script.
 
 The first section in this guide provides a quick glance at Azure Storage and Azure CLI. For detailed information and instructions, start from the [Prerequisites for using Azure PowerShell with Azure Storage](#pre).
-**New to Azure:** The guide provides command and script examples running in Azure CLI Service Management mode (asm). You can refer to the documentation [here](http://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands in arm mode. 
+
+> [AZURE.NOTE] The guide provides command and script examples running in Azure CLI Service Management mode (asm). You can refer to the documentation [here](http://azure.microsoft.com/en-us/documentation/articles/azure-cli-arm-commands/#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands in arm mode. 
 
 ## Getting started with Azure Storage and Azure CLI in 5 minutes
 This section shows you how to access Azure Storage via Azure CLI in 5 minutes. Note that Azure CLI can be installed and run on different platforms such as Windows, Linux and Mac. For this documentation, we take Ubuntu as an example but it should not be difficult to follow these steps in other OS platforms. 
