@@ -3,7 +3,7 @@
 	description="Azure Site Recovery coordinates the replication, failover and recovery of SQL Server to a secondary on-premises site or Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="raynew" 
+	authors="rayne-wiselman" 
 	manager="jwhit" 
 	editor="tysonn"/>
 
