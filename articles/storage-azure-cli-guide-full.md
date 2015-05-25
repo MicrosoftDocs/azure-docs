@@ -196,4 +196,4 @@ In this guide, you've learned how to manage Azure Storage with Azure CLI. Here a
 - [Azure Storage MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 
-[Image1]: ./media/storage-xplat-guide-full/azure_command.png
+[Image1]: ./media/storage-azure-cli-guide-full/azure_command.png
