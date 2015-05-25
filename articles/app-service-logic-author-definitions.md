@@ -138,6 +138,106 @@ In this case, we first get a list of articles, and then the second step looks up
 
 Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
 
+## Chain/nest Logic Apps while repeating over a list
+
+It can often be easier to manage your Logic Apps when they are more discreet. You can do this by factoring your logic into multiple definitions and calling them from the same parent definition. In this example, there will be a parent Logic app that receives orders, and a child logic app that executes some steps for each order.
+
+In the parent logic app:
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "orders": {
+            "defaultValue": [
+                {
+                    "quantity": 10,
+                    "id": "myorder1"
+                },
+                {
+                    "quantity": 200,
+                    "id": "specialOrder"
+                },
+                {
+                    "quantity": 5,
+                    "id": "myOtherOrder"
+                }
+            ],
+            "type": "Array"
+        }
+    },
+    "triggers": {},
+    "actions": {
+        "iterateOverOrders": {
+            "repeat": "@parameters('orders')",
+            "type": "Workflow",
+            "inputs": {
+                "uri": "https://westus.logic.azure.com/subscriptions/423db32d-4f58-4220-961c-b59f14c962f1/resourceGroups/bpmdemo001/providers/Microsoft.Logic/workflows/simpleflow",
+                "apiVersion": "2015-02-01-preview",
+                "trigger": {
+                    "name": "submitOrder",
+                    "outputs": {
+                        "body": "@repeatItem()"
+                    }
+                },
+                "authentication": {
+                    "type": "Basic",
+                    "username": "default",
+                    "password": "lFf1-JCYHIFZp5dzBOAUbkXh0qVVYerhATa-q87XAwE"
+                }
+            }
+        },
+        "sendInvoices": {
+            "repeat": "@outputs('iterateOverOrders').repeatItems",
+            "type": "Http",
+            "inputs": {
+                "uri": "http://www.example.com/?invoiceID=@{repeatOutputs().run.outputs.deliverTime.value}",
+                "method": "GET"
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerbody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "calulatePrice": {
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://www.example.com/?action=calcPrice&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
+            }
+        },
+        "calculateDeliveryTime": {
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://www.example.com/?action=calcTime&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
+            }
+        }
+    },
+    "outputs": {
+        "deliverTime": {
+            "type": "String",
+            "value": "@outputs('calculateDeliveryTime').headers.etag"
+        }
+    }
+}
+```
+
+You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx). 
+
+	>[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
+
+
 ## A failure-handling step if something goes wrong
 
 You commonly want to be able to write a *remediation step* -- some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later.
