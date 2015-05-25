@@ -1,5 +1,5 @@
 <properties
-   pageTitle=""
+   pageTitle="Data warehouse workload"
    description="SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. "
    services="SQL Data Warehouse"
    documentationCenter="NA"
@@ -17,23 +17,22 @@
    ms.author="barbkess;JRJ@BigBangData.co.uk;micwa"/>
 
 # Data warehouse workload
-Data warehouses are characterized by queries that scan larger numbers of rows, large ranges of data and may return relatively large results for the purposes of analysis and reporting. Data warehouses are also characterized by relatively large data loads versus small transaction-level inserts/updates/deletes. 
+A data warehouse workload refers to all of the operations that transpire against a data warehouse. The data warehouse workload encompasses the entire process of loading data into the warehouse, performing analysis and reporting on the data warehouse, managing data in the data warehouse, and exporting data from the data warehouse. The depth and breadth of these components are often commensurate with the maturity level of the data warehouse.
 
-## What is a data warehouse?
+
+## New to data warehousing?
 A data warehouse is a collection of data that is loaded from one or more data sources and is used to perform business intelligence tasks such as reporting and data analysis. 
 
+Data warehouses are characterized by queries that scan larger numbers of rows, large ranges of data and may return relatively large results for the purposes of analysis and reporting. Data warehouses are also characterized by relatively large data loads versus small transaction-level inserts/updates/deletes. 
 
-- A data warehouse performs best when the data is stored in a way that optimizes query operations that scan large numbers of rows or large ranges of data. This type of scanning works best when the data is stored and searched by columns, instead of by rows. 
+- A data warehouse performs best when the data is stored in a way that optimizes queries that need to scan large numbers of rows or large ranges of data. This type of scanning works best when the data is stored and searched by columns, instead of by rows. 
 
 >[AZURE.NOTE] The in-memory columnstore index, which uses column storage, provides up to 5x compression gains and 10x query performance gains over traditional binary trees for reporting and analytics queries. We consider columnstore indexes as the standard for storing and scanning large data in a data warehouse.
 
-
 - A data warehouse has different requirements than a system that optimizes for online transaction processing (OLTP). The OLTP system has many insert, update, and delete operations. These operations seek to specific rows in the table. Table seeks perform best when the data is stored in a row-by-row manner. The data can be sorted and quickly searched with a divide and conquer approach called a binary tree or btree search.
 
-## What is a data warehouse workload?
-A data warehouse workload refers to all of the operations that transpire against a data warehouse. The data warehouse workload encompasses the entire process of loading data into the warehouse, performing analysis and reporting on the data warehouse, managing data in the data warehouse, and exporting data from the data warehouse. The depth and breadth of these components are often commensurate with the maturity level of the data warehouse.
 
-### Data loading
+## Data loading
 Data loading is a big part of the data warehouse workload. Businesses usually have a busy OLTP system that tracks changes throughout the day when customers are generating business transactions. Periodically, often at night during a maintenance window, the transactions are moved or copied to the data warehouse. Once the data is in the data warehouse, analysts can perform analysis and make business decisions on the data.
 
 - Traditionally, the process of loading is called ETL for Extract, Transform, and Load. Data usually needs to be transformed so it is consistent with other data in the data warehouse. Previously, businesses used dedicated ETL servers to perform the transformations. Now, with such fast massively parallel processing you can load data into SQL Data Warehouse first, and then perform the transformations. This process is called Extract, Load, and Transform (ELT), and is becoming a new standard for the data warehouse workload.

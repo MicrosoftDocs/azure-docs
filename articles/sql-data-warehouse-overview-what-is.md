@@ -20,23 +20,9 @@
 
 SQL Data Warehouse is an enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds. 
 
-
-## New to data warehousing?
-A data warehouse is a collection of data that is loaded from one or more data sources and is used to perform business intelligence tasks such as reporting and data analysis. 
-
-
-Data warehouses are characterized by queries that scan larger numbers of rows, large ranges of data and may return relatively large results for the purposes of analysis and reporting. Data warehouses are also characterized by relatively large data loads versus small transaction-level inserts/updates/deletes. 
-
-- A data warehouse performs best when the data is stored in a way that optimizes queries that need to scan large numbers of rows or large ranges of data. This type of scanning works best when the data is stored and searched by columns, instead of by rows. 
-
->[AZURE.NOTE] The in-memory columnstore index, which uses column storage, provides up to 5x compression gains and 10x query performance gains over traditional binary trees for reporting and analytics queries. We consider columnstore indexes as the standard for storing and scanning large data in a data warehouse.
-
-- A data warehouse has different requirements than a system that optimizes for online transaction processing (OLTP). The OLTP system has many insert, update, and delete operations. These operations seek to specific rows in the table. Table seeks perform best when the data is stored in a row-by-row manner. The data can be sorted and quickly searched with a divide and conquer approach called a binary tree or btree search.
-
-## SQL Data Warehouse design
 SQL Data Warehouse blends the best of SQL Server's enterprise-class relational database quality and reliability with Cloud computing.  Read more about the key design components of SQL Data Warehouse.
 
-### Grow, shrink, or pause compute resources
+## Grow, shrink, or pause compute resources
 With SQL data warehouse, data is stored in cloud-scale storage, and compute is scaled independently, allowing you to pay for query performance as you need it. You can now dynamically deploy, grow, shrink, and even pause compute. Take full advantage of storage at cloud scale, and apply query compute based on seasonal needs. When paused, you only pay for storage.
 
 > [AZURE.NOTE] Data Warehouse Units (DWUs) are the unit of scale for compute resources in SQL Data Warehouse. 
@@ -44,7 +30,7 @@ With SQL data warehouse, data is stored in cloud-scale storage, and compute is s
 - When you need faster results, increase your DWUs and pay for the greater number DWUs; when you don't need that much compute power, decrease your DWUs and go back to paying for the smaller amount of DWUs. The compute power grows in proportion to the number of DWUs; doubling the DWUs doubles the compute resources. 
 - When you don't need to run queries, perhaps in the evenings or weekends, pause compute resources to cancel all running queries and remove all DWUs allocated to your data warehouse. Your data storage stays intact, but there is no charge for compute resources. When you need to start running queries, perhaps on Monday morning, you can resume your compute resources. 
 
-### Massively parallel processing and columnstore indexes for breakthrough performance
+## Massively parallel processing and columnstore indexes for breakthrough performance
 SQL Data Warehouse uses Microsoft’s massive parallel processing (MPP) architecture, and SQL Server's columnstore index technology to deliver breakthrough performance. 
 
 > [AZURE.NOTE] MPP is a divide and conquer approach to solving large data problems by using parallel computing. Data is divided and distributed across many computing resources, and each computing resource operates on its portion of the data in parallel.
@@ -53,7 +39,7 @@ SQL Data Warehouse uses Microsoft’s massive parallel processing (MPP) architec
 - Columnstore indexes are key to achieving fast query performance on data warehouse queries. By using column-based storage, columnstore indexes get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains. Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table. In contrast, OLTP queries work great on binary tree indexes because they seek to specific rows in the table.
 - When you create a table, you can choose to distribute the data by using a deterministric hash function, or by using a round-robin method.  The hash function usually works best for large tables that will be used in joins, and the round-robin method is great for smaller tables. If you want to experiment, its easy to re-create the table with a different distribution method.
 
-### Hybrid cloud with enterprise-class SQL Server experience
+## Hybrid cloud with enterprise-class SQL Server experience
 SQL Data Warehouse is based on SQL Server’s proven relational database engine and includes the features you expect from an enterprise data warehouse including stored procedures, user-defined functions, table partitioning, indexes, and collations. 
 
 > [AZURE.NOTE] If you already know Transact-SQL, its easy to transfer your knowledge to SQL Data Warehouse.  Whether you are advanced or a novice, the documentation examples will help you get started. 
@@ -63,7 +49,7 @@ SQL Data Warehouse is based on SQL Server’s proven relational database engine 
 - With the Transact-SQL and feature commonality between SQL Server, SQL Data Warehouse, SQL Database, and Analytics Platform System, you can develop a solution that fits your data needs. You can decide where to keep your data, based on performance, security, and scale requirements, and then transfer data as necessary between on-premises and Cloud.
 
 
-### Query across both relational and non-relational data
+## Query across both relational and non-relational data
 Polybase enables you to query non-relational data held in Azure blob storage or in Hadoop's File System (HDFS) as though it is a regular table. Use Polybase to query non-relational data or to import non-relational data into SQL Data Warehouse.
 
 > [AZURE.NOTE] Polybase is easy to use and allows you to leverage your data from different sources by using the same T-SQL commands you're already familiar with. There is no need to learn HiveQL or other languages to benefit from Hadoop.
@@ -72,7 +58,7 @@ Polybase enables you to query non-relational data held in Azure blob storage or 
 - PolyBase uses external tables to access non-relational data.  The table definitions are stored in SQL Data Warehouse, and the data is stored externally in Hadoop or Azure blob storage.
 
 
-### Secure infrastructure deployment with no maintenance costs
+## Secure infrastructure deployment with no maintenance costs
 SQL Data Warehouse easily deploys in seconds. This service is a fully managed offering which removes the hassle of spend time on software patching and maintenance. SQL Data Warehouse has built-in backups to support self-service restore; the service automatically backs up your data to Azure Storage as it snapshots database restore points.
 
 
