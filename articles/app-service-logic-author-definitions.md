@@ -173,7 +173,7 @@ In the parent logic app:
             "repeat": "@parameters('orders')",
             "type": "Workflow",
             "inputs": {
-                "uri": "https://westus.logic.azure.com/subscriptions/423db32d-4f58-4220-961c-b59f14c962f1/resourceGroups/bpmdemo001/providers/Microsoft.Logic/workflows/simpleflow",
+                "uri": "https://westus.logic.azure.com/subscriptions/xxxxxx-xxxxx-xxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Logic/workflows/xxxxxxx",
                 "apiVersion": "2015-02-01-preview",
                 "trigger": {
                     "name": "submitOrder",
@@ -184,7 +184,7 @@ In the parent logic app:
                 "authentication": {
                     "type": "Basic",
                     "username": "default",
-                    "password": "lFf1-JCYHIFZp5dzBOAUbkXh0qVVYerhATa-q87XAwE"
+                    "password": "xxxxxxxxxxxxxx"
                 }
             }
         },
