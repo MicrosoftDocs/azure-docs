@@ -100,7 +100,7 @@ To open a support ticket do the following:
  
 1. Click Continue.
  
-1. Follow instructions on next page and then enter details about how many Encoding or Streaming reserved units you need. 
+1. Follow instructions on next page and then enter details about your issue.   
  
 1. Click submit to open the ticket.
  
