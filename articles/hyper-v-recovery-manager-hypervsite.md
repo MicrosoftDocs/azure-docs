@@ -185,6 +185,7 @@ After verifying the prerequisites, do the following:
 	- Target IP - If the network adapter of source virtual machine is configured to use static IP then the user can provide the IP for the target virtual machine. User can use this capability to retain the IP of the source virtual machine after a fail-over. If no IP is provided any available IP would be given to network adapter at the time of fail-over. In case the target IP provided by user is already used by some other virtual machine that is already running in Azure then the fail-over would fail.
 	
 	![Configure VM Properites](./media/hyper-v-recovery-manager-hypervsite/MultiNic.png)
+**Note:** <a href="https://support.microsoft.com/en-us/kb/3056159">Read more </a> on how to manage network bandwidth usage for virtual machine replication.
 	
 
 ### <a id="recoveryplans"></a>Step 7: Test the deployment

@@ -63,3 +63,5 @@ For more information, see [Working with Channels that Receive Multi-bitrate Live
 ##Related topics
 
 [Media Services Concepts](media-services-concepts.md)
+
+[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)

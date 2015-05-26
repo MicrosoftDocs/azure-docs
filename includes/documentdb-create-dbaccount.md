@@ -36,7 +36,6 @@
 
     ![Screen shot of the Resource Group blade][7]  
 
-
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
 [2]: media/documentdb-create-dbaccount/ca2.png

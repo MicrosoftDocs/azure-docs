@@ -12,10 +12,16 @@ If you have not already added your web app as a Traffic Manager endpoint, you mu
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. Click the **"..."** at the right side of your domain. Then click **Manage Hostnames**, then you can bind **subdomain** to your **Traffic Manager** on **Hostname bindings** blade.
+3. In the **Custom domains and SSL** blade, click **Bring external domains**.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-tamdomains-1.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
-	Once configuration has completed, the custom domain name will be listed in the **Hostnames Assign to Site** section of your web app.
+4. Use the **DOMAIN NAMES** text boxes to enter the Traffic Manager domain name (contoso.trafficmanager.net) to associate with this web app.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
+
+5. Click **Save** to save the domain name configuration.
+
+	Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
+
+At this point, you should be able to enter the Traffic Manager domain name (contoso.trafficmanager.net) name in your browser and see that it successfully takes you to your web app.
