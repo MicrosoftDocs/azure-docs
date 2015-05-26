@@ -80,7 +80,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 
 * *Build or checksum validation errors?*
- * Try using a specific version, such as:* `<version>0.9.3</version>`. You'll find the latest version in the [SDK release notes](http://azure.microsoft.com/documentation/articles/app-insights-release-notes-java/). 
+ * Try using a specific version, such as:* `<version>0.9.3</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md). 
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -99,7 +99,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'0.9.3'`. *You'll find the latest version in the [SDK release notes](http://azure.microsoft.com/documentation/articles/app-insights-release-notes-java/).* 
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'0.9.3'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).* 
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -130,7 +130,7 @@ Questions...
 
 * *To update the SDK*
  * Download the latest [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones.
- * Changes are described in the [SDK release notes](http://azure.microsoft.com/documentation/articles/app-insights-release-notes-java/).
+ * Changes are described in the [SDK release notes](app-insights-release-notes-java.md).
 
 
 
