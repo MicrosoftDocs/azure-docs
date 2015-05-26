@@ -28,7 +28,7 @@ Creating an Azure virtual machine (VM) that runs Linux is easy to do from the co
 
 ## Install the Azure CLI
 
-The first step [install the Azure CLI](xplat-cli-install.md). 
+The first step is to [install the Azure CLI](xplat-cli-install.md). 
 
 Good. Now make sure you're in the resource management mode by typing `azure config mode arm`. 
 
