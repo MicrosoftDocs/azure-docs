@@ -32,9 +32,9 @@ Click to see the [SDK Content](mobile-engagement-windows-store-sdk-content.md)
 
 ##Release notes
 
-###3.0.1 (04/29/2015)
+###3.1.0 (05/21/2015)
 
--   Fixed a bug affecting the SDK initialization on some Windows Phone WinRT apps.
+-   The Mobile Engagement device id is now based on a GUID generated at installation time
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-store-release-notes.md)
 

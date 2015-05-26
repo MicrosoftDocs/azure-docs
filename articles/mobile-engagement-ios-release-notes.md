@@ -18,6 +18,10 @@
 
 #Release notes
 
+##2.2.0 (05/21/2015)
+
+-   The Mobile Engagement device id for devices < iOS 6 is now based on a GUID generated at installation time.
+
 ##2.1.0 (04/24/2015)
 
 -   Add Swift compatibility.
