@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="05/27/2015" 
 	ms.author="josephd"/>
 
 # SharePoint Server Farm
@@ -38,14 +38,14 @@ For the configuration details of both of these farms, see [SharePoint Server Far
  
 To create your SharePoint farm with the SharePoint Server Farm template, do the following:
 
-1. In the [Microsoft Azure Preview Portal](https://portal.azure.com/), click  **New** > **Compute** > **SharePoint Server Farm**.
+1. In the [Microsoft Azure Preview Portal](https://portal.azure.com/), click  **New** > **Compute** > **SharePoint Server Farm**. If **SharePoint Server Farm** does not appear, click **New** > **Compute** > **Azure Marketplace**, type **SharePoint** in **Search Everything**, and then click **SharePoint Server Farm**. 
 2. In the **Create a SharePoint farm** pane, type the name of a resource group.
 3. Type a user name and password for a local administrator account on each virtual machine in your farm. Choose a name and password that is difficult to guess, record it, and store it in a secure location.
 4. If you want the high-availability farm, click **Enable high availability**.
 5. To configure your domain controllers, click the arrow. You can specify a host name prefix (the default is the resource group name), forest root domain name (default is contoso.com), and the size of your domain controllers (default is A1).
 6. To configure your SQL servers, click the arrow. You can specify a host name prefix (the default is the resource group name), the size of your SQL servers (default is A5), a database access account name and password (the default is to use the administrator account), and a SQL server service account name (the default is sqlservice) and password (the default is to use the same password as the administrator account).
 7. To configure your SharePoint servers, click the arrow. You can specify a host name prefix (the default is the resource group name), the size of your SharePoint servers (default is A2), a SharePoint user account (the default is sp_setup) and password, a SharePoint farm account name (the default is sp_farm) and password, and a SharePoint farm passphrase. The default is to use the administrator password for the SharePoint user account, farm account, and passphrase.
-8. To configure optional configuration (the virtual network, storage account, diagnostics), click the arrow.
+8. To configure optional configuration settings for the virtual network, storage account, or diagnostics, click the corresponding arrow.
 9. To specify the subscription, click the arrow.
 10. When you are done, click **Create**.
 
@@ -77,7 +77,7 @@ From the Central Administration SharePoint site, you can configure My sites, Sha
 Notes:
 
 - The Azure Preview Portal creates these virtual machines within your subscription.
-- The Azure Preview Portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN connection back to your organization network. 
+- The Azure Preview Portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network. 
 - You can administer these servers through Remote Desktop connections. For more information, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
 
 
@@ -87,8 +87,10 @@ SharePoint Server Farm uses the Azure Resource Manager and scripts to automatica
 
 ## Additional Resources
 
-[SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
-
 [SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
+[SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+
+[SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
