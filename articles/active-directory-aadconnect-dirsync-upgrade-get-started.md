@@ -124,7 +124,7 @@ When you install Azure AD Connect on a new server it won't find DirSync and will
 
 Azure AD Connects and presents you with the following UI:
 
-<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsettings.png)</center>
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)</center>
 
 5. Select the settings file that exported from your DirSync installation.
 6. Configure any advanced options including:
