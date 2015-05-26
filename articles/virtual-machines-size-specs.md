@@ -51,6 +51,7 @@ The following considerations might help you decide on a size:
 The following tables show the sizes and the capacities offered by each.
 
 >[AZURE.NOTE]Storage capacity is represented using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.
+
 ### Basic Tier
 
 |Size – Management Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
