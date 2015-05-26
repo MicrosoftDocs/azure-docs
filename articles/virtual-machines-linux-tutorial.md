@@ -22,7 +22,7 @@
 - [Azure Portal](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-Creating an Azure virtual machine (VM) that runs Linux is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface for Mac, Linux, and Windows (the Azure CLI) to create quickly an Ubuntu Server VM running in Azure. You can also create Linux VMs using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).
+Creating an Azure virtual machine (VM) that runs Linux is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface for Mac, Linux, and Windows (the Azure CLI) to create quickly an Ubuntu Server VM running in Azure, connect to it using **ssh**, and creating and mounting a new disk. (This topic uses an Ubuntu Server VM, but you can also create Linux VMs using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).)
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
@@ -140,7 +140,7 @@ Your VM is up and running and waiting for you to connect.
 
 ## Connecting to your VM
 
-This command uses usernames and passwords; to use public and private key pairs to communication with your VM, see 
+This command uses usernames and passwords; to use public and private key pairs to communication with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
 
 	ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
 	The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
@@ -177,7 +177,7 @@ This command uses usernames and passwords; to use public and private key pairs t
 	
 	ops@myuniquevmname:~$ 
 
-Now you're ready to attach a disk.
+Now that you're connected to your VM, you're ready to attach a disk.
 
 ## Attach and mount a disk
 
@@ -200,7 +200,7 @@ Now let's find the disk, using `dmesg | grep SCSI` (the method you use to discov
 	[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 	[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 
-and the `sdc` disk is the one that we want. Now partition the disk with `sudo fdisk /dev/sdc` -- assuming that in your case the disk was `sdc`, and make it a primary disk on partition 1, and accept the other defaults.
+and in the case of this topic, the `sdc` disk is the one that we want. Now partition the disk with `sudo fdisk /dev/sdc` -- assuming that in your case the disk was `sdc`, and make it a primary disk on partition 1, and accept the other defaults.
 
 	sudo fdisk /dev/sdc
 	Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -283,6 +283,8 @@ The data disk is now ready to use as `/datadrive`.
 > [AZURE.NOTE] You can also connect to your Linux virtual machine using an SSH key for identification. For details, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## Next Steps
+
+Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file. 
 
 To learn more about Linux on Azure, see:
 
