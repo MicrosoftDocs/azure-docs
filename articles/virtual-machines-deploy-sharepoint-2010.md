@@ -71,21 +71,18 @@ You can deploy SharePoint 2010 on Azure by following these steps:
 
 1. Log on to the [Azure Management Portal](http://manage.windowsazure.com/) through your Azure subscription account. If you do not have an Azure account, [sign up for a free trial of Azure](http://azure.microsoft.com/pricing/free-trial/).
 2. To create a VM with the base operating system, on the Azure Management Portal, click **New > Compute > Virtual Machine > From Gallery**.
-
 3. The **Choose an image** dialog box appears. Click the **Windows Server 2008 R2 SP1** platform image, and then click the right arrow.
-
 4. The **Virtual machine configuration** dialog box appears. Provide the following information:
-
-- Enter a **Virtual Machine Name**.
-- Select the appropriate size. For a production environment (SharePoint application server and database), it is recommended to use A3 (4 Core, 7GB memory) or larger.
-- In **New User Name**, type a local administrator account name.
-- In **New Password**, type a strong password.
-- In **Confirm**, retype the password, and then click the right arrow.
+	- Enter a **Virtual Machine Name**.
+	- Select the appropriate size. For a production environment (SharePoint application server and database), it is recommended to use A3 (4 Core, 7GB memory) or larger.
+	- In **New User Name**, type a local administrator account name.
+	- In **New Password**, type a strong password.
+	- In **Confirm**, retype the password, and then click the right arrow.
 5. The second **Virtual machine configuration** dialog box appears. Provide the following information:
-- In **Cloud Service**, select **Create a new cloud service**, in which case you must also provide a cloud service DNS name, or select an existing cloud service.
-- In **Region/Affinity Group/Virtual Network**, select the region where the virtual image will be hosted.
-- In the **Storage account**, choose **Use an automatically generated storage account** or select an existing storage account name. Only one storage account per region is automatically created. All other VMs created with this setting are located in this storage account. You are limited to 20 storage accounts. For more information, go to [Create a Storage Account in Azure](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure).
-- In **Availability Set**, select **(none)**, and then click the right arrow.
+	- In **Cloud Service**, select **Create a new cloud service**, in which case you must also provide a cloud service DNS name, or select an existing cloud service.
+	- In **Region/Affinity Group/Virtual Network**, select the region where the virtual image will be hosted.
+	- In the **Storage account**, choose **Use an automatically generated storage account** or select an existing storage account name. Only one storage account per region is automatically created. All other VMs created with this setting are located in this storage account. You are limited to 20 storage accounts. For more information, go to [Create a Storage Account in Azure](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure).
+	- In **Availability Set**, select **(none)**, and then click the right arrow.
 6. In the third **Virtual machine configuration** dialog box, click the checkmark to create the VM.
 
 To connect to the VM, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
@@ -153,26 +150,24 @@ Figure 3 shows a SharePoint development and testing environment in an Azure VM. 
 To implement a SharePoint development and testing environment on Azure, follow these steps:
 
 1. Provision: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to [Virtual Network Overview](http://msdn.microsoft.com/library/jj156007.aspx). Then, use the Management Portal to provision a new VM using a stock image from the image library.
-
-- You can upload the on-premises SharePoint development and testing VMs to your Azure storage account and reference those VMs through the image library for building the required environment.
-- You can use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md).
+	- You can upload the on-premises SharePoint development and testing VMs to your Azure storage account and reference those VMs through the image library for building the required environment.
+	- You can use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md).
 
 2. Install: Install SharePoint Server, Visual Studio, and SQL Server on the VMs using a Remote Desktop connection.
-
-- Use the SharePoint 2010 Easy Setup Script to build a SharePoint developer machine. For more information, go to [SharePoint 2010 Easy Setup Script](http://www.microsoft.com/download/details.aspx?id=23415). Use Windows PowerShell. For more information, go to [Install SharePoint Server 2010 by Using Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx). Use the CodePlex Project's AutoSPInstaller. For more information, go to [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
-- Install Visual Studio. For more information, go to [Visual Studio Installation](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
-- Install SQL Server. For more information, go to [Install SQL Server Using SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
+	- Use the SharePoint 2010 Easy Setup Script to build a SharePoint developer machine. For more information, go to [SharePoint 2010 Easy Setup Script](http://www.microsoft.com/download/details.aspx?id=23415). Use Windows PowerShell. For more information, go to [Install SharePoint Server 2010 by Using Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx). Use the CodePlex Project's AutoSPInstaller. For more information, go to [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
+	- Install Visual Studio. For more information, go to [Visual Studio Installation](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+	- Install SQL Server. For more information, go to [Install SQL Server Using SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 3. Develop deployment packages and scripts for applications and databases: If you plan to use an available VM from the image library, the desired on-premises applications and databases can be deployed on Azure Virtual Machines:
-- Create deployment packages for the existing on-premises applications and databases using SQL Server Data Tools and Visual Studio.
-- Use these packages to deploy the applications and databases on Azure Virtual Machines.
+	- Create deployment packages for the existing on-premises applications and databases using SQL Server Data Tools and Visual Studio.
+	- Use these packages to deploy the applications and databases on Azure Virtual Machines.
 4. Deploy SharePoint applications and databases:
-- Configure security on the Management Portal endpoint and set an inbound port in the VM's Windows Firewall.
-- Deploy SharePoint applications and databases to Azure Virtual Machines using the deployment packages and scripts created in step 3.
+	- Configure security on the Management Portal endpoint and set an inbound port in the VM's Windows Firewall.
+	- Deploy SharePoint applications and databases to Azure Virtual Machines using the deployment packages and scripts created in step 3.
 - Test deployed applications and databases.
 5. Manage VMs:
-- Monitor the VMs using the Management Portal.
-- Monitor the applications using Visual Studio and SQL Server Management Studio.
-- You also can monitor and manage the VMs using on-premises management software, like Microsoft System Center Operations Manager.
+	- Monitor the VMs using the Management Portal.
+	- Monitor the applications using Visual Studio and SQL Server Management Studio.
+	- You also can monitor and manage the VMs using on-premises management software, like Microsoft System Center Operations Manager.
 
 ### Scenario 2: Public-facing SharePoint Farm with Customization
 
