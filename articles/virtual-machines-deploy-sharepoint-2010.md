@@ -188,15 +188,15 @@ In this scenario, more front-end web servers for SharePoint Server must be added
 To implement a public-facing SharePoint farm on Azure, follow these steps:
 
 1. Deploy Active Directory: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar but not identical to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to [Guidelines for Deploying Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/jj156090). To deploy Active Directory in Azure:
-- Define and create a virtual network where the VMs can be assigned to specific subnets.
-- Use the Management Portal to create and deploy the domain controller on a new VM on Azure. You also can refer to the Windows PowerShell script to deploy a stand-alone domain in the cloud using Azure Virtual Machines and Virtual Network. For more information about creating a new Active Directory forest on a VM on Azure Virtual Network, go to [Install a New Active Directory Forest in Azure](active-directory-new-forest-virtual-machine.md).
+	- Define and create a virtual network where the VMs can be assigned to specific subnets.
+	- Use the Management Portal to create and deploy the domain controller on a new VM on Azure. You also can refer to the Windows PowerShell script to deploy a stand-alone domain in the cloud using Azure Virtual Machines and Virtual Network. For more information about creating a new Active Directory forest on a VM on Azure Virtual Network, go to [Install a New Active Directory Forest in Azure](active-directory-new-forest-virtual-machine.md).
 2. Provision a VM: Use the Management Portal to provision a new VM from a stock image in the image library.
 3. Deploy a SharePoint farm.
-- Use the Management Portal to configure the load balancing. Configure the VM endpoints, select the option to load balance traffic on an existing endpoint, and then specify the name of the load-balanced VM.
-- Add another front-end web VM to the existing SharePoint farm for extra traffic.
+	- Use the Management Portal to configure the load balancing. Configure the VM endpoints, select the option to load balance traffic on an existing endpoint, and then specify the name of the load-balanced VM.
+	- Add another front-end web VM to the existing SharePoint farm for extra traffic.
 3. Manage VMs:
-- Monitor the VMs using the Management Portal.
-- Monitor the SharePoint farm using Central Administration.
+	- Monitor the VMs using the Management Portal.
+	- Monitor the SharePoint farm using Central Administration.
 
 ### Scenario 3: Scaled-out Farm for Additional BI Services
 
@@ -215,19 +215,19 @@ To scale out the deployment of BI components, a new application server with serv
 To scale out a BI environment on Azure, follow these steps:
 
 1. Provision:
-- Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to [Virtual Network Overview](http://msdn.microsoft.com/library/jj156007.aspx).
-- Use the Management Portal to provision a new VM from a stock image in the image library. You can upload SharePoint Server or SQL Server BI workload images to the image library and any authorized user can pick those BI component VMs to build the scaled-out environment.
+	- Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to [Virtual Network Overview](http://msdn.microsoft.com/library/jj156007.aspx).
+	- Use the Management Portal to provision a new VM from a stock image in the image library. You can upload SharePoint Server or SQL Server BI workload images to the image library and any authorized user can pick those BI component VMs to build the scaled-out environment.
 2. Install: 
-- If your organization does not have prebuilt images of SharePoint Server or SQL Server BI components, install SharePoint Server and SQL Server on the VMs using a Remote Desktop connection.
-- For more information about installing SharePoint, go to [Install SharePoint Server 2010 by Using Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) or [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
-- For more information about installing SQL Server, go to [Install SQL Server using SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
+	- If your organization does not have prebuilt images of SharePoint Server or SQL Server BI components, install SharePoint Server and SQL Server on the VMs using a Remote Desktop connection.
+	- For more information about installing SharePoint, go to [Install SharePoint Server 2010 by Using Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) or [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
+	- For more information about installing SQL Server, go to [Install SQL Server using SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 3. Add the BI VM:
-- Configure security on the Management Portal endpoint and set an inbound port in the VM's Windows Firewall.
-- Add the newly created BI VM to the existing SharePoint or SQL Server farm.
+	- Configure security on the Management Portal endpoint and set an inbound port in the VM's Windows Firewall.
+	- Add the newly created BI VM to the existing SharePoint or SQL Server farm.
 4. Manage VMs:
-- Monitor the VMs using the Management Portal.
-- Monitor the SharePoint farm using Central Administration.
-- Monitor and manage the VMs using on-premises management software like Microsoft System Center - Operations Manager.
+	- Monitor the VMs using the Management Portal.
+	- Monitor the SharePoint farm using Central Administration.
+	- Monitor and manage the VMs using on-premises management software like Microsoft System Center - Operations Manager.
 
 ### Scenario 4: Completely Customized SharePoint-based Website
 
@@ -246,23 +246,23 @@ To implement a completely customized SharePoint website on Azure, an organizatio
 The following steps show how to create a customized SharePoint farm environment from prebuilt images available in the image library. Note, however, that you also can upload SharePoint farm VMs to the image library, and authorized users can choose those VMs to build the required SharePoint farm on Azure.
 
 1. Deploy Active Directory: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar but not identical to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to [Guidelines for Deploying Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/jj156090). To deploy Active Directory in Azure:
-- Define and create a virtual network where the VMs can be assigned to specific subnets.
-- Use the Management Portal to create and deploy the domain controller on a new VM on Azure.
-- For more information about creating a new Active Directory forest on a VM on Azure Virtual Network, go to [Install a New Active Directory Forest in Azure](active-directory-new-forest-virtual-machine).
+	- Define and create a virtual network where the VMs can be assigned to specific subnets.
+	- Use the Management Portal to create and deploy the domain controller on a new VM on Azure.
+	- For more information about creating a new Active Directory forest on a VM on Azure Virtual Network, go to [Install a New Active Directory Forest in Azure](active-directory-new-forest-virtual-machine).
 2. Deploy SQL Server:
-- Use the Management Portal to provision a new VM from a stock image in the image library.
-- Configure SQL Server on the VM. For more information, go to [Install SQL Server Using SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
-- Join the VM to the newly created Active Directory domain.
+	- Use the Management Portal to provision a new VM from a stock image in the image library.
+	- Configure SQL Server on the VM. For more information, go to [Install SQL Server Using SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
+	- Join the VM to the newly created Active Directory domain.
 3. Deploy a multi-server SharePoint farm:
-- Create a virtual network. For more information, go to [Virtual Network Overview](http://msdn.microsoft.com/library/jj156007.aspx).
-- When deploying the SharePoint VMs, you need subnets provided for SharePoint Server so that the DNS addresses in the local Active Directory box are available during provisioning.
-- Use the Management Portal to create a VM.
-- Install SharePoint Server on this VM and generate a reusable image. For more information about installing SharePoint Server, go to [Install and Configure SharePoint Server 2010 by Using Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) or [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
-- Configure the SharePoint VM to create and connect to the SharePoint farm using the [Join-SharePointFarm](http://technet.microsoft.com/library/ff607979.aspx) command.
-- Use the Management Portal to configure the load balancing: Configure the VM endpoints, select the option to load balance traffic on an existing endpoint, and then specify the name of the load-balanced VM.
+	- Create a virtual network. For more information, go to [Virtual Network Overview](http://msdn.microsoft.com/library/jj156007.aspx).
+	- When deploying the SharePoint VMs, you need subnets provided for SharePoint Server so that the DNS addresses in the local Active Directory box are available during provisioning.
+	- Use the Management Portal to create a VM.
+	- Install SharePoint Server on this VM and generate a reusable image. For more information about installing SharePoint Server, go to [Install and Configure SharePoint Server 2010 by Using Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) or [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
+	- Configure the SharePoint VM to create and connect to the SharePoint farm using the [Join-SharePointFarm](http://technet.microsoft.com/library/ff607979.aspx) command.
+	- Use the Management Portal to configure the load balancing: Configure the VM endpoints, select the option to load balance traffic on an existing endpoint, and then specify the name of the load-balanced VM.
 4. Manage the SharePoint farm through System Center:
-- Use the Operations Manager agent and new Azure Integration Pack to connect your on-premises System Center to Azure Virtual Machines.
-- Use on-premises App Controller and Orchestrator for management functions.
+	- Us	e the Operations Manager agent and new Azure Integration Pack to connect your on-premises System Center to Azure Virtual Machines.
+	- Use on-premises App Controller and Orchestrator for management functions.
 
 ## Conclusion
 
