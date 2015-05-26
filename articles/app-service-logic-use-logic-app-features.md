@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 	
 # Use Logic Apps features
@@ -99,6 +99,8 @@ The following updates your existing logic app to use parameters for the query te
 Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
 Now, when you click **Save**, every hour you will get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
+
+To learn more about Logic App definitions, see [author Logic App definitions](app-service-logic-author-definitions.md).
 
 ## Starting a logic app workflow
 There are several different options for starting the workflow defined in you logic app. A workflow can always be started on-demand in the [Azure portal].

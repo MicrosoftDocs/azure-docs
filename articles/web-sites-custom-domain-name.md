@@ -19,7 +19,7 @@
 # Configure a custom domain name in Azure App Service
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a>
+  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps">Buy Domain for Web Apps</a>
   <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">Web Apps with External Domains</a>
   <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps with Traffic Manager">Web Apps with Traffic Manager</a>  <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
 
@@ -126,6 +126,10 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
+
+## Next steps
+
+For more information please see: [Get started with Azure DNS](http://azure.microsoft.com/en-us/documentation/articles/dns-getstarted-create-dnszone) and [Delegate Domain to Azure DNS](http://azure.microsoft.com/en-us/documentation/articles/dns-domain-delegation) 
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
