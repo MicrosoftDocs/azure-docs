@@ -135,8 +135,9 @@ The need for resolving public internet addresses has been articulated [here](htt
 
 Once the name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow these steps:
 
-1. Get the list of [Azure datacenter IPs](https://msdn.microsoft.com/en-us/library/azure/dn175718.aspx) to be whitelisted.
-2. Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/en-us/library/hh826148.aspx) commandlet. Run this commandlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
+1. Get the list of [Azure datacenter IPs](https://msdn.microsoft.com/
+2. /library/azure/dn175718.aspx) to be whitelisted.
+2. Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet. Run this commandlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
 
 ## Back up Azure virtual machines
 This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps:
@@ -197,5 +198,6 @@ The table below explains the types of consistency that are encountered during Az
 To learn more about getting started with Azure Backup, see:
 
 - [Restore virtual machines](backup-azure-restore-vms.md)
+- [Manage virtual machines](backup-azure-manage-vms)
 
 
