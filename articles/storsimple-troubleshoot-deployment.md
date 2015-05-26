@@ -387,10 +387,6 @@ This sample is from a device that has a status of **Offline** in the Management 
 
 The device could not connect using the current web proxy configuration. This could be an issue with the web proxy configuration or a network connectivity problem. In this case, you should make sure that your web proxy settings are correct and your web proxy servers are online and reachable. 
 
-**Sample output – offline device running StorSimple Update 1 (May 2015)**
-
-TBD
-
 ## Troubleshoot with the Sync-HcsTime cmdlet
 
 Use this cmdlet to display the device time. If the device time has an offset with the NTP server, you can then use this cmdlet to force-synchronize the time with your NTP server. If the offset between the device and NTP server is greater than 5 minutes, you will see a warning. If the offset exceeds 15 minutes, then the device will go offline. You can still use this cmdlet to force a time sync. However, if the offset exceeds 15 hours, then you will not be able to force-sync the time and an error message will be shown.
