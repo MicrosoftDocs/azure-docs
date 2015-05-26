@@ -47,7 +47,7 @@ Application Insights lets you monitor your deployed application for usage and pe
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Install the Application Insights SDK core.
+2. Install the Application Insights API package.
 
     ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
