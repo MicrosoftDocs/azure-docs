@@ -57,7 +57,7 @@ You also choose the storage account where audit logs will be saved and may confi
 ###Security-enabled access
 There are two methods to get auditing for your connection:
 
-1. For clients which are using TDS version 7.4 and above switch the **SECURITY ENABLED ACCESS** to **REQUIRED**.
+1. For clients which are using TDS version 7.4 and above switch the **SECURITY ENABLED ACCESS** to **REQUIRED**. (For v12 databases, this step is soon eliminated)
 
 2. For "Downlevel clients" which are using TDS version 7.3 and below there is a need to configure a security enabled connection string:
 
@@ -65,12 +65,12 @@ Traditional connection string format: <*server name*>.database.windows.net
 
 Security-enabled connection string: <*server name*>.database.**secure**.windows.net
 
-**Remark:** a partial list of "Downlevel clients" includes: .NET 4.0 and below, and ODBC 10.0 and below. Regarding JDBC: While 4.0 does support TDS version 7.4, please use JDBC 4.1 and above due to a bug in JDBC 4.0.
+**Remark:** a partial list of "Downlevel clients" includes: .NET 4.0 and below, and ODBC 10.0 and below. Regarding JDBC: While 4.0 does support TDS version 7.4, , please use JDBC 4.1 and above due to a bug in JDBC 4.0.
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
 
-1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to detials below.
+1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to details below.
 2. Navigate to the configuration blade of the database you want to audit. Scroll down to the **Operations** section, and then click **Auditing** to enable the auditing and launch the auditing configuration blade.
 
 	![][1]
@@ -111,17 +111,18 @@ For more detailed instructions on working with the report template, read the <a 
 3. For **SECURITY ENABLED ACCESS** click **REQUIRED**.
 4. At the auditing section click **ENABLED**.
 
-![][7]
 
-4. Edit the **LOGGING BY EVENT** as needed.
+	![][7]
 
-![][8]
+5. Edit the **LOGGING BY EVENT** as needed.
 
-5. Select a **STORAGE ACCOUNT** and configure **RETENTION**. 
+	![][8]
 
-![][11]
+6. Select a **STORAGE ACCOUNT** and configure **RETENTION**. 
 
-6. Click **SAVE**.
+	![][11]
+
+7. Click **SAVE**.
 
 
 
@@ -132,14 +133,14 @@ The description in this section refers to screen captures above. Either <a href=
 
 ##<a id="subheading-4"></a>Storage Key Regeneration
 
-In production you are likely to refresh your storage keys periodically. The Auditing Service does not persist your storage account keys. Upon Save, a write only Shared Access Signature (SAS) key is produced for the auditing table (Only the customer can read the audit logs). For this purpose When refresh your keys you need to re-save the policy. The process is as follows:.
+In production you are likely to refresh your storage keys periodically. When refresh your keys you need to re-save the policy. The process is as follows:.
 
 
 1. In the auditing configuration blade (described above in the set up auditing section) switch the **Storage Access Key** from *Primary* to *Secondary* and **SAVE**.
 ![][10]
 2. Go to the storage configuration blade and **regenerate** the *Primary Access Key*.
 
-3. Go back to the auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary* and pres **SAVE**.
+3. Go back to the auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary* and press **SAVE**.
 
 4. Go back to the storage UI and **regenerate** the *Secondary Access Key* (as preparation for the next keys refresh cycle.
   
