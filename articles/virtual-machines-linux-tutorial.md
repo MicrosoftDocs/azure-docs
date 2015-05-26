@@ -3,7 +3,7 @@
 	description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="squillace"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/22/2015"
-	ms.author="kathydav,rasquill"/>
+	ms.author="rasquill"/>
 
 # Create a Virtual Machine Running Linux
 
