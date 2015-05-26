@@ -33,7 +33,6 @@ Application Insights lets you monitor your deployed application for usage and pe
 
     ![Click New, Application Insights](./media/app-insights-windows-get-started/01-new.png)
 
-    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
 2.  Take a copy of the Instrumentation Key.
 
