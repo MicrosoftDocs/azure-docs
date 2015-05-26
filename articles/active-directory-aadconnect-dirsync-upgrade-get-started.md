@@ -63,22 +63,22 @@ Additional steps/information is required when:
 0. Launch the Azure AD Connect Installer (MSI)
 
 1. Review and agree to license terms and privacy notice.
-<center>![Welcome to Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/welcome.png)</center>
+<center>![Welcome to Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Welcome.png)</center>
 
 2. Click next to be analysis of your existing DirSync installation
-<center>![Analyzing existing Directory Sync installation](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analyze.png)</center>
+<center>![Analyzing existing Directory Sync installation](./media/active-directory-aadconnect-dirsync-upgrade-get-started/Analyze.png)</center>
 
 3. When the analysis completes we will make recommendations on how to proceed.  In this scenario (less than 50K objects using SQL Express) the following screen is displayed.
-<center>![Analysis completed ready to upgrade from DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisready.png)</center>
+<center>![Analysis completed ready to upgrade from DirSync](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReady.png)</center>
 
 4. Provide the password for the account you currently use to connect to Azure AD.
-<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/connectToAzureAD.png)</center>
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)</center>
 
 5. Provide an enterprise admin account for Active Directory.
-<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/connecttoadds.png)</center>
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)</center>
 
 6. You're now ready to configure.  When you clieck next DirSync will be uninstalled and Azure AD Connect will be configured and begin synchronizing.  
-<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/readytoconfigure.png)</center>
+<center>![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)</center>
 
 
 ## In-place upgrade - more than 50K objects
