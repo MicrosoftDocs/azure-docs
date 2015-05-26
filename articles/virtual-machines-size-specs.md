@@ -54,7 +54,7 @@ The following tables show the sizes and the capacities offered by each.
 ### Basic Tier
 
 |Size – Management Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
-|---|---|---|---|---|
+|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|<p>OS = 1023 GB</p><p>Temporary = 20 GB</p>|1|1x300|
 |A1\Basic_A1|1|1.75 GB|<p>OS = 1023 GB</p><p>Temporary = 40 GB</p>|2|2x300|
 |A2\Basic_A2|2|3.5 GB|<p>OS = 1023 GB</p><p>Temporary = 60 GB</p>|4|4x300|
