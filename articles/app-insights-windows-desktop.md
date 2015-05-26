@@ -23,19 +23,16 @@
 
 Application Insights lets you monitor your deployed application for usage and performance.
 
-*Although the Application Insights SDK can be made to work in a desktop app, it isn't a scenario we currently support. But if you'd like to try it experimentally, here are some tips for doing so.*
-
-
+*Support for Windows Desktop apps are provide by the Application Insights Core SDK. This SDK provides the full API support for all telemetry data but does not provide any telemetry auto collection.*
 
 
 ## <a name="add"></a> Create an Application Insights resource
 
 
-1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app or Windows Store app. 
+1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose Windows Store app. 
 
     ![Click New, Application Insights](./media/app-insights-windows-get-started/01-new.png)
 
-    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
 2.  Take a copy of the Instrumentation Key.
 
@@ -47,25 +44,22 @@ Application Insights lets you monitor your deployed application for usage and pe
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Install the Application Insights SDK core.
+2. Install the core [Application Insights SDK NuGet][CoreNuGet].
 
     ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-    (As an alternative, you could choose Application Insights SDK for Web Apps. This provides some built-in performance counter telemetry. )
 
-3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
+3. Create a `TelemetryClient` and assign your Instrumentnation Key. For example, add the following code to your App constructor.
 
-    &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
+```C#
+    var tc = new TelemetryClient();
+    tc.InstrumentationKey = "INSERT KEY COPIED ABOVE";
+```
 
-    As an alternative you can achieve the same effect with this code:
-    
-    `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
-
-4. If you installed the Web Apps SDK, you might also want to comment out the web telemetry modules from ApplicationInsights.config
 
 ## <a name="telemetry"></a>Insert telemetry calls
 
-Create a `TelemetryClient` instance and then [use it to send telemetry][track].
+Use a `TelemetryClient` instance to [send telemetry][track].
 
 Use `TelemetryClient.Flush` to send messages before closing the app. (This is not recommended for other types of app.)
 
@@ -76,7 +70,11 @@ For example, in a Windows Forms application, you could write:
     public partial class Form1 : Form
     {
         private TelemetryClient tc = new TelemetryClient();
+        tc.context.User.Id = GetAnonUserID();
+        tc.context.Session.Id = Guid.NewGuid().ToString();
+        tc.context.Device.OperatingSystem = Environment.OSVersion.ToString();
         ...
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             tc.TrackPageView("Form1");
@@ -99,19 +97,19 @@ Use any of the [Application Insights API][track] to send telemetry. In Windows D
 
 * TrackPageView(pageName) on switching forms, pages, or tabs
 * TrackEvent(eventName) for other user actions
-* TrackTrace(logEvent) for [diagnostic logging][diagnostic]
-* TrackException(exception) in catch clauses
 * TrackMetric(name, value) in a background task to send regular reports of metrics not attached to specific events.
+TrackTrace(logEvent) for [diagnostic logging][diagnostic]
+* TrackException(exception) in catch clauses
 
-To see counts of users and sessions, set a context initializer:
+To see counts of users and sessions you can set the values on each `TelemetryClient` instance. Alternatively, you can use a context initializer to perform this addition for all clients:
 
-    class TelemetryInitializer: IContextInitializer
+```C#
+    class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
         {
             context.User.Id = Environment.UserName;
-            context.Session.Id = DateTime.Now.ToFileTime().ToString();
-            context.Session.IsNewSession = true;
+            context.Session.Id = Guid.NewGuid().ToString();
         }
     }
 
@@ -121,10 +119,10 @@ To see counts of users and sessions, set a context initializer:
         static void Main()
         {
             TelemetryConfiguration.Active.ContextInitializers.Add(
-                new TelemetryInitializer());
+                new UserSessionInitializer());
             ...
-
-
+```
+    
 
 ## <a name="run"></a>Run your project
 
@@ -166,4 +164,4 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
-
+[CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
