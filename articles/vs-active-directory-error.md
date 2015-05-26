@@ -22,6 +22,8 @@ While detecting previous authentication code, the wizard detected an incompatibl
 
 ###What is being checked?
 
+**Note:** In order to correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have previous authentication code in your project, rebuild and try again.
+
 ####Project Types
 
 The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, it will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, it will be considered an MVC project.  Anything else is considered not supported by the wizard.  WebForms projects are not currently supported.
