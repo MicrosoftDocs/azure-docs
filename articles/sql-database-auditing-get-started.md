@@ -93,7 +93,7 @@ Security-enabled connection string: <*server name*>.database.**secure**.windows.
 
 ##<a id="subheading-3">Analyze audit logs and reports</a>
 
-Audit logs are aggregated in a single Azure Store Table named **AuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
+Audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
 A preconfigured dashboard report template is available as a <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">downloadable Excel spreadsheet</a> to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download <a href="http://www.microsoft.com/download/details.aspx?id=39379">here</a>. 
 
@@ -147,9 +147,9 @@ In production you are likely to refresh your storage keys periodically. When ref
 ##<a id="subheading-4"></a>Automation
 There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database. To access the auditing cmdlets you must be running PowerShell in Azure Resource Manager mode.
 
-> [AZURE.NOTE] The AzureResourceManager module is currently in preview. It might not provide the same management capabilities as the Azure module.
+> [AZURE.NOTE] The  [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) module is currently in preview. It might not provide the same management capabilities as the Azure module.
 
- [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) mode is accessed by running the Switch-AzureMode cmdlet (`Switch-AzureMode AzureResourceManager`). When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to list the available cmdlets.
+When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to list the available cmdlets.
 
 
 
