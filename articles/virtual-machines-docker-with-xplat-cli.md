@@ -13,22 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="02/02/2015" 
+	ms.date="05/22/2015" 
 	ms.author="rasquill"/>
 # Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)
-This topic describes how to create a VM with the Docker VM Extension from the Azure CLI on any platform. [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) to create a Docker VM that hosts any number of containers for your applications on Azure. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+This topic describes how to create a VM with the Docker VM Extension from the service management (asm) mode in Azure CLI on any platform. [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) to create a Docker VM that hosts any number of containers for your applications on Azure. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 + [How to use the Docker VM Extension with Azure]
 + [Virtual Machine Extensions for Linux and Windows]
 + [Container and Container Management Resources for Azure]
 + [Next steps]
 
-
-
 ## <a id='How to use the Docker VM Extension with Azure'>How to use the Docker VM Extension with Azure</a>
 To use the Docker VM extension with Azure, you must install a version of the [Azure Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (called the **Azure CLI** in this topic) higher than 0.8.6 (as of this writing the current version is 0.8.10). You can install the Azure CLI on Mac, Linux, and Windows.
 
-> [AZURE.NOTE] Although you can install the Azure CLI on Microsoft Windows, Docker was built with kernel dependencies specific to Linux. Therefore, to use Windows as a Docker client you must host a full Linux distribution as a virtual machine inside Hyper-V or another hypervisor. Once you have done that, you can use the Azure CLI and the Docker commands in this document and those of Docker. Docker itself has a setup program for Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate this same setup.
+> [AZURE.NOTE] Docker has a setup program for Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate the creation of a docker client that you can use to work with Azure VMs as docker hosts.
 
 The complete process to use Docker on Azure is simple:
 
@@ -49,7 +47,7 @@ Before you can use the Azure CLI you must associate your Azure account credentia
 > [AZURE.NOTE] There are some differences in behavior when using one or the other methods of authentication, so do be sure to read the document above to understand the different functionality.
 
 ### Install Docker and use the Docker VM Extension for Azure
-Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. For most operating systems and distributions, this means typing `apt-get install docker.io`. Confirm that the Docker version is at 1.0 or greater.
+Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. Once installed, type `docker --version` to confirm that the Docker version is at 1.0 or greater.
 
 To use Docker with an Azure Virtual Machine, the Linux image used for the VM must have the [Azure Linux VM Agent](virtual-machines-linux-agent-user-guide.md) installed. Currently, there are only two types of images that provide this:
 
