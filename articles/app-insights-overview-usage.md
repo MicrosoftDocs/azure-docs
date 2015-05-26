@@ -250,7 +250,9 @@ And of course, when the feature is live, make sure you look at the analytics and
 * Talk to your users! Analytics is not enough on its own, but complementary to maintaining a good customer relationship.
 
 
+## Video
 
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
