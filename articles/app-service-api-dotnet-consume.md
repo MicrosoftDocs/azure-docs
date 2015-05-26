@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="05/16/2015" 
+	ms.author="tdykstra"/>
 
 # Consume an API app in Azure App Service from a .NET client 
 
