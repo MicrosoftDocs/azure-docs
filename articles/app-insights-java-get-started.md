@@ -79,7 +79,10 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </dependencies>
 
 
-* *Build or checksum validation errors? Try using a specific version:* `<version>0.9.3</version>`
+* *Build or checksum validation errors?*
+ * Try using a specific version, such as:* `<version>0.9.3</version>`. You'll find the latest version in the [SDK release notes](http://azure.microsoft.com/documentation/articles/app-insights-release-notes-java/). 
+* *To update to a new SDK*
+ * Refresh your project's dependencies.
 
 #### If you're using Gradle...
 
@@ -96,7 +99,9 @@ Then refresh the project dependencies, to get the binaries downloaded.
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version:* `version:'0.9.3'`
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'0.9.3'`. *You'll find the latest version in the [SDK release notes](http://azure.microsoft.com/documentation/articles/app-insights-release-notes-java/).* 
+* *To update to a new SDK*
+ * Refresh your project's dependencies.
 
 #### Otherwise ...
 
@@ -106,6 +111,7 @@ Manually add the SDK:
 2. Extract the following binaries from the zip file, and add them to your project:
  * applicationinsights-core
  * applicationinsights-web
+ * annotation-detector
  * commons-codec
  * commons-io
  * commons-lang
@@ -115,11 +121,17 @@ Manually add the SDK:
  * httpcore
  * jsr305
 
+Questions...
 
-*What's the relationship between the `-core` and `-web` components?*
+* *What's the relationship between the `-core` and `-web` components?*
 
-`applicationinsights-core` gives you the bare API with no automatic telemetry. 
-`applicationinsights-web` gives you metrics tracking HTTP request counts and response times. 
+ * `applicationinsights-core` gives you the bare API with no automatic telemetry. 
+ * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. 
+
+* *To update the SDK*
+ * Download the latest [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones.
+ * Changes are described in the [SDK release notes](http://azure.microsoft.com/documentation/articles/app-insights-release-notes-java/).
+
 
 
 ## 3. Add an Application Insights xml file
@@ -206,11 +218,20 @@ Add this item to the Struts configuration file (usually named struts.xml or stru
 
 (If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
 
-## 5. View your telemetry in Application Insights
 
-Run your application.
+## 5. Enable Performance Counter collection
 
-Return to your Application Insights resource in Microsoft Azure.
+On your server machine, if it's a Windows machine, install 
+
+* [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+
+## 6. Run your application
+
+Either run it in debug mode on your development machine, or publish to your server.
+
+## 7. View your telemetry in Application Insights
+
+Return to your Application Insights resource in [Microsoft Azure Portal](https://portal.azure.com).
 
 HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
@@ -307,6 +328,13 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
+## Get user and session data
+
+OK, you're sending telemetry from your web server. Now to get the full 360-degree view of your application, you can add more monitoring:
+
+* [Add telemetry to your web pages][usage] to monitor page views and user metrics.
+* [Set up web tests][availability] to make sure your application stays live and responsive.
+
 ## Capture log traces
 
 You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalogs].
@@ -319,10 +347,8 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 * [Search events and logs][diagnostic] to help diagnose problems.
 
 
-In addition, you can bring more features of Application Insights to bear on your application:
 
-* [Add web client telemetry][usage] to monitor page views and basic user metrics.
-* [Set up web tests][availability] to make sure your application stays live and responsive.
+
 
 
 ## Questions? Problems?

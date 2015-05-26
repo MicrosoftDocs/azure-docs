@@ -11,11 +11,11 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/21/2015" 
 	ms.author="awills"/>
  
 # Release Notes for Application Insights SDK for Java
 
-[Using the SDK for Java](app-insights-java.md)
+[Using the SDK for Java](app-insights-java-get-started.md)
 
 

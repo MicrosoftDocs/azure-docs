@@ -40,13 +40,15 @@ There are two types of web test:
 
 Skip this step if you've already [set up an Application Insights resource][start] for this application, and you want to see the availability data in the same place.
 
-Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and create a new Application Insights resource. 
+Sign up to [Microsoft Azure](http://azure.com), go to the [Azure portal](https://portal.azure.com), and create a new Application Insights resource. 
 
 ![New > Application Insights](./media/app-insights-web-tests-availability/11-new-app.png)
 
+The Overview blade for the new resource will open. To find this at any time in the [Azure portal](https://portal.azure.com), click Browse.
+
 ### <a name="setup"></a>2. Create a web test
 
-Open the Web tests blade for your application, and add a web test. 
+In your Application Insights resource, look for the Availability tile. Click it to open the Web tests blade for your application, and add a web test. 
 
 ![Fill at least the URL of your website](./media/app-insights-web-tests-availability/13-availability.png)
 
