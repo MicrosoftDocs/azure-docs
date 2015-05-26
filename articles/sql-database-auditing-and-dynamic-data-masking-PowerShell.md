@@ -44,12 +44,14 @@ Set-AzureSqlDatabaseAuditingPolicy -ResourceGroupName "Group-95" -ServerName mai
 You can see the results of it by calling:
 Get-AzureSqlDatabaseAuditingPolicy -ResourceGroupName "Group-95" -ServerName mainserver -DatabaseName mainDB
 See here:
+
 ![][1]
 
 Setup server policy:
 At some point, you’d like to setup a server policy, for all the DBs under that server, you can call Set-AzureSqlDatabaseServerAuditingPolicy (note the PassThru switch that emits the output of the cmdlet)
 Set-AzureSqlDatabaseServerAuditingPolicy -ResourceGroupName "Group-95" -ServerName mainserver -StorageAccountName mymainstorage -EventType DataAccess -PassThru
-See here:  
+See here:
+  
 ![][2]
 
 Use-server:
