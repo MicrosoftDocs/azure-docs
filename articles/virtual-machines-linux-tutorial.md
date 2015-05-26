@@ -140,7 +140,7 @@ Your VM is up and running and waiting for you to connect.
 
 ## Connecting to your VM
 
-This command uses usernames and passwords; to use public and private key pairs to communication with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
+This command uses usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
 
 	ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
 	The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
