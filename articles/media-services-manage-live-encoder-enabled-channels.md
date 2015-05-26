@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
@@ -460,7 +460,7 @@ Once you create the content key, you can configure key authorization policy usin
 **Overview**: 
 
 - [Dynamic Packaging Overview](media-services-dynamic-overview.md)
-- [Delivering Content Overview](media-services-deliver-content-overview.md)
+
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
@@ -470,6 +470,11 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
+
+Deliver Content 
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Enabling Azure CDN
 

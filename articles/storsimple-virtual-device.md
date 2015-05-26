@@ -17,6 +17,8 @@
 
 # StorSimple virtual device
 
+[AZURE.INCLUDE [storsimple-version-selector-sva](../includes/storsimple-version-selector-sva.md)]
+
 ##Overview
 The StorSimple virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. The following topics will help you learn about, configure, and use the StorSimple virtual device.
 

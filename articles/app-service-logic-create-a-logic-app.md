@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 
 #Create a new logic app
@@ -164,7 +164,7 @@ Now your logic app is up and running. Every time the scheduled workflow runs, it
  
 5. To turn off the app, click **Disable** in the command bar.
 
-In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features].
+In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features]. To learn about the Logic App definitions themselves, see [author Logic App definitions](app-service-logic-author-definitions.md).
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
