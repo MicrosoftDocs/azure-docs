@@ -144,7 +144,7 @@ This command uses usernames and passwords; to use public and private key pairs t
 
 	ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
 	The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
-	ECDSA key fingerprint is b4:22:9a:45:5e:55:59:bb:90:1e:45:55:41:8c:87:4c.
+	ECDSA key fingerprint is bx:xx:xx:xx:xx:xx:xx:xx:xx:x:x:x:x:x:x:xx.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
 	ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com's password: 
