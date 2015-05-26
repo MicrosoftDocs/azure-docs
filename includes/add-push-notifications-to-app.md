@@ -1,7 +1,7 @@
 
 ## <a id="add-push"></a>Add Push Notifications to App
 
-* In QSAppDelegate.m, import the Mobile Services iOS SDK and QSTodoService.h:
+* In QSAppDelegate.m, import the iOS SDK and QSTodoService.h:
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
