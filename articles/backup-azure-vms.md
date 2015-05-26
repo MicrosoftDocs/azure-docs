@@ -70,7 +70,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 
     The **Register** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be registered. This greatly reduces the one-time effort spent in preparing the virtual machine for backup.
 
-    >[AZURE.NOTE] Only the virtual machines that are not registered and are in the same region as the backup vault, will show up here.
+    >[AZURE.NOTE] Only the virtual machines that are not registered and are in the same region as the backup vault, will show up.
 
 5. A job is created for each virtual machine that should be registered. The toast notification shows the status of this activity. Click on **View Job** to go to the **Jobs** page.
   ![register job](./media/backup-azure-vms/register-create-job.png)
@@ -107,8 +107,9 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 Typically, the VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
 
 For Windows VMs:
-+ Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation.
-+ [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+
+- Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation.
+- [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
 
 #### Updating the VM Agent
@@ -117,21 +118,23 @@ Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http:
 
 #### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:
-+ Login into the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*.
-+ You should find the WaAppAgent.exe file present.
-+ Right-click on the file, go to **Properties**, and then select the **Details** tab.
-+ The Product Version field should be 2.6.1198.718 or higher
 
+- Login into the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*.
+- You should find the WaAppAgent.exe file present.
+- Right-click on the file, go to **Properties**, and then select the **Details** tab.
+- The Product Version field should be 2.6.1198.718 or higher
 
 ### Troubleshooting networking issues
 Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of of ways:
-+ The extension installation can fail
-+ The backup operations (like disk snapshot) can fail
-+ Displaying the status of the backup operation can fail
+
+- The extension installation can fail
+- The backup operations (like disk snapshot) can fail
+- Displaying the status of the backup operation can fail
 
 The need for resolving public internet addresses has been articulated [here](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). You will need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.
 
 Once the name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow these steps:
+
 1. Get the list of [Azure datacenter IPs](https://msdn.microsoft.com/en-us/library/azure/dn175718.aspx) to be whitelisted.
 2. Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/en-us/library/hh826148.aspx) commandlet. Run this commandlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
 
@@ -139,7 +142,6 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
 This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps:
 
 1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click on the **Registered Items** tab.
-
 2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click on the **Select** button.
   ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
@@ -178,13 +180,10 @@ Once protected, the virtual machine count also increases in the **Dashboard** pa
 ## Consistency of recovery points
 When dealing with backup data, customers worry about the behavior of the VM after it has been restored. The typical questions that customers ask are:
 
-+ Will the virtual machine boot up?
-
-+ Will the data be available on the disk (or) is there any data loss?
-
-+ Will the application be able to read the data (or) is the data corrupted?
-
-+ Will the data make sense to the application (or) is the data self-consistent when read by the application?
+- Will the virtual machine boot up?
+- Will the data be available on the disk (or) is there any data loss?
+- Will the application be able to read the data (or) is the data corrupted?
+- Will the data make sense to the application (or) is the data self-consistent when read by the application?
 
 The table below explains the types of consistency that are encountered during Azure VM backup and restore:
 
