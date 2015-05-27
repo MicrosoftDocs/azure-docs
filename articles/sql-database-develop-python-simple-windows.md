@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Connect to SQL Database by using Python on Windows" 
-	description="Presents a Python code sample you can use to connect to Azure SQL Database from a Windows client. The sample uses the pyodbc driver."
+	description="Presents a Python code sample you can use to connect to Azure SQL Database from a Windows client. The sample uses the pymssql driver."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="meet-bhagdev" 
@@ -12,7 +12,7 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
+	ms.devlang="python" 
 	ms.topic="article" 
 	ms.date="04/27/2015" 
 	ms.author="mebha"/>
@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-This topic presents a code sample written in Python. The sample runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pyodbc** driver.
+This topic presents a code sample written in Python. The sample runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
 
 
 ## Requirements
@@ -36,38 +36,43 @@ This topic presents a code sample written in Python. The sample runs on a Window
 ### Install the required modules
 
 
-Navigate to the directory **C:\Python27\Scripts**, and then run the following command.
+Install [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql). 
+
+Make sure you choose the correct whl file.
+
+For example : If you are using Python 2.7 on a 64 bit machine choose : pymssql‑2.1.1‑cp27‑none‑win_amd64.whl.
+Once you download the .whl file place it in the the C:/Python27 folder.
+
+Now install the pymssql driver using pip from command line. cd into C:/Python27 and run the following
+	
+	pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
+
+Instructions to enable the use pip can be found [here](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
 
 
-	pip install --allow-external pyodbc --allow-unverified pyodbc pyodbc
+## Create a database and retrieve your connection string
 
 
-### Create a database and retrieve your connection string
-
-
-See the [Get Started topic](sql-database-get-started.md) to learn how to create a sample database and retrieve your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. 
+See the [Getting Started Topic](sql-database-get-started.md) to learn how to create a sample database and retrieve your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. 
 
 
 ## Connect to your SQL Database
 
 
-The [pyodbc.connect function](https://code.google.com/p/pyodbc/wiki/Module#connect) is used to connect to SQL Database.  
+The [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) function is used to connect to SQL Database.
+
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-	import pyodbc
-	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourservername.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
-	cursor = cnxn.cursor())
+## Execute an SQL SELECT statement
+
+The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set which can be iterated over with the use of [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
 
-## Execute an SQL SELECT
-
-
-All SQL statements are executed using the [cursor.execute](https://code.google.com/p/pyodbc/wiki/Cursor#execute) function. If the statement returns rows, such as a select statement, you can retreive them using the Cursor fetch functions ([fetchone](https://code.google.com/p/pyodbc/wiki/Cursor#fetchone), [fetchall](https://code.google.com/p/pyodbc/wiki/Cursor#fetchall), [fetchmany](https://code.google.com/p/pyodbc/wiki/Cursor#fetchmany)). If there are no rows, fetchone will return None; fetchall and fetchmany will both return empty lists.
-
-
-	import pyodbc
-	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourserver.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
-	cursor = cnxn.cursor()
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+	cursor = conn.cursor()
 	cursor.execute('SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;')
 	row = cursor.fetchone()
 	while row:
@@ -77,14 +82,12 @@ All SQL statements are executed using the [cursor.execute](https://code.google.c
 
 ## Insert a row, pass parameters, and retrieve the generated primary key
 
-
-In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. In this example you will see how to execute an [insert-statement](https://msdn.microsoft.com/library/ms174335.aspx), safely pass parameters which protects from [SQL injection](https://msdn.microsoft.com/magazine/cc163917.aspx), and retrieve the auto-generated primary key value.  
-
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
 
 
-	import pyodbc
-	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourserver.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
-	cursor = cnxn.cursor()
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+	cursor = conn.cursor()
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)")
 	row = cursor.fetchone()
 	while row:
@@ -95,13 +98,20 @@ In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx)
 ## Transactions
 
 
-The [cnxn.rollback](https://code.google.com/p/pyodbc/wiki/Connection#rollback) and [cnxn.commit()](https://code.google.com/p/pyodbc/wiki/Connection#commit) functions are used to handle transactions.
+This code example demonstrates the use of transactions in which you:
 
 
-	import pyodbc
-	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourserver.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
-	cursor = cnxn.cursor()
+-Begin a transaction
+
+-Insert a row of data
+
+-Rollback your transaction to undo the insert
+
+
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+	cursor = conn.cursor()
 	cursor.execute("BEGIN TRANSACTION")
-	cursor.execute("DELETE FROM test WHERE value = 1;")
+	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
