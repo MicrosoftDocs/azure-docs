@@ -114,5 +114,9 @@ Note that you do not have to specify the Azure DNS name servers, since the norma
 
 [Manage DNS records](../dns-operations-recordsets)
 
-[Traffic Manager Overview](../traffic-manmager-overview)
+[Traffic Manager Overview](../traffic-manager-overview)
+
+[Automate Azure Operations with .NET SDK](../dns-sdk)
+
+[Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 

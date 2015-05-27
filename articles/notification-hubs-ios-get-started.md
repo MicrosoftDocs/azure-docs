@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs to push notifications." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
-	authors="wesmc" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 

@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="How to build an AngularJS single-page app with Azure AD" 
-	description="Demonstrates the use of Active Directory Authentication Library (ADAL) for Javascript for securing an AngularJS based single page app, implemented with an ASP.NET Web API backend, that calls another ASP.NET Web API using CORS." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
+<properties
+	pageTitle="How to build an AngularJS single-page app with Azure AD"
+	description="Demonstrates the use of Active Directory Authentication Library (ADAL) for Javascript for securing an AngularJS based single page app, implemented with an ASP.NET Web API backend, that calls another ASP.NET Web API using CORS."
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="terrylan"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="javascript" 
-	ms.topic="hero-article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="identity" 
-	ms.date="04/01/2015" 
+<tags
+	ms.service="active-directory"
+	ms.devlang="javascript"
+	ms.topic="article" 
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="05/11/2015"
 	ms.author="justinha"/>
 
 
-# How to build an AngularJS single-page app with Azure AD 
+# How to build an AngularJS single-page app with Azure AD
 
 This tutorial demonstrates the use of Active Directory Authentication Library (ADAL) for JavaScript for securing an AngularJS based single page app, implemented with an ASP.NET Web API backend, that calls another ASP.NET Web API using CORS. To see the code sample used for this tutorial, see [AzureADSamples/SinglePageApp-AngularJS-DotNet](https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet) on github.
 
@@ -109,7 +109,7 @@ By default, applications provisioned in Azure AD are not enabled to use the OAut
 
 ## Run the sample
 
-Clean the solution, rebuild the solution, and run it. 
+Clean the solution, rebuild the solution, and run it.
 
 You can trigger the sign in experience by either clicking the sign in link on the top right corner, or by clicking directly on the **To Do List** or **To Go List** tabs.  Explore the sample by signing in, adding items to the To Do List, removing the user account, and starting again.  Add places to the To Go List, performing CRUD operations against the To Go API using CORS.
 
@@ -122,7 +122,7 @@ To deploy the To Do SPA and To Go API to Azure Web Sites, you will create two we
 1. Sign in to the [Azure management portal](https://manage.windowsazure.com).
 2. Click **Web Sites** in the left hand nav.
 3. Click **New** in the bottom left hand corner, select **Compute** > **Web Site** > **Custom Create**, select the hosting plan and region, and give your web site a name, e.g. togo-contoso.azurewebsites.net.  Select a database to use, or create a new one.  Click **Create Web Site**.
-4. Once the web site is created, click it to manage it.  For this set of steps, download the .publishsettings file and save it.  Other deployment mechanisms, such as from source control, can also be used. For more information about using a .publishsettings file, see [How to: Connect to your subscription](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#Connect). 
+4. Once the web site is created, click it to manage it.  For this set of steps, download the .publishsettings file and save it.  Other deployment mechanisms, such as from source control, can also be used. For more information about using a .publishsettings file, see [How to: Connect to your subscription](install-configure-powershell.md#Connect).
 
 ### Create the To Do SPA Azure Web Site
 
@@ -169,16 +169,13 @@ The key files containing authentication logic are the following:
 - **HomeController.js**- shows how to take advantage of the login() and logOut() methods in ADAL.
 
 - **UserDataController.js** - shows how to extract user information from the cached id_token.
-   
+
 Special thanks to @matvelloso for the assist in getting this tutorial created.
 
 
 ## Next steps
 
-Here are some additional resources to help you use Azure AD to add authentication and authorization to your web applications and web APIs: 
+Here are some additional resources to help you use Azure AD to add authentication and authorization to your web applications and web APIs:
 
 + [Azure Active Directory Code Samples](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Authentication Scenarios for Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
-
-
-

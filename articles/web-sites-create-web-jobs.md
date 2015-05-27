@@ -71,7 +71,7 @@ The following file types are accepted:
 	
 > [AZURE.NOTE] If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Microsoft Azure.
 	
-> For continuous WebJobs, it is recommended that you enable **Always On** for your web app. The Always On feature, available in Basic and Standard mode, prevents web apps from being unloaded, even if they have been idle for some time. If your web app is always loaded, your continuously running WebJob may run more reliably. 
+> For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.
 
 ## <a name="CreateScheduled"></a>Create a scheduled WebJob
 
@@ -170,6 +170,7 @@ Scheduled jobs can be further configured in the Azure Scheduler pages of the [ol
 - Code for a continuous job needs to be written to run in an endless loop.
 - Continuous jobs run continuously only when the web app is up.
 - Basic and Standard modes offer the Always On feature which, when enabled, prevents web apps from becoming idle.
+- You can only debug continuously running WebJobs. Debugging scheduled or on-demand WebJobs is not supported.
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 

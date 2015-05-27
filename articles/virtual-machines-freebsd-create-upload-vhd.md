@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services" 
-   ms.date="02/05/2015"
+   ms.date="05/19/2015"
    ms.author="kyliel"/>
 
 # Create and Upload a FreeBSD VHD to Azure 
 
-This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD Operating System so you can use it as your own image to create virtual machines in Azure. 
+This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system so you can use it as your own image to create a virtual machine (VM) in Azure. 
 
 ##Prerequisites##
 This article assumes that you have the following items:
@@ -194,7 +194,7 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    **Important**: Please use Linux as OS type for now since current Azure PowerShell version only accepts “Linux” or “Windows” as parameter.
+    **Important**: Please use Linux as OS type for now since current Azure PowerShell version only accepts “Linux” or “Windows” as a parameter.
 
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure management portal.  
 

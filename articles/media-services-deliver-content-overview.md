@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 ##Overview
 
-When delivering your content to customers (streaming live events or video-on-demand) your goal is: to deliver a high quality video to various devices under different network conditions. 
+When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions. 
 
 To achieve this goal:
 
@@ -92,6 +92,7 @@ Example
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+
 
 **Smooth Streaming format**
 

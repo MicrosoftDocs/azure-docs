@@ -1,13 +1,13 @@
 <properties 
    pageTitle="Instance-level Public IP (ILPIP)"
    description="Understanding ILPIP (PIP) and how to manage them"
-   services="virtual-networks"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-networks"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -22,7 +22,7 @@ An Instance-Level Public IP (ILPIP) is an IP address that you can assign directl
 
 ![Difference between ILPIP and VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-As shown in Figure 1, the cloud service is accessed using a VIP, while the individual VMs are normally accessed using VIP:<port number>. By assigning an ILPIP to a specific VM, that VM can be accessed directly using that IP address.
+As shown in Figure 1, the cloud service is accessed using a VIP, while the individual VMs are normally accessed using VIP:&lt;port number&gt;. By assigning an ILPIP to a specific VM, that VM can be accessed directly using that IP address.
 
 When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN) instead of using the actual VIP. The same process happens for ILPIP, allowing access to the VM or role instance by FQDN instead of the ILPIP.  
 
@@ -30,7 +30,7 @@ When you create a cloud service in Azure, corresponding DNS A records are create
 >[AZURE.NOTE] You can assign only one ILPIP for each VM or role instance. You can use up to 5 ILPIP's per subscription. At this time, ILPIP is not supported for multi-NIC VMs.
 
 ## Why should I request an ILPIP?
-If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:<port number>, request an ILPIP for your VM or your role instance.
+If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:&lt;port number&gt;, request an ILPIP for your VM or your role instance.
 - **Passive FTP** - By having an ILPIP on your VM, you can receive traffic on just about any port, you will not have to open up an endpoint to receive traffic. This enables scenarios like passive FTP where the ports are chosen dynamically.
 - **Outbound IP** - Outbound traffic originating from the VM goes out with the ILPIP as the source and this uniquely identifies the VM to external entities.
 

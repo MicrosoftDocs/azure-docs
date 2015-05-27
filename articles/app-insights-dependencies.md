@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnosing issues with dependencies in Application Insights" 
-	description="Find failures and slow performance caused by depeendencies" 
+	description="Find failures and slow performance caused by dependencies" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -67,7 +67,7 @@ Click that row to see individual request events:
 
 Click any long-running instance to inspect it further.
 
-> AZURE.NOTE Scroll down a bit to choose an instance. Latency in the pipeline might mean that the data for the top instances is incomplete.
+> [AZURE.NOTE] Scroll down a bit to choose an instance. Latency in the pipeline might mean that the data for the top instances is incomplete.
 
 Scroll down to the remote dependency calls related to this request:
 

@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
 # Configure a custom domain name in Azure App Service
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">Web Apps</a>
+  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps">Buy Domain for Web Apps</a>
+  <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">Web Apps with External Domains</a>
   <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps with Traffic Manager">Web Apps with Traffic Manager</a>  <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
 
 </div>
@@ -28,14 +29,14 @@
 
 When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
-For a production web app, you probably want users to see a custom domain name. This article explains how to configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
+For a production web app, you probably want users to see a custom domain name. This article explains how to reserve or configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 
 ## Overview
 
-Here are the general steps to configure a custom domain name:
+If you have a domain name already, or you want reserve domain from other domain registrars, here are the general steps to bring a custom domain name for web app:
 
 1. Reserve your domain name. This article does not cover that process. There are many domain registrars to choose from. When you sign up, their site will walk you through the process.
 1. Create DNS records that map the domain to your Azure web app.
@@ -45,7 +46,7 @@ Within this basic outline, there are specific cases to consider:
 
 - Mapping your root domain. The root domain is the domain that you reserved with the domain registrar. For example, **contoso.com**.
 - Mapping a subdomain. For example, **blogs.contoso.com**.  You can map different subdomains to different web apps.
-- Mapping a wildcard. For example, ***.contoso.com**. A wildcard entry applies to all subdomains of your domain.
+- Mapping a wildcard. For example, **\*.contoso.com**. A wildcard entry applies to all subdomains of your domain.
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
@@ -109,8 +110,10 @@ Assuming the custom domain name is ‘contoso.com’, this would create the foll
 - **contoso.com** mapped to 127.0.0.1.
 - **www.contoso.com** mapped to **contoso.azurewebsites.net**.
 
+>[AZURE.NOTE] You can use Azure DNS to host the necessary domain records for your web app. To configure your custom domain, and create your records, in Azure DNS, see [Create custom DNS records for a web app](../dns-web-sites-custom-domain). 
+
 <a name="awverify" />
-## Create an “awverify” record (A records only)
+## Create an awverify record (A records only)
 
 If you create an A record, web app also requires a special CNAME record, which is used to verify that you own the domain you are attempting to use. This CNAME record must have the following form.
 
@@ -124,6 +127,7 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

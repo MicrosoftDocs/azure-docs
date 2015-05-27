@@ -1,13 +1,13 @@
 <properties 
    pageTitle="Create a VM with Multiple NICs"
    description="How to create vms with multiple nics"
-   services="virtual-networks, virtual-machines"
+   services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-networks"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -28,14 +28,13 @@ The figure above shows a VM with three NICs, each connected to a different subne
 At this time, Multi-NIC has the following requirements and constraints: 
 
 - Multi-NIC VMs must be created in Azure virtual networks (VNets). Non-VNet VMs are not supported. 
-- Multi-NIC is an all-or-nothing feature in the context of VMs in a cloud service. Within a single cloud service, only two states are allowed: 
+- Within a single cloud service, only the following settings are allowed: 
 	- All VMs in that cloud service must be Multi-NIC enabled, or 
 	- All VMs in that cloud service must each have a single NIC 
 
 >[AZURE.IMPORTANT] If you try to add a Multi-NIC VM to a deployment (cloud service) that already contains a single-NIC VM (or vice-versa), you will receive the following error: 
 Virtual machines with secondary network interfaces and virtual machines with no secondary network interfaces are not supported in the same deployment, also a virtual machine having no secondary network interfaces cannot be updated to have secondary network interfaces and vice-versa.
  
-- Multi-NIC VMs cannot forward traffic acting as Layer 3 (IP) gateways or routers. The packets MUST be destined to or sourced from one of the VNet IP addresses on the VM. 
 - Internet-facing VIP is only supported on the “default” NIC. There is only one VIP to the IP of the default NIC. 
 - At this time, Instance-Level Public IP addresses are not supported for Multi-NIC VMs. 
 - The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates. However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same. For example, assume **Eth1** has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to Eth2, but the IP and MAC pairing will remain the same. When a restart is customer-initiated, the NIC order will remain the same. 
@@ -81,16 +80,12 @@ Virtual machines with secondary network interfaces and virtual machines with no 
 |All Other Sizes|1|
 
 ## Network Security Groups
-Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has Multi-NIC enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. 
-
-In addition to associating subnets with NSGs, any individual NIC can also be associated with an NSG, regardless of whether the subnet containing the NIC’s IP address is associated with the same NSG. 
+Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has Multi-NIC enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. In addition to associating subnets with NSGs, you can also associate a NIC with an NSG. 
 
 If a subnet is associated with an NSG, and a NIC within that subnet is individually associated with an NSG, the associated NSG rules are applied in “**flow order**” according to the direction of the traffic being passed into or out of the NIC: 
 
 - **Incoming traffic **whose destination is the NIC in question flows first through the subnet, triggering the subnet’s NSG rules, before passing into the NIC, then triggering the NIC’s NSG rules. 
 - **Outgoing traffic** whose source is the NIC in question flows first out from the NIC, triggering the NIC’s NSG rules, before passing through the subnet, then triggering the subnet’s NSG rules. 
-
-![NSG flow](./media/virtual-networks-multiple-nics/Figure2.png)
 
 The figure above represents how NSG rules application is done based on traffice flow (from VM to subnet, or from subnet to VM).
 
@@ -128,36 +123,36 @@ You need the following prerequisitesbefore trying to run the PowerShell commands
 
 1. Select a VM image from Azure VM image gallery. Note that images change frequently and are available by region. The image specified in the example below may change or might not be in your region, so be sure to specify the image you need. 
 
-    $image = Get-AzureVMImage `
-    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
+	    $image = Get-AzureVMImage `
+	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
 1. Create a VM configuration. 
 
-	$vm = New-AzureVMConfig -Name "MultiNicVM" -InstanceSize "ExtraLarge" `
-		-Image $image.ImageName –AvailabilitySetName "MyAVSet"
+		$vm = New-AzureVMConfig -Name "MultiNicVM" -InstanceSize "ExtraLarge" `
+			-Image $image.ImageName –AvailabilitySetName "MyAVSet"
 
 1. Create the default administrator login. 
 
-	Add-AzureProvisioningConfig –VM $vm -Windows -AdminUserName "<YourAdminUID>" `
-		-Password "<YourAdminPassword>"
+		Add-AzureProvisioningConfig –VM $vm -Windows -AdminUserName "<YourAdminUID>" `
+			-Password "<YourAdminPassword>"
 
 1. Add additional NICs to the VM configuration. 
 
-	Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
-		-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm 
-	Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
-		-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
+		Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
+			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm 
+		Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
+			-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
 
 1. Specify the subnet and IP address for the default NIC. 
 
-	Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
-		-IPAddress "10.1.0.100" -VM $vm
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
+			-IPAddress "10.1.0.100" -VM $vm
 
-1. Create the VM your virtual network. 
+1. Create the VM in your virtual network. 
+
+		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
 >[AZURE.NOTE] The VNet that you specify here must already exist (as mentioned in the prerequisites). The example below specifies a virtual network named “MultiNIC-VNet”. 
-
-	New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
 ## See Also
 

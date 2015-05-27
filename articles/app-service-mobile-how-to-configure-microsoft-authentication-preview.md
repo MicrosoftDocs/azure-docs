@@ -1,28 +1,28 @@
-<properties 
+<properties
 	pageTitle="How to configure Microsoft Account authentication for your App Services application"
-	description="Learn how to configure Microsoft Account authentication for your App Services application." 
-	authors="mattchenderson,ggailey777" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+	description="Learn how to configure Microsoft Account authentication for your App Services application."
+	authors="mattchenderson" 
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # How to configure your application to use Microsoft Account login
 
-This topic shows you how to configure Azure App Services to use Microsoft Account as an authentication provider. 
+This topic shows you how to configure Azure App Services to use Microsoft Account as an authentication provider.
 
 ## <a name="register"> </a>Register your application with Microsoft Account
 
-1. Navigate to the [My Applications] page in the Microsoft Account Developer Center, and log on with your Microsoft account, if required. 
+1. Navigate to the [My Applications] page in the Microsoft Account Developer Center, and log on with your Microsoft account, if required.
 
 2. Click **Create application**, then type an **Application name** and click **I accept**.
 
@@ -32,7 +32,7 @@ This topic shows you how to configure Azure App Services to use Microsoft Accoun
 
 	>[AZURE.NOTE]For an existing Microsoft Account app registration, you may have to first enable **Enhanced redirection security**.
 
-4. Click **App Settings** and make a note of the values of the **Client ID** and **Client secret**. 
+4. Click **App Settings** and make a note of the values of the **Client ID** and **Client secret**.
 
     > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it within a client application.
 

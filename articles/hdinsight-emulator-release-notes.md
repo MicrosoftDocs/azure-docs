@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" 
-	description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." 
+	pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Microsoft Azure" 
+	description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator, a Hadoop sandbox environment." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -19,7 +19,7 @@
 
 
 
-# Release notes: Microsoft HDInsight Emulator for Azure 
+# Release notes: Microsoft HDInsight Emulator for Hadoop 
 
 
 
@@ -274,8 +274,10 @@
 
 ##<a name="nextsteps"></a> Next steps
 
-- [Get started with the HDInsight Emulator][hdinsight-get-started-emulator]
+- [Get started with the HDInsight Emulator][hdinsight-hadoop-emulator-get-started]
 
 
-[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
+
+
+[hdinsight-hadoop-emulator-get-started]: hdinsight-get-started-emulator.md
 

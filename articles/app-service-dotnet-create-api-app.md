@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Create an ASP.NET API App in Azure App Service " 
-	description="Learn how to to create an ASP.NET API App in Azure App Service, using Visual Studio 2013 " 
+	pageTitle="Create an ASP.NET API app in Azure App Service " 
+	description="Learn how to to create an ASP.NET API app in Azure App Service, using Visual Studio 2013 " 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,24 +13,22 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
-# Create an API App in Azure App Service
+# Create an ASP.NET API app in Azure App Service
 
 ## Overview
 
-This tutorial shows how to create an ASP.NET Web API project that is configured for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). Subsequent tutorials in the series show how to [deploy](app-service-dotnet-deploy-api-app.md) and [debug](app-service-dotnet-remotely-debug-api-app.md) the API app project that you create in this tutorial.
+This tutorial shows how to create an ASP.NET Web API project using a Visual Studio 2013 template that configures the project for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). For information about how to configure an existing Web API project for deployment as an API app, see [Configure a Web API project as an API app](./app-service-dotnet-create-api-app-visual-studio).
 
-For information about API apps, see [What are API apps?](app-service-api-apps-why-best-platform.md).
+Subsequent tutorials in the series show how to [deploy](app-service-dotnet-deploy-api-app.md) and [debug](app-service-dotnet-remotely-debug-api-app.md) the API app project that you create in this tutorial.
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 This tutorial requires version 2.5.1 or later of the Azure SDK for .NET.
 
 ## Create an API app project 
-
-This section shows how to use the Azure API App project template to create an API app from scratch. To learn how to configure an existing Web API project as an API app, skip to the [next section](#configure-a-web-api-project-as-an-api-app).
 
 1. Open Visual Studio 2013.
 

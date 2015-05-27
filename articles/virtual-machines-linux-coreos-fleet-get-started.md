@@ -16,8 +16,6 @@
 	ms.date="03/17/2015" 
 	ms.author="danlep"/>
 
-
-<!--The next line, with one pound sign at the beginning, is the page title--> 
 # Get Started with Fleet on CoreOS on Azure
 
 This article gives you two quick examples of using [fleet](https://github.com/coreos/fleet) and [Docker](https://www.docker.com/) to run applications on a cluster of [CoreOS] virtual machines. 

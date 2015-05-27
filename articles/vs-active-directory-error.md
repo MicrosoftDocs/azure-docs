@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="05/06/2015" 
 	ms.author="kempb"/>
 
 # Error During Authentication Detection
@@ -21,6 +21,8 @@
 While detecting previous authentication code, the wizard detected an incompatible authentication type.   
 
 ###What is being checked?
+
+**Note:** In order to correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have previous authentication code in your project, rebuild and try again.
 
 ####Project Types
 

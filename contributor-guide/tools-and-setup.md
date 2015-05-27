@@ -4,7 +4,7 @@
 
 #Install and set up tools for authoring in GitHub
 
-Follow the steps in this artilce to set up tools for contributing to the Azure technical documentation. Casual and occasional contributors probably can use the GitHub UI described in step 2.
+Follow the steps in this article to set up tools for contributing to the Azure technical documentation. Casual and occasional contributors probably can use the GitHub UI described in step 2.
 
 If you're unfamiliar with Git, you might want to review some Git terminology. T​his StackOverflow thread contains a glossary of Git terms you'll encounter in this set of steps: [http://stackoverflow.com/questions/7076164/terminology-used-by-git](http://stackoverflow.com/questions/7076164/terminology-used-by-git​​)
 
@@ -29,7 +29,7 @@ If you are a Microsoft contributor, you need to set up your GitHub account so yo
 
 - **Profile picture**: a picture of you (required)
 - **Name**: your first and last name (required)
-- **Email**: your Microsoft email address (optional at this time)
+- **Email**: your Microsoft email address (required)
 - **Company**: Microsoft Corporation (required)
 - **Location**: list your location (required)
 
@@ -83,7 +83,7 @@ You need to install the tools if you want to make any of the following sorts of 
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are a Microsoft employee working on Azure content, you need to work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain permissions. 
+If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo. 
 
 ## Install Git for Windows
 

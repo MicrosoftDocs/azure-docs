@@ -1,48 +1,44 @@
-<properties 
-	pageTitle="Configure a custom domain name in Azure App Service (GoDaddy)" 
-	description="Learn how to use a domain name from GoDaddy with Azure Web Apps" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="wadepickett" 
-	manager="wpickett" 
+<properties
+	pageTitle="Configure a custom domain name in Azure App Service (GoDaddy)"
+	description="Learn how to use a domain name from GoDaddy with Azure Web Apps"
+	services="app-service\web"
+	documentationCenter=""
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-services-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="wpickett"/>
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/12/2015"
+	ms.author="mwasson"/>
 
-#Configure a custom domain name in Azure App Service (GoDaddy)
+# Configure a custom domain name in Azure App Service (Purchased directly from GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../includes/websites-custom-domain-selector.md)]
 
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
+> [AZURE.NOTE] If you have purchased domain through Azure App Service Web Apps then refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article. 
+
 [AZURE.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-This article provides instructions on using a custom domain name purchased from [Go Daddy](https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+This article provides instructions on using a custom domain name that was purchased directly from [Go Daddy]https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
-In this article:
-
--   [Understanding DNS records](#understanding-records)
--   [Add a DNS record for your custom domain](#bkmk_configurecname)
--   [Enable the domain on your web](#enabledomain)
-
-<a name="understanding-records"></a> 
+<a name="understanding-records"></a>
 ##Understanding DNS records
 
 [AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 
-<a name="bkmk_configurecname"></a> 
-## Add a DNS record for your custom domain 
+<a name="bkmk_configurecname"></a>
+## Add a DNS record for your custom domain
 
 To associate your custom domain with a web app in App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by GoDaddy. Use the following steps to locate the DNS tools for GoDaddy.com
 
@@ -50,7 +46,7 @@ To associate your custom domain with a web app in App Service, you must add a ne
 
 	![custom domain page for GoDaddy](./media/web-sites-custom-domain-name/godaddy-customdomain.png)
 
-2. From the **Domain details** page, scroll to the **DNS Zone File** tab. This is the section used for adding and modifying DNS records for your domain name. 
+2. From the **Domain details** page, scroll to the **DNS Zone File** tab. This is the section used for adding and modifying DNS records for your domain name.
 
 	![DNS Zone File tab](./media/web-sites-custom-domain-name/godaddy-zonetab.png)
 
@@ -69,11 +65,11 @@ To associate your custom domain with a web app in App Service, you must add a ne
 	![add zone record](./media/web-sites-custom-domain-name/godaddy-addzonerecord.png)
 
 	* When adding an **A (host) record** - you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) * (a wildcard for matching multiple sub-domains,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points to** field to the IP address of your Azure web app.
-	
+
 		> [AZURE.NOTE] When using A (host) records, you must also add a CNAME record with the following configuration:
-		> 
+		>
 		> * A **Host** value of **awverify** that **Points to** a value of **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
-		> 
+		>
 		> This CNAME record is used by Azure to validate that you own the domain described by the A record
 
 	* When adding a **CNAME (alias) record** - you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.azurewebsites.net** domain name of your Azure web app. For example, **contoso.azurwebsites.net**.
@@ -81,8 +77,8 @@ To associate your custom domain with a web app in App Service, you must add a ne
 
 5. When you have finished adding or modifying records, click **Finish** to save changes.
 
-<a name="enabledomain"></a> 
-## Enable the domain name on your web app 
+<a name="enabledomain"></a>
+## Enable the domain name on your web app
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 

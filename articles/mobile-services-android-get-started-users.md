@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/30/2015" 
+	ms.date="06/01/2015" 
 	ms.author="ricksal"/>
 
 # Add authentication to your Mobile Services app
@@ -34,7 +34,7 @@
 This tutorial walks you through the basic steps to enable authentication in your app.
 
 
-## Prerequisites
+##Prerequisites
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -46,9 +46,9 @@ This tutorial walks you through the basic steps to enable authentication in your
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-3. In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
+1. In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
-4. From the **Run** menu, then click **Run app**; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
+2. From the **Run** menu, then click **Run app**; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
 
 	 This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
@@ -58,17 +58,17 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
-## Cache authentication tokens on the client
+## <a name="cache-tokens"></a>Cache authentication tokens on the client
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)] 
 
-## Refresh the token cache
+## <a name="refresh-tokens"></a>Refresh the token cache
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
 
 
-## Next steps
+## <a name="next-steps"></a>Next steps
 
 In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 

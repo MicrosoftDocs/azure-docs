@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Hive in HDInsight | Azure"
-   description="Use Hadoop Hive in HDInsight through PowerShell."
+   pageTitle="Use Hadoop Hive with PowerShell in HDInsight | Microsoft Azure"
+   description="Use PowerShell to run Hive queries in Hadoop on HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

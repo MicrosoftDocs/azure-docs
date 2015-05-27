@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" 
-	description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." 
+	pageTitle="What's new in Hadoop cluster versions of HDInsight? | Microsoft Azure" 
+	description="HDInsight supports multiple deployable Hadoop cluster versions. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." 
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -19,7 +19,7 @@
 
 #What's new in the Hadoop cluster versions provided by HDInsight?
 
-##HDInsight versions
+##HDInsight versions and Hadoop components
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice provisions a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component versions associated with HDInsight cluster versions are itemized in the following table. Note that the default cluster version used by Azure HDInsight is currently 3.1, and, as of 11/7/2014, based on HDP 2.1.7.
 
 

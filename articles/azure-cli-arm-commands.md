@@ -210,16 +210,15 @@ Your Azure subscription information is used by the tool to connect to your accou
 **Commands to manage virtual networks**
 
 	network vnet create [options] <resource-group> <name> <location>
-Allows to create a new virtual network. In the example below we create a virtual network with newvnet on resource group myresourcegroup in the West US region:
+Allows to create a new virtual network. In the following example we create a virtual network named newvnet for resource group myresourcegroup in the West US region.
 
 	
-	C:\>azure network vnet create myresourcegroup newvnet "west us"
+	azure network vnet create myresourcegroup newvnet "west us"
 	info:    Executing command network vnet create
 	+ Looking up virtual network "newvnet"
 	+ Creating virtual network "newvnet"
 	 Loading virtual network state
-	data:    Id:                   /subscriptions/###############################
-	/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
 	data:    Name:                 newvnet
 	data:    Type:                 Microsoft.Network/virtualNetworks
 	data:    Location:             westus
@@ -254,15 +253,16 @@ Parameter options:
 <BR>
 
 	network vnet set [options] <resource-group> <name>
-Sets a virtual network configuration within a resource group. 
 
-	C:\>azure network vnet set myresourcegroup newvnet
+Updates a virtual network configuration within a resource group. 
+
+	azure network vnet set myresourcegroup newvnet
+	
 	info:    Executing command network vnet set
 	+ Looking up virtual network "newvnet"
 	+ Updating virtual network "newvnet"
 	+ Loading virtual network state
-	data:    Id:                   /subscriptions/###############################
-	/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
 	data:    Name:                 newvnet
 	data:    Type:                 Microsoft.Network/virtualNetworks
 	data:    Location:             westus
@@ -274,6 +274,7 @@ Sets a virtual network configuration within a resource group.
 	data:    Subnets:
 	data:
 	info:    network vnet set command OK
+
 Parameter options:
 
 	   -h, --help                                 output usage information
@@ -297,12 +298,11 @@ Parameter options:
 
 	   --no-tags                                  remove all existing tags
 	   -s, --subscription <subscription>          the subscription identifier
-
 <BR>
-
+	
 	network vnet list [options] <resource-group>
-The command allows to list all virtual networks in a resource group
 
+The command allows to list all virtual networks in a resource group.
 
 
 	C:\>azure network vnet list myresourcegroup
@@ -329,8 +329,9 @@ Parameter options:
 <BR>
 	
 	network vnet show [options] <resource-group> <name>
-The command shows the virtual network properties in a resource group
+The command shows the virtual network properties in a resource group.
 
+	azure network vnet show -g myresourcegroup -n newvnet
 
 	info:    Executing command network vnet show
 	+ Looking up virtual network "newvnet"
@@ -351,7 +352,8 @@ The command shows the virtual network properties in a resource group
 	network vnet delete [options] <resource-group> <name>
 The command removes a virtual network. 
   	
-	C:\>azure network vnet delete myresourcegroup newvnetX
+	azure network vnet delete myresourcegroup newvnetX
+	
 	info:    Executing command network vnet delete
 	+ Looking up virtual network "newvnetX"
 	Delete virtual network newvnetX? [y/n] y
@@ -405,7 +407,7 @@ Parameter options:
 
 	network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
-Sets a specific virtual network subnet within a resource group
+Sets a specific virtual network subnet within a resource group.
 
 
 	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
@@ -424,9 +426,10 @@ Sets a specific virtual network subnet within a resource group
 
 	network vnet subnet list [options] <resource-group> <vnet-name>
 
-Lists all the virtual network subnets for a specific virtual network within a resource group
+Lists all the virtual network subnets for a specific virtual network within a resource group.
 
-	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
 	+ Setting subnet "subnet1"
@@ -442,7 +445,8 @@ Lists all the virtual network subnets for a specific virtual network within a re
 	network vnet subnet show [options] <resource-group> <vnet-name> <name>
 Displays virtual network subnet properties 
 
-	C:\>azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
+	azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
+	
 	info:    Executing command network vnet subnet show
 	+ Looking up the subnet "subnet1"
 	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft
@@ -465,9 +469,10 @@ Parameter options:
 <BR>
 
 	network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
-Removes a subnet from an existing virtual network 
+Removes a subnet from an existing virtual network. 
 
-	C:\>azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
+	azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
+	
 	info:    Executing command network vnet subnet delete
 	+ Looking up the subnet "subnet1"
 	Delete subnet "subnet1"? [y/n] y
@@ -488,9 +493,10 @@ Parameter options:
 **Commands to manage load balancers**
 
 	network lb create [options] <resource-group> <name> <location>
-Creates a load balancer set 
+Creates a load balancer set. 
 
-	C:\>azure network lb create -g myresourcegroup -n mylb -l westus
+	azure network lb create -g myresourcegroup -n mylb -l westus
+	
 	info:    Executing command network lb create
 	+ Looking up the load balancer "mylb"
 	+ Creating load balancer "mylb"
@@ -517,9 +523,10 @@ Parameter options:
 <BR>
 
 	network lb list [options] <resource-group>
-Lists Load balancer objects within a resource group. 
+Lists Load balancer resources within a resource group. 
 
-	C:\>azure network lb list myresourcegroup
+	azure network lb list myresourcegroup
+	
 	info:    Executing command network lb list
 	+ Getting the load balancers
 	data:    Name  Location
@@ -537,9 +544,11 @@ Parameter options:
 <BR>
 
 	network lb show [options] <resource-group> <name>
+
 Displays load balancer information of a specific load balancer within a resource group
 
-	C:\>azure network lb show myresourcegroup mylb -v
+	azure network lb show myresourcegroup mylb -v
+	
 	info:    Executing command network lb show
 	verbose: Looking up the load balancer "mylb"
 	data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
@@ -561,9 +570,11 @@ Parameter options:
 <BR>
 
 	network lb delete [options] <resource-group> <name>
-Delete load balancer objects.
 
-	C:\>azure network lb delete  myresourcegroup mylb
+Delete load balancer resources.
+
+	azure network lb delete  myresourcegroup mylb
+	
 	info:    Executing command network lb delete
 	+ Looking up the load balancer "mylb"
 	Delete load balancer "mylb"? [y/n] y
@@ -583,11 +594,12 @@ Parameter options:
 **Commands to manage probes of a load balancer**
 	
 	network lb probe create [options] <resource-group> <lb-name> <name>
-Create the probe configuration for health status in the load balancer. Keep in mind to run this command, your load balancer needs to have a frontend-ip configured first. Check the command azure network frontend-ip on how to assign the ip address to load balancer.
 
-	azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 --path default.aspx -i 300
+Create the probe configuration for health status in the load balancer. Keep in mind to run this command, your load balancer requires a frontend-ip resource (Check out command "azure network frontend-ip" to assign an ip address to load balancer).
+
+	azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
+	
 	info:    Executing command network lb probe create
-	warn:    Probe request path will be ignored when its protocol is Tcp
 	+ Looking up the load balancer "mylb"
 	+ Updating load balancer "mylb"
 	info:    network lb probe create command OK
@@ -611,12 +623,12 @@ Parameter options:
 
 	network lb probe set [options] <resource-group> <lb-name> <name>
 
-Updates the an existing lb probe to the new values for it.
+Updates the an existing load balancer probe with new values for it.
 
-	azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -f default.aspx -i 300
+	azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
+	
 	info:    Executing command network lb probe set
-	warn:    Probe request path will be ignored when its protocol is Tcp
-	+ Looking up the load balancer "mylb"
+		+ Looking up the load balancer "mylb"
 	+ Updating load balancer "mylb"
 	info:    network lb probe set command OK
 
@@ -639,9 +651,10 @@ Parameter options
 
 	network lb probe list [options] <resource-group> <lb-name>
 
-List the probe properties for a load balancer set 
+List the probe properties for a load balancer set. 
 
 	C:\>azure network lb probe list -g myresourcegroup -l mylb
+	
 	info:    Executing command network lb probe list
 	+ Looking up the load balancer "mylb"
 	data:    Name       Protocol  Port  Path  Interval  Count
@@ -660,9 +673,10 @@ Parameter options:
 
 
 	network lb probe delete [options] <resource-group> <lb-name> <name>
-Removes the probe created for the load balancer
+Removes the probe created for the load balancer.
 
 	azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
+	
 	info:    Executing command network lb probe delete
 	+ Looking up the load balancer "mylb"
 	Delete a probe "mylbprobe?" [y/n] y
@@ -672,23 +686,23 @@ Removes the probe created for the load balancer
 **Commands to manage frontend ip configurations of a load balancer**
 
 	network lb frontend-ip create [options] <resource-group> <lb-name> <name>
-Adds a frontend IP configuration to an existing load balancer set. You can only configure a public IP or private IP with the create command. You need to use network lb frontend-ip set to further add another IP.
+Creates a frontend IP configuration to an existing load balancer set. 
 
 	azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
+	
 	info:    Executing command network lb frontend-ip create
 	+ Looking up the load balancer "mylb"
 	+ Looking up the subnet "subnet"
 	+ Creating frontend IP configuration "myfrontendip"
 	+ Looking up the load balancer "mylb"
-	data:    Id:                           /subscriptions/c4a17ddf-aa84-491c-b6f9-b9
-	0d882299f7/resourceGroups/Myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Id:                           /subscriptions/###############################/resourceGroups/Myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
 	/frontendIPConfigurations/myfrontendip
 	data:    Name:                         myfrontendip
 	data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
 	data:    Provisioning state:           Succeeded
 	data:    Private IP allocation method: Dynamic
 	data:    Private IP address:           10.0.1.4
-	data:    Subnet:                       id=/subscriptions/c4a17ddf-aa84-491c-b6f9	-b90d882299f7/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
+	data:    Subnet:                       id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
 	data:    Public IP address:
 	data:    Inbound NAT rules
 	data:    Outbound NAT rules
@@ -700,10 +714,10 @@ Adds a frontend IP configuration to an existing load balancer set. You can only 
 
 	network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
-Update configuration for frontend IP. It allows to change the current configuration of an existing frontend IP.
-the command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip
+Allows to update an existing configuration of a frontend IP.The command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip.
 
 	azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
+	
 	info:    Executing command network lb frontend-ip set
 	+ Looking up the load balancer "mylb"
 	+ Looking up the public ip "mypubip5"
@@ -750,9 +764,10 @@ Parameter options:
 	
 	network lb frontend-ip list [options] <resource-group> <lb-name>
 
-Lists all the frontend IP's configured for the load balancer 
+Lists all the frontend IP resources configured for the load balancer.
 
 	azure network lb frontend-ip list -g myresourcegroup -l mylb
+	
 	info:    Executing command network lb frontend-ip list
 	+ Looking up the load balancer "mylb"
 	data:    Name         Provisioning state  Private IP allocation method  Subnet
@@ -793,37 +808,635 @@ Parameter options:
 **Commands to manage backend address pools of a load balancer**
 	
 	network lb address-pool create [options] <resource-group> <lb-name> <name>
+
+Create a backend address pool for a load balancer. 
+
+	azure network lb address-pool create -g myresourcegroup --lb-name mylb -n myaddresspool
+	
+	info:    Executing command network lb address-pool create
+	+ Looking up the load balancer "mylb"
+	+ Updating load balancer "mylb"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourgroup/providers/Microso.Network/loadBalancers/mylb/backendAddressPools/myaddresspool
+	data:    Name:                      myaddresspool
+	data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
+	data:    Provisioning state:        Succeeded
+	data:    Backend IP configurations:
+	data:    Load balancing rules:
+	data:
+	info:    network lb address-pool create command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the backend address pool
+	-s, --subscription <subscription>      the subscription identifier
+	
+<BR>
+
 	network lb address-pool add [options] <resource-group> <lb-name> <name>
+
+A backend address pool range is how a load balancer will know what resources to route incoming network traffic from its endpoint using Azure Resource Manager. After you create and name the backend address pool range (See command "azure network lb address-pool create"), you need to add the endpoints which are now defined by a resource called "network interfaces".
+ 
+To configure the backend address range, you will need at least one "network interface"(See "azure network lb nic" command line for more details). 
+
+In the following example it was used a previously created "nic1" network interface to create the backend address pool range.
+  
+	azure network lb address-pool add -g myresourcegroup -l mylb -n mybackendpool -a nic1
+
+	info:    Executing command network lb address-pool add
+	+ Looking up the load balancer "mylb"
+	+ Getting network interfaces
+	+ Updating network interface "nic1"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
+	data:    Name:                      mybackendpool
+	data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
+	data:    Provisioning state:        Succeeded
+	data:    Backend IP configurations:
+	data:     id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/NIC-config
+	data:    Load balancing rules:
+	data:
+	info:    network lb address-pool add command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the backend address pool
+	-i, --vm-id <vm-id>                    the virtual machine identifier.
+	e.g. "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>,/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
+	-m, --vm-name <vm-name>                the name of the virtual machine
+	-d, --nic-id <nic-id>                  the network interface identifier.
+	e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
+	-a, --nic-name <nic-name>              the name of the network interface
+	-s, --subscription <subscription>      the subscription identifier
+
+<BR>
+
 	network lb address-pool remove [options] <resource-group> <lb-name> <name>
+
+Removes a network interface from backend IP address pool range. 
+
+	azure network lb address-pool remove -g myresourcegroup -l mylb -n mybackendpool -a nic1
+	
+	info:    Executing command network lb address-pool remove
+	+ Looking up the load balancer "mylb"
+	+ Getting network interfaces
+	+ Updating network interface "nic1"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
+	data:    Name:                      mybackendpool
+	data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
+	data:    Provisioning state:        Succeeded
+	data:    Backend IP configurations:
+	data:    Load balancing rules:
+	data:
+	info:    network lb address-pool remove command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the backend address pool
+	-i, --vm-id <vm-id>                    the virtual machine identifier.
+	e.g. "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>,/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
+	-m, --vm-name <vm-name>                the name of the virtual machine
+	-d, --nic-id <nic-id>                  the network interface identifier.
+	e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
+	-a, --nic-name <nic-name>              the name of the network interface
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network lb address-pool list [options] <resource-group> <lb-name>
+
+List backend IP address pool range for a specific resource group
+
+	azure network lb address-pool list -g myresourcegroup -l mylb
+	
+	info:    Executing command network lb address-pool list
+	+ Looking up the load balancer "mylb"
+	data:    Name           Provisioning state
+	data:    -------------  ------------------
+	data:    mybackendpool  Succeeded
+	info:    network lb address-pool list command OK
+	
+Parameter options:
+
+ 	-h, --help                             output usage information
+ 	-v, --verbose                          use verbose output
+ 	--json                                 use json output
+ 	-g, --resource-group <resource-group>  the name of the resource group
+ 	-l, --lb-name <lb-name>                the name of the load balancer
+ 	-s, --subscription <subscription>      the subscription identifier
+
+<BR>	
 	network lb address-pool delete [options] <resource-group> <lb-name> <name>
+
+Removes the backend IP pool range resource from load balancer.
+
+	azure network lb address-pool delete -g myresourcegroup -l mylb -n mybackendpool
+	
+	info:    Executing command network lb address-pool delete
+	+ Looking up the load balancer "mylb"
+	Delete backend address pool "mybackendpool"? [y/n] y
+	+ Updating load balancer "mylb"
+	info:    network lb address-pool delete command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the backend address pool
+	-q, --quiet                            quiet mode, do not ask for delete confirmation
+	-s, --subscription <subscription>      the subscription identifier
 
 **Commands to manage load balancer rules**
 	
 	network lb rule create [options] <resource-group> <lb-name> <name>
+Create load balancer rules. 
+
+You can create a load balancer rule configuring the frontend endpoint for the load balancer and the backend address pool range which will receive the incoming network traffic. Settings also include the ports for frontend IP endpoint and ports for the backend address pool range. 
+
+The following example shows how to create a load balancer rule,  the frontend endpoint listening to port 80 TCP and load balancing network traffic sending to port 8080 for the backend address pool range.
+ 
+	azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
+	
+	
+	info:    Executing command network lb rule create
+	+ Looking up the load balancer "mylb"
+	+ Updating load balancer "mylb"
+	+ Loading rule state
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/loadBalancingRules/mylbrule
+	data:    Name:                      mylbrule
+	data:    Type:                      Microsoft.Network/loadBalancers/loadBalancingRules
+	data:    Provisioning state:        Succeeded
+	data:    Frontend IP configuration: /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
+	data:    Backend address pool:      id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
+	data:    Protocol:                  Tcp
+	data:    Frontend port:             80
+	data:    Backend port:              8080
+	data:    Enable floating IP:        false
+	data:    Idle timeout in minutes:   10
+	data:    Probes
+	data:
+	info:    network lb rule create command OK
+	
+<BR>
+
 	network lb rule set [options] <resource-group> <lb-name> <name>
+
+Updates an existing load balancer rule set in a specific resource group. In the following example we changed the rule name from mylbrule to mynewlbrule. 
+
+	azure network lb rule set -g myresourcegroup -l mylb -n mylbrule -r mynewlbrule -p tcp -f 80 -b 8080 -i 10 -t myfrontendip -o mybackendpool
+
+	info:    Executing command network lb rule set
+	+ Looking up the load balancer "mylb"
+	+ Updating load balancer "mylb"
+	+ Loading rule state
+	data:    Id:                        /subscriptions/###############################/resourceGroups/yresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/loadBalancingRules/mynewlbrule
+	data:    Name:                      mynewlbrule
+	data:    Type:                      Microsoft.Network/loadBalancers/loadBalancingRules
+	data:    Provisioning state:        Succeeded
+	data:    Frontend IP configuration: /subscriptions/###############################/resourceGroups/yresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
+	data:    Backend address pool:      id=/subscriptions/###############################/resourceGroups/yresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
+	data:    Protocol:                  Tcp
+	data:    Frontend port:             80
+	data:    Backend port:              8080
+	data:    Enable floating IP:        false
+	data:    Idle timeout in minutes:   10
+	data:    Probes
+	data:
+	info:    network lb rule set command OK
+
+Parameter options:
+
+	-h, --help                                         output usage information
+	-v, --verbose                                      use verbose output
+	--json                                             use json output
+	-g, --resource-group <resource-group>              the name of the resource group
+	-l, --lb-name <lb-name>                            the name of the load balancer
+	-n, --name <name>                                  the name of the rule
+	-r, --new-rule-name <new-rule-name>                new rule name
+	-p, --protocol <protocol>                          the rule protocol
+	-f, --frontend-port <frontend-port>                the frontend port
+	-b, --backend-port <backend-port>                  the backend port
+	-e, --enable-floating-ip <enable-floating-ip>      enable floating point ip
+	-i, --idle-timeout <idle-timeout>                  the idle timeout in minutes
+	-a, --probe-name [probe-name]                      the name of the probe defined in the same load balancer
+	-t, --frontend-ip-name <frontend-ip-name>          the name of the frontend ip configuration in the same load balancer
+	-o, --backend-address-pool <backend-address-pool>  name of the backend address pool defined in the same load balancer
+	-s, --subscription <subscription>                  the subscription identifier
+	
+	
 	network lb rule list [options] <resource-group> <lb-name>
+
+Lists all load balancer rules configured for a load balancer in a specific resource group.
+
+	azure network lb rule list -g myresourcegroup -l mylb
+
+	info:    Executing command network lb rule list
+	+ Looking up the load balancer "mylb"
+	data:    Name         Provisioning state  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes  Backend address pool  Probe data
+
+	data:    mynewlbrule  Succeeded           Tcp       80             8080          false               10                       /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
+	info:    network lb rule list command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-s, --subscription <subscription>      the subscription identifier
+
 	network lb rule delete [options] <resource-group> <lb-name> <name>
+
+Deletes a load balancer rule.
+ 
+	azure network lb rule delete -g myresourcegroup -l mylb -n mynewlbrule
+	
+	info:    Executing command network lb rule delete
+	+ Looking up the load balancer "mylb"
+	Delete load balancing rule mynewlbrule? [y/n] y
+	+ Updating load balancer "mylb"
+	info:    network lb rule delete command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the rule
+	-q, --quiet                            quiet mode, do not ask for delete confirmation
+	-s, --subscription <subscription>      the subscription identifier
 
 **Commands to manage load balancer inbound NAT rules**
 	
 	network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
+Creates a inbound NAT rule for load balancer.
+
+In the example below we created a NAT rule from frontend IP (which was previously defined. See "azure network frontend-ip" command for more details) with a inbound listening port and outbound port which the load balancer will send the network traffic.
+
+
+	azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
+	
+	info:    Executing command network lb inbound-nat-rule create
+	+ Looking up the load balancer "mylb"
+	+ Updating load balancer "mylb"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/inboundNatRules/myinboundnat
+	data:    Name:                      myinboundnat
+	data:    Type:                      Microsoft.Network/loadBalancers/inboundNatRules
+	data:    Provisioning state:        Succeeded
+	data:    Frontend IP Configuration: id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
+	data:    Backend IP configuration
+	data:    Protocol                   Tcp
+	data:    Frontend port              80
+	data:    Backend port               8080
+	data:    Enable floating IP         false
+	info:    network lb inbound-nat-rule create command OK
+
+Parameter options:
+
+	-h, --help                                     output usage information
+	-v, --verbose                                  use verbose output
+	--json                                         use json output
+	-g, --resource-group <resource-group>          the name of the resource group
+	-l, --lb-name <lb-name>                        the name of the load balancer
+	-n, --name <name>                              the name of the inbound NAT rule
+	-p, --protocol <protocol>                      the rule protocol [tcp,udp]
+	-f, --frontend-port <frontend-port>            the frontend port [0-65535]
+	-b, --backend-port <backend-port>              the backend port [0-65535]
+	-e, --enable-floating-ip <enable-floating-ip>  enable floating point ip [true,false]
+	-i, --frontend-ip <frontend-ip>                the name of the frontend ip configuration
+	-m, --vm-id <vm-id>                            the VM id.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>
+	-a, --vm-name <vm-name>                        the VM name.This VM must exist in the same resource group as the lb.
+	Please use vm-id if that is not the case.
+	this parameter will be ignored if --vm-id is specified
+	-s, --subscription <subscription>              the subscription identifier
+<BR>
+
 	network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
+Updates an existing inbound nat rule.In the following example we changed the inbound listening port from 80 to 81.
+
+	azure network lb inbound-nat-rule set -g group-1 -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
+
+	info:    Executing command network lb inbound-nat-rule set
+	+ Looking up the load balancer "mylb"
+	+ Updating load balancer "mylb"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb/inboundNatRules/myinboundnat
+	data:    Name:                      myinboundnat
+	data:    Type:                      Microsoft.Network/loadBalancers/inboundNatRules
+	data:    Provisioning state:        Succeeded
+	data:    Frontend IP Configuration: id=/subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
+	data:    Backend IP configuration
+	data:    Protocol                   Tcp
+	data:    Frontend port              81
+	data:    Backend port               8080
+	data:    Enable floating IP         false
+	info:    network lb inbound-nat-rule set command OK
+
+Parameter options:
+
+	-h, --help                                     output usage information
+	-v, --verbose                                  use verbose output
+	--json                                         use json output
+	-g, --resource-group <resource-group>          the name of the resource group
+	-l, --lb-name <lb-name>                        the name of the load balancer
+	-n, --name <name>                              the name of the inbound NAT rule
+	-p, --protocol <protocol>                      the rule protocol [tcp,udp]
+	-f, --frontend-port <frontend-port>            the frontend port [0-65535]
+	-b, --backend-port <backend-port>              the backend port [0-65535]
+	-e, --enable-floating-ip <enable-floating-ip>  enable floating point ip [true,false]
+	-i, --frontend-ip <frontend-ip>                the name of the frontend ip configuration
+	-m, --vm-id [vm-id]                            the VM id.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>
+	-a, --vm-name <vm-name>                        the VM name.
+	This virtual machine must exist in the same resource group as the lb.
+	Please use vm-id if that is not the case
+	-s, --subscription <subscription>              the subscription identifier
+<BR>
+	
 	network lb inbound-nat-rule list [options] <resource-group> <lb-name>
+
+Lists all inbound nat rules for load balancer.
+
+	azure network lb inbound-nat-rule list -g myresourcegroup -l mylb
+
+	info:    Executing command network lb inbound-nat-rule list
+	+ Looking up the load balancer "mylb"
+	data:    Name          Provisioning state  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes  Backend IP configuration
+	data:    ------------  ------------------  --------  -------------  ------------  ------------------  -----------------------  ---
+	---------------------
+	data:    myinboundnat  Succeeded           Tcp       81             8080          false               4
+
+	info:    network lb inbound-nat-rule list command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
+
+Deletes NAT rule for the load balancer in a specific resource group.
+
+	azure network lb inbound-nat-rule delete -g myresourcegroup -l mylb -n myinboundnat
+	
+	info:    Executing command network lb inbound-nat-rule delete
+	+ Looking up the load balancer "mylb"
+	Delete inbound NAT rule "myinboundnat?" [y/n] y
+	+ Updating load balancer "mylb"
+	info:    network lb inbound-nat-rule delete command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the inbound NAT rule
+	-q, --quiet                            quiet mode, do not ask for delete confirmation
+	-s, --subscription <subscription>      the subscription identifier
 
 **Commands to manage public ip addresses**
 	
 	network public-ip create [options] <resource-group> <name> <location>
+Creates a public ip resource. You will create the public ip resource and associate to a domain name.
+
+	azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l eastus -d xplatclitest -a "Dynamic"
+	info:    Executing command network public-ip create
+	+ Looking up the public ip "mytestpublicip1"
+	+ Creating public ip address "mytestpublicip1"
+	+ Looking up the public ip "mytestpublicip1"
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip1
+	data:    Name:                 mytestpublicip1
+	data:    Type:                 Microsoft.Network/publicIPAddresses
+	data:    Location:             eastus
+	data:    Provisioning state:   Succeeded
+	data:    Allocation method:    Dynamic
+	data:    Idle timeout:         4
+	data:    Domain name label:    xplatclitest
+	data:    FQDN:                 xplatclitest.eastus.cloudapp.azure.com
+	info:    network public-ip create command OK
+	
+
+Parameter options:
+	-h, --help                                   output usage information
+	-v, --verbose                                use verbose output
+	--json                                       use json output
+	-g, --resource-group <resource-group>        the name of the resource group
+	-n, --name <name>                            the name of the public ip
+	-l, --location <location>                    the location
+	-d, --domain-name-label <domain-name-label>  the domain name label.
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              the idle timeout in minutes
+	-f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>            the subscription identifier
+<br>
+	
 	network public-ip set [options] <resource-group> <name>
+Updates the properties of an existing public ip resource. In the following example we changed the public IP address from Dynamic to Static.
+
+	azure network public-ip set -g group-1 -n mytestpublicip1 -d xplatclitest -a "Static"
+	info:    Executing command network public-ip set
+	+ Looking up the public ip "mytestpublicip1"
+	+ Updating public ip address "mytestpublicip1"
+	+ Looking up the public ip "mytestpublicip1"
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip1
+	data:    Name:                 mytestpublicip1
+	data:    Type:                 Microsoft.Network/publicIPAddresses
+	data:    Location:             eastus
+	data:    Provisioning state:   Succeeded
+	data:    Allocation method:    Static
+	data:    Idle timeout:         4
+	data:    IP Address:           (static IP address)
+	data:    Domain name label:    xplatclitest
+	data:    FQDN:                 xplatclitest.eastus.cloudapp.azure.com
+	info:    network public-ip set command OK
+	
+Parameter options:
+
+	-h, --help                                   output usage information
+	-v, --verbose                                use verbose output
+	--json                                       use json output
+	-g, --resource-group <resource-group>        the name of the resource group
+	-n, --name <name>                            the name of the public ip
+	-d, --domain-name-label [domain-name-label]  the domain name label.
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              the idle timeout in minutes
+	-f, --reverse-fqdn [reverse-fqdn]            the reverse fqdn
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	--no-tags                                    remove all existing tags
+	-s, --subscription <subscription>            the subscription identifier
+	
+<br>	
 	network public-ip list [options] <resource-group>
+Lists all public IP resources within a resource group.
+
+	azure network public-ip list -g myresourcegroup
+
+	info:    Executing command network public-ip list
+	+ Getting the public ip addresses
+	data:    Name             Location  Allocation  IP Address    Idle timeout  DNS Name
+	data:    ---------------  --------  ----------  ------------  ------------  -------------------------------------------
+	data:    mypubip5         westus    Dynamic                   4             "domain name".westus.cloudapp.azure.com
+	data:    myPublicIP       eastus    Dynamic                   4             "domain name".eastus.cloudapp.azure.com
+	data:    mytestpublicip   eastus    Dynamic                   4             "domain name".eastus.cloudapp.azure.com
+	data:    mytestpublicip1  eastus   Static (Static IP address) 4             xplatclitest.eastus.cloudapp.azure.com
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-s, --subscription <subscription>      the subscription identifier
+<BR>	
 	network public-ip show [options] <resource-group> <name>
+Displays public ip properties for a public ip resource within a resource group.
+
+	azure network public-ip show -g myresourcegroup -n mytestpublicip
+
+	info:    Executing command network public-ip show
+	+ Looking up the public ip "mytestpublicip1"
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip
+	data:    Name:                 mytestpublicip
+	data:    Type:                 Microsoft.Network/publicIPAddresses
+	data:    Location:             eastus
+	data:    Provisioning state:   Succeeded
+	data:    Allocation method:    Static
+	data:    Idle timeout:         4
+	data:    IP Address:           (static IP address)
+	data:    Domain name label:    xplatclitest
+	data:    FQDN:                 xplatclitest.eastus.cloudapp.azure.com
+	info:    network public-ip show command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the public IP
+	-s, --subscription <subscription>      the subscription identifier
+
+
 	network public-ip delete [options] <resource-group> <name>
-   
+
+Deletes public ip resource.
+	
+	azure network public-ip delete -g group-1 -n mypublicipname
+	info:    Executing command network public-ip delete
+	+ Looking up the public ip "mypublicipname"
+	Delete public ip address "mypublicipname"? [y/n] y
+	+ Deleting public ip address "mypublicipname"
+	info:    network public-ip delete command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the public IP
+	-q, --quiet                            quiet mode, do not ask for delete confirmation
+	-s, --subscription <subscription>      the subscription identifier
+
+
 **Commands to manage network interfaces**
 
 	network nic create [options] <resource-group> <name> <location>
+Creates a resource called network interface (NIC) which can be used for load balancers or associate to a Virtual Machine.
+
+	azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
+	
+	info:    Executing command network nic create
+	+ Looking up the network interface "testnic1"
+	+ Looking up the subnet "subnet-1"
+	+ Creating network interface "testnic1"
+	+ Looking up the network interface "testnic1"
+	data:    Id:                     /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/networkInterfaces/testnic1
+	data:    Name:                   testnic1
+	data:    Type:                   Microsoft.Network/networkInterfaces
+	data:    Location:               eastus
+	data:    Provisioning state:     Succeeded
+	data:    IP configurations:
+	data:       Name:                         NIC-config
+	data:       Provisioning state:           Succeeded
+	data:       Private IP address:           10.0.0.5
+	data:       Private IP Allocation Method: Dynamic
+	data:       Subnet:                       /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/virtualNetworks/myVNET/subnets/Subnet-1
+
+Parameter options:
+
+	-h, --help                                                       output usage information
+	-v, --verbose                                                    use verbose output
+	--json                                                           use json output
+	-g, --resource-group <resource-group>                            the name of the resource group
+	-n, --name <name>                                                the name of the network interface
+	-l, --location <location>                                        the location
+	-w, --network-security-group-id <network-security-group-id>      the network security group identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
+	-o, --network-security-group-name <network-security-group-name>  the network security group name.
+	This network security group must exist in the same resource group as the nic.
+	Please use network-security-group-id if that is not the case.
+	-i, --public-ip-id <public-ip-id>                                the public IP identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
+	-p, --public-ip-name <public-ip-name>                            the public IP name.
+	This public ip must exist in the same resource group as the nic.
+	Please use public-ip-id if that is not the case.
+	-a, --private-ip-address <private-ip-address>                    the private IP address
+	-u, --subnet-id <subnet-id>                                      the subnet identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
+	--subnet-name <subnet-name>                                  the subnet name
+	-m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
+	-t, --tags <tags>                                                the comma seperated list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>                                the subscription identifier
+	data:
+	info:    network nic create command OK
+	
+<BR>
+
 	network nic set [options] <resource-group> <name>
+	
 	network nic list [options] <resource-group>
 	network nic show [options] <resource-group> <name>
 	network nic delete [options] <resource-group> <name>

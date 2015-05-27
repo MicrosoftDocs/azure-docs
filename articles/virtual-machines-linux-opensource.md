@@ -13,17 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/23/2015"
+	ms.date="05/08/2015"
 	ms.author="rasquill"/>
 
 
-<!--The next line, with one pound sign at the beginning, is the page title-->
+
 # Linux and Open-Source Computing on Azure
 
 This document attempts to list in one place all the topics written by Microsoft and its partners about running Linux-based Virtual Machines as well as other open-source compute environments and applications on Microsoft Azure. As both Azure and the open-source computing world are fast-moving targets, it is almost certain that this document is out of date, *despite* the fact that we shall do our best to continually add newer topics and remove out-of-date ones. If we've missed one, please let us know in the comments, or submit a pull request to our [GitHub repo](https://github.com/Azure/azure-content/).
 
 ## General Notes
-The sections are broken down on the right of this page. (Links may occur in more than one section, as topics can be about more than one concept, distro, or technology.) In addition, there are several topics that describe various Linux options, image repositories, case studies, and how-to topics to upload your own custom images: 
+The sections are broken down on the right of this page. (Links may occur in more than one section, as topics can be about more than one concept, distro, or technology.) In addition, there are several topics that describe various Linux options, image repositories, case studies, and how-to topics to upload your own custom images:
 
 - [Azure Marketplace](http://azure.microsoft.com/marketplace/virtual-machines/)
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
@@ -130,14 +130,14 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 17. [The Basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blogging the Basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blogging the Basics: Automate Provisioning Linux on Azure with xplat, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Create a multi-VM deployment using the Azure x-plat cli](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+19. [Create a multi-VM deployment using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
 20. [The Basics: The Azure Docker VM Extension](virtual-machines-docker-vm-extension.md)
 23. [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) reference
 24. [GlusterFS on Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
 ## Community Images and Repositories
 3. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index) &mdash; for community provided virtual machine images.
-4. [GitHub](https://github.com/Azure/) &mdash; for the xplat-cli, and many other tools and projects.
+4. [GitHub](https://github.com/Azure/) &mdash; for the Azure CLI, and many other tools and projects.
 5. [Docker Hub Registry](https://registry.hub.docker.com/) &mdash; the registry for Docker container images.
 
 ## Languages and Platforms
@@ -181,7 +181,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 Look for this section to fill up quickly. If you have suggestions, send us a PR or leave them in comments, below.
 
-1. [Create a multi-VM deployment using the Azure x-plat cli](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+1. [Create a multi-VM deployment using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
 2. [Patrick Chanezon's Azure Linux GitHub repository](https://github.com/chanezon/azure-linux)
 3. [Video: How to Move On-Premises USB data on Linux to Azure using **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Video: Accessing Linux-based GUI on Azure in the Browser with fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -230,12 +230,12 @@ This section contains information about several different storage approaches and
     - [How to: Create a Multi-Master cluster of MariaDbs](virtual-machines-mariadb-cluster.md)
 7. PostgreSQL
     - [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
-8. [Installing Postgres with corosync, pg_bouncer using ILB](https://github.com/chgeuer/postgres-azure) 
+8. [Installing Postgres with corosync, pg_bouncer using ILB](https://github.com/chgeuer/postgres-azure)
 
 
 ## Auth and Encryption
 
-Authentication and encryption are critical topics in software development, and there are many, many topics on the web that describe how to learn and use proper security techniques for both. We describe some of the basic usage to get up and running quickly with Linux and opensource workloads, as well pointing to tools to use to reset or remove remote security features on Azure. These are basic procedures, and we will be adding more complex scenarios soon. 
+Authentication and encryption are critical topics in software development, and there are many, many topics on the web that describe how to learn and use proper security techniques for both. We describe some of the basic usage to get up and running quickly with Linux and opensource workloads, as well pointing to tools to use to reset or remove remote security features on Azure. These are basic procedures, and we will be adding more complex scenarios soon.
 
 4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 7. [The Basics: SSH](virtual-machines-linux-use-ssh-key.md)
@@ -248,12 +248,13 @@ This section starts with a blog entry containing a series of videos on [Video: A
 
 1. Docker
 	- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
-	- [Using the Docker VM Extension from the Azure Cross-Platform Command-line Interface (xplat-cli)](virtual-machines-docker-with-xplat-cli.md)
+	- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli.md)
 	- [Using the Docker VM Extension from the Azure Preview Portal](virtual-machines-docker-with-portal.md)
 	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
 	- [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
-	
+	- [Get Started with Docker and Compose on Azure](virtual-machines-docker-compose-quickstart.md)
+
 2. [Fleet with CoreOS](virtual-machines-linux-coreos-how-to.md)
 3. Deis
 	- [GitHub repo: Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)

@@ -13,33 +13,53 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI
 
-This article provides guidance on how to automate common tasks for deploying and managing Azure Virtual Machines using Azure Resource Manager templates and the Azure CLI as well as links to more documentation on automation for Virtual Machines. 
+This article shows you how to use Azure Resource Manager templates and Azure CLI to do the following common tasks for deploying and managing Azure Virtual Machines. For more templates you can use, see [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
+
+Common Tasks:
+
+- [Quick-create a Virtual Machine in Azure](#quick-create-a-vm-in-azure)
+- [Deploy a Virtual Machine in Azure from a template](#deploy-a-vm-in-azure-from-a-template)
+- [Create a Virtual Machine from a custom image](#create-a-custom-vm-image) 
+- [Deploy a VM with virtual network and load balancer](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [Remove a resource group](#remove-a-resource-group)
+- [Show the log for a resource group deployment](#show-the-log-for-a-resource-group-deployment)
+- [Display information about a Virtual Machine](#display-information-about-a-virtual-machine)
+- [Connect to a Linux-based Virtual Machine](#log-on-to-a-linux-based-virtual-machine)
+- [Stop a Virtual Machine](#stop-a-virtual-machine)
+- [Start a Virtual Machine](#start-a-virtual-machine)
+- [Attach a data disk](#attach-a-data-disk)
+
+
 
 ## Getting Ready
 
 Before you can use the Azure CLI with Azure resource groups you will need to have the right Azure CLI version and a work or school ID (also called an organizational ID).
 
-### Step 1: Update your Azure CLI version to 0.9.0
+### Update your Azure CLI version to 0.9.0 or later
 
-Type `azure --version` to see whether you have already installed version 0.9.0. 
+Type `azure --version` to see whether you have already installed version 0.9.0 or later 
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-If your version is not 0.9.0, you'll need to either [install the Azure CLI](xplat-cli-install.md) or update using either one of the native installers or through **npm** by typing `npm update -g azure-cli`.
+If your version is not 0.9.0 or later, you'll need to either [install the Azure CLI](xplat-cli-install.md) or update using either one of the native installers or through **npm** by typing `npm update -g azure-cli`.
 
-### Step 2: Set your Azure account and subscription
+You can also run Azure CLI as a Docker container using the following [Docker image](https://registry.hub.docker.com/u/microsoft/azure-cli/). From a Docker host, run the following command:
+
+	docker run -it microsoft/azure-cli
+
+### Set your Azure account and subscription
 
 If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
 You you will need to have a work or school account to use Azure resource management templates, if you have one you can type `azure login`, enter your username and password, and you should successfully log in. 
 
-> [AZURE.NOTE] If you don't have one, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [connecting to your Azure account](xplat-cli-connect.md).
+> [AZURE.NOTE] If you don't have one, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a Work or School identity in Azure Active Directory](resource-group-create-work-id-from-personal.md).
 
 Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
 
@@ -54,11 +74,11 @@ Your account may have more than one subscription. You can list your subscription
     
 You can set the current Azure subscription by typing
 
-	`azure account set <subscription name or ID> true
+	azure account set <subscription name or ID> true
 
 with the subscription name or the ID that has the resources you want to manage.
 
-### Step 3: Switch to the Azure CLI resource group mode
+### Switch to the Azure CLI resource group mode
 
 By default, the Azure CLI starts in the service management mode (**asm** mode). Type 
 
@@ -83,7 +103,7 @@ You can then manage the overall lifecycle of the group's resources by using Azur
 
 You can learn lots more about Azure resource groups and what they can do for you [here](resource-groups-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md). 
 
-## Common Task: Quick-create a VM in Azure
+## Quick-create a VM in Azure
 
 Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM. That's when you want to use the `azure vm quick-create` command, and pass the arguments necessary to create a VM and its infrastructure.
 
@@ -105,7 +125,9 @@ First, create your resource group.
 
 Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](resource-groups-vm-searching.md). But for this quickstart, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
 
-| Publisher                        | ImageOffer                                 | ImageSku                         | ComputeImageVersion |
+> [AZURE.NOTE] For the ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template langauge and in the Azure CLI. This will allow you to always use the latest and patched version of the image without having to modidfy your scripts or templates. This is shown below. 
+
+| PublisherName                        | Offer                                 | Sku                         | Version |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic                        | CentOS                                     | 7                                | 7.0.201503          |
 | OpenLogic                        | CentOS                                     | 7.1                              | 7.1.201504          |
@@ -117,8 +139,10 @@ Second, you'll need an image. To find an image with the Azure CLI, see [Navigati
 | msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       | 1.0.0               |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      | 12.0.2430           |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    | 12.0.2430           |
-| Canonical                        | UbuntuServer                               | 14.04.1-LTS                      | 14.04.201501230     |
+| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      | 12.04.201504230     |
 | Canonical                        | UbuntuServer                               | 14.04.2-LTS                      | 14.04.201503090     |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  | 3.0.201503          |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               | 4.0.201503          |
 | MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview | 5.0.201504          |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          | 1.0.141204          |
 | MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           | 4.3.4665            |
@@ -131,7 +155,7 @@ Just create your VM by entering the `azure vm quick-create command` and being re
     Virtual machine name: coreos
     Location name: westus
     Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:latest
     User name: ops
     Password: *********
     Confirm password: *********
@@ -208,7 +232,7 @@ Just create your VM by entering the `azure vm quick-create command` and being re
     
 And away you go with your new VM.
 
-## Common Task: Deploy a VM in Azure from a template
+## Deploy a VM in Azure from a template
 
 Use the instructions in these sections to deploy a new Azure VM using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
 
@@ -477,7 +501,7 @@ You will receive the following type of information:
     
 
 
-## Common Task: Create a custom VM image
+## Create a custom VM image
 
 You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM from a specific .vhd file in Azure with a template using the Azure CLI. The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD). 
 
@@ -1198,7 +1222,7 @@ and then, looking up myVM1:
     info:    Executing command vm show
     + Looking up the VM "myVM1"                                                    
     + Looking up the NIC "nic1"                                                    
-    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
+    data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
@@ -1232,7 +1256,7 @@ and then, looking up myVM1:
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
-    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
+    data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
     data:          Primary                   :false
     data:          Provisioning State        :Succeeded
     data:          Name                      :nic1
@@ -1241,25 +1265,11 @@ and then, looking up myVM1:
     data:            Private IP address      :10.0.0.5
     data:    
     data:    AvailabilitySet:
-    data:      Id                            :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
+    data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
     
 
 > [AZURE.NOTE] If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)**, or language libraries good for the task. 
-
-## Show information about a VM
-
-This is a basic task you'll use often. Use it to get information about a VM, perform tasks on a VM, or get output to store in a variable. 
-
-To get info about the VM, run this command, replacing everything in the quotes, including the < and > characters:
-
-     azure vm show -g <group name> -n <virtual machine name>
-
-To store the output in a $vm variable as a JSON document, run:
-
-    vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
-or you can pipe the stdout to a file.
 
 ## Log on to a Linux-based virtual machine
 
@@ -1296,7 +1306,9 @@ Then you'll need to mount the disk, as you normally would in Linux (or in Window
 
 ## Next steps
 
-For far more examples of Azure CLI usage with the **arm** mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](resource-group-overview.md).
+For far more examples of Azure CLI usage with the **arm** mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](resource-group-overview.md).
+
+For more templates you can use, see [Azure Quickstart Tempaltes](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 
 
 

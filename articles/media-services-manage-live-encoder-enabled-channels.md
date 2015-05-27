@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
@@ -40,6 +40,16 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
 
 ![Live workflow][live-overview]
+
+>[AZURE.NOTE]Not all data centers support Live Encoding with Azure Media Services. 
+>
+>If you are using Azure Management Portal to create Channels, you will have two Channel encoding type options available: **None** and **Standard**. If you only see the **None** option, it means your data center does not support Live Encoding with AMS.
+>
+>If you are using .NET SDK or REST API, do the following to check:
+>
+>1. Try to create a Channel with encoding type set to Standard. 
+>2. If the returned result HTTP Error Code 412 (Precondition Failed) with the following message: *"Live encoding is not supported in this region; EncodingType must be set to 'None'."*, your data center does not support Live Encoding.
+
 
 ##In this topic
 
@@ -426,6 +436,10 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 ###Protecting assets
 
+**Overview**: 
+
+[Content Protection Overview](media-services-content-protection-overview.md)
+
 If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
 
 Use **.NET** or **REST API** to create keys.
@@ -436,12 +450,17 @@ Once you create the content key, you can configure key authorization policy usin
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
+####Integrating with partners
+
+[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
+
+
 ###Publishing and delivering assets
 
 **Overview**: 
 
 - [Dynamic Packaging Overview](media-services-dynamic-overview.md)
-- [Delivering Content Overview](media-services-deliver-content-overview.md)
+
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
@@ -451,6 +470,11 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
+
+Deliver Content 
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Enabling Azure CDN
 
@@ -468,5 +492,6 @@ For information about scaling streaming units, see: [How to scale streaming unit
 
 [Media Services Concepts](media-services-concepts.md)
 
+[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-overview/media-services-live-streaming-new.png

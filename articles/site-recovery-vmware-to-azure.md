@@ -218,7 +218,7 @@ The Configuration server is deployed in an auto created Azure cloud service with
 
 4. After registration finishes a passphrase is generated. Copy it to a secure location. You'll need it to authenticate and register the process and master target servers with the configuration server. It's also used to ensure channel integrity in configuration server communications. You can regenerate the passphrase but then you'll need to reregister the master target and process servers using the new passphrase.
 
-	![Passphrase](./media/site-recovery-vmware-to-azure/ASRVMWareRegister2.png)
+	![Passphrase](./media/site-recovery-vmware-to-azure/passphrase.png)
 
 After registration the configuration server will be listed on the **Configuration Servers** page in the vault. To route configuration server internet communication via a proxy server, run C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe and specify the  proxy server to use. You'll need to re-register to Azure Site Recovery using the registration key you downloaded and copied to the configuration server. Ensure that firewall rules if any are configured to allow connections between the configuration server and the following URIs:-
 
@@ -397,51 +397,52 @@ Before proceeding, ensure that you have the latest updates installed. Remember t
 
 You can monitor the protection group as they're created on the **Protected Items** page.
 
-## Step 10: Push the Mobility service
+## Step 10: Push the mobility service
 
 When you add machines to a protection group the  Mobility service is automatically pushed and installed on each machine by the process server. You could also choose to manually install the mobility service on your source machines. To learn how to do this refer to [step 14](#Step-14:-Manually-install-the-Mobility-service-on-source-machines)
 
-If you want use this automatic push mechanism for protected machines running Windows you'll need to do the following on each machine:
+**To automatically push install the mobility service on Windows servers, you'll need to complete the following prerequisites:** 
 
-1. Configure the Windows firewall to allow **File and Printer Sharing** and **Windows Management Instrumentation**. For machines that belong to a domain you can configure the firewall policy with a GPO.
-2. The account used to perform the push installation must be in the Administrators group on the machine you want to protect. Note that these credentials are only used for push installation of the Mobility service. You'll provide these credentials when you add a machine to a protection group.
+1. Latest [patch updates](#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
+2. Ensure network connectivity exists between the source machine and the process server, and that the source machine is accessible from the process server.  
+3. Configure the Windows firewall to allow **File and Printer Sharing** and **Windows Management Instrumentation**. Under Windows Firewall settings, select the option “Allow an app or feature through Firewall” and select the applications as shown in the picture below. For machines that belong to a domain you can configure the firewall policy with a Group Policy Object.
+	![Firewall Settings](./media/site-recovery-vmware-to-azure/ASRVMWare-PushInstall-Firewall.png)<br>
+4. The account used to perform the push installation must be in the Administrators group on the machine you want to protect. Note that these credentials are only used for push installation of the Mobility service. You'll provide these credentials when you add a machine to a protection group.
+	![Mobility credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png) <br>
+5. If the provided account isn't a domain account you'll need to disable Remote User Access control on the local machine. To do this add the LocalAccountTokenFilterPolicy DWORD registry entry with a value of 1 under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. To add the registry entry from a CLI open cmd or powershell and enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
 
-	![Mobility credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png)
+**To automatically push install the mobility service on Linux servers, you'll need to complete the following prerequisites:**
 
-3. If the provided account isn't a domain account you'll need to disable Remote User Access control on the local machine. To do this add the LocalAccountTokenFilterPolicy DWORD registry entry with a value of 1 under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. To add the registry entry from a CLI open cmd or powershell and enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
-
-If you want to protect machines running Linux you'll need to do the following:
-
-1. Make sure the account is the root account.
-2. Ensure that the /etc/hosts files on the source Linux server contains entries that map the local host name to IP addresses associated with all NICs 
-1. Install the latest openssh, openssh-server,  openssl packages on the machine you want to protect.
-1. Enable ssh port 22.
-2. Enable Sftp subsystem and password authentication in the sshd config file:
-	1. Log in under the root user account.
-	2. In the file /etc/ssh/sshd_config file the line that begins with “PasswordAuthentication”. Uncomment the line and change the value from “no” to “yes”.
-
-		![Linux mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility1.png)
-
-	4. Find the line that begins with “Subsystem” and uncomment the line.
-
-		![Linux push mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility2.png)
+1. Latest [patch updates](#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
+2. Ensure network connectivity exists between the source machine and the process server, and that the source machine is accessible from the process server.  
+3. Make sure the account is a root user on the source Linux server.
+4. Ensure that the /etc/hosts file on the source Linux server contains entries that map the local host name to IP addresses associated with all NICs.
+5. Install the latest openssh, openssh-server, openssl packages on the machine you want to protect.
+6. Ensure SSH is enabled and running on port 22. 
+7. Enable SFTP subsystem and password authentication in the sshd_config file:<br>	
+	a. Log in as root.<br>
+	b. In the file /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication, uncomment the line and change the value from “no” to “yes”.<br>
+	![Linux mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility1.png)	<br>
+	c. Find the line that begins with Subsystem and uncomment the line.<br>
+	![Linux push mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility2.png)	
+8. Ensure source machine Linux variant is supported. 
+ 
 
 ## Step 11: Add machines to a protection group
 
 **Please note that it may take up to 15 minutes for your virtual machines to show up after you discover the vCenter server or ESXi host. Virtual machines are discovered every 15 minutes and environment changes on the virtual machine (such as VMware tools installation) may take upto 15 minutes to get updated in ASR. You can check the last discovered time by looking at the LAST CONTACT AT field for the vCenter server/ESXi host under the configuration server in the configuration servers page**
 
-1. Open **Protected Items** > **Protection Group** > **Machines** tab and add virtual or physical machines managed by a discovered vCenter server or ESXi host. We recommend that protection groups should mirror your workloads so that you add machines running a specific application to the same group.
-
-	![Add machines](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png)
-
-2. In the  **Select Virtual Machine** page of **Add Virtual Machine** select a vCenter server or ESXi host and then select machines from it.
+1. Open **Protected Items** > **Protection Group** > **Machines** tab. Click on the **ADD MACHINES** button from the action pane at the bottom of the page. To protect VMware virtual machines running on a discovered ESXi host or managed by a discovered vCenter server select Virtual machines from the add machines list. To protect a Physical machine select Physical machines from the add machines list. We recommend that protection groups should mirror your workloads so that you add machines running a specific application to the same group.
+	>[AZURE.NOTE] When you add virtual machines or physical machines to a protection group, the  Process server automatically pushes and installs the Mobility service on the source server(If the Mobility service is not already installed and registered with the configuration server).  For the automatic push mechanism to work make sure you've set up your protected machines as described in the previous step.
+	
+2. **Protecting VMware virtual machines:** In the  **Select Virtual Machine** wizard select the vCenter server that is managing your virtual machines (or the ESXi host on which the virtual machines are running), and then select machines from it.
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
 
     If you had a protection group already created and added a vCenter Server or ESXi host after that, it takes fifteen minutes for the Azure Site Recovery portal to refresh and for virtual machines to get listed in the Add machines to a protection group dialog. If you would like to proceed immediately with adding machines to protection group, please highlight the configuration server (don’t click it) and hit the Refresh button in the bottom action pane.
+3. **Protecting Physical machines:** In the **Add Physical Machines** wizard, provide the IP address, Friendly Name and then select Operating System Family.
 
-3. When you add machines to a protection group, the Mobility service is automatically installed from the on-premises process server. For the automatic push mechanism to work make sure you've set up your protected machines as described in the previous step.
-4. In **Select Virtual Machines** select the vCenter server that management the machines you want to protect (or the ESXi host on which the virtual machine is running) and then select the virtual machines.
+	![Add V-Center server](./media/site-recovery-vmware-to-azure/asrvmware_physicalmachineprotectdialog.png)
 
 4. Select the master target servers and storage to use for replication.
 
@@ -458,6 +459,7 @@ If you want to protect machines running Linux you'll need to do the following:
 7. In addition click **Protected Items** > <protection group> > **Virtual Machines** to monitor protection status. After initial replication completes and the machines are synchronizing data they will show **Protected** status.
 
 	![Virtual machine jobs](./media/site-recovery-vmware-to-azure/ASRVMWare_PGJobs.png)
+
 
 ## Step 12: Set protected machine properties
 
