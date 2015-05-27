@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="05/27/2015"
 	ms.author="normesta"/>
 
-# Add push notifications to your Mobile Services app
+# Add push notifications to your Mobile Services app (Xamarin.Forms)
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 ##Overview
 
