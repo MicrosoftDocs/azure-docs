@@ -399,7 +399,7 @@ You can monitor the protection group as they're created on the **Protected Items
 
 ## Step 10: Push the mobility service
 
-When you add machines to a protection group the  Mobility service is automatically pushed and installed on each machine by the process server. You could also choose to manually install the mobility service on your source machines. To learn how to do this refer to [step 14](#Step-14:-Manually-install-the-Mobility-service-on-source-machines)
+When you add machines to a protection group the  Mobility service is automatically pushed and installed on each machine by the process server. You could also choose to manually install the mobility service on your source machines. To learn how to do this refer to [step 14](#step-14-manually-install-the-mobility-service-on-source-machines)
 
 **To automatically push install the mobility service on Windows servers, you'll need to complete the following prerequisites:** 
 
