@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="02/11/2015"
+	ms.date="05/25/2015"
 	ms.author="rasquill"/>
 
 # The Docker Virtual Machine Extension for Linux on Azure
