@@ -497,7 +497,6 @@ In this simple example you broadcast notifications to all your Android devices. 
 [23]: ./media/notification-hubs-android-get-started/notification-hub-scheduler2.png
 [29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
 
-<!-- A30 used in an include -->
 [A30]: ./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
 
 [31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png

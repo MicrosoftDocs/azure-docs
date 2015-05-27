@@ -486,7 +486,6 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
 [11]: ./media/notification-hubs-ios-get-started/notification-hubs-xcode-product-name.png
 
-<!-- A30 used in an include -->
 [A30]: ./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png
 
 [31]: ./media/notification-hubs-ios-get-started/notification-hubs-ios-ui.png
