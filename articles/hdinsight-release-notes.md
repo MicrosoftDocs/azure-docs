@@ -42,7 +42,7 @@ This release contains the following updates.
 
 <tr>
 <td>HDP 2.2 update</td>
-<td>This release of HDInsight 3.2 contains HDP 2.2.6, and brings several important bug fixes to HDInsight. The full release notes is available at http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html</td>
+<td>This release of HDInsight 3.2 contains HDP 2.2.6, and brings several important bug fixes to HDInsight. The full release notes is available at <a href="http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html">http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html</a></td>
 <td>HDP</td>
 <td>All cluster types</td>
 <td>N/A</td>
