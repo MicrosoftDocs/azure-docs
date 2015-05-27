@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/08/2015"
+   ms.date="05/30/2015"
    ms.author="mbaldwin"/>
 
 
 # Azure Active Directory Developer's Guide
 
 ## Overview
-As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation, and key features of Azure Active Directory. We suggest you read them in order, or jump to [getting started](#getting-started) if you're ready to dig in.
+As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation, and key features of Azure Active Directory. We suggest you read them in order, or jump to [getting started](#getting-started) if you're ready to dig in. 
 
 
 1. **[How To Integrate with Azure AD](active-directory-how-to-integrate.md)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
