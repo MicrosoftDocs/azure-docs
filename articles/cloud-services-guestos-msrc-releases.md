@@ -42,6 +42,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-040    | [3045711] | Vulnerability in ADFS Could Allow Information Disclosure  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
 | MS15-041    | [3048010] | Vulnerability in .NET Framework Could Allow Information Disclosure  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
 | MS15-042    | [3047234] | Vulnerability in Windows Hyper-V Could Allow Denial of Service  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| NA   | [3045755] | Update to Improve PKU2U Authentication  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
 
 ## April Guest OS
 
@@ -156,6 +157,28 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3038680]: http://support.microsoft.com/kb/3038680
 [3002657]: http://support.microsoft.com/kb/3002657
 [3035126]: http://support.microsoft.com/kb/3035126
+
+[3049563]:http://support.microsoft.com/kb/3049563
+[3057110]:http://support.microsoft.com/kb/3057110
+[3046002]:http://support.microsoft.com/kb/3046002
+[3057134]:http://support.microsoft.com/kb/3057134
+[3055642]:http://support.microsoft.com/kb/3055642
+[3057191]:http://support.microsoft.com/kb/3057191
+[3050514]:http://support.microsoft.com/kb/3050514
+[3057263]:http://support.microsoft.com/kb/3057263
+[3051768]:http://support.microsoft.com/kb/3051768
+[3061518]:http://support.microsoft.com/kb/3061518
+
+[3038314]:http://support.microsoft.com/kb/3038314
+[3042553]:http://support.microsoft.com/kb/3042553
+[3046306]:http://support.microsoft.com/kb/3046306
+[3046269]:http://support.microsoft.com/kb/3046269
+[3049576]:http://support.microsoft.com/kb/3049576
+[3046482]:http://support.microsoft.com/kb/3046482
+[3045711]:http://support.microsoft.com/kb/3045711
+[3048010]:http://support.microsoft.com/kb/3048010
+[3047234]:http://support.microsoft.com/kb/3047234
+[3045755]:http://support.microsoft.com/kb/3045755
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
