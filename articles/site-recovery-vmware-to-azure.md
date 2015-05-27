@@ -128,7 +128,7 @@ Protected physical servers or VMware virtual machines running Windows should hav
 - Only basic disks are supported. Dynamic disks aren't supported.
 - Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.
 - You'll need to provide an administrator account (must be a local administrator on the Windows machine) to push install the Mobility Service on Windows servers. If the provided account is a non-domain account you'll need to disable Remote User Access control on the local machine. To do this add the LocalAccountTokenFilterPolicy DWORD registry entry with a value of 1 under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. To add the registry entry from a CLI open cmd or powershell and enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
-	You can learn more about User Access control by reading the msdn article [here.](https://msdn.microsoft.com/en-us/library/aa826699(v=vs.85).aspx)
+	You can learn more about User Access control by reading the msdn article [here.](https://msdn.microsoft.com/library/aa826699.aspx)
 - After failover, if you want connect to Windows virtual machines in Azure with Remote Desktop make sure that Remote Desktop is enabled for the on-premises machine. If you're not connecting over VPN, firewall rules should allow Remote Desktop connections over the internet.
 
 ### Protected Linux machine prerequisites
