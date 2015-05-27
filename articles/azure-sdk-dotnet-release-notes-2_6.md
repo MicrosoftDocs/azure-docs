@@ -96,7 +96,7 @@ The Diagnostics storage account can now be specified in the service configuratio
 - Azure SDK 2.6 released on 4/29/2015 had two issues: 
 
 	- Universal App could not be loaded in Visual Studio 2015 when Azure SDK 2.6 was installed on the machine.
-	- Debugging a Cloud Service project would fail in Visual Studio 2013 and Visual Studio 2015 with a message stuck on "Configuring diagnostics for emulator".
+	- Debugging a Cloud Service project would fail in Visual Studio 2013 and Visual Studio 2015 where Visual Studio becomes unresponsive and crashes while displaying a dialog box with the message "Configuring diagnostics for emulator".
 	
 	An update to Azure SDK 2.6 was released on 5/18/2015. The updated version is 2.6.30508.1601; it contains fixes for two issues described above. You can identify the build of the SDK from Control Panel -> Programs and Features -> Microsoft Azure Tools for Microsoft Visual Studio 2013 – v 2.6. The Version column will display the build number.
 
