@@ -486,8 +486,8 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
 [11]: ./media/notification-hubs-ios-get-started/notification-hubs-xcode-product-name.png
 
-<!-- I30 used in an include -->
-[I30]: ./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png
+<!-- A30 used in an include -->
+[A30]: ./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png
 
 [31]: ./media/notification-hubs-ios-get-started/notification-hubs-ios-ui.png
 [32]: ./media/notification-hubs-ios-get-started/notification-hubs-storyboard-view.png
@@ -509,6 +509,7 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
+[Get started with push notifications in Mobile Services]: mobile-services-javascript-backend-ios-get-started-push.md 
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-send-breaking-news.md
 
