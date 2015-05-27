@@ -20,6 +20,29 @@
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
+## May Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-043    | [3049563] | Cumulative Security Update for Internet Explorer | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-044    | [3057110] | Vulnerabilities in Microsoft Font Drivers Could Allow Remote Code Execution | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-045    | [3046002] | Vulnerability in Windows Journal Could Allow Remote Code Execution | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-048    | [3057134] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-050    | [3055642] | Vulnerability in Service Control Manager Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-051    | [3057191] | Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-052    | [3050514] | Vulnerability in Windows Kernel Could Allow Security Feature Bypass | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-053    | [3057263] | Vulnerabilities in JScript and VBScript Scripting Engine Could Allow Security Feature Bypass | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-054    | [3051768] | Vulnerability in Microsoft Management Console File Format Could Allow Denial of Service | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-055    | [3061518] | Vulnerability in Schannel Could Allow Security Feature Bypass Important Information Disclosure | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-032    | [3038314] | Cumulative Security Update for Internet Explorer | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-035    | [3046306] | Vulnerability in Microsoft Graphics Component Could Allow Remote Code Execution | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-037    | [3046269] | Vulnerability in Windows Task Scheduler Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-038    | [3049576] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege Important  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-039    | [3046482] | Vulnerability in XML Core Services Could Allow Security Feature Bypass  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-040    | [3045711] | Vulnerability in ADFS Could Allow Information Disclosure  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-041    | [3048010] | Vulnerability in .NET Framework Could Allow Information Disclosure  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-042    | [3047234] | Vulnerability in Windows Hyper-V Could Allow Denial of Service  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+
 ## April Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
