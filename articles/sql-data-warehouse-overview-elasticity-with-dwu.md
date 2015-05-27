@@ -20,11 +20,11 @@
 
 Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs.
 
-> [Azure.note] Unlike other cloud data warehouse services that ask you how many CPUs, memories or disks you want for your data warehouse, SQL Data Warehouse asks you a more intelligent question: how fast do you want to process your data? 
+> [AZURE.NOTE] Unlike other cloud data warehouse services that ask you how many CPUs, memories or disks you want for your data warehouse, SQL Data Warehouse asks you a more intelligent question: how fast do you want to process your data?
 
 
 ## DWU throughput metrics
-SQL Data Warehouse offers multiple performance levels. Each performance level provides an increasing set of resources, or 'power', that delivers increased database performance. To measure the performance level, Microsoft has defined metrics for a mix of basic operations found in all data warehouse workloads. 
+SQL Data Warehouse offers multiple performance levels. Each performance level provides an increasing set of resources, or 'power', that delivers increased database performance. To measure the performance level, Microsoft has defined metrics for a mix of basic operations found in all data warehouse workloads.
 
 The metrics used are
 
@@ -34,18 +34,18 @@ The metrics used are
 
 The unit of measure (UOM) for these metrics is million rows per second (MilRows/Sec).
 
-	| DWU | CCI scan rate (MilRows/sec) | CCI load rate (MilRows/sec)|  Bulk table copy (MilRows/Sec) |
-	| ----| ----------------------------| -------------------------- | ------------------------------------- |
-	| 01 | 01 | 15 | 10 |
-	| 02 | 02 | 30 | 20 |
-	| 03 | 03 | 45 | 30 |
-	| 04 | 04 | 60 | 40 |
-	| 05 | 05 | 75 | 50 |
-	| 06 | 06 | 90 | 60 |
-	| 07 | 07 | 105 | 70 |
-	| 08 | 08 | 120 | 80 |
-	| 09 | 09 | 135 | 90 |
-	| 10 | 10 | 150 | 100 |
+| DWU | CCI scan rate (MilRows/sec) | CCI load rate (MilRows/sec) | Bulk table copy (MilRows/Sec) |
+| :-- | :---------------------------| :-------------------------- | :---------------------------- |
+| 01 | 01 | 15 | 10 |
+| 02 | 02 | 30 | 20 |
+| 03 | 03 | 45 | 30 |
+| 04 | 04 | 60 | 40 |
+| 05 | 05 | 75 | 50 |
+| 06 | 06 | 90 | 60 |
+| 07 | 07 | 105 | 70 |
+| 08 | 08 | 120 | 80 |
+| 09 | 09 | 135 | 90 |
+| 10 | 10 | 150 | 100 |
 
 > [Azure.Note] Bulk table copy is measured by running a statement called CREATE TABLE AS SELECT (CTAS). This is a new Transact-SQL statement specific to SQL Data Warehouse.
 
@@ -63,16 +63,16 @@ To change performance levels:
 
 1. You simply select a different DWU. The service will respond rapidly to adjust the compute resources to meet the DWU requirements.
 2. For a data warehouse in development, start with small number of DWUs.
-3. Monitor your application performance, so you can become familiar with DWUs versus the performance you observer. You can then make adjustments until you reach an optimim performance level for your business requirements. 
+3. Monitor your application performance, so you can become familiar with DWUs versus the performance you observer. You can then make adjustments until you reach an optimum performance level for your business requirements.
 
 If you have an application with a fluctuating workload, you can move performance levels up or down to accommodate peaks and low points. For example, if a workload typically peaks at the end of the month, you could plan to add more DWUs during the peak days.
 
 ## How to Monitor Performance
 Monitoring the performance of a SQL Data Warehouse starts with monitoring the resource utilization relative to the performance level you chose for your database. Relevant data is available through:
- 
-1. Azure Management Portal 
-2. Dynamic management views, available in the logical master database of the server in which you created the database. 
-Please refer to corresponding sections for details on how to use the portal or the DMV. 
+
+1. Azure Management Portal
+2. Dynamic management views, available in the logical master database of the server in which you created the database.
+Please refer to corresponding sections for details on how to use the portal or the DMV.
 
 
 
