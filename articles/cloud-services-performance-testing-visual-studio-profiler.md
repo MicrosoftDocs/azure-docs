@@ -1,8 +1,9 @@
 <properties 
 	pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" 
-	services="cloud-services" 
+	services="cloud-services"
+	description="Investigate performance issues in cloud services with the Visual Studio profiler" 
 	documentationCenter=""
-	authors="patshea" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"
 	tags="" 
