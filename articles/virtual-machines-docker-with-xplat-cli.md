@@ -13,9 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/22/2015" 
+	ms.date="05/22/2015"
 	ms.author="rasquill"/>
+
 # Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)
+
 This topic describes how to create a VM with the Docker VM Extension from the service management (asm) mode in Azure CLI on any platform. [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) to create a Docker VM that hosts any number of containers for your applications on Azure. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 + [How to use the Docker VM Extension with Azure]
@@ -24,7 +26,7 @@ This topic describes how to create a VM with the Docker VM Extension from the se
 + [Next steps]
 
 ## <a id='How to use the Docker VM Extension with Azure'>How to use the Docker VM Extension with Azure</a>
-To use the Docker VM extension with Azure, you must install a version of the [Azure Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (called the **Azure CLI** in this topic) higher than 0.8.6 (as of this writing the current version is 0.8.10). You can install the Azure CLI on Mac, Linux, and Windows.
+To use the Docker VM extension with Azure, you must install a version of the [Azure Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) higher than 0.8.6 (as of this writing the current version is 0.8.10). You can install the Azure CLI on Mac, Linux, and Windows.
 
 
 
@@ -36,6 +38,7 @@ The complete process to use Docker on Azure is simple:
 
 
 ### Install the Azure Command-Line Interface (Azure CLI)
+
 To install and configure the Azure CLI, see [How to install the Azure Command-Line Interface](xplat-cli-install.md). To confirm the installation, type `azure` at the command prompt and after a short moment you should see the Azure CLI ASCII art, which lists the basic commands available to you. If the installation worked correctly, you should be able to type `azure help vm` and see that one of the listed commands is "docker".
 
 > [AZURE.NOTE] Docker has a setup program for Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), which you can also use to automate the creation of a docker client that you can use to work with Azure VMs as docker hosts.
@@ -46,7 +49,7 @@ Before you can use the Azure CLI you must associate your Azure account credentia
 > [AZURE.NOTE] There are some differences in behavior when using one or the other methods of authentication, so do be sure to read the document above to understand the different functionality.
 
 ### Install Docker and use the Docker VM Extension for Azure
-Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer. 
+Follow the [Docker installation instructions](https://docs.docker.com/installation/#installation) to install Docker locally on your computer.
 
 To use Docker with an Azure Virtual Machine, the Linux image used for the VM must have the [Azure Linux VM Agent](virtual-machines-linux-agent-user-guide.md) installed. Currently, there are only two types of images that provide this:
 
@@ -106,7 +109,7 @@ The Docker daemon on the host is configured to listen for and authenticate clien
 
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## Next steps
 
 You are ready to go to the [Docker User Guide] and use your Docker VM. To create a Docker-enabled VM in the new portal, see [How to use the Docker VM Extension with the Portal].

@@ -16,22 +16,22 @@
 	ms.date="04/22/2015"
 	ms.author="dkshir"/>
 
-# Install the Azure CLI for Mac, Linux, and Windows
+# Install the Azure CLI
 
-This document describes how to install the Azure Command-Line Interface (also called the _xplat-cli_) on Mac, Linux, and Windows. The Azure CLI provides a set of open source shell-based commands for managing resources on Microsoft Azure.
+This document describes how to install the Azure Command-Line Interface (Azure CLI). The Azure CLI provides a set of open source shell-based commands for managing resources on Microsoft Azure.
 
 > [AZURE.NOTE] If you've already installed the Azure CLI, connect it with your Azure resources. For more, see [How to connect to your Azure Subscription](xplat-cli-connect.md#configure).
 
-The xplat-cli is written in JavaScript, and requires [Node.js](https://nodejs.org). It is implemented using the [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node), and released under an Apache 2.0 license. The project repository is located at [https://github.com/Azure/azure-xplat-cli](https://github.com/Azure/azure-xplat-cli).
+The Azure CLI is written in JavaScript, and requires [Node.js](https://nodejs.org). It is implemented using the [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node), and released under an Apache 2.0 license. The project repository is located at [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
 <a id="install"></a>
-## How to install the Azure CLI for Mac, Linux, and Windows
+## How to install the Azure CLI
 
 There are few ways to install the Azure CLI.
 
 1. Using an installer
 2. Installing Node.js and npm and then using the **npm install** command
-3. Run Azure CLI as a Docker container 
+3. Run Azure CLI as a Docker container
 
 Once the Azure CLI has been installed, you will be able to use the **azure** command from your command-line interface (Bash, Terminal, Command prompt) to access the Azure CLI commands.
 
@@ -118,7 +118,7 @@ Once the Azure CLI has been installed, you will be able to use the **azure** com
 
 Now you are ready! Next you can [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md) and start using the **azure** commands.
 
-## Using Docker Container 
+## Using Docker Container
 
 In a Docker host, run:
 ```
@@ -132,9 +132,9 @@ In a Docker host, run:
 
 * [Using the Azure CLI with the Resource Management (or ARM mode) commands][xplatarm]
 
-* For more information on Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
+* For more information on Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
-* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* If you encounter problems using the Azure CLI, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
 * For more information on Azure, see [http://azure.microsoft.com/](http://azure.microsoft.com).
 
