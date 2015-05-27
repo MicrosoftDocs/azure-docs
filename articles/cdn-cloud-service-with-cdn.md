@@ -624,7 +624,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
-# More Information #
+## More Information ##
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
 - [Serve Content from Azure CDN in Your Web Application](cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Use Azure CDN in Azure App Service](cdn-websites-with-cdn.md)
