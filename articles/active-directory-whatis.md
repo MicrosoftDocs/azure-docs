@@ -1,6 +1,6 @@
 <properties
 	pageTitle="What is Azure Active Directory?"
-	description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications."
+	description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or to develop Azure AD integrated applications."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/14/2015"
+	ms.date="05/27/2015"
 	ms.author="curtand"/>
 
 
 # What is Azure Active Directory?
 
 
+###Other articles on this topic
 [How does it work?](active-directory-works.md)<br>
 [Get started](active-directory-get-started.md)<br>
 [Next steps](active-directory-next-steps.md)<br>
@@ -34,7 +35,7 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 
 
 ## What can Azure Active Directory do for me?
-[![Single sign-on][2](http://azure.microsoft.com/marketplace/active-directory/)] [![Reporting + analytics][3]](active-directory-view-access-usage-reports.md) [![Self-service][4]](http://aka.ms/ssproverview) [![On-premises applications][5]](active-directory-application-proxy-configure.md) [![Service level agreement][6]](https://msdn.microsoft.com/library/azure/dn532272.aspx) [![Identity management][7]](fundamentals-identity.md) [![Access management][8]](active-directory-application-proxy-configure.md)
+[![Single sign-on][2]](http://azure.microsoft.com/marketplace/active-directory/) [![Reporting + analytics][3]](active-directory-view-access-usage-reports.md) [![Self-service][4]](http://aka.ms/ssproverview) [![On-premises applications][5]](active-directory-application-proxy-configure.md) [![Service level agreement][6]](https://msdn.microsoft.com/library/azure/dn532272.aspx) [![Identity management][7]](fundamentals-identity.md) [![Access management][8]](active-directory-application-proxy-configure.md)
 
 ## Additional Resources
 
