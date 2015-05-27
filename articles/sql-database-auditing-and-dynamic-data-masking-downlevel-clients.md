@@ -25,9 +25,9 @@ Any client which implements TDS 7.4 should also support redirection. Exceptions 
 
 For "downlevel client", i.e. which support TDS version 7.3 and below - a special "secure" connection string must be used:
 
-	Traditional connection string: <*server name*>.database.windows.net
+Traditional connection string: <*server name*>.database.windows.net
 
-	"Secure" connection string: <*server name*>.database.**secure**.windows.net
+"Secure" connection string: <*server name*>.database.**secure**.windows.net
 
 A partial list of "Downlevel clients" includes: 
 
