@@ -18,6 +18,10 @@
 
 # Create an ASP.NET API app in Azure App Service
 
+> [AZURE.SELECTOR]
+- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
+- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+
 ## Overview
 
 This tutorial shows how to create an ASP.NET Web API project using a Visual Studio 2013 template that configures the project for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). For information about how to configure an existing Web API project for deployment as an API app, see [Configure a Web API project as an API app](./app-service-dotnet-create-api-app-visual-studio).
