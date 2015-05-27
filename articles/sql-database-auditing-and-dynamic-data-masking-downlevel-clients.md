@@ -19,23 +19,20 @@
 # SQL Database -  Downlevel Clients Support for Auditing and Dynamic Data Masking 
 
 
-###Security-enabled access
+[Auditing](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-get-started/)  and [Dynamic Data Masking](http://azure.microsoft.com/en-us/documentation/articles/sql-database-dynamic-data-masking-get-started/) work with SQL clients that support TDS redirection. 
 
-For the [Auditing](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-get-started/)  and [Dynamic Data Masking](http://azure.microsoft.com/en-us/documentation/articles/sql-database-dynamic-data-masking-get-started/) Services of SQL Database, clients traffic is redirected into "Security Enabled Access".
+Any client which implements TDS 7.4 should also support redirection. Exceptions to this include JDBC 4.0 in which the redirection feature is not fully supported and Tedious for Node.JS in which redirection was not implemented.
 
-SQL Clients which are using TDS version 7.4 and above are redirected "behind the scene". (In the short term, there is a need to configure **SECURITY ENABLED ACCESS** to **REQUIRED**. This configuration is expected to be eliminated, first for v12 databases and a few weeks later also for v11 databases). In addition to supporting TDS 7.4 and above, the client also needs to correctly support TDS redirection,
+For "downlevel client", i.e. which support TDS version 7.3 and below - a special "secure" connection string must be used:
 
+	Traditional connection string: <*server name*>.database.windows.net
 
-
-For "Downlevel clients" which are using TDS version 7.3 and below there is a need to configure a security enabled connection string:
-
-	Traditional connection string format: <*server name*>.database.windows.net
-
-	Security-enabled connection string: <*server name*>.database.**secure**.windows.net
+	"Secure" connection string: <*server name*>.database.**secure**.windows.net
 
 A partial list of "Downlevel clients" includes: 
 
 - .NET 4.0 and below,
 - ODBC 10.0 and below.
 - JDBC 4.0 and below (while JDBC 4.0 does support TDS 7.4, the TDS redirection feature is not fully supported)
+- Tedious (for Node.JS)
 
