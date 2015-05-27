@@ -13,11 +13,58 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="05/27/2015"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 05/27/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight		3.2.4.570.1554102	(HDP 2.2.6.0-2800)
+* Other cluster versions and SDK are not deployed as part of this release.
+
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>HDP 2.2 update</td>
+<td>This release of HDInsight 3.2 contains HDP 2.2.6, and brings several important bug fixes to HDInsight. The full release notes is available at http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html</td>
+<td>HDP</td>
+<td>All cluster types</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Change to Default Yarn Container Memory Configuration</td>
+<td>In this update, the default available memory to YARN containers (yarn.nodemanager.resource.memory-mb and yarn.scheduler.maximum-allocation-mb), launched by Node Manager, is increased to 5632MB. Previously this was reduced to 4608MB, but based on various job runs, the new value must offer better reliability and performance to most jobs, hence is a better default. As usual, if you a have critical dependency on this memory configuration, please set it explicitly while creating the cluster.</td>
+<td>HDP</td>
+<td>All cluster types</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Default Config parity for HBase and Storm clusters</td>
+<td>This update restores Hbase and Storm clusters to use the same values of YARN configs as Hadoop clusters. This is done for parity across all cluster types.</td>
+<td>HDP</td>
+<td>HBase, Storm</td>
+<td>N/A</td>
+</tr>
+
+</table>
 
 ## Notes for 04/27/2015 release of HDInsight ##
 
