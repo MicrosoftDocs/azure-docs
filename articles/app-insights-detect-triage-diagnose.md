@@ -248,7 +248,7 @@ So that's how one team use Application Insights not just to fix individual issue
 
 ## Video
 
-[AZURE.VIDEO app-insights-performance-monitoring]
+[AZURE.VIDEO performance-monitoring-application-insights]
 
 <!--Link references-->
 

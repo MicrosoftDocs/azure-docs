@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="StorSimple 8000 Series Update 1 release notes"
+    pageTitle="StorSimple 8000 Series Update 1.0 release notes"
     description="Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 1."
     services="storsimple"
     documentationCenter="NA"
@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/22/2015"
+    ms.date="05/27/2015"
     ms.author="alkohli" />
 
-# StorSimple 8000 Series Update 1 release notes  
+# StorSimple 8000 Series Update 1.0 release notes  
 
 ## Overview
 

@@ -64,7 +64,7 @@ What you want | What to do | What you get
 
 #### Get started
 
-> [AZURE.VIDEO getting-started-with-application-insights]
+> [AZURE.VIDEO get-application-insights-any-app-or-service]
 
 
 
