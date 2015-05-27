@@ -83,8 +83,7 @@ We'll add push notifications to an existing sample.
 
 2. In the Management Portal, click **Mobile Services**, and then click the mobile service. Click the **Dashboard** tab and make a note of the **Site URL**. Then click **Manage Keys** and make a note of the **Application Key**. You'll need these values when you access the mobile service from your app code.
 
-3. In the **
-4. .cs** file, replace `ApplicationURL` and `ApplicationKey` with the site URL and application key you obtained in the previous step.
+3. In the  **ToDoAzure(Portable)** project of the solution, open the **Constants.cs** file, replace `ApplicationURL` and `ApplicationKey` with the site URL and application key you obtained in the previous step.
 
 ## <a name="iOS"></a>Add push notifications to your Xamarin.Forms.iOS app
 
@@ -448,14 +447,14 @@ Your **MainActivity** is now prepared for adding push notifications.
 
 8. In the GcmService.cs project file, add the following code that defines the **GcmService** class:
  
-       [Service]
-       public class GcmService : GcmServiceBase
-       {
-           public static string RegistrationID { get; private set; }
+         [Service]
+         public class GcmService : GcmServiceBase
+         {
+             public static string RegistrationID { get; private set; }
 
-           public GcmService()
-               : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
-       }
+             public GcmService()
+                 : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
+         }
 
 
 	Note that this class derives from **GcmServiceBase** and that the **Service** attribute must be applied to this class.
@@ -569,12 +568,12 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 > [AZURE.IMPORTANT] In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to **Settings** and click **Add Account**). Also, make sure that the emulator is connected to the Internet.
 
 1. From **Tools**, click **Open Android Emulator Manager**, select your device, and then click **Edit**.
-
-   	![Android Virtual Device Manager](./media/mobile-services-android-push-notifications-test/notification-hub-create-android-app7.png)
+    
+    ![][125]
 
 2. Select **Google APIs** in **Target**, then click **OK**.
-
-   	![Edit the Android Virtual Device](./media/mobile-services-android-push-notifications-test/notification-hub-create-android-app8.png)
+    
+    ![][126]
 
 3. On the top toolbar, click **Run**, and then select your app. This starts the emulator and runs the app.
 
@@ -584,7 +583,7 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 2. Swipe down from the top of the screen to open the device's Notification Center to see the notification.
 
-	![View notification in the Notification Center](./media/mobile-services-android-push-notifications-test/notification-area-received.png)
+	![][127]
 
 ## <a name="Windows"></a>Add push notifications to the Xamarin.Forms.Windows app
 
@@ -637,7 +636,7 @@ Before your app can receive push notifications, you must register a notification
   
 6.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
-   	![Enable notifications in VS](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
+   	![Enable notifications in VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
    	This makes sure that your app can raise toast notifications. 
 
@@ -691,7 +690,7 @@ Finally, you must update the script registered to the insert operation on the To
 
   	This sends an insert request to the mobile service to store the added item. Notice that the device receives a toast notification that says **hello push**.
 
-	![Toast notification received](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png)
+	![Toast notification received](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-quickstart-push5-wp8.png)
 
 	>[AZURE.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) event.
 
@@ -825,6 +824,9 @@ You can modify the insert script on the Azure Management Portal so that a notifi
 [122]:./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-services-ios-push-22.png
 [123]:./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-data-tab-empty.png
 [124]:./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-create-todoitem-table.png
+[125]:./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/notification-hub-create-android-app7.png
+[126]:./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/notification-hub-create-android-app8.png
+[127]:./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/notification-area-received.png
 
 
 [Xamarin.iOS Studio]: http://xamarin.com/platform
