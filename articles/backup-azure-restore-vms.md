@@ -90,7 +90,7 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 
 ![Restore job complete](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-After restoring the virtual machine you may need to [re-install the extensions](https://msdn.microsoft.com/library/azure/hh831761.aspx) existing on the original VM and [recreate the endpoints](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/) for the virtual machine in the Azure portal.
+After restoring the virtual machine you may need to [re-install the extensions](https://msdn.microsoft.com/library/azure/hh831761.aspx) existing on the original VM and [recreate the endpoints](virtual-machines-set-up-endpoints) for the virtual machine in the Azure portal.
 
 ## Troubleshooting errors
 For most errors, you can follow the recommended action suggested in the Error Details. Here are some additional points to help with the troubleshooting:
