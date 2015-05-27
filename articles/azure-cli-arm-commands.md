@@ -1137,17 +1137,17 @@ Parameter options:
 	network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
 Updates an existing inbound nat rule.In the following example we changed the inbound listening port from 80 to 81.
 
-	azure network lb inbound-nat-rule set -g group-1 -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
+	azure network lb inbound-nat-rule set -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
 
 	info:    Executing command network lb inbound-nat-rule set
 	+ Looking up the load balancer "mylb"
 	+ Updating load balancer "mylb"
 	+ Looking up the load balancer "mylb"
-	data:    Id:                        /subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb/inboundNatRules/myinboundnat
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/inboundNatRules/myinboundnat
 	data:    Name:                      myinboundnat
 	data:    Type:                      Microsoft.Network/loadBalancers/inboundNatRules
 	data:    Provisioning state:        Succeeded
-	data:    Frontend IP Configuration: id=/subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
+	data:    Frontend IP Configuration: id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
 	data:    Backend IP configuration
 	data:    Protocol                   Tcp
 	data:    Frontend port              81
@@ -1268,7 +1268,7 @@ Parameter options:
 	network public-ip set [options] <resource-group> <name>
 Updates the properties of an existing public ip resource. In the following example we changed the public IP address from Dynamic to Static.
 
-	azure network public-ip set -g group-1 -n mytestpublicip1 -d xplatclitest -a "Static"
+	azure network public-ip set -g myresourcegroup -n mytestpublicip1 -d xplatclitest -a "Static"
 	info:    Executing command network public-ip set
 	+ Looking up the public ip "mytestpublicip1"
 	+ Updating public ip address "mytestpublicip1"
@@ -1360,7 +1360,7 @@ Parameter options:
 
 Deletes public ip resource.
 	
-	azure network public-ip delete -g group-1 -n mypublicipname
+	azure network public-ip delete -g myresourcegroup -n mypublicipname
 	info:    Executing command network public-ip delete
 	+ Looking up the public ip "mypublicipname"
 	Delete public ip address "mypublicipname"? [y/n] y
@@ -1390,7 +1390,7 @@ Creates a resource called network interface (NIC) which can be used for load bal
 	+ Looking up the subnet "subnet-1"
 	+ Creating network interface "testnic1"
 	+ Looking up the network interface "testnic1"
-	data:    Id:                     /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/networkInterfaces/testnic1
+	data:    Id:                     /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/networkInterfaces/testnic1
 	data:    Name:                   testnic1
 	data:    Type:                   Microsoft.Network/networkInterfaces
 	data:    Location:               eastus
@@ -1400,7 +1400,7 @@ Creates a resource called network interface (NIC) which can be used for load bal
 	data:       Provisioning state:           Succeeded
 	data:       Private IP address:           10.0.0.5
 	data:       Private IP Allocation Method: Dynamic
-	data:       Subnet:                       /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/virtualNetworks/myVNET/subnets/Subnet-1
+	data:       Subnet:                       /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myVNET/subnets/Subnet-1
 
 Parameter options:
 
@@ -1436,7 +1436,58 @@ Parameter options:
 <BR>
 
 	network nic set [options] <resource-group> <name>
-	
+Updates the NIC resource configuration. In the example below , the NIC configuration was set with a different public IP.
+
+	azure network nic set -g myresourcegroup -n testnic1 -p mypublicip
+	info:    Executing command network nic set
+	+ Looking up the network interface "testnic1"
+	+ Looking up the public ip "mypublicip"
+	+ Updating network interface "testnic1"
+	+ Looking up the network interface "testnic1"
+	data:    Id:                     /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/networkInterfaces/testnic1
+	data:    Name:                   testnic1
+	data:    Type:                   Microsoft.Network/networkInterfaces
+	data:    Location:               eastus
+	data:    Provisioning state:     Succeeded
+	data:    IP configurations:
+	data:       Name:                         NIC-config
+	data:       Provisioning state:           Succeeded
+	data:       Public IP address:            id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP
+	data:       Private IP address:           10.0.0.5
+	data:       Private IP Allocation Method: Dynamic
+	data:       Subnet:                       /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myVNET/subnets/Subnet-1
+	data:
+	info:    network nic set command OK
+
+Parameter options:
+<BR>
+
+    -h, --help                                                       output usage information
+-v, --verbose                                                    use verbose output
+		--json                                                           use json output	-g, --resource-group <resource-group>                            the name of the resource group
+		-n, --name <name>                                                the name of the network interface
+-w, --network-security-group-id [network-security-group-id]>     the network security group identifier.
+e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
+-o, --network-security-group-name <network-security-group-name>  the network security group name.
+This network security group must exist in the same resource group as the nic.
+Please use network-security-group-id if that is not the case.
+-i, --public-ip-id [public-ip-id]                                the public IP identifier.
+e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
+-p, --public-ip-name <public-ip-name>                            the public IP name.
+This public ip must exist in the same resource group as the nic.
+
+Please use public-ip-id if that is not the case.
+-a, --private-ip-address <private-ip-address>                    the private IP address
+-u, --subnet-id <subnet-id>                                      the subnet identifier.
+e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
+-k, --subnet-name <subnet-name>                                  the subnet name
+-m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
+-t, --tags <tags>                                                the list of tags.
+Can be multiple. In the format of "name=value".Name is required and value is optional.
+For example, -t tag1=value1;tag2
+--no-tags                                                        remove all existing tags
+-s, --subscription <subscription>                                the subscription identifier
+
 	network nic list [options] <resource-group>
 	network nic show [options] <resource-group> <name>
 	network nic delete [options] <resource-group> <name>
