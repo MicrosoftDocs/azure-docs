@@ -3,7 +3,7 @@
 	description="A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="kenhoff" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/10/2015" 
-	ms.author="Justinha"/>
+	ms.author="kenhoff;Justinha"/>
 
 # View your access and usage reports
 
