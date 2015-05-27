@@ -1381,7 +1381,7 @@ Parameter options:
 **Commands to manage network interfaces**
 
 	network nic create [options] <resource-group> <name> <location>
-Creates a resource called network interface (NIC) which can be used for load balancers or associate to a Virtual Machine.
+Creates a Network Interface which can be used for load balancer or associate to a Virtual Machine.
 
 	azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
 	
@@ -1436,7 +1436,7 @@ Parameter options:
 <BR>
 
 	network nic set [options] <resource-group> <name>
-Updates the NIC resource configuration. In the example below , the NIC configuration was set with a different public IP.
+Updates the Network Interface resource configuration. In the example below , the Network Interface configuration was updated with a different public IP.
 
 	azure network nic set -g myresourcegroup -n testnic1 -p mypublicip
 	info:    Executing command network nic set
@@ -1462,41 +1462,191 @@ Updates the NIC resource configuration. In the example below , the NIC configura
 Parameter options:
 <BR>
 
-    -h, --help                                                       output usage information
--v, --verbose                                                    use verbose output
-		--json                                                           use json output	-g, --resource-group <resource-group>                            the name of the resource group
-		-n, --name <name>                                                the name of the network interface
--w, --network-security-group-id [network-security-group-id]>     the network security group identifier.
-e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
--o, --network-security-group-name <network-security-group-name>  the network security group name.
-This network security group must exist in the same resource group as the nic.
-Please use network-security-group-id if that is not the case.
--i, --public-ip-id [public-ip-id]                                the public IP identifier.
-e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
--p, --public-ip-name <public-ip-name>                            the public IP name.
-This public ip must exist in the same resource group as the nic.
+	-h, --help                                                       output usage information
+	-v, --verbose                                                    use verbose output
+	--json                                                           use json output	-g, --resource-group <resource-group>                            the name of the resource group
+	-n, --name <name>                                                the name of the network interface
+	-w, --network-security-group-id [network-security-group-id]>     the network security groupidentifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
+	-o, --network-security-group-name <network-security-group-name>  the network security group name.
+	This network security group must exist in the same resource group as the nic.
+	Please use network-security-group-id if that is not the case.
+	-i, --public-ip-id [public-ip-id]                                the public IP identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
+	-p, --public-ip-name <public-ip-name>                            the public IP name.
+	This public ip must exist in the same resource group as the nic.
 
-Please use public-ip-id if that is not the case.
--a, --private-ip-address <private-ip-address>                    the private IP address
--u, --subnet-id <subnet-id>                                      the subnet identifier.
-e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
--k, --subnet-name <subnet-name>                                  the subnet name
--m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
--t, --tags <tags>                                                the list of tags.
-Can be multiple. In the format of "name=value".Name is required and value is optional.
-For example, -t tag1=value1;tag2
---no-tags                                                        remove all existing tags
--s, --subscription <subscription>                                the subscription identifier
+	Please use public-ip-id if that is not the case.
+	-a, --private-ip-address <private-ip-address>                    the private IP address
+	-u, --subnet-id <subnet-id>                                      the subnet identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
+	-k, --subnet-name <subnet-name>                                  the subnet name
+	-m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
+	-t, --tags <tags>                                                the list of tags.
+	Can be multiple. In the format of "name=value".Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	--no-tags                                                        remove all existing tags
+	-s, --subscription <subscription>                                the subscription identifier
+<BR>
 
 	network nic list [options] <resource-group>
+
+Lists all Network Interface resources created within a resource group
+
+	azure network nic list -g myresourcegroup
+	info:    Executing command network nic list
+	+ Getting the network interfaces
+	data:    Name      Location  MAC Address
+	data:    --------  --------  -----------
+	data:    testnic1  eastus
+	info:    network nic list command OK
+
+Parameter options:
+
+	h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network nic show [options] <resource-group> <name>
+Shows properties of a Network Interface resource
+	
+	azure network nic show -g myresourcegroup -n testnic1
+	info:    Executing command network nic show
+	+ Looking up the network interface "testnic1"
+	data:    Id:                     /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/networkInterfaces/testnic1
+	Name:                   testnic1
+	Type:                   Microsoft.Network/networkInterfaces
+	Location:               eastus
+	Provisioning state:     Succeeded
+	IP configurations:
+	Name:                         NIC-config
+	Provisioning state:           Succeeded
+	Public IP address:            id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP
+	Private IP address:           10.0.0.5
+	Private IP Allocation Method: Dynamic
+	Subnet:                       /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myVNET/subnets/Subnet-1
+	data:
+	info:    network nic show command OK
+<BR>
+	
 	network nic delete [options] <resource-group> <name>
+Deletes a Network Interface resource. In the example below we deleted a Network Interface "testnic1" from resource group "myresourcegroup"
+ 
+
+	azure network nic delete -g myresourcegroup -n testnic1
+	info:    Executing command network nic delete
+	+ Looking up the network interface "testnic1"
+	Delete network interface "testnic1"? [y/n] y
+	+ Deleting network interface "testnic1"
+	info:    network nic delete command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the network interface
+	-q, --quiet                            quiet mode, do not ask for delete confirmation
+	--subscription <subscription>          the subscription identifier
+
 
 **Commands to manage network security groups**
 
 	network nsg create [options] <resource-group> <name> <location>
+Creates a network security group resource with default rules. 
+	azure network nsg create -g group-1 -n newnsg -l eastus
+	info:    Executing command network nsg create
+	+ Looking up the network security group "newnsg"
+	+ Creating a network security group "newnsg"
+	+ Looking up the network security group "newnsg"
+	data:    Id:                   /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/networkSecurityGroups/newnsg
+	Name:                 newnsg
+	Type:                 Microsoft.Network/networkSecurityGroups
+	Location:             eastus
+	Provisioning state:   Succeeded
+	Security group rules:
+	Name                           Source IP          Source Port  Destination IP  Destination Port  Protocol  Direction  Access  Priority
+	data:    -----------------------------  -----------------  -----------  --------
+	------  ----------------  --------  ---------  ------  --------
+	data:    AllowVnetInBound               VirtualNetwork     *            VirtualNetwork  *          *         Inbound    Allow   65000
+	data:    AllowAzureLoadBalancerInBound  AzureLoadBalancer  *            *        *                 *         Inbound    Allow   65001
+	data:    DenyAllInBound                 *                  *            *        *                 *         Inbound    Deny    65500
+	data:    AllowVnetOutBound              VirtualNetwork     *            VirtualNetwork  *          *         Outbound   Allow   65000
+	data:    AllowInternetOutBound          *                  *            Internet        *          *         Outbound   Allow   65001
+	data:    DenyAllOutBound                *                  *            *        *                 *         Outbound   Deny    65500
+	info:    network nsg create command OK
+	
+Parameter options:
+
+	--help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the network security group
+	-l, --location <location>              the location
+	-t, --tags <tags>                      the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	for example, -t tag1=value1;tag2
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
 	network nsg set [options] <resource-group> <name>
+
+	azure network nsg set -g group-1 -n newnsg
+	info:    Executing command network nsg set
+	+ Looking up the network security group "newnsg"
+	+ Setting a network security group "newnsg"
+	+ Looking up the network security group "newnsg"
+	data:    Id:                   /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/networkSecurityGroups/newnsg
+	data:    Name:                 newnsg
+	data:    Type:                 Microsoft.Network/networkSecurityGroups
+	data:    Location:             eastus
+	data:    Provisioning state:   Succeeded
+	data:    Security group rules:
+	data:    Name                           Source IP          Source Port  Destination IP  Destination Port  Protocol  Direction  Access  Priority
+	data:    -----------------------------  -----------------  -----------  --------------  ----------------  --------  ---------  ------  --------
+	data:    AllowVnetInBound               VirtualNetwork     *            VirtualNetwork  *                  *         Inbound   Allow   65000
+	data:    AllowAzureLoadBalancerInBound  AzureLoadBalancer  *            *        *                         *         Inbound   Allow   65001
+	data:    DenyAllInBound                 *                  *            *        *                         *         Inbound   Deny    65500
+	data:    AllowVnetOutBound              VirtualNetwork     *            VirtualNetwork  *                 *         Outbound   Allow   65000
+	data:    AllowInternetOutBound          *                  *            Internet        *                 *         Outbound   Allow   65001
+	data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500
+	info:    network nsg set command OK
+<BR>
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the network security group
+	-t, --tags <tags>                      the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	--no-tags                              remove all existing tags
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network nsg list [options] <resource-group>
+List all network security groups within a resource group.
+
+	azure network nsg list -g group-1
+	info:    Executing command network nsg list
+	+ Getting the network security groups
+	data:    Name    Location
+	data:    ------  --------
+	data:    newnsg  eastus
+	info:    network nsg list command OK
+
+Parameter options:
+
+
 	network nsg show [options] <resource-group> <name>
 	network nsg delete [options] <resource-group> <name>
 
