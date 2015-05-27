@@ -16,8 +16,7 @@
 	ms.date="05/27/2015" 
 	ms.author="cephalin"/>
 
-<a name="intro"></a>
-# Integrate a cloud service with Azure CDN #
+#<a name="intro"></a> Integrate a cloud service with Azure CDN #
 
 <!-- Keeping this article pinned to the old portal because CDN is not yet lit up in the new portal -->
 
