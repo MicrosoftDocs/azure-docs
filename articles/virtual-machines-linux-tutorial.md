@@ -136,7 +136,9 @@ Your VM is up and running and waiting for you to connect.
 
 ## Connecting to your VM
 
-This command uses usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
+With Linux VMs, you typically connect using **ssh**. This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md). 
+
+If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<publicdnsaddress> -p <the ssh port>`. In this case, we use the username and password from the previous step and port 22, which is the default **ssh** port.
 
 	ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
 	The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
@@ -217,7 +219,7 @@ and in the case of this topic, the `sdc` disk is the one that we want. Now parti
 	Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759): 
 	Using default value 10485759
 
-Create the partition:
+Create the partition by typing `p` at the prompt:
 
 	Command (m for help): p
 	
@@ -237,7 +239,7 @@ Create the partition:
 	Calling ioctl() to re-read partition table.
 	Syncing disks.
 
-And write a file system to the partition:
+And write a file system to the partition by using the **mkfs** command, specifying your filesystem type and the device name. In this topic, we're using `ext4` and `/dev/sdc1` from above:
 
 	sudo mkfs -t ext4 /dev/sdc1
 	mke2fs 1.42.9 (4-Feb-2014)
@@ -262,11 +264,11 @@ And write a file system to the partition:
 	Creating journal (32768 blocks): done
 	Writing superblocks and filesystem accounting information: done 
 
-Now we create a directory to mount the file system:
+Now we create a directory to mount the file system using `mkdir`:
 
 	sudo mkdir /datadrive
 
-And you mount the directory:
+And you mount the directory using `mount`:
 
 	sudo mount /dev/sdc1 /datadrive
 
