@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="StorSimple release notes - February 2015"
+    pageTitle="StorSimple 8000 Series Update 0.3 release notes - February 2015"
     description="Describes the new features, issues, and workarounds for the February 2015 StorSimple release."
     services="storsimple"
     documentationCenter="NA"
@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# StorSimple release notes - February 2015
+# StorSimple 8000 Series Update 0.3 release notes - February 2015
 
 ## Overview
 
-The following release notes identify the critical open issues for the February 2015 release of Microsoft Azure StorSimple. They also contain a list of the StorSimple software and firmware updates included in this release. This is the third release after the General Availability (GA) release of Microsoft Azure StorSimple.
+The following release notes identify the critical open issues for  StorSimple 8000 Series Update 0.3 released in February 2015. They also contain a list of the StorSimple software and firmware updates included in this release. This is the third release after the StorSimple 8000 Series Release version was made generally available in July 2014.
   
 This update does not change the device software version from the January update. It continues to be version 6.3.9600.17312. You can confirm that the update has been installed by checking the **Last Updated** date. If the date is 2/10/2015 or later, then the update has been installed successfully.  
 

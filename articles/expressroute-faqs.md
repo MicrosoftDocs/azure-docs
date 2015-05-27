@@ -259,7 +259,6 @@ The following tutorials will help you:
 - Skype for Business Online
 - Office Online
 - Azure AD & Azure AD Sync
-- CRM Online
 - Office 365 Video
 - Power BI
 - Delve

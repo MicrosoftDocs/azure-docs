@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/29/2015"
+	ms.date="05/25/2015"
 	ms.author="kathydav"/>
 
 # Create a Virtual Machine Running Windows in the Azure Preview Portal#
@@ -52,7 +52,7 @@ This section shows you how to use the Preview portal to create a VM, using Windo
 
 5. Review the default settings, such as the **Pricing Tier** and **Optional Configuration**. These choices affect the size of VM as well as networking options such as domain membership. For example, to try out Premium Storage on a virtual machine, you'll need to pick a region and size that supports it. For your first virtual machine, the defaults are usually fine.
 
-	>[AZURE.NOTE] Premium storage is available for DS-series virtual machines in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md).
+	>[AZURE.NOTE] Premium storage is available for DS-series virtual machines in certain regions. Premium storage is the best storage option for data intensive workloads such as a database. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md).
 
 6. When you're done reviewing or updating the settings, click **Create**.
 

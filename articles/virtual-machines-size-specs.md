@@ -12,19 +12,20 @@ ms.service="virtual-machines"
  ms.topic="article" 
  ms.tgt_pltfrm="vm-multiple" 
  ms.workload="infrastructure-services"
- ms.date="05/20/2015" 
+ ms.date="05/26/2015" 
  ms.author="kathydav"/>
 
-#Virtual machine sizes
+# Sizes for Virtual Machines
 
-##Overview
-This topic describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads. These resources are available to you as Azure Virtual Machines (sometimes called “IaaS virtual machines” or “persistent virtual machines”), and Cloud Service role instances (web roles and worker roles). This topic also provides deployment considerations to be aware of when planning to use these resources.
+## Overview
+
+This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when planning to use these resources.
 
 Azure Virtual Machines and Cloud Services are two of several types of compute resources offered by Azure. For explanations, see [Compute Hosting Options Provided by Azure](http://go.microsoft.com/fwlink/p/?LinkID=311926).
 
->[AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md)
+>[AZURE.NOTE] To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md)
 
-## Sizes for Virtual Machines
+## Planning Considerations
 
 Virtual machines are available in two tiers – basic and standard. Both types offer a choice of sizes, but the basic tier doesn’t provide some capabilities available with the standard tier, such as load-balancing and auto-scaling. The standard tier of sizes consists of A series, D series, DS series, and G series.
 
@@ -52,7 +53,7 @@ The following tables show the sizes and the capacities offered by each.
 
 >[AZURE.NOTE]Storage capacity is represented using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.
 
-### Basic Tier
+## Basic Tier
 
 |Size – Management Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
 |---|---|---|---|---|---|
@@ -62,7 +63,8 @@ The following tables show the sizes and the capacities offered by each.
 |A3\Basic_A3|4|7 GB|<p>OS = 1023 GB</p><p>Temporary = 120 GB</p>|8|8x300|
 |A4\Basic_A4|8|14 GB|<p>OS = 1023 GB</p><p>Temporary = 240 GB</p>|16|16x300|
 
-### Standard Tier – A series and D series
+## Standard Tier
+### A series and D series
 
 |Size – Management Portal\cmdlets & APIs|CPU cores|Memory|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|
@@ -118,9 +120,13 @@ The following tables show the sizes and the capacities offered by each.
 #### Concepts
 
 [Set Up a Cloud Service for Azure](https://msdn.microsoft.com/library/hh124108)  
+
  [Configure Sizes for Cloud Services](https://msdn.microsoft.com/library/ee814754)
 
 #### Other Resources
 
-[Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md)  
+[Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md) 
+ 
  [About the A8, A9, A10, and A11 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?linkid=328042)
+
+[Sizes for Cloud Services](cloud-services-sizes-specs.md)
