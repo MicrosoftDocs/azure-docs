@@ -18,4 +18,8 @@
 
 [Using the SDK for Java](app-insights-java-get-started.md)
 
+## Version 0.9.4
 
+- Support collecting performance counters from 32-bit Windows machines.
+- Support manual tracking of dependencies using a new ```trackDependency``` method API.
+- Ability to tag a telemetry item as synthetic, by adding a ```SyntheticSource``` property to the reported item.
