@@ -34,12 +34,16 @@ For the Microsoft Monitoring Agent to connect to and register with the Operation
 
 You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure *To configure proxy settings for the Microsoft Monitoring Agent using a script*.
 ### To configure proxy settings for the Microsoft Monitoring Agent using Control Panel
+
 1. Open **Control Panel**.
+
 2. Open **Microsoft Monitoring Agent**.
+
 3. Click the **Proxy Settings** tab.
+
   ![proxy settings tab](./media/operational-insights-proxy-firewall/direct-agent-proxy.png)
-4. Select **Use a proxy server** and type the URL and port number, if one is needed, similar to the example shown.
-If your proxy server requires authentication, type the username and password to access the proxy server.
+
+4. Select **Use a proxy server** and type the URL and port number, if one is needed, similar to the example shown. If your proxy server requires authentication, type the username and password to access the proxy server.
 
 
 Use the following procedure to create a PowerShell script that you can run to set the proxy settings for each agent that connects directly to servers.
