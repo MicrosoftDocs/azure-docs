@@ -96,8 +96,8 @@
      `Get-HcsSystem`
 
     You should see the following versions:
-    - HcsSoftwareVersion: 6.3.9600.17469
-    - CisAgentVersion: 1.0.9034.0
+    - HcsSoftwareVersion: 6.3.9600.17491
+    - CisAgentVersion: 1.0.9037.0
     - MdsAgentVersion: 26.0.4696.1433
  
 9. Run the following cmdlet to confirm that the firmware update was applied correctly:

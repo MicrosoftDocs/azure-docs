@@ -15,14 +15,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/22/2015" 
+	ms.date="05/27/2015" 
 	ms.author="ginathan;mohabib;bradsev" /> 
 
 # Advanced Analytics Process and Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
 
-In this walkthrough, we demonstrate the Advanced Analytics Process and Technology (ADAPT) end-to-end using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary classification and regression predictive tasks.
-
-This walkthrough shows how to use the headnode of an HDInsight cluster to explore, featurize, and down sample a large dataset to prepare it for  modeling with Azure Machine Learning. It also walks you through the steps in the modeling process and shows how to publish the model as a Web service.
+In this walkthrough, we demonstrate using the Advanced Analytics Process and Technology (ADAPT) end-to-end with an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. We use Azure Machine Learning to build binary classification and regression models against this data. We also shows how to publish one of these models as a Web service.
 
 It is also possible to use an iPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
@@ -39,21 +37,21 @@ Each record in this dataset contains 40 columns:
 
 The columns are anonymized and use a series of enumerated names: "Col1" (for the label column) to 'Col40" (for the last categorical column).            
 
-Here is an excerpt of two observations (rows) from this dataset:
+Here is an excerpt of the first 20 columns of two observations (rows) from this dataset:
 
-	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15	Col16	Col17	Col18	Col19	Col20	Col21	Col22	Col23	Col24	Col25	Col26	Col27	Col28	Col29	Col30	Col31	Col32	Col33	Col34	Col35	Col36	Col37	Col38	Col39	Col40
+	Col1	Col2	Col3	Col4	Col5	Col6	Col7	Col8	Col9	Col10	Col11	Col12	Col13	Col14	Col15			Col16			Col17			Col18			Col19		Col20	
 
-	0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb        16e08b25        670da99c        2e4e821f        5fd89f4d        b21eb4c2        2974d88b        bf78d0d4        52e56658        484a5e08        330c9d3e   		1f7fc70b 	5cc1303c        9512c20b        81ae47fc        405a6616        b9196e4d        9496de3d        1652193e        30436bfc        b757e957
-	0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb        4628641f        670da99c        7cee8453        e02b43b2        b59debeb        0e2dac06        a77a4a56        521d9fcb        484a5e08        330c9d3e   		753da5f3 	b8170bba        9512c20b        09923add        a4b5cdff        887eac7c        21f683ca        7cc1f2ce        30436bfc        2ccea557
+	0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
+	0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
 
-Note that there are numeric values missing from this excerpt of the dataset, and also from the categorical columns in the full dataset. Later in this walkthrough, we describe a simple method for handling these non-occurrences. Additional details of the data are explored below when we store them into Hive tables.
+There are missing values in both the numeric and categorical columns in this dataset. We describe a simple method for handling the missing values below. Additional details of the data are explored below when we store them into Hive tables.
 
-**Definition:** *Clickthrough rate (CTR):* This is the percentage of clicks in the data. In the Criteo dataset, the CTR is about 3.3% or 0.033
+**Definition:** *Clickthrough rate (CTR):* This is the percentage of clicks in the data. In this Criteo dataset, the CTR is about 3.3% or 0.033.
 
 ## <a name="mltasks"></a>Examples of prediction tasks
 Two sample prediction problems are addressed in this walkthrough:
 
-1. **Binary classification**: Predicts whether or not a user clicked on an ad:
+1. **Binary classification**: Predicts whether or not a user clicked on an add:
 	- Class 0: No Click
 	- Class 1: Click
 
@@ -64,15 +62,15 @@ Two sample prediction problems are addressed in this walkthrough:
 
 **Note:** This is typically an **Admin** task.
 
-Three steps are required to set up the Azure Data Science environment for doing advanced analytics on HDInsight clusters:
+Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
 1. [Create a storage account](storage-whatis-account.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
 
-2. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing the HDInsight cluster.
+2. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
 
 	* You must link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 
-	* You must enable Remote Access to the head node of the cluster after it is created. Navigate to the **Configuration** tab, click **Enable Remote**, and provide (and remember) user credentials for remote login.
+	* You must enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you will need them below.
 
 3. [Create an Azure ML workspace](machine-learning-create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
 
@@ -98,7 +96,7 @@ An alternative approach to access, explore, and model this data that does not re
 
 ## <a name="login"></a>Log into the cluster headnode
 
-To login to the headnode of the cluster, use the [Azure Management](manage.windowsazure.com) portal to locate the cluster. Navigate to the **Configuration** tab and click on **Enable Remote**. Specify a username and password, and an expiration date that is not more than seven days in the future. In a few minutes, once remote logins are enabled, an RDP auto-downloads to the default downloads directory. Double clicking on this RDP prompts the user to enter the password specified. This takes the user to the headnode of the cluster. 
+To login to the headnode of the cluster, use the [Azure Management](manage.windowsazure.com) portal to locate the cluster. Click on the HDInsight elephant icon on the left and then double click on the name of your cluster. Navigate to the **Configuration** tab, double click on the CONNECT icon on the bottom of the page, and enter your remote access credentials when prompted. This takes you to the headnode of the cluster. 
 
 Here is what a typical first login to the cluster headnode looks like:
 
