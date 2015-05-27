@@ -1,8 +1,4 @@
 
-You can test receiving notifications in your app by send notifications in the Azure portal using the debug tab on the notification hub as shown in the screen below.
-
-![][A30]
-
 
 Push notifications are normally sent in a back-end service like Mobile Services or an ASP.NET WebAPI back-end using a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end. 
 

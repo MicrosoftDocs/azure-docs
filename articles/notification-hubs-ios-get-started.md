@@ -161,6 +161,10 @@ Your notification hub is now configured to work with APNS, and you have the conn
 ## How to Send Notifications
 
 
+You can test receiving notifications in your app by send notifications in the Azure portal using the debug tab on the notification hub as shown in the screen below.
+
+![][30]
+
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ![][31]
@@ -486,7 +490,7 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
 [11]: ./media/notification-hubs-ios-get-started/notification-hubs-xcode-product-name.png
 
-[A30]: ./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png
+[30]: ./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png
 
 [31]: ./media/notification-hubs-ios-get-started/notification-hubs-ios-ui.png
 [32]: ./media/notification-hubs-ios-get-started/notification-hubs-storyboard-view.png

@@ -256,6 +256,11 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 ##How to Send Notifications
 
 
+
+You can test receiving notifications in your app by send notifications in the Azure portal using the debug tab on the notification hub as shown in the screen below.
+
+![][30]
+
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ![][31]
@@ -497,7 +502,7 @@ In this simple example you broadcast notifications to all your Android devices. 
 [23]: ./media/notification-hubs-android-get-started/notification-hub-scheduler2.png
 [29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
 
-[A30]: ./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
+[30]: ./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
 
 [31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
 
