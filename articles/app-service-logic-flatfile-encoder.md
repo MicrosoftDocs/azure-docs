@@ -25,16 +25,28 @@ BizTalk Flat File Encode Decode connector helps your app interop between flat fi
 ##Using the BizTalk Flat File Encoder
 1. To use the BizTalk Flat File Encoder, you need to first create an instance of the BizTalk Flat File Encoder API app. This can be done either inline while creating a logic app or by selecting the BizTalk Flat File Encoder API app from the Azure Marketplace.
 
-		NOTE: There are no configuration settings associated with BizTalk Xpath Extractor.
-2. The designer shows up the action associated with BizTalk XPath Extractor API App.
-	
-![BizTalk XPath Extractor Choose Action][1]
+###Configure BizTalk Flat File Encoder
+BizTalk Flat File Encoder takes schemas as part of its configuration. User can launch the API App configuration blade by either launching the API App directly from the Azure portal, or through by double clicking the API App on the designer surface.
 
-3. Choose "Extract Using XPath"
+![BizTalk Flat File Encoder Configuration][1]
 
-"Extract Using XPath" evaluates input xpath expression on a given input Xml.
+In the API App blade, user can configure schemas by clicking on *Schemas* part
 
-![BizTalk XPath Extractor Input][2]
+![BizTalk Flat File Encoder Schemas Part][2]
+
+Users can upload schemas from disk or generate one from a flat file instance or a JSON instance.
+
+![BizTalk Flat File Encoder Schemas Part][3]
+
+
+###Using the BizTalk Flat File Encoder in design surface
+Once configured, users can click on *->* and choose from an action from a list of actions.
+
+![BizTalk Flat File Encoder List of actions][4]
+
+####Flat File to Xml
+
+![BizTalk Flat File Encoder List of actions][5]
 
 <table>
 	<tr>
@@ -43,19 +55,48 @@ BizTalk Flat File Encode Decode connector helps your app interop between flat fi
 		<th>Description of the parameter</th>
 	</tr>
 	<tr>
-		<td>XPath</td>
+		<td>Flat File</td>
 		<td>string</td>
-		<td>Query path inside xml.</td>
+		<td>Content of the input flat file</td>
+	</tr>
+	<tr>
+		<td>Schema Name</td>
+		<td>string</td>
+		<td>Name of the schema which represents the input flat file</td>
+	</tr>
+	<tr>
+		<td>Root Name</td>
+		<td>string</td>
+		<td>Root node name of the flat file schema</td>
+	</tr>
+</table>
+
+
+The action returns the output as a string - Output Xml. Output Xml contains the xml representation of the input flat file content.
+
+####Xml to Flat File
+
+![BizTalk Flat File Encoder List of actions][6]
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Type</th>
+		<th>Description of the parameter</th>
 	</tr>
 	<tr>
 		<td>Input Xml</td>
 		<td>string</td>
-		<td>Input Xml content.</td>
+		<td>Input Xml content</td>
 	</tr>
 </table>
 
-The action returns the output as a string - Result. Result contains the value of query path inside Xml.
+The action returns the output as a string - Flat File. Output contains the flat file representation of the input xml content.
 
 <!-- References -->
-[1]: /media/app-service-logic-xpath-extract/BizTalkXPathExtractor.ChooseAction.png
-[2]: /media/app-service-logic-xpath-extract/BizTalkXPathExtractor.ConfigureInput.png
+[1]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.ClickToConfigure.png
+[2]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.SchemasPart.png
+[3]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.SchemaUpload.png
+[4]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.ListOfActions.png
+[5]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.FlatFileToXml.png
+[6]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.png
