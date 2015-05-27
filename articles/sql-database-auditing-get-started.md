@@ -29,17 +29,17 @@ Auditing tools enable and facilitate adherence to compliance standards but don't
 
 ##<a id="subheading-1"></a>Azure SQL Database Auditing basics
 
-The following sections describe the configuration of Auditing using the Azure Preview Portal. You may also [Set up auditing for your database using the classic azure portal], It makes no difference whether you created the database using the Azure Portal or the Azure Preview Portal. 
+The following sections describe the configuration of Auditing using the Azure Preview Portal. You may also [Set up auditing for your database using the Classic Azure Portal].
 
-SQL Database auditing enables you to:
+SQL Database auditing allows you to:
 
-- **Retain** an audit trail of selected events. Define categories of database actions and events to be logged.
-- **Report** on database activity. Use preconfigured reports and a dashboard to get started quickly with activity and event reporting.
-- **Analyze** reports. Find suspicious events, unusual activity, and trends.
+- **Retain** an audit trail of selected events. You can define categories of database actions  to be audited.
+- **Report** on database activity. You can use preconfigured reports and a dashboard to get started quickly with activity and event reporting.
+- **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 You can configure auditing for the following event categories:
 
-**Plain SQL** and **Parameterized SQL** for which the collected Audit logs are classified as  
+**Plain SQL** and **Parameterized SQL** for which the collected audit logs are classified as  
 
 - **Access to data**
 - **Schema changes (DDL)**
@@ -50,50 +50,41 @@ You can configure auditing for the following event categories:
 
 For each Event Category, Auditing of **Success** and **Failure** operations are configured separately.
 
-For further detail about the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
+For further details about the activities and events audited, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
 
-You also choose the storage account where audit logs will be saved and may configure Audit Logs retention. 
+Audit logs are stored in your Azure storage account. You can define an audit log retention period.
 
-###Security-enabled access
-There are two methods to get auditing for your connection:
+An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.
 
-1. For clients which are using TDS version 7.4 and above switch the **SECURITY ENABLED ACCESS** to **REQUIRED**. (For v12 databases, this step is soon eliminated)
-
-2. For "Downlevel clients" which are using TDS version 7.3 and below there is a need to configure a security enabled connection string:
-
-Traditional connection string format: <*server name*>.database.windows.net
-
-Security-enabled connection string: <*server name*>.database.**secure**.windows.net
-
-**Remark:** a partial list of "Downlevel clients" includes: .NET 4.0 and below, and ODBC 10.0 and below. Regarding JDBC: While 4.0 does support TDS version 7.4, , please use JDBC 4.1 and above due to a bug in JDBC 4.0.
+Before setting up audit auditing check if you are using a ["Downlevel Client"](https://github.com/nadavhelfman/azure-content/blob/master/articles/sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
 
 1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> at https://portal.azure.com. Alternatively, you can also launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. Refer to details below.
-2. Navigate to the configuration blade of the database you want to audit. Scroll down to the **Operations** section, and then click **Auditing** to enable the auditing and launch the auditing configuration blade.
+
+2. navigate to the configuration blade of the SQL Database / SQL Server you want to audit. Click the **Settings** button on top and then, in the Setting blade, and select **Auditing**.
 
 	![][1]
 
-3. In the auditing configuration blade, select STORAGE DETAILS to get the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
+3. In the auditing configuration blade, select STORAGE DETAILS to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
 
 	![][2]
 
 4. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
 
-5. Check **Save these settings as server default** if you want these settings to apply to all future databases on the server, and any that don't already have auditing set up. You can override the settings later for each database by following these same steps. 
 
-6. Click on **To enforce auditing click here ...** and on **SECURITY ENABLED ACCESS** select **REQUIRED**.
+5. If you have configuring Auditing for a SQL Database, Click on **To enforce auditing click here ...** and on **SECURITY ENABLED ACCESS** select **REQUIRED**. If you are configuring Auditing for a SQL Server then after  step #6, navigate for each SQL database on the server and apply this step.
 
 	![][5]
 
-7. Click **OK**.
+6. Click **OK**.
 
 
 
 ##<a id="subheading-3">Analyze audit logs and reports</a>
 
-Audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
+Audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** prefix in the Azure storage account you chose during setup. You can view log files using a tool such as <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
 A preconfigured dashboard report template is available as a <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">downloadable Excel spreadsheet</a> to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download <a href="http://www.microsoft.com/download/details.aspx?id=39379">here</a>. 
 
@@ -104,11 +95,11 @@ For more detailed instructions on working with the report template, read the <a 
 ![][6]
 
 
-##<a id="subheading-4"></a>Set up auditing for your database using the classic azure portal
+##<a id="subheading-4"></a>Set up auditing for your database using the Classic Azure Portal
 
 1. Launch the <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> at https://manage.windowsazure.com/. 
-2. Click the database you want to audit, and then click the **Auditing & Security** tab.
-3. For **SECURITY ENABLED ACCESS** click **REQUIRED**.
+2. Click the SQL Database / SQL Server you want to audit, and then click the **AUDITING & SECURITY** tab.
+3. If you are configuring a SQL Database, for **SECURITY ENABLED ACCESS** click **REQUIRED**. If you are configuring a a SQL Server then after step #6, navigate for each SQL database on the server and apply this step.
 4. At the auditing section click **ENABLED**.
 
 
@@ -161,7 +152,7 @@ When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to lis
 [Azure SQL Database Auditing basics]: #subheading-1
 [Set up auditing for your database]: #subheading-2
 [Analyze audit logs and reports]: #subheading-3
-[Set up auditing for your database using the classic azure portal]: #subheading-4
+[Set up auditing for your database using the Classic Azure Portal]: #subheading-4
 
 
 <!--Image references-->
