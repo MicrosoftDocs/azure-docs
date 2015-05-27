@@ -34,7 +34,9 @@ This tutorial requires version 2.5.1 or later of the Azure SDK for .NET.
 
 2. Select **File > New Project**. 
 
-3. Select the **ASP.NET Web Application** template.  
+3. Select the **ASP.NET Web Application** template. 
+
+4. Make sure that the **Add Application Insights to Project** check box is cleared.
 
 4. Name the project *ContactsList*
 
