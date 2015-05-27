@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" 
+	pageTitle="Smooth Streaming Windows Store App Tutorial" 
 	description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
 
