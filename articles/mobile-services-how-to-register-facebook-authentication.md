@@ -51,16 +51,16 @@ To complete the procedure in this topic, you must have a Facebook account that h
 7. Click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. 
 
    	![][5]
-   	
 	&nbsp;
-	>[AZURE.NOTE] **Security Note**
-	The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
+	
+    >[AZURE.IMPORTANT] The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 	&nbsp;
 
 8. Click the **Advanced** tab, type the URL of your mobile service appended with the path _/login/facebook_ in **Valid OAuth redirect URIs**, then click **Save Changes**. 
 	&nbsp;
 
-       >[AZURE.NOTE] For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-facebook_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-facebook</code>.  
+     >[AZURE.NOTE] For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-facebook_ your mobile service as a .NET service, such as `https://todolist.azure-mobile.net/signin-facebook`.  
+       
 	&nbsp;	
 	![][7]
 
