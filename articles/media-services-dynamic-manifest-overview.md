@@ -1,5 +1,5 @@
-properties 
-	pageTitle="Filters and Dynamic Manifest" 
+<properties 
+	pageTitle="Filters and Dynamic Manifests" 
 	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achive this selective streaming." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@ properties
 	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
-#Filters and Dynamic Manifest
+#Filters and Dynamic Manifests
 
 Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
