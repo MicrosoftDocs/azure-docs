@@ -58,7 +58,7 @@ To expose this `CustomAddRows` function as an Azure Machine Learning module, an 
 	<!-- Defined a module using an R Script -->
 	<Module name="Custom Add Rows">
 	    <Owner>Microsoft Corporation</Owner>
-	    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is false; & vice versa when Swap is true.</Description>
+	    <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is false, and vice versa when Swap is true.</Description>
 	
 	<!-- Specify the base language, script file and R function to use for this module. -->		
 	    <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />  
@@ -80,7 +80,7 @@ To expose this `CustomAddRows` function as an Azure Machine Learning module, an 
 	<!-- Define module parameters -->
 	    <Arguments>
 			<Arg id="swap" name="Swap" type="bool" >
-				<Description>Swap inputs datasets.</Description>
+				<Description>Swap input datasets.</Description>
 			</Arg>
 	    </Arguments>
 	</Module>

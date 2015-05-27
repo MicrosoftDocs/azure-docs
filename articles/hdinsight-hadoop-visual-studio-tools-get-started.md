@@ -175,6 +175,7 @@ The most recent release of the tool allows you to see what’s inside your Hive 
 3. Click a job in the job list to select it, and then use the **Hive Job Summary** window to open **Job Query**, **Job Output**, **Job Log**, or **Yarn log**.
 
 	![Hadoop tools: HDInsight Visual Studio Tools view Hive jobs][12]
+
 ## Next steps
 In this article, you have learned how to connect to HDInsight clusters from Visual Studio, using the Hadoop tools package, and how to run a Hive query. For more information, see:
 

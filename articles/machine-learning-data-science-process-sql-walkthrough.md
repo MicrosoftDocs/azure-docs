@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="mohabib;fashah"/> 
+	ms.date="05/20/2015" 
+	ms.author="mohabib;fashah;bradsev"/> 
 
                 
-# Azure Advanced Analytics Process in Action: using SQL Sever
+# Azure Advanced Analytics Process in Action: using SQL Server
 
 In this tutorial, you will follow the Azure Advanced Analytics Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
 
@@ -64,7 +64,7 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 3. Regression task: To predict the amount of tip paid for a trip.  
 
 
-## <a name="setup"></a>Setting Up the Azure Data Science Environment
+## <a name="setup"></a>Setting Up the Azure data science environment for advanced analytics
 
 As you can see from the [Plan Your Environment](machine-learning-data-science-plan-your-environment.md) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
 

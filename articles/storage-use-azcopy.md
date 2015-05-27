@@ -309,7 +309,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
 		The upper limit for concurrent operations is 512.</td>
     <td>Y</td>
     <td>Y<br /> (preview only)</td>
-    <td>N</td>
+    <td>Y<br /> (preview only)</td>
   </tr>
   <tr>
     <td><b>/SourceType:Blob|Table</b></td>
@@ -344,7 +344,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
   </tr>
   <tr>
     <td><strong>/SplitSize:</strong><file-size><strong>&lt;file-size&gt;</strong></td>
-    <td>Specifies the exported file split size in MB.
+    <td>Specifies the exported file split size in MB, the minimal value allowed is 32.
         <br />
         If this option is not specified, AzCopy will export table data to single file.
         <br />

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="05/19/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs documentation resources
@@ -54,7 +54,8 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [How to Deploy Azure WebJobs using Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [How to deploy WebJobs using the Azure Management Portal](web-sites-create-web-jobs.md)
 * [Enabling Command-line or Continuous Delivery of Azure WebJobs](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
-* [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/) 
+* [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
+* [Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * Videos
 	* [Introducing WebJobs Tooling for Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [WebJobs Tooling and Remote Debugging](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
@@ -102,11 +103,6 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 ##<a name="additionalsdk"></a>Additional WebJobs SDK resources
 
 * [WebJobs SDK source code](https://github.com/Azure/azure-webjobs-sdk)
-* [Triggers, Bindings, and Route parameters in AzureJobs](http://blogs.msdn.com/b/jmstall/archive/2014/01/28/trigger-bindings-and-route-parameters-in-azurejobs.aspx) 
-* Azure Storage Bindings
-	* [Blobs](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-1-blobs.aspx)
-	* [Queues](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-2-queues.aspx)
-	* [Tables](http://blogs.msdn.com/b/jmstall/archive/2014/03/06/azure-storage-bindings-part-3-tables.aspx)
 * [How does [BlobTrigger] work?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
 * [Advanced bindings with the Azure Web Jobs SDK](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [WebJob to upload FREB files to Azure Storage using the WebJobs SDK](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
@@ -135,6 +131,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [Azure App Service Web Apps forum](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Azure Web Apps User Voice site](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/). Use the hashtag #AzureWebJobs.
+* [Report a WebJobs bug or issue](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

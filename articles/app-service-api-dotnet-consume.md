@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="05/16/2015" 
+	ms.author="tdykstra"/>
 
 # Consume an API app in Azure App Service from a .NET client 
 
@@ -26,6 +26,8 @@ This tutorial shows how to use the App Service SDK to write code that calls an [
 - Call a **Public (authenticated)** API app from a Windows Desktop application 
 
 Each of these tutorial sections is independent -- you can follow the instructions for the second scenario without having completed the steps for the first one.
+
+For information about how to call an **Internal** API app, see [Consume an internal API app from a .NET client](app-service-api-dotnet-consume-internal.md).
 
 ## Prerequisites
 

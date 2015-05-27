@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Set up an Azure SQL Server virtual machine for data science | Azure"
+	pageTitle="Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics | Azure"
 	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
 	services="machine-learning"
 	solutions="" documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2015"
-	ms.author="mohabib;xibingao" />
+	ms.date="05/12/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
-# Set up an Azure SQL Server virtual machine for data science
+# Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
 
 This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
 

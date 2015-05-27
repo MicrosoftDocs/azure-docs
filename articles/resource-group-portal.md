@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Using the Azure preview portal to manage your Azure resources" 
 	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
-	services="multiple" 
+	services="azure-portal" 
 	documentationCenter="" 
 	authors="" 
 	writer="tfitzmac" 
@@ -9,7 +9,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-portal" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="05/13/2015" 
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [May 2015 Release](#may_changes_15)
 - [April 2015 Release](#april_changes_15)
 - [March 2015 Release](#march_changes_15)
 - [February 2015 Release](#february_changes_15)
@@ -69,6 +70,14 @@ These release notes summarize changes from previous releases and known issues.
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="may_changes_15"></a>May 2015 Release
+
+Announcing the following new features:
+
+- [A preview of Live Encoding with Media Services](media-services-manage-live-encoder-enabled-channels.md)
+- [Dynamic manifest](media-services-dynamic-manifest-overview.md)
+- [A preview of Azure Media Hyperlapse media processor](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ##<a id="april_changes_15"></a>April 2015 Release
 

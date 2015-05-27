@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="05/15/2015"
 	ms.author="genemi"/>
 
 
@@ -22,8 +22,8 @@
 
 
 <!-- What is being changed this time?:
-GeneMi , 2015-April-22 16:40pm
-Name of this new copy is 'sql-database-v12-plan-prepare-upgrade.md'. Retiring old copy named 'sql-database-preview-plan-prepare-upgrade.md'.
+GeneMi , 2015-May-15 14:31pm
+Powershell cmdlets.
 -->
 
 
@@ -129,7 +129,7 @@ There are three portals for Azure, and each has different abilities regarding SQ
 
 - [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>This Azure portal might eventually be phased out. This portal:
  - Can manage your V12 server and database.
- - Can *not* upgrade your V12 database to V12.
+ - Can *not* upgrade your V11 database to V12.
 
 
 - (http://*yourservername*.database.windows.net)<br/>
@@ -159,8 +159,7 @@ For another alternative, you can use SQL Server Management Studio (SSMS) 2014 wi
 
 | Limitation | Description |
 | :--- | :--- |
-| Duration of upgrade | The duration of upgrade depends on the number, size, and edition of databases in the server. The upgrade process can run for 1 to 4 days for servers with databases that are both:<br/><br/>* Larger than 50 GB<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
-| DNS entry update delay | After the upgrade completes, it takes several minutes for the system to update the DNS entry for your V12 database, for connectivity from your client application. |
+| Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The upgrade process can run for hours to days for servers especially for servers that has databases:<br/><br/>* Larger than 50 GB, or <br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
 
 
@@ -211,6 +210,23 @@ The following scenario explains that a deleted V11 Azure SQL database can be res
 3. You upgrade the server to V12.
 4. Next you restore the database to the server. <br/> The database is thereby upgraded to V12, at the S0 level of the Standard service tier.
 5. You can switch the database to any supported service tier, if S0 is not your preference.
+
+
+### Powershell cmdlets
+
+
+Powershell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
+
+
+For reference documentation about these Powershell cmdlets, see:
+
+
+- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
+- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
+- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+
+
+The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources.
 
 
 ## Failure resolution

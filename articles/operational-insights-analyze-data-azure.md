@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/07/2015"
+   ms.date="05/11/2015"
    ms.author="banders"/>
 # Analyze data from servers in Microsoft Azure
 
@@ -23,7 +23,7 @@ Operational Insights uses data from servers in your on-premises or cloud infrast
 
 Using the data you collect from Azure storage, you can quickly search event and IIS logs for cloud services and virtual machines by enabling [Azure diagnostics](operational-insights-log-collection.md). You can also get additional insights from your virtual machines by installing the Microsoft Monitoring Agent.
 
-The Update Assessment, Change Tracking, and SQL Assessment solutions all work with the Microsoft Monitoring Agent to provide deeper insights on your virtual machines. If you haven’t already, you can [add solutions](operational-insights-add-intelligence-pack.md) when you’re signed into the [Operational Insights portal](https://preview.opinsights.azure.com/).
+The Update Assessment, Change Tracking, and SQL Assessment solutions all work with the Microsoft Monitoring Agent to provide deeper insights on your virtual machines. If you haven’t already, you can [add solutions](operational-insights-add-solution.md) when you’re signed into the [Operational Insights portal](https://preview.opinsights.azure.com/).
 
 For Azure virtual machines, there are two easy ways to enable agent-based data collection:
 

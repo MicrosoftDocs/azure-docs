@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 #Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
@@ -271,6 +271,11 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 ###Protecting assets
 
+**Overview**: 
+
+[Content Protection Overview](media-services-content-protection-overview.md)
+
+
 If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
 
 Use **.NET** or **REST API** to create keys.
@@ -281,12 +286,15 @@ Once you create the content key, you can configure key authorization policy usin
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
+####Integrating with partners
+
+[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
+
 ###Publishing and delivering assets
 
 **Overview**: 
 
-- [Dynamic Packaging Overview](media-services-dynamic-overview.md)
-- [Delivering Content Overview](media-services-deliver-content-overview.md)
+- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
@@ -295,6 +303,11 @@ Configure asset delivery policy using **.NET** or **REST API**.
 Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
+
+Deliver Content 
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 
 ###Enabling Azure CDN
@@ -308,6 +321,8 @@ You can scale **Media Services** by specifying the number of **Streaming Reserve
 For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
 
 ##Related topics
+
+[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
 
 [Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
 

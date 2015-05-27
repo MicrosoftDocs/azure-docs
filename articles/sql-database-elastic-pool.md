@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/29/2015" 
+	ms.date="05/11/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -21,15 +21,17 @@
 
 If you’re a SaaS developer with tens, hundreds, or even thousands of databases, an elastic pool simplifies the process of creating, maintaining, and managing performance across these databases within a budget that you control. 
 
-A common SaaS application pattern is for each database to have a different customer, each with varying and unpredictable resource consumption (CPU/IO/Memory). With these peaks and valleys of demand for each database, it can be difficult to predict and thefore provision resources.  Your faced with two options; either over-provision database resources based on peak usage--and overpay. Or under-provision to save cost--at the expense of performance and customer satisfaction during peaks. 
+A common SaaS application pattern is for each database to have a different customer, each with varying and unpredictable resource consumption (CPU/IO/Memory summarized with eDTU). With these peaks and valleys of demand for each database, it can be difficult to predict and therefore provision resources.  You're faced with two options; either over-provision database resources based on peak usage--and overpay. Or under-provision to save cost--at the expense of performance and customer satisfaction during peaks. 
 
 Microsoft created elastic pools specifically to help you solve this problem.
 
-An elastic database pool is a collection of available resources shared by the elastic databases in the pool. You can add databases to the pool or remove them at any time. These elastic databases share the resources (expressed as database throughput units, or DTUs) and storage capacity of the pool, but each elastic database uses only the resources it needs when it needs them, leaving resources free for other elastic databases when they need them. Instead of over-provisioning individual databases and paying for resources that sit idle, you allocate and pay a predictable price for resources of the elastic pool in aggregate. This spreads the cost so you can achieve a competitive business model, and each elastic database gains performance adaptability.
+> [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
+
+An elastic database pool is a collection of available resources shared by the elastic databases in the pool. You can add databases to the pool or remove them at any time. These elastic databases share the resources (expressed as elastic database throughput units, or eDTUs) and storage capacity of the pool, but each elastic database uses only the resources it needs when it needs them, leaving resources free for other elastic databases when they need them. Instead of over-provisioning individual databases and paying for resources that sit idle, you allocate and pay a predictable price for resources of the elastic pool in aggregate. This spreads the cost so you can achieve a competitive business model, and each elastic database gains performance adaptability.
 
 Databases that are great candidates for elastic database pools are typically active less than 50% of the time.  A typical pattern of activity is that databases spend some time inactive, active with little resource demands, and active with high resource demands.  
 
-Not all databases fit this pattern.  There are databases that have a more constant resource deman and these databases are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned. database.
+Not all databases fit this pattern.  There are databases that have a more constant resource demand and these databases are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
 
 You can create an elastic pool in minutes using the Microsoft Azure portal or PowerShell. For details, see [Create and manage an elastic pool](sql-database-elastic-pool-portal.md). For detailed information about elastic database pools, including API and error details, see the [Elastic database reference](sql-database-elastic-pool-reference.md).
 

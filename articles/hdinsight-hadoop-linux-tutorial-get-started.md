@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Linux tutorial: Learn Hadoop with Hive | Microsoft Azure" 
+   pageTitle="Linux tutorial: Get started with Hadoop and Hive | Microsoft Azure" 
    description="Follow this Linux tutorial to get started using Hadoop in HDInsight. Learn how to provision Linux clusters, and query data with Hive." 
    services="hdinsight" 
    documentationCenter="" 

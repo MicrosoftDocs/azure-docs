@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="05/12/2015" 
 	ms.author="mohabib;bradsev" /> 
 
 
@@ -71,7 +71,7 @@ Depending on your scenario, you might also need the following:
 5.  Azure Data Factory for scheduled data movement
 
 
-## How to Use the Advanced Analytics Process Map
+## How to Use the Advanced Analytics Process guide
 
 The [Advanced Analytics Process map](machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of data science exercises. The map shows the core steps involved in a typical advanced analytics workflow. Not all steps are required in every data science exercise. Also, the process is iterative in nature and the sequence of steps may vary in a given exercise. Your answers to the questions above will help you decide the steps that are relevant to your case when they are needed in the process and the conditions under which iterations of the steps are required.
 

@@ -76,7 +76,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
             </dependency>
           </dependencies>
           <build>
-            <sourceDirectory>src/main/scala</sourceDirectory
+            <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
               <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -108,7 +108,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
                       <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
-                        <exclude>META-INF/*.RSA</exclude>y
+                        <exclude>META-INF/*.RSA</exclude>
                       </excludes>
                     </filter>
                   </filters>

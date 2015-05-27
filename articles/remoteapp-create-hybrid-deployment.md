@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/26/2015" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for RemoteApp
@@ -25,7 +25,7 @@ There are two kinds of RemoteApp collections:
 
 This tutorial walks you through the process of creating a hybrid collection. There are seven steps: 
 
-1.	Create a [custom image for RemoteApp](remoteapp-imageoptions.md) or pick one of the images included with your subscription.
+1.	Decide what [image](remoteapp-imageoptions.md) to use for your collection. You can create a custom image or use one of the Microsoft images included with your subscription.
 2. Set up your virtual network.
 2.	Create a RemoteApp collection.
 2.	Link your collection to your virtual network.
@@ -42,8 +42,8 @@ You need to do the following before creating the collection:
 - Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](install-configure-powershell.md) module.
-- Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information.
-- Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [Create a RemoteApp image](remoteapp-imageoptions.md) for more information. 
+- Gather information about the users that you want to grant access to. You will need the Azure Active Directory user principal name (for example, name@contoso.com) for each user.
+- Choose your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [RemoteApp image options](remoteapp-imageoptions.md) for more information. 
 - [Configure Active Directory for RemoteApp](remoteapp-ad.md).
 
 

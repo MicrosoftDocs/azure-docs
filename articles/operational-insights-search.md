@@ -1,6 +1,6 @@
 <properties
    pageTitle="Search for data in Operational Insights"
-   description="You can use search in Microsoft Azure Operational Insights to find data that you’re looking for"
+   description="You can use the log search in Microsoft Azure Operational Insights to find data that you’re looking for"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
@@ -19,17 +19,17 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
-At the core of Microsoft Azure Operational Insights is the search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Solutions are also powered by search to bring you metrics pivoted around a particular problem area.
+At the core of Microsoft Azure Operational Insights is the log search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Solutions are also powered by log search to bring you metrics pivoted around a particular problem area.
 
 On the Search page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.
 
-Common search queries appear on most solution pages. Throughout the Operational Insights console, you can click tiles or drill in to other items to view details about the item by using Search.
+Common log search queries appear on most solution pages. Throughout the Operational Insights console, you can click tiles or drill in to other items to view details about the item by using log search.
 
-In this tutorial, we'll walk through examples to cover all the basics when you use Search.
+In this tutorial, we'll walk through examples to cover all the basics when you use log search.
 
 We'll start with simple, practical examples and then build on them so that you can get an understanding of practical use cases about how to use the syntax to extract the insights you want from the data.
 
-When you conduct searches in Operational Insights, you'll use the following techniques:
+When you conduct log searches in Operational Insights, you'll use the following techniques:
 
 - Use basic filters
 - Use additional filters

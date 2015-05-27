@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use time-based Hadoop Oozie Coordinator in HDInsight | Azure" 
-	description="Use time-based Hadoop Oozie Coordinator in HDInsight, a big data solution. Learn how to define Oozie workflows and coordinators, and submit coordinator jobs." 
+	pageTitle="Use time-based Hadoop Oozie coordinator in HDInsight | Microsoft Azure" 
+	description="Use time-based Hadoop Oozie coordinator in HDInsight, a big data service. Learn how to define Oozie workflows and coordinators, and submit jobs." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
@@ -17,9 +17,9 @@
 	ms.author="jgao"/>
 
 
-# Use time-based Oozie Coordinator with Hadoop in HDInsight
+# Use time-based Oozie coordinator with Hadoop in HDInsight to define workflows and coordinate jobs
 
-In this article, you'll learn how to define workflows and coordinators, and how to trigger the coordinator jobs, based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before you read this article. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].
+In this article, you'll learn how to define workflows and coordinators, and how to trigger the coordinator jobs, based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before you read this article. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory](data-factory-pig-hive-activities.md).
 
 
 ##<a id="whatisoozie"></a>What is Oozie
