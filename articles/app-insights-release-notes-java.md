@@ -16,6 +16,15 @@
  
 # Release Notes for Application Insights SDK for Java
 
-[Using the SDK for Java](app-insights-java.md)
+[Using the SDK for Java](http://azure.microsoft.com/en-us/documentation/articles/app-insights-java-get-started/)
 
+## Version 0.9.5
 
+- Fix for the custom events not correlated with Users/Sessions due to cookie parsing errors.
+- Improved logic for resolving the location of the ApplicationInsights.xml configuration file.
+
+## Version 0.9.4
+
+- Support collecting performance counters from 32-bit Windows machines.
+- Support manual tracking of dependencies using a new ```trackDependency``` method API.
+- Ability to tag a telemetry item as synthetic, by adding a ```SyntheticSource``` property to the reported item.
