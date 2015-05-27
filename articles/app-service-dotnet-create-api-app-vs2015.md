@@ -24,13 +24,13 @@
 
 ## Overview
 
-In this tutorial you create an ASP.NET Web API 2 project using Visual Studio 2015, and configure it for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). You also deploy the project to Azure. 
-
-At the end of the tutorial you'll have an API app running in the Azure cloud.
+In this tutorial you create an ASP.NET Web API 2 project using Visual Studio 2015, and configure it for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). You also deploy the project to Azure. At the end of the tutorial you'll have an API app running in the Azure cloud.
 
 The tutorial assumes you know how to work with files and folders in Visual Studio **Solution Explorer**. 
 
-[AZURE.INCLUDE [install-sdk-2015-only](../includes/install-sdk-2013-only.md)]
+The tutorial works with the currently released version of ASP.NET Web API.  For information about how to create an ASP.NET MVC 6 API app, see this blog post: [https://alexanderzeitler.com/articles/Deploying-a-ASP-NET-MVC-6-API-as-Azure-API-App-in-Azure-App-Services/](https://alexanderzeitler.com/articles/Deploying-a-ASP-NET-MVC-6-API-as-Azure-API-App-in-Azure-App-Services/ "Deploying a ASP.NET MVC 6 API as Azure API App in Azure App Services").   
+
+[AZURE.INCLUDE [install-sdk-2015-only](../includes/install-sdk-2015-only.md)]
 
 This tutorial requires version 2.6 or later of the Azure SDK for .NET.
 
