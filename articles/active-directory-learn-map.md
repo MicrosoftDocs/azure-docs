@@ -12,8 +12,13 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
+<<<<<<< HEAD
 	ms.topic="hero-article"
 	ms.date="05/27/2015"
+=======
+	ms.topic="article"
+	ms.date="05/05/2015"
+>>>>>>> 47d27b2a070826fa51433fa8d8f1bd35a903e7e7
 	ms.author="curtand"/>
 
 # Learn more about Azure AD

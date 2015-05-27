@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/27/2015"
+   ms.date="05/27/2015"
    ms.author="v-sharos" />
 
 # Manage your StorSimple storage account
@@ -60,27 +60,17 @@ You can create multiple accounts for a given cloud service provider. Be aware, h
 
 While the storage account is being saved, the service attempts to communicate with your cloud service provider. The credentials and the access material that you supplied will be authenticated at this time. A storage account is created only if the authentication succeeds. If the authentication fails, then an appropriate error message will be displayed.
 
-### To add a storage account
+> [AZURE.NOTE] The procedure for adding a storage account differs based on the StorSimple software version you are using. Be sure to follow the correct procedure for your StorSimple version.
 
-1. On the service landing page, select your service and double-click it. This will take you to the **Quick Start** page. 
-2. Access the **Configure** page.
-3. Click **Add/edit storage account**.
-4. In the **Add/Edit Storage Accounts** dialog box, do the following:
-  1. Click **Add new**.
-  2. Provide a name for your storage account.
-  3. Supply the primary **Storage account access key** for your Microsoft Azure storage account.
-  4. Select the **Enable SSL mode** check box to create a secure channel for the network communication between your device and the cloud. Clear the **Enable SSL mode** check box only if you are operating within a private cloud.
-  5. Click the check icon ![check icon](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png). You will be notified after the storage account is created successfully.
+[AZURE.INCLUDE [add-a-storage-account-update1](../includes/storsimple-configure-new-storage-account-u1.md)]
 
-    ![Add storage account](./media/storsimple-manage-storage-accounts/HCS_AddStorageAccount.png)
-
-5. The newly created storage account will be displayed on the **Configure** page under **Storage Accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
+[AZURE.INCLUDE [add-a-storage-account](../includes/storsimple-configure-new-storage-account.md)]
 
 ## Edit a storage account
 
 You can edit a storage account that is used by a volume container. If you edit a storage account that is currently in use, the only field available to modify is the access key for the storage account. You can supply the new storage access key and save the updated settings.
 
-### To edit a storage account
+#### To edit a storage account
 
 1. On the service landing page, select your service, double-click the service name, and then click **Configure**.
 
@@ -99,7 +89,7 @@ You can edit a storage account that is used by a volume container. If you edit a
 
 > [AZURE.IMPORTANT] You can delete a storage account only if it is not used by a volume container. If a storage account is being used by a volume container, first delete the volume container and then delete the associated storage account.
 
-### To delete a storage account
+#### To delete a storage account
 
 1. On the StorSimple Manager service landing page, select your service, double-click the service name, and then click **Configure**.
 
@@ -113,6 +103,8 @@ You can edit a storage account that is used by a volume container. If you edit a
 
 For security reasons, key rotation is often a requirement in data centers. 
 
+> [AZURE.NOTE] The following key rotation information and the rotation procedure apply to Microsoft Azure storage accounts only. If you are using another cloud service provider, you can manage storage account keys through that provider's dashboard.
+ 
 Each Microsoft Azure subscription can have one or more associated storage accounts. The access to these accounts is controlled by the subscription and access keys for each storage account. 
 
 When you create a storage account, Microsoft Azure generates two 512-bit storage access keys that are used for authentication when the storage account is accessed. Having two storage access keys allows you to regenerate the keys with no interruption to your storage service or access to that service. The key that is currently in use is the *primary* key and the backup key is referred to as the *secondary* key. One of these two keys must be supplied when your Microsoft Azure StorSimple device accesses your cloud storage service provider.
@@ -129,7 +121,7 @@ A Microsoft Azure administrator can regenerate or change the primary or secondar
 
 To inform the StorSimple Manager service of the change, you will need to access the StorSimple Manager service, access the storage account, and then synchronize the primary or secondary key (depending on which one was changed). The service then gets the latest key, encrypts the keys, and sends the encrypted key to the device.
 
-### To synchronize keys for storage accounts in the same subscription as the service
+#### To synchronize keys for storage accounts in the same subscription as the service (Azure only)
 
 1. On the **Services** page, click the **Configure** tab.
 
@@ -142,7 +134,7 @@ To inform the StorSimple Manager service of the change, you will need to access 
 
     ![synchronize keys](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 
-### To synchronize keys for storage accounts outside of the service subscription
+#### To synchronize keys for storage accounts outside of the service subscription
 
 1. On the **Services** page, click the **Configure** tab.
 
@@ -151,7 +143,7 @@ To inform the StorSimple Manager service of the change, you will need to access 
 3. In the dialog box, do the following:
 
   1. Select the storage account with the access key that you want to update.
-  2. You will need to update the storage access key in the StorSimple Manager service. In this case, you can see the storage access key. Enter the new key in the **Storage Account Access Ke**y box. 
+  2. You will need to update the storage access key in the StorSimple Manager service. In this case, you can see the storage access key. Enter the new key in the **Storage Account Access Key**y box. 
   3. Save your changes. Your storage account access key should now be updated.
 
 ## Next steps

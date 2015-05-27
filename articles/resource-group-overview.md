@@ -1,14 +1,14 @@
 <properties
    pageTitle="Azure Resource Manager Overview"
    description="Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure."
-   services="azure-portal"
+   services="multiple"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="multiple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -40,11 +40,11 @@ In the Azure preview portal, all new resources are created in a resource group. 
 
 The following image shows a resource group with a web site, a database, and Application Insights.
 
-![resouce group summary](./media/resource-group-overview/resourcegroupsummary.png)
+![resource group summary](./media/resource-group-overview/resourcegroupsummary.png)
 
 A resource group can also be linked to a resource in another resource group. A resource is considered linked when a deployment dependency exists between resources in different resource groups. For example, if a web app in one resource group connects to database in another resource group, those resources are linked.
 
-![linked resouce](./media/resource-group-overview/linkedresource.png)
+![linked resource](./media/resource-group-overview/linkedresource.png)
 
 From the preview portal, you can easily view costs, monitor events, and manage alerts. The following image shows the consolidated billing for a group.
 

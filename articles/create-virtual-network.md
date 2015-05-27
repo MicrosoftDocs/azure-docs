@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/18/2015" 
 	ms.author="cherylmc"/>
 
 # Tutorial: Create a Cloud-Only Virtual Network in Azure
@@ -37,7 +37,7 @@ In this tutorial you will learn how to set up a basic Azure cloud-only virtual n
 ##  Prerequisites
 
 *  A Microsoft account with at least one valid, active Azure subscription. If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
-p
+
 ##  Create the Virtual Network for this tutorial
 
 To create this example cloud-only virtual network, do the following
@@ -75,7 +75,7 @@ To create this example cloud-only virtual network, do the following
 - FrontEndSubnet: 10.0.2.0/24
 - BackEndSubnet: 10.0.1.0/24
 
- Note that the address space for a virtual network must be from the private address spaces of 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 and specified in Classless Inter-Domain Routing (CIDR) notation (also known as network prefix notation). For more information about the settings on this page, see the Virtual Network Address Spaces page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/p/?linkid=248092&clcid=0x409).
+ For more information about the settings on this page, see the Virtual Network Address Spaces page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/p/?linkid=248092&clcid=0x409).
 
 
 7. Click the checkmark in the lower right of the page and your virtual network will begin to create. When your virtual network has been created, you will see **Created** listed under Status on the **Networks** page in the Azure Management Portal.  

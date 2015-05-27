@@ -34,7 +34,18 @@ Application Insights SDKs and agents that you combine with your application send
 
 #### How much data can be captured? 
 
-Currently, up to 500 events per second per instrumentation key (that is, per application).
+Currently, up to 500 data points per second per instrumentation key (that is, per application).
+
+
+A *data point* is an item of telemetry, such as:
+
+* API `Track...` calls such as `TrackEvent` or `trackPageView`.
+* Telemetry items sent by SDK modules, for example to report a request or crash.
+* Performance counter data - one point for each measurement.
+
+*How do I know how many data points my app is sending?*
+
+* In Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
 
 #### How long is the data kept? 

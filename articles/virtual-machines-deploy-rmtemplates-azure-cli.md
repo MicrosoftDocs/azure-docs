@@ -49,9 +49,9 @@ Type `azure --version` to see whether you have already installed version 0.9.0 o
 
 If your version is not 0.9.0 or later, you'll need to either [install the Azure CLI](xplat-cli-install.md) or update using either one of the native installers or through **npm** by typing `npm update -g azure-cli`.
 
-You can also run Azure CLI as a Docker container using the following [Docker image](https://registry.hub.docker.com/u/kmouss/azure-cli/)
+You can also run Azure CLI as a Docker container using the following [Docker image](https://registry.hub.docker.com/u/microsoft/azure-cli/). From a Docker host, run the following command:
 
-	docker run -it kmouss/azure-cli
+	docker run -it microsoft/azure-cli
 
 ### Set your Azure account and subscription
 
@@ -1306,7 +1306,7 @@ Then you'll need to mount the disk, as you normally would in Linux (or in Window
 
 ## Next steps
 
-For far more examples of Azure CLI usage with the **arm** mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](resource-group-overview.md).
+For far more examples of Azure CLI usage with the **arm** mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](resource-group-overview.md).
 
 For more templates you can use, see [Azure Quickstart Tempaltes](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 

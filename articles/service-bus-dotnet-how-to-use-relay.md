@@ -194,7 +194,7 @@ With the contract in place, the implementation is trivial:
 
 With the contract and implementation in place, you can now host
 the service. Hosting occurs inside a
-[System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost(v=vs.110).aspx) object, which takes care of managing
+[System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx) object, which takes care of managing
 instances of the service and hosts the endpoints that listen for
 messages. The code below configures the service with both a regular
 local endpoint and a Service Bus endpoint to illustrate the appearance, side-by-side, of internal and external endpoints. Replace the
@@ -222,7 +222,7 @@ with the SAS key that you obtained in the setup step above.
 
 In the example, you create two endpoints that are on the same
 contract implementation. One is local and one is projected through Service Bus. The key differences between them are the bindings;
-[`NetTcpBinding`](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding(v=vs.110).aspx) for the local one and [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) for the
+[`NetTcpBinding`](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) for the local one and [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) for the
 Service Bus endpoint and the addresses. The local endpoint has a local
 network address with a distinct port. The Service Bus endpoint has an
 endpoint address composed of the string "sb", your namespace name, and
@@ -277,7 +277,7 @@ After you make these changes, the service starts as it did before, but with two 
 #### How to configure a client programmatically
 
 To consume the service, you can construct a WCF client using a
-[`ChannelFactory`](https://msdn.microsoft.com/library/system.servicemodel.channelfactory(v=vs.110).aspx) object. Service Bus uses a token-based security
+[`ChannelFactory`](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) object. Service Bus uses a token-based security
 model implemented using SAS. The
 **TokenProvider** class represents a security token provider with
 built-in factory methods that return some well-known token providers. The
