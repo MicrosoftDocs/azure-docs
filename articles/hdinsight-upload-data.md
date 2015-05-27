@@ -24,7 +24,7 @@ Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) o
 
 Azure HDInsight clusters are typically deployed to run MapReduce jobs, and the clusters are dropped after these jobs complete. Keeping the data in the HDFS clusters after computations are complete would be an expensive way to store this data. Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a blob enables the HDInsight clusters that are used for computation to be safely released without losing data.
 
-Azure Blob storage can be accessed through [AzCopy][azure-azcopy], [Azure PowerShell][azure-powershell], [Azure Storage Client Library for .NET][azure-storage-client-library], [Azure Command-Line Interface for Mac, Linux, and Windows][xplatcli], or through explorer tools. Here are some of the available tools:
+Azure Blob storage can be accessed through [AzCopy][azure-azcopy], [Azure PowerShell][azure-powershell], [Azure Storage Client Library for .NET][azure-storage-client-library], [Azure Command-Line Interface for Mac, Linux, and Windows][azurecli], or through explorer tools. Here are some of the available tools:
 
 * [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
 * [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
@@ -332,7 +332,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [Powershell-install-configure]: powershell-install-configure.md
 
-[Azure CLI]: xplat-cli.md
+[azurecli]: xplat-cli.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png

@@ -445,7 +445,7 @@ The steps in this section use the Azure command-line tools to create a new web a
 
 ###Install the Azure Command-Line Interface (Azure CLI)
 
-Azure CLI allows you to perform management operations for Azure services. If you have not already installed and configured the Azure CLI on your development environment, see [Install and configure the Azure CLI][xplatcli] for instructions.
+Azure CLI allows you to perform management operations for Azure services. If you have not already installed and configured the Azure CLI on your development environment, see [Install and configure the Azure CLI](xplat-cli-install.md) for instructions.
 
 ###Create an App Service web app
 

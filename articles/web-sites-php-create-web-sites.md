@@ -19,7 +19,7 @@
 # Create a PHP web app in Azure App Service
 
 ## Overview
-This article will show you how to create a PHP web app in [Azure App Service] by using the [Azure preview portal](https://portal.azure.com), the [Azure CLI][xplat-tools], or the [Azure PowerShell cmdlets][powershell-cmdlets].
+This article will show you how to create a PHP web app in [Azure App Service] by using the [Azure preview portal](https://portal.azure.com), the [Azure CLI][Azure CLI], or the [Azure PowerShell cmdlets][powershell-cmdlets].
 
 In general, creating a PHP web app is no different that creating *any* web app in Azure App Service. By default, PHP is enabled for all web apps. For information about configuring PHP (or providing your own customized PHP runtime), see [Configure PHP in Azure App Service Web Apps].
 

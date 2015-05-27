@@ -249,9 +249,12 @@ Some of the Azure CLI commands do not return a non-zero exit status if required 
 If you are writing a script that relies on the exit status, please verify that the Azure CLI commands you are using do not prompt for user input.
 
 <a id="additional-resources"></a>
+
 ## Additional resources
 
-* [List of detailed Service Management commands][Using the Azure CLI for Mac, Linux, and Windows]
+* [List of detailed Service Management commands][Using the Azure CLI]
+
+* [Using the Azure CLI for Mac, Linux, and Windows](xplat-cli-azure-resource-manager)
 
 * [Using the Azure CLI with the Resource Manager][xplatarm]
 
