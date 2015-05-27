@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/27/2015" 
 	ms.author="glenga"/>
 
 # Register your apps for Facebook authentication with Mobile Services
@@ -51,6 +51,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 7. Click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. 
 
    	![][5]
+   	
 	&nbsp;
 	> [AZURE.NOTE] **Security Note**
 	The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
