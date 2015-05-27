@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Log in from the Azure CLI for Mac, Linux, and Windows"
-	description="Connect to Azure subscription from the Azure CLI for Mac, Linux, and Windows"
+	pageTitle="Log in from the Azure Command-Line Interface (Azure CLI)"
+	description="Connect to Azure subscription from the Azure Command-Line Interface (Azure CLI)"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
@@ -16,14 +16,14 @@
 	ms.date="04/29/2015"
 	ms.author="dkshir"/>
 
-# Connect to an Azure subscription from the Azure CLI for Mac, Linux, and Windows
+# Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)
 
-The Azure CLI for Mac, Linux, and Windows (also called the _xplat-cli_) is a set of open source, cross-platform commands for working with the Azure Platform. This document describes how to connect to your Azure subscription from the xplat-cli. For installation instructions, see [Install Azure CLI for Mac, Linux, and Windows](xplat-cli-install.md).
+The Azure CLI is a set of open source, cross-platform commands for working with the Azure Platform. This document describes how to connect to your Azure subscription from the xplat-cli. For installation instructions, see [Install Azure CLI](xplat-cli-install.md).
 
 <a id="configure"></a>
 ## How to connect to your Azure subscription
 
-Most commands provided by the xplat-cli require a connection to an Azure account. There are two ways to configure the xplat-cli to work with your subscription:
+Most commands provided by the Azure CLI require a connection to an Azure account. There are two ways to configure the Azure CLI to work with your subscription:
 
 * Log in to Azure using a work or school account (also called an organizational account). This uses Azure Active Directory to authenticate the credentials.
 
@@ -59,7 +59,7 @@ The login method only works with a work or school account. This account is manag
 >
 >For more information on work or school accounts, see [Sign up for Microsoft Azure as an Organization][signuporg].
 
-To log in from the xplat-cli using a work or school account, use the following command:
+To log in from the Azure CLI using a work or school account, use the following command:
 
 	azure login -u <username>
 
@@ -115,11 +115,11 @@ In the above list, the **Current** column indicates the current default subscrip
 
 This will change the default subscription to Azure-sub-2.
 
-> [AZURE.NOTE] Changing the default subscription takes effect immediately, and is a global change; new xplat-commands, whether you run them from the same command-line instance or a different instance, will use the new default subscription.
+> [AZURE.NOTE] Changing the default subscription takes effect immediately, and is a global change; new Azure CLI commands, whether you run them from the same command-line instance or a different instance, will use the new default subscription.
 
-If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `--subscription` option for the command and provide the name of the subscription you wish to use for the operation.
+If you wish to use a non-default subscription with the Azure CLI, but don't want to change the current default, you can use the `--subscription` option for the command and provide the name of the subscription you wish to use for the operation.
 
-Once you are connected to your Azure subscription, you can start using the xplat-cli commands. For more information, see [How to use the Azure CLI for Mac, Linux, and Windows](xplat-cli.md).
+Once you are connected to your Azure subscription, you can start using the Azure CLI commands. For more information, see [How to use the Azure CLI](xplat-cli.md).
 
 <a id="additional-resources"></a>
 ## Additional resources
@@ -128,9 +128,9 @@ Once you are connected to your Azure subscription, you can start using the xplat
 
 * [Using the Azure CLI with the Resource Management (or ARM mode) commands][xplatarm]
 
-* For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
+* For more information on the Azure CLI, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
-* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* If you encounter problems using the Azure CLI, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
 * For more information on Azure, see [http://azure.microsoft.com/](http://azure.microsoft.com).
 

@@ -31,7 +31,7 @@ Injecting a script or other data into an Azure Virtual Machine when it is being 
 
 ## Injecting the custom data into your Azure Virtual Machine
 
-This feature is currently supported only in the [Microsoft Azure Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat). Although you may use any of the options for the `azure vm create` command, the following approach demonstrates one very basic approach.
+This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat). Although you may use any of the options for the `azure vm create` command, the following approach demonstrates one very basic approach.
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -51,7 +51,7 @@ This feature is currently supported only in the [Microsoft Azure Command-Line In
 + If your Azure Virtual Machine is a Linux Virtual Machine, then the custom data file will be located in the following two places, but the data will be base64-encoded, so you will need to decode the data first.
 
     + At `/var/lib/waagent/ovf-env.xml`
-    + At `/var/lib/waagent/CustomData` 
+    + At `/var/lib/waagent/CustomData`
 
 
 
@@ -76,4 +76,4 @@ For further information, see the [cloud-init documentation for Ubuntu](https://h
 <!--Link references-->
 [Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Microsoft Azure Command-line Interface](https://github.com/Azure/azure-sdk-tools-xplat)
+[Azure Command-line Interface](https://github.com/Azure/azure-sdk-tools-xplat)
