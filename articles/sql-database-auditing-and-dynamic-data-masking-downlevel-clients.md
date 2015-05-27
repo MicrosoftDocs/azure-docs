@@ -23,7 +23,7 @@
 
 Any client which implements TDS 7.4 should also support redirection. Exceptions to this include JDBC 4.0 in which the redirection feature is not fully supported and Tedious for Node.JS in which redirection was not implemented.
 
-For "downlevel client", i.e. which support TDS version 7.3 and below - the server name in the connection string should be modified:
+For "Downlevel clients", i.e. which support TDS version 7.3 and below - the server name in the connection string should be modified:
 
 Original server name in the connection string: <*server name*>.database.windows.net
 
