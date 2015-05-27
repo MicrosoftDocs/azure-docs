@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
@@ -256,19 +256,12 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 ##How to Send Notifications
 
 
-You can run your app and send test notifications to your app from the Notification Hub in the Azure portal using the debug tab on the notification hub as shown in the screen below.
+
+You can test receiving notifications in your app by send notifications in the Azure portal using the debug tab on the notification hub as shown in the screen below.
 
 ![][30]
 
-
-Push notifications with Notification Hubs are normally sent in a back-end service like Mobile Services or an ASP.NET WebAPI back-end. You can use the REST API or a library to send notification messages. In this tutorial, you will just use the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) to send the notification hub message but, here is a list of some other options.
-
-- Azure Mobile Services : For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see [Get started with push notifications in Mobile Services](mobile-services-javascript-backend-android-get-started-push.md).  
-- Azure Notification Hub Java SDK: See [How to use Notification Hubs from Java](notification-hubs-java-backend-how-to.md) for sending notifications from Java. This has been tested in Eclipse for Android Development
-- PHP: [How to use Notification Hubs from PHP](notification-hubs-php-backend-how-to.md).
-
-
-In this section of the tutorial you will add code to use the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) to send notifications to the hub directly from the Android client app. So if multiple devices have registered for GCM notifications, a single device can send notifications to all the registered devices.
+[AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ![][31]
 
@@ -479,7 +472,7 @@ Also make sure you have added your Google account to your running emulator under
 
    	![][21]
 
-## <a name="next-steps"> </a>Next steps
+##Next steps
 
 In this simple example you broadcast notifications to all your Android devices. In order to target specific users refer to the tutorial [Use Notification Hubs to push notifications to users], while if you want to segment your users by interest groups you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance].
 
@@ -508,14 +501,17 @@ In this simple example you broadcast notifications to all your Android devices. 
 [22]: ./media/notification-hubs-android-get-started/notification-hub-scheduler1.png
 [23]: ./media/notification-hubs-android-get-started/notification-hub-scheduler2.png
 [29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
+
 [30]: ./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
+
 [31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
+
+
 <!-- URLs. -->
+[Get started with push notifications in Mobile Services]: mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-android-notify-users.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-breaking-news.md
-
