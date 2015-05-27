@@ -25,7 +25,7 @@ Actions needed to configure proxy and firewall settings for Operational Insights
 
 For the Microsoft Monitoring Agent to connect to and register with the Operational Insights service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights. The following tables list the ports that Operational Insights needs.
 
-|Agent Resource|Ports|
+|**Agent Resource**|**Ports**|
 |--------------|-----|
 |*.ods.opinsights.azure.com|Port 443|
 |*.oms.opinsights.azure.com|Port 443|
@@ -51,29 +51,31 @@ Use the following procedure to create a PowerShell script that you can run to se
 - Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the Operational Insights service.
 
 
-    param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
+```
+param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
 
-    # First we get the health service configuration object.  We need to determine if we
-    # have the right update rollup with the API we need.  If not, no need to run the rest of the script.
-    $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+# First we get the health service configuration object.  We need to determine if we
+# have the right update rollup with the API we need.  If not, no need to run the rest of the script.
+$healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 
-    $proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
+$proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
 
-    if (!$proxyMethod)
-    {
-        Write-Output 'Health Service proxy API not present, will not update settings.'
-        return
-    }
-
-
-    Write-Output "Clearing proxy settings."
-    $healthServiceSettings.SetProxyInfo('', '', '')
-
-    $ProxyUserName = $cred.username;
+if (!$proxyMethod)
+{
+    Write-Output 'Health Service proxy API not present, will not update settings.'
+    return
+}
 
 
-    Write-Output "Setting Proxy to ${ProxyDomainName} with proxy username of (${ProxyUserName})."
-    $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
+Write-Output "Clearing proxy settings."
+$healthServiceSettings.SetProxyInfo('', '', '')
+
+$ProxyUserName = $cred.username;
+
+
+Write-Output "Setting Proxy to ${ProxyDomainName} with proxy username of (${ProxyUserName})."
+$healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
+```
 
 ## Configure proxy and firewall settings with Operations Manager
 
@@ -81,7 +83,7 @@ For an Operations Manager management group to connect to and register with the O
 
 >[AZURE.NOTE] Some of the following resources mention Advisor. However, the listed resources will change in the future.
 
-|Management server resource|Ports|
+|**Management server resource**|**Ports**|
 |--------------|-----|
 |*.ods.opinsights.azure.com|Port 443|
 |service.systemcenteradvisor.com|Port 443|
@@ -93,7 +95,7 @@ For an Operations Manager management group to connect to and register with the O
 |*.systemcenteradvisor.com|Port 443|
 
 
-|Operational Insights and Operations Manager console resource|Ports|
+|**Operational Insights and Operations Manager console resource**|**Ports**|
 |---|---|
 |*.systemcenteradvisor.com|Port 80 and 443|
 |*.live.com|Port 80 and 443|
