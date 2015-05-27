@@ -113,7 +113,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 ## The Basics
 
-1. [The Basics: Azure Command-Line Interface (cli)](xplat-cli.md)
+1. [The Basics: Azure Command-Line Interface (Azure CLI)](xplat-cli.md)
 4. [The Basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [The Basics: Selecting Linux Usernames](virtual-machines-linux-usernames.md)
 6. [The Basics: Log on to a Linux VM Using the Azure Portal](virtual-machines-linux-how-to-log-on.md)
@@ -129,7 +129,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 16. [The Basics: Azure VM Extensions and Features](http://msdn.microsoft.com/library/azure/dn606311.aspx)
 17. [The Basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blogging the Basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [Blogging the Basics: Automate Provisioning Linux on Azure with xplat, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
+19. [Blogging the Basics: Automate Provisioning Linux on Azure with Azure CLI, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 19. [Create a multi-VM deployment using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
 20. [The Basics: The Azure Docker VM Extension](virtual-machines-docker-vm-extension.md)
 23. [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) reference

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Secure a web app in Azure App Service" 
-	description="Learn how to secure an Azure web app." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+<properties
+	pageTitle="Secure a web app in Azure App Service"
+	description="Learn how to secure an Azure web app."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
 
@@ -27,11 +27,11 @@ One of the challenges of developing a web app is how to provide a safe and secur
 
 If you use the ***.azurewebsites.net** domain name created for your web app, you can immediately use HTTPS, as an SSL certificate is provided for all ***.azurewebsites.net** domain names. If your site uses a [custom domain name](web-sites-custom-domain-name.md), you can upload an SSL certificate to [enable HTTPS](web-sites-configure-ssl-certificate.md) for the custom domain.
 
-##<a name="develop"></a> Secure development 
+##<a name="develop"></a> Secure development
 
 ### Publishing profiles and publish settings
 
-When developing applications, performing management tasks, or automating tasks using utilities such as **Visual Studio**, **Web Matrix**, **Azure PowerShell** or the Azure **Cross-Platform Command-Line Interface**, you can use either a *publish settings* file or a *publishing profile*. Both authenticate you to Azure, and should be secured to prevent unauthorized access.
+When developing applications, performing management tasks, or automating tasks using utilities such as **Visual Studio**, **Web Matrix**, **Azure PowerShell** or the **Azure Command-Line Interface (Azure CLI)**, you can use either a *publish settings* file or a *publishing profile*. Both authenticate you to Azure, and should be secured to prevent unauthorized access.
 
 * A **publish settings** file contains
 
@@ -45,14 +45,14 @@ When developing applications, performing management tasks, or automating tasks u
 
 If you use a utility that uses publish settings or publish profile, import the file containing the publish settings or profile into the utility and then **delete** the file. If you must keep the file, to share with others working on the project for example, store it in a secure location such as an **encrypted** directory with restricted permissions.
 
-Additionally, you should make sure the imported credentials are secured. For example, **Azure PowerShell** and the **Azure Cross-Platform Command-Line Interface** both store imported information in your **home directory** (*~* on Linux or OS X systems and */users/yourusername* on Windows systems.) For extra security, you may wish to **encrypt** these locations using encryption tools available for your operating system.
+Additionally, you should make sure the imported credentials are secured. For example, **Azure PowerShell** and the **Azure Command-Line Interface (Azure CLI)** both store imported information in your **home directory** (*~* on Linux or OS X systems and */users/yourusername* on Windows systems.) For extra security, you may wish to **encrypt** these locations using encryption tools available for your operating system.
 
 ### Configuration settings, and connection strings
 It's common practice to store connection strings, authentication credentials, and other sensitive information in configuration files. Unfortunately, these files may be exposed on your website, or checked into a public repository, exposing this information.
 
 Azure App Service allows you to store configuration information as part of the Web Apps runtime environment as **app settings** and **connection strings**. The values are exposed to your application at runtime through *environment variables* for most programming languages. For .NET applications, these values are injected into your .NET configuration at runtime.
 
-**App settings** and **connection strings** are configurable using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) or utilities such as PowerShell or the Azure Cross-Platform Command-Line Interface.
+**App settings** and **connection strings** are configurable using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) or utilities such as PowerShell or the Azure CLI.
 
 For more information on app settings and connection strings, see [Configuring web apps](web-sites-configure.md).
 

@@ -67,7 +67,7 @@ Azure simplifies site management tasks that you might have to do for deployment 
 * [FTP scripts](#ftp2)
 * [Windows PowerShell](#powershell)
 * [.NET management API](#api)
-* [Cross-platform command line (xplat-cli)](#cli)
+* [Azure Command-Line Interface (Azure CLI)](#cli)
 * [Web Deploy command line](#webdeploy)
  
 ###<a name="octopus"></a>Octopus Deploy
@@ -191,13 +191,13 @@ For more information, see the following resource:
 
 * [Automating everything with the Azure Management Libraries and .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Introduction to the .NET management API and links to more documentation.
 
-##<a name="cli"></a>Cross-platform command line (xplat-cli)
+##<a name="cli"></a>Azure Command-Line Interface (Azure CLI)
 
-You can use the command line in Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure cross-platform command-line interface (xplat-cli). The xplat-cli can also be used on Windows machines.
+You can use the command line in Windows, Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure CLI.
 
 For more information, see the following resource:
 
-* [Command line tools](/downloads/#cmd-line-tools). Portal page in Azure.com for command line tool information.
+* [Azure Command line tools](/downloads/#cmd-line-tools). Portal page in Azure.com for command line tool information.
 
 ##<a name="webdeploy"></a>Web Deploy command line
 
