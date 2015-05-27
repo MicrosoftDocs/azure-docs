@@ -11,17 +11,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/21/2015" 
 	ms.author="awills"/>
  
 # Release Notes for Application Insights SDK for Java
 
-[Using the SDK for Java](http://azure.microsoft.com/en-us/documentation/articles/app-insights-java-get-started/)
-
-## Version 0.9.5
-
-- Fix for the custom events not correlated with Users/Sessions due to cookie parsing errors.
-- Improved logic for resolving the location of the ApplicationInsights.xml configuration file.
+[Using the SDK for Java](app-insights-java-get-started.md)
 
 ## Version 0.9.4
 

@@ -44,7 +44,7 @@ Application Insights lets you monitor your deployed application for usage and pe
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Install the core [Application Insights SDK NuGet][CoreNuGet].
+2. Install the Application Insights API package.
 
     ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
@@ -56,7 +56,7 @@ Application Insights lets you monitor your deployed application for usage and pe
     tc.InstrumentationKey = "INSERT KEY COPIED ABOVE";
 ```
 
-
+    
 ## <a name="telemetry"></a>Insert telemetry calls
 
 Use a `TelemetryClient` instance to [send telemetry][track].
@@ -122,7 +122,7 @@ To see counts of users and sessions you can set the values on each `TelemetryCli
                 new UserSessionInitializer());
             ...
 ```
-    
+
 
 ## <a name="run"></a>Run your project
 

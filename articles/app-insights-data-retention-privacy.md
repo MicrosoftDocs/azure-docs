@@ -43,6 +43,10 @@ A *data point* is an item of telemetry, such as:
 * Telemetry items sent by SDK modules, for example to report a request or crash.
 * Performance counter data - one point for each measurement.
 
+*How do I know how many data points my app is sending?*
+
+* In Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
+
 
 #### How long is the data kept? 
 
