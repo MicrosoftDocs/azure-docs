@@ -42,6 +42,7 @@ The **Application settings** blade has settings grouped under several categories
 
 For technical reasons, enabling Java for your app disables the .NET, PHP, and Python options.
 
+<a name="platform"></a>
 **Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
 
 **Web Sockets**. Set **ON** to enable the WebSocket protocol; for example, if your web app uses [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](web-sites-nodejs-chat-app-socketio.md).
