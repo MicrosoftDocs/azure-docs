@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2015" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
 #How To Change the Drive Letter of the Windows Temporary Disk
 
 If you need to use the D drive to store data, follow these instructions to use a different drive for the temporary disk. Never use the temporary drive to store data that you need to keep.
 
-Before you begin, you'll need a data disk attached to the virtual machine so you can store the Windows page file (pagefile.sys) during this procedure. See [How to Attach a Data Disk to a Windows Virtual Machine] if you don't have one. For instructions how to find out what disks are attached, see "Manage your disks" in [About Virtual Machine Disks in Azure].
+Before you begin, you'll need a data disk attached to the virtual machine so you can store the Windows page file (pagefile.sys) during this procedure. See [How to Attach a Data Disk to a Windows Virtual Machine][] if you don't have one. For instructions on how to find out what disks are attached, see "Manage your disks" in [About Virtual Machine Disks in Azure][].
 
-If you want to use an existing data disk on the D drive, make sure you've also uploaded the VHD to the storage account. For instructions, see steps 3 and 4 in [Create and Upload a Windows Server VHD to Azure].
+If you want to use an existing data disk on the D drive, make sure you've also uploaded the VHD to the storage account. For instructions, see steps 3 and 4 in [Create and Upload a Windows Server VHD to Azure][].
 
 > [AZURE.WARNING] If you resize a virtual machine and doing that moves the virtual machine to a different host, the temporary drive changes back to the D drive.
 
