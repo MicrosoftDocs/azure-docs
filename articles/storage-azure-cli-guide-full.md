@@ -19,11 +19,11 @@
 
 ## Overview
 
-The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the Azure Management Portal as well as rich functionality of data access.
+The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the Azure Management Portal as well as rich data access functionality.
 
 In this guide, we’ll explore how to use [Azure Cross-Platform Command-Line Interface (Azure CLI)](xplat-cli.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
 
-This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the Azure CLI with Azure Storage. You should update the script variables based on your configuration before running each script.
+This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the Azure CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
 
 > [AZURE.NOTE] The guide provides the Azure CLI command and script examples running in Azure Service Management mode (ASM). See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands for storage in Azure Resource Management (ARM) mode. 
 
@@ -151,15 +151,15 @@ You can copy blobs within or across storage accounts and regions asynchronously.
 
 The following example demonstrates how to copy blobs from one storage account to another. In this sample we create a container where blobs are publicly, anonymously accessible. 
 
-        azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
-        
-        azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
-        
-        azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
+    azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
+    
+    azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
+    
+    azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
 
 This sample performs an asynchronous copy. You can monitor the status of each copy operation by running the `azure storage blob copy show` operation.
 
->[AZURE.NOTE] The source URL provided for the copy operation must either be publicly accessible, or include a SAS (shared access signature) token. 
+Note that the source URL provided for the copy operation must either be publicly accessible, or include a SAS (shared access signature) token. 
 
 ### Delete a blob
 
@@ -169,7 +169,9 @@ To delete a blob, use the below command:
 
 ## Create and manage file shares
 
-Azure File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares. You can manage file shares and file data via the Azure CLI.
+Azure File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares. You can manage file shares and file data via the Azure CLI. For more information on Azure File storage, see [How to use Azure File storage with PowerShell and .NET](storage-dotnet-how-to-use-files).
+
+> [AZURE.NOTE] Azure File storage is currently in preview. To request access to the preview, navigate to the [Microsoft Azure Preview page](/services/preview/), and request access to **Azure Files**. Once your request is approved, you'll be notified that you can access the File storage preview. You can then create a storage account for accessing File storage.
 
 ### Create a file share
 
@@ -199,7 +201,7 @@ You can list the files and subdirectories in a share root or a directory using t
 
         azure storage file list myshare myDir
 
-Note that the directory name **myDir** is optional. If omitted, the command lists the contents of the root directory of the share.
+Note that the directory name is optional for the listing operation. If omitted, the command lists the contents of the root directory of the share.
         
 ## Next Steps
 
