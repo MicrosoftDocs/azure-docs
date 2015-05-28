@@ -4,7 +4,7 @@
    services="active-directory" 
    documentationCenter="" 
    authors="shoatman" 
-   manager="terrylan" 
+   manager="terrylanfear" 
    editor="billmath"/>
 
 <tags 
