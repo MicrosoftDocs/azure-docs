@@ -87,7 +87,7 @@ The customer information section identifies pertinent information in regards to 
     ![header](./media/azure-billing-understand-your-bill/Header.png)
 
 ### Invoice No.
-A unique invoice identifier for tracking purposes
+A unique invoice identifier for tracking purposes.
 
 ### Billing Cycle
 The time frame in which usage has taken place.
