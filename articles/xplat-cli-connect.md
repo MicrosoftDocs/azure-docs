@@ -18,7 +18,7 @@
 
 # Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)
 
-The Azure CLI is a set of open source, cross-platform commands for working with the Azure Platform. This document describes how to connect to your Azure subscription from the xplat-cli. For installation instructions, see [Install Azure CLI](xplat-cli-install.md).
+The Azure CLI is a set of open source, cross-platform commands for working with the Azure Platform. This document describes how to connect to your Azure subscription from the Azure CLI. For installation instructions, see [Install Azure CLI](xplat-cli-install.md).
 
 <a id="configure"></a>
 ## How to connect to your Azure subscription
@@ -101,7 +101,7 @@ After importing your publish settings, you should delete the `.publishsettings` 
 
 ### Multiple subscriptions
 
-If you have multiple Azure subscriptions, connecting to Azure will grant access to all subscriptions associated with your credentials. One subscription will be selected as the default, and used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, using the `azure account list` command. This command will return information similar to the following:
+If you have multiple Azure subscriptions, connecting to Azure will grant access to all subscriptions associated with your credentials. One subscription will be selected as the default, and used by the Azure CLI when performing operations. You can view the subscriptions, as well as which one is the default, using the `azure account list` command. This command will return information similar to the following:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -124,9 +124,9 @@ Once you are connected to your Azure subscription, you can start using the Azure
 <a id="additional-resources"></a>
 ## Additional resources
 
-* [Using the Azure CLI with the Service Management (or ASM mode) commands][xplatasm]
+* [Using the Azure CLI with the Service Management (or ASM mode) commands][cliasm]
 
-* [Using the Azure CLI with the Resource Management (or ARM mode) commands][xplatarm]
+* [Using the Azure CLI with the Resource Management (or ARM mode) commands][cliarm]
 
 * For more information on the Azure CLI, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
@@ -142,5 +142,5 @@ Once you are connected to your Azure subscription, you can start using the Azure
 [free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
