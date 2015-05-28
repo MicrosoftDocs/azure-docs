@@ -418,7 +418,7 @@ Consider the following when creating and submitting a hybrid topology:
 
 ###Azure Event Hubs
 
-A new class and a new method were added in SCP.Net version 0.9.4.203 specifically for working with the Event Hub Spout (a Java spout that reads from Event Hub.) When creating a topology that uses this spout, use the following methods:
+SCP.Net version 0.9.4.203 introduces a new class and method specifically for working with the Event Hub Spout (a Java spout that reads from Event Hub.) When creating a topology that uses this spout, use the following methods:
 
 -	**EventHubSpoutConfig** class: creates an object that contains the configuration for the spout component
 
