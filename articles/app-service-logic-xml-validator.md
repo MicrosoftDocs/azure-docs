@@ -67,8 +67,8 @@ Validate Xml action Validates a given xml input against pre-configured schemas.
 The action returns the output as an object. Output contains the model representing response of Xml Validator. It consists of result, schema name, root node and error description.
 
 <!-- References -->
-[1]: /media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.png
-[2]: /media/app-service-logic-xml-validator/XmlValidator.SchemasPart.png
-[3]: /media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.png
-[4]: /media/app-service-logic-xml-validator/XmlValidator.ListOfActions.png
-[5]: /media/app-service-logic-xml-validator/XmlValidator.ValidateXml.png
+[1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG
+[2]: ./media/app-service-logic-xml-validator/XmlValidator.SchemasPart.PNG
+[3]: ./media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.PNG
+[4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
+[5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
