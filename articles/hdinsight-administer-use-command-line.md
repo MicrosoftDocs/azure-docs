@@ -60,7 +60,7 @@ The command-line interface can be installed via *Node.js Package Manager (NPM)* 
 **To install the command-line interface by using Windows Installer**
 
 1.	Browse to **http://azure.microsoft.com/downloads/**.
-2.	Scroll down to the **Command line tools** section, and then click **Cross-Platform Command-Line Interface** and follow the Web Platform Installer wizard.
+2.	Scroll down to the **Command line tools** section, and then click **Azure Command-Line Interface** and follow the Web Platform Installer wizard.
 
 ##Download and import an Azure account publishsettings file
 
