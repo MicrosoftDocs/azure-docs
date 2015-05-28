@@ -57,5 +57,5 @@ BizTalk XPath Extract connector helps your app lookup and extract data from XML 
 The action returns the output as a string - Result. Result contains the value of query path inside Xml.
 
 <!-- References -->
-[1]: /media/app-service-logic-xpath-extract/ChooseAction.PNG
-[2]: /media/app-service-logic-xpath-extract/ConfigureInput.PNG
+[1]: ./media/app-service-logic-xpath-extract/ChooseAction.PNG
+[2]: ./media/app-service-logic-xpath-extract/ConfigureInput.PNG
