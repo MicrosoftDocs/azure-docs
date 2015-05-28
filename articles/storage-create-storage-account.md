@@ -49,7 +49,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. In **URL**, enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) below for details about how this name will be used to address objects that you store in Azure Storage.
+3. In **URL**, enter a name for your storage account. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. See [Storage account endpoints](#storage-account-endpoints) below for details about how this name will be used to address your objects in Azure Storage.
 
 4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs. 
 
