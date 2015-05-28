@@ -42,7 +42,7 @@ You can restore a virtual machine to a new VM from the backups stored in Azure b
 
     ![Select a date](./media/backup-azure-restore-vms/select-date.png)
 
-    Once you click on a date in the calendar control, the recovery points available on that date will be shown in recovery points table below. The **Time** column indicates the time at which the snapshot was taken. The **Type** column displays the consistency of the recovery point. The table header shows the number of recovery points available on that day in parenthesis.
+    Once you click on a date in the calendar control, the recovery points available on that date will be shown in recovery points table below. The **Time** column indicates the time at which the snapshot was taken. The **Type** column displays the [consistency](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) of the recovery point. The table header shows the number of recovery points available on that day in parenthesis.
 
     ![Recovery points](./media/backup-azure-restore-vms/recovery-points.png)
 
@@ -71,7 +71,7 @@ You can restore a virtual machine to a new VM from the backups stored in Azure b
 
     ![Select a virtual network](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Select a subnet: In case the VNET has subnets, by default the first subnet will be selected. Choose the subnet of your choice from the dropdown options. For subnet details, go to the [Networks extension portal](manage.windowsazure.com) home page, go to Virtual Networks and select the virtual network and drill down into Configure to see subnet details.
+4. Select a subnet: In case the VNET has subnets, by default the first subnet will be selected. Choose the subnet of your choice from the dropdown options. For subnet details, go to Networks extension in the [portal home page](manage.windowsazure.com), go to Virtual Networks and select the virtual network and drill down into Configure to see subnet details.
 
     ![Select a subnet](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -90,7 +90,7 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 
 ![Restore job complete](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-After restoring the virtual machine you may need to [re-install the extensions](https://msdn.microsoft.com/library/azure/hh831761.aspx) existing on the original VM and [recreate the endpoints](virtual-machines-set-up-endpoints) for the virtual machine in the Azure portal.
+After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [recreate the endpoints](virtual-machines-set-up-endpoints) for the virtual machine in the Azure portal.
 
 ## Troubleshooting errors
 For most errors, you can follow the recommended action suggested in the Error Details. Here are some additional points to help with the troubleshooting:
