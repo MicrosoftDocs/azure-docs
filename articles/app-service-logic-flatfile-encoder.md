@@ -16,9 +16,7 @@
    ms.date="03/20/2015"
    ms.author="rajram"/>
 
-[Creating a new logic app](http://aka.ms/createnewlogicapp) > [Connectors](http://aka.ms/usingconnectors)
-
-#BizTalk Flat File Encoder
+# BizTalk Flat File Encoder
 
 BizTalk Flat File Encode Decode connector helps your app interop between flat file data (example excel, csv) and XML data. It can convert a given flat file instance to XML and vice versa.
 
