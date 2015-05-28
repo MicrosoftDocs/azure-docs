@@ -1,6 +1,4 @@
 
-1. In Visual Studio, right-click the project, click **Publish** > **Publish Web** > **Azure Mobile App**.
+1. In Visual Studio, right-click the project, click **Publish** > **Publish Web** > **Microsoft Azure Web Apps**.
 
-2. Sign in with Azure credentials and select your service from **Existing Mobile Services**. Visual Studio downloads your publish settings directly from Azure. Finally, click **Publish**.
-
-	![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-settings.png)
+2. Sign in with Azure credentials and select your service from **Existing Web Apps** (your service may have a "-code" suffix.) Visual Studio downloads your publish settings directly from Azure. Finally, click **Publish**.
