@@ -203,7 +203,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
     >[AZURE.WARNING] Don't delete or change the public or private port number of any of the endpoints created during the configuration server deployment.
 
-The Configuration server is deployed in an auto created Azure cloud service with a reserved IP address. The reserved IP address is required in order to ensure that the Configuration Server cloud service IP address remains the same across reboots of the virtual machines (including the configuration server) on the cloud service. The reserved public IP address will need to be manually unreserved when the configuration server is decomissioned or else the IP address will continue to remain reserved. There is a default limit of 20 reserved public IP addresses per subscription. You can find out more about reserved IP addresses and how to unreserve them [here.](https://msdn.microsoft.com/en-us/library/azure/dn630228.aspx)
+The Configuration server is deployed in an auto created Azure cloud service with a reserved IP address. The reserved IP address is required in order to ensure that the Configuration Server cloud service IP address remains the same across reboots of the virtual machines (including the configuration server) on the cloud service. The reserved public IP address will need to be manually unreserved when the configuration server is decomissioned or else the IP address will continue to remain reserved. There is a default limit of 20 reserved public IP addresses per subscription. You can find out more about reserved IP addresses and how to unreserve them [here.](https://msdn.microsoft.com/library/azure/dn630228.aspx)
 
 ## Step 3: Register the configuration server in the vault
 
