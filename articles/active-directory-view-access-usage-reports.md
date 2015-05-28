@@ -3,7 +3,7 @@
 	description="A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="kenhoff" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/10/2015" 
-	ms.author="Justinha"/>
+	ms.author="kenhoff;Justinha"/>
 
 # View your access and usage reports
 
@@ -196,7 +196,9 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 1. In the Azure Management Portal, click **Active Directory**, click the name of your organization’s directory, and then click **Reports**.
 2. On the Reports page, click the report you want to view and/or download.
+    >
     > [AZURE.NOTE] If this is the first time you have used the reporting feature of Azure Active Directory, you will see a message to Opt In. If you agree, click the check mark icon to continue.
+    
 3. Click the drop-down menu next to Interval, and then select one of the following time ranges that should be used when generating this report:
     - Last 24 hours
     - Last 7 days

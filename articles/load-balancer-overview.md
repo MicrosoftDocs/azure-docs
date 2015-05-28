@@ -81,7 +81,7 @@ Note that for each new outbound connection initiated by a VM, an outbound port i
 
 **Support for multiple load balanced IP for Virtual machines**
 
-You can get more than one load balanced public IP address assigned to a set of Virtual machines. With this ability you can host multiple SSL websites and/or multiple SQL Always on Availability group listeners on the same set of Virtual machines. See more at[multiple VIP's per cloud service](load-balancer-multivip.md)
+You can get more than one load balanced public IP address assigned to a set of Virtual machines. With this ability you can host multiple SSL websites and/or multiple SQL Always on Availability group listeners on the same set of Virtual machines. See more at [multiple VIP's per cloud service](load-balancer-multivip.md)
 
 **Template-based deployments using Azure Resource Manager (public preview)** 
 Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Iaas just got easier with Azure Resource Manager](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)

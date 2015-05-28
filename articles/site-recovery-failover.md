@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/27/2015" 
+	ms.date="05/29/2015" 
 	ms.author="raynew"/>
 
 # Failover in Site Recovery
@@ -25,10 +25,10 @@ If you have any questions after reading this article post them on the [Azure Rec
 
 ## Overview
 
-After you've set up protection for virtual machines and physical servers they begin replicating to the secondary location specified in your deployment. After replication is in place you can run failovers as the need arises. Site Recovery supports a number of types of failover.
+After you've set up protection for virtual machines and physical servers they begin replicating to the secondary location. After replication is in place you can run failovers as the need arises. Site Recovery supports a number of types of failover.
 
-**Failover** | **When to run** | **Details** | Process
----|---|---
+**Failover** | **When to run** | **Details** | **Process**
+---|---|---|---
 **Test failover** | Run to validate your replication strategy or perform a disaster recovery drill | <p>No data loss or downtime</p><p>No impact on replication</p><p>No impact on your production environment</p> | <p>Start the failover</p><p>Specify how test machines will be connected to networks after failover</p><p>Track progress on the **Jobs** tab. Test machines are created and start in the secondary location</p><p>Azure - connect to the machine in the Azure portal</p><p>Secondary site - access the machine on the same host and cloud</p><p>Complete testing and automatically clean up test failover settings.</p>
 **Planned failover** | <p>Run to meet compliance requirements</p><p>Run for planned maintenance</p><p>Run to fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports</p> <p>Run to failback after failover from primary to secondary | <p>No data loss</p><p>Downtime is incurred during the time it takes to shut down the virtual machine on the primary and bring it up on the secondary location.</p><p>Virtual machines are impact as  target machines becomes source machines after failover.</p> | <p>Start the failover</p><p>Track progress on the **Jobs** tab. Source machines are shut down</p><p>Replica machines start in the secondary location</p><p>Azure - connect to the replica machine in the Azure portal</p><p>Secondary site - access the machine on the same host and in the same cloud</p><p>Commit the failover</p>
 **Unplanned failover** | <p>Run this type of failover reactive manner when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack</p><p>You can run an unplanned failover can be done even if primary site isn't available.<p> | <p>Data loss dependent on replication frequency settings</p> <p>Data will be up-to-date in accordance with the last time it was synchronized</p> | <p>Start the failover</p><p>Track progress on the **Jobs** tab. Optionally try to shut down virtual machines and synchronize latest data</p><p>Replica machines start in the secondary location</p><p>Azure - connect to the replica machine in the Azure portal</p><p>Secondary site access the machine on the same host and in the same cloud</p><p>Commit the failover</p>
