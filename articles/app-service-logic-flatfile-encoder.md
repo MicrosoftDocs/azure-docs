@@ -94,9 +94,9 @@ The action returns the output as a string - Output Xml. Output Xml contains the 
 The action returns the output as a string - Flat File. Output contains the flat file representation of the input xml content.
 
 <!-- References -->
-[1]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.ClickToConfigure.PNG
-[2]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.SchemasPart.PNG
-[3]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.SchemaUpload.PNG
-[4]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.ListOfActions.PNG
-[5]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.FlatFileToXml.PNG
-[6]: /media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
+[1]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.ClickToConfigure.PNG
+[2]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.SchemasPart.PNG
+[3]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.SchemaUpload.PNG
+[4]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.ListOfActions.PNG
+[5]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.FlatFileToXml.PNG
+[6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
