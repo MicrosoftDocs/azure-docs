@@ -16,9 +16,7 @@
    ms.date="03/20/2015"
    ms.author="rajram"/>
 
-[Creating a new logic app](http://aka.ms/createnewlogicapp) > [Connectors](http://aka.ms/usingconnectors)
-
-#BizTalk XML Validator
+# BizTalk XML Validator
 
 BizTalk XML Validate connector helps your app validate XML data against predefined XML schemas. Users can use either existing schemas or generate schemas based out of a flat file instance, JSON instance or existing connectors.
 
