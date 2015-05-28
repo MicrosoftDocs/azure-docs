@@ -121,7 +121,7 @@ To change back to Azure service management mode, use the following command:
 
 >[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-For more information on working with the Resource Manager using the Azure CLI, see [Using the Azure CLI with the Resource Manager][xplatarm].
+For more information on working with the Resource Manager using the Azure CLI, see [Using the Azure CLI with the Resource Manager][cliarm].
 
 ### Working with services in Azure service management mode
 
@@ -254,9 +254,9 @@ If you are writing a script that relies on the exit status, please verify that t
 
 * [List of detailed Service Management commands][Using the Azure CLI]
 
-* [Using the Azure CLI for Mac, Linux, and Windows](xplat-cli-azure-resource-manager)
+* [Using the Azure CLI for Mac, Linux, and Windows](cli-cli-azure-resource-manager)
 
-* [Using the Azure CLI with the Resource Manager][xplatarm]
+* [Using the Azure CLI with the Resource Manager][cliarm]
 
 * For more information on the Azure CLI, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
@@ -278,7 +278,7 @@ If you are writing a script that relies on the exit status, please verify that t
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/library/bb490890.aspx
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md

@@ -20,7 +20,7 @@
 
 The Azure CustomScript extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (e.g. Python, Bash etc.). This provides a very flexible way to automate application deployment to multiple machines.
 
-You can deploy the CustomScript extension using the Azure Portal, PowerShell, or the Azure Cross Platform Command Line Interface (Azure CLI).
+You can deploy the CustomScript extension using the Azure Portal, PowerShell, or the Azure Command-Line Interface (Azure CLI).
 
 In this example we'll walk through deploying a simple LAMP application to Ubuntu using the Azure CLI.
 
