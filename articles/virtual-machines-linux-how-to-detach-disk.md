@@ -16,11 +16,11 @@
 	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
-
+# How to Detach a Disk from a Linux Virtual Machine
 
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../includes/howto-detach-disk-windows-linux.md)]
 
 ## Additional Resources
 
-[How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-how-to-attach-disk/)
+[How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-how-to-attach-disk.md)
