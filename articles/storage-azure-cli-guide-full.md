@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Using Azure CLI with Azure Storage | Microsoft Azure" 
+    pageTitle="Using the Azure CLI with Azure Storage | Microsoft Azure" 
     description="Learn how to use the Azure Cross-Platform Command-Line Interface (Azure CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files." 
     services="storage" 
     documentationCenter="na" 
@@ -15,23 +15,21 @@
     ms.date="05/27/2015" 
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
-# Using Azure CLI with Azure Storage 
+# Using the Azure CLI with Azure Storage 
 
 ## Overview
 
-Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the Azure Management Portal as well as rich functionality of data access.
+The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the Azure Management Portal as well as rich functionality of data access.
 
-In this guide, we’ll explore how to use [Azure Cross-Platform Command-Line Interface (Azure CLI)](xplat-cli.md) to perform a variety of development and administration tasks with Azure Storage.
+In this guide, we’ll explore how to use [Azure Cross-Platform Command-Line Interface (Azure CLI)](xplat-cli.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
 
-This guide assumes that you have prior experience using [Azure Storage](http://azure.microsoft.com/documentation/services/storage/). The guide provides a number of scripts to demonstrate the usage of Azure CLI with Azure Storage. You should update the script variables based on your configuration before running each script.
+This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the Azure CLI with Azure Storage. You should update the script variables based on your configuration before running each script.
 
-The first section in this guide provides a quick overview of using Azure CLI. For detailed information and instructions, start from [Azure CLI for Mac, Linux, and Windows](xplat-cli.md). We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
+> [AZURE.NOTE] The guide provides the Azure CLI command and script examples running in Azure Service Management mode (ASM). See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands for storage in Azure Resource Management (ARM) mode. 
 
-> [AZURE.NOTE] The guide provides Azure CLI command and script examples running in Azure Service Management mode (ASM). See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands for storage in Azure Resource Management (ARM) mode. 
+## Get started with Azure Storage and the Azure CLI in 5 minutes
 
-## Get started with Azure Storage and Azure CLI in 5 minutes
-
-This guide uses Ubuntu for examples, but other OS platforms should be similar. 
+This guide uses Ubuntu for examples, but other OS platforms should perform similarly. 
 
 **New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](http://azure.microsoft.com/pricing/free-trial/), [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](http://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs). 
 
@@ -39,12 +37,12 @@ See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.micr
 
 **After creating a Microsoft Azure subscription and account:** 
 
-1. Download and install Azure CLI following the instructions outlined in [Install the Azure CLI for Mac, Linux, and Windows](xplat-cli-install.md).
+1. Download and install the Azure CLI following the instructions outlined in [Install the Azure CLI](xplat-cli-install.md).
 2. Once the Azure CLI has been installed, you will be able to use the azure command from your command-line interface (Bash, Terminal, Command prompt) to access the Azure CLI commands. Type `azure` command and you should see the following output.
 
     ![Azure Command Output][Image1]
 
-3. In the command line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities Azure CLI provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax. 
+3. In the command line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities the Azure CLI provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax. 
 4. Now, we’ll give you a simple script that shows basic Azure CLI commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will download the image file to the destination directory which exists on the local computer.
 
 		#!/bin/bash
@@ -92,11 +90,11 @@ See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.micr
 
 After the script runs, you should have a local destination folder that includes the downloaded image file. 
 
-## Manage storage accounts with Azure CLI
+## Manage storage accounts with the Azure CLI
 
 ### Connect to your Azure subscription
 
-While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [How to connect to your Azure subscription](xplat-cli.md#how-to-connect-to-your-azure-subscription). 
+While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [How to connect to your Azure subscription](xplat-cli.md#how-to-connect-to-your-azure-subscription). 
 
 ### Create a new storage account
 
@@ -169,9 +167,9 @@ To delete a blob, use the below command:
 
         azure storage blob delete mycontainer myBlockBlob2
 
-## Create and manage Azure file shares and files
+## Create and manage file shares
 
-Azure File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares. You can manage file shares and file data via Azure CLI.
+Azure File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares. You can manage file shares and file data via the Azure CLI.
 
 ### Create a file share
 
