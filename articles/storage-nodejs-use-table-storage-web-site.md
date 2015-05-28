@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Node.js web app using the Azure Table Service" 
+<properties
+	pageTitle="Node.js web app using the Azure Table Service"
 	description="A tutorial that teaches you how to use the Azure Table service to store data from a Node.js application hosted in Azure App Service Web Apps."
-	tags="azure-portal" 
-	services="app-service\web, storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web, storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/28/2015"
 	ms.author="mwasson"/>
 
 
@@ -34,7 +34,7 @@ You will learn:
 * How to use the Azure Cross-Platform CLI to create a web app.
 
 By following this tutorial, you will build a simple web-based "to-do list" application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
- 
+
 Here is the completed application:
 
 ![A web page displaying an empty tasklist][node-table-finished]
@@ -55,7 +55,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 ## Create a storage account
 
-Create an Azure storage account. The app will use this account to store the to-do items. 
+Create an Azure storage account. The app will use this account to store the to-do items.
 
 1.  Log into the [Azure Portal](https://portal.azure.com).
 
@@ -78,7 +78,7 @@ In this section you will create a new Node application and use npm to add module
 
 1. From the command line, create a new directory named **tasklist** and switch to that directory.  
 
-2. Enter the following command to install the Express module. 
+2. Enter the following command to install the Express module.
 
 		npm install express-generator@4.2.0 -g
 
@@ -117,10 +117,10 @@ In this section you will create a new Node application and use npm to add module
 		   create : ./public/javascripts
 		   create : ./bin
 		   create : ./bin/www
-		
+
 		   install dependencies:
 		     $ cd . && npm install
-		
+
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
@@ -130,38 +130,38 @@ In this section you will create a new Node application and use npm to add module
 
 One of the files that **express** creates is **package.json**. This file contains a list of module dependencies. Later, when you deploy the application to App Service Web Apps, this file determines which modules need to be installed on Azure.
 
-From the command-line, enter the following command to install the modules described in the **package.json** file. You may need to use 'sudo'. 
+From the command-line, enter the following command to install the modules described in the **package.json** file. You may need to use 'sudo'.
 
     npm install
 
 The output of this command should be similar to the following:
 
 	debug@0.7.4 node_modules\debug
-	
+
 	cookie-parser@1.0.1 node_modules\cookie-parser
 	├── cookie-signature@1.0.3
 	└── cookie@0.1.0
 
     [...]
-		
+
 
 Next, enter the following command to install the [azure], [node-uuid], [nconf] and [async] modules:
 
 	npm install azure-storage node-uuid async nconf --save
 
-The **--save** flag adds entries for these modules to the **package.json** file. 
+The **--save** flag adds entries for these modules to the **package.json** file.
 
 The output of this command should appear similar to the following:
 
 	async@0.9.0 node_modules\async
 
 	node-uuid@1.4.1 node_modules\node-uuid
-	
+
 	nconf@0.6.9 node_modules\nconf
 	├── ini@1.2.1
 	├── async@0.2.9
 	└── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.10)
-	
+
 	[...]
 
 
@@ -179,7 +179,7 @@ A *model* is an object that represents the data in your application. For the app
 - category (string)
 - completed (Boolean)
 
-**PartitionKey** and **RowKey** are used by the Table Service as table keys. For more information, see [Understanding the Table Service data model](https://msdn.microsoft.com/library/azure/dd179338.aspx). 
+**PartitionKey** and **RowKey** are used by the Table Service as table keys. For more information, see [Understanding the Table Service data model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 
 1. In the **tasklist** directory, create a new directory named **models**.
@@ -273,7 +273,7 @@ A *controller* handles HTTP requests and renders the HTML response.
 
 		module.exports = TaskList;
 
-3. Define a **TaskList** object. 
+3. Define a **TaskList** object.
 
 		function TaskList(task) {
 		  this.task = task;
@@ -293,7 +293,7 @@ A *controller* handles HTTP requests and renders the HTML response.
 		  },
 
 		  addTask: function(req,res) {
-		    var self = this      
+		    var self = this
 		    var item = req.body.item;
 		    self.task.addItem(item, function itemAdded(error) {
 		      if(error) {
@@ -357,7 +357,7 @@ A *controller* handles HTTP requests and renders the HTML response.
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
-	
+
 4. Save the **app.js** file.
 
 ### Modify the index view
@@ -371,7 +371,7 @@ A *controller* handles HTTP requests and renders the HTML response.
 		block content
 		  h1= title
 		  br
-		
+
 		  form(action="/completetask", method="post")
 		    table.table.table-striped.table-bordered
 		      tr
@@ -381,7 +381,7 @@ A *controller* handles HTTP requests and renders the HTML response.
 		        td Complete
 		      if (typeof tasks === "undefined")
 		        tr
-		          td 
+		          td
 		      else
 		        each task in tasks
 		          tr
@@ -396,9 +396,9 @@ A *controller* handles HTTP requests and renders the HTML response.
 		    button.btn(type="submit") Update tasks
 		  hr
 		  form.well(action="/addtask", method="post")
-		    label Item Name: 
+		    label Item Name:
 		    input(name="item[name]", type="textbox")
-		    label Item Category: 
+		    label Item Category:
 		    input(name="item[category]", type="textbox")
 		    br
 		    button.btn(type="submit") Add item
@@ -445,13 +445,13 @@ Replace **storage account name** with the name of the storage account you create
 	    "TABLE_NAME": "tasks"
 	}
 
-Save this file *one directory level higher* than the **tasklist** directory, like this: 
+Save this file *one directory level higher* than the **tasklist** directory, like this:
 
 	parent/
 	  |-- config.json
 	  |-- tasklist/
 
-The reason for doing this is to avoid checking the config file into source control, where it might become public. When we deploy the app to Azure, we will use environment variables instead of a config file. 
+The reason for doing this is to avoid checking the config file into source control, where it might become public. When we deploy the app to Azure, we will use environment variables instead of a config file.
 
 
 ## Run the application locally
@@ -464,13 +464,13 @@ To test the application on your local machine, perform the following steps:
 
         npm start
 
-3. Open a web browser and navigate to http://127.0.0.1:3000. 
+3. Open a web browser and navigate to http://127.0.0.1:3000.
 
 This should display a web page similar to the following:
 
 ![A webpage displaying an empty tasklist][node-table-finished]
 
-To create a new to-do item, enter a name and category and click **Add Item**. To mark a task as complete, check **Complete** and click **Update Tasks**. 
+To create a new to-do item, enter a name and category and click **Add Item**. To mark a task as complete, check **Complete** and click **Update Tasks**.
 
 ![An image of the new item in the list of tasks][node-table-list-items]
 
@@ -491,23 +491,23 @@ To get started, install the [Azure Cross-Platform Command-Line Interface] by ent
 
 ### Import publishing settings
 
-In this step, you will download a file containing information about your subscription. 
+In this step, you will download a file containing information about your subscription.
 
-1. Enter the following command: 
+1. Enter the following command:
 
 		azure account download
 
 	This command launches a browser and navigates to the download page. If prompted, log in with the account associated with your Azure subscription.
-	
+
 	<!-- ![The download page][download-publishing-settings] -->
-	
-	The file download should begin automatically; if it does not, you can click the link at the beginning of the page to manually download the file. Save the file and note the file path. 
+
+	The file download should begin automatically; if it does not, you can click the link at the beginning of the page to manually download the file. Save the file and note the file path.
 
 2. Enter the following command to import the settings:
 
 		azure account import <path-to-file>
-		
-	Specify the path and file name of the publishing settings file you downloaded in the previous step. 
+
+	Specify the path and file name of the publishing settings file you downloaded in the previous step.
 
 3. After the settings are imported, you should delete the publish settings file. It is no longer needed, and contains sensitive information regarding your Azure subscription.
 
@@ -518,15 +518,15 @@ In this step, you will download a file containing information about your subscri
 2. Use the following command to create a new web app.
 
 		azure site create --git
-		
+
 	You will be prompted for the web app name and location. Provide a unique name and select the same geographical location as your Azure Storage account.
-	
+
 	The `--git` parameter creates a Git repository on Azure for this web app. It also initializes a Git repository in the current directory if none exists, and adds a [Git remote] named 'azure', which is used to publish the application to Azure. Finally, it creates a **web.config** file, which contains settings used by Azure to host node applications.
-	
+
 	> [AZURE.NOTE] If the directory already contains a Git repository, the command will not re-initialize the directory. Also, if you omit the `--git` parameter but the directory contains a Git repository, the command will still create the 'azure' remote.
-	
+
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web app.
-	
+
 		info:   Executing command site create
 		help:   Need a site name
 		Name: TableTasklist
@@ -547,7 +547,7 @@ In this step, you will download a file containing information about your subscri
 In this step, you will add environment variables to your web app configuration on Azure.
 From the command line, enter the following:
 
-	azure site appsetting add 
+	azure site appsetting add
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
@@ -581,12 +581,12 @@ To publish the app, commit the code files to Git and then push to azure/master.
 		git add .
 		git commit -m "adding files"
 
-3. Push the commit to the App Service web app: 
+3. Push the commit to the App Service web app:
 
 		git push azure master
-	
+
 	Use **master** as the target branch. At the end of the deployment, you should see a statement similar to the following:
-	
+
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
 
@@ -599,7 +599,7 @@ While the steps in this article describe using the Table Service to store inform
 
 ## Additional resources
 
-[Azure Cross-Platform Command-Line Interface]    
+[Azure Cross-Platform Command-Line Interface]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -617,7 +617,7 @@ While the steps in this article describe using the Table Service to store inform
 [Git remote]: http://git-scm.com/docs/git-remote
 
 [Node.js web app with MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[Azure Cross-Platform Command-Line Interface]: xplat-cli.md
+[Azure CLI]: xplat-cli.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node

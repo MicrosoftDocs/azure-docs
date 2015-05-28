@@ -49,7 +49,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. In **URL**, enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) below for details about how this name will be used to address objects that you store in Azure Storage.
+3. In **URL**, enter a name for your storage account. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. See [Storage account endpoints](#storage-account-endpoints) below for details about how this name will be used to address your objects in Azure Storage.
 
 4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs. 
 
@@ -59,7 +59,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
 
-6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Storage account replication options](#storage-account-replication-options) below.
+6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage Replication](storage-redundancy.md).
 
 6. Click **Create Storage Account**.
 
@@ -93,12 +93,6 @@ You can also configure a custom domain name to use with your storage account. Se
 An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
 
 > [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
-
-
-### Storage account replication options
-
-[AZURE.INCLUDE [storage-replication-options-include](../includes/storage-replication-options-include.md)]
-
 
 ## View, copy, and regenerate storage access keys
 
@@ -146,10 +140,9 @@ You should change the access keys to your storage account periodically to help k
 
 To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
 
-> [AZURE.WARNING] There's no way to restore the content from a deleted storage account. Make 
-	sure you back up anything you want to save before you delete the account. <br />
-	If your storage account contains any VHD files or disks for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the Disks tab and delete any disks contained in the storage account. To delete images, navigate to the Images tab and delete any images stored in the account.
-
+> [AZURE.WARNING] It's not possible to restore a deleted storage account, nor retrieve any of the content it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account - once you delete a blob, table, queue, or file, it is permanently deleted.
+> 
+> If your storage account contains VHD files or disks for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the **Disks** tab and delete any disks there. To delete images, navigate to the **Images** tab and delete any images stored in the account.
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**.
 

@@ -16,16 +16,18 @@
 	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
-# Configure a custom domain name in Azure App Service (GoDaddy)
+# Configure a custom domain name in Azure App Service (Purchased directly from GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../includes/websites-custom-domain-selector.md)]
 
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
+> [AZURE.NOTE] If you have purchased domain through Azure App Service Web Apps then refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article. 
+
 [AZURE.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-This article provides instructions on using a custom domain name purchased from [Go Daddy](https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+This article provides instructions on using a custom domain name that was purchased directly from [Go Daddy]https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 

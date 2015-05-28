@@ -270,7 +270,7 @@ When you enter the command, you are prompted for the missing mandatory parameter
 	(Type !? for Help.)
 	administratorLoginPassword: **********
 
-**New-AzureResourcGroup** returns the resource group that it created and deployed. 
+**New-AzureResourceGroup** returns the resource group that it created and deployed. 
 
 In just a few steps, we created and deployed the resources required for a complex website. 
 The gallery template provided almost all of the information that we needed to do this task.

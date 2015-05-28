@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 
 #Create a new logic app
-This topic demonstrates how, in just a few minutes, you can get started with App Services Logic Apps. We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested in to a Dropbox folder.
+This topic demonstrates how, in just a few minutes, you can get started with [App Services Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested in to a Dropbox folder.
 
 To use this scenario you will need:
 
@@ -29,15 +29,17 @@ To use this scenario you will need:
 
 ##Getting your connectors
 
-First, you need to create the two connectors you will be using: **Dropbox Connector** and **Twitter Connector**. To create these:
+First, you need to create the two connectors you will be using: [**Dropbox Connector**](app-service-logic-connector-dropbox.md) and [**Twitter Connector**](app-service-logic-connector-twitter.md). To create these:
 
-1. Click on **Marketplace** on the home screen and search for **Twitter**. 
+0. Sign in to the Azure portal. 
 
-2. Select Twitter Connector and click the create button. You will get a blade for all of your settings. You can leave the name as **Twitter Connector**.
+1. Click on [**Marketplace** ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) on the home screen and search for **Twitter** (or [click here](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+
+2. Select Twitter Connector and click the create button. You will get a view for all of your settings. You can leave the name as **Twitter Connector**.
 
 3. Type a plan name in **Create new app service plan**.
 	
-	>[AZURE.NOTE]The steps in this section assume that you are creating a new app service plan. If you are using an existing app service plan, you click **Select Existing**, select your existing plan, and then skip to the next section.
+	>[AZURE.NOTE]The steps in this section assume that you are creating a new app service plan. If you are using an existing app service plan, you click **Select Existing**, select your existing plan, and then skip to the last step in this section. You need a plan to host all of your apps.
  
 4.  Select a **Pricing tier** for your new plan.
  
@@ -51,11 +53,11 @@ First, you need to create the two connectors you will be using: **Dropbox Connec
 
 7. Choose the **Location** to run your Logic app.
 
-	![Create API app blade](./media/app-service-logic-create-a-logic-app/gallery.png)
+	![Create API app view](./media/app-service-logic-create-a-logic-app/gallery.png)
 
 8. Click **Create**. The provisioning step may take a minute or two. 
 
-9. Now repeat the process with Dropbox.
+9. Now repeat the process with [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
 ##Starting the Logic app
 
@@ -63,9 +65,9 @@ Now, you need to create a new Logic app:
 
 1. Click on the **+ New** button at the bottom-left of the screen, expand **Web + Mobile**, then click **Logic App**. 
 
- 	This displays the Create logic app blade, where you provide some basic settings to get started.
+ 	This displays the Create logic app view, where you provide some basic settings to get started.
 
-	![Create logic app blade](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
+	![Create logic app view](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
 	
 2. In **Name** type a meaningful name for your logic app.
 
@@ -77,11 +79,11 @@ This takes care of the basic settings, but don't click **Create** just yet. Next
 
 Triggers are what make your logic app run. Next, you'll add a recurrence trigger, which starts your workflow on a predefined schedule.
 
-1. Still in the **Create logic app** blade, click **Triggers and actions**. 
+1. Still in the **Create logic app** view, click **Triggers and actions**. 
 
 	This displays a full-screen designer that displays your flow. On the right-hand side is a list of all services that could have triggers. 
 
-2. In the **Built-in** section, click **Recurrence**.
+2. In the top section, click **Recurrence**.
 	
 	This adds a box where you can specify the recurrence settings.
 
@@ -162,7 +164,7 @@ Now your logic app is up and running. Every time the scheduled workflow runs, it
  
 5. To turn off the app, click **Disable** in the command bar.
 
-In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features].
+In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features]. To learn about the Logic App definitions themselves, see [author Logic App definitions](app-service-logic-author-definitions.md).
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com

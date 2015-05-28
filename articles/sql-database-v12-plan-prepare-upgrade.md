@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="05/15/2015"
 	ms.author="genemi"/>
 
 
@@ -22,8 +22,8 @@
 
 
 <!-- What is being changed this time?:
-GeneMi , 2015-April-22 16:40pm
-Name of this new copy is 'sql-database-v12-plan-prepare-upgrade.md'. Retiring old copy named 'sql-database-preview-plan-prepare-upgrade.md'.
+GeneMi , 2015-May-15 14:31pm
+Powershell cmdlets.
 -->
 
 
@@ -210,6 +210,23 @@ The following scenario explains that a deleted V11 Azure SQL database can be res
 3. You upgrade the server to V12.
 4. Next you restore the database to the server. <br/> The database is thereby upgraded to V12, at the S0 level of the Standard service tier.
 5. You can switch the database to any supported service tier, if S0 is not your preference.
+
+
+### Powershell cmdlets
+
+
+Powershell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
+
+
+For reference documentation about these Powershell cmdlets, see:
+
+
+- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
+- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
+- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+
+
+The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources.
 
 
 ## Failure resolution

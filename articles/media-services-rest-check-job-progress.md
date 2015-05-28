@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2015" 
+	ms.date="05/25/2015" 
 	ms.author="juliako"/>
 
 #How to: Check Job Progress

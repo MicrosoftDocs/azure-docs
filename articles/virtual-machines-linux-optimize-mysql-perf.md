@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2014" 
+	ms.date="05/21/2015" 
 	ms.author="ningk"/>
 
 #Optimizing MySQL Performance on Azure Linux VMs 
