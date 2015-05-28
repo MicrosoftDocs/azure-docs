@@ -31,7 +31,7 @@ This topic shows you how to add push notifications to the [quickstart project](m
 
 ##<a id="update-server"></a>Update Backend Code to Send Push Notifications
 
-* In Visual Studio, expand the **Controllers** folder and open TodoItemController.cs. Update the method `PostTodoItem` as follows. When a todo item is inserted, this code sends out a push notification with the item text. If there's an error, the code adds an error log entry that is viewable via the logs section of the portal.
+* Open Visual Studio project > **Controllers** folder > **TodoItemController.cs** > method `PostTodoItem`. Replace the method with the following. When a todo item is inserted, this code sends out a push notification with the item text. If there's an error, the code adds an error log entry that is viewable via the logs section of the portal.
 
 
 ```
