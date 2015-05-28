@@ -24,11 +24,11 @@ BizTalk Flat File Encode Decode connector helps your app interop between flat fi
 1. To use the BizTalk Flat File Encoder, you need to first create an instance of the BizTalk Flat File Encoder API app. This can be done either inline while creating a logic app or by selecting the BizTalk Flat File Encoder API app from the Azure Marketplace.
 
 ###Configure BizTalk Flat File Encoder
-BizTalk Flat File Encoder takes schemas as part of its configuration. User can launch the API App configuration blade by either launching the API App directly from the Azure portal, or through by double clicking the API App on the designer surface.
+BizTalk Flat File Encoder takes schemas as part of its configuration. Users can launch the API App configuration blade by either launching the API App directly from the Azure portal, or by double-clicking the API App on the designer surface.
 
 ![BizTalk Flat File Encoder Configuration][1]
 
-In the API App blade, user can configure schemas by clicking on *Schemas* part
+In the API App blade, users can configure schemas by clicking on *Schemas* part.
 
 ![BizTalk Flat File Encoder Schemas Part][2]
 
@@ -38,7 +38,7 @@ Users can upload schemas from disk or generate one from a flat file instance or 
 
 
 ###Using the BizTalk Flat File Encoder in design surface
-Once configured, users can click on *->* and choose from an action from a list of actions.
+Once configured, users can click on *->* and choose an action from a list of actions.
 
 ![BizTalk Flat File Encoder List of actions][4]
 
