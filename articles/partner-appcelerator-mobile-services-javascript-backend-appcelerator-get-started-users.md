@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload=""
+	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
