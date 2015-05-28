@@ -73,11 +73,11 @@ Next, we need to install the Hybrid Connection Manager on the on-premises comput
 <a name="InstallHCM"></a>
 ## Install the on-premises Hybrid Connection Manager to complete the connection
 
-The Hybrid Connection Manager enables your on-premises machine to connect to Azure and relay TCP traffic. You must  install this software on an on-premises computer, but it doesn't need to be the computer running your SQL Server instance.
+The Hybrid Connection Manager enables your on-premises machine to connect to Azure and relay TCP traffic. You must  install the manager an on-premises computer, but it doesn't need to be the computer running your SQL Server instance.
 
 1. Select the connection you just created (its **Status** should be **On-premesis setup incomplete**) click **On-premises Setup**.
 
-	![On-Premises Setup][DownloadHCM]
+	![On-Premises Setup](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png)
 
 4. Click **Install and Configure**.
 
@@ -85,24 +85,23 @@ The Hybrid Connection Manager enables your on-premises machine to connect to Azu
 
 3. Complete the rest of the setup steps for the Connection Manager.
 
-	When installation completes, the hybrid connection status will change to **1 Instance Connected**. You may need to refresh the browser and wait a few minutes. The on-premises setup is now complete.
+	After the installation is complete, the hybrid connection status will change to **1 Instance Connected**. You may need to refresh the browser and wait a few minutes. 
 
-	![Hybrid Connection connected][HCConnected]
+The on-premises setup is now complete.
 
 <a name="CreateService"></a>
 ## Modify a Mobile Service to use the connection
+
+Now, you must modify your existing mobile service to use the new hybrid connection to store data in the new database in the on-premises server.
+
 ### Associate hybrid connection with service
 1. In the **Mobile Services** tab of the portal, select an existing mobile services or create a new one. 
 
 	>[AZURE.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services]. 
 
-2. On the **Configure** tab for your mobile service, find the **Hybrid Connections** section and select **Add Hybrid Connection**.
+2. On the **Configure** tab for your mobile service, find the **Hybrid Connections** section and click **Add Hybrid Connection**.
 
-	![Associate Hybrid Connection][AssociateHC]
-
-3. Select the hybrid connection we just created on the BizTalk Services tab, press **OK**. 
-
-	![Pick associated Hybrid Connection][PickHC]
+3. Select your service from **BizTalk Services** and the **Hybrid Connection** you just created, then click **OK**. 
 
 The mobile service is now associated with the new hybrid connection.
 
