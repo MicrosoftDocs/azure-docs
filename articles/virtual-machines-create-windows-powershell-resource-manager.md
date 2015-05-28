@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/28/2015" 
 	ms.author="josephd"/>
 
 # Create a Windows virtual machine with Azure Resource Manager and PowerShell
@@ -39,19 +39,19 @@ Now, replace everything within the quotes, including the < and > characters, wit
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
 
-Next, you need to switch the mode of Azure PowerShell to Resource Manager. Run this command.
-
-	Switch-AzureMode AzureResourceManager
-
-You will need to specify the location of an Azure datacenter. To get a list of Azure datacenters, run this command.
-
-	Get-AzureLocation | sort Name | Select Name
-
 Next, you need to create a storage account. You must pick a unique name that contains only lowercase letters and numbers. You can test for the uniqueness of the storage account name with this command.
 
 	Test-AzureName -Storage <Proposed storage account name>
 
 If this command returns "False", your proposed name is unique.
+
+You will need to specify the location of an Azure datacenter. To get a list of Azure datacenters, run this command.
+
+	Get-AzureLocation | sort Name | Select Name
+
+Next, you need to switch the mode of Azure PowerShell to Resource Manager. Run this command.
+
+	Switch-AzureMode AzureResourceManager
 
 Now, copy the following block of PowerShell commands to a text editor. Fill in your chosen storage account and location, replacing everything within the quotes, including the < and > characters.
 
