@@ -93,7 +93,7 @@ After you have successfully installed Azure AD Connect you can verify that synch
 <center>![Express Installation](./media/active-directory-aadconnect-get-started/verify.png)</center>
 
 ## What to do next
-Now that you have Azure AD Connect installed you can use the link [here](http://azure.microsoft.com/documentation/articles/active-directory-aadconnect-whats-next/) to get going with post installation tasks such as  assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options..
+Now that you have Azure AD Connect installed you can use the link [here](active-directory-aadconnect-whats-next.md) to get going with post installation tasks such as  assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options..
 
 **Additional Resources**
 
