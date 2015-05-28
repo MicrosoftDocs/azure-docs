@@ -25,6 +25,8 @@ A common SaaS application pattern is for each database to have a different custo
 
 Microsoft created elastic pools specifically to help you solve this problem.
 
+> [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
+
 An elastic database pool is a collection of available resources shared by the elastic databases in the pool. You can add databases to the pool or remove them at any time. These elastic databases share the resources (expressed as elastic database throughput units, or eDTUs) and storage capacity of the pool, but each elastic database uses only the resources it needs when it needs them, leaving resources free for other elastic databases when they need them. Instead of over-provisioning individual databases and paying for resources that sit idle, you allocate and pay a predictable price for resources of the elastic pool in aggregate. This spreads the cost so you can achieve a competitive business model, and each elastic database gains performance adaptability.
 
 Databases that are great candidates for elastic database pools are typically active less than 50% of the time.  A typical pattern of activity is that databases spend some time inactive, active with little resource demands, and active with high resource demands.  

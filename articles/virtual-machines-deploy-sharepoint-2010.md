@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="05/28/2015"
 	ms.author="josephd"/>
 
 
@@ -24,6 +24,8 @@ Microsoft SharePoint Server 2010 provides rich deployment flexibility, which can
 While Azure Virtual Machines support multiple workloads, this article focuses on SharePoint deployments. Azure Virtual Machines enable organizations to create and manage their SharePoint infrastructure quickly-provisioning and accessing nearly any host universally. It allows full control and management over processors, RAM, CPU ranges, and other resources of SharePoint virtual machines (VMs).
 
 Azure Virtual Machines mitigate the need for hardware, so organizations can turn attention from handling high upfront cost and complexity to building and managing infrastructure at scale. This means that they can innovate, experiment, and iterate in hours-as opposed to days and weeks with traditional deployments.
+
+> [AZURE.NOTE] For information on deploying SharePoint 2013 in Azure, see [Planning for SharePoint 2013 on Azure Infrastructure Services](https://msdn.microsoft.com/library/dn275958.aspx) and [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md).
 
 ## SharePoint on Azure Virtual Machines
 

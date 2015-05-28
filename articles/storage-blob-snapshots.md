@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/27/2015" 
 	ms.author="tamram"/>
 
 # Create a blob snapshot
@@ -61,16 +61,25 @@ Using snapshots with Premium Storage follow these rules:
 
 - To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account. The destination blob for the copy operation must not have any existing snapshots. If the destination blob does have snapshots, then Copy Blob returns error code 409 (**SnapshotsPresent**).
 
-## Constructing the absolute URI to a snapshot 
+## Returning the absolute URI to a snapshot 
 
-This C# code example constructs the absolute URI of a snapshot from its base blob object.
+This C# code example creates a new snapshot and writes out the absolute URI for the primary location.
 
-	var snapshot = blob.CreateSnapshot();
-	var uri = Microsoft.WindowsAzure.StorageClient.Protocol.BlobRequest.Get
-    (snapshot.Uri, 
-    0, 
-    snapshot.SnapshotTime.Value, 
-    null).Address.AbsoluteUri;
+    //Create the blob service client object.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    
+    //Get a reference to a container.
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+
+    //Get a reference to a blob.
+    CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
+    blob.UploadText("This is a blob.");
+
+    //Create a snapshot of the blob and write out its primary URI.
+    CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
+    Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 ## Understanding how snapshots accrue charges
 
