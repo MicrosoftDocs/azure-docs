@@ -79,6 +79,7 @@ The first part you as the admin do. Then, we have some steps for your users.
 3. Now you need to create an Azure [storage account](storage-create-storage-account.md). We named ours "accessstorage," so pick a name that's meaningful to you (there can be only one "accessstorage"). 
 ![Our Azure storage account](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Now go back to your dashboard so you can get the path to your storage (endpoint location). You'll use this in a bit, so make sure you copy it somewhere. 
+
 ![The storage account path](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Next, once the storage account has been created, you need the primary access key. Click **Manage access keys**, and then copy the primary access key.
 6. Now, set the context of the storage account, create a new file share for Access. Run the following cmdlets in an elevated Windows PowerShell window:

@@ -23,7 +23,7 @@ You can create RemoteApp images (which hold the apps you share in your collectio
 
 There are two steps - create the image and then upload it from the Azure VM library to Azure RemoteApp.
 
-## Creating a custom image based on an Azure VM
+## Create a custom image based on an Azure VM
 
 Use these steps to create an image based on an Azure VM.
 
