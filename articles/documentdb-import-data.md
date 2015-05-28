@@ -253,7 +253,7 @@ Here are some command line samples to import from DocumentDB:
 
 ##<a id="DocumentDBBulkTarget"></a>Import to DocumentDB (Bulk Import) ##
 
-The DocumentDB Bulk importer allows you to import from any of the available source options, using a DocumentDB stored procedure for efficiency.  The tool supports import to a single DocumentDB collection, as well as, sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](https://azure.microsoft.com/en-us/documentation/articles/documentdb-sharding/).  The tool will create, execute, and then delete the stored procedure from the target collection(s).  
+The DocumentDB Bulk importer allows you to import from any of the available source options, using a DocumentDB stored procedure for efficiency.  The tool supports import to a single DocumentDB collection, as well as, sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](documentdb-partition-data.md).  The tool will create, execute, and then delete the stored procedure from the target collection(s).  
 
 ![Screenshot of DocumentDB bulk options](./media/documentdb-import-data/documentdbbulk.png)
 
@@ -267,7 +267,7 @@ To import to a single collection, enter the name of the collection to which data
 
 1. Only integer range name patterns are supported.  For example, specifying collection[0-3] will produce the following collections: collection0, collection1, collection2, collection3.
 2. You can use an abbreviated syntax: collection[3] will emit same set of collections mentioned in step 1.
-3. More than one substitution can be provided.  For example, collection[0-1][0-9] will generate 20 collection names with leading zeros (collection01, ..02, ..03).
+3. More than one substitution can be provided.  For example, collection[0-1] [0-9] will generate 20 collection names with leading zeros (collection01, ..02, ..03).
 
 Once the collection name(s) have been specified, choose the desired pricing tier of the collection(s) (S1, S2, or S3).  For best import performance, choose S3.
 
@@ -309,7 +309,7 @@ The DocumentDB Bulk importer has the following additional advanced options:
 
 ##<a id="DocumentDBSeqTarget"></a>Import to DocumentDB (Sequential Record Import) ##
 
-The DocumentDB sequential record importer allows you to import from any of the available source options on a record by record basis.  You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures.  The tool supports import to a single DocumentDB collection, as well as, sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](https://azure.microsoft.com/en-us/documentation/articles/documentdb-sharding/). 
+The DocumentDB sequential record importer allows you to import from any of the available source options on a record by record basis.  You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures.  The tool supports import to a single DocumentDB collection, as well as, sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](documentdb-partition-data.md). 
 
 ![Screenshot of DocumentDB sequential record import options](./media/documentdb-import-data/documentdbsequential.png)
 
