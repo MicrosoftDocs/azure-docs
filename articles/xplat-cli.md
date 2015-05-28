@@ -121,7 +121,7 @@ To change back to Azure service management mode, use the following command:
 
 >[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-For more information on working with the Resource Manager using the Azure CLI, see [Using the Azure CLI with the Resource Manager][xplatarm].
+For more information on working with the Resource Manager using the Azure CLI, see [Using the Azure CLI with the Resource Manager][cliarm].
 
 ### Working with services in Azure service management mode
 
