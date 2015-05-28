@@ -17,7 +17,7 @@
   ms.date="05/26/2015" 
   ms.author="tamram"/>
 
-# Azure Storage Redundancy Options
+# Azure Storage Replication
 
 The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [Azure Storage SLA](http://azure.microsoft.com/support/legal/sla/) even in the face of transient hardware failures. 
 

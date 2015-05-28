@@ -59,7 +59,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
 
-6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Storage account replication options](#storage-account-replication-options) below.
+6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage Replication](#storage-redundancy.md).
 
 6. Click **Create Storage Account**.
 
@@ -93,12 +93,6 @@ You can also configure a custom domain name to use with your storage account. Se
 An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
 
 > [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
-
-
-### Storage account replication options
-
-[AZURE.INCLUDE [storage-replication-options-include](../includes/storage-replication-options-include.md)]
-
 
 ## View, copy, and regenerate storage access keys
 
