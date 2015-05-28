@@ -323,7 +323,7 @@ To import to a single collection, enter the name of the collection to which data
 
 1. Only integer range name patterns are supported.  For example, specifying collection[0-3] will produce the following collections: collection0, collection1, collection2, collection3.
 2. You can use an abbreviated syntax: collection[3] will emit same set of collections mentioned in step 1.
-3. More than one substitution can be provided.  For example, collection[0-1][0-9] will generate 20 collection names with leading zeros (collection01, ..02, ..03).
+3. More than one substitution can be provided.  For example, collection[0-1] [0-9] will generate 20 collection names with leading zeros (collection01, ..02, ..03).
 
 Once the collection name(s) have been specified, choose the desired pricing tier of the collection(s) (S1, S2, or S3).  For best import performance, choose S3.
 
