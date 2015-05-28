@@ -13,7 +13,7 @@
     ms.devlang="na" 
     ms.topic="article" 
     ms.date="05/27/2015" 
-    ms.author="chungli;tamram"/>
+    ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Using Azure CLI with Azure Storage 
 
