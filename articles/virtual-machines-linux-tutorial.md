@@ -136,7 +136,7 @@ Your VM is up and running and waiting for you to connect.
 
 ## Connecting to your VM
 
-With Linux VMs, you typically connect using **ssh**. This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md). 
+With Linux VMs, you typically connect using **ssh**. This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
 
 If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<publicdnsaddress> -p <the ssh port>`. In this case, we use the username and password from the previous step and port 22, which is the default **ssh** port.
 
@@ -288,7 +288,7 @@ To learn more about Linux on Azure, see:
 
 - [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource.md)
 
-- [How to use the Azure Command-Line Tools for Mac and Linux](virtual-machines-command-line-tools.md)
+- [How to use the Azure Command-Line Interface](virtual-machines-command-line-tools.md)
 
 - [Deploy a LAMP app using the Azure CustomScript Extension for Linux](virtual-machines-linux-script-lamp.md)
 

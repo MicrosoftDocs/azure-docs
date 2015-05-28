@@ -91,7 +91,7 @@ Next, import the `.publishsettings` file by running the following command:
 
 	azure account import <path to your .publishsettings file>
 
-After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Command-Line Tools and presents a security risk as it can be used to gain access to your subscription.
+After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Azure CLI and presents a security risk as it can be used to gain access to your subscription.
 
 > [AZURE.NOTE] Whether you login with a work or school account or import publish settings, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
 >
