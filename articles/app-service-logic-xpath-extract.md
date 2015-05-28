@@ -16,8 +16,6 @@
    ms.date="03/20/2015"
    ms.author="rajram"/>
 
-[Creating a new logic app](http://aka.ms/createnewlogicapp) > [Connectors](http://aka.ms/usingconnectors)
-
 #BizTalk XPath Extractor
 
 BizTalk XPath Extract connector helps your app lookup and extract data from XML content based on a given XPath.
