@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="02/24/2015" 
+	ms.date="06/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -31,7 +31,7 @@ provide a robust dedicated virtual machine for hosting each role reliably.
 
 For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
->[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight Azure Website.</a> You can easily upgrade to a Cloud Service as your website grows and your requirements change.
+>[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight web app.</a> You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
 
 
 By following this tutorial, you will build a simple web application hosted inside a web role. You
@@ -40,17 +40,17 @@ using PowerShell command-line tools.
 
 The application is a simple "hello world" application:
 
-<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.">
-</p>
+![A web browser displaying the Hello World web page](./media/cloud-services-nodejs-develop-deploy-app/node14.png)
 
 ## Prerequisites
 
 > [AZURE.NOTE] This tutorial uses Azure PowerShell, which requires Windows.
 
-- Install the Azure SDK for Node.js: <a href="http://go.microsoft.com/fwlink/?LinkId=254279">Windows installer</a> 
-
 - Install and configure [Azure Powershell](install-configure-powershell.md).
-
+- Download and install the [Azure SDK for .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091). In the install setup, select:
+    - MicrosoftAzureAuthoringTools
+    - MicrosoftAzureComputeEmulator
+  
 
 ## Create an Azure Cloud Service project
 
@@ -100,26 +100,6 @@ The Node.js app is defined in the file **server.js**, located in the directory f
 
 This code is essentially the same as the "Hello World" sample on the [nodejs.org][] website, except it uses the port number assigned by the cloud environment.
 
-
-## Run the application locally in the emulator
-
-One of the tools installed by the Azure SDK is the Azure
-compute emulator, which allows you to test your application locally. The
-compute emulator simulates the environment your application will run in
-when it is deployed to the cloud. 
-
-1.  Enter the following Azure PowerShell cmdlet to run your service in the emulator:
-
-        Start-AzureEmulator -Launch
-
-	Use the **-Launch** parameter to automatically open a browser window when the web role is running in the emulator. The browser window should display "Hello World," as shown in the screenshot below. 
-
-	![A web browser displaying the Hello World web page](./media/cloud-services-nodejs-develop-deploy-app/node14.png)
-
-2.  To stop the compute emulator, use the **Stop-AzureEmulator** cmdlet:
-	
-		Stop-AzureEmulator
-
 ## Deploy the application to Azure
 
 	[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
@@ -162,14 +142,14 @@ After publishing succeeds, you will see a response similar to the following:
 ![The output of the Publish-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node19.png)
 
 > [AZURE.NOTE]
-> It can take 5 - 7 minutes for the application to deploy and become available when first published.
+> It can take several minutes for the application to deploy and become available when first published.
 
 Once the deployment has completed, a browser window will open and navigate to the cloud service.
 
 
 ![A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
 
-Your application is now running on Azure!
+Your application is now running on Azure.
 
 The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
