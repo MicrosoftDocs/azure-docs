@@ -185,7 +185,7 @@ The import tool will attempt to infer type information for unquoted values in CS
 
 Here is a command line sample for CSV import:
 
-	dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionTier:S3
+	dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionTier:S3
 
 ##<a id="AzureTableSource"></a>Import from Azure Table storage ##
 
@@ -263,7 +263,7 @@ The format of the DocumentDB connection string is:
 
 > [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
 
-To import to a single collection, enter the name of the collection to which data will be imported and click the Add button.  To import to multiple collections, either enter each collection name individually or use the following syntax to specify multiple collections: <collection_name>[start index - end index].  When specifying multiple collections via the aforementioned syntax, keep the following in mind:
+To import to a single collection, enter the name of the collection to which data will be imported and click the Add button.  To import to multiple collections, either enter each collection name individually or use the following syntax to specify multiple collections: *collection_prefix*[start index - end index].  When specifying multiple collections via the aforementioned syntax, keep the following in mind:
 
 1. Only integer range name patterns are supported.  For example, specifying collection[0-3] will produce the following collections: collection0, collection1, collection2, collection3.
 2. You can use an abbreviated syntax: collection[3] will emit same set of collections mentioned in step 1.
@@ -319,7 +319,7 @@ The format of the DocumentDB connection string is:
 
 > [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
 
-To import to a single collection, enter the name of the collection to which data will be imported and click the Add button.  To import to multiple collections, either enter each collection name individually or use the following syntax to specify multiple collections: <collection_name>[start index - end index].  When specifying multiple collections via the aforementioned syntax, keep the following in mind:
+To import to a single collection, enter the name of the collection to which data will be imported and click the Add button.  To import to multiple collections, either enter each collection name individually or use the following syntax to specify multiple collections: *collection_prefix*[start index - end index].  When specifying multiple collections via the aforementioned syntax, keep the following in mind:
 
 1. Only integer range name patterns are supported.  For example, specifying collection[0-3] will produce the following collections: collection0, collection1, collection2, collection3.
 2. You can use an abbreviated syntax: collection[3] will emit same set of collections mentioned in step 1.
