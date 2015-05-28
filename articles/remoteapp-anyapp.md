@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
+   ms.date="05/28/2015"
    ms.author="elizapo"/>
 
 # Run any app on any device with RemoteApp
@@ -96,7 +96,10 @@ Now, it's the user's turn. First, have your users install a [RemoteApp client](r
 
 1. In the RemoteApp client, access the published apps. Start the cmd.exe program.
 2. Run the following command to map a drive from your computer to the file share:
-    net use z: \\<accountname>.file.core.windows.net\<share name> /u:<user name> <account key>
+    
+		net use z: \\<accountname>.file.core.windows.net\<share name> /u:<user name> <account key>
+
+	If you set the **/persistent** parameter to yes, the mapped drive will persist across sessions.
 1. Now, launch the File Explorer app from RemoteApp. Copy any Access files you want to use in the shared app to the file share. 
 ![Putting Access files in an Azure share](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
 1. Finally, open Access, and then open the database that you just shared. You should see your data in Access running from the cloud.

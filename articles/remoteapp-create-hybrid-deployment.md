@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to create a hybrid collection for RemoteApp" 
+	pageTitle="How to create a hybrid collection for Azure RemoteApp" 
 	description="Learn how to create a deployment of RemoteApp that connects to your internal network." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# How to create a hybrid collection for RemoteApp
+# How to create a hybrid collection for Azure RemoteApp
 
 There are two kinds of RemoteApp collections: 
 
