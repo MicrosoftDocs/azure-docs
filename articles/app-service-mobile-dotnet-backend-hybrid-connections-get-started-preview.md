@@ -1,14 +1,14 @@
 <properties 
-	pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" 
-	description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" 
-	services="mobile-services" 
+	pageTitle="Connect your Azure Mobile App to an on-premises SQL Server using Hybrid Connections" 
+	description="Learn how to connect to an on-premises SQL Server from a App Service Mobile App using Hybrid Connections" 
+	services="app-service\mobile" 
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
@@ -17,17 +17,17 @@
 	ms.author="glenga"/>
 
   
-# Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections 
+# Connect to an on-premises SQL Server from Mobile Apps using Hybrid Connections 
 
-When your enterprise transitions to the cloud, you might not be able to migrate all of your assets to Azure right away. Hybrid connections lets Azure Mobile Services securely connect to your on-premises assets, to expose your on-premises data to your mobile clients. Supported assets include any resource that runs on a static TCP port, including Microsoft SQL Server, MySQL, HTTP Web APIs, and most custom web services. Hybrid Connections use Shared Access Signature (SAS) authorization to secure the connections from your mobile service and the on-premises Hybrid Connection Manager to the Hybrid Connection. For more information, see [Hybrid Connections Overview](integration-hybrid-connection-overview.md).
+When your enterprise transitions to the cloud, you might not be able to migrate all of your assets to Azure right away. Hybrid connections lets Azure App Service Mobile Apps securely connect to your on-premises assets, to expose your on-premises data to your mobile clients. Supported assets include any resource that runs on a static TCP port, including Microsoft SQL Server, MySQL, HTTP Web APIs, and most custom web services. Hybrid Connections use Shared Access Signature (SAS) authorization to secure the connections from your Mobile App and the on-premises Hybrid Connection Manager to the Hybrid Connection. For more information, see [Hybrid Connections Overview](integration-hybrid-connection-overview.md).
 
-In this tutorial, you will learn how to modify a .NET backend mobile service to use a local on-premises SQL Server database instead of the default Azure SQL Database provisioned with your service. Hybrid Connections are also supported for a JavaScript backend mobile service, as described in [this article](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx).
+In this tutorial, you will learn how to modify a Mobile App to use a local on-premises SQL Server database instead of the default Azure SQL Database provisioned with your Mobile App. 
 
 ##Prerequisites##
 
 This tutorial requires you to have the following: 
 
-- **An existing .NET backend mobile service** <br/>Follow the tutorial [Get started with Mobile Services] to create and download a new .NET backend mobile service from the [Azure Management Portal].
+- **An existing Mobile App** <br/>Follow the tutorial [Create a Mobile App] to create and download a new Mobile App from the [Azure Management Portal].
 
 - **Visual Studio 2013** <br/>This a requirement for using To download a free trial version of Visual Studio 2013, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
 
@@ -148,7 +148,6 @@ Note that changes generated in your app have been saved by your mobile service t
 
 ##See Also##
  
-+ [Hybrid Connections web site](../../services/biztalk-services/)
 + [Hybrid Connections overview](integration-hybrid-connection-overview.md)
 + [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs.md)
 
@@ -170,5 +169,4 @@ Note that changes generated in your app have been saved by your mobile service t
 
 <!-- Links -->
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
-
-[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+[Create a Mobile App]: app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md
