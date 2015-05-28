@@ -36,7 +36,8 @@ To get started using Azure AD Connect you can download the latest version using 
 
 ## Before you install Azure AD Connect
 Before you install Azure AD Connect with Express Settings, there are a few things that you will need. 
-(For Custom options such as multiple forests or federated sign on, find out about additional requirements [here.](active-directory-aadconnect-get-started-custom.md)
+
+For Custom options such as multiple forests or federated sign on, find out about additional requirements [here.](active-directory-aadconnect-get-started-custom.md)
  
 To get started with Express Settings, make sure you have the following
  
@@ -77,7 +78,7 @@ Selecting Express Settings is the default option and is one of the most common s
 
 
 
-For information on a Custom installation see [Custom installation for Azure AD Connect](http://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/).
+For information on a Custom installation see [Custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 
 ## Verifying the installation
