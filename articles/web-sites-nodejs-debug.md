@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to debug a Node.js web app in Azure App Service" 
+<properties
+	pageTitle="How to debug a Node.js web app in Azure App Service"
 	description="Learn how to debug a Node.js web app in Azure App Service."
-	tags="azure-portal" 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 # How to debug a Node.js web app in Azure App Service
@@ -118,7 +118,7 @@ For information on specifying a Node.js version for your application, see [Speci
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Tools]: xplat-cli.md
+[How to Use The Azure Command-Line Interface]: xplat-cli.md
 [Using Node.js Modules with Azure Applications]: nodejs-use-node-modules-azure-apps.md
 [Specifying a Node.js version in an Azure application]: nodejs-specify-node-version-azure-apps.md
 

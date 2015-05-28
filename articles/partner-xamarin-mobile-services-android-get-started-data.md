@@ -263,10 +263,10 @@ Once you have completed the data series, try these other Xamarin.Android tutoria
 
 
 
-[5]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-data-tab-empty.png
-[6]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-create-todoitem-table.png
-[8]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-dashboard-tab.png
-[9]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
+[5]: ./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-data-tab-empty.png
+[6]: ./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-create-todoitem-table.png
+[8]: ./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-dashboard-tab.png
+[9]: ./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-todoitem-data-browse.png
 [13]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
 
 <!-- URLs. TODO:: update 'Download the Android app project' download link, 'GitHub', completed project, etc. -->

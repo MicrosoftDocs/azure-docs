@@ -107,7 +107,7 @@ Get all the requests response time > 5s.  Times are represented in ticks: 10 000
 
 
 
-## <a name="search"></a>Search the data
+## Search the data
 
 You can search for terms in any of the property values. This is particularly useful if you have written [custom events][track] with property values. 
 
@@ -177,8 +177,6 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 * [Send logs and custom telemetry to Application Insights][trace]
 * [Set up availability and responsiveness tests][availability]
 * [Troubleshooting][qna]
-
-
 
 
 

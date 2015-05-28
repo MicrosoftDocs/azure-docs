@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
@@ -314,10 +314,11 @@ A Unique ID for the commercial break, to be used by downstream application to ta
 
 ###Show slate
 
-Optional. Signals the live encoder to switch to the default slate image during a commercial break and hide the incoming video feed. Audio is also muted during slate. Default is **false**. 
+Optional. Signals the live encoder to switch to the [default slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) image during a commercial break and hide the incoming video feed. Audio is also muted during slate. Default is **false**. 
  
 The image used will be the one specified via the default slate asset Id property at the time of the channel creation. 
-The slate will be stretech to fit the display image size. 
+The slate will be stretched to fit the display image size. 
+
 
 ##Insert Slate  images
 
@@ -333,14 +334,18 @@ The duration of the slate in seconds. This has to be a non-zero positive value i
 
 When set to true, this setting configures the live encoder to insert a slate image during an ad break. The default value is true. 
 
-###Default slate Asset Id
+###<a id="default_slate"></a>Default slate Asset Id
 
 Optional. Specifies the Asset Id of the Media Services Asset which contains the slate image. Default is null. 
 
-**Note**: Before creating the Channel, the slate image, of 1920x1080 maximum resolution, in JPEG format, and at most 3 Mbytes in size, should be uploaded as a dedicated asset (no other files should be in this asset). The file name should have a *.jpg extension, and this AssetFile should be marked as the primary file for that asset. This Asset cannot be storage encrypted.
+**Note**: Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
+
+- At most 1920x1080 in resolution.
+- At most 3 Mbytes in size.
+- The file name must have a *.jpg extension.
+- The image must be uploaded into an Asset as the only AssetFile in that Asset and this AssetFile should be marked as the primary file. The Asset cannot be storage encrypted.
 
 If the **default slate Asset Id** is not specified, and **insert slate on ad marker** is set to **true**, a default Azure Media Services image will be used to hide the input video stream. Audio is also muted during slate. 
-
 
 
 ##Channel's programs
@@ -389,8 +394,7 @@ The following table shows how Channel states map to the billing mode.
 </table>
 
 
->[AZURE.NOTE] Currently in Preview, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
-
+>[AZURE.NOTE] Currently in Preview, the Channel start can take up to 20+ minutes. Channel reset can take up to 5 minutes.
 
 
 ##<a id="Considerations"></a>Considerations
@@ -401,6 +405,12 @@ The following table shows how Channel states map to the billing mode.
 - By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 - You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
+
+##Known Issues
+
+- Channel start up can take 20+ minutes.
+- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 
 
 ##<a id="tasks"></a>Tasks related to Live Streaming
@@ -431,8 +441,8 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ###Protecting assets
 
@@ -460,7 +470,7 @@ Once you create the content key, you can configure key authorization policy usin
 **Overview**: 
 
 - [Dynamic Packaging Overview](media-services-dynamic-overview.md)
-- [Delivering Content Overview](media-services-deliver-content-overview.md)
+
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
@@ -470,6 +480,11 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
+
+Deliver Content 
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Enabling Azure CDN
 
