@@ -59,7 +59,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
 
-6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage Replication](#storage-redundancy.md).
+6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage Replication](storage-redundancy.md).
 
 6. Click **Create Storage Account**.
 

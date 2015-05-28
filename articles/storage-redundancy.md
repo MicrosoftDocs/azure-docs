@@ -1,6 +1,6 @@
 
 <properties 
-  pageTitle="Azure Storage Redundancy Options | Microsoft Azure" 
+  pageTitle="Azure Storage Replication | Microsoft Azure" 
   description="Data in your Microsoft Azure storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS)." 
   services="storage" 
   documentationCenter="" 
