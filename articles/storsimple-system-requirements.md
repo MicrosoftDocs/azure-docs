@@ -3,7 +3,7 @@
    description="Describes system requirements and best practices for software,  high availability, and networking for an Azure StorSimple solution." 
    services="cloud-services, storage" 
    documentationCenter="NA" 
-   authors="v-sharos" 
+   authors="SharS" 
    manager="AdinaH" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
    ms.date="05/29/2015"
-   ms.author="v-sharos"/>
+   ms.author="SharS"/>
 
 # StorSimple system requirements
 
