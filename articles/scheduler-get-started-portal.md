@@ -11,7 +11,7 @@
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
- ms.topic="hero-article" 
+ ms.topic="get-started-article" 
  ms.date="05/12/2015"
  ms.author="krisragh"/>
 
