@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/29/2015" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample Data in SQL Server on Azure
@@ -107,7 +107,7 @@ You can use the following sample code to save the down-sampled data to a file an
 
 ## Advanced analytics in action example
 
-For an end-to-end walkthrough example of the Advanced Data Process using a public dataset, see [Azure Advanced Analytics Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Advanced Data Process using a public dataset, see [Azure Advanced Analytics Process Technology in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
