@@ -1,14 +1,24 @@
-<properties pageTitle="Azure Batch development libraries and tools" description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" services="batch" documentationCenter="" authors="dlepow" manager="timlt"/>
+<properties 
+	pageTitle="Azure Batch development libraries and tools" 
+	description="Get the libraries and tools you need to develop Azure Batch and Batch Apps applications" 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"
+	editor="yidingz"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/21/2015" ms.author="danlep"/>
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/27/2015" 
+	ms.author="danlep"/>
 
 
 # Azure Batch development libraries and tools 
 <p> Get these libraries and tools to develop Azure Batch and Batch Apps applications.
-
-+ [Batch]
-+ [Batch Apps]
-+ [Additional resources]
 
 ## Batch
 
@@ -24,13 +34,15 @@
 + [Batch Apps Cloud SDK](http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/) (NuGet) – Enable applications to offload jobs to the Batch service
 + [Batch Apps Visual Studio Extension](https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a) (Visual Studio Gallery) – Cloud-enable applications in Visual Studio using the Batch Apps Cloud SDK
 + [Batch Apps Client SDK](http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/) (NuGet) – Interact with applications enabled to offload jobs to the Batch service
++ [Batch Apps Python Client](https://github.com/Azure/azure-batch-apps-python) (GitHub) - Python client module to interact with applications set up in a Batch Apps service
++ [Batch Apps Blender Sample](https://github.com/Azure/azure-batch-apps-blender) (GitHub) - Addon to Blender open source rendering software that uses the Batch Apps SDK and Python client to set up a cloud-based rendering platform
 
 
 ## Additional resources
 
 + [Code samples](https://code.msdn.microsoft.com/site/search?f[0].Type=Topic&f[0].Value=Azure%20Batch&f[0].Text=Azure%20Batch) (MSDN)
-+ [Azure Batch forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch)
-+ [Get started with the Azure Batch Library for .NET](http://azure.microsoft.com/en-us/documentation/articles/batch-dotnet-get-started/)  
++ [Azure Batch forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)
++ [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md)  
 
 <!--Anchors-->
 [Batch]: #batch

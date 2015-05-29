@@ -1,67 +1,63 @@
-The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Azure Management Portal. 
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 In this tutorial, you'll learn:
 
-- How to create a new site through the gallery.
+- How to create a new web app through the Azure Marketplace.
 
-- How to deploy the site through the Azure Portal.
+- How to deploy the web app through the Azure Preview Portal.
  
 You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
 
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-## Create a website in the portal
+## Create a web app in the portal
 
-1. Login to the [Azure Management Portal](http://manage.windowsazure.com).
+1. Log in to the Azure Preview Portal.
 
-2. Click the **New** icon on the bottom left of the dashboard.
+2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + Mobile** and then **Azure Marketplace** at the bottom.
 	
 	![Create New][5]
-
-3. Click the **Website** icon, and click **From Gallery**.
 	
-	![Create From Gallery][6]
+3. Select **Web Apps**. Search for **WordPress** and click the **WordPress** icon.
 
-4. Locate and click the WordPress icon in list, and then click **Next**.
-	
 	![WordPress from list][7]
-
-5. On the **Configure Your App** page, enter or select values for all fields:
 	
-- Enter a URL name of your choice	
-- Leave **Create a new MySQL database** selected in the **Database** field
-- Select the region closest to you
+5. After reading the description of the WordPress app, select **Create**.
 
-	![configure your app][8]
-
-6. Then click **Next**.
-
-7. On the **Create New Database** page, you can specify a name for your new MySQL database or use the default name. Select the region closest to you as the hosting location. Select the box at the bottom of the screen to agree to ClearDB's usage terms for your hosted MySQL database. Then click the check to complete the site creation. 
+6. Click on **WEB APP**, and provide the required values for configuring your web app.
 	
-	![create database][9]
+   ![configure your app][8]
 
-After you click **Complete** Azure will initiate build and deploy operations. While the website is being built and deployed the status of these operations is displayed at the bottom of the Websites page. After all operations are performed,  A final status message when the site has been successfully deployed.
+7. Click on **DATABASE**, and provide the required values for configuring your MySQL database. 
 
-## Launch and manage your WordPress site
+   ![configure database][database]
 
-1. Click on your new site from the **Websites** page to open the dashboard for the site.
+8. If necessary, click **SUBSCRIPTION**, and specify the subscription to use. 
 
-	![launch dashboard][10]
+7. When you have finished defining the web app, click **Create**, and wait while the new web app is created.
 
-2. On the **Dashboard** management page, scroll down and click the link on the left under **Site Url** to open the site's welcome page.
+   When the app has been created, you will see the resource group containing web app and database.
 
-	![site URL][11] 
+   ![show group][resourcegroup]
 
-3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the website's login page.
+## Launch and manage your WordPress web app
+	
+1. Click on your new web app to see details about your app.
 
-	![login to WordPress][12]
+   ![launch dashboard][10]
 
-4. Login to the new WordPress website by entering the username and password that you specified on the **Welcome** page.
+2. On the **Essentials** page, click either **Browse** or the link under **Url** to open the web app's welcome page.
 
-5. You'll have a new WordPress site that looks similar to the site below.  
+   ![site URL][browse]
+
+3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
+
+4. Click **Login** and enter your credentials.  
+
+5. You'll have a new WordPress web app that looks similar to the web app below.    
 
 	![your WordPress site][13]
 
@@ -70,17 +66,14 @@ After you click **Complete** Azure will initiate build and deploy operations. Wh
 
 
 
-[5]: ./media/website-from-gallery/wordpressgallery-01.png
+[5]: ./media/website-from-gallery/startmarketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
-[7]: ./media/website-from-gallery/wordpressgallery-03.png
-[8]: ./media/website-from-gallery/wordpressgallery-04.png
+[7]: ./media/website-from-gallery/selectwordpress.png
+[8]: ./media/website-from-gallery/configureweb.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
-[10]: ./media/website-from-gallery/wordpressgallery-06.png
-[11]: ./media/website-from-gallery/wordpressgallery-07.png
-[12]: ./media/website-from-gallery/wordpressgallery-08.png
+[10]: ./media/website-from-gallery/seewebapp.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
-
-
-
-
-
+[webapps]: ./media/website-from-gallery/selectwebapps.png
+[database]: ./media/website-from-gallery/configuredb.png
+[resourcegroup]: ./media/website-from-gallery/showgroup.png
+[browse]: ./media/website-from-gallery/browse.png

@@ -1,194 +1,343 @@
-<properties pageTitle="Trace usage and events in your web app with Application Insights API" description="Insert a few lines of code to track usage and diagnose issues." authors="awills" manager="kamrani"/>
+<properties 
+	pageTitle="Application Insights API for custom events and metrics" 
+	description="Insert a few lines of code in your device or desktop app, web page or service, to track usage and diagnose issues." 
+	services="application-insights"
+    documentationCenter="" 
+	authors="alancameronwills" 
+	manager="ronmart"/>
  
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-12-11" ms.author="awills"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/28/2015" 
+	ms.author="awills"/>
 
-# Trace usage and events in your web app with Application Insights API
+# Application Insights API for custom events and metrics 
 
 *Application Insights is in preview.*
 
-Insert a few lines of code in your web application to find out what users are doing with it. You can track events, metrics, and page views. 
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. 
 
+The Application Insights data collectors use this API to send standard telemetry such as page views and exception reports, but you can also use it to send your own custom telemetry.
 
-<!-- Sample pic -->
+## API summary
 
-* [Client and server tracking](#clientServer)
-* [Before you start](#prep)
-* [Page views](#pageViews)
-* [Events](#events)
-* [Filter, search and segment your data](#properties)
-* [Set default property values](#defaults)
-* [Next steps](#next)
+The API is uniform across all platforms, apart from a few small variations.
 
+Method | Used for
+---|---
+[`TrackPageView`](#page-views) | Pages, screens, blades or forms
+[`TrackEvent`](#track-event) | User actions and other events. Used to track user behavior or to monitor performance.
+[`TrackMetric`](#track-metric) | Performance measurements such as queue lengths not related to specific events
+[`TrackException`](#track-exception)|Log exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces.
+[`TrackRequest`](#track-request)| Log the frequency and duration of server requests for performance analysis.
+[`TrackTrace`](#track-trace)|Diagnostic log messages. You can also capture 3rd-party logs.
 
-
-## <a name="clientServer"></a> Client and server tracking
-
-You can send telemetry from the client (web page) or the server sides of your app, or both.
-
-The client and server APIs are very similar. You can send the same types of telemetry both from your users' web browsers, and from your web server. The difference is in the scope of the data you can send.
-
-* Tracking at the web client is particularly useful if you have richly active web pages with lots of JavaScript. For example, you could monitor how frequently users click a particular button or how often they encounter validation errors.
-* Tracking at the web server is more useful for monitoring business metrics and events such as the value of a customer's shopping cart or the count of abandoned orders.
-
-In a typical ASP.NET web application, you have the default JavaScript call to trackPageView() in the web master page, and you'll add some calls to track events and metrics in the server code. If your client-side code is quite rich, you might also add some calls to track events and metrics at the client.
+You can [attach properties and metrics](#properties) to most of these telemetry calls. 
 
 
 ## <a name="prep"></a>Before you start
 
 If you haven't done these yet:
 
-* To get telemetry from an ASP.NET web app:
+* Add the Application Insights SDK to your project:
+ * [ASP.NET project][greenbrown]
+ * [Windows project][windows]
+ * [Java project][java] 
+ * [JavaScript in each web page][client]   
 
-    [Add Application Insights to your project][greenbrown]
+* In your device or web server code, include:
 
-    In your web server code, include:
+    *C#:* `using Microsoft.ApplicationInsights;`
 
-        (C#) `using Microsoft.ApplicationInsights;`
+    *VB:* `Imports Microsoft.ApplicationInsights`
 
-	    (VB) `Imports Microsoft.ApplicationInsights`
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
-* [Set up web client analytics][usage]. The JavaScript initialization code should be included in every web page where you want to write monitoring code, or in a master page. 
+## Construct a TelemetryClient
 
-    If it's working, you should see data in on the Overview blade under Usage Analytics.
+Construct an instance of TelemetryClient (except in JavaScript in web pages):
 
-When you run your app on your development machine in debug mode, results will appear in Application Insights within seconds. When you deploy the app, data takes longer to move through the pipeline from your server and clients.
+*C#:* 
+
+    private TelemetryClient telemetry = new TelemetryClient();
+
+*VB:* 
+
+    Private Dim telemetry As New TelemetryClient
+
+*Java*
+
+    private TelemetryClient telemetry = new TelemetryClient();
+
+We recommend you use one instance of `TelemetryClient` for each request in a web app, or for each session in other apps. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions. This information is attached to all events sent by the instance.
+
+TelemetryClient is thread-safe.
 
 
-## <a name="pageViews"></a>Page views (client only)
 
-By default, the initialization script in the head of the web page logs a page view, naming the event with the relative URL of the page. These calls provide the basic page use statistics. 
+## Track Event
 
-![Usage lens on Overview blade](./media/appinsights/appinsights-47usage-2.png)
+Events can be displayed in [Metrics Explorer][metrics] as an aggregated count, and you can also display individual occurrences in [Diagnostic Search][diagnostic].  
 
-#### Custom page data
+Insert events in your code to count how often they use a particular feature, how often they achieve particular goals, or make particular choices. 
 
-You can modify the call to change the name, or you can insert additional calls. For example, if your single-page web app displays multiple blades or tabs, you might want to record a page view when the user switches to a different tab. For example:
+For example, in a game app, send an event whenever a user wins the game: 
 
-JavaScript at client:
+*JavaScript*
 
-    appInsights.trackPageView("tab1");
+    appInsights.trackEvent("WinGame");
 
-If you have several tabs within different HTML pages, you can specify the URL too:
-
-    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
-
-## <a name="events"></a>Track events
-
-Send custom events from your app to better understand your users' experience - for example to log how often games are won or lost, the frequency of invalid entries, and so on. 
-
-JavaScript at client
-
-    appInsights.trackEvent("WinsGame");
-
-C# at server
+*C#*
     
-    var telemetry = new TelemetryClient();
     telemetry.TrackEvent("WinGame");
 
-VB at server
+*VB*
 
 
-    Dim telemetry = New TelemetryClient
     telemetry.TrackEvent("WinGame")
 
-If you send telemetry from both the client and server, be sure to give the events different names.
+*Java*
 
-The top events show up on the overview blade:
+    telemetry.trackEvent("WinGame");
 
-![](./media/appinsights/appinsights-23-customevents-1.png)
+
+Click the Custom Events tile on the overview blade:
+
+![Browse to your application resource in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
 Click through to see an overview chart and a complete list.
 
 Select the chart and segment it by Event name to see the relative contributions of the most significant events.
 
-![](./media/appinsights/appinsights-23-customevents-2.png)
+![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
-From the list below the chart, select an event name to see individual occurrences of the event.
+From the list below the chart, select an event name. Click through to see individual occurrences of the event.
 
-![](./media/appinsights/appinsights-23-customevents-3.png)
+![Drill through the events](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
+Click any occurrence to see more detail.
 
 ## <a name="properties"></a>Filter, search and segment your data with properties
 
-You can attach properties and measurements to your events, page views, and other telemetry data. 
+You can attach properties and measurements to your events (and also to metrics, page views, and other telemetry data).
 
-**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you’ll want to attach the name of the game to each event, so that you can see which games are more popular.
+**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you'll want to attach the name of the game to each event, so that you can see which games are more popular. 
 
-**Measurements** are numeric values that you can get statistics from in the usage reports.
+There's a limit of about 1k on the string length. (If you want to send large chunks of data, use the message parameter of [TrackTrace](#track-trace).)
 
+**Metrics** are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores your gamers achieve. The graphs can be segmented by the properties sent with the event, so that you could get separate or stacked graphs for different games.
 
-JavaScript at client
+Metric values should be >= 0 to be correctly displayed.
 
-    appInsights.trackEvent("WinGame",
+*JavaScript*
+
+    appInsights.trackEvent // or trackPageView, trackMetric, ...
+      ("WinGame",
          // String properties:
          {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric measurements:
+         // Numeric metrics:
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-C# at server
+*C#*
 
-    // Set up some properties:
+    // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
        {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    var measurements = new Dictionary <string, double>
+    var metrics = new Dictionary <string, double>
        {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
 
     // Send the event:
-    telemetry.TrackEvent("WinGame", properties, measurements);
+    telemetry.TrackEvent("WinGame", properties, metrics);
 
 
-VB at server
+*VB*
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
     properties.Add("game", currentGame.Name)
     properties.Add("difficulty", currentGame.Difficulty)
 
-    Dim measurements = New Dictionary (Of String, Double)
-    measurements.Add("Score", currentGame.Score)
-    measurements.Add("Opponents", currentGame.OpponentCount)
+    Dim metrics = New Dictionary (Of String, Double)
+    metrics.Add("Score", currentGame.Score)
+    metrics.Add("Opponents", currentGame.OpponentCount)
 
     ' Send the event:
-    telemetry.TrackEvent("WinGame", properties, measurements)
+    telemetry.TrackEvent("WinGame", properties, metrics)
 
 
-Attach properties to page views in the same way:
-
-JavaScript at client
-
-    appInsights.trackPageView("Win", 
-     {Game: currentGame.Name}, 
-     {Score: currentGame.Score});
+*Java*
+    
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("game", currentGame.getName());
+    properties.put("difficulty", currentGame.getDifficulty());
+    
+    Map<String, Double> metrics = new HashMap<String, Double>();
+    metrics.put("Score", currentGame.getScore());
+    metrics.put("Opponents", currentGame.getOpponentCount());
+    
+    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
 
 
 > [AZURE.NOTE] Take care not to log personally identifiable information in properties.
 
-In Diagnostic Search, view the properties by clicking through an individual occurrence of an event.
+**If you used metrics**, open Metric Explorer and select the metric from the Custom group:
+
+![Open metric explorer, select the chart, and select the metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+*If your metric doesn't appear, close the selection blade, wait a while, and click Refresh.*
+
+**If you used properties and metrics**, segment the metric by the property:
 
 
-![](./media/appinsights/appinsights-23-customevents-4.png)
+![Set Grouping, then select the property under Group by](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
+
+
+
+**In Diagnostic Search**, you can view the properties and metrics of individual occurrences of an event.
+
+
+![Select an instance, then select '...'](./media/appinsights/appinsights-23-customevents-4.png)
 
 
 Use the Search field to see event occurrences with a particular property value.
 
 
-![](./media/appinsights/appinsights-23-customevents-5.png)
+![Type a term into Search](./media/appinsights/appinsights-23-customevents-5.png)
 
 [Learn more about search strings][diagnostic]
 
+#### Alternative way to set properties and metrics
 
-## Timed page views and events
+If it's more convenient, you can collect the parameters of an event in a separate object:
 
-You can attach timing data to events and page views. Instead of calling trackEvent or trackPageView, use these calls:
+    var event = new EventTelemetry();
 
-JavaScript at client
+    event.Name = "WinGame";
+    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+    event.Properties["game"] = currentGame.Name;
+    event.Properties["difficulty"] = currentGame.Difficulty;
+    event.Metrics["Score"] = currentGame.Score;
+    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+
+    telemetry.TrackEvent(event);
+
+
+## <a name="timed"></a> Timed events
+
+Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. 
+
+You can attach timing data to events. In the web client, instead of calling trackEvent, use these calls:
+
+*JavaScript at web client*
 
     // At the start of the game:
     appInsights.startTrackEvent(game.id);
 
     // At the end of the game:
     appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
+
+Use the same string as the first parameter in the start and stop calls. 
+
+This feature isn't built in to the other SDKs. But you can write your own code such as this:
+
+*C#*
+
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+    // ... perform the timed action ...
+
+    stopwatch.Stop();
+
+    var metrics = new Dictionary <string, double>
+       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"signalSource", currentSignalSource.Name}};
+
+    // Send the event:
+    telemetry.TrackEvent("SignalProcessed", properties, metrics);
+
+
+
+## Track Metric
+
+Use TrackMetric to send metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. 
+
+Metrics are displayed as statistical charts in metric explorer, but unlike events, you can't search for individual occurrences in diagnostic search.
+
+Metric values should be >= 0 to be correctly displayed.
+
+
+*JavaScript*
+
+    appInsights.trackMetric("Queue", queue.Length);
+
+*C#*
+
+    telemetry.TrackMetric("Queue", queue.Length);
+
+*VB*
+
+    telemetry.TrackMetric("Queue", queue.Length)
+
+*Java*
+
+    telemetry.trackMetric("Queue", queue.Length);
+
+In fact, you might do this in a background thread:
+
+*C#*
+
+    private void Run() {
+     var appInsights = new TelemetryClient();
+     while (true) {
+      Thread.Sleep(60000);
+      appInsights.TrackMetric("Queue", queue.Length);
+     }
+    }
+
+
+To see the results, open Metrics Explorer and add a new chart. Set it to display your metric.
+
+![Add a new chart or select a chart, and under Custom select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+
+## Page views
+
+In a device or web page app, page view telemetry is sent by default when each screen or page is loaded. But you can change that to track page views at additional or different times. For example, in an app that displays tabs or blades, you might want to track a "page" whenever the user opens a new blade. 
+
+![Usage lens on Overview blade](./media/appinsights/appinsights-47usage-2.png)
+
+User and session data is sent as properties along with page views, so the user and session charts come alive when there is page view telemetry.
+
+#### Custom page views
+
+*JavaScript*
+
+    appInsights.trackPageView("tab1");
+
+*C#*
+
+    telemetry.TrackPageView("GameReviewPage");
+
+*VB*
+
+    telemetry.TrackPageView("GameReviewPage")
+
+
+If you have several tabs within different HTML pages, you can specify the URL too:
+
+    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+
+#### Timed page views
+
+By using this pair of methods calls instead of trackPageView, you can analyze how long users linger on your pages.
 
     // At the start of a page view:
     appInsights.startTrackPage(myPage.name);
@@ -198,34 +347,74 @@ JavaScript at client
 
 Use the same string as the first parameter in the start and stop calls.
 
-## <a name="defaults"></a>Set default property values (not at web client)
+Look at the Page Duration metric in [Metrics Explorer][metrics].
 
-You can set default values in a TelemetryContext. They are attached to every metric and event sent from the context. 
+
+## Track Request
+
+Used by the server SDK to log HTTP requests. 
+
+You can also call it yourself if you want to simulate requests in a context where you don't have the web service module running.
+
+*C#*
+
+    // At start of processing this request:
+
+    // Operation Id is attached to all telemetry and helps you identify
+    // telemetry associated with one request:
+    telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
     
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-C# at server
+    // ... process the request ...
 
-    using Microsoft.ApplicationInsights.DataContracts;
+    stopwatch.Stop();
+    telemetryClient.TrackRequest(requestName, DateTime.Now,
+       stopwatch.Elapsed, 
+       "200", true);  // Response code, success
 
-    var context = new TelemetryContext();
-    context.Properties["Game"] = currentGame.Name;
-    var telemetry = new TelemetryClient(context);
-    // Now all telemetry will automatically be sent with the context property:
-    telemetry.TrackEvent("WinGame");
-    
-VB at server
+## Track Exception
 
-    Dim context = New TelemetryContext
-    context.Properties("Game") = currentGame.Name
-    Dim telemetry = New TelemetryClient(context)
-    ' Now all telemetry will automatically be sent with the context property:
-    telemetry.TrackEvent("WinGame")
+Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic].
 
-    
-    
-Individual telemetry can override the default values.
+*C#*
 
-You can set up a universal initializer so that all new TelemetryClients automatically use your context.
+    try
+    {
+        ...
+    }
+    catch (Exception ex)
+    {
+       telemetry.TrackException(ex);
+    }
+
+In Windows mobile apps, the SDK catches unhandled exceptions, so that you don't have to log them. 
+
+
+
+## Track Trace 
+
+Use this to help diagnose problems by sending a 'breadcrumb trail' to Application Insights. You can send chunks of diagnostic data, and inspect them in [Diagnostic search][diagnostic]. 
+
+ 
+
+[Log adapters][trace] use this API to send third-party logs to the portal.
+
+
+*C#*
+
+    telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+
+The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
+
+
+## Set default properties for all telemetry
+
+You can set up a universal initializer so that all new TelemetryClients automatically use your context. 
+
+This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
+
+*C#*
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -236,7 +425,7 @@ You can set up a universal initializer so that all new TelemetryClients automati
         }
     }
 
-In the app initializer such as Global.asax.cs:
+    // In the app initializer such as Global.asax.cs:
 
     protected void Application_Start()
     {
@@ -245,8 +434,137 @@ In the app initializer such as Global.asax.cs:
         .Add(new MyTelemetryInitializer());
     }
 
+*Java*
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyTelemetryInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.getProperties().put("AppVersion", "2.1");
+      }
+    }
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
+
+## Set instrumentation key in code for all telemetry
+
+Instead of getting the instrumentation key from the configuration file, you can set it in your code. You might want to do this, for example, to send telemetry from test installations to a different Application Insights resource than telemetry from the live application.
+
+Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
+
+*C#*
+
+    protected void Application_Start()
+    {
+      Microsoft.ApplicationInsights.Extensibility.
+        TelemetryConfiguration.Active.InstrumentationKey = 
+          // - for example -
+          WebConfigurationManager.Settings["ikey"];
+      ...
+
+*JavaScript*
+
+    appInsights.config.instrumentationKey = myKey; 
+
+
+
+In web pages, you might want to set it from the web server's state, rather than coding it literally into the script. For example, in a web page generated in an ASP.NET app:
+
+*JavaScript in Razor*
+
+    <script type="text/javascript">
+    // Standard Application Insights web page script:
+    var appInsights = window.appInsights || function(config){ ...
+    // Modify this part:
+    }({instrumentationKey:  
+      // Generate from server property:
+      @Microsoft.ApplicationInsights.Extensibility.
+         TelemetryConfiguration.Active.InstrumentationKey"
+    }) // ...
+
+
+## <a name="defaults"></a>Set defaults for selected custom telemetry
+
+If you just want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
+
+*C#*
+
+    using Microsoft.ApplicationInsights.DataContracts;
+
+    var gameTelemetry = new TelemetryClient();
+    gameTelemetry.Context.Properties["Game"] = currentGame.Name;
+    // Now all telemetry will automatically be sent with the context property:
+    gameTelemetry.TrackEvent("WinGame");
+    
+*VB*
+
+    Dim gameTelemetry = New TelemetryClient()
+    gameTelemetry.Context.Properties("Game") = currentGame.Name
+    ' Now all telemetry will automatically be sent with the context property:
+    gameTelemetry.TrackEvent("WinGame")
+
+*Java*
+
+    import com.microsoft.applicationinsights.TelemetryClient;
+    import com.microsoft.applicationinsights.TelemetryContext;
+    ...
+
+
+    TelemetryClient gameTelemetry = new TelemetryClient();
+    TelemetryContext context = gameTelemetry.getContext();
+    context.getProperties().put("Game", currentGame.Name);
+    
+    gameTelemetry.TrackEvent("WinGame");
+    
+Individual telemetry calls can override the default values in their property dictionaries.
+
+
+
+## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
+
+*C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
+
+## Disable standard telemetry
+
+You can [disable selected parts of the standard telemetry][config] by editing `ApplicationInsights.config`. You could do this, for example, if you want to send your own TrackRequest data. 
+
+[Learn more][config].
+
+
+## <a name="debug"></a>Developer mode
+
+During debugging, it's useful to have your telemetry expedited through the pipeline so that you can see results immediately. You also get additional messages that help you trace any problems with the telemetry. Switch it off in production, as it may slow down your app.
+
+
+*C#*
+    
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
+
+*VB*
+
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+
+
+## Reference docs
+
+* [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
+
+
+* *Q: Is there a REST API?*
+
+    Yes, but we aren't publishing it yet.
 
 ## <a name="next"></a>Next steps
 
@@ -256,8 +574,15 @@ In the app initializer such as Global.asax.cs:
 [Troubleshooting][qna]
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[client]: app-insights-javascript.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[trace]: app-insights-search-diagnostic-logs.md
+[windows]: app-insights-windows-get-started.md
 

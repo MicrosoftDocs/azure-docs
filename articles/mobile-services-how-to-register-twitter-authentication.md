@@ -1,12 +1,26 @@
-<properties pageTitle="Register for Twitter authentication - Mobile Services" description="Learn how to use Twitter authentication with your Azure Mobile Services application." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Register for Twitter authentication - Mobile Services" 
+	description="Learn how to use Twitter authentication with your Azure Mobile Services application." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="04/13/2015" 
+	ms.author="glenga"/>
 
 #Register your apps for Twitter login with Mobile Services
 
 This topic shows you how to register your apps to be able to use Twitter to authenticate with Azure Mobile Services.
 
->[AZURE.NOTE] This tutorial is about [Azure Mobile Services](http://azure.microsoft.com/en-us/services/mobile-services/), a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/">Get Started with Authentication</a> tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial <a href="http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/">Get Started with Mobile Services</a>.
+>[AZURE.NOTE] This tutorial is about [Azure Mobile Services](http://azure.microsoft.com/services/mobile-services/), a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Get Started with Authentication</a> tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Get Started with Mobile Services</a>.
 
 To complete the procedure in this topic, you must have a Twitter account that has a verified email address. To create a new Twitter account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
@@ -50,6 +64,6 @@ You are now ready to use a Twitter login for authentication in your app by provi
 <!-- URLs. -->
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://manage.windowsazure.com/

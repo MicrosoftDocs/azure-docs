@@ -1,11 +1,25 @@
-<properties pageTitle="Get Started with Mobile Analytics | Mobile Dev Center" description="Get Started with Mobile Analytics." documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Get Started with Mobile Analytics | Mobile Dev Center" 
+	description="Get Started with Mobile Analytics." 
+	documentationCenter="ios" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="mahender"/>
 
 # Get Started with Mobile Analytics (Capptain)
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
+<a href="/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
 </div>
 
 In this tutorial, you add mobile analytics capabilities to your app using [Capptain]. Mobile Analytics allow you to determine how users are interacting with your app and what sections are driving the most activity. To start getting these data, you will instrument your app with the Capptain SDK.
@@ -85,4 +99,4 @@ Find out more about what Capptain can do for your app at [http://www.capptain.co
 
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
-[Mobile Services Standard tier]: /en-us/pricing/details/mobile-services/
+[Mobile Services Standard tier]: /pricing/details/mobile-services/

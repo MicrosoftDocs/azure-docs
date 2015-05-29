@@ -1,8 +1,22 @@
-<properties pageTitle="How to create a LAMP Stack with Microsoft Azure" description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
+﻿<properties
+	pageTitle="How to create a LAMP Stack with Microsoft Azure"
+	description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="NingKuang"
+	manager="timlt"
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/10/2015"
+	ms.author="ningk"/>
 
-#How to create a LAMP Stack with Microsoft Azure 
+#How to create a LAMP Stack with Microsoft Azure
 
 A "LAMP" stack is a group of open source software that is typically installed together to enable a server to host dynamic websites and web applications. This term is actually an acronym that represents the Linux operating system with the Apache web server. The site data is stored in a MySQL database, and dynamic content is processed by PHP.  
 
@@ -14,42 +28,44 @@ You will learn:
 -	How to prepare the virtual machine for the LAMP stack.
 -	How to install software that is needed by your LAMP server on the virtual machine.
 
-It is assumed that the reader already has an Azure subscription.  If not you can sign up for a free trial at [http://azure.microsoft.com](http://azure.microsoft.com). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](http://azure.microsoft.com/en-us/overview/what-is-azure/).
+It is assumed that the reader already has an Azure subscription.  If not you can sign up for a free trial at [http://azure.microsoft.com](http://azure.microsoft.com). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](http://azure.microsoft.com/overview/what-is-azure/)
 
-In addition to this topic, the following video presents details about using the LAMP stack on Microsoft Azure:  
+In addition to this topic, if you already have a virtual machine and are just looking for the basics of installing a  LAMP stack on different Linux distributions, refer to [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-install-lamp-stack.md).
+
+You can also deploy pre-configured LAMP images from the Azure Marketplace. The following 10 minute video introduces deploying pre-built LAMP images from the Azure Marketplace:  
 
 > [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
 
 ##Phase 1: Create an image
-In this phase, you will create virtual machine using a Linux image in Azure.  
+In this phase, you will create a virtual machine using a Linux image in Azure.  
 
 ###Step 1: Generate an SSH Authentication Key
-SSH is an important tool for system administrators. However, relying on a human-determined password for security is not always wise. A strong SSH key allows you to leave remote access open without worrying about passwords. The method consists of authentication with asymmetric cryptography. The user’s private key is the one that grants the authentication. You can even lock the user’s account to disallow password authentication completely.    
+SSH is an important tool for system administrators. However, relying on a human-determined password for security is not always wise. A strong SSH key allows you to leave remote access open without worrying about passwords. The method consists of authentication with asymmetric cryptography. The user’s private key is the one that grants the authentication. You can even lock the user’s account to disallow password authentication completely.
 
 Follow these steps to generate the SSH Authentication Key.
 
--	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html 
+-	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	Run puttygen.exe.
 -	Click **Generate** to generate the keys. In the process you can increase randomness by moving the mouse over the blank area in the window.  
 ![][1]
 -	After the generate process, Puttygen.exe will show your generated key. For example:  
 ![][2]
 -	Select and copy the public key in **Key** and save it in a file named **publicKey.pem**. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
--	Click **Save private key** and save it in a file named **privateKey.ppk**. 
+-	Click **Save private key** and save it in a file named **privateKey.ppk**.
 
 ###Step 2: Create the image in the Azure Preview Portal.
-In the [Azure Preview Portal](https://portal.azure.com/), click **New** in the task bar and create an image by following these instructions, choosing the Linux image based on your needs. This example uses the Ubuntu 14.04 image. 
+In the [Azure Preview Portal](https://portal.azure.com/), click **New** in the task bar and create an image by following these instructions, choosing the Linux image based on your needs. This example uses the Ubuntu 14.04 image.
 
-![][3] 
+![][3]
 
-For **Host Name**, specify the name for the URL that you an Internet clients will use to access this virtual machine. Define the last part of the DNS name, for example LAMPDemo, and Azure will generate the URL as Lampdemo.cloudapp.net.   
+For **Host Name**, specify the name for the URL that you an Internet clients will use to access this virtual machine. Define the last part of the DNS name, for example LAMPDemo, and Azure will generate the URL as Lampdemo.cloudapp.net.
 
-For **User Name**, pick a name that you will later use to login to the virtual machine.   
+For **User Name**, pick a name that you will later use to login to the virtual machine.
 
 For **SSH Authentication Key**, copy the key value from the **publicKey.pem** file, which contains the public key generated by puttygen.  
 
 ![][4]
-  
+
 Configure other settings as needed, and then click **Create**.
 
 ##Phase 2: Prepare your virtual machine for the LAMP stack
@@ -62,23 +78,23 @@ TCP port 80 is the default port number on which Apache listens. Opening this por
 
 In the Azure Preview Portal, click **Browse -> Virtual Machine**, and then click the virtual machine that you created.
 
-![][5] 
+![][5]
 
 To add an endpoint to a virtual machine, click the **Endpoints** box.
 
 ![][6]
- 
-Click **Add**. When provisioning a new virtual machine you can enable or disable endpoints as needed.   
+
+Click **Add**. When provisioning a new virtual machine you can enable or disable endpoints as needed.
 
 Configure the endpoint:  
 
 1.	Type a name for the endpoint in **Endpoint**.
-2.	Type 80 in **Public Port**. If you changed the default listen port of Apache, you should update Private Port to be the same as the Apache listen port. 
+2.	Type 80 in **Public Port**. If you changed the default listen port of Apache, you should update Private Port to be the same as the Apache listen port.
 3.	Type 80 in **Public Port**. By default, HTTP traffic uses port 80.
 If you set it to 80, don’t need to include the port number in the URL that allows you to access the Apache web service. For example, http://lampdemo.cloudapp.net.
 If you set the Apache listening port to another value, such as 81, you need to add the port number to the URL to access the Apache web service. For example,  http://lampdemo.cloudapp.net:81/.
 
-![][7] 
+![][7]
 
 Click **OK** to add the endpoint to your virtual machine.
 
@@ -88,33 +104,33 @@ Click **OK** to add the endpoint to your virtual machine.
 ###Step 2: Connect to the image you created
 You can choose any SSH tool to connect to your new virtual machine. In this example, we use Putty.  
 
-First, get the DNS name of your virtual machine from the Azure Preview Portal. Click **Browse -> Virtual machines ->** the name of your virtual machine **-> Properties**, and then look in the **Domain Name** field of the **Properties** tile. 
+First, get the DNS name of your virtual machine from the Azure Preview Portal. Click **Browse -> Virtual machines ->** the name of your virtual machine **-> Properties**, and then look in the **Domain Name** field of the **Properties** tile.
 
 Get the port number for SSH connections from the **SSH** field.   Here is an example.  
 
 ![][8]
-  
+
 Download Putty from [here](http://www.putty.org/) .  
 
 After downloading, click the executable file PUTTY.EXE. Configure the basic options with the host name and port number obtained from the properties of your virtual machine. Here is an example:
- 
+
 ![][9]
 
 In the left pane, click  **Connection -> SSH -> Auth** and then click **Browse** to specify the location of the **privateKey.ppk** file, which contains the private key generated by puttygen in Phase 1: Create an Image. Here is an example:  
 
 ![][10]
- 
+
 Click **Open**. You might be alerted by a message box. If you have configured the DNS name and port number correctly, click **Yes**.
-  
+
 ![][11]
 
 
-You should see the following. 
- 
+You should see the following.
+
 ![][12]
 
 Enter the user name specified when you created the virtual machine in Phase 1: Create an Image. You will see something like the following:  
- 
+
 ![][13]
 
 ##Phase 3: Install the LAMP Stack
@@ -135,7 +151,7 @@ Once it installs, start Apache with this command:
 To check if Apache is successfully installed, browse to your Apache server’s DNS name (for the example URL in this article, http://lampdemo.cloudapp.net/). The page should display the words “It works!"
 ![][14]
 
-####Troubleshooting 
+####Troubleshooting
 If Apache is running but you can’t see Apache default page above, you need to check following:  
 
 -	Apache web service listening address / port
@@ -187,11 +203,11 @@ After it is done installing, you can set a root MySQL password with the followin
 
 	sudo /usr/bin/mysql_secure_installation  
 
-The prompt will ask you for your current root password.    
+The prompt will ask you for your current root password.
 
 Since you just installed MySQL, you most likely won’t have one, so leave it blank by pressing ENTER.  
 
-	Enter current password for root (enter for none): 
+	Enter current password for root (enter for none):
 	OK, successfully used password, moving on...  
 
 You will be prompted to set a root password. Go ahead and choose Y and follow the instructions.  
@@ -203,37 +219,37 @@ CentOS automates the process of setting up MySQL, asking you a series of yes or 
 	them.  This is intended only for testing, and to make the installation
 	go a bit smoother.  You should remove them before moving into a
 	production environment.
-	
-	Remove anonymous users? [Y/n] y                                            
+
+	Remove anonymous users? [Y/n] y
 	 ... Success!
-	
+
 	Normally, root should only be allowed to connect from 'localhost'.  This
 	ensures that someone cannot guess at the root password from the network.
-	
+
 	Disallow root login remotely? [Y/n] y
 	... Success!
-	
+
 	By default, MySQL comes with a database named 'test' that anyone can
 	access.  This is also intended only for testing, and should be removed
 	before moving into a production environment.
-	
+
 	Remove test database and access to it? [Y/n] y
 	 - Dropping test database...
 	 ... Success!
 	 - Removing privileges on test database...
 	 ... Success!
-	
+
 	Reloading the privilege tables will ensure that all changes made so far
 	will take effect immediately.
-	
+
 	Reload privilege tables now? [Y/n] y
 	 ... Success!
-	
+
 	Cleaning up...
-	
+
 	All done!  If you've completed all of the above steps, your MySQL
 	installation should now be secure.
-	
+
 	Thanks for using MySQL!  
 
 ####Install PHP
@@ -243,7 +259,7 @@ To install PHP on your virtual machine, open terminal and run this command:
 
 	sudo yum install php php-mysql  
 
-Answer “y” to download software packages. Then answer “y” to Importing GPG key 0xE8562897 "CentOS-5 Key (CentOS 5 Official Signing Key). PHP will install.   
+Answer “y” to download software packages. Then answer “y” to Importing GPG key 0xE8562897 "CentOS-5 Key (CentOS 5 Official Signing Key). PHP will install.
 
 	warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID e8562897
 	updates/gpgkey                                                                                                                                                                       | 1.5 kB     00:00
@@ -269,11 +285,11 @@ Use tasksel to install the required software for the LAMP stack.
 
 Next, go through the wizard and choose your **MySQL root password**.
 
-![][15] 
+![][15]
 
 
 ##Testing LAMP on your Server
-You can test the LAMP system by creating a quick php info page.   
+You can test the LAMP system by creating a quick php info page.
 
 First, create a new file:  
 
@@ -298,7 +314,7 @@ If the OS of your virtual machine is Ubuntu, use the following command to restar
 Finish up by browsing to your php info page (for the example web server in this topic, the URL would be http://lampdemo.cloudapp.net/info.php).  
 
 Your browser should look similar to this:
- 
+
 ![][16]
 
 ##Additional steps
@@ -307,8 +323,8 @@ As general practice, you will change some default settings to prepare for web ap
 
 ###Allow remote access to MySQL
 If you have more than one VM installed with MySQL and they need to exchange data, you should enable MySQL remote access and grant the proper permissions.  
- 
-**Command reference format:**    
+
+**Command reference format:**
 
 	grant [authority] on [databaseName].[tableName] to [username]@[login host] identified by "[passwd]"  
 
@@ -324,24 +340,24 @@ You should also change the /etc/mysql/my.cnf profile. If you have lines like thi
 You should comment them out (add a # at the beginning of the lines), and then restart MySQL.  
 
 To add an endpoint to allow remote access, refer to instructions in Phase 1: Create an Image to create a new endpoint. The default remote access TCP port number of MySQL is 3306. Here is an example:
- 
+
 ![][17]
 
 ###Deploy your web applications to the apache server
 Once you have setup the LAMP stack successfully, you can deploy your existing web application to the Apache web server (your virtual machine). It is the same steps as deploying an existing web application on a physical web server.
 
 -	The root of the webserver is located at **/var/www/html**. You should grant privileges to the users who need to upload files to this folder. The following example shows how to add write permission to a group named lampappgroup and put the azureuser user name in this group:  
- 
+
 		sudo groupadd lampappgroup                      # Create a group
 		sudo gpasswd -a azureuser lampappgroup    # Add azureuser to lampappgroup
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
-		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup    
+		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE] You may need to login again if you want modify a file in /var/www/html/. 
+	>[AZURE.NOTE] You may need to login again if you want modify a file in /var/www/html/.
 -	Use any SFTP client (such as FileZilla) to connect to the DNS name of your virtual machine (for example,  lampdemo.cloudapp.net) and navigate to /**var/www/html** to publish your site.  
 ![][18]
 
- 
+
 
 ##Common issues and troubleshooting
 
@@ -349,27 +365,27 @@ Once you have setup the LAMP stack successfully, you can deploy your existing we
 
 -	**Symptom**  
 Apache is running but you can’t see the Apache default page with your browser.
--	**Possible root case** 
-	1.	The Apache listening port is not same as the Private Port of your virtual machine's endpoint for web traffic.</br>   
-	Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the Apache listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.</br>   
+-	**Possible root case**
+	1.	The Apache listening port is not same as the Private Port of your virtual machine's endpoint for web traffic.</br>
+	Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the Apache listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.</br>
 	To determine the listen port of Apache, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/apache2/ports.conf (Debian release), search for the string “Listen”. The default port is 80.
 
 	2.	The firewall has disabled the listen port of Apache.</br>  
 	If you can see Apache default page from the local host, then the problem is most likely that the port which is listened by Apache is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to Apache default page:  
-  
+
 			sudo yum  install w3m w3m-img
-			w3m http://localhost 
+			w3m http://localhost
 
 -	**Solution**
 
 	1.	If the Apache listen port is not same as the Private Port of endpoint for web traffic on the virtual machine, you need change the Private Port of the endpoint to be the same as the Apache listen port.
 	2.	If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  
-	
-			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT    
 
-		Note that the second line is only needed for https traffic.   
- 
+			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+
+		Note that the second line is only needed for https traffic.
+
 		Make sure this is above any lines that would globally restrict access, such as the following:  
 
 			-A INPUT -j REJECT --reject-with icmp-host-prohibited  
@@ -390,7 +406,7 @@ When you use any SFTP client (such as FileZilla) to connect to your virtual mach
 		Error:	/var/www/html/info.php: open for write: permission denied
 		Error:	File transfer failed
 
--	**Possible root case**   
+-	**Possible root case**
 You have no permissions to access the /var/www/html folder.  
 -	**Solution**  
 You need get permission from the root account. You can change the ownership of that folder from root to the username you used when provisioning the machine. Here is an example with the azureuser account name:  
@@ -409,14 +425,14 @@ You need get permission from the root account. You can change the ownership of t
 
 		sudo chown username:group directory  
 
-###Could not reliably determine the server's fully qualified domain name 
+###Could not reliably determine the server's fully qualified domain name
 
 -	**Symptom**  
 When you restart the Apache server using one of the following commands:  
 
 		sudo /etc/init.d/apache2 restart  # Debian release  
 
-	or   
+	or
 
 		sudo /etc/init.d/httpd restart   # Red Hat release  
 
@@ -427,11 +443,11 @@ When you restart the Apache server using one of the following commands:
 		... waiting apache2:
 		Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName  
 
--	**Possible root case**   
+-	**Possible root case**
 	You have not set the server name of Apache.
 
 -	**Solution**  
-	Insert a “ServerName localhost” line in either httpd.conf (Red Hat release) or apache2.conf (Debian release) in /etc/apache2 and restart Apache. The notice will disappear. 
+	Insert a “ServerName localhost” line in either httpd.conf (Red Hat release) or apache2.conf (Debian release) in /etc/apache2 and restart Apache. The notice will disappear.
 
 
 

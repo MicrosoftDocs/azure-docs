@@ -4,7 +4,7 @@ The previous example showed a standard sign-in, which requires the client to con
 >[AZURE.NOTE]You can cache the token issued by Mobile Services regardless of whether you are using client-managed or service-managed authentication. This tutorial uses service-managed authentication.
 
 
-1. In Eclipse, open the ToDoActivity.java file and add the following import statements:
+1. Open the ToDoActivity.java file and add the following import statements:
 
         import android.content.Context;
         import android.content.SharedPreferences;

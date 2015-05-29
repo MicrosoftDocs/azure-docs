@@ -1,196 +1,176 @@
-<properties pageTitle="Using Diagnostic Search" description="Search and filter individual events, requests, and log traces." authors="alancameronwills" manager="kamrani"/>
+<properties 
+	pageTitle="Using Diagnostic Search" 
+	description="Search and filter individual events, requests, and log traces." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
+	manager="ronmart"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2015-01-09" ms.author="awills"/>
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/22/2015" 
+	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
 
-Diagnostic Search is the blade in [Application Insights][start] that you use to find and explore individual telemetry events, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
+Diagnostic Search is the blade in [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-## <a name="view"></a>View the telemetry sent by your application
+## When do you see Diagnostic Search?
 
-Diagnostic Search opens automatically when you click through from some charts on you Application Insights Overview blade. You can also open it explicitly:
+You can open diagnostic search explicitly:
 
-![Open diagnostic search](./media/appinsights/appinsights-30openDiagnostics.png)
-   
-The report lists telemetry over the time range and filters you choose. 
+![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
 
-![Open diagnostic search](./media/appinsights/appinsights-331filterTrace.png)
+
+It also opens when you click through some charts and grid items. In this case, its filters are pre-set to focus on the type of item you selected. 
+
+For example, if your application is a web service, the overview blade shows a chart of volume of requests. Click it and you get to a more detailed chart, with a listing showing how many requests have been made for each URL. Click any row, and you get a list of the individual requests for that URL:
+
+![Open diagnostic search](./media/app-insights-diagnostic-search/07-open-from-filters.png)
+
+
+The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
+
+
+## Inspect individual items
 
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
-![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
 
-To filter the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
+To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
 ## Filter event types
 
-Open the Filter blade and choose the event types you want to see.
+Open the Filter blade and choose the event types you want to see. (If, later, you want to restore the filters with which you opened the blade, click Reset.)
 
 
-![Open diagnostic search](./media/appinsights/appinsights-321filter.png)
+![Choose Filter and select telemetry types](./media/app-insights-diagnostic-search/02-filter-req.png)
+
 
 The event types are:
 
-* **[Trace](#trace)** - Diagnostic logs including TrackTrace,  log4Net, NLog, and System.Diagnostic.Trace calls.
-* **[Request](#requests)** - HTTP requests received by your server application, including pages, scripts, images, style files and data. These events are used to create the request and response overview charts.
-* **[Page View](#pages)** - Telemetry sent by the web client, used to create page view reports. 
-* **[Custom Event](#events)** - If you inserted calls to TrackEvent() in order to [monitor usage][track], you can search them here.
-* **[Exception](#exceptions)** - Uncaught exceptions in the server, and those that you log by using TrackException().
+* **Trace** - Diagnostic logs including TrackTrace,  log4Net, NLog, and System.Diagnostic.Trace calls.
+* **Request** - HTTP requests received by your server application, including pages, scripts, images, style files and data. These events are used to create the request and response overview charts.
+* **Page View** - Telemetry sent by the web client, used to create page view reports. 
+* **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage][track], you can search them here.
+* **Exception** - Uncaught exceptions in the server, and those that you log by using TrackException().
 
-### Filter on property values
+## Filter on property values
 
 You can filter events on the values of their properties. The available properties depend on the event types you selected. 
 
-For example, pick out a specific type of exception.
+For example, pick out requests with a specific response code.
 
-![Select facet values](./media/appinsights/appinsights-333facets.png)
+![Expand a property and choose a value](./media/app-insights-diagnostic-search/03-response500.png)
 
 Choosing no values of a particular property has the same effect as choosing all values; it switches off filtering on that property.
 
 
-## <a name="search"></a>Search the data
+### Narrow your search
 
-Set a time range and search for terms. Searches over a shorter range are faster. 
+Notice that the counts to the right of the filter values show how many occurrences there are in the current filtered set. 
+
+In this example, it's clear that the `Reports/Employees` request results in the majority of the 500 errors:
+
+![Expand a property and choose a value](./media/app-insights-diagnostic-search/04-failingReq.png)
+
+Additionally if you want to also see what other events were happening during this time, you can check **Include events with undefined properties**.
+
+## Inspect individual occurrences
+
+Add that request name to the filter set, and you can then inspect individual occurrences of that event.
+
+![Select a value](./media/app-insights-diagnostic-search/05-reqDetails.png)
+
+For Request events, the details show exceptions that occurred while the request was being processed.
+
+Click through an exception to see its detail.
+
+![Click an exception](./media/app-insights-diagnostic-search/06-callStack.png)
+
+## Find events with the same property
+
+Find all the items with the same property value:
+
+![Right-click a property](./media/app-insights-diagnostic-search/12-samevalue.png)
+
+## Search by metric value
+
+Get all the requests response time > 5s.  Times are represented in ticks: 10 000 ticks = 1ms.
+
+!["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
+
+
+
+## Search the data
+
+You can search for terms in any of the property values. This is particularly useful if you have written [custom events][track] with property values. 
+
+You might want to set a time range, as searches over a shorter range are faster. 
 
 ![Open diagnostic search](./media/appinsights/appinsights-311search.png)
 
 Search for terms, not substrings. Terms are alphanumeric strings including some punctuation such as '.' and '_'. For example:
 
-<table>
-  <tr><th>term</th><th>is NOT matched by</th><th>but these do match</th></tr>
-  <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
-  <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
-  <tr><td>New Delay</td><td>w d</td><td>new<br/>delay<br/>n* AND d*</td></tr>
-</table>
+term|is *not* matched by|but these do match
+---|---|---
+HomeController.About|about<br/>home|h\*about<br/>home\*
+IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
+New Delay|w d|new<br/>delay<br/>n\* AND d\*
+
 
 Here are the search expressions you can use:
 
-<table>
-                    <tr>
-                      <th>
-                        <p>Sample query</p>
-                      </th>
-                      <th>
-                        <p>Effect</p>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">slow</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find all events in the date range whose fields include the term "slow"</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">database??</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Matches database01, databaseAB, ...</p>
-                        <p>? is not allowed at the start of a search term.</p>
-                      </td>
-                    </tr>
-                     <tr>
-                      <td>
-                        <p>
-                          <span class="code">database*</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Matches database, database01, databaseNNNN</p>
-                        <p>* is not allowed at the start of a search term</p>
-                      </td>
-                    </tr>
-                   <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple AND banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain both terms. Use capital "AND", not "and".</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple OR banana</span>
-                        </p>
-                        <p>
-                          <span class="code">apple banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain either term. Use "OR", not "or".</p>
-                        <p>Short form.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple NOT banana</span>
-                        </p>
-                        <p>
-                          <span class="code">apple -banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain one term but not the other.</p>
-                        <p>Short form.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>app* AND banana NOT (grape OR pear)</p>
-                        <p>
-                          <span class="code">app* AND banana -(grape pear)</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Logical operators and bracketing.</p>
-                        <p>Shorter form.</p>
-                      </td>
-                    </tr>
-       <!-- -- fielded search feature not ready yet --
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">message:slow</span>
-                        </p>
-                        <p>
-                          <span class="code">ipaddress:(10.0.0.* OR 192.168.0.*)</span>
-                        </p>
-                        <p>
-                          <span class="code">properties.logEventInfo.level:Error</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Match the specified field. By default, all fields are searched. To see what fields are available, select an event to look at its detail.</p>
-                      </td>
-                    </tr>
- -->
-</table>
+Sample query | Effect 
+---|---
+slow|Find all events in the date range whose fields include the term "slow"
+database??|Matches database01, databaseAB, ...<br/>? is not allowed at the start of a search term.
+database*|Matches database, database01, databaseNNNN<br/>* is not allowed at the start of a search term
+apple AND banana|Find events that contain both terms. Use capital "AND", not "and".
+apple OR banana<br/>apple banana|Find events that contain either term. Use "OR", not "or".</br/>Short form.
+apple NOT banana<br/>apple -banana|Find events that contain one term but not the other.<br/>Short form.
+app* AND banana -(grape pear)|Logical operators and bracketing.
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | Find events that contain the named measurement within the value range.
+
+
+## Save your search
+
+When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
+
+![Click Favorite, set the name, and click Save](./media/app-insights-diagnostic-search/08-favorite-save.png)
+
+
+To see the search again, **go to the overview blade** and open Favorites:
+
+![Favorites tile](./media/app-insights-diagnostic-search/09-favorite-get.png)
+
+If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time.
+
 
 ## Send more telemetry to Application Insights
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework. This means you can search through your log traces and correlate them with page views, exceptions, and other events.
-* Write code to send custom events, page views, and exceptions. 
+* Capture log traces from your favorite logging framework in [.NET][netlogs] or [Java][javalogs]. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
+* [Write code][track] to send custom events, page views, and exceptions. 
 
-[Learn how to send logs and custom telemetry to Application Insights][trace]
- 
+[Learn how to send logs and custom telemetry to Application Insights][trace].
+
 
 ## <a name="questions"></a>Q & A
 
 ### <a name="limits"></a>How much data is retained?
 
 Up to 500 events per second from each application. Events are retained for seven days.
+
+### How can I see POST data in my server requests?
+
+We don't log the POST data automatically, but you can use [TrackTrace or log calls][trace]. Put the POST data in the message parameter. You can't filter on the message the way you can properties, but the size limit is longer.
 
 ## <a name="add"></a>Next steps
 
@@ -200,10 +180,13 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 
+<!--Link references-->
 
-
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
-
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[javalogs]: app-insights-java-trace-logs.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[qna]: app-insights-troubleshoot-faq.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
 

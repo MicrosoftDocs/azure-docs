@@ -1,4 +1,4 @@
-These steps create a new custom [ApiController](http://go.microsoft.com/fwlink/p/?LinkId=512673) that sends push notifications to the app. You could implement this same code in a [TableController](http://msdn.microsoft.com/en-us/library/azure/dn643359.aspx) or anywhere else in your backend services. 
+These steps create a new custom [ApiController](http://go.microsoft.com/fwlink/p/?LinkId=512673) that sends push notifications to the app. You could implement this same code in a [TableController](http://msdn.microsoft.com/library/azure/dn643359.aspx) or anywhere else in your backend services. 
 
 1. In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand **Add**, then click **New Scaffolded Item**.
 

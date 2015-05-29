@@ -1,6 +1,20 @@
-<properties pageTitle="Web app with table storage (Node.js) | Microsoft Azure" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." services="cloud-services, storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Web app with table storage (Node.js) | Microsoft Azure" 
+	description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." 
+	services="cloud-services, storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -8,6 +22,8 @@
 
 
 # Node.js Web Application using Storage
+
+## Overview
 
 In this tutorial, you will extend the application created in the
 [Node.js Web Application using Express] tutorial by using the Windows
@@ -74,7 +90,7 @@ and add them to the web.config settings:
 
 6.  Save the file and close notepad.
 
-###Install additional modules
+### Install additional modules
 
 2. Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
 
@@ -184,7 +200,7 @@ In this section you will extend the basic application created by the **express**
 
 6. Save and close the **task.js** file.
 
-###Create the controller
+### Create the controller
 
 1. In the **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 
@@ -273,7 +289,7 @@ In this section you will extend the basic application created by the **express**
 	
 4. Save the **app.js** file.
 
-###Modify the index view
+### Modify the index view
 
 1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
 
@@ -318,7 +334,7 @@ In this section you will extend the basic application created by the **express**
 
 3. Save and close **index.jade** file.
 
-###Modify the global layout
+### Modify the global layout
 
 The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.
 
@@ -364,7 +380,7 @@ Replace **myuniquename** with a unique name for this application. Replace **data
 After the deployment is complete, you should see a response similar to the following:
 
 	PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-	WARNING: Publishing tasklist to Windows Azure. This may take several minutes...
+	WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
 	WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
 	WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
 	WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
@@ -407,7 +423,7 @@ The following steps show you how to stop and delete your application.
 
 	Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
 
-  [Node.js Web Application using Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  

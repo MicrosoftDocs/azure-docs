@@ -1,6 +1,20 @@
-<properties pageTitle="Web App with Express (Node.js) - Azure Tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." services="cloud-services" documentationCenter="nodejs" authors="" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="Web App with Express (Node.js) - Azure Tutorial" 
+	description="A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -122,7 +136,7 @@ Once the deployment operation completes, your browser will open and display the 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 
-  [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/
   [http://jade-lang.com]: http://jade-lang.com
 

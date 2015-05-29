@@ -1,6 +1,20 @@
-<properties pageTitle="Get Started with authentication in Mobile Services for Xamarin Android apps - Azure Mobile Services" description="Learn how to use Mobile Services to authenticate users of your Xamarin Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." services="mobile-services" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Get Started with authentication in Mobile Services for Xamarin Android apps - Azure Mobile Services" 
+	description="Learn how to use Mobile Services to authenticate users of your Xamarin Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="04/13/2015" 
+	ms.author="donnam"/>
 
 # Get started with authentication in Mobile Services
 
@@ -90,10 +104,10 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/
-[Authorize users with scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript and HTML]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Get started with Mobile Services]: mobile-services-dotnet-backend-xamarin-android-get-started.md
+[Get started with authentication]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/

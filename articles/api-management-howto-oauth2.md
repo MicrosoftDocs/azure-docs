@@ -1,19 +1,26 @@
-<properties pageTitle="How to authorize developer accounts using OAuth 2.0 in Azure API Management" description="Learn how to authorize users using OAuth 2.0 in API Management." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to authorize developer accounts using OAuth 2.0 in Azure API Management" 
+	description="Learn how to authorize users using OAuth 2.0 in API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/10/2015" 
+	ms.author="sdanie"/>
 
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
 
 Many APIs support OAuth 2.0 to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. In order to use Azure API Management's interactive Developer Console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
 
 >For more information about OAuth 2.0, see the specification at [http://oauth.net/2/][].
-
-## In this topic
-
--   [Prerequisites][]
--   [Configure an OAuth 2.0 authorization server in API Management][]
--   [Configure an API to use OAuth 2.0 user authorization][]
--   [Test the OAuth 2.0 user authorization in the Developer Portal][]
 
 ## <a name="prerequisites"> </a>Prerequisites
 
@@ -23,9 +30,9 @@ This guide shows you how to configure your API Management service instance to us
 
 ## <a name="step1"> </a>Configure an OAuth 2.0 authorization server in API Management
 
-To get started, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
-![API Management console][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
@@ -135,16 +142,16 @@ At this point you can configure the desired values for the remaining parameters,
 
 
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to add and publish a product]: ../api-management-howto-add-products
-[Monitoring and analytics]: ../api-management-monitoring
-[Add APIs to a product]: ../api-management-howto-add-products/#add-apis
-[Publish a product]: ../api-management-howto-add-products/#publish-product
-[Get started with Azure API Management]: ../api-management-get-started
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
-[API Management policy reference]: ../api-management-policy-reference
-[Caching policies]: ../api-management-policy-reference/#caching-policies
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

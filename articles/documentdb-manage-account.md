@@ -1,40 +1,42 @@
-<properties pageTitle="Manage a DocumentDB account | Azure" description="Learn how to manage your DocumentDB account." services="documentdb" documentationCenter="" authors="docdbadmin" manager="jhubbard" editor="cgronlun"/>
+<properties 
+	pageTitle="Manage a DocumentDB account | Azure" 
+	description="Learn how to manage your DocumentDB account." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="hawong"/>
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/29/2015" 
+	ms.author="stbaro"/>
 
 #How to manage a DocumentDB account
 
+Learn how to work with keys, consistency settings, and learn how to delete an account.
 
-Learn how to work with keys, consistency settings, and capacity settings, and learn how to delete an account.
-
-In this article
------------------
-
--   [How to: View, copy, and regenerate DocumentDB access keys](#keys)
--   [How to: Manage DocumentDB consistency settings](#consistency)
--   [How to: Manage DocumentDB capacity settings](#capacity)
--   [How to: Delete a DocumentDB account](#delete)
--   [Next steps](#next)
-
-## <a id="keys"></a> How to: View, copy, and regenerate access keys
+## <a id="keys"></a>View, copy, and regenerate access keys
 When you create a DocumentDB account, the service generates two master access keys that 
 can be used for authentication when the DocumentDB
 account is accessed. By providing two access keys, DocumentDB enables
 you to regenerate the keys with no interruption to your DocumentDB
 account.
 
-In the [Azure management preview
-portal](https://portal.azure.com/),
+In the [Microsoft Azure Preview portal](https://portal.azure.com/),
 access the **Keys** part from your **DocumentDB Account** blade to view,
 copy, and regenerate the access keys that are used to access your
 DocumentDB account.
 
-![](./media/documentdb-manage-account/image002.jpg)
+![](../includes/media/documentdb-keys/keys.png)
 
 ### View and copy an access key
 
-1.      In the [Azure Preview
-portal](https://portal.azure.com/), access your DocumentDB account. 
+1.      In the [Azure Preview portal](https://portal.azure.com/), access your DocumentDB account. 
 
 2.      In the **Summary** lens, click **Keys**.
 
@@ -62,7 +64,7 @@ your keys. The following steps outline the process involved in rolling your keys
 secondary access key of the DocumentDB account.
 
 2.      Regenerate the primary access key for your DocumentDB account.
-In the  [Azure management preview portal](https://portal.azure.com/),
+In the  [Azure Preview portal](https://portal.azure.com/),
 access your DocumentDB account.
 
 3.      In the Summary lens, click **Keys**.
@@ -79,7 +81,7 @@ your application code to reference the new primary access key.
 *Note that it can take several minutes before a newly generated key can
 be used to access your DocumentDB account.*
 
-## <a id="consistency"></a> How to: Manage DocumentDB Consistency Settings
+## <a id="consistency"></a>Manage DocumentDB Consistency Settings
 DocumentDB supports four well-defined user-configurable data consistency
 levels to allow developers to make predictable
 consistency-availability-latency trade-offs.
@@ -106,8 +108,7 @@ Level](http://go.microsoft.com/fwlink/p/?LinkId=402365) section.*
 
 ### To specify the default consistency for a DocumentDB Account
 
-1.      In the [Azure management preview
-portal](https://portal.azure.com/), access your DocumentDB account. 
+1.      In the [Azure Preview portal](https://portal.azure.com/), access your DocumentDB account. 
 
 2.      In the **Configuration** lens, click **Default Consistency**.
 
@@ -120,57 +121,18 @@ level you want for your DocumentDB account.
 
 4.      Click **Save**.
 
-5.      The progress of the operation may be monitored via the Azure
-management preview portal Notifications hub.
+5.      The progress of the operation may be monitored via the Azure Preview portal Notifications hub.
 
 *Note that it can take several minutes before a change to the default
 consistency setting takes affect across your DocumentDB account.*
-
-## <a id="capacity"></a> How to: Manage DocumentDB capacity settings
-Microsoft Azure DocumentDB allows you to scale elastically as the
-demands of your application change throughout its lifecycle. Scaling
-DocumentDB is accomplished by increasing the capacity of your DocumentDB
-database account through the Azure management preview portal.
-
-When you create a database account, it is provisioned with database
-storage and reserved throughput. At any time you can change the
-provisioned database storage and throughput for your account by adding
-or removing capacity units through the Azure management preview portal. 
-
-### To add or remove capacity units
-
-1.      In the [Azure management preview
-portal](https://portal.azure.com/), access your DocumentDB account. 
-
-2.      In the **Usage** lens, click **Scale**.
-
-3.      On the **Scale** blade, specify the number of capacity units you
-want for your DocumentDB account.
-
-
-![](./media/documentdb-manage-account/image007.png)
-
-4.      Click **Save** (note that it can take several minutes for the
-scaling operation to complete, you can monitor the progress via the
-Azure management preview portal Notifications hub).
-
- *Note that the DocumentDB Preview supports a maximum of 5 capacity
-units per DocumentDB account.*
- 
 
 ## <a id="delete"></a> How to: Delete a DocumentDB account
 To remove a DocumentDB account that you are no longer using, use the
 **Delete** command on the **DocumentDB Account** blade.
 
-> [AZURE.WARNING] In the preview release, there is no way to restore the content from a
-deleted DocumentDB account.  Deleting a DocumentDB account will delete
-all of the account’s resources, including databases, collections,
-documents and attachments.*
-
 ![](./media/documentdb-manage-account/image009.png)
 
-1.      In the [Azure management preview
-portal](https://portal.azure.com/), access the DocumentDB Account you
+1.      In the [Azure Preview portal](https://portal.azure.com/), access the DocumentDB Account you
 wish to delete. 
 
 2.      On the **DocumentDB Account** blade, click the **Delete** command.

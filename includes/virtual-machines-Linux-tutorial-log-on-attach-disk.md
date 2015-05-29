@@ -30,9 +30,9 @@ This tutorial shows you how to use the PuTTY program to access the virtual machi
 
 Your application may need to store data. To set this up, you attach a data disk to the virtual machine that you previously created. The easiest way to do this is to attach an empty data disk to the machine.
 
-On Linux, the Resource Disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, on Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. Please see the [Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
+On Linux, the Resource Disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, on Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. Please see the [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md) for more information.
 
->[AZURE.NOTE] Don’t store data on the resource disk. This disk provides temporary storage for applications and processes and is used to store data that you don’t need to keep, such as swap files. Data disks reside Azure Storage as .vhd files in page blobs and provide storage redundancy to protect your data. For details, see [About Disks and Images in Azure](http://msdn.microsoft.com/en-us/library/jj672979.aspx).
+>[AZURE.NOTE] Don’t store data on the resource disk. This disk provides temporary storage for applications and processes and is used to store data that you don’t need to keep, such as swap files. Data disks reside Azure Storage as .vhd files in page blobs and provide storage redundancy to protect your data. For details, see [About Disks and Images in Azure](http://msdn.microsoft.com/library/jj672979.aspx).
 
 1. If you have not already done so, sign in to the Azure Management Portal.
 

@@ -1,33 +1,29 @@
-<properties pageTitle="Quick start guide for the Machine Learning Recommendations API | Azure" description="Azure Machine Learning Recommendations - Quick Start Guide" services="machine-learning" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Quick start guide for the Machine Learning Recommendations API | Azure" 
+	description="Azure Machine Learning Recommendations - Quick Start Guide" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe"/> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/15/2015" 
+	ms.author="jaymathe"/> 
 
 # Quick start guide for the Machine Learning Recommendations API
 
 Version: 1.0<br>
-Latest version can be found [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-recommendation-api-quick-start-guide/)
+Latest version can be found [here](machine-learning-recommendation-api-quick-start-guide.md)
 
 This document depicts how to onboard your service or application to use Azure ML Recommendations. 
 
-##Contents
-
-- [General Overview](#general-overview)
-- [Limitations](#limitations)
-- [Integration](#integration)
-	- [Authentication](#authentication)
-	- [Service URI](#service-uri)
-	- [API Version](#api-version)
-	- [Create a model](#create-a-model)
-	- [Import catalog data](#import-catalog-data)
-	- [Import usage data](#import-usage-data)
-		- [Uploading file](#uploading-file)
-		- [Using data acquisition](#using-data-acquisition)
-	- [Build a recommendation model](#build-a-recommendation-model)
-	- [Get Builds Status of a Model](#get-builds-status-of-a-model)
-	- [Get Recommendations](#get-recommendations)
-	- [Update Model](#update-model)
-- [Legal](#legal)
-
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ##General Overview
 

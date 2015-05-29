@@ -49,7 +49,7 @@ Running Windows Server AD in Azure VMs can make sense in several different situa
 
 - An organization that uses Azure for disaster recovery might maintain a small set of active VMs in the cloud, including a domain controller. It can then be prepared to expand this site as needed to take over for failures elsewhere.
 
-There are also other possibilities. For example, you're not required to connect Windows Server AD in the cloud to an on-premises datacenter. If you wanted to run a SharePoint farm that served a particular set of users, for instance, all of whom would log in solely with cloud-based identities, you might create a standalone forest on Azure. How you use this technology depends on what your goals are. (For more detailed guidance on using Windows Server AD with Azure, [see here](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).)
+There are also other possibilities. For example, you're not required to connect Windows Server AD in the cloud to an on-premises datacenter. If you wanted to run a SharePoint farm that served a particular set of users, for instance, all of whom would log in solely with cloud-based identities, you might create a standalone forest on Azure. How you use this technology depends on what your goals are. (For more detailed guidance on using Windows Server AD with Azure, [see here](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).)
 
 ## <a name="ad"></a>Using Azure Active Directory
 

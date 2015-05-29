@@ -1,19 +1,33 @@
-<properties pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." services="web-sites" documentationCenter=".net" authors="cephalin" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Deploy an ASP.NET MVC 5 mobile web app in Azure App Service" 
+	description="A tutorial that teaches you how to deploy a web app to Azure App Service using mobile features in ASP.NET MVC 5 web application." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"/>
+<tags 
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="04/29/2015" 
+	ms.author="cephalin;riande"/>
 
 
-# Deploy an ASP.NET MVC 5 Mobile Web Application on Azure Websites
+# Deploy an ASP.NET MVC 5 mobile web app in Azure App Service
 
 This tutorial will teach you the basics of how to build an ASP.NET MVC 5
-Web application that is mobile-friendly and deploy it into Windows Azure. For this tutorial, you need 
+web app that is mobile-friendly and deploy it to Azure App Service. For this tutorial, you need 
 [Visual Studio Express 2013 for Web][Visual Studio Express 2013]
 or the professional edition of Visual Studio if you already
 have that.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-### What You'll Build
+## What You'll Build
 
 For this tutorial, you'll add mobile features to the simple
 conference-listing application that's provided in the [starter project][StarterProject]. The following screenshot shows the ASP.NET sessions in the completed
@@ -26,11 +40,11 @@ You can use the Internet Explorer 11 F12 developer tools and the [Fiddler
 tool][Fiddler] to help debug your
 application. 
 
-### Skills You'll Learn
+## Skills You'll Learn
 
 Here's what you'll learn:
 
--	How to use Visual Studio 2013 to publish your Web application directly to a Windows Azure Website.
+-	How to use Visual Studio 2013 to publish your web application directly to a web app in Azure App Service.
 -   How the ASP.NET MVC 5 templates use the CSS Bootstrap framework to
     improve display on mobile devices
 -   How to create mobile-specific views to target specific mobile
@@ -38,14 +52,12 @@ Here's what you'll learn:
 -   How to create responsive views (views that respond to different
     browsers across devices)
 
-<h2>Set up the development environment</h2>
+## Set up the development environment
 
-Set up your development environment by installing the Azure SDK for the .NET Framework. 
+Set up your development environment by installing the Azure SDK for .NET 2.5.1 or later. 
 
 1. To install the Azure SDK for .NET, click the link below. If you don't have Visual Studio 2013 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2013. [Azure SDK for Visual Studio 2013][AzureSDKVs2013]
 1. In the Web Platform Installer window, click **Install** and proceed with the installation.
-
-	![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk23NetVS13]
 
 You will also need a mobile browser emulator. Any of the following will
 work:
@@ -61,18 +73,7 @@ this topic:
 -   [Starter project download][StarterProject]
 -   [Completed project download][CompletedProject]
 
-<h2>Steps in this tutorial</h2>
-
-- [Deploy the starter project to a Windows Azure Website][]
-- [Bootstrap CSS Framework][]
-- [Override the Views, Layouts, and Partial Views][]
-- [Improve the Speakers List][]
-- [Improve the Tags List][]
-- [Improve the Dates List][]
-- [Improve the SessionsTable View][]
-- [Improve the SessionByCode View][]
-
-<h3><a name="bkmk_DeployStarterProject"></a>Deploy the starter project to a Windows Azure Website</h3>
+##<a name="bkmk_DeployStarterProject"></a>Deploy the starter project to an Azure web app
 
 1.	Download the conference-listing application [starter project][StarterProject].
 
@@ -92,7 +93,7 @@ unzip the file.
 
 	![][DeployClickPublish]
 
-7.	In Publish Web, click **Windows Azure Websites**.
+7.	In Publish Web, click **Microsoft Azure Web Apps**.
 
 	![][DeployClickWebSites]
 
@@ -100,27 +101,21 @@ unzip the file.
 
 	![][DeploySignIn]
 
-9.	Type your Windows Azure username and click **Continue**.
+9.	Follow the prompts to log into your Azure account.
 
-	![][DeployUsername]
-
-10.	Type your password and click **Sign in**.
-
-	![][DeployPassword]
-
-11. The Select Existing Website dialog should now show you as signed in. Click **New**.
+11. The Select Existing Web App dialog should now show you as signed in. Click **New**.
 
 	![][DeployNewWebsite]  
 
-12. In the **Site name** field, specify a unique site name prefix. Your fully-qualified site name will be *&lt;prefix>*.azurewebsites.net. Also, in the **Region** field, select a region. Then, click **Create**.
+12. In the **Web App name** field, specify a unique app name prefix. Your fully-qualified web app name will be *&lt;prefix>*.azurewebsites.net. Also, configure the **App Service plan**, **Resource group**, and **Region** fields. Then, click **Create**.
 
 	![][DeploySiteSettings]
 
-13.	The Publish Web dialog will be filled with the site settings for your new Website. Click **Publish**.
+13.	The Publish Web dialog will be filled with the settings for your new web app. Click **Publish**.
 
 	![][DeployPublishSite]
 
-	Once Visual Studio finishes publishing the starter project to the Windows Azure Website, the desktop browser opens to display the live Website.
+	Once Visual Studio finishes publishing the starter project to the Azure web app, the desktop browser opens to display the live web app.
 
 14.	Start your mobile browser emulator, copy the URL for
 the conference application (*<prefix>*.azurewebsites.net) into the emulator, and then click the
@@ -132,7 +127,7 @@ image below shows the *AllTags* view in portrait mode (from choosing
 
 	![][AllTags]
 
->[AZURE.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your Website to Windows Azure again to verify the live site directly from your mobile browser or a browser emulator.
+>[AZURE.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your web app to Azure again to verify the live web app directly from your mobile browser or a browser emulator.
 
 The display is very readable on a mobile device. You can also already
 see some of the visual effects applied by the Bootstrap CSS framework.
@@ -146,7 +141,7 @@ the mobile browser. For example, the **Date** column is difficult to
 read. Later in the tutorial you'll change the *AllTags* view to make it
 mobile-friendly.
 
-<h2><a name="bkmk_bootstrap"></a>Bootstrap CSS Framework</h2>
+##<a name="bkmk_bootstrap"></a> Bootstrap CSS Framework
 
 New in the MVC 5 template is built-in Bootstrap support. You have
 already seen how it immediately improves the different views in your
@@ -193,7 +188,7 @@ For more information about Bootstrap, go to the
 In the next section you'll see how to provide mobile-browser specific
 views.
 
-<h2><a name="bkmk_overrideviews"></a>Override the Views, Layouts, and Partial Views</h2>
+##<a name="bkmk_overrideviews"></a> Override the Views, Layouts, and Partial Views
 
 You can override any view (including layouts and partial views) for
 mobile browsers in general, for an individual mobile browser, or for any
@@ -237,7 +232,7 @@ In contrast, the desktop display has not changed (with titles from from *\_Layou
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-<h2><a name="bkmk_browserviews"></a>Create Browser-Specific Views</h2>
+##<a name="bkmk_browserviews"></a> Create Browser-Specific Views
 
 In addition to mobile-specific and desktop-specific views, you can
 create views for an individual browser. For example, you can create
@@ -345,7 +340,7 @@ across desktop, phone, and tablet browsers to create a consistent look and
 feel. In the next section you'll see how to leverage Bootstrap to create
 mobile-friendly views.
 
-<h2><a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List</h2>
+##<a name="bkmk_Improvespeakerslist"></a> Improve the Speakers List
 
 As you just saw, the *Speakers* view is readable, but the links are
 small and are difficult to tap on a mobile device. In this section,
@@ -469,7 +464,7 @@ according to your search string.
 
 ![][AllSpeakersFixedSearchBySC]
 
-<h2><a name="bkmk_improvetags"></a> Improve the Tags List</h2>
+##<a name="bkmk_improvetags"></a> Improve the Tags List
 
 Like the *Speakers* view, the *Tags* view is readable, but the links
 are small and difficult to tap on a mobile device. You can fix the *Tags* view the same way you fix the *Speakers* view, if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllTags.cshtml*:
@@ -489,7 +484,7 @@ And the refreshed mobile browser looks as follows:
 
 >[AZURE.NOTE] If you notice that the original list formatting is still there in the mobile browser and wonder what happened to your nice Bootstrap styling, this is an artifact of your earlier action to create mobile specific views. However, now that you are using the Bootstrap CSS framework to create a responsive web design, go head and remove these mobile-specific views and the mobile-specific layout views. Once you have done so, the refreshed mobile browser will show the Bootstrap styling.
 
-<h2><a name="bkmk_improvedates"></a> Improve the Dates List</h2>
+##<a name="bkmk_improvedates"></a> Improve the Dates List
 
 You can improve the *Dates* view like you improved the *Speakers* and
 *Tags* views if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllDates.cshtml*:
@@ -546,7 +541,7 @@ Switch to the desktop browser. Again, note the consistent look.
 
 ![][AllDatesFixed2Desktop]
 
-<h2><a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View</h2>
+##<a name="bkmk_improvesessionstable"></a> Improve the SessionsTable View
 
 In this section, you'll make the *SessionsTable* view more
 mobile-friendly. This change is more extensive the previous changes.
@@ -623,7 +618,7 @@ In the desktop browser, notice that the tags are now displayed. Also, you can se
 applied arranges the session items in two columns. If you enlarge the
 browser, you will see that the arrangement changes to three columns.
 
-<h2><a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View</h2>
+##<a name="bkmk_improvesessionbycode"></a> Improve the SessionByCode View
 
 Finally, you'll fix the *SessionByCode* view to make it mobile-friendly.
 
@@ -691,13 +686,12 @@ changes that you just made:
 
 ![][SessionByCodeFixed3-644]
 
-Wrap Up and Review
-------------------
+## Wrap Up and Review
 
 This tutorial has shown you how to use ASP.NET MVC 5 to develop
 mobile-friendly Web applications. These include:
 
--	Deploy an ASP.NET MVC 5 application to a Windows Azure Website
+-	Deploy an ASP.NET MVC 5 application to an App Service web app
 -   Use Bootstrap to create responsive web layout in your MVC 5
     application
 -   Override layout, views, and partial views, both globally and for an
@@ -708,8 +702,7 @@ mobile-friendly Web applications. These include:
     browser
 -   Apply Bootstrap styling in Razor code
 
-See Also
---------
+## See Also
 
 -   [9 basic principles of responsive web design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   [Bootstrap][BootstrapSite]
@@ -719,8 +712,12 @@ See Also
 -   [W3C Recommendation Mobile Web Application Best Practices][]
 -   [W3C Candidate Recommendation for media queries][]
 
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+
 <!-- Internal Links -->
-[Deploy the starter project to a Windows Azure Website]: #bkmk_DeployStarterProject
+[Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
 [Bootstrap CSS Framework]: #bkmk_bootstrap
 [Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
 [Create Browser-Specific Views]:#bkmk_browserviews
@@ -734,7 +731,7 @@ See Also
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
-[EmulatorIE11]: http://msdn.microsoft.com/en-us/library/ie/dn255001.aspx
+[EmulatorIE11]: http://msdn.microsoft.com/library/ie/dn255001.aspx
 [EmulatorChrome]: https://developers.google.com/chrome-developer-tools/docs/mobile-emulation
 [EmulatorOpera]: http://www.opera.com/developer/tools/mobile/
 [StarterProject]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409

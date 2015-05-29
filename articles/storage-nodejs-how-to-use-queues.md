@@ -1,49 +1,43 @@
-<properties pageTitle="How to use the queue service (Node.js) | Microsoft Azure" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." services="storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use Queue storage from Node.js | Microsoft Azure" 
+	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." 
+	services="storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+	ms.author="mwasson"/>
 
 
+# How to use Queue storage from Node.js
 
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
+## Overview
 
-# How to Use the Queue Service from Node.js
-
-This guide shows you how to perform common scenarios using the Windows
+This guide shows you how to perform common scenarios using the Microsoft
 Azure Queue service. The samples are written using the Node.js
 API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and
-deleting queues**. For more information on queues, refer to the [Next Steps][] section.
+deleting queues**.
 
-## Table of Contents
+[AZURE.INCLUDE [storage-queue-concepts-include](../includes/storage-queue-concepts-include.md)]
 
-* [What is the Queue Service?][]   
-* [Concepts][]   
-* [Create an Azure Storage Account][]  
-* [Create a Node.js Application][]   
-* [Configure your Application to Access Storage][]   
-* [Setup an Azure Storage Connection String][]   
-* [How To: Create a Queue][]   
-* [How To: Insert a Message into a Queue][]   
-* [How To: Peek at the Next Message][]   
-* [How To: Dequeue the Next Message][]   
-* [How To: Change the Contents of a Queued Message][]   
-* [How To: Additional Options for Dequeuing Messages][]   
-* [How To: Get the Queue Length][]   
-* [How To: Delete a Queue][]   
-* [How To: Working with Shared Access Signatures][]
-* [Next Steps][]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
-
-<h2><a name="create-account"></a>Create an Azure Storage account</h2>
-
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-## <a name="create-app"> </a>Create a Node.js Application
+## Create a Node.js Application
 
 Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
-## <a name="configure-access"> </a>Configure Your Application to Access Storage
+## Configure Your Application to Access Storage
 
 To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
@@ -77,13 +71,13 @@ Using Notepad or another text editor, add the following to the top the
 
     var azure = require('azure-storage');
 
-## <a name="setup-connection-string"> </a>Setup an Azure Storage Connection
+## Setup an Azure Storage Connection
 
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
 
 For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
 
-## <a name="create-queue"> </a>How To: Create a Queue
+## How To: Create a Queue
 
 The following code creates a **QueueService** object, which enables you
 to work with queues.
@@ -102,7 +96,7 @@ name if it does not already exist.
 
 If the queue is created, `result` is true. If the queue exists, `result` is false.
 
-###Filters
+### Filters
 
 Optional filtering operations can be applied to operations performed using **QueueService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
@@ -119,7 +113,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
-## <a name="insert-message"> </a>How To: Insert a Message into a Queue
+## How To: Insert a Message into a Queue
 
 To insert a message into a queue, use the **createMessage** method to
 create a new message and add it to the queue.
@@ -130,7 +124,7 @@ create a new message and add it to the queue.
 	  }
 	});
 
-## <a name="peek-message"> </a>How To: Peek at the Next Message
+## How To: Peek at the Next Message
 
 You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peekMessages** method. By default,
@@ -146,7 +140,7 @@ The `result` contains the message.
 
 > [AZURE.NOTE] Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
 
-## <a name="get-message"> </a>How To: Dequeue the Next Message
+## How To: Dequeue the Next Message
 
 Processing a message is a two-stage process:
 
@@ -173,7 +167,7 @@ To dequeue a message, use **getMessage**. This makes the message invisible in th
 > [AZURE.NOTE]
 > Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.
 
-## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message
+## How To: Change the Contents of a Queued Message
 
 You can change the contents of a message in-place in the queue using **updateMessage**. The following example updates the text of a message:
 
@@ -189,7 +183,7 @@ You can change the contents of a message in-place in the queue using **updateMes
 	  }
 	});
 
-## <a name="advanced-get"> </a>How To: Additional Options for Dequeuing Messages
+## How To: Additional Options for Dequeuing Messages
 
 There are two ways you can customize message retrieval from a queue:
 
@@ -214,7 +208,7 @@ each message using a for loop. It also sets the invisibility timeout to five min
 	  }
 	});
 
-## <a name="get-queue-length"> </a>How To: Get the Queue Length
+## How To: Get the Queue Length
 
 The **getQueueMetadata** returns metadata about the queue, including the approximate number of messages waiting in the queue.
 
@@ -224,7 +218,7 @@ The **getQueueMetadata** returns metadata about the queue, including the approxi
 	  }
 	});
 
-## <a name="list-queue"> </a>How To: List Queues
+## How To: List Queues
 
 To retrieve a list of queues, use **listQueuesSegmented**. To retrieve a list filtered by a specific prefix, use **listQueuesSegmentedWithPrefix**.
 
@@ -236,7 +230,7 @@ To retrieve a list of queues, use **listQueuesSegmented**. To retrieve a list fi
 
 If all queues cannot be returned, `result.continuationToken` can be used as the first parameter of **listQueuesSegmented** or the second parameter of **listQueuesSegmentedWithPrefix** to retrieve more results.
 
-## <a name="delete-queue"> </a>How To: Delete a Queue
+## How To: Delete a Queue
 
 To delete a queue and all the messages contained in it, call the
 **deleteQueue** method on the queue object.
@@ -249,7 +243,7 @@ To delete a queue and all the messages contained in it, call the
 
 To clear all messages from a queue without deleting it, use **clearMessages**.
 
-## <a name="sas"></a>How to: Work with Shared Access Signatures
+## How to: Work with Shared Access Signatures
 
 Shared Access Signatures (SAS) are a secure way to provide granular access to queues without providing your storage account name or keys. SAS are often used to provide limited access to your queues, such as allowing a mobile app to submit messages.
 
@@ -286,7 +280,7 @@ The client application then uses the SAS with **QueueServiceWithSAS** to perform
 
 Since the SAS was generated with add access, if an attempt were made to read, update or delete messages, an error would be returned.
 
-###Access control lists
+### Access control lists
 
 You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access the queue, but provide different access policies for each client.
 
@@ -329,37 +323,21 @@ Once the ACL has been set, you can then create a SAS based on the ID for a polic
 
 	queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
-## <a name="next-steps"> </a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of queue storage, follow these links
-to learn how to do more complex storage tasks.
+to learn about more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][].
 -   Visit the [Azure Storage Team Blog][].
 -   Visit the [Azure Storage SDK for Node][] repository on GitHub.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-  [Next Steps]: #next-steps
-  [What is the Queue Service?]: #what-is
-  [Concepts]: #concepts
-  [Create an Azure Storage Account]: #create-account
-  [Create a Node.js Application]: #create-app
-  [Configure your Application to Access Storage]: #configure-access
-  [Setup an Azure Storage Connection String]: #setup-connection-string
-  [How To: Create a Queue]: #create-queue
-  [How To: Insert a Message into a Queue]: #insert-message
-  [How To: Peek at the Next Message]: #peek-message
-  [How To: Dequeue the Next Message]: #get-message
-  [How To: Change the Contents of a Queued Message]: #change-contents
-  [How To: Additional Options for Dequeuing Messages]: #advanced-get
-  [How To: Get the Queue Length]: #get-queue-length
-  [How To: Delete a Queue]: #delete-queue
-  [How To: Working with Shared Access Signatures]: #sas
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Node.js Cloud Service with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js Web Application with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: storage-nodejs-use-table-storage-cloud-service-app.md
+  [Node.js Web Application with Storage]: storage-nodejs-use-table-storage-web-site.md
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -368,7 +346,7 @@ to learn how to do more complex storage tasks.
   
   
   
-  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
- [Web Site with WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
+ [Web Site with WebMatrix]: web-sites-nodejs-use-webmatrix.md

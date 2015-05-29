@@ -1,11 +1,28 @@
-<properties pageTitle="Error During Authentication Detection" description="" services="active-directory" documentationCenter="" authors="kempb" manager="douge" editor=""/>
+<properties 
+	pageTitle="Error During Authentication Detection" 
+	description="The active directory connection wizard detected an incompatible authentication type" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb"/>
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/06/2015" 
+	ms.author="kempb"/>
 
-###Error During Authentication Detection 
+# Error During Authentication Detection
+
 While detecting previous authentication code, the wizard detected an incompatible authentication type.   
 
 ###What is being checked?
+
+**Note:** In order to correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have previous authentication code in your project, rebuild and try again.
 
 ####Project Types
 

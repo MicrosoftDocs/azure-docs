@@ -1,44 +1,55 @@
-<properties pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" 
+	description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/23/2015" 
+	ms.author="wesmc"/>
 
 # Role Based Access Control in Mobile Services and Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
+#Overview
 
 Roles-based access control (RBAC) is the practice of assigning permissions to roles that your users can hold, nicely defining boundaries on what certain classes of users can and cannot do. This tutorial will walk you through how to add basic RBAC to Azure Mobile Services.
 
 This tutorial will demonstrate role based access control, checking each user's membership to a Sales group defined in the Azure Active Directory (AAD). The access check will be done with JavaScript in the mobile service backend using the [Graph API] for Azure Active Directory. Only users who belong to the Sales role will be allowed to query the data.
 
 
->[AZURE.NOTE] The intent of this tutorial is to extend your knowledge of authentication to include authorization practices. It is expected that you first complete the [Get Started with Authentication] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Get Started with Authentication] tutorial.
+>[AZURE.NOTE] The intent of this tutorial is to extend your knowledge of authentication to include authorization practices. It is expected that you first complete the [Add authentication to your Mobile Service app] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Add authentication to your Mobile Service app] tutorial.
 
-This tutorial walks you through the following steps:
-
-1. [Create a Sales group with membership]
-2. [Generate a key for the Integrated Application]
-3. [Add a shared script that checks membership] 
-4. [Add role based access checking to the database operations]
-5. [Test client access]
+##Prerequisites
 
 This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
-* Completion of the [Get Started with Authentication] tutorial using the Azure Active Directory authentication provider.
+* Completion of the [Add authentication to your Mobile Service app] tutorial using the Azure Active Directory authentication provider.
 * Completion of the [Store Server Scripts] tutorial to be familiar with using a Git repository to store server scripts.
  
 
 
-## <a name="create-group"></a>Create a Sales group with membership
+##Create a Sales group with membership
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-## <a name="generate-key"></a>Generate a key for the Integrated Application
+##Generate a key for the Integrated Application
 
 
-During the [Get Started with Authentication] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step. In this section you generate a key to be used when reading directory information with that integrated application's client ID. 
+During the [Add authentication to your Mobile Service app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step. In this section you generate a key to be used when reading directory information with that integrated application's client ID. 
+
+If you went through the [Accessing Azure Active Directory Graph Information] tutorial, you have already completed this step and can skip this section.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
@@ -46,7 +57,7 @@ During the [Get Started with Authentication] tutorial, you created a registratio
 
 
 
-## <a name="add-shared-script"></a>Add a shared script to the mobile service that checks membership
+##Add a shared script to the mobile service that checks membership
 
 In this section you will use Git to deploy a shared script file named *rbac.js* to your mobile service. This shared script file will contain the functions that use the [Graph API] to check the group membership of the user. 
 
@@ -156,10 +167,10 @@ If you are not familiar with deploying scripts to your mobile service with Git, 
 
 8. Save your changes to *rbac.js*.
 
-## <a name="add-access-checking"></a>Add role based access checking to the database operations
+##Add role based access checking to the database operations
 
 
-When you completed the [Get Started with Authentication] tutorial, you should have already set the table operations to require authentication as shown below.
+When you completed the [Add authentication to your Mobile Service app] tutorial, you should have already set the table operations to require authentication as shown below.
 
 ![][3]
 
@@ -243,7 +254,7 @@ The following steps demonstrate how to deploy role based access control using sc
 
     ![][4]
 
-## <a name="test-client"></a>Test the client's access
+##Test the client's access
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -251,12 +262,6 @@ The following steps demonstrate how to deploy role based access control using sc
 
 
 
-<!-- Anchors. -->
-[Create a Sales group with membership]: #create-group
-[Generate a key for the Integrated Application]: #generate-key
-[Add a shared script that checks membership]: #add-shared-script
-[Add role based access checking to the database operations]: #add-access-checking
-[Test client access]: #test-client
 
 
 <!-- Images -->
@@ -269,12 +274,13 @@ The following steps demonstrate how to deploy role based access control using sc
 [6]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/client-id-and-key.png
 
 <!-- URLs. -->
-[Get Started with Authentication]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Add authentication to your Mobile Service app]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md
+[How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
-[Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
-[Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Store Server Scripts]: mobile-services-store-scripts-source-control.md
+[Register to use an Azure Active Directory Login]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Graph API Error Reference]: http://msdn.microsoft.com/en-us/library/azure/hh974480.aspx
-[IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
+[Graph API Error Reference]: http://msdn.microsoft.com/library/azure/hh974480.aspx
+[IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
+[Accessing Azure Active Directory Graph Information]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md

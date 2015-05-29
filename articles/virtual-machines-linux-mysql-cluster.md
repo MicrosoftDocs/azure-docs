@@ -1,6 +1,20 @@
-<properties pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" services="virtual-machines" documentationCenter="" authors="bureado" manager="timlt" editor=""/>
+﻿<properties
+	pageTitle="Using load-balanced sets to clusterize MySQL on Linux"
+	description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="bureado"
+	manager="timlt"
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/14/2015"
+	ms.author="jparrel"/>
 
 # Using load-balanced sets to clusterize MySQL on Linux
 
@@ -178,7 +192,7 @@ Corosync is the underlying cluster infrastructure required for Pacemaker to work
 
 The main constraint for Corosync on Azure is that Corosync prefers multicast over broadcast over unicast communications, but Microsoft Azure networking only supports unicast.
 
-Fortunately, Corosync has a working unicast mode and the only real constraint is that, since all nodes are not communicating among themselves *automagically*, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and just change bind address, node lists and logging directory (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`) and enabling quorum tools. 
+Fortunately, Corosync has a working unicast mode and the only real constraint is that, since all nodes are not communicating among themselves *automagically*, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and just change bind address, node lists and logging directory (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`) and enabling quorum tools.
 
 **Note the `transport: udpu` directive below and the manually defined IP addresses for the nodes**.
 
@@ -257,7 +271,7 @@ Check it by running `sudo crm configure show`. Now, create a file (say, `/tmp/cl
           params drbd_resource="r0" \
           op monitor interval="29s" role="Master" \
           op monitor interval="31s" role="Slave"
-    
+
     ms ms_drbd_mysql drbd_mysql \
           meta master-max="1" master-node-max="1" \
             clone-max="2" clone-node-max="1" \
@@ -300,7 +314,7 @@ The following screenshot shows `crm_mon` with one node stopped (exit using Contr
 
 And this screenshot shows both nodes, with one master and one slave:
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png) 
+![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
 
 ## Testing
 
@@ -310,7 +324,7 @@ The hard way is shutting down the primary VM (hadb01) via the Portal or changing
 
 ## STONITH
 
-It should be possible to issue a VM shutdown via Azure Command Line Tools for Linux in lieu of a STONITH script that controls a physical device. You can use `/usr/lib/stonith/plugins/external/ssh` as a base and enable STONITH in the cluster's configuration. Azure CLI should be globally installed and the publish settings/profile should be loaded for the cluster's user.
+It should be possible to issue a VM shutdown via the Azure CLI in lieu of a STONITH script that controls a physical device. You can use `/usr/lib/stonith/plugins/external/ssh` as a base and enable STONITH in the cluster's configuration. Azure CLI should be globally installed and the publish settings/profile should be loaded for the cluster's user.
 
 Sample code for the resource available on [GitHub](https://github.com/bureado/aztonith). You need to change the cluster's configuration by adding the following to `sudo crm configure`:
 

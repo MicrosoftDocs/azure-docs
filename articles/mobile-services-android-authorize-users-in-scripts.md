@@ -1,6 +1,20 @@
-<properties pageTitle="Service-side authorization (Android) | Mobile Dev Center" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." services="" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Service-side authorization (Android) | Mobile Dev Center" 
+	description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="04/13/2015" 
+	ms.author="glenga"/>
 
 # Service-side authorization of Mobile Services users
 
@@ -50,7 +64,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 ## Test the app
 
-1. In Eclipse, open the project that you modified when you completed the tutorial [Get started with authentication].
+1. In Android Studio, open the project that you modified when you completed the tutorial [Get started with authentication].
 
 2. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 
@@ -90,9 +104,9 @@ This concludes the tutorials that demonstrate the basics of working with authent
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/

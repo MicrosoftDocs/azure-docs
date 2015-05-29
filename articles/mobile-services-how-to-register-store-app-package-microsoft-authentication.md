@@ -1,6 +1,20 @@
-<properties pageTitle="Register your Windows Store app package for Microsoft authentication" description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Register your Windows Store app package for Microsoft authentication" 
+	description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="04/13/2015" 
+	ms.author="glenga"/>
 
 # Register your Windows Store app package for Microsoft authentication
 
@@ -19,7 +33,7 @@ After you have registered your app package, remember to supply a value of <stron
 
 
 <!-- URLs. -->
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Authenticate your Windows Store app with Live Connect single sign-on]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Get started with users C#]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Get started with users JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Authenticate your Windows Store app with Live Connect single sign-on]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Get started with users C#]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with users JavaScript]: /develop/mobile/tutorials/get-started-with-users-js/

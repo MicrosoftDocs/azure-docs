@@ -1,16 +1,32 @@
-<properties pageTitle="" description="" services="mobile-services" documentationCenter="" authors="kempb" manager="douge" editor=""/>
+<properties 
+	pageTitle="" 
+	description="Describes what happened to your Azure Mobile Services project in Visual Studio" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="patshea123" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="JavaScript" 
+	ms.topic="article" 
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# What happened to my project?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-mobile-services-javascript-getting-started/)
-> - [What Happened](/documentation/articles/vs-mobile-services-javascript-what-happened/)
+> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
+> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 ###<span id="whathappened">What happened to my project?</id>
 
 #####References Added
 
-The Windows Azure Mobile Service library was added to your project in the form of a **MobileServices.js** file.
+The Azure Mobile Service library was added to your project in the form of a **MobileServices.js** file.
   
 #####Connection string values for Mobile Services 
 

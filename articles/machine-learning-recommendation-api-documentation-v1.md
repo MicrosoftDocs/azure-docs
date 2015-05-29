@@ -1,63 +1,30 @@
-<properties pageTitle="Azure Machine Learning Recommendations API Documentation" description="Azure Machine Learning Recommendations API Documentation" services="machine-learning" documentationCenter="" authors="AharonGumnik" manager="paulettm" editor="cgronlun"/>
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="AharonGumnik"/>
+﻿<properties 
+	pageTitle="Azure Machine Learning Recommendations API Documentation" 
+	description="Azure Machine Learning Recommendations API Documentation" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="oranms" 
+	manager="paulettm" 
+	editor="cgronlun"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/07/2015" 
+	ms.author="v-ahgumn"/>
+
 
 #Azure Machine Learning Recommendations API Documentation
+
 Version: 1.0<br>
-Latest version can be found [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-recommendation-api-documentation)
+Latest version can be found [here](machine-learning-recommendation-api-documentation.md)
 
 This document depicts Azure ML Recommendations APIs.
 
-##Contents
 
-- [1. General Overview](#1-general-overview)
-- [2. Limitations](#2-limitations)
-- [3. APIs – General Information](#3-apis--general-information)
-	- [3.1. Authentication](#31-authentication)
-	- [3.2. Service URI](#32-service-uri)
-	- [3.3. API Version](#33-api-version)
-- [4. Model Basic](#4-model-basic)
-	- [4.1. Create Model](#41-create-a-model)
-	- [4.2. Get Model](#42-get-model)
-	- [4.3. Get All Models](#43-get-all-models)
-	- [4.4. Update Model](#44-update-model)
-	- [4.5. Delete Model](#45-delete-model)
-- [5. Model Advanced](#5-model-advanced)
-	- [5.1. Model Data Insight](#51-model-data-insight)
-	- [5.2. Model Insight](#52-model-insight)
-	- [5.3. Get Model Sample](#53-get-model-sample)
-- [6. Model Business Rules](#6-model-business-rules)
-	- [6.1. Get Model Rules](#61-get-model-rules)
-	- [6.2. Add Rule](#62-add-rule)
-	- [6.3. Delete Rule](#63-delete-rule)
-	- [6.4. Delete All Rules](#64-delete-all-rules)
-- [7. Catalog](#7-catalog)
-	- [7.1. Import catalog data](#71-import-catalog-data)
-	- [7.2. Get Catalog](#72-get-catalog)
-	- [7.3. Get Catalog Items by Token](#73-get-catalog-items-by-token)
-- [8. Usage Data](#8-usage-data)
-	- [8.1. Import usage data](#81-import-usage-data)
-		- [8.1.1. Uploading file](#811-uploading-file)
-		- [8.1.2. Using data acquisition](#812-using-data-acquisition)
-	- [8.2. List Model Usage Files](#82-list-model-usage-files)
-	- [8.3. Get Usage Statistics](#83-get-usage-statistics)
-	- [8.4. Get Usage File Sample](#84-get-usage-file-sample)
-	- [8.5. Get Model Usage File](#85-get-model-usage-file)
-	- [8.6. Delete Usage File](#86-delete-usage-file)
-	- [8.7. Delete All Usage Files](#87-delete-all-usage-files)
-- [9. Build](#9-build)
-	- [9.1. Build a model](#91-build-a-model)
-	- [9.2. Get Builds Status of a Model](#92-get-builds-status-of-a-model)
-	- [9.3. Get Builds Status of a User](#93-get-builds-status-of-a-user)
-	- [9.4. Delete Build](#94-delete-build)
-	- [9.5. Cancel Build](#95-cancel-build)
-	- [9.6. Get Build Parameters](#96-get-build-parameters)
-- [10. Recommendation](#10-recommendation)
-	- [10.1. Get Recommendations](#101-get-recommendations)
-- [11. Notifications](#11-notifications)
-	- [11.1. Get Notifications](#111-get-notifications)
-	- [11.2. Delete Model Notifications](#112-delete-model-notifications)
-	- [11.3. Delete User Notifications](#113-delete-user-notifications)
-- [12. Legal](#12-legal)
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ##1. General Overview
 This document is an API reference. You should start with the “Azure ML Recommendation – Quick Start” document.
@@ -934,7 +901,7 @@ OData XML
 |:--------			|:--------								|
 |	apiVersion		| 1.0 |
 |||
-| Request Body | <ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
+| Request Body | <ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`|
 
 HTTP Status code: 200
 
@@ -2459,8 +2426,4 @@ Deletes all notifications for all models
 
 HTTP Status code: 200
 
-##12. Legal
-This document is provided “as-is”. Information and views expressed in this document, including URL and other Internet Web site references, may change without notice.<br><br>
-Some examples depicted herein are provided for illustration only and are fictitious. No real association or connection is intended or should be inferred.<br><br>
-This document does not provide you with any legal rights to any intellectual property in any Microsoft product. You may copy and use this document for your internal, reference purposes.<br><br>
-© 2014 Microsoft. All rights reserved.
+

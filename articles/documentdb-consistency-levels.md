@@ -1,6 +1,20 @@
-<properties pageTitle="Consistency levels in DocumentDB" description="DocumentDB has four consistency levels with associated performance levels to help application developers make predictable consistency-availability-latency trade-offs." services="documentdb" authors="mimig1" manager="jhubbard" editor="cgronlun" documentationCenter=""/>
+<properties 
+	pageTitle="Consistency levels in DocumentDB" 
+	description="DocumentDB has four consistency levels with associated performance levels to help application developers make predictable consistency-availability-latency trade-offs." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/05/2015" ms.author="mimig"/>
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/08/2015" 
+	ms.author="mimig"/>
 
 #Consistency levels in DocumentDB
 Developers are often faced with the challenge of choosing between the two extremes of strong and eventual consistency. The reality is that there are multiple consistency click-stops between these two extremes. In most real world scenarios, applications benefit from making fine grained trade-offs between consistency, availability, and latency. DocumentDB offers four well-defined consistency levels with associated performance levels. This allows application developers to make predictable consistency-availability-latency trade-offs.  
@@ -26,6 +40,8 @@ Strong consistency provides absolute guarantees on data consistency, but offers 
 **Bounded staleness**: Bounded staleness consistency guarantees the total order of propagation of writes with the possibility that reads lag behind writes by at most K prefixes. The read is always acknowledged by a majority quorum of replicas. The response of a read request specifies its relative freshness (in terms of K).  
 
 Bounded staleness provides more predictable behavior for read consistency while offering the lowest latency writes. As reads are acknowledged by a majority quorum, read latency is not the lowest offered by the system.    
+
+>[AZURE.NOTE] Bounded staleness guarantees monotonic reads only on explicit read requests. The echoed server response for write requests does not offer bounded staleness guarantees.
 
 **Session**: Unlike the global consistency models offered by strong and bounded staleness consistency levels, “session” consistency is tailored for a specific client session. Session consistency is usually sufficient since it provides guaranteed monotonic reads, and writes and ability to read your own writes. A read request for session consistency is issued against a replica that can serve the client requested version (part of the session cookie).  
 

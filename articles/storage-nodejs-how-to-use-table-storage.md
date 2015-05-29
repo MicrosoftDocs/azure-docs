@@ -1,52 +1,52 @@
-<properties pageTitle="How to use table storage (Node.js) | Microsoft Azure" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." services="storage" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use Table storage from Node.js | Microsoft Azure" 
+	description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." 
+	services="storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+	ms.author="mwasson"/>
 
-# How to Use the Table Service from Node.js
 
-This guide shows you how to perform common scenarios using the Windows
-Azure Table service. The samples are written written using the
-Node.js API. The scenarios covered include **creating and deleting a
-table, inserting and querying entities in a table**. For more
-information on tables, see the [Next Steps][] section.
+# How to use Table storage from Node.js
 
-## Table of Contents
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
-* [What is the Table Service?][]   
-* [Concepts][]   
-* [Create an Azure Storage Account](#create-account)
-* [Create a Node.js Application](#create-app)
-* [Configure your Application to Access Storage](#configure-access)
-* [Setup an Azure Storage Connection](#setup-connection-string)  
-* [How To: Create a Table](#create-table)
-* [How To: Add an Entity to a Table](#add-entity)
-* [How To: Update an Entity](#update-entity)
-* [How to: Work with Groups of Entities](#change-entities)
-* [How to: Retrieve an Entity](#query-for-entity)
-* [How to: Query a Set of Entities](#query-set-entities)
-* [How To: Delete an Entity](#delete-entity)
-* [How To: Delete a Table](#delete-table)   
-* [How to: Work with Shared Access Signatures](#sas)
-* [Next Steps][]
 
-[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+## Overview
 
-<h2><a name="create-account"></a>Create an Azure Storage account</h2>
+This topic shows how to perform common scenarios using the 
+Azure Table service in a Node.js application. 
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+The code examples in this topic assume you already have a Node.js application. For instructions on creating a Node.js application in Azure, see any of these topics:
 
-## <a name="create-app"> </a>Create a Node.js Application
+- [Build and deploy a Node.js website to Azure][Create and deploy a Node.js application to an Azure Web Site]
+- [Build and deploy a Node.js website to Azure using WebMatrix][Web Site with WebMatrix].
+- [Build and deploy a Node.js application to an Azure Cloud Service][Node.js Cloud Service] (using Windows PowerShell)
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
-## <a name="configure-access"> </a>Configure Your Application to Access Storage
+[AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
+
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
+
+
+## Configure your application to access Azure Storage
 
 To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
-### Use Node Package Manager (NPM) to obtain the package
+### Use Node Package Manager (NPM) to install the package
 
-1.  Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
+1.  Use a command-line interface such as **PowerShell** (Windows) **Terminal** (Mac) or **Bash** (Unix), and navigate to the folder where you created your application.
 
 2.  Type **npm install azure-storage** in the command window, which should result in the following output:
 
@@ -67,18 +67,17 @@ communicate with the storage REST services.
 
 ### Import the package
 
-Using Notepad or another text editor, add the following to the top the
-**server.js** file of the application where you intend to use storage:
+Add the following code to the top of the **server.js** file in your application:
 
     var azure = require('azure-storage');
 
-## <a name="setup-connection-string"> </a>Setup an Azure Storage Connection
+## Setup an Azure Storage Connection
 
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
 For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
 
-## <a name="create-table"> </a>How to Create a Table
+## Create a table
 
 The following code creates a **TableService** object and uses it to
 create a new table. Add the following near the top of **server.js**.
@@ -96,7 +95,7 @@ not already exist. The following example creates a new table named 'mytable' if 
 
 The `result` will be `true` if a new table is created, and `false` if the table already exists. `response` will contain information about the request.
 
-###Filters
+### Filters
 
 Optional filtering operations can be applied to operations performed using **TableService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
@@ -113,7 +112,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var tableSvc = azure.createTableService().withFilter(retryOperations);
 
-## <a name="add-entity"> </a>How to Add an Entity to a Table
+## Add an entity to a table
 
 To add an entity, first create an object that defines your entity
 properties. All entities must contain a **PartitionKey** and **RowKey**, which are unique identifiers for the entity.
@@ -156,11 +155,15 @@ the **insertEntity** method.
 
 If the operation is successful, `result` will contain the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` will contain information about the operation.
 
+Example response:
+
+	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
+
 > [AZURE.NOTE] By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or wish to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
-## <a name="update-entity"> </a>How to Update an Entity
+## Update an entity
 
 There are multiple methods available to update an existing entity:
 
@@ -194,11 +197,10 @@ With **updateEntity** and **mergeEntity**, if the entity that is being updated d
 
 The `result` for successful update operations will contain the **Etag** of the updated entity.
 
-## <a name="change-entities"> </a>How to Work with Groups of Entities
+## Work with groups of entities
 
 Sometimes it makes sense to submit multiple operations together in a
-batch to ensure atomic processing by the server. To accomplish that, you
-use the **TableBatch** class to create a batch, and then use the **executeBatch** method of **TableService** to perform the batched operations.
+batch to ensure atomic processing by the server. To accomplish that, use the **TableBatch** class to create a batch, and then use the **executeBatch** method of **TableService** to perform the batched operations.
 
  The following example demonstrates submitting two entities in a batch:
 
@@ -228,7 +230,7 @@ use the **TableBatch** class to create a batch, and then use the **executeBatch*
 
 For successful batch operations, `result` will contain information for each operation in the batch.
 
-###Working with batched operations
+### Working with batched operations
 
 Operations added to a batch can be inspected by viewing the `operations` property. You can also use the following methods to work with operations.
 
@@ -242,9 +244,9 @@ Operations added to a batch can be inspected by viewing the `operations` propert
 
 * **size** - returns the number of operations in the batch.
 
-## <a name="query-for-entity"> </a>How to retrieve an Entity
+## Retrieve an entity by key
 
-If you wish to return a specific entity based on the **PartitionKey** and **RowKey**, use the **retrieveEntity** method.
+To return a specific entity based on the **PartitionKey** and **RowKey**, use the **retrieveEntity** method.
 
     tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
 	  if(!error){
@@ -254,7 +256,7 @@ If you wish to return a specific entity based on the **PartitionKey** and **RowK
 
 Once this operation completes, `result` will contain the entity.
 
-## <a name="query-set-entities"> </a>How to Query a Set of Entities
+## Query a set of Entities
 
 To query a table, use the **TableQuery** object to build up a query
 expression using the following clauses:
@@ -286,7 +288,7 @@ Since **select** is not used, all fields will be returned. To perform the query 
 
 If successful, `result.entries` will contain an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` will be non-*null* and can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, the third parameter should be *null*.
 
-###How to Query a Subset of Entity Properties
+### How to Query a Subset of Entity Properties
 
 A query to a table can retrieve just a few fields from an entity.
 This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to be returned. For example, the following query will only return the **description** and **dueDate** fields.
@@ -296,7 +298,7 @@ This reduces bandwidth and can improve query performance, especially for large e
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## <a name="delete-entity"> </a>How to Delete an Entity
+## How to Delete an Entity
 
 You can delete an entity using its partition and row keys. In this
 example, the **task1** object contains the **RowKey** and
@@ -316,7 +318,7 @@ passed to the **deleteEntity** method.
 
 > [AZURE.NOTE] You should consider using ETags when deleting items, to ensure that the item hasn't been modified by another process. See [How To: Update an Entity][] for information in using ETags.
 
-## <a name="delete-table"> </a>How to Delete a Table
+## How to Delete a Table
 
 The following code deletes a table from a storage account.
 
@@ -328,7 +330,45 @@ The following code deletes a table from a storage account.
 
 If you are uncertain whether the table exists, use **deleteTableIfExists**.
 
-## <a name="sas"></a>How to: Work with Shared Access Signatures
+## How to: Use continuation tokens
+
+When you are querying tables for large amounts of results, you should look for 
+continuation tokens. There may be large amounts of data available for your 
+query that you might not realize if you do not build to recognize when a 
+continuation token is present.
+
+The results object returned when querying entities sets a `continuationToken` 
+property when such a token is present. You can then use this when performing 
+a query to continue to move across the partition and table entities.
+
+When querying, a continuationToken parameter may be provided between the 
+query object instance and the callback function:
+
+```
+var nextContinuationToken = null;
+dc.table.queryEntities(tableName,
+    query,
+    nextContinuationToken,
+    function (error, results) {
+        if (error) throw error;
+
+        // iterate through results.entries with results
+
+        if (results.continuationToken) {
+            nextContinuationToken = results.continuationToken;
+        }
+
+    });
+```
+
+If you inspect the `continuationToken` object, you will find properties such as 
+`nextPartitionKey`, `nextRowKey` and `targetLocation` which can be used to 
+iterate through all the results.
+
+There is also a continuation sample within the Azure Storage Node.js repo on 
+GitHub, look for `examples/samples/continuationsample.js`.
+
+## How to: Work with Shared Access Signatures
 
 Shared Access Signatures (SAS) are a secure way to provide granular access to tables without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
 
@@ -368,7 +408,7 @@ The client application then uses the SAS with **TableServiceWithSAS** to perform
 
 Since the SAS was generated with only query access, if an attempt were made to insert, update, or delete entities, an error would be returned.
 
-###Access control lists
+### Access control lists
 
 You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access the table, but provide different access policies for each client.
 
@@ -411,7 +451,7 @@ Once the ACL has been set, you can then create a SAS based on the ID for a polic
 
 	tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
-## <a name="next-steps"> </a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
@@ -421,31 +461,14 @@ to learn how to do more complex storage tasks.
 -   Visit the [Azure Storage SDK for Node][] repository on GitHub.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-  [Next Steps]: #next-steps
-  [What is the Table Service?]: #what-is
-  [Concepts]: #concepts
-  [Create an Azure Storage Account]: #create-account
-  [Create a Node.js Application]: #create-app
-  [Configure your Application to Access Storage]: #configure-access
-  [Setup an Azure Storage Connection]: #setup-connection-string
-  [How To: Create a Table]: #create-table
-  [How To: Add an Entity to a Table]: #add-entity
-  [How To: Update an Entity]: #update-entity
-  [How to: Work with Groups of Entities]: #change-entities
-  [How to: Query for an Entity]: #query-for-entity
-  [How to: Query a Set of Entities]: #query-set-entities
-  [How To: Query a Subset of Entity Properties]: #query-entity-properties
-  [How To: Delete an Entity]: #delete-entity
-  [How To: Delete a Table]: #delete-table
-
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
 
-  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Node.js Cloud Service with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js Web Application with Storage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
-  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Web Site with WebMatrix]: web-sites-nodejs-use-webmatrix.md
+  [Node.js Cloud Service with Storage]: storage-nodejs-use-table-storage-cloud-service-app.md
+  [Node.js Web Application with Storage]: storage-nodejs-use-table-storage-web-site.md
+  [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md

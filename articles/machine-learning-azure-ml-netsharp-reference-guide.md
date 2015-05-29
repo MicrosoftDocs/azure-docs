@@ -1,20 +1,36 @@
-<properties pageTitle="Guide to the Net# Neural Networks Specification Language for Azure ML" description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net#" services="machine-learning" documentationCenter="" authors="" manager="paulettm" editor="cgronlun"/>
+<properties 
+	pageTitle="Guide to the Net# Neural Networks Specification Language for Azure ML" 
+	description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net#" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jeannt" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt"/>
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2014" 
+	ms.author="jeannt"/>
 
 
 
 # Guide to Net# neural network specification language
 
-
+##Overview
 Net# is a language developed by Microsoft that is used to define neural network architectures for neural network modules in Microsoft Azure Machine Learning. In this article, you will learn:  
 
 -	Basic concepts related to neural networks
 -	Neural network requirements and how to define the primary components
 -	The syntax and keywords of the Net# specification language
--	Examples of custom neural networks created using Net#  
+-	Examples of custom neural networks created using Net# 
+	
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]  
 
-###Neural network basics
+##Neural network basics
 A neural network structure consists of ***nodes*** that are organized in ***layers***, and weighted ***connections*** (or ***edges***) between the nodes. The connections are directional, and each connection has a ***source*** node and a ***destination*** node.  
 
 Each ***trainable layer*** (a hidden or an output layer) has one or more ***connection bundles***. A connection bundle consists of a source layer and a specification of the connections from that source layer. All the connections in a given bundle share the same ***source layer*** and the same ***destination layer***. In Net#, a connection bundle is considered as belonging to the bundle's destination layer.  
@@ -31,7 +47,7 @@ Additionally, Net# supports the following four kinds of advanced connection bund
 
 Using Net# to define the structure of a neural network makes it possible to define complex structures such as deep neural networks or convolutions of arbitrary dimensions, which are known to improve learning on data such as image, audio, or video.  
 
-###Supported customizations
+##Supported customizations
 The architecture of neural network models that you create in Azure Machine Learning can be extensively customized by using Net#. You can:  
 
 -	Create hidden layers and control the number of nodes in each layer.
@@ -43,7 +59,7 @@ For details of the specification language syntax, see Structure Specification.
  
 For examples of defining neural networks for some common machine learning tasks, from simplex to complex, see Examples.  
 
-###General requirements
+##General requirements
 -	There must be exactly one output layer, at least one input layer, and zero or more hidden layers. 
 -	Each layer has a fixed number of nodes, conceptually arranged in a rectangular array of arbitrary dimensions. 
 -	Input layers have no associated trained parameters and represent the point where instance data enters the network. 
@@ -55,7 +71,7 @@ For examples of defining neural networks for some common machine learning tasks,
 ##Structure specifications
 A neural network structure specification is composed of three sections: the **constant declaration**, the **layer declaration**, the **connection declaration**. There is also an optional **share declaration** section. The sections can be specified in any order.  
 
-###Constant declaration 
+##Constant declaration 
 A constant declaration is optional. It provides a means to define values used elsewhere in the neural network definition. The declaration statement consists of an identifier followed by an equal sign and a value expression.   
 
 For example, the following statement defines a constant **x**:  
@@ -71,7 +87,7 @@ The right-hand side of each assignment expression can be an integer, a real numb
 
 	Const { X = 17 * 2; Y = true; }  
 
-###Layer declaration
+##Layer declaration
 The layer declaration is required. It defines the size and source of the layer, including its connection bundles and attributes. The declaration statement starts with the name of the layer (input, hidden, or output), followed by the dimensions of the layer (a tuple of positive integers), for example:  
 
 	input Data[784];
@@ -112,7 +128,7 @@ For example, the following declaration uses the **softmax** function:
 
 	output Result [100] softmax from Hidden all;  
 
-###Connection declaration
+##Connection declaration
 Immediately after defining the trainable layer, you must declare connections among the layers you have defined. The connection bundle declaration starts with the keyword **from**, followed by the name of the bundle's source layer and the kind of connection bundle to create.   
 
 Currently, five kinds of connection bundles are supported:  
@@ -123,11 +139,11 @@ Currently, five kinds of connection bundles are supported:
 -	**Pooling** bundles, indicated by the keywords **max pool** or **mean pool**
 -	**Response normalization** bundles, indicated by the keyword **response norm**  	
 
-####Full bundles  
+##Full bundles  
 
 A full connection bundle includes a connection from each node in the source layer to each node in the destination layer. This is the default network connection type.  
 
-####Filtered bundles
+##Filtered bundles
 A filtered connection bundle specification includes a predicate, expressed syntactically, much like a C# lambda expression. The following example defines two filtered bundles:  
 
 	input Pixels [10, 20];
@@ -141,7 +157,7 @@ Optionally, you can specify a set of weights for a filtered bundle. The value fo
 
 Weight values are grouped by the destination node index. That is, if the first destination node is connected to K source nodes, the first K elements of the **Weights** tuple are the weights for the first destination node, in source index order. The same applies for the remaining destination nodes.  
 
-####Convolutional bundles
+##Convolutional bundles
 When the training data has a homogeneous structure, convolutional connections are commonly used to learn high-level features of the data. For example, in image, audio, or video data, spatial or temporal dimensionality can be fairly uniform.  
 
 Convolutional bundles employ rectangular **kernels** that are slid through the dimensions. Essentially, each kernel defines a set of weights applied in local neighborhoods, referred to as **kernel applications**. Each kernel application corresponds to a node in the source layer, which is referred to as the **central node**. The weights of a kernel are shared among many connections. In a convolutional bundle, each kernel is rectangular and all kernel applications are the same size.  
@@ -169,7 +185,7 @@ For more information about convolutional networks and their applications, see th
 -	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
 -	[http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
-####Pooling bundles
+##Pooling bundles
 A **pooling bundle** applies geometry similar to convolutional connectivity, but it uses predefined functions to source node values to derive the destination node value. Hence, pooling bundles have no trainable state (weights or biases). Pooling bundles support all the convolutional attributes except **Sharing**, **MapCount**, and **Weights**.  
 
 Typically, the kernels summarized by adjacent pooling units do not overlap. If Stride[d] is equal to KernelShape[d] in each dimension, the layer obtained is the traditional local pooling layer, which is commonly employed in convolutional neural networks. Each destination node computes the maximum or the mean of the activities of its kernel in the source layer.  
@@ -194,7 +210,7 @@ For more information about pooling layers, see these articles:
 -	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
-####Response normalization bundles
+##Response normalization bundles
 **Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton, et al, in a paper titled ImageNet Classiﬁcation with Deep Convolutional Neural Networks (see section 3.3). Response normalization is used to aid generalization in neural nets. When one neuron is firing at a very high activation level, a local response normalization layer suppresses the activation level of the surrounding neurons. This is done by using three parameters (***α***, ***β***, and ***k***) and a convolutional structure (or neighborhood shape). Every neuron in the destination layer ***y*** corresponds to a neuron ***x*** in the source layer. The activation level of ***y*** is given by the following formula, where ***f*** is the activation level of a neuron, and ***Nx*** is the kernel (or the set that contains the neurons in the neighborhood of ***x***), as defined by the following convolutional structure:  
 
 ![][1]  
@@ -228,7 +244,7 @@ The following example defines a response normalization bundle using these attrib
 -	The value of **KernelShape** indicates that this is a same map normalization layer, where the neighborhood is a 3x3 rectangle. 
 -	The default value of **Padding** is False, thus the destination layer has only 10 nodes in each dimension. To include one node in the destination layer that corresponds to every node in the source layer, add Padding = [true, true, true]; and change the size of RN1 to [5, 12, 12].  
 
-###Share declaration 
+##Share declaration 
 Net# optionally supports defining multiple bundles with shared weights. The weights of any two bundles can be shared if their structures are the same. The following syntax defines bundles with shared weights:  
 
 	share-declaration:

@@ -1,88 +1,114 @@
-<properties pageTitle="What's new in the Latest SQL Database Update V12 (preview)" description="Lists and describes the latest enhancements to Microsoft Azure SQL Database, the preview of version 12, that are available starting in December 2014." services="sql-database" documentationCenter="" authors="MightyPen" manager="jeffreyg" editor=""/>
+<properties 
+	pageTitle="What's new in SQL Database V12" 
+	description="Describes the latest features that have been added to Azure SQL Database." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/12/2015" ms.author="genemi"/>
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/28/2015" 
+	ms.author="genemi"/>
 
 
-# What's new in the Latest SQL Database Update V12 (preview)
+# What's new in SQL Database V12
+
 
 <!--
-Latest Edit Datetime:  GM,  2014-12-15  Monday  16:52pm.
-Applied feedback of JG, JH, JM (Added back Joanne's marketing text.).
+GeneMi , 2015-April-06 Monday 18:33pm
+Cautions During Upgrade: changes requested by PM Sonia Parchani.
 -->
 
 
-The latest Azure SQL Database V12 (preview) provides nearly complete compatibility with the Microsoft SQL Server engine. The preview brings more Premium performance to customers. These enhancements help to streamline SQL Server application migrations to Azure, and help customers who have heavier database workloads. 
-
-This preview marks the first step in delivering the next generation of the Azure SQL Database service. It gives customers more compatibility, flexibility, and performance. Internal tests of the preview at the Premium service tier showed that some queries now complete in a fraction of the time they take on today's Premium Azure SQL Database. Even bigger improvements were seen in some scenarios that benefit from the in-memory columnstore technology.
-
-**[Sign up](https://portal.azure.com) for the Latest SQL Database Update V12 (Preview) to take advantage of the next generation of  SQL Database on Microsoft Azure. To take advantage of the preview, you first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/en-us/pricing/free-trial) and review [pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database) information.**
-
-> [AZURE.NOTE]
-> Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
-
-Your path to planning and implementing the V12 preview starts at [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
+Azure SQL Database version V12 ([at preview in some regions](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)) now provides nearly complete compatibility with the Microsoft SQL Server engine. The recent enhancements help to streamline SQL Server application migrations to SQL Database, and they help your system robustly process heavier database workloads.
 
 
-### Key highlights
+[Sign up](https://portal.azure.com) for SQL Database to then [get started](sql-database-get-started.md) with this new generation on Microsoft Azure. You first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information.
 
-Key highlights of this V12 preview include the following:
 
-- **Easier management** of large databases to support heavier workloads with parallel queries (Premium only), [table partitioning](http://msdn.microsoft.com/library/ms187802.aspx), [online indexing](http://msdn.microsoft.com/library/ms188388.aspx), worry-free large index rebuilds with 2GB size limit removed, and more options on the [alter database](http://msdn.microsoft.com/library/bb522682.aspx) statement.
+Your path to planning and upgrading your earlier version databases to V12 starts at [Plan and prepare to upgrade to SQL Database V12](sql-database-preview-plan-prepare-upgrade.md).
 
-- **Support for key programmability functions** to drive more robust application design with [CLR integration](http://msdn.microsoft.com/library/ms189524.aspx), T-SQL [window functions](http://msdn.microsoft.com/library/ms189461.aspx), [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx), and [change tracking](http://msdn.microsoft.com/library/bb933875.aspx) for data.
 
-- **Breakthrough performance** with support for in-memory [columnstore](http://msdn.microsoft.com/library/gg492153.aspx) queries (Premium tier only) for data mart and smaller analytic workloads.
+## Highlights
+
+
+- **Azure preview portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the Azure preview portal you specify your SQL Database database and then proceed to specify a SQL Database server to host it. For now the [earlier Azure portal](http://manage.windowsazure.com/) is also supported.
+
+
+- **Choose a version** of SQL Database server when you use the Azure preview portal to create a new database. The default is V12, but you can choose the earlier version of the SQL Database server.
+
+
+- **Security** enjoys the new feature of [users in contained databases](sql-database-preview-whats-new.md#UsersInContainedDatabases). Two other features are [row-level security](sql-database-preview-whats-new.md#RowLevelSecurity) and [dynamic data masking](sql-database-preview-whats-new.md#DynamicDataMasking), although these are still at preview and are not yet at GA.
+
+
+- **Easier management** of large databases to support heavier workloads with parallel queries (Premium only), [table partitioning](http://msdn.microsoft.com/library/ms187802.aspx), [online indexing](http://msdn.microsoft.com/library/ms188388.aspx), worry-free large index rebuilds with 2GB size limit removed, and more options on the [ALTER DATABASE](http://msdn.microsoft.com/library/bb522682.aspx) command.
+
+
+- **Support for key programmability functions** to drive more robust application design with [CLR integration](http://msdn.microsoft.com/library/ms189524.aspx), Transact-SQL [window functions](http://msdn.microsoft.com/library/ms189461.aspx), [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx), and [change tracking](http://msdn.microsoft.com/library/bb933875.aspx) for data.
+
+
+- **Breakthrough performance** with support for in-memory [columnstore index](http://msdn.microsoft.com/library/gg492153.aspx) queries (Premium tier only) for data mart and smaller analytic workloads.
+
 
 - **Monitoring and troubleshooting** are improved with visibility into over 100 new table views in an expanded set of Database Management Views ([DMVs](http://msdn.microsoft.com/library/ms188754.aspx))
 
-- **New S3 performance level in the Standard tier:** offers more pricing flexibility between Standard and Premium. S3 will deliver more DTUs (database throughput units) and all the features available in the Standard tier.
 
-## Details of the new V12 preview enhancements explained
-
-This section names and explains the new features in each category.
+- **New S3 performance level in the Standard tier:** offers more [pricing](sql-database-upgrade-new-service-tiers.md) flexibility between Standard and Premium. S3 will deliver more DTUs (database throughput units) and all the features available in the Standard tier.
 
 
-### Category: Expanded database management
+## V12 enhancements
+
+
+### Expanded database management
 
 
 | Feature | Description |
 | :--- | :--- |
+| . | ***December 2014:*** |
+| <a name="UsersInContainedDatabases" id="UsersInContainedDatabases"></a>Users in contained databases | You can now create users in your contained database without having a corresponding login in the master database. This makes it much simpler to move your database to another server. The connection code in your client applications is the same whether you use contained database users or not.<br/><br/>Use of this feature is an excellent way to benefit from higher guaranteed service level agreements.<br/><br/>We generally encourage you to consider using this feature. However, you might have specific scenarios that make the traditional *login+user* pair the better choice for you at this time.<br/><br/>For more information, see:<br/>- [Azure SQL Database Security Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ff394108.aspx)<br/>- [Managing Databases and Logins in Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx)<br/>- [Contained Databases](http://msdn.microsoft.com/library/azure/ff929071.aspx) |
 | Table partitioning | Previous limitations on [table partitioning](http://msdn.microsoft.com/library/ms190787.aspx) are eliminated. |
-| Larger transactions | <p>With the V12 preview you are no longer limited to a maximum of 2 GB of data modifications in a single transaction.</p> <p>One benefit is that rebuilding a large index is no longer limited by 2 GB transaction size limit.</p> For general information, see [Azure SQL Database Resource Limits](http://msdn.microsoft.com/library/azure/dn338081.aspx). |
-| Online index build and rebuild | <p>Before the V12 preview, Azure SQL Database generally supported the (ONLINE=ON) clause of the ALTER INDEX statement, but this was not supported for indexes on a BLOB type column. Now the V12 preview does support (ONLINE=ON) even for indexes on BLOB columns.</p> <p>The ONLINE feature enables queries to benefit from an index even while the index is being rebuilt.</p> |
-| CHECKPOINT support | With the V12 preview you can issue the T-SQL CHECKPOINT statement for your database. |
-| More options on ALTER DATABASE | The V12 preview supports more of the options that are available on the ALTER DATABASE statement. <p> </p> For more information, see [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx) or [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
-| More DBCC commands | The V12 preview supports the following additional DBCC commands: <p> </p> CHECKALLOC <br/> CHECKCONSTRAINTS <br/> CHECKDB <br/> CHECKFILEGROUP <br/> CHECKIDENT <br/> CHECKTABLE <br/><br/> CLEANTABLE <br/> DBREINDEX <br/> INDEXDEFRAG <br/> INPUTBUFFER <br/> OPENTRAN <br/> PROCCACHE <br/> SHOWCONTIG <br/> SQLPERF <br/> TRACESTATUS <br/>UPDATEUSAGE <br/> USEROPTIONS |
+| Larger transactions | With V12 you are no longer limited to a maximum of 2 GB of data modifications in a single transaction. <br/><br/> One benefit is that rebuilding a large index is no longer limited by 2 GB transaction size limit. For general information, see [Azure SQL Database Resource Limits](http://msdn.microsoft.com/library/azure/dn338081.aspx). |
+| Online index build and rebuild | Before V12, Azure SQL Database generally supported the (ONLINE=ON) clause of the [ALTER INDEX](http://msdn.microsoft.com/library/ms188388.aspx) command, but this was not supported for indexes on a BLOB type column. Now V12 does support (ONLINE=ON) even for indexes on BLOB columns.<br/><br/> The ONLINE feature enables queries to benefit from an index even while the index is being rebuilt. |
+| CHECKPOINT support | With V12 you can issue the Transact-SQL [CHECKPOINT](http://msdn.microsoft.com/library/ms188748.aspx) command for your database. |
+| ALTER TABLE enhancement | Allows many alter column actions to be performed while the table remains available. For more information, see [ALTER TABLE (Transact-SQL)](http://msdn.microsoft.com/library/ms190273.aspx) |
+| TRUNCATE TABLE enhancement | Allows truncation of specific partitions. For more information, see [TRUNCATE TABLE (Transact-SQL)](http://msdn.microsoft.com/library/ms177570.aspx). |
+| More options on ALTER DATABASE | V12 supports more of the options that are available on the [ALTER DATABASE](http://msdn.microsoft.com/library/ms174269.aspx) command. <br/><br/> For more information, see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
+| More DBCC commands | Several more [DBCC](http://msdn.microsoft.com/library/ms188796.aspx) commands are now available in V12. For details see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
 
 
-### Category: Programming and application support
+### Programming and application support
 
 
 | Feature | Description |
 | :--- | :--- |
-| Window functions in T-SQL queries | The ANSI window functions are access with the [OVER clause](http://msdn.microsoft.com/library/ms189461.aspx). <p></p> Itzik Ben-Gan has an excellent [blog post](http://sqlmag.com/sql-server-2012/how-use-microsoft-sql-server-2012s-window-functions-part-1) that further explains window functions and the OVER clause. |
-| .NET CLR integration | The CLR (common language runtime) of the .NET Framework is integrated into the V12 preview. <p></p> Only SAFE assemblies that are fully compiled to binary code are supported. For details see [CLR Integration Programming Model Restrictions](http://msdn.microsoft.com/library/ms403273.aspx). <p></p> You can find information about this feature in the following topics: <br/> * [Introduction to SQL Server CLR Integration](http://msdn.microsoft.com/library/ms254498.aspx) <br/> * [CREATE ASSEMBLY (Transact-SQL)](http://msdn.microsoft.com/library/ms189524.aspx). |
-| Change tracking for data | Change tracking for data can now be configured at the database or table level. <p></p> For information about change tracking, see [About Change Tracking (SQL Server)](http://msdn.microsoft.com/library/bb933875.aspx). |
-| XML indexes | The V12 preview enables you use the T-SQL statements CREATE XML INDEX and CREATE SELECTIVE XML INDEX. <p></p> Information about XML indexes is available at: <br/> * [CREATE XML INDEX (Transact-SQL)](http://msdn.microsoft.com/library/bb934097.aspx) <br/> * [Create, Alter, and Drop Selective XML Indexes](http://msdn.microsoft.com/library/jj670109.aspx) |
-| Table as a heap | The V12 preview enables you to create a table that has no clustered index. <p></p> This feature is especially helpful for its support of the T-SQL SELECT...INTO statement which creates a table from a query result. |
-| Application roles | For security and permissions control, the V12 preview enables you to issue GRANT - DENY - REMOVE statements against [application roles](http://msdn.microsoft.com/library/ms190998.aspx). |
+| . | ***February 2015:*** |
+| <a name="DynamicDataMasking" id="DynamicDataMasking"></a> Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md). |
+| . | ***January 2015:*** |
+| <a name="RowLevelSecurity" id="RowLevelSecurity"></a> Row-level security (RLS) preview | **Caution:** The RLS feature is presently at *preview* status only, even in geographic regions where V12 is in general availability (GA) status. Until RLS is in GA status, RLS is not yet appropriate for use in a business critical production database.<br/><br/>The new [CREATE SECURITY POLICY](http://msdn.microsoft.com/library/dn765135.aspx) command in Transact-SQL enables you to implement RLS. RLS causes the database server to add conditions which filter out some data rows before a rowset is returned to the caller.<br/><br/>In the industry, RLS is sometimes also called fine-grained access control.<br/><br/>For a code example and more, see [Row-Level Security Preview](http://msdn.microsoft.com/library/7221fa4e-ca4a-4d5c-9f93-1b8a4af7b9e8.aspx). |
+| . | ***December 2014:*** |
+| Window functions in Transact-SQL queries | The ANSI window functions are access with the [OVER clause](http://msdn.microsoft.com/library/ms189461.aspx). <br/><br/> Itzik Ben-Gan has an excellent [blog post](http://sqlmag.com/sql-server-2012/how-use-microsoft-sql-server-2012s-window-functions-part-1) that further explains window functions and the OVER clause. |
+| .NET CLR integration | The CLR (common language runtime) of the .NET Framework is integrated into V12. <br/><br/> Only SAFE assemblies that are fully compiled to binary code are supported. For details see [CLR Integration Programming Model Restrictions](http://msdn.microsoft.com/library/ms403273.aspx). <br/><br/> You can find information about this feature in the following topics: <br/> * [Introduction to SQL Server CLR Integration](http://msdn.microsoft.com/library/ms254498.aspx) <br/> * [CREATE ASSEMBLY (Transact-SQL)](http://msdn.microsoft.com/library/ms189524.aspx). |
+| Change tracking for data | Change tracking for data can now be configured at the database or table level. <br/><br/> For information about change tracking, see [About Change Tracking (SQL Server)](http://msdn.microsoft.com/library/bb933875.aspx). |
+| XML indexes | V12 enables you use the Transact-SQL commands [CREATE XML INDEX](http://msdn.microsoft.com/library/bb934097.aspx) and [CREATE SELECTIVE XML INDEX](http://msdn.microsoft.com/library/jj670104.aspx). |
+| Table as a heap | V12 enables you to create a table that has no clustered index. <br/><br/> This feature is especially helpful for its support of the Transact-SQL [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx) command which creates a table from a query result. |
+| Application roles | For security and permissions control, V12 enables you to issue [GRANT](http://msdn.microsoft.com/library/ms187965.aspx) - [DENY](http://msdn.microsoft.com/library/ms188338.aspx) - [REVOKE](http://msdn.microsoft.com/library/ms187728.aspx) commands against [application roles](http://msdn.microsoft.com/library/ms190998.aspx). |
 
 
-### Category: Better customer insights
+### Better customer insights
 
-
-<!-- -----------------------------
-GeneMi , 2014-Dec-07:
-
-A.  PM Sasha Nosov recommends that our Help documentation make no mention of XEvents ("session events"?). 
-
-B. "Change tracking" - as a feature name appears in two different rows in different categories in this topic draft. Yet I think both rows refer to the same feature. Is there any good reason to have two rows for Change Tracking?  Probably not.  Ask PMs.
------------------------ -->
 
 | Feature | Description |
 | :--- | :--- |
-| DMVs (dynamic management views) | The following DMVs are added: <br/><br/> dm_clr_properties <br/> dm_clr_tasks <br/><br/> dm_db_file_space_usage <br/> dm_db_log_space_usage <br/> dm_db_session_space_usage <br/> dm_db_task_space_usage <br/><br/> dm_exec_background_job_queue <br/> dm_exec_background_job_queue_stats <br/> dm_exec_query_optimizer_info <br/> dm_exec_query_profiles <br/> dm_exec_query_resource_semaphores <br/> dm_exec_query_transformation_stats <br/><br/>dm_tran_active_snapshot_database_transactions <br/> dm_tran_commit_table <br/> dm_tran_current_snapshot <br/> dm_tran_current_transaction <br/> dm_tran_top_version_generators <br/> dm_tran_transactions_snapshot <br/> dm_tran_version_store |
-| Change tracking | The V12 preview fully supports change tracking. <p></p> For details of this feature see [Enable and Disable Change Tracking (SQL Server)](http://msdn.microsoft.com/library/bb964713.aspx). |
+| . | ***December 2014:*** |
+| DMVs (dynamic management views) | Several DMVs are added in V12. For details see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
+| Change tracking | V12 fully supports change tracking. <br/><br/> For details of this feature see [Enable and Disable Change Tracking (SQL Server)](http://msdn.microsoft.com/library/bb964713.aspx). |
+| Columnstore indexes | A columnstore index improves system performance for data warehouses when an indexed column contains repetitions of the same value. The [columnstore index compresses](http://msdn.microsoft.com/library/gg492088.aspx) the duplicate values to reduce the number of physical rows that must be accessed during queries. |
 
 
 ### Performance improvements at the Premium service tier
@@ -90,36 +116,88 @@ B. "Change tracking" - as a feature name appears in two different rows in differ
 
 These performance enhancements apply to the P2 and P3 levels within the Premium service tier.
 
+
 | Feature | Description |
 | :--- | :--- |
-| Parallel processing for queries | The V12 preview provides a higher degree of parallelism for queries that can benefit from it. |
-| Briefer I/O latency | The V12 preview has significantly briefer latency for input/output operations. |
-| Increased IOPS | The V12 preview can process a larger quantity of input/output per second (IOPS). |
-| Log rate | The V12 preview can log more data changes per second. |
+| . | ***December 2014:*** |
+| Parallel processing for queries | V12 provides a higher degree of parallelism for queries that can benefit from it. |
+| Briefer I/O latency | V12 has significantly briefer latency for input/output operations. |
+| Increased IOPS | V12 can process a larger quantity of input/output per second (IOPS). |
+| Log rate | V12 can log more data changes per second. |
+
+
+| Feature | Description |  
+| :--- | :--- |  
+| . | ***August 2015:*** |
+| Create server using REST or PowerShell |  When you create a server without specifying a server version, the default version will change from V11 to V12.<br/><br/>This aligns with the [Azure preview portal](http://portal.azure.com). |  
+| Create database using Transact-SQL, REST, or PowerShell | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be S0 instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |  
 
 
 ### Summary of enhancements
 
 
-The V12 preview elevates our SQL Database close to full feature compatibility with our SQL Server product. The V12 preview focuses on the most popular features, and on programmability support. This makes your development more efficient and more enjoyable.  It is now even easier to move your SQL database applications to the cloud.
+V12 elevates our SQL Database close to full feature compatibility with our SQL Server product. V12 focuses on the most popular features, and on programmability support. This makes your development more efficient and more enjoyable.  It is now even easier to move your SQL database applications to the cloud.
 
-And at the Premium tier the V12 preview brings major performance improvements. Some applications will see extreme gains in query speed. Applications with heavy workloads will see reliably robust throughput.
+
+And at the Premium tier V12 brings major performance improvements. Some applications will see extreme gains in query speed. Applications with heavy workloads will see reliably robust throughput.
+
+
+## <a name="V12AzureSqlDbPreviewGaTable"></a>V12 general availability (GA) status per region
+
+
+> [AZURE.NOTE]
+> [Pricing](http://azure.microsoft.com/pricing/details/sql-database/) during the preview has been at a discount. Pricing returns to the GA level for all regions on Tuesday, March 31, 2015.
+
+
+| Azure region | Current release<br/>status of V12 | Date of promotion<br/>to GA |
+| :--- | :--- | :--- |
+| South Central US | General Availability (GA) | February 9th, 2015 |
+| Central US | General Availability (GA) | February 9th, 2015 |
+| North Central US | General Availability (GA) | February 9th, 2015 |
+| West US | General Availability (GA) | February 9th, 2015 |
+| East US | General Availability (GA) | February 9th, 2015 |
+| East US 2 | General Availability (GA) | February 9th, 2015 |
+| East Asia | General Availability (GA) | February 24th, 2015 |
+| Southeast Asia | General Availability (GA) | February 24th, 2015 |
+| Japan West | General Availability (GA) | February 24th, 2015 |
+| Japan East | General Availability (GA) | February 24th, 2015 |
+| North Europe | General Availability (GA) | January 29th, 2015 |
+| West Europe | General Availability (GA) | January 29th, 2015 |
+| Brazil South | General Availability (GA) | April 21st, 2015 |
+| Australia East | Preview | Second quarter 2015, estimated |
+| Australia Southeast | Preview | Second quarter 2015, estimated |
+
+
+For any region that has reached GA, all new subscriptions and their subsequent databases use the V12 service architecture and therefore have access to the latest features. The present article lists the new features brought by V12.
+
+
+At GA, if you have pre-V12 servers and databases, you can elect to upgrade (or move) your databases to the V12 service architecture. Then you can use the new features for production. V12 databases must be at the basic, standard, or premium [pricing tier](sql-database-upgrade-new-service-tiers.md).
 
 
 ## How to proceed
 
 
-You can learn how to try the V12 preview at [Plan and Prepare to Upgrade to the Latest Azure SQL Database Update Preview](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
-
-During the V12 preview period you can use the preview at a discount price. The new S3 level delivers 100 DTUs (database throughput units) and all the features available in the Standard tier for $0.2016/hour. The price is discounted down to $0.1008/hour during the V12 preview. For details see [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/).
+You can learn how to upgrade your databases from Azure SQL Database V11 to V12 at [Plan and Prepare to Upgrade to the Latest Azure SQL Database Update Preview](sql-database-preview-plan-prepare-upgrade.md).
 
 
-### Cautions for the V12 preview
+Version numbers like V12 refer to the value returned by the following Transact-SQL statement:<br/>
+**SELECT @@version;**
 
 
-- Any database that is upgraded to the preview cannot be reverted back to the earlier version.
-- Test databases, database copies, or new databases, are good candidates for upgrading to the preview. Production databases that your business depends on should wait until after the preview period.
-- The Web and Business service pricing tier is not supported on this preview version.
+- 11.0.9228.18 *(V11)*
+- 12.0.2000.8 *(or a bit higher, V12)*
+
+
+For the latest pricing details about V12 see [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/).
+
+
+## Cautions for the V12 preview
+
+
+There are important things to know about limitations during and after an upgrade of your V11 database to V12. You can read the details at this link to a [midpoint](sql-database-preview-plan-prepare-upgrade.md#limitations) in the *Plan and prepare to upgrade to SQL Database V12* topic.
+
+
+[V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable
 
 
 <!-- EndOfFile -->

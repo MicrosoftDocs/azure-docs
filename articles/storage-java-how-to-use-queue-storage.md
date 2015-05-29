@@ -1,45 +1,42 @@
-<properties pageTitle="How to use the queue service (Java) | Microsoft Azure" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." services="storage" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use Queue storage from Java | Microsoft Azure" 
+	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+	ms.author="robmcm"/>
 
-# How to use Queue Storage from Java
+# How to use Queue storage from Java
+
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
+
+## Overview
 
 This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating** and **deleting** queues. For more information on queues, see the [Next steps](#NextSteps) section.
 
 Note: An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][]. 
 
-## <a name="Contents"> </a>Table of Contents
+[AZURE.INCLUDE [storage-queue-concepts-include](../includes/storage-queue-concepts-include.md)]
 
-* [What is Queue Storage](#what-is)
-* [Concepts](#Concepts)
-* [Create an Azure storage account](#CreateAccount)
-* [Create a Java application](#CreateApplication)
-* [Configure your application to access queue storage](#ConfigureStorage)
-* [Setup an Azure storage connection string](#ConnectionString)
-* [How to: Create a queue](#create-queue)
-* [How to: Add a message to a queue](#add-message)
-* [How to: Peek at the next message](#peek-message)
-* [How to: Change the contents of a queued message](#change-message)
-* [How to: Get the queue length](#get-queue-length)
-* [How to: Dequeue the next message](#dequeue-message)
-* [Additional options for dequeuing messages](#additional-options)
-* [How to: List the queues](#list-queues)
-* [How to: Delete a queue](#delete-queue)
-* [Next steps](#NextSteps)
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
-
-<h2><a id="CreateAccount"></a>Create an Azure storage account</h2>
-
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-## <a name="CreateApplication"> </a>Create a Java application
+## Create a Java application
 
 In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.
 
 To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the [Azure Storage SDK for Java][] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
 
-## <a name="ConfigureStorage"> </a>Configure your application to access queue storage
+## Configure your application to access queue storage
 
 Add the following import statements to the top of the Java file where you want to use Azure storage APIs to access queues:
 
@@ -47,7 +44,7 @@ Add the following import statements to the top of the Java file where you want t
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.queue.*;
 
-## <a name="ConnectionString"> </a>Setup an Azure storage connection string
+## Setup an Azure storage connection string
 
 An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
 
@@ -65,7 +62,7 @@ In an application running within a role in Microsoft Azure, this string can be s
 
 The following samples assume that you have used one of these two methods to get the storage connection string.
 
-## <a name="create-queue"> </a>How to: Create a queue
+## How to: Create a queue
 
 A **CloudQueueClient** object lets you get reference objects for queues. The following code creates a **CloudQueueClient** object. (Note: There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].)
 
@@ -92,7 +89,7 @@ Use the **CloudQueueClient** object to get a reference to the queue you want to 
         e.printStackTrace();
     }
 
-## <a name="add-message"> </a>How to: Add a message to a queue
+## How to: Add a message to a queue
 
 To insert a message into an existing queue, first create a new **CloudQueueMessage**. Next, call the **addMessage** method. A **CloudQueueMessage** can be created from either a string (in UTF-8 format) or a byte array. Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World".
 
@@ -121,7 +118,7 @@ To insert a message into an existing queue, first create a new **CloudQueueMessa
         e.printStackTrace();
     }
 
-## <a name="peek-message"> </a>How to: Peek at the next message
+## How to: Peek at the next message
 
 You can peek at the message in the front of a queue without removing it from the queue by calling **peekMessage**.
 
@@ -152,7 +149,7 @@ You can peek at the message in the front of a queue without removing it from the
         e.printStackTrace();
     }
 
-## <a name="change-message"> </a>How to: Change the contents of a queued message
+## How to: Change the contents of a queued message
 
 You can change the contents of a message in-place in the queue. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds. This saves the state of work associated with the message, and gives the client another minute to continue working on the message. You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than *n* times, you would delete it. This protects against a message that triggers an application error each time it is processed.
 
@@ -232,7 +229,7 @@ Alternatively, the following code sample updates just the first visible message 
         e.printStackTrace();
     }
 
-## <a name="get-queue-length"> </a>How to: Get the queue length
+## How to: Get the queue length
 
 You can get an estimate of the number of messages in a queue. The **downloadAttributes** method asks the Queue service for several current values, including a count of how many messages are in a queue. The count is only approximate because messages can be added or removed after the Queue service responds to your request. The **getApproximateMessageCount** method returns the last value retrieved by the call to **downloadAttributes**, without calling the Queue service.
 
@@ -263,7 +260,7 @@ You can get an estimate of the number of messages in a queue. The **downloadAttr
         e.printStackTrace();
     }
 
-## <a name="dequeue-message"> </a>How to: Dequeue the next message
+## How to: Dequeue the next message
 
 Your code dequeues a message from a queue in two steps. When you call **retrieveMessage**, you get the next message in a queue. A message returned from **retrieveMessage** becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call **deleteMessage**. This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **deleteMessage** right after the message has been processed.
 
@@ -295,7 +292,7 @@ Your code dequeues a message from a queue in two steps. When you call **retrieve
     }
 
 
-## <a name="additional-options"> </a>Additional options for dequeuing messages
+## Additional options for dequeuing messages
 
 There are two ways you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message.
 
@@ -326,7 +323,7 @@ The following code example uses the **retrieveMessages** method to get 20 messag
         e.printStackTrace();
     }
 
-## <a name="list-queues"> </a>How to: List the queues
+## How to: List the queues
 
 To obtain a list of the current queues, call the **CloudQueueClient.listQueues()** method, which will return a collection of **CloudQueue** objects. 
 
@@ -353,7 +350,7 @@ To obtain a list of the current queues, call the **CloudQueueClient.listQueues()
         e.printStackTrace();
     }
 
-## <a name="delete-queue"> </a>How to: Delete a queue
+## How to: Delete a queue
 
 To delete a queue and all the messages contained in it, call the **deleteIfExists** method on the **CloudQueue** object.
 
@@ -378,18 +375,18 @@ To delete a queue and all the messages contained in it, call the **deleteIfExist
         e.printStackTrace();
     }
 
-## <a name="NextSteps"> </a>Next steps
+## Next steps
 
-Now that you've learned the basics of queue storage, follow these links to learn how to do more complex storage tasks.
+Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
 - [Azure Storage SDK for Java]
 - [Azure Storage Client SDK Reference]
 - [Azure Storage REST API]
 - [Azure Storage Team Blog]
 
-[Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
-[Azure Storage REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+[Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

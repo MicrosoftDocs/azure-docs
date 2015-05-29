@@ -1,35 +1,42 @@
-<properties pageTitle="How to create and use groups to manage developer accounts in Azure API Management" description="Learn how to manage developer accounts using groups in Azure API Management" services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="How to create and use groups to manage developer accounts in Azure API Management" 
+	description="Learn how to manage developer accounts using groups in Azure API Management" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/10/2015" 
+	ms.author="sdanie"/>
 
 # How to create and use groups to manage developer accounts in Azure API Management
 
 In API Management, groups are used to manage the visibility of products to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 
 
-API Management has the following built-in groups.
+API Management has the following immutable system groups.
 
--	**Administrators** - Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
--	**Developers** - Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
--	**Guests** - Unauthenticated users, such as prospective customers, visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
+-	**Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
+-	**Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
+-	**Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-In addition to these built-in groups, administrators can create custom groups. Custom groups have the same privileges as the built-in developers group, and can be used to manage multiple groups of developers. For example, you could create one custom group for developers that will use the APIs from one product, and another group for developers that will use the APIs from a different product.
+In addition to these system groups, administrators can create custom groups and import Azure Active Directory external groups. Custom groups and external groups have the same privileges as the system developers group, and can be used to manage multiple groups of developers. For example, you could create one custom group for developers that will use the APIs from one product, and another group for developers that will use the APIs from a different product.
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
-## In this topic
-
--   [Create a group][]
--   [Associate a group with a product][]
--   [Associate groups with developers][]
--   [Next steps][]
-
 ## <a name="create-group"> </a>Create a group
 
-To create a new group, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To create a new group, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![API Management console][api-management-management-console]
 
 Click **Groups** from the **API Management** menu on the left, and then click **Add Group**.
 
@@ -92,7 +99,7 @@ Once a developer is added to a group, they can view and subscribe to the product
 [Associate groups with developers]: #associate-group-developer
 [Next steps]: #next-steps
 
-[How create and publish a product in Azure API Management]: ../api-management-howto-add-products
+[How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance

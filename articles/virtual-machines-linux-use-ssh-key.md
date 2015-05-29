@@ -1,12 +1,26 @@
-<properties pageTitle="Use SSH to connect to Linux virtual machines in Azure" description="Learn how to generate and use SSH keys with a Linux virtual machine on Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Use SSH to connect to Linux virtual machines in Azure" 
+	description="Learn how to generate and use SSH keys with a Linux virtual machine on Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/15/2015" 
+	ms.author="szark"/>
 
 #How to Use SSH with Linux on Azure
 
 The current version of the Azure Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate. Follow the steps below to generate and use SSH keys with Azure.
 
-## Generate Windows Azure Compatible Keys in Linux ##
+## Generate Azure Compatible Keys in Linux ##
 
 1. Install the `openssl` utility if needed:
 
@@ -39,16 +53,16 @@ The current version of the Azure Management Portal only accepts SSH public keys 
 
 
 ## Generate a Key from an Existing OpenSSH Compatible Key
-The previous example describes how to create a new key for use with Windows Azure. In some cases you may already have an existing OpenSSH compatible public & private key pair and wish to use the same keys with Windows Azure.
+The previous example describes how to create a new key for use with Azure. In some cases you may already have an existing OpenSSH compatible public & private key pair and wish to use the same keys with Azure.
 
-OpenSSH private keys are directly readable by the `openssl` utility. The following command will take an existing SSH private key (id_rsa in the example below) and create the `.pem` public key that is needed for Windows Azure:
+OpenSSH private keys are directly readable by the `openssl` utility. The following command will take an existing SSH private key (id_rsa in the example below) and create the `.pem` public key that is needed for Azure:
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-The **myCert.pem** file is the public key that may then be used to provision a Linux virtual machine on Windows Azure. During provisioning the `.pem` file will be translated into an `openssh` compatible public key and placed in `~/.ssh/authorized_keys`.
+The **myCert.pem** file is the public key that may then be used to provision a Linux virtual machine on Azure. During provisioning the `.pem` file will be translated into an `openssh` compatible public key and placed in `~/.ssh/authorized_keys`.
 
 
-## Connect to an Windows Azure Virtual Machine from Linux
+## Connect to an Azure Virtual Machine from Linux
 
 1. In some cases the SSH endpoint for a Linux virtual machine may be configured for a port other then the default port 22. You can find the correct port number on the Dashboard for the VM in the Management Portal (under "SSH Details").
 
@@ -59,22 +73,46 @@ The **myCert.pem** file is the public key that may then be used to provision a L
 3.	(Optional) You may copy `myPrivateKey.key` to `~/.ssh/id_rsa` so that your OpenSSH client can automatically pick this up without the use of the `-i` option.
 
 ## Get OpenSSL on Windows ##
-### Use msysgit ###
+
+There are a number of utilities that include a `openssl` for Windows. A few examples are listed below -
+
+### Use Msysgit ###
 
 1.	Download and install msysgit from the following location: [http://msysgit.github.com/](http://msysgit.github.com/)
 2.	Run `msys` from the installed directory (example: c:\msysgit\msys.exe)
 3.	Change to the `bin` directory by typing in `cd bin`
 
-###Use GitHub for Windows###
+
+### Use GitHub for Windows ###
 
 1.	Download and install GitHub for Windows from the following location: [http://windows.github.com/](http://windows.github.com/)
 2.	Run Git Shell from the Start Menu > All Programs > GitHub, Inc
 
-###Use cygwin###
+	**Note:** You may encounter the following error when running the `openssl` commands above:
+
+		Unable to load config info from /usr/local/ssl/openssl.cnf
+
+	The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
+
+	**Powershell:**
+
+		$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+
+	**CMD:**
+
+		set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+
+	**Git Bash:**
+
+		export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+
+
+###Use Cygwin###
 
 1.	Download and install Cygwin from the following location: [http://cygwin.com/](http://cygwin.com/)
 2.	Ensure that the OpenSSL package and all of its dependencies are installed.
 3.	Run `cygwin`
+
 
 ## Create a Private Key on Windows ##
 

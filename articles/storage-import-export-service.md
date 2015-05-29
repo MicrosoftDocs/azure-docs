@@ -1,9 +1,25 @@
-<properties pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." authors="tamram" manager="adinah" editor="" services="storage" documentationCenter=""/>
+<properties 
+	pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" 
+	description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." 
+	authors="tamram" 
+	manager="adinah" 
+	editor="" 
+	services="storage" 
+	documentationCenter=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/05/2015" 
+	ms.author="tamram"/>
 
 
 # Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage
+
+## Overview
 
 You can use the Microsoft Azure Import/Export service to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. You can also use the Import/Export service to transfer large quantities of data resident in Blob storage to your on-premises installations in a timely and cost-effective manner.
 
@@ -16,7 +32,7 @@ You can create and manage import and export jobs in one of two ways:
 
 This article provides an overview of the Import/Export service and describes how to use the Management Portal to work with the Import/Export service. For information on the REST API, see the [Azure Import/Export Service REST API Reference](http://go.microsoft.com/fwlink/?LinkID=329099).
 
-## Overview of the Import/Export Service ##
+## Introduction to the Import/Export Service ##
 
 To begin the process of importing to or exporting from Blob storage, you first create a *job*. A job can be an *import job* or an *export job*:
 
@@ -31,10 +47,10 @@ To prepare your drive to ship for an import job, you'll run the **Microsoft Azur
 
 When you create an import job or an export job, you'll also need the *drive ID*, which is the serial number assigned by the drive manufacturer to a specific hard disk. The drive ID is displayed on the exterior of the drive. 
 
-<h3>Requirements and Scope</h3>
+### Requirements and Scope
 
-1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](../storage-create-storage-account/).
-2.	**Hard drives:** Only 3.5 inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives larger than 4TB are not supported. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II/III disk externally to most computers using a SATA II/III USB Adapter.
+1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md).
+2.	**Hard drives:** Only 3.5 inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives up to 6TB are supported. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II/III disk externally to most computers using a SATA II/III USB Adapter.
 3.	**BitLocker encryption:** All data stored on hard drives must be encrypted using BitLocker with encryption keys protected with numerical passwords.
 4.	**Blob storage targets:** Data may be uploaded to or downloaded from block blobs and page blobs. 
 5.	**Number of jobs:** A customer may have up to 20 jobs active per storage account.
@@ -44,7 +60,7 @@ When you create an import job or an export job, you'll also need the *drive ID*,
 
 Create an import job to notify the Import/Export service that you'll be shipping one or more drives containing data to the data center to be imported into your storage account.
 
-<h3>Prepare Your Drives</h3>
+### Prepare Your Drives
 
 Before you create an import job, prepare your drives with the Microsoft Azure Import/Export Tool. For more details about using the Microsoft Azure Import/Export Tool, see the [Microsoft Azure Import/Export Tool Reference](http://go.microsoft.com/fwlink/?LinkId=329032). You can download the [Microsoft Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) as a standalone package.
   
@@ -56,7 +72,7 @@ To prepare your drives, follow these three steps:
 
 The Microsoft Azure Import/Export Tool generates a *drive journal* file for each drive as it is prepared. The drive journal file is stored on your local computer, not on the drive itself. You'll upload the journal file when you create the import job. A drive journal file includes the drive ID and the BitLocker key, as well as other information about the drive.  
 
-<h3>Create the Import Job</h3>
+### Create the Import Job
 
 1.	Once you have prepared your drive, navigate to your storage account in the Management Portal, and view the 	Dashboard. Under <strong>Quick Glance</strong>, click <strong>Create an Import Job</strong>. 
  
@@ -78,7 +94,9 @@ The Microsoft Azure Import/Export Tool generates a *drive journal* file for each
 
 	If you do not have a tracking number yet, choose **I will provide my shipping information for this import job once I have shipped my package**, then complete the import process.
 
-7. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2.
+7. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2. 
+	
+	If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
 
 	If the job is in the Creating, Shipping or Transferring state, you can also update your carrier account number in Step 2 of the wizard. Once the job is in the Packaging state, you cannot update your carrier account number for that job. 
 
@@ -155,10 +173,13 @@ Create an export job to notify the Import/Export service that you'll be shipping
 
 	If you do not have a tracking number yet, choose <strong>I will provide my shipping information for this export job once I have shipped my package</strong>, then complete the export process.
 
-6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2.
+6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2. 
+	
+	If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
 
 	If the job is in the Creating, Shipping or Transferring state, you can also update your carrier account number in Step 2 of the wizard. Once the job is in the Packaging state, you cannot update your carrier account number for that job. 
 
+> [AZURE.NOTE] If the blob to be exported is in use at the time of copying to hard drive, Azure Import/Export service will take a snapshot of the blob and copy the snapshot.
 
 ## Track Job Status in the Management Portal##
 
@@ -203,7 +224,7 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 
 ## Frequently Asked Questions ##
 
-<h3>General</h3>
+### General
 
 **What is the pricing for the Import/Export service?**
 
@@ -230,7 +251,7 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 
 - The Azure data center will return the drive that does not conform to the supported requirements to you. If only some of the drives in the package meet the support requirements, those drives will be processed, and the drives that do not meet the requirements will be returned to you.
 
-<h3>Import/Export Job Management</h3>
+### Import/Export Job Management
 
 **What happens to my import and export jobs if I delete my Azure storage account?**
 
@@ -251,8 +272,11 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 **Do you format the drives before returning them?**
 
 - No. All drives must be BitLocker-prepared.
+ 
+**Do I need to perform any disk preparation when creating an export job?**
+- No, but some pre-checks are recommended. Check the number of disks required using Azure Import/Export tool's [PreviewExport](https://msdn.microsoft.com/en-us/library/azure/dn722414.aspx) command. It helps you preview drive usage for the blobs you selected, based on the size of the drives you are going to use. Also check that you can read/write to the hard drive that will be shipped for the export job.
 
-<h3>Shipping</h3>
+### Shipping
 
 **What courier services are supported?**
 
@@ -284,7 +308,7 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 
 	> [AZURE.IMPORTANT] Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
 
-- In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](http://azure.microsoft.com/en-us/support/legal/services-terms/). 
+- In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](http://azure.microsoft.com/support/legal/services-terms/). 
 
 **Can I purchase drives for import/export jobs from Microsoft?**
 

@@ -1,6 +1,20 @@
-<properties pageTitle="About Puppet and Azure Virtual Machines" description="Describes installing and configuring Puppet on a VM in Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="About Puppet and Azure Virtual Machines" 
+	description="Describes installing and configuring Puppet on a VM in Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/20/2015" 
+	ms.author="kathydav"/>
 
 #About Puppet and Azure Virtual Machines
 
@@ -25,8 +39,8 @@ For instructions, download the "Getting Started Guide" available from the [Micro
 
 <!--Link references-->
 [New Integrations with Microsoft Azure and Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
-[How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
-[How to Log on to a Virtual Machine Running Linux]: ../virtual-machines-linux-how-to-log-on
+[How to Log on to a Virtual Machine Running Windows Server]: virtual-machines-log-on-windows-server.md
+[How to Log on to a Virtual Machine Running Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 

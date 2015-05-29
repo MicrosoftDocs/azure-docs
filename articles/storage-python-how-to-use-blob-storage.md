@@ -1,36 +1,38 @@
-<properties pageTitle="How to use blob storage (Python) | Microsoft Azure" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." services="storage" documentationCenter="python" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties 
+	pageTitle="How to use Blob storage from Python | Microsoft Azure" 
+	description="Learn how to use the Azure Blob service from Python to upload, list, download, and delete blobs." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="05/11/2015" 
+	ms.author="huvalo"/>
 
-# How to Use the Blob Storage Service from Python
+# How to use Blob storage from Python
+
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
+
+## Overview
+
 This guide will show you how to perform common scenarios using the
-Azure Blob storage service. The samples are written using the
-Python API. The scenarios covered include **uploading**, **listing**,
-**downloading**, and **deleting** blobs. For more information on blobs,
-see the [Next Steps][] section.
+Azure Blob storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **uploading**, **listing**,
+**downloading**, and **deleting** blobs.
 
-## Table of Contents
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-[What is Blob Storage?][]   
- [Concepts][]   
- [Create an Azure Storage Account][]   
- [How To: Create a Container][]   
- [How To: Upload a Blob into a Container][]   
- [How To: List the Blobs in a Container][]   
- [How To: Download Blobs][]   
- [How To: Delete a Blob][]   
- [Next Steps][]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+## How to: Create a Container
 
-## <a name="create-account"> </a>Create an Azure Storage Account
-
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-## <a name="create-container"> </a>How to: Create a Container
-
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
-
+> [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](python-how-to-install.md).
 
 The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
@@ -42,7 +44,9 @@ The following code creates a **BlobService** object using the storage account na
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
-All storage blobs reside in a container. You can use a **BlobService** object to create the container if it doesn't exist:
+[AZURE.INCLUDE [storage-container-naming-rules-include](../includes/storage-container-naming-rules-include.md)]
+
+You can use a **BlobService** object to create the container if it doesn't exist:
 
 	blob_service.create_container('mycontainer')
 
@@ -57,17 +61,22 @@ Alternatively, you can modify a container after you have created it using the fo
 After this change, anyone on the Internet can see blobs in a public
 container, but only you can modify or delete them.
 
-## <a name="upload-blob"> </a>How to: Upload a Blob into a Container
+## How to: Upload a Blob into a Container
 
 To upload data to a blob, use the **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** or **put\_block\_blob\_from\_text** methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
 **put\_block\_blob\_from\_path** uploads the contents of a file from the specified path, **put\_block\_blob\_from\_file** uploads the contents from an already opened file/stream. **put\_block\_blob\_from\_bytes** uploads an array of bytes, **put\_block\_blob\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
 
-The following example uploads the contents of the **task1.txt** file into the **myblob** blob.
+The following example uploads the contents of the **sunset.png** file into the **myblob** blob.
 
-	blob_service.put_block_blob_from_path('mycontainer', 'myblob', 'task1.txt')
+	blob_service.put_block_blob_from_path(
+        'mycontainer',
+        'myblob',
+        'sunset.png',
+        x_ms_blob_content_type='image/png'
+    )
 
-## <a name="list-blob"> </a>How to: List the Blobs in a Container
+## How to: List the Blobs in a Container
 
 To list the blobs in a container, use the **list\_blobs** method with a
 **for** loop to display the name of each blob in the container. The
@@ -79,37 +88,28 @@ console.
 		print(blob.name)
 		print(blob.url)
 
-## <a name="download-blobs"> </a>How to: Download Blobs
+## How to: Download Blobs
 
 To download data from a blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** or **get\_blob\_to\_text**. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblob** blob and store it to the **out-task1.txt** file:
+The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblob** blob and store it to the **out-sunset.png** file:
 
-	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-task1.txt')
+	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
-## <a name="delete-blobs"> </a>How to: Delete a Blob
+## How to: Delete a Blob
 
 Finally, to delete a blob, call **delete_blob**.
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
 
-## <a name="next-steps"> </a>Next Steps
+## Next Steps
 
 Now that you have learned the basics of blob storage, follow these links
-to learn how to do more complex storage tasks.
+to learn about more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][]
 -   Visit the [Azure Storage Team Blog][]
 
-  [Next Steps]: #next-steps
-  [What is Blob Storage?]: #what-is
-  [Concepts]: #concepts
-  [Create an Azure Storage Account]: #create-account
-  [How To: Create a Container]: #create-container
-  [How To: Upload a Blob into a Container]: #upload-blob
-  [How To: List the Blobs in a Container]: #list-blob
-  [How To: Download Blobs]: #download-blobs
-  [How To: Delete a Blob]: #delete-blobs
-  [How To: Upload and Download Large Blobs]: #large-blobs
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Python Azure package]: https://pypi.python.org/pypi/azure  

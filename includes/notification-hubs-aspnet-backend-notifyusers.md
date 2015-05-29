@@ -1,67 +1,56 @@
 ## Create the WebAPI Project
 
-Follow the steps below to create a new ASP.NET WebAPI backend to authenticate clients and generate notifications, or modify an existing backend from previous projects or the [Send push notifications to authenticated users](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/) tutorial.
+The new ASP.NET WebAPI backend will be updated in the sections that follow and it will have three main purposes:
+
+1. **Authenticating Clients**: A message handler will be added later to authenticate client requests and associate the user with the request.
+2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag. 
+
+The following steps show how to create the new ASP.NET WebAPI backend: 
+
 
 > [AZURE.NOTE] **Important**: Before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
 > 
-> ![][4]
+> ![][B4]
 
-> [AZURE.NOTE] Make sure you have installed the Visual Studio [Azure SDK](http://azure.microsoft.com/en-us/downloads/) for website deployment.
+> [AZURE.NOTE] Make sure you have installed the Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/) for website deployment.
 
 1. Start Visual Studio or Visual Studio Express.
 2. In Visual Studio, click **File**, then click **New**, then **Project**, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET Web Application**, type the name **AppBackend**, and then click **OK**. 
 	
-	![][1]
+	![][B1]
 
 3. In the **New ASP.NET Project** dialog, click **Web API**, then click **OK**.
 
-	![][2]
+	![][B2]
 
-4. In the **Configure Azure Site** dialog, choose a subscription, region, and database to use for this project. Then click **OK** to create the project.
+4. In the **Configure Azure Site** dialog, choose a subscription, region, and database to use for this project. Enter the password for your account and then click **OK** to create the project.
 
-	![][5]
+	![][B5]
 
-5. In Solution Explorer, right-click the **AppBackend** project and then click **Manage NuGet Packages**.
 
-6. On the left-hand side, click **Online**, and search for **servicebus** in the **Search** box.
 
-7. In the results list, click **Windows Azure Service Bus**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
+## Authenticating Clients to the WebAPI Backend
 
-	![][14]
+In this section, you will create a new message handler class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. 
 
-8. We will now create a new class **Notifications.cs**. Go to the Solution Explorer, right-click the **Models** folder, click **Add**, then **Class**. After naming the new class **Notifications.cs**, click **Add** to generate the class. This module represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory.
 
-	![][6]
 
-9. In Notifications.cs, add the following `using` statement at the top of the file:
+1. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class will be used to authenticate users using *Basic Authentication*. Note that your app can use any authentication scheme.
 
-        using Microsoft.ServiceBus.Notifications;
-
-10. Then replace the `Notifications` class definition with the following and make sure to replace the two placeholders with the connection string (with full access) for your notification hub, and the hub name (available at [Azure Management Portal](http://manage.windowsazure.com)):
-
-		public class Notifications
-        {
-            public static Notifications Instance = new Notifications();
-        
-            public NotificationHubClient Hub { get; set; }
-
-            private Notifications() {
-                Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
-            }
-        }
-
-11. We will then create a new class **AuthenticationTestHandler.cs**. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class is used to authenticate users using *Basic Authentication*. Note that your app can use any authentication scheme.
-
-12. In AuthenticationTestHandler.cs, add the following `using` statements:
+2. In AuthenticationTestHandler.cs, add the following `using` statements:
 
         using System.Net.Http;
-        using System.Threading.Tasks;
         using System.Threading;
-        using System.Text;
         using System.Security.Principal;
         using System.Net;
+        using System.Web;
 
-13. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following:
+3. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following code. 
+
+	This handler will handle all requests that include an *Authorization* header. If the request uses *basic* authentication, and the user name string matches the password string, then it will be authorized by the back end. Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+
+	If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller (RegisterController) to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -88,9 +77,9 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
 	                    System.Threading.Thread.CurrentPrincipal =
 	                        System.Web.HttpContext.Current.User;
 	                }
-	                else return Unauthorised();
+	                else return Unauthorized();
 	            }
-	            else return Unauthorised();
+	            else return Unauthorized();
 	
 	            return base.SendAsync(request, cancellationToken);
 	        }
@@ -101,7 +90,7 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
 	            return user == password;
 	        }
 	
-	        private Task<HttpResponseMessage> Unauthorised()
+	        private Task<HttpResponseMessage> Unauthorized()
 	        {
 	            var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
 	            var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -112,17 +101,57 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
 
 	> [AZURE.NOTE] **Security Note**: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.				
 
-14. Add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class:
+4. Add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class to register the message handler:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
+5. Save your changes.
 
-	![][7]
+## Registering for Notifications using the WebAPI Backend
 
-	![][8]
+In this section, we will add a new controller to the WebAPI backend to handle requests to register a user and device for notifications using the client library for notification hubs, which is the Azure Service Bus client library. The controller will add a user tag for the user that was authenticated and attached to the HttpContext by the `AuthenticationTestHandler`. The tag will have the string format, `"username:<actual username>"`.
 
-16. In RegiterController.cs, add the following `using` statements:
+
+ 
+
+1. In Solution Explorer, right-click the **AppBackend** project and then click **Manage NuGet Packages**.
+
+2. On the left-hand side, click **Online**, and search for **servicebus** in the **Search** box.
+
+3. In the results list, click **Microsoft Azure Service Bus**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
+
+	![][B14]
+
+4. We will now create a new class file that represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory. In the Solution Explorer, right-click the **Models** folder, click **Add**, then click **Class**. Name the new class **Notifications.cs**, then click **Add** to generate the class. 
+
+	![][B6]
+
+5. In Notifications.cs, add the following `using` statement at the top of the file:
+
+        using Microsoft.ServiceBus.Notifications;
+
+6. Replace the `Notifications` class definition with the following and make sure to replace the two placeholders with the connection string (with full access) for your notification hub, and the hub name (available at [Azure Management Portal](http://manage.windowsazure.com)):
+
+		public class Notifications
+        {
+            public static Notifications Instance = new Notifications();
+        
+            public NotificationHubClient Hub { get; set; }
+
+            private Notifications() {
+                Hub = NotificationHubClient.CreateClientFromConnectionString("<conn string with full access>", "<hub name>");
+            }
+        }
+
+
+
+7. Next we create a new controller, **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
+
+	![][B7]
+
+	![][B8]
+
+8. In RegisterController.cs, add the following `using` statements:
 
         using Microsoft.ServiceBus.Notifications;
         using AppBackend.Models;
@@ -130,7 +159,7 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
         using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
-17. Add the following code inside the `RegisterController` class definition. Note that in this code, we add the user tag for the user that has been authenticated by the handler. You can also add optional checks to verify that the user has rights to register for the requested tags.
+9. Add the following code inside the `RegisterController` class definition. Note that in this code, we add a user tag for the user this is attached to the HttpContext. The user was authenticated and attached to the HttpContext by the message filter we added, `AuthenticationTestHandler`. You can also add optional checks to verify that the user has rights to register for the requested tags.
 
 		private NotificationHubClient hub;
 
@@ -150,9 +179,9 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
         // This creates a registration id
         public async Task<string> Post(string handle = null)
         {
-            // make sure there are no existing registrations for this push handle (used for iOS and Android)
             string newRegistrationId = null;
             
+            // make sure there are no existing registrations for this push handle (used for iOS and Android)
             if (handle != null)
             {
                 var registrations = await hub.GetRegistrationsByChannelAsync(handle, 100);
@@ -170,7 +199,8 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
                 }
             }
 
-            if (newRegistrationId == null) newRegistrationId = await hub.CreateRegistrationIdAsync();
+            if (newRegistrationId == null) 
+				newRegistrationId = await hub.CreateRegistrationIdAsync();
 
             return newRegistrationId;
         }
@@ -235,66 +265,96 @@ Follow the steps below to create a new ASP.NET WebAPI backend to authenticate cl
             }
         }
 
-18. Create a new controller **NotificationsController**, following how we created **RegisterController**. This component exposes a way for the device to retrieve the notification securely, and provides a way for a user to trigger a secure push to devices. Note that when sending the notification to the Notification Hub, we send a raw notification with only the ID of the notification (no actual message).
+10. Save your changes.
 
-19. In NotificationsController.cs, add the following `using` statements:
+## Sending Notifications from the WebAPI Backend
+
+In this section you add a new controller that exposes a way for client devices to send a notification based on the username tag using Azure Service Bus client library in the ASP.NET WebAPI backend.
+
+
+1. Create another new controller named **NotificationsController**. Create it the same way you created the **RegisterController** in the previous section.
+
+2. In NotificationsController.cs, add the following `using` statements:
 
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
-20. Add the following code inside the **NotificationsController** class definition and make sure to comment out the snippets for platforms you are not working with.
+3. Add the following method to the **NotificationsController** class.
 
-        public async Task<HttpResponseMessage> Post()
+	This code send a notification type based on the Platform Notification Service (PNS) `pns` parameter. The value of `to_tag` is used to set the *username* tag on the message. This tag must match a username tag of an active notification hub registration. The notification message is pulled from the body of the POST request. 
+
+        public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
             var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:"+user;
+            string[] userTag = new string[2];
+            userTag[0] = "username:" + to_tag;
+            userTag[1] = "from:" + user;
 
+            Microsoft.ServiceBus.Notifications.NotificationOutcome outcome = null;
+            HttpStatusCode ret = HttpStatusCode.InternalServerError;
 
-            // windows
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello, " + user + "</text></binding></visual></toast>";
-            await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+            switch (pns.ToLower())
+            {
+                case "wns":
+                    // Windows 8.1 / Windows Phone 8.1
+                    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + 
+                                "From " + user + ": " + message + "</text></binding></visual></toast>";
+                    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+                    break;
+                case "apns":
+                    // iOS
+                    var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
+                    outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
+                    break;
+                case "gcm":
+                    // Android
+                    var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
+                    outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                    break;
+            }
 
+            if (outcome != null)
+            {
+                if (!((outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Abandoned) ||
+                    (outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Unknown)))
+                {
+                    ret = HttpStatusCode.OK;
+                }
+            }
 
-            // apns
-            var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
-            await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
-
-
-            // gcm
-            var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
-            await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
-
-
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(ret);
         }
 
-21. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
 
-22. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
+4. Press **F5** to run the application and to ensure the accuracy of your work so far. The app should launch a web browser and display the ASP.NET home page. 
 
-23. Select Azure Website as your publish target.
+##Publish the new WebAPI Backend
+
+1. Now we will deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
+
+2. Select Azure Website as your publish target.
 
     ![][B15]
 
-24. Log in with your Azure account and select an existing or new Website.
+3. Log in with your Azure account and select an existing or new Website.
 
     ![][B16]
 
-25. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
+4. Make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
 
     ![][B18]
 
 
-[1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
-[2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
-[3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
-[4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
-[5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
-[6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
-[7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
-[8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
-[14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
+[B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
+[B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
+[B3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
+[B4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+[B5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
+[B6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
+[B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
+[B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
+[B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG

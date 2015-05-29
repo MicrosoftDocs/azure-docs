@@ -1,6 +1,20 @@
-<properties pageTitle="Install MongoDB on a Windows Server virtual machine" description="Learn how to install MongoDB on an Azure VM running Windows Server." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Install MongoDB on a Windows Server virtual machine" 
+	description="Learn how to install MongoDB on an Azure VM running Windows Server." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/06/2015" 
+	ms.author="kathydav"/>
 
 #Install MongoDB on a virtual machine running Windows Server
 
@@ -28,7 +42,7 @@ To provide a storage for the virtual machine, attach a data disk and then initia
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-For instructions on initalizing the disk, see "How to: Initialize a new data disk in Windows Server" in [How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/).
+For instructions on initalizing the disk, see "How to: Initialize a new data disk in Windows Server" in [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md).
 
 ## Install and run MongoDB on the virtual machine 
 

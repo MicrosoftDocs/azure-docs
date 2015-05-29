@@ -1,43 +1,27 @@
-<properties pageTitle="Work with a JavaScript backend mobile service" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." services="mobile-services" documentationCenter="" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Work with a JavaScript backend mobile service" 
+	description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="ricksal"/>
 
 
 # Work with a JavaScript backend mobile service
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
  
-This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. This topic is divided into these sections:
-
-+ [Introduction]
-+ [Table operations]
-	+ [How to: Register for table operations]
-	+ [How to: Override the default response]
-	+ [How to: Override execute success]
-	+ [How to: Override default error handling]
-	+ [How to: Add custom parameters]
-	+ [How to: Work with table users][How to: Work with users]
-+ [Custom API][Custom API anchor]
-	+ [How to: Define a custom API]
-	+ [How to: Implement HTTP methods]
-	+ [How to: Send and receive data as XML]
-	+ [How to: Work with users and headers in a custom API]
-	+ [How to: Define multiple routes in a custom API]
-+ [Job Scheduler]
-	+ [How to: Define scheduled job scripts]
-+ [Source control, shared code, and helper functions]
-	+ [How to: Load Node.js modules]
-	+ [How to: Use helper functions]
-	+ [How to: Share code by using source control]
-	+ [How to: Work with app settings] 
-+ [Using the command line tool]
-+ [Working with tables]
-	+ [How to: Access tables from scripts]
-	+ [How to: Perform Bulk Inserts]
-	+ [How to: Map JSON types to database types]
-	+ [Using Transact-SQL to access tables]
-+ [Debugging and troubleshooting]
-	+ [How to: Write output to the mobile service logs]
+This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. 
 
 ##<a name="intro"></a>Introduction
 
@@ -54,7 +38,20 @@ For descriptions of individual server script objects and functions, see [Mobile 
 
 ##<a name="table-scripts"></a>Table operations
 
-A table operation script is a server script that is registered to an operation on a table--insert, read, update, or delete (*del*). The name of the script must match the kind of operation for which it is registered. Only one script can be registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request&mdash;for example, when a POST request is received to insert an item into the table. Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see [How to: Access tables from scripts].
+A table operation script is a server script that is registered to an operation on a table&mdash;insert, read, update, or delete (*del*). This section describes how to work with table operations in a JavaScript backend, which includes the following sections:
+
++ [Overview of table operations][Basic table operations]
++ [How to: Register for table operations]
++ [How to: Override the default response]
++ [How to: Override execute success]
++ [How to: Override default error handling]
++ [How to: Generate unique ID values](#generate-guids)
++ [How to: Add custom parameters]
++ [How to: Work with table users][How to: Work with users]
+
+###<a name="basic-table-ops"></a>Overview of table operations
+
+The name of the script must match the kind of operation for which it is registered. Only one script can be registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request&mdash;for example, when a POST request is received to insert an item into the table. Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see [How to: Access tables from scripts].
 
 You write table operation scripts if you need to enforce customized business logic when the operation is executed. For example, the following script rejects insert operations where the string length of the `text` field is greater than ten characters: 
 
@@ -203,6 +200,41 @@ When you provide an error handler, Mobile Services returns an error result to th
 
 You can also provide both a **success** and an **error** handler if you wish.
 
+###<a name="generate-guids"></a>How to: Generate unique ID values
+
+Mobile Services supports unique custom string values for the table's **id** column. This allows applications to use custom values such as email addresses or user names for the ID. 
+
+String IDs provide you with the following benefits:
+
++ IDs are generated without making a round-trip to the database.
++ Records are easier to merge from different tables or databases.
++ IDs values can integrate better with an application's logic.
+
+When a string ID value is not set on an inserted records, Mobile Services generates a unique value for the ID. You can generate your own unique ID values in server scripts. The script example below generates a custom GUID and assigns it to a new record's ID. This is similar to the id value that Mobile Services would generate if you didn't pass in a value for a record's ID.
+
+	// Example of generating an id. This is not required since Mobile Services
+	// will generate an id if one is not passed in.
+	item.id = item.id || newGuid();
+	request.execute();
+
+	function newGuid() {
+		var pad4 = function(str) { return "0000".substring(str.length) + str; };
+		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+	}
+
+
+When an application provides a value for an ID, Mobile Services stores it as-is. This includes leading or trailing white spaces. White space are not trimmed from value.
+
+The value for the `id` must be unique and it must not include characters from the following sets:
+
++ Control characters: [0x0000-0x001F] and [0x007F-0x009F]. For more information, see [ASCII control codes C0 and C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
++  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  The ids "." and ".."
+
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
+
+
 ###<a name="access-headers"></a>How to: Access custom parameters
 
 When you send a request to your mobile service, you can include custom parameters in the URI of the request to instruct your table operation scripts how to process a given request. You then modify your script to inspect the parameter to determine the processing path.
@@ -275,7 +307,18 @@ The next example adds an additional filter to the query based on the **userId** 
 	    request.execute();
 	}
 
-##<a name="custom-api"></a>Custom API
+##<a name="custom-api"></a>Custom APIs
+
+This section describes how you create and work with custom API endpoints, which includes the following sections: 
+	
++ [Overview of custom APIs](#custom-api-overview)
++ [How to: Define a custom API]
++ [How to: Implement HTTP methods]
++ [How to: Send and receive data as XML]
++ [How to: Work with users and headers in a custom API]
++ [How to: Define multiple routes in a custom API]
+
+###<a name="custom-api-overview"></a>Overview of custom APIs
 
 A custom API is an endpoint in your mobile service that is accessed by one or more of the standard HTTP methods: GET, POST, PUT, PATCH, DELETE. A separate function export can be defined for each HTTP method supported by the custom API, all in a single script file. The registered script is invoked when a request to the custom API using the given method is received. For more information, see [Custom API].
 
@@ -423,6 +466,16 @@ You define scheduled jobs in one of the following ways:
 >[AZURE.NOTE]When you have source control enabled, you can edit scheduled job script files directly in the .\service\scheduler subfolder in your git repository. For more information, see [How to: Share code by using source control].
 
 ##<a name="shared-code"></a>Source control, shared code, and helper functions
+
+This sections shows you how to leverage source control to add your own custom node.js modules, shared code and other code reuse strategies, including the following sections:
+
++ [Overview of leveraging shared code](#leverage-source-control)
++ [How to: Load Node.js modules]
++ [How to: Use helper functions]
++ [How to: Share code by using source control]
++ [How to: Work with app settings] 
+
+###<a name="leverage-source-control"></a>Overview of leveraging shared code
 
 Because Mobile Services uses Node.js on the server, your scripts already have access to the built-in Node.js modules. You can also use source control to define your own modules or add other Node.js modules to your service.
 
@@ -583,6 +636,16 @@ The following command returns information about every script file maintained in 
 For more information, see [Commands to manage Azure Mobile Services]. 
 
 ##<a name="working-with-tables"></a>Working with tables
+
+This section details strategies for working directly with SQL Database table data, including the following sections:
+
++ [Overview of working with tables](#overview-tables)
++ [How to: Access tables from scripts]
++ [How to: Perform Bulk Inserts]
++ [How to: Map JSON types to database types]
++ [Using Transact-SQL to access tables]
+
+###<a name="overview-tables"></a>Overview of working with tables
 
 Many scenarios in Mobile Services require server scripts to access tables in the database. For example. because Mobile Services does not preserve state between script executions, any data that needs to be persisted between script executions must be stored in tables. You might also want to examine entries in a permissions table or store audit data instead of just writing to the log, where data has a limited duration and cannot be accessed programmatically. 
 
@@ -901,6 +964,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 <!-- Anchors. -->
 [Introduction]: #intro
 [Table operations]: #table-scripts
+[Basic table operations]: #basic-table-ops
 [How to: Register for table operations]: #register-table-scripts
 [How to: Define table scripts]: #execute-operation
 [How to: override the default response]: #override-response
@@ -945,43 +1009,43 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
-[Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
-[Schedule backend jobs in Mobile Services]: /en-us/develop/mobile/tutorials/schedule-backend-tasks/
-[request object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-[response object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
-[User object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
-[push object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
-[insert function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
-[insert]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
-[update function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
-[delete function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
-[read function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
-[update]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
-[delete]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
-[read]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
-[query object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx
-[apns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj839711.aspx
-[mpns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj871025.aspx
-[wns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860484.aspx
-[table object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx
-[tables object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx
-[mssql object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-[console object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554209.aspx
-[Read and write data]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631640.aspx
-[Validate data]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631638.aspx
-[Modify the request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631635.aspx
-[Modify the response]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631631.aspx
+[Mobile Services server script reference]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
+[Schedule backend jobs in Mobile Services]: /develop/mobile/tutorials/schedule-backend-tasks/
+[request object]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[response object]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[User object]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[insert function]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[update function]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete function]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read function]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[query object]: http://msdn.microsoft.com/library/windowsazure/jj613353.aspx
+[apns object]: http://msdn.microsoft.com/library/windowsazure/jj839711.aspx
+[mpns object]: http://msdn.microsoft.com/library/windowsazure/jj871025.aspx
+[wns object]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
+[table object]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[tables object]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
+[mssql object]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+[console object]: http://msdn.microsoft.com/library/windowsazure/jj554209.aspx
+[Read and write data]: http://msdn.microsoft.com/library/windowsazure/jj631640.aspx
+[Validate data]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
+[Modify the request]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
+[Modify the response]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [Management Portal]: https://manage.windowsazure.com/
-[Schedule jobs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx
-[Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[Commands to manage Azure Mobile Services]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
-[Windows Store Push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Windows Phone Push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
-[iOS Push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
-[Android Push]: /en-us/develop/mobile/tutorials/get-started-with-push-android/
+[Schedule jobs]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
+[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
+[Commands to manage Azure Mobile Services]: virtual-machines-command-line-tools.md#Mobile_Scripts
+[Windows Store Push]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Windows Phone Push]: /develop/mobile/tutorials/get-started-with-push-wp8/
+[iOS Push]: /develop/mobile/tutorials/get-started-with-push-ios/
+[Android Push]: /develop/mobile/tutorials/get-started-with-push-android/
 [Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[Send HTTP request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx
-[Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
+[Send HTTP request]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
+[Send email from Mobile Services with SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
 [Get started with authentication]: http://go.microsoft.com/fwlink/p/?LinkId=287177
 [crypto API]: http://go.microsoft.com/fwlink/p/?LinkId=288802
 [path API]: http://go.microsoft.com/fwlink/p/?LinkId=288803
@@ -989,14 +1053,14 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
-[Custom API]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-[Call a custom API from the client]: /en-us/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
+[Custom API]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
+[Call a custom API from the client]: /develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [express.js library]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-[Define a custom API that supports periodic notifications]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet/
+[Define a custom API that supports periodic notifications]: /develop/mobile/tutorials/create-pull-notifications-dotnet/
 [express object in express.js]: http://expressjs.com/api.html#express
-[Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
-[Leverage shared code and Node.js modules in your server scripts]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-[service object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
-[App settings]: http://msdn.microsoft.com/en-us/library/dn529070.aspx
-[config module]: http://msdn.microsoft.com/en-us/library/dn508125.aspx
+[Store server scripts in source control]: /develop/mobile/tutorials/store-scripts-in-source-control/
+[Leverage shared code and Node.js modules in your server scripts]: /develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
+[service object]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
+[App settings]: http://msdn.microsoft.com/library/dn529070.aspx
+[config module]: http://msdn.microsoft.com/library/dn508125.aspx
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036

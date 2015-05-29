@@ -1,24 +1,35 @@
-<properties pageTitle="Create and Manage Hybrid Connections | Azure" description="Learn how to create a hybrid connection, manage the connection, and install the Hybrid Connection Manager." services="biztalk-services" documentationCenter="" authors="mandiohlinger" manager="dwrede" editor="cgronlun"/>
+<properties 
+	pageTitle="Create and Manage Hybrid Connections | Azure" 
+	description="Learn how to create a hybrid connection, manage the connection, and install the Hybrid Connection Manager. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"/>
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/03/2015" 
+	ms.author="mandia"/>
 
 
-#Create and Manage Hybrid Connections
-
-This topic lists the steps to create and manage Azure Hybrid Connections. 
-
-To connect to an on-premises resource, the steps include:
-
-1. [Create a Hybrid Connection](#CreateHybridConnection) by specifying the host name or IP address of the on-premises resource in your private network.
-
-2.	[Link your Azure website or Azure mobile service](#LinkWebSite) to the Hybrid Connection.
-
-3. [Install the Hybrid Connection Manager](#InstallHCM) on your on-premises resource and connect to the specific Hybrid Connection. The Azure portal provides a single-click experience to install and connect.
-
-4. [Manage Hybrid Connections](#ManageHybridConnection) and their connection keys.
+# Create and Manage Hybrid Connections
 
 
-##<a name="CreateHybridConnection"></a>Create a Hybrid Connection
+## Overview of the Steps
+1. Create a Hybrid Connection by entering the host name or IP address of the on-premises resource in your private network.
+2. Link your Azure website or Azure mobile service to the Hybrid Connection.
+3. Install the Hybrid Connection Manager on your on-premises resource and connect to the specific Hybrid Connection. The Azure portal provides a single-click experience to install and connect.
+4. Manage Hybrid Connections and their connection keys.
+
+This topic lists these steps. 
+
+
+## <a name="CreateHybridConnection"></a>Create a Hybrid Connection
 
 A Hybrid Connection can be created in the Azure Management Portal using Websites **or** using BizTalk Services. 
 
@@ -66,22 +77,22 @@ A Hybrid Connection can be created in the Azure Management Portal using Websites
 	</table>
 
 
-5. Select the check mark. 
+5. Select the check mark to complete the setup. 
 
-####Additional
+#### Additional
 
 - Multiple Hybrid Connections can be created. See the [BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279) for the number of connections allowed. 
 - Each Hybrid Connection is created with a pair of connection strings: Application keys that SEND and On-premises keys that LISTEN. Each pair has a Primary and a Secondary key. 
 
 
-##<a name="LinkWebSite"></a>Link your Azure website or Azure mobile service
+## <a name="LinkWebSite"></a>Link your Azure website or Azure mobile service
 
 To link the Azure Website to an existing Hybrid Connection, select **use an existing Hybrid Connection** in the Hybrid Connections blade. See [Connect an Azure Website to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-To link the Azure Mobile Service to an existing Hybrid Connection, select **add hybrid connection** when changing or creating a Mobile Service. See [Azure Mobile Services and Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+To link the Azure Mobile Service to an existing Hybrid Connection, select **add hybrid connection** when changing or creating a Mobile Service. See [Azure Mobile Services and Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 
-##<a name="InstallHCM"></a>Install the Hybrid Connection Manager on-premises
+## <a name="InstallHCM"></a>Install the Hybrid Connection Manager on-premises
 
 After a Hybrid Connection is created, install the Hybrid Connection Manager on the on-premises resource. It can be downloaded from your Azure Website or from your BizTalk Service. BizTalk Services steps: 
 
@@ -122,13 +133,13 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 - The Hybrid Connection Manager must use a valid on-premises connection string for authorization. The Azure Website or  Mobile Service must use a valid application connection string for authorization.
 
 
-##<a name="ManageHybridConnection"></a>Manage Hybrid Connections
+## <a name="ManageHybridConnection"></a>Manage Hybrid Connections
 To manage your Hybrid Connections, you can:
 
 - Use the Azure portal and go to your BizTalk Service. 
 - Use [REST APIs](http://msdn.microsoft.com/library/azure/dn232347.aspx).
 
-####Copy/regenerate the Hybrid Connection Strings
+#### Copy/regenerate the Hybrid Connection Strings
 
 1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services** and then select your BizTalk Service. 
@@ -143,17 +154,18 @@ To manage your Hybrid Connections, you can:
 <br/>
 <br/>
 **If you select Regenerate**, the Shared Access Key used within the Connection String is changed. Do the following:
-- In the Azure mangement Portal, select **Sync Keys** in the Azure application.
+- In the Azure Management Portal, select **Sync Keys** in the Azure application.
 - Re-run the **On-Premises Setup**. When you re-run the On-Premises Setup, the on-premises resource is automatically configured to use the updated Primary connection string.
 
 
-####Use Group Policy to control the on-premises resources used by a Hybrid Connection
+#### Use Group Policy to control the on-premises resources used by a Hybrid Connection
 
 1. Download the Hybrid Connection Manager Administrative Templates.
 2. Extract the files.
 3. On the computer that modifies group policy, do the following: 
-- Copy the .ADMX files to the *%WINROOT%\PolicyDefinitions* folder.
-- Copy the .ADML files to the *%WINROOT%\PolicyDefinitions\en-us* folder.
+
+	- Copy the .ADMX files to the *%WINROOT%\PolicyDefinitions* folder.
+	- Copy the .ADML files to the *%WINROOT%\PolicyDefinitions\en-us* folder.
 
 Once copied, you can use Group Policy Editor to change the policy.
 
@@ -163,14 +175,14 @@ Once copied, you can use Group Policy Editor to change the policy.
 ## Next
 
 - [Connect an Azure Website to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538)
-- [Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Azure Mobile Services and Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
-- [Hybrid Connections Overview](http://azure.microsoft.com/en-us/documentation/articles/integration-hybrid-connection-overview)
+- [Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website](http://go.microsoft.com/fwlink/p/?LinkID=397979)
+- [Azure Mobile Services and Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+- [Hybrid Connections Overview](integration-hybrid-connection-overview.md)
 
 
 ## See Also
 
-- [REST API for Managing BizTalk Services on Windows Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
+- [REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
 - [BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 - [Create a BizTalk Service using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>

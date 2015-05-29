@@ -1,21 +1,61 @@
-<properties pageTitle="Get started with Azure API Management" description="Learn how to create APIs, operations, and get started with API Management." services="api-management" documentationCenter="" authors="steved0x" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Manage your first API in Azure API Management" 
+	description="Learn how to create APIs, operations, and get started with API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie"/>
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/10/2015" 
+	ms.author="sdanie"/>
 
-# Get started with Azure API Management
+# Manage your first API in Azure API Management
+
+## <a name="overview"> </a>Overview
 
 This guide shows you how to quickly get started using API Management and make your first API call.
 
-## In this topic
+## <a name="concepts"> </a>What is Azure API Management?
 
--	[Create an API Management instance][]
--	[Create an API][]
--	[Add an operation][]
--	[Add the new API to a product][]
--	[Subscribe to the product that contains the API][]
--	[Call an operation from the Developer Portal][]
--	[View analytics][]
--	[Next steps][]
+Azure API Management allows you to take any backend and launch a full-fledged API program based on it. 
+
+Common scenarios include:
+
+* **Securing mobile infrastructure** by gating access with API keys, preventing DOS attacks using throttling or using advanced security policies like JWT token validation
+* **Enabling ISV partner ecosystems** by offering fast partner onboarding through the developer portal and building an API facade to decouple from an  internal implementations not ripe for partner consumption
+* **Running an internal API program** by offering a centralized location for the organization to communicate about the availability and latest changes to APIs, gating access based on organizational accounts, all based on a secured channel between the API gateway and the backend
+
+
+The system is made-up of the following components:
+
+* The **API gateway** is the endpoint that:
+  * accepts API calls and routes them to your backends
+  * verifies API keys, JWT tokens, certificates and other credentials
+  * enforces usage quotas and rate limits
+  * transforms your API on the fly without code modifications
+  * caches backend responses where setup
+  * logs call metadata for analytics purposes
+
+* The **publisher portal** is the administrative interface where you set-up your API program:
+	* define or import API schema
+	* package APIs into products
+	* set-up policies like quotas or transformations on the APIs
+	* get insights from analytics
+	* manage users
+
+* The **developer portal** serves as the main web presence for developers where they can:
+	* read API documentation
+	* try out an API via the interactive console
+	* create an account and subscribe to get API keys
+	* access analytics on their own usage
+
 
 ## <a name="create-service-instance"> </a>Create an API Management instance
 
@@ -37,9 +77,9 @@ Enter **Contoso Ltd.** for the **Organization Name**, and enter your email addre
 
 ![New API Management service][api-management-create-instance-step2]
 
-API Management service instances are available in two tiers: Developer and Standard. By default, new API Management service instances are created using the Developer tier. To select the Standard tier, check the **Advanced settings** checkbox and select the Standard tier on the following screen.
+API Management service instances are available in three tiers: Developer, Standard, and Premium. By default, new API Management service instances are created using the Developer tier. To select the Standard or Premium tier, check the **Advanced settings** checkbox and select the desired tier on the following screen.
 
->Microsoft Azure offers two tiers in which you can run your API Management service: Developer and Standard. The Developer Tier is for development, testing and pilot API programs where high availability is not a concern. In the Standard tier, you can scale your reserved unit count to handle more traffic. The Standard tier provides your API Management service with the most processing power and performance. This tutorial can be completed using either tier. For more information about API Management tiers, see [API Management pricing][].
+>Microsoft Azure offers three tiers in which you can run your API Management service: Developer, Standard, and Premium. The Developer Tier is for development, testing and pilot API programs where high availability is not a concern. In the Standard and Premium tiers, you can scale your reserved unit count to handle more traffic. The Standard and Premium tiers provide your API Management service with the most processing power and performance. This tutorial can be completed using any tier. For more information about API Management tiers, see [API Management pricing][].
 
 Click the check box to create your service instance.
 
@@ -55,9 +95,9 @@ Each API Management service instance comes pre-configured with a sample Echo API
 
 This tutorial uses the http://echoapi.cloudapp.net/api web service to create a new API in API Management called **My Echo Service**.
 
-APIs are created and configured from the API Management console, which is accessed through the Azure management portal. To reach the API Management console, click **Management Console** in the Azure Portal for your API Management service.
+APIs are created and configured from the API publisher portal, which is accessed through the Azure management portal. To reach the publisher portal, click **Manage** in the Azure Portal for your API Management service.
 
-![New API Management console][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 To create the **My Echo API**, click **APIs** from the **API Management** menu on the left, and then click **Add API**.
 
@@ -162,7 +202,7 @@ Now that **My Echo API** is associated with a product, developers can subscribe 
 
 ## <a name="subscribe"> </a>Subscribe to the product that contains the API
 
-In order to make calls to an API, developers must first be subscribed to a product that gives them access to it. Developers can subscribe to products in the Developer portal, or administrators can subscribe developers to products in the Management console. You are an administrator by default since you created the API Management instance in the previous steps in the tutorial, so you will subscribe an account to the **Starter** product.
+In order to make calls to an API, developers must first be subscribed to a product that gives them access to it. Developers can subscribe to products in the Developer portal, or administrators can subscribe developers to products in the publisher portal. You are an administrator by default since you created the API Management instance in the previous steps in the tutorial, so you will subscribe an account to the **Starter** product.
 
 Click **Users** from the **API Management** menu on the left to view and configure the developers in this service instance.
 
@@ -244,7 +284,7 @@ The **Analytics** section has the following four tabs.
 
 -	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 
-[Azure Free Trial]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
 [Create an API Management instance]: #create-service-instance
 [Create an API]: #create-api
@@ -256,12 +296,12 @@ The **Analytics** section has the following four tabs.
 [Next steps]: #next-steps
 
 
-[How to manage developer accounts in Azure API Management]: ../api-management-howto-create-or-invite-developers/
-[Configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
-[Configure Notifications]: ../api-management-howto-configure-notifications
-[Responses]: ../api-management-howto-add-operations/#responses
-[How create and publish a product]: ../api-management-howto-add-products
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[Configure Notifications]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Management Portal]: https://manage.windowsazure.com/

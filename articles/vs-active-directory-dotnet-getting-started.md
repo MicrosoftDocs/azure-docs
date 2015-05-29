@@ -1,12 +1,26 @@
-<properties pageTitle="" description="" services="active-directory" documentationCenter="" authors="kempb" manager="douge" editor=""/>
+<properties 
+	pageTitle="Getting Started with Azure Active Directory (.NET Projects)" 
+	description="How to get started using Azure Active Directory in Visual Studio" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="kempb"/>
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/06/2015" 
+	ms.author="kempb"/>
+
+# Getting Started with Azure Active Directory (.NET Projects)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-active-directory-dotnet-getting-started/)
-> - [What Happened](/documentation/articles/vs-active-directory-dotnet-what-happened/)
-
-## Getting Started with Azure Active Directory (.NET Projects)
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
 #####Requiring authentication to access controllers 
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Create and upload an Ubuntu Linux VHD in Azure" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Create and upload an Ubuntu Linux VHD in Azure" 
+	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/15/2015" 
+	ms.author="szarkos"/>
 
 
 # Prepare an Ubuntu Virtual Machine for Azure
@@ -13,7 +27,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 - The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](../virtual-machines-linux-configure-raid) may be used on data disks if preferred.
+- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
 - Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
 
@@ -87,7 +101,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 6. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open "/etc/default/grub" in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
 
-		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
 	Save and close this file, and then run '`sudo update-grub`'. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues. 
 

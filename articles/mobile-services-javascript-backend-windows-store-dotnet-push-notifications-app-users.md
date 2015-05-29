@@ -1,6 +1,20 @@
-<properties pageTitle="Send push notifications to authenticated users" description="Learn how to send push notifications to specific" services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Send push notifications to authenticated users" 
+	description="Learn how to send push notifications to specific" 
+	services="mobile-services,notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/28/2015" 
+	ms.author="glenga"/>
 
 # Send push notifications to authenticated users
 
@@ -10,9 +24,9 @@ This topic shows you how to send push notifications to an authenticate user on a
 
 This tutorial walks you through the following process:
 
-+ [Updating the service to require authentication for registration]
-+ [Updating the app to log in before registration]
-+ [Testing the app]
+1. [Updating the service to require authentication for registration]
+2. [Updating the app to log in before registration]
+3. [Testing the app]
  
 This tutorial supports both Windows Store and Windows Phone Store apps.
 
@@ -80,8 +94,8 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 
 <!-- URLs. -->
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
+[Get started with authentication]: mobile-services-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
