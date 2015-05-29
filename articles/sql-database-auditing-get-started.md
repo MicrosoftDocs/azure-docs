@@ -56,7 +56,7 @@ Audit logs are stored in your Azure storage account. You can define an audit log
 
 An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.
 
-Before setting up audit auditing check if you are using a ["Downlevel Client"](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-get-started/)  and [Dynamic Data Masking](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-and-dynamic-data-masking-downlevel-clients/)
+Before setting up audit auditing check if you are using a ["Downlevel Client"](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-get-started/).
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
@@ -74,7 +74,7 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](h
 4. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
 
 
-5. If you are configuring Auditing for a SQL Database, Click on **To enforce auditing click here ...** and on **SECURITY ENABLED ACCESS** select **REQUIRED**. If you are configuring Auditing for a SQL Server you have two options: (a) after step #6, navigate for each SQL database on the server and apply this step, or (2) [Modify Server FDQN in the connection string](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-get-started/)  and [Dynamic Data Masking](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-and-dynamic-data-masking-downlevel-clients/).
+5. If you are configuring Auditing for a SQL Database, Click on **To enforce auditing click here ...** and on **SECURITY ENABLED ACCESS** select **REQUIRED**. If you are configuring Auditing for a SQL Server you have two options: (a) after step #6, navigate for each SQL database on the server and apply this step, or (2) [Modify Server FDQN in the connection string](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-get-started/).
 
 
 	![][5]
@@ -102,7 +102,7 @@ For more detailed instructions on working with the report template, read the <a 
  
 2.   Click the SQL Database / SQL Server you want to audit, and then click the **AUDITING & SECURITY** tab. 
 
-3.   If you are configuring Auditing for a SQL Database, On **SECURITY ENABLED ACCESS** select **REQUIRED**. If you are configuring Auditing for a SQL Server you have two options: (a) after step #7, navigate for each SQL database on the server and apply this step, or (2) [Modify Server FDQN in the connection string](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-get-started/)  and [Dynamic Data Masking](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-and-dynamic-data-masking-downlevel-clients/).
+3.   If you are configuring Auditing for a SQL Database, On **SECURITY ENABLED ACCESS** select **REQUIRED**. If you are configuring Auditing for a SQL Server you have two options: (a) after step #7, navigate for each SQL database on the server and apply this step, or (2) [Modify Server FDQN in the connection string](http://azure.microsoft.com/en-us/documentation/articles/sql-database-auditing-get-started/).
 
 4. At the auditing section click **ENABLED**.
 
