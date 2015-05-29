@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Get started with Azure Batch PowerShell cmdlets"
+   pageTitle="Get started with Azure Batch PowerShell cmdlets | Microsoft Azure"
    description="Introduces the Azure PowerShell cmdlets used to manage the Azure Batch service"
    services="batch"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="yidingz"/>
+   editor=""/>
 
 <tags
    ms.service="batch"
@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/15/2015"
+   ms.date="05/29/2015"
    ms.author="danlep"/>
 
 # Get started with Azure Batch PowerShell cmdlets
 This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch workitems, jobs, and tasks.
 
-For detailed cmdlet syntax, type ```get-help <Cmdlet_name>```.
+For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Prerequisites
@@ -162,4 +162,5 @@ To remove the upper bound, set **MaxCount** to 0 or less.
 ## Related topics
 * [Batch technical overview](batch-technical-overview.md)
 * [Download Azure PowerShell](http://go.microsoft.com/p/?linkid=9811175)
-* [Azure cmdlet reference](https://msdn.microsoft.com/library/jj554330.aspx)
+* [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [Efficient List Queries](batch-efficient-list-queries.md)
