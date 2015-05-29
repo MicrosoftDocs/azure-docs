@@ -10,7 +10,7 @@
 <tags
    ms.service="remoteapp"
    ms.devlang="na"
-   ms.topic="hero-\article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
    ms.date="05/28/2015"
