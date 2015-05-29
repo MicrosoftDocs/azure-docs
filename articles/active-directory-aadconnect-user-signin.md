@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Azure AD Connect - User Sign In" 
-	description="Azure AD Connect - User Sign In." 
+	description="Azure AD Connect user sign in for custom settings." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="azure-active-directory-connect" 

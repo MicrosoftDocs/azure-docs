@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Connect your directories with Azure AD Connect" 
-	description="Custom settings description." 
+	description="Custom settings description of Azure AD Connect connected directories." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="azure-active-directory-connect" 

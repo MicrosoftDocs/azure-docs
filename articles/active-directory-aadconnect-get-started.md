@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="azure-active-directory-connect" 
@@ -52,11 +52,11 @@ To get started with Express Settings, make sure you have the following
 
 
 
-<a name="express"></a>
+
 ## Express installation of Azure AD Connect
 Selecting Express Settings is the default option and is one of the most common scenarios. When doing this, Azure AD Connect deploys sync with the password hash sync option. This is for a single forest only and allows your users to use their on-premises password to sign-in to the cloud. Using the Express Settings will automatically kick off a synchronization once the installation is complete (though you can choose not to do this). With this option there are only a few short clicks to extending your on-premises directory to the cloud.
 
-<center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/aadConnect_Welcome.png)</center>
+<center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/welcome.png)</center>
 
 ### To install Azure AD Connect using express settings
 --------------------------------------------------------------------------------------------

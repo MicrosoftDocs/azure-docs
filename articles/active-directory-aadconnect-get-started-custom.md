@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Custom installation Azure AD Connect" 
+	pageTitle="Custom installation of Azure AD Connect" 
 	description="This document details the custom installation options for Azure AD Connect." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="azure-active-directory-connect" 

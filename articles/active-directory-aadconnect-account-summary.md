@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Azure AD Connect Accounts and permissions" 
-	description="Custom settings description." 
+	pageTitle="More about Azure AD Connect credentials and permissions" 
+	description="Custom settings description of Azure AD Connect credentials and permissions." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="azure-active-directory-connect" 
@@ -75,11 +75,11 @@ The following table is a summary of the accounts that are created by Azure AD Co
 
 
 Account created |Permissions assigned | Used for
-------------- | ------------- |
+------------- | ------------- |------------- |
 Azure AD account for sync| Global Administrator|On-going sync operations (Azure AD MA account)
 Express Settings:  AD account used for sync|Read/write permissions on the directory as required for sync+password sync|On-going sync operations (Azure AD MA account)
 Express Settings: sync service logon account | Logon credentials of the user running the wizard|Sync service logon account
-Custom Settings: sync service logon account ||Sync service logon account
+Custom Settings: sync service logon account |NA|Sync service logon account
 AD FS:GMSA account (aadcsvc$)|Domain user|FS service logon account
 
 

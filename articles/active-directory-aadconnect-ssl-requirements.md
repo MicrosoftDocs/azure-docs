@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Azure AD Connect - SSL Certificate Requirements" 
-	description="Azure AD Connect - SSL Certificate Requirements." 
+	description="The Azure AD Connect SSL Certificate requirements for using with AD FS." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="azure-active-directory-connect" 

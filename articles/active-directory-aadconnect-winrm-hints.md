@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Azure AD Connect - Windows Remote Managed Hints" 
-	description="Azure AD Connect - Windows Remote Managed Hints." 
+	description="Azure AD Connect Windows Remote Managed hints for using with AD FS." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="azure-active-directory-connect" 

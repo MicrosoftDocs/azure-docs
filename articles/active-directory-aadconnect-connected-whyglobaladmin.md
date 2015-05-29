@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Why we require an Azure AD global administrator account" 
-	description="Custom settings description." 
+	pageTitle="Why we require an Azure AD global administrator account for setting up Azure AD Connect" 
+	description="Custom settings description of why we require a global admin account." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="azure-active-directory-connect" 

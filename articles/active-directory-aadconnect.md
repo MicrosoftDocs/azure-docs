@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Azure Active Directory Connect - What is It?" 
+	pageTitle="Use your on-premises identity infrastructure in the cloud." 
 	description="This is the Azure AD Connect that describes what it is and why you would use it." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="active-directory" 
