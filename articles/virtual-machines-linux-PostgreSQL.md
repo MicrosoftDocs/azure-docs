@@ -1,312 +1,248 @@
 <properties
-	pageTitle="Install and Config PostgreSQL on Microsoft Azure Linux VM "
-	description="Learn how to Install and Config PostgreSQL on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS."
+	pageTitle="Install and configure PostgreSQL on a Microsoft Azure virtual machine running Linux"
+	description="Learn how to install and configure PostgreSQL on an Ubuntu or CentOS virtual machine (VM) in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
 	editor=""
-    tags=""/>
+  tags=""/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
+	ms.tgt_pltfrm="linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/12/2015"
-	ms.author="mingzhan"/>
+	ms.date="05/20/2015"
+	ms.author="SuperScottz"/>
 
 
-#Install and Config PostgreSQL on Microsoft Azure 
+#Install and configure PostgreSQL on Microsoft Azure
 
-In this article, you will learn how to install and config the PostgreSQL on Linux VM in Microsoft Azure.
+PostgreSQL is an advanced open-source database similar to Oracle and DB2. It includes enterprise-ready features such as full ACID compliance, reliable transactional processing, and multi-version concurrency control. It also supports standards such as ANSI SQL and SQL/MED (including foreign data wrappers for Oracle, MySQL, MongoDB, and many others). It is highly extensible with support for over 12 procedural languages, GIN and GIST indexes, spatial data support, and multiple NoSQL-like features for JSON or key-value based applications.
 
-##1. Overview of the PostgreSQL 
+In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.
 
-PostgreSQL is the world’s most advanced open source database. Developed over 25 years by a vibrant and independent open source community, PostgreSQL was born from the same research as Oracle and DB2 and contains comparable enterprise class features such as full ACID compliance for outstanding transaction reliability and Multi-Version Concurrency Control for supporting high concurrent loads. 
+> [Azure.NOTE] You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial. Please see the
+[Azure Linux VM tutorial](virtual-machines-linux-tutorial.md) to create and set up a Linux VM before proceeding.
 
-PostgreSQL supports standards such as ANSI SQL and SQL/MED (including foreign data wrappers for Oracle, MySQL, MongoDB and many others) and yet is highly extensible with support for over 12 procedural languages, GIN and GIST Indexes, Spatial data support, and multiple NoSQL like features for document (JSON) or key-value based applications. 
+[In this case, use 1999 port as the PostgreSQL port.]  
 
-PostgreSQL can be easily deployed in Microsoft Azure. 
-
-
-##2. Create a virtual machine on Microsoft Azure 
-
-To create a Linux virtual machine in the Microsoft Azure Management Portal by using the Image Gallery, take reference from [Azure Linux VM Tutorial](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/). It assumes you do not have any experience on using Azure.
-  
-  
-
-
-##3. Create virtual network  
-
-Virtual network is required to deploy your VM.  To get a detail step, take the reference from [here](https://msdn.microsoft.com/library/azure/dn631643.aspx).
-
-
-
-
-##4. Create endpoint  
-
-To create an endpoint is easy in the Azure Management. Navigate to the doc [how to set up endpoints](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) and it shows you how to do this and assumes that you don't have any experience on using Azure. 
-
- 
-
-In this case, use 1999 port as the PostgreSQL port.  
-
-
-##5. Compiling and installing PostgreSQL 
+## Install PostgreSQL
 
 Connect to the Linux VM you created via putty. If this is the first time you use Azure Linux VM, see how to use putty connect to a Linux VM [here](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/).
 
-To elevate permissions, run command and switch to root user 
+1. Run the following command to switch to root (admin):
 
-	[azureuser@test ~]$ sudo su - 
+		$ sudo su -
 
-Install dependencies 
+2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
 
- If your Linux OS is Redhat family, run the following command 
+	- Redhat:
 
-	[root@test ~]# yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+			\# yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
- If your Linux OS is Debian family, run the following command 
+	- Debian:
 
- 	[root@test ~]# apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
+ 			\# apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
 
-If your Linux OS is Suse family, run the following command 
+	- Suse:
 
-	[root@test ~]# zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+			\# zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
+3. Download PostgreSQL into the root directory, and then unzip the package:
 
-Download PostgreSQL into root directory 
+		\# wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
 
-**Note:** Following is a example, more detailed download address is https://ftp.postgresql.org/pub/source/ 
+		\# tar jxvf  postgresql-9.3.5.tar.bz2
 
-	[root@test ~]# wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/ 
+	The above is an example. You can find the more detailed download address [here](https://ftp.postgresql.org/pub/source/).
 
-Unzip the PostgreSQL  in root directory 
-	[root@test ~]# tar jxvf  postgresql-9.3.5.tar.bz2 
+4. To start the build, run these commands:
 
-To start the build, type: 
+		\# cd postgresql-9.3.5
 
-	[root@test ~]#cd postgresql-9.3.5 
+		\# ./configure --prefix=/opt/postgresql-9.3.5
 
-	[root@test postgresql-9.3.5]# ./configure --prefix=/opt/postgresql-9.3.5 
+5. If  you want to build everything that can be built, including the documentation (HTML and man pages)and additional modules (contrib), run the following command instead:
 
+		\# gmake install-world
 
-If you want to build everything that can be built, including the documentation (HTML and man pages), and the additional modules (contrib), type instead: 
+	You should receive the following confirmation message:
 
-	[root@test postgresql-9.3.5]# gmake install-world 
+		PostgreSQL, contrib, and documentation successfully made. Ready to install.
 
-The last line of output displayed should be: 
+## Configure PostgreSQL
 
-![image](./media/virtual-machines-linux-PostgreSQL/No1.png)
+1. (Optional) Create a symbolic link to shorten the PostgreSQL reference to not include the version number:
 
-###5.1. Configure PostgreSQL 
+		\# ln -s /opt/pgsql9.3.5 /opt/pgsql
 
-Create a symbolic link to make sure the consistent name with previous version 
+2. Create a directory for the database:
 
-	[root@test ~]# ln -s /opt/pgsql9.3.5 /opt/pgsql 
+		\# mkdir -p /opt/pgsql_data
 
+3. Create a non-root user and modify that user’s profile. Then switch to this new user (called *postgres* in our example):
 
-Create database storage directory 
+		\# useradd postgres
 
-	[root@test ~]# mkdir -p /opt/pgsql_data 
+		\# chown -R postgres.postgres /opt/pgsql_data
 
+		\# su - postgres
 
-Create a non-root user and modify user’s profile, and switch to this user (postgres) 
+> [Azure.NOTE] For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
 
-**Note:** For security, PostgreSQL Database will use a non-root user to initialize the database, start or shut down the database. 
+3. Edit the *bash_profile* by entering the commands below. These lines will be added to the end of the *bash_profile* file:
 
-	[root@test ~]# useradd postgres 
+		cat >> ~/.bash_profile <<EOF
+		export PGPORT=1999
+		export PGDATA=/opt/pgsql_data
+		export LANG=en_US.utf8
+		export PGHOME=/opt/pgsql
+		export PATH=\$PATH:\$PGHOME/bin
+		export MANPATH=\$MANPATH:\$PGHOME/share/man
+		export DATA=`date +"%Y%m%d%H%M"`
+		export PGUSER=postgres
+		alias rm='rm -i'
+		alias ll='ls -lh'
+		EOF
 
-	[root@test ~]# chown -R postgres.postgres /opt/pgsql_data 
+4. Execute the *bash_profile* file:
 
-	[root@test ~]# su - postgres 
+		$ source .bash_profile
 
+5. Validate your installation with the following command:
 
-Edit bash_profile 
+		$ which psql
 
-	cat >> ~/.bash_profile <<EOF 
+	If your installation is successful, you will see the following response:
 
-	export PGPORT=1999                                                     
+		/opt/pgsql/bin/psql
 
-	export PGDATA=/opt/pgsql_data                                
+6. You can also check the PostgreSQL version:
 
-	export LANG=en_US.utf8                                             
+		$ psql -V
 
-	export PGHOME=/opt/pgsql                                      
+7. Initialize the database:
 
-	export PATH=\$PATH:\$PGHOME/bin 
+		$ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
 
-	export MANPATH=\$MANPATH:\$PGHOME/share/man 
+	You should receive the following output:
 
-	export DATA=`date +"%Y%m%d%H%M"` 
+![image](./media/virtual-machines-linux-postgresql/No4.png)
 
-	export PGUSER=postgres 
+## Set up PostgreSQL
 
-	alias rm='rm -i' 
+<!--	[postgres@ test ~]$ exit -->
 
-	alias ll='ls -lh' 
+Run the following commands:
 
-	EOF 
+	\# cd /root/postgresql-9.3.5/contrib/start-scripts
 
+	\# cp linux /etc/init.d/postgresql
 
-Effective immediately 
+Modify two variables in the /etc/init.d/postgresql file. Thhe prefix is set to the installation path of PostgreSQL: **/opt/pgsql**. PGDATA is set to the data storage path of PostgreSQL: **/opt/pgsql_data**.
 
-	[postgres@test ~]$ source .bash_profile 
+	\# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
+	\# sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-Validate the installation, below is the successful result 
-	[postgres@test ~]$ which psql 
+![image](./media/virtual-machines-linux-postgresql/No5.png)
 
-![image](./media/virtual-machines-linux-PostgreSQL/No2.png)
+Change the file to make it executable:
 
-View the PostgreSQL version 
+	\# chmod +x /etc/init.d/postgresql
 
-	[postgres@test ~]$ psql -V 
+Start PostgreSQL:
 
-![image](./media/virtual-machines-linux-PostgreSQL/No3.png)
+	\# /etc/init.d/postgresql start
 
-Initialize the database 
+Check if the endpoint of PostgreSQL is on:
 
-	[postgres@test ~]$ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W 
+	\# netstat -tunlp|grep 1999
 
-See output
+You should see the following output:
 
-![image](./media/virtual-machines-linux-PostgreSQL/No4.png)
+![image](./media/virtual-machines-linux-postgresql/No6.png)
 
-###5.2. Set PostgreSQL to automatically start 
+## Connecting to the Postgres database
 
-	[postgres@ test ~]$ exit 
+Go ahead and switch to the postgres user once again:
 
-	[root@test ~]# cd /root/postgresql-9.3.5/contrib/start-scripts 
+	\# su - postgres
 
-	[root@test start-scripts]# cp linux /etc/init.d/postgresql 
+Create a Postgres database:
 
+	$ createdb events
 
-Modify two variables in /etc/init.d/postgresql file 
+Connect to the events database just created:
 
-prefix is set to the installation path of PostgreSQL: **/opt/pgsql** 
+	$ psql -d events
 
-PGDATA is set to the data storage path of PostgreSQL: **/opt/pgsql_data**
+## How to create and delete a Postgres table
 
-	[root@test ~]# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql 
+Now that we have connected to the database, we can create tables in it.
 
-	[root@test ~]# sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql 
+For example, create a new example Postgres table with the following command:
 
-![image](./media/virtual-machines-linux-PostgreSQL/No5.png)
+	CREATE TABLE potluck (name VARCHAR(20),	food VARCHAR(30),	confirmed CHAR(1), signup_date DATE);
 
-Grant execute permission 
+We have now set up a 4-column table with the following column names and restrictions:
 
-	[root@test start-scripts]# chmod +x /etc/init.d/postgresql 
+1. The “name” column has been limited by the VARCHAR command to be under 20 characters long.
+2. The “food” column indicates the food item that each person will bring. VARCHAR limits this text to be under 30 characters.
+3. The “confirmed” column records whether the person has RSVP’d to the potluck. The acceptable values are "Y" and "N".
+4. The “date” column will show when they signed up for the event. Postgres requires that dates be written as yyyy-mm-dd.
 
+You should see the following if you table has been successfully created:
 
-Start PostgreSQL 
+![image](./media/virtual-machines-linux-postgresql/No7.png)
 
-	[root@test start-scripts]# /etc/init.d/postgresql start 
+You can also check the table structure with the following command:
 
-Check if the endpoint of PostgreSQL is on 
+![image](./media/virtual-machines-linux-postgresql/No8.png)
 
-	[root@test start-scripts]# netstat -tunlp|grep 1999 
+### Add data to a table
 
-see output
+First, insert information into a row:
 
-![image](./media/virtual-machines-linux-PostgreSQL/No6.png)
+	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
 
-##6. Connecting to the Postgres Databases 
+You should see this output:
 
-Go ahead and switch into the postgres user once again 
+![image](./media/virtual-machines-linux-postgresql/111.png)
 
-	[root@test ~]# su - postgres 
+You can add a couple more people to the table as well. Here are some options, or you can create your own:
 
+	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
 
-Start to create postgres database 
+	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES ('Tom', 'BBQ','Y', '2012-04-18');
 
-	[postgres@test ~]$ createdb events 
+	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
 
- Switch to events database just created 
+### Show tables
 
-	[postgres@test ~]$ psql -d events 
+Use the following command to show a table:
 
-###6.1. How to Create and Delete a Postgres Tables 
+	select * from potluck;
 
-Once we login the database (using the psql -d events command where events is that database's name), we can create tables there. 
+The output is:
 
+![image](./media/virtual-machines-linux-postgresql/No9.png)
 
-For example, create a new Postgres table 
+### Delete data in a table
 
-	CREATE TABLE potluck (name VARCHAR(20), 
+Use the following command to delete data in a table:
 
-	food VARCHAR(30), 
+	delete from potluck where name=’John’;
 
-	confirmed CHAR(1),  
+This will delete all the info in the "John" row. The output is:
 
-	signup_date DATE); 
+![image](./media/virtual-machines-linux-postgresql/No10.png)
 
+### Update data in a table
 
-We have set up 4 columns in the table—name, food, confirmed, and signup date 
+Use the following command to update data in a table. For this one, Sandy has confirmed that she is attending so we will change her RSVP from "N" to "Y":
 
-1. The “name” column has been limited by the VARCHAR command to be under 20 characters long. 
-
-2. The “food” column designates the food each person will bring. The VARCHAR limits text to be under 30 characters. 
-
-3. The “confirmed” column records whether the person has RSVP’d with one letter, Y or N.  
-
-4. The “date” column will show when they signed up for the event. Postgres requires that dates be written as yyyy-mm-dd 
-
-
-The following is successful creation 
-
-![image](./media/virtual-machines-linux-PostgreSQL/No7.png)
-
-
- Check the table structure via the following command 
-
-![image](./media/virtual-machines-linux-PostgreSQL/No8.png)
-
-###6.2. How to Add Information to a Postgres Table 
-
-First, insert information into each row 
-
-	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11'); 
-
-See output 
-
-![image](./media/virtual-machines-linux-PostgreSQL/111.png)
-
-
-Add a couple more people to our group(based on your requirement) 
-
-	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14'); 
-
-	INSERT INTO potluck (name, food, confirmed, signup_date)VALUES ('Tom', 'BBQ','Y', '2012-04-18'); 
-
-	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18'); 
-
-
-###6.3. Show tables 
-
-	select * from potluck; 
-
-Below is the output 
-
-![image](./media/virtual-machines-linux-PostgreSQL/No9.png)
-
-
-###6.4. Delete the data via following command 
-
-
-	delete from potluck where name=’John’; 
-
-Below is the output 
-
-![image](./media/virtual-machines-linux-PostgreSQL/No10.png)
-
-
-###6.5. How to Update Information in the Table 
-
-For example: Sandy has confirmed that she is attending, so we are going to update that in the table. 
-
-Update via following 
-
- 	UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy'; 
+ 	UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
