@@ -36,3 +36,5 @@ A partial list of "Downlevel clients" includes:
 - JDBC 4.0 and below (while JDBC 4.0 does support TDS 7.4, the TDS redirection feature is not fully supported)
 - Tedious (for Node.JS)
 
+**Remark:** The above server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
+
