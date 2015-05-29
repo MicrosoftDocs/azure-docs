@@ -25,6 +25,7 @@ store heterogeneous types of documents.
 Automatic indexing of documents is enabled by write optimized, lock free, and log structured index maintenance techniques. DocumentDB supports a sustained volume of fast writes while still serving consistent queries.
 
 The DocumentDB indexing subsystem is designed to support:
+
 -  Efficient, rich hierarchical and relational queries without any schema or index definitions.
 -  Consistent query results while handling a sustained volume of writes. For high write throughput workloads with consistent queries, the index is updated incrementally, efficiently, and online while handling a sustained volume of writes.
 - Storage efficiency. For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable.
@@ -413,7 +414,7 @@ To measure the overhead of indexing on each write operation (create, update, or 
 
 ## Next Steps
 
-Try out the samples below for managing indexing policy, and learn more about DocumentDB's query language in the links below.
+Follow the links below for index policy management samples and to learn more about DocumentDB's query language.
 
 1.	[DocumentDB .NET Index Management code samples](https://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af/sourcecode?fileId=134860&pathId=1399591856)
 2.	[DocumentDB REST API Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
