@@ -224,3 +224,4 @@ To continue with the configuration of this workload, go to [Phase 4: Configure S
 
 [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)

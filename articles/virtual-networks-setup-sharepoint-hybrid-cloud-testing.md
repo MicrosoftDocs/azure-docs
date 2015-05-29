@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 
@@ -207,3 +207,5 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 [Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 [Azure hybrid cloud test environments](virtual-machines-hybrid-cloud-test-environments.md)
+
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
