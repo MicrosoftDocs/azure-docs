@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="get-started-article"
-	ms.date="02/5/2015"
+	ms.date="02/05/2015"
 	ms.author="tomfitz"/>
 
 #How to create PHP web and worker roles
