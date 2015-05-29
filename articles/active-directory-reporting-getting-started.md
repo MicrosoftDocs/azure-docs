@@ -17,3 +17,5 @@
    ms.author="kenhoff"/>
 
 # Azure AD Reporting: Getting started
+
+[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../includes/active-directory-reporting-content-journey-selector.md)]
