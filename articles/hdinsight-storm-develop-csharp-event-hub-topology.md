@@ -229,17 +229,11 @@ In this section, you will create a topology that writes data to Event Hubs by us
 At this point, you are done with the **Program.cs**. The topology has been defined, but now you must modify **Spout.cs** so that it produces data in a format that the Event Hubs bolt can use.
 
 > [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should can add the following to change the number of workers:
->
-> ```StormConfig config = new StormConfig();
-                config.setNumWorkers(1);
-                topologyBuilder.SetTopologyConfig(config);```
->
-> For older versions of SCP.Net, you would use the following:
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### Modify the spout
 
@@ -389,12 +383,12 @@ In this section, you will create a topology that reads data from Event Hubs by u
 
 At this point, you are done with **Program.cs**. The topology has been defined, but now you must create a helper class to write data to Table storage, then you must modify **Bolt.cs** so that it can understand the data produced by the spout.
 
-> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should add the following and adjust to the number of workers you wish to create.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should can add the following to change the number of workers:
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### Create a helper class
 
