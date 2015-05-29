@@ -16,17 +16,13 @@
 	ms.date="05/28/2015" 
 	ms.author="billmath"/>
 
-# Azure AD Connect - User Sign-in
 
-This doc specifies help for the following page.  The specific tooltip links will point to the relevant section of the article.
 
-<center>![Cloud](./media/active-directory-aadconnect-user-interface/signin.png)</center>
-
-## Azure AD Connect User Sign on options
+# Azure AD Connect User Sign on options
 
 Azure AD Connect allows your users to sign on to both cloud and on premises resources using the same passwords.  You can choose from several different ways to enable this.
 
-<a name ="password"></a>
+
 ### Password synchronization
 With password synchronization, hashes of user passwords are synchronized from your on premises Active Directory to Azure AD.  When passwords are changed or reset on premises, the new passwords are synchronized immediately to Azure AD so that your users can always use the same password for cloud resources as they do on premises.  The passwords are never sent to Azure AD nor stored in Azure AD in clear text.
 Password synchronization can be used together with password write-back to enable self service password reset in Azure AD.
@@ -35,7 +31,7 @@ Password synchronization can be used together with password write-back to enable
 
 [More information about password synchronization](https://msdn.microsoft.com/library/azure/dn246918.aspx)
 
-<a name="federated"></a>
+
 ### Federation using a new or existing AD FS in Windows Server 2012 R2 farm
 With federated sign on, your users can sign on to Azure AD based services with their on premises passwords and, while on the corporate network, without having to enter their passwords again.  The federation option with AD FS allows you to deploy a new or specify an existing AD FS in Windows Server 2012 R2 farm.  If you choose to specify an existing farm, Azure AD Connect will configure the trust between your farm and Azure AD so that your users can sign on.
 

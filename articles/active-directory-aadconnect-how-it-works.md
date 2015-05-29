@@ -20,11 +20,11 @@
 
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="active-directory-aadconnect/" title="What is It" class="current">What is It</a>
-<a href="active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
-<a href="active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
+<a href="../active-directory-aadconnect/" title="What is It" class="current">What is It</a>
+<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
+<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
+<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
+<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
 </div>
 
 Azure Active Directory Connect is made up of three primary parts that make up Azure Active Directory Connect.  They are the synchronization services, the optional Active Directory Federation Services piece, and the monitoring piece which is done using Azure AD Connect Health.
