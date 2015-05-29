@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/29/2015" 
 	ms.author="fashah;garye;mohabib;bradsev" /> 
 
 #Move data to SQL Server on Azure

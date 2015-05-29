@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
+	ms.date="05/29/2015"
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process
+#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process
 
-This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. Several data wrangling tasks are discussed: data exploration and feature generation. Generic Hive queries that show how to explore data or generate features using Hive in an Azure HDInsight Hadoop cluster. These Hive queries use embedded Hive User Defined Functions (UDFs) which are provided.
+This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. This task is part of the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning. Several data wrangling tasks are discussed: data exploration and feature generation. Generic Hive queries that show how to explore data or generate features using Hive in an Azure HDInsight Hadoop cluster. These Hive queries use embedded Hive User Defined Functions (UDFs) which are provided.
 
 Examples of queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
 

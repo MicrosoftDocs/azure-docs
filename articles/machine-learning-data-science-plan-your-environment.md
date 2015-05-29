@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/29/2015" 
 	ms.author="mohabib;bradsev" /> 
 
 
@@ -73,8 +73,8 @@ Depending on your scenario, you might also need the following:
 
 ## How to Use the Advanced Analytics Process guide
 
-The [Advanced Analytics Process map](machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of data science exercises. The map shows the core steps involved in a typical advanced analytics workflow. Not all steps are required in every data science exercise. Also, the process is iterative in nature and the sequence of steps may vary in a given exercise. Your answers to the questions above will help you decide the steps that are relevant to your case when they are needed in the process and the conditions under which iterations of the steps are required.
+The [Advanced Analytics Process guide for Azure Machine Learning](machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of data science exercises. The map shows the core steps involved in a typical advanced analytics workflow. Not all steps are required in every data science exercise. Also, the process is iterative in nature and the sequence of steps may vary in a given exercise. Your answers to the questions above will help you decide the steps that are relevant to your case when they are needed in the process and the conditions under which iterations of the steps are required.
 
-For sample scenarios based on original data size, data source location, and target repository in Azure, see [Advanced Analytics Process in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
+For sample scenarios based on original data size, data source location, and target repository in Azure, see [Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
 
 
