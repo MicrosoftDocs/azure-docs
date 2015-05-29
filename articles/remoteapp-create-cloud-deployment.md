@@ -16,9 +16,9 @@
 	ms.date="05/26/2015" 
 	ms.author="elizapo"/>
 
-# How to create a cloud collection of RemoteApp
+# How to create a cloud collection of Azure RemoteApp
 
-There are two kinds of RemoteApp collections: 
+There are two kinds of Azure RemoteApp collections: 
 
 - Cloud: resides completely in Azure and is created using the **Quick create** option in the Azure management portal.  
 - Hybrid: includes a virtual network for on-premises access and is created using the **Create with VNET** option in the management portal.

@@ -24,13 +24,13 @@
 
 ## Overview
 
-In this tutorial you create an ASP.NET Web API 2 project using Visual Studio 2015, and configure it for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). You also deploy the project to Azure. 
-
-At the end of the tutorial you'll have an API app running in the Azure cloud.
+In this tutorial you create an ASP.NET Web API 2 project using [Visual Studio 2015 RC](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx), and configure it for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). You also deploy the project to Azure. At the end of the tutorial you'll have an API app running in the Azure cloud.
 
 The tutorial assumes you know how to work with files and folders in Visual Studio **Solution Explorer**. 
 
-[AZURE.INCLUDE [install-sdk-2015-only](../includes/install-sdk-2013-only.md)]
+The tutorial works with the currently released version of ASP.NET Web API.  For information about how to create an ASP.NET MVC 6 API app, see this blog post: [https://alexanderzeitler.com/articles/Deploying-a-ASP-NET-MVC-6-API-as-Azure-API-App-in-Azure-App-Services/](https://alexanderzeitler.com/articles/Deploying-a-ASP-NET-MVC-6-API-as-Azure-API-App-in-Azure-App-Services/ "Deploying a ASP.NET MVC 6 API as Azure API App in Azure App Services").   
+
+[AZURE.INCLUDE [install-sdk-2015-only](../includes/install-sdk-2015-only.md)]
 
 This tutorial requires version 2.6 or later of the Azure SDK for .NET.
 
@@ -46,9 +46,9 @@ Visual Studio 2015 RC does not yet have an API app project template, so to creat
 
 4. Name the project *ContactsList*
 
-	![](./media/app-service-dotnet-create-api-app-vs2015/newproj.png)
-
 5. Click **OK**.
+
+	![](./media/app-service-dotnet-create-api-app-vs2015/newproj.png)
 
 6. In the **New ASP.NET Project** dialog under **ASP.NET 4.6 Templates**, select the **Empty** project template.
 
@@ -56,9 +56,9 @@ Visual Studio 2015 RC does not yet have an API app project template, so to creat
 
 8. Clear the **Host in the cloud** check box.
 
-	![](./media/app-service-dotnet-create-api-app-vs2015/newaspnet.png)
-
 7. Click **OK**.
+
+	![](./media/app-service-dotnet-create-api-app-vs2015/newaspnet.png)
 
 ## Add NuGet packages
 
@@ -66,7 +66,7 @@ By default, API App projects are enabled with automatic [Swagger](http://swagger
 
 1. Click **Tools > NuGet Package Manager > Package Manager Console**.
 
-2. In the **Package Manager Console**, enter the following command.
+2. In the **Package Manager Console** (PMC), enter the following command.
 
 		install-package Swashbuckle
 
@@ -114,10 +114,9 @@ The [API app metadata](#api-app-metadata) section later in the tutorial explains
 
 In the following steps you add code for a simple HTTP Get method that returns a hard-coded list of contacts. 
 
-1. In the project folder, create a *Models* folder.
+1. Create a *Models* folder in the project folder if it doesn't already exist.
 
-2. Add a class file named *Contact.cs*, and replace the contents of the file with the following code. 
-
+2. In the *Models* folder, add a class file named *Contact.cs*, and replace the contents of the file with the following code. 
 		namespace ContactsList.Models
 		{
 			public class Contact
@@ -171,7 +170,7 @@ In the following steps you add code for a simple HTTP Get method that returns a 
 
 To view the API test page, perform the following steps.
 
-1. Run the app locally (CTRL-F5) and navigate to `/swagger`. 
+1. Run the app locally (CTRL-F5), and add `/swagger` to the end of the URL in the browser's address bar. 
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/14-swagger-ui.png)
 
@@ -187,13 +186,13 @@ To view the API test page, perform the following steps.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/createapiapp1.png)
 
-	* In **Name** enter enter ContactsList.
+	* In **Name** enter ContactsList.
 
 	* In **App Service Plan** click **Create New** and enter a name, for example: **ContactsList**.
 
 		For more information about App Service plans, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-	* Click **Pricing Tier** to get a list of options, click **View all**, and then select the **Free** pricing tier.
+	* Click **Pricing Tier > View all > Free > Select** to select the free pricing tier.
 
 		You can use a paid pricing tier, but it isn't required for this tutorial.
 
@@ -216,6 +215,8 @@ To view the API test page, perform the following steps.
 	* Click **Settings > Application settings**.
 
 	* Change **Access Level** to **Public (anonymous)**.
+	 
+	* Click **Save**.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/setpublicanon.png)
 	

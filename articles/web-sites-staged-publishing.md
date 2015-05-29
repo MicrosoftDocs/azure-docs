@@ -28,7 +28,7 @@ When you deploy your web app to [App Service](http://go.microsoft.com/fwlink/?Li
 
 - After a swap, the slot with previously staged web app now has the previous production web app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.
 
-Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your web app's mode supports, see [App Service Pricing](/pricing/details/app-service/). 
+Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your web app's mode supports, see [App Service Pricing](/pricing/details/app-service/).
 
 - When your web app has multiple slots, you cannot change the mode.
 
@@ -193,16 +193,16 @@ If a deployment slot is no longer needed, it can be deleted by using the **Remov
 
 ----------
 
-<!-- ======== XPLAT-CLI =========== -->
+<!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
-## Azure Cross-Platform Command-Line Interface (xplat-cli) commands for Deployment Slots
+## Azure Command-Line Interface (Azure CLI) commands for Deployment Slots
 
-The Azure Cross-Platform Command-Line Interface (xplat-cli) provides cross-platform commands for working with Azure, including support for managing Web App deployment slots.
+The Azure CLI provides cross-platform commands for working with Azure, including support for managing Web App deployment slots.
 
-- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+- For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see [Install and Configure the Azure CLI](xplat-cli.md).
 
--  To list the commands available for Azure App Service in the xplat-cli, call `azure site -h`.
+-  To list the commands available for Azure App Service in the Azure CLI, call `azure site -h`.
 
 ----------
 ### azure site list

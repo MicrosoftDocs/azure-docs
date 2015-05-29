@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to Create an Azure Virtual Machine with the xplat-cli"
-   description="This topic describes how to install the xplat-cli on any platform, how to use it to connect to your Azure account, and how to create a VM from the xplat-cli."
+   pageTitle="How to Create an Azure Virtual Machine with the Azure CLI"
+   description="This topic describes how to install the Azure CLI on any platform, how to use it to connect to your Azure account, and how to create a VM from the Azure CLI."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -16,18 +16,18 @@
    ms.date="02/20/2015"
    ms.author="rasquill"/>
 
-# Creating a VM using the Azure Cross-Platform Command-Line Interface (xplat-cli)
-The xplat-cli is a great way to manage your Azure infrastructure from any platform.
+# Creating a VM using the Azure Command-Line Interface (Azure CLI)
+The Azure CLI is a great way to manage your Azure infrastructure from any platform.
 
-Only installing the xplat-cli and having an Azure subscription will prevent you from creating a VM immediately, so let's take care of those steps. If you don't have an Azure account, [go get a free one](http://azure.microsoft.com/pricing/free-trial/).
+Only installing the Azure CLI and having an Azure subscription will prevent you from creating a VM immediately, so let's take care of those steps. If you don't have an Azure account, [go get a free one](http://azure.microsoft.com/pricing/free-trial/).
 
-## Installing the xplat-cli
+## Installing the Azure CLI
 
-Follow these instructions to install the [xplat-cli](xplat-cli.md#install).
+Follow these instructions to install the [Azure CLI](xplat-cli.md#install).
 
-## Connecting to Azure with the xplat-cli
+## Connecting to Azure with the Azure CLI
 
-You can connect your xplat-cli installation with a personal Azure account, or with a work or school Azure account. To understand the differences and choose, see [How to connect to your Azure subscription](xplat-cli.md#configure).
+You can connect your Azure CLI installation with a personal Azure account, or with a work or school Azure account. To understand the differences and choose, see [How to connect to your Azure subscription](xplat-cli.md#configure).
 
 ## Creating and Connecting to a VM in Azure
 
@@ -65,13 +65,13 @@ Creating a VM starts with choosing (or uploading) an image and using the `azure 
 
 ## Next steps
 
-Let's go do something with your VM. 
+Let's go do something with your VM.
 
 Since the example above opened the default SSH port, connecting to the VM once it's up and running is straightforward. From a Linux command line:
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-A great place to see more examples of using xplat-cli to manage your Azure infrastructure is [Azure command-line tool for Mac and Linux](virtual-machines-command-line-tools.md)
+A great place to see more examples of using Azure CLI to manage your Azure infrastructure is [the Azure CLI command reference page](virtual-machines-command-line-tools.md)
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png

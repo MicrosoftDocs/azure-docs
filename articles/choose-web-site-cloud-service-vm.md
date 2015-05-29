@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure App Service, Cloud Services and Virtual Machines comparison" 
 	description="Learn when to use Azure App Service, Cloud Services, and Virtual Machines for hosting web applications."
-	services="•app-service\web, virtual-machines, cloud-services" 
+	services="app-service\web, virtual-machines, cloud-services" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 

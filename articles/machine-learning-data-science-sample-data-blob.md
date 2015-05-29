@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/29/2015" 
 	ms.author="sunliangms;fashah;msolhab;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample Data in Azure Blob Storage
