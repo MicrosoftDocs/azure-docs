@@ -1,25 +1,25 @@
 
-<properties 
-	pageTitle="Connect to and query your SQL Database with C#" 
+<properties
+	pageTitle="Connect to and query your SQL Database with C#"
 	description="Code sample for a C# client using ADO.NET to connect to and interact with the AdventureWorks database on the Azure SQL Database cloud service."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="ckarst" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="ckarst"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/14/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/14/2015"
 	ms.author="cakarst"/>
 
 
-# Connect to and query your SQL Database with C# 
+# Connect to and query your SQL Database with C#
 
 This topic provides a C# code sample that shows you how to connect to an existing AdventureWorks SQL Database by using ADO.NET. The sample compiles to a console application that queries the database and displays the results.
 
@@ -70,7 +70,7 @@ Paste this source code into your **Program.cs** file.
 	using System.Text;
 	using System.Threading.Tasks;
 	using System.Data.SqlClient;
-	
+
 	namespace ConnectandQuery_Example
 	{
 		class Program
@@ -135,4 +135,3 @@ On the database connection strings blade, you see the appropriate connection str
 
 1. To build and run your application, click **DEBUG** > **Start Debugging**
 2. The program prints the query results to the console window.
-
