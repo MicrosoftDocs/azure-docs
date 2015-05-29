@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="How to use Service Bus topics (.NET) - Azure" 
-    description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications." 
-    services="service-bus" 
-    documentationCenter=".net" 
-    authors="sethmanheim" 
-    manager="timlt" 
+<properties
+    pageTitle="How to use Service Bus topics (.NET) - Azure"
+    description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
     editor=""/>
 
-<tags 
-    ms.service="service-bus" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="03/18/2015" 
+<tags
+    ms.service="service-bus"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article" 
+    ms.date="03/18/2015"
     ms.author="sethm"/>
 
 
@@ -92,7 +92,7 @@ You then specify values in the service configuration (***.cscfg**) file:
     ...
         <Role name="MyRole">
             <ConfigurationSettings>
-                <Setting name="Microsoft.ServiceBus.ConnectionString" 
+                <Setting name="Microsoft.ServiceBus.ConnectionString"
                          value="Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey" />
             </ConfigurationSettings>
         </Role>
@@ -117,7 +117,7 @@ Use the SAS name and key values that you retrieved from the management portal, a
 
 ## How to create a topic
 
-You can perform management operations for Service Bus topics and subscriptions using the [`NamespaceManager` class](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) class. This class provides methods to create, enumerate, and delete topics. 
+You can perform management operations for Service Bus topics and subscriptions using the [`NamespaceManager` class](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) class. This class provides methods to create, enumerate, and delete topics.
 
 This example constructs a `NamespaceManager` object using the Azure `CloudConfigurationManager` class
 with a connection string consisting of the base address of a Service Bus service namespace and the appropriate
@@ -128,10 +128,10 @@ SAS credentials with permissions to manage it. This connection string is of the 
 For example, given the configuration settings in the previous section:
 
     // Create the topic if it does not exist already
-    string connectionString = 
+    string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    var namespaceManager = 
+    var namespaceManager =
         NamespaceManager.CreateFromConnectionString(connectionString);
 
     if (!namespaceManager.TopicExists("TestTopic"))
@@ -152,10 +152,10 @@ default message time-to-live of 1 minute.
     td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
     // Create a new Topic with custom settings
-    string connectionString = 
+    string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    var namespaceManager = 
+    var namespaceManager =
         NamespaceManager.CreateFromConnectionString(connectionString);
 
     if (!namespaceManager.TopicExists("TestTopic"))
@@ -181,10 +181,10 @@ subscription's virtual queue. The following example creates a
 subscription named "AllMessages" and uses the default **MatchAll**
 filter.
 
-    string connectionString = 
+    string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    var namespaceManager = 
+    var namespaceManager =
         NamespaceManager.CreateFromConnectionString(connectionString);
 
     if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
@@ -208,11 +208,11 @@ The following example creates a subscription named "HighMessages" with a
 **MessageNumber** property greater than 3:
 
      // Create a "HighMessages" filtered subscription
-     SqlFilter highMessagesFilter = 
+     SqlFilter highMessagesFilter =
         new SqlFilter("MessageNumber > 3");
 
-     namespaceManager.CreateSubscription("TestTopic", 
-        "HighMessages", 
+     namespaceManager.CreateSubscription("TestTopic",
+        "HighMessages",
         highMessagesFilter);
 
 Similarly, the following example creates a subscription named
@@ -220,11 +220,11 @@ Similarly, the following example creates a subscription named
 a **MessageNumber** property less than or equal to 3:
 
      // Create a "LowMessages" filtered subscription
-     SqlFilter lowMessagesFilter = 
+     SqlFilter lowMessagesFilter =
         new SqlFilter("MessageNumber <= 3");
 
-     namespaceManager.CreateSubscription("TestTopic", 
-        "LowMessages", 
+     namespaceManager.CreateSubscription("TestTopic",
+        "LowMessages",
         lowMessagesFilter);
 
 Now when a message is sent to "TestTopic," it is always delivered to receivers subscribed to the "AllMessages" topic subscription, and selectively delivered to receivers subscribed to the "HighMessages" and "LowMessages" topic subscriptions (depending on the message content).
@@ -237,14 +237,14 @@ To send a message to a Service Bus topic, your application creates a
 The code below demonstrates how to create a [`TopicClient`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.aspx) object
 for the "TestTopic" topic created above using the [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx) API call:
 
-    string connectionString = 
+    string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    TopicClient Client = 
+    TopicClient Client =
         TopicClient.CreateFromConnectionString(connectionString, "TestTopic");
 
     Client.Send(new BrokeredMessage());
- 
+
 
 Messages sent to Service Bus topics are instances of the
 [`BrokeredMessage`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.aspx) class. **BrokeredMessage** objects have a set of
@@ -264,7 +264,7 @@ the iteration of the loop (this determines which subscriptions receive it):
      for (int i=0; i<5; i++)
      {
        // Create message, passing a string message for the body
-       BrokeredMessage message = 
+       BrokeredMessage message =
         new BrokeredMessage("Test message " + i);
 
        // Set additional custom app-specific property
@@ -309,16 +309,16 @@ process by calling [`Complete`](https://msdn.microsoft.com/library/microsoft.ser
 Bus sees the `Complete` call, it marks the message as being
 consumed and removes it from the subscription.
 
-The following example demonstrates how messages can be received and processed 
-using the default **PeekLock** mode. To specify a different [`ReceiveMode`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.receivemode.aspx) 
-value, you can use another overload for [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx). This 
-example uses the [`OnMessage`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) callback to process messages as they arrive 
+The following example demonstrates how messages can be received and processed
+using the default **PeekLock** mode. To specify a different [`ReceiveMode`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.receivemode.aspx)
+value, you can use another overload for [`CreateFromConnectionString`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx). This
+example uses the [`OnMessage`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) callback to process messages as they arrive
 in the "HighMessages" subscription.
 
-    string connectionString = 
+    string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    SubscriptionClient Client = 
+    SubscriptionClient Client =
         SubscriptionClient.CreateFromConnectionString
                 (connectionString, "TestTopic", "HighMessages");
 
@@ -348,11 +348,11 @@ in the "HighMessages" subscription.
         }
     }, options);
 
-This example configures the [`OnMessage`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) callback using an 
-[`OnMessageOptions`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.onmessageoptions.aspx) object. [`AutoComplete`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) is set to **false** to enable 
+This example configures the [`OnMessage`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) callback using an
+[`OnMessageOptions`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.onmessageoptions.aspx) object. [`AutoComplete`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) is set to **false** to enable
 manual control of when to call [`Complete`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) on the received message.
-[`AutoRenewTimeout`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) is set to 1 minute, which causes the client to wait for up to one minute for a message before the call times out and the client makes a new 
-call to check for messages. This property value reduces the number of times the client makes 
+[`AutoRenewTimeout`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) is set to 1 minute, which causes the client to wait for up to one minute for a message before the call times out and the client makes a new
+call to check for messages. This property value reduces the number of times the client makes
 chargeable calls that do not retrieve messages.
 
 ## How to handle application crashes and unreadable messages
@@ -406,11 +406,11 @@ links to learn more.
     from a Service Bus queue: [Service Bus Brokered Messaging .NET
     Tutorial][].
 -   Service Bus samples: download from [Azure Samples][] or see the overview on [MSDN][].
-    
+
   [Azure management portal]: http://manage.windowsazure.com
-    
+
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
-  
+
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx

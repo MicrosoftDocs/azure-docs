@@ -1,23 +1,23 @@
-<properties 
-   pageTitle="Delegate your domain to Azure DNS | Microsoft Azure" 
-   description="Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
+<properties
+   pageTitle="Delegate your domain to Azure DNS | Microsoft Azure"
+   description="Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
    editor=""/>
 
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="04/28/2015"
    ms.author="joaoma"/>
 
 
-# Delegate Domain to Azure DNS 
+# Delegate Domain to Azure DNS
 
 Azure DNS is a hosting service for DNS domains.  In order for DNS queries for a domain to reach Azure DNS, the domain has to be delegated to Azure DNS from the parent domain.  This page explains how domain delegation works and how to delegate domains to Azure DNS.
 
@@ -96,7 +96,7 @@ Note that you do not have to specify the Azure DNS name servers, since the norma
 	PS C:\> nslookup –type=SOA contoso.com
 
 	Server: ns1-04.azure-dns.com
-	Address: 208.76.47.4 
+	Address: 208.76.47.4
 
 	contoso.com
 	primary name server = ns1-04.azure-dns.com
@@ -108,7 +108,7 @@ Note that you do not have to specify the Azure DNS name servers, since the norma
 	default TTL = 300 (5 mins)
 
 
-## Next Steps 
+## Next Steps
 
 [Manage DNS zones](../dns-operations-dnszones)
 
@@ -119,4 +119,3 @@ Note that you do not have to specify the Azure DNS name servers, since the norma
 [Automate Azure Operations with .NET SDK](../dns-sdk)
 
 [Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)
-
