@@ -22,10 +22,10 @@ This article show you how to use Azure Resource Manager templates and PowerShell
 
 Common tasks:
 
-- [Deploy a Windows VM](#windowsvm)
+- [DEPLOY TASK: Deploy a Windows VM](#windowsvm)
 - [Create a custom VM image](#customvm)
 - [Deploy a multi-VM application that uses a virtual network and an external load balancer](#multivm)
-- [Log on to a virtual machine](#logon)
+- [MANAGE TASK: Log on to a virtual machine](#logon)
 - [Start a virtual machine](#start)
 - [Stop a virtual machine](#stop)
 
@@ -48,7 +48,7 @@ The resources you create using Azure Resource Manager Templates will be deployed
 
 You can learn more about Azure Resource Manager [here](virtual-machines-azurerm-versus-azuresm.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
-## <a id="windowsvm"></a>Deploy a Windows VM
+## <a id="windowsvm"></a>DEPLOY TASK: Deploy a Windows VM
 
 Use the instructions in this section to deploy a new Azure VM using a Resource Manager Template and Azure PowerShell. This template creates a single virtual machine in a new virtual network with a single subnet.
 
@@ -792,7 +792,7 @@ You will see information like this:
 	Are you sure you want to remove resource group 'BuildRG'
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-## <a id="logon"></a>Log on to a Windows virtual machine
+## <a id="logon"></a>MANAGE TASK: Log on to a Windows virtual machine
 
 For the detailed steps, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
 
