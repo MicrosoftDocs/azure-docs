@@ -308,7 +308,7 @@ In this section, you will create a topology that reads data from Event Hubs by u
 
 	For **TableName**, enter the name of the table that you want events to be stored in.
 
-  For **StorageConnection**, enter a value of `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Replace **myAccount** and **myKey** with the storage account name and key obtained earlier.
+    For **StorageConnection**, enter a value of `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Replace **myAccount** and **myKey** with the storage account name and key obtained earlier.
 
 	These values will be used by the topology to communicate with Event Hubs and Table Storage.
 
@@ -525,44 +525,6 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 ![image of killing a topology](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
 ## Notes
-
-### Configuration
-
-There are several overloaded methods when creating the EventHubSpoutConfig. Use the information below to find the one that best suits your needs.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount)
-
-    * PolicyName: The name of the Shared Access Policy that can read from the specified hub.
-
-    * PolicyKey: The key for the Shared Access Policy.
-
-    * Namespace: The ServiceBus namespace that the hub exists in.
-
-    * HubName: The name of the Event Hub to read from
-
-    * PartitionCount: The number of partitions for the hub
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection)
-
-    In addition to the properties described previously:
-
-    * ZooKeeperConnection: The connection string for the ZooKeeper node. Leave blank for Storm on HDInsight servers.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds,Int ReceiverCredits)
-
-    In addition to the properties described previously:
-
-    * CheckPointIntervalInSeconds: How often the state is persisted to Zookeeper
-
-    * ReceiverCredits: The number of events that are batched before being released into the Storm topology.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits, Int MaxPendingMsgsPerPartition, Long EnqueueTimeFilter)
-
-    In addition to the properties described previously:
-
-    * MaxPendingMsgsPerPartition: The maximum number of events fetched from the hub. Default 1024.
-
-    * EnqueueTimeFilter: Filters events based on the timestamp that the event was enqueued.
 
 ### Checkpointing
 
