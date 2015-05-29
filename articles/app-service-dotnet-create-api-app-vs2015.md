@@ -208,7 +208,7 @@ To view the API test page, perform the following steps.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/createapiapp2.png)
 
-2. When Azure finishes creating the API app (see **Notifications** on the left side of the page), set the API app's access level to **Public (anonymous)**.
+2. When Azure finishes creating the API app, set the API app's access level to **Public (anonymous)**.
 
 	* Click **Browse > Resource Groups > [the resource group you created] > [the API app you created]**.
 
@@ -257,6 +257,41 @@ API apps are essentially web apps for which Azure provides additional features f
 2. Click **Contacts > Get > Try it out**, and you see that the API is functioning and returns the expected result. 
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/runninginazure.png)
+
+## View the API definition in the Azure preview portal
+
+In this section, you navigate to the portal to view the API definition for the API app that you just created.
+
+1. In the [Azure preview portal](https://portal.azure.com), navigate to the **API app** blade for your API app:  click **Browse > Resource Groups > [the resource group you created] > [the API app you created]**.
+
+4. Click **API Definition**. 
+
+	The app's **API Definition** blade shows the list of API operations that you defined when you created the app. (If you followed this tutorial you'll only see a Get operation.) 
+
+	![API Definition](./media/app-service-dotnet-create-api-app-vs2015/29-api-definition-v3.png)
+
+## Add an operation to the Web API code
+
+5. Go back to the project in Visual Studio and add the following code to the **ContactsController.cs** file. This code adds a **Post** method that can be used to post new `Contact` instances to the API.  
+
+		[HttpPost]
+		public HttpResponseMessage Post([FromBody] Contact contact)
+		{
+			// todo: save the contact somewhere
+			return Request.CreateResponse(HttpStatusCode.Created);
+		}
+
+	![Adding the Post method to the controller](./media/app-service-dotnet-create-api-app-vs2015/30-post-method-added-v3.png)
+
+6. Publish the project as you did earlier. (In **Solution Explorer**, right-click the project and click **Publish**, then click **Publish** in the **Publish Web** wizard.)
+
+12. Once the publish process has completed, go back to the portal, and restart the gateway as you did earlier.
+
+14. In the portal, go back to the **API Definition** blade. 
+
+	You see the new API endpoint that you just created and deployed to your Azure subscription.
+
+	![API Definition](./media/app-service-dotnet-create-api-app-vs2015/38-portal-with-post-method-v4.png)
 
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
 
