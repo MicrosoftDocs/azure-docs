@@ -18,7 +18,7 @@
 
 # Move Data to and from Azure Blob Storage
 
-The [Scenarios for Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
+The [Scenarios for the Advanced Analytics Process Technology (ADAPT) in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
 
 - [Using Azure Storage Explorer](#explorer)
 - [Using AzCopy Command line utility](#AzCopy)
