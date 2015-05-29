@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/28/2015"
+   ms.date="05/29/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)
@@ -43,11 +43,7 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 * [Tutorial: Getting Started with Azure Batch Library for .NET](batch-dotnet-get-started.md)
 
-* [Video: Introduction to Azure Batch](http://azure.microsoft.com/documentation/videos/introduction-to-azure-batch-with-mark-scurrell/)
-
-* [Video: Demo of the Azure Batch service by Mark Russinovich](http://azure.microsoft.com/documentation/videos/azure-batch-demo-blender/)  
-
-* [Video: Build a Batch Service](http://azure.microsoft.com/documentation/videos/azure-batch-build-a-batch-service/)
+* [Batch Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 ## HPC cluster solutions
 
@@ -92,7 +88,7 @@ Azure offers a [range of sizes](https://msdn.microsoft.com/library/azure/dn19789
 
 ## Samples and demos
 
-* [Azure Batch code samples](https://code.msdn.microsoft.com/site/search?f[0].Type=Topic&f[0].Value=Azure%20Batch&f[0].Text=Azure%20Batch)
+* [Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 
 * [Batch Apps Blender sample](https://github.com/Azure/azure-batch-apps-blender) and [blog post](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 

@@ -1,6 +1,6 @@
 <properties
  pageTitle="Write data to Power BI from Apache Storm | Microsoft Azure"
- description="An exmaple of how to write data to Power BI from a C# topology running on an Apache Storm on HDInsight cluster. After writing the data, you will learn how to create a report and real-time dashboard using Power BI."
+ description="Write data to Power BI from a C# topology running on an Apache Storm cluster in HDInsight. Also, create a report and real-time dashboard using Power BI."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
@@ -62,7 +62,7 @@ The following files in this project implement the Power BI specific functionalit
 
 ## Download the example
 
-Download the [HDInsight C# Storm Power BI example]](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). To download it, either fork/clone it using [git](http://git-scm.com/), or use the **Download** link to download a .zip of the archive.
+Download the [HDInsight C# Storm Power BI example](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). To download it, either fork/clone it using [git](http://git-scm.com/), or use the **Download** link to download a .zip of the archive.
 
 ## Configure the sample
 

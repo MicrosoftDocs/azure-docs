@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="How to Use VMAccess for Linux Virtual Machines" 
-	description="How to use the Azure Preview Portal or the VMAccess extension for Linux to reset passwords and SSH keys, to reset SSH configurations, and delete Linux users." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="How to Use VMAccess for Linux Virtual Machines"
+	description="How to use the Azure Preview Portal or the VMAccess extension for Linux to reset passwords and SSH keys, to reset SSH configurations, and delete Linux users."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/07/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/07/2015"
 	ms.author="kathydav"/>
 
 # How to Reset a Password or SSH for Linux Virtual Machines #
 
-If you can't connect to a Linux virtual machine because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure Preview Portal or the  VMAccessForLinux extension to reset the password or SSH key or fix the SSH configuration. 
+If you can't connect to a Linux virtual machine because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure Preview Portal or the  VMAccessForLinux extension to reset the password or SSH key or fix the SSH configuration.
 
 ## Azure Preview Portal
 
 To reset the SSH configuration in the [Azure Preview Portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Linux virtual machine* > **Reset Remote Access**. Here is an example.
- 
+
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
 To reset the name and password of the user account with sudo privileges or the SSH public key in the [Azure Preview Portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Linux virtual machine* > **All settings** > **Password reset**. Here is an example.
@@ -36,13 +36,13 @@ To reset the name and password of the user account with sudo privileges or the S
 You will need the following:
 
 - Microsoft Azure Linux Agent version 2.0.5 or later. Most Linux images in the Virtual Machine gallery include version 2.0.5. To find out which version is installed, run **waagent -version**. To update the agent, follow the instructions in the [Azure Linux Agent User Guide].
-- Azure Command-Line Interface (CLI). For details on setting up the Azure CLI, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+- Azure Command-Line Interface (CLI). For details on setting up the Azure CLI, see [Install and Configure the Azure Command-Line Interface](xplat-cli.md).
 - Azure PowerShell. You'll use commands in the Set-AzureVMExtension cmdlet to automatically load and configure the VMAccessForLinux extension. For details on setting up Azure PowerShell, see [How to install and configure Azure PowerShell].
-- A new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration. 
+- A new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration.
 
 ### No installation needed
 
-The VMAccess extension doesn't need to be installed before you can use it. As long as the Linux Agent is installed on the virtual machine, the extension is loaded automatically when you run an Azure PowerShell command that uses the **Set-AzureVMExtension** cmdlet. 
+The VMAccess extension doesn't need to be installed before you can use it. As long as the Linux Agent is installed on the virtual machine, the extension is loaded automatically when you run an Azure PowerShell command that uses the **Set-AzureVMExtension** cmdlet.
 
 ## Use the Azure CLI
 
@@ -58,7 +58,7 @@ With the Azure CLI, you can do the following tasks:
 + [Delete a user](#deletecli)
 + [Display the status of the VMAccess extension](#statuscli)
 
-### <a name="pwresetcli"></a>Reset the password 
+### <a name="pwresetcli"></a>Reset the password
 
 Step 1: Create a file named PrivateConf.json with these contents, substituting for the placeholder values.
 
@@ -78,7 +78,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 
 	{
 	"username":"currentusername",
-	"ssh_key":"contentofsshkey",	
+	"ssh_key":"contentofsshkey",
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -111,7 +111,7 @@ You can also use [Reset the password and the SSH key](#resetbothcli) to create a
 
 ### <a name="sshconfigresetcli"></a>Reset the SSH configuration
 
-If the SSH configuration is in an undesired state, you might also lose access to the VM. You can use the VMAccess extension to reset the configuration to its default state. To do so, you just need to set the “reset_ssh” key to “True”. The extension will restart the SSH server, open the SSH port on your VM, and reset the SSH configuration to default values. The user account (name, password or SSH keys) will not be changed. 
+If the SSH configuration is in an undesired state, you might also lose access to the VM. You can use the VMAccess extension to reset the configuration to its default state. To do so, you just need to set the “reset_ssh” key to “True”. The extension will restart the SSH server, open the SSH port on your VM, and reset the SSH configuration to default values. The user account (name, password or SSH keys) will not be changed.
 
 > [AZURE.NOTE] The SSH configuration file that gets reset is located at /etc/ssh/sshd_config.
 
@@ -121,7 +121,7 @@ Step 1: Create a file named PrivateConf.json with this content.
 	"reset_ssh":"True",
 	}
 
-Step 2: Run this command, substituting the name of your virtual machine for "vmname". 
+Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
 	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -148,7 +148,7 @@ To display the status of the VMAccess extension, run this command.
 
 ## Use Azure PowerShell
 
-You'll use the **Set-AzureVMExtension** cmdlet to make any of the changes that VMAccess lets you make. In all cases, start by using the cloud service name and virtual machine name to get the virtual machine object and store it in a variable. 
+You'll use the **Set-AzureVMExtension** cmdlet to make any of the changes that VMAccess lets you make. In all cases, start by using the cloud service name and virtual machine name to get the virtual machine object and store it in a variable.
 
 Fill in the cloud service and virtual machine names, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
 
@@ -165,7 +165,7 @@ If you created the virtual machine with the Azure Management Portal, run the fol
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
-This command will prevent the “Provision Guest Agent must be enabled on the VM object before setting IaaS VM Access Extension” error when running the Set-AzureVMExtension command in the following sections. 
+This command will prevent the “Provision Guest Agent must be enabled on the VM object before setting IaaS VM Access Extension” error when running the Set-AzureVMExtension command in the following sections.
 
 Then, you can do the following tasks:
 
@@ -182,7 +182,7 @@ Fill in the current Linux user name and the new password, and then run these com
 
 	$UserName = "<current Linux account name>"
 	$Password = "<new password>"
-	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}' 
+	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}'
 	$ExtensionName = "VMAccessForLinux"
 	$Publisher = "Microsoft.OSTCExtensions"
 	$Version =  "1.*"
@@ -210,7 +210,7 @@ Fill in the current Linux user name, the new password, and the path to the certi
 	$UserName = "<current Linux user name>"
 	$Password = "<new password>"
 	$Cert = Get-Content "<certificate path>"
-	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}' 
+	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}'
 	$ExtensionName = "VMAccessForLinux"
 	$Publisher = "Microsoft.OSTCExtensions"
 	$Version =  "1.*"
@@ -218,11 +218,11 @@ Fill in the current Linux user name, the new password, and the path to the certi
 
 ### <a name="config"></a>Reset the SSH configuration
 
-Errors in SSH configuration can prevent you from accessing the virtual machine. You can fix this by resetting the SSH configuration to its default state. This removes all the new access parameters in the configuration, such as user name, password, and the SSH key, but this doesn't change the password or SSH keys of the user account. The extension restarts the SSH server, opens the SSH port on your virtual machine, and resets the SSH configuration to default. 
+Errors in SSH configuration can prevent you from accessing the virtual machine. You can fix this by resetting the SSH configuration to its default state. This removes all the new access parameters in the configuration, such as user name, password, and the SSH key, but this doesn't change the password or SSH keys of the user account. The extension restarts the SSH server, opens the SSH port on your virtual machine, and resets the SSH configuration to default.
 
 Run these commands.
 
-	$PrivateConfig = '{"reset_ssh": "True"}' 
+	$PrivateConfig = '{"reset_ssh": "True"}'
 	$ExtensionName = "VMAccessForLinux"
 	$Publisher = "Microsoft.OSTCExtensions"
 	$Version = "1.*"
@@ -261,8 +261,3 @@ To display the status of the VMAccess extension, run this command.
 [How to install and configure Azure PowerShell]: install-configure-powershell.md
 [Azure VM Extensions and Features]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connect to an Azure virtual machine with RDP or SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
-
-
-
-
-

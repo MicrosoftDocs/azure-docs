@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Deliver Media Assets - Azure" 
+	pageTitle="How to Deliver Media Assets" 
 	description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 #How to: Deliver an Asset by Download

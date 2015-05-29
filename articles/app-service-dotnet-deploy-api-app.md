@@ -67,9 +67,11 @@ In this section, you'll see the steps required to deploy an API app to an Azure 
 
 	![Deploying the API App](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
-The **Azure App Service Activity** window shows the deployment progress. 
+	The **Azure App Service Activity** window shows the deployment progress. 
 
-![Status notification of the Azure App Service Activity window](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+	![Status notification of the Azure App Service Activity window](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+
+	During this deployment process, Visual Studio automatically restarts the *gateway*. The gateway is a web app that handles administrative functions for all API apps in a resource group, and it has to be restarted to recognize API changes in an API app. If you use another method to deploy an API app, and if your deployment changes the API, you might have to restart the gateway manually.  For information about how to restart the gateway in the portal, see [Manage an API app](app-service-api-manage-in-portal.md).
 
 ## View the app in the Azure preview portal
 

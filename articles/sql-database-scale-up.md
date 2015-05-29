@@ -50,7 +50,7 @@ Please note the following:
 ## Upgrade to a Higher Service Tier
 Use one of the following methods to upgrade a database. The steps are specific to upgrading to a Premium service tier, but apply to all upgrades.
 
-###Using Azure Management Portal
+### Using Azure Management Portal
 1. Use your Microsoft account to sign in to the Azure Management Portal.
 2. Navigate to the **SQL DATABASES** tab.
 3. Select a database from the **Databases** list. This opens the database on the **Database Dashboard** or the **Quick Start** page.
@@ -61,7 +61,7 @@ Use one of the following methods to upgrade a database. The steps are specific t
 9. You will be presented with a **Confirmation**. Read the information provided and select the checkbox to confirm.
 
 
-## #Using Azure PowerShell
+### Using Azure PowerShell
 1. Use Set-AzureSqlDatabase to specify the performance level, maximum database size and the service tier for the database. For a list of database sizes supported by the different service tiers, see Azure SQL Database Service Tiers (Editions).
 2. Set the server context with the New-AzureSqlDatabaseServerContext cmdlet. The sample syntax is provided in the Using Azure PowerShell Commands section.
 3. Get a handle to the database, and target performance level. Specify the performance level by using Set-AzureSqlDatabase –ServiceObjective

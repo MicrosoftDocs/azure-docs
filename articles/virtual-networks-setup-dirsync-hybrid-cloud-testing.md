@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing
@@ -42,8 +42,6 @@ There are three major phases to setting up this hybrid cloud test environment:
 3.	Configure the DirSync server (DS1).
 
 If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
-
-> [AZURE.NOTE] The command lines that begin with $ are setting PowerShell variables that later get used in PowerShell commands. [Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 ## Phase 1: Set up the hybrid cloud environment
 
@@ -192,4 +190,7 @@ This environment is now ready for you to perform testing of Office 365 applicati
 [Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 [Azure hybrid cloud test environments](virtual-machines-hybrid-cloud-test-environments.md)
+
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
 

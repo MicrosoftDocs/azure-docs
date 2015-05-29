@@ -12,16 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/28/2015"
+   ms.date="05/27/2015"
    ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device
+
+[AZURE.INCLUDE [storsimple-version-selector](../includes/storsimple-version-selector.md)]
 
 ## Overview
 
 Welcome to Microsoft Azure StorSimple device deployment.
 
-This series of tutorials describes how to configure your StorSimple devices and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
+These deployment tutorials apply to StorSimple 8000 Series Release Version, Update 0.1, Update 0.2, and Update 0.3.
+
+This series of tutorials describes how to configure your StorSimple devices, and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
 
 > [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website and in the MSDN Library applies to StorSimple 8000 series devices only. For complete information about the 7000 series devices, go to: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). For 7000 series deployment information, see the [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/).
 
@@ -103,7 +107,7 @@ A StorSimple Manager service can manage multiple StorSimple devices. Perform the
 > [AZURE.IMPORTANT] If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service. This storage account will be used when you create a volume container. 
 >
 > * If you did not create a storage account automatically, go to [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service) for detailed instructions. 
-> * If you enabled the automatic creation of a storage account, go to Step 2: Get the service registration key.
+> * If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2:-get-the-service-registration-key).
 
 ## Step 2: Get the service registration key
 

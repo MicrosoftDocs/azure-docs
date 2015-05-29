@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Advanced Analytics Process in Action: using SQL Sever | Azure" 
+	pageTitle="Advanced Analytics Process Technology in Action: using SQL Server | Azure" 
 	description="Azure Advanced Analytics Process in Action" metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/29/2015" 
 	ms.author="mohabib;fashah;bradsev"/> 
 
                 
-# Azure Advanced Analytics Process in Action: using SQL Sever
+# Advanced Analytics Process Technology in Action: using SQL Server
 
-In this tutorial, you will follow the Azure Advanced Analytics Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
+In this tutorial, you will follow the Azure Advanced Analytics Process Technology (ADAPT) guide end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description

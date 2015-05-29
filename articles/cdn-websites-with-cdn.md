@@ -16,8 +16,8 @@
 	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-<a name="intro"></a>
-# Use Azure CDN in Azure App Service
+
+#<a name="intro"></a>Use Azure CDN in Azure App Service
 
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) can be integrated with [Azure CDN](/services/cdn/), adding to the global scaling capabilities inherent in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
 
@@ -577,12 +577,12 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 7. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
 
-# More Information #
-- [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+## More Information 
+- [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
 - [Serve Content from Azure CDN in Your Web Application](cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](cdn-how-to-use.md)
+- [Using CDN for Azure](cdn-how-to-use-cdn.md)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

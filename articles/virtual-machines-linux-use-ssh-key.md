@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szark"/>
 
 #How to Use SSH with Linux on Azure
@@ -73,22 +73,46 @@ The **myCert.pem** file is the public key that may then be used to provision a L
 3.	(Optional) You may copy `myPrivateKey.key` to `~/.ssh/id_rsa` so that your OpenSSH client can automatically pick this up without the use of the `-i` option.
 
 ## Get OpenSSL on Windows ##
-### Use msysgit ###
+
+There are a number of utilities that include a `openssl` for Windows. A few examples are listed below -
+
+### Use Msysgit ###
 
 1.	Download and install msysgit from the following location: [http://msysgit.github.com/](http://msysgit.github.com/)
 2.	Run `msys` from the installed directory (example: c:\msysgit\msys.exe)
 3.	Change to the `bin` directory by typing in `cd bin`
 
-###Use GitHub for Windows###
+
+### Use GitHub for Windows ###
 
 1.	Download and install GitHub for Windows from the following location: [http://windows.github.com/](http://windows.github.com/)
 2.	Run Git Shell from the Start Menu > All Programs > GitHub, Inc
 
-###Use cygwin###
+	**Note:** You may encounter the following error when running the `openssl` commands above:
+
+		Unable to load config info from /usr/local/ssl/openssl.cnf
+
+	The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
+
+	**Powershell:**
+
+		$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+
+	**CMD:**
+
+		set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+
+	**Git Bash:**
+
+		export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+
+
+###Use Cygwin###
 
 1.	Download and install Cygwin from the following location: [http://cygwin.com/](http://cygwin.com/)
 2.	Ensure that the OpenSSL package and all of its dependencies are installed.
 3.	Run `cygwin`
+
 
 ## Create a Private Key on Windows ##
 

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Using Azure PowerShell with Azure Storage"
-	description="Learn how to use Azure PowerShell for Azure Storage"
+	pageTitle="Using Azure PowerShell with Azure Storage | Microsoft Azure"
+	description="Learn how to use the Azure PowerShell cmdlets for Azure Storage to create and manage storage accounts; work with blobs, tables, queues, and files; configure and query storage analytics, and create shared access signatures."
 	services="storage"
 	documentationCenter="na"
-	authors="Selcin" 
+	authors="tamram" 
 	manager="adinah"/>
 
 <tags
@@ -12,23 +12,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/12/2015"
+	ms.date="05/27/2015"
 	ms.author="selcint"/>
 
 # Using Azure PowerShell with Azure Storage
 
 ## Overview
 
-In this guide, we’ll explore how to use [Azure PowerShell](http://msdn.microsoft.com/library/azure/jj156055.aspx) to perform a variety of development and administration tasks with Azure Storage.
+In this guide, we’ll explore how to use the [Azure Service Management Cmdlets for Storage](https://msdn.microsoft.com/library/azure/dn806401.aspx) to perform a variety of development and administration tasks with Azure Storage.
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the Azure Management Portal.
 
 This guide assumes that you have prior experience using [Azure Storage](http://azure.microsoft.com/documentation/services/storage/) and [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). The guide provides a number of scripts to demonstrate the usage of PowerShell with Azure Storage. You should update the script variables based on your configuration before running each script.
 
-The first section in this guide provides a quick glance at Azure Storage and PowerShell. For detailed information and instructions, start from the [Prerequisites for using Azure PowerShell with Azure Storage](#pre).
+The first section in this guide provides a quick glance at Azure Storage and PowerShell. For detailed information and instructions, start from the [Prerequisites for using Azure PowerShell with Azure Storage](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
 
 ## Getting started with Azure Storage and PowerShell in 5 minutes
+
 This section shows you how to access Azure Storage via PowerShell in 5 minutes.
 
 **New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](http://azure.microsoft.com/pricing/free-trial/), [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](http://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs).

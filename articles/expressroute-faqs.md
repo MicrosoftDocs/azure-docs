@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/05/2015"
+   ms.date="05/28/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -102,7 +102,7 @@ Yes. You can have more than one ExpressRoute circuit in your subscription. The d
 ### Can I have ExpressRoute circuits from different service providers?
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only.
 
-### How do I get my virtual networks connected to an ExpressRoute circuit
+### How do I connect my virtual networks to an ExpressRoute circuit
 The basic steps are outlined below.
 
 - You must establish an ExpressRoute circuit and have the service provider enable it.
@@ -121,7 +121,7 @@ Yes. [ExpressRoute partners and locations](expressroute-locations.md) page provi
 ### Can I link to more than one virtual network to an ExpressRoute circuit?
 Yes. You can link up to 10 virtual networks to an ExpressRoute circuit. 
 
-### Can I connect virtual networks belonging to many subscriptions to an ExpressRoute circuit?
+### I have multiple Azure subscriptions that contain virtual networks. Can I connect virtual networks that are in separate subscriptions to a single ExpressRoute circuit?
 Yes. You can authorize up to 10 other Azure subscriptions to use a single ExpressRoute circuit. This limit can be increased by enabling the ExpressRoute premium feature.
 
 For more details, see [Sharing an ExpressRoute Circuit across multiple subscriptions](https://msdn.microsoft.com/library/azure/dn835110.aspx).
@@ -142,7 +142,7 @@ Yes. You can advertise default routes (0.0.0.0/0) to block all internet connecti
 Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other.
 
 ### Can I use site-to-site and point-to-site connectivity for virtual networks in conjunction with ExpressRoute?
-Yes. ExpressRoute can coexist with site-to-site and point-to-site VPN. YOu must create the ExpressRoute gateway first and then a dynamic routing gateway for the same virtual network for this to work. 
+Yes. ExpressRoute can coexist with site-to-site and point-to-site VPNs. 
 
 ### Can I move a virtual network from site-to-site / point-to-site configuration to use ExpressRoute?
 Yes. You will have to create an ExpressRoute gateway within your virtual network. There will be a small downtime associated with the process.
@@ -161,7 +161,7 @@ We will filter out private prefixes (RFC1918) in the public peering BGP session.
 ### What happens if I exceed the BGP limits?
 BGP sessions will be dropped. They will be reset once the prefix count goes below the limit.
 
-### After I advertise the default route (0.0.0.0/0) to my virtual networks I can't activate Windows running on my Azure VMs. What can I do?
+### After I advertise the default route (0.0.0.0/0) to my virtual networks, I can't activate Windows running on my Azure VMs. How to I fix this?
 The following steps will help Azure recognize the activation request:
 
 1. Establish the public peering for your ExpressRoute circuit.
@@ -173,7 +173,7 @@ The following steps will help Azure recognize the activation request:
 ### Can I change the bandwidth of an ExpressRoute circuit?
 Yes. You can increase the bandwidth of an ExpressRoute circuit without having to tear it down. You will have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You will however not be able to reduce the bandwidth of an ExpressRoute circuit. Having to lower the bandwidth will mean a tear down and recreation of an ExpressRoute circuit.
 
-### How can I change the bandwidth of an ExpressRoute circuit? 
+### How do I change the bandwidth of an ExpressRoute circuit? 
 You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell cmdlet.
 
 ## ExpressRoute Premium
@@ -259,7 +259,6 @@ The following tutorials will help you:
 - Skype for Business Online
 - Office Online
 - Azure AD & Azure AD Sync
-- CRM Online
 - Office 365 Video
 - Power BI
 - Delve

@@ -13,19 +13,19 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="05/21/2015" 
 	ms.author="heidist"/>
 
 # Build a prototype application for Azure Search
 
-Integrating a new software component into your solution stack is a serious decision that almost always begins with a prototype that establishes the value of a particular technology's contribution.
+Developers who evaluate Azure Search almost always start with a preliminary test application that demonstrates the value of adding Azure Search to a custom application.
 In this article, we give you a few building blocks to speed up the prototyping process.
 
-- A visual studio C# project that include data.json and schema.json files. Having sample data lets you immediately build and run the solution, confirming the solution works on your system before you write one line of code.
+- Guidance on how to structure the data you'll upload to Azure Search. You need one dataset for each  index. The data must be JSON data, but it does not have to be a local file in your solution. We provided local data files to keep the prototype simple.
+ 
+- A visual studio C# project that includes data.json and schema.json files. Having sample data lets you immediately build and run the solution, confirming the solution works on your system before you write one line of code. 
 
-- Advice on how to structure the data you'll upload to Azure Search. You need one dataset, which can be uploaded in one or more data.json files, to populate a search index. The data must be JSON data, but it does not have to be a local file in your solution. We provided local data files to keep the prototype simple.
-
-- Instructions for pulling it all together, building and running the application so that at the end, you have an operational Azure Search index that you can access from your application code.
+	If possible, try to substitute these standalone, disconnected schema and data files with data from your business. When you run the application, an index based on your schema, and documents based on your data files, will be immediately available to work with in Azure Search.
 
 - Lastly, we'll point you to a few additional features that will take your prototype to the next level, incorporating search-specific features like faceted navigation, scoring profiles for tuning results, type-ahead or auto-complete queries, and search page-related functionality that isn't available in strictly full-text search alternative.
 
@@ -35,25 +35,25 @@ In the end, you will have a prototype application, using your data, to demonstra
 
 Search operations are performed against a search index that you create on Azure Search. An index has multiple parts, including scoring profiles and suggesters, but the bulk of an index consists of data fields used in search operations. 
 
-You can think of this index as a flat data file. If your organizational data is in a relational database, you will need to identify or create a single view or table that can be used to load data into your index, where each field in your dataset maps to an equivalent field in the index.
+The data that you'll upload to an Azure Search index should be a flat data file, where each field in your dataset maps to an equivalent field in the index. This dataset populates the fields of your index (other parts of the index, such as a scoring profile, are added separately). If your organizational data is in a relational database, you will need to identify or create a single view or table that can be used to load data into your index.
 
-To create a dataset that can be uploaded using the code in this prototype sample, you will need to put it into JSON format.
+To create a dataset that can be uploaded using the code in this prototype sample, you will need to put it into JSON format, stored in standalone disconnected data files that are embedded in the solution.
 
-> [AZURE.NOTE] You can load multiple data files, perhaps to upload data in batches, but the structure of the data has to be the same for every data file you upload. 
+> [AZURE.NOTE] You can load multiple data files, perhaps to upload data in batches, but the structure of the data has to be the same for every data file you upload to the same index. You cannot join indexes; each index functions as a standalone search corpus.
 
 ## Test the prototype solution on your system
 
 1. [Create an Azure Search service in the Azure portal](search-create-service-portal.md).
 
-	> [AZURE.NOTE] You can add a shared (free) version of the service to any existing Azure subscription. The shared service is often used for prototypes. Keep in mind that the shared service provides 50 MB of data or 10,000 documents total, whichever comes first. Additionally, data and documents can be spread across a maximum of 3 indexes. 
-	> 
-	> Running the prototype sample application, with the built-in sample data files, will create in one index named "musicstoreindex", containing 246 documents, at 278 KB on your Azure Search service. Later in this walkthrough, you'll replace this index with a new one using Adventure Works data that will consume up to ## documents and ## MB.
+    You can add a shared (free) version of the service to any existing Azure subscription. The shared service is often used for prototypes. Keep in mind that the shared service provides 50 MB of data or 10,000 documents total, whichever comes first. Additionally, data and documents can be spread across a maximum of 3 indexes. 
+
+    Running the prototype sample application, with the built-in sample data files, will create in one index named "musicstoreindex", containing 246 documents, at 278 KB on your Azure Search service. Later in this walkthrough, you'll replace this index with a new one using Adventure Works data that will consume up to ## documents and ## MB.
 
 2. [Download the prototype builder solution]( http://go.microsoft.com/fwlink/p/?LinkId=536479). This is a Visual Studio 2013 solution in C# that builds a console application used to create, load, and query an index. If you don't have Visual Studio, you can get the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) version.
 
 3. Edit app.config to add configuration settings that target your Search service and api-key. 
 
-	> [AZURE.NOTE] You can get the URL and the admin api-key from [service dashboard in the portal](search-create-service-portal.md). For the URL, type the full path of the service name, including the https prefix and the `search.windows.net` domain.
+	You can get the URL and the admin api-key from [service dashboard in the portal](search-create-service-portal.md). For the URL, type the full path of the service name, including the https prefix and the `search.windows.net` domain.
 
 4. Build the solution to ensure there are no build errors. You might need to update packages to resolve build errors. Right-click **Manage NuGet packages** on the solution to update the packages.
 
@@ -71,9 +71,15 @@ To create a dataset that can be uploaded using the code in this prototype sample
 
 ## Replace the schema and data JSON files with your data
 
-In the prototype solution, there is one schema file and three data files: data1.json, data2.json, and data3.json. The schema file should be replaced with a schema that describes your data. 
+In the prototype solution, there is one schema file and three data files: data1.json, data2.json, and data3.json. The schema file (schema.json) should be replaced with a schema that describes your data. 
 
-Similarly, if you can get your data into JSON files, you can overwrite the existing files with your data, and then run the application to create and load an index. Distributing data across multiple files helps demonstrate a batch upload operation. 
+By default, these files are located in the solution folder:
+
+![][1]
+
+If you can get your data into JSON files, you can overwrite the existing files with your data, and then run the application to create and load an index. Distributing data across multiple files helps demonstrate a batch upload operation. 
+
+Other approaches for loading data include using an indexer (requires either an Azure DocumentDB data source or an Azure SQL Database data source). Sample code that demonstrates additional ways of loading data can be found at [Azure Search Video and Tutorials List](https://msdn.microsoft.com/library/azure/dn818681.aspx) on MSDN.
 
 ### Edit the query
 
@@ -120,3 +126,7 @@ Visit these links to learn more:
 - [Faceted navigation in Azure Search](search-faceted-navigation.md) 
 
 - [Paging search results in Azure Search](search-pagination-page-layout.md)
+
+
+<!--Image references-->
+[1]: ./media/search-build-prototype/azsearch-datafiles.png
