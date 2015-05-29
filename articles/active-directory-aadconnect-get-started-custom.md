@@ -28,7 +28,7 @@
 
 The following documentation provides information on using the custom installation option for Azure AD Connect.  You can use this option if you have additional configuration options or need optional features that are not covered in the express installation.
 
-For information on an Express Installation see [Express Installation](active-directory-aadconnect-get-started/#express).
+For information on an Express Installation see [Express Installation](active-directory-aadconnect-get-started/#express-installation-of-azure-ad-connect).
 
 ## New features available in Azure AD Connect
 The following is information on some of the new features that are now available in Azure AD Connect that are not currently available with Azure AD Sync.
