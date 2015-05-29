@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
-	ms.date="5/19/2015"
+	ms.topic="get-started-article"
+	ms.date="05/19/2015"
 	ms.author="tdykstra"/>
 
 # Get Started with Azure Cloud Services and ASP.NET
@@ -38,7 +38,7 @@ The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/
 
 ## Alternative architecture: Websites and WebJobs
 
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](choose-web-site-cloud-service-vm.md).
 
 ## What you'll learn
 

@@ -12,13 +12,14 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="03/04/2015"
 	ms.author="markgal"/>
 
 
 
-<h1><a id="configure-a-backup-vault-tutorial"></a>Configure Azure Backup to quickly and easily back up Windows Server</h1>
+<a id="configure-a-backup-vault-tutorial"></a>
+# Configure Azure Backup to quickly and easily back up Windows Server
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. This tutorial will lead you through enabling the Azure Backup feature. Previously you needed to create or acquire a X.509 v3 certificate in order to register your backup server. Certificates are still supported, but now to ease Azure vault registration with a server, you can generate a vault credential right from the Quick Start page.
 <ul><li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/pricing/free-trial/">Azure Free Trial</a>.</li></ul>
@@ -28,7 +29,8 @@
 
 
 
-<h2><a id="create"></a>Create a backup vault</h2>
+<a id="create"></a>
+## Create a backup vault
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -46,7 +48,8 @@
 
 3. If you have multiple subscriptions associated with your organizational account, choose the correct account to associate with the backup vault.
 
-<h2><a id="upload"></a>Download a vault credential</h2>
+<a id="upload"></a>
+## Download a vault credential
 
 Vault credentials replace certificates as the way to register your Azure service with your server. You can still use certificates, however, vault credentials are easier to use because you use the Azure portal to generate and download vault credentials.  
 
@@ -59,7 +62,9 @@ Vault credentials replace certificates as the way to register your Azure service
 
 4. The portal will generate a vault credential using a combination of the vault name and the current date. Click **Save** to download the vault credentials to the local account's downloads folder, or select **Save As** from the **Save** menu to specify a location for the vault credentials. You cannot edit the vault credentials so there is no reason to click Open. Once the credentials have been downloaded, you'll be prompted to Open the folder. Click **x** to close this menu.
 
-<h2><a id="download"></a>Download and install a backup agent</h2>
+<a id="download"></a>
+## Download and install a backup agent
+
 1. In the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then select a backup vault to view its Quick Start page.
@@ -73,7 +78,10 @@ Once the agent is installed you can use the appropriate local management interfa
 
 
 
-<h2><a id="manage"></a>Manage backup vaults and servers</h2>
+<a id="manage"></a>
+
+## Manage backup vaults and servers
+
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of backup vault to view the Quick Start page.
@@ -92,7 +100,8 @@ Once the agent is installed you can use the appropriate local management interfa
 
 		![Deleted Server][deleted-server]
 
-<h2><a id="next"></a>Next steps</h2>
+<a id="next"></a>
+## Next steps
 
 - To learn more about Azure Backup, see [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425).
 
@@ -125,7 +134,8 @@ Once the agent is installed you can use the appropriate local management interfa
 
 
 
-<h1><a id="configure-a-backup-vault-tutorial"></a>Configure Azure Backup to quickly and easily back up Windows Server</h1>
+<a id="configure-a-backup-vault-tutorial"></a>
+# Configure Azure Backup to quickly and easily back up Windows Server
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. This tutorial will lead you through enabling the Azure Backup feature. Previously you needed to create or acquire a X.509 v3 certificate in order to register your backup server. Certificates are still supported, but now to ease Azure vault registration with a server, you can generate a vault credential right from the Quick Start page.
 <ul><li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/pricing/free-trial/">Azure Free Trial</a>.</li></ul>
@@ -135,7 +145,8 @@ Once the agent is installed you can use the appropriate local management interfa
 
 
 
-<h2><a id="create"></a>Create a backup vault</h2>
+<a id="create"></a>
+## Create a backup vault
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -153,7 +164,8 @@ Once the agent is installed you can use the appropriate local management interfa
 
 3. If you have multiple subscriptions associated with your organizational account, choose the correct account to associate with the backup vault.
 
-<h2><a id="upload"></a>Download a vault credential</h2>
+<a id="upload"></a>
+## Download a vault credential
 
 Vault credentials replace certificates as the way to register your Azure service with your server. You can still use certificates, however, vault credentials are easier to use because you use the Azure portal to generate and download vault credentials.  
 
@@ -166,7 +178,9 @@ Vault credentials replace certificates as the way to register your Azure service
 
 4. The portal will generate a vault credential using a combination of the vault name and the current date. Click **Save** to download the vault credentials to the local account's downloads folder, or select **Save As** from the **Save** menu to specify a location for the vault credentials. You cannot edit the vault credentials so there is no reason to click Open. Once the credentials have been downloaded, you'll be prompted to Open the folder. Click **x** to close this menu.
 
-<h2><a id="download"></a>Download and install a backup agent</h2>
+<a id="download"></a>
+## Download and install a backup agent
+
 1. In the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then select a backup vault to view its Quick Start page.
@@ -180,7 +194,8 @@ Once the agent is installed you can use the appropriate local management interfa
 
 
 
-<h2><a id="manage"></a>Manage backup vaults and servers</h2>
+<a id="manage"></a>
+## Manage backup vaults and servers
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of backup vault to view the Quick Start page.
@@ -199,7 +214,8 @@ Once the agent is installed you can use the appropriate local management interfa
 
 		![Deleted Server][deleted-server]
 
-<h2><a id="next"></a>Next steps</h2>
+<a id="next"></a>
+## Next steps
 
 - To learn more about Azure Backup, see [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425).
 
