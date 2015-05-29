@@ -68,12 +68,12 @@ After you create the VM, you'll want to log on to it so you can manage its setti
 
 1. If you haven't already done so, sign in to the [Preview portal](https://portal.azure.com).
 
-2. Click your VM on the Startboard. If you need to find it, click **Browse** and then click  **Virtual machines**. Then select your VM from the list.
+2. Click your VM on the Startboard. If you need to find it, click **Browse** > **Virtual machines**. Then, select your VM from the list.
 
 	![Browse to find the VM](./media/virtual-machines-windows-tutorial/browse_vm_portal.png)
 
 
-3. On the VM blade, click **Connect** at the top.
+3. On the VM blade, click **Connect**.
 
 	![Log on to the virtual machine](./media/virtual-machines-windows-tutorial/connect_vm_portal.png)
 
