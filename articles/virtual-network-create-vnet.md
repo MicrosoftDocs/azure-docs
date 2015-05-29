@@ -1,7 +1,7 @@
 <properties 
    pageTitle="How to create a Virtual Network (VNet)"
    description="Learn how to create a virtual network (VNet)"
-   services="traffic-manager"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carolz"
