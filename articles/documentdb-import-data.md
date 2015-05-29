@@ -95,10 +95,10 @@ Enter the name of the collection from which data will be imported.  You may opti
 
 Here are some command line samples to import from MongoDB:
 
-	Import all documents from a MongoDB collection
+	#Import all documents from a MongoDB collection
 	dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZips /t.IdField:_id /t.CollectionTier:S3
 
-	Import documents from a MongoDB collection which match the query and exclude the loc field
+	#Import documents from a MongoDB collection which match the query and exclude the loc field
 	dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionTier:S3
 
 ##<a id="MongoDBExport"></a>Import MongoDB export files ##
@@ -150,10 +150,10 @@ Note the aliases such as Address.AddressType and Address.Location.StateProvinceN
  
 Here are some command line samples to import from SQL Server:
 
-	Import records from SQL which match a query	
+	#Import records from SQL which match a query	
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionTier:S3
 
-	Import records from sql which match a query and create hierarchical relationships
+	#Import records from sql which match a query and create hierarchical relationships
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
 ##<a id="CSV"></a>Import CSV files ##
@@ -242,13 +242,13 @@ The DocumentDB source importer option has the following advanced options:
 
 Here are some command line samples to import from DocumentDB:
 
-	Migrate data from one DocumentDB collection to another DocumentDB collections
+	#Migrate data from one DocumentDB collection to another DocumentDB collections
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:TEColl /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:TESessions /t.CollectionTier:S3
 
-	Migrate data from multiple DocumentDB collections to a single DocumentDB collection
+	#Migrate data from multiple DocumentDB collections to a single DocumentDB collection
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionTier:S3
 
-	Export a DocumentDB collection to a JSON file
+	#Export a DocumentDB collection to a JSON file
 	dt.exe /s:DocumentDB /s.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
 
 ##<a id="DocumentDBBulkTarget"></a>Import to DocumentDB (Bulk Import) ##
