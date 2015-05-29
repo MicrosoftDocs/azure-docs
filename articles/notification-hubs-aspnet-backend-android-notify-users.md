@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="05/28/2015" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users

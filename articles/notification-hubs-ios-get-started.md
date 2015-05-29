@@ -172,8 +172,8 @@ You can test receiving notifications in your app by send notifications in the Az
 1. In XCode, open your Main.storyboard and add the following UI components from the object library to allow the user to send push notifications in the app.
 
 	- A Label with no label text. It will be used to report errors sending notifications. **Lines** property should be set to **0** so it will auto size constrained to the right and left margins and the top of the view.
-	- A Text field with **Placeholder** text set to **Enter Notification Message**. Constrain the field just below the label as shown below. Set the **Return Key** to **Send** and set the View Controller as the outlet delegate.
-	- A Button titled **Send Notification** centered and constrained just below the text field.
+	- A Text field with **Placeholder** text set to **Enter Notification Message**. Constrain the field just below the label as shown below. Set the View Controller as the outlet delegate.
+	- A Button titled **Send Notification** constrained just below the text field and in the horizontal center.
 
 	The view should look as follows:
 
@@ -201,7 +201,8 @@ You can test receiving notifications in your app by send notifications in the Az
 		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
 		#define HUBNAME @"<Enter the name of your hub>"
 
-		@interface ViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
+		@interface ViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDataDelegate, 
+														NSXMLParserDelegate>
 		{
 			NSURLConnection *currentConnection;
 			NSXMLParser *xmlParser;
@@ -265,7 +266,7 @@ You can test receiving notifications in your app by send notifications in the Az
 
 		-(NSString *)CF_URLEncodedString:(NSString *)inputString
 		{
-			return (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)inputString, 
+		   return (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)inputString, 
 				NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
 		}
 		
@@ -329,14 +330,22 @@ You can test receiving notifications in your app by send notifications in the Az
 		}
 
 
-7. **Ctrl+drag** from the **Send Notification** button to ViewController.m to add an action for the **Touch Down** event that executes the following code.
+7. **Ctrl+drag** from the **Send Notification** button to ViewController.m to add an action for the **Touch Down** event that executes the REST API call using the following code.
 
-		- (IBAction)SendNotificationMessage:(id)sender {
-		    NSString *json = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"%@\"}}", self.notificationMessage.text];
+		- (IBAction)SendNotificationMessage:(id)sender 
+		{
+			[self SendNotificationRESTAPI];
+		}
+
+		- (void)SendNotificationRESTAPI
+		{
+		    NSString *json = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"%@\"}}", 
+								self.notificationMessage.text];
 		
 			self.sendResults.text = @"";
 		
-			NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint, HUBNAME, API_VERSION]];
+			NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint, 
+												HUBNAME, API_VERSION]];
 		
 			NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
 		
@@ -365,15 +374,13 @@ You can test receiving notifications in your app by send notifications in the Az
 		}
 
 
-8. In ViewController.m, add the following delegate method to support the **Send** keyboard button for the text field. **Ctrl+drag** from the text field to the View Controller icon in the interface designer to set the view controller as the outlet delegate.
+8. In ViewController.m, add the following delegate method to support closing the keyboard for the text field. **Ctrl+drag** from the text field to the View Controller icon in the interface designer to set the view controller as the outlet delegate.
 
 		//===[ Implement UITextFieldDelegate methods ]===
 		
-		-(BOOL)textFieldShouldReturn:(UITextField *)notificationMessage 
+		-(BOOL)textFieldShouldReturn:(UITextField *)textField 
 		{
-			[notificationMessage resignFirstResponder];
-			[self SendNotificationMessage:NULL];
-			
+			[textField resignFirstResponder];
 			return YES;
 		}
 
