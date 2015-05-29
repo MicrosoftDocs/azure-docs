@@ -16,11 +16,8 @@
 	ms.date="03/04/2015"
 	ms.author="markgal"/>
 
-
-
-<a id="configure-a-backup-vault-tutorial"></a>
-
 # Configure Azure Backup to quickly and easily back up Windows Server
+<a id="configure-a-backup-vault-tutorial"></a>
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. This tutorial will lead you through enabling the Azure Backup feature. Previously you needed to create or acquire a X.509 v3 certificate in order to register your backup server. Certificates are still supported, but now to ease Azure vault registration with a server, you can generate a vault credential right from the Quick Start page.
 <ul><li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/pricing/free-trial/">Azure Free Trial</a>.</li></ul>
