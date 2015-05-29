@@ -32,8 +32,7 @@ You can also create VMs using [your own images](virtual-machines-create-upload-v
 
 ## Create the virtual machine
 
-This section shows you how to use the Preview portal to create a VM, using Windows Server 2012 R2 Datacenter as an example. You can use Azure's default settings for most of the configuration and create the VM in just a few minutes.
-
+Using Windows Server 2012 R2 Datacenter as an example, you can create a VM to try out in just a few minutes. You can use Azure's default settings for most of the configuration.
 
 1. Sign in to the [Preview portal](https://portal.azure.com).
 
@@ -41,7 +40,7 @@ This section shows you how to use the Preview portal to create a VM, using Windo
 
 	![Select New](./media/virtual-machines-windows-tutorial/new_button_portal.png)
 
-3. In the **New** blade, click **Compute**, and then click **Windows Server 2012 R2 Datacenter**.
+3. In the **New** blade, click **Compute** **>** **Windows Server 2012 R2 Datacenter**.
 
 	![Select a VM image from the Marketplace](./media/virtual-machines-windows-tutorial/marketplace_portal.png)
 
