@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Customize Azure HDInsight Hadoop clusters for advanced analytics | Azure" 
+	pageTitle="Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process Technology | Azure" 
 	description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
 	metaKeywords="" 
 	services="machine-learning" 
@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/08/2015" 
+	ms.date="05/29/2015" 
 	ms.author="hangzh;bradsev" />
 
-# Customize Azure HDInsight Hadoop clusters for advanced analytics
+# Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process Technology
 
-This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. It also shows how to access the headnode to submit custom jobs to the cluster.
+This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. This customization prepares the cluster for use with the Advanced Analytics Process Technology (ADAPT) used in Azure Machine Learning. It also shows how to access the headnode to submit custom jobs to the cluster.
 
-This customization makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process](machine-learning-data-science-hive-queries.md).
+This customization makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process](machine-learning-data-science-hive-queries.md).
 
 
 ## <a name="customize"></a>Customize Azure HDInsight Hadoop Cluster
@@ -84,7 +84,7 @@ Users must enable remote access to the Hadoop cluster in Azure before they can a
 
 	 ![Create workspace][9]
 
-The next steps in the Advanced Analytics Process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
+The next steps in the advanced analytics process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
 See [Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process](machine-learning-data-science-process-hive-tables.md) for instructions on how to access the Python modules that are included in Anaconda from the head node of the cluster in user defined functions (UDFs) that are used to process Hive records stored in the cluster.
 

@@ -119,3 +119,4 @@ Once configured, you can expand this SharePoint farm with guidance from [Microso
 
 [SharePoint with SQL Server AlwaysOn Infographic](http://go.microsoft.com/fwlink/?LinkId=394788)
 
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)

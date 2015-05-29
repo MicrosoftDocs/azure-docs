@@ -66,7 +66,7 @@ When enabling **site diagnostics**, you must select **storage** or **file system
 The following are the settings available when enabling **application diagnostics**:
 
 * **Logging level** - allows you to filter the information captured to **informational**, **warning** or **error** information. Setting this to **verbose** will log all information produced by the application. **Logging level** can be set differently for **file system**, **table storage**, and **blob storage** logging.
-* **File system** - stores the application diagnostics information to the web app file system. These files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Tools.
+* **File system** - stores the application diagnostics information to the web app file system. These files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Interface (Azure CLI).
 * **Table storage** - stores the application diagnostics information in the specified Azure Storage Account and table name.
 * **Blob storage** - stores the application diagnostics information in the specified Azure Storage Account and blob container.
 * **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
@@ -77,7 +77,7 @@ The following are the settings available when enabling **application diagnostics
 
 ##<a name="download"></a> How to: Download logs
 
-Diagnostic information stored to the web app file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure PowerShell or the Azure Command-Line Tools.
+Diagnostic information stored to the web app file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure PowerShell or the Azure Command-Line Interface.
 
 The directory structure that the logs are stored in is as follows:
 
@@ -107,15 +107,15 @@ This will save the logs for the web app specified by the **-Name** parameter to 
 
 > [AZURE.NOTE] If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-### Download with Azure Command-Line Tools
+### Download with Azure Command-Line Interface
 
-To download the log files using the Azure Command Line Tools, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
+To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
 	azure site log download webappname
 
 This will save the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](xplat-cli.md).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](xplat-cli.md).
 
 ## How to: View logs in Application Insights
 
@@ -132,7 +132,7 @@ Visual Studio Application Insights provides tools for filtering and searching lo
 
 ##<a name="streamlogs"></a> How to: Stream logs
 
-While developing an application, it is often useful to see logging information in near-real time. This can be accomplished by streaming logging information to your development environment using either Azure PowerShell or the Azure Command-Line Tools.
+While developing an application, it is often useful to see logging information in near-real time. This can be accomplished by streaming logging information to your development environment using either Azure PowerShell or the Azure Command-Line Interface.
 
 > [AZURE.NOTE] Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
 
@@ -158,7 +158,7 @@ To see a list of available paths, use the -ListPath parameter.
 
 > [AZURE.NOTE] If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-### Streaming with Azure Command-Line Tools
+### Streaming with Azure Command-Line Interface
 
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
@@ -174,7 +174,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](xplat-cli.md).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](xplat-cli.md).
 
 ##<a name="understandlogs"></a> How to: Understand diagnostics logs
 

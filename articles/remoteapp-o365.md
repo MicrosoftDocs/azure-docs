@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 # Using Office 365 with Azure RemoteApp
