@@ -91,9 +91,10 @@ Connect to the Linux VM you created via putty. If this is the first time you use
 
 		\# su - postgres
 
-> [Azure.NOTE] For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
+    >[Azure.NOTE] For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
 
-3. Edit the *bash_profile* by entering the commands below. These lines will be added to the end of the *bash_profile* file:
+
+4. Edit the *bash_profile* by entering the commands below. These lines will be added to the end of the *bash_profile* file:
 
 		cat >> ~/.bash_profile <<EOF
 		export PGPORT=1999
@@ -108,11 +109,11 @@ Connect to the Linux VM you created via putty. If this is the first time you use
 		alias ll='ls -lh'
 		EOF
 
-4. Execute the *bash_profile* file:
+5. Execute the *bash_profile* file:
 
 		$ source .bash_profile
 
-5. Validate your installation with the following command:
+6. Validate your installation with the following command:
 
 		$ which psql
 
@@ -120,11 +121,11 @@ Connect to the Linux VM you created via putty. If this is the first time you use
 
 		/opt/pgsql/bin/psql
 
-6. You can also check the PostgreSQL version:
+7. You can also check the PostgreSQL version:
 
 		$ psql -V
 
-7. Initialize the database:
+8. Initialize the database:
 
 		$ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
 
