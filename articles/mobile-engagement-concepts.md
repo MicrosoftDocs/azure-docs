@@ -11,8 +11,8 @@
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
-	ms.devlang=""
-	ms.topic="get-started-article" 
+	ms.devlang="na"
+	ms.topic="get-started-article"
 	ms.date="01/24/2015"
 	ms.author="kapiteir" />
 
