@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creating Endpoints" 
+	pageTitle="Creating web service endpoints in Machine Learning | Azure" 
 	description="Creating web service endpoints in Azure Machine Learning" 
 	services="machine-learning" 
 	documentationCenter="" 
