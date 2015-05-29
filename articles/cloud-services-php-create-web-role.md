@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Create Web and Worker Roles" 
-	description="A guide to creating PHP Web and Worker roles in an Azure Cloud Service, and configuring the PHP runtime." 
-	services="" 
-	documentationCenter="php" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Create Web and Worker Roles"
+	description="A guide to creating PHP Web and Worker roles in an Azure Cloud Service, and configuring the PHP runtime."
+	services=""
+	documentationCenter="php"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="2/5/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="get-started-article" 
+	ms.date="2/5/2015"
 	ms.author="tomfitz"/>
 
 #How to create PHP web and worker roles
@@ -34,7 +34,7 @@ The [Azure SDK for PHP] consists of several components. This article will use tw
 
 ##<a name="CreateProject"></a>How to: Create a Cloud Services project
 
-The first step in creating a PHP web or worker role is to create an Azure Service project. an Azure Service project serves as a logical container for web and worker roles, and contains the project's [service definition (.csdef)] and [service configuration (.cscfg)] files. 
+The first step in creating a PHP web or worker role is to create an Azure Service project. an Azure Service project serves as a logical container for web and worker roles, and contains the project's [service definition (.csdef)] and [service configuration (.cscfg)] files.
 
 To create a new Azure Servcie project, run Azure PowerShell as an administrator, and execute the following command:
 
@@ -60,7 +60,7 @@ When you add a PHP web or worker role to a project, the project's configuration 
 
 	PS C:\myProject> Get-AzureServiceProjectRoleRuntime
 
-The output from the command above will look similar to what is shown below. In this example, the `IsDefault` flag is set to `true` for PHP 5.3.17, indicating that it will be the default PHP version installed. 
+The output from the command above will look similar to what is shown below. In this example, the `IsDefault` flag is set to `true` for PHP 5.3.17, indicating that it will be the default PHP version installed.
 
 	Runtime Version		PackageUri						IsDefault
 	------- ------- 	----------  					---------
@@ -110,14 +110,14 @@ To configure a web role to use a PHP runtime that you provide, follow the steps 
 
 		@ECHO ON
 		cd "%~dp0"
-		
+
 		if "%EMULATED%"=="true" exit /b 0
-		
+
 		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-		
+
 		SET PHP_FULL_PATH=%~dp0php\php-cgi.exe
 		SET NEW_PATH=%PATH%;%RoleRoot%\base\x86
-		
+
 		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%',maxInstances='12',idleTimeout='60000',activityTimeout='3600',requestTimeout='60000',instanceMaxRequests='10000',protocol='NamedPipe',flushNamedPipe='False']" /commit:apphost
 		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PATH',value='%NEW_PATH%']" /commit:apphost
 		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PHP_FCGI_MAX_REQUESTS',value='10000']" /commit:apphost
@@ -165,7 +165,7 @@ To configure a worker role to use a PHP runtime that you provide, follow the ste
 		:error
 
 		echo FAILED
-		exit /b -1	
+		exit /b -1
 
 5. Add your application files to your worker role's root directory.
 

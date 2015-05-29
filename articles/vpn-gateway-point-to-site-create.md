@@ -10,7 +10,7 @@
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/12/2015"
@@ -120,7 +120,7 @@ The following client operating systems are supported:
 ### Install the VPN configuration package on the client and start the connection
 
 1. Copy the configuration file locally to the computer that you want to connect to your virtual network and double click the .exe file. Once the package has installed, you can start the VPN connection.
-Note that the configuration package is not signed by Microsoft. You may wish to sign the package using your organization's signing service or sign it yourself using [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). It's OK to use the package without signing. However, if the package isn't signed, a warning will appear when you install the package. 
+Note that the configuration package is not signed by Microsoft. You may wish to sign the package using your organization's signing service or sign it yourself using [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). It's OK to use the package without signing. However, if the package isn't signed, a warning will appear when you install the package.
 2. On the client computer, navigate to VPN connections and locate the VPN connection that you just created. It will be named the same name as your virtual network. Click **Connect**.
 3. A pop up message will appear which is used to create a self-signed cert for the Gateway endpoint. Click **Continue** to use elevated privileges.
 4. On the **Connection** status page, click **Connect** in order to start the connection.
@@ -144,7 +144,7 @@ Example:
 		Autoconfiguration Enabled.......: Yes
 		IPv4 Address....................: 192.168.130.2(Preferred)
 		Subnet Mask.....................: 255.255.255.255
-		Default Gateway.................: 
+		Default Gateway.................:
 		NetBIOS over Tcpip..............: Enabled
 
 
