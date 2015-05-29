@@ -19,17 +19,18 @@
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource Management](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure Preview portal. This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
+This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure Preview portal. We'll use a Windows Server image as an example, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
-You can also create Windows VMs using [your own images](virtual-machines-create-upload-vhd-windows-server-classic-portal.md). To learn more about Azure VMs, see [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx).
+You can also create VMs using [your own images](virtual-machines-create-upload-vhd-windows-server.md). To learn about this and other methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 
-## How to create the virtual machine
+## Create the virtual machine
 
 This section shows you how to use the Preview portal to create a VM, using Windows Server 2012 R2 Datacenter as an example. You can use Azure's default settings for most of the configuration and create the VM in just a few minutes.
 
@@ -46,7 +47,7 @@ This section shows you how to use the Preview portal to create a VM, using Windo
 
 4. On the **Create VM** blade, fill in the **Host Name** you want for the VM, the administrative **User Name**, and a strong **Password**.  
 
-	>[AZURE.NOTE] **User Name** refers to the administrative account that you use to manage the server. Create a unique password for this account and make sure to remember it. **You'll need the user name and password to log on to the virtual machine**.
+	>[AZURE.NOTE] **User Name** refers to the administrative account that you use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**. If you forget the password, you can reset it using [these instructions](virtual-machines-windows-reset-password.md).
 
 	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial/create_vm_name_pwd_portal.png)
 
@@ -60,9 +61,9 @@ This section shows you how to use the Preview portal to create a VM, using Windo
 
 	![VM appears on the Startboard](./media/virtual-machines-windows-tutorial/vm_startboard_portal.png)
 
-## How to log on to the virtual machine after you create it
+## Log on to the virtual machine
 
-This section shows you how to log on to the VM so you can manage its settings and the applications that you'll run on it.
+After you create the VM, you'll want to log on to it so you can manage its settings and the applications that you'll run on it.
 
 >[AZURE.NOTE] For requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
@@ -77,11 +78,11 @@ This section shows you how to log on to the VM so you can manage its settings an
 
 	![Log on to the virtual machine](./media/virtual-machines-windows-tutorial/connect_vm_portal.png)
 
-4. Click **Open** to use the Remote Desktop Protocol file that was automatically created for the virtual machine.
+4. Click **Open** to use the Remote Desktop Protocol file that's automatically created for the virtual machine.
 
-5. Click **Connect** to proceed with the connection process.
+5. Click **Connect**.
 
-6. Type the user name and password of the administrative account on the virtual machine, and then click **OK**.
+6. Type the user name and password you created when you created the virtual machine, and then click **OK**.
 
 7. Click **Yes** to verify the identity of the virtual machine.
 
@@ -91,9 +92,7 @@ This section shows you how to log on to the VM so you can manage its settings an
 
 To learn more about configuring Windows virtual machines on Azure, see the following articles:
 
-[How to Connect Virtual Machines in a Cloud Service](cloud-services-connect-virtual-machine.md)
-
-[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](virtual-machines-create-upload-vhd-windows-server-classic-portal.md)
+[Connect Virtual Machines with a Virtual Network or Cloud Service](cloud-services-connect-virtual-machine.md)
 
 [Attach Data Disks to a Virtual Machine](storage-windows-attach-disk.md)
 
