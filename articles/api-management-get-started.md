@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Manage your first API in Azure API Management" 
-	description="Learn how to create APIs, operations, and get started with API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+<properties
+	pageTitle="Manage your first API in Azure API Management"
+	description="Learn how to create APIs, operations, and get started with API Management."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/10/2015" 
+<tags
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article" 
+	ms.date="03/10/2015"
 	ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
@@ -24,7 +24,7 @@ This guide shows you how to quickly get started using API Management and make yo
 
 ## <a name="concepts"> </a>What is Azure API Management?
 
-Azure API Management allows you to take any backend and launch a full-fledged API program based on it. 
+Azure API Management allows you to take any backend and launch a full-fledged API program based on it.
 
 Common scenarios include:
 
@@ -158,7 +158,7 @@ For the second query parameter, enter the following values.
 
 It is a good practice to provide examples of responses for all status codes that the operation may produce. Each status code may have more than one response body example, one for each of the supported content types. In this tutorial we are adding a **200 OK** response code.
 
-Click **Add** in the Responses section, start typing **200** into the text box, and then select **200 OK** from the drop-down list. 
+Click **Add** in the Responses section, start typing **200** into the text box, and then select **200 OK** from the drop-down list.
 
 ![Add response][api-management-add-response]
 
@@ -236,7 +236,7 @@ Click **APIs** from the top menu, and then click **My Echo API** to see the oper
 
 Note that the description and parameters that were added when you created the operation are displayed, providing documentation for the developers that will use this operation.
 
-Click **GET Resource** and then click **Open Console**. 
+Click **GET Resource** and then click **Open Console**.
 
 ![Operation console][api-management-developer-portal-myecho-api-console]
 
@@ -244,7 +244,7 @@ Enter some values for the parameters, and specify your developer key, and click 
 
 ![HTTP Get][api-management-invoke-get]
 
-After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**. 
+After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**.
 
 ![Response][api-management-invoke-get-response]
 
