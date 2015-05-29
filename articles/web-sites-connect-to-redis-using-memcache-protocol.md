@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Connect a web app in Azure App Service to Redis Cache via the Memcache protocol" 
-   description="Connect a web app in Azure App service to Redis Cache using the Memcache protocol" 
-   services="app-service\web" 
-   documentationCenter="php" 
-   authors="SyntaxC4" 
-   manager="wpickett" 
+<properties
+   pageTitle="Connect a web app in Azure App Service to Redis Cache via the Memcache protocol"
+   description="Connect a web app in Azure App service to Redis Cache using the Memcache protocol"
+   services="app-service\web"
+   documentationCenter="php"
+   authors="SyntaxC4"
+   manager="wpickett"
    editor="riande"/>
-   
+
 <tags
    ms.service="app-service-web"
    ms.devlang="php"
    ms.topic="article"
    ms.tgt_pltfrm="windows"
-   ms.workload="web" 
+   ms.workload="web"
    ms.date="03/31/2015"
    ms.author="cfowler"/>
 
@@ -24,7 +24,7 @@ App Service Web Apps enables this application scenario with the Web Apps Memcach
 
 ## Prerequisites
 
-The Web Apps Memcache shim can be used with any application provided it communicates using the Memcache protocol. For this particular example, the reference application is a Scalable WordPress site which can be provisioned from the Azure Marketplace. 
+The Web Apps Memcache shim can be used with any application provided it communicates using the Memcache protocol. For this particular example, the reference application is a Scalable WordPress site which can be provisioned from the Azure Marketplace.
 
 Follow the steps outlined in these posts:
 
@@ -35,7 +35,7 @@ Once you have the Scalable WordPress site deployed and a Redis Cache instance pr
 
 ## Enable the Web Apps Memcache shim
 
-In order to configure Memcache shim, you must create three app settings. This can be done using a variety of methods including the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), the [Old Portal][3], the [Azure PowerShell Cmdlets][5] or the [Azure Cross Platform Command-Line tools][5]. For the purposes of this post, I’m going to use the [Azure Portal][4] to set the app settings. The following values can be retrieved from **Settings** blade of your Redis Cache instance.
+In order to configure Memcache shim, you must create three app settings. This can be done using a variety of methods including the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), the [Old Portal][3], the [Azure PowerShell Cmdlets][5] or the [Azure Command-Line Interface][5]. For the purposes of this post, I’m going to use the [Azure Portal][4] to set the app settings. The following values can be retrieved from **Settings** blade of your Redis Cache instance.
 
 ![Azure Redis Cache Settings Blade](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 

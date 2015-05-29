@@ -80,7 +80,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 
 * *Build or checksum validation errors?*
- * Try using a specific version, such as:* `<version>0.9.3</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md). 
+ * Try using a specific version, such as:* `<version>0.9.n</version>`. You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 
@@ -99,7 +99,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'0.9.3'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).* 
+* *Build or checksum validation errors? Try using a specific version, such as:* `version:'0.9.n'`. *You'll find the latest version in the [SDK release notes](app-insights-release-notes-java.md).* 
 * *To update to a new SDK*
  * Refresh your project's dependencies.
 

@@ -71,7 +71,7 @@ Since the example above opened the default SSH port, connecting to the VM once i
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-A great place to see more examples of using Azure CLI to manage your Azure infrastructure is [Azure Command-Line tools](virtual-machines-command-line-tools.md)
+A great place to see more examples of using Azure CLI to manage your Azure infrastructure is [the Azure CLI command reference page](virtual-machines-command-line-tools.md)
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png

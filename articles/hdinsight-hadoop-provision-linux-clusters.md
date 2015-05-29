@@ -19,7 +19,7 @@
 
 #Provision Hadoop Linux clusters in HDInsight using custom options (Preview)
 
-In this article, you'll learn about the different ways to custom-provision a Hadoop Linux cluster on Azure HDInsight - by using the Azure portal, Azure PowerShell, command-line tools, or the HDInsight .NET SDK.
+In this article, you'll learn about the different ways to custom-provision a Hadoop Linux cluster on Azure HDInsight - by using the Azure portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK.
 
 ## What is an HDInsight cluster?
 
@@ -210,12 +210,12 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
 ###<a id="cli"></a> Using the Azure Command-Line Interface (Azure CLI)
 
-Another option for provisioning an HDInsight cluster is the Azure CLI. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the command-line interface from the following locations:
+Another option for provisioning an HDInsight cluster is the Azure CLI. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the Azure CLI from the following locations:
 
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **Azure CLI for Mac, Linux and Windows** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-For a general guide on how to use the command-line interface, see [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
+For a general guide on how to use the Azure CLI, see [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
 
 Instructions below guide you on how to install the Azure CLI on Linux and Windows, and then how to use the command line to provision a cluster.
 
@@ -225,7 +225,7 @@ Instructions below guide you on how to install the Azure CLI on Linux and Window
 
 #### <a id="clilin"></a>Set up the Azure CLI for Linux
 
-Perform the following procedures to set up your Linux computer to use Azure command-line tools:
+Perform the following procedures to set up your Linux computer to use the Azure Command-Line Interface (Azure CLI):
 
 - Install the Azure CLI by using Node.js Package Manager (NPM)
 - Connect to your Azure subscription
@@ -273,9 +273,9 @@ Before using the Azure CLI, you must configure connectivity between your worksta
 
 #### <a id="cliwin"></a>Set up the Azure CLI for Windows
 
-Perform the following procedures to set up your Windows computer to use Azure command-line tools:
+Perform the following procedures to set up your Windows computer to use the Azure Command-Line Interface (Azure CLI):
 
-- Install the command-line interface by using NPM or Windows Installer
+- Install the Azure CLI by using NPM or Windows Installer
 - Download and import Azure account publish settings
 
 
@@ -307,7 +307,7 @@ Azure CLI can be installed via NPM or Windows Installer. Microsoft recommends th
 **To install Azure CLI by using Windows Installer**
 
 1.	Browse to **http://azure.microsoft.com/downloads/**.
-2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
+2.	Scroll down to the **Command line tools** section, and then click **Azure Command-Line Interface** and follow the Web Platform Installer wizard.
 
 **To download and import publish settings**
 
@@ -391,7 +391,7 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 **To provision an HDInsight cluster by using a configuration file**
 
-Typically, you provision an HDInsight cluster, run the jobs, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.
+Typically, you provision an HDInsight cluster, run the jobs, and then delete the cluster to cut down the cost. The Azure CLI gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.
 
 - From the command prompt window, run the following commands:
 

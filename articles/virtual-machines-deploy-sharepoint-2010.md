@@ -266,7 +266,7 @@ The following steps show how to create a customized SharePoint farm environment 
 	- Us	e the Operations Manager agent and new Azure Integration Pack to connect your on-premises System Center to Azure Virtual Machines.
 	- Use on-premises App Controller and Orchestrator for management functions.
 
-## Conclusion
+## Summary
 
 Azure Virtual Machines provide a full continuum of SharePoint deployments. It is fully supported and tested to provide an optimal experience with other Microsoft applications. As such, organizations can easily set up and deploy SharePoint Server within Azure, either to provision infrastructure for a new SharePoint deployment or to expand an existing one. As business workloads grow, organizations can rapidly expand their SharePoint infrastructure. Likewise, if workload needs decline, organizations can contract resources on demand, paying only for what they use. Azure Virtual Machines deliver an exceptional infrastructure for a wide range of business requirements, as shown in the four SharePoint-based scenarios discussed in this article.
 
@@ -278,6 +278,7 @@ Successful deployment of SharePoint Server on Azure Virtual Machines requires so
 
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Azure PowerShell](http://msdn.microsoft.com/library/jj156055)
+[Azure Infrastructure Services Workload: Intranet SharePoint Farm](virtual-machines-workload-intranet-sharepoint-farm)
 
-[Azure Management Cmdlets](http://msdn.microsoft.com/library/jj152841)
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+

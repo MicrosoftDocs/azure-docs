@@ -31,7 +31,7 @@ You will learn:
 
 * How to work with the Azure Table service
 
-* How to use the Azure Cross-Platform CLI to create a web app.
+* How to use the Azure CLI to create a web app.
 
 By following this tutorial, you will build a simple web-based "to-do list" application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
 
@@ -485,7 +485,7 @@ The steps in this section use the Azure command-line tools to create a new web a
 >
 > If this is the first web app you have created, you must use the Azure Portal to deploy this application.
 
-To get started, install the [Azure Cross-Platform Command-Line Interface] by entering the following command from the command line:
+To get started, install the [Azure Command-Line Interface] by entering the following command from the command line:
 
 	npm install azure-cli -g
 
@@ -599,7 +599,7 @@ While the steps in this article describe using the Table Service to store inform
 
 ## Additional resources
 
-[Azure Cross-Platform Command-Line Interface]
+[Azure Command-Line Interface]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

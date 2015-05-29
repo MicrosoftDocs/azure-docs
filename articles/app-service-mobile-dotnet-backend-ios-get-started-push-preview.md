@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/22/2015"
+	ms.date="05/28/2015"
 	ms.author="krisragh"/>
 
 
@@ -31,14 +31,12 @@ This topic shows you how to add push notifications to the [quickstart project](a
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>Update Server to Send Push Notifications
-
-* In Visual Studio, right-click solution > **Manage NuGet Packages** > search **Microsoft.Azure.NotificationHubs** > click **Install**.
+##<a id="update-server"></a>Update Backend Code to Send Push Notifications
 
 * Open **Controllers** > TodoItemController.cs and add the following using statements:
 
 ```
-			using System.Collections.Generic;
+			using Microsoft.Azure.Mobile.Server.Config;
 			using Microsoft.Azure.NotificationHubs;
 ```
 
@@ -55,14 +53,14 @@ This topic shows you how to add push notifications to the [quickstart project](a
         // iOS payload
         var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
 
-        await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
+        await Hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
 ```
 
 ## <a name="publish-the-service"></a>Publish Mobile Service to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-[AZURE.INCLUDE [Add Push Notifications to App](../includes/add-push-notifications-to-app.md)]
+[AZURE.INCLUDE [Add Push Notifications to App](../includes/app-service-add-push-notifications-to-app.md)]
 
 [AZURE.INCLUDE [Test Push Notifications in App](../includes/test-push-notifications-in-app.md)]
 

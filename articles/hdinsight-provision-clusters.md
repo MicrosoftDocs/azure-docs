@@ -18,7 +18,7 @@
 
 #Provision Hadoop clusters in HDInsight by using custom options
 
-Learn different ways to custom-provision Hadoop clusters on Azure HDInsight - by using the Azure portal, Azure PowerShell, command-line tools, or the HDInsight .NET SDK. For instructions on provisioning HBase clusters and Storm clusters, see [Provision HBase cluster in HDInsight](hdinsight-hbase-get-started.md) and [Getting started using Storm on HDInsight](hdinsight-storm-getting-started.md). See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one over the other.
+Learn different ways to custom-provision Hadoop clusters on Azure HDInsight - by using the Azure portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK. For instructions on provisioning HBase clusters and Storm clusters, see [Provision HBase cluster in HDInsight](hdinsight-hbase-get-started.md) and [Getting started using Storm on HDInsight](hdinsight-storm-getting-started.md). See <a href="http://go.microsoft.com/fwlink/?LinkId=510237">What's the difference between Hadoop and HBase?</a> to understand why you might choose one over the other.
 
 ## What is an HDInsight cluster?
 
@@ -384,7 +384,7 @@ Instructions below guide you on how to install Azure CLI on Linux and Windows, a
 
 #### <a id="clilin"></a>Set up Azure CLI for Linux
 
-Perform the following procedures to set up your Linux computer to use Azure command-line tools:
+Perform the following procedures to set up your Linux computer to use the Azure Command-Line Interface (Azure CLI):
 
 - Install Azure CLI by using Node.js Package Manager (NPM)
 - Connect to your Azure subscription
@@ -463,7 +463,7 @@ Azure CLI can be installed via NPM or Windows Installer. Microsoft recommends th
 **To install Azure CLI by using Windows Installer**
 
 1.	Browse to **http://azure.microsoft.com/downloads/**.
-2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
+2.	Scroll down to the **Command line tools** section, and then click **Azure Command-Line Interface** and follow the Web Platform Installer wizard.
 
 **To download and import publish settings**
 
