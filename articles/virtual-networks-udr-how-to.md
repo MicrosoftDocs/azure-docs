@@ -126,8 +126,4 @@ To view the status of IP forwarding on a VM named *FWAppliance1*, run the follow
 
 ## See Also
 
-[User Defined Routes and IP Forwarding Overview](../virtual-networks-udr-overview)
-
-[Instance-Level Public IP (ILIP)](../virtual-networks-instance-level-public-ip)
-
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[User Defined Routes and IP Forwarding Overview](../articles/virtual-networks-udr-overview)

@@ -16,11 +16,22 @@
    ms.author="telmos" />
 
 # User Defined Routes and IP Forwarding
-Azure uses a route table to decide how to forward IP traffic based on the destination of each packet. Although Azure provides a default route table based on your virtual network settings, you may need to add custom routes to that table. 
+Azure uses a series of system routes to define how IP traffic flows in the following scenarios:
 
-The most common need for a custom entry in the route table is the use of a virtual appliance in your Azure environment. Take into account the scenario shown in the Figure below. Suppose you want to ensure that all traffic directed to the mid-tier and backed subnets initiated from the front end subnet go through a virtual firewall appliance. Simply adding the appliance to your virtual network and connecting it to the different subnets will not provide this functionality. You must also change the routing table applied to your subnet to ensure packets are forwarded to the virtual firewall appliance. 
+- From a subnet to another within a VNet.
+- From VMs to the Internet.
+- From a VNet to another VNet through a VPN gateway.
+- From a VNet to your on-premises network through a VPN gateway.
 
-The same would be true if you implemented a virtual NAT appliance to control traffic between your Azure virtual network and the Internet. To ensure the virtual appliance is used you have to create a route specifying that all traffic destined to the Internet must be forwarded to the virtual appliance. 
+The figure below shows a simple setup with a VNet, two subnets, and a few VMs, along with the system routes that allow IP traffic to flow.
+
+![System routes in Azure](./media/virtual-networks-udr-overview/Figure1.png)
+
+Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance. You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding in the appliance VM.
+
+The figure below shows an example of user defined routes and IP forwarding to force packets going from a frontend subnet to the Internet to pass through a virtual appliance, and all packets going from the frontend subnet to the backend subnet to go through a different appliance. Notice that traffic from the backend subnet to the frontend subnet is still going through the system route, bypassing the appliance.
+
+![System routes in Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 ## Routing
 Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network. A route table is a collection of individual routes used to decide where to forward packets based on the destination IP address. A route consists of the following:
@@ -33,8 +44,6 @@ Packets are routed over a TCP/IP network based on a route table defined at each 
 	- **Virtual Appliance**. Represents a virtual appliance you added to your Azure virtual network.
 	- **NULL**. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
 - **Nexthop Value**. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.
-
-![Routing tables in a simple virtual appliance deployment](./media/virtual-networks-udr-overview/Figure1.png)
 
 ## Default Routes
 Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:
@@ -61,17 +70,17 @@ Subnets rely on default routes until a route table is associated to the subnet. 
 1. BGP route (when ExpressRoute is used)
 1. Default route
 
+To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](../articles/virtual-networks-udr-how-to#How-to-manage-routes).
+
 >[AZURE.IMPORTANT] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 
 ## IP Forwarding
 As describe above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance. A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.
 
-This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding in the VM.
+This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM. This is an Azure setting, not a setting in the guest operating system.
 
-## See Also
+To learn how to enable IP forwarding for a VM in Azure, see [How to Create Routes and Enable IP Forwarding in Azure](../articles/virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding).
 
-[How to Create Routes and Enable IP Forwarding in Azure](../virtual-networks-udr-how-to)
+## Next Steps
 
-[Instance-Level Public IP (ILIP)](../virtual-networks-instance-level-public-ip)
-
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[How to Create Routes and Enable IP Forwarding in Azure](../articles/virtual-networks-udr-how-to)
