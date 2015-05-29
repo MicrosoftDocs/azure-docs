@@ -162,6 +162,8 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 <sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
 
+### Port routing
+
 Port routing is different depending on the software version running on your StorSimple device.
 
 - If the device is running a software version earlier that Update 1, such as the GA, 0.1, 0.2, or 0.3 release, then the port routing is decided as follows:
@@ -173,6 +175,8 @@ Port routing is different depending on the software version running on your Stor
      DATA 0 > Last configured 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface
 
 In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0. Make a note of this if there are more than one cloud-enabled network interfaces on your StorSimple device.
+
+### Networking best practices
 
 In addition to the above networking requirements, for the optimal performance of your StorSimple solution, please adhere to the following best practices:
 
