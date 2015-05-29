@@ -70,7 +70,7 @@ Subnets rely on default routes until a route table is associated to the subnet. 
 1. BGP route (when ExpressRoute is used)
 1. Default route
 
-To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](../articles/virtual-networks-udr-how-to#How-to-manage-routes).
+To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](../virtual-networks-udr-how-to#How-to-manage-routes).
 
 >[AZURE.IMPORTANT] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 
@@ -79,8 +79,8 @@ As describe above, one of the main reasons to create a user defined route is to 
 
 This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM. This is an Azure setting, not a setting in the guest operating system.
 
-To learn how to enable IP forwarding for a VM in Azure, see [How to Create Routes and Enable IP Forwarding in Azure](../articles/virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding).
+To learn how to enable IP forwarding for a VM in Azure, see [How to Create Routes and Enable IP Forwarding in Azure](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding).
 
 ## Next Steps
 
-[How to Create Routes and Enable IP Forwarding in Azure](../articles/virtual-networks-udr-how-to)
+[How to Create Routes and Enable IP Forwarding in Azure](../virtual-networks-udr-how-to)

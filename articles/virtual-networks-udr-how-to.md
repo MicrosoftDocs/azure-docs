@@ -126,4 +126,4 @@ To view the status of IP forwarding on a VM named *FWAppliance1*, run the follow
 
 ## See Also
 
-[User Defined Routes and IP Forwarding Overview](../articles/virtual-networks-udr-overview)
+[User Defined Routes and IP Forwarding Overview](../virtual-networks-udr-overview)
