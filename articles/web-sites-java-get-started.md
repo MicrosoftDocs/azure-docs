@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="03/24/2015"
 	ms.author="robmcm"/>
 
@@ -26,7 +26,7 @@ If you don't want to use either of those techniques, for example, if you want to
 
 >If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-# Create a Java web app using the Azure Marketplace
+## Create a Java web app using the Azure Marketplace
 
 This information shows how to use the Azure Marketplace to select a Java application container, either Apache Tomcat or Jetty, for your web app.
 
@@ -54,7 +54,7 @@ Within a few moments, your web app will be created. To view the web app, within 
 
 Now that you've created the web app with an app container, see the **Next steps** section for information about uploading your application to the web app.
 
-# Create a Java web app using the Azure configuration UI
+## Create a Java web app using the Azure configuration UI
 
 This information shows how to use the Azure configuration UI to select a Java application container, either Apache Tomcat or Jetty, for your web app.
 
@@ -78,7 +78,7 @@ Within a few moments, your web app will become Java-based. To confirm it is Java
 
 Now that you've create the web app with an app container, see the **Next steps** section for information about uploading your application to the web app.
 
-# Next steps
+## Next steps
 
 At this point, you have a Java application server running as your Java web app on Azure. To add in your own application or web page, see [Add an application or web page to your Java web app](web-sites-java-add-app.md).
 
