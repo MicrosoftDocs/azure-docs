@@ -46,7 +46,7 @@ The resources you create using Azure Resource Manager Templates will be deployed
 
 You can learn more about Azure Resource Manager [here](virtual-machines-azurerm-versus-azuresm.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
-## <a id="windowsvm"></a>TASK: Deploy a Windows VM
+## <a id="windowsvm"></a>**TASK: Deploy a Windows VM**
 
 Use the instructions in this section to deploy a new Azure VM using a Resource Manager Template and Azure PowerShell. This template creates a single virtual machine in a new virtual network with a single subnet.
 
