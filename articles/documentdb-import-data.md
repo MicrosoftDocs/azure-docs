@@ -64,19 +64,19 @@ The JSON file source importer option allows you to import one or more single doc
 
 Here are some command line samples to import JSON files:
 
-	Import a single JSON file	
+	#Import a single JSON file	
 	dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
-	Import a directory of JSON files
+	#Import a directory of JSON files
 	dt.exe /s:JsonFile /s.Files:C:\TESessions\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
-	Import a directory (including sub-directories) of JSON files
+	#Import a directory (including sub-directories) of JSON files
 	dt.exe /s:JsonFile /s.Files:C:\LastFMMusic\**\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Music /t.CollectionTier:S3
 
-	Import a directory (single), directory (recursive), and individual JSON files
+	#Import a directory (single), directory (recursive), and individual JSON files
 	dt.exe /s:JsonFile /s.Files:C:\Tweets\*.*;C:\LargeDocs\**\*.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
-	Import a single JSON file and partition the data across 4 collections
+	#Import a single JSON file and partition the data across 4 collections
 	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>Import from MongoDB ##
@@ -253,7 +253,7 @@ Here are some command line samples to import from DocumentDB:
 
 ##<a id="DocumentDBBulkTarget"></a>Import to DocumentDB (Bulk Import) ##
 
-The DocumentDB Bulk importer allows you to import from any of the available source options, using a DocumentDB stored procedure for efficiency.  The tool supports import to a single DocumentDB collection, as well as, sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](documentdb-partition-data.md).  The tool will create, execute, and then delete the stored procedure from the target collection(s).  
+The DocumentDB Bulk importer allows you to import from any of the available source options, using a DocumentDB stored procedure for efficiency.  The tool supports import to a single DocumentDB collection, as well as sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](documentdb-partition-data.md).  The tool will create, execute, and then delete the stored procedure from the target collection(s).  
 
 ![Screenshot of DocumentDB bulk options](./media/documentdb-import-data/documentdbbulk.png)
 
@@ -269,7 +269,7 @@ To import to a single collection, enter the name of the collection to which data
 2. You can use an abbreviated syntax: collection[3] will emit same set of collections mentioned in step 1.
 3. More than one substitution can be provided.  For example, collection[0-1] [0-9] will generate 20 collection names with leading zeros (collection01, ..02, ..03).
 
-Once the collection name(s) have been specified, choose the desired pricing tier of the collection(s) (S1, S2, or S3).  For best import performance, choose S3.
+Once the collection name(s) have been specified, choose the desired pricing tier of the collection(s) (S1, S2, or S3).  For best import performance, choose S3.  Read more about DocumentDB performance levels [here](documentdb-performance-levels.md).
 
 > [AZURE.NOTE] The performance tier setting only applies to collection creation.  If the specified collection already exists, its pricing tier will not be modified.
 
@@ -309,7 +309,7 @@ The DocumentDB Bulk importer has the following additional advanced options:
 
 ##<a id="DocumentDBSeqTarget"></a>Import to DocumentDB (Sequential Record Import) ##
 
-The DocumentDB sequential record importer allows you to import from any of the available source options on a record by record basis.  You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures.  The tool supports import to a single DocumentDB collection, as well as, sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](documentdb-partition-data.md). 
+The DocumentDB sequential record importer allows you to import from any of the available source options on a record by record basis.  You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures.  The tool supports import to a single DocumentDB collection, as well as sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](documentdb-partition-data.md). 
 
 ![Screenshot of DocumentDB sequential record import options](./media/documentdb-import-data/documentdbsequential.png)
 
@@ -325,7 +325,7 @@ To import to a single collection, enter the name of the collection to which data
 2. You can use an abbreviated syntax: collection[3] will emit same set of collections mentioned in step 1.
 3. More than one substitution can be provided.  For example, collection[0-1] [0-9] will generate 20 collection names with leading zeros (collection01, ..02, ..03).
 
-Once the collection name(s) have been specified, choose the desired pricing tier of the collection(s) (S1, S2, or S3).  For best import performance, choose S3.
+Once the collection name(s) have been specified, choose the desired pricing tier of the collection(s) (S1, S2, or S3).  For best import performance, choose S3.  Read more about DocumentDB performance levels [here](documentdb-performance-levels.md).
 
 > [AZURE.NOTE] The performance tier setting only applies to collection creation.  If the specified collection already exists, its pricing tier will not be modified.
 
