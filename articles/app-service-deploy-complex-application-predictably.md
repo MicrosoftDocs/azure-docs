@@ -20,7 +20,8 @@
 # Deploy a complex application predictably in Azure #
 
 This tutorial shows how to deploy a complex application in Azure as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
-In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale complex application. Azure App Service enables you to create complex applications, and [Azure Resource Manager](resource-group-overview.md) enables you to manage all the components of an application as a unit. Now, you can also deploy such complex application using JSON templates and simple PowerShell scripting. 
+
+In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale complex application. [Azure App Service](/services/app-service/) enables you to create complex applications that includes web app, mobile, API, and logic apps. [Azure Resource Manager](resource-group-overview.md) enables you to manage all the components of such an application as a unit. Now, you can also deploy such complex application using JSON templates and simple PowerShell scripting. 
 
 ## What you will do ##
 
