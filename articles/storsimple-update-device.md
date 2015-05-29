@@ -3,7 +3,7 @@
    description="Explains how to use the StorSimple update feature to install regular and maintenance mode updates and hotfixes."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/27/2015"
-   ms.author="v-sharos" />
+   ms.date="05/29/2015"
+   ms.author="alkohli" />
 
 # Update your StorSimple device
 
@@ -71,25 +71,26 @@ If you need to apply Maintenance mode updates, you will receive an alert through
 > - Before entering Maintenance mode, verify that both device controllers are healthy by checking the **Hardware Status** on the **Maintenance** page in the Management Portal. If the controller is not healthy, contact Microsoft Support for the next steps. For more information, go to Contact Microsoft Support. 
 > - When you are in Maintenance mode, you need to apply the update first on one controller and then on the other controller.
 
-### Connect to the serial console
+### Step 1: Connect to the serial console
 
 First, use an application such as PuTTY to access the serial console. The following procedure explains how to use PuTTY to connect to the serial console.
 
 [AZURE.INCLUDE [storsimple-use-putty](../includes/storsimple-use-putty.md)]
 
-### Enter Maintenance mode
+### Step 2: Enter Maintenance mode
 
 After you connect to the console, determine whether there are updates to install, and enter Maintenance mode to install them.
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../includes/storsimple-enter-maintenance-mode.md)]
 
-### Install your updates
+### Step 3: Install your updates
 
 Next, install your updates.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### Exit Maintenance mode
+    
+### Step 4: Exit Maintenance mode
 
 Finally, exit Maintenance mode.
 
