@@ -1,8 +1,5 @@
 <properties authors="kathydav" editor="tysonn" manager="timlt" /> 
 
-
-#How to Connect Virtual Machines with a Virtual Network or Cloud Service
-
 Virtual machines are always placed in a cloud service, which acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints to access the virtual machine over the Internet. The cloud service can optionally be in a virtual network. 
 
 If a cloud service isn't in a virtual network, it's called a *standalone* cloud service. The virtual machines in that cloud service can only communicate with other virtual machines through the use of the other virtual machines’ public DNS names, and that traffic would travel over the Internet. If a cloud service is in a virtual network,  the virtual machines in that cloud service can communicate with all other virtual machines in the virtual network without sending any traffic over the Internet.
