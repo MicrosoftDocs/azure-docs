@@ -11,7 +11,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="05/25/2015"
 	ms.author="kathydav"/>
 

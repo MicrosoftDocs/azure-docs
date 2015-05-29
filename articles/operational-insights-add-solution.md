@@ -12,7 +12,7 @@
     ms.workload="operational-insights"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.date="05/11/2015"
     ms.author="banders"/>
 
