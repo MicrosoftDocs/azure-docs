@@ -13,11 +13,98 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="05/28/2015"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 05/27/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight		3.2.4.570.1554102	(HDP 2.2.6.0-2800)
+* Other cluster versions and SDK are not deployed as part of this release.
+
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>HDP 2.2 update</td>
+<td>This release of HDInsight 3.2 contains HDP 2.2.6, and brings several important bug fixes to HDInsight. The full release notes is available at <a href="http://dev.hortonworks.com.s3.amazonaws.com/HDPDocuments/HDP2/HDP-2.2.6/HDP_RelNotes_v226/index.html">HDP 2.2.6 Release Notes</a>.</td>
+<td>HDP</td>
+<td>All cluster types</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Change to Default Yarn Container Memory Configuration</td>
+<td>In this update, the default available memory to YARN containers (yarn.nodemanager.resource.memory-mb and yarn.scheduler.maximum-allocation-mb), launched by Node Manager, is increased to 5632MB. Previously this was reduced to 4608MB, but based on various job runs, the new value must offer better reliability and performance to most jobs, hence is a better default. As usual, if you a have critical dependency on this memory configuration, please set it explicitly while creating the cluster.</td>
+<td>HDP</td>
+<td>All cluster types</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Default Config parity for HBase and Storm clusters</td>
+<td>This update restores Hbase and Storm clusters to use the same values of YARN configs as Hadoop clusters. This is done for parity across all cluster types.</td>
+<td>HDP</td>
+<td>HBase, Storm</td>
+<td>N/A</td>
+</tr>
+
+</table>
+
+## Notes for 05/20/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.564.1542093	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.564.1542093	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.3.564.1542093	(HDP 2.1.12.1-0003)
+* HDInsight		3.2.4.564.1542093	(HDP 2.2.4.6-2)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>SCP.NET EventHub Support</td>
+<td>The updated cluster packages for HDInsight Storm bring new features to SCP.NET. You will now have access to new APIs in topology builder that make it easier to use EventHubSpout or Java Spouts. You must update your SCP.NET client SDK to work with new clusters as the contracts have been updated. For details on the new APIs, usage and release notes (including bug fixes) please refer to the Readme included in the SCP.NET nuget package.</td>
+<td>VS Tooling</td>
+<td>Storm HDInsight 3.2 clusters</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>JDBC driver update</td>
+<td>Updated the driver to the SQL Server supported version in sqljdbc_4.1.5605.100.</td>
+<td>Metastore</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+</table>
 
 ## Notes for 04/27/2015 release of HDInsight ##
 

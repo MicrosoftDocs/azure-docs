@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2015" 
+	ms.date="04/14/2015"
 	ms.author="jparrel"/>
 
 # Using load-balanced sets to clusterize MySQL on Linux
@@ -324,7 +324,7 @@ The hard way is shutting down the primary VM (hadb01) via the Portal or changing
 
 ## STONITH
 
-It should be possible to issue a VM shutdown via Azure Command Line Tools for Linux in lieu of a STONITH script that controls a physical device. You can use `/usr/lib/stonith/plugins/external/ssh` as a base and enable STONITH in the cluster's configuration. Azure CLI should be globally installed and the publish settings/profile should be loaded for the cluster's user.
+It should be possible to issue a VM shutdown via the Azure CLI in lieu of a STONITH script that controls a physical device. You can use `/usr/lib/stonith/plugins/external/ssh` as a base and enable STONITH in the cluster's configuration. Azure CLI should be globally installed and the publish settings/profile should be loaded for the cluster's user.
 
 Sample code for the resource available on [GitHub](https://github.com/bureado/aztonith). You need to change the cluster's configuration by adding the following to `sudo crm configure`:
 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a multi-VM deployment using the Azure x-plat cli | Azure"
-   description="Learn how to create a multi VM deployment using the Azure x-plat CLI"
+   pageTitle="Create a multi-VM deployment using the Azure CLI | Azure"
+   description="Learn how to create a multi VM deployment using the Azure CLI"
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
@@ -16,9 +16,9 @@
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
 
-# Create a multi-VM deployment using the Azure x-plat cli
+# Create a multi-VM deployment using the Azure CLI
 
-The following script will show you how to configure a multi-VM multi-cloud service deployment in a VNET using Azure Cross-Platform Command-Line Interface (xplat-cli).
+The following script will show you how to configure a multi-VM multi-cloud service deployment in a VNET using Azure Command-Line Interface (Azure CLI).
 
 The image below explains how your deployment will look after the script completes:
 
@@ -62,6 +62,6 @@ While you can find more information by using the –help option on any of the Az
 
 ## Next steps
 
- 
+
 * [Linux and open-source computing on Azure](virtual-machines-linux-opensource.md)
 * [How to log on to a virtual machine running Linux](virtual-machines-linux-how-to-log-on.md)

@@ -46,6 +46,7 @@ As an alternative, you could send data from all the roles to just one resource, 
 
 
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
+
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-cloudservices/03-nuget.png)
 
 2. Install the Application Insights SDK for Web Apps.

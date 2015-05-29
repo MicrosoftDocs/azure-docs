@@ -40,16 +40,16 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 3. Click the **Save** button at the top of the **Web app settings** blade.
 
 	![Save configuration settings][save-button]
-	
+
 ### Azure PowerShell (Windows)
 
 1. Open Windows PowerShell
 2. Type `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` then press enter.
 3. The PHP version is now set.
-	
+
 	![Setting the PHP version with Azure PowerShell][SETPHPVERPS]
 4. You can confirm these settings by typing `Get-AzureWebiste -Name <site-name>` then press enter.
-	
+
 	![Verifying the PHP version with Azure PowerShell][GETPHPVERPS]
 
 ### Azure Command-Line Interface (Linux, Mac, Windows)
@@ -59,11 +59,11 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 1. Open Terminal.
 2. Type `azure site set --php-version [5.4 | 5.5] [site-name]` then press enter.
 3. The PHP version is now set.
-	
-	![Setting the PHP version with Azure Command-Line Interface][SETPHPVERXPLAT]
+
+	![Setting the PHP version with Azure Command-Line Interface][SETPHPVERCLI]
 4. You can confirm these settings by typing `azure site show [site-name]` then press enter.
-	
-	![Verifying the PHP version with Azure Command-Line Interface][GETPHPVERXPLAT]
+
+	![Verifying the PHP version with Azure Command-Line Interface][GETPHPVERCLI]
 
 ## How to: Change the built-in PHP configurations
 
@@ -170,7 +170,7 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[SETPHPVERXPLAT]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
-[GETPHPVERXPLAT]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
+[SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
+[GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png

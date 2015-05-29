@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Set up a hybrid cloud environment for testing
@@ -299,6 +299,7 @@ Your hybrid cloud environment is now ready for testing.
 
 [Azure hybrid cloud test environments](virtual-machines-hybrid-cloud-test-environments.md)
 
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 ## Minimizing the ongoing costs of this environment
 

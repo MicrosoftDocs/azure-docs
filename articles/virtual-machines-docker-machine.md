@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="02/20/2015"
+   ms.date="05/25/2015"
    ms.author="rasquill"/>
 
 # How to use docker-machine with Azure

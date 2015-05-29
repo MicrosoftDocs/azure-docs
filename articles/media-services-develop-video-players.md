@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
@@ -47,6 +47,7 @@ For more information:
 You can also use any of the following SDKs:
 
 - [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+- [Smooth Streaming Windows Store App](media-services-build-smooth-streaming-apps.md)
 - [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
 - [HTML5 Player Framework Documentation](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 

@@ -20,9 +20,9 @@
 
 The Azure CustomScript extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (e.g. Python, Bash etc.). This provides a very flexible way to automate application deployment to multiple machines.
 
-You can deploy the CustomScript extension using the Azure Portal, PowerShell, or the Azure Cross Platform Command Line Interface (xplat-cli).
+You can deploy the CustomScript extension using the Azure Portal, PowerShell, or the Azure Command-Line Interface (Azure CLI).
 
-In this example we'll walk through deploying a simple LAMP application to Ubuntu using the xplat-cli.
+In this example we'll walk through deploying a simple LAMP application to Ubuntu using the Azure CLI.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine 
 
 Though the specific install commands will assume Ubuntu, you can adapt the general steps for any supported distro.
 
-The *script-vm* VM needs to have xplat-cli installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+The *script-vm* VM needs to have Azure CLI installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Command-Line Interface](xplat-cli.md).
 
 ## Uploading a script
 
@@ -64,7 +64,7 @@ This script installs a LAMP stack to Ubuntu (including setting up a silent insta
 
 **Upload**
 
-Save the script as a text file, for example *lamp_install.sh*, and then upload it to Azure storage. You can do this easily with xplat-cli. The following example uploads the file to a storage container named "scripts". Note: If the container doesn't exist you'll need to create it first.
+Save the script as a text file, for example *lamp_install.sh*, and then upload it to Azure storage. You can do this easily with Azure CLI. The following example uploads the file to a storage container named "scripts". Note: If the container doesn't exist you'll need to create it first.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
@@ -75,7 +75,7 @@ Also create a JSON file which describes how to download the script from Azure st
 
 ## Deploying the extension
 
-Now we're ready to deploy the Linux CustomScript extension to the remote VM using the xplat-cli:
+Now we're ready to deploy the Linux CustomScript extension to the remote VM using the Azure CLI:
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
@@ -98,7 +98,7 @@ Once the CustomScript extension has finished executing you can browse to the PHP
 
 You can use the same basic steps to deploy more complex apps. In this example the install script was saved as a public blob in Azure Storage. A more secure option would be to store the install script as a secure blob with a [Secure Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS).
 
-Here are some additional resources for xplat-cli, Linux and the CustomScript extension:
+Here are some additional resources for Azure CLI, Linux and the CustomScript extension:
 
 [Automate Linux VM Customization Tasks Using CustomScript Extension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 

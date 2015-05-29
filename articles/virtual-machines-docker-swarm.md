@@ -14,16 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="02/24/2015"
+   ms.date="05/24/2015"
    ms.author="rasquill"/>
 
 # How to use docker with swarm
 
-This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it.
+This topic shows a very simple way to use [docker](https://www.docker.com/) with [swarm](https://github.com/docker/swarm) to create a swarm-managed cluster on Azure. It creates four virtual machines in Azure, one to act as the swarm manager, and three as part of the cluster of docker hosts. When you are finished, you can use swarm to see the cluster and then begin to use docker on it. In addition, the Azure CLI calls in this topic use the service management (asm) mode. 
 
 > [AZURE.NOTE] This is an early version of software, so check back for updates about using this on Azure to create large, balanced, and controlled clusters of Docker containers, as well as checking the docker swarm documentation to discover all its features.
 <!-- -->
-> In addition, this topic uses docker with swarm and the Azure CLI *without* using docker-machine in order to show how the different tools work together but remain independent. docker-machine has **--swarm** switches that enable you to use docker-machine to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed docker-machine running against Azure VMs, see [How to use docker-machine with Azure](virtual-machines-docker-machine.md).
+> In addition, this topic uses docker with swarm and the Azure CLI *without* using **docker-machine** in order to show how the different tools work together but remain independent. **docker-machine** has **--swarm** switches that enable you to use **docker-machine** to directly add nodes to a swarm. For an example, see the [docker-machine](https://github.com/docker/machine) documentation. If you missed **docker-machine** running against Azure VMs, see [How to use docker-machine with Azure](virtual-machines-docker-machine.md).
 
 ## Create docker hosts with Azure Virtual Machines
 
