@@ -51,7 +51,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 	+ **Recipent Username**:A UITextField with placeholder text, *Recipient username tag*, immediately beneath the GCM label and constrained to the left and right margins and beneath the GCM label.
 	
 
-	The other components were added in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-get-started.md) tutorial.	
+	Some components were added in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-get-started.md) tutorial.	
 
 3. **Ctrl** drag from the components in the view to ViewController.h and add these new outlets.
 
