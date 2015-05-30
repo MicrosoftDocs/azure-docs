@@ -34,17 +34,17 @@
 
 If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
 
-- General description of the error – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
-- Page – what page were you on when you saw the error (include the URL)?
-- Date / Time / Timezone – what was the precise date and time you saw the error (include the timezone)?
-- Support Code – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results). 
-  - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
+ - General description of the error – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
+ - Page – what page were you on when you saw the error (include the URL)?
+ - Date / Time / Timezone – what was the precise date and time you saw the error (include the timezone)?
+ - Support Code – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results). 
+   - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
     
    ![001]
     
-- User ID – what was the ID of the user who saw the error (e.g. user@contoso.com)?
-- Information about the user – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
-- Application Event Log – if you are using password writeback and the error is in your on-premises infrastructure, please zip up a copy of your application event log from your Azure AD Sync server and send along with your request.
+ - User ID – what was the ID of the user who saw the error (e.g. user@contoso.com)?
+ - Information about the user – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
+ - Application Event Log – if you are using password writeback and the error is in your on-premises infrastructure, please zip up a copy of your application event log from your Azure AD Sync server and send along with your request.
 
 Including this information will help us to solve your problem as quickly as possible.
 
@@ -1404,19 +1404,21 @@ A best practice when troubleshooting issues with password writeback is to inspec
 ## Troubleshoot password writeback connectivity
 
 If you are experiencing service interruptions with the password writeback component of Azure AD Sync or Azure AD Connect, here are some quick steps you can take to resolve this:
-- Restart the Azure AD Sync Service
-- Disable and re-enable the password writeback feature
-- Install the latest Azure AD Sync release
-- Troubleshoot Password Writeback
+
+ - Restart the Azure AD Sync Service
+ - Disable and re-enable the password writeback feature
+ - Install the latest Azure AD Sync release
+ - Troubleshoot Password Writeback
 
 In general, we recommend that you execute these steps in the order above in order to recover your service in the most rapid manner.
 
 ### Restart the Azure AD Sync Service
 Restarting the Azure AD Sync Service can help to resolve connectivity issues or other transient issues with the service.
-1.	As an administrator, click Start on the server running Azure AD Sync or Azure AD Connect.
-2.	Type “services.msc” in the search box and press Enter.
-3.	Look for the Microsoft Azure AD Sync entry.
-4.	Right-click on the service entry, click Restart, and wait for the operation to complete.
+
+ 1.	As an administrator, click Start on the server running Azure AD Sync or Azure AD Connect.
+ 2.	Type “services.msc” in the search box and press Enter.
+ 3.	Look for the Microsoft Azure AD Sync entry.
+ 4.	Right-click on the service entry, click Restart, and wait for the operation to complete.
     
   ![002]
 
@@ -1424,31 +1426,34 @@ These steps will re-establish your connection with the cloud service and resolve
 
 ### Disable and re-enable the password writeback feature
 Disabling and re-enabling the password writeback feature can help to resolve connectivity issues.
-1.	As an administrator, open the Azure AD Sync or Azure AD Connect configuration wizard.
-2.	On the Connect to Azure AD dialog, enter your Azure AD global admin credentials.
-3.	On the Connect to AD DS dialog, enter your AD Domain Services admin credentials.
-4.	On the Uniquely identifying your users dialog, click the Next button.
-5.	On the Optional features dialog, uncheck the Password write-back checkbox.
+
+ 1.	As an administrator, open the Azure AD Sync or Azure AD Connect configuration wizard.
+ 2.	On the Connect to Azure AD dialog, enter your Azure AD global admin credentials.
+ 3.	On the Connect to AD DS dialog, enter your AD Domain Services admin credentials.
+ 4.	On the Uniquely identifying your users dialog, click the Next button.
+ 5.	On the Optional features dialog, uncheck the Password write-back checkbox.
   
   ![003]
   
-6.	Click Next through the remaining dialog pages without changing anything until you get to the Ready to configure page.
-7.	Ensure that the configure page shows the Password write-back option as disabled and then click the green Configure button to commit your changes.
-8.	On the Finished dialog, deselect the Synchronize now option, and then click Finish to close the wizard.
-9.	Re-open the Azure AD Sync or Azure AD Connect configuration wizard.
-10.	Repeat steps 2-8, except ensure you check the Password write-back option on the Optional features screen to re-enable the service.
+ 6.	Click Next through the remaining dialog pages without changing anything until you get to the Ready to configure page.
+ 7.	Ensure that the configure page shows the Password write-back option as disabled and then click the green Configure button to commit your changes.
+ 8.	On the Finished dialog, deselect the Synchronize now option, and then click Finish to close the wizard.
+ 9.	Re-open the Azure AD Sync or Azure AD Connect configuration wizard.
+ 10.	Repeat steps 2-8, except ensure you check the Password write-back option on the Optional features screen to re-enable the service.
   
   ![004]
   
 These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
- If disabling and re-enabling the password writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Sync or Azure AD Connect as a next step.
+
+If disabling and re-enabling the password writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Sync or Azure AD Connect as a next step.
 
 ### Install the latest Azure AD Sync release
 Re-installing the Azure AD Sync package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment. 
 We recommend, you perform this step only after attempting the first two steps described above.
-1.	Download the latest version of Azure AD Sync from the following link: http://go.microsoft.com/fwlink/?LinkId=511690.
-2.	Since you have already installed Azure AD Sync, you will only need to perform an in-place upgrade to update your Azure AD Sync installation to the latest version.
-3.	Execute the downloaded package and follow the on-screen instructions to update your Azure AD Sync machine.  No additional manual steps are required.
+
+ 1.	Download the latest version of Azure AD Sync from the following link: http://go.microsoft.com/fwlink/?LinkId=511690.
+ 2.	Since you have already installed Azure AD Sync, you will only need to perform an in-place upgrade to update your Azure AD Sync installation to the latest version.
+ 3.	Execute the downloaded package and follow the on-screen instructions to update your Azure AD Sync machine.  No additional manual steps are required.
 
 These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
 
