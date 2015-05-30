@@ -123,10 +123,10 @@ For more information about AAD Sync, see Directory Integration Tools. For more i
 
 
 
-[001]: media\active-directory-passwords-how-it-works\001.jpg "Image_001.jpg"
-[002]: media\active-directory-passwords-how-it-works\002.jpg "Image_002.jpg"
-[003]: media\active-directory-passwords-how-it-works\003.jpg "Image_003.jpg"
-[004]: media\active-directory-passwords-how-it-works\004.jpg "Image_004.jpg"
-[005]: media\active-directory-passwords-how-it-works\005.jpg "Image_005.jpg"
-[006]: media\active-directory-passwords-how-it-works\006.jpg "Image_006.jpg"
-[007]: media\active-directory-passwords-how-it-works\007.jpg "Image_007.jpg"
+[001]: ..\media\active-directory-passwords-how-it-works\001.jpg "Image_001.jpg"
+[002]: ..\media\active-directory-passwords-how-it-works\002.jpg "Image_002.jpg"
+[003]: ..\media\active-directory-passwords-how-it-works\003.jpg "Image_003.jpg"
+[004]: ..\media\active-directory-passwords-how-it-works\004.jpg "Image_004.jpg"
+[005]: ..\media\active-directory-passwords-how-it-works\005.jpg "Image_005.jpg"
+[006]: ..\media\active-directory-passwords-how-it-works\006.jpg "Image_006.jpg"
+[007]: ..\media\active-directory-passwords-how-it-works\007.jpg "Image_007.jpg"

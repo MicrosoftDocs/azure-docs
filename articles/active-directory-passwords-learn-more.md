@@ -270,5 +270,5 @@ The following table outlines where and how this data is used during password res
 
 
 
-[001]: media\active-directory-passwords-learn-more\001.jpg "Image_001.jpg"
-[002]: media\active-directory-passwords-learn-more\002.jpg "Image_002.jpg"
+[001]: ..\media\active-directory-passwords-learn-more\001.jpg "Image_001.jpg"
+[002]: ..\media\active-directory-passwords-learn-more\002.jpg "Image_002.jpg"
