@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="05/28/2015"
    ms.author="curtand"/>
 
 # Azure portal keyboard shortcuts
@@ -46,6 +46,6 @@
 | ? | View keyboard shortcuts |
 
 
-# Next steps
+## Next steps
 
 Get to know the Azure Portal better: http://azure.microsoft.com.
