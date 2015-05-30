@@ -39,6 +39,7 @@ Read on to learn more about the Password Management story in Azure Active Direct
 
 ## What is possible with Azure AD Password Management?
 Here are some of the things you can do with Azure AD's password management capabilities.
+
 - **Self-service password change** allows end users or administrators to change their expired or non-expired passwords without calling an administrator or helpdesk for support.
 - **Self-service password reset** allows end users or administrators to reset their passwords automatically without calling an administrator or helpdesk for support. Self-service password reset requires Azure AD Premium or Basic. For more information, see Azure Active Directory Editions.
 - **Administrator-initiated password reset** allows an administrator to reset an end user’s or another administrator’s password from within the Azure Management Portal.
@@ -48,6 +49,7 @@ Here are some of the things you can do with Azure AD's password management capab
 
 ## Why use Azure AD Password Management?
 Here are some of the reasons you should use Azure AD's password management capabilities
+
 - **Reduce costs** - support-assisted password reset is typically 20% of organization's IT spend
 - **Improve user experiences** - users don't want to call helpdesk and spend an hour on the phone every time they forget their passwords
 - **Lower helpdesk volumes** - password management is the single largest helpdesk driver for most organizations
