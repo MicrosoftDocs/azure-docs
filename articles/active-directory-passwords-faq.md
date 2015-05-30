@@ -19,15 +19,15 @@
 # Password Management Frequently Asked Questions
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="../articles/active-directory-passwords/" title="What is it">What is It</a>
-<a href="../articles/active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
-<a href="../articles/active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
-<a href="../articles/active-directory-passwords-customize/" title="Customize">Customize</a>
-<a href="../articles/active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
-<a href="../articles/active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
-<a href="../articles/active-directory-passwords-faq/" title="FAQ" class="current">FAQ</a>
-<a href="../articles/active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
-<a href="../articles/active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
+<a href="../active-directory-passwords/" title="What is it">What is It</a>
+<a href="../active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
+<a href="../active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
+<a href="../active-directory-passwords-customize/" title="Customize">Customize</a>
+<a href="../active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
+<a href="../active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
+<a href="../active-directory-passwords-faq/" title="FAQ" class="current">FAQ</a>
+<a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
+<a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
 </div>
 
 The following are some frequently asked questions for all things related to password management. The FAQ is split into the following sections:
