@@ -18,7 +18,17 @@
 
 # How to Troubleshoot Password Management
 
-[AZURE.INCLUDE [active-directory-passwords-content-journey-selector](../includes/active-directory-passwords-content-journey-selector.md)]
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../articles/active-directory-passwords/" title="What is it">What is It</a>
+<a href="../articles/active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
+<a href="../articles/active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
+<a href="../articles/active-directory-passwords-customize/" title="Customize">Customize</a>
+<a href="../articles/active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
+<a href="../articles/active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
+<a href="../articles/active-directory-passwords-faq/" title="FAQ">FAQ</a>
+<a href="../articles/active-directory-passwords-troubleshoot/" title="Troubleshooting" class="current">Troubleshooting</a>
+<a href="../articles/active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
+</div>
 
 ## Information to include when you need help
 

@@ -18,7 +18,18 @@
 
 # Manage your passwords everywhere
 
-[AZURE.INCLUDE [active-directory-passwords-content-journey-selector](../includes/active-directory-passwords-content-journey-selector.md)]
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../articles/active-directory-passwords/" title="What is it" class="current">What is It</a>
+<a href="../articles/active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
+<a href="../articles/active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
+<a href="../articles/active-directory-passwords-customize/" title="Customize">Customize</a>
+<a href="../articles/active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
+<a href="../articles/active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
+<a href="../articles/active-directory-passwords-faq/" title="FAQ">FAQ</a>
+<a href="../articles/active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
+<a href="../articles/active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
+</div>
+
 
 ## How does password management fit into the Azure AD story?
 Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises.  

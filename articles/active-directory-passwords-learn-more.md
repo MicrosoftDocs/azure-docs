@@ -18,7 +18,17 @@
 
 # Learn more about Password Management
 
-[AZURE.INCLUDE [active-directory-passwords-content-journey-selector](../includes/active-directory-passwords-content-journey-selector.md)]
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../articles/active-directory-passwords/" title="What is it">What is It</a>
+<a href="../articles/active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
+<a href="../articles/active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
+<a href="../articles/active-directory-passwords-customize/" title="Customize">Customize</a>
+<a href="../articles/active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
+<a href="../articles/active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
+<a href="../articles/active-directory-passwords-faq/" title="FAQ">FAQ</a>
+<a href="../articles/active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
+<a href="../articles/active-directory-passwords-learn-more/" title="Learn more" class="current">Learn More</a>
+</div>
 
 ## Password writeback overview
 Password writeback is an Azure Active Directory Sync component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see Azure Active Directory Editions. It allows you to configure your cloud tenant to write passwords back to you on-premises Active Directory.  It obviates you from having to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are.  Read on for some of the key features of password writeback:
