@@ -34,7 +34,7 @@ If this is your first time viewing the reports, you'll need to agree to a dialog
 
 ## Explore each report
 
-Navigate into each report to see the data being collected and the sign ins processed. You can find a [list of all the reports here](../active-directory-reporting-what-it-is).
+Navigate into each report to see the data being collected and the sign ins processed. You can find a [list of all the reports here](active-directory-reporting-what-it-is.md).
 
 ![All reports][003]
 
