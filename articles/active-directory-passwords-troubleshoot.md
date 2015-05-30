@@ -1477,8 +1477,8 @@ If that does not resolve your issue, then we recommend that you take a look at T
 
 
 
-[001]: ./media/active-directory-passwords-troubleshoot/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
-[004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
+[001]: ../media/active-directory-passwords-troubleshoot/001.jpg "Image_001.jpg"
+[002]: ../media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
+[003]: ../media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
+[004]: ../media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
