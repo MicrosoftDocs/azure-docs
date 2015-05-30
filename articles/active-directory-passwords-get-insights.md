@@ -539,7 +539,7 @@ Below is the list of result types you may expect when using the password reset a
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/en-us/library/azure/dn510386.aspx)
+* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
 

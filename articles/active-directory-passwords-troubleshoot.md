@@ -1466,7 +1466,7 @@ If that does not resolve your issue, then we recommend that you take a look at T
 * [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/en-us/library/azure/dn510386.aspx)
+* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
 

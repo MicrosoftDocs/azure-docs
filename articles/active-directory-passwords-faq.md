@@ -136,7 +136,7 @@ The following are some frequently asked questions for all things related to pass
 * [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/en-us/library/azure/dn510386.aspx)
+* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
 [001]: media\active-directory-passwords-faq\001.jpg "Image_001.jpg"

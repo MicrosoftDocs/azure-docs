@@ -266,7 +266,7 @@ The following table outlines where and how this data is used during password res
 * [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/en-us/library/azure/dn510386.aspx)
+* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
 

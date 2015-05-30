@@ -125,7 +125,7 @@ We are working on sample training materials that you can use to get your IT orga
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/en-us/library/azure/dn510386.aspx)
+* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
 

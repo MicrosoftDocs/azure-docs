@@ -119,7 +119,7 @@ For more information about AAD Sync, see Directory Integration Tools. For more i
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/en-us/library/azure/dn510386.aspx)
+* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
 
