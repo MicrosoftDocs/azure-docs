@@ -14,8 +14,6 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.topic="article"
-	ms.date="05/05/2015"
 	ms.author="curtand"/>
 
 # Learn more about Azure AD
