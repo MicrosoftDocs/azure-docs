@@ -1,4 +1,4 @@
->[AZURE.SELECTOR]
+> [AZURE.SELECTOR]
 - [What is it](../articles/active-directory-passwords.md)
 - [How it works](../articles/active-directory-passwords-how-it-works.md)
 - [Getting started](../articles/active-directory-passwords-getting-started.md)
