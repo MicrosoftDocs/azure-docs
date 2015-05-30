@@ -20,35 +20,33 @@
 
 ## Overview
 
-In this tutorial, you'll learn how to debug ASP.NET Web API code locally and remotely (while it runs in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md)). The tutorial works with the API app that you [create](app-service-dotnet-create-api-app.md) and [deploy](app-service-dotnet-deploy-api-app.md) in the previous tutorials in this series.
+In this tutorial, you'll learn how to debug ASP.NET Web API code that is configured to run in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). You’ll debug both locally and remotely (while it runs in Azure). The tutorial works with the API app that you [create](app-service-dotnet-create-api-app.md) and [deploy](app-service-dotnet-deploy-api-app.md) in the previous tutorials in this series.
 
 ## Debug an API app remotely 
 
 The following steps enable you to debug your API app while it runs in the cloud using the Swagger UI as the test client.
 
-1. In the Visual Studio **Solution Explorer**, right-click the project, and select **Publish**.
+1. In the Visual Studio **Solution Explorer**, right-click the project that you [deployed in the previous tutorial](app-service-dotnet-deploy-api-app.md), and select **Publish**.
 
 	![Publish project](./media/app-service-api-dotnet-debug/rd-publish.png)
 
-2. In the **Publish Web** dialog, select the **Preview** tab on the left. You can optionally click **Start Preview** to see what will be published.
+2. In the **Publish Web** dialog, click **Publish** to push any changes to your Azure subscription.
 
 	![Publish project](./media/app-service-api-dotnet-debug/rd-publish-web-preview.png)
 
-3. Click **Publish** to push your changes to your Azure subscription.
+3. A browser window should open and display a message confirming that your API app has been successfully created.
 
-4. A browser window should open and display a message confirming that your API app has been successfully created.
-
-5. In the browser address bar, add /swagger to the end of the URL and press &lt;Enter>. This will display the Swagger UI client.
+4. In the browser address bar, add /swagger to the end of the URL and press &lt;Enter>. This will display the Swagger UI client.
 
 	![Swagger UI](./media/app-service-api-dotnet-debug/rd-swagger-ui.png)
 
-6. Return to Visual Studio, and from the **View** menu, select **Server Explorer**. 
+5. Return to Visual Studio, and from the **View** menu, select **Server Explorer**. 
 
-7. In **Server Explorer**, expand the **Azure > App Service** node. 
+6. In **Server Explorer**, expand the **Azure > App Service** node. 
 
-8. Locate the resource group that you created when you deployed your API app. 
+7. Locate the resource group that you created when you deployed your API app. 
 
-9. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
+8. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
 
 	![Attaching debugger](./media/app-service-api-dotnet-debug/rd-attach-debugger.png)
 
@@ -56,11 +54,11 @@ The following steps enable you to debug your API app while it runs in the cloud 
 
 	![Attaching debugger](./media/app-service-api-dotnet-debug/rd-attaching.png)
 
-10. After the connection is established, open the **ContactsController.cs** file in the API App project, and add breakpoints at the `Get` and `Post` methods. They may not appear as active at first, but if the remote debugger is attached, you're ready to debug. 
+9. After the connection is established, open the **ContactsController.cs** file in the API App project, and add breakpoints at the `Get` and `Post` methods. They may not appear as active at first, but if the remote debugger is attached, you're ready to debug. 
 
 	![Applying breakpoints to controller](./media/app-service-api-dotnet-debug/rd-breakpoints.png)
 
-11. Return to the browser session, click the **Get** verb to display the schema for the *Contact* object, and then click **Try it Out**. If you set a breakpoint in the controller's **Get** method, Visual Studio will stop program execution, and you can debug your controller's logic. 
+10. Return to the browser session, click the **Get** verb to display the schema for the *Contact* object, and then click **Try it Out**. If you set a breakpoint in the controller's **Get** method, Visual Studio will stop program execution, and you can debug your controller's logic. 
 
 	![Try it out](./media/app-service-api-dotnet-debug/rd-try-it-out.png)
 
@@ -109,9 +107,9 @@ There may be times when you want to debug your API app locally; for example, to 
 
 	![Setting breakpoints](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
 
-11. Click <F5> to start a Visual Studio debugging session. When the browser loads the page, you should see an error message. Add */swagger* to the end of the URL in your browser's address bar and press <Enter>.
+11. Click &lt;F5> to start a Visual Studio debugging session. When the browser loads the page, you should see an error message. Add */swagger* to the end of the URL in your browser's address bar and press &lt;Enter>.
 
-12. Once the Swagger UI has loaded, click the **Get** verb on the browser window to display the schema for the Contact object, and then click **Try it Out**. If you set a breakpoint, in the controller's **Get** method, Visual Studio will stop program execution, and you can debug your controller's logic. 
+12. Once the Swagger UI has loaded, click the **Get** verb on the browser window to display the schema for the Contact object, and then click **Try it Out**. Visual Studio will now stop program execution on the breakpoints you set earlier, and you can debug your controller's logic. 
 
 	![Try it out](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
 
