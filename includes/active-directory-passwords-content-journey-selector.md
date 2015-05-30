@@ -1,0 +1,10 @@
+[AZURE.SELECTOR]
+[What is it](active-directory-passwords.md)
+[How it works](active-directory-passwords-how-it-works.md)
+[Getting started](active-directory-passwords-getting-started.md)
+[Customize](active-directory-passwords-customize.md)
+[Best practices](active-directory-passwords-best-practices.md)
+[Get insights](active-directory-passwords-get-insights.md)
+[FAQ](active-directory-passwords-faq.md)
+[Troubleshooting](active-directory-passwords-troubleshoot.md)
+[Learn more](active-directory-passwords-learn-more.md)

@@ -18,17 +18,7 @@
 
 # Customize Password Management
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="active-directory-passwords/" title="What is It">What is It</a>
-<a href="active-directory-passwords-how-it-works/" title="How it Works" class="current">How it Works</a>
-<a href="active-directory-passwords-getting-started/" title="Getting Started">Getting Started</a>
-<a href="active-directory-passwords-customize/" title="Customize">Customize</a>
-<a href="active-directory-passwords-best-practices/" title="Best Practices">Best Practices</a>
-<a href="active-directory-passwords-get-insights/" title="Get Insights">Get Insights</a>
-<a href="active-directory-passwords-faq/" title="FAQ">FAQ</a>
-<a href="active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
-<a href="active-directory-passwords-learn-more/" title="Learn More">Learn More</a>
-</div>
+[AZURE.INCLUDE [active-directory-passwords-content-journey-selector](../includes/active-directory-passwords-content-journey-selector.md)]
 
 This topic walks you through all of the different password management customizations you can make as an administrator from within Configure tab of your directory within the Azure Management Portal.
 

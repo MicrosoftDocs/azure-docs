@@ -19,15 +19,15 @@
 # Manage your passwords everywhere
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="active-directory-passwords/" title="What is It" class="current">What is It</a>
-<a href="active-directory-passwords-how-it-works/" title="How it Works">How it Works</a>
-<a href="active-directory-passwords-getting-started/" title="Getting Started">Getting Started</a>
-<a href="active-directory-passwords-customize/" title="Customize">Customize</a>
-<a href="active-directory-passwords-best-practices/" title="Best Practices">Best Practices</a>
-<a href="active-directory-passwords-get-insights/" title="Get Insights">Get Insights</a>
-<a href="active-directory-passwords-faq/" title="FAQ">FAQ</a>
-<a href="active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
-<a href="active-directory-passwords-learn-more/" title="Learn More">Learn More</a>
+<a href="../active-directory-passwords/" title="What is It" class="current">What is It</a>
+<a href="../active-directory-passwords-how-it-works/" title="How it Works">How it Works</a>
+<a href="../active-directory-passwords-getting-started/" title="Getting Started">Getting Started</a>
+<a href="../active-directory-passwords-customize/" title="Customize">Customize</a>
+<a href="../active-directory-passwords-best-practices/" title="Best Practices">Best Practices</a>
+<a href="../active-directory-passwords-get-insights/" title="Get Insights">Get Insights</a>
+<a href="../active-directory-passwords-faq/" title="FAQ">FAQ</a>
+<a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
+<a href="../active-directory-passwords-learn-more/" title="Learn More">Learn More</a>
 </div>
 
 ## How does password management fit into the Azure AD story?
