@@ -171,7 +171,7 @@ The following are some frequently asked questions for all things related to pass
  
  > **A:** See How password writeback works for a detailed explanation of what happens when you enable password writeback, as well as how data flows through the system back into your on-premises environment. See “Password writeback security model” in How password writeback works to learn how we ensure password writeback is a highly secure service.
 
- - **Q:  How long does password writeback take to work?**  Is there a synchronization delay like with password hash sync?**
+ - **Q:  How long does password writeback take to work?  Is there a synchronization delay like with password hash sync?**
  
  > **A:** Password writeback is instant. It is a synchronous pipeline that works fundamentally differently than password hash synchronization. Password writeback allows users to get realtime feedback about the success of their password reset or change operation. The average time for a successful writeback of a password is under 500 ms.
 
@@ -183,7 +183,7 @@ The following are some frequently asked questions for all things related to pass
  
  > **A:** Yes, password writeback enforces password age, history, complexity, filters and any other restriction you may put in place on passwords in your local domain.
 
- - **Q:  Is password writeback secure?**  How can I be sure I won’t get hacked?**
+ - **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
  
  > **A:** Yes, password writeback is extremely secure. To read more about the 4 layers of security implemented by the password writeback service, check out the “Password writeback security model” in How password writeback works.
 
