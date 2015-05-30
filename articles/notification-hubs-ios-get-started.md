@@ -190,7 +190,7 @@ You can test receiving notifications in your app by send notifications in the Az
 		#define HUBNAME @"<Enter the name of your hub>"
 
 
-3. Add outlets for the label and text field connected your view and update your `interface` definition to support `UITextFieldDelegate`, `NSURLConnectionDataDelegate`, and `NSXMLParserDelegate`. Add the three property declarations shown below to help support calling the REST API and parsing the response.
+3. Add outlets for the label and text field connected your view and update your `interface` definition to support `UITextFieldDelegate` and `NSXMLParserDelegate`. Add the three property declarations shown below to help support calling the REST API and parsing the response.
 
 	Your ViewController.h file should look as follows:
 
@@ -201,10 +201,8 @@ You can test receiving notifications in your app by send notifications in the Az
 		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
 		#define HUBNAME @"<Enter the name of your hub>"
 
-		@interface ViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDataDelegate, 
-														NSXMLParserDelegate>
+		@interface ViewController : UIViewController <UITextFieldDelegate, NSXMLParserDelegate>
 		{
-			NSURLConnection *currentConnection;
 			NSXMLParser *xmlParser;
 		}
 		
@@ -212,7 +210,6 @@ You can test receiving notifications in your app by send notifications in the Az
 		@property (weak, nonatomic) IBOutlet UITextField *notificationMessage;
 		@property (weak, nonatomic) IBOutlet UILabel *sendResults;
 
-		@property (retain, nonatomic) NSMutableData *apiReturnXMLData;
 		@property (copy, nonatomic) NSString *statusResult;
 		@property (copy, nonatomic) NSString *currentElement;
 
@@ -334,25 +331,33 @@ You can test receiving notifications in your app by send notifications in the Az
 
 		- (IBAction)SendNotificationMessage:(id)sender 
 		{
+			self.sendResults.text = @"";
 			[self SendNotificationRESTAPI];
 		}
 
 		- (void)SendNotificationRESTAPI
 		{
+		    NSURLSession* session = [NSURLSession
+                             sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+                             delegate:nil delegateQueue:nil];
+
+			// Apple Notification format of the notification message
 		    NSString *json = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"%@\"}}", 
 								self.notificationMessage.text];
 		
-			self.sendResults.text = @"";
-		
+			// Construct the messages REST endpoint 
 			NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint, 
 												HUBNAME, API_VERSION]];
 		
+			// Generated the token to be used in the authorization header.
 			NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
 		
 			//Create the request to add the APNS notification message to the hub
 			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 			[request setHTTPMethod:@"POST"];
 			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+
+			// Signify apple notification format
 			[request setValue:@"apple" forHTTPHeaderField:@"ServiceBusNotification-Format"];
 		
 			//Authenticate the notification message POST request with the SaS token
@@ -360,17 +365,24 @@ You can test receiving notifications in your app by send notifications in the Az
 			
 			//Add the notification message body
 			[request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
-		    
-			if (currentConnection)
+
+			// Send the REST request		    
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request 
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
 			{
-				[currentConnection cancel];
-				currentConnection = NULL;
-				self.apiReturnXMLData = NULL;
-			}
-		
-			currentConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-		
-			self.apiReturnXMLData = [NSMutableData data];
+		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+		        if (error || httpResponse.statusCode != 200)
+		        {
+		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+		        }
+				if (data != null)
+				{
+		        	xmlParser = [[NSXMLParser alloc] initWithData:data];
+		        	[xmlParser setDelegate:self];
+		       		[xmlParser parse];	
+		    	}
+		    }];
+		    [dataTask resume];
 		}
 
 
@@ -385,37 +397,7 @@ You can test receiving notifications in your app by send notifications in the Az
 		}
 
 
-9. In ViewController.m, add the following delegate methods to support calling the REST API using the `NSURLConnection`.
-
-		//===[ Implement NSURLConnectionDataDelegate methods ]===
-		
-		-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-		{
-			[self MessageBox:@"POST Request Failed" message:[error localizedDescription]];
-		}
-		
-		-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-		{
-			[self.apiReturnXMLData appendData:data];
-		}
-		
-		-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-		{
-			[self.apiReturnXMLData setLength:0];
-		}
-		
-		-(void)connectionDidFinishLoading:(NSURLConnection *)connection
-		{
-			xmlParser = [[NSXMLParser alloc] initWithData:self.apiReturnXMLData];
-			[xmlParser setDelegate:self];
-			[xmlParser parse];
-
-			currentConnection = NULL;
-		}
-
-
-
-10. In ViewController.m, add the following delegate methods to support parsing the response using `NSXMLParser`.
+9. In ViewController.m, add the following delegate methods to support parsing the response using `NSXMLParser`.
 
 		//===[ Implement NSXMLParserDelegate methods ]===
 		
@@ -445,13 +427,16 @@ You can test receiving notifications in your app by send notifications in the Az
 		
 		-(void)parserDidEndDocument:(NSXMLParser *)parser
 		{
-		    [self.sendResults setText:self.statusResult];
-		}
+			// Set the status label text on the UI thread
+			dispatch_async(dispatch_get_main_queue(),
+			^{
+				[self.sendResults setText:self.statusResult];
+			});
+		}		
 		
 
 
-
-11. Build the project and verify no errors.
+10. Build the project and verify no errors.
 
 
  

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="05/30/2015" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users
@@ -64,7 +64,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 		@property (weak, nonatomic) IBOutlet UIButton *LogInButton;
 		@property (weak, nonatomic) IBOutlet UIButton *SendNotificationButton;
 
-		// Used to send notifications across platforms
+		// Used to enabled sending notifications across platforms
 		@property (weak, nonatomic) IBOutlet UISwitch *WNSSwitch;
 		@property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
 		@property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
@@ -75,7 +75,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
-4. Create a new **Cocoa Touch class** named **RegisterClient** to interface with the ASP.NET back-end you created. Create the class inheriting from `NSObject`. Then add the following code in the RegisterClient.h. 
+4. In your project, create a new **Cocoa Touch class** named **RegisterClient** to interface with the ASP.NET back-end you created. Create the class inheriting from `NSObject`. Then add the following code in the RegisterClient.h. 
 
 		@interface RegisterClient : NSObject
 
@@ -327,7 +327,8 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil 
 				andCompletion:^(NSError* error) {
 		        if (!error) {
-		            dispatch_async(dispatch_get_main_queue(), ^{
+		            dispatch_async(dispatch_get_main_queue(), 
+					^{
 		                selfie.SendNotificationButton.enabled = YES;
 		                [self MessageBox:@"Success" message:@"Registered successfully!"];
 		            });
@@ -343,11 +344,15 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 		    	sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil
 		        delegateQueue:nil];
 		    
+			// Pass the pns and username tag as parameters with the REST URL to the ASP.NET backend
 		    NSURL* requestURL = [NSURL URLWithString:[NSString 
 				stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns, 
 				usernameTag]];
+
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
+
+			// Get the mock authenticationheader from the register client
 		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
 				self.registerClient.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
@@ -356,15 +361,30 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 		    [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 		    [request setHTTPBody:[message dataUsingEncoding:NSUTF8StringEncoding]];
 		    
+			// Execute the send notification REST API on the ASP.NET Backend
 		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request 
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (error || httpResponse.statusCode != 200)
 		        {
-		            NSLog(@"Error status: %d, request: %@", httpResponse.statusCode, error);
+		            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n", 
+										pns, httpResponse.statusCode, error];
+		            dispatch_async(dispatch_get_main_queue(),
+		            ^{
+						// Append text because all 3 PNS calls may also have information to view
+		                [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]];
+		            });
+		            NSLog(status);
 		        }
-		    }];
+		        
+		        if (data != NULL)
+		        {
+		            xmlParser = [[NSXMLParser alloc] initWithData:data];
+		            [xmlParser setDelegate:self];
+		            [xmlParser parse];
+		        }		    
+			}];
 		    [dataTask resume];
 		}
 
@@ -383,6 +403,8 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 		{
 		    NSString* json = [NSString stringWithFormat:@"\"%@\"",self.notificationMessage.text];
 		    
+			[self.sendResults setText:@""];
+
 		    if ([self.WNSSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"wns" UsernameTag:self.RecipientField.text Message:json];
 		
@@ -421,15 +443,26 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 		    [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
 		}
 
-## Run the Application
+## Test the Application
 
 1. In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).
 
-2. In the iOS app UI, enter a username and password. These can be any string, but they must be of the same value. Then click **Log In**.
+2. In the iOS app UI, enter a username and password. These can be any string, but they must both be the same string value. Then click **Log In**.
+
+	![][2]
+
 
 3. You should see a pop-up informing you of registration success. Click **OK**.
 
-4. Click **Send push** and hit the home button. A push notification will appear shortly.
+	![][3]
+
+4. In the **Recipient username tag* text field, enter the user name tag used with the registration from another device.
+5. Enter a notification message and click **Send Notification**.  Only the devices that have a registration with the recipient user name tag receive the notification message.  It is only sent to those users.
+
+	![][4]
 
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
+[2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
+[3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
+[4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
