@@ -139,5 +139,5 @@ The following are some frequently asked questions for all things related to pass
 * [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
-[001]: ..\media\active-directory-passwords-faq\001.jpg "Image_001.jpg"
-[002]: ..\media\active-directory-passwords-faq\002.jpg "Image_002.jpg"
+[001]: ..\..\media\active-directory-passwords-faq\001.jpg "Image_001.jpg"
+[002]: ..\..\media\active-directory-passwords-faq\002.jpg "Image_002.jpg"

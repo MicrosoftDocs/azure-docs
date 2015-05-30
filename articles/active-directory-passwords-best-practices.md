@@ -129,9 +129,9 @@ We are working on sample training materials that you can use to get your IT orga
 
 
 
-[001]: ..\media\active-directory-passwords-best-practices\001.jpg "Image_001.jpg"
-[002]: ..\media\active-directory-passwords-best-practices\002.jpg "Image_002.jpg"
-[003]: ..\media\active-directory-passwords-best-practices\003.jpg "Image_003.jpg"
-[004]: ..\media\active-directory-passwords-best-practices\004.jpg "Image_004.jpg"
-[005]: ..\media\active-directory-passwords-best-practices\005.jpg "Image_005.jpg"
-[006]: ..\media\active-directory-passwords-best-practices\006.jpg "Image_006.jpg"
+[001]: ..\..\media\active-directory-passwords-best-practices\001.jpg "Image_001.jpg"
+[002]: ..\..\media\active-directory-passwords-best-practices\002.jpg "Image_002.jpg"
+[003]: ..\..\media\active-directory-passwords-best-practices\003.jpg "Image_003.jpg"
+[004]: ..\..\media\active-directory-passwords-best-practices\004.jpg "Image_004.jpg"
+[005]: ..\..\media\active-directory-passwords-best-practices\005.jpg "Image_005.jpg"
+[006]: ..\..\media\active-directory-passwords-best-practices\006.jpg "Image_006.jpg"
