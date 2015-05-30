@@ -29,7 +29,7 @@ If you cannot solve your issue with the guidance below, you can contact our supp
 - Support Code – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results). 
   - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
     
-    ![001]
+   ![001]
     
 - User ID – what was the ID of the user who saw the error (e.g. user@contoso.com)?
 - Information about the user – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
