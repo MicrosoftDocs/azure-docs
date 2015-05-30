@@ -16,8 +16,8 @@
    ms.date="05/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess;"/>
 
-# Optimizing data migration with PolyBase #
-This explains how to create a robust, re-startable and resilient migration process that maximizes performance at each step. Since PolyBase is the fastest way to import data into SQL Data Warehouse, this article focuses on migration strategies that use PolyBase to perform the data import.
+# Data migration overview#
+This explains the overall process for creating a robust, re-startable and resilient migration process that maximizes performance at each step. Since PolyBase is the fastest way to import data into SQL Data Warehouse, this article focuses on migration strategies that use PolyBase to perform the data import.
 
 The strategy for migrating your data to SQL Data Warehouse depends on where your existing data is located, how large your data is, and how fast you need to populate your SQL Data Warehouse database. 
 
@@ -128,4 +128,4 @@ For the final step, use PolyBase to import data from Azure blob storage to SQL D
 [production version]: http://aka.ms/downloadazcopy
 [preview version]: http://aka.ms/downloadazcopypr
 [ADF Copy examples]: http://azure.microsoft.com/en-gb/documentation/articles/data-factory-copy-activity-examples/
-[SSDT]
+
