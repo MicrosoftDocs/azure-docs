@@ -46,6 +46,6 @@ To download any report as a CSV, navigate to the report and click "Download" at 
 
 ![Download button][001]
 
-[001]: .media/active-directory-reporting-getting-started/downloadButton.png
-[002]: .media/active-directory-reporting-getting-started/dialogBox.png
-[003]: .media/active-directory-reporting-getting-started/reportsMain.png
+[001]: ./media/active-directory-reporting-getting-started/downloadButton.png
+[002]: ./media/active-directory-reporting-getting-started/dialogBox.png
+[003]: ./media/active-directory-reporting-getting-started/reportsMain.png
