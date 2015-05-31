@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="04/29/2015" 
 	ms.author="bradsev;garye" />
 
 # Debug your Model in Azure Machine Learning

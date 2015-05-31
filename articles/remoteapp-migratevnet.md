@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/23/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Let’s say that you’ve already created a hybrid RemoteApp collection called *
 
 1.	On the **Networks** tab in the [management portal](http://manage.windowsazure.com/), create a VNET called *AzureVNET*, using the same location, DNS configuration, and address space (for at least one of the *AzureVNET* subnets) as you used for *RemoteAppVNET*.
 2.	Configure *AzureVNET* to either host or have network connectivity to the Active Directory deployment that *OriginalCollection* is domain joined to.
-3.	On the **RemoteApps** tab, create a new RemoteApp collection called *New Collection*. (Use the **Create with VPN** option, not **Quick Create**.)
+3.	On the **RemoteApps** tab, create a new RemoteApp collection called *New Collection*. (Use the **Create with VNET** option, not **Quick Create**.)
 3.	Configure *NewCollection* to be deployed to a subnet in *AzureVNET*.
 4.	Configure *NewCollection* to use the same image and domain join information as you used for *OriginalCollection*.
 5.	After a few hours, *NewCollection* will show up in your collection list with an Active state.

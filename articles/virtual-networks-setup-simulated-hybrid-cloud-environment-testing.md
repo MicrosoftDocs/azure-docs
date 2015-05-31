@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Set up a simulated hybrid cloud environment for testing
@@ -231,6 +231,8 @@ You can also build these configurations in this test environment:
 [Base Configuration Test Environment](virtual-machines-base-configuration-test-environment.md)
 
 [Azure hybrid cloud test environments](virtual-machines-hybrid-cloud-test-environments.md)
+
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 ## <a id="costs"></a>Minimizing the ongoing costs of this environment
 

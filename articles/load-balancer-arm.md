@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure Resource Manager support for Load Balancer Preview | Microsoft Azure "
    description="Using powershell for Load Balancer with Azure Resource Manager (ARM) in preview. Using templates for load balancer"
    services="load-balancer"
@@ -6,31 +6,31 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="05/27/2015"
    ms.author="joaoma" />
 
 
-# Azure Resource Manager Support for Load Balancer - Preview 
+# Azure Resource Manager Support for Load Balancer - Preview
 
 Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).
 
->[AZURE.NOTE] ARM support for Load Balancer is currently in Preview, including REST API, PowerShell cmdlets, cross-platform command line interface and .NET SDK.
+>[AZURE.NOTE] ARM support for Load Balancer is currently in Preview, including REST API, Azure PowerShell, Azure CLI and .NET SDK.
 
 ##Concepts
 
 With ARM, Azure Load Balancer contains the following child resources:
 
 - Front end IP configuration – a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic.
- 
+
 - Backend address pool – these are IP addresses associated with the virtual machine Network Interface Card (NIC) to which load will be distributed.
 
-- Load balancing rules – a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with VMs. 
+- Load balancing rules – a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with VMs.
 
 - Probes – probes enable you to keep track of the health of VM instances. If a health probe fails, the VM instance will be taken out of rotation automatically.
 
@@ -67,7 +67,7 @@ Examples of templates:
 
 - [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
 
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager)
+- [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager)
 
 - [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
@@ -77,4 +77,3 @@ Examples of templates:
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-

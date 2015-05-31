@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="03/17/2015"
 	ms.author="sethm"/>
 
@@ -345,7 +345,7 @@ displays.
             }
         }
 
-4.  From the **Build** menu, click **Build Solution**.
+4.  From the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
 
 5.  Now, you will create the view for the **Submit()** method you
     created above. Right-click within the Submit() method, and choose
@@ -353,16 +353,13 @@ displays.
 
     ![][14]
 
-6.  A dialog appears for creating the view. Select the
-    **OnlineOrder** class in the **Model class** dropdown, and choose
-    **Create** in the **Template** dropdown.
+6.  A dialog appears for creating the view. In the **Template** dropdown, choose **Create**. In the **Model class** dropdown, click the **OnlineOrder** class.
 
     ![][15]
 
 7.  Click **Add**.
 
-8.  Now, change the displayed name of your application. In the
-    **Solution Explorer**, double-click the
+8.  Now, change the displayed name of your application. In **Solution Explorer**, double-click the
     **Views\Shared\\_Layout.cshtml** file to open it in the Visual
     Studio editor.
 
@@ -379,7 +376,7 @@ displays.
     editor. Add the following line after **&lt;h2>Submit&lt;/h2>**. For now,
     the **ViewBag.MessageCount** is empty. You will populate it later.
 
-        <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
+        <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
 
 12. You now have implemented your UI. You can press **F5** to run your
@@ -390,11 +387,11 @@ displays.
 ### Write the code for submitting items to a Service Bus queue
 
 Now, you will add code for submitting items to a queue. You will first
-create a class that contains your Service Bus Queue connection
+create a class that contains your Service Bus queue connection
 information. Then, you will initialize your connection from
 **Global.aspx.cs**. Finally, you will update the submission code you
 created earlier in **HomeController.cs** to actually submit items to a
-Service Bus Queue.
+Service Bus queue.
 
 1.  In Solution Explorer, right-click **FrontendWebRole** (right-click the project, not the role). Click **Add**, and then click **Class**.
 
@@ -460,20 +457,18 @@ Service Bus Queue.
             }
         }
 
-    **Note** Later in this tutorial you will learn how to store the name of your
-    **Namespace** and your SAS key value in a configuration file.
+    Note that later in this tutorial you will learn how to store the name of your **Namespace** and your SAS key value in a configuration file.
 
-4.  Now, you will ensure that your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
+4.  Now, ensure that your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
 
 5.  Add the following line to the bottom of the **Application_Start**
     method:
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  Finally, you will update the web code you created earlier, to
+6.  Finally, update the web code you created earlier, to
     submit items to the queue. In **Solution Explorer**,
-    double-click **Controllers\HomeController.cs** that you created
-    earlier.
+    double-click **Controllers\HomeController.cs**.
 
 7.  Update the **Submit()** method as follows to get the message count
     for the queue:

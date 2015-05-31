@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="05/21/2015"
 	ms.author="tdykstra"/>
 
 #Deploy a web app in Azure App Service
@@ -67,8 +67,13 @@ Azure simplifies site management tasks that you might have to do for deployment 
 * [FTP scripts](#ftp2)
 * [Windows PowerShell](#powershell)
 * [.NET management API](#api)
-* [Cross-platform command line (xplat-cli)](#cli)
+* [Azure Command-Line Interface (Azure CLI)](#cli)
 * [Web Deploy command line](#webdeploy)
+ 
+###<a name="octopus"></a>Octopus Deploy
+
+[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy) can be used with App Service Web Apps. For more information, see [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -86,7 +91,7 @@ For more information, see the following resources:
 For more information, see the following resources:
 
 * [Publishing from Source Control to Web Apps with Git](web-sites-publish-source-control.md). How to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
-* [Deploying to Web Apps with GitHub using Kudu](http://azure.microsoft.com/en-us/documentation/videos/deploying-to-azure-from-github/). Video by Scott Hanselman and David Ebbo that shows how to deploy a web app directly from GitHub to Web Apps.
+* [Deploying to Web Apps with GitHub using Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Video by Scott Hanselman and David Ebbo that shows how to deploy a web app directly from GitHub to Web Apps.
 * [Deploy to Azure Button for Web Apps](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog about a method for triggering deployment from a Git repository.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
@@ -152,7 +157,7 @@ For more information, see the following resources:
 * [Deploying TWO websites to Azure from one Git Repository](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Blog post by Scott Hanselman.
 
 
-##<a name=msbuild></a>MSBuild
+##<a name="msbuild"></a>MSBuild
 
 If you use the [Visual Studio IDE](#vs) for development, you can use [MSBuild](http://msbuildbook.com/) to automate anything you can do in your IDE. You can configure MSBuild to use either [Web Deploy](#webdeploy) or [FTP/FTPS](#ftp) to copy files. Web Deploy can also automate many other deployment-related tasks, such as deploying databases.
 
@@ -186,13 +191,13 @@ For more information, see the following resource:
 
 * [Automating everything with the Azure Management Libraries and .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Introduction to the .NET management API and links to more documentation.
 
-##<a name="cli"></a>Cross-platform command line (xplat-cli)
+##<a name="cli"></a>Azure Command-Line Interface (Azure CLI)
 
-You can use the command line in Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure cross-platform command-line interface (xplat-cli). The xplat-cli can also be used on Windows machines.
+You can use the command line in Windows, Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure CLI.
 
 For more information, see the following resource:
 
-* [Command line tools](/downloads/#cmd-line-tools). Portal page in Azure.com for command line tool information.
+* [Azure Command line tools](/downloads/#cmd-line-tools). Portal page in Azure.com for command line tool information.
 
 ##<a name="webdeploy"></a>Web Deploy command line
 

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Migrating runbooks and integration packs from Orchestrator"
    description="Describes how to migrate runbooks and integration packs from System Center Orchestrator to Azure Automation."
    services="automation"
@@ -6,35 +6,35 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="05/22/2015"
    ms.author="bwren" />
 
 
 # Migrating from Orchestrator to Azure Automation
 
-Runbooks in [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) are based on activities from integration packs that are written specifically for Orchestrator while runbooks in Azure Automation are based on Windows PowerShell Workflows.  Graphical runbooks in Azure Automation have a similar appearance to Orchestrator runbooks with their activities representing PowerShell cmdlets, child runbooks, and assets. 
+Runbooks in [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) are based on activities from integration packs that are written specifically for Orchestrator while runbooks in Azure Automation are based on Windows PowerShell Workflows.  Graphical runbooks in Azure Automation have a similar appearance to Orchestrator runbooks with their activities representing PowerShell cmdlets, child runbooks, and assets.
 
-The **System Center Orchestrator Migration Toolkit** includes tools to assist you in converting runbooks from Orchestrator to Azure Automation.  In addition to converting the runbooks themselves, you must convert the integration packs with the activities that they use to integration modules with Windows PowerShell cmdlets.  
+The [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) includes tools to assist you in converting runbooks from Orchestrator to Azure Automation.  In addition to converting the runbooks themselves, you must convert the integration packs with the activities that they use to integration modules with Windows PowerShell cmdlets.  
 
 Following is the the basic process for converting Orchestrator runbooks to Azure Automation.  Each of these steps is described in detail in the sections below.
 
-1.  Download the System Center Orchestrator Migration Toolkit which contains the tools and modules discussed in this article. 
-2.  Install [Standard Activities Module](standard-activities-module) into Azure Automation.  This includes converted versions of standard Orchestrator activities that may be used by converted runbooks.
-2.  Install converted Microsoft integration packs into Azure Automation.  These are modules for Microsoft technologies that have been converted from Orchestrator integration packs that may contain activities that are used by converted runbooks. 
+1.  Download the [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) which contains the tools and modules discussed in this article.
+2.  Install [Standard Activities Module](#standard-activities-module) into Azure Automation.  This includes converted versions of standard Orchestrator activities that may be used by converted runbooks.
+2.  Install [System Center Orchestrator Integration Modules](#system-center-orchestrator-integration-modules) into Azure Automation for those integration packs used by your runbooks.
 3.  Convert custom and third party integration packs using the [Integration Pack Converter](#integration-pack-converter) and install in Azure Automation.
-4.  Manually recreate [global assets](#global-assets) in Orchestrator in Azure Automation since there is no automated method to perform this migration.
-5.  Convert Orchestrator runbooks using the [Runbook Converter](#runbook-converter) (coming soon) and install in Azure Automation.
+4.  Manually recreate global assets in Orchestrator in Azure Automation since there is no automated method to perform this migration.
+5.  Convert Orchestrator runbooks using the [Runbook Converter](#runbook-converter-coming-soon) (coming soon) and install in Azure Automation.
 6.  Configure a [Hybrid Runbook Worker](#hybrid-runbook-worker) in your local data center to run the converted runbooks.
 
 ## Service Management Automation
 
-[Service Management Automation](https://technet.microsoft.com/en-us/library/dn469260.aspx) (SMA) stores and runs runbooks in your local data center like Orchestrator, and it uses the same integration modules as Azure Automation.  When it is available, the [Runbook Converter](#runbookconverter) will convert Orchestrator runbooks to graphical runbooks though which are not supported in SMA.  You can still install the [Standard Activities Module](#standardactivitiesmodule) and any converted [integration packs](#integrationpackconverter) into SMA, but you must manually [rewrite your runbooks](http://technet.microsoft.com/library/dn469262.aspx).
+[Service Management Automation](http://technet.microsoft.com/library/dn469260.aspx) (SMA) stores and runs runbooks in your local data center like Orchestrator, and it uses the same integration modules as Azure Automation.  When it is available, the [Runbook Converter](#runbook-converter-coming-soon) will convert Orchestrator runbooks to graphical runbooks though which are not supported in SMA.  You can still install the [Standard Activities Module](#standard-activities-module) and [System Center Orchestrator Integration Modules](#system-center-orchestrator-integration-modules) into SMA, but you must manually [rewrite your runbooks](http://technet.microsoft.com/library/dn469262.aspx).
 
 ## Hybrid Runbook Worker
 
@@ -66,6 +66,9 @@ Orchestrator includes a set of [standard activities](http://technet.microsoft.co
 
 In addition to supporting converted runbooks, the cmdlets in the standard activities module can be used by someone familiar with Orchestrator to build new runbooks in Azure Automation.  While the functionality of all of the standard activities can be performed with cmdlets, they may operate differently.  The cmdlets in the converted standard activities module will work the same as their corresponding activities and use the same parameters.  This can help the existing Orchestrator runbook author in their transition to Azure Automation runbooks.
 
+## System Center Orchestrator Integration Modules
+Microsoft provides [integration packs](http://technet.microsoft.com/library/hh295851.aspx) for building runbooks to automate System Center components and other products.  Currently, when you download some of these integration packs from [TechNet](http://www.microsoft.com/download/details.aspx?id=39622), they cannot be converted with the Integration Pack Converter due to known issue which will be fixed with RC release of System Center Orchestrator Migration Toolkit.  [System Center Orchestrator Integration Modules](http://www.microsoft.com/download/details.aspx?id=47324&WT.mc_id=rss_alldownloads_all) includes converted versions of these integration packs that can be imported in Azure Automation and Service Management Automation prior to this release.
+
 ## Runbook Converter (coming soon)
 
 This tool will convert Orchestrator runbooks into graphical runbooks that can be imported into Azure Automation.  Further details on this tool will be provided here when it comes available.
@@ -73,11 +76,6 @@ This tool will convert Orchestrator runbooks into graphical runbooks that can be
 ## Related articles
 
 - [System Center 2012 - Orchestrator](http://technet.microsoft.com/library/hh237242.aspx)
-- [Service Management Automation](https://technet.microsoft.com/en-us/library/dn469260.aspx)
+- [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
 - [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 - [Orchestrator Standard Activities](http://technet.microsoft.com/library/hh403832.aspx)
-
-
-
-
-

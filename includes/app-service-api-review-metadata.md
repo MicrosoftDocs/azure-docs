@@ -21,4 +21,6 @@ The default contents of the *apiapp.json* file resemble the following example:
 		    }
 		}
 
+Notice the `apiDefinition` endpoint `/swagger/docs/v1`:  by default, API app projects use the [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet package to provide automatic [Swagger](http://swagger.io/) metadata generation. 
+
 For this tutorial you can accept the defaults. The [API app metadata](#api-app-metadata) section later in the tutorial explains how to customize this metadata.

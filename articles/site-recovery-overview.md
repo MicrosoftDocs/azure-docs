@@ -53,6 +53,7 @@ ASR replication technologies are compatible with any application running in a vi
 Active Directory, DNS | Y | Y | Y | Coming soon 
 Web apps (IIS, SQL) | Y | Y | Y | Coming soon
 SCOM | Y | Y | Y | Coming soon
+Sharepoint | Y | Y | Y | Coming soon
 <p>SAP</p><p>Replicate SAP site to Azure for non cluster</p> | Y (tested by Microsoft) | Y (tested by Microsoft) | Y (tested by Microsoft) | Coming soon
 Exchange (non-DAG) | Y | Coming soon | Y | Coming soon
 Remote Desktop/VDI | Y | Y | Y | Coming soon 

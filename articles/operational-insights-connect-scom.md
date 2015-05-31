@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="Connect to Operational Insights from System Center Operations Manager" 
-   description="Learn about how to connect to Operational Insights through Operations Manager." 
-   services="operational-insights" 
-   documentationCenter="" 
-   authors="lauracr" 
-   manager="jwhit" 
+<properties
+   pageTitle="Connect to Operational Insights from System Center Operations Manager"
+   description="Learn about how to connect to Operational Insights through Operations Manager."
+   services="operational-insights"
+   documentationCenter=""
+   authors="lauracr"
+   manager="jwhit"
    editor=""/>
 
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
+   ms.workload="na"
    ms.date="04/30/2015"
    ms.author="lauracr"/>
 
-# Connect to Operational Insights from System Center Operations Manager 
+# Connect to Operational Insights from System Center Operations Manager
 
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
@@ -38,7 +38,7 @@ If you use Operations Manager to monitor any of the following workloads, then yo
 
 2. Expand the **Operational Insights** node and click **Operational Insights Connection**.
 
-3. Click the **Register to Operational Insights** link and follow the onscreen instructions. 
+3. Click the **Register to Operational Insights** link and follow the onscreen instructions.
 
 4. After completing the registration wizard, click **Add a Computer/Group**.
 ![Operations Manager add a computer/group](./media/operational-insights-connect-scom/om01.png)

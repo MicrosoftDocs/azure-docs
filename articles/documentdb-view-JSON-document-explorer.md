@@ -125,3 +125,4 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
 ##<a name="NextSteps"></a>Next steps
 
 To learn more about DocumentDB, click [here](http://azure.com/docdb).
+

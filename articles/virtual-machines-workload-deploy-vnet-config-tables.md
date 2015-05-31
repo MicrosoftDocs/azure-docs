@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/27/2015" 
 	ms.author="josephd"/>
 
 # Create a Cross-Premises Virtual Network Using Configuration Tables
@@ -36,26 +36,26 @@ The following procedure references the information in these tables to guide you 
 1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com/).
 2. From the task bar, click **New > Network Services > Virtual Network > Custom Create**.
 3. On the Virtual Network Details page:
-- In **Name**, type the name from Item 1 in Table V.
-- In **Location**, select the region from Item 2 in Table V. 
+	- In **Name**, type the name from Item 1 in Table V.
+	- In **Location**, select the region from Item 2 in Table V. 
 4. Click the next arrow to continue.
 5. On the DNS Servers and VPN Connectivity page:
-- In **DNS Servers**, for each entry in Table D, configure the friendly name and IP address of your on-premises DNS servers.
-- In **Site-To-Site Connectivity**, select **Configure a site-to-site VPN**.
-- If you have already configured a local network and want to use it, select its name in **Local Network**. If you want to create a new local network, select **Specify a New Local Network** in **Local Network**.
-- If you have not already configured a local network for your subscription, you will not see the **Local Network** field. 
+	- In **DNS Servers**, for each entry in Table D, configure the friendly name and IP address of your on-premises DNS servers.
+	- In **Site-To-Site Connectivity**, select **Configure a site-to-site VPN**.
+	- If you have already configured a local network and want to use it, select its name in **Local Network**. If you want to create a new local network, select **Specify a New Local Network** in **Local Network**.
+	- If you have not already configured a local network for your subscription, you will not see the **Local Network** field. 
 6. Click the next arrow to continue.
 7. On the Site-to-Site Connectivity page (if you selected **Specify a New Local Network** in step 5):
-- In **Name**, type the name from Item 3 in Table V (the local network name).
-- In **VPN Device IP Address**, type the address from Item 4 in Table V.
-- In **Address Space**, for each entry in Table L, enter the IP address spaces of your organization network in terms of the prefix (in **Starting IP**) and the prefix length (in **CIDR (Address Count)**).
+	- In **Name**, type the name from Item 3 in Table V (the local network name).
+	- In **VPN Device IP Address**, type the address from Item 4 in Table V.
+	- In **Address Space**, for each entry in Table L, enter the IP address spaces of your organization network in terms of the prefix (in **Starting IP**) and the prefix length (in **CIDR (Address Count)**).
 8. Click the next arrow to continue.
 9. On the Virtual Network Address Spaces page:
-- In **Address Space**, enter the private IP address space of the virtual network from Item 5 in Table V, in terms of the prefix (in **Starting IP**) and the prefix length (in **CIDR (Address Count)**).
-- In **Subnets**, for each entry in Table S:
-	- Type the name of the subnet in the **Subnets** column, overwriting the default name if needed.
-	- Type the private IP address space of the subnet, in terms of the prefix (in **Starting IP**) and the prefix length (in **CIDR (Address Count)**).
-- Click **Add Gateway Subnet**.
+	- In	 **Address Space**, enter the private IP address space of the virtual network from Item 5 in Table V, in terms of the prefix (in **Starting IP**) and the prefix length (in **CIDR (Address Count)**).
+	- In **Subnets**, for each entry in Table S:
+		- Type the name of the subnet in the **Subnets** column, overwriting the default name if needed.
+		- Type the private IP address space of the subnet, in terms of the prefix (in **Starting IP**) and the prefix length (in **CIDR (Address Count)**).
+	- Click **Add Gateway Subnet**.
 10. Click the check mark to complete the configuration.
 
 ## Additional Resources

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 
@@ -184,7 +184,6 @@ Once you create the content key, you can configure key authorization policy usin
 **Overview**: 
 
 - [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
-- [Delivering Content Overview](media-services-deliver-content-overview.md)
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
@@ -193,6 +192,11 @@ Configure asset delivery policy using **.NET** or **REST API**.
 Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
+
+Deliver Content 
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Enabling Azure CDN
 
