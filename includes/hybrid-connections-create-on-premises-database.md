@@ -10,6 +10,8 @@ To use an on-premises SQL Server or SQL Server Express database with a hybrid co
 2. Choose **New SQL Server stand-alone installation or add features to an existing installation**, follow the instructions, accepting the default choices and settings, until you get to the **Instance Configuration** page.
 	
 3. On the **Instance Configuration** page, choose **Default instance**, then accept the default settings on the **Server Configuration** page.
+
+	>[AZURE.NOTE]If you already have a default instance of SQL Server installed, you can skip to the next section and use this instance with Hybrid Connections. 
 	
 5. On the **Database Engine Configuration** page, under **Authentication Mode**, choose **Mixed Mode (SQL Server authentication and Windows authentication)**, and provide a secure password for the built-in **sa** administrator account.
 	
@@ -25,7 +27,8 @@ This section uses SQL Server Configuration Manager, which was installed when you
 
 2. (Optional) If you are not able to use the default instance, you must follow the steps in [Configure a Server to Listen on a Specific TCP Port ](https://msdn.microsoft.com/library/ms177440.aspx) to set a static port for the instance. If you complete this step, you will connect using the new port that you define, instead of port 1433.
 
-###Create a SQL Server database on-premises
+
+###Create a new database in the on-premises SQL Server instance
 
 1. In SQL Server Management Studio, connect to the SQL Server you just installed. (If the **Connect to Server** dialog does not appear automatically, navigate to **Object Explorer** in the left pane, click **Connect**, and then click **Database Engine**.) 	
 
@@ -38,3 +41,9 @@ This section uses SQL Server Configuration Manager, which was installed when you
 3. In the **New Database** dialog, type `OnPremisesDB`, and then click **OK**. 
 	
 4. In Object Explorer, if you expand **Databases**, you will see that the new database is created.
+
+###Create a new SQL Server login
+
+Finally, you will create a new SQL Server login with restricted permissions. Your Azure service will connect to the on-premise SQL Server using this login instead of the built-in sa login, which has full permissions on the server.
+
+1. 

@@ -29,16 +29,7 @@ This tutorial requires you to have the following:
 
 - **An existing .NET backend mobile service** <br/>Follow the tutorial [Get started with Mobile Services] to create and download a new .NET backend mobile service from the [Azure Management Portal].
 
-- **Visual Studio 2013** <br/>This a requirement for using To download a free trial version of Visual Studio 2013, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
-
-- **SQL Server 2014 Express with Tools** <br/>To download Microsoft SQL Server Express for free at the [Microsoft Web Platform Database page](http://www.microsoft.com/web/platform/database.aspx). Choose the **Express** (not LocalDB) version. The **Express with Tools** version includes SQL Server Management Studio, which you will use in this tutorial.
-
-- **An on-premises server** <br/>You can run the Hybrid Connections Manger on the same on-premises computer as your SQL Server instance, or you can run each on a separate computer. The computer on which the Hybrid Connection Manager runs must meet the following criteria:
-
-	- Be able to connect to Azure over port 5671.
-	- Be able to access the *hostname*:*portnumber* of the computer running your SQL Server instance.  
-
-	For more information see [Hybrid Connections Overview](integration-hybrid-connection-overview.md).
+[AZURE.INCLUDE [hybrid-connections-prerequisites](../includes/hybrid-connections-prerequisites.md)]
 
 ## Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises
 
