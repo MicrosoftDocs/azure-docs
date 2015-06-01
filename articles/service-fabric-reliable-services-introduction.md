@@ -36,7 +36,7 @@ Reliable Services gives you a simple, powerful, top-level programming model to h
 
 2. A simple model for running your own code that looks like programming models you are used to: your code has a well-defined entry point and easily managed lifecycle.
 
-3. A pluggable communication model - use the transport of your choice, like HTTP WebAPI, WebSockets, custom TCP protocols, etc. Reliable Services provides some great out of the box options you can use, or allows you to provide your own.
+3. A pluggable communication model - use the transport of your choice, like HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, etc. Reliable Services provides some great out of the box options you can use, or allows you to provide your own.
 
 ## What Makes Reliable Services Different?
 Reliable Services in Service Fabric are different from services you may have written before. Service Fabric helps to guarantee reliability, availability, consistency, and scalability.  
@@ -52,7 +52,7 @@ Reliable Services in Service Fabric are different from services you may have wri
 ## Service Lifecycle
 Whether your service is stateful or stateless, Reliable Services provide a simple lifecycle that lets you quickly plug your code in and get started.  There's really just one or two methods that you need to implement in order to get your service up and running.
 
-+ CreateCommunicationListener - This is where the service defines the communications stack that it wants to use. The communication stack, such as WebAPI, is what defines the listening endpoint(s) for the service (how clients will reach it), as well as how those messages which show up end up interacting with the rest of the service code.
++ CreateCommunicationListener - This is where the service defines the communications stack that it wants to use. The communication stack, such as [Web API](service-fabric-reliable-services-communication-webapi.md), is what defines the listening endpoint(s) for the service (how clients will reach it), as well as how those messages which show up end up interacting with the rest of the service code.
 
 + RunAsync - This is where your service can "do work". The cancellation token that is provided is a signal for when that work should stop. For example, if you have a service that needs to constantly pull messages out of a ReliableQueue and process them, this would be where that work would happen.
 
@@ -65,7 +65,7 @@ The major events in the lifecycle of a Reliable Service are as follows:
 4. Once the communication listener is Open(), the RunAsync() call on the main service is called.
   + Note that RunAsync is optional - if the service does all its work directly in response to user calls only, then there is no need for it to implement RunAsync().
 
-When the service is being shut down (either when it is deleted or just being moved from a particular location) the call order is the same, first Close() is called on the CommunicationListener, then the cancellation token that was passed to RunAsync() is cancelled.
+When the service is being shut down (either when it is deleted or just being moved from a particular location) the call order is the same, first Close() is called on the CommunicationListener, then the cancellation token that was passed to RunAsync() is canceled.
 
 ## Example Services
 Knowing this programming model, let's take a quick look at two different services to see how these pieces fit together.
@@ -75,7 +75,7 @@ A stateless service is one where there is literally no state maintained within t
 
 For example, consider a Calculator that has no memory, and which receives all terms and the operations to perform at once.
 
-In this case, the RunAsync() of the service can be empty since there is no background task processing that the service needs to do. When the Calculator service is created it will return a CommunicationListener (for example WebAPI) which opens up a listening endpoint on some port. This listening endoint will hook up to the different methods (ex: "Add(n1, n2)") which define the Calculator's public API.
+In this case, the RunAsync() of the service can be empty since there is no background task processing that the service needs to do. When the Calculator service is created it will return a CommunicationListener (for example [Web API](service-fabric-reliable-services-communication-webapi.md)) which opens up a listening endpoint on some port. This listening endpoint will hook up to the different methods (ex: "Add(n1, n2)") which define the Calculator's public API.
 
 When a call is made from a client, the appropriate method is invoked, and the Calculator service performs the operations on the data provided and returns the result. It does not store any state.
 
@@ -99,7 +99,7 @@ If any of the following characterize your application service needs, then the Re
 
 - You need to provide application behavior across multiple units of state (e.g. Orders and Order Line Items)
 
-- Your application’s state can be naturally modelled as reliable dictionaries and queues
+- Your application’s state can be naturally modeled as reliable dictionaries and queues
 
 - Your state needs to be highly available with low latency access
 
@@ -117,7 +117,7 @@ If any of the following characterize your application service needs, then the Re
 
 - You wish to develop, or consume 3rd party developed, custom state providers*
 
-> [AZURE.NOTE] *Above features available at SDK general availabity
+> [AZURE.NOTE] *Features available at SDK general availability
 
 
 ## Next Steps

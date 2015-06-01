@@ -143,8 +143,9 @@ See those options in the following UI:
 ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
 7. Click Next. 
-8. On the "Ready to configure" page uncheck "Start the synchronization process as soon as the configuration completes"
-8. Click "Install".
+8. On the "Ready to configure" page leave the "Start the synchronization process as soon as the configuration completes" checked.
+[AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory will begin, but no changes will be exported to Azure AD.  Only one synchronization tool can be actively exporting changes at a time.
+9. Click "Install".
 
 [AZURE.NOTE] We uncheck the start synchronization checkbox in order to ensure that DirSync, which is still installed and running and Azure AD Connect do not attempt to write to AAD at the same time.    
 
