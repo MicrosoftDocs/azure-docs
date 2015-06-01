@@ -46,7 +46,9 @@ Before you can enable and use self-service password reset, you must complete the
 - Obtain an Azure subscription. For more information, see What is an Azure AD directory?.
 - Associate your AAD tenant with your Azure subscription. For more information, see How Azure subscriptions are associated with Azure AD.
 - Upgrade to Azure AD Premium or Basic. For more information, see Azure Active Directory Editions.
+
   >[AZURE.NOTE] To enable self-service password reset, you must upgrade to Azure AD Premium or Azure AD Basic. For more information, Azure Active Directory Editions. This information includes detailed instructions on how to sign up for Azure AD Premium or Basic, how to activate your license plan and activate your Azure AD access, and how to assign access to administrator and user accounts.
+  
 - Create at least one administrator account and one user account in your AAD directory.
 - Assign an AAD Premium or Basic license to the administrator and user account that you created.
 
@@ -296,7 +298,7 @@ Now that password writeback has been enabled, you can test that it works by rese
 
 [001]: ./media/active-directory-passwords-getting-started/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-getting-started/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-getting-started/003.jpg 
+[003]: ./media/active-directory-passwords-getting-started/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-getting-started/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-getting-started/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-getting-started/006.jpg "Image_006.jpg"
