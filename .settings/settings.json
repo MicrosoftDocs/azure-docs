@@ -1,0 +1,7 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	
+	// Controls whether the editor should render whitespace characters
+	"editor.renderWhitespace": true
+	
+}

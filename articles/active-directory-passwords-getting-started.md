@@ -57,31 +57,31 @@ To configure user password reset policy, complete the following steps:
  
 1.	Open a browser of your choice and go to the Azure Management Portal.
 2.	In the Azure Management Portal, find the Active Directory extension on the navigation bar on the left hand side.
-  
-  ![][001]
-  
+    
+    ![][001]
+    
 3. Under the Directory tab, click the directory in which you want to configure the user password reset policy, for example, Wingtip Toys.
-  
-  ![][002]
-  
+    
+    ![][002]
+    
 4.	Click the Configure tab.
-  
-  ![][003]
-  
+    
+    ![][003]
+    
 5.	Under the Configure tab, scroll down to the user password reset policy section.  This is where you configure every aspect of user password reset policy for a given directory.  This policy applies only to end users in your organization, not administrators. For security reasons, Microsoft controls the password reset policy for administrators. If you do not see this section, make sure that you have signed up for the Azure Active Directory Premium and Basic and assigned a license to the administrator account that is configuring this feature. 
-  
-  ![][004]
-  
+    
+    ![][004]
+    
 6.	To configure the user password reset policy, slide the users enabled for password reset toggle to the yes setting.  This reveals several more controls which enable you to configure how this feature works in your directory.  Feel free to customize password reset as you see fit.  If you’d like to learn more about what each of the password reset policy controls does, please see Self-service password reset in Azure AD: how to customize password reset to meet your needs.
-  
-  ![][005]
-  
+    
+    ![][005]
+    
 7.	After configuring user password reset policy as desired for your tenant, click the Save button at the bottom of the screen.
-  
-  >[AZURE.NOTE] A two challenge user password reset policy is recommended so that  you can see how the functionality works in the most complex case.
- 
- ![][006]
-  
+    
+    >[AZURE.NOTE] A two challenge user password reset policy is recommended so that  you can see how the functionality works in the most complex case.
+    
+    ![][006]
+    
 
 ### Step 2: Add contact data for your test user <a name="sspr-step2"></a>
 You have several options on how to specify data for users in your organization to be used for password reset.
