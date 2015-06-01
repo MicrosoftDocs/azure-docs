@@ -5,7 +5,7 @@ The Apple Push Notification Service (APNS) uses certificates to authenticate you
 
 First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed push certificate.
 
-1. From the Utilities folder, run the Keychain Access tool.
+1. From the **Utilities** folder or the **Other** folder, run the Keychain Access tool.
 
 2. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
 
