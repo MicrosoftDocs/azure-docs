@@ -6,7 +6,7 @@ We will describe each parameter in the template.
 
 ### gatewayName
 
-The name of the gateway you wish to create.
+The name of the gateway you wish to create. The API app gets registered to this gateway.
 
     "gatewayName": {
       "type": "string"
@@ -22,7 +22,7 @@ The name of the API app to create.
 
 ### apiAppSecret
 
-The secret for the API app.
+The secret for the API app. This value must be a base64-encoded string.
 
     "apiAppSecret": {
       "type": "securestring"
