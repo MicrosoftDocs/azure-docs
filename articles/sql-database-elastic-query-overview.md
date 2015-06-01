@@ -19,7 +19,7 @@
 
 # Elastic database query – previewing May 2015 
 
-Elastic database query is a new feature of Azure SQL Database previewing in late May 2015. It introduces the ability to run a T-SQL query that spans across multiple databases using a single connection to an Azure SQL database. This allows a sharded set of data, defined using an elastic database shard map, to appear as a single integrated data store. Used for reporting and data integration purposes, all distributed query processing is handled behind the scenes. Connections are supported using any driver capable of communicating with SQL Database including ADO.Net, ODBC, JDBC, Node.js, PHP, etc.
+Elastic database query is a new feature of Azure SQL Database previewing in late June 2015. It introduces the ability to run a T-SQL query that spans across multiple databases using a single connection to an Azure SQL database. This allows a sharded set of data, defined using an elastic database shard map, to appear as a single integrated data store. Used for reporting and data integration purposes, all distributed query processing is handled behind the scenes. Connections are supported using any driver capable of communicating with SQL Database including ADO.Net, ODBC, JDBC, Node.js, PHP, etc.
 
 ## Elastic database query scenarios
 
