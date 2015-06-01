@@ -46,11 +46,13 @@ When a client starts a runbook using a webhook, it cannot override the parameter
 
 The **$WebhookData** object will have the following properties:
 
-| Property | Description |
-|:--- |:---|
-| WebhookName | The name of the webhook. |
-| RequestHeader | The headers of the incoming POST request. |
-| RequestBody | The body of the incoming POST request. |
+| Property | Description | Data Type |
+|:--- |:---|:---|
+| WebhookName | The name of the webhook. | String |
+| RequestHeader | The headers of the incoming POST request. | Hashtable |
+| RequestBody | The body of the incoming POST request. | Varies |
+
+The **RequestBody** property will contain whatever data type is included in the body of the request such as a string, JSON, XML, or form encoded data.  The runbook must be written to work with the data type that is expected.
 
 There is no configuration of the webhook required to support the **$WebhookData** parameter, and the runbook is not required to accept it.  If the runbook does not define the parameter, then any details of the request sent from the client is ignored.
 
@@ -77,19 +79,17 @@ Use the following procedure to create a new webhook linked to a runbook in the A
 5. Specify a **Name**, **Expiration Date** for the webhook and whether it should be enabled. See [Details of a webhook](#details-of-a-webhook) for more information these properties.
 6. Click the copy icon and press Ctrl+C to copy the URL of the webhook.  Then record it in a safe place.  **Once you create the webhook, you cannot retrieve the URL again.** <br>
 ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
+3. Click **Parameters** to provide values for the runbook parameters.  If the runbook has mandatory parameters, then you will not be able to create the webhook unless values are provided.
 1. Click **Create** to create the webhook.
-3. Click **Parameters** to provide values for the runbook parameters. <br>
-1. Click **OK** when you are done configuring the webhook.
 
 
 ## Using a webhook
 
-To use a webhook, your client application must issue an HTTP POST with the URL for the webhook.  The syntax of the webhook will be in the following format.
+To use a webhook after it has been created, your client application must issue an HTTP POST with the URL for the webhook.  The syntax of the webhook will be in the following format.
 
 	http://<Webhook Server>/token?=<Token Value>
 
-
-The client will receive one of the following codes in response to the POST request.  
+The client will receive one of the following return codes from the POST request.  
 
 | Code | Text | Description |
 |:---|:----|:---|
@@ -97,30 +97,77 @@ The client will receive one of the following codes in response to the POST reque
 | 400 | Bad Request | The request was not accepted for one of the following reasons. <ul> <li>The webhook has expired.</li> <li>The webhook is disabled.</li> <li>The token in the URL is invalid.</li>  </ul>|
 | 500 | Internal Server Error | The URL was valid, but an error occurred.  Please resubmit the request.  |
 
-The client cannot get the determine when the runbook job completes or its completion status from a webhook because the webhook does not return an identifier for the runbook job.  You can only validate that the request was submitted successfully.
+Assuming the request is successful, the webhook responds with the job id in JSON format as follows. 
+
+	{"JobIds":["<JobId>"]}
+
+The client cannot determine when the runbook job completes or its completion status from the webhook.  It can determine this information using the job id with another method such as [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) or the [Azure Automation API](https://msdn.microsoft.com/en-us/library/azure/mt163826.aspx).
 
 ### Example
 
-The following example starts a runbook using a webhook with Windows PowerShell.  This sample includes data in the header and body that can be used by the runbook.  Note that any language that can make an HTTP request can use a webhook.
+The following example starts a runbook using a webhook with Windows PowerShell.  Note that any language that can make an HTTP request can use a webhook; Windows PowerShell is just used here as an example.
+
+The runbook is expecting a list of virtual machines formatted in JSON in the body of the request. We also are including information about who is starting the runbook and the date and time it is being started in the header of the request.      
 
 	$uri = "https://oaaswebhookcurrent.cloudapp.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
-	$headers = @{"header1"="headerval1";"header2"="headerval2"}
-	$body = "some request body"
+	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
+	$body = '{ "VirtualMachines": [
+	    	    { "Name": "vm01",
+	    	      "ServiceName": "vm01" },
+	    	    { "Name": "vm02",
+	    	      "ServiceName": "vm02" }, ] }'
 
-	Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
+	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
+	$jobid = ConvertFrom-Json $response 
 
-The following sample runbook accepts the previous request and retrieves the data from the webhook.
 
-	workflow Sample-Webhook
+The following image shows the header information from this request. This includes standard headers of an HTTP request in addition to the custom fields that we added.  Each of these values is available to the runbook in the **RequestHeaders** property of **WebhookData**.
+
+![Webhooks button](media/automation-webhooks/webhook-request-headers.png)
+
+The following image shows the body of the request that is available to the runbook in the **RequestBody** property of **WebhookData**. This is in JSON because that was the format that was included in the body of the request.     
+
+![Webhooks button](media/automation-webhooks/webhook-request-body.png)
+
+The following image shows the request being sent from Windows PowerShell and the resulting response.  The job id is extracted from the response and converted to a string.
+
+![Webhooks button](media/automation-webhooks/webhook-request-response.png)
+
+The following sample runbook accepts the previous example request and starts the virtual machines specified in the request body.
+
+	workflow Test-StartVirtualMachinesFromWebhook
 	{
 		param (	
-				[object]$WebhookData
+			[object]$WebhookData
 		)
-	
-		$WebhookName 	= 	$WebhookData.WebhookName
-		$WebhookHeaders = 	$WebhookData.RequestHeader
-		$WebhookBody 	= 	$WebhookData.RequestBody
-	} 
+
+		# If runbook was called from Webhook, WebhookData will not be null.
+		if ($WebhookData -ne $null) {	
+			
+			# Collect properties of WebhookData
+			$WebhookName 	= 	$WebhookData.WebhookName
+			$WebhookHeaders = 	$WebhookData.RequestHeader
+			$WebhookBody 	= 	$WebhookData.RequestBody
+			
+			# Collect properties of WebhookData. VMList converted from JSON.
+			$From = $WebhookHeaders.From
+			$VMList = (ConvertFrom-Json -InputObject $WebhookBody).VirtualMachines
+			Write-Output "Runbook started from webhook $WebhookName by $From."
+			
+			# Authenticate to Azure resources
+			$Cred = Get-AutomationPSCredential -Name 'MyAzureCredential'
+			Add-AzureAccount -Credential $Cred
+			
+			foreach ($VM in $VMList)
+			{
+				Write-Output "Starting $VM.Name."
+				Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName
+			}
+		}
+		else {
+			Write-Error "Runbook mean to be started only from webhook." 
+		} 
+	}
 
 	
 
