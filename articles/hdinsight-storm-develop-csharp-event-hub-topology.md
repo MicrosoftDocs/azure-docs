@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="05/29/2015"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -228,12 +228,12 @@ In this section, you will create a topology that writes data to Event Hubs by us
 
 At this point, you are done with the **Program.cs**. The topology has been defined, but now you must modify **Spout.cs** so that it produces data in a format that the Event Hubs bolt can use.
 
-> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should add the following and adjust to the number of workers you wish to create.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should can add the following to change the number of workers:
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### Modify the spout
 
@@ -308,7 +308,7 @@ In this section, you will create a topology that reads data from Event Hubs by u
 
 	For **TableName**, enter the name of the table that you want events to be stored in.
 
-  For **StorageConnection**, enter a value of `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Replace **myAccount** and **myKey** with the storage account name and key obtained earlier.
+    For **StorageConnection**, enter a value of `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Replace **myAccount** and **myKey** with the storage account name and key obtained earlier.
 
 	These values will be used by the topology to communicate with Event Hubs and Table Storage.
 
@@ -321,23 +321,16 @@ In this section, you will create a topology that reads data from Event Hubs by u
 2. Open the **Program.cs** file and add the following code immediately after the `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");` line:
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
-		JavaComponentConstructor constructor = JavaComponentConstructor.CreateFromClojureExpr(
-            String.Format(@"(com.microsoft.eventhubs.spout.EventHubSpout. (com.microsoft.eventhubs.spout.EventHubSpoutConfig. " +
-                @"""{0}"" ""{1}"" ""{2}"" ""{3}"" {4} ""{5}""))",
+		EventHubSpoutConfig ehConfig = new EventHubSpoutConfig(
                 Properties.Settings.Default.EventHubPolicyName,
                 Properties.Settings.Default.EventHubPolicyKey,
                 Properties.Settings.Default.EventHubNamespace,
                 Properties.Settings.Default.EventHubName,
-                partitionCount,
-                "")); //Last value is the zookeeper connection string - leave empty
+                partitionCount);
 
 	The partition count is read and assigned to a local variable. It will be used multiple times.
 
-	The `JavaComponentConstructor` defines how the Java spout will be constructed at run time. In this case, you are using the <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> to configure the spout with the Event Hubs configuration information you added previously. More specifically, this code is used by HDInsight at run time to do the following:
-
-	* Create a new instance of **com.microsoft.eventhubs.spout.EventHubSpoutConfig** using the Event Hubs information you provide.
-
-	* Create a new instance of **com.microsoft.eventhubs.spout.EventHubSpout**, passing in the **EventHubSpoutConfig** instance.
+	The `EventHubSpoutConfig` defines the configuration for the Event Hub spout. In this case, the Event Hubs configuration information you added previously. Behind the scenes this uses the Java Event Hub spout, and will create a new instance of **com.microsoft.eventhubs.spout.EventHubSpoutConfig** using the Event Hubs information.
 
 5. Find the following code:
 
@@ -352,12 +345,12 @@ In this section, you will create a topology that reads data from Event Hubs by u
 
 	Replace it with the following:
 
-        topologyBuilder.SetJavaSpout(
-            "EventHubSpout",
-            constructor,
-            partitionCount);
+        topologyBuilder.SetEventHubSpout(
+            "EventHubSpout", 
+            ehConfig, 
+            partitionCount); 
 
-	This instructs the topology to use the **JavaComponentConstructor** from the previous step as the spout, and to give it a name of "EventHubSpout". This also sets the parallelisim hint for this component to the number of partitions in Event Hub.
+	This instructs the topology to create a new Event Hub spout and use the `EventHubSpoutConfig` from the previous step as the configuration. "EventHubSpout" sets the friendly name of the spout, and `partitionCount` is used to set the parallelism hint. Behind the scenes this creates a new instance of **com.microsoft.eventhubs.spout.EventHubSpout** Java component using the provided configuration information.
 
 2. Add the following immediately after the previous code:
 
@@ -390,12 +383,12 @@ In this section, you will create a topology that reads data from Event Hubs by u
 
 At this point, you are done with **Program.cs**. The topology has been defined, but now you must create a helper class to write data to Table storage, then you must modify **Bolt.cs** so that it can understand the data produced by the spout.
 
-> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should add the following and adjust to the number of workers you wish to create.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should can add the following to change the number of workers:
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### Create a helper class
 
@@ -532,44 +525,6 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 ![image of killing a topology](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
 ## Notes
-
-### Configuration
-
-There are several overloaded methods when creating the EventHubSpoutConfig. Use the information below to find the one that best suits your needs.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount)
-
-    * PolicyName: The name of the Shared Access Policy that can read from the specified hub.
-
-    * PolicyKey: The key for the Shared Access Policy.
-
-    * Namespace: The ServiceBus namespace that the hub exists in.
-
-    * HubName: The name of the Event Hub to read from
-
-    * PartitionCount: The number of partitions for the hub
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection)
-
-    In addition to the properties described previously:
-
-    * ZooKeeperConnection: The connection string for the ZooKeeper node. Leave blank for Storm on HDInsight servers.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds,Int ReceiverCredits)
-
-    In addition to the properties described previously:
-
-    * CheckPointIntervalInSeconds: How often the state is persisted to Zookeeper
-
-    * ReceiverCredits: The number of events that are batched before being released into the Storm topology.
-
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits, Int MaxPendingMsgsPerPartition, Long EnqueueTimeFilter)
-
-    In addition to the properties described previously:
-
-    * MaxPendingMsgsPerPartition: The maximum number of events fetched from the hub. Default 1024.
-
-    * EnqueueTimeFilter: Filters events based on the timestamp that the event was enqueued.
 
 ### Checkpointing
 

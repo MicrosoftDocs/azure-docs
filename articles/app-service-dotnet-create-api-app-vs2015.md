@@ -24,7 +24,7 @@
 
 ## Overview
 
-In this tutorial you create an ASP.NET Web API 2 project using Visual Studio 2015, and configure it for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). You also deploy the project to Azure. At the end of the tutorial you'll have an API app running in the Azure cloud.
+In this tutorial you create an ASP.NET Web API 2 project using [Visual Studio 2015 RC](https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx), and configure it for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). You also deploy the project to Azure. At the end of the tutorial you'll have an API app running in the Azure cloud.
 
 The tutorial assumes you know how to work with files and folders in Visual Studio **Solution Explorer**. 
 
@@ -46,9 +46,9 @@ Visual Studio 2015 RC does not yet have an API app project template, so to creat
 
 4. Name the project *ContactsList*
 
-	![](./media/app-service-dotnet-create-api-app-vs2015/newproj.png)
-
 5. Click **OK**.
+
+	![](./media/app-service-dotnet-create-api-app-vs2015/newproj.png)
 
 6. In the **New ASP.NET Project** dialog under **ASP.NET 4.6 Templates**, select the **Empty** project template.
 
@@ -56,9 +56,9 @@ Visual Studio 2015 RC does not yet have an API app project template, so to creat
 
 8. Clear the **Host in the cloud** check box.
 
-	![](./media/app-service-dotnet-create-api-app-vs2015/newaspnet.png)
-
 7. Click **OK**.
+
+	![](./media/app-service-dotnet-create-api-app-vs2015/newaspnet.png)
 
 ## Add NuGet packages
 
@@ -66,7 +66,7 @@ By default, API App projects are enabled with automatic [Swagger](http://swagger
 
 1. Click **Tools > NuGet Package Manager > Package Manager Console**.
 
-2. In the **Package Manager Console**, enter the following command.
+2. In the **Package Manager Console** (PMC), enter the following command.
 
 		install-package Swashbuckle
 
@@ -114,10 +114,9 @@ The [API app metadata](#api-app-metadata) section later in the tutorial explains
 
 In the following steps you add code for a simple HTTP Get method that returns a hard-coded list of contacts. 
 
-1. In the project folder, create a *Models* folder.
+1. Create a *Models* folder in the project folder if it doesn't already exist.
 
-2. Add a class file named *Contact.cs*, and replace the contents of the file with the following code. 
-
+2. In the *Models* folder, add a class file named *Contact.cs*, and replace the contents of the file with the following code. 
 		namespace ContactsList.Models
 		{
 			public class Contact
@@ -171,7 +170,7 @@ In the following steps you add code for a simple HTTP Get method that returns a 
 
 To view the API test page, perform the following steps.
 
-1. Run the app locally (CTRL-F5) and navigate to `/swagger`. 
+1. Run the app locally (CTRL-F5), and add `/swagger` to the end of the URL in the browser's address bar. 
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/14-swagger-ui.png)
 
@@ -187,13 +186,13 @@ To view the API test page, perform the following steps.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/createapiapp1.png)
 
-	* In **Name** enter enter ContactsList.
+	* In **Name** enter ContactsList.
 
 	* In **App Service Plan** click **Create New** and enter a name, for example: **ContactsList**.
 
 		For more information about App Service plans, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-	* Click **Pricing Tier** to get a list of options, click **View all**, and then select the **Free** pricing tier.
+	* Click **Pricing Tier > View all > Free > Select** to select the free pricing tier.
 
 		You can use a paid pricing tier, but it isn't required for this tutorial.
 
@@ -209,13 +208,15 @@ To view the API test page, perform the following steps.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/createapiapp2.png)
 
-2. When Azure finishes creating the API app (see **Notifications** on the left side of the page), set the API app's access level to **Public (anonymous)**.
+2. When Azure finishes creating the API app, set the API app's access level to **Public (anonymous)**.
 
 	* Click **Browse > Resource Groups > [the resource group you created] > [the API app you created]**.
 
 	* Click **Settings > Application settings**.
 
 	* Change **Access Level** to **Public (anonymous)**.
+	 
+	* Click **Save**.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/setpublicanon.png)
 	
@@ -256,6 +257,41 @@ API apps are essentially web apps for which Azure provides additional features f
 2. Click **Contacts > Get > Try it out**, and you see that the API is functioning and returns the expected result. 
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/runninginazure.png)
+
+## View the API definition in the Azure preview portal
+
+In this section, you navigate to the portal to view the API definition for the API app that you just created.
+
+1. In the [Azure preview portal](https://portal.azure.com), navigate to the **API app** blade for your API app:  click **Browse > Resource Groups > [the resource group you created] > [the API app you created]**.
+
+4. Click **API Definition**. 
+
+	The app's **API Definition** blade shows the list of API operations that you defined when you created the app. (If you followed this tutorial you'll only see a Get operation.) 
+
+	![API Definition](./media/app-service-dotnet-create-api-app-vs2015/29-api-definition-v3.png)
+
+## Add an operation to the Web API code
+
+5. Go back to the project in Visual Studio and add the following code to the **ContactsController.cs** file. This code adds a **Post** method that can be used to post new `Contact` instances to the API.  
+
+		[HttpPost]
+		public HttpResponseMessage Post([FromBody] Contact contact)
+		{
+			// todo: save the contact somewhere
+			return Request.CreateResponse(HttpStatusCode.Created);
+		}
+
+	![Adding the Post method to the controller](./media/app-service-dotnet-create-api-app-vs2015/30-post-method-added-v3.png)
+
+6. Publish the project as you did earlier. (In **Solution Explorer**, right-click the project and click **Publish**, then click **Publish** in the **Publish Web** wizard.)
+
+12. Once the publish process has completed, go back to the portal, and restart the gateway as you did earlier.
+
+14. In the portal, go back to the **API Definition** blade. 
+
+	You see the new API endpoint that you just created and deployed to your Azure subscription.
+
+	![API Definition](./media/app-service-dotnet-create-api-app-vs2015/38-portal-with-post-method-v4.png)
 
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
 

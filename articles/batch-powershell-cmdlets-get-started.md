@@ -1,25 +1,25 @@
 <properties
-   pageTitle="Get started with Azure Batch PowerShell cmdlets"
+   pageTitle="Get started with Azure Batch PowerShell cmdlets | Microsoft Azure"
    description="Introduces the Azure PowerShell cmdlets used to manage the Azure Batch service"
    services="batch"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="yidingz"/>
+   editor=""/>
 
 <tags
    ms.service="batch"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/15/2015"
+   ms.date="05/29/2015"
    ms.author="danlep"/>
 
 # Get started with Azure Batch PowerShell cmdlets
 This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch workitems, jobs, and tasks.
 
-For detailed cmdlet syntax, type ```get-help <Cmdlet_name>```.
+For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Prerequisites
@@ -124,28 +124,28 @@ Get-AzureBatchPool -BatchContext $context
 You can supply an OData filter using the **Filter** parameter to find only the objects you’re interested in. For example, you can find all workitems with names starting with “myWork”:
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'" 
+$filter = "startswith(name,'myWork') and state eq 'active'"
 Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
-``` 
+```
 
-This method is not as flexible as using “Where-Object” in a local pipeline. However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth. 
+This method is not as flexible as using “Where-Object” in a local pipeline. However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth.
 
 ### Use the Name parameter
 
 An alternative to an OData filter is to use the **Name** parameter. To query for a specific workitem named "myWorkItem":
 
-``` 
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context 
+```
+Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 
 ```
-The **Name** parameter supports only full-name search, not wildcards or OData-style filters. 
+The **Name** parameter supports only full-name search, not wildcards or OData-style filters.
 
 ### Use the pipleline
 
-Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, you can find all tasks under your account: 
+Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, you can find all tasks under your account:
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context 
+Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### Use the MaxCount parameter
@@ -153,13 +153,14 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 By default, each cmdlet returns a maximum of 1000 objects. If you reach this limit, you can either refine your filter to bring back fewer objects, or explicitly set a maximum using the **MaxCount** parameter. For example:
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context 
+Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 
 ```
 
-To remove the upper bound, set **MaxCount** to 0 or less. 
+To remove the upper bound, set **MaxCount** to 0 or less.
 
 ## Related topics
 * [Batch technical overview](batch-technical-overview.md)
 * [Download Azure PowerShell](http://go.microsoft.com/p/?linkid=9811175)
-* [Azure cmdlet reference](https://msdn.microsoft.com/library/jj554330.aspx)
+* [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [Efficient List Queries](batch-efficient-list-queries.md)
