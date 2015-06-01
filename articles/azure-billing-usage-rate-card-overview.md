@@ -65,6 +65,6 @@ Here are some of the scenarios that are made possible with the combination of th
 ## Next Steps
 
 + [TODO:Update link] Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/dn948464.aspx) for more information on both APIs, which are part of a set of APIs provided by the Azure Resource Manager.
-+ To learn more about Azure Resource Manager, see the [Azure Resource Manager Overview](/resource-group-overview/) article.
-+ To learn more about  Azure Resource Management APIs, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/dn948464.aspx)  
++ See the [Azure Resource Manager Overview](resource-group-overview) article to learn more about the Azure Resource Manager.
++ To learn more about Azure Resource Management APIs, see the [Azure Resource Management APIs Reference](https://msdn.microsoft.com/library/azure/dn948464.aspx)  
 
