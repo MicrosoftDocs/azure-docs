@@ -6,7 +6,7 @@ In this article, you will learn how to use Git to publish directly from your loc
 
 > [AZURE.NOTE] Many of the Git commands described in this article are performed automatically when creating a web app using the [Azure Command-Line Tools for Mac and Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
-<h2><a id="Step2"></a>Installing Git</h2>
+<h2><a id="Step1"></a>Step 1: Installing Git</h2>
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 

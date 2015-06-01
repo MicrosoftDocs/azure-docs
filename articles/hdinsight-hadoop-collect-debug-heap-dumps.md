@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Collect heap dumps to debug and analyze Hadoop services | Microsoft Azure" 
-	description="Learn how to collect heap dumps and place them in Blob storage to debug and analyze Hadoop services. " 
+	pageTitle="Debug and analyze Hadoop services with heap dumps | Microsoft Azure" 
+	description="Automatically collect heap dumps for Hadoop services and place inside the Azure Blob storage account for debugging and analysis." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -15,6 +15,7 @@
 	ms.topic="article" 
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
+
 
 # Collect heap dumps in Blob storage to debug and analyze Hadoop services
 

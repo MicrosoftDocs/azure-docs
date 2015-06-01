@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Use Python with Hive and Pig in HDInsight | Microsoft Azure"
-	description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in HDInsight, the Hadoop technology stack on Microsoft Azure."
+	description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in HDInsight, the Hadoop technology stack on Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"

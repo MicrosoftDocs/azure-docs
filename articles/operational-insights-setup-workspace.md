@@ -12,7 +12,7 @@
     ms.workload="operational-insights"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.date="05/07/2015"
     ms.author="banders"/>
 
@@ -47,8 +47,9 @@ It is possible to create a workspace from [opinsights.azure.com](http://opinsigh
 4. Click **Quick Create**.
 5. On the **Account** list, you should see a list of your existing workspaces that have *not yet* been linked to your Azure subscription. Select an account.
 
-	>[AZURE.NOTE] If you do not see the workspace you'd like to link here, this means your Azure subscription does not have access to your Operational Insights workspace.  You will need to grant access to this account from inside your Operational Insights workspace.  To do so, see [Add a user to an existing workspace](#addusertoexistingworkspace).
-![link account](./media/operational-insights-setup-workspace/link-account.png)
+  >[AZURE.NOTE] If you do not see the workspace you'd like to link here, this means your Azure subscription does not have access to your Operational Insights workspace.  You will need to grant access to this account from inside your Operational Insights workspace.  To do so, see [Add a user to an existing workspace](#addusertoexistingworkspace).
+
+  ![link account](./media/operational-insights-setup-workspace/link-account.png)
 <p>
 6. Fill in the remaining fields and then select **Create Workspace**.
 

@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Try RemoteApp on your device in 3 minutes or less"
-    description="Test drive RemoteApp functionality without installing the service." 
+    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less"
+    description="Test drive Azure RemoteApp functionality without installing the service." 
     services="remoteapp" 
     solutions="" documentationCenter="" 
     authors="lizap" 
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/02/2015" 
+    ms.date="05/28/2015" 
     ms.author="mbaldwin" />
 
 
 
-# Try RemoteApp on your device in 3 minutes or less
+# Try Azure RemoteApp on your device in 3 minutes or less
 
-Want to see RemoteApp on your device? You can access our demo deployment for 10 minutes, as long as you have a Microsoft account. We have Office and a few other applications available. This is a great way to test drive the user experience for RemoteApp in less than 3 minutes.
+Want to see RemoteApp on your device? You can access our demo deployment for 10 minutes, as long as you have a Microsoft account. We have Office and a few other applications available. This is a great way to test drive the user experience for Azure RemoteApp in less than 3 minutes.
 
 Interested?
 

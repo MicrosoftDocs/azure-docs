@@ -12,12 +12,13 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="05/05/2015"
+	ms.topic="article"
+	ms.date="05/27/2015"
 	ms.author="curtand"/>
 
 # Learn more about Azure AD
 
+###Other articles on this topic
 [What is Azure AD?](active-directory-whatis.md)<br>
 [How does it work?](active-directory-works.md)<br>
 [Get started](active-directory-get-started.md)<br>

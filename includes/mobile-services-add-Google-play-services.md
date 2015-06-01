@@ -15,7 +15,7 @@
 
 5. Under *defaultConfig*, change *minSdkVersion* to 9.
  
-6. Click the **Sync Project with Gradle Files** button in the tool bar.
+6. Click the **Sync Project with Gradle Files** icon in the tool bar.
 
 7. Open **AndroidManifest.xml** and add this tag to the *application* tag.
 

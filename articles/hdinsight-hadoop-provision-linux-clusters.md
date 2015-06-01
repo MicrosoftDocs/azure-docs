@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Provision Hadoop clusters on Linux in HDInsight | Microsoft Azure" 
-   description="Learn how to provision Hadoop clusters on Linux for HDInsight using the management portal, the command line, and the .NET SDK." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Provision Hadoop clusters on Linux in HDInsight | Microsoft Azure"
+   description="Learn how to provision Hadoop clusters on Linux for HDInsight using the management portal, the command line, and the .NET SDK."
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="04/17/2015"
    ms.author="nitinme"/>
 
 
 #Provision Hadoop Linux clusters in HDInsight using custom options (Preview)
 
-In this article, you'll learn about the different ways to custom-provision a Hadoop Linux cluster on Azure HDInsight - by using the Azure portal, Azure PowerShell, command-line tools, or the HDInsight .NET SDK.
+In this article, you'll learn about the different ways to custom-provision a Hadoop Linux cluster on Azure HDInsight - by using the Azure portal, Azure PowerShell, Azure CLI, or the HDInsight .NET SDK.
 
 ## What is an HDInsight cluster?
 
@@ -46,7 +46,7 @@ Before you begin this article, you must have the following:
 
 ### Clusters on Linux
 
-HDInsight provides the option of provisioning Linux clusters on Azure. Provision a Linux cluster if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information about Azure HDInsight on Linux, see [Introduction to Hadoop on HDInsight](hdinsight-hadoop-introduction.md). 
+HDInsight provides the option of provisioning Linux clusters on Azure. Provision a Linux cluster if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information about Azure HDInsight on Linux, see [Introduction to Hadoop on HDInsight](hdinsight-hadoop-introduction.md).
 
 
 ### Additional storage
@@ -206,35 +206,35 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
     > [AZURE.NOTE] Once an Azure Storage account is chosen for your HDInsight cluster, you can neither delete the account nor change the account to a different cluster.
 
 
- 	After you have specified the additional Storage account, click the check mark to start provisioning the cluster. 
+ 	After you have specified the additional Storage account, click the check mark to start provisioning the cluster.
 
-###<a id="cli"></a> Using the cross-platform command line
+###<a id="cli"></a> Using the Azure Command-Line Interface (Azure CLI)
 
-Another option for provisioning an HDInsight cluster is the Azure Command-Line Interface for Mac, Linux, and Windows. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the command-line interface from the following locations:
+Another option for provisioning an HDInsight cluster is the Azure CLI. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the Azure CLI from the following locations:
 
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **Azure CLI for Mac, Linux and Windows** - <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
+- **Azure CLI for Mac, Linux and Windows** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-For a general guide on how to use the command-line interface, see [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
+For a general guide on how to use the Azure CLI, see [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
 
-Instructions below guide you on how to install the cross-platform command line on Linux and Windows, and then how to use the command line to provision a cluster.
+Instructions below guide you on how to install the Azure CLI on Linux and Windows, and then how to use the command line to provision a cluster.
 
-- [Set up the cross-platform command line for Linux](#clilin)
-- [Set up the cross-platform command line for Windows](#cliwin)
-- [Provision HDInsight clusters by using the cross-platform command line](#cliprovision)
+- [Set up the Azure CLI for Linux](#clilin)
+- [Set up the Azure CLI for Windows](#cliwin)
+- [Provision HDInsight clusters by using the Azure CLI](#cliprovision)
 
-#### <a id="clilin"></a>Set up the cross-platform command line for Linux
+#### <a id="clilin"></a>Set up the Azure CLI for Linux
 
-Perform the following procedures to set up your Linux computer to use Azure command-line tools:
+Perform the following procedures to set up your Linux computer to use the Azure Command-Line Interface (Azure CLI):
 
-- Install the command-line interface by using Node.js Package Manager (NPM)
+- Install the Azure CLI by using Node.js Package Manager (NPM)
 - Connect to your Azure subscription
 
-**To install the command-line interface by using NPM**
+**To install the Azure CLI by using NPM**
 
 1.	Open a terminal window on your Linux computer and run the following command:
 
-		sudo npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+		sudo npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 2.	Run the following command to verify the installation:
 
@@ -249,10 +249,10 @@ Perform the following procedures to set up your Linux computer to use Azure comm
 
 **To connect to your Azure subscription**
 
-Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You need to import your publish settings only once.
+Before using the Azure CLI, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the Azure CLI to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the Azure CLI will use for subsequent operations. You need to import your publish settings only once.
 
 
-> [AZURE.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. In Windows, modify the folder properties or use BitLocker Drive Encryption. 
+> [AZURE.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. In Windows, modify the folder properties or use BitLocker Drive Encryption.
 
 
 
@@ -263,32 +263,32 @@ Before using the command-line interface, you must configure connectivity between
 
 	![HDI.Linux.CLIAccountDownloadImport](./media/hdinsight-hadoop-provision-linux-clusters/HDI.Linux.CLIAccountDownloadImport.png)
 
-	The command launches the webpage to download the publish settings file from. If the webpage does not open, click the link in the terminal window to open the browser page and log in to the portal. 
+	The command launches the webpage to download the publish settings file from. If the webpage does not open, click the link in the terminal window to open the browser page and log in to the portal.
 
 3.	Download the publish settings file to the computer.
 4.	From the command prompt window, run the following command to import the publish settings file:
 
 		azure account import <path/to/the/file>
 
-	
-#### <a id="cliwin"></a>Set up the cross-platform command line for Windows
 
-Perform the following procedures to set up your Windows computer to use Azure command-line tools:
+#### <a id="cliwin"></a>Set up the Azure CLI for Windows
 
-- Install the command-line interface by using NPM or Windows Installer
+Perform the following procedures to set up your Windows computer to use the Azure Command-Line Interface (Azure CLI):
+
+- Install the Azure CLI by using NPM or Windows Installer
 - Download and import Azure account publish settings
 
 
-The command-line interface can be installed via NPM or Windows Installer. Microsoft recommends that you install it by using only one of the two options.
+Azure CLI can be installed via NPM or Windows Installer. Microsoft recommends that you install it by using only one of the two options.
 
-**To install the command-line interface by using NPM**
+**To install the Azuze CLI by using NPM**
 
 1.	Browse to **www.nodejs.org**.
 2.	Click **INSTALL** and follow the instructions, using the default settings.
 3.	Open **Command Prompt** (or **Azure Command Prompt**, or **Developer Command Prompt for VS2012**) from your workstation.
 4.	Run the following command in the command prompt window:
 
-		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 	> [AZURE.NOTE] If you get an error saying the NPM command is not found, verify the following paths are in the **PATH** environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 
@@ -304,14 +304,14 @@ The command-line interface can be installed via NPM or Windows Installer. Micros
 		azure hdinsight cluster -h
 		azure hdinsight cluster create -h
 
-**To install the command-line interface by using Windows Installer**
+**To install Azure CLI by using Windows Installer**
 
 1.	Browse to **http://azure.microsoft.com/downloads/**.
-2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
+2.	Scroll down to the **Command line tools** section, and then click **Azure Command-Line Interface** and follow the Web Platform Installer wizard.
 
 **To download and import publish settings**
 
-Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You need to import your publish settings only once.
+Before using the Azure CLI, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by Azure CLI to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the Azure CLI will use for subsequent operations. You need to import your publish settings only once.
 
 
 > [AZURE.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. In Windows, modify the folder properties or use BitLocker.
@@ -336,10 +336,10 @@ Before using the command-line interface, you must configure connectivity between
 
 	![HDI.CLIAccountDownloadImport][image-cli-account-download-import]
 
-	
-#### <a id="cliprovision"></a>Provision HDInsight clusters by using the cross-platform command line
 
-The following procedures are needed to provision an HDInsight cluster by using the cross-platform command line:
+#### <a id="cliprovision"></a>Provision HDInsight clusters by using the Azure CLI
+
+The following procedures are needed to provision an HDInsight cluster by using the Azure CLI:
 
 - Create an Azure Storage account
 - Provision a cluster
@@ -354,7 +354,7 @@ HDInsight uses an Azure Blob storage container as the default file system. An Az
 		azure storage account create [options] <StorageAccountName>
 
 
-	When prompted for a location, select a location where an HDInsight Linux cluster can be provisioned. The storage must be in the same location as the HDInsight cluster.   
+	When prompted for a location, select a location where an HDInsight Linux cluster can be provisioned. The storage must be in the same location as the HDInsight cluster.
 
 
 For information on creating an Azure Storage account by using the Azure portal, see [Create, manage, or delete a storage account](storage-create-storage-account.md).
@@ -384,14 +384,14 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 		azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <StorageAccountKey> --storageContainer <StorageContainerName> --dataNodeCount <NumberOfNodes> --location <DataCenterLocation> --userName <HDInsightClusterUsername> --password <HDInsightClusterPassword> --osType linux --sshUserName <SSH username> --sshPassword <SSH user password>
 
-	>[AZURE.NOTE] The values you specify for **--userName** and **--password** are for the Hadoop user. For Hadoop user, you must always specify --userName as "admin". 		
+	>[AZURE.NOTE] The values you specify for **--userName** and **--password** are for the Hadoop user. For Hadoop user, you must always specify --userName as "admin".
 
 	![HDI.CLIClusterCreation][image-cli-clustercreation]
 
 
 **To provision an HDInsight cluster by using a configuration file**
 
-Typically, you provision an HDInsight cluster, run the jobs, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.
+Typically, you provision an HDInsight cluster, run the jobs, and then delete the cluster to cut down the cost. The Azure CLI gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.
 
 - From the command prompt window, run the following commands:
 
@@ -443,12 +443,12 @@ The following procedures are needed to provision an HDInsight cluster by using A
 - Create an HDInsight cluster
 
 You can use either the Windows PowerShell console or the Windows PowerShell Integrated Scripting Environment (ISE) to run the scripts.
- 
+
 HDInsight uses an Azure Blob storage container as the default file system. An Azure Storage account and storage container are required before you can create an HDInsight cluster. The Storage account must be located in the same data center as the HDInsight cluster. Currently, only the **Southeast Asia**, **North Europe**, **East US**, and **South Central US** regions can host HDInsight Linux clusters.
 
 **To connect to your Azure account**
 
-		Add-AzureAccount 
+		Add-AzureAccount
 
 You will be prompted to enter your Azure account credentials.
 
@@ -498,19 +498,19 @@ The two most important parameters that you must set to provision Linux clusters 
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
         $containerName = $clusterName					  # Azure Blob container that is used as the default file system for the HDInsight cluster
-		
-		
+
+
 		# Get the credentials for HTTP and SSH users for the cluster
-		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster. 
+		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster.
         $sshCredentials = Get-Credential				      # SSH user name for the cluster. You will use this account to start an SSH session on the remote cluster.
-		$sshPublicKey = "<SSH public key>"           
+		$sshPublicKey = "<SSH public key>"
 
 		# Get the storage primary key based on the account name
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		
+
         # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location} 
+        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
 
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $clusterCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
@@ -535,9 +535,9 @@ The two most important parameters that you must set to provision Linux clusters 
 		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
-        		
+
 		# Get the credentials for HTTP user, SSH user, and Hive/Oozie metastore databases for the cluster
-		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster. 
+		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster.
         $sshCredentials = Get-Credential				      # SSH user name for the cluster. You will use this account to start an SSH session on the remote cluster.
 		$sshPublicKey = "<SSH public key>"
 		$oozieCreds = Get-Credential -Message "Oozie metastore"
@@ -562,7 +562,7 @@ The two most important parameters that you must set to provision Linux clusters 
 
 		# Create a cluster configuration file
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes | Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default | Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Add1.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Add1 | Add-AzureHDInsightMetastore -SqlAzureServerName "$hiveSQLDatabaseServerName.database.windows.net" -DatabaseName $hiveSQLDatabaseName -Credential $hiveCreds -MetastoreType HiveMetastore | Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore
-		        
+
 		# Create the cluster
 		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $clusterLocation -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
 
@@ -651,7 +651,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 		string version = "<version>";
         string sshusername = "<ssh user name>";
         string sshpublickey = "<ssh public key>;
-		
+
 
 		// If required, provide details of the Hive and Oozie metastore that you want to configure. ServerName is the name of the server on which the SQL databases are provisioned. HiveStoreSqlDatabaseName and OozieStoreSqlDatabaseName are the names of databases created on the server. You can also use the same database for both Hive and Oozie metastores
 
@@ -689,7 +689,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 		// Configure Hive and Oozie if you opted for the metastores earlier
 		clusterInfo.HiveConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("datanucleus.connectionPoolingType", "none"));
 		clusterInfo.OozieConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("oozie.service.AuthorizationService.security.enabled", "false"));
-        
+
 
 		// Create the cluster
         Console.WriteLine("Creating the HDInsight cluster ...");
@@ -712,7 +712,7 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 In this article, you have learned several ways to provision an HDInsight Hadoop cluster on Linux. To learn more, see the following articles:
 
 - [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md): Get to know the nuances of working with an HDInsight cluster on Linux.
-- [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md): Learn how to monitor and manage your Linux-based Hadoop on HDInsight cluster by using Ambari Web or the Ambari REST API. 
+- [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md): Learn how to monitor and manage your Linux-based Hadoop on HDInsight cluster by using Ambari Web or the Ambari REST API.
 - [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md): Learn about the different ways to run MapReduce jobs on a cluster.
 - [Use Hive with HDInsight](hdinsight-use-hive.md): Learn about the different ways of running a Hive query on a cluster.
 - [Use Pig with HDInsight](hdinsight-use-pig.md): Learn about the different ways of running a Pig job on a cluster.
