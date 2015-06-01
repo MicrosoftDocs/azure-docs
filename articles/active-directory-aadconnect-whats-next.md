@@ -22,7 +22,7 @@
 [What is Azure AD Connect?](active-directory-aadconnect.md)<br>
 [How does it work](active-directory-aadconnect-how-it-works.md)<br>
 [Getting Started](active-directory-aadconnect-get-started.md)<br>
-[Learn more](active-directory-learn-more.md)
+[Learn more](active-directory-aadconnect-learn-more.md)
 
 The topics are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organizations needs and requirements.  
 

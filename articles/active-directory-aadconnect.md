@@ -21,8 +21,8 @@
 
 [How does it work](active-directory-aadconnect-how-it-works.md)<br>
 [Getting Started](active-directory-aadconnect-get-started.md)<br>
-[Whats Next](active-directory-whats-next.md)<br>
-[Learn more](active-directory-learn-more.md)
+[Whats Next](active-directory-aadconnect-whats-next.md)<br>
+[Learn more](active-directory-aadconnect-learn-more.md)
 
 
 
