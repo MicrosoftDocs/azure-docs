@@ -3,7 +3,7 @@
 	description="How to get started using Azure queue storage in an ASP.NET 5 project in Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (ASP.NET 5 Projects)
 

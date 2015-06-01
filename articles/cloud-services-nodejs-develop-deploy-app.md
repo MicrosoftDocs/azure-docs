@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Node.js Getting Started Guide - Azure Tutorial" 
-	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="Node.js Getting Started Guide - Azure Tutorial"
+	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="hero-article" 
-	ms.date="06/01/2015" 
+	ms.devlang="nodejs"
+	ms.topic="get-started-article"
+	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -23,10 +23,10 @@
 - [Node.js](cloud-services-nodejs-develop-deploy-app.md)
 - [.NET](cloud-services-dotnet-get-started.md)
 
-This tutorial shows how to create a simple Node.js application running 
-in an Azure Cloud Service. Cloud Services are the building blocks of 
+This tutorial shows how to create a simple Node.js application running
+in an Azure Cloud Service. Cloud Services are the building blocks of
 scalable cloud applications in Azure. They allow the separation and independent
-management and scale-out of front-end and back-end components of your application.  Cloud Services 
+management and scale-out of front-end and back-end components of your application.  Cloud Services
 provide a robust dedicated virtual machine for hosting each role reliably.
 
 For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](choose-web-site-cloud-service-vm.md).
@@ -50,7 +50,7 @@ The application is a simple "hello world" application:
 - Download and install the [Azure SDK for .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091). In the install setup, select:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
-  
+
 
 ## Create an Azure Cloud Service project
 
@@ -70,7 +70,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 	The cmdlet creates the following files:
 
 	-   **ServiceConfiguration.Cloud.cscfg**,
-        **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**: 
+        **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**:
         Azure-specific files necessary for publishing your
         application. For more information, see
         [Overview of Creating a Hosted Service for Azure][].
@@ -81,7 +81,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 4.  Enter the following command to add a new web role:
 
         Add-AzureNodeWebRole
-	
+
 	![The output of the Add-AzureNodeWebRole command.](./media/cloud-services-nodejs-develop-deploy-app/node11.png)
 
 	The **Add-AzureNodeWebRole** cmdlet creates a basic Node.js application. It also modifies the **.csfg** and **.csdef** files to add configuration entries for the new role.
@@ -107,7 +107,7 @@ This code is essentially the same as the "Hello World" sample on the [nodejs.org
 
 ### Download the Azure publishing settings
 
-To deploy your application to Azure, you must first download the publishing settings for your Azure subscription. 
+To deploy your application to Azure, you must first download the publishing settings for your Azure subscription.
 
 1.  Run the following Azure PowerShell cmdlet:
 
@@ -123,7 +123,7 @@ To deploy your application to Azure, you must first download the publishing sett
 
 
 	> [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
-    
+
 
 ### Publish the application
 

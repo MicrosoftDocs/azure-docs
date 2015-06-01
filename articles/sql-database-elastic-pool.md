@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure SQL Database elastic database pool (preview)" 
-	description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases." 
+	pageTitle="Tame explosive growth with elastic databases" 
+	description="An Azure SQL Database elastic database pool is a collection of available resources that are shared by a group of elastic databases." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -10,14 +10,14 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/11/2015" 
+	ms.date="05/29/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
-# SQL Database elastic pools (preview)
+# Tame explosive growth with elastic databases
 
 If you’re a SaaS developer with tens, hundreds, or even thousands of databases, an elastic pool simplifies the process of creating, maintaining, and managing performance across these databases within a budget that you control. 
 
