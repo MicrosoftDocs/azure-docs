@@ -18,13 +18,13 @@
 
 # Use your on-premises identity infrastructure in the cloud
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="What is It" class="current">What is It</a>
-<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
-<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
-</div>
+
+[How does it work](active-directory-aadconnect-how-it-works.md)<br>
+[Getting Started](active-directory-aadconnect-get-started.md)<br>
+[Whats Next](active-directory-whats-next.md)<br>
+[Learn more](active-directory-learn-more.md)
+
+
 
 Today, users want to be able to access applications both on-premises and in the cloud.  They want to be able to do this from any device, be it a laptop, smart phone, or tablet.  In order for this to occur, you and your organization need to be able to provide a way for users access these apps, however moving entirely to the cloud is not always an option.  
 

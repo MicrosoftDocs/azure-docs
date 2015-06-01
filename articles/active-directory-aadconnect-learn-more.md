@@ -18,14 +18,10 @@
 
 # Azure Active Directory Connect - Learn More
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="What is It">What is It</a>
-<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
-<a href="../active-directory-aadconnect-learn-more/" title="Learn More" class="current">Learn More</a>
-</div>
-
+[What is Azure AD Connect?](active-directory-aadconnect.md)<br>
+[How does it work](active-directory-aadconnect-how-it-works.md)<br>
+[Getting Started](active-directory-aadconnect-get-started.md)<br>
+[Whats Next](active-directory-whats-next.md)<br>
 
 The following is a list of additional resources for using Azure AD Connect and integrating your on-premises directories with Azure AD.
 

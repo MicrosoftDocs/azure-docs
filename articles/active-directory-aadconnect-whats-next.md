@@ -19,14 +19,10 @@
 # Managing Azure AD Connect 
 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="What is It">What is It</a>
-<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next" class="current">Whats Next</a>
-<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
-</div>
-
+[What is Azure AD Connect?](active-directory-aadconnect.md)<br>
+[How does it work](active-directory-aadconnect-how-it-works.md)<br>
+[Getting Started](active-directory-aadconnect-get-started.md)<br>
+[Learn more](active-directory-learn-more.md)
 
 The topics are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organizations needs and requirements.  
 
