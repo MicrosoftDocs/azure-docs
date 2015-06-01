@@ -19,15 +19,6 @@
 # Changing the Azure AD Connect default configuration 
 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="What is It" class="current">What is It</a>
-<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
-<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
-</div>
-
-
 The default configuration of Azure AD Connect in most instances is sufficient to easily extend your on-premises directories into the cloud.  However there are certain instances when you may need to modify the default and tailor it to your organizations business logic.  In these instances you can modify the default configuration however there are some things you need to be aware of before you do this.
 
 When you need to change the default configuration, do the following:

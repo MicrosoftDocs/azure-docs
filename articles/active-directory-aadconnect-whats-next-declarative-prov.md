@@ -21,15 +21,6 @@
 # Azure AD Connect declarative provisioning
 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="What is It" class="current">What is It</a>
-<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
-<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
-</div>
-
-
 ## Using declarative provisioning 
 Declarative provisioning is "codeless" provisioning and can be setup and configured using the Synchronization Rules Editor.  The Editor can be used setup and create your own provisioning rules.
 

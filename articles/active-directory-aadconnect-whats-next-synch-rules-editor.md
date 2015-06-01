@@ -20,17 +20,6 @@
 # Azure AD Connect Synchronization rules editor
 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="What is It" class="current">What is It</a>
-<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
-<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
-</div>
-
-
-
-
 ## Using the synchronization rules editor
 
 In Azure AD Connect, you can configure and fine-tune the object and attribute flow between Azure AD and your on-premises directories by configuring synchronization rules.  
