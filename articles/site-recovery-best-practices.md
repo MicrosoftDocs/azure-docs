@@ -107,7 +107,7 @@ Providers and agents are installed on on-premises servers so that they can conne
 
 	- Set up the custom proxy server before installing the Provider.
 	- Allow these URLs through the firewall:
-		- hypervrecoverymanager.windowsazure.com
+		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net
