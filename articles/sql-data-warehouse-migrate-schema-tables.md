@@ -41,13 +41,13 @@ Create a profile of your data for:
 - Key Columns
 - Query Patterns - joins, group by, and distinct
 
-### Step 1.1. Identify table sizes ###
+### Identify table sizes ###
 Knowing the table size will help you decide how to distribute your tables. If the table is small, like a date dimension, then distributing with the round-robin method is usually the best choice. If the table is large, then performance will usually improve with the hash distribution method.
 
 
 - Start an Excel spreadsheet that lists all your tables names and their sizes. Then sort by size in descending order so you can prioritize your migration efforts according to table size.
 
-### Step 1.2. Identify candidates for distribution columns ###
+### Identify candidates for distribution columns ###
 Knowing the key columns will help you make table distribution decisions, especially for the tables that you decide to hash distribute. 
 
 For each large table in your spreadsheet, list the columns that are primary keys, foreign keys, and frequent joining columns. Ask yourself the following questions about each column you identified.
@@ -89,7 +89,7 @@ Type consistency is very important, especially for distribution columns that are
 
 If you put explicit type conversions into your queries, you will get the correct query results, but at the expense of slower query performance. Since the types don't match, SQL Data Warehouse must re-distribute data prior to performing the query. Although this is transparent to you as a user, it does result in slower execution.
 
-2.1. Identify inconsistent data types
+### Identify inconsistent data types
 
 There are several approaches you can take to finding columns with inconsistent data types. This query finds type inconsistency based on matching column names:
 
@@ -232,9 +232,9 @@ To migrate SQL Server partition definitions to SQL Data Warehouse:
 - Define the partitions when you create the table. Simply specify partition boundary points and whether you want the boundary point to be effective `RANGE RIGHT` or `RANGE LEFT`.
 
 ### Partition Sizing ###
-Partition sizing is an important consideration for SQL DW. Typically data management operations and data loading routines target individual partitions rather than tackling the whole table all at once. This is particularly relevant to clustered columnstores (CCI). CCI's can consume significant amounts of memory. Therefore, whilst we may want to revise the granularity of the partitioning plan we do not want to size the partitions to such a size that we run into memory pressure when trying to perform management tasks.
+Partition sizing is an important consideration for SQL Data Warehouse. Typically data management operations and data loading routines target individual partitions rather than tackling the whole table all at once. This is particularly relevant to clustered columnstores (CCI). CCI's can consume significant amounts of memory. Therefore, whilst we may want to revise the granularity of the partitioning plan we do not want to size the partitions to such a size that we run into memory pressure when trying to perform management tasks.
 
-When deciding the granularity of the partitions it is important to remember that SQL DW will automatically distribute the data into distributions. Consequently, data that would have normally existed in one table in one partition in an SQL Server database now exists in one partition across many tables in a SQL DW data warehouse. To maintain a meaningful number of rows in each partition one typically changes the partition boundary size. For example, if you have used day level partitioning for your data warehouse you may want to consider something less granular such as month or quarter.
+When deciding the granularity of the partitions it is important to remember that SQL Data Warehouse will automatically distribute the data into distributions. Consequently, data that would have normally existed in one table in one partition in an SQL Server database now exists in one partition across many tables in a SQL Data Warehouse data warehouse. To maintain a meaningful number of rows in each partition one typically changes the partition boundary size. For example, if you have used day level partitioning for your data warehouse you may want to consider something less granular such as month or quarter.
 
 To size your current database at the partition level use a query like the one below:
 
@@ -271,15 +271,11 @@ GROUP BY    s.[name]
 ;
 ```
 
-The total number of distributions equals the number of storage locations used when we create a table. That's a complex way of saying that each table is created once per distribution.
-
-You can also anticipate roughly how many rows, and therefore how big, each partition will be. The partition in the source data warehouse will be subdivided into each distribution.
-
-Use the following calculation to guide you when determining your partition size:
+The partition size will be smaller in SQL Data Warehouse since each table and partition are distributed into multiple tables and partitions. Here's a way to calculate how the size of each physical partition will change when migrating from SMP to MPP.
 
 MPP Partition Size = SMP Partition Size / Number of Distributions
 
-You can find out how many distributions your SQL DW database has using the following query:
+To find the number of distributions in your MPP database:
 
 ```
 SELECT  COUNT(*)
@@ -287,7 +283,7 @@ FROM    sys.pdw_distributions
 ;
 ```
 
-Now you know how big each partition is in the source system and what size you are anticipating for SQLDW you can decide on your partition boundary.
+Now that you know how big each partition is in the source system and what size you are anticipating for SQ Data Warehouse, you can decide on your partition boundary.
 
 ### Workload Manangement ###
 One final piece of information you need to factor in to the table partition decision is workload management. In SQLDW the maximum memory allocated to each distribution during query execution is governed by this feature. Please refer to the following article for more details on [workload management]. Ideally your partition will be sized with inmemory operations such as columnstore index rebuilds in mind. An index rebuild is a memory intensive operation. Therefore you will want to ensure that the partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.
@@ -528,12 +524,5 @@ Once you have successfully migrated your database schema to SQLDW you can procee
 <!-- GitHub Articles -->
 [Database schema migration tutorial]: ./sql-data-warehouse-migrate-schema-database.md
 
-[migrate your code]: ./sql-dw-migrate-code/
-[migrate your data]: ./sql-dw-migrate-data/
-[database design]: ./sql-dw-develop-database-design/
-[generate statistics]: ./sql-dw-develop-generate-statistics/
-[limitations and restrictions]: ./sql-dw-develop-limitations-restictions/
-[product differences]: ./sql-dw-develop-product-differences/
-
 <!-- MSDN Articles -->
-[workload management]: (http://msdn.microsoft.com/BLAH)
+[workload management]: 

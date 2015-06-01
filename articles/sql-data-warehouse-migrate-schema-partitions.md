@@ -16,7 +16,7 @@
    ms.date="mm/dd/yyyy"
    ms.author="JRJ@BigBangData.co.uk"/>
 
-# Step 4: Migrate table partitions ##
+# Migrate table partitions ##
 To migrate SQL Server partition definitions to SQL Data Warehouse:
 
 - Remove SQL Server partition functions and schemes since this is managed for you when you create the table.
@@ -29,7 +29,7 @@ Since SQL Data Warehouse distributes the rows into distributions, each partition
 
 To maintain a meaningful number of rows in each partition one typically changes the partition boundary size. For example, if you have used day level partitioning for your data warehouse you may want to consider something less granular such as month or quarter.
 
-> [AZURE.NOTE] Be careful not to make the partitions too large, or the clustered columnstore index can have memory pressure for partition management tasks.   
+> [AZURE.NOTE] Be careful not to make the partitions too large, or the clustered columnstore index can have memory pressure for partition management tasks.
 
 
 To size your current database at the partition level use a query like the one below:
@@ -67,15 +67,11 @@ GROUP BY    s.[name]
 ;
 ```
 
-The total number of distributions equals the number of storage locations used when we create a table. That's a complex way of saying that each table is created once per distribution.
-
-You can also anticipate roughly how many rows, and therefore how big, each partition will be. The partition in the source data warehouse will be subdivided into each distribution.
-
-Use the following calculation to guide you when determining your partition size:
+If you keep the same boundaries, the number of rows in the actual partitions will be smaller in SQL Data Warehouse than SQL Server since each table and partition are distributed. Here's a way to calculate how the size of each partition will change in the implementation of MPP partitions.
 
 MPP Partition Size = SMP Partition Size / Number of Distributions
 
-You can find out how many distributions your SQL DW database has using the following query:
+To find the number of distributions in your MPP database:
 
 ```
 SELECT  COUNT(*)
@@ -83,10 +79,10 @@ FROM    sys.pdw_distributions
 ;
 ```
 
-Now you know how big each partition is in the source system and what size you are anticipating for SQL Data Warehouse, you can decide on your partition boundary.
+Now that you know how big each partition is in the source system and what size you are anticipating for SQ Data Warehouse, you can decide on your partition boundary.
 
 ### Workload Manangement ###
-One final piece of information you need to factor in to the table partition decision is workload management. In SQLDW the maximum memory allocated to each distribution during query execution is governed by this feature. Please refer to the following article for more details on [workload management]. Ideally your partition will be sized with inmemory operations such as columnstore index rebuilds in mind. An index rebuild is a memory intensive operation. Therefore you will want to ensure that the partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.
+One final piece of information you need to factor in to the table partition decision is workload management. In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed by this feature. Please refer to the following article for more details on [workload management]. Ideally your partition will be sized with inmemory operations such as columnstore index rebuilds in mind. An index rebuild is a memory intensive operation. Therefore you will want to ensure that the partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.
 
 Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views. In reality your memory grant will be less than the figures below. However, this provides a level of guidance that you can use when sizing your partitions for data management operations.
 
@@ -142,7 +138,7 @@ VALUES (1,20010101,1,1,1,1,1,1)
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey)
 ```
 
-> [AZURE.NOTE] By Creating the statistic object we ensure that SQLDW table metadata is more accurate. If we omit creating statistics then SQLDW will use default values. For details on statistics please review this article [MOREINFO]
+> [AZURE.NOTE] By Creating the statistic object we ensure that SQLDW table metadata is more accurate. If we omit creating statistics then SQLDW will use default values. For details on statistics please review [Create and update statistics][].
 
 We can then query for the row count leveraging the `sys.partitions` catalog view:
 
@@ -299,37 +295,19 @@ DROP TABLE #partitions;
 
 With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the warehouse over time.
 
->[AZURE.NOTE] Partition switching has a few differences in comparison to SQL Server. Be sure to read [Migrate Your Code] to learn more about this subject.
+>[AZURE.NOTE] Partition switching has a few differences in comparison to SQL Server. Be sure to read [Migrate Your Code] to learn mores about this subject.
 
-## Implement Statistics Management Procedures ##
-Statistics in SQLDW are implemented slightly differently in SQLDW compared to SQL Server and Azure SQL Database in that there is no automated management of statistics. It is therefore up to you to both create them and periodically update them. Please refer to the [product differences] article for more information.
 
-A good set of up-to-date statistics is an important part of SQLDW. You should extend your data loading process to ensure that statistics are updated at the end of the load. Below are some points to guide you on how best to achieve this:
-
-- Ensure that each loaded table has at least one statistics object updated. This updates the tables size (row count and page count) information as part of the stats update.
-- Focus on columns participating in JOIN, GROUP BY, ORDER BY and DISTINCT clauses
-- Consider updating "ascending key" columns such as transaction dates more frequently as these values will not be included in the statistics histogram.
-- Consider updating static distribution columns less frequently.
-- Remember each statistic object is updated in series. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` may not be ideal - especially for wide tables with lots of statistics objects.
-> [AZURE. NOTE] For more details on [ascending key] please refer to the SQL Server 2014 cardinality estimation model whitepaper
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-Once you have successfully migrated your database schema to SQLDW you can proceed to one of the following articles:
-- [migrate your data]
-- [migrate your code]
+- After defining your table definitions and partitions, the next step is to plan your statistics. See  [Create and update statistics][].
+
 
 <!--Image references-->
 
 <!-- GitHub Articles -->
-[Database schema migration tutorial]: ./sql-data-warehouse-migrate-schema-database.md
 
-[migrate your code]: ./sql-dw-migrate-code/
-[migrate your data]: ./sql-dw-migrate-data/
-[database design]: ./sql-dw-develop-database-design/
-[generate statistics]: ./sql-dw-develop-generate-statistics/
-[limitations and restrictions]: ./sql-dw-develop-limitations-restictions/
-[product differences]: ./sql-dw-develop-product-differences/
+[Migrate your table schemas]: ./sql-data-warehouse-migrate-schema-tables/
+[Create and update statistics]: ./sql-data-warehouse-create-update-statistics/
 
 <!-- MSDN Articles -->
-[workload management]: (http://msdn.microsoft.com/BLAH)
+[workload management]:
