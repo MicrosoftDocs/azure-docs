@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Using the Docker VM Extension for Linux on Azure"
-	description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface."
+	description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"

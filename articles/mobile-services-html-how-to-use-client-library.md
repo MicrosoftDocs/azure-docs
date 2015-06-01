@@ -448,7 +448,7 @@ When you are using the Facebook or Google APIs for client authentication, the ex
 	});
 
 This example assumes that the token provided by the respective provider SDK is stored in the `token` variable.
-Twitter cannot be used for client authentication at this time.
+Twitter cannot be used for client authentication at this time. Microsoft Azure Active Directory cannot be used with JavaScript backends for client authentication at this time.
 
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.

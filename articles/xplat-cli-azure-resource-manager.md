@@ -337,12 +337,12 @@ To view logged information on operations performed on a group, use the `azure gr
 
 ## Next steps
 
-* For more information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][xplatsetup].
+* For more information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][clisetup].
 * For information on working with Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
 * For imformation on working with Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm]
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[xplatsetup]: xplat-cli.md
+[clisetup]: xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
