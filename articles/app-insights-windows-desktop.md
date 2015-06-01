@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps
@@ -23,7 +23,7 @@
 
 Application Insights lets you monitor your deployed application for usage and performance.
 
-*Support for Windows Desktop apps are provide by the Application Insights Core SDK. This SDK provides the full API support for all telemetry data but does not provide any telemetry auto collection.*
+Support for Windows Desktop apps are provide by the Application Insights core SDK. This SDK provides the full API support for all telemetry data but does not provide any telemetry auto collection.
 
 
 ## <a name="add"></a> Create an Application Insights resource
@@ -48,18 +48,18 @@ Application Insights lets you monitor your deployed application for usage and pe
 
     ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
+3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
-3. Create a `TelemetryClient` and assign your Instrumentnation Key. For example, add the following code to your App constructor.
+    &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
 
-```C#
-    var tc = new TelemetryClient();
-    tc.InstrumentationKey = "INSERT KEY COPIED ABOVE";
-```
-
+    As an alternative you can achieve the same effect with this code:
     
+    `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+
 ## <a name="telemetry"></a>Insert telemetry calls
 
-Use a `TelemetryClient` instance to [send telemetry][track].
+Create a `TelemetryClient` instance and then [use it to send telemetry][track].
 
 Use `TelemetryClient.Flush` to send messages before closing the app. (This is not recommended for other types of app.)
 
@@ -70,13 +70,18 @@ For example, in a Windows Forms application, you could write:
     public partial class Form1 : Form
     {
         private TelemetryClient tc = new TelemetryClient();
-        tc.context.User.Id = GetAnonUserID();
-        tc.context.Session.Id = Guid.NewGuid().ToString();
-        tc.context.Device.OperatingSystem = Environment.OSVersion.ToString();
         ...
-        
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Alternative to setting ikey in config file:
+            tc.InstrumentationKey = "key copied from portal";
+
+            // Set session data:
+            tc.Context.User.Id = Environment.GetUserName();
+            tc.Context.Session.Id = Guid.NewGuid().ToString();
+            tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
+
+            // Log a page view:
             tc.TrackPageView("Form1");
             ...
         }
@@ -98,10 +103,12 @@ Use any of the [Application Insights API][track] to send telemetry. In Windows D
 * TrackPageView(pageName) on switching forms, pages, or tabs
 * TrackEvent(eventName) for other user actions
 * TrackMetric(name, value) in a background task to send regular reports of metrics not attached to specific events.
-TrackTrace(logEvent) for [diagnostic logging][diagnostic]
+* TrackTrace(logEvent) for [diagnostic logging][diagnostic]
 * TrackException(exception) in catch clauses
 
-To see counts of users and sessions you can set the values on each `TelemetryClient` instance. Alternatively, you can use a context initializer to perform this addition for all clients:
+#### Context initializers
+
+As an alternative to setting session data in each TelemetryClient instance, you can use a context initializer:
 
 ```C#
     class UserSessionInitializer: IContextInitializer
@@ -122,6 +129,7 @@ To see counts of users and sessions you can set the values on each `TelemetryCli
                 new UserSessionInitializer());
             ...
 ```
+
 
 
 ## <a name="run"></a>Run your project
