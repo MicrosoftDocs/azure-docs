@@ -98,7 +98,7 @@ For example, in a Windows Forms application, you could write:
 
 ```
 
-Use any of the [Application Insights API][track] to send telemetry. In Windows Desktop applications, no telemetry is sent automatically. Typically you'd use:
+Use any of the [Application Insights API][api] to send telemetry. In Windows Desktop applications, no telemetry is sent automatically. Typically you'd use:
 
 * TrackPageView(pageName) on switching forms, pages, or tabs
 * TrackEvent(eventName) for other user actions
@@ -156,7 +156,7 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 
 ## <a name="usage"></a>Next Steps
 
-[Track usage of your app][track]
+[Track usage of your app][knowUsers]
 
 [Capture and search diagnostic logs][diagnostic]
 
@@ -171,5 +171,6 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[knowUsers]: app-insights-overview-usage.md
+[api]: app-insights-api-custom-events-metrics.md
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
