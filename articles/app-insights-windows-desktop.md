@@ -59,7 +59,7 @@ Support for Windows Desktop apps are provide by the Application Insights core SD
 
 ## <a name="telemetry"></a>Insert telemetry calls
 
-Create a `TelemetryClient` instance and then [use it to send telemetry][track].
+Create a `TelemetryClient` instance and then [use it to send telemetry][api].
 
 Use `TelemetryClient.Flush` to send messages before closing the app. (This is not recommended for other types of app.)
 
