@@ -115,12 +115,10 @@ You can also associate a reserved IP to a cloud service by sing a service config
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## See Also
+## Next steps
 
 [Reserved Private IP](../virtual-networks-reserved-private-ip)
 
 [Instance-Level Public IP (ILPIP)](../virtual-networks-instance-level-public-ip)
-
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
 [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)
