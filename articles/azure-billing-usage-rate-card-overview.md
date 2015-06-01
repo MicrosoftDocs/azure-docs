@@ -65,6 +65,9 @@ Here are some of the scenarios that are made possible with the combination of th
 ## Next Steps
 
 + [TODO:Update link] Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/dn948464.aspx) for more information on both APIs, which are part of a set of APIs provided by the Azure Resource Manager.
++ [TODO:Update link] If you would like to dive right into the sample code, check out our [Usage API and RateCard API samples on Github](https://github.com/Azure/BillingAPISamples).
++ [TODO:Update link] See the [Azure Billing Partner Solutions](azure-billing-rate-card-overview.md) article to learn more about the Azure Billing API integration experiences as shared by partners Odin, Cloud Cruiser and Cloudinary.
++ [TODO:Update link] For a more indepth look at the partner integration work mentioned above, see the set of [Azure Billing Partner Solutions Tutorials](azure-billing-rate-card-overview.md).
 + See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
-+ To learn more about Azure Resource Management APIs, see the [Azure Resource Management APIs Reference](https://msdn.microsoft.com/library/azure/dn948464.aspx)  
+
 
