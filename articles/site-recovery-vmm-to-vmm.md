@@ -305,7 +305,7 @@ Run this sample script to update DNS, specifying the IP address you retrieved us
 		Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 
-<a name="privacy"></a><h2>Privacy information for Site Recovery</h2>
+##<a name="privacy"></a>Privacy information for Site Recovery
 
 This section provides additional privacy information for the Microsoft Azure Site Recovery service (“Service”). To view the privacy statement for Microsoft Azure services, see the
 [Microsoft Azure Privacy Statement](http://go.microsoft.com/fwlink/?LinkId=324899)
