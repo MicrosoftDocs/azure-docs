@@ -20,7 +20,7 @@
 # Azure Site Recovery: Frequently asked questions
 ## About this article
 
-This article includes frequently asked questions about Azure Site Recovery. For an introduction to Site Recovery and related deployment scenarios, read the [Site Recovery Overview](hyper-v-recovery-manager-overview.md).
+This article includes frequently asked questions about Azure Site Recovery. For an introduction to Site Recovery and related deployment scenarios, read the [Site Recovery Overview](site-recovery-overview.md).
 
 If you have other questions after reading this article, you can post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
@@ -145,8 +145,8 @@ The most current list of supported guest operating systems is available in the a
 To start deploying ASR:
 
 - [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md) 
-- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure) 
-- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm) 
-- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san) 
-- [Set up protection with a single VMM server](site-recovery-single-vmm) 
+- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure.md) 
+- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md) 
+- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san.md) 
+- [Set up protection with a single VMM server](site-recovery-single-vmm.md) 
 

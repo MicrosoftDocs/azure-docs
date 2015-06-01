@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Implementation Guidelines
  
-These guidelines focus on the key design decisions and tasks to determine the variety of resources that are involved in most Azure infrastructure services implementations.
-
-Azure is an excellent platform to implement proof-of-concept configuration, since it requires very little investment to test a particular approach to implementation of solutions. However, you must be able to distinguish the easy practices for a proof-of-concept from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
+Azure is an excellent platform to implement dev/test or proof-of-concept configurations, since it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test or proof-of-concept environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
 
 This guidance identifies many areas for which planning are key to the success of an IT infrastructure or workload in Azure. In addition, it helps the implementation of solutions on the Azure platform by providing an order to the creation of the necessary resources. Although there is some flexibility, Microsoft recommends that you apply this order to your planning and decision-making.
 
@@ -32,9 +30,9 @@ This guidance identifies many areas for which planning are key to the success of
 6.	Availability Sets
 7.	Virtual machines
 
-Establishing a good naming convention, as well as following a specific, systematic order to create the resources in Azure immensely reduces administrative burden and increases the chances of success for any implementation project.
+Establishing a good naming convention, as well as following a specific, systematic order to creating the resources in Azure immensely reduces administrative burden and increases the chances of success for any implementation project.
 
-> [AZURE.NOTE] Affinity groups are not described as their use has been deprecated. For more information, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE] Affinity groups have been deprecated and their use is not described here. For more information, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 ## 1. Naming Conventions
 
@@ -332,7 +330,7 @@ Decision:
 Tasks: 
 
 - Define each virtual machine name using your naming convention.
-- Create your virtual machines with the Azure Preview Portal, the Azure Management Portal, or the **New-AzureVM** PowerShell cmdlet.
+- Create your virtual machines with the Azure Preview Portal, the Azure Management Portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
 
 ## Example of an IT workload: The Contoso financial analysis engine
 
@@ -552,3 +550,8 @@ These Azure PowerShell commands create the virtual machines in this configuratio
 [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
 
 [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md)
+
+[Cloud Platform Integration Framework (Azure Architecture Patterns)](azure-architectures-cpif-overview.md)
+
+[Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
+

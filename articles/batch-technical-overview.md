@@ -12,7 +12,7 @@
 	ms.workload="big-compute"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2015"
 	ms.author="danlep"/>
 

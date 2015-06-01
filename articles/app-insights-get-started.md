@@ -23,7 +23,7 @@ Detect issues, solve problems and continuously improve your applications. Quickl
 
 Configuration is very easy, and you'll see results within minutes.
 
-We currently support iOS, Android, and Windows apps; J2EE and ASP.NET web applications, WCF services. (They don't have to run or be developed on Azure.) Our JavaScript SDK runs in any web pages.
+We currently support iOS, Android, and Windows apps; J2EE and ASP.NET web applications, WCF services. Web apps can run on  Azure or your own on-premises servers. Our JavaScript SDK runs in any web pages.
 
 ## Get started
 

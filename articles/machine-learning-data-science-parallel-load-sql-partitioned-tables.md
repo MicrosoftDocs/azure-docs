@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="msolhab" F
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/29/2015" 
 	ms.author="msolhab" /> 
 
 # Parallel Bulk Data Import Using SQL Partition Tables
@@ -181,6 +181,6 @@ or,
 
  > [AZURE.NOTE] You may choose to create the indexes before bulk importing the data. Index creation before bulk importing will slow down the data loading.
 
-### Azure Data Science in Action Example
+### Advanced Analytics Process and Technology in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example using the Advanced Analytics Process and Technology (ADAPT) with a public dataset, see [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
