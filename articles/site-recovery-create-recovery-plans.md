@@ -18,7 +18,7 @@
 
 # Creating recovery plans
 
-The Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter. For an introduction to Site Recovery deployment scenarios read the [Site Recovery Overview](hyper-v-recovery-manager-overview.md).
+The Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter. For an introduction to Site Recovery deployment scenarios read the [Site Recovery Overview](site-recovery-overview.md).
 
 ## About this article
 

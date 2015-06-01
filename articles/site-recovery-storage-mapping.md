@@ -20,7 +20,7 @@
 # Site Recovery storage mapping
 
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Site Recovery Overview](hyper-v-recovery-manager-overview/).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Site Recovery Overview](site-recovery-overview.md).
 
 
 ## About this article
@@ -105,4 +105,4 @@ VM5 | C:\ClusterStorage\SourceVolume3 | N/A | No mapping so default storage loca
 
 ## Next steps
 
-Now that you have a better understanding of storage mapping start reading the [best practices](site-recovery-best-practices/) to prepare for deployment.
+Now that you have a better understanding of storage mapping start reading the [best practices](site-recovery-best-practices.md) to prepare for deployment.
