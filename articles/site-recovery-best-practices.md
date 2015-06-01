@@ -23,7 +23,7 @@
 
 ## About this article
 
-The article including best practices that you should read and implement before deploying Azure Site Recovery. If you're looking for an introduction to Site Recovery and related deployment scenarios read the [Site Recovery Overview](hyper-v-recovery-manager-overview/).
+The article including best practices that you should read and implement before deploying Azure Site Recovery. If you're looking for an introduction to Site Recovery and related deployment scenarios read the [Site Recovery Overview](site-recovery-overview.md).
 
 If you have any questions after reading this article post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -31,8 +31,8 @@ If you have any questions after reading this article post them on the [Azure Rec
 ## Preparing Azure
 
 - **Azure account**: You'll need an [Microsoft Azure](http://azure.microsoft.com/) account. If you don't have one, start with a [free trial](pricing/free-trial/).
-- Read about [pricing](pricing/details/site-recovery/) for the Site Recovery service.
-- **Azure storage**: If you deploy Site Recovery with replication to Azure you'll need an Azure storage account. You can set one up during deployment or prepare one before you start. The account should have geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. Read [Introduction to Microsoft Azure Storage](storage-introduction).
+- Read about [pricing](pricing/details/site-recovery/) for the Site Recovery 
+- **Azure storage**: If you deploy Site Recovery with replication to Azure you'll need an Azure storage account. You can set one up during deployment or prepare one before you start. The account should have geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. Read [Introduction to Microsoft Azure Storage](storage-introduction.md). 
 
 ## Virtual machines
 
@@ -65,9 +65,9 @@ Virtual machine type | <p>Generation 1</p> <p>Generation 2: [Read more informati
 
 Site Recovery can orchestrate replication for virtual machines located on Hyper-V host servers in System Center Virtual Machine Manager (VMM) clouds as follows:
 	- Replicate from an on-site VMM server to Azure (using Hyper-V Replica)
-	- Replicate to a secondary on-premises site (using Hyper-V Replica). We recommend you deploy with a VMM server in the primary site and one in the secondary site. However if you need to you can [deploy a single VMM server](site-recovery-single-vmm) for both sites.
+	- Replicate to a secondary on-premises site (using Hyper-V Replica). We recommend you deploy with a VMM server in the primary site and one in the secondary site. However if you need to you can [deploy a single VMM server](site-recovery-single-vmm.md) for both sites.
 	- Replicate to a secondary on-premises site (using SAN). You'll need a need a primary and secondary datacenter with a VMM server in each site.
-If you want to deploy VMM with Site Recovery you'll need to set up your VMM infrastructure. If you don't have a VMM server read more [here](site-recovery-hyper-v-site-to-azure).
+If you want to deploy VMM with Site Recovery you'll need to set up your VMM infrastructure. If you don't have a VMM server read more [here](site-recovery-hyper-v-site-to-azure.md).
 
 
 ### Verify VMM version
@@ -107,7 +107,7 @@ Providers and agents are installed on on-premises servers so that they can conne
 
 	- Set up the custom proxy server before installing the Provider.
 	- Allow these URLs through the firewall:
-		- hypervrecoverymanager.windowsazure.com
+		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net
@@ -131,8 +131,8 @@ Providers and agents are installed on on-premises servers so that they can conne
 
 ## Storage
 
-- **Azure storage account**: If you're replicating to Azure you'll need an Azure storage account. The account should have geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. To learn more read [Introduction to Microsoft Azure Storage](storage-introduction).
-- **Storage mapping**: If you're replicating virtual machines on on-premises VMM servers you can set up storage mapping to make sure that virtual machines are optimally connected to storage after failover. When you replicate between two on-premises VMM sites, by default the replica virtual machine will be stored on the located indicated on the target Hyper-V host server. You can configure mapping between VMM storage classifications on source and target VMM servers. If you want to use this feature make sure you have storage classifications set up before you begin deployment. [Read more](site-recovery-storage-mapping) about storage mapping.
+- **Azure storage account**: If you're replicating to Azure you'll need an Azure storage account. The account should have geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. To learn more read [Introduction to Microsoft Azure Storage](storage-introduction.md).
+- **Storage mapping**: If you're replicating virtual machines on on-premises VMM servers you can set up storage mapping to make sure that virtual machines are optimally connected to storage after failover. When you replicate between two on-premises VMM sites, by default the replica virtual machine will be stored on the located indicated on the target Hyper-V host server. You can configure mapping between VMM storage classifications on source and target VMM servers. If you want to use this feature make sure you have storage classifications set up before you begin deployment. [Read more](site-recovery-storage-mapping.md) about storage mapping.
 - **SAN**: If you want to replicate between two on-premises sites with SAN replication note that:
 	- You can only replicate Hyper-V virtual machines to a secondary datacenter using SAN replication. You can't replicate to Azure.
 	- You can use your existing SAN environment. You don't need to make any changes on SAN arrays.
@@ -141,7 +141,7 @@ Providers and agents are installed on on-premises servers so that they can conne
 	- Make sure your Hyper-V host clusters are running Windows Server 2012 or 2012 R2 if you want to deploy SAN replication. [Read about](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx) guest operating systems supported by different versions of Hyper-V.
 	- You'll need to discover and classify SAN storage in VMM,
 	- If you not already replicating, after discovery you'll need to create LUNs and allocate storage in the VMM console. If you're already replicating you can skip this step.
-	- Full instructions are available in this [article](site-recovery-vmm-san).
+	- Full instructions are available in this [article](site-recovery-vmm-san.md).
 
 
 ## Networks
