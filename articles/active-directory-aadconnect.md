@@ -18,7 +18,7 @@
 
 # Use your on-premises identity infrastructure in the cloud
 
-
+[What is Azure AD Connect?](active-directory-aadconnect.md)<br>
 [How does it work](active-directory-aadconnect-how-it-works.md)<br>
 [Getting Started](active-directory-aadconnect-get-started.md)<br>
 [Whats Next](active-directory-aadconnect-whats-next.md)<br>

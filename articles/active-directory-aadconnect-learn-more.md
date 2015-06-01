@@ -22,7 +22,7 @@
 [How does it work](active-directory-aadconnect-how-it-works.md)<br>
 [Getting Started](active-directory-aadconnect-get-started.md)<br>
 [Whats Next](active-directory-aadconnect-whats-next.md)<br>
-
+[Learn more](active-directory-aadconnect-learn-more.md)
 
 
 The following is a list of additional resources for using Azure AD Connect and integrating your on-premises directories with Azure AD.
