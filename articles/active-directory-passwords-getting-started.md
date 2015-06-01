@@ -55,31 +55,25 @@ To configure user password reset policy, complete the following steps:
  
 1.	Open a browser of your choice and go to the Azure Management Portal.
 2.	In the Azure Management Portal, find the Active Directory extension on the navigation bar on the left hand side.
-  
-  ![][][001]
-  
+
+  ![][001]
 3. Under the Directory tab, click the directory in which you want to configure the user password reset policy, for example, Wingtip Toys.
   
   ![][002]
-  
 4.	Click the Configure tab.
   
   ![][003]
-  
 5.	Under the Configure tab, scroll down to the user password reset policy section.  This is where you configure every aspect of user password reset policy for a given directory.  This policy applies only to end users in your organization, not administrators. For security reasons, Microsoft controls the password reset policy for administrators. If you do not see this section, make sure that you have signed up for the Azure Active Directory Premium and Basic and assigned a license to the administrator account that is configuring this feature. 
   
   ![][004]
-  
 6.	To configure the user password reset policy, slide the users enabled for password reset toggle to the yes setting.  This reveals several more controls which enable you to configure how this feature works in your directory.  Feel free to customize password reset as you see fit.  If you’d like to learn more about what each of the password reset policy controls does, please see Self-service password reset in Azure AD: how to customize password reset to meet your needs.
   
   ![][005]
-  
 7.	After configuring user password reset policy as desired for your tenant, click the Save button at the bottom of the screen.
   
   >[AZURE.NOTE] A two challenge user password reset policy is recommended so that  you can see how the functionality works in the most complex case.
  
  ![][006]
-  
 
 ### Step 2: Add contact data for your test user <a name="sspr-step2"></a>
 You have several options on how to specify data for users in your organization to be used for password reset.
@@ -96,15 +90,12 @@ If you want to learn more about what data is used by password reset, as well as 
 1.	In order to use the password reset registration portal, you must provide the users in your organization with a link to this page (http://aka.ms/ssprsetup) or turn on the option to require users to register automatically.  Once they click this link, they are asked to sign in with their organizational account.  After doing so, they see the following page:
   
   ![][007]
-  
 2.	Here, users can provide and verify their mobile phone, alternate email address, or security questions.  This is what verifying a mobile phone looks like.
   
  ![][008]
-  
 3.	After a user specifies this information, the page will update to indicate that the information is valid (it has been obfuscated below).  By clicking the finish or cancel buttons, the user will be brought to the Access Panel.
   
   ![][009]
-  
 4.	Once a user verifies both of these pieces of information, his or her profile will be updated with the data he or she provided.  In this example, the Office Phone number has been specified manually, so the user can also use that as a contact method for resetting his or her password.
   
   ![][010]
@@ -116,43 +107,33 @@ Now that you’ve configured a user reset policy and specified contact details f
 1.	If you go to a site like portal.microsoftonline.com, you’ll see a login screen like the below.  Click the “can’t access your account” link to test the password reset UI.
   
   ![][011]
-  
 2.	After clicking “can’t access your account”, you are brought to a new page which will ask for a user ID for which you wish to reset a password.  Enter your test user ID here, pass the captcha, and click “next”.
   
   ![][012]
-  
 3.	Since the user has specified an office phone, mobile phone, and alternate email in this case, you see that he has been given all of those as options to pass the first challenge.
    
   ![][013]
-  
 4.	In this case, choose to call the office phone first.  Note that when selecting a phone-based method, users will be asked to verify their phone number before they can reset their passwords.  This is to prevent malicious individuals from spamming phone numbers of users in your organization.
   
   ![][014]
-  
 5.	Once the user confirms their phone number, clicking call wall cause a spinner to appear and his or her phone to ring.  A message will play once he or she picks up your phone indicating that the user should press “#” to verify his or her account.  Pressing this key will automatically verify that the user possesses the first challenge and advance the UI to the second verification step.
   
   ![][015]
-  
 6.	Once you’ve passed the first challenge, the UI is automatically updated to remove it from the list of choices the user has.  In this case, because you used your Office Phone first, only Mobile Phone and Alternate Email remain as valid options to use as the challenge for the second verification step.  Click on the Email my alternate email option.  After you have done that, pressing email will email the alternate email on file.
   
   ![][016]
-  
 7.	Here is a sample of an email that users will see – notice the tenant branding:
   
   ![][017]
-  
 8.	Once the email arrives, the page will update, and you’ll be able to enter the verification found in the email in the input box shown below.  After a proper code is entered, the next button lights up, and you are able to pass through the second verification step.
   
   ![][018]
-  
 9.	Once you’ve met the requirements of the organizational policy, you are allowed to choose a new password.  The password is validated based it meets AAD “strong” password requirements (Password policy in Azure AD), and a strength validator appears to indicate to the user whether the password entered meets that policy.
   
   ![][019]
-  
 10.	Once you provide matching passwords that meet the organizational policy, your password is reset and you can log in with your new password immediately.
   
   ![][020]
-  
 
 ## Enable users to reset or change their AD Passwords <a name="adsspr-enable"></a>
 
@@ -201,7 +182,6 @@ Now that you have the Azure AD Sync tool downloaded, you are ready to enable pas
 3.	Check the Password write-back option.
   
   ![][022]
-  
 4.	Complete the wizard, the final page will summarize the changes and will include the password writeback configuration change.
 
 > [AZURE.NOTE] You can disable password writeback at any time by either re-running this wizard and deselecting the feature, or by setting the Write Passwords Back to On-Premises Directory setting to No in the User Password Reset Policy section of your directory’s Configure tab in the Azure Management Portal.
@@ -246,11 +226,9 @@ Setting these permissions will allow the MA service account for each forest to m
 5.	Then click Advanced.
   
   ![][024]
-   
 6.	On the Permissions tab, click Add.
   
   ![][025]
-    
 7.	Select the account you want to give permissions to (this is the same account that was specified while setting up sync for that forest).
 8.	In the drop down on the top, select Descendent User objects.
 9.	In the Permission Entry dialog box that shows up, check the box for Reset Password, Change Password, Write Permissions on “lockoutTime”, and Write Permissions on “pwdLastSet”.
@@ -258,7 +236,6 @@ Setting these permissions will allow the MA service account for each forest to m
   ![][026]
   ![][027]
   ![][028]
-
 10.	Then click Apply/Ok through all the open dialog boxes.
 
 ### Step 5: Reset your AD password as a user <a name="adsspr-step5"></a>
@@ -268,16 +245,13 @@ Now that password writeback has been enabled, you can test that it works by rese
 1.	Navigate to http://passwordreset.microsoftonline.com or go to any organizational ID login screen and click the Can’t access your account? link.
   
   ![][029]
-  
 2.	You should now see a new page which asks for a user ID for which you want to reset a password. Enter your test user ID and proceed through the password reset flow.
 3.	After you reset your password, you will see a screen that looks similar to this. It means you have successfully reset your password in your on-premises and/or cloud directories.
   
   ![][030]
-  
 4.	To verify the operation was successful or diagnose any errors, go to your Directory Sync computer, open Event Viewer, navigate to the application event log, and look for event 31002 - PasswordResetSuccess from the source PasswordResetService for your test user.
   
   ![][031]
-  
 
 **Additional Resources**
 
