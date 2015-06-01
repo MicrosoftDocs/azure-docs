@@ -16,7 +16,9 @@
    ms.author="telmos" />
 
 # User Defined Routes and IP Forwarding
-Azure uses a series of system routes to define how IP traffic flows in the following scenarios:
+When you add virtual machines (VMs) to different subnets within the same virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets. The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.
+
+This flow of communication is possible because Azure uses a series of system routes to define how IP traffic flows. System routes control the flow of communication in the following scenarios:
 
 - From a subnet to another within a VNet.
 - From VMs to the Internet.
@@ -27,7 +29,7 @@ The figure below shows a simple setup with a VNet, two subnets, and a few VMs, a
 
 ![System routes in Azure](./media/virtual-networks-udr-overview/Figure1.png)
 
-Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance. You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding in the appliance VM.
+Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance. You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding in the virtual appliance VM.
 
 The figure below shows an example of user defined routes and IP forwarding to force packets going from a frontend subnet to the Internet to pass through a virtual appliance, and all packets going from the frontend subnet to the backend subnet to go through a different appliance. Notice that traffic from the backend subnet to the frontend subnet is still going through the system route, bypassing the appliance.
 
@@ -45,34 +47,34 @@ Packets are routed over a TCP/IP network based on a route table defined at each 
 	- **NULL**. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
 - **Nexthop Value**. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.
 
-## Default Routes
-Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:
+## System Routes
+Every subnet created in a virtual network is automatically associated with a route table that contains the following system route rules:
 - **Local Vnet Rule**: This rule is automatically created for every subnet in a virtual network. It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.
 - **On-premises Rule**: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
 - **Internet Rule**: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
-## BGP Routes
-If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure. These BGP routes are used in the same way as default routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](../expressroute-introduction).
-
->[AZURE.IMPORTANT] You can configure your Azure environment to use force tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
-
 ## User Defined Routes
-You cannot view the default routes specified above in your Azure environment, and for most environments, those are the only routes you will need. However, you may need to create a route table and add one or more routes in specific cases, such as:
+You cannot view the system routes specified above in your Azure environment, and for most environments, those are the only routes you will need. However, you may need to create a route table and add one or more routes in specific cases, such as:
 
 - Force tunneling to the Internet via your on-premises network.
 - Use of virtual appliances in your Azure environment.
 
 In the scenarios above, you will have to create a route table and add user defined routes to it. You can have multiple route tables, and the same route table can be associated to one or more subnets. And each subnet can only be associated to a single route table. All VMs and cloud services in a subnet use the route table associated to that subnet.
 
-Subnets rely on default routes until a route table is associated to the subnet. Once an association exists, routing is done based on Longest Prefix Match (LPM) among both user defined routes and default routes. If there is more than one route with the same LPM match then a route is selected based on its origin in the following order:
+Subnets rely on system routes until a route table is associated to the subnet. Once an association exists, routing is done based on Longest Prefix Match (LPM) among both user defined routes and system routes. If there is more than one route with the same LPM match then a route is selected based on its origin in the following order:
 
 1. User defined route
 1. BGP route (when ExpressRoute is used)
-1. Default route
+1. System route
 
 To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](../virtual-networks-udr-how-to#How-to-manage-routes).
 
 >[AZURE.IMPORTANT] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
+
+## BGP Routes
+If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure. These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](../expressroute-introduction).
+
+>[AZURE.IMPORTANT] You can configure your Azure environment to use force tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
 
 ## IP Forwarding
 As describe above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance. A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.
