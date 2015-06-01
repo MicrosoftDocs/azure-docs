@@ -64,6 +64,6 @@ Here are some of the scenarios that are made possible with the combination of th
 
 ## Next Steps
 
-+ [TODO:Update link] Check out the reference documentation for the [Azure Commerce Provider APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) for more information on both APIs.
++ [TODO:Update link] Check out the reference documentation for the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/dn948464.aspx) for more information on both APIs.
 + Learn more about Azure Resource Manager, see the [Azure Resource Manager Overview](resource-group-overview/) article.
 
