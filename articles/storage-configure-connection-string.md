@@ -49,7 +49,7 @@ Your application will need to store the connection string in order to authentica
 - For an application running on the desktop or on a device, you can store the connection string in an app.config file or another configuration file.
 - For an application running in an Azure cloud service, you can store your connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). 
 
-You can use the Azure [CloudConfigurationManager](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) class to access your connection string at runtime regardless of where your application is running.
+You can use the Azure [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) class to access your connection string at runtime regardless of where your application is running.
 
 ## Create a connection string to the storage emulator
 

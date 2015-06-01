@@ -211,5 +211,5 @@ To revoke access to shared access signatures that use the same stored access pol
 ## See Also
 
 - [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-- [Shared access signatures: Understanding the SAS Model](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)
-- [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/ee395415.aspx)
+- [Shared access signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
+- [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)
