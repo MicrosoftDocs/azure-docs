@@ -71,9 +71,13 @@ These release notes summarize changes from previous releases and known issues.
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
 
-##<a id="may_chagnes_15"></a>May 2015 Release
+##<a id="may_changes_15"></a>May 2015 Release
 
-[Announcing a preview of Azure Media Hyperlapse media processor](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db).
+Announcing the following new features:
+
+- [A preview of Live Encoding with Media Services](media-services-manage-live-encoder-enabled-channels.md)
+- [Dynamic manifest](media-services-dynamic-manifest-overview.md)
+- [A preview of Azure Media Hyperlapse media processor](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ##<a id="april_changes_15"></a>April 2015 Release
 

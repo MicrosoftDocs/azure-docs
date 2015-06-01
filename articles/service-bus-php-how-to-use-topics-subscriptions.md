@@ -17,7 +17,7 @@
 	ms.author="sethm"/>
 
 
-# How to Use Service Bus Topics/Subscriptions
+# How to use Service Bus topics and subscriptions
 
 This guide shows you how to use Service Bus topics and
 subscriptions. The samples are written in PHP and use the [Azure SDK for PHP][download-sdk]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
@@ -109,8 +109,7 @@ The example below shows how to instantiate a **ServiceBusRestProxy** and call **
 		echo $code.": ".$error_message."<br />";
 	}
 
-	> [AZURE.NOTE]
-	> You can use the <b>listTopics</b> method on <b>ServiceBusRestProxy</b> objects to check if a topic with a specified name already exists within a service namespace.
+> [AZURE.NOTE] You can use the <b>listTopics</b> method on <b>ServiceBusRestProxy</b> objects to check if a topic with a specified name already exists within a service namespace.
 
 ## How to: create a subscription
 
@@ -147,8 +146,7 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 
 You can also set up filters that allow you to scope which messages sent to a topic should show up within a specific topic subscription. The most flexible type of filter supported by subscriptions is the **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about SqlFilters, see [SqlFilter.SqlExpression Property][sqlfilter].
 
-	> [AZURE.NOTE]
-	> Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
+> [AZURE.NOTE] Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
 
 The example below creates a subscription named "HighMessages" with a **SqlFilter** that only selects messages that have a custom **MessageNumber** property greater than 3 (see [How to: Send messages to a topic](#SendMessage) for information about adding custom properties to messages):
 

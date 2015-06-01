@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure SQL Database elastic database pool (preview)" 
-	description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases." 
+	pageTitle="Tame explosive growth with elastic databases" 
+	description="An Azure SQL Database elastic database pool is a collection of available resources that are shared by a group of elastic databases." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -10,20 +10,22 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/11/2015" 
+	ms.date="05/29/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
-# SQL Database elastic pools (preview)
+# Tame explosive growth with elastic databases
 
 If you’re a SaaS developer with tens, hundreds, or even thousands of databases, an elastic pool simplifies the process of creating, maintaining, and managing performance across these databases within a budget that you control. 
 
 A common SaaS application pattern is for each database to have a different customer, each with varying and unpredictable resource consumption (CPU/IO/Memory summarized with eDTU). With these peaks and valleys of demand for each database, it can be difficult to predict and therefore provision resources.  You're faced with two options; either over-provision database resources based on peak usage--and overpay. Or under-provision to save cost--at the expense of performance and customer satisfaction during peaks. 
 
 Microsoft created elastic pools specifically to help you solve this problem.
+
+> [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
 An elastic database pool is a collection of available resources shared by the elastic databases in the pool. You can add databases to the pool or remove them at any time. These elastic databases share the resources (expressed as elastic database throughput units, or eDTUs) and storage capacity of the pool, but each elastic database uses only the resources it needs when it needs them, leaving resources free for other elastic databases when they need them. Instead of over-provisioning individual databases and paying for resources that sit idle, you allocate and pay a predictable price for resources of the elastic pool in aggregate. This spreads the cost so you can achieve a competitive business model, and each elastic database gains performance adaptability.
 

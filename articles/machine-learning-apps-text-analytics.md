@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="05/28/2015"
 	ms.author="luisca"/>
 
 
@@ -109,9 +109,9 @@ Body:
 
 	{"Inputs":
 	[
-	    {"Id":1,"Text":"hello world"},
-    	{"Id":2,"Text":"hello foo world"},
-    	{"Id":3,"Text":"hello my world"},
+	    {"Id":"1","Text":"hello world"},
+    	{"Id":"2","Text":"hello foo world"},
+    	{"Id":"3","Text":"hello my world"},
 	]}
 
 
@@ -131,9 +131,9 @@ In the response below, you get the list of scores associated with your text Ids:
 
 	{
 	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", "SentimentBatch":
-		[{"Score":0.9549767,"Id":1},
-		 {"Score":0.7767222,"Id":2},
-		 {"Score":0.8988889,"Id":3}
+		[{"Score":0.9549767,"Id":"1"},
+		 {"Score":0.7767222,"Id":"2"},
+		 {"Score":0.8988889,"Id":"3"}
 		],  
 		"Errors":[] 
 	}
@@ -165,9 +165,9 @@ Body:
 
 	{"Inputs":
 	[
-		{"Id":1,"Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
-		{"Id":2,"Text":"It was an amazing build conference, with very interesting talks"},
-		{"Id":3,"Text":"The traffic was terrible, I spent three hours going to the airport"}
+		{"Id":"1","Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
+		{"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
+		{"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
 	]}
 
 Headers:
@@ -187,9 +187,9 @@ In the response below, you get the list of key phrases associated with your text
 	{ "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
 	 	"KeyPhrasesBatch":
 		[
-		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":1},
-		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":2},
-		   {"KeyPhrases":["hours","traffic","airport"],"Id":3 }
+		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
+		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
+		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
 		],
 		"Errors":[ ]
 	}

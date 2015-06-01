@@ -1,6 +1,6 @@
 <properties 
    pageTitle="What is StorSimple?" 
-   description="Describes StorSimple features, architecture, and components." 
+   description="Describes StorSimple features and architecture, and introduces the StorSimple components." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/17/2015"
+   ms.date="05/27/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # What is StorSimple? 
@@ -40,12 +40,13 @@ The following diagram provides a high-level view of the Microsoft Azure StorSimp
 
 The Microsoft Azure StorSimple solution includes the following components:
 
-- **Microsoft Azure StorSimple device**  – an on-premises hybrid storage array that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities. The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the device or on-premises servers), while moving less frequently used data to the cloud.
-- **StorSimple virtual device**  – also known as the StorSimple Virtual Appliance, this is a software version of the StorSimple device that replicates the architecture and capabilities of the physical hybrid storage device. The StorSimple virtual device runs on a single node in an Azure virtual machine. The virtual device is appropriate for use in test and small pilot scenarios. You cannot create a StorSimple virtual device on a StorSimple device or an on-premises server.
-- **Windows PowerShell for StorSimple**  – a command-line interface that you can use to manage the StorSimple device. Windows PowerShell for StorSimple has features that allow you to register your StorSimple device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state. You can access Windows PowerShell for StorSimple by connecting to the serial console or by using Windows PowerShell remoting.
-- **StorSimple Manager service**  – an extension of the Azure Management Portal that lets you manage a StorSimple device or StorSimple virtual device from a single web interface. You can use the StorSimple Manager service to create and manage services, view and manage devices, view alerts, manage volumes, and view and manage backup policies and the backup catalog.
-- **StorSimple Snapshot Manager**  – an MMC snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups. In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes. 
-- **StorSimple Adapter for SharePoint**  – a tool that transparently extends Microsoft Azure StorSimple storage and data protection to SharePoint Server farms, while making StorSimple storage viewable and manageable from the SharePoint Administration Portal.
+- **Microsoft Azure StorSimple device** – an on-premises hybrid storage array that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities. The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the device or on-premises servers), while moving less frequently used data to the cloud.
+- **StorSimple virtual device** – also known as the StorSimple Virtual Appliance, this is a software version of the StorSimple device that replicates the architecture and capabilities of the physical hybrid storage device. The StorSimple virtual device runs on a single node in an Azure virtual machine. The virtual device is appropriate for use in test and small pilot scenarios. You cannot create a StorSimple virtual device on a StorSimple device or an on-premises server.
+- **Windows PowerShell for StorSimple** – a command-line interface that you can use to manage the StorSimple device. Windows PowerShell for StorSimple has features that allow you to register your StorSimple device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state. You can access Windows PowerShell for StorSimple by connecting to the serial console or by using Windows PowerShell remoting.
+- **Azure PowerShell StorSimple cmdlets** – a collection of Windows PowerShell cmdlets that allow you to automate service-level and migration tasks from the command line. For more information about the Azure PowerShell cmdlets for StorSimple, go to the [cmdlet reference](https://msdn.microsoft.com/library/dn920427.aspx).
+- **StorSimple Manager service** – an extension of the Azure Management Portal that lets you manage a StorSimple device or StorSimple virtual device from a single web interface. You can use the StorSimple Manager service to create and manage services, view and manage devices, view alerts, manage volumes, and view and manage backup policies and the backup catalog.
+- **StorSimple Snapshot Manager** – an MMC snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups. In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes. 
+- **StorSimple Adapter for SharePoint** – a tool that transparently extends Microsoft Azure StorSimple storage and data protection to SharePoint Server farms, while making StorSimple storage viewable and manageable from the SharePoint Administration Portal.
 
 ## Next steps
 

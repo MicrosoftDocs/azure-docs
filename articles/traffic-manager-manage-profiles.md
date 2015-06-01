@@ -6,18 +6,18 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/30/2015"
+   ms.date="05/27/2015"
    ms.author="joaoma" />
 
 # Manage a Traffic Manager Profile
 
-You use a Traffic Manager profile to specify what cloud services or websites endpoints will be monitored by Traffic Manager, and what load balancing method you want to use to distribute connections to those endpoints. 
+You use a Traffic Manager profile to specify what cloud services or websites endpoints will be monitored by Traffic Manager, and what load balancing method you want to use to distribute connections to those endpoints.
 
 ## Create a Traffic Manager Profile Using Quick Create
 
@@ -36,7 +36,7 @@ You can quickly create a Traffic Manager profile by using **Quick Create** in th
 
 ## Disable, enable or delete a profile
 
-You can disable an existing Traffic Manager profile so that it will not refer user requests to its configured endpoints. When you disable a Traffic Manager profile, the profile itself and the information contained in the profile will remain intact and can be edited in the Traffic Manager interface. When you want to re-enable the profile, you can easily do so in the Management Portal and referrals will resume. When you create a Traffic Manager profile in the Management Portal, it’s automatically enabled. If you decide a profile will no longer be necessary, you can delete it. 
+You can disable an existing Traffic Manager profile so that it will not refer user requests to its configured endpoints. When you disable a Traffic Manager profile, the profile itself and the information contained in the profile will remain intact and can be edited in the Traffic Manager interface. When you want to re-enable the profile, you can easily do so in the Management Portal and referrals will resume. When you create a Traffic Manager profile in the Management Portal, it’s automatically enabled. If you decide a profile will no longer be necessary, you can delete it.
 
 ### To disable a profile
 

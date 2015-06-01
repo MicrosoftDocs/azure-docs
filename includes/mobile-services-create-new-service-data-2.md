@@ -3,19 +3,14 @@ To be able to store app data in the new mobile service, you must first create a 
 1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
 2. Click the **Data** tab, then click **+Create**.
-	
-   	![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
 
    	This displays the **Create new table** dialog.
 
 3. In **Table name** type _TodoItem_, then click the check button.
 
- 	![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png)
-
   This creates a new storage table **TodoItem** with the default permissions set. This means that anyone with the application key, which is distributed with your app, can access and change data in the table. 
 
-> [AZURE.NOTE] 
-> The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.
+	>[AZURE.NOTE] The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
 
@@ -55,4 +50,3 @@ To be able to store app data in the new mobile service, you must first create a 
     > [AZURE.NOTE] When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.
 
 You are now ready to use the new mobile service as data storage for the app.
-

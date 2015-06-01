@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Managing Role-Based Access Control with Windows PowerShell" 
-	description="Managing role-based access control with Windows PowerShell" 
-	services="azure-portal" 
-	documentationCenter="na" 
-	authors="Justinha" 
-	manager="terrylan" 
+<properties
+	pageTitle="Managing Role-Based Access Control with Windows PowerShell"
+	description="Managing role-based access control with Windows PowerShell"
+	services="azure-portal"
+	documentationCenter="na"
+	authors="Justinha"
+	manager="terrylan"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="powershell" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="powershell"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/11/2015"
 	ms.author="justinha"/>
 
 # Managing Role-Based Access Control with Windows PowerShell #
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Cross-Platform CLI](role-based-access-control-xplat-cli.md)
+- [Azure CLI](role-based-access-control-xplat-cli.md)
 
 
 Role-Based access control (RBAC) in the Azure Portal and Azure Resource Management API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
@@ -39,7 +39,7 @@ Before you can use Windows PowerShell to manage RBAC, you must have the followin
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
-To get detailed help for any cmdlet that you see in this tutorial, use the Get-Help cmdlet. 
+To get detailed help for any cmdlet that you see in this tutorial, use the Get-Help cmdlet.
 
 	Get-Help <cmdlet-name> -Detailed
 
@@ -65,7 +65,7 @@ To connect o your Azure subscriptions, type:
 
     PS C:\> Add-AzureAccount
 
-In the pop-up browser control, enter you Azure account user name and password. PowerShell will get all the subscriptions you have with this account and figure PowerShell to use the first one as default. Notice that with RBAC, you will only be able to get the subscriptions where you have some permissions by either being its co-admin or having some role assignment. 
+In the pop-up browser control, enter you Azure account user name and password. PowerShell will get all the subscriptions you have with this account and figure PowerShell to use the first one as default. Notice that with RBAC, you will only be able to get the subscriptions where you have some permissions by either being its co-admin or having some role assignment.
 
 If you have multiple subscriptions and want to switch to another one, type:
 
@@ -137,7 +137,7 @@ This will create a role assignment for a group at a resource group level.
 This will create a role assignment at a resource level.
 
 	PS C:\> $resources = Get-AzureResource
-    PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId 
+    PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
 
 ## Verify permissions
@@ -154,12 +154,12 @@ Then when you try to run other cmdlet like `New-AzureResourceGroup`, you will ge
 ## Next steps
 
 To learn more about managing role-based access control with Windows PowerShell, and related topics:
- 
+
 - [Role based access control in Azure](role-based-access-control-configure.md)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
 - [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
-- [Configure role based access control using XPLAT CLI](role-based-access-control-xplat-cli.md)
+- [Configure role based access control using Azure CLI](role-based-access-control-xplat-cli.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)

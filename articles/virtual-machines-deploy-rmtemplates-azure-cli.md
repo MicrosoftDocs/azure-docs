@@ -20,8 +20,6 @@
 
 This article shows you how to use Azure Resource Manager templates and Azure CLI to do the following common tasks for deploying and managing Azure Virtual Machines. For more templates you can use, see [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 
-Common Tasks:
-
 - [Quick-create a Virtual Machine in Azure](#quick-create-a-vm-in-azure)
 - [Deploy a Virtual Machine in Azure from a template](#deploy-a-vm-in-azure-from-a-template)
 - [Create a Virtual Machine from a custom image](#create-a-custom-vm-image) 
@@ -33,8 +31,6 @@ Common Tasks:
 - [Stop a Virtual Machine](#stop-a-virtual-machine)
 - [Start a Virtual Machine](#start-a-virtual-machine)
 - [Attach a data disk](#attach-a-data-disk)
-
-
 
 ## Getting Ready
 
@@ -103,7 +99,7 @@ You can then manage the overall lifecycle of the group's resources by using Azur
 
 You can learn lots more about Azure resource groups and what they can do for you [here](resource-groups-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md). 
 
-## Quick-create a VM in Azure
+## <a id="quick-create-a-vm-in-azure"></a>TASK: Quick-create a VM in Azure
 
 Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM. That's when you want to use the `azure vm quick-create` command, and pass the arguments necessary to create a VM and its infrastructure.
 
@@ -232,7 +228,7 @@ Just create your VM by entering the `azure vm quick-create command` and being re
     
 And away you go with your new VM.
 
-## Deploy a VM in Azure from a template
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>TASK: Deploy a VM in Azure from a template
 
 Use the instructions in these sections to deploy a new Azure VM using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
 
@@ -501,7 +497,7 @@ You will receive the following type of information:
     
 
 
-## Create a custom VM image
+## <a id="create-a-custom-vm-image"></a>TASK: Create a custom VM image
 
 You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM from a specific .vhd file in Azure with a template using the Azure CLI. The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD). 
 
@@ -766,7 +762,7 @@ Output looks something like the following:
     info:    group deployment create command OK
     
 
-## Deploy a multi-VM application that uses a virtual network and an external load balancer
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>TASK: Deploy a multi-VM application that uses a virtual network and an external load balancer
 
 This template allows you to create 2 Virtual Machines under a Load balancer and configure a load balancing rule on Port 80. This template also deploys a Storage Account, Virtual Network, Public IP address, Availability Set and Network Interfaces.
 
@@ -1178,7 +1174,7 @@ Now use the `azure group deployment create` command and the `--template-uri` opt
     
 Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image, too. Want to create a Docker Cluster across multiple regions? [You can do it](http://azure.microsoft.com/documentation/templates/201-discover-private-ip-dynamically/). 
 
-## Remove a resource group
+## <a id="remove-a-resource-group"></a>TASK: Remove a resource group
 
 Remember that you can redeploy to a resource group, but if you done with one, you delete it using `azure group delete <group name>`. 
 
@@ -1188,7 +1184,7 @@ Remember that you can redeploy to a resource group, but if you done with one, yo
     + Deleting resource group myResourceGroup                                               
     info:    group delete command OK
     
-## Show the log for a resource group deployment
+## <a id="show-the-log-for-a-resource-group-deployment"></a>TASK: Show the log for a resource group deployment
 
 This one is quite common while creating or using templates. The call to display the deployment logs for a group is `azure group log show <groupname>`, which displays quite a bit of information useful to understand why something happened -- or didn't. (For more information on troubleshooting your deployments, as well as other information about issues, see [Troubleshooting Resource Group Deployments in Azure](resource-group-deploy-debug.md).)
 
@@ -1204,7 +1200,7 @@ You can discover very quickly what went wrong, fix, and retry. In the following 
     }
     
 
-## Display information about a virtual machine
+## <a id="display-information-about-a-virtual-machine"></a>TASK: Display information about a virtual machine
 
 You can see information about specific VMs in your resource group using the `azure vm show <groupname> <vmname> command`. You might need to list the VMs in a group, first, if you have more than one, using `azure vm list <groupname>`.
 
@@ -1271,11 +1267,11 @@ and then, looking up myVM1:
 
 > [AZURE.NOTE] If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)**, or language libraries good for the task. 
 
-## Log on to a Linux-based virtual machine
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>TASK: Log on to a Linux-based virtual machine
 
 Typically Linux machines are connected to through SSH. For more information, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
 
-## Stop a VM
+## <a id="stop-a-virtual-machine"></a>TASK: Stop a VM
 
 Run this command:
 
@@ -1283,13 +1279,13 @@ Run this command:
 
 >[AZURE.IMPORTANT] Use this parameter to keep the virtual IP (VIP) of the cloud service in case it's the last VM in that cloud service. <br><br> If you use the StayProvisioned parameter, you'll still be billed for the VM.
 
-## Start a VM
+## <a id="start-a-virtual-machine"></a>TASK: Start a VM
 
 Run this command:
 Azure Resource Manager Overview
     azure vm start <group name> <virtual machine name>
 
-## Attach a Data Disk
+## <a id="attach-a-data-disk"></a>TASK: Attach a Data Disk
 
 You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it in the same command.
 
@@ -1308,7 +1304,7 @@ Then you'll need to mount the disk, as you normally would in Linux (or in Window
 
 For far more examples of Azure CLI usage with the **arm** mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](resource-group-overview.md).
 
-For more templates you can use, see [Azure Quickstart Tempaltes](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
+For more templates you can use, see [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 
 
 

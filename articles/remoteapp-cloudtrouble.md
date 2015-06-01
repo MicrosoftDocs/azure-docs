@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Troubleshoot cloud collections - creation"
+    pageTitle="Troubleshoot RemoteApp cloud collections - creation"
     description="Learn how to troubleshoot RemoteApp cloud collection creation failures" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
+    ms.date="05/28/2015" 
     ms.author="vikbucha" />
 
 
 
-# Troubleshoot cloud collections - creation
+# Troubleshoot creating RemoteApp cloud collections
 
 Common errors seen in the Azure Management portal:
 
