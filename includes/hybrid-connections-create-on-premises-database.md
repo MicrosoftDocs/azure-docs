@@ -27,6 +27,7 @@ This section uses SQL Server Configuration Manager, which was installed when you
 
 2. (Optional) If you are not able to use the default instance, you must follow the steps in [Configure a Server to Listen on a Specific TCP Port ](https://msdn.microsoft.com/library/ms177440.aspx) to set a static port for the instance. If you complete this step, you will connect using the new port that you define, instead of port 1433.
 
+3. (Optional) If needed, add exceptions in the firewall to allow remote access to the SQL Server process (sqlservr.exe).
 
 ###Create a new database in the on-premises SQL Server instance
 
@@ -42,8 +43,38 @@ This section uses SQL Server Configuration Manager, which was installed when you
 	
 4. In Object Explorer, if you expand **Databases**, you will see that the new database is created.
 
-###Create a new SQL Server login
+###Create a new SQL Server login and set permissions
 
 Finally, you will create a new SQL Server login with restricted permissions. Your Azure service will connect to the on-premise SQL Server using this login instead of the built-in sa login, which has full permissions on the server.
 
-1. 
+1. In SQL Server Management Studio Object Explorer, right-click the **OnPremisesDB** database and click **New Query**.
+
+2.  Paste the following TSQL query into the query window.
+
+		USE [master]
+		GO
+		
+		/* Replace the PASSWORD in the following statement with a secure password. 
+		   If you save this script, make sure that you secure the file to 
+		   securely maintain the password. */ 
+		CREATE LOGIN [HybridConnectionLogin] WITH PASSWORD=N'<**secure_password**>', 
+			DEFAULT_DATABASE=[OnPremisesDB], DEFAULT_LANGUAGE=[us_english], 
+			CHECK_EXPIRATION=OFF, CHECK_POLICY=ON
+		GO
+	
+		USE [OnPremisesDB]
+		GO
+	
+		CREATE USER [HybridConnectionLogin] FOR LOGIN [HybridConnectionLogin] 
+		WITH DEFAULT_SCHEMA=[dbo]
+		GO
+
+		GRANT CONNECT TO [HybridConnectionLogin]
+		GRANT CREATE TABLE TO [HybridConnectionLogin]
+		GRANT CREATE SCHEMA TO [HybridConnectionLogin]
+		GO  
+   
+3. In the above script, replace the string `<**secure_password**>` with a secure password for the new *HybridConnectionsLogin*.
+
+4. **Execute** the query to create the new login and grant the required permissions in the on-premises database.
+
