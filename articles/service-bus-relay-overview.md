@@ -17,9 +17,9 @@
 	ms.author="sethm"/>
 
 
-# Service Bus Relayed Messaging
+# Service Bus relayed messaging
 
-The central component of Service Bus is a centralized (but highly load-balanced) relay service that supports a variety of different transport protocols and web services standards. This includes SOAP, WS-*, and even REST. The relay service enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment. The Service Bus relay facilitates this by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. 
+The central component of Service Bus is a highly load-balanced relay service that supports a variety of different transport protocols and web services standards. This includes SOAP, WS-*, and even REST. The relay service enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment. The Service Bus relay facilitates this by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. 
 
 ![Relay Concepts](./media/service-bus-relay-overview/sb-relay-01.png)
 
