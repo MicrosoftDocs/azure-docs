@@ -375,7 +375,7 @@ You can test receiving notifications in your app by send notifications in the Az
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
-				if (data != null)
+				if (data != NULL)
 				{
 		        	xmlParser = [[NSXMLParser alloc] initWithData:data];
 		        	[xmlParser setDelegate:self];
