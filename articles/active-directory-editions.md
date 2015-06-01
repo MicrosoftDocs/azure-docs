@@ -3,7 +3,7 @@
 	description="A topic that explains choices for free and paid editions of Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand" 
+	authors="curtand"
 	manager="TerryLan"
 	editor=""/>
 
@@ -20,7 +20,7 @@
 
 Azure Active Directory is a service that provides comprehensive identity and access management capabilities in the cloud. It combines directory services, advanced identity governance, application access management and a rich standards-based platform for developers. For more information, [see this video](http://azure.microsoft.com/documentation/videos/teched-europe-2014-cloud-identity-microsoft-azure-active-directory-explained/).
 
-Built on top of a large set of free capabilities in Microsoft Azure Active Directory, Azure Active Directory Premium and Basic editions provide a set of more advanced features to empower enterprises with more demanding identity and access management needs. For the pricing options for these editions, see [Azure Active Directory Pricing](http://azure.microsoft.com/en-us/pricing/details/active-directory/). When you subscribe to Azure, you get your choice of the following free and paid editions of Azure Active Directory:
+Built on top of a large set of free capabilities in Microsoft Azure Active Directory, Azure Active Directory Premium and Basic editions provide a set of more advanced features to empower enterprises with more demanding identity and access management needs. For the pricing options for these editions, see [Azure Active Directory Pricing](http://azure.microsoft.com/pricing/details/active-directory/). When you subscribe to Azure, you get your choice of the following free and paid editions of Azure Active Directory:
 
 - **Free** - The Free edition of Azure Active Directory is part of every Azure subscription. There is nothing to license and nothing to install. With it, you can manage user accounts, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more.
 - **Basic** - Azure Active Directory Basic edition provides application access and self-service identity management requirements for task workers with cloud-first needs. With the Basic edition of Azure Active Directory, you get all the capabilities that Azure Active Directory Free has to offer, plus group-based access management, self-service password reset for cloud applications, Azure Active Directory application proxy (to publish on-premises web applications using Azure Active Directory), customizable environment for launching enterprise and consumer cloud applications, and an enterprise-level SLA of 99.9 percent uptime.
@@ -63,7 +63,7 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 
 - **Microsoft Identity Manager (MIM)** - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions. This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory. There is no limit on the number of FIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.
 
-    For more information, see [Deploy MIM 2010 R2](https://www.microsoft.com/en-us/server-cloud/products/forefront-identity-manager/features.aspx).
+    For more information, see [Deploy MIM 2010 R2](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx).
 
 - **Enterprise SLA of 99.9%** - We guarantee at least 99.9% availability of the Azure Active Directory Premium service.
 
@@ -111,12 +111,12 @@ Azure Active Directory Basic and Azure Active Directory Premium have more advanc
 
 The following features are currently in public preview and will be added soon:
 
-- [Administrative units](https://msdn.microsoft.com/en-us/library/azure/dn832057.aspx): a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users.
-- [Add your own SaaS applications](https://msdn.microsoft.com/en-us/library/azure/dn893637.aspx) to Azure Active Directory.
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/en-us/library/azure/dn906722.aspx): monitor the health of your on premises Active Directory infrastructure and get usage analytics.
+- [Administrative units](https://msdn.microsoft.com/library/azure/dn832057.aspx): a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users.
+- [Add your own SaaS applications](https://msdn.microsoft.com/library/azure/dn893637.aspx) to Azure Active Directory.
+- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): monitor the health of your on premises Active Directory infrastructure and get usage analytics.
 - Password rollover for Facebook, Twitter, and LinkedIn. For more information, read [this article](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
 - Dynamic group membership. For more information, see [this article](https://msdn.microsoft.com/library/azure/dn913807.aspx).
-- [Conditional Access](https://msdn.microsoft.com/en-us/library/azure/dn906877.aspx): Multifactor Authentication per application.
+- [Conditional Access](https://msdn.microsoft.com/library/azure/dn906877.aspx): Multifactor Authentication per application.
 - HR application integration: Workday
 - Privileged Identity Management: Privileged identity management provides improved oversight to help meet service level agreements and regulatory compliance requirements.
 - Self-service application requests: Administrators can provide a list of SaaS apps to users from which so that users can choose the ones they want to use, and the apps either will be available immediately or after approval.
