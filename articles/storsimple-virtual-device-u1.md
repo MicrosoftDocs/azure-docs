@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2015"
+   ms.date="05/27/2015"
    ms.author="alkohli" />
 
 # StorSimple virtual device

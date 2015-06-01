@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="05/28/2015" 
 	ms.author="mwasson"/>
 
 
@@ -42,10 +42,12 @@ The **Application settings** blade has settings grouped under several categories
 
 For technical reasons, enabling Java for your app disables the .NET, PHP, and Python options.
 
+<a name="platform"></a>
 **Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
 
 **Web Sockets**. Set **ON** to enable the WebSocket protocol; for example, if your web app uses [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](web-sites-nodejs-chat-app-socketio.md).
 
+<a name="alwayson"></a>
 **Always On**. By default, web apps are unloaded if they are idle for some period of time. This lets the system conserve resources. In Basic or Standard mode, you can enable **Always On** to keep the app loaded all the time. If your app runs continuous web jobs, you should enable **Always On**, or the web jobs may not run reliably.
 
 **Managed Pipeline Version**. Sets the IIS [pipeline mode](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application). Leave this set to Integrated (the default) unless you have a legacy app that requires an older version of IIS.

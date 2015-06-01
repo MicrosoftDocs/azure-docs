@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/22/2015"
+    ms.date="05/28/2015"
     ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1 release notes  
 
 ## Overview
 
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1.0. These also contain a list of the StorSimple software and firmware updates included in this release. This is the first major release after the StorSimple 8000 Series Release version was made generally available in July 2014.
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 1. These also contain a list of the StorSimple software and firmware updates included in this release. This is the first major release after the StorSimple 8000 Series Release version was made generally available in July 2014.
 
 This update changes the device software to be StorSimple 8000 Series Update 1. Please review the information contained in the release notes before you deploy the update in your StorSimple solution. For more information, see how to [install Update 1 on your StorSimple device](storsimple-install-update-1.md). 
 
@@ -27,7 +27,7 @@ Please review the information contained in the release notes before you deploy t
 
 >[AZURE.IMPORTANT]
 > 
-- Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.0.
+- Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
 - This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
 - It takes approximately 5-10 hours to install this update (including the Windows Updates). 
 
@@ -46,7 +46,7 @@ This update contains the following new features and improvements:
 
 - **Support for other cloud service providers** – The other cloud service providers supported are Amazon S3, Amazon S3 with RRS, HP, and OpenStack (beta).
 
-- **Update to latest Storage APIs** – With this release, StorSimple has been updated to the latest Azure Storage service APIs. StorSimple 8000 series devices that are running  GA are using versions of the Azure Storage Service APIs older than February 12, 2012. As stated in the [announcement about removal of Storage service versions](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), by December 10, 2015, these APIs will be deprecated. It is imperative that you apply the StorSimple 8000 Series Update 1.0 prior to December 9, 2015. If you fail to do so, StorSimple devices will stop functioning correctly.
+- **Update to latest Storage APIs** – With this release, StorSimple has been updated to the latest Azure Storage service APIs. StorSimple 8000 series devices that are running  GA are using versions of the Azure Storage Service APIs older than February 12, 2012. As stated in the [announcement about removal of Storage service versions](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), by December 10, 2015, these APIs will be deprecated. It is imperative that you apply the StorSimple 8000 Series Update 1 prior to December 9, 2015. If you fail to do so, StorSimple devices will stop functioning correctly.
 
 - **Support for Zone Redundant Storage (ZRS)** – With the upgrade to the latest version of the Storage APIs, the StorSimple 8000 series will support Zone Redundant Storage (ZRS) in addition to Locally Redundant Storage (LRS) and Geo-redundant Storage (GRS). Refer to this [article on Azure Storage redundancy options](storage-redundancy.md) for ZRS details.
 
@@ -97,11 +97,11 @@ When these updates are applied to a physical device, the software version will c
 
 This release updates the driver and the firmware on the SAS controller of your physical device. It also updates the disk firmware on your device.
  
-- For more information about the SAS controller update, see [Update 1 for LSI SAS controllers in Microsoft Azure StorSimple Appliance](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=732454&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F005). 
+- For more information about the SAS controller update, see [Update 1 for LSI SAS controllers in Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3043005). 
 
-- For more information about the firmware update, see [Firmware Update 1 for Microsoft Azure StorSimple Appliance](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767385&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F414). 
+- For more information about the firmware update, see [Firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063414). 
 
-- For more information about the disk firmware update, see [Disk firmware Update 1 for Microsoft Azure StorSimple Appliance](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767387&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F416).
+- For more information about the disk firmware update, see [Disk firmware Update 1 for Microsoft Azure StorSimple Appliance](https://support.microsoft.com/en-us/kb/3063416).
  
 ## Virtual device updates in Update 1
 

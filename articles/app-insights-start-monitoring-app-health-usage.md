@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/14/2015" 
+	ms.date="05/21/2015" 
 	ms.author="awills"/>
 
 
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It can be used with a wide variety of application types. It works for apps that are hosted on your own IIS servers or Azure VMs, as well as Azure web apps. ([Device apps and Java servers are also covered][start].)
+Visual Studio Application Insights monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It can be used with a wide variety of application types. It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps. ([Device apps and Java servers are also covered][start].)
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
@@ -115,7 +115,7 @@ Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBui
 To get the full 360-degree view of your application, there are some more things you should do:
 
 
-* [Add the JavaScript SDK to your web pages][client] to get browser-based telemetry such as page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.
+* [Add the JavaScript SDK to your web pages][client] to get browser-based telemetry such as user, session and page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.
 * Add dependency tracking to diagnose issues caused by databases or other components used by your app:
  * [in your Azure Web App or VM][azure]
  * [in your on-premises IIS server][redfield]

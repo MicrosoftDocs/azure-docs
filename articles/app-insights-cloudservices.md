@@ -13,23 +13,17 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="05/12/2015"
+   ms.date="05/21/2015"
    ms.author="sdash"/>
 
 # Application Insights for Azure Cloud Services
-
-**DRAFT -- TBD items**
-
-* Add portal experience images
-* Add code snippets
-* Fix links to sample code
 
 
 *Application Insights is in preview*
 
 [Microsoft Azure Cloud service apps](http://azure.microsoft.com/services/cloud-services/) can be monitored by [Visual Studio Application Insights][start] for availability, performance, failures and usage.
 
-For illustration purposes, we have added Application Insights to this [sample Azure cloud service](sample link). This code is available [here](git link), for you to follow along with the steps below.
+<!-- For illustration purposes, we have added Application Insights to this [sample Azure cloud service](sample link). This code is available [here](git link), for you to follow along with the steps below. -->
 
 ## Create an Application Insights resource for each role
 
@@ -52,6 +46,7 @@ As an alternative, you could send data from all the roles to just one resource, 
 
 
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
+
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-cloudservices/03-nuget.png)
 
 2. Install the Application Insights SDK for Web Apps.
@@ -111,9 +106,7 @@ To get the full 360-degree view of your application, there are some more things 
 
 #### Track requests for worker roles
 
-A request is in essence a unit of *named* server side work that can be *timed* and independently *succeed/fail*.
-
-As such, Requests can be applied for worker roles, and provides a handy way to capture performance and success telemetry of the different operations a worker role may be doing.
+You can capture the performance of calls to worker roles by tracking them in the same way as HTTP requests. In Application Insights, the Request telemetry type measures a unit of named server side work that can be timed and can independently succeed or fail. While HTTP requests are captured automatically by the SDK, you can insert your own code to track requests to worker roles.
 
 Here's a typical run loop for a worker role:
 
@@ -128,7 +121,7 @@ Here's a typical run loop for a worker role:
         // ... get and process messages ...
 
         s1.Stop();
-        aiClient.TrackRequest("CheckItemsTable",
+        telemetryClient.TrackRequest("CheckItemsTable",
             startTime, s1.Elapsed, SUCCESS_CODE, true);
       }
       catch (Exception ex)
@@ -139,9 +132,9 @@ Here's a typical run loop for a worker role:
            err += " Inner Exception: " + ex.InnerException.Message;
         }
         s1.Stop();
-        aiClient.TrackRequest("CheckItemsTable", 
+        telemetryClient.TrackRequest("CheckItemsTable", 
             startTime, s1.Elapsed, FAILURE_CODE, false);
-        aiClient.TrackException(ex);
+        telemetryClient.TrackException(ex);
 
         // Don't flood if we have a bug in queue process loop.
         System.Threading.Thread.Sleep(60 * 1000);

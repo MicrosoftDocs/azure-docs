@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
 
@@ -35,9 +35,7 @@ When working with Live Streaming the following components are commonly involved:
 	- deliver the content through common streaming protocols (for example, MPEG DASH, Smooth, HLS, HDS) directly to your customers, or to a Content Delivery Network (CDN) for further distribution. 
 	
 		
-**Microsoft Azure Media Services** provides the ability to ingest, preview, store, and deliver your live streaming content.
-
->[AZURE.NOTE]Currently, Azure Media Services does not support live encoding, so you should use an on-premises encoder to send a multi-bitrate stream to your channels.
+**Microsoft Azure Media Services** (AMS) provides the ability to ingest,  encode, preview, store, and deliver your live streaming content.
 
 When delivering your content to customers your goal is to deliver a high quality video to various devices under different network conditions. To take care of quality and network conditions, use live encoders to encode your stream to multi-bitrate (adaptive bitrate) video stream.  To take care of streaming on different devices, use Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream to different protocols. Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
@@ -45,23 +43,44 @@ In Azure Media Services, **Channels**, **Programs**, and **StreamingEndpoints** 
 
 A **Channel** represents a pipeline for processing live streaming content. Currently, a Channel can receive a live input streams in the following way:
 
-- An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. Your live encoder can also send a single bitrate stream, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
-##Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
+- An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
+
+	Encoding a live stream with Media Services is in **Preview**.
+- An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. Your live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
 
-The following diagram shows the major parts of the Media Services platform that are involved in this Live Streaming workflow.
+##Working with Channels that are enabled to perform live encoding with Azure Media Services
 
-![Live workflow][live-overview]
+
+The following diagram shows the major parts of the AMS platform that are involved in Live Streaming workflow where a Channel is enabled to perform live encoding with Media Services.  
+
+![Live workflow][live-overview1]
+
+For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md). 
+
+
+##Working with Channels that receive multi-bitrate live stream from on-premises Encoders
+
+
+The following diagram shows the major parts of the AMS platform that are involved in this Live Streaming workflow.
+
+![Live workflow][live-overview2]
 
 For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
 ](media-services-manage-channels-overview.md). 
 
-
-[live-overview]: ./media/media-services-overview/media-services-live-streaming-current.png
 
 ##Related topics
 
 [Media Services Concepts](media-services-concepts.md)
 
 [Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+
+
+
+
+
+[live-overview1]: ./media/media-services-overview/media-services-live-streaming-new.png
+
+[live-overview2]: ./media/media-services-overview/media-services-live-streaming-current.png

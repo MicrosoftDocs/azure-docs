@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="05/14/2015"

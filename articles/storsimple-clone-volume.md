@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/02/2015"
+   ms.date="05/27/2015"
    ms.author="alkohli" />
 
 # Clone a StorSimple volume

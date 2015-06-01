@@ -20,7 +20,7 @@
 
 *Application Insights is in preview.*
 
-The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. You can install it on any physical or virtual server to which you have admin access
+The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. You can install it on any physical or virtual server to which you have admin access.
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 

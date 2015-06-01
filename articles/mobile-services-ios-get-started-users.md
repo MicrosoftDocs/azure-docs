@@ -10,41 +10,37 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="2/16/2015"
+	ms.date="05/28/2015"
 	ms.author="krisragh"/>
 
-# Add Authentication to Existing Azure Mobile Services app
+# Add Authentication to Existing App
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-In this tutorial, you add authentication to the Quick Start project using a supported identity provider.
+In this tutorial, you add authentication to the [Mobile Services Quick Start tutorial] using a supported identity provider. You must complete the [Mobile Services Quick Start tutorial] first.
 
-This tutorial is based on the [Mobile Services Quick Start tutorial], which you must complete first.
-
-##<a name="register"></a>Register app for authentication and configure Mobile Services
+##<a name="register"></a>Register App for Authentication
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-##<a name="permissions"></a>Restrict permissions to authenticated users
+##<a name="permissions"></a>Restrict Data Permissions to Authenticated Users
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-In Xcode, open the project. Press the **Run** button to  start the app. Verify that an exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
-
-##<a name="add-authentication"></a>Add authentication to app
+##<a name="add-authentication"></a>Add Authentication to App
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>Store authentication tokens in app
+##<a name="store-authentication"></a>Store Authentication Tokens in App
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Next Steps
 
-In the next tutorial, [Service-side authorization of Mobile Services users], you will user the user ID value to filter returned data.
+Next, learn [how to use the user ID value to filter returned data](mobile-services-javascript-backend-service-side-authorization.md).
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register

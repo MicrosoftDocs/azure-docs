@@ -20,7 +20,7 @@
 # Equivalent Resource Manager and Service Management Commands for VM Operations with the Azure CLI for Mac, Linux, and Windows
 This article shows equivalent Azure command-line interface (Azure CLI) commands to create and manage Azure VMs in Service Management (asm) mode and Resource Manager (arm) mode. Use this as a handy guide to migrate scripts from one command mode to the other.
 
-* If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI for Mac, Linux, and Windows](xplat-cli-install.md) and [Connect to an Azure subscription from the Azure CLI for Mac, Linux, and Windows](xplat-cli-connect.md). Be sure to connect with the login method when you use the arm mode commands.
+* If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](xplat-cli-install.md) and [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md). Be sure to connect with the login method when you use the arm mode commands.
 
 * To get started with arm mode in the Azure CLI and switch command modes, see [Using the Azure Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
 
@@ -61,5 +61,5 @@ Show a VM image | `azure vm image show [options]` | not available
 ## Next steps
 
 * For more about using the Azure CLI to work with resources in arm mode, see [Using the Azure Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md) and [Managing Role-Based Access Control with the Azure Command-Line Interface](role-based-access-control-xplat-cli.md).
-* For additional examples of the CLI commands, see [Using the Azure Command-Line Interface for Mac, Linux, and Windows](virtual-machines-command-line-tools.md) and
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](azure-cli-arm-commands.md).
+* For additional examples of the CLI commands, see [Using the Azure Command-Line Interface](virtual-machines-command-line-tools.md) and
+[Using the Azure CLI with Azure Resource Manager](azure-cli-arm-commands.md).

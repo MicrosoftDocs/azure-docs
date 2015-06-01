@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Manage Hadoop clusters using a Command-Line interface | Microsoft Azure" 
-	description="How to use the cross-platform command-line interface to manage Hadoop clusters in HDIsight on any OS supporting Node.js, including Windows, Mac, and Linux." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="mumian" 
+<properties
+	pageTitle="Manage Hadoop clusters using Azure CLI | Microsoft Azure"
+	description="How to use the Azure CLI to manage Hadoop clusters in HDIsight"
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="mumian"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/31/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/31/2015"
 	ms.author="jgao"/>
 
-# Manage Hadoop clusters in HDInsight by using the Cross-Platform Command-line Interface
+# Manage Hadoop clusters in HDInsight by using the Azure Command-line Interface (Azure CLI)
 
-Learn how to use the Azure Command-Line interface for Mac, Linux and Windows to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. 
+Learn how to use the Azure CLI to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
-The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
+The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>.
 
-This article covers only using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux] [azure-command-line-tools].
+This article covers only using the Azure CLI from Windows. For a general guide on how to use Azure CLI, see [How to use the Azure CLI] [azure-command-line-tools].
 
 
 ##Prerequisites
@@ -51,7 +51,7 @@ The command-line interface can be installed via *Node.js Package Manager (NPM)* 
 		azure hdinsight -h
 
 	You can use the **-h** switch at different levels to display the help information. For example:
-		
+
 		azure -h
 		azure hdinsight -h
 		azure hdinsight cluster -h
@@ -60,11 +60,11 @@ The command-line interface can be installed via *Node.js Package Manager (NPM)* 
 **To install the command-line interface by using Windows Installer**
 
 1.	Browse to **http://azure.microsoft.com/downloads/**.
-2.	Scroll down to the **Command line tools** section, and then click **Cross-Platform Command-Line Interface** and follow the Web Platform Installer wizard.
+2.	Scroll down to the **Command line tools** section, and then click **Azure Command-Line Interface** and follow the Web Platform Installer wizard.
 
 ##Download and import an Azure account publishsettings file
 
-Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You need to import your publishsettings file only once.
+Before using the Azure CLI, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the Azure CLI will use for subsequent operations. You need to import your publishsettings file only once.
 
 > [AZURE.NOTE] The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. In Windows, modify the folder properties or use BitLocker Drive Encryption.
 
@@ -75,8 +75,8 @@ Before using the command-line interface, you must configure connectivity between
 2.	Run the following command to download the publishsettings file:
 
 		azure account download
- 
-	![Command-line Interface downloading Azure account.][image-cli-account-download-import]
+
+	![Azure CLI downloading Azure account.][image-cli-account-download-import]
 
 	The command shows the instructions for downloading the file, including a URL.
 
@@ -94,7 +94,7 @@ Before using the command-line interface, you must configure connectivity between
 [AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 
-HDInsight uses an Azure Blob storage container as the default file system. An Azure Storage account is required before you can create an HDInsight cluster. 
+HDInsight uses an Azure Blob storage container as the default file system. An Azure Storage account is required before you can create an HDInsight cluster.
 
 After you have imported the publishsettings file, you can use the following command to create a Storage account:
 
@@ -121,8 +121,8 @@ For details on getting the information by using the Azure portal, see the "View,
 The **azure hdinsight cluster create** command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
 
 	azure storage container create --account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
-		
-Once you have the Storage account and the Blob container prepared, you are ready to create a cluster: 
+
+Once you have the Storage account and the Blob container prepared, you are ready to create a cluster:
 
 	azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
@@ -146,22 +146,22 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 ##Provision an HDInsight cluster by using a configuration file
 Typically, you provision an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.  
- 
+
 	azure hdinsight cluster config create <file>
-	 
+
 	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
-	 
+
 	azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"
 	       --storageAccountKey "<StorageAccountKey>"
-	 
+
 	azure hdinsight cluster config metastore set <file> --type "hive" --server "<SQLDatabaseName>.database.windows.net"
 	       --database "<HiveDatabaseName>" --user "<Username>" --metastorePassword "<UserPassword>"
-	 
+
 	azure hdinsight cluster config metastore set <file> --type "oozie" --server "<SQLDatabaseName>.database.windows.net"
 	       --database "<OozieDatabaseName>" --user "<SQLUsername>" --metastorePassword "<SQLPassword>"
-	 
+
 	azure hdinsight cluster create --config <file>
-		 
+
 
 
 ![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
@@ -169,10 +169,10 @@ Typically, you provision an HDInsight cluster, run jobs on it, and then delete t
 
 ##List and show cluster details
 Use the following commands to list and show cluster details:
-	
+
 	azure hdinsight cluster list
 	azure hdinsight cluster show <ClusterName>
-	
+
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
 
@@ -190,11 +190,11 @@ In this article, you have learned how to perform different HDInsight cluster adm
 * [Administer HDInsight by using the Azure portal] [hdinsight-admin-portal]
 * [Administer HDInsight by using Azure PowerShell] [hdinsight-admin-powershell]
 * [Get started with Azure HDInsight] [hdinsight-get-started]
-* [How to use the Azure CLI for Mac, Linux and Windows] [azure-command-line-tools]
+* [How to use the Azure CLI] [azure-command-line-tools]
 
 
 [azure-command-line-tools]: xplat-cli.md
-[azure-create-storageaccount]: storage-create-storage-account.md 
+[azure-create-storageaccount]: storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -204,7 +204,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-get-started]: hdinsight-get-started.md
 
-[image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png 
+[image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
