@@ -49,7 +49,7 @@ Password writeback has three main components:
 - Tenant-specific Azure Service Bus relay
 - On-prem password reset endpoint
  
- ![001]
+ ![][001]
  
 When a federated or password hash sync’d user comes to reset or change his or her password in the cloud, the following occurs:
 
@@ -67,7 +67,7 @@ When a federated or password hash sync’d user comes to reset or change his or 
 ## Scenarios supported for password writeback
 The table below describes which scenarios are supported for which versions of our sync capabilities.  In general, it is highly recommended that you install the latest version of AADSync if you want to use password writeback.  You can find the latest version of AAD Sync at http://www.microsoft.com/en-us/download/details.aspx?id=44225.
 
-![002]
+![][002]
 
 ## Password writeback security model
 Password writeback is a highly secure and robust service.  In order to ensure your information is protected, we enable a 4-tiered security model that is described below.
@@ -276,5 +276,5 @@ The following table outlines where and how this data is used during password res
 
 
 
-[001]: ../media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
-[002]: ../media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
+[001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
+[002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"

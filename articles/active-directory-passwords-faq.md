@@ -86,7 +86,7 @@ The following are some frequently asked questions for all things related to pass
  
  > **A:** The password reset portal will show your organizational logo and will also allow you to configure the Contact your administrator link to point to a custom email or URL. Any email that gets sent by password reset will include your organization’s logo, colors (in this case red), name in the body of the email, and customized <from> name. See an example with all the branded elements below. To learn more, read Customizing Password Reset Look and Feel.
   
-  ![001]
+  ![][001]
   
  - **Q:  How can I educate my users about where to go to reset their passwords?**
  
@@ -155,7 +155,7 @@ The following are some frequently asked questions for all things related to pass
  
  > **A:** You can filter the password management reports by clicking the small magnifying glass to the extreme right of the column labels, towards the top of the report (see screenshot). If you want to do richer filtering, you can download the report to excel and create a pivot table. 
   
-  ![002]
+  ![][002]
   
  - **Q:  How far back do the password management reports go?**
  
@@ -202,5 +202,5 @@ The following are some frequently asked questions for all things related to pass
 * [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
 
-[001]: ../media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
-[002]: ../media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
+[001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
+[002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"

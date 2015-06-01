@@ -69,41 +69,41 @@ Before users are able to use password reset, their cloud user accounts must be u
 
 However, if you’d rather have your users register their own data, we also provide a web page that users can go to in order to provide this information.  This page will allow users to specify authentication information in accordance with the password reset policies that have been enabled in their organization.  Once this data is verified, it is stored in their cloud user account to be used for account recovery at a later time. Here’s what the registration portal looks like:
   
-  ![001]
+  ![][001]
   
 For more information, see Self-service password reset in Azure AD: how to enable, configure, and test self-service password reset and Self-service password reset in Azure AD: deployment and management best practices. 
 
 ##User Password Reset Portal <a href="sspr-portal"></a>
 Once you have enabled self-service password reset, set up your organization’s self-service password reset policy, and ensured that your users have the appropriate contact data in the directory, users in your organization will be able to reset their own passwords automatically from any web page which uses a Work or School account for sign in (such as portal.microsoftonline.com). On pages such as these, users will see a Can’t access your account link. 
   
-  ![002]
+  ![][002]
   
 Clicking on this link will launch a self-service password reset wizard.
   
-  ![003]
+  ![][003]
   
 To learn more about how users can reset their own passwords, see Self-service password reset in Azure AD: how to enable, configure, and test self-service password reset.
 
 ##User Password Change Portal <a href="sspr-pwdchange"></a>
 If users want to change their own passwords, they can do so by using the password change portal at any time.  Users can access the password change portal via the Access Panel profile page, or clicking the “change password” link from within Office 365 applications.  In the case when their passwords expire, users will also be asked to change them automatically when signing in. 
   
-  ![004]
+  ![][004]
   
 In both of these cases, if password writeback has been enabled and the user is either federated or password sync’d, these changed passwords are written back to your on-premises Active Directory. Here’s what the password change portal looks like: 
   
-  ![005]
+  ![][005]
   
 ##Password Management Reports <a href="sspr-reports"></a>
 By navigating to the Reports tab and looking under the Activity Logs section, you will see two password management reports: Password reset activity and Password reset registration activity.  Using these two reports, you can get a view of users registering for and using password reset in your organization. Here’s what these reports look like in the Azure Management Portal:
   
-  ![006]
+  ![][006]
   
 For more information, see Password management reports in Azure AD: how to view password management activity in your tenant.
 
 ##Password Writeback Component of  AAD Sync <a href="sspr-writeback"></a>
 If the passwords of users in your organization originate from your on-premises environment (either via federation or password synchronization), you can install the latest version of AADSync to enable updating those passwords directly from the cloud.  This means that when your users forget or want to modify their AD password, they can do so straight from the web.  Here’s where to find Password Writeback in the AADSync installation wizard:
   
-  ![007]
+  ![][007]
   
 For more information about AAD Sync, see Directory Integration Tools. For more information about password writeback, see Password writeback: how to configure Azure AD to manage on-premises passwords.
 
@@ -123,10 +123,10 @@ For more information about AAD Sync, see Directory Integration Tools. For more i
 
 
 
-[001]: ../media/active-directory-passwords-how-it-works/001.jpg "Image_001.jpg"
-[002]: ../media/active-directory-passwords-how-it-works/002.jpg "Image_002.jpg"
-[003]: ../media/active-directory-passwords-how-it-works/003.jpg "Image_003.jpg"
-[004]: ../media/active-directory-passwords-how-it-works/004.jpg "Image_004.jpg"
-[005]: ../media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
-[006]: ../media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
-[007]: ../media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
+[001]: ./media/active-directory-passwords-how-it-works/001.jpg "Image_001.jpg"
+[002]: ./media/active-directory-passwords-how-it-works/002.jpg "Image_002.jpg"
+[003]: ./media/active-directory-passwords-how-it-works/003.jpg "Image_003.jpg"
+[004]: ./media/active-directory-passwords-how-it-works/004.jpg "Image_004.jpg"
+[005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
+[006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
+[007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"

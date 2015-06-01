@@ -56,7 +56,7 @@ To find the password management reports, follow the steps below:
 4.	Look under the Activity Logs section.
 5.	Select either the Password reset activity report or the Password reset registration activity report.
   
-  ![001]
+  ![][001]
   
 ## View password Reset registration activity
 
@@ -65,7 +65,7 @@ The password reset registration activity report shows all password reset registr
 - Max number of rows: unlimited
 - Downloadable: Yes, via CSV file
   
-  ![002]
+  ![][002]
  
 ### Description of report columns
 The following list explains each of the report columns in detail:
@@ -126,7 +126,7 @@ This report shows all password reset attempts that have occurred in your organiz
 - Max number of rows: unlimited
 - Downloadable: Yes, via CSV file
   
-  ![003]
+  ![][003]
   
   
 ### Description of report columns
@@ -543,6 +543,6 @@ Below is the list of result types you may expect when using the password reset a
 
 
 
-[001]: ../media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ../media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ../media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
+[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
+[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
+[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
