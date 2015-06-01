@@ -22,7 +22,7 @@ This topic describes how to quickly create a Windows-based Azure virtual machine
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../includes/service-management-pointer-to-resource-manager.md)]
 
-- [Create a Windows virtual machine with Azure Resource Manager and PowerShell](virtual-machines-create-windows-powershell-rm.md)
+- [Create a Windows virtual machine with Azure Resource Manager and PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
 ## Create the Windows virtual machine
 
