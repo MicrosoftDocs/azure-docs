@@ -12,7 +12,7 @@
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="05/07/2015"
 	ms.author="raynew"/>
 
@@ -20,7 +20,7 @@
 
 ## Overview
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see  [Azure Site Recovery overview](hyper-v-recovery-manager-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see  [Azure Site Recovery overview](site-recovery-overview.md).
 
 This scenario guide describes how to deploy Site Recovery to orchestrate and automate protection for workloads running on virtual machines on Hyper-V host servers that are located in VMM private clouds. In this scenario virtual machines are replicated from a primary VMM site to Azure using Hyper-V Replica.
 
@@ -77,7 +77,7 @@ If you want to deploy network mapping you'll need the following:
 1. Sign in to the [Management Portal](https://portal.azure.com) from the VMM server you want to register.
 
 
-2. Expand 
+2. Expand
 3. *Data Services*, expand *Recovery Services*, and click *Site Recovery Vault*.
 *
 3. Click *Create New* and then click *Quick Create*.
@@ -128,14 +128,14 @@ After the Provider is installed continue setup to register the server in the vau
 	![Internet Settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png)
 	- If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
 	- If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.
-	- You should exempt the following addresses from routing through the proxy:
-		- The URL for connecting to the Azure Site Recovery: *.hypervrecoverymanager.windowsazure.com
+	- Following urls should be accessible from the VMM Server and the Hyper-v hosts
+		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net
 		- *.store.core.windows.net
-	- Allow the IP addresses described in [Azure Datacenter IP Ranges](http://go.microsoft.com/fwlink/?LinkId=511094) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US. 
-	
+	- Allow the IP addresses described in [Azure Datacenter IP Ranges](http://go.microsoft.com/fwlink/?LinkId=511094) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
+
 	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. To do this, open the Settings workspace, expand Security, click Run As Accounts, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 
 6. In **Registration Key**, select that you downloaded from Azure Site Recovery and copied to the VMM server.
@@ -244,11 +244,11 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 4. On the configure tab of the virtual machine properties following network properties could be modified.
 
     1. Number of network adapters of target virtual machine - Number of network adapters on target virtual machine depends on the size of the virtual machine chosen. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virutal machine chosen.  
-    
+
 	1. Network of the target virtual machine - The network to which the virtual machine connects to is determined by network mapping of the network of source virtual machine. In case source virtual machine has more than one network adapters and source networks are mapped to different networks on target, then the user would have to choose between one of the target networks.
-	
+
 	1. Subnet of each of the network adapters - For each network adapter the user can choose the subnet to which the failed over virtual machine would connect to.
-	
+
 	1. Target IP - If the network adapter of source virtual machine is configured to use static IP then the user can provide the ip for the target virtual machine. User can use this capability to retain the ip of the source virtual machine after a failover. If no IP is provided any available IP would be given to network adapter at the time of failover. In case the target IP provided by user is already used by some other virtual machine that is already running in Azure then the failover would fail.  
 
 		![Modify network properties](./media/site-recovery-vmm-to-azure/MultiNic.png)
@@ -305,7 +305,7 @@ To run a test failover do the following:
     1. Verify that the virtual machines start successfully
     1. If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover. You will also need to add an RDP endpoint on the virtual machine. You can leverage an [Azure Automation Runbooks](site-recovery-runbook-automation.md) to do that.
     1. After failover if you use a public IP address to connect to the virtual machine in Azure using Remote Desktop, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
-    
+
 1.  After the testing is complete do the following:
 	- Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machines.
 	- Click **Notes** to record and save any observations associated with the test failover.

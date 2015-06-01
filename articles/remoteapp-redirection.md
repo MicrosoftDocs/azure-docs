@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/21/2015" 
+    ms.date="05/29/2015" 
     ms.author="elizapo" />
 
 # Using redirection in Azure RemoteApp
 
-Device redirection lets your users interact with remote apps using the devices attached to their local computer, phone, or tablet. For example, if you have provided Skype through RemoteApp, your user needs the camera installed on their PC to work with Skype. This is also true for printers, speakers, monitors, and a range of USB-connected peripherals.
+Device redirection lets your users interact with remote apps using the devices attached to their local computer, phone, or tablet. For example, if you have provided Skype through Azure RemoteApp, your user needs the camera installed on their PC to work with Skype. This is also true for printers, speakers, monitors, and a range of USB-connected peripherals.
 
 RemoteApp leverages the Remote Desktop Protocol (RDP) and RemoteFX to provide redirection.
 
@@ -68,7 +68,7 @@ Use this cmdlet to disable clipboard sharing:
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
 
-Be sure to completely log off all users in the collection (and not just disconnect them) before you test the change. To ensure users are completely logged off, go to the **Sessions** tab in the collection in the Azure portal and log off any users who are disconnected or signed in. Sometimes it can take several seconds for the local drives to show in Explorer within the session.
+> [AZURE.IMPORTANT] Be sure to completely log off all users in the collection (and not just disconnect them) before you test the change. To ensure users are completely logged off, go to the **Sessions** tab in the collection in the Azure portal and log off any users who are disconnected or signed in. Sometimes it can take several seconds for the local drives to show in Explorer within the session.
 
 ## Change USB redirection settings on your Windows client
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="05/27/2015"
 	ms.author="curtand"/>
 
 
@@ -21,6 +21,7 @@
 # How does Azure Active Directory work?
 
 
+###Other articles on this topic
 [What is Azure AD?](active-directory-whatis.md)<br>
 [Get started](active-directory-get-started.md)<br>
 [Next steps](active-directory-next-steps.md)<br>
