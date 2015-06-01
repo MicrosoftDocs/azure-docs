@@ -49,6 +49,7 @@ Packets are routed over a TCP/IP network based on a route table defined at each 
 
 ## System Routes
 Every subnet created in a virtual network is automatically associated with a route table that contains the following system route rules:
+
 - **Local Vnet Rule**: This rule is automatically created for every subnet in a virtual network. It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.
 - **On-premises Rule**: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
 - **Internet Rule**: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
