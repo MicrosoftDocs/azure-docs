@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Deploy an API app with an existing gateway" 
-	description="Use an Azure Resource Manager template to deploy an API app that uses an existing gateway and app service plan." 
+	description="Use an Azure Resource Manager template to deploy an API app that uses an existing gateway and App Service plan." 
 	services="app-service\api" 
 	documentationCenter="" 
 	authors="tfitzmac" 
