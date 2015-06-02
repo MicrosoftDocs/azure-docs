@@ -33,7 +33,7 @@ This topic shows you how to add push notifications to the [quickstart project](a
 
 ##<a id="update-server"></a>Update Backend Code to Send Push Notifications
 
-* Download the Visual Studio project for the backend code in the portal. Click **Browse** > app name > **Add Client** > **iOS** (either Objective-C or Swift) > **Download and run your server project**. Open **Controllers** > TodoItemController.cs and add the following using statements:
+* Download the Visual Studio project for the backend code. In the portal, click **Browse** > app name > **Add Client** > **iOS** (either Objective-C or Swift) > **Download and run your server project**. Open **Controllers** > TodoItemController.cs and add the following using statements:
 
 ```
 			using Microsoft.Azure.Mobile.Server.Config;
