@@ -18,7 +18,7 @@
 
 # Provision a web app that uses WebJobs
 
-In this topic, you will learn how to create an Azure Resource Manager template the deploys a web app that uses WebJobs. You will learn how to define which resources are deployed and 
+In this topic, you will learn how to create an Azure Resource Manager template that deploys a web app that uses WebJobs. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
