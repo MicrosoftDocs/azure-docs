@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/29/2015"
+   ms.date="06/02/2015"
    ms.author="alkohli" />
 
 # Update your StorSimple device
@@ -111,7 +111,7 @@ The following procedures explain how to use Windows PowerShell for StorSimple to
 
 ## What happens to updates if you perform a factory reset of the device?
 
-If a device is reset to factory settings, then all the updates are lost. After the factory-reset device is registered and configured, you will need to manually install updates through the Management Portal and/or Windows PowerShell for StorSimple. For more information about factory resets, see [Reset the device to factory default settings](https://msdn.microsoft.com/library/azure/dn772373.aspx).
+If a device is reset to factory settings, then all the updates are lost. After the factory-reset device is registered and configured, you will need to manually install updates through the Management Portal and/or Windows PowerShell for StorSimple. For more information about factory reset, see [Reset the device to factory default settings](https://msdn.microsoft.com/library/azure/dn772373.aspx).
 
 ## Next steps
 
