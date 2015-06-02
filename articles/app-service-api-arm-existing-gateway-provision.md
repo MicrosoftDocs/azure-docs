@@ -29,7 +29,7 @@ For the complete template, see [API App with existing gateway  template](https:/
 
 In this template, you will deploy an API app that is associated with an existing App Service hosting plan and an existing gateway.
 
-## Parameters to specify
+## Parameters
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../includes/app-service-api-deploy-parameters.md)]
 
