@@ -44,12 +44,11 @@ Use the following procedures to configure verbose or minimal monitoring in the M
 
 - Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create a Storage Account](/manage/services/storage/how-to-create-a-storage-account/).
 
-
-- Enable Azure Diagnostics for your cloud service roles. <br /><br />For more information, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md).
+- Enable Azure Diagnostics for your cloud service roles. See [Configuring Diagnostics for Cloud Services](https://msdn.microsoft.com/library/azure/dn186185.aspx#BK_EnableBefore).
 
 Ensure that the diagnostics connection string is present in the Role configuration. You cannot turn on verbose monitoring until you enable Azure Diagnostics and include a diagnostics connection string in the Role configuration.   
 
-> [AZURE.WARNING] Projects targeting Azure SDK 2.5 did not automatically include the diagnostics connection string in the project template. For these projects you need to manually add the diagnostics connection string to the Role configuration.
+> [AZURE.NOTE] Projects targeting Azure SDK 2.5 did not automatically include the diagnostics connection string in the project template. For these projects you need to manually add the diagnostics connection string to the Role configuration.
 
 **To manually add diagnostics connection string to Role configuration**
 
