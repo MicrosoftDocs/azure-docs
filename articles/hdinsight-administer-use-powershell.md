@@ -270,7 +270,7 @@ See the [Submit MapReduce jobs](#mapreduce) section in this article.
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/en-us/library/dn858087.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [powershell-install-configure]: install-configure-powershell.md
 
