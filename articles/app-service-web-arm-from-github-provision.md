@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Deploy a web app that is linked to a GitHub repository" 
-	description="" 
+	description="Use an Azure Resource Manager template to deploy a web app that contains a project from a GitHub repository." 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/02/2015" 
 	ms.author="tomfitz"/>
 
 # Deploy a web app linked to a GitHub repository
@@ -23,13 +23,13 @@ how to define parameters that are specified when the deployment is executed. You
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
-For the complete template, see [Web App Linked to GitHub template](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WebAppLinkedToGithub.json).
+For the complete template, see [Web App Linked to GitHub template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/WebAppLinkedToGithub.json).
 
 ## What you will deploy
 
 With this template, you will deploy a web app that contains the code from a project in GitHub.
 
-## Parameters to specify
+## Parameters
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../includes/app-service-web-deploy-web-parameters.md)]
     
@@ -84,10 +84,10 @@ Instead of hard-coding the repository URL, you can add a parameter for the repos
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/davidebbo/AzureWebsitesSamples/master/ARMTemplates/WebAppLinkedToGithub.json  -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/davidebbo/AzureWebsitesSamples/master/ARMTemplates/WebAppLinkedToGithub.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json
 
 
