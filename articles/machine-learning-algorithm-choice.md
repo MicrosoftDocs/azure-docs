@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="06/01/2015" 
 	ms.author="bradsev;garye" />
 
 
@@ -279,7 +279,7 @@ Poisson regression is often used for modeling count data. Poisson regression ass
 
 ## References
 
-For a complete list of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/) in [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/en-us/library/azure/dn905974.aspx).
+For a complete list of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/) in [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx).
 
 You can find more detailed information about machine learning algorithms in the following references, many of which were used in creating this article.
 
