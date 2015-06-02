@@ -18,12 +18,13 @@
 
 # Getting started with Azure AD Connect
 
-[What is Azure AD Connect?](active-directory-aadconnect.md)<br>
-[How does it work](active-directory-aadconnect-how-it-works.md)<br>
-[Getting Started](active-directory-aadconnect-get-started.md)<br>
-[Whats Next](active-directory-aadconnect-whats-next.md)<br>
-[Learn more](active-directory-aadconnect-learn-more.md)
-
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../active-directory-aadconnect/" title="What is It">What is It</a>
+<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
+<a href="../active-directory-aadconnect-get-started/" title="Getting Started" class="current">Getting Started</a>
+<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
+<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
+</div>
 
 
 The following documentation will help you get started with Azure Active Directory Connect.
