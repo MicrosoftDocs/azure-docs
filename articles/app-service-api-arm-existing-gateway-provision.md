@@ -18,7 +18,7 @@
 
 # Deploy a web app with an existing gateway
 
-In this topic, you will learn how to create an Azure Resource Manager template the deploys an Azure API app and an existing gateway. You will learn how to define which resources are deployed and 
+In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure API app and an existing gateway. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
@@ -27,7 +27,7 @@ For the complete template, see [Web App Linked to GitHub template](www.github.co
 
 ## What you will deploy
 
-In this template, you will deploy an API app that is associated with an existing app service hosting plan and an exsiting gateway.
+In this template, you will deploy an API app that is associated with an existing app service hosting plan and an existing gateway.
 
 ## Parameters to specify
 
@@ -43,7 +43,7 @@ The identifier of the existing hosting plan.
 
 ### hostingPlanSettings
 
-The settings of the existing hosting plan
+The settings of the existing hosting plan.
 
     "hostingPlanSettings": {
       "type": "Object",
@@ -68,7 +68,7 @@ The value is used below as **variables('packageId')**.
 
 Creates a web app that hosts the API app. 
 
-Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from browse web app blade. The app includes an extension 
+Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. The app includes an extension 
 to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app.
 
     {
