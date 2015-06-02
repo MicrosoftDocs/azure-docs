@@ -37,7 +37,7 @@ environment you are deploying to. Do not define parameters for values that will 
 
 We will describe each parameter in the template.
 
-[AZURE.INCLUDE [app-service-web-deploy-redis-parameters](../includes/app-service-web-deploy-redis-parameters.md)]
+[AZURE.INCLUDE [app-service-web-deploy-redis-parameters](../includes/cache-deploy-parameters.md)]
 
 ### redisCacheLocation
 
