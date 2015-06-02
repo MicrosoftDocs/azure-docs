@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move Data to and from  Azure Blob Storage" 
+	pageTitle="Move Data to and from  Azure Blob Storage | Azure" 
 	description="Move Data to and from  Azure Blob Storage" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="05/29/2015" 
 	ms.author="sunliangms;sachouks;mohabib;bradsev" />
 
 # Move Data to and from Azure Blob Storage
 
-The [Scenarios for the Advanced Analytics Process in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
+The [Scenarios for the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
 
 - [Using Azure Storage Explorer](#explorer)
 - [Using AzCopy Command line utility](#AzCopy)
@@ -53,7 +53,7 @@ Azure Storage Explorer is a free windows based tool for inspecting and altering 
 
 AzCopy is a command line utility to upload and download data. 
 
-**Warning** If you are using a machine different from the VM that was set up earlier in the cloud data science process, please install AzCopy using the following installation instructions: [Download and install AzCopy](storage-use-azcopy.md#install).
+**Warning** If you are using a machine different from the VM that was set up earlier in the advanced analytics process, please install AzCopy using the following installation instructions: [Download and install AzCopy](storage-use-azcopy.md#install).
 
 ###Examples of uploading/downloading files to/from blobs:
 
@@ -94,7 +94,7 @@ With the Python API provided in Azure SDK, you can
 
 This section documents how to list, upload and download blobs. For more details of the usage of the Python API, please refer [How to Use the Blob Storage Service from Python](storage-python-how-to-use-blob-storage.md). 
 
-> [AZURE.NOTE] If you are using a machine different from the VM that was set up earlier in the cloud data science process, you need to install the [Python Azure SDK](python-how-to-install.md) before using the sample code below.
+> [AZURE.NOTE] If you are using a machine different from the VM that was set up earlier in the advanced analytics process, you need to install the [Python Azure SDK](python-how-to-install.md) before using the sample code below.
 
 ### Upload Data to Blob
 

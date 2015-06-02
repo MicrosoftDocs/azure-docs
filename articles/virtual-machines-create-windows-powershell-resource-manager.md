@@ -13,10 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="06/02/2015" 
 	ms.author="josephd"/>
 
 # Create a Windows virtual machine with Azure Resource Manager and PowerShell
+
+This topic describes how to quickly create a Windows-based Azure virtual machine using Azure Resource Manager and PowerShell.
+
+[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../includes/resource-manager-pointer-to-service-management.md)]
+
+- [Create a Windows virtual machine with PowerShell and Azure Service Management](virtual-machines-create-windows-powershell-service-manager.md)
+
+## Create the Windows virtual machine
 
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 0.9.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
@@ -39,19 +47,19 @@ Now, replace everything within the quotes, including the < and > characters, wit
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
 
-Next, you need to switch the mode of Azure PowerShell to Resource Manager. Run this command.
-
-	Switch-AzureMode AzureResourceManager
-
-You will need to specify the location of an Azure datacenter. To get a list of Azure datacenters, run this command.
-
-	Get-AzureLocation | sort Name | Select Name
-
 Next, you need to create a storage account. You must pick a unique name that contains only lowercase letters and numbers. You can test for the uniqueness of the storage account name with this command.
 
 	Test-AzureName -Storage <Proposed storage account name>
 
 If this command returns "False", your proposed name is unique.
+
+You will need to specify the location of an Azure datacenter. To get a list of Azure datacenters, run this command.
+
+	Get-AzureLocation | sort Name | Select Name
+
+Next, you need to switch the mode of Azure PowerShell to Resource Manager. Run this command.
+
+	Switch-AzureMode AzureResourceManager
 
 Now, copy the following block of PowerShell commands to a text editor. Fill in your chosen storage account and location, replacing everything within the quotes, including the < and > characters.
 
@@ -128,7 +136,7 @@ Here is an example of you might see:
 
 [Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
-[Create a Windows virtual machine with PowerShell and Azure Service Manager](virtual-machines-create-windows-powershell-service-manager.md)
+[Create a Windows virtual machine with PowerShell and Azure Service Management](virtual-machines-create-windows-powershell-service-manager.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 

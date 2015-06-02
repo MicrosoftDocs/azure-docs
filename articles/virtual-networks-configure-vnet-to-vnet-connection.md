@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configure a VNet to VNet Connection"
-   description="VNet to VNet is used to connect virtual networks to each other."
+   description="How to connect Azure virtual networks together in the same or different subscriptions or regions."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="05/28/2015"
    ms.author="cherylmc"/>
 
 
@@ -23,29 +23,42 @@ Connecting an Azure virtual network (VNet) to another Azure virtual network is v
 
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
-## What can I do with VNet to VNet connectivity?
+## Why connect virtual networks?
 
-### Cross region geo-redundancy and geo presence
-  - You can set up your own geo-replication or synchronization with secure connectivity without going over internet-facing endpoints.
-  - With Azure Load Balancer and Microsoft or third party clustering technology, you can setup highly available workload with geo-redundancy across multiple Azure regions. One important example is to setup SQL Always On with Availability Groups spreading across multiple Azure regions.
+You may want to connect virtual networks for the following reasons:
 
-### Regional multi-tier applications with strong isolation boundary
-  - Within the same region, you can setup multi-tier applications with multiple virtual networks connected together with strong isolation and secure inter-tier communication.
+- **Cross region geo-redundancy and geo-presence**
+	- You can set up your own geo-replication or synchronization with secure connectivity without going over internet-facing endpoints.
+	- With Azure Load Balancer and Microsoft or third-party clustering technology, you can setup highly available workload with geo-redundancy across multiple Azure regions. One important example is to setup SQL Always On with Availability Groups spreading across multiple Azure regions.
 
-### Cross subscription, inter-organization communication in Azure
-  - If you have multiple Azure subscriptions, you can now connect workloads from different subscriptions together securely between virtual networks.
-  - For enterprises or service providers, it is now possible to enable cross organization communication with secure VPN technology within Azure.
+- **Regional multi-tier applications with strong isolation boundary**
+	- Within the same region, you can setup multi-tier applications with multiple virtual networks connected together with strong isolation and secure inter-tier communication.
 
-### Requirements and considerations
-  - VNet to VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services NOT in a virtual network.
-  - VNet to VNet requires Azure VPN gateways with dynamic routing VPNs – Azure static routing VPNs are not supported. Connecting multiple Azure virtual networks together does NOT require any on premises VPN gateways, unless cross premises connectivity is required.
-  - Virtual network connectivity can be used simultaneously with multi-site VPNs, with a maximum of 10 VPN tunnels for a virtual network VPN gateway connecting to ether other virtual networks or on premises sites.
-  - The address spaces of the virtual networks and on premises local network sites MUST NOT overlap. Overlapping address spaces will cause the creation of virtual networks or uploading netcfg configuration files to fail.
-  - The virtual networks can be in the same or different subscriptions.
-  - The virtual networks can be in the same or different Azure regions (locations).
-  - Redundant tunnels between a pair of virtual networks are not supported.
-  - A cloud service or a load balancing endpoint CANNOT span across virtual networks even though they are connected together.
-  - All VPN tunnels of the virtual network, including P2S VPNs, share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
+- **Cross subscription, inter-organization communication in Azure**
+	- If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
+	- For enterprises or service providers, you can enable cross organization communication with secure VPN technology within Azure.
+
+## VNet to VNet FAQ
+
+- The virtual networks can be in the same or different subscriptions.
+
+- The virtual networks can be in the same or different Azure regions (locations).
+
+- A cloud service or a load balancing endpoint CANNOT span across virtual networks, even if they are connected together.
+
+- Connecting multiple Azure virtual networks together doesn't require any on-premises VPN gateways, unless cross-premises connectivity is required.
+
+- VNet-to-VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services NOT in a virtual network.
+
+- VNet-to-VNet requires Azure VPN gateways with dynamic routing VPNs. Azure static routing VPN gateways are not supported.
+
+- Virtual network connectivity can be used simultaneously with multi-site VPNs, with a maximum of 10 VPN tunnels for a virtual network VPN gateway connecting to ether other virtual networks or on premises sites.
+
+- The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of virtual networks or uploading netcfg configuration files to fail.
+
+- Redundant tunnels between a pair of virtual networks are not supported.
+
+- All VPN tunnels of the virtual network, including P2S VPNs, share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
 
 ## Configure a VNet to VNet connection
 
@@ -101,22 +114,30 @@ VNet2: Address Space = 10.2.0.0/16; Region=Japan East
 **On the DNS Servers and VPN Connectivity page**, enter the following information, and then click the next arrow on the lower right. For more information about the settings on this page, see the [DNS Servers and VPN Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
 
   ![DNS Servers and VPN Connectivity](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)  
-  - **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to have name resolution between your virtual networks, you’ll have to configure your own DNS server, rather than using the name resolution that is provided by Azure.
+
+
+- **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to have name resolution between your virtual networks, you’ll have to configure your own DNS server, rather than using the name resolution that is provided by Azure.
 
   - Don’t select any of the checkboxes. Just click the arrow on the lower right to move to the next screen.
 
 **On the Virtual Network Address Spaces page**, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network. There are quite a few rules regarding virtual network address space, so you will want to see the [Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) page for more information. It’s especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You’ll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
 
-  **Enter the following information**, and then click the checkmark on the lower right to configure your network.
 
   ![Virtual Network Address Spaces page](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
+
+  **Enter the following information**, and then click the checkmark on the lower right to configure your network.
 
   - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your on-premises network. For this example, we’ll use 10.1.0.0/16 for VNet1.
   - **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
 
 **Click the checkmark** on the lower right of the page and your virtual network will begin to create. When it completes, you will see *Created* listed under *Status* on the *Networks* page in the Management Portal.
 
-**Next, create another virtual network**. For the purposes of this tutorial, use these values: **VNet2**: Address Space = 10.2.0.0/16; Region=Japan East
+## Create another virtual network
+
+Next, repeat the preceding steps to create another virtual network. In this exercise, you'll later connect these two virtual networks. Note that it's very important not to have duplicate or overlapping address spaces. For the purposes of this tutorial, use these values: 
+
+- **VNet2**: Address Space = 10.2.0.0/16
+- **Region**=Japan East
 
 ## Add local networks
 
@@ -184,24 +205,18 @@ Wait for the connections to initialize. Once the Gateway has initialized, the ga
 
 ![Gateway Status - Connected](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
 
-##See Also
+## Next Steps
 
-**Concepts**
+You can learn more about Virtual Network cross-premises connectivity in this article: [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
-- [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
-- [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx)
+If you want to configure a site-to-site VPN connection, see [Configure a Site-to-Site VPN Connection](vpn-gateway-site-to-site-create.md)
 
-- [Operations on Virtual Networks](https://msdn.microsoft.com/library/azure/jj157182.aspx)
+If you want to add virtual machines to your virtual network, see [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md).
 
-- [Operations on Virtual Network Gateways](https://msdn.microsoft.com/library/azure/jj154113.aspx)
+If you want to configure a VNet connection using RRAS, see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx).
 
-**Other Resources**
-
-- [Blog Post - VNet to VNet connections across different regions](http://azure.microsoft.com/blog/2014/06/17/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)
-- [Tutorial - Configure a VPN connection between two Azure virtual networks][1]
-- [Video - Configure a VPN connection between two Azure virtual networks][2]
-
+For information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
 
 [1]: hdinsight-hbase-geo-replication-configure-vnets.md

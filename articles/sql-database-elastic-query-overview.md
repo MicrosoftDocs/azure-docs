@@ -36,7 +36,7 @@ Scenarios can be characterized by the following topologies:
 Elastic database query preview will cover both cases. Customers with topology 1 can rely on their existing shard map if they are using the elastic database client library to manage shards. Self sharders in turn will need to create a shard map using elastic database tools for their data tiers in order to use this preview capability. Customers following topology 2 need to create a different shard map for each of their databases. These shard maps will each point to only a single shard that can then expose its tables for cross-shard queries.
 
 ## Next steps
-Elastic database query is scheduled for preview at the end of May 2015. Check back to this page for more details and step-by-step instructions on how to use the feature at that time.
+Elastic database query is scheduled for preview by end of June 2015. Check back to this page for more details and step-by-step instructions on how to use the feature at that time.
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 

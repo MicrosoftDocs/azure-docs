@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="StorSimple virtual device"
    description="Describes how to create, configure, deploy and manage StorSimple virtual device."
    services="storsimple"
@@ -6,10 +6,10 @@
    authors="alkohli"
    manager="adinah"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/06/2015"
@@ -58,7 +58,7 @@ Keep the following security considerations in mind when you use the StorSimple v
 
 - The virtual device is secured through your Microsoft Azure subscription. This means that if you are using the virtual device and your Azure subscription is compromised, the data stored on your virtual device is also susceptible.
 
-- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Microsoft Azure management portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure. 
+- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Microsoft Azure management portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure.
 
 - The virtual device is hosted in the Microsoft Azure datacenter.
 
@@ -71,13 +71,13 @@ The following sections will help you prepare to use the StorSimple virtual devic
 
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- For the virtual device, [configure a virtual network on Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
-- You can use the default DNS server provided by Azure instead of specifying your own DNS server name. 
-- Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
+- For the virtual device, [configure a virtual network on Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+- You can use the default DNS server provided by Azure instead of specifying your own DNS server name.
+- Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 
 >[AZURE.IMPORTANT] **Make sure that the virtual network is in the same region as the cloud storage accounts that you are going to be using with the virtual device.**
 
-- Create [Azure Virtual Machines ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (host servers) in the virtual network. These servers must meet the following requirements: 							
+- Create [Azure Virtual Machines ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (host servers) in the virtual network. These servers must meet the following requirements:
 	- Be Windows or Linux VMs with iSCSI Initiator software installed
 	- Be running in the same virtual network as the virtual device
 	- Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device
@@ -134,7 +134,7 @@ Perform the following steps to create the StorSimple virtual device
 	c. **Subnet** – The subnet on the virtual network for use with the virtual device.
 
 	d. **Storage Account for Virtual Device Creation** – The storage account that will be used to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list.
-	
+
 - Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](https://msdn.microsoft.com/library/dn772561.aspx).
 
 ### Configure and register the virtual device
@@ -191,16 +191,16 @@ When you use the Windows PowerShell interface to access the virtual device, you 
 Perform the following steps to configure the device administrator password for your StorSimple virtual device.
 
 1. On your virtual device, go to **Devices > Configure**.
- 
+
 1. Scroll down to the **Device Administrator password** section. Provide an administrator password that contains from 8 to 15 characters. The password must be a combination of uppercase, lowercase, numeric, and special characters.
 
 1. Confirm the password.
- 
+
 1. Click **Save** at the bottom of the page.
 
 The device administrator password should now be updated. You will use this modified password to access the the Windows PowerShell interface on your virtual device.
 
-#### Configure remote management 
+#### Configure remote management
 
 Remote access to your virtual device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the virtual device first, and then enable it on the client that will be used to access your virtual device.
 
@@ -310,7 +310,7 @@ When a virtual device is running and you want to restart it, click its name, and
 You can also use the following Windows PowerShell cmdlets to start, stop, and restart the virtual device. An example follows each cmdlet.
 
 `Start-AzureVMC:\PS>Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
-    
+
 
 `Stop-AzureVMC:\PS>Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 

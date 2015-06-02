@@ -3,7 +3,7 @@
 	description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="ruby" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 

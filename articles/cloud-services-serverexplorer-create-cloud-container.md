@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/20/2015"
+   ms.date="05/29/2015"
    ms.author="cawa"/>
 
 # How to use Visual Studio to create a Cloud Service container

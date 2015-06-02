@@ -12,7 +12,7 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="05/26/2015"
 	ms.author="aashishr"/>
 
@@ -199,5 +199,3 @@ To learn more about getting started with Azure Backup, see:
 
 - [Restore virtual machines](backup-azure-restore-vms.md)
 - [Manage virtual machines](backup-azure-manage-vms)
-
-
