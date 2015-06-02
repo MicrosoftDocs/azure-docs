@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepo"
 	services=""/>
 
 <tags
