@@ -41,7 +41,7 @@ Three types of analysis are discussed and their use cases are compared:
 <a name="anchor-1"></a>
 ##Machine Learning
 
-Machine Learning is a discipline that studies a class of algorithms that are data-driven. In other words, they are designed to learn from the data and do not impose a specific, predetermined model to test against the data. The idea is to to acquire knowledge more inductively by examining the patterns in a dataset rather than by using the *hypothetical-deductive* method where you try to guess the appropriate model for the entire dataset first and then test it empirically. 
+Machine Learning is a discipline that studies a class of algorithms that are data-driven. In other words, they are designed to learn from the data and do not impose a specific, predetermined model to test against the data. The idea is to acquire knowledge more inductively by examining the patterns in a dataset rather than by using the *hypothetical-deductive* method where you try to guess the appropriate model for the entire dataset first and then test it empirically. 
 
 This type of learning from data comes in two flavors: *supervised learning* and *unsupervised learning*. 
 
