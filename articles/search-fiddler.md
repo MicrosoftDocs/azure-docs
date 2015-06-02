@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs" 
-	description="Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs"
+	description="Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/12/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="03/12/2015"
 	ms.author="heidist"/>
 
 # How to use Fiddler to evaluate and test Azure Search REST APIs
 
-This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests to and view responses using the Azure Search REST API, without having to write any code. Azure Search service REST APIs are documented on [MSDN](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx).
+This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests to and view responses using the Azure Search REST API, without having to write any code. Azure Search service REST APIs are documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
 
@@ -26,9 +26,9 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
 
 ## Create an index
 
-1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. 
+1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task.
 
-3. On the Composer tab, you'll formulate a request that looks like this: 
+3. On the Composer tab, you'll formulate a request that looks like this:
 
   	![][1]
 
@@ -66,12 +66,12 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
           {"name": "rating", "type": "Edm.Int32"},
           {"name": "location", "type": "Edm.GeographyPoint"}
-         ] 
+         ]
         }
 
 6.	Click **Execute**.
 
-In a few seconds, you should see an HTTP 201 response in the session list, indicating the index was created successfully. 
+In a few seconds, you should see an HTTP 201 response in the session list, indicating the index was created successfully.
 
 If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
 
@@ -159,7 +159,7 @@ On the Composer tab, your request to post documents will look like the following
 
 8.	Click **Execute**.
 
-In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request. 
+In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request.
 
 ## Query the index
 
@@ -183,10 +183,10 @@ Now that an index and documents are loaded, you can issue queries against them. 
         api-key: 1111222233334444
 
 The response code should be 200, and the response output should look similar to the following illustration.
- 
+
    ![][4]
 
-The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler: 
+The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler:
 
 **Before spaces are replaced:**
 
@@ -206,7 +206,7 @@ You can also query the system to get document counts and storage consumption. On
 
 2.	Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2015-02-28":
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.	Specify the request header, replacing the host and api-key with values that are valid for your service.
 
@@ -234,4 +234,3 @@ The following links provide additional information for a no-code approach to man
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
-

@@ -22,7 +22,7 @@
 ## Overview
 
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see  [Azure Site Recovery overview](hyper-v-recovery-manager-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see  [Azure Site Recovery overview](site-recovery-overview.md).
 
 This scenario guide describes how to deploy Site Recovery to orchestrate and automate protection for workloads running on virtual machines on Hyper-V host servers that are located in VMM private clouds. In this scenario virtual machines are replicated from a primary VMM site to a secondary VMM site using Hyper-V Replica.
 
@@ -87,7 +87,7 @@ For instructions see [How to create storage classifications in VMM](http://go.mi
 	
 4. In **Name**, enter a friendly name to identify the vault.
 
-5. In **Region** select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](http://go.microsoft.com/fwlink/?LinkId=389880).</a>
+5. In **Region** select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](http://go.microsoft.com/fwlink/?LinkId=389880).
 
 6. Click **Create vault**.
 
@@ -99,7 +99,7 @@ Check in the status bar that the vault was created. The vault will be listed as 
 
 Generate a registration key in the vault. After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.
 
-1. In the <b>Recovery Services</b> page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
+1. In the **Recovery Services** page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
 	![Quick Start Icon](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_QuickStartIcon.png)
 
@@ -110,7 +110,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 	
 ## Step 3: Install the Azure Site Recovery Provider	
 
-1. On the <b>Quick Start</b> page, in **Prepare VMM servers**, click <b>Download Microsoft Azure Site Recovery Provider for installation on VMM servers</b> to obtain the latest version of the Provider installation file.
+1. On the **Quick Start** page, in **Prepare VMM servers**, click **Download Microsoft Azure Site Recovery Provider for installation on VMM servers** to obtain the latest version of the Provider installation file.
 
 2. Run this file on the source and target VMM servers. If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault. Then install the Provider on the other nodes. Note that if you're upgrading the Provider you'll need to upgrade on all nodes because they should all be running the same Provider version.
 
@@ -124,14 +124,14 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 After the Provider is installed continue setup to register the server in the vault.
 
-5. On the Internet Connection page specify how the Provider running on the VMM server connects to the Internet. select <b>Use default system proxy settings</b> to use the default Internet connection settings configured on the server.
+5. On the Internet Connection page specify how the Provider running on the VMM server connects to the Internet. select **Use default system proxy settings** to use the default Internet connection settings configured on the server.
 
 	![Internet Settings](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderProxy.png)
 
 	- If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
 	- If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.
-	- You should exempt the following addresses from routing through the proxy:
-		- The URL for connecting to the Azure Site Recovery: *.hypervrecoverymanager.windowsazure.com
+	- Following urls should be accessible from the VMM Server:
+		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net 
@@ -154,39 +154,39 @@ After the Provider is installed continue setup to register the server in the vau
 
 	![Server registration](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_ProviderSyncEncrypt.png)
 
-8. Click <b>Register</b> to complete the process. Metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the **Resources** tab on the **Servers** page in the vault.
+8. Click **Register** to complete the process. Metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the **Resources** tab on the **Servers** page in the vault.
 
 After registration, you can change the Provider settings in the VMM console, or from the command line.
 
 ## Step 4: Configure cloud protection settings
 
-After VMM servers are registered, you can configure cloud protection settings. If you enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the <b>Protected Items</b> tab in the vault. If you didn't you can synchronize a specific cloud with Azure Site Recovery in the **General** tab of the cloud properties page in the VMM console.
+After VMM servers are registered, you can configure cloud protection settings. If you enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the **Protected Items** tab in the vault. If you didn't you can synchronize a specific cloud with Azure Site Recovery in the **General** tab of the cloud properties page in the VMM console.
 
 ![Published Cloud](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudsList.png)
 
 1. On the Quick Start page, click **Set up protection for VMM clouds**.
 2. On the **VMM Clouds** tab, select the cloud that you want to configure and go to the **Configuration** tab. 
-3. In <b>Target</b>, select <b>VMM</b>.
-4. In <b>Target location</b>, select the on-site VMM server that manages the cloud you want to use for recovery.
-4. In <b>Target cloud</b>, select the target cloud you want to use for failover of virtual machines in the source cloud. Note that:
+3. In **Target**, select **VMM**.
+4. In **Target location**, select the on-site VMM server that manages the cloud you want to use for recovery.
+4. In **Target cloud**, select the target cloud you want to use for failover of virtual machines in the source cloud. Note that:
 	- We recommend that you select a target cloud that meets recovery requirements for the virtual machines you'll protect.
 	- A cloud can only belong to a single cloud pair — either as a primary or a target cloud.
-6. In <b>Copy frequency</b> specify how often data should be synchronized between he source and target locations. Note that this setting is only relevant when the Hyper-V host is running Windows Server 2012 R2. For other servers a default setting of five minutes is used.
-7. In <b>Additional recovery points</b> specify whether you want to create additional recovery points.The default zero value indicates that only the latest recovery point for a primary virtual machine is stored on a replica host server. Note that enabling multiple recovery points requires additional storage for the snapshots that are stored at each recovery point. By default, recovery points are created every hour, so that each recovery point contains an hour’s worth of data. The recovery point value that you assign for the virtual machine in the VMM console should not be less than the value that you assign in the Azure Site Recovery console.
-8. In <b>Frequency of application-consistent snapshots</b> specify how often to create application-consistent snapshots. Hyper-V uses two types of snapshots — a standard snapshot that provides an incremental snapshot of the entire virtual machine, and an application-consistent snapshot that takes a point-in-time snapshot of the application data inside the virtual machine. Application-consistent snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken. Note that if you enable application-consistent snapshots, it will affect the performance of applications running on source virtual machines. Ensure that the value you set is less than the number of additional recovery points you configure.
+6. In **Copy frequency** specify how often data should be synchronized between he source and target locations. Note that this setting is only relevant when the Hyper-V host is running Windows Server 2012 R2. For other servers a default setting of five minutes is used.
+7. In **Additional recovery points** specify whether you want to create additional recovery points.The default zero value indicates that only the latest recovery point for a primary virtual machine is stored on a replica host server. Note that enabling multiple recovery points requires additional storage for the snapshots that are stored at each recovery point. By default, recovery points are created every hour, so that each recovery point contains an hour’s worth of data. The recovery point value that you assign for the virtual machine in the VMM console should not be less than the value that you assign in the Azure Site Recovery console.
+8. In **Frequency of application-consistent snapshots** specify how often to create application-consistent snapshots. Hyper-V uses two types of snapshots — a standard snapshot that provides an incremental snapshot of the entire virtual machine, and an application-consistent snapshot that takes a point-in-time snapshot of the application data inside the virtual machine. Application-consistent snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken. Note that if you enable application-consistent snapshots, it will affect the performance of applications running on source virtual machines. Ensure that the value you set is less than the number of additional recovery points you configure.
 
 	![Configure protection settings](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudSettings.png)
 
-9. In <b>Data transfer compression</b>, specify whether replicated data that is transferred should be compressed. 
-10. In <b>Authentication</b>, specify how traffic is authenticated between the primary and recovery Hyper-V host servers. Select HTTPS unless you have a working Kerberos environment configured. Azure Site Recovery will automatically configure certificates for HTTPS authentication. No manual configuration is required. If you do select Kerberos, a Kerberos ticket will be used for mutual authentication of the host servers. By default, port 8083 and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers. Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.
-11. In <b>Port</b>,modify the port number on which the source and target host computers listen for replication traffic. For example, you might modify the setting if you want to apply Quality of Service (QoS) network bandwidth throttling for replication traffic. Check that the port isn’t used by any other application and that it’s open in the firewall settings.
-12. In <b>Replication method</b>, specify how the initial replication of data from source to target locations will be handled, before regular replication starts. 
-	- <b>Over network</b>—Copying data over the network can be time-consuming and resource-intensive. We recommend that you use this option if the cloud contains virtual machines with relatively small virtual hard disks, and if the primary site is connected to the secondary site over a connection with wide bandwidth. You can specify that the copy should start immediately, or select a time. If you use network replication, we recommend that you schedule it during off-peak hours.
-	- <b>Offline</b>—This method specifies that the initial replication will be performed using external media. It's useful if you want to avoid degradation in network performance, or for geographically remote locations. To use this method you specify the export location on the source cloud, and the import location on the target cloud. When you enable protection for a virtual machine, the virtual hard disk is copied to the specified export location. You send it to the target site, and copy it to the import location. The system copies the imported information to the replica virtual machines. For a complete list of offline replication prerequisites, see <a href="http://go.microsoft.com/fwlink/?LinkId=323469">Step 3: Configure protection settings for VMM clouds</a> in the Deployment Guide.
+9. In **Data transfer compression**, specify whether replicated data that is transferred should be compressed. 
+10. In **Authentication**, specify how traffic is authenticated between the primary and recovery Hyper-V host servers. Select HTTPS unless you have a working Kerberos environment configured. Azure Site Recovery will automatically configure certificates for HTTPS authentication. No manual configuration is required. If you do select Kerberos, a Kerberos ticket will be used for mutual authentication of the host servers. By default, port 8083 and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers. Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.
+11. In **Port**,modify the port number on which the source and target host computers listen for replication traffic. For example, you might modify the setting if you want to apply Quality of Service (QoS) network bandwidth throttling for replication traffic. Check that the port isn’t used by any other application and that it’s open in the firewall settings.
+12. In **Replication method**, specify how the initial replication of data from source to target locations will be handled, before regular replication starts. 
+	- **Over network**—Copying data over the network can be time-consuming and resource-intensive. We recommend that you use this option if the cloud contains virtual machines with relatively small virtual hard disks, and if the primary site is connected to the secondary site over a connection with wide bandwidth. You can specify that the copy should start immediately, or select a time. If you use network replication, we recommend that you schedule it during off-peak hours.
+	- **Offline**—This method specifies that the initial replication will be performed using external media. It's useful if you want to avoid degradation in network performance, or for geographically remote locations. To use this method you specify the export location on the source cloud, and the import location on the target cloud. When you enable protection for a virtual machine, the virtual hard disk is copied to the specified export location. You send it to the target site, and copy it to the import location. The system copies the imported information to the replica virtual machines. For a complete list of offline replication prerequisites, see <a href="http://go.microsoft.com/fwlink/?LinkId=323469">Step 3: Configure protection settings for VMM clouds</a> in the Deployment Guide.
 13. Select **Delete Replica Virtual Machine** to specify that the replica virtual machine should be deleted if you stop protecting the virtual machine by selecting the **Delete protection for the virtual machine** option on the Virtual Machines tab of the cloud properties. With this setting enabled, when you disable protection the virtual machine is removed from Azure Site Recovery, the Site Recovery settings for the virtual machine are removed in the VMM console, and the replica is deleted.
 	![Configure protection settings](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_CloudSettingsRep.png)
 
-<p>After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. All Hyper-V host servers in the VMM source cloud will be configured for replication. Cloud settings can be modified on the <b>Configure</b> tab. If you want to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.</p>
+<p>After you save the settings a job will be created and can be monitored on the **Jobs** tab. All Hyper-V host servers in the VMM source cloud will be configured for replication. Cloud settings can be modified on the **Configure** tab. If you want to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.</p>
 
 ### Prepare for offline initial replication
 
@@ -286,26 +286,27 @@ After replication the replica virtual machine might not have an IP address that 
 
 #### Script to retrieve the IP address
 Run this sample script to retrieve the IP address.
-    **$vm = Get-SCVirtualMachine -Name <VM_NAME>
-	$na = $vm[0].VirtualNetworkAdapters>
-	$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-	$ip.address**  
+
+    	$vm = Get-SCVirtualMachine -Name <VM_NAME>
+		$na = $vm[0].VirtualNetworkAdapters>
+		$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+		$ip.address  
 
 #### Script to update DNS
 Run this sample script to update DNS, specifying the IP address you retrieved using the previous sample script.
 
-	**[string]$Zone,
-	[string]$name,
-	[string]$IP
-	)
-	$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-	$newrecord = $record.clone()
-	$newrecord.RecordData[0].IPv4Address  =  $IP
-	Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord**
+		string]$Zone,
+		[string]$name,
+		[string]$IP
+		)
+		$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+		$newrecord = $record.clone()
+		$newrecord.RecordData[0].IPv4Address  =  $IP
+		Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 
 
-<a name="privacy"></a><h2>Privacy information for Site Recovery</h2>
+##<a name="privacy"></a>Privacy information for Site Recovery
 
 This section provides additional privacy information for the Microsoft Azure Site Recovery service (“Service”). To view the privacy statement for Microsoft Azure services, see the
 [Microsoft Azure Privacy Statement](http://go.microsoft.com/fwlink/?LinkId=324899)
