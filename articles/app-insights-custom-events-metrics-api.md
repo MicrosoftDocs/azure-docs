@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -133,6 +133,10 @@ There's a limit of about 1k on the string length. (If you want to send large chu
 
 Metric values should be >= 0 to be correctly displayed.
 
+
+There are some [limits on the number of properties, property values, and metrics](#limits) that you can use.
+
+
 *JavaScript*
 
     appInsights.trackEvent // or trackPageView, trackMetric, ...
@@ -209,7 +213,7 @@ Use the Search field to see event occurrences with a particular property value.
 
 ![Type a term into Search](./media/appinsights/appinsights-23-customevents-5.png)
 
-[Learn more about search strings][diagnostic]
+[Learn more about search expressions][diagnostic].
 
 #### Alternative way to set properties and metrics
 
@@ -227,23 +231,10 @@ If it's more convenient, you can collect the parameters of an event in a separat
     telemetry.TrackEvent(event);
 
 
-## <a name="timed"></a> Timed events
+#### <a name="timed"></a> Timing events
 
-Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. 
+Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
 
-You can attach timing data to events. In the web client, instead of calling trackEvent, use these calls:
-
-*JavaScript at web client*
-
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
-
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
-
-Use the same string as the first parameter in the start and stop calls. 
-
-This feature isn't built in to the other SDKs. But you can write your own code such as this:
 
 *C#*
 
@@ -307,6 +298,7 @@ To see the results, open Metrics Explorer and add a new chart. Set it to display
 
 ![Add a new chart or select a chart, and under Custom select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
+There are some [limits on the number of metrics](#limits) you can use.
 
 ## Page views
 
@@ -388,8 +380,7 @@ Send exceptions to Application Insights: to [count them][metrics], as an indicat
        telemetry.TrackException(ex);
     }
 
-In Windows mobile apps, the SDK catches unhandled exceptions, so that you don't have to log them. 
-
+In Windows mobile apps, the SDK catches unhandled exceptions, so that you don't have to log them. In ASP.NET, you can [write code to catch exceptions automatically][exceptions].
 
 
 ## Track Trace 
@@ -408,11 +399,11 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
 
 
-## Set default properties for all telemetry
+## <a name="default-properties"></a>Set default properties for all telemetry
 
-You can set up a universal initializer so that all new TelemetryClients automatically use your context. 
+You can set up a universal initializer so that all new TelemetryClients automatically use your context. This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
 
-This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
+A typical use is to identify telemetry coming from different versions or components of your app. In the portal, you can filter or group results by this property.
 
 *C#*
 
@@ -450,12 +441,13 @@ This includes standard telemetry sent by the platform-specific telemetry modules
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
+In the JavaScript web client, there isn't currently a way to set default properties.
 
-## Set instrumentation key in code for all telemetry
+## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-Instead of getting the instrumentation key from the configuration file, you can set it in your code. You might want to do this, for example, to send telemetry from test installations to a different Application Insights resource than telemetry from the live application.
+To avoid mixing up telemetry from development, test and production environments, you can [create separate Application Insights resources][create] and change their keys depending on the environment.
 
-Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
+Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
 *C#*
 
@@ -533,6 +525,17 @@ Individual telemetry calls can override the default values in their property dic
     telemetry.Context.InstrumentationKey = "---my key---";
     // ...
 
+## Flushing data
+
+Normally the SDK sends data at times chosen to minimize impact on the user. However, in some cases you might want to flush the buffer - for example, if you are using the SDK in an application that shuts down.
+
+*C#*
+
+    telemetry.Flush();
+
+Note that the function is synchronous.
+
+
 
 ## Disable standard telemetry
 
@@ -554,15 +557,51 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
+## TelemetryContext
 
+TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. 
+
+If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
+
+* **Component** Identifies the app and its version
+* **Device** Data about the device on which the app is running (in web apps, this is the server or client device from which the telemetry is sent)
+* **InstrumentationKey** Identifies the Application Insights resource in Azure where the telemetry will appear. Usually picked up from ApplicationInsights.config
+* **Location** Identifies the geographic location of the device.
+* **Operation** In web apps, the current HTTP request. In other app types, you can set this to group events together.
+ * **Id**: A generated value that correlates different events, so that when you inspect any event in Diagnostic Search, you can find "Related items"
+ * **Name**: The URL of the HTTP request
+ * **SyntheticSource**: If not null or empty, this string indicates that the source of the request has been identified as a robot or web test. By default it will be excluded from calculations in Metrics Explorer.
+* **Properties** Properties that are sent with all telemetry data. Can be overridden in individual Track* calls.
+* **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
+* **User** Allows users to be counted. In a web app, if there is a cookie, the user Id is taken from that. If there isn't, a new one is generated. If your users have to login to your app, you could set the id from their authenticated ID, so as to provide a more reliable count that is correct even if the user signs in from a different machine. 
+
+## Limits
+
+There are some limits on the number of metrics and events per application.
+
+1. Up to 500 telemetry data points per second per instrumentation key (that is, per application). This includes both the standard telemetry sent by the SDK modules, and custom events, metrics and other telemetry sent by your code.
+1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  Metrics and property names are global per instrumentation key, not scoped to data type.
+2.	Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
+3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
+
+* *Q: How long is data kept?*
+
+    See [Data retention and privacy][data].
 
 ## Reference docs
 
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
 
+## Questions
 
-* *Q: Is there a REST API?*
+* *What exceptions might Track * calls throw?*
+    
+    None. You shouldn't need to wrap them in catch clauses.
+
+
+
+* *Is there a REST API?*
 
     Yes, but we aren't publishing it yet.
 
@@ -578,7 +617,10 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md

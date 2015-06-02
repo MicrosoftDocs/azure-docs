@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/08/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -441,6 +441,7 @@ A typical use is to identify telemetry coming from different versions or compone
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
+In the JavaScript web client, there isn't currently a way to set default properties.
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 

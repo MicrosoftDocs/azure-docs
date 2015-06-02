@@ -576,9 +576,66 @@ In this example, we are extracting the `startTime` of the previous step. Then we
 
 Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow). 
 
-## Using parameters for different environments
+## Passing in values at runtime to vary behavior
+
+Let's say you have different behaviors that you want to run based on some value that you use to kick off your Logic app. You can use the [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerOutputs) function to get these values out of what you passed in:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {},
+    "actions": {
+        "readData": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "@triggerOutputs().uriToGet"
+            }
+        },
+        "extraStep": {
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "http://www.example.com/extraStep"
+            },
+            "conditions": [
+                {
+                    "expression": "@triggerOutputs().doMoreLogic"
+                }
+            ]
+        },  
+    },
+    "outputs": {}
+}
+```
+
+To actually make this work, when you start the run you need to pass the properties you want (in the above example `uriToGet` and `doMoreLogic`). Here is the call you can [use Basic auth for](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth):
+
+```
+POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
+Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
+Content-type: application/json
+```
+
+With the following payload. Note that you have provided the Logic app with the values to use now:
+
+```
+{
+    "outputs": {
+        "uriToGet" : "http://my.uri.I.want/",
+        "doMoreLogic" : true
+    }
+}
+``` 
+
+When this logic app runs it will call the uri I passed in, and run that additional step because I passed `true`. If you want to only vary parameters at deployment time (not for *each run*), then you should use `parameters` as called out below.
+
+## Using deployment-time parameters for different environments
 
 It is common to have a deployment lifecycle where you have a development environment, a staging environment, and then a production environment. In all of these you may want the same definition, but use different databases, for example. Likewise, you may want to use the same definition across many different regions for high availability, but want each Logic app instance to talk to that region's database. 
+
+Note that this is different from taking different parameters at *runtime*, for that you should use the `trigger()` function as called out above. 
 
 You can start with a very simplistic definition like this one:
 

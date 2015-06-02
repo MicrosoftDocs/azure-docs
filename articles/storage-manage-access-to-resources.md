@@ -3,8 +3,8 @@
 	description="Learn how to manage how users access your Azure Storage resources." 
 	services="storage" 
 	documentationCenter="" 
-	authors="micurd" 
-	manager="jahogg" 
+	authors="tamram" 
+	manager="jdial" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/28/2015" 
 	ms.author="micurd;tamram"/>
 
 # Manage Access to Azure Storage Resources
@@ -30,7 +30,7 @@ By default, only the owner of the storage account may access storage resources w
 
 ## Restrict Access to Containers and Blobs
 
-By default, a container and any blobs within it may be accessed only by the owner of the storage account. If you want to give anonymous users read permissions to a container and its blobs, you can set the container permissions to allow public access. Anonymous users can read blobs within a publicly accessible container without authenticating the request.
+By default, a container and any blobs within it may be accessed only by the owner of the storage account. To give anonymous users read permissions to a container and its blobs, you can set the container permissions to allow public access. Anonymous users can read blobs within a publicly accessible container without authenticating the request.
 
 Containers provide the following options for managing container access:
 
@@ -207,3 +207,9 @@ Together the shared access signature and the stored access policy must include a
 ### Modifying or Revoking a Stored Access Policy
 
 To revoke access to shared access signatures that use the same stored access policy, remove the stored policy from the storage resource by overwriting the stored policy list with a new list that does not contain the policy name. To change access settings of a stored access policy, overwrite the stored policy list with a new list that contains a policy of the same name that has new access control details.
+
+## See Also
+
+- [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+- [Shared access signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
+- [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)

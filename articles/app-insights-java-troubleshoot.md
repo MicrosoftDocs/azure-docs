@@ -40,7 +40,8 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 
 #### I used to see data, but it has stopped
 
-* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/)
+* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Have you hit your monthly quota of data points? Open the Pricing tile to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
 
 
 
