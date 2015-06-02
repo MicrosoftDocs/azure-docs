@@ -18,13 +18,13 @@
 
 # Provision a logic app with an API app
 
-In this topic, you will learn how to create an Azure Resource Manager template to create an logic app with an App Service API app. You can use the logic app to design workflows that articulate intent via a trigger and a 
+In this topic, you will learn how to create an Azure Resource Manager template to create a logic app with an App Service API app. You can use the logic app to design workflows that articulate intent through a trigger and a 
 series of steps, each invoking the API app while securely taking care of authentication and best practices like durable execution.
 
 You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-For more details on the Logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/dn948513.aspx). 
+For more details on the logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/dn948513.aspx). 
 For examples of the definition itself, see [Author Logic App definitions](app-service-logic-author-definitions.md). 
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
@@ -303,7 +303,7 @@ Notice that the gateway includes a child resource for an authentication token. T
 
 Creates the logic app.
 
-A Logic app requires a name, location, SKU (which points to that App service plan), definition, and, optionally, parameters.
+A logic app requires a name, location, SKU (which points to that App service plan), definition, and, optionally, parameters.
 
 Notice that the logic app uses the token to call the gateway.
 
