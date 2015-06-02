@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" 
-	description="Follow this tutorial to get started using Azure Mobile Services for HTML development." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Azure Mobile Services for HTML 5 apps"
+	description="Follow this tutorial to get started using Azure Mobile Services for HTML development."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html5" 
-	ms.devlang="javascript" 
-	ms.topic="hero-article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html5"
+	ms.devlang="javascript"
+	ms.topic="article" 
+	ms.date="04/24/2015"
 	ms.author="ggailey777"/>
 
 
@@ -27,12 +27,12 @@
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">3:51</span></div>
 </div>
- 
+
 A screenshot from the completed app is below:
 
 ![][0]
 
-Completing this tutorial is a prerequisite for all other Mobile Services tutorials for HTML apps. 
+Completing this tutorial is a prerequisite for all other Mobile Services tutorials for HTML apps.
 
 > [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
 
@@ -40,10 +40,10 @@ Completing this tutorial is a prerequisite for all other Mobile Services tutoria
 
 + This tutorial requires that you have one of the following web servers running on your local computer:
 
-	+  **On Windows**: IIS Express. IIS Express is installed by the [Microsoft Web Platform Installer].   
+	+  **On Windows**: IIS Express. IIS Express is installed by the [Microsoft Web Platform Installer].
 	+  **On MacOS X**: Python, which should already be installed.
-	+  **On Linux**: Python. You must install the [latest version of Python]. 
-	
+	+  **On Linux**: Python. You must install the [latest version of Python].
+
 	You can use any web server to host the app, but these are the web servers that are supported by the downloaded scripts.  
 
 + A web browser that supports HTML5.
@@ -55,13 +55,13 @@ Completing this tutorial is a prerequisite for all other Mobile Services tutoria
 
 ## Create a new HTML app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.
 
 In this section you will create a new HTML app that is connected to your mobile service.
 
 1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
 
-   
+
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new HTML app**.
 
    	![][6]
@@ -72,7 +72,7 @@ In this section you will create a new HTML app that is connected to your mobile 
 
 3. Click **Create TodoItems table** to create a table to store app data.
 
-4. Under **Download and run your app**, click **Download**. 
+4. Under **Download and run your app**, click **Download**.
 
   	This downloads the website files for the sample _To do list_ application that is connected to your mobile service. Save the compressed file to your local computer, and make a note of where you save it.
 
@@ -88,7 +88,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 
-	+ **launch-windows** (Windows computers) 
+	+ **launch-windows** (Windows computers)
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
@@ -115,11 +115,11 @@ The final stage of this tutorial is to host and run your new app on your local c
    	![][12]
 
 ## <a name="next-steps"> </a>Next Steps
-Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
+Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
 * **[Get started with data]**
   <br/>Learn more about storing and querying data using Mobile Services.
-  
+
 * **[Call a custom API from an HTML application]**
   <br/>Connect your HTML application with a custom API hosted on Mobile Services.
 
@@ -127,7 +127,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
   <br/>Learn how to authenticate users of your app with an identity provider.
 
 * **[Mobile Services HTML/JavaScript How-to Conceptual Reference]**
-  <br/>Learn more about how to use Mobile Services with HTML/JavaScript 
+  <br/>Learn more about how to use Mobile Services with HTML/JavaScript
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -154,7 +154,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-html
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-html
-[Call a custom API from an HTML application]: mobile-services-html-call-custom-api.md 
+[Call a custom API from an HTML application]: mobile-services-html-call-custom-api.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Create an ASP.NET API app in Azure App Service " 
-	description="Learn how to to create an ASP.NET API app in Azure App Service, using Visual Studio 2013 " 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="bradygaster" 
-	manager="wpickett" 
+<properties
+	pageTitle="Create an ASP.NET API app in Azure App Service "
+	description="Learn how to to create an ASP.NET API app in Azure App Service, using Visual Studio 2013 "
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="bradygaster"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/19/2015" 
+<tags
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="bradyg;tarcher"/>
 
 # Create an ASP.NET API app in Azure App Service
@@ -32,13 +32,13 @@ Subsequent tutorials in the series show how to [deploy](app-service-dotnet-deplo
 
 This tutorial requires version 2.5.1 or later of the Azure SDK for .NET.
 
-## Create an API app project 
+## Create an API app project
 
 1. Open Visual Studio 2013.
 
-2. Select **File > New Project**. 
+2. Select **File > New Project**.
 
-3. Select the **ASP.NET Web Application** template. 
+3. Select the **ASP.NET Web Application** template.
 
 4. Make sure that the **Add Application Insights to Project** check box is cleared.
 

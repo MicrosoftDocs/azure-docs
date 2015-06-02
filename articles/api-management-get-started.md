@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Manage your first API in Azure API Management" 
-	description="Learn how to create APIs, operations, and get started with API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+<properties
+	pageTitle="Manage your first API in Azure API Management"
+	description="Learn how to create APIs, operations, and get started with API Management."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/21/2015"
 	ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
@@ -24,7 +24,7 @@ This guide shows you how to quickly get started using API Management and make yo
 
 ## <a name="concepts"> </a>What is Azure API Management?
 
-Azure API Management allows you to take any backend and launch a full-fledged API program based on it. 
+Azure API Management allows you to take any backend and launch a full-fledged API program based on it.
 
 Common scenarios include:
 
@@ -123,7 +123,7 @@ By default, each API Management instance comes with two sample products:
 -	**Starter**
 -	**Unlimited**
 
-In this tutorial, the Basic Calculator API was added to the Starter product when the API was imported. 
+In this tutorial, the Basic Calculator API was added to the Starter product when the API was imported.
 
 In order to make calls to an API, developers must first subscribe to a product that gives them access to it. Developers can subscribe to products in the developer portal, or administrators can subscribe developers to products in the publisher portal. You are an administrator since you created the API Management instance in the previous steps in the tutorial, so you are already subscribed to every product by default.
 
@@ -147,7 +147,7 @@ You can enter some values for the parameters or keep the defaults, and click **S
 
 ![HTTP Get][api-management-invoke-get]
 
-After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**. 
+After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
 ![Response][api-management-invoke-get-response]
 
@@ -217,7 +217,6 @@ The **Analytics** section has the following four tabs.
 [api-management-import-new-api]: ./media/api-management-get-started/api-management-import-new-api.png
 [api-management-imported-api-summary]: ./media/api-management-get-started/api-management-imported-api-summary.png
 [api-management-calc-operations]: ./media/api-management-get-started/api-management-calc-operations.png
-[api-management-operation-signature]: ./media/api-management-get-started/api-management-operation-signature.png
 [api-management-list-products]: ./media/api-management-get-started/api-management-list-products.png
 [api-management-add-api-to-product]: ./media/api-management-get-started/api-management-add-api-to-product.png
 [api-management-add-myechoapi-to-product]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
