@@ -36,7 +36,7 @@ In this template, you will deploy:
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../includes/app-service-web-deploy-web-parameters.md)]
 
-[AZURE.INCLUDE [app-service-web-deploy-redis-parameters](../includes/app-service-web-deploy-redis-parameters.md)]
+[AZURE.INCLUDE [cache-deploy-parameters](../includes/cache-deploy-parameters.md)]
 
 
 
