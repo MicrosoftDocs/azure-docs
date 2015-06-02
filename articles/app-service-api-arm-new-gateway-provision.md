@@ -33,7 +33,7 @@ In this template, you will deploy:
 - new gateway
 - new App Service hosting plan
 
-## Parameters to specify
+## Parameters
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../includes/app-service-api-deploy-parameters.md)]
     
