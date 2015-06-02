@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Active Directory Editions" 
-	description="A topic that explains choices for free and paid editions of Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Azure Active Directory Editions"
+	description="A topic that explains choices for free and paid editions of Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="Justinha"
+	manager="TerryLan"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/04/2015"
 	ms.author="Justinha"/>
 
 # Azure Active Directory Editions
@@ -36,9 +36,9 @@ Azure Active Directory Premium and Basic editions are available for customers in
 
 Active Directory Basic edition is a paid offering of Azure Active Directory and includes the following features:
 
-- **Company branding** - To make the end user experience even better, you can add your company logo and color schemes to your organization’s Sign In and Access Panel pages. Once you’ve added your logo, you also have the option to add localized versions of the logo for different languages and locales. 
+- **Company branding** - To make the end user experience even better, you can add your company logo and color schemes to your organization’s Sign In and Access Panel pages. Once you’ve added your logo, you also have the option to add localized versions of the logo for different languages and locales.
     For more information, see [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md).
-- **Group-based application access** - Use groups to provision users and assign user access in bulk to thousands of SaaS applications. These groups can either be created solely in the cloud or you can leverage existing groups that have been synced in from your on-premises Active Directory. 
+- **Group-based application access** - Use groups to provision users and assign user access in bulk to thousands of SaaS applications. These groups can either be created solely in the cloud or you can leverage existing groups that have been synced in from your on-premises Active Directory.
     For more information, see [Assign access for a group to a SaaS application in Azure AD](https://msdn.microsoft.com/library/azure/dn621141.aspx).
 - **Self-service password reset** - Azure has always allowed directory administrators to reset passwords. With Azure Active Directory Basic, you can now reduce helpdesk calls when your users forget a password by giving all users in your directory the capability to reset their password, using the same sign in experience they have for Office 365.
     For more information, see [Password Management in Azure AD](https://msdn.microsoft.com/library/azure/dn510386.aspx).
@@ -83,7 +83,7 @@ The following features are currently in public preview and will be added soon:
 - Azure Active Directory Connect Health: monitor the health of your on premises Active Directory infrastructure and get usage analytics.
 - Password rollover for Facebook, Twitter, and LinkedIn. For more information, read [this article](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
 - Dynamic groups. For more information, see [this article](https://msdn.microsoft.com/library/azure/dn913807.aspx).
-- Conditional Access: Multifactor Authentication per application. 
+- Conditional Access: Multifactor Authentication per application.
 - HR application integration: Workday
 
 ## Comparing Free, Basic, and Premium editions
@@ -126,4 +126,3 @@ Azure Active Directory Basic and Azure Active Directory Premium have more advanc
 - [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
 - [View your access and usage reports](active-directory-view-access-usage-reports.md)
-

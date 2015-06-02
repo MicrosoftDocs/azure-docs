@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Get started with Application Insights" 
-	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
-	services="application-insights" 
+<properties
+	pageTitle="Get started with Application Insights"
+	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="ronmart"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/26/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="hero-article" 
+	ms.date="04/26/2015"
 	ms.author="awills"/>
 
 # Get started with Visual Studio Application Insights
@@ -72,4 +72,3 @@ What you want | What to do | What you get
 <!--Link references-->
 
 [qna]: app-insights-troubleshoot-faq.md
-

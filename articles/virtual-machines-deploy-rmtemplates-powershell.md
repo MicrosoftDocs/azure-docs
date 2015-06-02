@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="06/02/2015" 
 	ms.author="josephd"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell
@@ -23,9 +23,13 @@ This article shows you how to use Azure Resource Manager templates and PowerShel
 - [Deploy a Windows VM](#windowsvm)
 - [Create a custom VM image](#customvm)
 - [Deploy a multi-VM application that uses a virtual network and an external load balancer](#multivm)
+- [Remove a resource group](#removerg)
 - [Log on to a virtual machine](#logon)
+- [Display information about a virtual machine](#displayvm)
 - [Start a virtual machine](#start)
 - [Stop a virtual machine](#stop)
+- [Restart a virtual machine](#restart)
+- [Delete a virtual machine](#delete)
 
 Before you get started, make sure you have Azure PowerShell ready to go.
 
@@ -778,7 +782,7 @@ You would see something like this.
 	vmNamePrefix: WEBFARM
 	...
 
-## TASK: Remove a resource group
+## <a id="removerg"></a>TASK: Remove a resource group
 
 You can remove any resource group you have created with the **Remove-AzureResourceGroup** command.  Replace everything within the quotes, including the < and > characters, with the correct name.
 
@@ -794,7 +798,7 @@ You will see information like this:
 
 For the detailed steps, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
 
-## TASK: Display information about a virtual machine
+## <a id="displayvm"></a>TASK: Display information about a virtual machine
 
 You can see information about a VM using the **Get-AzureVM** command. This command returns a VM object that can be manipulated using various other cmdlets to update the state of the VM. Replace everything within the quotes, including the < and > characters, with the correct names.
 
@@ -901,7 +905,7 @@ You will see information like this:
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
-## TASK: Restart a virtual machine
+## <a id=restart"></a>TASK: Restart a virtual machine
 
 You can restart a VM using the **Restart-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.
 
@@ -918,7 +922,7 @@ You will see information like this:
 	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
 	StatusCode          : OK
 
-## TASK: Delete a virtual machine
+## <a id=delete"></a>TASK: Delete a virtual machine
 
 You can delete a VM using the **Remove-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.  You can use the **-Force** parameter to skip the confirmation prompt.
 
