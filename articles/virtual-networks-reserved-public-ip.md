@@ -1,13 +1,13 @@
 <properties 
    pageTitle="Reserved IP"
    description="Understand reserved IPs, VIP, ILPIP, and how to manage them"
-   services="virtual-networks"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-networks"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
