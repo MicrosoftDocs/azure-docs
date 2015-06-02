@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get started with Azure Search in NodeJS" 
-	description="Walk through building a custom Azure Search application using NodeJS as your programming language." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Get started with Azure Search in NodeJS"
+	description="Walk through building a custom Azure Search application using NodeJS as your programming language."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/25/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="03/25/2015"
 	ms.author="heidist"/>
 
 #Get started with Azure Search in NodeJS#
@@ -22,9 +22,9 @@ Learn how to build a custom NodeJS search application that uses Azure Search for
 
 We used [NodeJS](https://nodejs.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
 
-To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com). 
+To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com).
 
-> [AZURE.TIP] Download the source code for this tutorial at [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198). 
+> [AZURE.TIP] Download the source code for this tutorial at [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
 ##About the data##
 
@@ -39,36 +39,36 @@ In this application, the **DataIndexer** program builds and loads the index usin
 1. Sign in to [Azure portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** | **Data + storage** | **Search**.
- 
+
      ![][1]
 
 3. Configure the service name, pricing tier, resource group, subscription and location. These settings are required and cannot be changed once the service is provisioned.
 
      ![][2]
 
-	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions. 
-	
-	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels. 
-	
+	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
+
+	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
+
 		- **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
 		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about fifteen minutes.
-	
+
 	- **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
-	
+
 	- **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
-	
+
 	- **Location** is the data center region. Currently, all resources must run in the same data center. Distributing resources across multiple data centers is not supported.
 
-4. Click **Create** to provision the service. 
+4. Click **Create** to provision the service.
 
 Watch for notifications in the Jumpbar. A notice will appear when the service is ready to use.
 
 <a id="sub-2"></a>
 ##Find the service name and api-key of your Azure Search service
 
-After the service is created, you can return to the portal to get the URL or `api-key`. Connections to your Search service requires that you have both the URL and an `api-key` to authenticate the call. 
+After the service is created, you can return to the portal to get the URL or `api-key`. Connections to your Search service requires that you have both the URL and an `api-key` to authenticate the call.
 
-1. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard. 
+1. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
 
 2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
@@ -85,7 +85,7 @@ Use either one of the following approaches to download the sample.
 
 All subsequent file modifications and run statements will be made against files in this folder.
 
-Alternatively, if you have GIT in your path statement, you can open a PowerShell window and type `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git` 
+Alternatively, if you have GIT in your path statement, you can open a PowerShell window and type `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
 ##Update the config.js. with your Search service URL and api-key
 
@@ -102,7 +102,7 @@ The following screenshot shows **config.js** open in a text editor, with the rel
 
 ##Host a runtime environment for the sample
 
-The sample requires an HTTP server, which you can install globally using npm. 
+The sample requires an HTTP server, which you can install globally using npm.
 
 Use a PowerShell window for the following commands.
 
@@ -112,14 +112,14 @@ Use a PowerShell window for the following commands.
 
 ##Build the index and run the application
 
-1. Type `npm run indexDocuments`. 
+1. Type `npm run indexDocuments`.
 2. Type `npm run build`.
 3. Type `npm run start_server`.
 4. Direct your browser at `http://localhost:8080/index.html`
 
 ##Search on USGS data##
 
-The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default. 
+The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default.
 
 Entering a search term will give the search engine something to go on. Try entering a regional name. "Roger Williams" was the first governor of Rhode Island. Numerous parks, buildings, and schools are named after him.
 

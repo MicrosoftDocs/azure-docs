@@ -19,7 +19,7 @@
 
 # Set up protection between on-premises VMware virtual machines or physical servers and Azure
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Azure Site Recovery overview](hyper-v-recovery-manager-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Azure Site Recovery overview](site-recovery-overview.md).
 
 This walkthrough describes how to deploy Site Recovery to:
 
