@@ -714,7 +714,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/en-us/library/dn858087.aspx
 
 [powershell-install-configure]: install-configure-powershell.md
 

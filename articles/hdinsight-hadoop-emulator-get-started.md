@@ -522,7 +522,7 @@ In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sand
 
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/en-us/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-get-started.md
 [hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
