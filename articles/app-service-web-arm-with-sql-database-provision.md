@@ -266,7 +266,7 @@ you must provide a login name and password for the database server administrator
 
 ### Alert rules for status codes 403 and 500's, High CPU, and HTTP Queue Length 
 
- {
+    {
       "apiVersion": "2014-04-01",
       "name": "[concat('ServerErrors ', parameters('siteName'))]",
       "type": "microsoft.insights/alertrules",
