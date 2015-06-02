@@ -39,6 +39,7 @@
 | Canonical                        | UbuntuServer                               | 14.04.2-LTS                      |
 | MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  |
 | MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               |
+| MicrosoftWindowsServer           | WindowsServer                              | 2008-R2-SP1 |
 | MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          |
 | MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           |
