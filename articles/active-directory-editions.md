@@ -3,15 +3,9 @@
 	description="A topic that explains choices for free and paid editions of Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-<<<<<<< HEAD
 	authors="curtand"
 	manager="TerryLan"
 	editor=""/>
-=======
-	authors="Justinha"
-	manager="TerryLan"
-	editor="LisaToft"/>
->>>>>>> b7cc738c8992b13cf313e1eb293f395c52d398bc
 
 <tags
 	ms.service="active-directory"
@@ -77,29 +71,10 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 
 - **Password reset with write-back** - Self-service password reset can be written back to on-premises directories.
 
-<<<<<<< HEAD
-=======
-## Features currently in public preview
 
-The following features are currently in public preview and will be added soon:
 
-- Bi-directional synchronization via [Azure Active Directory Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
-- Administrative units: a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users.
-- Cloud app discovery: easily determine which cloud apps are in use in your organization.
-- Add your own SaaS applications to Azure Active Directory.
-- Add security questions for self-service password reset.
-- Azure Active Directory Connect Health: monitor the health of your on premises Active Directory infrastructure and get usage analytics.
-- Password rollover for Facebook, Twitter, and LinkedIn. For more information, read [this article](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
-- Dynamic groups. For more information, see [this article](https://msdn.microsoft.com/library/azure/dn913807.aspx).
-- Conditional Access: Multifactor Authentication per application.
-- HR application integration: Workday
 
->>>>>>> b7cc738c8992b13cf313e1eb293f395c52d398bc
-## Comparing Free, Basic, and Premium editions
-
-Azure Active Directory Basic and Azure Active Directory Premium have more advanced capabilities to help streamline enterprise-level administrative tasks and make an administrator’s life easier. The following table describes common admin benefits and how signing up for Azure Active Directory Basic or Azure Active Directory Premium help simplify them.
-
-### Common features
+## Comparing Free, Basic, and Premium editions: Capabilities common to all editions
 
 - Directory as a service
     For the free edition, there is a 500K object limit. But the 500k object limit does not apply for Office 365, Windows Intune or any other Microsoft online service that relies on Azure Active Directory for directory services. The Basic and Premium editions have no object limit.
@@ -112,7 +87,7 @@ Azure Active Directory Basic and Azure Active Directory Premium have more advanc
 - Directory synchronization tool: For syncing between on-premises Active Directory and Azure Active Directory
 - Standard security reports
 
-### Premium and basic features
+## Comparing Free, Basic, and Premium editions: Premium and Basic capabilities
 
 - High availability SLA uptime (99.9%)
 - Group-based application access management and provisioning
@@ -120,7 +95,7 @@ Azure Active Directory Basic and Azure Active Directory Premium have more advanc
 - Self-service password reset for cloud users
 - Application Proxy: Secure Remote Access and single sign-in to on-premises web applications
 
-### Premium-only features
+## Comparing Free, Basic, and Premium editions: Premium-only features
 
 - Self-service group management for cloud users
 - Self-service password reset with on-premises write-back
