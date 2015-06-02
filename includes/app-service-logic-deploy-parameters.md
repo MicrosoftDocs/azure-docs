@@ -17,7 +17,7 @@ The name of the logic app to create.
 
 ### svcPlanName
 
-The name of the App Servive plan to create for hosting the logic app.
+The name of the App Service plan to create for hosting the logic app.
     
     "svcPlanName": {
         "type": "string"
