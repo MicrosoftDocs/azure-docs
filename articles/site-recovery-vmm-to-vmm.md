@@ -22,7 +22,7 @@
 ## Overview
 
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see  [Azure Site Recovery overview](hyper-v-recovery-manager-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios see  [Azure Site Recovery overview](site-recovery-overview.md).
 
 This scenario guide describes how to deploy Site Recovery to orchestrate and automate protection for workloads running on virtual machines on Hyper-V host servers that are located in VMM private clouds. In this scenario virtual machines are replicated from a primary VMM site to a secondary VMM site using Hyper-V Replica.
 
@@ -130,8 +130,8 @@ After the Provider is installed continue setup to register the server in the vau
 
 	- If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
 	- If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.
-	- You should exempt the following addresses from routing through the proxy:
-		- The URL for connecting to the Azure Site Recovery: *.hypervrecoverymanager.windowsazure.com
+	- Following urls should be accessible from the VMM Server:
+		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net 
@@ -286,22 +286,23 @@ After replication the replica virtual machine might not have an IP address that 
 
 #### Script to retrieve the IP address
 Run this sample script to retrieve the IP address.
-    **$vm = Get-SCVirtualMachine -Name <VM_NAME>
-	$na = $vm[0].VirtualNetworkAdapters>
-	$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-	$ip.address**  
+
+    	$vm = Get-SCVirtualMachine -Name <VM_NAME>
+		$na = $vm[0].VirtualNetworkAdapters>
+		$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+		$ip.address  
 
 #### Script to update DNS
 Run this sample script to update DNS, specifying the IP address you retrieved using the previous sample script.
 
-	**[string]$Zone,
-	[string]$name,
-	[string]$IP
-	)
-	$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-	$newrecord = $record.clone()
-	$newrecord.RecordData[0].IPv4Address  =  $IP
-	Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord**
+		string]$Zone,
+		[string]$name,
+		[string]$IP
+		)
+		$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+		$newrecord = $record.clone()
+		$newrecord.RecordData[0].IPv4Address  =  $IP
+		Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 
 
