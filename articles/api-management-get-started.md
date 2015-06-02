@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/21/2015" 
+	ms.date="05/21/2015"
 	ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
@@ -308,7 +308,6 @@ The **Analytics** section has the following four tabs.
 [api-management-dashboard]: ./media/api-management-get-started/api-management-dashboard.png
 
 [api-management-add-response]: ./media/api-management-get-started/api-management-add-response.png
-[api-management-add-response-window]: ./media/api-management-get-started/api-management-add-response-window.png
 [api-management-developer-key]: ./media/api-management-get-started/api-management-developer-key.png
 [api-management-mouse-over]: ./media/api-management-get-started/api-management-mouse-over.png
 [api-management-api-summary-metrics]: ./media/api-management-get-started/api-management-api-summary-metrics.png
