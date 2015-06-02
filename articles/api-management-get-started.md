@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="05/21/2015"
 	ms.author="sdanie"/>
 
@@ -116,72 +116,7 @@ Once the API is imported, the summary page for the API is displayed in the publi
 
 ![API summary][api-management-imported-api-summary]
 
-<<<<<<< HEAD
-The API section has four tabs. The **Summary** tab display basic metrics and information about the API. The **Settings** tab is used to view and edit the configuration for an API, including authentication credentials for the back-end service. The **Operations** tab is used to manage the API's operations and is used in the following step in the tutorial, and the **Issues** tab can be used to view issues reported by the developers using your APIs.
-
->The sample echo API doesn't use authentication, but for more information about configuring authentication, see [Configure API settings][].
-
-Once an API is created and the settings configured, the next step is to add the operations to the API. The operation definitions are used to validate incoming requests and to automatically generate documentation.
-
-
-## <a name="add-operation"> </a>Add an operation
-
-Click **Operations** to display the operations pane for the API. Since we have not yet added any operations, there are none displayed.
-
-![Operations][api-management-myecho-operations]
-
-Click **add operation** to add a new operation. The **New operation** window will be displayed and the **Signature** tab will be selected by default.
-
-![Operation signature][api-management-operation-signature]
-
-In this example, we will specify a GET operation on the echo service. Enter the following values into the fields on the **Signature** tab.
-
--	Type **GET** into the **HTTP verb** text box. As you start typing you can select **GET** from the displayed list of http verbs.
--	Type **/resource** into the **URL template** text box.
--	Type **GET resource** into the **Display** name text box.
--	Type **A demonstration of a GET call on a sample resource. It is handled by an "echo" backend which returns a response equal to the request (the supplied headers and body are being returned as received).** into the **Description** text box. This description is used to generate documentation for this operation when developers use this API.
-
-Click **Parameters** to configure the query string parameters for this operation. In this example there are two query string parameters. To add a query parameter click **Add query parameter** and specify the following values.
-
-For the first query parameter, configure the following values.
-
--	Type **param1** into the **Name** text box.
--	Type **A sample parameter that is required.** into the **Description** text box.
--	Click the **Type** field and choose **string** from the list. Supported types are **string**, **number**, **boolean**, and **dateTime**.
--	Click the **Values** field, type **sample** into the text box, and click the plus sign to add the default value text to the parameter. After adding the default text, click anywhere outside the **Values** field to dismiss the add value window.
--	Check the **Required** check box.
-
-For the second query parameter, enter the following values.
-
--	**Name**: **param2**
--	**Description**: **Another sample parameter, set to not required.**
--	**Type**: **number**
-
-It is a good practice to provide examples of responses for all status codes that the operation may produce. Each status code may have more than one response body example, one for each of the supported content types. In this tutorial we are adding a **200 OK** response code.
-
-Click **Add** in the Responses section, start typing **200** into the text box, and then select **200 OK** from the drop-down list.
-
-![Add response][api-management-add-response]
-
-Once **200 OK** is selected, a new response code is added to the operation and the response window is displayed. Type **Returned in all cases.** into the **Description** text box.
-
-![Add response][api-management-add-response-window]
-
->**Add Representation** is used to configure responses in multiple representations. For more information, see [Responses][].
-
-Click **Save** to add the newly configured operation to the API.
-
-
-## <a name="add-api-to-product"> </a>Add the new API to a product
-
-Developers must first subscribe to a product before they can make API calls. A product provides access to one or more APIs and can contain access restrictions like usage quotas and rate limits. In this step of the tutorial you will add the My Echo API to an existing product.
-
-Click **Products** from the **API Management** menu on the left to view and configure the products available in this API Instance.
-
-![Products][api-management-list-products]
-=======
 The API section has several tabs. The **Summary** tab display basic metrics and information about the API. The [Settings](api-management-howto-create-apis.md#configure-api-settings) tab is used to view and edit the configuration for an API. The [Operations](api-management-howto-add-operations.md) tab is used to manage the API's operations. The **Security** tab can be used to configure proxy authentication for the backend server using Basic authentication or [mutual certificate authentication](api-management-howto-mutual-certificates.md), and to configure [user authorization using OAuth 2.0](api-management-howto-oauth2.md).  The The **Issues** tab is used to view issues reported by the developers using your APIs, and the **Products** tab is used to configure the products that contain this API.
->>>>>>> ddaba7617e5252401570ff36404195f39b59f9e7
 
 By default, each API Management instance comes with two sample products:
 
@@ -204,11 +139,7 @@ Click **APIs** from the top menu, and then click **Basic Calculator** to see the
 
 Note the sample descriptions and parameters that were imported along with the API and operations, providing documentation for the developers that will use this operation. These descriptions can also be added when operations are added manually.
 
-<<<<<<< HEAD
-Click **GET Resource** and then click **Open Console**.
-=======
 To call the **Add two integers** operation, click **Try it**.
->>>>>>> ddaba7617e5252401570ff36404195f39b59f9e7
 
 ![Try it][api-management-developer-portal-calc-api-console]
 
@@ -216,11 +147,7 @@ You can enter some values for the parameters or keep the defaults, and click **S
 
 ![HTTP Get][api-management-invoke-get]
 
-<<<<<<< HEAD
-After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**.
-=======
 After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
->>>>>>> ddaba7617e5252401570ff36404195f39b59f9e7
 
 ![Response][api-management-invoke-get-response]
 
@@ -290,7 +217,6 @@ The **Analytics** section has the following four tabs.
 [api-management-import-new-api]: ./media/api-management-get-started/api-management-import-new-api.png
 [api-management-imported-api-summary]: ./media/api-management-get-started/api-management-imported-api-summary.png
 [api-management-calc-operations]: ./media/api-management-get-started/api-management-calc-operations.png
-[api-management-operation-signature]: ./media/api-management-get-started/api-management-operation-signature.png
 [api-management-list-products]: ./media/api-management-get-started/api-management-list-products.png
 [api-management-add-api-to-product]: ./media/api-management-get-started/api-management-add-api-to-product.png
 [api-management-add-myechoapi-to-product]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
@@ -308,6 +234,7 @@ The **Analytics** section has the following four tabs.
 [api-management-dashboard]: ./media/api-management-get-started/api-management-dashboard.png
 
 [api-management-add-response]: ./media/api-management-get-started/api-management-add-response.png
+[api-management-add-response-window]: ./media/api-management-get-started/api-management-add-response-window.png
 [api-management-developer-key]: ./media/api-management-get-started/api-management-developer-key.png
 [api-management-mouse-over]: ./media/api-management-get-started/api-management-mouse-over.png
 [api-management-api-summary-metrics]: ./media/api-management-get-started/api-management-api-summary-metrics.png
