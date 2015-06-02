@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Provision a web app that uses WebJobs" 
+	pageTitle="Provision a Web App that uses WebJobs" 
 	description="Use an Azure Resource Manager template to deploy a web app with WebJobs." 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -16,9 +16,9 @@
 	ms.date="06/01/2015" 
 	ms.author="tomfitz"/>
 
-# Provision a web app that uses WebJobs
+# Provision a Web App that uses WebJobs
 
-In this topic, you will learn how to create an Azure Resource Manager template that deploys a web app that uses WebJobs. You will learn how to define which resources are deployed and 
+In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App that uses WebJobs. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
@@ -32,7 +32,7 @@ In this template, you will deploy:
 - a web app that contains the code from a project in GitHub
 - a WebJob
 
-## Parameters to specify
+## Parameters
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../includes/app-service-web-deploy-web-parameters.md)]
  
@@ -115,6 +115,8 @@ Creates the WebJob that is associated with the web app.
 
 You specify the name of the collection in the **jobCollectionName** parameter. The location of the collection is the same as the location used for the web app. The job collection is dependent on the web app.
 
+The job is defined as a child resource of the job collection resource and is marked as dependent on the job collection.
+
     {
        "apiVersion":"2014-08-01-preview",
        "name":"[parameters('jobCollectionName')]",
@@ -173,10 +175,10 @@ You specify the name of the collection in the **jobCollectionName** parameter. T
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppWithWebJobs.json -ResourceGroupName ExampleDeployGroup -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -repoUrl https://github.com/user/project -branch master -jobCollectionName ExampleCollection
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppWithWebJobs.json -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppWithWebJobs.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppWithWebJobs.json -g ExampleDeployGroup
 
 
