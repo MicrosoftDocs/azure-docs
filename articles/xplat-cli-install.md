@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
-	ms.author="dkshir"/>
+	ms.date="06/02/2015"
+	ms.author="danlep"/>
 
 # Install the Azure CLI
 
