@@ -57,7 +57,7 @@ Use the following procedures to configure verbose or minimal monitoring in the M
 
 Ensure that the diagnostics connection string is present in the Role configuration. You cannot turn on verbose monitoring until you enable Azure Diagnostics and include a diagnostics connection string in the Role configuration.   
 
-	> [AZURE.NOTE] Projects targeting Azure SDK 2.5 did not automatically include the diagnostics connection string in the project template. For these projects you need to manually add the diagnostics connection string to the Role configuration.
+> [AZURE.WARNING] Projects targeting Azure SDK 2.5 did not automatically include the diagnostics connection string in the project template. For these projects you need to manually add the diagnostics connection string to the Role configuration.
 
 **To manually add diagnostics connection string to Role configuration**
 
