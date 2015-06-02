@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Deploy a web app that is linked to a GitHub repository" 
-	description="" 
+	pageTitle="Create a Logic App" 
+	description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
 	services="app-service\logic" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/02/2015" 
 	ms.author="tomfitz"/>
 
-# Deploy a logic app
+# Create a Logic App using a template
 
 In this topic, you will learn how to create an Azure Resource Manager template to create an empty logic app that can be used to define workflows. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
@@ -26,13 +26,13 @@ For examples of the definition itself, see [Author Logic App definitions](app-se
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
-For the complete template, see [Web App Linked to GitHub template](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WebAppLinkedToGithub.json).
+For the complete template, see [Logic App template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/LogicApp.json).
 
 ## What you will deploy
 
-With this template, you will provision a logic app.
+With this template, you will deploy a logic app.
 
-## Parameters to specify
+## Parameters
 
 [AZURE.INCLUDE [app-service-logic-deploy-parameters](../includes/app-service-logic-deploy-parameters.md)]
 
@@ -71,9 +71,9 @@ It uses the same location as the resource group to which it is being deployed.
 
 Creates the logic app.
 
-A Logic app requires a name, location, SKU (which points to that App service plan), definition, and, optionally, parameters.
+The templates uses a parameter value for the logic app name. It sets the location of the logic app to the same location as the resource group. 
 
-This particular definition will run once an hour, and then ping the location that's at `testUri`. 
+This particular definition will run once an hour, and ping the location specified in the **testUri** parameter. 
 
     {
         "type": "Microsoft.Logic/workflows",
@@ -129,10 +129,10 @@ This particular definition will run once an hour, and then ping the location tha
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/davidebbo/AzureWebsitesSamples/master/ARMTemplates/WebAppLinkedToGithub.json  -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicApp.json -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/davidebbo/AzureWebsitesSamples/master/ARMTemplates/WebAppLinkedToGithub.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicApp.json -g ExampleDeployGroup
 
 
