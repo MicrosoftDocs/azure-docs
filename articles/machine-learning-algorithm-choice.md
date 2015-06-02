@@ -64,9 +64,7 @@ Supervised learning is also the most common technique for training neural networ
 
 > Both of these techniques are highly dependent on the information given by the pre-determined classifications. In the case of neural networks, the classification is used to determine the error of the network and then adjust the network to minimize it, and in decision trees, the classifications are used to determine what attributes provide the most information that can be used to solve the classification puzzle. ... both of these examples thrive on having some "supervision" in the form of pre-determined classifications. 
 
-> Speech recognition using hidden Markov models and Bayesian networks relies on some elements of supervision as well in order to adjust parameters to, as usual, minimize the error on the given inputs.[^1]
-
-[^1]: [Machine Learning, Part II: Supervised and Unsupervised Learning](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/).
+> Speech recognition using hidden Markov models and Bayesian networks relies on some elements of supervision as well in order to adjust parameters to, as usual, minimize the error on the given inputs.[[Machine Learning, Part II: Supervised and Unsupervised Learning](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/)]
 
 
 <a name="anchor-3"></a>
@@ -128,9 +126,7 @@ One approach that is recommended is to test several different classifiers, as we
 
 > [AZURE.TIP] [Azure Machine Learning Studio](https://studio.azureml.net/) allows you to try multiple algorithms side-by-side against the same data and compare the results. Here's an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net/): [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92). 
 
-Here are some general guidelines that can provide a place to start this deliberation. Consider the following issues when choosing which algorithm to use:[^2]
-
-[^2]: Outline suggested by [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
+Here are some general guidelines that can provide a place to start this deliberation. Consider the following issues when choosing which algorithm to use: [outline suggested by [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
 
 **How large is your training data?**
 If your training set is small, and you're going to train a supervised classifier, then machine learning theory says you should stick to a classifier with high bias/low variance, such as Naive Bayes. These have an advantage over low bias/high variance classifiers such as kNN since the latter tends to overfit. But low bias/high variance classifiers are more appropriate if you have a larger training set because they have a smaller asymptotic error - in these cases a high bias classifier isn't powerful enough to provide an accurate model. There are theoretical and empirical results that indicate that Naive Bayes does well in such circumstances. But note that having better data and good features usually can give you a greater advantage than having a better algorithm. Also, if you have a very large dataset classification performance may not be affected as much by the algorithm you use, so in that case it's better to choose your algorithm based on such things as its scalability, speed, or ease of use.
@@ -154,10 +150,10 @@ Each of these classification algorithms has some advantages and  some disadvanta
 
 <a name="anchor-5a"></a>
 **Advantages and Disadvantages of Logistic Regression:**   
-"Logistic regression analysis is based on calculating the odds of the outcome as the ratio of the probability of having the outcome divided by the probability of not having it."[^3] 
+"Logistic regression analysis is based on calculating the odds of the outcome as the ratio of the probability of having the outcome divided by the probability of not having it." [[Logistic Regression and Linear Discriminant Analyses in Evaluating Factors Associated with Asthma Prevalence among 10- to 12-Years-Old Children: Divergence and Similarity of the Two Statistical Methods](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, et al (International Journal of Pediatrics, 2009) Article ID 952042]
+ 
 The logistic model is parametric and so has the advantage that it provides insight into the impact of each predictor variable on the response variable. 
 
-[^3]: [Logistic Regression and Linear Discriminant Analyses in Evaluating Factors Associated with Asthma Prevalence among 10- to 12-Years-Old Children: Divergence and Similarity of the Two Statistical Methods](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, Demosthenes B. Panagiotakos, Kostas N. Priftis, and Anastasia Tzonou (International Journal of Pediatrics, 2009) Article ID 952042.
 
 With natural probabilistic interpretations available (unlike decision trees or SVMs), you can easily update your model to incorporate new data. There are many ways to regularize your model, and, unlike Naive Bayes, you don’t have to worry as much about your features being correlated. Logistic regression is useful if you want:
 
@@ -170,13 +166,9 @@ One disadvantage of logistic regression is that it's unstable when one predictor
 
 <a name="anchor-5b"></a>
 **Advantages and Disadvantages of Decision Trees:**   
-Decision trees[^4] are easy to interpret and explain.
+[Decision trees](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf) are easy to interpret and explain.
 
-[^4]: [Decision Forests for Classification, Regression, Density Estimation, Manifold Learning and Semi-Supervised Learning](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf), A. Criminisi1, J. Shotton2 and E. Konukoglu (Microsoft Research, 2011) technical report TR-2011-114.
-
-> [Decision trees] easily handle feature interactions and they’re non-parametric, so you don’t have to worry about outliers or whether the data is linearly separable (e.g., decision trees easily take care of cases where you have class A at the low end of some feature x, class B in the mid-range of feature x, and A again at the high end). One disadvantage is that they don’t support online learning, so you have to rebuild your tree when new examples come on. Another disadvantage is that they easily overfit, but that’s where ensemble methods like random forests (or boosted trees) come in. Plus, random forests are often the winner for lots of problems in classification (usually slightly ahead of SVMs, I believe), they’re fast and scalable, and you don’t have to worry about tuning a bunch of parameters like you do with SVMs.[^5]
-
-[^5]: [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
+> [Decision trees] easily handle feature interactions and they’re non-parametric, so you don’t have to worry about outliers or whether the data is linearly separable (e.g., decision trees easily take care of cases where you have class A at the low end of some feature x, class B in the mid-range of feature x, and A again at the high end). One disadvantage is that they don’t support online learning, so you have to rebuild your tree when new examples come on. Another disadvantage is that they easily overfit, but that’s where ensemble methods like random forests (or boosted trees) come in. Plus, random forests are often the winner for lots of problems in classification (usually slightly ahead of SVMs, I believe), they’re fast and scalable, and you don’t have to worry about tuning a bunch of parameters like you do with SVMs. [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
 
 Decision trees will generate the output as rules along with metrics such as *support*, *confidence* and *lift*. 
 
@@ -188,33 +180,23 @@ However, the method is likely to perform poorly if the number of features is muc
 
 SVMs however do not directly provide probability estimates. These are calculated using an expensive five-fold cross-validation. 
 
->[With] high accuracy, nice theoretical guarantees regarding overfitting, and with an appropriate kernel they can work well even if your data isn’t linearly separable in the base feature space. [SVMs are] especially popular in text classification problems where very high-dimensional spaces are the norm.[^6]
-
-[^6]: [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
+>[With] high accuracy, nice theoretical guarantees regarding overfitting, and with an appropriate kernel they can work well even if your data isn’t linearly separable in the base feature space. [SVMs are] especially popular in text classification problems where very high-dimensional spaces are the norm. [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
 
 Unlike forests, SVMs originated as two-class classifiers, although recently they have been adapted to work with multiple classes. We can use something like "one-vs-rest" training to make a multi-class classifier which may be less optimal. 
-Since SVMs can only handle two-class outputs (i.e., a categorical output variable with variety 2), with N classes, it learns N SVM’s (SVM 1 learns “Output==1” vs “Output != 1”, SVM 2 learns  “Output==2” vs “Output != 2”, ..., SVM N learns “Output==N” vs “Output != N”). Then to predict the output for a new input, it just predicts with each SVM and then discovers which one puts the prediction the furthest into the positive region.[^7]
-
-[^7]: [Support Vector Machines](http://www.astro.caltech.edu/~george/aybi199/AMooreTutorials/svm.ppt), Andrew W. Moore (Carnegie Mellon University 2001).
+Since SVMs can only handle two-class outputs (i.e., a categorical output variable with variety 2), with N classes, it learns N SVM’s (SVM 1 learns “Output==1” vs “Output != 1”, SVM 2 learns  “Output==2” vs “Output != 2”, ..., SVM N learns “Output==N” vs “Output != N”). Then to predict the output for a new input, it just predicts with each SVM and then discovers which one puts the prediction the furthest into the positive region. [[Support Vector Machines](http://www.astro.caltech.edu/~george/aybi199/AMooreTutorials/svm.ppt), Andrew W. Moore (Carnegie Mellon University 2001)]
 
 <a name="anchor-5d"></a>
 **Advantages and Disadvantages of Naive Bayes:**   
-Naive Bayes (NB)[^8] classifiers are a popular choice for classification problems. They assume the features are independent - this is what makes the technique 'naive'. 
+[Naive Bayes (NB)](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) classifiers are a popular choice for classification problems. They assume the features are independent - this is what makes the technique 'naive'. 
 
-[^8]: [The Optimality of Naive Bayes](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) (University of New Brunswick 2004) Harry Zhang.
-
-> If the NB conditional independence assumption actually holds, a Naive Bayes classifier will converge quicker than discriminative models like logistic regression, so you need less training data. And even if the NB assumption doesn’t hold, a NB classifier still often does a great job in practice. ... Its main disadvantage is that it can’t learn interactions between features (e.g., it can’t learn that although you love movies with Brad Pitt and Tom Cruise, you hate movies where they’re together).[^9]
-
-[^9]: [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
+> If the NB conditional independence assumption actually holds, a Naive Bayes classifier will converge quicker than discriminative models like logistic regression, so you need less training data. And even if the NB assumption doesn’t hold, a NB classifier still often does a great job in practice. ... Its main disadvantage is that it can’t learn interactions between features (e.g., it can’t learn that although you love movies with Brad Pitt and Tom Cruise, you hate movies where they’re together). [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
 
 
 <a name="anchor-5e"></a>
 **One-vs-all:**  
 One-vs-all is a strategy for reducing the problem of multi-class classification to a set of multiple binary classification problems. 
 This strategy involves training a single classifier per class, with the samples of that class as positive samples and all other samples as negatives.
-This strategy requires the base classifiers to produce a real-valued confidence score for its decision, rather than just a class label; discrete class labels alone can lead to ambiguities, where multiple classes are predicted for a single sample.[^10]
-
-[^10]: [Multiclass classification](http://en.wikipedia.org/wiki/Multiclass_classification) (Wikipedia 2006).
+This strategy requires the base classifiers to produce a real-valued confidence score for its decision, rather than just a class label; discrete class labels alone can lead to ambiguities, where multiple classes are predicted for a single sample. [[Multiclass classification](http://en.wikipedia.org/wiki/Multiclass_classification) (Wikipedia 2006)]
 
 
 <a name="anchor-6"></a>
@@ -227,10 +209,8 @@ In regression analysis we predict new values based on the past inference. The ne
 Depending upon the use case and the data at hand we choose one algorithm over another. Below we will describe some regression algorithms and their principal use cases.
 
 <a name="anchor-6b"></a>
-**[Bayesian Linear Regression][bayesian-linear-regression] **                      
-Bayesian Linear Regression is an approach to linear regression in which the statistical analysis is undertaken within the context of Bayesian inference. Explicit results are available for the posterior probability distributions of the model's parameters when the regression model has normal distributed errors and a particular form of prior distribution can be assumed.[^11]
-
-[^11]: [Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org)).
+**[Bayesian Linear Regression][bayesian-linear-regression]**                      
+Bayesian Linear Regression is an approach to linear regression in which the statistical analysis is undertaken within the context of Bayesian inference. Explicit results are available for the posterior probability distributions of the model's parameters when the regression model has normal distributed errors and a particular form of prior distribution can be assumed. [[Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org))]
 
 <a name="anchor-6f"></a>
 **[Boosted Decision Tree Regression][boosted-decision-tree-regression]**  
@@ -254,15 +234,11 @@ Regression forests may be used for the non-linear regression of dependent variab
 
 <a name="anchor-6a"></a>
 **[Linear Regression][linear-regression]**  
-Linear regression is widely used for modeling the relationship between a scalar dependent variable Y and one or more explanatory variables denoted X. It can be, and typically is, applied for prediction, forecasting, or reduction. It can be used to fit a predictive model to an observed dataset of Y and X values. Linear regression assumes that the underlying structure of Y is a linear combination of the X variables. If an additional value of X is then given without its accompanying y value, the fitted linear regression model can be used to predict that Y value. Linear regression models are typically fitted using the least squares approach, but other options also exist to measure which fit is best.[^12]
-
-[^12]: [Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org)).
+Linear regression is widely used for modeling the relationship between a scalar dependent variable Y and one or more explanatory variables denoted X. It can be, and typically is, applied for prediction, forecasting, or reduction. It can be used to fit a predictive model to an observed dataset of Y and X values. Linear regression assumes that the underlying structure of Y is a linear combination of the X variables. If an additional value of X is then given without its accompanying y value, the fitted linear regression model can be used to predict that Y value. Linear regression models are typically fitted using the least squares approach, but other options also exist to measure which fit is best. [[Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org))]
 
 <a name="anchor-6c"></a>
 **[Neural Network Regression][neural-network-regression]**  
-Neural networks are a useful statistical tool for nonparametric regression. Nonparametric regression addresses the problem of trying to fit a model for a variable Y on a set of possible explanatory variables X1; : : : ;Xp, and where the relationship between X and Y may be more complicated than a simple linear relationship.[^13]
-
-[^13]: [A Framework for Nonparametric Regression Using Neural Networks](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee (ISDS, Duke University).
+Neural networks are a useful statistical tool for nonparametric regression. Nonparametric regression addresses the problem of trying to fit a model for a variable Y on a set of possible explanatory variables X1; : : : ;Xp, and where the relationship between X and Y may be more complicated than a simple linear relationship. [[A Framework for Nonparametric Regression Using Neural Networks](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee (ISDS, Duke University)]
 
 <a name="anchor-6d"></a>
 **[Ordinal Regression][ordinal-regression]**   
