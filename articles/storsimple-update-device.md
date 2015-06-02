@@ -52,6 +52,8 @@ For details on how to install Maintenance mode updates, see [Install Maintenance
 
 You can use the Management Portal to apply updates to your StorSimple device.
 
+> [AZURE.IMPORTANT] Though you can install regular updates using Windows PowerShell for StorSimple, we strongly recommend that you install regular updates through the Management Portal. Starting Update 1, pre-checks are performed prior to installing updates from the Portal  that will preempt failures and ensure a smoother experience. 
+
 [AZURE.INCLUDE [storsimple-install-updates-manually](../includes/storsimple-install-updates-manually.md)]
 
 ## Install regular updates via Windows PowerShell for StorSimple
