@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="06/03/2015" 
 	ms.author="raynew"/>
 
 
@@ -246,7 +246,7 @@ In this scenario we leverage custom scripts and Azure automation for recovery pl
     	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
     	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
 
-3.	Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation) about using automation runbooks in recovery plans. 
+3.	Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans. 
 
     	workflow SQLAvailabilityGroupFailover
     	{
@@ -332,7 +332,7 @@ In this scenario we leverage custom scripts and Azure automation for recovery pl
     	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
     	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
 
-3.	Create an Azure automation runbook to invoke the script on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation) about using automation runbooks in recovery plans.Make sure the virtual machine agent in running on the failed over SQL Server virtual machine before you do this.
+3.	Create an Azure automation runbook to invoke the script on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans.Make sure the virtual machine agent in running on the failed over SQL Server virtual machine before you do this.
 
     	workflow SQLAvailabilityGroupFailover
 		{
