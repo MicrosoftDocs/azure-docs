@@ -12,15 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
 Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
+Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="setup"></a> Set up continuous export
+## <a name="setup"></a> Set up Continuous Export
 
 On your application's Overview blade in the Application Insights portal, open Continuous Export: 
 

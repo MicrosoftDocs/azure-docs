@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Get started with your first Azure Search application in .NET | Microsoft Azure" 
-	description="Tutorial on how to build a Visual Studio solution using the .NET client library from the Azure Search .NET SDK." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Get started with your first Azure Search application in .NET | Microsoft Azure"
+	description="Tutorial on how to build a Visual Studio solution using the .NET client library from the Azure Search .NET SDK."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="04/09/2015"
 	ms.author="heidist"/>
 
 #Get started with your first Azure Search application in .NET#
 
 Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.
 
-To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com). 
+To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com).
 
-> [AZURE.TIP] Download the source code for this tutorial at [Azure Search .NET Samples](http://go.microsoft.com/fwlink/p/?LinkId=530196). 
+> [AZURE.TIP] Download the source code for this tutorial at [Azure Search .NET Samples](http://go.microsoft.com/fwlink/p/?LinkId=530196).
 
 ##About the data##
 
@@ -37,36 +37,36 @@ In this application, the **DataIndexer** program builds and loads the index usin
 1. Sign in to [Azure portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** | **Data + storage** | **Search**.
- 
+
      ![][1]
 
 3. Configure the service name, pricing tier, resource group, subscription and location. These settings are required and cannot be changed once the service is provisioned.
 
      ![][2]
 
-	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions. 
-	
-	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels. 
-	
+	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
+
+	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
+
 		- **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
 		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about fifteen minutes.
-	
+
 	- **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
-	
+
 	- **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
-	
+
 	- **Location** is the data center region. Currently, all resources must run in the same data center. Distributing resources across multiple data centers is not supported.
 
-4. Click **Create** to provision the service. 
+4. Click **Create** to provision the service.
 
 Watch for notifications in the Jumpbar. A notice will appear when the service is ready to use.
 
 <a id="sub-2"></a>
 ##Find the service name and api-keys of your Azure Search service
 
-After the service is created, you can return to the portal to get the URL or `api-key`. Connections to your Search service requires that you have both the URL and an `api-key` to authenticate the call. 
+After the service is created, you can return to the portal to get the URL or `api-key`. Connections to your Search service requires that you have both the URL and an `api-key` to authenticate the call.
 
-1. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard. 
+1. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
 
 2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
@@ -76,18 +76,18 @@ After the service is created, you can return to the portal to get the URL or `ap
 
 ##Start a new project and solution##
 
-This solution will include two projects: 
+This solution will include two projects:
 
 - **DataIndexer**, a Visual C# console application, used for loading data
-- **SimpleSearchMVCApp**, a Visual C# ASP.NET MVC Web application, used to query and return search results. 
+- **SimpleSearchMVCApp**, a Visual C# ASP.NET MVC Web application, used to query and return search results.
 
 In this step, you'll create both projects.
 
-1. Start **Visual Studio** | **New Project** | **Visual C#** | **Console Application**. 
+1. Start **Visual Studio** | **New Project** | **Visual C#** | **Console Application**.
 2. Name the project **DataIndexer** and then name the solution **AzureSearchDotNetDemo**.
-3. In Solution Explorer, on solution, right-click **Add** | **New Project** | **Visual C#** | **ASP.NET Web Application**. 
+3. In Solution Explorer, on solution, right-click **Add** | **New Project** | **Visual C#** | **ASP.NET Web Application**.
 4. Name the project **SimpleSearchMVCApp**.
-5. In the New ASP.NET Project, choose the MVC template, and clear options to avoid creating program artifacts that you won't be using in this tutorial. 
+5. In the New ASP.NET Project, choose the MVC template, and clear options to avoid creating program artifacts that you won't be using in this tutorial.
 
    Clear the checkboxes for Azure Hosting and Unit Tests, and set Authentication to none.
 
@@ -99,7 +99,7 @@ When you're finished creating the projects, your solution should look similar to
 
 ##Install the .NET client library and update other packages
 
-1. Right-click **Manage NuGet Packages** on the solution in Solution Explorer. 
+1. Right-click **Manage NuGet Packages** on the solution in Solution Explorer.
 2. Specify **Updates** | **Stable Only** | **Update All**.
 
    ![][11]
@@ -120,20 +120,20 @@ A partial list of the assemblies used in this example is shown below.
 
 **DataIndexer** uses **System.Configuration** to read the configuration settings in app.config.
 
-1. Right-click **DataIndexer** | **Add** | **Reference** | **Framework** | **System.Configuration**.  Select the check box. 
+1. Right-click **DataIndexer** | **Add** | **Reference** | **Framework** | **System.Configuration**.  Select the check box.
 2. Click **OK**.
 
 ##Update configuration files
 
 Each project includes configuration files that specify the service name and api-key.
 
-1. In **DataIndexer**, replace App.config with the following example, updating the [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service. 
+1. In **DataIndexer**, replace App.config with the following example, updating the [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service.
 
    The service name is not the full URL. For example, if your Search service endpoint is *https://mysearchsrv.search.microsoft.net*, the service name you would enter in App.config is *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
-	      <startup> 
+	      <startup>
 	         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	      </startup>
 	      <appSettings>
@@ -143,7 +143,7 @@ Each project includes configuration files that specify the service name and api-
 	    </configuration>
 
 2. In **SimpleSearchMVCApp**, replace Web.config  with the following example, again updating [SERVICE NAME] and [SERVICE KEY] with values that are valid for your service.
-		
+
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
 		  For more information on how to configure your ASP.NET application, please visit
@@ -160,7 +160,7 @@ Each project includes configuration files that specify the service name and api-
 		  <appSettings>
 		    <add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
 		    <add key="SearchServiceApiKey" value="[API KEY]" />
-		
+
 		    <add key="webpages:Version" value="2.0.0.0" />
 		    <add key="webpages:Enabled" value="false" />
 		    <add key="PreserveLoginUrl" value="true" />
@@ -272,7 +272,7 @@ This program is a console app that connects to your Search service, as specified
 
 Currently, the pre-release version of the client library does not support indexers, so we'll use the REST API to create and use an indexer for this portion of the tutorial.  
 
-Before you can run this program, you'll make two modifications: 
+Before you can run this program, you'll make two modifications:
 
 - Add **AzureSearchhelper.cs**, used when calling the REST API to handle connections and serialize and deserialize JSON requests and responses.
 
@@ -287,34 +287,34 @@ Code that calls the REST API should include a class that handles connections and
 3. Replace the default code with the following code.
 
 		//Copyright 2015 Microsoft
-		
+
 		//Licensed under the Apache License, Version 2.0 (the "License");
 		//you may not use this file except in compliance with the License.
 		//You may obtain a copy of the License at
-		
+
 		//       http://www.apache.org/licenses/LICENSE-2.0
-		
+
 		//Unless required by applicable law or agreed to in writing, software
 		//distributed under the License is distributed on an "AS IS" BASIS,
 		//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 		//See the License for the specific language governing permissions and
 		//limitations under the License.
-		
+
 		using System;
 		using System.Net.Http;
 		using System.Text;
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Converters;
 		using Newtonsoft.Json.Serialization;
-		
+
 		namespace DataIndexer
 		{
 		    public class AzureSearchHelper
 		    {
 		        public const string ApiVersionString = "api-version=2015-02-28";
-		
+
 		        private static readonly JsonSerializerSettings _jsonSettings;
-		
+
 		        static AzureSearchHelper()
 		        {
 		            _jsonSettings = new JsonSerializerSettings
@@ -323,36 +323,36 @@ Code that calls the REST API should include a class that handles connections and
 		                ContractResolver = new CamelCasePropertyNamesContractResolver(),
 		                DateTimeZoneHandling = DateTimeZoneHandling.Utc
 		            };
-		
+
 		            _jsonSettings.Converters.Add(new StringEnumConverter());
 		        }
-		
+
 		        public static string SerializeJson(object value)
 		        {
 		            return JsonConvert.SerializeObject(value, _jsonSettings);
 		        }
-		
+
 		        public static T DeserializeJson<T>(string json)
 		        {
 		            return JsonConvert.DeserializeObject<T>(json, _jsonSettings);
 		        }
-		
+
 		        public static HttpResponseMessage SendSearchRequest(HttpClient client, HttpMethod method, Uri uri, string json = null)
 		        {
 		            UriBuilder builder = new UriBuilder(uri);
 		            string separator = string.IsNullOrWhiteSpace(builder.Query) ? string.Empty : "&";
 		            builder.Query = builder.Query.TrimStart('?') + separator + ApiVersionString;
-		
+
 		            var request = new HttpRequestMessage(method, builder.Uri);
-		
+
 		            if (json != null)
 		            {
 		                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 		            }
-		
+
 		            return client.SendAsync(request).Result;
 		        }
-		
+
 		        public static void EnsureSuccessfulSearchResponse(HttpResponseMessage response)
 		        {
 		            if (!response.IsSuccessStatusCode)
@@ -386,24 +386,24 @@ Code that calls the REST API should include a class that handles connections and
 		using System.Threading;
 		using System.Threading.Tasks;
 		using System.Timers;
-		
+
 		namespace DataIndexer
 		{
 		    class Program
 		    {
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
-		
+
 		        // This Sample shows how to delete, create, upload documents and query an index
 		        static void Main(string[] args)
 		        {
 		            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
 		            string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-		
+
 		            // Create an HTTP reference to the catalog index
 		            _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 		            _indexClient = _searchClient.Indexes.GetClient("geonames");
-		
+
 		            Console.WriteLine("{0}", "Deleting index...\n");
 		            if (DeleteIndex())
 		            {
@@ -415,7 +415,7 @@ Code that calls the REST API should include a class that handles connections and
 		            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
 		            Console.ReadKey();
 		        }
-		
+
 		        private static bool DeleteIndex()
 		        {
 		            // Delete the index if it exists
@@ -429,10 +429,10 @@ Code that calls the REST API should include a class that handles connections and
 		                Console.WriteLine("Did you remember to add your SearchServiceName and SearchServiceApiKey to the app.config?\r\n");
 		                return false;
 		            }
-		
+
 		            return true;
 		        }
-		
+
 		        private static void CreateIndex()
 		        {
 		            // Create the Azure Search index based on the included schema
@@ -441,8 +441,8 @@ Code that calls the REST API should include a class that handles connections and
 		                var definition = new Index()
 		                {
 		                    Name = "geonames",
-		                    Fields = new[] 
-		                    { 
+		                    Fields = new[]
+		                    {
 		                        new Field("FEATURE_ID",     DataType.String)         { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
 		                        new Field("FEATURE_NAME",   DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
 		                        new Field("FEATURE_CLASS",  DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
@@ -459,23 +459,23 @@ Code that calls the REST API should include a class that handles connections and
 		                        new Field("DATE_EDITED",    DataType.DateTimeOffset) { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true}
 		                    }
 		                };
-		
+
 		                _searchClient.Indexes.Create(definition);
 		            }
 		            catch (Exception ex)
 		            {
 		                Console.WriteLine("Error creating index: {0}\r\n", ex.Message.ToString());
 		            }
-		
+
 		        }
-		
+
 		        private static void SyncDataFromAzureSQL()
 		        {
 		            // This will use the Azure Search Indexer to synchronize data from Azure SQL to Azure Search
 		            Uri _serviceUri = new Uri("https://" + ConfigurationManager.AppSettings["SearchServiceName"] + ".search.windows.net");
 		            HttpClient _httpClient = new HttpClient();
 		            _httpClient.DefaultRequestHeaders.Add("api-key", ConfigurationManager.AppSettings["SearchServiceApiKey"]);
-		
+
 		            Console.WriteLine("{0}", "Creating Data Source...\n");
 		            Uri uri = new Uri(_serviceUri, "datasources/usgs-datasource");
 		            string json = "{ 'name' : 'usgs-datasource','description' : 'USGS Dataset','type' : 'azuresql','credentials' : { 'connectionString' : 'Server=tcp:azs-playground.database.windows.net,1433;Database=usgs;User ID=reader;Password=EdrERBt3j6mZDP;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;' },'container' : { 'name' : 'GeoNamesRI' }} ";
@@ -485,7 +485,7 @@ Code that calls the REST API should include a class that handles connections and
 		                Console.WriteLine("Error creating data source: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            Console.WriteLine("{0}", "Creating Indexer...\n");
 		            uri = new Uri(_serviceUri, "indexers/usgs-indexer");
 		            json = "{ 'name' : 'usgs-indexer','description' : 'USGS data indexer','dataSourceName' : 'usgs-datasource','targetIndexName' : 'geonames','parameters' : { 'maxFailedItems' : 10, 'maxFailedItemsPerBatch' : 5, 'base64EncodeKeys': false }}";
@@ -495,7 +495,7 @@ Code that calls the REST API should include a class that handles connections and
 		                Console.WriteLine("Error creating indexer: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            Console.WriteLine("{0}", "Syncing data...\n");
 		            uri = new Uri(_serviceUri, "indexers/usgs-indexer/run");
 		            response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Post, uri);
@@ -504,7 +504,7 @@ Code that calls the REST API should include a class that handles connections and
 		                Console.WriteLine("Error running indexer: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            bool running = true;
 		            Console.WriteLine("{0}", "Synchronization running...\n");
 		            while (running)
@@ -516,7 +516,7 @@ Code that calls the REST API should include a class that handles connections and
 		                    Console.WriteLine("Error polling for indexer status: {0}", response.Content.ReadAsStringAsync().Result);
 		                    return;
 		                }
-		
+
 		                var result = AzureSearchHelper.DeserializeJson<dynamic>(response.Content.ReadAsStringAsync().Result);
 		                if (result.lastResult != null)
 		                {
@@ -526,12 +526,12 @@ Code that calls the REST API should include a class that handles connections and
 		                            Console.WriteLine("{0}", "Synchronization running...\n");
 		                            Thread.Sleep(1000);
 		                            break;
-		
+
 		                        case "success":
 		                            running = false;
 		                            Console.WriteLine("Synchronized {0} rows...\n", result.lastResult.itemsProcessed.Value);
 		                            break;
-		
+
 		                        default:
 		                            running = false;
 		                            Console.WriteLine("Synchronization failed: {0}\n", result.lastResult.errorMessage);
@@ -555,7 +555,7 @@ You should see a console window with these messages.
 
 ![][6]
 
-In the portal, you should see a new **geonames** index. It can take the portal several minutes to catch up, so you might want to wait a bit before checking the results. 
+In the portal, you should see a new **geonames** index. It can take the portal several minutes to catch up, so you might want to wait a bit before checking the results.
 
 ![][7]
 
@@ -563,7 +563,7 @@ In the portal, you should see a new **geonames** index. It can take the portal s
 
 **SimpleSearchMVC** is web app that runs locally in IIS Express. It provides a search box and presents search results in a table.
 
-Before you can run this program, you'll make three modifications: 
+Before you can run this program, you'll make three modifications:
 
 - Replace **HomeController.cs**, used to accept user input. In this example, the search term is stored in a variable named *q*.
 
@@ -581,7 +581,7 @@ Replace the default code with the following code.
 	using System.Linq;
 	using System.Web;
 	using System.Web.Mvc;
-	
+
 	namespace SimpleSearchMVCApp.Controllers
 	{
 	    public class HomeController : Controller
@@ -589,26 +589,26 @@ Replace the default code with the following code.
 	        //
 	        // GET: /Home/
 	        private FeaturesSearch _featuresSearch = new FeaturesSearch();
-	
+
 	        public ActionResult Index()
 	        {
 	            return View();
 	        }
-	
+
 	        public ActionResult Search(string q = "")
 	        {
 	            // If blank search, assume they want to search everything
 	            if (string.IsNullOrWhiteSpace(q))
 	                q = "*";
-	
+
 	            return new JsonResult
 	            {
 	                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
 	                Data = _featuresSearch.Search(q)
 	            };
 	        }
-	
-	
+
+
 	    }
 	}
 
@@ -620,10 +620,10 @@ Replace the default code with the following code.
 	@{
 	    ViewBag.Title = "Azure Search - Feature Search";
 	}
-	
+
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
-	
+
 	    $(function () {
 	        // Execute search if user clicks enter
 	        $("#q").keyup(function (event) {
@@ -632,12 +632,12 @@ Replace the default code with the following code.
 	            }
 	        });
 	    });
-	
+
 	    function Search() {
 	        // We will post to the MVC controller and parse the full results on the client side
 	        // You may wish to do additional pre-processing on the data before sending it back to the client
 	        var q = $("#q").val();
-	
+
 	        $.post('/home/search',
 	        {
 	            q: q
@@ -661,11 +661,11 @@ Replace the default code with the following code.
 	                searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_CREATED) + "</td>";
 	                searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_EDITED) + "</td></tr>";
 	            }
-	
+
 	            $("#searchResults").html(searchResultsHTML);
-	
+
 	        });
-	
+
 	        function parseJsonDate(jsonDateString) {
 	            if (jsonDateString != null)
 	                return new Date(parseInt(jsonDateString.replace('/Date(', '')));
@@ -673,10 +673,10 @@ Replace the default code with the following code.
 	                return "";
 	        }
 	    };
-	
+
 	</script>
 	<h2>USGS Search for Rhode Island</h2>
-	
+
 	<div class="container">
 	    <input type="search" name="q" id="q" autocomplete="off" size="100" /> <button onclick="Search();">Search</button>
 	</div>
@@ -703,23 +703,23 @@ Add a class that provides search functionality to your application.
 		using System.Configuration;
 		using System.Linq;
 		using System.Web;
-		
+
 		namespace SimpleSearchMVCApp
 		{
 		    public class FeaturesSearch
 		    {
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
-		
+
 		        public static string errorMessage;
-		
+
 		        static FeaturesSearch()
 		        {
 		            try
 		            {
 		                string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
 		                string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-		
+
 		                // Create an HTTP reference to the catalog index
 		                _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 		                _indexClient = _searchClient.Indexes.GetClient("geonames");
@@ -729,7 +729,7 @@ Add a class that provides search functionality to your application.
 		                errorMessage = e.Message.ToString();
 		            }
 		        }
-		
+
 		        public DocumentSearchResponse Search(string searchText)
 		        {
 		            // Execute search based on query string
@@ -744,7 +744,7 @@ Add a class that provides search functionality to your application.
 		            }
 		            return null;
 		        }
-		
+
 		    }
 		}
 
@@ -760,7 +760,7 @@ When you build and run this program, you should see a web page in your default b
 
 ###Search on USGS data
 
-The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default. 
+The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default.
 
 Entering a search term will give the search engine criteria for narrowing the search. Try entering a regional name. *Roger Williams* was the first governor of Rhode Island. Numerous parks, buildings, and schools are named after him.
 
