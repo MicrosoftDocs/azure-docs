@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Create a Node.js chat application with Socket.IO in Azure App Service" 
-	description="A tutorial that demonstrates using socket.io in a node.js web app hosted on Azure." 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="Create a Node.js chat application with Socket.IO in Azure App Service"
+	description="A tutorial that demonstrates using socket.io in a node.js web app hosted on Azure."
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="mwasson"/>
 
 
@@ -36,7 +36,7 @@ and add it to the project you previously created.
 
 
 3.  Extract the archive and copy the **examples\\chat**
-    directory to a new location. For example, 
+    directory to a new location. For example,
     **\\node\\chat**.
 
 ## Modify app.js and install modules
@@ -73,11 +73,11 @@ Follow these steps to create an Azure web app, enable Git publishing, and then e
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
 
-1. Install the Azure Cross-Platform Command-Line Interface (xplat-cli) and connect to your Azure subscription. See [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli).
+1. Install the Azure Command-Line Interface (Azure CLI) and connect to your Azure subscription. See [Install and Configure the Azure CLI](xplat-cli).
 
-2. If this is your first time setting up a repository in Azure, you need to create login credentials. From the xplat-cli, enter the following command:
+2. If this is your first time setting up a repository in Azure, you need to create login credentials. From the Azure CLI, enter the following command:
 
-		azure site deployment user set [username] [password] 
+		azure site deployment user set [username] [password]
 
 
 3. Change to the **\\node\chat** directory and use the following command to create a new Azure web app and a local Git repository. This command also creates a Git remote named 'azure'.
@@ -106,10 +106,10 @@ Follow these steps to create an Azure web app, enable Git publishing, and then e
 	If prompted, enter the name of the web app.
 
 	>[AZURE.NOTE]
-	>The 'azure site set -w' command will work only with version 0.7.4 or higher of the Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the [Azure Portal](https://portal.azure.com).
+	>The 'azure site set -w' command will work only with version 0.7.4 or higher of the Azure Command-Line Interface. You can also enable WebSocket support using the [Azure Portal](https://portal.azure.com).
 	>
 	>To enable WebSockets using the Azure Portal, click the web app from the Web Apps blade, click **All settings** > **Application settings**. Under **Web Sockets**, click **On**. Then click **Save**.
-	
+
 5. To view the web app on Azure, use the following command to launch your web browser and navigate to the hosted web app:
 
 		azure site browse
@@ -140,7 +140,7 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 
 		var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
 		var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
-		
+
 		var redis = require('socket.io-redis');
 		io.adapter(redis({pubClient: pub, subClient: sub}));
 
@@ -149,7 +149,7 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 	This will create a publish and subscribe client to the Redis cache created previously. The clients are then used with the adapter to configure Socket.IO to use the Redis cache for passing messages and events between instances of your application
 
 	> [AZURE.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
-	> 
+	>
 	> While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6380.
 
 3. Save the modified __app.js__
@@ -166,7 +166,7 @@ Once the changes have been pushed to the server, you can scale your site across 
 
 	azure site scale instances --instances #
 
-Where __#__ is the number of instances to create. 
+Where __#__ is the number of instances to create.
 
 You can connect to your web app from multiple browsers or computers to verify that messages are correctly sent to all clients.
 
@@ -220,10 +220,10 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		<!--
 		     This configuration file is required if iisnode is used to run node processes behind
 		     IIS or IIS Express.  For more information, visit:
-		
+
 		     https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config
 		-->
-		
+
 		<configuration>
 		  <system.webServer>
 		    <!-- Visit http://blogs.msdn.com/b/windowsazure/archive/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites.aspx for more information on WebSocket support -->
@@ -238,12 +238,12 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		        <rule name="NodeInspector" patternSyntax="ECMAScript" stopProcessing="true">
 		          <match url="^app.js\/debug[\/]?" />
 		        </rule>
-		
+
 		        <!-- First we consider whether the incoming URL matches a physical file in the /public folder -->
 		        <rule name="StaticContent">
 		          <action type="Rewrite" url="public{REQUEST_URI}"/>
 		        </rule>
-		
+
 		        <!-- All other URLs are mapped to the node.js web app entry point -->
 		        <rule name="DynamicContent">
 		          <conditions>
@@ -258,7 +258,7 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		        * watchedFiles: semi-colon separated list of files that will be watched for changes to restart the server
 		        * node_env: will be propagated to node as NODE_ENV environment variable
 		        * debuggingEnabled - controls whether the built-in debugger is enabled
-		
+
 		      See https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config for a full list of options
 		    -->
 		    <!--<iisnode watchedFiles="web.config;*.js"/>-->

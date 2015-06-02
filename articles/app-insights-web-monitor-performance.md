@@ -164,7 +164,7 @@ Here are a few tips for finding and diagnosing performance issues:
 
 ## Video
 
-[AZURE.VIDEO app-insights-performance-monitoring]
+[AZURE.VIDEO performance-monitoring-application-insights]
 
 <!--Link references-->
 

@@ -39,7 +39,7 @@ When a template is used to modify or create a group, a _deployment_ is created, 
 
 Working with the Resource Manager through the Azure CLI requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a certificate installed through a .publishsettings file will not work.
 
-For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI for Mac, Linux, and Windows](xplat-cli-connect.md).
+For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
 > [AZURE.NOTE] Because you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
 
@@ -112,7 +112,7 @@ You should be able to create an NIC using these resources with **network nic cre
 
 >[AZURE.NOTE] Although optional, it is very important to pass the public IP name as a parameter to the **network nic create** command as this binds the NIC to this IP, which will be later used to SSH into the virtual machine created using this NIC.
 
-For more imformation on the **network** commands, see command line help or [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).
+For more imformation on the **network** commands, see command line help or [Using the Azure CLI with Azure Resource Management](azure-cli-arm-commands.md).
 
 #### Finding the Operating System image
 
@@ -162,7 +162,7 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 
 	azure network public-ip show "testrg" "testip"
 
-Managing this virtual machine is easy with **vm** commands; for more information, visit [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).
+Managing this virtual machine is easy with **vm** commands; for more information, visit [Using the Azure CLI with Azure Resource Management](azure-cli-arm-commands.md).
 
 ### **vm quick-create** shortcut
 
@@ -337,12 +337,12 @@ To view logged information on operations performed on a group, use the `azure gr
 
 ## Next steps
 
-* For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
+* For more information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][clisetup].
 * For information on working with Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
 * For imformation on working with Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm]
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[xplatsetup]: xplat-cli.md
+[clisetup]: xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760

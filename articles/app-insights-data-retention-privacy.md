@@ -34,7 +34,9 @@ Application Insights SDKs and agents that you combine with your application send
 
 #### How much data can be captured? 
 
-Currently, up to 500 data points per second per instrumentation key (that is, per application).
+**Per second**: Up to 500 data points per second per instrumentation key (that is, per application).
+
+**Monthly**: Between 5 and 15 million data points in each calendar month, depending on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/). Except for the free plan, you can buy additional capacity if you hit the limit.
 
 
 A *data point* is an item of telemetry, such as:
@@ -43,12 +45,18 @@ A *data point* is an item of telemetry, such as:
 * Telemetry items sent by SDK modules, for example to report a request or crash.
 * Performance counter data - one point for each measurement.
 
+*How do I know how many data points my app is sending?*
+
+* In Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
+
 
 #### How long is the data kept? 
 
-Up to 30 days for individual events (that is, data items that you can inspect in Diagnostic Search). 
+It depends on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/).
 
-Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for 13 months.
+Raw data points (that is, items that you can inspect in Diagnostic Search): between 7 and 30 days.
+
+Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.
 
 #### What limits are there on different types of data?
 

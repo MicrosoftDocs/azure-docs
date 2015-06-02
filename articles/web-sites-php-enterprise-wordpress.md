@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Enterprise-class WordPress on Azure App Service" 
-	description="Learn how to host an enterprise-class WordPress site on Azure App Service" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Enterprise-class WordPress on Azure App Service"
+	description="Learn how to host an enterprise-class WordPress site on Azure App Service"
+	services="app-service\web"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.devlang="php" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.devlang="php"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="web"
+	ms.date="04/29/2015"
 	ms.author="tomfitz"/>
 
 #Enterprise-class WordPress on Azure App Service
@@ -27,7 +27,7 @@ A basic WordPress installation has only two requirements.
 * **MySQL Database** - available through [ClearDB in the Azure Marketplace][cdbnstore], or you can manage your own MySQL installation on Azure Virtual Machines using either [Windows][mysqlwindows] or [Linux][mysqllinux].
 
     > [AZURE.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or [ClearDB pricing](http://www.cleardb.com/pricing.view) for offerings directly from ClearDB.
-    
+
 * **PHP 5.2.4 or greater** - Azure App Service currently provide [PHP versions 5.3, 5.4, and 5.5][phpwebsite].
 
 	> [AZURE.NOTE] We recommend always running on the latest version of PHP to ensure you have the latest security fixes.
@@ -49,7 +49,7 @@ Using Azure [Traffic Manager][trafficmanager], it's possible to scale your WordP
 
 Within each region, the WordPress site would still be scaled across multiple Web Apps instances, but this scaling is region specific; high traffic regions can be scaled differently than low traffic ones.
 
-Replication and routing to multiple MySQL Databases can be done using ClearDB's [CDBR High Availability Router][cleardbscale] (shown left,) or [MySQL Cluster CGE][cge]. 
+Replication and routing to multiple MySQL Databases can be done using ClearDB's [CDBR High Availability Router][cleardbscale] (shown left,) or [MySQL Cluster CGE][cge].
 
 ###Multi-region deployment with media storage and caching
 
@@ -69,7 +69,7 @@ To do this... | Use this...
 **Send email** | [SendGrid][storesendgrid] and the [WordPress plugin for using SendGrid][sendgridplugin]
 **Custom domain names** | [Configure a custom domain name in Azure App Service][customdomain]
 **HTTPS** | [Enable HTTPS for a web app in Azure App Service][httpscustomdomain]
-**Pre-production validation** | [Set up staging environments for web apps in Azure App Service][staging] <p>Note that switching a web app from staging to production also moves the WordPress configuration. You should ensure that all settings are updated to the requirements for your production app before switching the staged app into production.</p> 
+**Pre-production validation** | [Set up staging environments for web apps in Azure App Service][staging] <p>Note that switching a web app from staging to production also moves the WordPress configuration. You should ensure that all settings are updated to the requirements for your production app before switching the staged app into production.</p>
 **Monitoring and troubleshooting** | [Enable diagnostics logging for web apps in Azure App Service][log] and [Monitor Web Apps in Azure App Service][monitor]
 **Deploy your site** | [Deploy a web app in Azure App Service][deploy]
 
@@ -278,6 +278,6 @@ To do this... | Use this...
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
 [posh]: install-configure-powershell.md
-[xplat-cli]: xplat-cli.md
+[Azure CLI]: xplat-cli.md
 [storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
 [cdn]: cdn-how-to-use.md

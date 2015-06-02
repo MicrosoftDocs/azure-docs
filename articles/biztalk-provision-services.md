@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="05/24/2015" 
 	ms.author="mandia"/>
 
 
@@ -86,7 +86,8 @@ If you create a new Storage account, enter the <strong>Storage Account Name</str
 	</td>
 	</tr>
 	</table>
-Select the NEXT arrow.
+
+	Select the NEXT arrow.
 
 6. Enter the Database settings:
 

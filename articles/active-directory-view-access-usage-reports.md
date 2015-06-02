@@ -3,7 +3,7 @@
 	description="A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="kenhoff" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/10/2015" 
-	ms.author="Justinha"/>
+	ms.author="kenhoff;Justinha"/>
 
 # View your access and usage reports
 
@@ -59,180 +59,87 @@ Report name  | Available in this edition
 
 ### Sign ins from unknown sources
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td><p>This report indicates users who have successfully signed in to your directory while assigned a client IP address that has been recognized by Microsoft as an anonymous proxy IP address. These proxies are often used by users that want to hide their computer’s IP address, and may be used for malicious intent – sometimes hackers use these proxies.</p><p>Results from this report will show the number of times a user successfully signed in to your directory from that address and the proxy’s IP address.</p></td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| <p>This report indicates users who have successfully signed in to your directory while assigned a client IP address that has been recognized by Microsoft as an anonymous proxy IP address. These proxies are often used by users that want to hide their computer’s IP address, and may be used for malicious intent – sometimes hackers use these proxies. </p><p> Results from this report will show the number of times a user successfully signed in to your directory from that address and the proxy’s IP address.</p> | Directory > Reports tab |
 
 ### Sign ins after multiple failures
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>This report indicates users who have successfully signed in after multiple consecutive failed sign in attempts. Possible causes include: <ul><li>User had forgotten their password</li><li>User is the victim of a successful password guessing brute force attack</li></ul><p>Results from this report will show you the number of consecutive failed sign in attempts made prior to the successful sign in and a timestamp associated with the first successful sign in.</p><p><b>Report Settings</b>: You can configure the minimum number of consecutive failed sign in attempts that must occur before it can be displayed in the report. When you make changes to this setting it is important to note that these changes will not be applied to any existing failed sign ins that currently show up in your existing report. However, they will be applied to all future sign ins. Changes to this report can only be made by licensed admins.</p></td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| This report indicates users who have successfully signed in after multiple consecutive failed sign in attempts. Possible causes include: <ul><li>User had forgotten their password</li><li>User is the victim of a successful password guessing brute force attack</li></ul><p>Results from this report will show you the number of consecutive failed sign in attempts made prior to the successful sign in and a timestamp associated with the first successful sign in.</p><p><b>Report Settings</b>: You can configure the minimum number of consecutive failed sign in attempts that must occur before it can be displayed in the report. When you make changes to this setting it is important to note that these changes will not be applied to any existing failed sign ins that currently show up in your existing report. However, they will be applied to all future sign ins. Changes to this report can only be made by licensed admins. | Directory > Reports tab |
 
 ### Sign ins from multiple geographies
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td><p>This report includes successful sign in activities from a user where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions. Possible causes include:</p>
-<ul><li>User is sharing their password</li><li>User is using a remote desktop to launch a web browser for sign in</li><li>A hacker has signed in to the account of a user from a different country.</li></ul><p>Results from this report will show you the successful sign in events, together with the time between the sign ins, the regions where the sign ins appeared to originate from and the estimated travel time between those regions.</p><p>The travel time shown is only an estimate and may be different from the actual travel time between the locations. Also, no events are generated for sign ins between neighboring regions.</p></td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| <p>This report includes successful sign in activities from a user where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions. Possible causes include:</p><ul><li>User is sharing their password</li><li>User is using a remote desktop to launch a web browser for sign in</li><li>A hacker has signed in to the account of a user from a different country.</li></ul><p>Results from this report will show you the successful sign in events, together with the time between the sign ins, the regions where the sign ins appeared to originate from and the estimated travel time between those regions.</p><p>The travel time shown is only an estimate and may be different from the actual travel time between the locations. Also, no events are generated for sign ins between neighboring regions.</p> | Directory > Reports tab |
 
 ### Sign ins from IP addresses with suspicious activity
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td><p>This report includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted. Suspicious activity includes many failed sign in attempts from the same IP address over a short period of time, and other activity that was deemed suspicious. This may indicate that a hacker has been trying to sign in from this IP address.</p><p>Results from this report will show you sign in attempts that were originated from an IP address where suspicious activity was noted, together with the timestamp associated with the sign in.</p></td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| <p>This report includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted. Suspicious activity includes many failed sign in attempts from the same IP address over a short period of time, and other activity that was deemed suspicious. This may indicate that a hacker has been trying to sign in from this IP address.</p><p>Results from this report will show you sign in attempts that were originated from an IP address where suspicious activity was noted, together with the timestamp associated with the sign in.</p> | Directory > Reports tab |
 
 ### Anomalous sign in activity
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td><p>This report includes sign ins that have been identified as “anomalous” by our machine learning algorithms. Reasons for marking a sign in attempt as irregular include unexpected sign in locations, time of day and locations or a combination of these. This may indicate that a hacker has been trying to sign in using this account. The machine learning algorithm classifies events as “anomalous” or “suspicious”, where “suspicious” indicates a higher likelihood of a security breach.</p><p>Results from this report will show you these sign ins, together with the classification, location and a timestamp associated with each sign in.</p><p>We will send an email notification to the global admins if we encounter 10 or more anomalous sign in events within a span of 30 days or less. Please be sure to include aad-alerts-noreply@mail.windowsazure.com in your safe senders list.</p></td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| <p>This report includes sign ins that have been identified as “anomalous” by our machine learning algorithms. Reasons for marking a sign in attempt as irregular include unexpected sign in locations, time of day and locations or a combination of these. This may indicate that a hacker has been trying to sign in using this account. The machine learning algorithm classifies events as “anomalous” or “suspicious”, where “suspicious” indicates a higher likelihood of a security breach.</p><p>Results from this report will show you these sign ins, together with the classification, location and a timestamp associated with each sign in.</p><p>We will send an email notification to the global admins if we encounter 10 or more anomalous sign in events within a span of 30 days or less. Please be sure to include aad-alerts-noreply@mail.windowsazure.com in your safe senders list.</p> | Directory > Reports tab |
 
 ### Sign ins from possibly infected devices
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td><p>Use this report when you want to see sign ins from devices on which some malware (malicious software) may be running. We correlate IP addresses of sign ins against IP addresses from which an attempt was made to contact a malware server.</p><p>Recommendation: Since this report assumes an IP address was associated with the same device in both cases, we recommend that you contact the user and scan the user's device to be certain.</p><p>For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p></td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| <p>Use this report when you want to see sign ins from devices on which some malware (malicious software) may be running. We correlate IP addresses of sign ins against IP addresses from which an attempt was made to contact a malware server.</p><p>Recommendation: Since this report assumes an IP address was associated with the same device in both cases, we recommend that you contact the user and scan the user's device to be certain.</p><p>For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Directory > Reports tab |
 
 ### Users with anomalous sign in activity
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td><p>Use this report when you want to view all user accounts for which anomalous sign in activity has been identified. This report includes data from all other anomalous activity reports. Results from this report will show you details about the user, the reason why the sign in event was identified as anomalous, the date and time, and other relevant information about the event.</p></td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| <p>Use this report when you want to view all user accounts for which anomalous sign in activity has been identified. This report includes data from all other anomalous activity reports. Results from this report will show you details about the user, the reason why the sign in event was identified as anomalous, the date and time, and other relevant information about the event.</p> | Directory > Reports tab |
 
 ## Integrated Application reports
 
 ### Application usage: summary
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. </td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. | Directory > Reports tab |
 
 ### Application usage: detailed
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>Use this report when you want to see how much a specific SaaS application is being used. This report is based on the number of times users have clicked on the application in the Access Panel.</td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Use this report when you want to see how much a specific SaaS application is being used. This report is based on the number of times users have clicked on the application in the Access Panel. | Directory > Reports tab |
 
 ### Application dashboard
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>This report indicates cumulative sign ins to the application by users in your organization, over a selected time interval. The chart on the dashboard page will help you identify trends for all usage of that application.</td>
-<td>Directory > Application > Dashboard tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| This report indicates cumulative sign ins to the application by users in your organization, over a selected time interval. The chart on the dashboard page will help you identify trends for all usage of that application. | Directory > Application > Dashboard tab |
 
 ## Error reports
 
 ### Account provisioning errors
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>Use this to monitor errors that occur during the synchronization of accounts from SaaS applications to Azure Active Directory. </td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Use this to monitor errors that occur during the synchronization of accounts from SaaS applications to Azure Active Directory. | Directory > Reports tab |
 
 ## User-specific reports
 
 ### Devices
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>Use this report when you want to see the IP address and geographical location of devices that a specific user has used to access Azure Active Directory.</td>
-<td>Directory > Users > <i>User</i> > Devices tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Use this report when you want to see the IP address and geographical location of devices that a specific user has used to access Azure Active Directory. | Directory > Users > <i>User</i> > Devices tab |
 
 ### Activity
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>Shows the sign in activity for a user. The report includes information like the application signed into, device used, IP address, and location. We do not collect the history for users that sign in with a Microsoft account.
-</td>
-<td>Directory > Users > <i>User</i> > Activity tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows the sign in activity for a user. The report includes information like the application signed into, device used, IP address, and location. We do not collect the history for users that sign in with a Microsoft account. | Directory > Users > <i>User</i> > Activity tab |
 
 #### Sign in events included in the User Activity report
 
@@ -246,8 +153,9 @@ Only certain types of sign in events will appear in the User Activity report.
 | Sign ins to the [Office 365 portal](http://portal.office.com/)			| Yes			|
 | Sign ins to a native application, like Outlook (see exception below)			| Yes			|
 | Sign ins to a federated/provisioned app through the Access Panel, like Salesforce	| Yes			|
-| Sign ins to a password-based app through the Access Panel, like Twitter		| No (Coming soon)	|
+| Sign ins to a password-based app through the Access Panel, like Twitter		| Yes			|
 | Sign ins to a custom business app that has been added to the directory		| No (Coming soon)	|
+| Sign ins to an Azure AD Application Proxy app that has been added to the directory	| No (Coming soon)	|
 
 > Note: To reduce the amount of noise in this report, sign ins to the [Lync/Skype for Business](http://products.office.com/en-us/skype-for-business/online-meetings) native app and by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
 
@@ -255,56 +163,27 @@ Only certain types of sign in events will appear in the User Activity report.
 
 ### Audit report
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td><p>Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days. </p><p>For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md)</p>
-</td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days. <br /> For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) | Directory > Reports tab |
 
 ### Groups activity report
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>Shows all activity for the self-service managed groups in your directory. </td>
-<td>Directory > Users > <i>User</i> > Devices tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all activity for the self-service managed groups in your directory. | Directory > Users > <i>User</i> > Devices tab |
 
 ### Password reset registration activity report
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>Shows all password reset registrations that have occurred in your organization</td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all password reset registrations that have occurred in your organization | Directory > Reports tab |
 
 ### Password reset activity
 
-<table style=width:100%">
-<tr>
-<td>Description</td>
-<td>Report location</td>
-</tr>
-<tr>
-<td>Shows all password reset attempts that have occurred in your organization.</td>
-<td>Directory > Reports tab</td>
-</tr>
-</table>
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all password reset attempts that have occurred in your organization. | Directory > Reports tab |
 
 ## Things to consider if you suspect security breach
 
@@ -318,7 +197,9 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 1. In the Azure Management Portal, click **Active Directory**, click the name of your organization’s directory, and then click **Reports**.
 2. On the Reports page, click the report you want to view and/or download.
+    >
     > [AZURE.NOTE] If this is the first time you have used the reporting feature of Azure Active Directory, you will see a message to Opt In. If you agree, click the check mark icon to continue.
+    
 3. Click the drop-down menu next to Interval, and then select one of the following time ranges that should be used when generating this report:
     - Last 24 hours
     - Last 7 days

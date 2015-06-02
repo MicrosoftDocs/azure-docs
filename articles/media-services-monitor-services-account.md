@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitor a Media Services Account - Azure" 
+	pageTitle="Monitor a Media Services Account" 
 	description="Describes how to configure monitoring for your Media Services account in Azure." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 

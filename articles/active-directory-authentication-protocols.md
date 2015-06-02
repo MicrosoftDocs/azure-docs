@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="05/30/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory Authentication Protocols
@@ -51,5 +51,8 @@ This section includes the following topics.
 
 
 ### Concepts
-[Using Azure AD for Authentication](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[Using Azure AD for Authentication](active-directory-authentication-scenarios.md)
+
+[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
+
 [Active Directory Code Samples](active-directory-code-samples.md)

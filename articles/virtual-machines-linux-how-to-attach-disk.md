@@ -13,27 +13,21 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2015"
+	ms.date="05/29/2015"
 	ms.author="kathydav"/>
 
-#How to Attach a Data Disk to a Linux Virtual Machine
+# How to Attach a Data Disk to a Linux Virtual Machine
 
 You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
 
 > [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
-> The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, on Linux the data disk might be named by the kernel as `/dev/sdc`. If that's the case, you'll need to partition, format, and mount that resource. See the [Azure Linux Agent User Guide](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/) for more information.
-
-- [How to: Attach an empty disk](#attachempty)
-- [How to: Attach an existing disk](#attachexisting)
-- [How to: Initialize a new data disk in Linux](#initializeinlinux)
+> The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, on Linux the data disk might be named by the kernel as `/dev/sdc`. If that's the case, you'll need to partition, format, and mount that resource. See the [Azure Linux Agent User Guide][Agent] for details.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinlinux"></a>How to: Initialize a new data disk in Linux
+## How to: Initialize a new data disk in Linux
 
-
-
-1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Linux](logonlinux).
+1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Linux][Logon].
 
 
 
@@ -138,6 +132,12 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.
 
 
-	>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.
+>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.
 
-[logonlinux]: virtual-machines-linux-how-to-log-on.md
+## Additional Resources
+[How to log on to a virtual machine running Linux][Logon]
+
+
+<!--Link references-->
+[Agent]: virtual-machines-linux-agent-user-guide.md
+[Logon]: virtual-machines-linux-how-to-log-on.md

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="StorSimple release notes – October 2014"
+    pageTitle="StorSimple 8000 Series Update 0.1 release notes – October 2014"
     description="Describes the new features, issues, and workarounds for the October 2014 StorSimple release."
     services="storsimple"
     documentationCenter="NA"
@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# StorSimple release notes – October 2014  
+# StorSimple 8000 Series Update 0.1 release notes – October 2014  
 
 ## Overview
 
-The following release notes identify the critical open issues for the October 2014 release of Microsoft Azure StorSimple. They also contain a list of the StorSimple software and firmware updates included in this release. This is the first release after the General Availability (GA) release of Microsoft Azure StorSimple and corresponds to software version 6.3.9600.17312.  
+The following release notes identify the critical open issues for StorSimple 8000 Series Update 0.1 released in October 2014. They also contain a list of the StorSimple software and firmware updates included in this release. This is the first release after the StorSimple 8000 Series Release version was made generally available in July 2014 and corresponds to software version 6.3.9600.17312.  
 
 We recommend that you scan for and apply any available updates immediately after you install the device. You can also turn on automatic updates to download and install high-priority updates from Microsoft as soon as they are released. For more information, see how to install [Updates](https://msdn.microsoft.com/library/azure/1a2cd7de-706b-4d3c-8efb-02e322d3ae73#BKMK_Updates).  
 

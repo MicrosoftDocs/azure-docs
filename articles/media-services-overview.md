@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Services Overview
@@ -28,11 +28,20 @@ To build Media Services solutions, you can use:
 - One of the available client SDKs: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
 - Existing tools: [Azure Management Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
-**Service Level Agreement (SLA)**: Media Services guarantees 99.9% availability of REST API transactions for Media Services Encoding. On-Demand Streaming will successfully service requests with a 99.9% availability guarantee for existing media content when at least one Streaming Reserved Unit is purchased. Availability is calculated over a monthly billing cycle. For more information, download the [SLA document](https://www.microsoft.com/download/details.aspx?id=39302).
 
 The following poster depicts Azure Media Services workflows, from media creation through consumption. You can download the poster from here: [Azure Media Services poster](http://www.microsoft.com/download/details.aspx?id=38195).
 
 ![Overview][overview]
+
+**Service Level Agreement (SLA)**:
+
+- For Media Services Encoding, we guarantee 99.9% availability of REST API transactions.
+- For Streaming, we will successfully service requests with a 99.9% availability guarantee for existing media content when at least one Streaming Unit is purchased.
+- For Live Channels, we guarantee that running Channels will have external connectivity at least 99.9% of the time.
+- For Content Protection, we guarantee that we will successfully fulfill key requests at least 99.9% of the time.
+- For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.
+
+	For more information, see [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/).
 
 ##Concepts
 

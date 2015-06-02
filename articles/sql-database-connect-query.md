@@ -77,7 +77,7 @@ Paste this source code into your **Program.cs** file.
 		{
 			static void Main()
 			{
-				string SQLConnectionString = <Your_Connection_String>;
+				string SQLConnectionString = "[Your_Connection_String]";
 				// Create a SqlConnection from the provided connection string.
 				using (SqlConnection connection = new SqlConnection(SQLConnectionString))
 				{
@@ -104,6 +104,8 @@ Paste this source code into your **Program.cs** file.
 							reader[0], reader[1], reader[2], reader[3], reader[4]);
 					}
 				}
+				Console.WriteLine("Press any key to continue...");
+				Console.ReadKey();
 			}
 		}
 	}
@@ -125,16 +127,12 @@ On the database connection strings blade, you see the appropriate connection str
 ## Step 4: Substitute real connection information
 
 
--In the source code you pasted, replace the *<Your_Connection_String>* placeholder with the connection string, and be sure to replace *your_password_here* in that string with your actual password.
+-In the source code you pasted, replace the *[Your_Connection_String]* placeholder with the connection string, and be sure to replace *your_password_here* in that string with your actual password.
 
 
 ## Step 5: Run the application
 
 
-1. Compile your application.
-2. In a **cmd.exe** window, navigate to the **bin\debug** directory under your Visual Studio project.
-3. At a **cmd.exe** prompt, type in then enter the following:<br/> **ConnectandQuery_Example.exe**
-
-
-The program prints the query results to the cmd.exe window.
+1. To build and run your application, click **DEBUG** > **Start Debugging**
+2. The program prints the query results to the console window.
 

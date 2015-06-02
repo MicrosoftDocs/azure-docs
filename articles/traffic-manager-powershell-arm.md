@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure Resource Manager support for Traffic Manager Preview | Microsoft Azure "
    description="Using powershell for Traffic Manager with Azure Resource Manager (ARM) in preview"
    services="traffic-manager"
@@ -6,13 +6,13 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/23/2015"
+   ms.date="05/27/2015"
    ms.author="joaoma" />
 
 
@@ -23,7 +23,7 @@
 # Azure Resource Manager support for Azure Traffic Manager Preview
 Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Traffic Manager profiles can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](./azure-preview-portal-using-resource-groups.md).
 
->[AZURE.NOTE] ARM support for Traffic Manager is currently in Preview, including REST API, PowerShell cmdlets, cross-platform command line interface and .NET SDK.
+>[AZURE.NOTE] ARM support for Traffic Manager is currently in Preview, including REST API, Azure PowerShell, Azure CLI and .NET SDK.
 
 
 
@@ -62,13 +62,13 @@ These instructions use Microsoft Azure PowerShell, which needs to be configured 
 
 For non-PowerShell users, the same operations can also be executed via the other interfaces.
 
-### Step 1 
+### Step 1
 Install the latest Azure PowerShell, available from the Azure downloads page.
 ### Step 2
 Switch PowerShell mode to use the ARM cmdlets. More info is available at Using Windows Powershell with Resource Manager.
 
 	PS C:\> Switch-AzureMode -Name AzureResourceManager
-### Step 3 
+### Step 3
 Log in to your Azure account.
 
 	PS C:\> Add-AzureAccount
@@ -76,7 +76,7 @@ Log in to your Azure account.
 You will be prompted to Authenticate with your credentials.
 
 ### Step 4
-Choose which of your Azure subscriptions to use. 
+Choose which of your Azure subscriptions to use.
 
 	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
@@ -152,9 +152,9 @@ Endpoints can be added to a Traffic Manager profile using the ‘Add-AzureTraffi
 The parameters to Add-AzureTrafficManagerEndpointConfig are as follows:
 
 - EndpointName: The name of the endpoint.  Endpoints in the same profile must have distinct names.  This is used to reference the endpoint during service management operations, it is not the DNS name of the endpoint.
-	
+
 -	TrafficManagerProfile: The Traffic Manager profile object to which the endpoint will be added.
-	
+
 -	Type: The type of the Traffic Manager endpoint.  Currently, only the ‘ExternalEndpoint’ type is supported via the ARM API (see [Preview Limitations](#preview-limitations)).
 
 -	Target: The fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
@@ -162,7 +162,7 @@ The parameters to Add-AzureTrafficManagerEndpointConfig are as follows:
 -	EndpointStatus: Specifies the status of the endpoint.  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method. Possible values are ‘Enabled’ or ‘Disabled’.
 
 -	Weight: Specifies the weight assigned to the endpoint.  This is only used if the Traffic Manager profile is configured to use the 'weighted' traffic routing method.  Possible values are from 1 to 1000.
-	
+
 -	Priority: Specifies the priority of this endpoint when using the ‘priority’ traffic routing method. Priority must lie in the range 1…1000.  Lower values represent higher priority.
 
 -	EndpointLocation: Specifies the location of the external endpoint, for use with the ‘Performance’ traffic routing method.  For a list of possible locations, see Get-AzureLocation.

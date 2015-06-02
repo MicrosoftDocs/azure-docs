@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Using the Docker VM Extension for Linux on Azure"
-	description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface."
+	description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -13,32 +13,24 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="02/11/2015"
+	ms.date="05/25/2015"
 	ms.author="rasquill"/>
-<!--The next line, with one pound sign at the beginning, is the page title-->
+
+
 # Using the Docker VM Extension with the Azure Portal
 
 [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension managed by [Azure Linux Agent] to create a Docker VM that hosts any number of containers for your applications on Azure.
 
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-In this section
-
-+ [Create a new VM from the Image Gallery]
-+ [Create Docker Certificates]
-+ [Add the Docker VM Extension]
-+ [Test Docker Client and Azure Docker Host]
-+ [Next steps]
-
 > [AZURE.NOTE] This topic describes how to create a Docker VM from the Azure Portal. To see how to create a Docker VM at the command line, see [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
-## <a id='createvm'>Create a new VM from the Image Gallery</a>
+## Create a new VM from the Image Gallery
 The first step requires an Azure VM from a Linux image that supports the Docker VM Extension, using an Ubuntu 14.04 LTS image from the Image Gallery as an example server image and Ubuntu 14.04 Desktop as a client. In the portal, click **+ New** in the bottom left corner to create a new VM instance and select an Ubuntu 14.04 LTS image from the selections available or from the complete Image Gallery, as shown below.
 
 > [AZURE.NOTE] Currently, only Ubuntu 14.04 LTS images more recent than July 2014 support the Docker VM Extension.
 
 ![Create a new Ubuntu Image](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
 
-## <a id'dockercerts'>Create Docker Certificates</a>
+## Create Docker Certificates
 
 After the VM has been created, ensure that Docker is installed on your client computer. (For details, see [Docker installation instructions](https://docs.docker.com/installation/#installation).)
 
@@ -59,7 +51,7 @@ At the command line, use **`base64`** or another favorite encoding tool to creat
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
 
-## <a id'adddockerextension'>Add the Docker VM Extension</a>
+## Add the Docker VM Extension
 To add the Docker VM Extension, locate the VM instance you created and scroll down to **Extensions** and click it to bring up VM Extensions, as shown below.
 > [AZURE.NOTE] This functionality is supported in the preview portal only: https://portal.azure.com/
 
@@ -92,7 +84,7 @@ Click **+ Add** to add another endpoint, and in the default case, enter a name f
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
-## <a id='testclientandserver'>Test Docker Client and Azure Docker Host</a>
+## Test your Docker Client and Azure Docker Host
 Locate and copy the name of your VM's domain, and at the command line of your client computer, type `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (where *dockerextension* is replaced by the subdomain for your VM).
 
 The result should appear similar to this:
