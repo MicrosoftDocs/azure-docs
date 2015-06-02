@@ -22,7 +22,7 @@ In this topic, you will learn how to create an Azure Resource Manager template t
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more details on the Logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/dn948513.aspx). 
-For examples of the definition itself, see [Author Logic App definitions](https://azure.microsoft.com/documentation/articles/app-service-logic-author-definitions/). 
+For examples of the definition itself, see [Author Logic App definitions](app-service-logic-author-definitions.md). 
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
