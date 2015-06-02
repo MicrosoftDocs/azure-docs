@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" 
-	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#, VB, or JavaScript." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center"
+	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#, VB, or JavaScript."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="javascript" 
-	ms.topic="hero-article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="javascript"
+	ms.topic="article" 
+	ms.date="04/24/2015"
 	ms.author="glenga"/>
 
 
@@ -37,12 +37,12 @@ To complete this tutorial, you need the following:
 
 ## Create a new universal Windows app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.
 
 In this section you will create a new universal Windows app that is connected to your mobile service.
 
 1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
-   
+
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new Windows Store app**.
 
    	![][6]
@@ -53,7 +53,7 @@ In this section you will create a new universal Windows app that is connected to
 
 3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.
 
-4. Under **Download and run your app and service locally**, select a language for your Windows Store app, then click **Download**. 
+4. Under **Download and run your app and service locally**, select a language for your Windows Store app, then click **Download**.
 
   	This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 

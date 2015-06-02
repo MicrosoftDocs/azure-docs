@@ -92,6 +92,7 @@ and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/mi
 + Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
 + In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 + If you have to use a proxy to send out of your corporate network, set [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
++ Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 #### <a name="q04"></a>I see no data under Usage Analytics for my web site
 
@@ -107,7 +108,9 @@ But if you want to run web tests for your service, it must be accessible from th
 
 #### I used to see data, but it has stopped
 
-* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/)
+* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Have you hit your monthly quota of data points? Open the Pricing tile to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+
 
 
 ## The Portal

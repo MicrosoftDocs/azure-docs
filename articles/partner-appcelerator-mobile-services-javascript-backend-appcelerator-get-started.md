@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" 
-	description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium"
+	description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development."
+	services="mobile-services"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
-	ms.devlang="multiple" 
-	ms.topic="hero-article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-appcelerator"
+	ms.devlang="multiple"
+	ms.topic="article" 
+	ms.date="04/24/2015"
 	ms.author="mahender"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -26,7 +26,7 @@ In this tutorial, you will create both a new mobile service and a simple _To do 
 
 Completing this tutorial requires [Appcelerator Titanium].
 
-If building for iOS, you will also need Xcode 5.1 and iOS 7.1 SDK or later versions. 
+If building for iOS, you will also need Xcode 5.1 and iOS 7.1 SDK or later versions.
 
 If building for Android, you will also need Android 4.3 or greater SDK.
 
@@ -101,12 +101,12 @@ This sends a POST request to the new mobile service hosted in Microsoft Azure. D
 
 
 ## <a name="next-steps"> </a>Next Steps
-Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
+Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications] 
+* [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
 
 
