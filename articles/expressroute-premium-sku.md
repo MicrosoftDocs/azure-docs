@@ -15,12 +15,12 @@
    ms.date="06/02/2015"
    ms.author="cherylmc" />
 
-# Configure the ExpressRoute Premium Add-on for Your ExpressRoute Circuit
+# Configure the ExpressRoute Premium add-on for your ExpressRoute circuit
 
 ExpressRoute Premium is a collection of features listed below:
 
  - Increased routing table limit from 4000 routes to 10,000 routes for public peering and private peering.
- - Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). 
+ - Increased number of virtual networks (VNets) that can be connected to the ExpressRoute circuit (default is 10). 
  - Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.
 
 Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on ExpressRoute Premium add-on. Refer to the [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/) page for cost.
@@ -175,7 +175,4 @@ You can disable the ExpressRoute Premium add-on for an ExpressRoute circuit that
 
 	Your circuit will now have the ExpressRoute Premium add-on disabled.
 
-## See Also
-
-For more information about ExpressRoute, see the [ExpressRoute Overview](expressroute-introduction.md) and the [ExpressRoute FAQ](expressroute-faqs.md).
 
