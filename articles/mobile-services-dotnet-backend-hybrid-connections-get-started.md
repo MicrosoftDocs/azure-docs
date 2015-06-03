@@ -87,7 +87,7 @@ Before publishing to Azure and using the hybrid connection, it's a good idea to 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service-api-documentation](../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md)]
 
-## Update the service in Azure to use the on-premises connection string
+## Update Azure to use the on-premises connection string
 
 Now that you have verified the database connection, you need to add an app setting for this new connection string so that it can be used from Azure and publish the mobile service to Azure.  
 

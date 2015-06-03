@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
   
@@ -107,9 +107,9 @@ In this step, you define a connection string for the on-premises database and mo
 
 Before publishing to Azure and using the hybrid connection, it's a good idea to make sure that the database connection works when running locally. That way you can more easily diagnose and correct any connection issues before you republish and start using the hybrid connection.
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service-api-documentation](../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-api-documentation](../includes/app-service-mobile-dotnet-backend-test-local-service-api-documentation.md)]
 
-## Update the service in Azure to use the on-premises connection string
+## Update Azure to use the on-premises connection string
 
 Now that you have verified the database connection, you need to add an app setting for this new connection string so that it can be used from Azure and publish the Mobile App backend to Azure.  
 

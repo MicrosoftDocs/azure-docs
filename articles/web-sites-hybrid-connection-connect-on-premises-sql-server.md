@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
 
 # Connect to on-premises SQL Server from a web app in Azure App Service using Hybrid Connections
@@ -179,33 +179,7 @@ At this point, you have completed an important part of the cloud hybrid connecti
 <a name="InstallHCM"></a>
 ## D. Install the on-premises Hybrid Connection Manager to complete the connection ##
 
-1. In the **Hybrid connections** blade, click the hybrid connection you just created, then click **Listener Setup**.
-	
-	![Click Listener Setup][ClickListenerSetup]
-	
-4. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **Click here to install**.
-	
-	![Click here to install][ClickToInstallHCM]
-	
-5. In the Application Run security warning dialog, choose **Run** to continue.
-	
-	![Choose Run to continue][ApplicationRunWarning]
-	
-6.	In the **User Account Control** dialog, choose **Yes**.
-	
-	![Choose Yes][UAC]
-	
-7. The Hybrid Connection Manager is downloaded and installed for you. 
-	
-	![Installing][HCMInstalling]
-	
-8. When the install completes, click **Close**.
-	
-	![Click Close][HCMInstallComplete]
-	
-	On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
-	
-	![Connected Status][HCStatusConnected]
+[AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../includes/app-service-hybrid-connections-manager-install.md)]
 
 Now that the hybrid connection infrastructure is complete, you will create a web application that uses it.
 
