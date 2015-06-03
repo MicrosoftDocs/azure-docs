@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Billing Usage and RateCard APIs"
-   description="Provides a conceptual overview of the Azure Billing Usage and RateCard  APIs, which are provided by the Microsoft Azure Commerce Resource Provider."
+   pageTitle="Azure Resource Usage and RateCard APIs"
+   description="Provides a conceptual overview of the Azure Resource Usage and RateCard  APIs, which are provided by the Microsoft Azure Commerce Resource Provider."
    services="billing"
    documentationCenter=""
    authors="BryanLa"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="05/22/2015"
+   ms.date="06/03/2015"
    ms.author="mobandyo;bryanla"/>
 
-# Azure Billing Usage and RateCard APIs
+# Azure Resource Usage and RateCard APIs (Preview)
 
 Customers and partners struggle with the ability to accurately predict and manage their Azure costs using the tools provided by Microsoft.  As customers move from a Capex model to an Opex model and require the ability to do show-back or charge-back, the requirement to provide mode fidelity in estimation and billing is growing and becoming a basic requirement for large cloud deployments. 
 
-The solutions provided by Microsoft today are limited, and customers have been requesting the ability to get better insights out of their consumption data.  The Azure Billing Usage and Rate Card APIs discussed in this article will dramatically improve the situation, by enabling new insights not previously available.  The suite of tools necessary to help customers understand their cloud spend are called IT Financial Management tools (for more details, refer to Gartner article [Market Guide for IT Financial Management Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)).
+The solutions provided by Microsoft today are limited, and customers have been requesting the ability to get better insights out of their consumption data.  The Azure Resource Usage and Rate Card APIs discussed in this article will dramatically improve the situation, by enabling new insights not previously available.  The suite of tools necessary to help customers understand their cloud spend are called IT Financial Management tools (for more details, refer to Gartner article [Market Guide for IT Financial Management Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)).
 
 ## Get insights into your Azure consumption
 
-### Azure Usage API (Preview)
+### Azure Resource Usage API (Preview)
 This REST API is planned to be part of the Azure Resource Management REST API, which customers and partners can use to get programmatic access to their estimated Azure consumption data. Here are some features:
 	
 - **Supports Azure Role-based Access Control** - customers and partners can configure their access policies on the Azure Preview Portal or through PowerShell cmdlets to dictate what users or applications can get access to the subscription’s usage data. Callers will be required to use standard Azure Active Directory tokens for authentication. The caller will need to be added to either the Reader, Owner or Contributor role to be authorized to get access to the usage data for a particular Azure subscription.
@@ -37,7 +37,7 @@ This REST API is planned to be part of the Azure Resource Management REST API, w
 
 - **Usage for all offer types** – Usage data will be accessible for all offer types including Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, EA among others.
 
-### Azure RateCard API (Preview)
+### Azure Resource RateCard API (Preview)
 This REST API is also planned to be part of the Azure Resource Management REST API, which customers and partners can use to get programmatic access to the list of resources along with their estimated pricing information.
 
 - **Supports Azure Role-based Access Control** - customers and partners can configure their access policies on the Azure Preview Portal or through PowerShell cmdlets to dictate what users or applications can get access to the RateCard information. Callers will be required to use standard Azure Active Directory tokens for authentication. The caller will need to be added to either the Reader, Owner or Contributor role to be authorized to get access to the usage data for a particular Azure subscription.
@@ -64,10 +64,10 @@ Here are some of the scenarios that are made possible with the combination of th
 
 ## Next Steps
 
-+ [TODO:Update link] Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/dn948464.aspx) for more information on both APIs, which are part of a set of APIs provided by the Azure Resource Manager.
-+ [TODO:Update link] If you would like to dive right into the sample code, check out our [Usage API and RateCard API samples on Github](https://github.com/Azure/BillingAPISamples).
-+ [TODO:Update link] See the [Azure Billing Partner Solutions](azure-billing-usage-rate-card-overview.md) article to learn more about the Azure Billing API integration experiences as shared by partners Odin, Cloud Cruiser and Cloudinary.
-+ [TODO:Update link] For a more in-depth look at the partner integration work mentioned above, see the set of [Azure Billing Partner Solutions Tutorials](azure-billing-usage-rate-card-overview.md), which includes a tutorial and sample code to walk you through each of the respective projects.
++ [**TODO**:Update link] Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/dn948464.aspx) for more information on both APIs, which are part of a set of APIs provided by the Azure Resource Manager.
++ [**TODO**:Update link] If you would like to dive right into the sample code, check out our [Usage API and RateCard API samples on Github](https://github.com/Azure/BillingAPISamples).
++ [**TODO**:Update link/text] See the [Azure Billing Partner Solutions](azure-billing-usage-rate-card-overview.md) article to learn more about the Azure Billing API integration experiences as shared by partners Odin, Cloud Cruiser and Cloudinary. [**and Cloudyn?**]
++ [**TODO**:Update link] For a more in-depth look at the partner integration work mentioned above, see the set of [Azure Billing Partner Solutions Tutorials](azure-billing-usage-rate-card-overview.md), which include tutorials and sample code to walk you through each of the respective projects.
 + See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
 
 
