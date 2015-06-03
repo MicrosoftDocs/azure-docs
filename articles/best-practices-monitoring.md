@@ -146,7 +146,7 @@ The high-level performance data (throughput, number of concurrent users, number 
 
 If possible, you should also capture performance data for any external systems that the application uses. These external systems might provide their own performance counters or other features for requesting performance data. If this is not possible, you should record information such as the start time and end time of each request made to an external system, together with the status (success, fail, or warning) of the operation. For example, you can use a stopwatch approach to time requests; start a timer running when the request starts and then stop the timer when the request completes.
 
-Low-level performance data for individual components in a system may be available through features such as Windows performance counters and Windows Azure diagnostics.
+Low-level performance data for individual components in a system may be available through features such as Windows performance counters and Azure diagnostics.
 
 ### Analyzing performance data
 Much of the analysis work consists of aggregating performance data by user request type (such as adding an item to a shopping cart, or performing the checkout process in an ecommerce system) and/or the subsystem or service to which each request is sent.
@@ -446,15 +446,15 @@ Collecting instrumentation data_
 
 Note that this is a simplified view. The collection service is not necessarily a single process and may comprise many constituent parts running on different machines, as described in the following sections. Additionally, if the analysis of some telemetry data needs to be performed quickly (hot analysis, as described in the section [Supporting Hot, Warm, and Cold Analysis](#supporting-hot-warm-and-cold-analysis) later in this document), local components operating outside of the collection service might perform the analysis tasks immediately. Figure 2 depicts this situation for selected events; after analytical processing the results can be sent directly to the visualization and alerting subsystem. Data subjected to warm or cold analysis is held in storage while it awaits processing.
 
-For Azure applications and services, Windows Azure Diagnostics (WAD) provides one possible solution for capturing data. WAD gathers data from the following sources for each compute node, aggregates it together, and then uploads it to Azure storage:
+For Azure applications and services, Azure Diagnostics (WAD) provides one possible solution for capturing data. WAD gathers data from the following sources for each compute node, aggregates it together, and then uploads it to Azure storage:
 
-- Windows Azure logs
+- Azure logs
 - IIS logs
 - IIS Failed Request logs
 - Windows Event logs
 - Performance counters
 - Crash dumps
-- Windows Azure Diagnostic infrastructure logs  
+- Azure Diagnostic infrastructure logs  
 - Custom error logs
 
 For more information, see the article [Windows Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) on the Microsoft website.
