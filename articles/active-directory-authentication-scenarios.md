@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Authentication Scenarios for Azure AD
@@ -23,9 +23,7 @@ Azure Active Directory (Azure AD) simplifies authentication for developers by pr
 
 - [Basics of Authentication in Azure AD](#basics-of-authentication-in-azure-ad)
 
-
 - [Claims in Azure AD Security Tokens](#claims-in-azure-ad-security-tokens)
-
 
 - [Basics of Registering an Application in Azure AD](#basics-of-registering-an-application-in-azure-ad)
 
@@ -48,7 +46,8 @@ Azure Active Directory (Azure AD) simplifies authentication for developers by pr
 If you are unfamiliar with basic concepts of authentication in Azure AD, read this section. Otherwise, you may want to skip down to [Application Types and Scenarios](#application-types-and-scenarios).
 
 Let’s consider the most basic scenario where identity is required: a user in a web browser needs to authenticate to a web application. This scenario is described in greater detail in the [Web Browser to Web Application](#web-browser-to-web-application) section, but it’s a useful starting point to illustrate the capabilities of Azure AD and conceptualize how the scenario works. Consider the following diagram for this scenario:
-Overview of sign-on to web application
+
+![Overview of sign-on to web application](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 With the diagram above in mind, here’s what you need to know about its various components:
 
@@ -460,10 +459,8 @@ When the first application uses its authorization code to get a JWT access token
 
 ## See Also
 
-
-### Concepts
 [Azure Active Directory Code Samples](active-directory-code-samples.md)
 
 [Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
-
+ 
 [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)

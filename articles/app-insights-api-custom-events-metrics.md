@@ -407,8 +407,8 @@ A typical use is to identify telemetry coming from different versions or compone
 
 *C#*
 
-    // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
+    // Context initializer class
+    public class MyContextInitializer : IContextInitializer
     {
         public void Initialize (TelemetryContext context)
         {
@@ -422,7 +422,7 @@ A typical use is to identify telemetry coming from different versions or compone
     {
         // ...
         TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyTelemetryInitializer());
+        .Add(new MyContextInitializer());
     }
 
 *Java*
@@ -430,7 +430,7 @@ A typical use is to identify telemetry coming from different versions or compone
     import com.microsoft.applicationinsights.extensibility.ContextInitializer;
     import com.microsoft.applicationinsights.telemetry.TelemetryContext;
 
-    public class MyTelemetryInitializer implements ContextInitializer {
+    public class MyContextInitializer implements ContextInitializer {
       @Override
       public void initialize(TelemetryContext context) {
         context.getProperties().put("AppVersion", "2.1");
@@ -438,7 +438,7 @@ A typical use is to identify telemetry coming from different versions or compone
     }
 
     // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
 
 
 In the JavaScript web client, there isn't currently a way to set default properties.
