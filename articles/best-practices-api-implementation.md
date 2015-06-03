@@ -9,7 +9,7 @@
    tags=""/>
 
 <tags
-   ms.service="api-management"
+   ms.service="best-practice"
    ms.devlang="rest-api"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"

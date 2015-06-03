@@ -9,7 +9,7 @@
    tags=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="best-practice"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
