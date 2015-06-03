@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/03/2015" 
 	ms.author="mahender"/>
 
 # Get Started with Mobile Analytics (Capptain)
