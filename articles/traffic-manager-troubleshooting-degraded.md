@@ -20,7 +20,7 @@ This page will describe how to troubleshoot Azure Traffic Manager profile which 
 
 ## Symptom
 
-You have configured a Windows Azure Traffic Manager profile pointing to some of your .cloudapp.net hosted services and after a few seconds you see the Status as Degraded.
+You have configured a Traffic Manager profile pointing to some of your .cloudapp.net hosted services and after a few seconds you see the Status as Degraded.
 
 ![degradedstate](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
 
