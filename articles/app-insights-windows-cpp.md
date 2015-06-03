@@ -30,7 +30,7 @@ You'll need:
 
 In the [Azure portal][portal], create a new Application Insights resource. Pick the Windows Phone or Windows Store option.
 
-![Click New, Developer services, Application Insights](./media/app-insights-windows-cpp/universal.png)
+![Click New, Developer services, Application Insights](./media/app-insights-windows-cpp/01-universal.png)
 
 The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
 
