@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Adding a Certificate to the Java CA Certificates Store
