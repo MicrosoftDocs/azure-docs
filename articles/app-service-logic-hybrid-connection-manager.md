@@ -26,7 +26,7 @@ The Hybrid Connection Manager (HCM) is a click-once installer that is installed 
 To get started, you need:
 
 - Azure Service Bus namespace ACS connection string
-- On-premises system sign in information, including user name and password. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server login account and password.
+- On-premises system sign-in information, including user name and password. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server login account and password.
 - On-premises server information, including port number and server name. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server name and TCP port number.
 
 ## Get the Service Bus Connection String
@@ -82,7 +82,7 @@ When you create a hybrid connection, a website is created on your local on-premi
 - Allow outbound TCP communication on TCP ports 9350 - 9354. These ports are used to connect to the Service Bus relay.
 - Allow outbound HTTPS connections to TCP port 443. This port is used for hybrid outgoing messages. 
 
-On the on-premises system, open the port uses by the system. For example, SQL Server typically uses port 1433. Open this TCP port.
+On the on-premises system, open the port used by the system. For example, SQL Server typically uses port 1433. Open this TCP port.
 
 ## Troubleshooting
 
