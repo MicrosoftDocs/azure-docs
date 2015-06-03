@@ -47,7 +47,8 @@ A *data point* is an item of telemetry, such as:
 
 *How do I know how many data points my app is sending?*
 
-* In Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
+* Open Settings/Quota and Pricing to see the Data Volume chart.
+* Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
 
 #### How long is the data kept? 

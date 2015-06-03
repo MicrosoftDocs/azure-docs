@@ -1,62 +1,62 @@
-<properties 
-	pageTitle="Typical workflow for Azure Search development | Microsoft Azure" 
+<properties
+	pageTitle="Typical workflow for Azure Search development | Microsoft Azure"
 	description="A workflow or roadmap for building prototype and production applications that integrated with Azure Search"
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="04/23/2015"
 	ms.author="heidist"/>
 
 # Typical workflow for Azure Search development
 
 This article is a roadmap for including Azure Search as a component that provides the search experience in your custom application. Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.
 
-In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application. Part two of this article covers important design decisions that factor into a more serious application development effort. 
+In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application. Part two of this article covers important design decisions that factor into a more serious application development effort.
 
 Before you start prototyping, we recommend that you ramp up with one of our Getting Started tutorials or this [one-hour deep dive presentation video](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Get Started tutorials are offered in these languages: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
 
 ##Prototype development
 
-The quickest path to a successful prototype typically include the steps in this section. Steps include provisioning a service, define a schema for your index, load the index with documents, and query the index. 
+The quickest path to a successful prototype typically include the steps in this section. Steps include provisioning a service, define a schema for your index, load the index with documents, and query the index.
 
 For applications with volatile data (for example, if the common case includes rapid changes to inventory or content), your prototype should include a component for updating documents as well.
 
    ![][1]
 
-###Step 1: Provision the service	
+###Step 1: Provision the service
 
 Azure Search is a fully-managed online service available through an Azure subscription. [Once you sign up for Azure](http://azure.microsoft.com/pricing/free-trial/), adding the Search service is quick. Visit [Create a Search service in the portal](../search-create-service-portal/) for instructions on how to add a Search service to your subscription.
 
 There are two pricing tiers to choose from. We recommend the shared (free) service for prototyping, with the caveat that you will need to work with a small subset of your data. The shared service is free to existing subscribers (through trial or regular memberships) and is fast to setup, but it constrains the number of indexes and documents you can use to 3 indexes, up to 10,000 documents per index, or 50 MB of storage total, whichever comes first.
 
-###Step 2: Create the index	
+###Step 2: Create the index
 
-After you create the service, you are ready to create an index, starting with its schema definition. 
+After you create the service, you are ready to create an index, starting with its schema definition.
 
 The fastest and easiest way to create an index is through the portal. At a minimum, each document must have a unique key and at least one field that contains searchable data. To get started, see [Create an index in the portal](../search-create-index-portal/).
 
 > [AZURE.NOTE] **Inside an Azure Search Index**
 >
-> An *index* is organized, persisted data that serves as the *search corpus* for all subsequent search operations. Your search corpus is stored in the cloud as part of your Search service subscription, which enables search operations to execute quickly and consistently. In search terminology, an item in your search corpus is called a *document*, and the sum total of all documents is the *documents collection*. 
+> An *index* is organized, persisted data that serves as the *search corpus* for all subsequent search operations. Your search corpus is stored in the cloud as part of your Search service subscription, which enables search operations to execute quickly and consistently. In search terminology, an item in your search corpus is called a *document*, and the sum total of all documents is the *documents collection*.
 >
->An *index schema* defines all of the fields within a document by name, data type, and attributes that specify whether the field is searchable, filterable, facetable, and so forth. 
+>An *index schema* defines all of the fields within a document by name, data type, and attributes that specify whether the field is searchable, filterable, facetable, and so forth.
 >
 > Besides document structure, an index schema also specifies scoring profiles that provide criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters) and CORS for cross-domain query requests. **For prototypes, we recommend that you start out simply by specifying just the fields in a document**, and then add other features incrementally (see Step 5 for a list of additional functionality to add later).  
-> 
+>
 > Applied to a real-world example, consider an e-commerce application. The search index would contain all of the products or services that are searchable in your application (anything that comes back in a search results). There would be one document for each SKU. Each document would include the product name, brand, sizes, price, colors, and even references to images or other resource files that you want returned within search results.
 
 ###Step 3: Load documents
 
-After saving the index in Azure Search, the next step is to populate the index with documents. In this step, data is uploaded, analyzed, tokenized, and stored in data structures (such as inverted indexes) that are designed for search workloads. 
+After saving the index in Azure Search, the next step is to populate the index with documents. In this step, data is uploaded, analyzed, tokenized, and stored in data structures (such as inverted indexes) that are designed for search workloads.
 
 Data that you upload to an index must conform to the schema you defined in the previous step. Document data is represented as a set of key/value pairs for each field, in JSON format. If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.
 
@@ -73,7 +73,7 @@ A second option is to write a simple program using either the REST API or the .N
 - [Add, update, or delete documents (REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions Class](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-A third option that works for very small datasets is to use [Fiddler](../search-fiddler/) or [Chrome Postman](../search-chrome-postman/) to upload documents. 
+A third option that works for very small datasets is to use [Fiddler](../search-fiddler/) or [Chrome Postman](../search-chrome-postman/) to upload documents.
 
 A fourth option, perhaps the easiest one, is to borrow code from either the [Adventure Works C# REST API Example](https://azuresearchadventureworksdemo.codeplex.com/) that loads documents from an embedded database (.mdf) in the solution, or [Scoring Profiles C# REST API Example](https://azuresearchscoringprofiles.codeplex.com/) that loads data from JSON data files included in the solution.
 
@@ -81,9 +81,9 @@ A fourth option, perhaps the easiest one, is to borrow code from either the [Adv
 
 ###Step 4: Query documents
 
-Once documents are loaded into the index, you can write your first query. 
+Once documents are loaded into the index, you can write your first query.
 
-The fastest way to get initial search results back from your Search service is to use [Fiddler](../search-fiddler/) or [Chrome Postman](../search-chrome-postman/) to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format. 
+The fastest way to get initial search results back from your Search service is to use [Fiddler](../search-fiddler/) or [Chrome Postman](../search-chrome-postman/) to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format.
 
 APIs for search operations include:
 
@@ -116,7 +116,7 @@ Now that you have a service and index, you can experiment with features to furth
 
 ###Step 6: Update indexes and documents
 
-Some of the features that you want to evaluate might require an update to your index, which often has the downstream effect of requiring updates to your documents. 
+Some of the features that you want to evaluate might require an update to your index, which often has the downstream effect of requiring updates to your documents.
 
 If you need to update an index or documents, for example to add suggesters or specify language analyzers on fields that you’ve added for that purpose, see the following links for instructions:
 
@@ -148,11 +148,11 @@ You can periodically check the [What’s New](../search-latest-updates/) article
 
 ###Determine data synchronization methods: Push or Pull
 
-Push and pull models refer to how documents are updated in the index. Often, the scenario dictates which model is right for you. 
+Push and pull models refer to how documents are updated in the index. Often, the scenario dictates which model is right for you.
 
 If your business is online retail, you most likely need a push model so that you can push or double-write any change in inventory to both your OLTP database and your Azure Search index. When a specific SKU is sold out, or a size or color becomes unavailable, you will want the index to be updated as quickly as possible to avoid customer frustration. Only push models can provide near-real-time updates to your search index.
 
-There is no specific mechanism in Azure Search for implementing a push model. Your application code, at the data layer, must handle the documents update operation using either the [REST API](https://msdn.microsoft.com/library/dn798935.aspx) or [.NET Library](https://msdn.microsoft.com/library/dn951165.aspx) to update documents in the collection. As an implementation detail, using a product SKU for the document key can help with this task. 
+There is no specific mechanism in Azure Search for implementing a push model. Your application code, at the data layer, must handle the documents update operation using either the [REST API](https://msdn.microsoft.com/library/dn798935.aspx) or [.NET Library](https://msdn.microsoft.com/library/dn951165.aspx) to update documents in the collection. As an implementation detail, using a product SKU for the document key can help with this task.
 
 Pull models are usually scheduled operations that retrieve data from external data sources. In Azure Search, a pull model is available through [Indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx), which are in turn available for specific data sources: Azure DocumentDB or Azure SQL Database (and also SQL Server on Azure VMs).
 
@@ -172,13 +172,13 @@ When updating an index, you can combine multiple actions (insert, merge, delete)
 
 Azure Search uses internal storage for the indexes and documents used in search operations. Text analysis and index parsing is dependent on having all searchable fields and associated attributes readily available.
 
-However, not all fields in a document will be searchable. For example, if your application is an online catalog for music or videos, we recommend storing binary files in Azure BLOB service or some other storage format. The binary files themselves are not searchable, hence there is no need to persist them in Azure Search storage. Although you should store images, videos, and audio files in other services or locations, you should include a field that references the URL to the file location. This way, you can return the external data as part of your search results. 
+However, not all fields in a document will be searchable. For example, if your application is an online catalog for music or videos, we recommend storing binary files in Azure BLOB service or some other storage format. The binary files themselves are not searchable, hence there is no need to persist them in Azure Search storage. Although you should store images, videos, and audio files in other services or locations, you should include a field that references the URL to the file location. This way, you can return the external data as part of your search results.
 
 To use external data, you should define a field in your index that stores a URL pointer to the external data file. If you issue a [Lookup Documents](https://msdn.microsoft.com/library/dn798929.aspx) request, or include the field in search results, the binary file appears in the context of a document.
 
 ###Capacity planning
 
-One of the more compelling feature in Azure Search is the ease with which you can scale up or scale down resources in response to demand. While this capability doesn’t eliminate the need for capacity planning, it does minimize most of the risk. You’re not stuck with extra hardware, or the wrong hardware, for running your search workloads. 
+One of the more compelling feature in Azure Search is the ease with which you can scale up or scale down resources in response to demand. While this capability doesn’t eliminate the need for capacity planning, it does minimize most of the risk. You’re not stuck with extra hardware, or the wrong hardware, for running your search workloads.
 
 As a last step, review the existing resource levels for both replicas and partitions, and determine whether adjustments are needed. The easiest way to adjust capacity is in the [Azure management portal](https://ms.portal.azure.com/).
 

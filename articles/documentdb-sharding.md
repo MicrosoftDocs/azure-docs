@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="06/01/2015" 
 	ms.author="arramac"/>
 
 # How to partition data in DocumentDB with the .NET SDK
@@ -122,14 +122,14 @@ A special case of range partitioning is when the range is just a single discrete
 
 ## Samples 
 
-Take a look at the  [DocumentDB Partitioning Samples Github project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/partitioning) containing code snippets on how to use these PartitionResolvers and extend them to implement your own resolvers to fit specific use cases, like the following: 
+Take a look at the  [DocumentDB Partitioning Samples Github project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/partitioning) containing code snippets on how to use these PartitionResolvers and extend them to implement your own resolvers to fit specific use cases, like the following: 
 
 * How to specify an arbitrary lambda expression for GetPartitionKey and use it to implement compound partitioning keys or to partition different types of objects differently.
-* How to create a simple [LookupPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Partitioners/LookupPartitionResolver.cs) that uses a manual lookup table to perform partitioning. This pattern is commonly used for partitioning based on discrete values like region, tenant ID or application name.
-* How to create a [ManagedPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Partitioners/ManagedHashPartitionResolver.cs) that creates collections automatically based on a template that defines a naming scheme, IndexingPolicy and stored procedures that need to be registered against new collections.
-* How to create a scheme-less [SpilloverPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Partitioners/SpilloverPartitionResolver.cs) that simply creates new collections as the old collections fill up.
+* How to create a simple [LookupPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Partitioners/LookupPartitionResolver.cs) that uses a manual lookup table to perform partitioning. This pattern is commonly used for partitioning based on discrete values like region, tenant ID or application name.
+* How to create a [ManagedPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Partitioners/ManagedHashPartitionResolver.cs) that creates collections automatically based on a template that defines a naming scheme, IndexingPolicy and stored procedures that need to be registered against new collections.
+* How to create a scheme-less [SpilloverPartitionResolver](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Partitioners/SpilloverPartitionResolver.cs) that simply creates new collections as the old collections fill up.
 * How to serialize and deserialize your PartitionResolver state as JSON, so that you can share between processes and across shutdowns. You can persist these in config files, or even in a DocumentDB collection.
-* A [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-net/tree/master/samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Util/DocumentClientHashPartitioningManager.cs) class for dynamically adding and removing partitions to a database partitioned based on consistent hashing. Internally it uses a [TransitionHashPartitionResolver]( https://github.com/Azure/azure-documentdb-net/tree/master/samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Partitioners/TransitionHashPartitionResolver.cs) to route reads and writes during migration using one of four modes - read from the old partitioning scheme (ReadCurrent), the new one (ReadNext), merge results from both (ReadBoth) or be unavailable during migration (None).
+* A [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Util/DocumentClientHashPartitioningManager.cs) class for dynamically adding and removing partitions to a database partitioned based on consistent hashing. Internally it uses a [TransitionHashPartitionResolver]( https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/partitioning/DocumentDB.Samples.Sharding/DocumentDB.Samples.Sharding/Partitioners/TransitionHashPartitionResolver.cs) to route reads and writes during migration using one of four modes - read from the old partitioning scheme (ReadCurrent), the new one (ReadNext), merge results from both (ReadBoth) or be unavailable during migration (None).
 
 The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
 
@@ -160,7 +160,7 @@ You can serialize the partitioner state as JSON and store in configuration files
 You can chain PartitionResolvers by implementing your own IPartitionResolver that internally uses one or more existing resolvers. Take a look at TransitionHashPartitionResolver in the samples project for an example.
 
 ##References
-* [Partitioning code samples on Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/partitioning)
+* [Partitioning code samples on Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/partitioning)
 * [Partitioning data with DocumentDB concepts](documentdb-partition-data.md)
 * [DocumentDB collections and performance levels](documentdb-performance-levels.md)
 * [DocumentDB .NET SDK Documentation at MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
