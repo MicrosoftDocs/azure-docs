@@ -17,7 +17,7 @@
     ms.author="cgronlun;tedway;olgali"/>
 
 
-# Introduction to Machine Learning on Microsoft Azure
+# Introduction to machine learning on Microsoft Azure
 
 ## What is machine learning?
 Machine learning is at work all around you. When you shop online, machine learning helps recommend other products based on what you've purchased. When your credit card is swiped, machine learning helps the bank do fraud detection and notify you if the transaction seems suspicious.
