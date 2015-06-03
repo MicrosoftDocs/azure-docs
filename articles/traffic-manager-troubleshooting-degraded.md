@@ -1,11 +1,12 @@
-<properties 
-   pageTitle="Troubleshooting Degraded status on Azure Traffic Manager
-   description="How to troubleshoot Traffic Manager profiles when it shows as degraded status.This is a guidance to understand the probing mechanism how it checks for the endpoint health"
+<properties
+   pageTitle="Troubleshooting Degraded status on Azure Traffic Manager"
+   description="How to troubleshoot Traffic Manager profiles when it shows as degraded status."
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="traffic-manager"
    ms.devlang="na"
