@@ -154,6 +154,8 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 
 ## Video
 
+#### Performance monitoring
+
 [AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->

@@ -2,11 +2,14 @@ With Azure Resource Manager, you define parameters for values you want to specif
 You should define a parameter for those values that will vary based on the project you are deploying or based on the 
 environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
 
+When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided 
+during deployment.
+
 We will describe each parameter in the template.
 
 ### siteName
 
-The name of the site you wish to create.
+The name of the web app that you wish to create.
 
     "siteName":{
       "type":"string"
@@ -14,7 +17,7 @@ The name of the site you wish to create.
 
 ### hostingPlanName
 
-The name of the hosting plan to use for creating the web app.
+The name of the App Service plan to use for hosting the web app.
     
     "hostingPlanName":{
       "type":"string"
@@ -22,7 +25,7 @@ The name of the hosting plan to use for creating the web app.
 
 ### siteLocation
 
-The location to use for creating the web app. It must be one of the Azure locations that support web apps. It is used for both the hosting plan and the web app.
+The location to use for creating the web app and hosting plan. It must be one of the Azure locations that support web apps.
 
     "siteLocation":{
       "type":"string"
@@ -43,8 +46,7 @@ The pricing tier for the hosting plan.
       "defaultValue":"Free"
     }
 
-The template defines the values that are permitted for this parameter. You use the **allowedValues** element to specify which values a user of the template can provide during deployment.
-The tempalte also defines a default value (Free) if no value is specified.
+The template defines the values that are permitted for this parameter (Free, Shared, Basic, or Standard), and assigns a default value (Free) if no value is specified.
 
 ### workerSize
 
@@ -60,4 +62,4 @@ The instance size of the hosting plan (small, medium, or large).
       "defaultValue":"0"
     }
     
-The template defines the values that are permitted for this parameter and a default value if no value is specified. The values correspond to small, medium and large.
+The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.

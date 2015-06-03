@@ -404,7 +404,7 @@ In this tutorial you learned how to provision an HBase cluster. To learn more, s
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md#rdp
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
