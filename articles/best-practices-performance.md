@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="9/1/2014"
+	ms.date="09/01/2014"
 	ms.author="robb"/>
 
 # Best Practices for Performance in Azure Applications
@@ -340,7 +340,7 @@ Two topics about Dynamic Management Views are:
 * [Monitoring SQL Database Using Dynamic Management Views](http://go.microsoft.com/fwlink/?LinkId=236195)
 * [Useful DMV's for SQL Database to analyze if you miss SQL Profiler](http://go.microsoft.com/fwlink/?LinkId=252879)
 
-### Analysis Resources and Tools 
+### Analysis Resources and Tools
 
 A number of third-party non-Microsoft tools are available for analyzing Azure performance:
 

@@ -439,7 +439,7 @@ The collection stage of the monitoring process is concerned with retrieving the 
 
 Data collection is often performed by implementing a collection service which can run autonomously from the application that generates the instrumentation data. Figure 2 illustrates an example of this architecture, highlighting the instrumentation data collection subsystem.
 
-![](figures/Monitoring/TelemetryService.png)
+![](media/best-practices-monitoring/TelemetryService.png)
 
 _Figure 2.
 Collecting instrumentation data_
@@ -469,7 +469,7 @@ The instrumentation data collection subsystem can either actively retrieve instr
 
 One approach to implementing the pull model is to use monitoring agents running locally with each instance of the application. A monitoring agent is a separate process that periodically retrieves (pulls) telemetry data collected at the local node and writes this information directly to centralized storage that is shared by all instances of the application. This is the mechanism implemented by WAD. Each instance of an Azure web or worker role can be configured to capture diagnostic and other trace information which is stored locally. The monitoring agent that runs alongside each copies the specified data to Windows Azure storage. The page [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](https://msdn.microsoft.com/library/azure/dn186185.aspx) on the Microsoft website provide more details on this process. Some elements, such as IIS logs, crash dumps, and custom error logs are written to blob storage, while data from the Windows Event log, ETW events, and performance counters is recorded in table storage. Figure 3 illustrates this mechanism:
 
-![](figures/Monitoring/PullModel.png)
+![](media/best-practices-monitoring/PullModel.png)
 
 _Figure 3.
 Using a monitoring agent to pull information and write to shared storage_
@@ -482,7 +482,7 @@ Telemetry data for a small-scale application running on a limited number of node
 
 To address these issues, you can implement queueing. Figure 4 shows this structure. In this architecture, the local monitoring agent (if it can be configured appropriately) or custom data collection service (if not) posts data to a queue, and a separate process running asynchronously (the Storage Writing Service in Figure 4) takes the data in this queue and writes it to shared storage. A message queue is suitable for this scenario as it provides at least once semantics ensuring that once posted, queued data will not be lost. The Storage Writing Service can be implemented by using a separate worker role.
 
-![](figures/Monitoring/BufferedQueue.png)
+![](media/best-practices-monitoring/BufferedQueue.png)
 
 _Figure 4.
 Using a queue to buffer instrumentation data_
@@ -495,7 +495,7 @@ For scalability, you could run multiple instances of the storage writing service
 #### _Consolidating instrumentation data_
 The instrumentation data retrieved by the data collection service from a single instance of an application gives a localized view of the health and performance of that instance. To assess the overall health of the system, it is necessary to consolidate some aspects of the data in the local views together. This can be performed after the data has been stored, but in some cases it could also be achieved as the data is collected. Rather than being written directly to shared storage, the instrumentation data could pass through a separate data consolidation service which combines data and acts as a filter and cleanup process. For example, instrumentation data that includes the same correlation information such as an activity ID can be amalgamated (it is possible that a user starts performing a business operation on one node, and then gets transferred to another node in the event of node failure or depending on how load-balancing is configured). This process can also detect and remove any duplicated data (always a possibility if the telemetry service uses message queues to push instrumentation data out to storage). Figure 5 illustrates an example of this structure.
 
-![](figures/Monitoring/Consolidation.png)
+![](media/best-practices-monitoring/Consolidation.png)
 
 _Figure 5.
 Using a separate service to consolidate and clean up instrumentation data_
@@ -503,7 +503,7 @@ Using a separate service to consolidate and clean up instrumentation data_
 ### Storing instrumentation data
 The previous discussions have depicted a rather simplistic view of the way in which instrumentation data is stored. In reality, it can make sense to store the different types of information by using technologies that are most appropriate to the way in which each type is likely to be used. For example, Azure blob and table storage have some similarities in the way in which they are accessed, but have limitations concerning the operations that you can perform using them and the granularity of the data that they hold is quite different. If you need to perform more analytical operations or require full-text search capabilities on the data, it may be more appropriate to use data storage that provides capabilities that are optimized for specific types of queries and data access. For example, performance counter data could be stored in a SQL database to enable ad-hoc analysis; trace logs might be better stored in Azure DocumentDB; security information could be written to HDFS; information requiring full-text search could be stored by using Elastic Search (which can also speed searches by using rich indexing.) You can implement an additional service that periodically retrieves the data from shared storage, partitions and filters the data according to its purpose, and then writes it to an appropriate set of data stores as shown in Figure 6. An alternative approach is to include this functionality in the consolidation and cleanup process and write the data directly to these stores as it is retrieved rather than saving it in an intermediate shared storage area. Each approach has its advantages and disadvantages. Implementing a separate partitioning service lessens the load on the consolidation and cleanup service, and enables at least some of the partitioned data to be regenerated if necessary (depending on how much data is retained in shared storage). However, it consumes additional resources, and there may be a delay between the instrumentation data being received from each application instance and this data being converted into actionable information.
 
-![](figures/Monitoring/DataStorage.png)
+![](media/best-practices-monitoring/DataStorage.png)
 
 _Figure 6.
 Partitioning data according to analytical and storage requirements_
@@ -608,7 +608,7 @@ In many cases, reports can be generated by batch processes according to a define
 - The [Priority Queue](https://msdn.microsoft.com/library/dn589794.aspx) pattern shows how to prioritize queued messages so that urgent requests are received and can be processed before less urgent messages.
 
 ## More information
-- The article [Monitor, Diagnose, and Troubleshoot Microsoft Azure Storage](http://azure.microsoft.com/documentation/articles/storage-monitoring-diagnosing-troubleshooting/) on the Microsoft website.
+- The article [Monitor, Diagnose, and Troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md) on the Microsoft website.
 - The article [Windows Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) on the Microsoft website.
 - The page [Collect Logging Data by Using Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx) on the Microsoft website.
 - The page [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](https://msdn.microsoft.com/library/azure/dn186185.aspx) on the Microsoft website.
@@ -616,4 +616,4 @@ In many cases, reports can be generated by batch processes according to a define
 - The page [How to use Service Bus Queues](http://azure.microsoft.com/) on the Microsoft website.
 - The article [SQL Server Business Intelligence in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj992719.aspx) on the Microsoft website.
 - The page [Understanding Monitoring Alerts and Notifications in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) on the Microsoft website.
-- The [Application Insights](http://azure.microsoft.com/documentation/articles/app-insights-get-started/) page on the Microsoft website.
+- The [Application Insights](app-insights-get-started/) page on the Microsoft website.

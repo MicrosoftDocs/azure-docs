@@ -155,7 +155,7 @@ __Circuit Break:__
 
 Based on [Circuit Breaker](http://msdn.microsoft.com/library/dn589784.aspx)
 
-# Extensibility
+## Extensibility
 
 Public interface that can be implemented for providing Custom Retry policy
 

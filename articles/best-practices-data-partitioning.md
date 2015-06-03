@@ -461,14 +461,14 @@ The following patterns may also be relevant to your scenario when considering st
 ## More Information
 
 - The [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279.aspx) page on the Microsoft website provides detailed documentation describing how to create and use SQL databases.
-- The page [Azure SQL Database Elastic Scale Overview](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-introduction.md) on the Microsoft website provides a comprehensive introduction to Elastic Scale.
+- The page [Azure SQL Database Elastic Scale Overview](sql-database-elastic-scale-introduction.md) on the Microsoft website provides a comprehensive introduction to Elastic Scale.
 - The topic [Splitting and Merging with Elastic Scale](sql-database-elastic-scale-overview-split-and-merge/) on the Microsoft website contains information on using the Split/Merge service to manage Elastic Scale shards.
 - The page [Azure Storage Scalability and Performance Targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website documents the current sizing and throughput limits of Azure storage.
 - The [Performing Entity Group Transactions](https://msdn.microsoft.com/library/azure/dd894038.aspx) page on the Microsoft website provides detailed information about implementing transactional operations over entities stored in Azure table storage.
 - The article [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx) on the Microsoft website contains detailed information on partitioning data in Azure table storage.
-- The page [Using CDN for Azure](http://azure.microsoft.com/documentation/articles/cdn-how-to-use.md) on the Microsoft website describes how to replicate data held in Azure Blob Storage by using the Azure Content Delivery Network (CDN).
+- The page [Using CDN for Azure](cdn-how-to-use.md) on the Microsoft website describes how to replicate data held in Azure Blob Storage by using the Azure Content Delivery Network (CDN).
 - The page [DocumentDB Limits for the Preview Release](documentdb-limits/) on the Microsoft website describes the current limits and quotas for Microsoft DocumentDB.
-- The page [Manage DocumentDB Capacity and Performance](http://azure.microsoft.com/documentation/articles/documentdb-manage.md) on the Microsoft website contains information about how Azure DocumentDB allocates resources to databases.
+- The page [Manage DocumentDB Capacity and Performance](documentdb-manage.md) on the Microsoft website contains information about how Azure DocumentDB allocates resources to databases.
 - The [Azure Search Overview](https://msdn.microsoft.com/library/azure/dn798933.aspx) page on the Microsoft website provides a full description of the capabilities available with the Azure Search service.
 - The [Limits and Constraints (Azure Search API)](https://msdn.microsoft.com/library/azure/dn798934.aspx) page on the Microsoft website contains information on the capacity of each instance of the Azure Search service.
 - The [Supported Data Types (Azure Search)](https://msdn.microsoft.com/library/azure/dn798938.aspx) page on the Microsoft website summarizes the data types that you can use in searchable documents and indexes.
