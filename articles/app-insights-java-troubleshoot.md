@@ -37,7 +37,7 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 * In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 * Turn on logging to the IDE console window, by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with [Error].
 * Make sure that the correct ApplicationInsights.xml file has been successfully loaded by the Java SDK, by looking at the console's output messages for a "Configuration file has been successfully found" statement.
-* If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in ones of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/lib folder.
+* If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in one of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/lib folder.
 
 
 
