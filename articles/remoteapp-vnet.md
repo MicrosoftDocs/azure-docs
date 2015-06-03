@@ -23,6 +23,7 @@
 Before you use an Azure VNET with Azure RemoteApp, you might want to validate the VNET. This helps prevent issues with Azure RemoteApp connectivity.
 
 To validate your Azure VNET, do the following:
+
 1. Create an Azure virtual machine inside the subnet of the Azure VNET you want to use with Azure RemoteApp.
 
 2. Connect to that VM by using the **Connect** option in the management portal.
