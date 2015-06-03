@@ -23,8 +23,8 @@ Hybrid Connections can connect [Azure App Service](http://go.microsoft.com/fwlin
 In this tutorial, you will learn how to create an App Service web app in the [Azure preview](http://go.microsoft.com/fwlink/?LinkId=529715), connect the web app to your local on-premises SQL Server database using the new Hybrid Connection feature, create a simple ASP.NET application that will use the hybrid connection, and deploy the application to the App Service web app. The completed web app on Azure stores user credentials in a membership database that is on-premises. The tutorial assumes no prior experience using Azure or ASP.NET.
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-
-> [AZURE.NOTE] The Web Apps portion of the Hybrid Connections feature is available only in the [Azure preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+>
+>The Web Apps portion of the Hybrid Connections feature is available only in the [Azure preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ## Prerequisites ##
 
