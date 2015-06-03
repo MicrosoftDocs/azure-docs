@@ -100,7 +100,7 @@ Assuming the request is successful, the webhook response contains the job id in 
 
 	{"JobIds":["<JobId>"]}  
 
-The client cannot determine when the runbook job completes or its completion status from the webhook.  It can determine this information using the job id with another method such as [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) or the [Azure Automation API](https://msdn.microsoft.com/en-us/library/azure/mt163826.aspx).
+The client cannot determine when the runbook job completes or its completion status from the webhook.  It can determine this information using the job id with another method such as [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) or the [Azure Automation API](https://msdn.microsoft.com/library/azure/mt163826.aspx).
 
 ### Example
 
