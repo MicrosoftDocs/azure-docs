@@ -17,7 +17,7 @@
 	ms.author="terrylan"/>
 
 
-# Azure Identity
+# The fundamentals of Azure identity management
 
 
 
