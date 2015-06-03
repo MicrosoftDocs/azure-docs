@@ -15,7 +15,7 @@
    ms.date="06/02/2015"
    ms.author="cherylmc" />
 
-# Configure the ExpressRoute Premium Add-on for your ExpressRoute Circuit
+# Configure the ExpressRoute Premium Add-on for Your ExpressRoute Circuit
 
 ExpressRoute Premium is a collection of features listed below:
 
