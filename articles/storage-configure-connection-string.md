@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuring Azure Connection Strings" 
-	description="Learn how to configure connection strings to storage account in Azure." 
+	pageTitle="Configure a Connection String to Azure Storage | Microsoft Azure" 
+	description="Learn how to configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate programmatic access to resources in a storage account. The connection string may encapsulate your account access key for an account that you own, or it may include a shared access signature for accessing resources in an account without the access key." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/28/2015" 
 	ms.author="tamram"/>
 
 # Configure Azure Storage Connection Strings
 
 ## Overview
 
-A connection string includes the information necessary to access your storage account in Azure programmatically. You can configure a connection string to connect to Azure Storage in the following ways:
+A connection string includes the information necessary to access Azure Storage resources programmatically. Your application uses the connection string to provide to Azure Storage the information needed to authenticate access.
+
+You can configure a connection string to:
 
 - Connect to the Azure storage emulator while you are locally testing your service or application.
 
@@ -28,7 +30,26 @@ A connection string includes the information necessary to access your storage ac
 
 - Connect to a storage account in Azure by using explicit endpoints for the storage services.
 
-If your application is a cloud service running in Azure, you'll usually save your connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). If your application is running in another environment (for example, on the desktop), then you will usually save your connection string in an app.config file or another configuration file. You can use the Azure `CloudConfigurationManager` class to access your connection string at runtime regardless of where it is running.
+- Access resources in a storage account via a shared access signature (SAS).
+
+In your application, you'll use the connection string to encapsulate your credentials for accessing storage resources. 
+
+
+Once you have done so using the [ServiceCredentials](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.auth.storagecredentials.aspx) type, you can use those credentials for subsequent requests. A common way to do this is via a service client object. A service client object represents one of the storage services, and can be used to access the functionality of that service from your code. The service client types are:
+
+- [CloudBlobClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx)
+- [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx)
+- [CloudTableClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx)
+- [CloudFileClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.file.cloudfileclient.aspx)
+
+## Storing your connection string
+
+Your application will need to store the connection string in order to authenticate access to Azure Storage when it is running. You have a few different options for storing your connection string:
+
+- For an application running on the desktop or on a device, you can store the connection string in an app.config file or another configuration file.
+- For an application running in an Azure cloud service, you can store your connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). 
+
+You can use the Azure [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) class to access your connection string at runtime regardless of where your application is running.
 
 ## Create a connection string to the storage emulator
 

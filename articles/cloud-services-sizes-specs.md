@@ -51,10 +51,10 @@ The following considerations might help you decide on a size:
 |A5|2|14 GB|<p>OS = Guest OS size</p><p>Local resource = 489 GB</p><p>Apps = approx. 1.5 GB</p>|
 |A6|4|28 GB|<p>OS = Guest OS size</p><p>Local resource = 999 GB</p><p>Apps = approx. 1.5 GB</p>|
 |A7|8|56 GB|<p>OS = Guest OS size</p><p>Local resource = 2,039 GB</p><p>Apps = approx. 1.5 GB</p>
-|A8|8|56 GB|<p>OS = Guest OS size</p><p>Local resource = 1.77 TB</p><p>Apps = approx. 1.5 GB</p><blockquote><p>[AZURE.NOTE]For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</p></blockquote>|
-|A9|16|<p>112 GB|<p>OS = Guest OS size</p><p>Local resource = 1.77 TB</p><p>Apps = approx. 1.5 GB</p><blockquote><p>[AZURE.NOTE]For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</p></blockquote>|
-|A10|8|<p>56 GB|<p>OS = Guest OS size</p><p>Local resource = 1.77 TB</p><p>Apps = approx. 1.5 GB</p><blockquote><p>[AZURE.NOTE]For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</p></blockquote>|
-|A11|16|<p>112 GB|<p>OS = Guest OS size</p><p>Local resource = 1.77 TB</p><p>Apps = approx. 1.5 GB</p><blockquote><p>[AZURE.NOTE]For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</p></blockquote>|
+|A8|8|56 GB|<p>OS = Guest OS size</p><p>Local resource = 1.77 TB</p><p>Apps = approx. 1.5 GB</p><blockquote><p> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</p></blockquote>|
+|A9|16|<p>112 GB|<p>OS = Guest OS size</p><p>Local resource = 1.77 TB</p><p>Apps = approx. 1.5 GB</p><blockquote><p> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</p></blockquote>|
+|A10|8|<p>56 GB|<p>OS = Guest OS size</p><p>Local resource = 1.77 TB</p><p>Apps = approx. 1.5 GB</p><blockquote><p> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</p></blockquote>|
+|A11|16|<p>112 GB|<p>OS = Guest OS size</p><p>Local resource = 1.77 TB</p><p>Apps = approx. 1.5 GB</p><blockquote><p> Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 Compute Intensive Instances</a>.</p></blockquote>|
 |Standard_D1|1|3.5 GB|<p>OS = Guest OS size</p><p>Local resource = 50 GB</p><p>Apps = approx. 1.5 GB</p>|
 |Standard_D2|2|7 GB|<p>OS = Guest OS size</p><p>Local resource = 100 GB</p><p>Apps = approx. 1.5 GB</p>|
 |Standard_D3|4|14 GB|<p>OS = Guest OS size</p><p>Local resource = 200 GB</p><p>Apps = approx. 1.5 GB</p>|
@@ -77,5 +77,3 @@ The following considerations might help you decide on a size:
 [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md)
 
  [About the A8, A9, A10, and A11 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?linkid=328042)
-
- [Sizes for Virtual Machines](virtual-machines-size-specs.md)

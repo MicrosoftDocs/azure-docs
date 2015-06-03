@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="06/03/2015" 
 	ms.author="raynew"/>
 
 
 # Disaster recovery with SQL Server and Azure Site Recovery 
 
-Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Site Recovery supports a number of replication mechanisms to consistently protection, replicate and fail over of machines to Azure, or to a secondary datacenter. Get an overview of all the deployment scenarios in the [Azure Site Recovery overview](hyper-v-recovery-manager-overview.md).
+Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Site Recovery supports a number of replication mechanisms to consistently protection, replicate and fail over of machines to Azure, or to a secondary datacenter. Get an overview of all the deployment scenarios in the [Azure Site Recovery overview](site-recovery-overview.md).
 
  This article describes how to protect the SQL Server backend of an application using a combination of SQL Server BCDR technologies and Site Recovery. You should have a good understanding of SQL Server BCDR features (failover clustering, AlwaysOn availability groups, database mirroring, log shipping) and Site Recovery before you deploy the scenarios described in this article.
 
@@ -202,7 +202,7 @@ For a cluster running SQL Server Standard edition or SQL Server 2008 R2 we recom
 
 - For a Hyper-V environment, if the application's uses distributed transactions we recommend you deploy [Site Recovery with SAN replication](site-recovery-vmm-san.md).
 
-- For a VMware environment we recommend you deploy [VMware to VMware](hyper-v-recovery-manager-vmware.md) protection.
+- For a VMware environment we recommend you deploy [VMware to VMware](site-recovery-vmware-to-vmware.md) protection.
 
 #### On-premises to Azure
 
@@ -246,7 +246,7 @@ In this scenario we leverage custom scripts and Azure automation for recovery pl
     	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
     	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
 
-3.	Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation) about using automation runbooks in recovery plans. 
+3.	Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans. 
 
     	workflow SQLAvailabilityGroupFailover
     	{
@@ -332,7 +332,7 @@ In this scenario we leverage custom scripts and Azure automation for recovery pl
     	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
     	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
 
-3.	Create an Azure automation runbook to invoke the script on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation) about using automation runbooks in recovery plans.Make sure the virtual machine agent in running on the failed over SQL Server virtual machine before you do this.
+3.	Create an Azure automation runbook to invoke the script on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans.Make sure the virtual machine agent in running on the failed over SQL Server virtual machine before you do this.
 
     	workflow SQLAvailabilityGroupFailover
 		{

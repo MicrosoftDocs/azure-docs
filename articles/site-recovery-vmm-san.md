@@ -18,7 +18,7 @@
 
 # Set up protection between on-premises VMM sites with SAN
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Azure Site Recovery overview](hyper-v-recovery-manager-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Azure Site Recovery overview](site-recovery-overview.md).
 
 This walkthrough describes how to deploy Site Recovery to orchestrate and automate protection for virtual machine workloads running on an on-premises Hyper-V server that's managed by System Center VMM to another VMM on-premises site, using storage array-based (SAN) replication.
 
@@ -216,8 +216,8 @@ After the Provider is installed continue setup to register the server in the vau
 6. On the Internet Connection page specify how the Provider running on the VMM server connects to the Internet. You can select not to use a proxy, to use the default proxy configured on the VMM server, or to use a custom proxy server. Note that:
 
 	- If you want to use a custom proxy server set it up before you install the Provider.
-	- Exempt the following addresses from routing through the proxy:
-		- The URL for connecting to the Azure Site Recovery: *.hypervrecoverymanager.windowsazure.com
+	- Following urls should be accessible from the VMM Server
+		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net 
@@ -337,20 +337,22 @@ Test your deployment to make sure virtual machines and data fail over as expecte
 8. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.
 9. After replication the replica virtual machine will have an IP address that isn’t the same as the IP address of the primary virtual machine. If you're issuing addresses from DHCP then will be updated automatically. If you're  not using DHCP and you want to make sure the addresses are the same you'll need to run a couple of scripts.
 10. Run this sample script to retrieve the IP address.
-    **$vm = Get-SCVirtualMachine -Name <VM_NAME>
-	$na = $vm[0].VirtualNetworkAdapters>
-	$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-	$ip.address**  
+
+    	$vm = Get-SCVirtualMachine -Name <VM_NAME>
+		$na = $vm[0].VirtualNetworkAdapters>
+		$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+		$ip.address  
+
 11. Run this sample script to update DNS, specifying the IP address you retrieved using the previous sample script.
 
-	**[string]$Zone,
-	[string]$name,
-	[string]$IP
-	)
-	$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-	$newrecord = $record.clone()
-	$newrecord.RecordData[0].IPv4Address  =  $IP
-	Set-DnsServerResourceRecord -zonename com -OldInputObject $record -NewInputObject $Newrecord**
+		[string]$Zone,
+		[string]$name,
+		[string]$IP
+		)
+		$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+		$newrecord = $record.clone()
+		$newrecord.RecordData[0].IPv4Address  =  $IP
+		Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 ## Monitor activity
 
