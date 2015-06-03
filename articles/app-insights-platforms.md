@@ -39,7 +39,7 @@
 + [Azure web apps and VMs](insights-perf-analytics.md)
 + [Android](https://github.com/Microsoft/AppInsights-Android)
 + [iOS](https://github.com/Microsoft/AppInsights-iOS)
-+ [OSX](https://github.com/Microsoft/AppInsights-OSX)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Cordova](#cordova)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
