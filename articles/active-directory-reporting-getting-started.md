@@ -22,7 +22,7 @@
 
 ## Sign into the Azure Management Portal
 
-First, you'll need to sign into the Azure Management Portal](https://manage.windowsazure.com)  as a global or compliance administrator. You must also be an Azure subscription service administrator or co-administrator, or be using the "Access to Azure AD" Azure subscription.
+First, you'll need to sign into the [Azure Management Portal](https://manage.windowsazure.com)  as a global or compliance administrator. You must also be an Azure subscription service administrator or co-administrator, or be using the "Access to Azure AD" Azure subscription.
 
 ## Navigate to Reports
 
