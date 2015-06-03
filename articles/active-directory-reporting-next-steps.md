@@ -38,5 +38,5 @@ Click the "Enable MFA" button at the bottom of the screen.
 
 ![The Multi-Factor Authentication button at the bottom of the screen][001]
 
-[001]: ./media/active-directory-reporting-next-steps/mfaButton.PNG
-[002]: ./media/active-directory-reporting-next-steps/notificationsSection.PNG
+[001]: ./media/active-directory-reporting-next-steps/mfaButton.png
+[002]: ./media/active-directory-reporting-next-steps/notificationsSection.png
