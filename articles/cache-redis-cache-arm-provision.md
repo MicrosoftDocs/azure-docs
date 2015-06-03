@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Provision Redis Cache" 
+	pageTitle="Provision a Redis Cache" 
 	description="Use Azure Resource Manager template to deploy an Azure Redis Cache." 
 	services="redis-cache" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/02/2015" 
 	ms.author="tomfitz"/>
 
-# Provision Redis Cache
+# Create a Redis Cache using a template
 
 In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Redis Cache. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
@@ -29,7 +29,7 @@ For the complete template, see [Redis Cache template](https://github.com/tfitzma
 
 In this template, you will deploy an Azure Redis Cache.
 
-## Parameters to specify
+## Parameters
 
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
 You should define a parameter for those values that will vary based on the project you are deploying or based on the 
@@ -60,7 +60,7 @@ Creates the Azure Redis Cache.
       "type": "Microsoft.Cache/Redis",
       "location": "[parameters('redisCacheLocation')]",
       "properties": {
-        sku": {
+        "sku": {
           "name": "[parameters('redisCacheSKU')]",
           "family": "[parameters('redisCacheFamily')]",
           "capacity": "[parameters('redisCacheCapacity')]"
@@ -79,10 +79,10 @@ Creates the Azure Redis Cache.
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/RedisCache.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/RedisCache.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache -redisCacheLocation "West US"
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/RedisCache.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/RedisCache.json -g ExampleDeployGroup
 
 

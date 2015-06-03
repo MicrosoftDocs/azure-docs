@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="06/01/2015"
    ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device
@@ -23,9 +23,9 @@
 
 Welcome to Microsoft Azure StorSimple device deployment.
 
-These deployment tutorials apply to StorSimple 8000 Series Release Version, Update 0.1, Update 0.2, and Update 0.3.
+These deployment tutorials apply to StorSimple 8000 Series Release Version, StorSimple 8000 Series Update 0.1, StorSimple 8000 Series Update 0.2, and StorSimple 8000 Series Update 0.3.
 
-This series of tutorials describes how to configure your StorSimple devices, and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
+This series of tutorials describes how to configure your StorSimple device, and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
 
 > [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website and in the MSDN Library applies to StorSimple 8000 series devices only. For complete information about the 7000 series devices, go to: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). For 7000 series deployment information, see the [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/).
 
@@ -40,7 +40,7 @@ The following pre-installation checklist describes the information that you need
 |   | Requirements          | Details                | Values        |
 |---| --------------------- | ---------------------- | ------------- |
 | 1 | Friendly name for your device | A descriptive name for the device | |
-| 2 | Network settings <ol><li>Device IP address</li><li>Network interfaces, 4x1 GbE, 2x10 GbE</li><li>Fixed controller IP</li><li>Subnet masks</li><li>Gateway</li></ol> | Total IPs required: 8 <ol><li>One per device</li><li>One per network interface enabled, total 6</li><li>One per controller, total 2</li><li>One for each IP address</li><li>One per device</li></ol> | |
+| 2 | Network settings <ol><li>Network interfaces, 4x1 GbE, 2x10 GbE</li><li>Fixed controller IP</li><li>Subnet masks</li><li>Gateway</li></ol> | Total IPs required: 8 <ol><li>One per network interface enabled, total 6</li><li>One per controller, total 2</li><li>One for each IP address</li><li>One per device</li></ol> | |
 | 3 | Serial access         | Initial device configuration | Yes/No |
 | 4 | DNS server IP addresses | Required to connect to Microsoft Azure: total of 2 required for high availability | |
 | 5 | NTP server IP addresses | Required to synchronize time with Azure: 1 required, 1 optional | |
