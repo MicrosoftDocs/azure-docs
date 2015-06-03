@@ -29,7 +29,7 @@
 + [Windows Store JavaScript apps](#cordova)
 + [Java](app-insights-java.md)
 + [Ruby](https://rubygems.org/gems/application_insights) 
-+ [PHP](https://github.com/Microsoft/AppInsights-PHP)
++ [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 + [Anything else](#projects)
 
@@ -37,8 +37,8 @@
 
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
 + [Azure web apps and VMs](insights-perf-analytics.md)
-+ [Android](https://github.com/Microsoft/AppInsights-Android)
-+ [iOS](https://github.com/Microsoft/AppInsights-iOS)
++ [Android](https://github.com/Microsoft/ApplicationInsights-Android)
++ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Cordova](#cordova)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
