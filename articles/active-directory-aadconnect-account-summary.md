@@ -35,6 +35,8 @@ Connect to Azure AD| Azure AD directory credentials | Global administrator role 
 Connect to AD DS | On-premises Active Directory credentials | Member of the Enterprise Admins (EA) group in Active Directory|  <li>Creation of the local AD account that will be used for reading objects and attributes from the local AD for ongoing sync operation.</li> <li> Assigning the correct permissions and access control settings for sync and password sync to the above account and to AD.</li> 
 NA|Logon credentials of the user running the wizard| Administrator of the local server|The wizard creates the AD account that will be used as the sync service logon account on the local machine.
 
+<br>
+<br>
 
 The following table is a summary of the credentials that are collected and what they are used for in an express setup.
 
@@ -45,6 +47,8 @@ Connect to Azure AD| Azure AD directory credentials | Global administrator role 
 Connect to AD DS | On-premises Active Directory credentials | Member of the Enterprise Admins (EA) group in Active Directory|  <li>Creation of the local AD account that will be used for reading objects and attributes from the local AD for ongoing sync operation.</li> <li> Assigning the correct permissions and access control settings for sync and password sync to the above account and to AD.</li> 
 NA|Logon credentials of the user running the wizard| Administrator of the local server|The wizard creates the AD account that will be used as the sync service logon account on the local machine.
 
+<br>
+<br>
 The following table is a summary of the credentials that are collected and what they are used for in an express setup.
 
 Wizard Page  | Credentials Collected | Permissions Required| Used For 
@@ -60,6 +64,8 @@ AD FS Service Account page, "Use a domain user account option"|AD user account c
 
 
 
+<br>
+<br>
 The following table is a summary of the permissions that are required for specific scenarios.
 
 Scenario  |Permission
@@ -70,6 +76,8 @@ Password Write-back | <li>Change Password</li><li>Reset password</li>
 User, Group, and Device Write-back|Write permissions to the directory objects and attributes that you wish to 'write-back'
 Single Sign-On and AD FS| Domain admin permissions in the domain in which your federated servers are located.
 
+<br>
+<br>
 The following table is a summary of the accounts that are created by Azure AD Connect.
 
 
