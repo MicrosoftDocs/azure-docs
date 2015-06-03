@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
-	ms.date="02/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
