@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/28/2015"
+    ms.date="06/03/2015"
     ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 1 release notes  
@@ -30,6 +30,7 @@ Please review the information contained in the release notes before you deploy t
 - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
 - This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
 - It takes approximately 5-10 hours to install this update (including the Windows Updates). 
+- For new releases, you may not see updates immediately because we do a phased rollout of the updates. Scan for updates in a few days again as these will become available soon.
 
 ## What's new in Update 1
 
