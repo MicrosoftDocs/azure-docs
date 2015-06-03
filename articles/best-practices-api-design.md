@@ -25,7 +25,8 @@ Some topics in this guidance are under discussion and may change in the future. 
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+
+## Table of Contents
 
   - [Overview](#overview)
   - [Introduction to Representational State Transfer (REST)](#introduction-to-representational-state-transfer-rest)
