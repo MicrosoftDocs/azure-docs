@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="05/24/2015"
+	ms.date="06/03/2015"
 	ms.author="mandia"/>
 
 
@@ -44,8 +44,7 @@ Depending on the Edition you choose, not all BizTalk Service settings may be ava
 	<td>You can enter any name but be specific. Some examples include:<br/><br/>
 	<em>mycompany</em>.biztalk.windows.net<br/>
 	<em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-	<em>myapplication</em>.biztalk.windows.net<br/><br/>
-".biztalk.windows.net" is automatically added to the name you enter. This creates a URL that is used to access your BizTalk Service, like <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
+	<em>myapplication</em>.biztalk.windows.net<br/><br/>".biztalk.windows.net" is automatically added to the name you enter. This creates a URL that is used to access your BizTalk Service, like <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
 	</td>
 	</tr>
 	<tr>
@@ -74,20 +73,14 @@ Select the NEXT arrow.
 	<table border="1">
 	<tr>
 	<td><strong>Monitoring/Archiving Storage Account</strong></td>
-	<td>Select an existing storage account or create a new storage account. <br/><br/>
-If you create a new Storage account, enter the <strong>Storage Account Name</strong>.</td>
+	<td>Select an existing storage account or create a new storage account. <br/><br/>If you create a new Storage account, enter the <strong>Storage Account Name</strong>.</td>
 	</tr>
 	<tr>
 	<td><strong>Tracking Database</strong></td>
-	<td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/>
-
-	<blockquote><p> [AZURE.TIP] Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.</p>
-	</blockquote>
-	</td>
+	<td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/><strong>TIP</strong> Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.</td>
 	</tr>
 	</table>
-
-	Select the NEXT arrow.
+Select the NEXT arrow.
 
 6. Enter the Database settings:
 

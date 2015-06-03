@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/03/2015" 
 	ms.author="mandia"/>
 
 # Using the Hybrid Connection Manager in Azure App Service
@@ -43,32 +43,31 @@ In the Azure portal, copy the Service Bus Access Control (ACS) Connection String
 
 ## Install the Hybrid Connection Manager
 
-1. In the preview [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select the connector you created. 
- To open it, you can select **Browse**, select **API Apps**, and then select your connector or API App. 
-
-  In **Hybrid Connection**, the setup is **incomplete**:
-
-  ![][2] 
+1. In the preview [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select the connector you created. To open it, you can select **Browse**, select **API Apps**, and then select your connector or API App. 
+<br/><br/>
+In **Hybrid Connection**, the setup is **incomplete**:
+<br/>
+![][2] 
 
 2. Select **Hybrid Connection**. The Service Bus connection string you previously entered is listed.
 3. Copy the **Primary Configuration String**:
-
-  ![][PrimaryConfigString]
+<br/>
+![][PrimaryConfigString]
 
 4. Under **On-Premises Hybrid Connection Manager**, you can download the Hybrid Connection Manger or install it directly from the portal. 
-
-  To install directly from the portal, go to your on-premises IIS server, browse to the portal, and select **Download and Configure**.
-
-  To download the Hybrid Connection Manager, go to your on-premises IIS server, and go to the **ClickOnce application** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). You can then copy the file to your IIS server and run it.
+<br/><br/>
+To install directly from the portal, go to your on-premises IIS server, browse to the portal, and select **Download and Configure**.
+<br/><br/>
+To download the Hybrid Connection Manager, go to your on-premises IIS server, and go to the **ClickOnce application** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). You can then copy the file to your IIS server and run it.
 
 5. In the **Listener Setup** window, enter the **Primary Configuration String** you previously pasted (in step 3) and select **Install**.
 
 When the setup is complete, the following displays:
-
- ![][3] 
+<br/>
+![][3] 
 
 Now when you browse to the connector again, the hybrid connection status is Connected. You may have to close the connector and reopen it: 
-
+<br/>
 ![][4] 
 
 > [AZURE.NOTE] To switch to the secondary connection string, re-run the Hybrid Connection setup and enter the **Secondary Configuration String**.
@@ -117,7 +116,9 @@ On the on-premises system, open the port used by the system. For example, SQL Se
 
 ## Read More
 
+[Monitor your Connectors and API Apps](app-service-logic-monitor-your-connectors.md)<br/>
 [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)
+
 
 [SB_ConnectInfo]: ./media/app-service-logic-hybrid-connection-manager/SB_ConnectInfo.png
 [SB_ACS]: ./media/app-service-logic-hybrid-connection-manager/SB_ACS.png
