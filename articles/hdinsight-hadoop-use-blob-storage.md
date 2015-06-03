@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/16/2015"
+	ms.date="06/03/2015"
 	ms.author="jgao"/>
 
 
 #Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight
 
-In this tutorial, learn how to use low-cost Azure Blob storage with HDInsight, set up a container for Blob storage, and then address the data inside.
+In this tutorial, learn how to use low-cost Azure Blob storage with HDInsight, create Azure storage account and Blob storage container, and then address the data inside.
 
 Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage.
 
@@ -38,7 +38,7 @@ For information about provisioning an HDInsight cluster, see [Get Started with H
 ##<a id="architecture"></a>HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
 
-![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.ASVArch.png "HDInsight Storage Architecture")
+![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 
