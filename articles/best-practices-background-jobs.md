@@ -186,7 +186,7 @@ See the earlier section [Triggers](#triggers) for more information about how you
 Consider the following points when deciding whether to deploy background tasks in an Azure virtual machine:
 
 - Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it will increase runtime cost if a virtual machine must be deployed just to run background tasks.
-- There is no facility to monitor the tasks in the Azure portal, and no automated restart capability for failed tasks, although you can monitor the basic status of the virtual machine and manage it using the [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/azure/dn495240.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that may be appropriate is to use the [System Center Management Pack for Windows Azure](http://technet.microsoft.com/library/gg276383.aspx).
+- There is no facility to monitor the tasks in the Azure portal, and no automated restart capability for failed tasks, although you can monitor the basic status of the virtual machine and manage it using the [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/azure/dn495240.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that may be appropriate is to use the [System Center Management Pack for Azure](http://technet.microsoft.com/library/gg276383.aspx).
 - You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics, or collate error information, and return it to a management application. For more information, see [Health Endpoint Monitoring Pattern](http://msdn.microsoft.com/library/dn589789.aspx).
 
 ### More information
@@ -309,7 +309,7 @@ Background tasks must offer sufficient performance to ensure they do not block t
 
 ## More information
 
-- [Scaling Windows Azure Applications with Worker Roles](http://msdn.microsoft.com/library/hh534484.aspx#sec8)
+- [Scaling Azure Applications with Worker Roles](http://msdn.microsoft.com/library/hh534484.aspx#sec8)
 - [Executing Background Tasks](http://msdn.microsoft.com/library/ff803365.aspx)
 - [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (blog post)
 - [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (video)

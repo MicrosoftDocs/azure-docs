@@ -355,7 +355,7 @@ More examples of using the Entity Framework retry mechanism can be found in [Con
 
 ## More information
 
-* [Windows Azure SQL Database Performance and Elasticity Guide](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
+* [Azure SQL Database Performance and Elasticity Guide](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
 ## SQL Database using ADO.NET retry guidelines
 
@@ -493,7 +493,7 @@ For detailed information about using the Transient Fault Handling Application Bl
 
 For general guidance on getting the most from SQL Database, see:
 
-* [Windows Azure SQL Database Performance and Elasticity Guide](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
+* [Azure SQL Database Performance and Elasticity Guide](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 * [Minimizing Connection Pool errors in SQL Azure](http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx)
 
 ## Service Bus retry guidelines
