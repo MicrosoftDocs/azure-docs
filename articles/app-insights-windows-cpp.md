@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="06/03/2015" 
     ms.author="crystk"/>
 
 # Application Insights for C++ apps

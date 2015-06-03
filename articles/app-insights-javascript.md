@@ -15,7 +15,7 @@
 	ms.date="04/26/2015" 
 	ms.author="awills"/>
  
-# Application Insights for JavaScript apps and web pages
+# Application Insights for JavaScript web pages
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
@@ -51,17 +51,6 @@ The script contains the instrumentation key that directs the data to your Applic
 
 *(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
 
-#### If your app isn't a web page...
-
-If your JavaScript app is a [Cordova](http://cordova.apache.org/) app, insert an extra line after the instrumentation key:
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
-
-If it's a [Windows Runtime app using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx), add the NuGet package *Application Insights for Javascript Apps* to your project. 
-(In Solution Explorer, right-click your project and choose Manage NuGet Packages. Check "Include prerelease" and search for Application Insights.)
  
 ## <a name="run"></a>Run your app
 
