@@ -15,7 +15,7 @@
    ms.date="06/02/2015"
    ms.author="cherylmc" />
 
-# Upgrade your ExpressRoute Circuit Bandwidth Dynamically with No Downtime
+# Upgrade Your ExpressRoute Circuit Bandwidth Dynamically with No Downtime
 
 You can increase the size of an ExpressRoute circuit without any downtime. These instructions will help you update the bandwidth of an ExpressRoute circuit using PowerShell. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
 
