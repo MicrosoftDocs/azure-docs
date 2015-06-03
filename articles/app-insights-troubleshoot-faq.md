@@ -106,10 +106,14 @@ Yes, you can monitor health and usage if your server can send data to the public
 
 But if you want to run web tests for your service, it must be accessible from the public internet on port 80.
 
+#### Can I monitor an intranet web server that doesn't have access to the public internet?
+
+You would have to arrange a proxy that can relay https POST calls to dc.services.visualstudio.com 
+
 #### I used to see data, but it has stopped
 
 * Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
-* Have you hit your monthly quota of data points? Open the Pricing tile to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+* Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
 
 
 

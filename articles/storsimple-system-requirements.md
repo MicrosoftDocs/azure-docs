@@ -1,9 +1,9 @@
 <properties 
    pageTitle="StorSimple system requirements" 
    description="Describes system requirements and best practices for software,  high availability, and networking for an Azure StorSimple solution." 
-   services="cloud-services, storage" 
+   services="storsimple" 
    documentationCenter="NA" 
-   authors="SharS" 
+   authors="alkohli" 
    manager="AdinaH" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="05/29/2015"
-   ms.author="SharS"/>
+   ms.date="06/03/2015"
+   ms.author="alkohli"/>
 
 # StorSimple system requirements
 
@@ -152,13 +152,13 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 |TCP 443 (HTTPS)<sup>3</sup>| Out | WAN | Yes |<ul><li>Outbound port is used for accessing data in the cloud.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul>|
 |UDP 53 (DNS) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. |
 | UDP 123 (NTP) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based NTP server. |
-| TCP 9354 | Out | WAN | In some cases; see notes. |The outbound port is used by the StorSimple Manager service to communicate with the device. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.<br> If connecting via a proxy server, refer to service bus requirements for detailed information. |
+| TCP 9354 | Out | WAN | In some cases; see notes. |The outbound port is used by the StorSimple Manager service to communicate with the device. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.<br> If connecting via a proxy server, refer to [service bus requirements](https://msdn.microsoft.com/library/azure/ee706729.aspx) for detailed information. |
 | 3260 (iSCSI) | In | LAN | No | This port is used to access data over iSCSI.|
 | 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP or HTTPS. |
 
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
-<sup>2</sup> If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined by the order in which the port was configured, with the last port created being the lowest in the order.
+<sup>2</sup> If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described below.
 
 <sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
 
@@ -168,11 +168,11 @@ Port routing is different depending on the software version running on your Stor
 
 - If the device is running a software version earlier that Update 1, such as the GA, 0.1, 0.2, or 0.3 release, then the port routing is decided as follows:
 
-     Last configured 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface
+     Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface
 
 - If the device is running Update 1, then the port routing is decided as follows:
 
-     DATA 0 > Last configured 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface
+     DATA 0 > Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface
 
 In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0. Make a note of this if there are more than one cloud-enabled network interfaces on your StorSimple device.
 
