@@ -35,30 +35,31 @@ In the Azure portal, copy the Service Bus Access Control (ACS) Connection String
 
 1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=213885), select your Service Bus namespace, and select **Connection Information**:
 
- ![][SB_ConnectInfo]
+	![][SB_ConnectInfo]
 
 2. Copy the ACS Connection String:
 
- ![][SB_ACS]
+	![][SB_ACS]
 
 ## Install the Hybrid Connection Manager
 
 1. In the preview [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select the connector you created. 
  To open it, you can select **Browse**, select **API Apps**, and then select your connector or API App. 
 
- In **Hybrid Connection**, the setup is **incomplete**:
+  In **Hybrid Connection**, the setup is **incomplete**:
 
- ![][2] 
+  ![][2] 
 
 2. Select **Hybrid Connection**. The Service Bus connection string you previously entered is listed.
 3. Copy the **Primary Configuration String**:
- ![][PrimaryConfigString]
+
+  ![][PrimaryConfigString]
 
 4. Under **On-Premises Hybrid Connection Manager**, you can download the Hybrid Connection Manger or install it directly from the portal. 
 
- To install directly from the portal, go to your on-premises IIS server, browse to the portal, and select **Download and Configure**.
+  To install directly from the portal, go to your on-premises IIS server, browse to the portal, and select **Download and Configure**.
 
- To download the Hybrid Connection Manager, go to your on-premises IIS server, and go to the **ClickOnce application** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). You can then copy the file to your IIS server and run it.
+  To download the Hybrid Connection Manager, go to your on-premises IIS server, and go to the **ClickOnce application** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). You can then copy the file to your IIS server and run it.
 
 5. In the **Listener Setup** window, enter the **Primary Configuration String** you previously pasted (in step 3) and select **Install**.
 
