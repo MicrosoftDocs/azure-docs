@@ -31,17 +31,22 @@ CDN can be enabled for your origin via Azure Management Portal. The current avai
 	
 	The list of available origin URLs will be displayed in the **ORIGIN URL** dropdown list.
 	
+
+	![createnew][createnew]
+
 	If you select **Custom Origin**, you can enter a custom origin URL. That does not have to be an Azure origin.
+
+	![customorigin][customorigin]
+
 
 5.	Click the **Create** button to create the new endpoint.
 
 
-	![createnew][createnew]
-
-> Note: The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+>[AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
 
 ##See Also
 [How to Map Content Delivery Network (CDN) Content to a Custom Domain](./cdn-map-content-to-custom-domain.md)
 
 [createnew]: ./media/cdn-create-new/cdn-create-new-account.png
 
+[customorigin]: ./media/cdn-create-new/cdn-custom-origin.png
