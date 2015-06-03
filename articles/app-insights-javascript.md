@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights for JavaScript apps and web pages" 
-	description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript apps and web pages." 
+	pageTitle="Application Insights for JavaScript web apps" 
+	description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="awills"/>
  
-# Application Insights for JavaScript web pages
+# Application Insights for JavaScript web apps
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
