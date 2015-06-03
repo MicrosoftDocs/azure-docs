@@ -22,11 +22,11 @@ This page will describe how to troubleshoot Azure Traffic Manager profile which 
 
 You have configured a Windows Azure Traffic Manager profile pointing to some of your .cloudapp.net hosted services and after a few seconds you see the Status as Degraded.
 
-![degradedstate](../media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
+![degradedstate](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
 
 If you go into the Endpoints tab of that profile you will see one or more of the endpoints in an Offline status:
 
-![offline](../media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
+![offline](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
 
 ### Important notes about Traffic Manager probing
 
@@ -49,11 +49,11 @@ The best tool for troubleshooting WATM probe failures is wget.  You can get the 
 
 Once you have wget installed, go to a command prompt and run wget against the URL + Probe port & path that is configured in WATM.  For this example it would be http://watestsdp2008r2.cloudapp.net:80/Probe.
 
-![troubleshooting](../media/traffic-manager-troubleshooting-degraded/traffic-manager-troubleshooting.png)
+![troubleshooting](./media/traffic-manager-troubleshooting-degraded/traffic-manager-troubleshooting.png)
 
 Using Wget:
 
-![wget](../media/traffic-manager-troubleshooting-degraded/traffic-manager-wget.png)
+![wget](./media/traffic-manager-troubleshooting-degraded/traffic-manager-wget.png)
 
  
 
