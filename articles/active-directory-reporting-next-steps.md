@@ -38,5 +38,7 @@ Click the "Enable MFA" button at the bottom of the screen.
 
 ![The Multi-Factor Authentication button at the bottom of the screen][001]
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
+
 [001]: ./media/active-directory-reporting-next-steps/mfaButton.png
 [002]: ./media/active-directory-reporting-next-steps/notificationsSection.png

@@ -46,6 +46,8 @@ To download any report as a CSV, navigate to the report and click "Download" at 
 
 ![Download button][001]
 
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
+
 [001]: ./media/active-directory-reporting-getting-started/downloadButton.png
 [002]: ./media/active-directory-reporting-getting-started/dialogBox.png
 [003]: ./media/active-directory-reporting-getting-started/reportsMain.png

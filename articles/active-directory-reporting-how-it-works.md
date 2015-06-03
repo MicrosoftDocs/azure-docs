@@ -36,5 +36,6 @@ You can find the most recent processed sign in by examining the help text at the
 
 ![Help text at the top of each report][001]
 
-[001]: ./media/active-directory-reporting-how-it-works/reportingWatermark.PNG
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
+[001]: ./media/active-directory-reporting-how-it-works/reportingWatermark.PNG

@@ -36,14 +36,16 @@ Azure Active Directory includes security, activity, and audit reports for your d
 
  - Application usage: summary
  - Application usage: detailed
- - Application dashboard	
+ - Application dashboard
  - Account provisioning errors
- - Individual user devices	
+ - Individual user devices
  - Individual user Activity
  - Groups activity report
- - Password Reset Registration Activity Report	
- - Password reset activity	
+ - Password Reset Registration Activity Report
+ - Password reset activity
 
 ## Audit reports
 
  - Directory audit report
+
+ > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
