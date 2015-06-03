@@ -1,21 +1,20 @@
-	<properties
-		pageTitle="using linux diagnostic extension to monitor linux vm’s performance and diagnostic data"
-		description="Learn how to linux diagnostic extension to monitor linux vm’s performance and diagnostic data."
-		services="virtual-machines"
-		documentationCenter=""
+<properties
+	pageTitle="using linux diagnostic extension to monitor linux vm’s performance and diagnostic data"
+	description="Learn how to linux diagnostic extension to monitor linux vm’s performance and diagnostic data."
+	services="virtual-machines"
+	documentationCenter=""
     	authors="Ning"
-		manager="timlt"
-		editor=""
-    	tags=""/>
+	manager="timlt"
+	editor=""/>
 
-	<tags
-		ms.service="virtual-machines"
-		ms.workload="infrastructure-services"
-		ms.tgt_pltfrm="vm-linux"
-		ms.devlang="na"
-		ms.topic="article"
-		ms.date="06/01/2015"
-		ms.author="Ning"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/01/2015"
+	ms.author="Ning"/>
 
 
 #Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data
