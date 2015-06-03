@@ -28,7 +28,7 @@ Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information 
 These instructions below will help you do the following:
 
 - Create an ExpressRoute circuit with the Premium add-on enabled.
-- Update an existing ExpressRoute circuit to have the Premium add-on enabled.
+- Update an existing ExpressRoute circuit to enable the Premium add-on.
 - Disable the ExpressRoute Premium add-on for a circuit.
 
 
@@ -107,7 +107,9 @@ You can enable ExpressRoute Premium add-on features for any ExpressRoute circuit
 		Status                           : Enabled
 
 
-3. **Enable the ExpressRoute Premium add-on for the circuit**
+2. **Enable the ExpressRoute Premium add-on for the circuit**
+
+
 	You can enable ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:
 	
 		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
@@ -128,7 +130,7 @@ You can enable ExpressRoute Premium add-on features for any ExpressRoute circuit
 
 You can disable the ExpressRoute Premium add-on for an ExpressRoute circuit that has the Premium add-on enabled.
 
-**Note** You must make sure that you have stopped using the features listed in the Premium add-on feature list before you do so. We will fail your request to disable the Premium add-on if you have greater than 10 VNets linked to your circuit. You will also see that we will drop our BGP sessions if you advertise greater than 5000 routes to us once you disable the Premium add-on.
+**Note**: You must make sure that you have stopped using the features listed in the Premium add-on feature list before you do so. We will fail your request to disable the Premium add-on if you have greater than 10 VNets linked to your circuit. You will also see that we will drop our BGP sessions if you advertise greater than 5000 routes to us once you disable the Premium add-on.
 
 1. **Get the details of the ExpressRoute Circuit**
 
@@ -156,6 +158,8 @@ You can disable the ExpressRoute Premium add-on for an ExpressRoute circuit that
 
 
 3. **Disable ExpressRoute Premium add-on for the circuit**
+
+
 	You can disable ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:
 	
 		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
