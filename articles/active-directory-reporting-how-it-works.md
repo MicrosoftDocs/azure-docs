@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/29/2015"
+   ms.date="06/03/2015"
    ms.author="kenhoff"/>
 
 # Azure AD Reporting: How it works
