@@ -17,7 +17,7 @@
    ms.date="04/28/2015"
    ms.author="masashin"/>
 
-#Background jobs guidance
+# Background jobs guidance
 
 ![](http://pnp.azurewebsites.net/images/pnp-logo.png)
 
@@ -245,7 +245,7 @@ Consider the following points when planning how you will run background tasks in
 
    - Add the definition of the **Freeze** setting as a Boolean value to the ServiceDefinition.csdef and ServiceConfiguration.*.cscfg files for the role and set it to **false**. If the role goes into a repeated restart mode, you can change the setting to **true** to freeze role execution and allow it to be swapped with a previous version.
 
-# Resiliency considerations
+## Resiliency considerations
 Background tasks must be resilient in order to provide reliable services to the application. When planning and designing background tasks, consider the following points:
 
 - Background tasks must be able to gracefully handle role or service restarts without corrupting data or introducing inconsistency into the application. For long-running or multi-step tasks, consider using _check pointing_ by saving the state of jobs in persistent storage, or as messages in a queue if this is appropriate. For example, you can persist state information in a message in a queue and incrementally update this state information with the task progress so that the task can be processed from the last known good checkpoint instead of restarting from the beginning. When using Azure Service Bus queues, you can use message sessions to enable the same scenario. Sessions allow you to save and retrieve the application processing state by using the [SetState](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.setstate.aspx) and [GetState](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.getstate.aspx) methods. For more information about designing reliable multi-step processes and workflows, see [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx).
@@ -257,7 +257,7 @@ Background tasks must be resilient in order to provide reliable services to the 
   - Queues are guaranteed at _least once_ delivery mechanisms, but they may deliver the same message more than once. In addition, if a background task fails after processing a message but before deleting it from the queue, the message will become available for processing again. Background tasks should be idempotent, which means that processing the same message more than once does not cause an error or inconsistency in the application’s data. Some operations are naturally idempotent, such as setting a stored value to a specific new value. However, operations such as adding a value to an existing stored value without checking that the stored value is still the same as when the message was originally sent will cause inconsistencies.  Azure Service Bus queues can be configured to automatically remove duplicated messages.
   - Some messaging systems, such as Azure storage queues and Azure Service Bus queues, support a de-queue count property that indicates the number of times a message has been read from the queue. This can be useful in handling repeated and poison messages. For more information, see [Asynchronous Messaging Primer](http://msdn.microsoft.com/library/dn589781.aspx) and [Idempotency Patterns](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/).
 
-# Scaling and performance considerations
+## Scaling and performance considerations
 Background tasks must offer sufficient performance to ensure they do not block the application, or cause inconsistencies due to delayed operation when the system is under load. Typically, performance is improved by scaling the compute instances that host the background tasks. When planning and designing background tasks, consider the following points around scalability and performance:
 
 - Azure supports autoscaling (both scaling out and scaling back in) based on current demand and load, or on a predefined schedule, for Web Sites, Cloud Services web and worker roles, and Virtual Machines hosted deployments. Use this feature to ensure the application as a whole has sufficient performance capabilities while minimizing runtime costs.
@@ -266,7 +266,7 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - Background tasks must be designed for scaling. For example, they must be able to dynamically detect the number of storage queues in use in order to listen on or send messages to the appropriate queue.
 - By default, WebJobs scale with their associated Azure Web Sites instance. However, if you want a WebJob to run as only a single instance, you can create a Settings.job file containing the JSON data **{ "is_singleton": true }**. This forces Azure to only run one instance of the WebJob, even if there are multiple instances of the associated website, which can be a useful technique for scheduled jobs that must run as only a single instance.
 
-# Related patterns
+## Related patterns
 - [Asynchronous Messaging Primer](http://msdn.microsoft.com/library/dn589781.aspx)
 - [Autoscaling Guidance](http://msdn.microsoft.com/library/dn589774.aspx)
 - [Compensating Transaction Pattern](http://msdn.microsoft.com/library/dn589804.aspx)
@@ -280,7 +280,7 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - [Queue-Based Load Leveling Pattern](http://msdn.microsoft.com/library/dn589783.aspx)
 - [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx)
 
-# More information
+## More information
 - [Scaling Windows Azure Applications with Worker Roles](http://msdn.microsoft.com/library/hh534484.aspx#sec8)
 - [Executing Background Tasks](http://msdn.microsoft.com/library/ff803365.aspx)
 - [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (blog post)
