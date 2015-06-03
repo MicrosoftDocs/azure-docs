@@ -34,14 +34,14 @@ These instructions below will help you do the following:
 
 ## To create an ExpressRoute circuit with Premium add-on features enabled
 
-###  Configuration Prerequisites
+###  Configuration prerequisites
 
 Before you begin configuration, verify that you have met the following prerequisites:
 
 - An Azure subscription
 - The latest version of Azure PowerShell
 
-###  Import the PowerShell module for ExpressRoute
+###  1. Import the PowerShell module for ExpressRoute
 
 Windows PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For more information, please refer to the PowerShell documentation in [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx).
 
@@ -52,7 +52,7 @@ Use the cmdlets below to import the PowerShell module for ExpressRoute:
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 
-### Configure a new ExpressRoute circuit with Premium add-on features enabled
+### 2. Configure a new ExpressRoute circuit with Premium add-on features enabled
 
 You can create a new ExpressRoute circuit with the Premium add-on enabled at the time of creation. Follow the instructions on how to create ExpressRoute circuits with [NSPs](expressroute-configuring-nsps.md) or [EXPs](expressroute-configuring-exps.md). We have a new optional parameter in the New-AzureDedicatedCircuit cmdlet that lets you specify the SKU. The SKU can either be Standard or Premium. The default value is standard. Passing on the SKU as Premium will enable the circuit with the Premium add-on features.
 
@@ -60,7 +60,7 @@ You can create a new ExpressRoute circuit with the Premium add-on enabled at the
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -Sku Premium
 
 
-### Verify the ExpressRoute Premium add-on is enabled
+### 3. Verify the ExpressRoute Premium add-on is enabled
 You can check and see if the ExpressRoute Premium add-on is enabled for your circuit.
 In the example below, the ExpressRoute circuit does not have ExpressRoute Premium add-on features enabled. The SKU will show up as ***Premium*** if the add-on is enabled.
 
