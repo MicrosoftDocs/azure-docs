@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/02/2015" 
 	ms.author="tomfitz"/>
 
-# Provision Web App with Redis Cache
+# Create a Web App plus Redis Cache using a template
 
 In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Redis cache. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
-For the complete template, see [Web APP with Redis Cache](https://github.com/tfitzmac/AppServiceTemplates/blob/master/RedisCache_WebApp.json).
+For the complete template, see [Web App with Redis Cache template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/RedisCache_WebApp.json).
 
 ## What you will deploy
 
@@ -116,10 +116,10 @@ Notice that the web app is configured with app setting properties that enable it
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/RedisCache_WebApp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/RedisCache_WebApp.json -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/RedisCache_WebApp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/RedisCache_WebApp.json -g ExampleDeployGroup
 
 

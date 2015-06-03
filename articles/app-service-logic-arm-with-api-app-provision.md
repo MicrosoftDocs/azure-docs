@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Provision a logic app with an API app" 
-	description="" 
+	pageTitle="Create a Logic App with an API app" 
+	description="Use an Azure Resource Manager template to deploy a Logic App and an API app." 
 	services="app-service\logic" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/02/2015" 
 	ms.author="tomfitz"/>
 
-# Provision a logic app with an API app
+# Create a Logic App plus API app using a template
 
 In this topic, you will learn how to create an Azure Resource Manager template to create a logic app with an App Service API app. You can use the logic app to design workflows that articulate intent through a trigger and a 
 series of steps, each invoking the API app while securely taking care of authentication and best practices like durable execution.
@@ -29,16 +29,16 @@ For examples of the definition itself, see [Author Logic App definitions](app-se
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
-For the complete template, see [Web App Linked to GitHub template](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WebAppLinkedToGithub.json).
+For the complete template, see [Logic App with API app template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/LogicAppAndAPIApp.json).
 
 ## What you will deploy
 
 With this template, you will provision:
 
-- a logic app
+- Logic App
 - API app
 
-## Parameters to specify
+## Parameters
 
 [AZURE.INCLUDE [app-service-logic-deploy-parameters](../includes/app-service-logic-deploy-parameters.md)]
 
@@ -384,10 +384,10 @@ Notice that the logic app uses the token to call the gateway.
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/davidebbo/AzureWebsitesSamples/master/ARMTemplates/WebAppLinkedToGithub.json  -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicAppAndAPIApp.json -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/davidebbo/AzureWebsitesSamples/master/ARMTemplates/WebAppLinkedToGithub.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicAppAndAPIApp.json -g ExampleDeployGroup
 
 
