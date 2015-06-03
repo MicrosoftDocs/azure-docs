@@ -28,7 +28,7 @@ If you go into the Endpoints tab of that profile you will see one or more of the
 
 ![offline](../media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
 
-### Important notes about WATM probing
+### Important notes about Traffic Manager probing
 
 - Traffic Manager only considers an endpoint as ONLINE if the probe gets a 200 back from the probe path.
 - A 30x redirect (or any other non-200 response) will fail, even if the redirected URL returns a 200.
