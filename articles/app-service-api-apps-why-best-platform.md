@@ -32,6 +32,8 @@ The API Apps part of this suite provides a rich platform and ecosystem for build
 
 An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs. 
 
+### Web app features for web services
+
 You can use a web app to host a web service, and you get all the web hosting features of the Azure App Service platform:
 
 - Automatic OS patching
@@ -41,6 +43,8 @@ You can use a web app to host a web service, and you get all the web hosting fea
 - [WebJobs](websites-webjobs-resources.md) for background processing
 - Quick and easy deployment, and [many continuous delivery options](web-sites-deploy.md)
 - Access on-premises data using [hybrid connections](integration-hybrid-connection-overview.md) and [VNET](web-sites-integrate-with-vnet.md).
+
+### API Apps features available now in preview
 
 If you use API Apps instead of Web Apps to host your web services, App Service provides additional features: 
 
@@ -54,7 +58,9 @@ If you use API Apps instead of Web Apps to host your web services, App Service p
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of [creating](app-service-dotnet-create-api-app.md), [deploying](app-service-dotnet-deploy-api-app.md), [debugging](app-service-dotnet-remotely-debug-api-app), and managing API apps.
 
-- **Bring your API as-is** - You don't have to change any of the code in your existing APIs to take advantage of all these features, just deploy your code to an API app. You can use ASP.NET, Java, PHP, Node.js or Python for your APIs.
+Bring your existing API as-is: you don't have to change any of the code in your existing APIs to take advantage of all these features, just deploy your code to an API app. You can use ASP.NET, Java, PHP, Node.js or Python for your APIs.
+
+### API Apps features available in the future
 
 In the near future, the API Apps platform will also create a rich ecosystem of APIs by making it easy to share your code:  
 
