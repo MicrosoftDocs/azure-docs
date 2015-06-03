@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Upgrade ExpressRoute Bandwidth Dynamically | Microsoft Azure"
-   description="How to dynamically increase the size of an ExpressRoute circuit with no downtime. "
+   description="How to dynamically increase the bandwidth size of an ExpressRoute circuit with no downtime. "
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
+   ms.date="06/03/2015"
    ms.author="cherylmc" />
 
 # Upgrade your ExpressRoute circuit bandwidth dynamically with no downtime
