@@ -194,7 +194,7 @@ Consider the following points when deciding whether to deploy background tasks i
 - [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) on the Azure website
 - [Azure Virtual Machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
-# Design considerations
+## Design considerations
 
 There are several fundamental factors to consider when designing background tasks. The following sections discuss partitioning, conflicts, and coordination.
 
@@ -228,7 +228,7 @@ Coordinating multiple tasks and steps can be challenging, but there are three co
 - **Managing execution of the steps for a task**. An application may perform tasks that comprise a number of steps, some of which may invoke remote services or access remote resources. The individual steps may be independent of each other, but they are orchestrated by the application logic that implements the task. For more information, see [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx).
 - **Managing recovery for steps of a task that fail**. An application may need to undo the work performed by a series of steps, which together define an eventually consistent operation, if one or more of the steps fail. For more information, see [Compensating Transaction Pattern](http://msdn.microsoft.com/library/dn589804.aspx).
 
-# Lifecycle (Cloud Services)
+## Lifecycle (Cloud Services)
 
  If you decide to implement background jobs for Cloud Services applications that use web and worker roles by using the **RoleEntryPoint** class, it is important to understand the lifecycle of this class in order to use it correctly.
 
