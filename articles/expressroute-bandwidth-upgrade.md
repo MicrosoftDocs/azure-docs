@@ -17,17 +17,15 @@
 
 # Upgrade your ExpressRoute Circuit Bandwidth Dynamically with No Downtime
 
-You can increase the size of an ExpressRoute circuit without any downtime. These instructions will help you update the bandwidth of an ExpressRoute circuit using PowerShell.
-
-Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
+You can increase the size of an ExpressRoute circuit without any downtime. These instructions will help you update the bandwidth of an ExpressRoute circuit using PowerShell. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
 
 ##  Configuration prerequisites
 
 Before you begin configuration, verify that you have the following prerequisites:
 
-- Azure subscription
-- Latest version of Azure PowerShell
-- An active ExpressRoute circuit that has been configured and in operation
+- An Azure subscription
+- The latest version of Azure PowerShell
+- An active ExpressRoute circuit that has been configured and is in operation
 
 
 ##  Configuring settings using PowerShell
