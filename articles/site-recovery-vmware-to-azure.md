@@ -16,7 +16,6 @@
 	ms.date="05/27/2015"
 	ms.author="raynew"/>
 
-
 # Set up protection between on-premises VMware virtual machines or physical servers and Azure
 
 Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Azure Site Recovery overview](site-recovery-overview.md).
@@ -307,7 +306,7 @@ You can configure a VPN connection to the server as follows:
 
 ## Step 6: Deploy on-premises process server
 
->{AZURE.NOTE] It is recommended that you configure a static IP address on the process server so that it is guaranteed to be persistent across reboots.
+>[AZURE.NOTE] It is recommended that you configure a static IP address on the process server so that it is guaranteed to be persistent across reboots.
 
 1. Click Quick Start > **Install Process Server on-premises** > **Download and install the process server**.
 
@@ -334,7 +333,7 @@ You can configure a VPN connection to the server as follows:
 
 Validate that the process server registered successfully in the vault > **Configuration Server** > **Server Details**.
 
->{AZURE.NOTE]Please note that it may take up to 15 minutes after registration is complete for the process server to get listed under the configuration server. To update immediately, refresh the configuration server by clicking on the refresh button at the bottom of the configuration server page
+>[AZURE.NOTE]Please note that it may take up to 15 minutes after registration is complete for the process server to get listed under the configuration server. To update immediately, refresh the configuration server by clicking on the refresh button at the bottom of the configuration server page
  
 ![Validate process server](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerRegister.png)
 

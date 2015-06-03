@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Get Started Using Scheduler in the Management Portal" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Get Started Using Scheduler in the Management Portal"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="05/12/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="get-started-article" 
+ ms.date="05/12/2015"
  ms.author="krisragh"/>
 
 # Get Started Using Scheduler in the Management Portal
@@ -39,7 +39,7 @@ The first time you open the Azure Management Portal, you are automatically place
 
 4.  In **Region**, select the geographic region for the job collection.  
 
-5.  Click the arrow key to create the job collection and move to the next stage – creating a job.   
+5.  Click the arrow key to create the job collection and move to the next stage – creating a job.
 
 6.  Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the Job Action screen, define the following values for the requested form fields:  
 
@@ -65,11 +65,11 @@ The first time you open the Azure Management Portal, you are automatically place
 
 8.  Finally, click OK.  
 
-9.  It can take a while for the job collection and job to be created. To check the status, you can monitor the notifications at the bottom of the portal.   
+9.  It can take a while for the job collection and job to be created. To check the status, you can monitor the notifications at the bottom of the portal.
 
    	![][6]
 
-   	After the job and job collection have been created, a message will tell you that the job or job collection have been successfully created. The job will be listed in the Jobs section of the Scheduler section and the job collection will be listed in the Job Collections section. To configure additional advanced settings in the job, refer to the section “Configure a Job” below.   
+   	After the job and job collection have been created, a message will tell you that the job or job collection have been successfully created. The job will be listed in the Jobs section of the Scheduler section and the job collection will be listed in the Job Collections section. To configure additional advanced settings in the job, refer to the section “Configure a Job” below.
 
    	![][7]
 
@@ -226,27 +226,27 @@ The job config page appears as shown below for storage queue jobs. For storage q
 Finally, for all action types, you may change the schedule itself and its recurrence behavior. You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.) After making any changes, you may save changes by clicking ‘Save’ or discard changes by clicking ‘Discard.’
 
 ## See Also
- 
- [What is Scheduler?](scheduler-intro.md)
- 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
- 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
- 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
- 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
- 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
- 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
- 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
- 
 
- 
+ [What is Scheduler?](scheduler-intro.md)
+
+ [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+
+ [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+
+ [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)
+
+ [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
+
+ [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+
+ [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
+
+ [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
+
+
+
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
 [2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
 [3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png
