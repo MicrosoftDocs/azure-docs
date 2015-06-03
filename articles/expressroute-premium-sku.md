@@ -110,7 +110,7 @@ You can enable ExpressRoute Premium add-on features for any ExpressRoute circuit
 2. **Enable the ExpressRoute Premium add-on for the circuit**
 
 
-	You can enable ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:
+	You can enable the ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:
 	
 		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
@@ -123,7 +123,7 @@ You can enable ExpressRoute Premium add-on features for any ExpressRoute circuit
 		Sku                              : Premium
 		Status                           : Enabled
 
-	Your circuit will now have ExpressRoute Premium add-on features enabled. Note that we will start billing you for the Premium add-on capability as soon as the command has successfully run.
+	Your circuit will now have the ExpressRoute Premium add-on features enabled. Note that we will start billing you for the Premium add-on capability as soon as the command has successfully run.
 
 
 ## To disable the ExpressRoute Premium add-on for an ExpressRoute circuit
@@ -157,10 +157,10 @@ You can disable the ExpressRoute Premium add-on for an ExpressRoute circuit that
 		Status                           : Enabled
 
 
-3. **Disable ExpressRoute Premium add-on for the circuit**
+3. **Disable the ExpressRoute Premium add-on for the circuit**
 
 
-	You can disable ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:
+	You can disable the ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:
 	
 		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
@@ -173,7 +173,7 @@ You can disable the ExpressRoute Premium add-on for an ExpressRoute circuit that
 		Sku                              : Premium
 		Status                           : Standard
 
-	Your circuit will now have ExpressRoute Premium add-on disabled.
+	Your circuit will now have the ExpressRoute Premium add-on disabled.
 
 ## See Also
 
