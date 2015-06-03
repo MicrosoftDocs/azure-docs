@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 #How To: Update Media Services after Rolling Storage Access Keys

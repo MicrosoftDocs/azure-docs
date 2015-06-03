@@ -1,37 +1,37 @@
-<properties 
-	pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" 
-	description="Managing role-based access control with cross-platform command-line interface" 
-	services="azure-portal" 
-	documentationCenter="na" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="mollybos"/>
+<properties
+	pageTitle="Managing Role-Based Access Control with Azure Command-Line Interface"
+	description="Managing role-based access control with Azure Command-Line Interface"
+	services="azure-portal"
+	documentationCenter="na"
+	authors="Justinha"
+	manager="terrylan"
+	editor=""/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="command-line-interface" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2014" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
 	ms.author="justinha"/>
 
-# Managing Role-Based Access Control with Cross-Platform Command-Line Interface #
+# Managing Role-Based Access Control with the Azure Command-Line Interface (Azure CLI) #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-xplat-cli.md" title="Azure CLI">Azure CLI</a></div>
 
-Role-Based access control (RBAC) in Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+Role-based access control (RBAC) in Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
-In this tutorial, you'll learn how to use Azure Cross-Platform Command-Line Interface (xplat-cli) to manage role based access control. It walks you through the process of creating and checking role assignments.
+In this tutorial, you'll learn how to use Azure CLI to manage role based access control. It walks you through the process of creating and checking role assignments.
 
 **Estimated time to complete:** 15 minutes
 
 ## Prerequisites ##
 
-Before you can use xplat-cli to manage RBAC, you must have the following:
+Before you can use Azure CLI to manage RBAC, you must have the following:
 
-- Azure Cross-Platform Command-Line Interface version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
-- Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Azure Cross-Platform Command-Line Interface: [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md)
+- Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](xplat-cli.md).
+- Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Azure CLI: [Using the Azure CLI with the Resource Manager](xplat-cli-azure-resource-manager.md)
 
 ## In this tutorial ##
 
@@ -47,13 +47,13 @@ Since RBAC only works with Azure Resource Manager, the first thing to do is to s
 
     azure config mode arm
 
-For more information, please refer to [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md)
+For more information, please refer to [Using the Azure CLI with the Resource Manager](xplat-cli-azure-resource-manager.md)
 
 To connect to your Azure subscriptions, type:
 
     azure login -u <username>
 
-In the command line prompt, enter you Azure account password (only use an organizational account). Xplat-cli will get all the subscriptions you have with this account and configure itself to use the first one as default. Notice that with role based access control, you will only be able to get the subscriptions where you have some permissions by either being its co-admin or having some role assignment. 
+In the command line prompt, enter you Azure account password (only use an organizational account). Azure CLI will get all the subscriptions you have with this account and configure itself to use the first one as default. Notice that with role based access control, you will only be able to get the subscriptions where you have some permissions by either being its co-admin or having some role assignment.
 
 If you have multiple subscriptions and want to switch to another one, type:
 
@@ -62,7 +62,7 @@ If you have multiple subscriptions and want to switch to another one, type:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-For more information, please refer to [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+For more information, please refer to [Install and Configure the Azure CLI](xplat-cli.md).
 
 ## <a id="check"></a>Check existing role assignments ##
 
@@ -137,11 +137,11 @@ Then when you try to run other cmdlets like `azure group create`, you will get a
 
 ## <a id="next"></a>Next steps ##
 
-To learn more about managing role-based access control with xplat-cli and related topics:
+To learn more about managing role-based access control with Azure CLI and related topics:
 
 - [Role based access control in Azure](role-based-access-control-configure.md)
-- [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md)
-- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md)
+- [Install and Configure the Azure CLI](xplat-cli.md)
+- [Using the Azure CLI with the Resource Manager](xplat-cli-azure-resource-manager.md)
 - [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Configure role based access control using Windows PowerShell](role-based-access-control-powershell.md)

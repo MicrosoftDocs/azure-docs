@@ -49,12 +49,11 @@ The following articles will help you get started using elastic databases and ela
 
 | Article | Description |
 | :-- | :-- |
-| [SQL Database elastic pools](sql-database-elastc-pool.md) | Overview of elastic pools |
+| [SQL Database elastic pools](sql-database-elastic-pool.md) | Overview of elastic pools |
 | [Create and manage a SQL Database elastic pool with the Azure portal](sql-database-elastic-pool-portal.md) | How to create and manage an elastic pool using the Azure portal |
 | [Create and manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-powershell.md) | How to create and manage an elastic pool using PowerShell cmdlets |
 | [Elastic database jobs overview](sql-database-elastic-jobs-overview.md) | An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool |
 | [Installing the elastic database job component](sql-database-elastic-jobs-service-installation.md) | How to install the elastic database job service |
-| [Creating and managing elastic database jobs]() | desc |
 | [Creating the required user for the elastic jobs service](sql-database-elastic-jobs-add-logins-to-dbs.md) | To run an elastic database job script, a user with the appropriate permissions must be added to every database in the pool. |
 | [How to uninstall the elastic database job components](sql-database-elastic-jobs-uninstall.md) | Recover from failures when attempting to install the elastic database job service |
 
@@ -96,6 +95,8 @@ The storage limit of the pool is determined by the amount of DTUs of the pool; e
 | storageMB | 200 GB*  | 200 GB, 400 GB, 800 GB, 1200 GB |
 
 *units in API are MB, not GB
+
+If the storage limit of a pool is exceeded, then all of the databases in the pool become read-only. If this occurs try increasing the DTUs or storage of the pool itself, or moving one or more databases out of the pool. To identify and prevent exceeding the pool storage limit you can create an alert in the Portal to trigger when the storage utilization of the pool exceeds a preset value.
 
 ## Worker and session limits
 

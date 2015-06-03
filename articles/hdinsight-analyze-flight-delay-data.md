@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyze flight delay data by using Hadoop in HDInsight | Azure" 
+	pageTitle="Analyze flight delay data with Hadoop in HDInsight | Microsoft Azure" 
 	description="Learn how to use one Windows PowerShell script to provision an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="05/28/2015" 
 	ms.author="jgao"/>
 
-#Analyze flight delay data by using Hadoop in HDInsight
+#Analyze flight delay data by using Hive in HDInsight
 
 Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data. 
 
@@ -42,14 +42,14 @@ The main portion of the tutorial shows you how to use one Windows PowerShell scr
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.
 
 
-##<a id="prerequisite"></a>Prerequisites
+###Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
 * A workstation with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 * An Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-###Understand HDInsight storage
+**Understand HDInsight storage**
 
 Hadoop clusters in HDInsight use Azure Blob storage for data storage. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
@@ -77,7 +77,7 @@ Notice there is no "/" in the front of the blob name.
 
 **Files used in this tutorial**
 
-This tutorial uses the on-time performance of airline flight data from [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA). The data has been uploaded to an Azure Blob storage container with the Public Blob access permission. Because it is a public Blob container, you do not need to bind this Storage account to the HDInsight cluster running the Hive script. The HiveQL script is also uploaded to the same Blob container. If you want to learn how to get/upload the data to your own Storage account, and how to create/upload the HiveQL script file, see [Appendix A](#appendix-a) and [Appendix B](#appendix-b).
+This tutorial uses the on-time performance of airline flight data from [Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA] [rita-website]. The data has been uploaded to an Azure Blob storage container with the Public Blob access permission. Because it is a public Blob container, you do not need to bind this Storage account to the HDInsight cluster running the Hive script. The HiveQL script is also uploaded to the same Blob container. If you want to learn how to get/upload the data to your own Storage account, and how to create/upload the HiveQL script file, see [Appendix A](#appendix-a) and [Appendix B](#appendix-b).
 
 The following table lists the files used in this tutorial:
 
@@ -91,7 +91,7 @@ The following table lists the files used in this tutorial:
 
 
 
-###Understand the Hive internal table and external table
+**Understand the Hive internal table and external table**
 
 There are a few things you need to know about the Hive internal table and external table:
 
@@ -856,7 +856,7 @@ Now you understand how to upload a file to Azure Blob storage, how to populate a
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-use-hive]: hdinsight-use-hive.md

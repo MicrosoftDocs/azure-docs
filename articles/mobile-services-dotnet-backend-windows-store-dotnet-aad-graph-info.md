@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/13/2015" 
+	ms.date="05/04/2015" 
 	ms.author="wesmc"/>
 
 # Accessing Azure Active Directory Graph Information

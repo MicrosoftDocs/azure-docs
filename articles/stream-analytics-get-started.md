@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Get started with Stream Analytics: Real-time fraud detection | Microsoft Azure"
-	description="Learn how to use Stream Analytics to build a real-time fraud detection solution over generated telecommunication data."
+	description="Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing."
+	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -10,7 +11,7 @@
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="04/28/2015"
@@ -20,21 +21,26 @@
 
 # Get started using Azure Stream Analytics: Real-time fraud detection
 
+Learn how to create an end-to-end solution for real-time fraud detection with Stream Analytics. Bring events into an Azure event hub, write Stream Analytics queries for aggregation or alerting, and send the results to an output sink to gain insight over data with real-time processing.
+
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md).
 
-Learn how to create an end-to-end solution for real-time fraud detection with Stream Analytics. Bring events into Azure Event Hubs, write Stream Analytics queries for aggregation or alerting, and send the results to an output sink to gain insight over data in real time.
 
-##Scenario: Telecommunications and SIM fraud
+## Scenario: Telecommunications and SIM fraud detection in real-time
 
-A telecommunications company has a large volume of data for incoming calls. They want to pare this data down to a manageable amount and obtain insights about customer usage over time and geographical regions. They are also very interested in detecting SIM fraud (multiple calls coming from the same identity around the same time but in geographically different locations) in real time so that they can easily respond by notifying customers or shutting down service.  These are canonical Internet of Things (IoT) like scenarios where there is a ton of telemetry or sensor data being generated – and customers want to aggregate them or alert over anomalies.
+A telecommunications company has a large volume of data for incoming calls. The company needs needs the following from its data:
+* Pare this data down to a manageable amount and obtain insights about customer usage over time and geographical regions.
+* Detect SIM fraud (multiple calls coming from the same identity around the same time but in geographically different locations) in real-time so that they can easily respond by notifying customers or shutting down service.
 
-##Prerequisites
+In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or sensor data being generated – and customers want to aggregate them or alert over anomalies in real-time.
 
-This scenario leverages an event generator located on GitHub.  Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) and follow the steps in this tutorial to set up your solution.
+## Prerequisites
+
+This scenario leverages an event generator located on GitHub. Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) and follow the steps in this tutorial to set up your solution.
 
 ## Create an Event Hub input and Consumer Group
 
-The sample application will generate events and push them to an Event Hub instance. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics and you can learn more about Event Hubs in [Azure Service Bus documentation](/documentation/services/service-bus/).
+The sample application will generate events and push them to an Event Hub instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics and you can learn more about Event Hubs in [Azure Service Bus documentation](/documentation/services/service-bus/).
 
 Follow the steps below to create an Event Hub.
 
@@ -50,7 +56,7 @@ Follow the steps below to create an Event Hub.
 
 ## Configure and start event generator application
 
-We have provided a client application that will generate sample incoming call metadata and push it to Event Hub. Follow the steps below to setup this application.  
+We have provided a client application that will generate sample incoming call metadata and push it to Event Hub. Follow the steps below to set up this application.  
 
 1.	Download the TelcoGenerator solution from [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
 2.	Replace the Microsoft.ServiceBus.ConnectionString and EventHubName values in App.Config with your Event Hub connection string and name.
@@ -63,7 +69,7 @@ The following example will generate 1000 events with a 20% probability of fraud 
 
     TelcoDataGen.exe 1000 .2 2
 
-You will see records being sent to your Event Hub. Some key fields that we will be using in this application are defined here:
+You will see records being sent to your Event Hub. Some key fields that we will be using in this real-time fraud detection application are defined here:
 
 | Record | Definition |
 | ------------- | ------------- |
@@ -76,7 +82,7 @@ You will see records being sent to your Event Hub. Some key fields that we will 
 
 
 ## Create Stream Analytics job
-Now that we have a stream of telecommunications events, we can set up a Stream Analytics job to analyze these events in real time.
+Now that we have a stream of telecommunications events, we can set up a Stream Analytics job to analyze these events in real-time.
 
 ### Provision a Stream Analytics job
 
@@ -120,7 +126,7 @@ Now that we have a stream of telecommunications events, we can set up a Stream A
 
 ### Specify job query
 
-Stream Analytics supports a simple, declarative query model for describing transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/dn834998.aspx). This tutorial will help you author and test several queries over your stream of call data.
+Stream Analytics supports a simple, declarative query model for describing transformations for real-time processing. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/dn834998.aspx). This tutorial will help you author and test several queries over your real-time stream of call data.
 
 #### Optional: Sample input data
 To validate your query against actual job data, you can use the **Sample Data** feature to extract events from your stream and create a .JSON file of the events for testing.  The steps below show how to do this and we have also provided a sample [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) file for testing purposes.
@@ -180,9 +186,9 @@ To compare the amount that incoming calls per region we'll leverage a [TumblingW
 
 	![Query results for Timestand By](./media/stream-analytics-get-started/stream-ananlytics-query-editor-rerun.png)
 
-### Identifying SIM fraud with a Self-Join
+### SIM fraud detection with a Self-Join
 
-To identify potentially fraudulent usage we'll look for calls originating from the same user in but different locations in less than 5 seconds.  We [Join](https://msdn.microsoft.com/library/azure/dn835026.aspx) the stream of call events with itself to check for these cases.
+To identify potentially fraudulent usage we'll look for calls originating from the same user in but different locations in less than 5 seconds.  We [join](https://msdn.microsoft.com/library/azure/dn835026.aspx) the stream of call events with itself to check for these cases.
 
 1.	Change the query in the code editor to:
 
@@ -228,21 +234,21 @@ Follow the steps below to create a container for Blob storage if you don't alrea
 
 6.	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the storage account.
 
-## Start job
+## Start job for real time processing
 
-Since a job input, query and output have all been specified, we are ready to start the Stream Analytics job.
+Since a job input, query and output have all been specified, we are ready to start the Stream Analytics job for real time fraud detection.
 
 1.	From the job **DASHBOARD**, click **START** at the bottom of the page.
 2.	In the dialog that appears, select **JOB START TIME** and click the check button on the bottom of the dialog. The job status will change to **Starting** and will shortly move to **Running**.
 
-## View output
+## View fraud detection output
 
-Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view fraudulent events as they are written to your output in real time.  
+Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view fraudulent events as they are written to your output in real-time.  
 
-![Fraudulent events viewed in real-time](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
+![Fraud detection: Fraudulent events viewed in real-time](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Next steps
@@ -251,4 +257,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) 
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

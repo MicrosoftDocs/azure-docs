@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Script Action in HDInsight to install Spark on Hadoop cluster| Azure" 
-	description="Learn how to customize HDInsight cluster to install Spark. You'll use a Script Action configuration option to use a script to install Spark" 
+	pageTitle="Use Script Action to install Spark on Hadoop cluster | Microsoft Azure" 
+	description="Learn how to customize an HDInsight cluster with Spark. You'll use a Script Action configuration option to use a script to install Spark." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 

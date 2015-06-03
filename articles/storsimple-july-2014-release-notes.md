@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="StorSimple release notes - July 2014"
+    pageTitle="StorSimple 8000 Series Release Version release notes - July 2014"
     description="Describes the new features, issues, and workarounds for the July 2014 Microsoft Azure StorSimple release."
     services="storsimple"
     documentationCenter="NA"
@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/28/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# StorSimple release notes - July 2014 
+# StorSimple 8000 Series Release Version release notes - July 2014 
 
 ## Overview
 
-The follow release notes identify the critical open issues for the July 2014 General Availability (GA) release of Microsoft Azure StorSimple. This release corresponds to software version 6.3.9600.17215.  
+The follow release notes identify the critical open issues for the StorSimple 8000 Series July 2014 general availability (GA) release of Microsoft Azure StorSimple. This release corresponds to software version 6.3.9600.17215.  
 
 Unless otherwise specified, these release notes apply to all models of the StorSimple device. The release notes are continuously updated; as critical issues requiring a workaround are discovered, they are added. Before you deploy your Microsoft Azure StorSimple solution, consider the following information.  
 

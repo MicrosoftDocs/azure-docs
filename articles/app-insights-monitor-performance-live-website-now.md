@@ -20,7 +20,7 @@
 
 *Application Insights is in preview.*
 
-The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your Azure or standalone IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. 
+The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. You can install it on any physical or virtual server to which you have admin access.
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -42,7 +42,7 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
 
 
-> [AZURE.TIP] Is your app an [Azure App Service Web App](websites-learning-map.md)? Just [add the Application Insights extension](insights-perf-analytics.md) from the app's control panel in Azure.
+> [AZURE.TIP] Is your app an [Azure App Service Web App](websites-learning-map.md)? [Add the Application Insights SDK][greenbrown] and then [add the Application Insights extension](insights-perf-analytics.md) from the app's control panel in Azure.
 
 
 ## Install Application Insights Status Monitor on your IIS web server
@@ -153,6 +153,8 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 * [Add Application Insights SDK to your web service code][greenbrown] so that you can insert trace and log calls in the server code.
 
 ## Video
+
+#### Performance monitoring
 
 [AZURE.VIDEO app-insights-performance-monitoring]
 

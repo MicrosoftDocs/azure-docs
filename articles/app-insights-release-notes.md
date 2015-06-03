@@ -26,7 +26,7 @@ Read also our [Service Updates](http://azure.microsoft.com/updates/?service=appl
 * [iOS](app-insights-release-notes-ios.md)
 * [Java](app-insights-release-notes-java.md)
 * [JavaScript](app-insights-release-notes-javascript.md)
-* [Windows](app-insights-release-notes-windows.md)
+* [Windows Phone and Store](app-insights-release-notes-windows.md)
 
 
 

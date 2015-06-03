@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="04/26/2015" 
 	ms.author="awills"/>
 
@@ -23,7 +23,7 @@ Detect issues, solve problems and continuously improve your applications. Quickl
 
 Configuration is very easy, and you'll see results within minutes.
 
-We currently support iOS, Android, and Windows apps; J2EE and ASP.NET web applications, WCF services. (They don't have to run or be developed on Azure.) Our JavaScript SDK runs in any web pages.
+We currently support iOS, Android, and Windows apps; J2EE and ASP.NET web applications, WCF services. Web apps can run on  Azure or your own on-premises servers. Our JavaScript SDK runs in any web pages.
 
 ## Get started
 
@@ -58,14 +58,12 @@ What you want | What to do | What you get
 
 ## <a name="video"></a>Videos
 
-#### Introduction
 
-> [AZURE.VIDEO application-insights-for-asp-net]
+> [AZURE.VIDEO 218]
 
-#### Get started
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
-> [AZURE.VIDEO getting-started-with-application-insights]
-
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
 
 

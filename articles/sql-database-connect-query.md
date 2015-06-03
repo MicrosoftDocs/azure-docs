@@ -1,25 +1,25 @@
 
-<properties 
-	pageTitle="Connect to and query your SQL Database with C#" 
+<properties
+	pageTitle="Connect to and query your SQL Database with C#"
 	description="Code sample for a C# client using ADO.NET to connect to and interact with the AdventureWorks database on the Azure SQL Database cloud service."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="ckarst" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="ckarst"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/14/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/14/2015"
 	ms.author="cakarst"/>
 
 
-# Connect to and query your SQL Database with C# 
+# Connect to and query your SQL Database with C#
 
 This topic provides a C# code sample that shows you how to connect to an existing AdventureWorks SQL Database by using ADO.NET. The sample compiles to a console application that queries the database and displays the results.
 
@@ -70,14 +70,14 @@ Paste this source code into your **Program.cs** file.
 	using System.Text;
 	using System.Threading.Tasks;
 	using System.Data.SqlClient;
-	
+
 	namespace ConnectandQuery_Example
 	{
 		class Program
 		{
 			static void Main()
 			{
-				string SQLConnectionString = <Your_Connection_String>;
+				string SQLConnectionString = "[Your_Connection_String]";
 				// Create a SqlConnection from the provided connection string.
 				using (SqlConnection connection = new SqlConnection(SQLConnectionString))
 				{
@@ -104,6 +104,8 @@ Paste this source code into your **Program.cs** file.
 							reader[0], reader[1], reader[2], reader[3], reader[4]);
 					}
 				}
+				Console.WriteLine("Press any key to continue...");
+				Console.ReadKey();
 			}
 		}
 	}
@@ -125,16 +127,11 @@ On the database connection strings blade, you see the appropriate connection str
 ## Step 4: Substitute real connection information
 
 
--In the source code you pasted, replace the *<Your_Connection_String>* placeholder with the connection string, and be sure to replace *your_password_here* in that string with your actual password.
+-In the source code you pasted, replace the *[Your_Connection_String]* placeholder with the connection string, and be sure to replace *your_password_here* in that string with your actual password.
 
 
 ## Step 5: Run the application
 
 
-1. Compile your application.
-2. In a **cmd.exe** window, navigate to the **bin\debug** directory under your Visual Studio project.
-3. At a **cmd.exe** prompt, type in then enter the following:<br/> **ConnectandQuery_Example.exe**
-
-
-The program prints the query results to the cmd.exe window.
-
+1. To build and run your application, click **DEBUG** > **Start Debugging**
+2. The program prints the query results to the console window.

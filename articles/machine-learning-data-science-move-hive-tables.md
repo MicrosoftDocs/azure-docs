@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="05/29/2015" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -26,11 +26,11 @@ In this document, generic Hive queries that create Hive tables and load data fro
 
 The Hive queries are shared in the [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) and can be downloaded from there.
 
-If you create an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for data science](machine-learning-data-science-setup-virtual-machine.md), this script file should have been downloaded to the *C:\Users\<user name>\Documents\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
+If you create an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](machine-learning-data-science-setup-virtual-machine.md), this script file should have been downloaded to the *C:\Users\<user name>\Documents\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
 
-We assume that the data for Hive tables is in an **uncompressed** tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster. If you want to practice on the _NYC Taxi Trip Data_, you need to first  download the 24 [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips/) files (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and then upload them to the default (or appropriate container) of the Azure storage account that was used by the procedure outlined in the [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md) topic. 
+We assume that the data for Hive tables is in an **uncompressed** tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster. If you want to practice on the _NYC Taxi Trip Data_, you need to first  download the 24 [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips/) files (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and then upload them to the default (or appropriate container) of the Azure storage account that was used by the procedure outlined in the [Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology](machine-learning-data-science-customize-hadoop-cluster.md) topic. 
 
-Hive queries can be submitted from the Hadoop Command Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there. For instructions on how to do this, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-process-hive-tables.md).
+Hive queries can be submitted from the Hadoop Command Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there. For instructions on how to do this, see [Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process](machine-learning-data-science-process-hive-tables.md).
 
 Users can also use the Query Console (Hive Editor) by entering the URL 
 
@@ -42,7 +42,7 @@ into a web browser. Note that you will be asked to input the Hadoop cluster cred
 This article assumes that you have:
  
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](hdinsight-get-started.md#storage) 
-* Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md).
+* Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop clusters for advanced analytics](machine-learning-data-science-customize-hadoop-cluster.md).
 * Enabled remote access to the cluster, logged in, and opened the Hadoop Command Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
 
 

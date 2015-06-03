@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Learn Hadoop in HDInsight by using the Sample Gallery" 
-   description="Learn Hadoop in HDInsight by using the HDInsight Sample Gallery" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
+<properties
+   pageTitle="Learn Hadoop in HDInsight with the Sample Gallery | Microsoft Azure"
+   description="Quickly learn Hadoop by running sample applications from the HDInsight Getting Started Gallery. Use sample data or supply your own."
+   services="hdinsight"
+   documentationCenter=""
+   authors="mumian"
+   manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
-   ms.service="hdinsight" 
-   ms.workload="big-data" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="03/31/2015" 
+<tags
+   ms.service="hdinsight"
+   ms.workload="big-data"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="get-started-article" 
+   ms.date="03/31/2015"
    ms.author="jgao"/>
 
 # Learn Hadoop by using the HDInsight Getting Started Gallery
 
-The HDInsight Getting Started Gallery provides an easy and quick way to run Hadoop sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
+The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoop by running sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
 
 - Solutions with your Azure data
 	- Microsoft Azure website log analysis
@@ -29,7 +29,7 @@ The HDInsight Getting Started Gallery provides an easy and quick way to run Hado
 	- Website log analysis
 	- Mahout movie recommendation
 
-![HDInsight Hadoop/Storm/HBase Getting Started Gallery][hdinsight.sample.gallery]
+![HDInsight Hadoop, Storm, and HBase Getting Started Gallery solutions including sample data.][hdinsight.sample.gallery]
 
 The following video clip shows how to run the Twitter trend analysis sample:
 
@@ -39,7 +39,7 @@ The following video clip shows how to run the Twitter trend analysis sample:
 **To run a sample from the Getting Started Gallery**
 
 1.	Sign in to the [Azure portal][azure.portal].
-2.	Click **HDInsight** in the left menu. You will see a list of existing HDInsight clusters, including Hadoop, Storm, and HBase clusters. 
+2.	Click **HDInsight** in the left menu. You will see a list of existing HDInsight clusters, including Hadoop, Storm, and HBase clusters.
 3.	Click the cluster where you want to run the sample.
 4.	Click **QUERY CONSOLE** at the bottom of the page.
 5.	Enter the Hadoop user name and password for the cluster.

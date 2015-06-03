@@ -1,4 +1,4 @@
-<properties 
+<properties
 			pageTitle="How to use Azure File storage with PowerShell and .NET | Microsoft Azure"
             description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#."
             services="storage"
@@ -11,8 +11,8 @@
       ms.workload="storage"
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
-      ms.topic="article"
-      ms.date="04/24/2015"
+      ms.topic="hero-article"
+      ms.date="05/13/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with PowerShell and .NET
@@ -67,7 +67,7 @@ File storage contains the following components:
 
 The following example URL could be used to address one of the files in the
 diagram above:
-            
+
 `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
@@ -77,6 +77,8 @@ For details about how to name shares, directories, and files, see [Naming and Re
 Azure File storage is currently in preview. To request access to the preview, navigate to the [Microsoft Azure Preview page](/services/preview/), and request access to **Azure Files**. Once your request is approved, you'll be notified that you can access the File storage preview. You can then create a storage account for accessing File storage.
 
 > [AZURE.NOTE] File storage is currently available only for new storage accounts. After your subscription is granted access to File storage, create a new storage account for use with this guide.
+>
+> Azure File storage does not currently support shared access signatures.
 
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
@@ -152,10 +154,10 @@ Windows will now reconnect to your file share when the virtual machine reboots. 
 ### Mount the file share using the persisted credentials
 
 Once you have a remote connection to the virtual machine, you can execute the `net use` command to mount the file share, using the following syntax. Replace `<storage-account-name>` with the name of your storage account, and `<share-name>` with the name of your File storage share.
-	
+
     net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 
-	example : 
+	example :
 	net use z: \\samples.file.core.windows.net\logs
 
 > [AZURE.NOTE] Since you persisted your storage account credentials in the previous step, you do not need to provide them with the `net use` command. If you have not already persisted your credentials, then include them as a parameter passed to the `net use` command.
@@ -190,7 +192,7 @@ Next, save your credentials in your project's app.config file. Edit the app.conf
 
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
-	    <startup> 
+	    <startup>
 	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	    </startup>
 	    <appSettings>
@@ -222,25 +224,25 @@ Next, add the following code to the `Main()` method, after the code shown above 
 
 	//Create a CloudFileClient object for credentialed access to File storage.
 	CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
-	
+
 	//Get a reference to the file share we created previously.
 	CloudFileShare share = fileClient.GetShareReference("logs");
-	
+
 	//Ensure that the share exists.
 	if (share.Exists())
 	{
 	    //Get a reference to the root directory for the share.
 	    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
-	
+
 	    //Get a reference to the directory we created previously.
 	    CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
-	
+
 	    //Ensure that the directory exists.
 	    if (sampleDir.Exists())
 	    {
 	        //Get a reference to the file we created previously.
 	        CloudFile file = sampleDir.GetFileReference("Log1.txt");
-	
+
 	        //Ensure that the file exists.
 	        if (file.Exists())
 	        {
@@ -294,4 +296,3 @@ for more detailed information.
 </ul>
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-

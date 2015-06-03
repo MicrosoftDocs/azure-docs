@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Get started with Azure DNS | Microsoft Azure" 
-   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
+<properties
+   pageTitle="Get started with Azure DNS | Microsoft Azure"
+   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
    editor=""/>
 
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
+   ms.workload="infrastructure-services"
    ms.date="05/01/2015"
    ms.author="joaoma"/>
 
@@ -20,7 +20,7 @@
 The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).  A DNS zone is used to host the DNS records for a particular domain.<BR><BR>
 To start hosting your domain we need to first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.<BR><BR>
 These instructions use Microsoft Azure PowerShell.  Be sure to update to the latest Azure PowerShell to use the Azure DNS cmdlets. The same steps can also be executed using the Microsoft Azure Command Line Interface, REST API or SDK.<BR><BR>
-  
+
 ## Set up Azure DNS PowerShell
 
 The following steps need to be completed before you can manage Azure DNS using Azure PowerShell.
@@ -32,7 +32,7 @@ The following steps need to be completed before you can manage Azure DNS using A
 
 ### Step 2
  Log in to your Azure account.<BR><BR>
-			
+
 		PS C:\> Add-AzureAccount
 
 You will be prompted to Authenticate with your credentials.<BR>
@@ -50,25 +50,16 @@ Create a new resource group (skip this step if using an existing resource group)
 
 		PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
+
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.<BR>
 
-## Sign up to the Azure DNS Public Preview
+### Step 5
 
-To register your subscription to use the Azure DNS Public Preview, please execute the following PowerShell command:
+The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one time operation for each subscription.
 
-PS C:\> Register-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
+	PS c:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
-You can check your registration status as follows:
 
-PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
-
-	FeatureName                       ProviderName                      RegistrationState
-
-	-----------                       ------------                      -----------------
-	
-	azurednspreview                   Microsoft.Network                     Registered
-
-Your RegistrationState may show as ‘Pending’, in which case please check back later.
 
 ## Etags and Tags
 ### Etags
@@ -109,7 +100,7 @@ Your DNS zone has now been created in Azure DNS.  Creating a DNS zone also creat
 
 To view these records, use Get-AzureDnsRecordSet:
 
-		PS C:\> Get-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
+		PS C:\> Get-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -119,7 +110,7 @@ To view these records, use Get-AzureDnsRecordSet:
 	RecordType        : SOA
 	Records           : {[ns1-01.azure-dns.com,msnhst.microsoft.com,900,300,604800,300]}
 	Tags              : {}
-	
+
 	Name              : @
 	ZoneName          : contoso.com
 	ResourceGroupName : MyResourceGroup
@@ -155,7 +146,8 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 ## Next Steps
 
 
-[Get started creating Record Sets and records](../dns-getstarted-create-recordset)<BR>
-[Manage  DNS zones](../dns-operations-dnszones)<BR>
-[Manage DNS records](../dns-operations-recordsets)<BR>
-[Automate Azure Operations with .NET SDK](../dns-sdk)
+[Get started creating Record Sets and records](dns-getstarted-create-recordset.md)<BR>
+[How to manage DNS zones](dns-operations-dnszones.md)<BR>
+[How to manage DNS records](dns-operations-recordsets.md)<BR>
+[Automate Azure Operations with .NET SDK](dns-sdk.md)<BR>
+[Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)

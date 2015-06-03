@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use Apache Phoenix and Squirrel in HDInsight | Azure" 
-   description="Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirrel on your workstation to connect to an HBase cluster in HDInsight." 
+   pageTitle="Use Apache Phoenix and SQuirreL in HDInsight | Microsoft Azure" 
+   description="Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/15/2015"
+   ms.date="05/05/2015"
    ms.author="jgao"/>
 
-# Use Apache Phoenix and SQuirrel in HDinsight  
+# Use Apache Phoenix and SQuirreL with HBase clusters in HDinsight  
 
-Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirrel on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html).
+Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 >[AZURE.NOTE] For the Phoenix version information in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions].
 
@@ -34,7 +34,7 @@ Before you can use SQLLine, you must have the following:
 **To find out the host name**
 
 1. Open **Hadoop Command Line** from the desktop.
-2. Run the following command
+2. Run the following command to get the DNS suffix:
 
 		ipconfig
 
@@ -43,14 +43,24 @@ Before you can use SQLLine, you must have the following:
 **To use SQLLine**
 
 1. Open **Hadoop Command Line** from the desktop.
-2. Run the following commands:
+2. Run the following commands to open SQLLine:
 
 		cd %phoenix_home%\bin
 		sqlline.py [The FQDN of one of the Zookeepers]
 
 	![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
-For more information, see [SQLLine manual](http://sqlline.sourceforge.net/#manual).
+	The commands used in the sample:
+
+		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+		
+		!tables;
+		
+		UPSERT INTO Company VALUES(1, 'Microsoft');
+		
+		SELECT * FROM Company;
+
+For more information, see [SQLLine manual](http://sqlline.sourceforge.net/#manual) and [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 
 
@@ -69,11 +79,11 @@ For more information, see [SQLLine manual](http://sqlline.sourceforge.net/#manua
 
 
 
-##Use SQuirrel
+##Use SQuirreL
 
-[SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/) is a graphical Java program that will allow you to view the structure of a JDBC compliant database, browse the data in tables, issue SQL commands etc.
+[SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/) is a graphical Java program that will allow you to view the structure of a JDBC compliant database, browse the data in tables, issue SQL commands etc. It can be used to connect to Apache Phoenix on HDInsight.
 
-This section shows you how to install and configure SQuirrel on your workstation to connect to an HBase cluster in HDInsight via VPN. 
+This section shows you how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight via VPN. 
 
 ###Prerequisites
 
@@ -81,13 +91,13 @@ Before following the procedures, you must have the following:
 
 - An HBase cluster deployed to an Azure virtual network with a DNS virtual machine.  For instructions, see [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]. 
 
-	>[AZURE.IMPORTANT] You must install a DNS server to the virtual network. 
+	>[AZURE.IMPORTANT] You must install a DNS server to the virtual network. For instructions, see [Configure DNS between two Azure virtual networks](hdinsight-hbase-geo-replication-configure-DNS.md)
 
 - Get the HBase cluster cluster Connection-specific DNS suffix. To get it, RDP into the cluster, and then run IPConfig.  The DNS suffix is similar to:
 
 		myhbase.b7.internal.cloudapp.net
 - Download and install [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) on your workstation. You will need makecert from the package to create your certificate.  
-- Download and install [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) on your workstation.  SQuirrel SQL client version 3.0 and higher requires JRE version 1.6 or higher.  
+- Download and install [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) on your workstation.  SQuirreL SQL client version 3.0 and higher requires JRE version 1.6 or higher.  
 
 
 ###Configure a Point-to-Site VPN connection to the Azure virtual network
@@ -198,17 +208,17 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 		headnode1.myhbase.b7.internal.cloudapp.net
 		workernode0.myhbase.b7.internal.cloudapp.net
 
-###Install and configure SQuirrel on your workstation
+###Install and configure SQuirreL on your workstation
 
-**To install SQuirrel**
+**To install SQuirreL**
 
-1. Download the SQuirrel SQL client jar file from [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Download the SQuirreL SQL client jar file from [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Open/run the jar file. It requires the [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Click **Next** twice.
 4. Specify a path where you have the write permission, and then click **Next**.
 	>[AZURE.NOTE] The default installation folder is in the C:\Program Files\squirrel-sql-3.6 folder.  In order to write to this path, the installer must be granted the administrator privilege. You can open a command prompt as administrator, navigate to Java's bin folder, and then run 
 	>
-	>     java.exe -jar [the path of the SQuirrel jar file] 
+	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. Click **OK** to confirm creating the target directory.
 6. The default setting is to install the Base and Standard packages.  Click **Next**.
 7. Click **Next** twice, and then click **Done**.
@@ -219,11 +229,11 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 The phoenix driver jar file is located on the HBase cluster. The path is similar to the following based on the versions:
 
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
-You need to copy it to your workstation under the [SQuirrel installation folder]/lib path.  The easiest way is to RDP into the cluster, and then use file copy/paste (CTRL+C and CTRL+V) to copy it to your workstation.
+You need to copy it to your workstation under the [SQuirreL installation folder]/lib path.  The easiest way is to RDP into the cluster, and then use file copy/paste (CTRL+C and CTRL+V) to copy it to your workstation.
 
-**To add a Phoenix driver to SQuirrel**
+**To add a Phoenix driver to SQuirreL**
 
-1. Open SQuirrel SQL Client from your workstation.
+1. Open SQuirreL SQL Client from your workstation.
 2. Click the **Driver** tab on the left.
 2. From the **Drivers** menu, click **New Driver**.
 3. Enter the following information:
@@ -232,28 +242,28 @@ You need to copy it to your workstation under the [SQuirrel installation folder]
 	- **Example URL**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **Class Name**: org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING] User all lower case in the Example URL. 
+	>[AZURE.WARNING] User all lower case in the Example URL. You can use they full zookeeper quorum in case one of them is down.  The hostnames are zookeeper0, zookeeper1, and zookeeper2.
 
-	![HDInsight HBase Phoenix SQuirrel driver][img-squirrel-driver]
+	![HDInsight HBase Phoenix SQuirreL driver][img-squirrel-driver]
 4. Click **OK**.
 
 **To create an alias to the HBase cluster**
 
-1. From SQuirrel, Click the **Aliases** tab on the left.
+1. From SQuirreL, Click the **Aliases** tab on the left.
 2. From the **Aliases** menu, click **New Alias**.
 3. Enter the following information:
 
 	- **Name**: The name of the HBase cluster or any name you prefer.
 	- **Driver**: Phoenix.  This must match the driver name you created in the last procedure.
 	- **URL**: The URL is copied from your driver configuration. Make sure to user all lower case.
-	- **User name**: HBase cluster HTTP user name
-	- **Password**: HBase cluster HTTP user password
+	- **User name**: It can be any text.  Because you use VPN connectivity here, the user name is not used at all.
+	- **Password**: It can be any text.
 
-	![HDInsight HBase Phoenix SQuirrel driver][img-squirrel-alias]
+	![HDInsight HBase Phoenix SQuirreL driver][img-squirrel-alias]
 4. Click **Test**. 
-5. Click **Connect**. When it makes the connection, SQuirrel looks like:
+5. Click **Connect**. When it makes the connection, SQuirreL looks like:
 
-	![HBase Phoenix SQuirrel][img-squirrel]
+	![HBase Phoenix SQuirreL][img-squirrel]
 
 **To run a test**
 
@@ -263,7 +273,7 @@ You need to copy it to your workstation under the [SQuirrel installation folder]
 		CREATE TABLE IF NOT EXISTS us_population (state CHAR(2) NOT NULL, city VARCHAR NOT NULL, population BIGINT  CONSTRAINT my_pk PRIMARY KEY (state, city))
 3. Click the run button.
 
-	![HBase Phoenix SQuirrel][img-squirrel-sql]
+	![HBase Phoenix SQuirreL][img-squirrel-sql]
 4. Switch back to the **Objects** tab.
 5. Expand the alias name, and then expand **TABLE**.  You shall see the new table listed under.
  

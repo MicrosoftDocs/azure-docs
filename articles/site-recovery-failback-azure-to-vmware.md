@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="04/29/2015"
+   ms.date="05/27/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # Steps to failback from Azure to VMware
@@ -57,7 +57,9 @@ Part of the setup has already been completed during failover.
 
 ## Install vContinuum on-premsies
 
-The vContinuum setup will be at http://go.microsoft.com/fwlink/?linkid=526305
+The vContinuum setup will be at available at [download location](http://go.microsoft.com/fwlink/?linkid=526305).
+
+Also install the patch given here on the vConinuum - available at [download location](http://go.microsoft.com/fwlink/?LinkID=533813).
 
 1.  Launch the setup to begin installation of vContinuum. After the
     welcome screen click next to begin specifying the settings
@@ -409,8 +411,7 @@ Before failback of the VMs back to on-premises, first you need to
 protect the virtual machines back to on-premises. Follow the below steps
 to protect VMs of an application.
 
-Note:
------
+### Note on temp drive
 
 When a VM is failed over to Azure, it adds an extra temp drive for page
 file. This is an extra drive that is typically not required by your
@@ -479,7 +480,7 @@ virtual machine.
     two instances of the virtual machines registered to it. You need to
     remove the entry for the on-premises VM so that you can protect the
     correct VM. Note that you will see the entries by its computer
-    hostname.
+    hostname. To identify the correct Azure VM entry here, you can log into the Azure VM and go to C:\Program Files (x86)\Microsoft Azure Site Recovery\Application Data\etc. In the file drscout.conf , identify the Host ID. In the vContinuum dialog, keep the entry for which the hostID is found in the VM. Delete all other entries.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 

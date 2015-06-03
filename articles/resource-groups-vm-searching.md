@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Searching for "
-   description="Article description that will be displayed on landing pages and in most search results"
-   services="service-name"
-   documentationCenter="virtual-machines"
+   pageTitle="Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI"
+   description="Learn how to determine the publisher, offer, and SKU for images when creating an Azure virtual machine with Resource Manager."
+   services="virtual-machines"
+   documentationCenter=""
    authors="squillace"
    manager="timlt"
    editor=""/>
@@ -13,10 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="04/27/2015"
+   ms.date="05/29/2015"
    ms.author="rasquill"/>
 
 # Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI
+
+> [AZURE.NOTE] When you're searching for VM images in this topic, you're using the [Azure Resource Management mode](resource-group-overview.md) with a recent installation of either the Azure Command-Line Interface for Mac, Linux, and Windows or of Windows PowerShell. With the Azure CLI, enter that mode by typing `azure config mode arm`. With PowerShell, type `Switch-AzureMode AzureResourceManager`. See [Azure CLI with resource management](xplat-cli-azure-resource-manager.md) and [PowerShell with Azure resource management](powershell-azure-resource-manager.md) for more complete update and configuration details. 
+
+## Table of commonly-used images
+
+
+| PublisherName                        | Offer                                 | Sku                         |
+|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
+| OpenLogic                        | CentOS                                     | 7                                |
+| OpenLogic                        | CentOS                                     | 7.1                              |
+| CoreOS                           | CoreOS                                     | Beta                             |
+| CoreOS                           | CoreOS                                     | Stable                           |
+| MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             |
+| MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             |
+| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         |
+| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
+| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      |
+| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    |
+| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      |
+| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               |
+| MicrosoftWindowsServer           | WindowsServer                              | 2008-R2-SP1 |
+| MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          |
+| MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           |
 
 
 ## Azure CLI
@@ -111,7 +137,6 @@ Now you can choose precisely the image you want to use. To create a vm quickly u
 
 ## PowerShell
 
-
 When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:
 
 - Publisher
@@ -132,7 +157,7 @@ To do this in PowerShell, first switch to the Resource Manager mode of Azure Pow
 
 For the first step above, list the publishers with these commands.
 
-	$locName="<Azure location, such as US West>"
+	$locName="<Azure location, such as West US>"
 	Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 
 Fill in your chosen publisher name and run these commands.
@@ -166,7 +191,7 @@ Here is an example.
 	Canonical
 	...
 
-For the publisher "MicrosoftWindowsServer":
+For the "MicrosoftWindowsServer" publisher:
 
 	PS C:\> $pubName="MicrosoftWindowsServer"
 	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
@@ -175,7 +200,7 @@ For the publisher "MicrosoftWindowsServer":
 	-----
 	WindowsServer
 
-For the offer "WindowsServer":
+For the "WindowsServer" offer:
 
 	PS C:\> $offerName="WindowsServer"
 	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus

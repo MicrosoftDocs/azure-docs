@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/01/2015"
 	ms.author="selcint"/>
 
 
@@ -27,7 +27,7 @@ With the introduction of new Premium Storage, Microsoft Azure now offers two typ
 
 Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. You can attach several Premium Storage disks to a virtual machine (VM). With Premium Storage, your applications can have up to 32 TB of storage per VM and achieve 64,000 IOPS (input/output operations per second) per VM with extremely low latencies for read operations.
 
-To get started with Azure Premium Storage, visit [Get started for free](http://azure.microsoft.com/en-us/pricing/free-trial/) page.
+To get started with Azure Premium Storage, visit [Get started for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
 This article provides an in-depth overview of Azure Premium Storage.
 
@@ -138,7 +138,7 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 - With Premium Storage, you can provision a DS-series VM and attach several persistent data disks to a VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. By default, the Server Manager user interface (UI) allows you to setup columns up to 8 disks. But if you have more than 8 disks, you need to use PowerShell to create the volume and also specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns even though you have more disks. For example, if you have 32 disks in a single stripe set, you should specify 32 columns. You can use the *NumberOfColumns* parameter of the [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet to specify the number of columns used by the virtual disk. For more information, see [Storage Spaces Overview](http://technet.microsoft.com/library/jj822938.aspx) and [Storage Spaces Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
 - Avoid adding DS-series VMs to an existing cloud service that includes non-DS-series VMs. A possible workaround is to migrate your existing VHDs to a new cloud service running only DS-series VMs.  If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](https://msdn.microsoft.com/library/azure/dn690120.aspx) feature.
 - The DS-series of Azure virtual machines can be configured to use an operating system (OS) disk hosted either on a Standard Storage account or on a Premium Storage account. If you use the OS disk only for booting, you may consider using a Standard Storage based OS disk. This provides cost benefits and similar performance results similar to the Premium Storage after booting up. If you perform any additional tasks on the OS disk other than booting, use Premium Storage as it provides better performance results. For example, if your application reads/writes from/to the OS disk, using Premium Storage based OS disk provides better performance for your VM.
-- You can use [Azure Cross-Platform Command-Line Interface (xplat-cli)](xplat-cli.md) with Premium Storage. To change the cache policy on one of your disks using xplat-cli, run the following command:
+- You can use [Azure Command-Line Interface (Azure CLI)](xplat-cli.md) with Premium Storage. To change the cache policy on one of your disks using Azure CLI, run the following command:
 
 	`$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>`
 
@@ -218,7 +218,7 @@ The following table describes the scalability targets for Premium storage accoun
 For more information, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
 ## Throttling when using Premium Storage
-You may see throttling if your application’s IOPS or throughput exceed the allocated limits for a Premium Storage disk or if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for disk based on based on the scalability and performance targets for the disk you have provisioned and based on the disk bandwidth available to the VM.  
+You may see throttling if your application’s IOPS or throughput exceed the allocated limits for a Premium Storage disk or if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for disk based on the scalability and performance targets for the disk you have provisioned and based on the disk bandwidth available to the VM.  
 
 Your application can achieve the lowest latency when it is designed to avoid throttling. On the other hand, if the number of pending I/O requests for the disk is too small, your application cannot take advantage of the maximum IOPS and throughput levels that are available to the disk.
 
@@ -262,7 +262,7 @@ Please refer to important instructions below for configuring your Linux VMs on P
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
 
-Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to one of these for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
+Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to at least one of these versions (or later) for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
@@ -272,7 +272,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td><strong>Supported Image</strong></td>
 </tr>
 <tr>
-	<td rowspan="3"><strong>Ubuntu</strong></td>
+	<td rowspan="4"><strong>Ubuntu</strong></td>
 	<td>12.04</td>
 	<td>3.2.0-75.110</td>
 	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
@@ -286,6 +286,11 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td>14.10</td>
 	<td>3.16.0-29.39</td>
 	<td>Ubuntu-14_10-amd64-server-20150202-en-us-30GB</td>
+</tr>
+<tr>
+	<td>15.04</td>
+	<td>3.19.0-15</td>
+	<td>Ubuntu-15_04-amd64-server-20150422-en-us-30GB</td>
 </tr>
 <tr>
 	<td><strong>SUSE</strong></td>
@@ -303,16 +308,21 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td rowspan="2"><strong>CentOS</strong></td>
 	<td>6.5, 6.6, 7.0</td>
 	<td></td>
-	<td><a href="http://www.microsoft.com/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
 </tr>
 <tr>
 	<td>7.1</td>
 	<td>3.10.0-229.1.2.el7</td>
-	<td>Coming Soon</td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a></td>
 </tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
+	<td>6.4</td>
+	<td></td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
+</tr>
+<tr>
 	<td>7.0</td>
 	<td></td>
 	<td>Contact Support for details</td>
@@ -335,7 +345,7 @@ For detailed information on pricing for Premium Storage and DS-series VMs, see:
 
 ## Create and use a Premium Storage account for a virtual machine data disk
 
-This section demonstrates how to create a Premium Storage account using the Azure Preview Portal, Azure PowerShell, and the Azure Cross-Platform Command-Line Interface. In addition, it demonstrates a sample use case for premium storage accounts: creating a virtual machine and attaching a data disk to a virtual machine when using Premium Storage.
+This section demonstrates how to create a Premium Storage account using the Azure Preview Portal, Azure PowerShell, and the Azure Command-Line Interface (Azure CLI). In addition, it demonstrates a sample use case for premium storage accounts: creating a virtual machine and attaching a data disk to a virtual machine when using Premium Storage.
 
 ### Create an Azure virtual machine using Premium Storage via the Azure Preview Portal
 
@@ -392,9 +402,9 @@ This PowerShell example shows how to create a new Premium Storage account and at
     	$label = "Disk " + $LunNo
     	Add-AzureDataDisk -CreateNew -MediaLocation $path -DiskSizeInGB 128 -DiskLabel $label -LUN $LunNo -HostCaching ReadOnly -VM $vm | Update-AzureVm
 
-### Create an Azure virtual machine using Premium Storage via the Azure Cross-Platform Command-Line Interface
+### Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
 
-The [Azure Cross-Platform Command-Line Interface](xplat-cli.md)(xplat-cli) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use xplat-cli (version 0.8.14 and later) to create a premium storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
+The [Azure Commnand-Line Interface](xplat-cli.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a premium storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
 
 #### Create a premium storage account
 
@@ -404,7 +414,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 #### Create a DS-series virtual machine
 
-	azure vm create -z "Standard_DS2" -l "East US 2" -e 22 "premium-test-vm"
+	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
 		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
 
 #### Display information about the virtual machine

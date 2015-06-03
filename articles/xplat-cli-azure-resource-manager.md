@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="05/05/2015"
 	ms.author="dkshir;rasquill"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
@@ -39,7 +39,7 @@ When a template is used to modify or create a group, a _deployment_ is created, 
 
 Working with the Resource Manager through the Azure CLI requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a certificate installed through a .publishsettings file will not work.
 
-For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI for Mac, Linux, and Windows](xplat-cli-connect.md).
+For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
 > [AZURE.NOTE] Because you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
 
@@ -102,9 +102,9 @@ The Network Interface Card or NIC needs a subnet and a virtual network to be cre
 
 	azure network vnet create "testrg" "testvnet" "westus"
 
-You can then create a subnet in this virtual network by using **network subnet create** as this example:
+You can then create a subnet in this virtual network by using **network vnet subnet create** as this example:
 
-	azure network subnet create "testrg" "testvnet" "testsubnet"
+	azure network vnet subnet create "testrg" "testvnet" "testsubnet"
 
 You should be able to create an NIC using these resources with **network nic create**.
 
@@ -112,7 +112,7 @@ You should be able to create an NIC using these resources with **network nic cre
 
 >[AZURE.NOTE] Although optional, it is very important to pass the public IP name as a parameter to the **network nic create** command as this binds the NIC to this IP, which will be later used to SSH into the virtual machine created using this NIC.
 
-For more imformation on the **network** commands, see command line help or [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).
+For more imformation on the **network** commands, see command line help or [Using the Azure CLI with Azure Resource Management](azure-cli-arm-commands.md).
 
 #### Finding the Operating System image
 
@@ -162,7 +162,7 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 
 	azure network public-ip show "testrg" "testip"
 
-Managing this virtual machine is easy with **vm** commands; for more information, visit [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).
+Managing this virtual machine is easy with **vm** commands; for more information, visit [Using the Azure CLI with Azure Resource Management](azure-cli-arm-commands.md).
 
 ### **vm quick-create** shortcut
 
@@ -254,7 +254,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 	This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
 
-		azure group deployment show MyGroupName MyDeployment
+		azure group deployment show "testRG" "testDeploy"
 
 	The **ProvisioningState** shows the status of the deployment.
 
@@ -295,7 +295,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 7. You can also use latest templates directly from the github, instead of downloading from the template library. Open [Github.com](http://www.github.com) and search for AzureRmTemplates. Select the AzureRmTemplates repository and look for any templates that you find interesting, for example, _101-simple-vm-from-image_. If you click on the template, you will see it contains **azuredeploy.json** among other files. This is the template you want to use in your command by using a **--template-url** option. Open it in _raw_ mode, and copy the URL that appears in the browser's address bar. You can then use this URL directly to create a deployment, instead of downloading from a template library, by using a command similar to
 
-		azure vm group deployment create "testDeploy" -g "testResourceGroup" --template-url https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
+		azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 
 	> [AZURE.NOTE] It is important to open the json template in _raw_ mode. The URL that appears in the browser's address bar is different from the one that appears in regular mode. To open the file in _raw_ mode, click on the button named _Raw_ on the upper right corner when viewing the file on github.
 
@@ -337,12 +337,12 @@ To view logged information on operations performed on a group, use the `azure gr
 
 ## Next steps
 
-* For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
+* For more information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][clisetup].
 * For information on working with Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
 * For imformation on working with Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm]
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[xplatsetup]: xplat-cli.md
+[clisetup]: xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760

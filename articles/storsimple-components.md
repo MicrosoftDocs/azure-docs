@@ -3,7 +3,7 @@
    description="Describes the StorSimple device, services, and management technologies." 
    services="storsimple" 
    documentationCenter="NA" 
-   authors="SharS" 
+   authors="alkohli" 
    manager="AdinaH" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/17/2015"
-   ms.author="v-sharos@microsoft.com"/>
+   ms.date="05/29/2015"
+   ms.author="alkohli"/>
 
 
 # What are the StorSimple components? 
@@ -27,7 +27,7 @@ The following sections describe the Microsoft Azure StorSimple components, and e
 
 ## StorSimple device
 
-The Microsoft Azure StorSimple device is an on-premises hybrid storage array that provides primary storage and iSCSI access to data stored elsewhere. It manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the Microsoft Azure StorSimple solution.
+The Microsoft Azure StorSimple device is an on-premises hybrid storage array that provides primary storage and iSCSI access to data stored on it. It manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the Microsoft Azure StorSimple solution.
 
 The StorSimple device includes solid state drives (SSDs) and hard disk drives (HDDs), as well as support for clustering and automatic failover. It contains a shared processor, shared storage, and two mirrored controllers. Each controller provides the following:
 

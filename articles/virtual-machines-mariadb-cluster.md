@@ -13,9 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="4/15/2015"
-	ms.author="v-ahsab"
-	ms.prod="azure"/>
+	ms.date="04/15/2015"
+	ms.author="v-ahsab"/>
 
 # MariaDB (MySQL) cluster - Azure tutorial
 
@@ -223,7 +222,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
         chkconfig mysql off
 		waagent -deprovision
 
-11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI] tools describes the fact that images captured by the xplat-cli tools do not capture the attached data disks.)
+11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI] tools describes the fact that images captured by the Azure CLI tools do not capture the attached data disks.)
 
 	- Shutdown the machine through the portal
     - Click on Capture and specify the image name as **mariadb-galera-image** and provide a  description and check "I have run waagent".

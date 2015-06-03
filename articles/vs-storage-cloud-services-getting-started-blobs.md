@@ -3,7 +3,7 @@
 	description="How to get started using Azure blob storage in a cloud service project in Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (Cloud Service projects)
 
@@ -41,7 +41,7 @@ This topic will demonstrate how to perform common scenarios using the Azure Blob
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
-    using Microsoft.WindowsAzure;
+    using Microsoft.Azure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Blob;

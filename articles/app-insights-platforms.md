@@ -31,6 +31,7 @@
 + [Ruby](https://rubygems.org/gems/application_insights) 
 + [PHP](https://github.com/Microsoft/AppInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
++ [Anything else](#projects)
 
 ## Platforms
 
@@ -38,6 +39,7 @@
 + [Azure web apps and VMs](insights-perf-analytics.md)
 + [Android](https://github.com/Microsoft/AppInsights-Android)
 + [iOS](https://github.com/Microsoft/AppInsights-iOS)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Cordova](#cordova)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
@@ -45,6 +47,7 @@
 + [SharePoint](app-insights-sharepoint.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Windows desktop](app-insights-windows-desktop.md)
++ [Anything else](#projects)
 
 
 ## Logging frameworks
@@ -53,12 +56,18 @@
 +	[Java, Log4J, or Logback](app-insights-java-trace-logs.md)
 
 
-## Projects
+## <a name="projects"></a> Build your own SDK
 
-Please also visit the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home)
+If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home)
 
 
 ### <a name="cordova"></a>Cordova and Windows Store JavaScript apps
+
+In Visual Studio, right-click your project and choose **Manage NuGet packages**.
+
+Select **Online** and search on Application Insights.
+
+Install **Application Insights API for JavaScript Applications**. 
 
 Use the standard client-side [web app script](app-insights-web-track-usage.md), but with one change.
 

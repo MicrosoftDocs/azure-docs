@@ -28,7 +28,7 @@ This procedure describes the simplest way to activate Engagement's Analytics and
 
 > [AZURE.IMPORTANT] Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
  
-The following steps are enough to activates the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see android-sdk-engagement-advanced) since these statistics are application dependent.
+The following steps are enough to activates the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Android](mobile-engagement-android-use-engagement-api.md) since these statistics are application dependent.
 
 ##Embed the Engagement SDK and service into your Android project
 

@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Set up an Azure SQL Server virtual machine for data science | Azure" 
-	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server." 
-	services="machine-learning" 
-	solutions="" documentationCenter="" 
-	authors="msolhab,xibingaomsft" 
-	manager="paulettm" 
+<properties
+	pageTitle="Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics | Azure"
+	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
+	services="machine-learning"
+	solutions="" documentationCenter=""
+	authors="msolhab" 
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="mohabib;xibingao" />
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/29/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
-# Set up an Azure SQL Server virtual machine for data science
+# Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
 
 This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
 
@@ -30,7 +30,7 @@ The Azure virtual machine gallery includes several images that contain Microsoft
 
 ##<a name="Provision"></a>Connect to the Azure management portal and provision an SQL Server virtual machine
 
-1.  Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account. 
+1.  Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account.
 	If you do not have an Azure account, visit [Azure free
     trial](http://www.windowsazure.com/pricing/free-trial/).
 
@@ -40,7 +40,7 @@ The Azure virtual machine gallery includes several images that contain Microsoft
 
 3.  On the **Create a Virtual Machine** page, select a virtual machine
     image containing SQL Server based on your data needs, and then click the next arrow at the
-    bottom right of the page. For the most up-to-date information on the supported SQL Server images on Azure, 
+    bottom right of the page. For the most up-to-date information on the supported SQL Server images on Azure,
     see [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation set.
 
 	![Select SQL Server VM][1]
@@ -93,7 +93,7 @@ The Azure virtual machine gallery includes several images that contain Microsoft
 	select **MSSQL**  then type the port number of the
     instance of the Database Engine (**1433** for the default instance).
 
-7.  Your SQL Server VM can also serve as an IPython Notebook Server, which will be configured in a later step. 
+7.  Your SQL Server VM can also serve as an IPython Notebook Server, which will be configured in a later step.
 	Add a new endpoint to specify the port to use for your IPython Notebook server. Enter a name in the **NAME** column,	select a port number of your choice for the public port, and 9999 for the private port.
 
 	Click the next arrow on the bottom right to continue.
@@ -145,11 +145,11 @@ to the default instance of SQL Server with SQL Server Management Studio
 ##<a name="InstallIPython"></a>Install IPython Notebook and other supporting tools
 
 To configure your new SQL Server VM to serve as an IPython Notebook server, and install additional
-supporting tools such AzCopy, Azure Storage Explorer, useful Data Science Python packages, and others, 
+supporting tools such AzCopy, Azure Storage Explorer, useful Data Science Python packages, and others,
 a special customization script is provided to you. To install:
 
 - Right-click the Windows Start icon and click **Command Prompt (Admin)**
-- Copy the following commands and paste at the command prompt. 
+- Copy the following commands and paste at the command prompt.
 
     	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
     	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
@@ -185,8 +185,8 @@ The SQL Server Database Engine cannot use Windows Authentication without
 domain environment. To connect to the Database Engine from another
 computer, configure SQL Server for mixed mode authentication. Mixed mode
 authentication allows both SQL Server Authentication and Windows
-Authentication. SQL authentication mode is required in order to ingest data 
-directly from your SQL Server VM databases in the 
+Authentication. SQL authentication mode is required in order to ingest data
+directly from your SQL Server VM databases in the
 [Azure Machine Learning Studio](https://studio.azureml.net) using the Reader module.
 
 1.  While connected to the virtual machine by using Remote Desktop, use the Windows **Search** pane and type **SQL Server Management Studio** (SMSS). Click to start the SQL Server Management Studio (SSMS). You may want to add a shortcut to SSMS on your Desktop for future use.
@@ -210,10 +210,10 @@ directly from your SQL Server VM databases in the
 	<br>
 
 	 > [AZURE.TIP] You may change the SQL Server authentication mode using a Windows registry key change or using the SQL Server Management Studio. To change authentication mode using the registry key change, start a **New Query** and execute the following script:
-	
+
 		USE master
     	go
-    	
+
     	EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2
     	go
 
@@ -250,14 +250,14 @@ To connect to the Database Engine from another computer, you must create
 at least one SQL Server authentication login.  
 
 > [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).  
-	
+
     USE master
     go
-    
+
     CREATE LOGIN <new user name> WITH PASSWORD = N'<new password>',
     	CHECK_POLICY = OFF,
     	CHECK_EXPIRATION = OFF;
-    
+
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
 To create new SQL Server logins using the SQL Server Management Studio:
@@ -354,7 +354,7 @@ because it can be redirected to a new IP address.)
 
 ##<a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
 
-In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+In later stages of the Advanced Analytics Process and Technology, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Advanced Analytics Process and Technology guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
 2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
@@ -381,7 +381,7 @@ To shutdown and deallocate the virtual machine:
 3. In the list of virtual machines, click on the name of your virtual
    machine then go to the **DASHBOARD** page.
 
-4. At the bottom of the page, click **SHUTDOWN**. 
+4. At the bottom of the page, click **SHUTDOWN**.
 
 ![VM Shutdown][15]
 
@@ -389,7 +389,7 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 
 ## Your Azure SQL Server VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cloud Data Science Process. 
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Advanced Analytics Process and Technology (ADAPT).
 
 The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
@@ -408,4 +408,3 @@ The next steps in the data science process are mapped in the [Learning Guide: Ad
 [12]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/25sysadmin.png
 [13]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/amlreader.png
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
-

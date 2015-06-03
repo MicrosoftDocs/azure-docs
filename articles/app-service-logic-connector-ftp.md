@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="FTP Connector"
 	description="Get started with FTP Connector"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -33,15 +33,17 @@ To create a new FTP connector, follow the steps mentioned below.
 - Launch Azure portal
 - Open Azure marketplace using +New (at the bottom of the page) -> Web+Mobile --> Azure Marketplace
 
-![Launch Azure Marketplace][1]
+	![Launch Azure Marketplace][1]
+
 - Click on API Apps
 - Search for FTP, and select FTP Connector
 
-![Select FTP Connector][2]
+	![Select FTP Connector][2]
+
 - Click on Create
 - In the FTP connector blade that opens up, provide the following data.
 
-![Create FTP Connector][3]
+	![Create FTP Connector][3]
 
 - **Location** - choose the geographic location where you would like the connector to be deployed
 - **Subscription** - choose a subscription you want this connector to be created in
@@ -49,7 +51,7 @@ To create a new FTP connector, follow the steps mentioned below.
 - **Web hosting plan** - select or create a web hosting plan
 - **Pricing tier** - choose a pricing tier for the connector
 - **Name** - give a name for your FTP Connector
-- **Package settings** 
+- **Package settings**
 	- **Server Address** - Specify the FTP Server name or IP address
 	- **User Name** - Specify the user name to connect to the FTP Server
 	- **Password** - Specify the password to connect to the FTP Server
@@ -70,20 +72,20 @@ Click on *triggers and actions*. The flow designer opens up
 
 ![Logic App empty flow designer][5]
 
-FTP Connector can be used as both trigger and action. 
+FTP Connector can be used as both trigger and action.
 
 ###Trigger
 In the empty flow designer, click on FTP connector from the right gallery pane.
 
 ![Choose FTP Trigger][6]
 
-FTP Connector has one trigger - TriggerOnFileAvailable. This trigger 
+FTP Connector has one trigger - 'File Available (Read then Delete)'. This trigger
 
 - Polls the folder path for new files
 - Instantiates the logic flow whenever for every new file
 - Deletes the file from the folder path after the logic flow has been instantiated
 
-Click on 'TriggerOnFileAvailable' trigger.
+Click on 'File Available (Read then Delete)' trigger.
 
 ![Basic inputs FTP Trigger][7]
 
@@ -93,7 +95,7 @@ The inputs help you configure a particular folder path to be polled on a schedul
 - Folder Path - Specifies the folder path in the FTP Server
 - Type of file - Specifies whether the file type is text or binary
 
-Clicking on ... shows the advanced inputs. 
+Clicking on the elipses '...' shows the advanced inputs.
 
 ![Basic inputs FTP Trigger][8]
 
@@ -101,16 +103,16 @@ The advanced inputs are
 - File mask - Specifies the file mask while polling
 - Exclude file mask - Specifies the file masks to exclude while polling
 
-Provide the inputs and click on the tick mark to complete input configuration.
+Provide the inputs and click on the check mark to complete input configuration.
 
 ![Basic inputs FTP Trigger][9]
 
-Note that the configured FTP trigger shows both input parameters configured, as well as the output of FTP trigger. 
+Note that the configured FTP trigger shows both input parameters configured as well as the outputs.
 
 ####Using the output of FTP trigger in subsequent actions
-The output of FTP Connector can be used as the input of some other actions in the flow. 
+The output of FTP Connector can be used as the input of some other actions in the flow.
 
-You can click on + in the input dialog of action and select the output of FTP from the drop down box directly.
+You can click on '...' in the input dialog of action and select the output of FTP from the drop down box directly.
 
 You can also write an expression directly in the input box of action. The flow expression to refer to the output of ftp trigger is given below
 
@@ -126,7 +128,7 @@ FTP Connector supports four actions. They are
 - **Get File** - Get the contents of a specific file
 - **Upload File** - Uploads file to the FTP folder path
 - **Delete File** - Deletes file from the FTP folder path
-- **List File** - Lists all the files in the FTP folder path
+- **List Files** - Lists all the files in the FTP folder path
 
 Lets take one example - Upload File. Click on Upload File
 
@@ -144,12 +146,16 @@ Click on ... for advanced inputs.
 ![Basic inputs of Upload File action][12]
 
 
-- **Append If Exists** - Enable or Disable 'Append If Exist'. When enabled, the data is appended to the file if it exists. When disabled, the file is overwritten if it exists
+- **Append If Exists** - True or False 'Append If Exist'. When enabled, the data is appended to the file if it exists. When disabled, the file is overwritten if it exists
 - **Temporary Folder** - Optional. If provided, the adapter will upload the file to the 'Temporary Folder Path' and once the upload is done the file will be moved to 'Folder Path'. The 'Temporary Folder Path' should be on the same physical disk as the 'Folder Path' to make sure that the move operation is atomic. Temporary folder can be used only when 'Append If Exist' property is disabled.
 
-Provide the inputs and click on the tick mark to complete input configuration.
+Provide the inputs and click on the check mark to complete input configuration.
 
 ![Configured Upload File action][13]
+
+The 'File Path' parameter is set to
+
+	@concat('/Output/',triggers().outputs.body.FileName)
 
 Note that the configured FTP Upload File action shows both input parameters as well as output parameters.
 

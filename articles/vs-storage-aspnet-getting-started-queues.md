@@ -3,7 +3,7 @@
 	description="How to get started using Azure queue storage in an ASP.NET project in Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (ASP.NET Projects)
 
@@ -40,6 +40,7 @@ This article will show you how to perform common scenarios using the Azure Queue
 Add the following code namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
+	using Microsoft.Azure;    
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;

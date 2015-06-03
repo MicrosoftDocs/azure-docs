@@ -1,5 +1,5 @@
 <properties
- pageTitle="Develop Scalding MapReduce jobs with Maven"
+ pageTitle="Develop Scalding MapReduce jobs with Maven | Microsoft Azure"
  description="Learn how to use Maven to create a Scalding MapReduce job, then deploy and run the job on a Hadoop on HDInsight cluster."
  services="hdinsight"
  documentationCenter=""
@@ -76,7 +76,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
             </dependency>
           </dependencies>
           <build>
-            <sourceDirectory>src/main/scala</sourceDirectory
+            <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
               <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -108,7 +108,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
                       <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
-                        <exclude>META-INF/*.RSA</exclude>y
+                        <exclude>META-INF/*.RSA</exclude>
                       </excludes>
                     </filter>
                   </filters>

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Create a RemoteApp image based on an Azure VM"
+    pageTitle="Create an Azure RemoteApp image based on an Azure VM"
     description="Learn how to create an image for RemoteApp starting with an Azure virtual machine." 
     services="remoteapp" 
     documentationCenter="" 
@@ -12,18 +12,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/27/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
 
-# Create a RemoteApp image based on an Azure virtual machine
+# Create a Azure RemoteApp image based on an Azure virtual machine
 
-Based on massive customer feedback, we're pleased to now support creating RemoteApp images (which hold the apps you share in your collection) from an Azure virtual machine. We also added a virtual machine image to the Azure VM image gallery that meets all the RemoteApp image requirements - you can use that VM image as a starting point for your own VM, if you want. Just look for the "Windows Server Remote Desktop Session Host" image in the library.
+You can create RemoteApp images (which hold the apps you share in your collection) from an Azure virtual machine. We also have added a virtual machine image to the Azure VM image gallery that meets all the RemoteApp image requirements - you can use that VM image as a starting point for your own VM, if you want. Just look for the "Windows Server Remote Desktop Session Host" image in the library.
 
-There are two steps - creating the image and then uploading it from the Azure VM library to RemoteApp.
+There are two steps - create the image and then upload it from the Azure VM library to Azure RemoteApp.
 
-## Creating a custom image based on an Azure VM
+## Create a custom image based on an Azure VM
 
 Use these steps to create an image based on an Azure VM.
 

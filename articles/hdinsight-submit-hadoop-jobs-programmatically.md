@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Submit Hadoop jobs in HDInsight | Azure" 
+	pageTitle="Submit Hadoop jobs in HDInsight | Microsoft Azure" 
 	description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop." 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -25,7 +25,7 @@ Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to 
 Before you begin this article, you must have the following:
 
 * An Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
+* Azure PowerShell. For instructions, see [Install and configure Azure PowerShell] [powershell-install-configure].
 
 
 ##Submit MapReduce jobs by using Azure PowerShell
@@ -714,9 +714,9 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png 
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
