@@ -17,9 +17,9 @@
    ms.date="04/28/2015"
    ms.author="masashin"/>
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
-
 # Retry service specific guidance
+
+![](http://pnp.azurewebsites.net/images/pnp-logo.png)
 
 ## Overview
 

@@ -17,14 +17,14 @@
    ms.date="04/09/2015"
    ms.author="masashin"/>
 
+# NuGet Packages
+
 <p class="lead">As more components begin to communicate, transient failures become
 more important to smartly handle. The Transient Fault Handling work handled by the
 retry policies NuGet package can help handle retries within a single instance.</p>
 
 > This document was based on a draft as a proof of concept. It is not the actual
   reviewed guidance.
-
-# NuGet Packages
 
 The Patterns & Practices `TransientFaultHandling` code is recommended for general retry policy work.
 

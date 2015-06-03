@@ -17,9 +17,9 @@
    ms.date="04/28/2015"
    ms.author="masashin"/>
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
-
 # Content Delivery Network (CDN) guidance
+
+![](http://pnp.azurewebsites.net/images/pnp-logo.png)
 
 ## Overview
 The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure. The CDN caches publicly available objects loaded from Azure blob storage or an application folder at strategically placed locations to provide maximum bandwidth for delivering content to users. It is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.  
@@ -169,6 +169,6 @@ By default, Azure CDN instances have the **Query String Status** setting disable
 ## More information
 + [Azure CDN](http://azure.microsoft.com/services/cdn/)
 + [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-+ [Serve Content from Azure CDN in Your Web Application](http://azure.microsoft.com/documentation/articles/cdn-serve-content-from-cdn-in-your-web-application/)
-+ [Integrate a cloud service with Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-cloud-service-with-cdn/)
++ [Serve Content from Azure CDN in Your Web Application](cdn-serve-content-from-cdn-in-your-web-application.md)
++ [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 + [Best Practices for the Windows Azure Content Delivery Network](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)

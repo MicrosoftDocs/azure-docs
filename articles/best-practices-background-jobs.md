@@ -17,9 +17,9 @@
    ms.date="04/28/2015"
    ms.author="masashin"/>
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
-
 #Background jobs guidance
+
+![](http://pnp.azurewebsites.net/images/pnp-logo.png)
 
 ## Overview
 Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long running processes such as workflows. Background jobs can be executed without requiring user interaction; the application can start the job and then continue to process interactive requests from users. This can help to minimize the load on the application UI, which can improve availability and reduce interactive response times.
@@ -99,7 +99,7 @@ Azure WebJobs have the following characteristics:
 
 - **Security**: WebJobs are protected by the deployment credentials of the website.
 - **Supported file types**: WebJobs can be defined using command scripts (.cmd), batch files (.bat), PowerShell scripts (.ps1), bash shell scripts (.sh), PHP scripts (.php), Python scripts (.py), JavaScript code (.js), and executable programs (.exe, .jar, and more).
-- **Deployment**: Scripts and executables can be deployed using the Azure portal, created and deployed by using the [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) add-in for Visual Studio or the [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), by using the [Azure WebJobs SDK](http://azure.microsoft.com/documentation/articles/websites-dotnet-webjobs-sdk-get-started/), or by copying them directly to the following locations:
+- **Deployment**: Scripts and executables can be deployed using the Azure portal, created and deployed by using the [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) add-in for Visual Studio or the [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), by using the [Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md), or by copying them directly to the following locations:
   - for triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
   - for continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
 - **Logging**: Console.Out is treated (marked) as INFO and Console.Error as ERROR. Monitoring and diagnostics information can be accessed using the Azure portal, and log files can be downloaded directly from the site. They are saved in the following locations:
@@ -114,7 +114,7 @@ Azure WebJobs have the following characteristics:
 - To minimize the impact of jobs on the performance of the website, consider creating an empty Azure Web Sites instance in a new App Service Plan to host WebJobs that may be long running or resource intensive.
 
 ### More information
-- [Azure WebJobs Recommended Resources](http://azure.microsoft.com/documentation/articles/websites-webjobs-resources/) lists the many useful resources, downloads, and samples for WebJobs.
+- [Azure WebJobs Recommended Resources](websites-webjobs-resources/) lists the many useful resources, downloads, and samples for WebJobs.
 
 ## Azure Cloud Services web and worker roles
 Background tasks can be executed within a web role or in a separate worker role. The decision whether to use a worker role should be based on consideration of scalability and elasticity requirements, task lifetime, release cadence, security, fault tolerance, contention, complexity, and the logical architecture. For more information, see [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx).
@@ -123,7 +123,7 @@ There are several ways to implement background tasks within a Cloud Services rol
 
 - Create an implementation of the **RoleEntryPoint** class in the role and use its methods to execute background tasks. The tasks run in the context of WaIISHost.exe, and can use the **GetSetting** method of the **CloudConfigurationManager** class to load configuration settings. For more information, see [Lifecycle (Cloud Services)](#lifecycle-cloud-services-).
 - Use startup tasks to execute background tasks when the application starts. To force the tasks to continue to run in the background set the **taskType** property to **background** (if you do not do this, the application startup process will halt and wait for the task to finish). For more information, see [Run Startup Tasks in Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
-- Use the WebJobs SDK to implement background tasks as WebJobs that are initiated as a startup task. For more information, see [Get Started with the Azure WebJobs SDK](http://azure.microsoft.com/documentation/articles/websites-dotnet-webjobs-sdk-get-started/).
+- Use the WebJobs SDK to implement background tasks as WebJobs that are initiated as a startup task. For more information, see [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
 - Use a startup task to install a Windows service that executes one or more background tasks. You must set the **taskType** property to **background** so that the service executes in the background. For more information, see [Run Startup Tasks in Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
 
 ### Running background tasks in the web role
@@ -150,12 +150,12 @@ Consider the following points when choosing how and where to deploy background t
 
 ### More information
 - [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx)
-- [Get Started with the Azure WebJobs SDK](http://azure.microsoft.com/documentation/articles/websites-dotnet-webjobs-sdk-get-started/)
+- [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started/)
 
 ## Azure Virtual Machines
 Background tasks may be implemented in a way that prevents them from being deployed to Azure Web Sites or Cloud Services, or this may not convenient. Typical examples are Windows services, and third party utilities and executable programs. It may also include programs written for an execution environment different to that hosting the application; for example, it may be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/). For information about the options for [Virtual Machines, see Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and pre-built images available for Virtual Machines, see [Azure Virtual Machines Gallery](http://azure.microsoft.com/gallery/virtual-machines/).
+To help you choose when to use Virtual Machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](choose-web-site-cloud-service-vm.md). For information about the options for [Virtual Machines, see Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and pre-built images available for Virtual Machines, see [Azure Virtual Machines Gallery](http://azure.microsoft.com/gallery/virtual-machines/).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
@@ -285,6 +285,6 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - [Executing Background Tasks](http://msdn.microsoft.com/library/ff803365.aspx)
 - [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (blog post)
 - [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (video)
-- [Get Started with the Azure WebJobs SDK](http://azure.microsoft.com/documentation/articles/websites-dotnet-webjobs-sdk-get-started/)
+- [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started/)
 - [Azure Queues and Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/hh767287.aspx)
 - [How To Enable Diagnostics in a Cloud Service](http://msdn.microsoft.com/library/dn482131.aspx)

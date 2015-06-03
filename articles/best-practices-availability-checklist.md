@@ -17,9 +17,9 @@
    ms.date="04/28/2015"
    ms.author="masashin"/>
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
-
 # Availability checklist
+
+![](http://pnp.azurewebsites.net/images/pnp-logo.png)
 
 ## Application design
 - **Avoid any single point of failure.** All components, services, resources, and compute instances should be deployed as multiple instances to prevent a single point of failure from affecting availability. This includes authentication mechanisms. Design the application to be configurable to use multiple instances, and to automatically detect failures and redirect requests to non-failed instances where the platform does not do this automatically.

@@ -17,9 +17,9 @@
    ms.date="04/28/2015"
    ms.author="masashin"/>
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
-
 # Monitoring and diagnostics guidance
+
+![](http://pnp.azurewebsites.net/images/pnp-logo.png)
 
 ## Overview
 Distributed applications and service running in the cloud are, by their very nature, complex pieces of software that comprise many moving parts. In a production environment, it is important to be able to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system. This information can be used as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
@@ -331,7 +331,7 @@ Monitoring a large-scale distributed system poses a significant challenge, and e
 
 You can envisage the entire monitoring and diagnostics process as a pipeline that comprises the stages shown in Figure 1.
 
-![](figures/Monitoring/Pipeline.png)
+![](media/best-practices-monitoring/Pipeline.png)
 
 _Figure 1.
 The stages in the monitoring and diagnostics pipeline_
