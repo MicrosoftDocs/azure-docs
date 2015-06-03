@@ -22,9 +22,11 @@
 ![](http://pnp.azurewebsites.net/images/pnp-logo.png)
 
 ## Overview
+
 In many large-scale solutions, data is divided into separate partitions that can be managed and accessed separately. The partitioning strategy must be chosen carefully to maximize the benefits while minimizing adverse effects. Partitioning can help to improve scalability, reduce contention, and optimize performance. A side-benefit of partitioning is that can also provide a mechanism for dividing data by the pattern of use; you could archive older, more inactive (cold) data to cheaper data storage.
 
 ## Why partition data?
+
 Most cloud applications and services store and retrieve data as part of their operations. The design of the data stores that an application uses can have a significant bearing on the performance, throughput, and scalability of a system. One technique that is commonly applied in large-scale systems is to divide the data into separate partitions.
 
 > The term _partitioning_ used in this guidance refers to the process of physically dividing data into separate data stores. This is not the same as SQL Server Table Partitioning, which is a different concept.
@@ -45,11 +47,13 @@ Some systems do not implement partitioning because it is considered an overhead 
 - Some common tools do not work naturally with partitioned data.
 
 ## Designing partitions
+
 Data can be partitioned in different ways: horizontally, vertically, or functionally. The strategy you choose depends on the reason for partitioning the data, and the requirements of the applications and services that will use the data.
 
 > [AZURE.NOTE] The partitioning schemes described in this guidance are explained in a way that is independent of the underlying data storage technology. They can be applied to many types of data stores, including relational and NoSQL databases.
 
 ### Partitioning strategies
+
 The three typical strategies for partitioning data are:
 
 - **Horizontal partitioning** (often called _sharding_). In this strategy each partition is a data store in its own right, but all partitions have the same schema. Each partition is known as a _shard_ and holds a specific subset of the data, such as all the orders for a specific set of customers in an ecommerce application.
@@ -61,6 +65,7 @@ It’s important to note that the three strategies described here can be combine
 However, the differing requirements of each strategy can raise a number of conflicting issues that you must evaluate and balance when designing a partitioning scheme that meets the overall data processing performance targets for your system. The following sections explore each of the strategies in more detail.
 
 ### Horizontal partitioning (sharding)
+
 Figure 1 shows an overview of horizontal partitioning or sharding. In this example, product inventory data is divided into shards based on the product key. Each shard holds the data for a contiguous range of shard keys (A-G and H-Z), organized alphabetically.
 
 ![](media/best-practices-data-partitioning/DataPartitioning01.png)
@@ -78,6 +83,7 @@ The sharding key you choose should minimize any future requirements to split lar
 > For more detailed information and guidance about many of these considerations, and good practice techniques for designing data stores that implement horizontal partitioning, see the [Sharding Pattern](http://aka.ms/Sharding-Pattern)
 
 ### Vertical partitioning
+
 The most common use for vertical partitioning is to reduce the I/O and performance costs associated with fetching the items that are accessed most frequently. Figure 2 shows an overview of an example of vertical partitioning, where different properties for each data item are held in different partitions; the name, description, and price information for products are accessed more frequently than the volume in stock or the last ordered date.
 
 ![](media/best-practices-data-partitioning/DataPartitioning02.png)
@@ -93,6 +99,7 @@ Vertical partitioning can also reduce the amount of concurrent access required t
 > Vertical partitioning operates at the entity level within a data store, partially normalizing an entity to break it down from a _wide_ item to a set of _narrow_ items. It is ideally suited for column-oriented data stores such as HBase and Cassandra. If the data in a collection of columns is unlikely to change, you can also consider using column stores in SQL Server.
 
 ### Functional partitioning
+
 For systems where it is possible to identify a bounded context for each distinct business area or service in the application, functional partitioning provides a technique for improving isolation and data access performance. Another common use of functional partitioning is to separate read-write data from read-only data used for reporting purposes. Figure 3 shows an overview of functional partitioning where inventory data is separated from customer data.
 
 ![](media/best-practices-data-partitioning/DataPartitioning03.png)
@@ -102,6 +109,7 @@ _Figure 3. - Functionally partitioning data by bounded context or subdomain_
 This partitioning strategy can help to reduce data access contention across different parts of the system.
 
 ## Designing partitions for scalability
+
 It is vital to consider size and workload for each partition and balance them so that data is distributed to achieve maximum scalability. However, you must also partition the data so that it does not exceed the scaling limits of a single partition store.
 
 Follow these steps when designing the partitions for scalability:
@@ -173,10 +181,12 @@ Consider the following factors that affect operational management:
 
 Different data storage technologies typically provide their own features to support partitioning. The following sections summarize the options implemented by data stores commonly used by Azure applications, and describe considerations for designing applications that can take best advantage of these features.
 
-# Partitioning strategies for Azure SQL Database
+## Partitioning strategies for Azure SQL Database
+
 Azure SQL Database is a relational database-as-a-service that runs in the cloud. It is based on Microsoft SQL Server. A relational database divides information into tables, and each table holds information about entities as a series of rows. Each row contains columns that hold the data for the individual fields of an entity. The [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279.aspx) page on the Microsoft website provides detailed documentation on creating and using SQL databases.
 
 ## Horizontal partitioning with Elastic Scale
+
 A single SQL database has a limit to the volume of data that it can contain, and throughput is constrained by architectural factors and the number of concurrent connections that it supports. Azure SQL Database provides Elastic Scale to support horizontal scaling for a SQL database. Using Elastic Scale, you can partition your data into shards spread across multiple SQL databases, and you can add or remove shards as the volume of data that you need to handle grows and shrinks. Using Elastic Scale can also help to reduce contention by distributing the load across databases.
 
 > [AZURE.NOTE] Elastic Scale is currently in preview as of January 2015. It is a replacement for Azure SQL Database Federations which will be retired. Existing Azure SQL Database Federation installations can be migrated to Elastic Scale by using the [Federations Migration Utility](https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1). Alternatively, you can implement your own sharding mechanism if your scenario does not lend itself naturally to the features provided by Elastic Scale.
@@ -227,6 +237,7 @@ The partitioning scheme that you implement can have a significant bearing on the
 As the name implies, Elastic Scale enables a system to add and remove shards as the volume of data shrinks and grows. The APIs in the Azure SQL Database Elastic Scale Client Library enable an application to create and delete shards dynamically (and transparently update the shard-map manager), but removing a shard is a destructive operation that also requires deleting all the data in that shard. If an application needs to split a shard into two separate shards or combine shards together, Elastic Scale provides a separate Split/Merge service. This service runs in a cloud-hosted service (the developer has to create this cloud-hosted service), and takes care of migrating data between shards safely. For more information, see the topic [Splitting and Merging with Elastic Scale](sql-database-elastic-scale-overview-split-and-merge.md) on the Microsoft website.
 
 ## Partitioning strategies for Azure Storage
+
 Azure storage provides three abstractions for managing data:
 
 - Table Storage, which implements scalable structure storage. A table contains a collection of entities, each of which can comprise a set of properties and values.
@@ -240,7 +251,9 @@ Table Storage and Blob Storage are essentially key-value stores optimized to hol
 - Geo-redundant storage, which maintains six copies of data; three copies in one region (your local region), and another three copies in a remote region. This form of redundancy provides the highest level of disaster protection.
 
 Microsoft has published scalability targets for Azure storage accounts; see the page [Azure Storage Scalability and Performance Targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website. Currently, the total storage account capacity (the size of data held in table storage, blob storage, and outstanding messages held in storage queue) cannot exceed 500TB. The maximum request rate (assuming a 1KB entity, blob, or message size) is 20K per second. If your system is likely to exceed these limits, then consider partitioning the load across multiple storage accounts; a single Azure subscription can create up to 100 storage accounts. However, note that these limits may change over time.
+
 ## Partitioning Azure table storage
+
 Azure table storage is a key/value stored designed around partitioning. All entities are stored in a partition, and partitions are managed internally by Azure table storage. Each entity stored in a table must provide a two-part key comprising:
 
 - The partition key. This is a string values that determines in which partition Azure table storage will place the entity. All entities with the same partition key will be stored in the same partition.
@@ -273,7 +286,9 @@ You should consider the following points when you design your entities for Azure
 	- Sharing the partition key across a subset of entities enables you to group related entities in the same partition. Operations that involve related entities can be performed by using entity group transactions, and queries that fetch a set of related entities may be satisfied by accessing a single server.
 
 For additional information on partitioning data in Azure table storage, see the article [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx) on the Microsoft website.
+
 ## Partitioning Azure blob storage
+
 Azure Blob Storage enables you to hold large binary objects, currently up to 200GB in size for block blobs, or 1TB for page blobs (for the most recent information, visit the [Azure Storage Scalability and Performance Targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) page on the Microsoft website). Use block blobs in scenarios such as streaming where you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
 
 Each blob (either block or page) is held in a container in an Azure storage account. You can use containers to group related blobs that have the same security requirements together, although this grouping is logical rather than physical. Inside a container each blob has a unique name.
@@ -285,13 +300,15 @@ The actions of writing a single block (block blob) or page (page blob) are atomi
 Azure blob storage supports transfer rates of up to 60MB per second or 500 requests per second for each blob. If you anticipate surpassing these limits, and the blob data is relatively static, then consider replicating blobs by using the Azure Content Delivery Network (CDN). For more information, see the page [Using CDN for Azure](cdn-how-to-use/) on the Microsoft website. For additional guidance and considerations, see the article Content Delivery Network (CDN).
 
 ## Partitioning Azure storage queues
+
 Azure storage queues enable you to implement asynchronous messaging between processes. An Azure storage account can contain any number of queues, and each queue can contain any number of messages. The only limitation is the space available in the storage account. The maximum size of an individual message is 64KB. If you require messages bigger than this, then consider using Azure Service Bus queues instead.
 
 Each storage queue has a unique name within the storage account in which it is contained. Azure partitions queues based on the name, and all messages for the same queue are stored in the same partition, controlled by a single server. Different queues can be managed by different servers to help balance the load. The allocation of queues to servers is transparent to applications and users. In a large scale application, don't use the same storage queue for all instances of the application as this approach may cause the server hosting the queue to become a hotspot; use different queues for different functional areas of the application. Azure storage queues do not support transactions, so directing messages to different queues should have little impact on messaging consistency.
 
 An Azure storage queue can handle up to 2000 messages per second.  If you need to process messages at a greater rate than this then consider creating multiple queues. For example, in a global application, create separate storage queues in separate storage accounts to handle application instances running in each region.
 
-# Partitioning strategies for Azure Service Bus
+## Partitioning strategies for Azure Service Bus
+
 Azure Service Bus uses a message broker to handle messages sent to a Service Bus queue or topic. By default, all messages sent to a queue or topic are handled by the same message broker process. This architecture can place a limitation on the overall throughput of the message queue. However, you can also partition a queue or topic when it is created by setting the _EnablePartitioning_ property of the queue or topic description to _true_. A partitioned queue or topic is divided up into multiple fragments, each of which is backed by a separate message store and message broker. Service Bus takes responsibility for creating and managing these fragments. When an application posts a message to a partitioned queue or topic, Service Bus assigns the message to a fragment for that queue or topic. When an application receives a message from a queue or subscription, Service Bus checks each fragment for the next available message and then passes it to the application for processing. This structure helps to distribute the load across message brokers and message stores, increasing scalability and improving availability; if the message broker or message store for one fragment is temporarily unavailable, Service Bus can retrieve messages from one of the remaining available fragments.
 
 Service Bus assigns a message to a fragment as follows:
@@ -311,7 +328,8 @@ You should consider the following points when deciding and how, or whether, to p
 - You cannot configure a partitioned queue or topic to be automatically deleted when it becomes idle.
 - If you are building cross-platform or hybrid solutions, you cannot currently use partitioned queues and topics with the Advanced Message Queuing Protocol (AMQP).
 
-# Partitioning strategies for Azure DocumentDB
+## Partitioning strategies for Azure DocumentDB
+
 Azure DocumentDB is a NoSQL database that can store documents. A document in DocumentDB is a JSON-serialized representation of an object or other piece of data. No fixed schemas are enforced except that every document must contain a unique ID.
 
 Documents are organized into collections. A collection enables you to group related documents together. For example, in a system that maintains blog postings, you could store the contents of each blog post as a document in a collection, and create collections for each subject type. Alternatively, in a multitenant application such as a system that enables different authors to control and manage their own blog posts, you could partition blogs by author and create a separate collection for each author. The storage space allocated to collections is elastic and can shrink or grow as needed.
@@ -345,7 +363,8 @@ You should consider the following points when deciding how to partition data wit
 - DocumentDB supports programmable items that can all be stored in a collection alongside documents: stored procedures, user-defined functions, and triggers (written in JavaScript). These items can access any document within the same collection. Furthermore, these items execute either inside the scope of the ambient transaction (in the case of a trigger that fires as the result of a create, delete, or replace operation performed against a document), or by starting a new transaction (in the case of a stored procedure that is executed as the result of an explicit client request). If the code in a programmable item throws an exception, the transaction is rolled back. You can use stored procedures and triggers to maintain integrity and consistency between documents, but these documents must all be part of the same collection.
 - You should ensure that the collections that you intend to hold in the databases in a DocumentDB account are unlikely to exceed the throughput limits defined by the performance levels of the collections. These limits are described on the [Manage DocumentDB capacity needs](documentdb-manage.md) page on the Microsoft website. If you anticipate reaching these limits, consider splitting collections across databases in different DocumentDB accounts to reduce the load per collection.
 
-# Partitioning Strategies for Azure Search
+## Partitioning Strategies for Azure Search
+
 The ability to search for data is often the primary method of navigation and exploration provided by many web applications, enabling users to quickly find resources (for example, products in an ecommerce application) based on combinations of search criteria. The Azure Search service provides full-text search capabilities over web content, and includes features such as type-ahead, suggested queries based on near matches, and faceted navigation. A full description of these capabilities is available on the [Azure Search Overview](https://msdn.microsoft.com/library/azure/dn798933.aspx) page on the Microsoft website.
 
 The Search service stores searchable content as JSON documents in a database. You define indexes that specify the searchable fields in these documents and provide these definitions to the Search service. When a user submits a search request, the Search service uses the appropriate indexes to find matching items.
@@ -361,7 +380,8 @@ You have limited control over how the Azure Search service partitions data for e
 - Create an instance of the Search service in each geographic region, and ensure that client applications are directed towards the nearest available instance. This strategy requires that any updates to searchable content are replicated in a timely manner across all instances of the service.
 - Create two-tiers of Search service; a local service in each region that contains the data most frequently accessed by users in that region, and a global service that encompasses all of the data. Users can direct requests either to the local service (for fast but limited results), or to the global service (for slower but more complete results). This approach is most suitable when there is a significant regional variation in the data being searched.
 
-# Partitioning strategies for Azure Redis Cache
+## Partitioning strategies for Azure Redis Cache
+
 Azure Redis Cache provides a shared caching service in the cloud that is based on the Redis key/value data store. As its name implies, Azure Redis Cache is intended as a caching solution and so should only be used for holding transient data rather than as a permanent data store; applications that utilize Azure Redis Cache should be able to continue functioning if the cache is unavailable. Azure Redis Cache supports primary/secondary replication to provide high availability, but currently limits the maximum cache size to 53GB. If you need more space than this, you must create additional caches. For more information visit the [Microsoft Azure Cache](http://azure.microsoft.com/services/cache/) page on the Microsoft website.
 
 Partitioning a Redis data store involves splitting the data across instances of the Redis service. Each instance constitutes a single partition. Azure Redis Cache abstracts the Redis services behind a façade and does not expose them directly. The simplest way to implement partitioning is to create multiple Azure Redis caches and spread the data across them. You can associate each data item with an identifier (a partition key) that specifies in which cache it should be stored. Your client application logic can use this identifier to route requests to the appropriate partition. This scheme is very simple, but if the partitioning scheme changes (if additional Azure Redis Caches are created, for example), client applications may need to be reconfigured.
@@ -393,7 +413,9 @@ _Figure 10. - Suggested structure in Redis storage for recording customer orders
 	> [AZURE.NOTE] A sequence of operations in a Redis transaction is not necessarily atomic. The commands that comprise a transaction are verified and queued prior to execution, and if an error occurs during this phase the entire queue is discarded. However, once the transaction has been successfully submitted, the queued commands will be executed in sequence. If any command fails only that command is aborted; all previous and subsequent commands in the queue are performed. If you need to perform atomic operations. For more information, visit the [Transactions](http://redis.io/topics/transactions) page on the Redis website.
 
 - Redis supports a limited number of atomic operations, and the only operations of this type that support multiple keys and values are MGET (which returns a collection of values for a specified list of keys), and MSET (which can store a collection of values for a specified list of keys). If you need to use these operations, the key/value pairs referenced by the MSET and MGET commands must be stored within the same database.
-# Rebalancing partitions
+
+## Rebalancing partitions
+
 As a system matures and the pattern of usage becomes better understood, it is possible that it may be necessary to adjust the partitioning scheme. This could be due to individual partitions attracting a disproportionate volume of traffic and becoming hot, leading to excessive contention. Additionally, you might have under-estimated the volume of data in some partitions, causing you to approach the limits of the storage capacity in these partitions. Whatever the cause, it is sometimes necessary to rebalance partitions to spread the load more evenly.
 
 In some cases, data storage systems which do not publicly expose the way in which data is allocated to servers can automatically rebalance partitions within the limits of the resources available. In other situations, rebalancing is an administrative task that consists of two stages:
@@ -406,6 +428,7 @@ In some cases, data storage systems which do not publicly expose the way in whic
 Depending on the data storage technology and the design of your data storage system, you may be able to migrate data between partitions while they are in use (online migration). If this is not possible, you may need to make the affected partitions temporarily unavailable while the data is relocated (offline migration).
 
 ## Offline migration
+
 Offline migration is arguably the simplest approach as it reduces the chances of contention occurring; the data being migrated should not change while it is being moved and restructured.
 
 Conceptually, this process comprises the following steps:
@@ -417,11 +440,15 @@ Conceptually, this process comprises the following steps:
 5. Remove the old shard.
 
 To retain some availability, it could be possible to mark the original shard as read-only in step 1 rather than making it unavailable. This would allow applications to read the data while it is being moved but not change it.
+
 ## Online migration
+
 Online migration is more complex to perform but is less disruptive to users as data remains available during the entire procedure. The process is similar to that used by offline migration, except that the original shard is not marked offline (step 1). Depending on the granularity of the migration process (item by item or shard by shard), the data access code in the client applications may have to handle reading and writing data held in two locations (the original shard and the new shard)
 
 For an example of a solution that supports online migration, see the [Split/Merge Service for Elastic Scale](sql-database-elastic-scale-overview-split-and-merge/), documented online on the Microsoft website.
-# Related patterns and guidance
+
+## Related patterns and guidance
+
 The following patterns may also be relevant to your scenario when considering strategies for implementing data consistency:
 
 - The Data Consistency Guidance page, available on the Microsoft website, describes strategies for maintaining consistency in a distributed environment such as the cloud.
@@ -431,7 +458,7 @@ The following patterns may also be relevant to your scenario when considering st
 - The [Materialized View Pattern](https://msdn.microsoft.com/library/dn589782.aspx) discussed on the Microsoft website describes how to generate pre-populated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions containing the data being summarized are distributed across multiple sites.
 - The article Content Delivery Network (CDN) provides additional guidance on configuring and using CDN with Azure.
 
-# More Information
+## More Information
 
 - The [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279.aspx) page on the Microsoft website provides detailed documentation describing how to create and use SQL databases.
 - The page [Azure SQL Database Elastic Scale Overview](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-introduction.md) on the Microsoft website provides a comprehensive introduction to Elastic Scale.
