@@ -18,7 +18,7 @@
 
 # Monitor your on-premises identity infrastructure in the cloud
 
-Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure. It offers you the ability to view alerts, performance, usage patterns, configuration settings, enables you to maintain a reliable connection to Office 365 and much more. This is accomplished using an agent that is installed on the targeted servers.  
+Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure. It offers you the ability to view alerts, performance, usage patterns, configuration settings, enables you to maintain a reliable connection to Office 365 and much more. This is accomplished using an agent that is installed on the targeted servers.  To learn more see [Azure AD Connect Health on MSDN.](https://msdn.microsoft.com/library/azure/dn906722.aspx)  
 
 <center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)</center>
 
@@ -28,7 +28,7 @@ This information is all presented in the Azure AD Connect Health portal.  Using 
 <center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/usage.png)</center>
 
 
-Future updates to Azure AD Connect Health will include additional monitoring and insight into more Azure services and features.  Thus enabling you to provide an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.
+Future updates to Azure AD Connect Health will include additional monitoring and insight into more Azure services and features.  Thus enabling you to provide an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.  To find out more see [Azure AD Connect Health on MSDN.](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 
 
 <center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center>
@@ -69,10 +69,12 @@ Azure AD Connect Health has been announced for public preview.  To find out more
 **Additional Resources**
 
 
-* [How Azure AD Connect works](active-directory-aadconnect-how-it-works.md)
-* [Getting started with Azure AD Connect](active-directory-aadconnect-get-started.md)
-* [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
-* [Learn More](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect Health Alerts](https://msdn.microsoft.com/library/azure/dn878081.aspx)
+* [Azure AD Connect Health Performance Monitoring](https://msdn.microsoft.com/library/azure/dn906740.aspx)
+* [Azure AD Connect Health Usage Analytics](https://msdn.microsoft.com/library/azure/dn906736.aspx)
+* [Azure AD Connect Health Requirements](https://msdn.microsoft.com/library/azure/dn906733.aspx)
+* [Azure AD Connect Health Agent Installation Requirements](https://msdn.microsoft.com/library/azure/dn906710.aspx)
+* [Azure AD Connect Health Operations](https://sandboxmsdnstage.redmond.corp.microsoft.com/library/0266355a-da4b-40b0-ad93-896a4af04a3e)
+* [Azure AD Connect Health on MSDN](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 
 
