@@ -39,7 +39,8 @@ Note that now you can also create a custom origin and it does not have to be Azu
 
 	![customorigin][customorigin]
 
-
+	Note that currently only HTTP is supported for origin. 
+	
 5.	Click the **Create** button to create the new endpoint.
 
 
