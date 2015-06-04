@@ -32,13 +32,3 @@ The following is a collection of additional resources that will help you take fu
 ## Videos
 
 
-
-
-**Additional Resources**
-
-* [Whats Is It](multi-factor-authentication.md) 
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [What's Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)

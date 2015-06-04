@@ -36,13 +36,3 @@ Caching allows you to set a specific time period so that subsequent authenticati
 
 <center>![Cloud](./media/multi-factor-authentication-manage-caching/cache.png)</center>
 
-
-**Additional Resources**
-
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [End User Guide](multi-factor-authentication-end-user.md)
-* [MFA Operations Guide](multi-factor-authentication-operations.md)
-* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)

@@ -91,16 +91,6 @@ Edit the Register-MultiFactorAuthenticationAdfsAdapter.ps1 script adding -Config
 <li>Run the \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 script in PowerShell to register the adapter.  The adapter is registered as WindowsAzureMultiFactorAuthentication.  You must restart the AD FS service for the registration to take effect. </li>
 
 
-**Additional Resources**
-
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [End User Guide](multi-factor-authentication-end-user.md)
-* [MFA Operations Guide](multi-factor-authentication-operations.md)
-* [Azure Multi-Factor Authentication on MSDN](htts://msdn.microsoft.com/library/azure/dn249471.aspx)
-
 
 
 

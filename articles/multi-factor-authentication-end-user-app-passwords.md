@@ -49,7 +49,7 @@ How you use multi-factor authentiation|Description
 :------------- | :------------- | 
 [I use it with Office 365](multi-factor-authentication-end-user-manage-o365.md)|  This means that you will want to create app passwords through the Office 365 portal.
 [I use it with Microsoft Azure](multi-factor-authentication-end-user-manage-azure.md)| This means that you will want create app passwords through the Azure portal.
-[I don't use it with either of those](multi-factor-authentication-end-user-manage-myapps.md)|This means you will want create app passwords through [https://myapps.microsoft.com](https://myapps.microsoft.com)
+[I don't know](multi-factor-authentication-end-user-manage-myapps.md)|This means you will want create app passwords through [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
 
 

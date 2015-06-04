@@ -250,13 +250,3 @@ Additionally users can also create app passwords later on by changing their sett
 8. Copy the app password to the clipboard and paste it into your app.
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/myapp.png)</center>
-
-**Additional Resources**
-
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [End User Guide](multi-factor-authentication-end-user.md)
-* [MFA Operations Guide](multi-factor-authentication-operations.md)
-* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)

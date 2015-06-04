@@ -34,14 +34,8 @@ Feature| Description
 [Custom Voice Messages](multi-factor-authentication-manage-custom.md) |How to setup and configure custom greetings and messages
 [Caching](multi-factor-authentication-manage-caching.md)|How to setup and configure authentication caching.
 [Trusted IPs](multi-factor-authentication-trusted-ips.md)|Configure and setup IP addresses that are exempt for multi-factor authentication	
-App Passwords|Information about app passwords.
+[App Passwords](multi-factor-authentication-manage-app-passwords.md)|Information about app passwords.
 
 **Additional Resources**
 
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [End User Guide](multi-factor-authentication-end-user.md)
-* [MFA Operations Guide](multi-factor-authentication-operations.md)
 * [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)

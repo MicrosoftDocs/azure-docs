@@ -109,11 +109,3 @@ Choose the model that works best for your organization.  Then to get started see
 
 
 
-**Additional Resources**
-
-* [What is it?](multi-factor-authentication.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
-

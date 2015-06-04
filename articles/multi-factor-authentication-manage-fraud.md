@@ -60,15 +60,3 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 5. On the Azure Multi-Factor Authentication Management Portal, on the left, under View A Report, click Fraud Alert.
 6. Specify the date range that you wish to view in the report. Also you can specify any specific usernames, phone numbers and the users status.
 7. Click Run. This will bring up a report similar to the one below. You can also click Export to CSV if you wish to export the report.
-
-
-
-**Additional Resources**
-
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [End User Guide](multi-factor-authentication-end-user.md)
-* [MFA Operations Guide](multi-factor-authentication-operations.md)
-* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
