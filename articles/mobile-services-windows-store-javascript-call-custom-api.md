@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Call a custom API from the client
@@ -24,13 +24,7 @@ This topic shows you how to call a custom API from a Windows Store app. A custom
 
 The custom API created in this topic gives you the ability to send a single POST request that sets the completed flag to `true` for all the todo items in the table. Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.
 
-You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. To do this, you will complete the following steps:
-
-1. [Define the custom API]
-2. [Update the app to call the custom API]
-3. [Test the app] 
-
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. This tutorial uses Visual Studio 2012 Express for Windows 8, or a later version.
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Add Mobile Services to an existing app]. 
 
 ## <a name="define-custom-api"></a>Define the custom API
 
@@ -41,7 +35,9 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Next steps
 
-Now that you have created a custom API and called it from your Windows Store app, consider finding out more about the following Mobile Services topics:
+This topic showed how to use the **invokeApi** function to call a fairly simple custom API from your Windows app. To learn more about using the **invokeApi** function, see the post [Custom API in Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).  
+
+Also, consider finding out more about the following Mobile Services topics:
 
 * [Mobile Services server script reference]
   <br/>Learn more about creating custom APIs.
@@ -59,7 +55,7 @@ Now that you have created a custom API and called it from your Windows Store app
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-windows-store-get-started.md
-[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
+[Add Mobile Services to an existing app]: mobile-services-windows-store-javascript-get-started-data.md
 [Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
