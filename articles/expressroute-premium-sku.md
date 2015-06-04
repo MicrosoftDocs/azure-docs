@@ -1,6 +1,6 @@
 <properties 
    pageTitle="How to Enable or Disable ExpressRoute Premium Add-on | Microsoft Azure"
-   description="How to enable or disable ExpressRoute Premium add-on for an ExpressRoute circuit."
+   description="How to enable or disable ExpressRoute Premium add-on for an ExpressRoute circuit. ExpressRoute Premium lets you add up to 10,000 routes for public and private peering and up to 10 virtual networks to your ExpressRoute Circuit. You can also link a virtual network in one region to a ExpressRoute circuit in another."
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
