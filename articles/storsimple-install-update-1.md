@@ -29,7 +29,7 @@ You will be prompted to perform a manual pre-check to ensure that:
 
     `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP outside of datacenter network> `
  
-	#####Sample output for Test-Connection when fixed IPs can connect to the Internet
+	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
 
 	    Controller0>Test-connection -Source 10.126.173.91 -Destination 8.8.8.8
     	
