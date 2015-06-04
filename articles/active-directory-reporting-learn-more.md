@@ -26,7 +26,7 @@ Learn about what events are audited in the directory in [Azure Active Directory 
 
 ## API Integration
 
-See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md).
+See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md) and the [API reference documentation](https://msdn.microsoft.com/library/azure/mt126081.aspx).
 
 ## Get in touch
 
