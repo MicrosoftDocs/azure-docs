@@ -34,9 +34,9 @@ These instructions below will help you do the following:
 
 ## To create an ExpressRoute circuit with Premium add-on features enabled
 
-###  Configuration prerequisites
+###  Before you begin
 
-Before you begin configuration, verify that you have met the following prerequisites:
+Before you begin configuration, verify that you have the following prerequisites:
 
 - An Azure subscription
 - The latest version of Azure PowerShell
@@ -78,7 +78,7 @@ In the example below, the ExpressRoute circuit does not have ExpressRoute Premiu
 
 
 
-## To enable the Premium add-on for an existing ExpressRoute circuit
+## To enable the ExpressRoute Premium add-on for an existing ExpressRoute circuit
 You can enable ExpressRoute Premium add-on features for any ExpressRoute circuit you have already created.
 
 
