@@ -249,5 +249,5 @@ Use the following command to update data in a table. For this one, Sandy has con
  	UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
-#More to use PostgreSQL
+##More regarding PostgreSQL
 You complete the installation of PostgreSQL in Microsoft Azure Linux VM right now, and enjoy your journey to use it in Microsoft Azure. More regarding PostgreSQL, see [here](http://www.postgresql.org/).
