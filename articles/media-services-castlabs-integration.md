@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/03/2015" 
 	ms.author="juliako"/>
 
 
@@ -95,7 +95,7 @@ To use the Web Application (STS):
 
 ##Playing back a video
 
-To playback a video encrypted with common encryption (PlayReady and Widevine), you can use the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). When running the console app, the Content Key ID and the Manifest URL are echoed.
+To playback a video encrypted with common encryption (PlayReady), you can use the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). When running the console app, the Content Key ID and the Manifest URL are echoed.
 
 1.	Open a new tab and launch your STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Go to [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).

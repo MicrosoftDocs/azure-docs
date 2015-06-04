@@ -11,27 +11,33 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # How to make data model changes to a .NET backend mobile service
 
 This topic shows how to use Entity Framework Code First Migrations to make data model changes to an existing Azure SQL Database to avoid losing existing data. This procedure assumes that you have already published your mobile service project to Azure, that there is existing data in your database, and that the remote and local data models are still in sync. This topic also describes the default Code First initializers implemented by Azure Mobile Services that are used during development. These initializers let you easily make schema changes without using Code First Migrations when it is not necessary to maintain you existing data. 
 
->[AZURE.NOTE]The schema name that is used to prefix your tables in the SQL Database is defined by the <strong>MS_MobileServiceName</strong> app setting in the web.config file. When you download the starter project from the portal, this value is already set to the mobile service name. When your schema name matches the mobile service, multiple mobile services can safely share the same database instance. 
+>[AZURE.NOTE]The schema name that is used to prefix your tables in the SQL Database is defined by the MS_MobileServiceName app setting in the web.config file. When you download the starter project from the portal, this value is already set to the mobile service name. When your schema name matches the mobile service, multiple mobile services can safely share the same database instance. 
+
+## Updating the data model
+
+As you add functionality to your .NET backend mobile service, you add new controllers to expose new endpoints in your API. You create a new API as either a custom controller or a table controller. A [TableController<TEntity>] exposes a data type that inherits from [EntityData]. To enable data to be persisted to the database, this data type must also be added to the data model as a new [DbSet<T>] in the [DbContext]. To learn more about Code First in the Entity Framework, see [Creating a Model with Code First](https://msdn.microsoft.com/data/ee712907#codefirst). 
+
+Visual Studio makes it easy to create a new table controller to expose a new data type to client apps. For more information, see [How to use controllers to access data in mobile services](https://msdn.microsoft.com/library/windows/apps/xaml/dn614132.aspx).
 
 ## Data model initializers
 
-Mobile Services provides supports two data model initializer base classes in a .NET backend mobile service project. These initializers  both drop and recreate tables in the database whenever the Entity Framework detects a data model change in your [DbContext]. These initializers are designed to work both when you mobile service is running on a local computer and when it is hosted in Azure. 
+Mobile Services provides two data model initializer base classes in a .NET backend mobile service project. Both initializers drop and recreate tables in the database when the Entity Framework detects a data model change in your [DbContext]. These initializers are designed to work both when you mobile service is running on a local computer and when it is hosted in Azure. 
 
 >[AZURE.NOTE]When you publish a .NET backend mobile service, the initializer is not run until a data access operation occurs. This means that for a newly published service, the data tables used for storage aren't created until a data access operation, such as a query, is requested by the client. 
 >
 >You can also execute a data access operation by using the built-in API help functionality, accessed from the **Try it out** link on the start page. For more information on using the API pages to test your mobile service, see the section Test the mobile service project locally in [Add Mobile Services to an existing app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#test-the-service-locally).  
 
-Both initializer base classes delete from the database all tables, views, functions, and procedures in the schema used by the mobile service. 
+Both initializers delete from the database all tables, views, functions, and procedures in the schema used by the mobile service. 
 
 + **ClearDatabaseSchemaIfModelChanges** <br/> Schema objects are deleted only when Code First detects a change in the data model. The default initializer in a .NET backend project downloaded from the [Azure Management Portal] inherits from this base class.
  
@@ -159,3 +165,6 @@ This code calls the [AddOrUpdate] helper extension method to add seed data to th
 [Azure Management Portal]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
+[EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
+[DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
