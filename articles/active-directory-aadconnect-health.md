@@ -31,7 +31,7 @@ This information is all presented in the Azure AD Connect Health portal.  Using 
 Future updates to Azure AD Connect Health will include additional monitoring and insight into more Azure services and features.  Thus enabling you to provide an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.
 
 
-<center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo.png)</center>
+<center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center>
 
 
 
