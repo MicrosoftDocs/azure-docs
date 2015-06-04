@@ -16,7 +16,7 @@
  ms.date="06/04/2015"
  ms.author="larryfr"/>
 
-#Understand and resolve errors received from WebHCat (Tempelton,) on HDInsight
+#Understand and resolve errors received from WebHCat (Templeton,) on HDInsight
 
 When using WebHCat (formerly known as Templeton,) to work with HDInsight, you may receive errors. This document provides guidance on common errors – why they occur and what you can do to resolve them.
 
@@ -39,7 +39,7 @@ The following are default configuration values that can impact WebHCat performan
 | Setting | What it does | Default value |
 | ------- | ------------ | ------------- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] | The maximum number of jobs that can be active concurrently (pending or running) | 10,000 |
-| [templeton.exec.max-procs][max-procs] | The maximum number of requests that can be served concurrently | 16 |
+| [templeton.exec.max-procs][max-procs] | The maximum number of requests that can be served concurrently | 20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] | The number of days that job history will be retained | 7 days |
 
 ##Too many requests
@@ -48,7 +48,7 @@ The following are default configuration values that can impact WebHCat performan
 
 | Cause | Resolution |
 | ----- | ---------- |
-| You have hit the maximum concurrent job limit for the cluster (default 10,000) | Reduce your workload to ensure that you do not submit more than the maximum number of concurrent jobs or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. See [Modifying configuration](#odifying-configuration) for more information |
+| You have exceeded the maximum concurrent requests served by WebHCat per minute (default 20) | Reduce your workload to ensure that you do not submit more than the maximum number of concurrent requests or increase the concurrent request limit by modifying `templeton.exec.max-procs`. See [Modifying configuration](#modifying-configuration) for more information |
 
 ##Server unavailable
 
@@ -64,8 +64,8 @@ The following are default configuration values that can impact WebHCat performan
 
 | Cause | Resolution |
 | ---------------- | ------------------- |
-| Job details have been cleaned up by the job history cleaner | The default retention period for job history is 7 days. This can be changed by modifying `mapreduce.jobhistory.max-age-ms`. See [Modifying configuration](#odifying-configuration) for more information |
-| Job has been killed due to a failover | Retry job submission |
+| Job details have been cleaned up by the job history cleaner | The default retention period for job history is 7 days. This can be changed by modifying `mapreduce.jobhistory.max-age-ms`. See [Modifying configuration](#modifying-configuration) for more information |
+| Job has been killed due to a failover | Retry job submission for up to two minutes |
 | An Invalid job id was used | Check if the job id is correct |
 
 ##Bad gateway
@@ -75,7 +75,7 @@ The following are default configuration values that can impact WebHCat performan
 | Cause | Resolution |
 | ---------------- | ------------------- |
 | Internal garbage collection is occurring within the WebHCat process | Wait for garbage collection to finish or restart the WebHCat service |
-| Timeout waiting on a response from the ResourceManager service. This can occur when the number of active applications goes the configured maximum (default 10,000) | Wait for currently running jobs to complete or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. See [Modifying configuration](#odifying-configuration) for more information  |
+| Timeout waiting on a response from the ResourceManager service. This can occur when the number of active applications goes the configured maximum (default 10,000) | Wait for currently running jobs to complete or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. See [Modifying configuration](#modifying-configuration) for more information  |
 | When attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to  `*` | Do not retrieve *all* job details, instead use `jobid` to retrieve details for jobs only greater than certain job id. Or, do not use `Fields` |
 | The WebHCat service is down during HeadNode failover | Wait for two minutes and retry the operation |
 | There are more than 500 pending jobs submitted through WebHCat | Wait until currently pending jobs have completed before submitting more jobs |
