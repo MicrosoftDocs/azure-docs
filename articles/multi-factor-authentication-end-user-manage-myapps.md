@@ -1,0 +1,52 @@
+<properties 
+	pageTitle="Azure Multi-Factor Authentication - End Users Guide" 
+	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="terrylan" 
+	editor="bryanla"/>
+
+<tags 
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/02/2015" 
+	ms.author="billmath"/>
+
+# Manage your settings in the Myapps portal
+
+[End User Guide - Home](multi-factor-authenticatio-end-user.md)<br> 
+[Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
+[Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
+[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)<br>
+[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)
+
+
+If you use multi-factor authentication with Office 365 you will want to manage your additional security verification settings through the Office 365 portal.
+
+## To access additional security verification settings in the Myapps portal
+<ol>
+<li>Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>	
+<li>At the top, select profile.</li>
+<li>Click on your user name and select Additional Security Verification.</li>
+
+<center>![Cloud](./media/multi-factor-authentication-get-started-cloud/myapp.png)</center>
+
+<li>You should now be on the proof-up page and you can change your settings.</li>
+
+<center>![Setup](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)</center>
+
+
+
+**Additional Resources**
+
+* [How it Works](multi-factor-authentication-how-it-works.md)
+* [Getting Started](multi-factor-authentication-get-started.md)
+* [Whats Next](multi-factor-authentication-whats-next.md)
+* [Learn More](multi-factor-authentication-learn-more.md)
+* [End User Guide](multi-factor-authentication-end-user.md)
+* [MFA Operations Guide](multi-factor-authentication-operations.md)
+* [Azure Multi-Factor Authentication on MSDN](htts://msdn.microsoft.com/library/azure/dn249471.aspx)
