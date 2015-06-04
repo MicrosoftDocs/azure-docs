@@ -69,6 +69,8 @@ By default, API App projects are enabled with automatic [Swagger](http://swagger
 
 However, the Azure API App new-project template disables the API test page. If you created your API app project by using the API App project template, you need to do the following steps to enable the test page.
 
+**Note:** If you deploy the API app as *public anonymous* and with the Swagger UI enabled, anyone will be able to use the Swagger UI to discover and call your APIs. 
+
 1. Open the *App_Start/SwaggerConfig.cs* file, and search for **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)

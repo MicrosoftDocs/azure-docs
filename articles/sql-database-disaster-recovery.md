@@ -76,7 +76,7 @@ In the event of an outage of a database, you can recover your database from its 
 3. Specify the rest of the database properties and then click **Create**.
 4. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.
 
-After the database is recovered you can configure it to be used by following the [Finalize a Recovered Database](articles/sql-database-recovered-finalize.md) guide.
+After the database is recovered you can configure it to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 ###PowerShell 
 Use PowerShell to programmatically perform database recovery.
 

@@ -47,7 +47,7 @@ Now that your users have been synchronized to the cloud, you will need to assign
 ## Verifying the scheduled synchronization task
 If you want to check on the status of a synchronization you can do this by checking in the Azure portal.
 
-### To assign an Azure AD Premium or Enterprise Mobility Suite License
+### To verify the scheduled synchronization task
 --------------------------------------------------------------------------------
 
 1. Sign-in to the Azure Portal as an Administrator.
@@ -63,14 +63,7 @@ If you need to run a synchronization task you can do this by running through the
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-### To assign an Azure AD Premium or Enterprise Mobilitiy Suite License
---------------------------------------------------------------------------------
 
-1. Sign-in to the Azure Portal as an Administrator.
-2. On the left, select **Active Directory**.
-3. On the Active Directory page, double-click on the directory that has the users you wish to enable.
-4. At the top of the directory page, select **Directory Integration**.
-5. Under integration with local active directory note the last sync time.
 
 
 ## Additional tasks available in Azure AD Connect

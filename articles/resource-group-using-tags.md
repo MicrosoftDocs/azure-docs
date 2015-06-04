@@ -42,7 +42,7 @@ From here, you can click on each individual tag to view a list of all the resour
 
 ## Tagging with PowerShell
 
-First thing's first, grab the latest [Azure PowerShell module](./install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](./install-configure-powershell.md) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
+First thing's first, grab the latest [Azure PowerShell module](./install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](./install-configure-powershell.md) to get up to speed. For the purposes of this article, we'll assume you've already added an account and selected a subscription with the resources you want to tag.
 
 Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 
@@ -56,7 +56,7 @@ This cmdlet returns several bits of metadata on the resource group including wha
 
 ![Setting tags with Set-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-Remember that tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to save use an array with all the tags you want to keep. To remove one, simply save the array without the one you want to remove. 
+Remember that tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep. To remove one, simply save the array without the one you want to remove. 
 
 The process is the same for resources, except you'll use the `Get-AzureResource` and `Set-AzureResource` cmdlets. To get resources or resource groups with a specific tag, use `Get-AzureResource` or `Get-AzureResourceGroup` cmdlet with the `-Tag` parameter.
 

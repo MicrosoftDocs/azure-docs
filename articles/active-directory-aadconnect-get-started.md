@@ -27,7 +27,7 @@
 </div>
 
 
-The following documentation will help you get started with Azure Active Directory Connect.
+The following documentation will help you get started with Azure Active Directory Connect.  This documentation deals with using the express installation for Azure AD Connect.  For information on a Custom installation see [Custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 ## Download Azure AD Connect
 
@@ -78,8 +78,13 @@ Selecting Express Settings is the default option and is one of the most common s
 8. Once this completes, click **Exit**.
 
 
+<br>
+<br>
 
-For information on a Custom installation see [Custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+For additional information on using the express installation check out the following video:
+
+<center>[AZURE.VIDEO azure-active-directory-connect-express-settings]</center>
+
 
 
 ## Verifying the installation
