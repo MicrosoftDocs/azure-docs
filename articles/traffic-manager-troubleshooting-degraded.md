@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Troubleshooting Degraded status on Azure Traffic Manager"
+   pageTitle="Troubleshooting degraded status on Azure Traffic Manager"
    description="How to troubleshoot Traffic Manager profiles when it shows as degraded status."
    services="traffic-manager"
    documentationCenter=""
