@@ -66,7 +66,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
-#Update the app to use the mobile service
+##Update the app to use the mobile service
 
 [AZURE.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
