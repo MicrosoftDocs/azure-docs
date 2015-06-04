@@ -15,8 +15,8 @@
    ms.workload="infrastructure-services"
    ms.date="06/02/2015"
    ms.author="joaoma" />
-# Troubleshooting Degraded status on Azure Traffic Manager
-This page will describe how to troubleshoot Azure Traffic Manager profile which is showing a Degraded status, and provide some key points to understand about traffic manager probes.
+# Troubleshooting degraded status on Azure Traffic Manager
+This page will describe how to troubleshoot Azure Traffic Manager profile which is showing a degraded status, and provide some key points to understand about traffic manager probes.
 
 
 ## Symptom
@@ -48,7 +48,7 @@ If you go into the Endpoints tab of that profile you will see one or more of the
 
 The best tool for troubleshooting WATM probe failures is wget.  You can get the binaries and dependencies package from [wget](http://gnuwin32.sourceforge.net/packages/wget.htm).  Note that you can use other programs such as Fiddler or curl instead of wget – basically you just need something that will show you the raw HTTP response.
 
-Once you have wget installed, go to a command prompt and run wget against the URL + Probe port & path that is configured in WATM.  For this example it would be http://watestsdp2008r2.cloudapp.net:80/Probe.
+Once you have wget installed, go to a command prompt and run wget against the URL + Probe port & path that is configured in Traffic Manager.  For this example it would be http://watestsdp2008r2.cloudapp.net:80/Probe.
 
 ![troubleshooting](./media/traffic-manager-troubleshooting-degraded/traffic-manager-troubleshooting.png)
 
@@ -58,7 +58,7 @@ Using Wget:
 
  
 
-Notice that wget indicates that the URL returned a 301 redirect to http://watestsdp2008r2.cloudapp.net/Default.aspx.  As we know from the “Important notes about WATM probing” section above, a 30x redirect is considered a failure by WATM probing and this will cause the probe to report Offline.  At this point it is a simple matter to check the website configuration and make sure that a 200 is returned from the /Probe path (or reconfigure the WATM probe to point to a path which will return a 200).
+Notice that wget indicates that the URL returned a 301 redirect to http://watestsdp2008r2.cloudapp.net/Default.aspx.  As we know from the “Important notes about WATM probing” section above, a 30x redirect is considered a failure by WATM probing and this will cause the probe to report Offline.  At this point it is a simple matter to check the website configuration and make sure that a 200 is returned from the /Probe path (or reconfigure the Traffic Manager probe to point to a path which will return a 200).
 
  
 
