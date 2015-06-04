@@ -35,13 +35,13 @@ This table summarizes the replication scenarios supported by Site Recovery.
 
 **Replicate to** | **Replicate from (on-premises)** | **Details** | **Article**
 ---|---|---|---
-Azure | Hyper-V site | Replicate virtual machine on one or more on-premises Hyper-V host servers that are defined as a Hyper-V site to Azure. No VMM server required. | [Read more](site-recovery-hyper-v-site-to-azure)
-Azure| VMM server | Replicate virtual machines on one or more on-premises Hyper-V host servers located in a VMM cloud to Azure. | [Read more](site-recovery-vmm-to-azure) 
-Azure | Physical Windows server | Replicate a physical Windows or Linux server to Azure | [Read more](site-recovery-vmware-to-azure)
-Azure | VMware virtual machine | Replicate VMware virtual machines to Azure | [Read more](site-recovery-vmware-to-azure)
-Secondary datacenter | VMM server | Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary VMM server in another datacenter | [Read more](site-recovery-vmm-to-vmm)
-Secondary datacenter | VMM server with SAN | Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary VMM server in another datacenter using SAN replication| [Read more](site-recovery-vmm-san)
-Secondary datacenter | Single VMM server | Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary cloud on the same VMM server | [Read more](site-recovery-single-vmm) 
+Azure | Hyper-V site | Replicate virtual machine on one or more on-premises Hyper-V host servers that are defined as a Hyper-V site to Azure. No VMM server required. | [Read more](site-recovery-hyper-v-site-to-azure.md)
+Azure| VMM server | Replicate virtual machines on one or more on-premises Hyper-V host servers located in a VMM cloud to Azure. | [Read more](site-recovery-vmm-to-azure.md) 
+Azure | Physical Windows server | Replicate a physical Windows or Linux server to Azure | [Read more](site-recovery-vmware-to-azure.md)
+Azure | VMware virtual machine | Replicate VMware virtual machines to Azure | [Read more](site-recovery-vmware-to-azure.md)
+Secondary datacenter | VMM server | Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary VMM server in another datacenter | [Read more](site-recovery-vmm-to-vmm.md)
+Secondary datacenter | VMM server with SAN | Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary VMM server in another datacenter using SAN replication| [Read more](site-recovery-vmm-san.md)
+Secondary datacenter | Single VMM server | Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary cloud on the same VMM server | [Read more](site-recovery-single-vmm.md) 
 
 
 ## Workload Guidance
@@ -178,4 +178,4 @@ This table summarizes the main Site Recovery features and how they're handled du
 
 ## Next steps
 
-After you're finished this overview [read the best practices](site-recovery-best-practices) to help you get started with deployment planning. 
+After you're finished this overview [read the best practices](site-recovery-best-practices.md) to help you get started with deployment planning. 

@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 # What are the next steps I can take using Azure AD?
 
 
+###Other articles on this topic
 [What is Azure AD?](active-directory-whatis.md)<br>
 [How does it work?](active-directory-works.md)<br>
 [Get started](active-directory-get-started.md)<br>
+[Next steps](active-directory-next-steps.md)<br>
 [Learn more](active-directory-learn-map.md)
 
 ## Manage users in Azure AD

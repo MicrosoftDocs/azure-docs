@@ -1,7 +1,7 @@
 <properties
 	pageTitle="HBase tutorial: Get started with HBase in Hadoop | Microsoft Azure"
 	description="Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"	
+	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -13,7 +13,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="05/21/2015"
 	ms.author="jgao"/>
 
@@ -53,7 +53,7 @@ Before you begin this HBase tutorial, you must have the following:
 
 	> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
-	> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost. 
+	> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
 
 4. Click **Create HDInsight Cluster** in the lower right to create the HBase cluster.
 
@@ -140,7 +140,7 @@ You can create a text file and upload the file to your own storage account if yo
 
 		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
-4. Run the following command to upload the data from  /example/data/storeDataFileOutput to the HBase table: 
+4. Run the following command to upload the data from  /example/data/storeDataFileOutput to the HBase table:
 
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 
@@ -148,9 +148,9 @@ You can create a text file and upload the file to your own storage account if yo
 
 ## Check cluster status
 
-HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions. 
+HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.
 
-To open the Web UI, you must RDP into the cluster, and then click the HMaster Info Web UI shortcut on your desktop, or use the following URL in a web browser: 
+To open the Web UI, you must RDP into the cluster, and then click the HMaster Info Web UI shortcut on your desktop, or use the following URL in a web browser:
 
 	http://zookeeper[0-2]:60010/master-status
 
@@ -326,7 +326,7 @@ To learn more, see:
 HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
 - [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]:
 With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.
-- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md): Learn how to configure HBase replication across two Azure datacenters. 
+- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md): Learn how to configure HBase replication across two Azure datacenters.
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]:
 Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data by using HBase in a Hadoop cluster in HDInsight.
 

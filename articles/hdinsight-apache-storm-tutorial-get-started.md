@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Apache Storm tutorial: Get started with Storm | Microsoft Azure"
 	description="Get started with big data analytics using Apache Storm and the Storm Starter samples on HDInsight. Learn how to use Storm to process data real-time."
-	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"	
+	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="04/28/2015"

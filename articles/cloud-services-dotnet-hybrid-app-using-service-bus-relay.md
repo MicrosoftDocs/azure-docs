@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
-	editor="mattshel"/>
+	editor=""/>
 
 <tags
 	ms.service="service-bus"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/02/2015"
 	ms.author="sethm"/>
 
 
@@ -163,15 +163,6 @@ In order to perform management operations on the new namespace, such as creating
 
 
 4.  Make a note of these credentials, or copy them to the clipboard.
-
-## Manage a service namespace using the Visual Studio Server Explorer
-
-To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/library/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane.
-
-![][44]
-
-Make a note of the **SharedAccessKey** value, or copy it to the clipboard.
-
 
 ## Create an on-premises server
 
@@ -772,7 +763,6 @@ To learn more about Service Bus, see the following resources:
   [41]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [42]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
   [43]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [45]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
