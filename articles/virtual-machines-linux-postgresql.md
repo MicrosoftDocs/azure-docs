@@ -247,3 +247,7 @@ This will delete all the info in the "John" row. The output is:
 Use the following command to update data in a table. For this one, Sandy has confirmed that she is attending so we will change her RSVP from "N" to "Y":
 
  	UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
+
+
+#More to use PostgreSQL
+You complete the installation of PostgreSQL in Microsoft Azure Linux VM right now, and enjoy your journey to use it in Microsoft Azure. More regarding PostgreSQL, see [here](http://www.postgresql.org/).
