@@ -236,22 +236,22 @@ In these cases, you should go to the portal and file a support issue to raise yo
 <!-- -->
 To be specific about cores, for example, you can check the regions for which you should request the proper quota amount by using the following command, which pipes out to **jq** for json parsing.
 <!-- -->
-    azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-    {
-      "name": "virtualMachines",
-      "apiVersions": [
-        "2015-05-01-preview",
-        "2014-12-01-preview"
-      ],
-      "locations": [
-        "East US",
-        "West US",
-        "West Europe",
-        "East Asia",
-        "Southeast Asia"
-      ]
-    }
- 
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
+          "name": "virtualMachines",
+          "apiVersions": [
+            "2015-05-01-preview",
+            "2014-12-01-preview"
+          ],
+          "locations": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ]
+        }
+     
 
 ## Azure CLI and PowerShell mode issues
 
