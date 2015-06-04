@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2015"
+	ms.date="06/03/2015"
 	ms.author="kathydav"/>
 
 # Create a Virtual Machine Running Windows in the Azure Preview Portal#
@@ -38,15 +38,11 @@ Using Windows Server 2012 R2 Datacenter as an example, you can create a VM to tr
 
 2. On the Hub menu, click **New**.
 
-	![Select New](./media/virtual-machines-windows-tutorial/new_button_portal.png)
-
 3. In the **New** blade, click **Compute** **>** **Windows Server 2012 R2 Datacenter**.
 
 	![Select a VM image from the Marketplace](./media/virtual-machines-windows-tutorial/marketplace_portal.png)
 
-4. On the **Create VM** blade, fill in the **Host Name** you want for the VM, the administrative **User Name**, and a strong **Password**.  
-
-	>[AZURE.NOTE] **User Name** refers to the administrative account that you use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**. If you forget the password, you can reset it using [these instructions](virtual-machines-windows-reset-password.md).
+4. On the **Create VM** blade, fill in the **Host Name** you want for the VM, the administrative **User Name**, and a strong **Password**. **User Name** refers to the administrative account that you'll use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**. If you forget the password, you can reset it using [these instructions](virtual-machines-windows-reset-password.md)
 
 	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial/create_vm_name_pwd_portal.png)
 
@@ -56,9 +52,7 @@ Using Windows Server 2012 R2 Datacenter as an example, you can create a VM to tr
 
 6. When you're done reviewing or updating the settings, click **Create**.
 
-7. While Azure creates the VM, you can keep track of the progress in **Notifications**, in the Hub menu. After Azure creates the VM, you'll see it on your Startboard.
-
-	![VM appears on the Startboard](./media/virtual-machines-windows-tutorial/vm_startboard_portal.png)
+7. While Azure creates the VM, you can keep track of the progress in **Notifications**, in the Hub menu. After Azure creates the VM, you'll see it on your Startboard unless you cleared **Pin to Startboard** in the **Create VM** blade.
 
 ## Log on to the virtual machine
 
@@ -69,9 +63,6 @@ After you create the VM, you'll want to log on to it so you can manage its setti
 1. If you haven't already done so, sign in to the [Preview portal](https://portal.azure.com).
 
 2. Click your VM on the Startboard. If you need to find it, click **Browse** > **Virtual machines**. Then, select your VM from the list.
-
-	![Browse to find the VM](./media/virtual-machines-windows-tutorial/browse_vm_portal.png)
-
 
 3. On the VM blade, click **Connect**.
 
@@ -89,7 +80,7 @@ After you create the VM, you'll want to log on to it so you can manage its setti
 
 ## Next steps
 
-To learn more about configuring Windows virtual machines on Azure, see the following articles:
+To learn more about configuring Windows virtual machines on Azure, see these articles:
 
 [Connect Virtual Machines with a Virtual Network or Cloud Service](cloud-services-connect-virtual-machine.md)
 

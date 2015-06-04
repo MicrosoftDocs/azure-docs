@@ -3,8 +3,8 @@
 	description="Learn how to use Notification Hubs to send push notifications from a Node.js application."
 	services="notification-hubs"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/26/2015"
-	ms.author="mwasson"/>
+	ms.date="06/02/2015"
+	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
 <div class="dev-center-tutorial-selector sublanding">

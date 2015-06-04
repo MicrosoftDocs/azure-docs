@@ -103,6 +103,8 @@ There may be times when you want to debug your API app locally; for example, to 
 
 	![API App Host Application Settings for Local Debug](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
+	**Note:** The *EMA_* values you added to your *web.config* file in this section contain sensitive authorization information. Therefore, it is recommended that you use caution when committing this file into a public source control medium (such as *github*) as these secrets will then be visible to others. See the article, [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) for more information.   
+
 10. Place one or more breakpoints in your API app's controller code (in the `Get` and `Post` methods).
 
 	![Setting breakpoints](./media/app-service-api-dotnet-debug/ld-breakpoints.png)

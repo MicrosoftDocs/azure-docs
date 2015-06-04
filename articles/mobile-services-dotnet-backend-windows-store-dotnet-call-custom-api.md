@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	writer="glenga" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Call a custom API from the client
@@ -25,13 +24,7 @@ This topic shows you how to call a custom API from a Windows Store app. A custom
 
 The custom API created in this topic gives you the ability to send a single POST request that sets the completed flag to `true` for all the todo items in the table. Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.
 
-You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. To do this, you will complete the following steps:
-
-1. [Define the custom API]
-2. [Update the app to call the custom API]
-3. [Test the app] 
-
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. 
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Add Mobile Services to an existing app]. 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
@@ -42,7 +35,9 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Next steps
 
-Now that you have created a custom API and called it from your Windows Store app, consider finding out more about the following Mobile Services topics:
+This topic showed how to use the **InvokeApiAsync** method to call a fairly simple custom API from your Windows Store app. To learn more about using the **InvokeApiAsync** method, see the post [Custom API in Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).  
+
+Also, consider finding out more about the following Mobile Services topics:
 
 * [Define a custom API that supports periodic notifications]
 	<br/>Learn how to use a custom API to support periodic notifications in a Windows Store app. With period notifications enabled, Windows will periodically access your custom API endpoint and use the returned XML, in a tile-specific format, to update the app tile on start menu.
@@ -63,10 +58,8 @@ Now that you have created a custom API and called it from your Windows Store app
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
-[Get started with authentication]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+[Add Mobile Services to an existing app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md
 
 [Define a custom API that supports periodic notifications]: mobile-services-windows-store-dotnet-create-pull-notifications.md
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
