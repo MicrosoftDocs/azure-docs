@@ -34,12 +34,3 @@ What are you doing?|Description
 [Signing in with the mobile app using verification code](multi-factor-authentication-end-user-signin-app-otp.md)|This is what you can expect from signing in the mobile app with a verification code.
 [Signing in with an alternate method](multi-factor-authentication-end-user-signin-alt.md)|This will show you what to expect if you want to use an alternate method.
 
-**Additional Resources**
-
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [End User Guide](multi-factor-authentication-end-user.md)
-* [MFA Operations Guide](multi-factor-authentication-operations.md)
-* [Azure Multi-Factor Authentication on MSDN](htts://msdn.microsoft.com/library/azure/dn249471.aspx)

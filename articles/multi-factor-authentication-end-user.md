@@ -33,13 +33,3 @@ Topic|Description
 [Managing your settings](multi-factor-authentication-end-user-manage-settings.md)|Shows you how you can change your settings such as phone number or preferred enrollment method.
 [Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)| Find information on creating and using app passwords.
 
-**Additional Resources**
-
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [End User Guide](multi-factor-authentication-end-user.md)
-* [MFA Operations Guide](multi-factor-authentication-operations.md)
-* [Azure Multi-Factor Authentication on MSDN](htts://msdn.microsoft.com/library/azure/dn249471.aspx)
-

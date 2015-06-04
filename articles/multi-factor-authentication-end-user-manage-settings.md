@@ -33,12 +33,3 @@ How you use multi-factor authentiation|Description
 [I use it with Microsoft Azure](multi-factor-authentication-end-user-manage-azure.md)| This means that you will want to change your settings through the Azure portal.
 [I don't use it with either of those](multi-factor-authentication-end-user-manage-myapps.md)|This means you will want to sign-in to [http://myapps.microsoft.com](http://myapps.microsoft.com) and change your setting here.
 
-**Additional Resources**
-
-* [How it Works](multi-factor-authentication-how-it-works.md)
-* [Getting Started](multi-factor-authentication-get-started.md)
-* [Whats Next](multi-factor-authentication-whats-next.md)
-* [Learn More](multi-factor-authentication-learn-more.md)
-* [End User Guide](multi-factor-authentication-end-user.md)
-* [MFA Operations Guide](multi-factor-authentication-operations.md)
-* [Azure Multi-Factor Authentication on MSDN](htts://msdn.microsoft.com/library/azure/dn249471.aspx)
