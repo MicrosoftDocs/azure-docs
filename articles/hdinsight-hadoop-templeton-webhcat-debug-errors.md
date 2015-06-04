@@ -39,7 +39,7 @@ The following are default configuration values that can impact WebHCat performan
 | Setting | What it does | Default value |
 | ------- | ------------ | ------------- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] | The maximum number of jobs that can be active concurrently (pending or running) | 10,000 |
-| [templeton.exec.max-procs][max-procs] | The maximum number of requests that can be served concurrently | 16 |
+| [templeton.exec.max-procs][max-procs] | The maximum number of requests that can be served concurrently | 20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] | The number of days that job history will be retained | 7 days |
 
 ##Too many requests
