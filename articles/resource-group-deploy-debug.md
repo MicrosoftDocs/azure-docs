@@ -233,9 +233,9 @@ If you were to try to deploy a template that creates more than 4 cores into the 
 In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy. 
 
 > [AZURE.NOTE] Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 resource management cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource management cores in all regions. 
-<p />
+<!-- -->
 To be specific about cores, for example, you can check the regions for which you should request the proper quota amount by using the following command, which pipes out to **jq** for json parsing.
-<p />
+<!-- -->
     azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
     {
       "name": "virtualMachines",
