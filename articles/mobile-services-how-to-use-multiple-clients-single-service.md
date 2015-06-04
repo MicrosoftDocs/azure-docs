@@ -9,10 +9,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/06/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Supporting multiple device platforms from a single mobile service
