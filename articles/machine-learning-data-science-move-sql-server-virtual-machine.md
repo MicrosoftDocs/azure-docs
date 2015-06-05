@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="06/04/2015" 
 	ms.author="fashah;garye;mohabib;bradsev" /> 
 
 #Move data to SQL Server on Azure
@@ -55,6 +55,7 @@ This document covers the movement of data from flat files (csv/tsv) or an on-pre
 
 Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
 
+> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](data-factory-copy-activity.md).
 
 
 ## <a name="sqlonazurevm"></a>Moving your data to a SQL Server VM on an Azure
