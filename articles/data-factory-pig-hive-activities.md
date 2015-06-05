@@ -160,8 +160,8 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 		}
 
 	> [AZURE.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The output table is scheduled to be produced every day, so there will be three slices produced.
-	
-	> [AZURE.NOTE] Replace **your storage account** in the JSON with the name of your storage account. 
+	> 
+	> Replace **your storage account** in the JSON with the name of your storage account. 
 	
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 2. Click **Deploy** on the command bar to deploy the pipeline.
