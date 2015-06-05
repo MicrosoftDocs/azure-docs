@@ -194,113 +194,15 @@ To use AZCopy:
 For documentation, see [AZCopy].
   
 
-## Optimizing Data Migration ##
-The fastest and most efficient way to migrate data into SQL Data Warehouse is to design the migration. A SQLDW data migration process can be effectively broken down into three discrete steps:
 
-1. Export of source data
-2. Transfer of data to Azure
-3. Load into the target SQLDW database
-
-Each step can be individually optimized to create a robust, re-startable and resilient migration process that maximises performance at each step.
-
-### Optimizing Data Load ##
-Looking at these in reverse order for a moment; the fastest way to load data from Azure to SQL Data Warehouse is via PolyBase. Optimizing for a PolyBase load process places pre-quisites on the preceding steps so it's best to understand this upfront. They are:
-
-1. Encoding of data files
-2. Format of data files
-3. Location of data files
-
-### Encoding ###
-PolyBase requires data files to be UTF-8 encoded. This means that when you export your data it must conform to this requirement. If your data only contains basic ASCII characters (not extended ASCII) then these map directly to the UTF-8 standard and you don't have to worry too much about the encoding. However, if your data contains any special characters such as umlauts, accents or symbols or your data supports non-latin languages then you will have to ensure that your export files are properly UTF-8 encoded.
-
-> [AZURE.NOTE] bcp.exe does not support exporting data to UTF-8. Therefore your best option is to use either Integration Services or ADF Copy for the data export. It is worth pointing out that the UTF-8 byte order mark (BOM) is not required in the data file.
-
-Any files encoded using UTF-16 will need to be re-written ***prior*** to the data transfer.
-
-### Format of data files ###
-PolyBase mandates a fixed row terminator of \n or newline. Your data files must conform to this standard. There aren't any restrictions on string or column terminators.
-
-You will have to define every column in the file as part of your external table in PolyBase. Make sure that all exported columns are required and that the types conform to the required standards.
-
-Please refer back to the [migrate your schema] article for detail on supported data types.
-
-### Location of data files ###
-PolyBase in SQL Data Warehouse only loads flat file data from Azure blob storage.  Consequently, to use PolyBase, you need to first transfer the data into Azure blob storage.
-
-
-## Optimizing Data Transfer ##
-The slowest part of data migration is transfering data from on-premises to Azure. Not only can network bandwidth be an issue but also network reliability can seriously hamper progress. By default migrating data to Azure is over the internet so the chances of transfer errors occurring are likely. These errors might require data to be re-sent either in whole or in part.
-
-Fortunately you have several options to improve the speed and resilience of this process:
-
-### ExpressRoute ###
-You can consider using [ExpressRoute] to speed up the transfer. [ExpressRoute] provides you with an established private connection to Azure so the connection does not go over the public internet. This is by no means a mandatory step. However, it will improve throughput when pushing data to Azure from an on-premises or co-location facility.
-
-[ExpressRoute] benefits:
-
-1. Increased reliability
-2. Faster network speed
-3. Lower network latency
-4. higher network security
-
-ExpressRoute is beneficial for a number of scenarios; not just the migration.
-
-Interested? For more information and pricing please visit the [ExpressRoute documentation]
-
-### Azure Import and Export Service ###
-The Azure Import and Export Service is a data transfer process designed for large (GB++) to massive (TB++) transfers of data into Azure. It involves writing your data to disks and shipping them to an Azure data center. Microsoft will then load the disk contents into Azure blob storage on your behalf.
-
-To use the Azure Import and Export Service:
-
-1. Configure an Azure blob storage container to receive the data.
-2. Export your data to local storage.
-2. Copy the data to 3.5 inch SATA II/III hard disk drives using the [Azure Import/Export Tool].
-3. Create an import job using the Azure Import and Export Service providing the journal files produced by the [Azure Import/Export Tool].
-4. Ship the disks to your nominated Azure data center.
-5. Microsoft transfers your data to your Azure blob storage container.
-6. Load the data into SQL Data Warehouse by using PolyBase
-
-### [AZCopy] utility ###
-The [AZCopy] utility is a great tool for getting your data transferred into Azure storage blobs. It is designed for small (MB++) to very large (GB++) data transfers. [AZCopy] has also been designed to provide good resilient throughput when transferring data to Azure and so is a great choice for the data transfer step. Once transferred you can load the data  into SQL Data Warehouse by using PolyBase. You can also incorporate AZCopy into your SSIS packages using an "Execute Process" task.
-
-To use [AZCopy] you will first need to download and install it. There is a [production version] and a [preview version] available.
-
-To upload a file from your file system you will need a command like the one below:
-```
-AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
-```
-
-To use AZCopy:
-
-1. Configure an Azure blob storage container to receive the data.
-2. Export your data to local storage.
-3. Use [AZCopy] to copy your data into the Azure blob storage container.
-4. Load the data into SQL Data Warehouse by using PolyBase.
-
-For documentation, see [AZCopy].
-
-## Optimizing Data Export ##
-In addition to ensuring that the export conforms to the requirements laid out by PolyBase you can also seek to optimize the export of the data to improve the process further.
-
-> [AZURE.NOTE] As PolyBase requires the data to be in UTF-8 format it is unlikely you will use bcp to perform the data export. bcp does not support outputting data files to the UTF-8. SSIS or ADF Copy are much better suited to performing this kind of data export.
-
-### Data Compression ###
-PolyBase can read GZIP compressed data. If you are able to compress your data to gzip files then you will minimize the amount of data being pushed over the network.
-
-### Multiple Files ###
-Breaking up large tables into several files not only helps to improve export speed but it also helps with transfer re-startability and also the overall manageability of the data once in Azure blob storage. One of the many nice features of PolyBase is that it will read all the files inside a folder and treat it as one table. It is therefore a good idea to isolate the files for each table into its own folder.
-
-PolyBase also supports a feature known as "recursive folder traversal". You can use this feature to further enhance the organization of your exported data to improve your data management. 
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps ##
-To learn about optimizing data migration with PolyBase, see [SQL Data Warehouse data migration optimizations with PolyBase][].
+To create your migration plan, see [Migrate data with PolyBase][].
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
 <!--Link references--In actual articles, you only need a single period before the slash.-->
-[SQL Data Warehouse data migration optimizations with PolyBase]: ./sql-data-warehouse-migrate-data-with-polybase/
+[Data migration overview]: ./sql-data-warehouse-migrate-data/
 
 
 <!--External references-->
