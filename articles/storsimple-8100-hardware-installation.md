@@ -44,18 +44,15 @@ Next, perform the following steps to unpack your device.
 
 3. Unpack the box. See the following image which shows the unpacked view of your Azure StorSimple device.
 
-    ![Unpack your storage device](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png) 
-
      **Figure 1 Unpacked view of your storage device**
 
-     | Label | Description   |
-     |-------|---------------|
-     |   1   | Packing box   |
-     |   2   | Bottom foam   |
-     |   3   | Device        |
-     |   4   | Top foam      |
-     |   5   | Accessory box |
+    ![Unpack your storage device](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png) 
 
+     <sup>1</sup> Packing box<br>
+     <sup>2</sup> Bottom foam<br>
+     <sup>3</sup> Device<br>
+     <sup>4</sup> Top foam<br>
+     <sup>5</sup> Accessory box<br>
 
 3. After unpacking the box, make sure that you have:
 
@@ -112,15 +109,12 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
 2. Typically, these rails are installed at the factory. If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.
 
-    ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
-
      **Figure 2 Attaching rail slides to the sides of the enclosure**
 
-     | Label | Description              |
-     |-------|--------------------------|
-     |   1   | M 3X4 button-head screws |
-     |   2   | Chassis slides           |
+    ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
+    <sup>1</sup> M 3X4 button-head screws<br>
+    <sup>2</sup> Chassis slides<br>
 
 3. Attach the left rail and right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation.
 
@@ -130,17 +124,15 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
 6. Repeat these steps for the other rail assembly.
 
-     ![Attaching rail slides to rack cabinet](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
      **Figure 3 Attaching rail assemblies to the rack**
 
-     | Label | Description                       |
-     |-------|-----------------------------------|
-     |   1   | Clamping screw                    |
-     |   2   | Square-hole front rack post screw |
-     |   3   | Left front-rail location pins     |
-     |   4   | Clamping screw                    |
-     |   5   | Right front-rail location pins    |
+     ![Attaching rail slides to rack cabinet](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
 
+     <sup>1</sup> Clamping screw<br>
+     <sup>2</sup> Square-hole front rack post screw<br>
+     <sup>3</sup> Left front rail location pins<br>
+     <sup>4</sup> Clamping screw<br>
+     <sup>5</sup> Right front rail location pins<br>
 
 ### Mounting the device in the rack
 
@@ -152,22 +144,21 @@ Using the rack rails that were just installed, perform the following steps to mo
 
 2. Carefully insert the device into the rails, and then push the device completely into the rack cabinet.
 
+     **Figure 4 Mounting the device in the rack**
+
     ![Inserting device in the rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
  
-     **Figure 4 Mounting the device in the rack**
+
 
 3. Secure the enclosure in the rack by installing one provided Phillips-head screw through each flange, left and right.
 
 4. Install the flange caps by pressing them into position and snapping them in place.
 
-    ![Installing flange caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
+     **Figure 5 Installing the flange caps**
+
+     ![Installing flange caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **Figure 5 Installing the flange caps**
-
-     | Label | Description                       |
-     |-------|-----------------------------------|
-     |   1   | Enclosure fastening screw         |
-
+    <sup>1</sup> Enclosure fastening screw<br>
 
 The next step is to cable your device for power, network, and serial access. 
 
@@ -214,15 +205,15 @@ Perform the following steps to cable your device for power.
 
     >[AZURE.NOTE] To ensure high availability of your system, you should strictly adhere to the power cabling scheme shown in the following diagram.
 
+     **Figure 6 Power cabling for your device**
+
      ![Cable your 2U device for power](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
-     | Label | Description                       |
-     |-------|-----------------------------------|
-     |   1   | PCM 0                             |
-     |   2   | Controller 1                      |
-     |   3   | Controller 0                      |
-     |   4   | PCM 1                             |
-     |   5   | PDUs                              |
+     <sup>1</sup> PCM 0<br>
+     <sup>2</sup> Controller 1<br>
+     <sup>3</sup> Controller 0<br>
+     <sup>4</sup> PCM 1<br>
+     <sup>5</sup> PDUs<br>
 
 ### Network cabling
 
@@ -234,16 +225,14 @@ To support this redundant controller failover, you need to cable your device net
 
 1. Your device has six network interfaces on each controller: four 1 Gbps, and two 10 Gbps Ethernet ports. Identify the various data ports on the backplane of your device.
 
-    ![Backplane of 8100 device](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
- 
      **Figure 7 Back of the device showing data ports**
 
-     |  Label  | Description                       |
-     |---------|-----------------------------------|
-     | 0,1,4,5 | 1 GbE network interfaces          |
-     | 2,3     | 10 GbE network interfaces         |
-     | 6       | Serial ports                      |
+    ![Backplane of 8100 device](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
  
+     <sup>0,1,4,5</sup> 1 GbE network interfaces<br>
+     <sup>2,3</sup> 10 GbE network interfaces <br>
+     <sup>6</sup> Serial ports<br>
+
 2. For high availability, the device requires a minimum of two connections for each controller.
     1. The DATA 0 port is automatically enabled and configured via the serial console of the device. Apart from DATA 0, another data port also needs to be configured through the Management Portal. 
     2. Identify identical network interfaces on each controller. For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller. 
@@ -255,20 +244,19 @@ To support this redundant controller failover, you need to cable your device net
 
     At a minimum, configure one network interface for cloud access and one for iSCSI. For high availability and performance, configure two pairs of network interfaces on each controller. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. For high availability and performance, additional configuration required is shown by dotted lines.)
 
-    ![Cable your 2U device for network](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
      **Figure 8 Network cabling for your device**
- 
-     | Label | Description                      |
-     |-------|----------------------------------|
-     |   A   | LAN with Internet access         |
-     |   B   | Controller 0                     |
-     |   C   | PCM 0                            |
-     |   D   | Controller 1                     |
-     |   E   | PCM 1                            |
-     | F, G  | Hosts (for example, file servers)|
-     | 0-5   | Network interfaces               |
- 
+
+     ![Cable your 2U device for network](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+
+     <sup>A</sup>  LAN with Internet access<br>
+     <sup>B</sup>  Controller 0<br>
+     <sup>C</sup>  PCM 0<br>
+     <sup>D</sup>  Controller 1<br>
+     <sup>E</sup>  PCM 1<br>
+     <sup>F,G</sup> Hosts<br>
+     <sup>0-5</sup> Network interfaces<br>
+   
 ### Serial port cabling
 
 Perform the following steps to cable your serial port.
