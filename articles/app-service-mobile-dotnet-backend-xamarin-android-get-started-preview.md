@@ -20,9 +20,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../includes/app-service-mobile-selector-get-started-preview.md)]
 
-This tutorial shows you how to add a cloud-based backend service to a Xamarin Android app with Azure Mobile App. In this tutorial, you will create both a new .NET service and a simple _To do list_ app that stores app data in the .NET backend.
+This tutorial shows you how to add a cloud-based backend service to a Xamarin Android app with Azure Mobile Apps. In this tutorial, you will create both a new .NET service and a simple _To do list_ app that stores app data in the .NET backend.
 
-A screenshot from the completed app is below:
+A screenshot from the completed app is below:  
 
 ![][0]
 
