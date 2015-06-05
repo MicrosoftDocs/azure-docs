@@ -31,7 +31,17 @@ You will be prompted to perform a manual pre-check to ensure that:
  
 	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
 
-	    Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+	    
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+	    
+	    Source	  Destination 	IPV4Address      IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
 
 	    Source	  Destination 	  IPV4Address    IPV6Address
 	    ----------------- -----------  -----------
@@ -40,15 +50,7 @@ You will be prompted to perform a manual pre-check to ensure that:
 	    HCSNODE0  204.79.197.200  204.79.197.200
 	    HCSNODE0  204.79.197.200  204.79.197.200
 	    
-	    Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 	    
-	    Source	  Destination 	IPV4Address      IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-
 
 
 - Before updating the device, we recommend that you take a cloud snapshot of the device data. 
