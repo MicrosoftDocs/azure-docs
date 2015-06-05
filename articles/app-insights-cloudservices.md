@@ -21,10 +21,18 @@
 
 *Application Insights is in preview*
 
-[Microsoft Azure Cloud service apps](http://azure.microsoft.com/services/cloud-services/) can be monitored by [Visual Studio Application Insights][start] for availability, performance, failures and usage.
+[Microsoft Azure Cloud service apps](http://azure.microsoft.com/services/cloud-services/) can be monitored by [Visual Studio Application Insights][start] for availability, performance, failures and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+
+![Example](./media/app-insights-cloudservices/sample.png)
+
+You'll need a subscription with [Microsoft Azure](http://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. 
 
 
-There's a [substantial example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) in which Application Insights is added to a web service with two worker roles hosted in Azure.
+#### Sample code
+
+Take a look at this [sample code](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) in which Application Insights is added to a web service with two worker roles hosted in Azure. 
+
+What follows tells you how to adapt your own cloud service project in the same way.
 
 
 ## Create an Application Insights resource for each role
