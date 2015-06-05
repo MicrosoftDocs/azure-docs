@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="06/05/2015" 
 	ms.author="yuaxu"/>
 
 # Store data with Azure Table Storage using Mobile Services
