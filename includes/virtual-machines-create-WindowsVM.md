@@ -9,10 +9,10 @@
 	![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
 
-4. The first screen after this lets you **Choose an Image** for your virtual machine from one of the lists in the Image Gallery. (The available images may differ depending on the subscription you're using.) Click the arrow to continue.
+4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. (The available images may differ depending on the subscription you're using.)
 
 
-5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some details to help you fill this out:
+5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some more details to help you fill this out:
 
 	- **New User Name** refers to the administrative account that you use to manage the server. Create a unique password for this account and make sure to remember it. **You'll need the user name and password to log on to the virtual machine**.
 
