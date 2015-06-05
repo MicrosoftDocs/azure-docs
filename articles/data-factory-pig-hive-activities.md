@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
@@ -24,10 +24,6 @@ This walkthrough provides step-by-step instructions for using a HDInsight Activi
 
 ### Pre-requisites
 1. Complete the tutorial from [Get started with Azure Data Factory][adfgetstarted] article.
-2. Upload **emp.txt** file you created in the above tutorial as **hiveinput\emp.txt** to the adftutorial container in the blob storage. The **hiveinput** folder is automatically created in the **adftutorial** container when you upload emp.txt file with this syntax.
-
-	> [AZURE.NOTE] The emp.txt file is only a dummy file for this walkthrough. The actual input data comes from the **hivesampletable** that already exists on the HDInsight cluster. The pipeline does not use the emp.txt file at all.    
-	
 2. Create **hivequery.hql** file in a subfolder named **Hive** under **C:\ADFGetStarted** with the following content.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
@@ -50,47 +46,6 @@ This walkthrough provides step-by-step instructions for using a HDInsight Activi
 
 ### Walkthrough
 
-#### Create input table
-1. In the **DATA FACTORY** blade for the **ADFTutorialDataFactory**, click **Author and deploy** to launch Data Factory Editor.
-	
-	![Data Factory Blade][data-factory-blade]
-
-2. In the **Data Factory editor**, click **New dataset**, and then click **Azure Blob storage** from the command bar.
-3. Replace the JSON script in the right pane with the following JSON script:    
-    		
-		{
-    		"name": "HiveInputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/hiveinput",
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Day",
-            		"interval": 1,
-            		"waitonexternal": {}
-        		}
-    		}
-		}
-
- 
-	**Note the following:**
-	
-	- location **type** is set to **AzureBlobLocation**.
-	- **linkedServiceName** is set to **StorageLinkedService** that defines an Azure storage account.
-	- **folderPath** specifies the blob container\folder for the input data. 
-	- **frequency=Day** and **interval=1** means the slices are available daily
-	- **waitOnExternal** means that this data is not produced by another pipeline, it is rather produced externally to the data factory. 
-	
-
-	See [Data Factory Developer Reference][developer-reference] for descriptions of JSON properties.  
-
-2. Click **Deploy** on the command bar to deploy the table. 
-  
 #### Create output table
         
 1. In the **Data Factory editor**, click **New dataset**, and then click **Azure Blob storage** from the command bar.
@@ -172,7 +127,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 						"name": "RunHiveQuery",
 						"description": "Runs a hive query",
 						"type": "HDInsightActivity",
-						"inputs": [{"name": "HiveInputBlobTable"}],
+						"inputs": [],
 						"outputs": [ {"name": "HiveOutputBlobTable"} ],
 						"linkedServiceName": "HDInsightLinkedService",
 						"transformation":
@@ -205,8 +160,8 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 		}
 
 	> [AZURE.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The output table is scheduled to be produced every day, so there will be three slices produced.
-	
-	> [AZURE.NOTE] Replace **your storage account** in the JSON with the name of your storage account. 
+	> 
+	> Replace **your storage account** in the JSON with the name of your storage account. 
 	
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 2. Click **Deploy** on the command bar to deploy the pipeline.
