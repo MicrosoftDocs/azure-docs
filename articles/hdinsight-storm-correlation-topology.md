@@ -94,7 +94,7 @@ In HBase, the data is stored in a table with the following schema/settings:
 
 ## Download the project
 
-The sample project can be downloaded from [https://github.com/Blackmist/hdinsight-storm-eventcorrelation](https://github.com/Blackmist/hdinsight-storm-eventcorrelation).
+The sample project can be downloaded from [hdinsight-storm-eventcorrelation](https://github.com/Blackmist/hdinsight-storm-eventcorrelation).
 
 This download contains the following C# projects:
 
