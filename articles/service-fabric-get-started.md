@@ -70,7 +70,7 @@ In a few moments you should see output that shows node information and confirmat
 
 You can check that your cluster was created successfully using the Service Fabric Explorer tool that ships with the SDK.
 
-1. Launch the Service Fabrix Explorer by running `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`
+1. Launch the Service Fabric Explorer by running `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`
 
 2. Expand the Onebox/Local Cluster node in the top left corner.
 
