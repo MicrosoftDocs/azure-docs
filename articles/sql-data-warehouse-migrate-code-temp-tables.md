@@ -1,9 +1,28 @@
-## Temporary Tables
+<properties
+   pageTitle="Using temporary tables in SQL Data Warehouse | Microsoft Azure"
+   description="Examples for working with temporary tables in SQL Data Warehouse."
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/03/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+
+
+# Using temporary tables in SQL Data Warehouse
 SQL Data Warehouse temporary tables exist at the session level. They are defined as local temporary tables but you can access them from anywhere inside the session. You cannot create global temporary tables.
 
-### Example: Use temporary tables to help modularize your code
+### Example A. Use temporary tables to help modularize your code
 
-Lets make a working example of a technique for using temporary tables to modularize your SQL Data Warehouse code. The stored procedure below generates the DDL required to update statistics on every column in the database:
+Lets make a working example of a technique for using temporary tables to modularize your SQL Data Warehouse code. The stored procedure below generates Transact-SQL code that updates statistics on every column in the database.
 
 ```
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]

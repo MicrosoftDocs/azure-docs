@@ -1,7 +1,30 @@
-## Label your code
-SQL Data Warehouse supports a concept called query labels. Before going into any depth let's look at an example of one:
+<properties
+   pageTitle="Writing Transact-SQL queries for SQL Data Warehouse | Microsoft Azure"
+   description="Recommendations and examples for writing queries for SQL Data Warehouse."
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
 
-### Example: Select a query by label
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/03/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+
+
+# Writing Transact-SQL queries for SQL Data Warehouse
+Recommendations and examples for writing queries for SQL Data Warehouse.  
+
+
+## Use query labels to easily track a query
+SQL Data Warehouse supports a concept called query labels which is very helpful. You can query the dynamic management views (DMVs) according to the query label. This ability provides an easy way to troubleshoot or track the progress of a particular query.
+
+### Example A. Add a label to a query
 
 ```
 SELECT *
@@ -9,11 +32,9 @@ FROM sys.tables
 OPTION (LABEL = 'My Query Label')
 ;
 ```
-This last line tags the string 'My Query Label' to the query. This is particularly helpful as the label is query-able through the DMVs. This provides us with a mechanism to troubleshoot problems and to track the progress of an Extract, Transform, and Load (ETL) run. A good naming convention really helps here. For example something like ' PROJECT : PROCEDURE : STATEMENT : COMMENT' would help to uniquely identify the query amongst all the code in source control.
 
-### Example: Query the dynamic management views by lable
+### Example B. Query a DMV by label
 
-This uses a lable comparison to find information about a particular query in a dynamic management view.
 ```
 SELECT  *
 FROM    sys.dm_pdw_exec_requests r
@@ -24,11 +45,11 @@ WHERE   r.[label] = 'My Query Label'
 > [AZURE.NOTE] Since label is a reserved word, it must be enclosed with square brackets or double quotes in queries.
 
 ## Group by with Rollup / Cube / Grouping Sets
-The `GROUP BY` clause has a few options that do need to be worked around as they are not supported by Azure SQL Data Warehouse.
+The `GROUP BY` clause has a few options that are not supported by Azure SQL Data Warehouse. You can work around this by using `UNION ALL`.
 
-The simplest option here is to use `UNION ALL` to change the behavior.
+### Example A. Replace GROUP BY ROLLUP with UNION ALL
+This statement uses the `ROLLUP` option:
 
-Below is an example of a group by statement using the `ROLLUP` option:
 ```
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -41,12 +62,12 @@ GROUP BY ROLLUP (
                 )
 ;
 ```
-By using ROLLUP we have requested the following aggregations:
+By using ROLLUP the query needs to perform these aggregations:
 - Country and Region
 - Country
 - Grand Total
 
-To replace this you will need to use `UNION ALL`; specifying the aggregations required explicitly to return the same results:
+To replace this you use `UNION ALL` and explicitly specify the aggregations.
 
 ```
 SELECT [SalesTerritoryCountry]
@@ -72,8 +93,6 @@ SELECT NULL
 FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
-
-Please refer to MSDN for more information concerning [GROUP BY ROLLUP].
 
 
 ## Cursors
@@ -109,7 +128,7 @@ END
 
 The code example above updates the statistics for every table in the database. By iterating over the tables in the loop we are able to execute each command in sequence.
 
-## Pivot and Unpivot
+## Pivot and unpivot
 You can pivot data in Azure SQL Data Warehouse by using a CASE statement. Below is an example of how to do this:
 ```
 CREATE TABLE AnnualSales_pvt
@@ -179,7 +198,7 @@ DROP TABLE #Nmbr
 ;
 ```
 
-## Cross Database Joins
+## Cross database joins
 As discussed in the [migrate your schema] article the best approach here is to use one single database and to implement boundaries by schema rather than by database.
 
 We reference it here to remind you about changing your code to be compliant with this requirement.
