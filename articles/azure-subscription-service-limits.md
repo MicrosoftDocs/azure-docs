@@ -316,7 +316,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
    <td valign="middle"><p>100 per Region<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Load Balancer (Internal Or Internet facing)rules per Load Balancer</p></td>
+   <td valign="middle"><p>Load Balancer (Internal Or Internet facing) rules per Load Balancer</p></td>
    <td valign="middle"><p>150</p></td>
 </tr>
 <tr>
