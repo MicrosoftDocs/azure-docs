@@ -3,7 +3,7 @@
 	description="Describes what happened to your Azure Active Directory project in Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/06/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # What happened to my project?
 

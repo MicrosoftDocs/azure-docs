@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services" 
-	description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development" 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services"
+	description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development"
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
+	ms.topic="article" 
+	ms.date="04/24/2015"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -29,7 +29,7 @@ A screenshot from the completed app is below:
 ![][0]
 
 
-Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Xamarin iOS apps. 
+Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Xamarin iOS apps.
 
 >[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Azure Free Trial</a>.<br />This tutorial requires <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
 
@@ -39,12 +39,12 @@ Completing this tutorial is a prerequisite for all other Mobile Services tutoria
 
 ## Create a new Xamarin iOS app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.
 
 In this section you will download a new Xamarin iOS app and a service project for your mobile service.
 
 1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
-   
+
 2. In the quickstart tab, click **Xamarin** under **Choose platform** and expand **Create a new Xamarin app**.
 
    	![][6]
@@ -57,7 +57,7 @@ In this section you will download a new Xamarin iOS app and a service project fo
 
 4. Download and install [Xcode] v4.4 or a later version and [Xamarin Studio]. You can also use Xamarin for Visual Studio.
 
-5. Under **Download and publish your service to the cloud**, select **iOS** and click **Download**. 
+5. Under **Download and publish your service to the cloud**, select **iOS** and click **Download**.
 
   	This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
@@ -91,9 +91,9 @@ The final stage of this tutorial is to build and run your new app.
 
 >[AZURE.NOTE]You can review the code that accesses your mobile service to query and insert data in the QSTodoService.cs C# file.
 
-    
+
 ## Next Steps
-Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
+Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
 * [Get started with offline data sync]
   <br/>Learn how the quickstart uses offline data sync to make the app responsive and robust.
@@ -101,11 +101,11 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications] 
+* [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
 
 * [Troubleshoot a Mobile Services .NET backend]
-  <br/> Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend. 
+  <br/> Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend.
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started

@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="04/14/2015"
 	ms.author="yuaxu"/>
 
@@ -25,7 +25,7 @@
 This topic shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application.
 In this tutorial, you create a blank Xamarin.Android app that receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
-This tutorial demonstrates the simple broadcast scenario using Notification Hubs. 
+This tutorial demonstrates the simple broadcast scenario using Notification Hubs.
 
 ##Prerequisites
 
@@ -135,11 +135,11 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 6. In **MyBroadcastReceiver.cs** change the **MyBroadcastReceiver** class to match the following:
 
     	[BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },
 			Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, 
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK },
 			Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY },
 			Categories = new string[] { "@PACKAGE_NAME@" })]
         public class MyBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {

@@ -3,7 +3,7 @@
 	description="The active directory connection wizard detected an incompatible authentication type" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/06/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Error During Authentication Detection
 
@@ -85,7 +85,7 @@ To detect Individual User Accounts authentication, the wizard looks for the pack
 To detect an old form of Organizational Account authentication, the wizard looks for the following element from **web.config**:
 
 <PRE class="prettyprint">
-	&lt;configuration*gt;
+	&lt;configuration&gt;
 	    &lt;appSettings&gt;
 	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
 	    &lt;/appSettings&gt;
@@ -94,4 +94,4 @@ To detect an old form of Organizational Account authentication, the wizard looks
 
 To change the authentication type, remove the incompatible authentication type and run the wizard again.
 
-For more information, see [Authentication Scenarios for Azure AD](http://msdn.microsoft.com/library/azure/dn499820.aspx).
+For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).

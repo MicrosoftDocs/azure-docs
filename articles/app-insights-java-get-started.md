@@ -136,7 +136,7 @@ Questions...
 
 ## 3. Add an Application Insights xml file
 
-Add ApplicationInsights.xml to the resources folder in your project. Copy into it the following XML.
+Add ApplicationInsights.xml to the resources folder in your project, or otherwise make sure it is added to your project’s deployment class path. Copy into it the following XML.
 
 Substitute the instrumentation key that you got from the Azure portal.
 

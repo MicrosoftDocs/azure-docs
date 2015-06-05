@@ -3,7 +3,7 @@
 	description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." 
 	headerExpose="" 
 	footerExpose="" 
-	services="cloud-services,virtual-machines"
+	services="cloud-services,virtual-machines,app-service"
 	authors="Thraka" 
 	documentationCenter=""
 	manager="timlt"/>
@@ -82,38 +82,38 @@ Azure Virtual Machines can be used in a variety of ways. The primary scenarios t
 
 These aren't the only possibilities, but they're good examples of how you might use Azure Virtual Machines.  
 
-## Websites
+## App Service
 
-Azure Virtual Machines can handle a wide range of cloud hosting tasks. But creating and managing a VM infrastructure requires specialized skills and substantial effort. If you don't need complete control over the VMs that run your website or compute workload, there's an easier (and cheaper) solution: *Platform as a Service* (PaaS). With PaaS, Azure handles most of the management work for the VMs that run your applications. Azure Websites is a fully managed PaaS offering that allows you to build, deploy, and scale enterprise-grade web apps in seconds.
+Azure Virtual Machines can handle a wide range of cloud hosting tasks. But creating and managing a VM infrastructure requires specialized skills and substantial effort. If you don't need complete control over the VMs that run your web apps, mobile app backends, API apps, etc., there's an easier (and cheaper) solution: *Platform as a Service* (PaaS). With PaaS, Azure handles most of the management work for the VMs that run your applications. [Azure App Service](app-service-value-prop-what-is.md) is a fully managed PaaS offering that allows you to build, deploy, and scale enterprise-grade apps in seconds.
 
-Websites is the best Azure Compute choice for many kinds of web apps and compute workloads. A corporation might want to build or migrate a commercial website that can handle millions of hits a week and is deployed in several data centers across the globe. The same corporation might also have a line-of-business app that tracks expense reports for authenticated users from the corporate Active Directory. The expense reports might require periodic background jobs to calculate and summarize large volumes of information. An IT consultant might adapt a popular open source application to set up a content management system for a small business. Figure 2 shows some of the kinds of web apps that can run in Azure Websites.
+App Service is the best choice for many kinds of application workloads. A corporation might want to build or migrate a commercial website that can handle millions of hits a week and is deployed in several data centers across the globe. The same corporation might also have a line-of-business app that tracks expense reports for authenticated users from the corporate Active Directory, and the app might have a mobile device component and connect to on-premise resources and business processes. The expense reports might require periodic background jobs to calculate and summarize large volumes of information. An IT consultant might adapt a popular open source application to set up a content management system for a small business. Figure 2 shows some of the kinds of web apps that can run in Azure App Service.
 
 <a name="fig2"></a>
-![05_Websites][05_Websites]
+![05_WebApps][05_Websites]
  
-**Figure 2: Azure Websites supports static websites, popular web applications, and custom web applications built with various technologies. You can also run non-web compute workloads using the WebJobs feature.** 
+**Figure 2: Azure App Service supports static web pages, popular web applications, and custom web applications built with various technologies. You can also run mobile backends, API app, and non-web compute workloads (using WebJobs).** 
 
-The Azure Websites service is not only for web applications: you can run any kind of compute workload on Websites using the [WebJobs](websites-webjobs-resources.md) feature. 
+With Azure App Service, you can also run any kind of compute workload using the [WebJobs](websites-webjobs-resources.md) feature. 
 
-Websites gives you the option of running on shared VMs that contain multiple websites created by multiple users, or on VMs that are used only by you. VMs are a part of a pool of resources managed by Azure Websites and thus allow for high reliability and fault tolerance.
+Azure App Service gives you the option of running on shared VMs that contain multiple apps created by multiple users, or on VMs that are used only by you. VMs are a part of a pool of resources managed by Azure App Service and thus allow for high reliability and fault tolerance.
 
-Getting started is easy. With Azure Websites, users can select from a range of applications, frameworks and template and create a website in seconds. They can then use their favorite development tools (WebMatrix, Visual Studio, any other editor) and source control options to set up continuous integration and develop as a team. Applications that rely on a MySQL DB can consume a MySQL service provided for Azure by ClearDB, a Microsoft partner.
+Getting started is easy. With Azure App Service, users can select from a range of applications, frameworks and template and create a web app in seconds. They can then use their favorite development tools (WebMatrix, Visual Studio, any other editor) and source control options to set up continuous integration and develop as a team. Applications that rely on a MySQL DB can consume a MySQL service provided for Azure by ClearDB, a Microsoft partner.
 
-Developers can create large, scalable web applications with Websites. The technology supports creating applications using ASP.NET, PHP, Node.js and Python. Applications can use sticky sessions, for example, and many existing web applications can be moved to this cloud platform with no changes. Applications built on Websites are free to use other aspects of Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Websites automatically load balancing requests across them. And because new Websites instances are created in VMs that already exist, starting a new application instance happens very quickly; it's significantly faster than waiting for a new VM to be created.
+Developers can create large, scalable web applications with Azure App Service. The technology supports creating applications using ASP.NET, PHP, Node.js and Python. Applications can use sticky sessions, for example, and many existing web apps can be moved to this cloud platform with no changes. Web apps built on Azure App Service can use other aspects of Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Azure App Service automatically load balancing requests across them. And because new web app instances are created in VMs that already exist, starting a new application instance happens very quickly; it's significantly faster than waiting for a new VM to be created.
 
-As [Figure 2](#fig2) shows, you can publish code and other web content into Websites in several ways. You can use FTP, FTPS, or Microsoft's WebDeploy technology. Websites also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
+As [Figure 2](#fig2) shows, you can publish code and other web content into Azure App Service in several ways. You can use FTP, FTPS, or Microsoft's WebDeploy technology. Azure App Service also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
 
 
 ## Cloud Services
 
-The third compute option, Cloud Services, is another example of Platform-as-a-Service (PaaS). Like Websites, this technology is designed to support applications that are scalable, reliable, and cheap to operate. Like Websites, Cloud Services relies on VMs, but gives you more control over the VMs than you get with Websites. You can install your own software on Cloud Service VMs and you can remote into them. Figure 3 illustrates the idea.
+The third compute option, Cloud Services, is another example of Platform-as-a-Service (PaaS). Like Azure App Service, this technology is designed to support applications that are scalable, reliable, and cheap to operate. Like Azure App Service, Cloud Services relies on VMs, but gives you more control over the VMs than you get with Azure App Service. You can install your own software on Cloud Service VMs and you can remote into them. Figure 3 illustrates the idea.
 
 <a name="fig3"></a>
 ![06_CloudServices2][06_CloudServices2] 
 
 **Figure 3: Azure Cloud Services provides Platform as a Service.**
 
-More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Websites compared to Cloud Services. 
+More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Azure App Service compared to Cloud Services. 
 
 The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
 
@@ -144,11 +144,11 @@ Azure also offers other compute hosting models for more specialized purposes, su
 
 All three of the general purpose Azure compute hosting models let you build scalable, reliable applications in the cloud. Given this essential similarity, which one should you use?
 
-Azure Websites is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure Websites easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature makes it easy to add background job processing to your app, or even run a compute workload that isn't a web app at all. 
+Azure App Service is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure App Service easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature makes it easy to add background job processing to your app, or even run a compute workload that isn't a web app at all. 
 
 If you need more control over the web server environment, such as the ability to remote into your server or configure server startup tasks, Azure Cloud Services is typically the best option.
 
-If you have an existing application that would require substantial modifications to run in Azure Websites or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure Websites and Cloud Services. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.
+If you have an existing application that would require substantial modifications to run in Azure App Service or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Cloud Services. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.
 
 Sometimes, no single option is right. In situations like this, it's perfectly legal to combine options. For example, suppose you're building an application where you'd like the management benefits of Cloud Services web roles, but you also need to use standard SQL Server for compatibility or performance reasons. In this case, the best option is to combine compute hosting options, as Figure 4 shows.
 
@@ -159,7 +159,7 @@ Sometimes, no single option is right. In situations like this, it's perfectly le
 
 As the figure illustrates, the Cloud Services VMs run in a separate cloud service from the Virtual Machines VMs. Still, the two can communicate quite efficiently, so building an app this way is sometimes the best choice.
 
-For more information about how to choose the hosting option or options for your scenario, see [Azure Websites, Cloud Services, and Virtual Machines comparison](../choose-web-site-cloud-service-vm/).
+For more information about how to choose the hosting option or options for your scenario, see [Azure App Service, Cloud Services, and Virtual Machines comparison](../choose-web-site-cloud-service-vm/).
 
 
 [01_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
