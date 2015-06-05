@@ -111,13 +111,11 @@ Before publishing to Azure and using the hybrid connection, it's a good idea to 
 
 ## Update Azure to use the on-premises connection string
 
-Now that you have verified the database connection, you need to add an app setting for this new connection string so that it can be used from Azure and publish the Mobile App backend to Azure.  
+Now that you have verified the database connection, you need to add an app setting for this new connection string so that it can be used from Azure.  
 
-1. Back in the [Azure Portal] in the Web App that implements the backend code for your Mobile App, browse **Mobile Apps** and click on your Mobile App.
+1. Back in the [Azure Portal] in the Web App that implements your Mobile App backend, click **All settings**, then Application settings. 
 
-2. In your Mobile App's blade, click **All settings**, then Application settings. 
-
-3. In the **Web app settings** blade, scroll down to **Connection strings** and add an new connection string named `OnPremisesDBConnection` with a value like `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
+3. In the **Web app settings** blade, scroll down to **Connection strings** and add an new **SQL Server** connection string named `OnPremisesDBConnection` with a value like `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
 
 	Replace `<**secure_password**>` with the secure password for your on-premises database.
 
@@ -125,11 +123,23 @@ Now that you have verified the database connection, you need to add an app setti
 
 2. Press **Save** to save the hybrid connection and connection string you just created.
 
-3. Using Visual Studio, publish your updated mobile service project to Azure.
+## Publish and test the Mobile App backend in Azure 
 
-	The service start page is displayed.
+Finally, you need to publish the Mobile App backend to Azure and verify that it is using the hybrid connection to store data in the on-premises database.
 
-4. Using either the **Try it now** button on the start page as before or using a client app connected to your mobile service, invoke some operations that generate database changes. 
+3. In Visual Studio, right-click the project, click **Publish**, then in **Publish Web** click **Microsoft Azure Websites**. 
+
+	Instead of using Visual Studio, you can also [use Git to publish your backend](mobile-services-dotnet-backend-store-code-source-control.md).
+
+2. Sign in with your Azure credentials and select your service from **Select Existing Websites**. 
+
+	Visual Studio downloads your publish settings directly from Azure. 
+
+3. Finally, click **Publish**.
+
+	After publishing completes, the service restarts and the backend start page is displayed.
+
+4. Using either the **Try it now** button on the start page as before or using a client app connected to your Mobile App, invoke some operations that generate database changes. 
 
 	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
 
@@ -137,7 +147,7 @@ Now that you have verified the database connection, you need to add an app setti
 
 5. Right-click the **hybridService1.TodoItems** table and choose **Select Top 1000 Rows** to view the results.
 
-	Note that changes generated in your app have been saved by your mobile service to your on-premises database using the hybrid connection.
+	Note that changes generated in your client app have been saved by your Mobile App backend to your on-premises database using the hybrid connection.
 
 ##See Also##
  

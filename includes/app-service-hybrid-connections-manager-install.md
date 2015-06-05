@@ -3,21 +3,19 @@
 	
 	![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
 	
-4. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **Click here to install**.
+4. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded the HybridConnectionManager.msi package, and copy the the gateway connection string.
 	
 	![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
 	
-5. In the Application Run security warning dialog, choose **Run** to continue.
+5. From an administrator command prompt, type the following command to start the installer:
+
+		start HybridConnectionManager.msi
+ 
+7. After the installer runs, click **Not now**, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click **Yes** in the **User Account Control** dialog.
+		
+7. Paste the hybrid connection string that you copied earlier and click **OK**. 
 	
-	![Choose Run to continue](./media/app-service-hybrid-connections-manager-install/D06ApplicationRunWarning.png)
-	
-6.	In the **User Account Control** dialog, choose **Yes**.
-	
-	![Choose Yes](./media/app-service-hybrid-connections-manager-install/D07UAC.png)
-	
-7. The Hybrid Connection Manager is downloaded and installed for you. 
-	
-	![Installing](./media/app-service-hybrid-connections-manager-install/D08HCMInstalling.png)
+	![Installing](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
 	
 8. When the install completes, click **Close**.
 	
