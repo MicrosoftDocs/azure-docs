@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/01/2015" 
 	ms.author="jeffreyg"/>
  
 # Get started with SQL database auditing 

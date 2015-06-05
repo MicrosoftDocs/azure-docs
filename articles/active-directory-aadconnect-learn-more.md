@@ -42,6 +42,11 @@ The following is a list of additional resources for using Azure AD Connect and i
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
+<br>
+<br>
+
+[AZURE.VIDEO azure-active-directory-connect-express-settings]
+
 
 
 **Additional Resources**
