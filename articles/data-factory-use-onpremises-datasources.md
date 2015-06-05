@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -88,7 +88,8 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 8. In the **New data factory** blade, click **Create**.
 
-	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.  
+	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.  
+
 9. Look for notifications from the creation process in the **NOTIFICATIONS** hub on the left. Click **X** to close the **NOTIFCATIONS** blade if it is open.
 
 	![NOTIFICATIONS hub][image-data-factory-notifications-hub]
@@ -112,7 +113,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 
 3. In the **Configure** blade, click **Install directly on this computer**. This will download the installation package for the gateway, install, configure, and register the gateway on the computer.  
 
-	> [AzURE.NOTE] Please use Internet Explorer or a Microsoft ClickOnce compatible web browser.
+	> [AZURE.NOTE] Please use Internet Explorer or a Microsoft ClickOnce compatible web browser.
 
 	![Gateway - Configure blade][image-data-factory-gateway-configure-blade]
 
@@ -154,7 +155,8 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
-	> [AZURE.NOTE] See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor.
+	See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor.
+
 2.	In the **Editor**, click **New data store** button on the toolbar and select **On-premises SQL server database** from the drop down menu. 
 
 	![Editor New data store button][image-editor-newdatastore-onpremsql-button]
@@ -195,7 +197,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 	![SqlServerLinkedService deployment successful][image-editor-sql-linked-service-successful]
 	
   
-> [AZURE.NOTE] You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
+You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
 
 #### Add a linked service for an Azure storage account
  
@@ -207,7 +209,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Editor Blob Storage JSON][image-editor-blob-storage-json]    
 	
-	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
 6. Click **Deploy** on the toolbar to deploy the StorageLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar.
 
@@ -399,10 +401,13 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 	- In the **transformation** section, **SqlSource** is specified as the **source type** and **BlobSink **is specified as the **sink type**.
 	- SQL query **select * from emp** is specified for the **sqlReaderQuery** property of **SqlSource**.
 
-	> [AZURE.NOTE] Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
-	> If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property. 
-	> You are defining the time duration in which the data slices will be processed based on the **Availability** properties that were defined for each Azure Data Factory table.
-	> In the example above, there will be 24 data slices as each data slice is produced hourly.
+	Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
+	
+	If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property. 
+	
+	You are defining the time duration in which the data slices will be processed based on the **Availability** properties that were defined for each Azure Data Factory table.
+	
+	In the example above, there will be 24 data slices as each data slice is produced hourly.
 	
 2. Click **Deploy** on the command bar to deploy the dataset (table is a rectangular dataset). Confirm that you see a message on the title bar that says **PIPELINE DEPLOYED SUCCESSFULLY**.  
 5. Now, close the **Editor** blade by clicking **X**. Click **X** again to close the ADFTutorialDataFactory blade with the toolbar and tree view. If you see **your unsaved edits will be discarded** message, click **OK**.
