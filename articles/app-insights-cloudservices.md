@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="05/21/2015"
+   ms.date="06/05/2015"
    ms.author="sdash"/>
 
 # Application Insights for Azure Cloud Services
@@ -23,7 +23,9 @@
 
 [Microsoft Azure Cloud service apps](http://azure.microsoft.com/services/cloud-services/) can be monitored by [Visual Studio Application Insights][start] for availability, performance, failures and usage.
 
-<!-- For illustration purposes, we have added Application Insights to this [sample Azure cloud service](sample link). This code is available [here](git link), for you to follow along with the steps below. -->
+
+There's a [substantial example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) in which Application Insights is added to a web service with two worker roles hosted in Azure.
+
 
 ## Create an Application Insights resource for each role
 
@@ -142,6 +144,9 @@ Here's a typical run loop for a worker role:
     }
 ```
 
+## Example
+
+There's [an example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) which monitors a service that has a web role and two worker roles.
 
 
 
