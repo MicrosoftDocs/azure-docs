@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - End Users Guide" 
+	pageTitle="Azure Multi-Factor Authentication - For users" 
 	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
@@ -16,15 +16,19 @@
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
-# Azure Multi-Factor Authentication End Users Guide
+# What does Azure Multi-Factor Authentication mean for me?
 
-[End User Guide - Home](multi-factor-authenticatio-end-user.md)<br> 
+[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
 [Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
 [Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)
+[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
+[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
 
-The following documentation will describe the various documentation that will be helpful to end users that are using Azure Multi-Factor Authentication.
+ Additional security verification settings are used when an admin has configured your account to require that both your password and a response from your phone must be used to verify your identity. This means you have been enrolled to use multi-factor authentication.  This document will help you get started with setting it up, configuring it and provide information on where to go if you need to change things.
+
+## How to get going and use multi-factor authentication
+
+Select one of the topics below to get started.
 
 Topic|Description
 :------------- | :------------- | 

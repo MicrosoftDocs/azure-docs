@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - End Users Guide" 
+	pageTitle="Azure Multi-Factor Authentication - For users" 
 	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
@@ -18,11 +18,12 @@
 
 # Manage your settings in the Office 365 portal
 
-[End User Guide - Home](multi-factor-authenticatio-end-user.md)<br> 
+[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
 [Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
 [Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)
+[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
+[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
+
 
 
 If you use multi-factor authentication with Office 365 you will want to manage your additional security verification settings through the Office 365 portal.
@@ -31,7 +32,7 @@ If you use multi-factor authentication with Office 365 you will want to manage y
 
 <ol>
 
-<li>Log on to the Office 365 portal.</li>
+<li>Log on to the [Office 365 portal](https://login.microsoftonline.com/).</li>
 <li>At the top, click the icon that looks like a little cog. This will display a drop-down that says Office 365 settings.</li>
 
 
@@ -45,6 +46,6 @@ If you use multi-factor authentication with Office 365 you will want to manage y
 <li>On the right, click the link that says Update my phone numbers used for account security.  This will redirect you to a new page.  You will have to verify how you are again using either your phone or the mobile app</li>
 <li>Once this completes you should be on the proof-up page and you can change your settings.</li>
 
-<center>![Setup](./media/multi-factor-authentication-end-user-manage-o365/changesettings.png)</center>
+<center>![Cloud](./media/multi-factor-authentication-end-user-app-password-create-o365/addsec.png)</center>
 
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - End Users Guide" 
+	pageTitle="Azure Multi-Factor Authentication - For users" 
 	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
@@ -21,13 +21,13 @@
 
 # What are App Passwords?
 
-[End User Guide - Home](multi-factor-authenticatio-end-user.md)<br> 
+[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
 [Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
 [Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)
+[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
+[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
 
-Certain non-browser apps, such as the Apple native email client that uses EAS, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
+Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
 
 ## How to use app passwords
 

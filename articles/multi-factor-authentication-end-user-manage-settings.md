@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - End Users Guide" 
+	pageTitle="Azure Multi-Factor Authentication - For users" 
 	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
@@ -18,18 +18,19 @@
 
 # Managing your settings
 
-[End User Guide - Home](multi-factor-authenticatio-end-user.md)<br> 
+[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
 [Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
 [Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)
+[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
+[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
 
 
+## Changing your settings depends on how you use multi-factor authentication
 There are several different places you can go to change your multi-factor authentication settings.  Where you go depends on how you are using multi-factor authentication.   Choose the one that best describes you.
 
 How you use multi-factor authentiation|Description
 :------------- | :------------- | 
 [I use it with Office 365](multi-factor-authentication-end-user-manage-o365.md)|  This means that you will want to change your settings through the Office 365 portal.
 [I use it with Microsoft Azure](multi-factor-authentication-end-user-manage-azure.md)| This means that you will want to change your settings through the Azure portal.
-[I don't use it with either of those](multi-factor-authentication-end-user-manage-myapps.md)|This means you will want to sign-in to [http://myapps.microsoft.com](http://myapps.microsoft.com) and change your setting here.
+[I don't know](multi-factor-authentication-end-user-manage-myapps.md)|This means you will want to sign-in to [http://myapps.microsoft.com](http://myapps.microsoft.com) and change your setting here.
 

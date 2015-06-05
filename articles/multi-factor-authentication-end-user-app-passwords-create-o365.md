@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - End Users Guide" 
+	pageTitle="Azure Multi-Factor Authentication - For users" 
 	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
@@ -17,11 +17,13 @@
 	ms.author="billmath"/>
 
 # Create app passwords in the Office 365 portal
-[End User Guide - Home](multi-factor-authenticatio-end-user.md)<br> 
+
+[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
 [Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
 [Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)
+[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
+[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
+
 
 
 If you use multi-factor authentication with Office 365 you will want to create app passwords through the Office 365 portal.
@@ -29,15 +31,25 @@ If you use multi-factor authentication with Office 365 you will want to create a
 ## To create app passwords in the Office 365 portal
 --------------------------------------------------------------------------------
 
+<ol>
+<li>Sign-in to the Office 365 portal</li>
+<li>In the top right corner select the settings widget</li>
+<li>On the left, select Additional Security Verification</li>
 
-1. Sign-in to the Office 365 portal
-2. In the top right corner select the settings widget
-3. On the left, select Additional Security Verification
-4. On the right, select **Update my phone numbers used for account security**
-5. On the proofup page, at the top, select app passwords
-6. Click **Create**
-7. Enter a name for the app password and click **Next**
-8. Copy the app password to the clipboard and paste it into your app.
+<center>![Cloud](./media/multi-factor-authentication-end-user-app-password-create-o365/security.png)</center>
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-cloud/security.png)</center>
+<li>On the right, select **Update my phone numbers used for account security**</li>
+<li>On the proofup page, at the top, select app passwords</li>
+
+<center>![Cloud](./media/multi-factor-authentication-end-user-app-password-create-o365/addsec.png)</center>
+
+<li>Click **Create**</li>
+
+
+<center>![Cloud](./media/multi-factor-authentication-end-user-app-password-create-o365/apppass.png)</center>
+
+<li>Enter a name for the app password and click **Next**</li>
+<li>Copy the app password to the clipboard and paste it into your app.</li>
+
+
 
