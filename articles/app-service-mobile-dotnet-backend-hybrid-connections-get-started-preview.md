@@ -39,7 +39,11 @@ This tutorial requires you to have the following:
 
 You need to create a new Hybrid Connection and BizTalk service for the code portion of your Mobile App backend, which is a web app. 
 
-1. In the [Azure Portal], browse Web Apps and select the Web App that implements the backend code for your Mobile App, which is the name of your Mobile App followed by `-code`. 
+1. In the [Azure Portal], browse to your Mobile App and click the web app backend button.
+
+	![Navigate to web app](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/mobile-app-link-to-web-app-backend.png)
+
+	This takes you to the web app that implements the backend code for your Mobile App, which is the name of your Mobile App followed by `-code`. 
 
 2. Scroll down the web app's blade and click **Hybrid connections**.
 	
@@ -113,7 +117,7 @@ Before publishing to Azure and using the hybrid connection, it's a good idea to 
 
 Now that you have verified the database connection, you need to add an app setting for this new connection string so that it can be used from Azure.  
 
-1. Back in the [Azure Portal] in the Web App that implements your Mobile App backend, click **All settings**, then Application settings. 
+1. Back in the [Azure Portal] in the web app backend code for your Mobile App, click **All settings**, then **Application settings**. 
 
 3. In the **Web app settings** blade, scroll down to **Connection strings** and add an new **SQL Server** connection string named `OnPremisesDBConnection` with a value like `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
 
