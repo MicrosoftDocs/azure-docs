@@ -212,7 +212,7 @@ The metadata that enables an ASP.NET API project to be deployed as an API app mu
 	}
 	</pre>
 
-In the *apiapp.json* file you can specify an endpoint for dynamic Swagger API definition JSON, but for this tutorial you’ll use a static API definition file. For an example that uses dynamic Swagger generation, see [Configure a Web API project as an API app](https://azure.microsoft.com/documentation/articles/app-service-dotnet-create-api-app-visual-studio/).
+In the *apiapp.json* file you can specify an endpoint for dynamic Swagger API definition JSON, but for this tutorial you’ll use a static API definition file. For an example that uses dynamic Swagger generation, see [Configure a Web API project as an API app](app-service-dotnet-create-api-app-visual-studio.md).
 
 ## Add Swagger static API definition
 To provide a static Swagger 2.0 API definition file, you must create a folder at the web root and place the API definition file in it.
