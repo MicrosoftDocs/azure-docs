@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Azure PowerShell
@@ -61,7 +61,7 @@ In this step, you use the Azure PowerShell to create an Azure data factory named
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
 
-	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryPSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial.
+	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryPSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial.
 
 ## <a name="CreateLinkedServices"></a>Step 2: Create linked services
 Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database that contains input data or stores output data for a Data Factory pipeline. A compute service is the service that processes  input data and produces output data. 
@@ -109,15 +109,14 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 	
 		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-	> [AZURE.NOTE] Confirm that the **Allow access to Azure services** setting is turned ON for your Azure SQL server. To verify and turn it on, do the following:
-	>
-	> <ol>
-	> <li>Click <b>BROWSE</b> hub on the left and click <b>SQL servers</b>.</li>
-	> <li>Select your server, and click <b>SETTINGS</b> on the <b>SQL SERVER</b> blade.</li>
-	> <li>In the <b>SETTINGS</b> blade, click <b>Firewall</b>.</li>
-	> <li>In the <b>Firewalll settings</b> blade, click <b>ON</b> for <b>Allow access to Azure services</b>.</li>
-	> <li>Click <b>ACTIVE</b> hub on the left to switch to the <b>Data Factory</b> blade you were on.</li>
-	> </ol>
+	Confirm that the **Allow access to Azure services** setting is turned ON for your Azure SQL server. To verify and turn it on, do the following:
+
+	1. Click **BROWSE** hub on the left and click **SQL servers**.
+	2. Select your server, and click **SETTINGS** on the SQL SERVER blade.
+	3. In the **SETTINGS** blade, click **Firewall**.
+	4. In the **Firewalll settings** blade, click **ON** for **Allow access to Azure services**.
+	5. Click **ACTIVE** hub on the left to switch to the **Data Factory** blade you were on.
+	
 
 ## <a name="CreateInputAndOutputDataSets"></a>Step 3: Create input and output tables
 
@@ -219,7 +218,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
             { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
         ],
 
-	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
 2.	Run the following command to create the Data Factory table.
 
@@ -316,11 +315,13 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 	- Input for the activity is set to **EmpTableFromBlob** and output for the activity is set to **EmpSQLTable**.
 	- In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
-	> [AZURE.NOTE] Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
-	> If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property.
-	> In the example above, there will be 24 data slices as each data slice is produced hourly.
+	Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
 	
-	> See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property.
+	
+	In the example above, there will be 24 data slices as each data slice is produced hourly.
+	
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 2.	Run the following command to create the Data Factory table. 
 		
 		New-AzureDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
@@ -338,7 +339,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 
 		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
-	> [AZURE.NOTE] Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This should match the **Start** value in the pipeline JSON. 
+	Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This should match the **Start** value in the pipeline JSON. 
 
 	You should see 24 slices, one for each hour from 12 AM of the current day to 12 AM of the next day. 
 	
@@ -390,7 +391,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 		PipelineName        : ADFTutorialPipeline
 		Type                : Copy
 
-> [AZURE.NOTE] See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
 ## Next steps
 
