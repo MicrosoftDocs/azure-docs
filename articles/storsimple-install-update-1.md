@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/04/2015"
+   ms.date="06/05/2015"
    ms.author="alkohli" />
 
 # Install Update 1 on your StorSimple device
@@ -27,18 +27,28 @@ You will be prompted to perform a manual pre-check to ensure that:
 
 - The controller fixed IPs are routable and can connect to the Internet. These IPs are used to service updates to your StorSimple device. You can test this by running the following cmdlet on each controller:
 
-    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP outside of datacenter network> `
+    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
 	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
 
-	    Controller0>Test-connection -Source 10.126.173.91 -Destination 8.8.8.8
-    	
-    	Source	  Destination 		IPV4Address  IPV6Address
-    	----------------- -----------  ---------------------
-    	HCSNODE0  8.8.8.8 			8.8.8.8
-    	HCSNODE0  8.8.8.8 			8.8.8.8
-    	HCSNODE0  8.8.8.8 			8.8.8.8
-    	HCSNODE0  8.8.8.8 			8.8.8.8
+	    Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+
+	    Source	  Destination 	  IPV4Address    IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    
+	    Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+	    
+	    Source	  Destination 	IPV4Address      IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+
 
 
 - Before updating the device, we recommend that you take a cloud snapshot of the device data. 
