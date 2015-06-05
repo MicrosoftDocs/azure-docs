@@ -16,7 +16,7 @@
    ms.date="06/03/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-## Sessions and Requests
+# Sessions and Requests
 Since SQL Data Warehouse is a distributed MPP system, each session and request is handled as multiple sessions and requests throughout the distributed system. 
 
 Sessions and requests are represented logically by one identifier that starts with SID or QID respectively.

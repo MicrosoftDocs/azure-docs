@@ -1,3 +1,21 @@
+<properties
+   pageTitle="Schema migration tutorial | Microsoft Azure"
+   description="Steps for migrating your SQL Server schema to SQL Data Warehouse."
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="05/09/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+
 # Schema migration tutorial
 As part of your data migration you will probably need to consolidate multiple databases into a single database with multiple schemas. This tutorial steps through migrating your SQL Server database schemas to SQL Data Warehouse.
 

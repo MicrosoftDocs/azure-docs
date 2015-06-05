@@ -1,6 +1,7 @@
 <properties
    pageTitle="Improve performance through workload management | Microsoft Azure"
-   description="Improve workload performance by using workload management techniques to assign the proper CPU and memory resources to concurrent queries. "
+   description="Improve workload performance by using workload management techniques to assign the proper CPU and memory resources to concurrent queries."
+   services="SQL Data Warehouse"   
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"

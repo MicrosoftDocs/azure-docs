@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Page title that displays in the browser tab and search results"
-   description="Article description that will be displayed on landing pages and in most search results"
-   services="service-name"
-   documentationCenter="dev-center-name"
-   authors="GitHub-alias-of-only-one-author"
-   manager="manager-alias"
+   pageTitle="Migrate table partitions to SQL Data Warehouse | Microsoft Azure"
+   description="Learn how to migrate table partitions to SQL Data Warehouse"
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="mm/dd/yyyy"
-   ms.author="JRJ@BigBangData.co.uk"/>
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="05/09/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrate table partitions ##
 To migrate SQL Server partition definitions to SQL Data Warehouse:
