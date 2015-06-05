@@ -1,19 +1,41 @@
-# Improve performance with Create Table As Select (CTAS) 
-The CREATE TABLE AS SELECT (CTAS) statement is a fully parallelized operation that creates a new table based on the output of a select statement. Think of it as a super-charged version of SELECT...INTO. This vital feature that improves performance on SQL Data Warehouse. Updating your code to use CTAS will also help your code be compliant with SQL Data Warehouse.
+<properties
+   pageTitle="Improve performance with CREATE TABLE AS SELECT (CTAS) | Microsoft Azure"
+   description="Examples and recommendations for using the create table as select (CTAS) statement to improve performance and to create modular code."
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/03/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+
+# Improve performance with CREATE TABLE AS SELECT (CTAS) 
+The CREATE TABLE AS SELECT (CTAS) statement is a fully parallelized operation that creates a new table based on the output of a select statement. This vital feature improves performance on SQL Data Warehouse, and it provides an alternative to using some SQL Server statements. 
+
+Think of it as a super-charged version of the SELECT...INTO QL Server statement. 
 
 > [AZURE.NOTE] Think "CTAS first". If you think you can solve a problem using CTAS then that is generally the best way to approach it. 
 
-Scenarios that can be worked around with CTAS include:
 
+## Migrate SQL Server code
+For code migration scenarios, you can use CTAS to work around these SQL Server features that are not supported in SQL Data Warehouse.
+
+- SELECT..INTO
 - ANSI JOINS on UPDATEs
 - ANSI JOINs on DELETEs
 - MERGE statement
-- SELECT..INTO
 
-## EXAMPLE: Convert SELECT..INTO to CTAS
-You may find SELECT..INTO appears in a number of places in your solution. This example converts a SELECT...INTO statement to CTAS.
+### Example A: Use CTAS instead of SELECT..INTO
+One of the code migration steps is to change existing SELECT...INTO statements to use CTAS. This example shows how to perform the conversion.
 
-Statement with SELECT...INTO.
+Statement with SELECT...INTO:
 
 ```
 SELECT *
@@ -21,7 +43,7 @@ INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-Convert this to CTAS.
+Statement with CTAS:
 
 ```
 CREATE TABLE #tmp_fct
@@ -35,11 +57,11 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-## ANSI JOIN replacement for UPDATE and DELETE
+### Example B: Use CTAS instead of an ANSI JOIN for UPDATE and DELETE
 
-This example shows how to write a complex update that joins more than two tables together using ANSI joining syntax to perform the UPDATE or DELETE.
+This example shows first shows a complex update that joins more than two tables together using ANSI joining syntax to perform the UPDATE or DELETE. Then it shows how to write the same query by using CTAS.
 
-Imagine you need to update this table:
+Table to update:
 
 ```
 CREATE TABLE [dbo].[AnnualCategorySales]
@@ -54,7 +76,7 @@ WITH
 ;
 ```
 
-In SQL Server, the query could look like this:
+SQL Server query that uses an ANSI JOIN for UPDATE:
 
 
 ```
@@ -108,10 +130,10 @@ AND     CTAS_acs.[CalendarYear]               = AnnualCategorySales.[CalendarYea
 ;
 ```
 
-## Replace MERGE Statements
-The CTAS statement can replace merge statements, at least in part. You can consolidate the `INSERT` and the `UPDATE` into a single statement. Any deleted records still need to be closed off in a second statement.
+### Example C: Use CTAS instead of MERGE 
+The CTAS statement can replace merge statements, at least in part. You can consolidate the `INSERT` and `UPDATE` into a single statement. **up**date + in**sert** is called an upsert operation. Any deleted records still need to be closed off in a second statement.
 
-This example performs an `UPSERT` operation.
+This example uses CTAS to performs an upsert.
 
 ```
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -139,9 +161,15 @@ WHERE NOT EXISTS
 ;
 ```
 
-## Recommendation: Explicitly state data type and nullability of output.
+## Recommendations for data type and nullability consistency when using CTAS
 
-When migrating code you might have this type of coding pattern:
+It is important to maintain the consistency of data types and nullability definitions when you use CTAS to create a new table. This helps to maintain integrity in your calculations and also ensures that partition switching is possible.
+
+### Example A: Use explicit data types and nullability definitions with CTAS to keep data integrity for computed columns
+
+Statement A uses INSERT...SELECT and explicitly declares the result column of type DECIMAL(7,2), and explicitly declares the nullability of the result column.
+
+Statement A, explicit column data type and nullability:
 
 ```
 DECLARE @d decimal(7,2) = 85.455
@@ -157,9 +185,9 @@ SELECT @d*@f
 ;
 ```
 
-Instinctively you might think you should migrate this code to a CTAS and you would be correct. However, there is a hidden issue here.
+Statement B shows one way to change Statement A to use CTAS. The result column is of the data type that implicitly occurs when a decimal is multipled by a float. This does not result in a column of type DECIMAL(7,2).  The nullability is not explicitly defined, and by default the result column will be defined with NULL. 
 
-The following code does NOT yield the same result:
+Statement B, implicit column data type and nullability:
 
 ```
 DECLARE @d decimal(7,2) = 85.455
@@ -172,9 +200,7 @@ SELECT @d*@f as result
 ;
 ```
 
-Notice that the column "result" carries forward the data type and nullability values of the expression. This can lead to subtle variances in values if you aren't careful.
-
-Try the following as an example:
+To show that statement A and statement B do not give the same results, try running these statements.
 
 ```
 SELECT result,result*@d
@@ -184,16 +210,12 @@ SELECT result,result*@d
 from ctas_r
 ;
 ```
-The value stored for result is different. Since the persisted value in the result column is used in other expressions the error becomes even more significant.
-![][1]
 
-This is particularly important for data migrations. Even though the second query is arguably more accurate there is a problem. The data would be different compared to the source system and that leads to questions of integrity in the migration. 
+Statement C resolves the type issues by explicitly setting the type conversion and nullability in the SELECT portion of the CTAS statement.
 
-We see this disparity because of implicit type casting. In the first example the table defines the column definition. When the row is inserted an implicit type conversion occurs. In the second example there is no implicit type conversion as the expression defines data type of the column. Notice also that the column in the second example has been defined as a NULLable column whereas in the first example it has not. When the table was created in the first example column nullability was explicitly defined. In the second example it was just left to the expression and by default this would result in a NULL definition.  
+>[AZURE.NOTE] The table that CTAS creates inherits the data type of the columns the SELECT statement returns. You can declare the column types by using implicit type casting within the SELECT statement.
 
-To resolve these issues you must explicitly set the type conversion and nullability in the SELECT portion of the CTAS statement. You cannot set these properties in the create table part.
-
-The example below demonstrates how to fix the code:
+Statement C, the solution, type casting provides explicit data type and nullability.
 
 ```
 DECLARE @d decimal(7,2) = 85.455
@@ -206,15 +228,13 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 
 ```
 
-Note the following:
-- CAST or CONVERT could have been used
-- ISNULL is used to force NULLability not COALESCE
-- ISNULL is the outermost function
-- The second part of the ISNULL is a constant i.e. 0
-
 > [AZURE.NOTE] For the nullability to be correct, use ISNULL and not COALESCE. COALESCE is not a deterministic function and so the result of the expression will always be NULLable. ISNULL is different. It is deterministic. Therefore when the second part of the ISNULL function is a constant or a literal then the resulting value will be NOT NULL.
 
-This tip is not just useful for ensuring the integrity of your calculations. It is also important for table partition switching. Imagine you have this table defined as your fact:
+### Example B: Use explicit data types and nullability definitions with CTAS to keep data integrity for partition switching
+
+The previous example is not just useful for ensuring the integrity of your calculations. It is also important for table partition switching. 
+
+Let's start with this fact table definition:
 
 ```
 CREATE TABLE [dbo].[Sales]
@@ -238,7 +258,7 @@ WITH
 ```
 However, the value field is a calculated expression that is not part of the source data.
 
-To create your partitioned dataset you might want to do this:
+To create your partitioned dataset you could do this:
 
 ```
 CREATE TABLE [dbo].[Sales_in]
@@ -285,7 +305,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-You can see therefore that type consistency and maintaining nullability properties on a CTAS is a good engineering best practice. It helps to maintain integrity in your calculations and also ensures that partition switching is possible.
 
-Please refer to MSDN for more information on using [CTAS]. It is one of the most important statements in Azure SQL Data Warehouse. Make sure you thoroughly understand it.
+
+
 
