@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Resource Usage and RateCard APIs"
-   description="Provides a conceptual overview of the Azure Resource Usage and RateCard  APIs, which are provided by the Microsoft Azure Commerce Resource Provider."
+   pageTitle="Gain insights into your Microsoft Azure resource consumption"
+   description="Provides a conceptual overview of the Azure Resource Usage and RateCard  APIs, which are used to provide insights into Azure resource consumption and trends."
    services="billing"
    documentationCenter=""
    authors="BryanLa"
@@ -16,13 +16,15 @@
    ms.date="06/03/2015"
    ms.author="mobandyo;bryanla"/>
 
-# Azure Resource Usage and RateCard APIs (Preview)
+# Gain insights into your Microsoft Azure resource consumption 
 
 Customers and partners require the ability to accurately predict and manage their Azure costs.  As they move from a Capex to an Opex model, they also need the ability to do show-back or charge-back, and provide mode fidelity in estimation and billing, especially for large cloud deployments. 
 
 The Azure Resource Usage and Rate Card APIs discussed in this article address these needs, by enabling new insights into your consumption of Azure resources.  For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
-## Get insights into your Azure consumption
+## Introducing the Azure Resource Usage and RateCard APIs 
+
+The Azure Resource Usage and RateCard APIs are part of the family of APIs exposed by the Resource Providers within the Azure Resource Manager. 
 
 ### Azure Resource Usage API (Preview)
 This REST API is planned to be part of the Azure Resource Management REST API, which customers and partners can use to get programmatic access to their estimated Azure consumption data. Here are some of the features:
@@ -62,12 +64,15 @@ Here are some of the scenarios that are made possible with the combination of th
 
 	- Customers and partners can determine if another Azure offer type gives a better rate on an Azure resource.
 
+## Partner Solutions
+[**TODO**:Update link/text] See the [Azure Billing Partner Solutions](azure-billing-usage-rate-card-overview.md) article to learn more about the Azure Billing API integration experiences as shared by partners Cloud Cruiser and Cloudyn.
+
+[**TODO**:Update link] For a more in-depth look at the partner integration work mentioned above, see the set of [Azure Billing Partner Solutions Tutorials](azure-billing-usage-rate-card-overview.md), which include tutorials and sample code to walk you through each of the respective projects.
+
 ## Next Steps
 
 + [**TODO**:Update link] Check out the [Azure Billing REST API Reference](https://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
 + [**TODO**:Update link] If you would like to dive right into the sample code, check out our [Usage API and RateCard API samples on Github](https://github.com/Azure/BillingCodeSamples).
-+ [**TODO**:Update link/text] See the [Azure Billing Partner Solutions](azure-billing-usage-rate-card-overview.md) article to learn more about the Azure Billing API integration experiences as shared by partners Odin, Cloud Cruiser and Cloudinary. [**and Cloudyn?**]
-+ [**TODO**:Update link] For a more in-depth look at the partner integration work mentioned above, see the set of [Azure Billing Partner Solutions Tutorials](azure-billing-usage-rate-card-overview.md), which include tutorials and sample code to walk you through each of the respective projects.
-+ See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
++ + See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
 
 
