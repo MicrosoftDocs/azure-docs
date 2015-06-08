@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Getting Started - AD FS in the Cloud" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud." 
+	pageTitle="Securing cloud resources with Azure Multi-Factor Authentication and AD FS" 
+	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 

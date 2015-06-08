@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - For users" 
-	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
+	pageTitle="What does Azure Multi-Factor Authentication mean for me?" 
+	description="This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 

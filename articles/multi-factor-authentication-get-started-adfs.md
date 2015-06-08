@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Getting Started - AD FS" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and AD FS." 
+	pageTitle="Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services" 
+	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 

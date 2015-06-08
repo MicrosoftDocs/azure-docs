@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication - What is It?" 
-	description="This is the Azure AD Connect that describes what it is and why you would use it." 
+	description="Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -62,5 +62,5 @@ For additional information on why use Azure Multi-Factor Authentication see the 
 
 **Additional Resources**
 
-* [End User Guide](multi-factor-authentication-end-user.md)
+* [For Users](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)

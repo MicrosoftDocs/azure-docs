@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - For users" 
-	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
+	pageTitle="Managing your Azure MFA settings" 
+	description="This document will provide users information on where they need to go to manage their Azure MFA settings." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -16,7 +16,7 @@
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
-# Managing your settings
+# Managing your settings with Azure Multi-Factor Authentication
 
 [What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
 [Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>

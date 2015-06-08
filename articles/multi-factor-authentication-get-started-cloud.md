@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Getting Started - Cloud" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA in the cloud." 
+	pageTitle="Getting started with Azure Multi-Factor Authentication in the cloud" 
+	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA in the cloud." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -194,7 +194,7 @@ In these instances, you must do the following:
 ### Allowing app password creation
 By default, users cannot create app passwords.  This feature must be enabled.  To allow users the ability to create app passwords use the following procedure.
 
-#### To allow users to create app passwords
+### To allow users to create app passwords
 --------------------------------------------------------------------------------
 1.  Sign-in to the Azure Management Portal as an administrator.
 2.  On the left, click Active Directory.
@@ -211,7 +211,7 @@ Users can create app passwords during their initial registration.  They are give
 
 Additionally users can also create app passwords later on by changing their settings in the Azure Portal, the Office 365 portal or by 
 
-##### To create app passwords in the Office 365 portal
+### To create app passwords in the Office 365 portal
 --------------------------------------------------------------------------------
 
 
@@ -227,7 +227,7 @@ Additionally users can also create app passwords later on by changing their sett
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/security.png)</center>
 
 
-##### To create app passwords in the Azure portal
+### To create app passwords in the Azure portal
 --------------------------------------------------------------------------------
 1. Sign-in to the Azure Management portal
 3. At the top, right-click on your user name and select Additional Security Verification.
@@ -239,7 +239,7 @@ Additionally users can also create app passwords later on by changing their sett
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/app2.png)</center>
 
-##### To create app passwords if you do not have an Office 365 or Azure subscription
+### To create app passwords if you do not have an Office 365 or Azure subscription
 --------------------------------------------------------------------------------
 1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
 2. At the top, select profile.

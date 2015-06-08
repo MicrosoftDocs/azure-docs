@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Getting Started - AD FS Windows Server 2012 R2" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and AD FS on Windows Server 2012 R2." 
+	pageTitle="Secure cloud and on-premises resources using Azure MFA Server with Windows Server 2012 R2 AD FS" 
+	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS on Windows Server 2012 R2." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 

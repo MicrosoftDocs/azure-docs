@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication - Getting Started" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA." 
+	description="Choose the multi-factor authentication secutiry solution that is right for you by asking what am i trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 

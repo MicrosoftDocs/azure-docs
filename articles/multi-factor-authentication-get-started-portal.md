@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Getting Started - User Portal" 
+	pageTitle="Deploying the user portal for the Azure Multi-Factor Authentication Server" 
 	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
@@ -106,10 +106,10 @@ Before installing the user portal on a seperate server, be aware of the followin
 
 <li>Open a web browser from any computer and navigate to the URL where User Portal was installed (e.g. https://www.publicwebsite.com/MultiFactorAuth ). Ensure that no certificate warnings or errors are displayed.</li>
 
-### Configure the user portal settings in the Azure Multi-Factor Authentication Server
+## Configure the user portal settings in the Azure Multi-Factor Authentication Server
 Now that the portal is installed, you need to configure the Azure Multi-Factor Authentication Server to work with the portal.
 
-#### To configure the user portal settings in the Azure Multi-Factor Authentication Server
+### To configure the user portal settings in the Azure Multi-Factor Authentication Server
 
 
 

@@ -1,7 +1,7 @@
 
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - For users" 
-	description="This is the Azure Multi-factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
+	pageTitle="Signing in to the mobile app using notification with Azure Multi-Factor Authentication" 
+	description="This page will describe how a user can signin using mobile app notification with Azure MFA." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -17,7 +17,7 @@
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
-# Signing in with mobile app using notification
+# Signing in to the mobile app using notification with Azure Multi-Factor Authentication
 
 [What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
 [Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Getting Started - Server" 
+	pageTitle="Getting started with the Azure Multi-Factor Authentication Server" 
 	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 

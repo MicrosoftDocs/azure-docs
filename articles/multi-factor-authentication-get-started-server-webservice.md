@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Getting Started - Web Service" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA." 
+	pageTitle="Getting started the MFA Server Mobile App Web Service" 
+	description="The Azure Multi-Factor Authentication App offers an additional out-of-band authentication option.  It allows the MFA server to use push notifications to users." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -16,9 +16,9 @@
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
-# Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service
+# Getting started the MFA Server Mobile App Web Service
 
-This document details the steps required to install and configure the Azure Multi-Factor Authentication Mobile App Web Service which is used in the Azure Multi-Factor Authentication App activation process. The Azure Multi-Factor Authentication App offers an additional out-of-band authentication option. Instead of placing an automated phone call or SMS to the user during login, Azure Multi-Factor Authentication pushes a notification to the Azure Multi-Factor Authentication App on the user’s smartphone or tablet. The user simply taps “Authenticate” (or enters a PIN and taps “Authenticate”) in the app to log in. 
+The Azure Multi-Factor Authentication App offers an additional out-of-band authentication option. Instead of placing an automated phone call or SMS to the user during login, Azure Multi-Factor Authentication pushes a notification to the Azure Multi-Factor Authentication App on the user’s smartphone or tablet. The user simply taps “Authenticate” (or enters a PIN and taps “Authenticate”) in the app to log in. 
 
 In order to use the Azure Multi-Factor Authentication App, the following are required so that the app can successfully communicate with Mobile App Web Service: 
 
