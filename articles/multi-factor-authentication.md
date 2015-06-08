@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication - What is It?" 
-	description="Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions." 
+	description="Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
