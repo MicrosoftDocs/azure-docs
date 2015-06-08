@@ -81,6 +81,123 @@ The following steps show how to customize Swashbuckle by using the *SwaggerConfi
  
 	![](./media/app-service-api-dotnet-swashbuckle-customize/uniqueids.png)
 
+<a id="multiple-response-codes" name="multiple-response-codes"></a>
+	
+## Add Multiple Swagger Responses
+
+By default, Swashbuckle assumes that an HTTP 200 (OK) response is the *only* legitimate response from an individual Web API method. In some cases, you may want to return multiple response codes based on the behavior of your Web API code. Luckilly, Swashbuckle provides two ways of specifying the potential for multiple HTTP response codes coming out of your API. This section will cover both of these options. 
+
+### Using Swashbuckle's XML Comment Support for Multiple Response Codes
+
+The API Apps preview template available in Visual Studio 2013 includes Swashbuckle version 5.0.0.0. If you'd prefer to use the Swashbuckle version included with the template to specify multiple HTTP response codes, you can use special XML comments recognized by the Swashbuckle Swagger generation routine. 
+
+The Web API Action code below demonstrates a scenario in which a Web API author will want to control the HTTP response codes coming from the server.
+
+	[ResponseType(typeof(Contact))]
+    public HttpResponseMessage Get(int id)
+    {
+        var contacts = GetContacts();
+
+        var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
+
+        if (requestedContact == null)
+        {
+            return Request.CreateResponse(HttpStatusCode.NotFound);
+        }
+        else
+        {
+            return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
+        }
+    }
+
+In this scenario, the Swagger emitted for the Web API controller contains only one legitimate HTTP status code, that being the HTTP 200 case. 
+
+![](./media/app-service-api-dotnet-swashbuckle-customize/http-200-output-only.png)
+
+Since the Visual Studio code generation functionality looks explicitly at the valid HTTP response codes, anything other than an HTTP 200 will cause the generated code to throw an exception. The code below is from a C# client generated for this sample Web API method.
+
+	if (statusCode != HttpStatusCode.OK)
+    {
+        HttpOperationException<object> ex = new HttpOperationException<object>();
+        ex.Request = httpRequest;
+        ex.Response = httpResponse;
+        ex.Body = null;
+        if (shouldTrace)
+        {
+            ServiceClientTracing.Error(invocationId, ex);
+        }
+        throw ex;
+    } 
+
+Swashbuckle 5.0.0.0 (which ships with the API Apps Preview Visual Studio template) has support for custom XML comments that specify the acceptable HTTP response codes from Web API methods. To enable multiple response codes using the XML flavor, there are four steps to implement. 
+
+1. First, add XML documentation comments over the methods you wish to provide support for multiple HTTP response codes. Taking the original Web API action method above and applying the XML documentation to it would result in code like that below. 
+
+		/// <summary>
+		/// Returns the specified contact.
+		/// </summary>
+		/// <param name="id">The ID of the contact.</param>
+		/// <returns>A contact record with an HTTP 200, or null with an HTTP 404.</returns>
+		/// <response code="200">OK</response>
+		/// <response code="404">Not Found</response>
+		[ResponseType(typeof(Contact))]
+		public HttpResponseMessage Get(int id)
+		{
+		    var contacts = GetContacts();
+		
+		    var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
+		
+		    if (requestedContact == null)
+		    {
+		        return Request.CreateResponse(HttpStatusCode.NotFound);
+		    }
+		    else
+		    {
+		        return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
+		    }
+		}
+
+1. Once the comments have been added to the action method, instructions must be provided in the *SwaggerConfig.cs* file to direct Swashbuckle to make use of the XML documentation file. To do this, open up SwaggerConfig.cs and create a method on the *SwaggerConfig* class to specify the path to the documentation XML file. 
+
+		private static string GetXmlCommentsPath()
+	    {
+	        return string.Format(@"{0}\XmlComments.xml", 
+	            System.AppDomain.CurrentDomain.BaseDirectory);
+	    }
+		
+1. Once the method is added, scroll down in the *SwaggerConfig.cs* file until you see the commented-out line of code resembling the screen shot below. 
+
+	![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-commented-out.png)
+	
+	Then, uncomment the line to enable the XML comments processing during Swagger generation. 
+	
+	![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-uncommented.png)
+	
+1. In order to generate the XML documentation file, go into the project's properties and enable the XML documentation file as shown in the screenshot below. 
+
+	![](./media/app-service-api-dotnet-swashbuckle-customize/enable-xml-documentation-file.png) 
+
+Once you perform these steps, the Swagger JSON generated by Swashbuckle will reflect multiple HTTP response codes. The screenshot below demonstrates this new JSON payload. 
+
+![](./media/app-service-api-dotnet-swashbuckle-customize/swagger-multiple-responses.png)
+
+Once you use Visual Studio to regenerate the client code for your REST API, the C# code compiled takes both the HTTP OK and Not Found status codes, allowing your consuming code to make decisions on how to handle the return of a null Contact record on your own. 
+
+	if (statusCode != HttpStatusCode.OK && statusCode != HttpStatusCode.NotFound)
+    {
+        HttpOperationException<object> ex = new HttpOperationException<object>();
+        ex.Request = httpRequest;
+        ex.Response = httpResponse;
+        ex.Body = null;
+        if (shouldTrace)
+        {
+            ServiceClientTracing.Error(invocationId, ex);
+        }
+        throw ex;
+    }
+
+The code for this demonstration can be found in [this GitHub repository](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes). Along with the Web API project marked up with XML documentation comments is a Console Application project that contains a generated client for this API. 
+
 ## Next steps
 
 This article has shown how to customize Swashbuckle to make it generate unique operation ids. For more information, see [Swashbuckle on GitHub](https://github.com/domaindrivendev/Swashbuckle).
