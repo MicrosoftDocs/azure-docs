@@ -50,13 +50,13 @@ Next, perform the following steps to unpack your device.
 
      ![Unpack your storage device](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png) 
 
-     | Label | Description   |
-     | ----- | ------------- |
-     | 1     | Packing box   |
-     | 2     | Bottom foam   |
-     | 3     | Device        |
-     | 4     | Top foam      |
-     | 5     | Accessory box |
+     Label | Description 
+     ----- | -------------
+     1     | Packing box
+     2     | Bottom foam
+     3     | Device
+     4     | Top foam
+     5     | Accessory box
 
 3. After unpacking the box, make sure that you have:
 
@@ -119,10 +119,10 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
-    | Label | Description              |
-    | ----- | ------------------------ |
-    | 1     | M 3x4 button-head screws |
-    | 2     | Chassis slides           |
+    Label | Description
+    ----- | -----------
+    1     | M 3x4 button-head screws
+    2     | Chassis slides
 
 3. Attach the left rail and right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation.
 
@@ -136,13 +136,13 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
      ![Attaching rail slides to rack cabinet](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
 
-     | Label | Description                       |
-     | ----- | --------------------------------- |
-     | 1     | Clamping screw                    |
-     | 2     | Square-hole front rack post screw |
-     | 3     | Left front-rail location pins     |
-     | 4     | Clamping screw                    |
-     | 5     | Right front-rail location pins    |
+     Label | Description
+     ----- | -----------
+     1     | Clamping screw
+     2     | Square-hole front rack post screw
+     3     | Left front-rail location pins
+     4     | Clamping screw
+     5     | Right front-rail location pins
 
 ### Mounting the device in the rack
 
@@ -166,9 +166,9 @@ Using the rack rails that were just installed, perform the following steps to mo
 
      ![Installing flange caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-     | Label | Description               |
-     | ----- | ------------------------- |
-     | 1     | Enclosure fastening screw |
+     Label | Description
+     ----- | -----------
+     1     | Enclosure fastening screw
 
 The next step is to cable your device for power, network, and serial access. 
 
@@ -220,13 +220,13 @@ Perform the following steps to cable your device for power.
 
      ![Cable your 2U device for power](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
-     | Label | Description   |
-     | ----- | ------------- |
-     | 1     | PCM 0         |
-     | 2     | Controller 1  |
-     | 3     | Controller 0  |
-     | 4     | PCM 1         |
-     | 5     | PDUs          |
+     Label | Description
+     ----- | -----------
+     1     | PCM 0
+     2     | Controller 1
+     3     | Controller 0
+     4     | PCM 1
+     5     | PDUs
 
 ### Network cabling
 
@@ -242,11 +242,11 @@ To support this redundant controller failover, you need to cable your device net
 
     ![Backplane of 8100 device](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
  
-     | Label   | Description               |
-     | ------- | ------------------------- |
-     | 0,1,4,5 |  1 GbE network interfaces |
-     | 2,3     | 10 GbE network interfaces |
-     | 6       | Serial ports              |
+     Label   | Description
+     ------- | -----------
+     0,1,4,5 |  1 GbE network interfaces
+     2,3     | 10 GbE network interfaces
+     6       | Serial ports
 
 2. For high availability, the device requires a minimum of two connections for each controller.
     1. The DATA 0 port is automatically enabled and configured via the serial console of the device. Apart from DATA 0, another data port also needs to be configured through the Management Portal. 
@@ -263,15 +263,15 @@ To support this redundant controller failover, you need to cable your device net
 
    ![Cable your 2U device for network](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-     | Label | Description              |
-     | ----- | ------------------------ |
-     |  A    | LAN with Internet access |
-     |  B    | Controller 0             |
-     |  C    | PCM 0                    |
-     |  D    | Controller 1             |
-     |  E    | PCM 1                    |
-     | F,G   | Hosts                    |
-     | 0-5   | Network interfaces       |
+    Label | Description
+    ----- | -----------
+     A    | LAN with Internet access
+     B    | Controller 0
+     C    | PCM 0
+     D    | Controller 1
+     E    | PCM 1
+     F,G  | Hosts
+     0-5  | Network interfaces
    
 ### Serial port cabling
 
