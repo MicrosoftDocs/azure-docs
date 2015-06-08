@@ -21,7 +21,7 @@
 
 Your Microsoft Azure StorSimple 8100 is a single enclosure, rack-mounted device. 
 
-This article explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you  configure the StorSimple software.
+This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you  configure the StorSimple software.
 
 ## Unpack your StorSimple 8100 device
 
