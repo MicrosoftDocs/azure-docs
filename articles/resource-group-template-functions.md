@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Resource Manager Template Functions"
-   description="Describes the functions to use in an Azure Resource Manager template to deploy apps to Azure."
+   description="Describes the functions to use in an Azure Resource Manager template to retrieve values, format strings and retrieve deployment information."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/08/2015"
+   ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
 
