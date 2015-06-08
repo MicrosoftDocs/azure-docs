@@ -99,7 +99,15 @@ You can make a manual backup at any time.
 	
 	![Save button][SaveIcon]
 
-<a name="aboutbackups"></a>
+<a name="notes"></a>
+## Notes
+
+* Make sure that you set up the connection strings for each of your databases properly on the **Web app settings** blade within **Settings** of the web app so that the Backup and Restore feature can include your databases.
+* Although you can back up more than one web app to the same storage account, for ease of maintenance, consider creating a separate storage account for each web app.
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+<a name="partialbackups"></a>
 ## Backup just part of your site
 
 Sometimes you don't want to backup everything on your site, especially if you backup your site regularly. 
@@ -165,6 +173,11 @@ Any files and folders that fall under the filters listed in the _backup.filter w
 ###Restoring your backed up site
 You restore partial backups of your site the same way you would [restore a regular backup](https://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/). It'll do the right thing.
 
+####The technical details
+With full (non-partial) backups normally all content on the site is replaced with whatever is in the backup.  If a file is on the site but not in the backup it gets deleted.
+
+But when restoring partial backups though any content that is located in one of the blacklisted folders (like `D:\home\site\wwwroot\images\2014` for my site) will be left as is. And if individual files were black listed then they'll also be left alone during the restore.
+
 <a name="aboutbackups"></a>
 ## How backups are stored
 
@@ -180,13 +193,43 @@ For information on restoring a web app (including databases) by using the Azure 
 
 > [AZURE.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 
-<a name="notes"></a>
-## Notes
+<a name="bestpractices"></a>
+##Best Practices
+What do you do when disaster strikes and you have to restore your site?  Make sure you're prepared beforehand.
 
-* Make sure that you set up the connection strings for each of your databases properly on the **Web app settings** blade within **Settings** of the web app so that the Backup and Restore feature can include your databases.
-* Although you can back up more than one web app to the same storage account, for ease of maintenance, consider creating a separate storage account for each web app.
+Yeah, you can have partial backups, but take at least one full backup of the site first so that you have all your site's contents backed up (this is worst case scenario planning).  Then when you're restoring your backups you can first restore the full backup of the site, and then restore the latest partial backup on top of it.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+Here's why: it lets you use [Deployment Slots](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/) to test your restored site. You can even test the restore process without ever touching your production site. And testing your restore process is a [Very Good Thing](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/).  You never know when you might run into some subtle gotcha like I did when I tried restoring my blog and end up losing half your content.
+
+###A horror story
+
+My blog is powered by the [Ghost](https://ghost.org/) blogging platform.  Like a responsible dev I created a backup of my site and everything was great. Then one day I got a message saying that there was a new version of Ghost available and I could upgrade my blog to it. Great!
+
+I created one more backup of my site to backup the latest blog posts, and proceeded to upgrade Ghost. 
+
+On my production site. 
+
+Bad mistake.  
+
+Something went wrong with the upgrade, my home screen just showed a blank screen.  "No problem" I thought, "I'll simply restore the backup I just took."
+
+I restored the upgrade, saw everything come back...except the blog posts.
+
+WHAT???
+
+Turns out, in the [Ghost upgrade notes](http://support.ghost.org/how-to-upgrade/) there's this warning:
+
+![You can take a copy of your database from content/data but you  should not do this while Ghost is runing. Please stop it first][GhostUpgradeWarning]
+
+If you try to backup the data while Ghost is running...the data doesn't actually get backed up.
+
+Bummer.
+
+If I had tried the restore on a test slot first I would have seen this issue and not lost all my posts.
+
+Such is life. It can happen to [the best of us](http://blog.codinghorror.com/international-backup-awareness-day/). 
+
+Test your backups.
 
 <a name="nextsteps"></a>
 ## Next Steps
