@@ -31,12 +31,13 @@ The following steps provide clear, detailed instructions about how to unpack you
 
 Before you unpack your device, complete the following steps.
 
-  >![warning icon](./media/storsimple-8100-hardware-installation/HCS_Warning_Icon.png)
-  ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNIING!** 
+>[AZURE.WARNING]
+>![warning icon](./media/storsimple-8100-hardware-installation/HCS_Warning_Icon.png)
+![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNIING!** 
 >
->1. Make sure that you have two people available to manage the weight of the device if you are handling it manually. A fully configured device can weigh up to 32 kg (70 lbs.).
+> 1. Make sure that you have two people available to manage the weight of the device if you are handling it manually. A fully configured device can weigh up to 32 kg (70 lbs.).
 >
->2. Place the box on a flat, level surface.
+> 2. Place the box on a flat, level surface.
 
 Next, perform the following steps to unpack your device.
 
@@ -44,7 +45,7 @@ Next, perform the following steps to unpack your device.
 
 1. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please contact Microsoft Support to help you assess whether the device is in good working order. 
 
-2. Unpack the box. See the following image which shows the unpacked view of your Azure StorSimple device.<br/>
+2. Unpack the box. See the following image which shows the unpacked view of your Azure StorSimple device.
 
      **Figure 1 Unpacked view of your storage device**
 
@@ -57,7 +58,7 @@ Next, perform the following steps to unpack your device.
       | 3     | Device        |
       | 4     | Top foam      |
       | 5     | Accessory box |
-<br/>    
+
 3. After unpacking the box, make sure that you have:
 
    - 1 single enclosure device
@@ -70,7 +71,9 @@ Next, perform the following steps to unpack your device.
    - 1 rack-mount kit (2 side rails with mounting hardware)
    - Getting Started documentation
 
-    If you did not receive any of the items listed above, contact Microsoft Support. The next step is to rack-mount your device. 
+    If you did not receive any of the items listed above, contact Microsoft Support. 
+
+The next step is to rack-mount your device. 
 
 ## Rack-mount your StorSimple 8100 device
 
@@ -90,10 +93,10 @@ The device must be installed in a standard 19-inch rack that has both front and 
 
 3. Make sure that one 2U slot is available on the rack in which you intend to mount the device. 
 
-    >![warning icon](./media/storsimple-8100-hardware-installation/HCS_Warning_Icon.png)
-    ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNIING!** 
-    >
-    >Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
+> ![warning icon](./media/storsimple-8100-hardware-installation/HCS_Warning_Icon.png)
+![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNIING!** 
+ 
+Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
 
 ### Rack prerequisites
 
