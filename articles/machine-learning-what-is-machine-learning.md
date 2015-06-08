@@ -21,6 +21,7 @@
 # Introduction to machine learning on Microsoft Azure
 
 ## What is machine learning?
+
 Machine learning is at work all around you. When you shop online, machine learning helps recommend other products based on what you've purchased. When your credit card is swiped, machine learning helps the bank do fraud detection and notify you if the transaction seems suspicious.
 
 Machine learning uses predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.
@@ -34,6 +35,7 @@ Azure Machine Learning not only provides tools to model predictive analytics, bu
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ## What is predictive analytics?
+
 Predictive analytics uses various statistical techniques - in this case, machine learning - to analyze collected or current data for patterns or trends in order to forecast future events. 
 
 Azure Machine Learning is a particularly powerful way to do predictive analytics: You can work from a ready-to-use library of algorithms, create models on an internet-connected PC without purchasing additional equipment or infrastructure, and deploy your predictive solution quickly. You can also find ready-to-use examples and solutions in the [Mirosoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) or [Machine Learning Gallery](http://gallery.azureml.net/).

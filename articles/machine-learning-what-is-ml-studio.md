@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="What Is Azure Machine Learning Studio? | Azure" 
-	description="Overview of Azure Machine Learning Studio and its basic components" 
+	pageTitle="What is Azure Machine Learning Studio? | Microsoft Azure" 
+	description="Overview of Azure Machine Learning Studio, a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules." 
+	keywords="azure machine learning,azure ml, ml studio"	
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -18,7 +19,7 @@
 
 # What is Azure Machine Learning Studio?
 
-Microsoft Azure Machine Learning Studio is a collaborative visual development environment that enables you to build, test, and deploy predictive analytics solutions that operate on your data. The Machine Learning service and development environment is cloud-based, provides compute resource and memory flexibility, and eliminates setup and installation concerns because you work through your web browser. 
+Microsoft Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
 Machine Learning Studio is where data science, predictive analytics, cloud resources, and your data meet.
 
