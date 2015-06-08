@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Creating and managing elastic database jobs" 
-	description="Walk through creation and management of an elastic database job." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+<properties
+	pageTitle="Creating and managing elastic database jobs"
+	description="Walk through creation and management of an elastic database job."
+	services="sql-database"
+	documentationCenter=""
+	manager="jhubbard"
+	authors="sidneyh"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/05/2015"
 	ms.author="sidneyh"/>
 
 # Creating and managing elastic database jobs
 
-**Elastic database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **elastic database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. 
+**Elastic database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **elastic database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data.
 
 ## Prerequisites
 
 * An Azure subscription. For a free trial, see [Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
 * An elastic database pool. See [About Elastic database pools](sql-database-elastic-pool.md)
-* Installation of elastic database job service components. See [Installing the elastic database job service](vsql-database-elastic-jobs-service-installation.md).
+* Installation of elastic database job service components. See [Installing the elastic database job service](sql-database-elastic-jobs-service-installation.md).
 
 ## Creating jobs
 
@@ -44,41 +44,41 @@ When you run a script against a set of databases, you must be sure that the scri
             WHERE name = N'IX_ProductVendor_VendorID')
     DROP INDEX IX_ProductVendor_VendorID ON Purchasing.ProductVendor;
 	GO
-	CREATE INDEX IX_ProductVendor_VendorID 
+	CREATE INDEX IX_ProductVendor_VendorID
     ON Purchasing.ProductVendor (VendorID);
 
 Alternatively, use an "IF NOT EXISTS" clause before creating a new instance:
 
-	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable') 
-	BEGIN 
-	 CREATE TABLE TestTable( 
-	  TestTableId INT PRIMARY KEY IDENTITY, 
-	  InsertionTime DATETIME2 
-	 ); 
-	END 
-	GO 
-	
-	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime()); 
-	GO 
+	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
+	BEGIN
+	 CREATE TABLE TestTable(
+	  TestTableId INT PRIMARY KEY IDENTITY,
+	  InsertionTime DATETIME2
+	 );
+	END
+	GO
+
+	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime());
+	GO
 
 This script then updates the table created previously.
 
-	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation') 
-	BEGIN 
-	
-	ALTER TABLE TestTable 
-	
-	ADD AdditionalInformation NVARCHAR(400); 
-	END 
-	GO 
-	
-	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test'); 
-	GO 
+	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation')
+	BEGIN
+
+	ALTER TABLE TestTable
+
+	ADD AdditionalInformation NVARCHAR(400);
+	END
+	GO
+
+	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test');
+	GO
 
 
 ## Checking job status
 
-After a job has begun, you can check on its progress. 
+After a job has begun, you can check on its progress.
 
 1. From the elastic database pool page, click **Manage jobs**.
 
@@ -104,5 +104,3 @@ If a job fails, a log of its execution can found. Click the name of the failed j
 [3]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
 [5]: ./media/sql-database-elastic-jobs-create-and-manage/provide-creds.png
-
-
