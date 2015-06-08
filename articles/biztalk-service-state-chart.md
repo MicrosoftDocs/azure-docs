@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 
@@ -25,7 +25,7 @@ For example, you provision a new BizTalk service in the Azure Management Portal.
 
 **Operation not allowed**
 
-To provision a BizTalk Service, refer to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280).
+To provision a BizTalk Service, go to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280).
 
 The following tables list the Operations or actions that can be completed when the BizTalk Service is in a specific state. A check mark means the operation is allowed while in that state. A blank entry means the operation cannot be performed while in that state.
 
