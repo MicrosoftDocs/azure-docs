@@ -110,7 +110,7 @@ You can make a manual backup at any time.
 <a name="partialbackups"></a>
 ## Backup just part of your site
 
-Sometimes you don't want to backup everything on your site, especially if you backup your site regularly. 
+However, sometimes you don't want to backup everything on your site, especially if you backup your site regularly, or if your site has over 10GB of content (that's the max amount you can backup at a time).
 
 For example, you probably don't want to back up the log files. Or if you [setup weekly backups](https://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/#configure-automated-backups) you won't want to fill up your storage account with static content that never changes like old blog posts or images.
 
