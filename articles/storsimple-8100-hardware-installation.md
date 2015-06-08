@@ -277,7 +277,7 @@ Perform the following steps to cable your serial port.
 
 >[AZURE.NOTE] **Lights-Out Management**: When the device is installed in a remote datacenter or in a computer room with limited access, ensure that the serial connections to both controllers are always connected to a serial console switch or similar equipment. This allows out-of-band remote control and support operations if there are network disruptions or unexpected failures.
 
-You have completed cabling your device for power, network access, and serial connection. The next step is to configure the software on your device.
+Your device is now cabled for power, network access, and serial connectivity. The next step is to configure the software on your device.
 
 ## Next steps
 
