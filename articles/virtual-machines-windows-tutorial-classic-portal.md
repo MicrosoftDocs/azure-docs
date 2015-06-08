@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="06/05/2015"
 	ms.author="kathydav"/>
 
 # Create a Virtual Machine Running Windows in the Azure Management Portal
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource Management](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure Management Portal. This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
 
-You can also create Windows VMs using [your own images](virtual-machines-create-upload-vhd-windows-server-classic-portal.md). To learn more about Azure VMs, see [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx).
+This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure Management portal. We'll use a Windows Server image as an example, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
+
+You can also create VMs using [your own images](virtual-machines-create-upload-vhd-windows-server.md). To learn about this and other methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 

@@ -58,9 +58,9 @@ A local cluster represents the multi-machine topology that you will eventually u
 
 1. Close all other PowerShell windows and launch a new one as an administrator.
 
-2. Navigate to the cluster setup directory with cd "$env:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup"
+2. Navigate to the cluster setup directory with `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
 
-3. Run ./DevClusterSetup.ps1
+3. Run `.\DevClusterSetup.ps1`
 
 In a few moments you should see output that shows node information and confirmation that the cluster was created successfully. In some cases, you may see warnings while the Service Fabric Host Service and Naming Services start up. These are normal and will be followed momentarily by some basic information about the cluster.
 
@@ -70,7 +70,7 @@ In a few moments you should see output that shows node information and confirmat
 
 You can check that your cluster was created successfully using the Service Fabric Explorer tool that ships with the SDK.
 
-1. Launch ServiceFabricExplorer.exe from %programfiles%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\
+1. Launch the Service Fabric Explorer by running `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`
 
 2. Expand the Onebox/Local Cluster node in the top left corner.
 

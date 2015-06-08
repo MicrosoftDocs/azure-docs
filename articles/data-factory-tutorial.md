@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Measuring effectiveness of a marketing campaign  
@@ -116,8 +116,10 @@ The tables, user-defined types and stored procedures are used when moving the Ma
 		$azuresqlPassword = <sql azure password>
 
  
-	> [AZURE.NOTE] This script requires you have sqlcmd utility installed on your machine. If you have SQL Server isntalled, you already have it. Otherwise, [download][sqlcmd-install] and install the utility. 
-	> Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.   
+	This script requires you have sqlcmd utility installed on your machine. If you have SQL Server isntalled, you already have it. Otherwise, [download][sqlcmd-install] and install the utility. 
+	
+	Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.
+   
 2. Confirm that your local machine is allowed to access the Azure SQL Database. To enable access, use the **Azure Management Portal** or **sp_set_firewall_rule** on the master database to create a firewall rule for the IP address of your machine. It may take up to five minutes for this change to take effect. See [Setting firewall rules for Azure SQL][azure-sql-firewall].
 4. In Azure PowerShell, navigate to the location where you have extracted the samples (for example: **C:\ADFWalkthrough**)
 5. Run **uploadSampleDataAndScripts.ps1** 
@@ -186,7 +188,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
 	- Click **LogProcessingFactory** on the **Startboard** (home page)
 	- Click **BROWSE** on the left, click **Everything**, click **Data factories**, and click the data factory.
  
-	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LogProcessingFactory” is not available**, change the name (for example, yournameLogProcessingFactory). Use this name in place of LogProcessingFactory while performing steps in this tutorial.
+	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LogProcessingFactory” is not available**, change the name (for example, yournameLogProcessingFactory). Use this name in place of LogProcessingFactory while performing steps in this tutorial.
  
 ## <a name="MainStep3"></a> Step 3: Create linked services
 
@@ -205,7 +207,7 @@ In this step, you will create the following linked services:
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
-	> [AZURE.NOTE] See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor.
+	See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor.
 
 2.  In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage linked service in the right pane.	
 	
@@ -215,7 +217,7 @@ In this step, you will create the following linked services:
 
 	![Editor Blob Storage JSON][image-editor-blob-storage-json]    
 	
-	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
 4. Click **Deploy** on the toolbar to deploy the StorageLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar.
 
@@ -320,7 +322,7 @@ In this step, you will create the following pipelines:
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-	[AZURE.NOTE] Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
+	Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
  
 3. Click **Deploy** on the toolbar to create and deploy the pipeline. Confirm that you see the **PIPELINE CREATED SUCCESSFULLY** message on the title bar of the Editor.
 4. Repeat steps 1-3 with the content from the following files: 

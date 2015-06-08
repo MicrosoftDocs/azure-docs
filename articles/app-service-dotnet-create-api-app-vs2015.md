@@ -21,6 +21,7 @@
 > [AZURE.SELECTOR]
 - [Visual Studio 2013](app-service-dotnet-create-api-app.md)
 - [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
 
 ## Overview
 
@@ -46,6 +47,8 @@ Visual Studio 2015 RC does not yet have an API app project template, so to creat
 
 4. Name the project *ContactsList*
 
+5. Make sure that the **Add Application Insights to Project** check box is cleared.
+
 5. Click **OK**.
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/newproj.png)
@@ -62,12 +65,15 @@ Visual Studio 2015 RC does not yet have an API app project template, so to creat
 
 ## Add NuGet packages
 
-By default, API App projects are enabled with automatic [Swagger](http://swagger.io/ "Official Swagger information") metadata generation, which is provided by a Swashbuckle NuGet package. When you install the package an API test page is also enabled by default.
+The App Service runtime for API apps is provided by the [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/) NuGet package, and dynamic [Swagger](http://swagger.io/ "Official Swagger information") API metadata generation is provided by the [Swashbuckle](http://www.nuget.org/packages/Swashbuckle/) NuGet package. 
+
+> **Note:** When you install the Swashbuckle package, an API test page is enabled by default. If you publish the API app and set its access level to **Public (anonymous)**, anyone who finds the test page URL can use it to call your API.  You'll use the test page later in this tutorial.
 
 1. Click **Tools > NuGet Package Manager > Package Manager Console**.
 
-2. In the **Package Manager Console** (PMC), enter the following command.
+2. In the **Package Manager Console** (PMC), enter the following commands.
 
+		install-package Microsoft.Azure.AppService.ApiApps.Service
 		install-package Swashbuckle
 
 	You might have to wait several minutes after the PMC displays the message indicating that it is checking dependencies.
@@ -196,7 +202,7 @@ To view the API test page, perform the following steps.
 
 		You can use a paid pricing tier, but it isn't required for this tutorial.
 
-	* In **Resource Group** click **Create New**, and enter a name, for example: ContactsList.
+	* In **Resource Group**, click **Create New** and then enter a name, for example: ContactsList.
 
 		For more information about resource groups, see [Using resource groups to manage your Azure resources](resource-group-overview.md).
 
@@ -222,7 +228,7 @@ To view the API test page, perform the following steps.
 	
 2. Make a note of the name of the underlying web app that hosts the API app. You'll use this when you deploy the Visual Studio project. 
 
-	* Under **API app host** click **ContactsList**.
+	* Under **API app host**, click **ContactsList**.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/clickapiapphost.png)
 
@@ -283,7 +289,7 @@ In this section, you navigate to the portal to view the API definition for the A
 
 	![Adding the Post method to the controller](./media/app-service-dotnet-create-api-app-vs2015/30-post-method-added-v3.png)
 
-6. Publish the project as you did earlier. (In **Solution Explorer**, right-click the project and click **Publish**, then click **Publish** in the **Publish Web** wizard.)
+6. Publish the project as you did earlier. (In **Solution Explorer**, right-click the project and click **Publish**, and then click **Publish** in the **Publish Web** wizard.)
 
 12. Once the publish process has completed, go back to the portal, and restart the gateway as you did earlier.
 

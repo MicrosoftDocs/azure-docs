@@ -21,6 +21,7 @@
 
 CDN can be enabled for your origin via Azure Management Portal. The current available origin type includes: Web Apps, storage, Cloud Services. You can also enable CDN for your Azure Media Services Streaming endpoint. Once you enable a CDN endpoint for your origin, all publicly available objects are eligible for CDN edge caching.
 
+Note that now you can also create a custom origin and it does not have to be Azure.
 
 ##To Create a New CDN Endpoint  
 
@@ -31,17 +32,23 @@ CDN can be enabled for your origin via Azure Management Portal. The current avai
 	
 	The list of available origin URLs will be displayed in the **ORIGIN URL** dropdown list.
 	
-	If you select **Custom Origin**, you can enter a custom origin URL. That does not have to be an Azure origin.
-
-5.	Click the **Create** button to create the new endpoint.
-
 
 	![createnew][createnew]
 
-> Note: The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+	If you select **Custom Origin**, you can enter a custom origin URL. That does not have to be an Azure origin.
+
+	![customorigin][customorigin]
+
+	Note that currently only HTTP is supported for origin. 
+	
+5.	Click the **Create** button to create the new endpoint.
+
+
+>[AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
 
 ##See Also
 [How to Map Content Delivery Network (CDN) Content to a Custom Domain](./cdn-map-content-to-custom-domain.md)
 
 [createnew]: ./media/cdn-create-new/cdn-create-new-account.png
 
+[customorigin]: ./media/cdn-create-new/cdn-custom-origin.png
