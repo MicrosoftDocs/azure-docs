@@ -120,8 +120,8 @@ I've got a site that contains log files and static images from past years that a
 
 I already have a full backup of the site which includes the old images. Now I want to backup the site every day, but I don't want to pay for storing log files or the static image files that never change.
 
-	![Images Folder][Images]
-	![Logs Folder][Logs]
+![Logs Folder][LogsFolder]
+![Images Folder][ImagesFolder]
 	
 The below steps show how I'd exclude those files from the backup.
 
@@ -221,6 +221,6 @@ To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/
 [StartDate]: ./media/web-sites-backup/08StartDate.png
 [StartTime]: ./media/web-sites-backup/09StartTime.png
 [SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
-[Images]: ./media/web-sites-backup/11Images.png
-[Logs]: ./media/web-sites-backup/12Logs.png
+[ImagesFolder]: ./media/web-sites-backup/11Images.png
+[LogsFolder]: ./media/web-sites-backup/12Logs.png
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
