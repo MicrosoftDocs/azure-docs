@@ -39,7 +39,11 @@ Note that now you can also create a custom origin and it does not have to be Azu
 
 	![customorigin][customorigin]
 
-	Note that currently only HTTP is supported for origin. 
+
+	
+			
+		Notes: 	1. currently only HTTP is supported for origin. 
+				2. You must use the Media Services extension to enable Azure CDN for an Azure Media Services streaming endpoint.
 	
 5.	Click the **Create** button to create the new endpoint.
 
