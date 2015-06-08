@@ -3,7 +3,7 @@
    description="Explains how to install StorSimple 8000 Series Update 1 on your device."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/05/2015"
+   ms.author="alkohli" />
 
 # Install Update 1 on your StorSimple device
 
@@ -21,14 +21,38 @@
 
 This tutorial explains how to install Update 1 on a StorSimple device that is running a software version prior to Update 1. Your device could be running the generally available (GA) release, Update 0.1, Update 0.2, or Update 0.3 software. The tutorial also explains what to do if a gateway is configured on a network interface other than DATA 0 on your StorSimple device. 
 
-During this installation, if your device is running a version prior to Update 1.0, then checks are performed on your device. These checks determine the device health in terms of hardware state and network connectivity.
+During this installation, if your device is running a version prior to Update 1, then checks are performed on your device. These checks determine the device health in terms of hardware state and network connectivity.
 
 You will be prompted to perform a manual pre-check to ensure that:
 
 - The controller fixed IPs are routable and can connect to the Internet. These IPs are used to service updates to your StorSimple device. You can test this by running the following cmdlet on each controller:
 
-    `Test-Connection -Source <fixed IP of your device controller> <Destination IP> `
+    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
+	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
+
+	    
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+	    
+	    Source	  Destination 	IPV4Address      IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+
+	    Source	  Destination 	  IPV4Address    IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    
+	    
+
+
 - Before updating the device, we recommend that you take a cloud snapshot of the device data. 
 
 After you have verified and acknowledged the manual checks (above), a set of automatic pre-update checks will be performed. These include:
@@ -53,13 +77,13 @@ We recommend that you use the Azure Management Portal to update a device that is
 
 ## Install Update 1 on a device with a gateway on a non-DATA 0 network interface 
 
-This procedure applies to StorSimple devices that are running a software version prior to Update 1.0 and have a gateway set on a network interface other than DATA 0.
+This procedure applies to StorSimple devices that are running a software version prior to Update 1 and have a gateway set on a network interface other than DATA 0.
  
 If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Management Portal. See [Use the Management Portal to install Update 1](#use-the-management-portal-to-install-update-1).
  
-> [AZURE.NOTE] This procedure needs to be performed only once to apply Update 1.0. You can use the Azure Management Portal to apply subsequent updates.
+> [AZURE.NOTE] This procedure needs to be performed only once to apply Update 1. You can use the Azure Management Portal to apply subsequent updates.
  
-If your device is running pre-Update 1.0 software and it has a gateway set for a network interface other than DATA 0, you can apply Update 1.0 in the following two ways:
+If your device is running pre-Update 1 software and it has a gateway set for a network interface other than DATA 0, you can apply Update 1 in the following two ways:
 
 - **Option 1**: Download the update and apply it by using the [Start-HcsHotfix](https://technet.microsoft.com/library/dn688134.aspx) cmdlet from the Windows PowerShell interface of the device. This is the recommended method.
 
@@ -75,7 +99,7 @@ Before using this procedure to apply the update, make sure that:
 
 - DATA 2 and DATA 3 are disabled. You will need to do this only if the devices are running the GA release. Devices running Update 0.2 and 0.3 do not require them to be disabled. After the update is complete, you can enable these network interfaces again.
  
-Perform the following steps to apply Update 1.0. The update could take a few hours to complete.
+Perform the following steps to apply Update 1. The update could take a few hours to complete.
 
 [AZURE.INCLUDE [storsimple-install-update-option1](../includes/storsimple-install-update-option1.md)]
 
@@ -101,7 +125,7 @@ You will need to make sure that both controllers are healthy and online. You wil
 
 One likely cause for this could be that you do not have connectivity to the Microsoft Update servers. This is a manual check that needs to be performed. If you lose connectivity to the update server, your update job would fail. You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:
 
- `Test-Connection -Source <Fixed IP of your device controller> <Destination IP>`
+ `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP outside of datacenter>`
 
 Run the cmdlet on both controllers.
  
