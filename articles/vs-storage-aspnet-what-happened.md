@@ -3,7 +3,7 @@
 	description="Describes what happened when creating an Azure storage in a Visual Studio ASP.NET project" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# What happened to my project?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [What Happened](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
+> - [What Happened](vs-storage-aspnet-what-happened.md)
 
 ###<span id="whathappened">What happened to my project?</span>
 

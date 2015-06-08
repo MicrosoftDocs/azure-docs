@@ -164,7 +164,7 @@ This code was provided to show you basic functionality using Twilio in an ASP.NE
 * Learn more about Twilio at [https://www.twilio.com/docs][twilio_docs].
 
 ##<a name="seealso"></a>See also
-* [How to use Twilio for voice and SMS capabilities from Azure](../twilio-dotnet-how-to-use-for-voice-sms/)
+* [How to use Twilio for voice and SMS capabilities from Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio

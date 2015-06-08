@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2015"
+	ms.date="05/28/2015"
 	ms.author="luisca"/>
 
 
@@ -35,7 +35,7 @@ The API returns a list of strings denoting the key talking points in the input t
 
 **URL**	
 
-https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
 **Example request**
 
@@ -65,7 +65,7 @@ You get your account key [here]( https://datamarket.azure.com/account/keys).
 
 **URL**
 
-https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
 
 **Example request**
 
@@ -91,3 +91,111 @@ You get your account key [here]( https://datamarket.azure.com/account/keys).
 	    "wonderful hotel","unique decor","friendly staff"]
 	}
  
+---
+
+###GetSentimentBatch###
+
+**URL**	
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
+
+**Example request**
+
+In the POST call below, we are requesting for the sentiments of the following phrases: Hello World, Hello Foo World, Hello My World in the body of the request
+
+    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
+
+Body:
+
+	{"Inputs":
+	[
+	    {"Id":"1","Text":"hello world"},
+    	{"Id":"2","Text":"hello foo world"},
+    	{"Id":"3","Text":"hello my world"},
+	]}
+
+
+Headers:
+
+	Authorization: Basic <creds>
+	Accept: application/json
+
+	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
+
+
+You get your account key [here]( https://datamarket.azure.com/account/keys). 
+
+**Example response**
+
+In the response below, you get the list of scores associated with your text Ids:
+
+	{
+	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", "SentimentBatch":
+		[{"Score":0.9549767,"Id":"1"},
+		 {"Score":0.7767222,"Id":"2"},
+		 {"Score":0.8988889,"Id":"3"}
+		],  
+		"Errors":[] 
+	}
+
+
+---
+
+###GetKeyPhrasesBatch###
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
+
+**Example request**
+
+In the POST call below, we are requesting for the list of sentiments for the key phrases in the following texts: 
+
+*It was a wonderful hotel to stay at, with unique decor and friendly staff*
+ 
+*It was an amazing build conference, with very interesting talks*
+
+*The traffic was terrible, I spent three hours going to the airport*
+
+
+
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
+
+Body:
+
+	{"Inputs":
+	[
+		{"Id":"1","Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
+		{"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
+		{"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
+	]}
+
+Headers:
+
+	Authorization: Basic <creds>
+	Accept: application/json
+               
+	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey)
+
+You get your account key [here]( https://datamarket.azure.com/account/keys). 
+
+
+**Example response**
+
+In the response below, you get the list of key phrases associated with your text Ids:
+
+	{ "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+	 	"KeyPhrasesBatch":
+		[
+		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
+		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
+		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
+		],
+		"Errors":[ ]
+	}
+
+---
+
+**Notes related to batch processing**
+
+The Ids entered into the system are the Ids returned by the system. The web service does not check that the Ids are unique. It is the responsibility of the caller to verify uniqueness. 

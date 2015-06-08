@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="04/06/2015" 
 	ms.author="tamram"/>
 
 # Monitor a Storage Account in the Azure Management Portal
 
 ## Overview
 
-You can monitor your storage account from the Azure Management Portal. When you configure your storage account for monitoring through the portal, Azure Storage uses [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) to track metrics for you account and log request data. 
+You can monitor your storage account from the Azure Management Portal. When you configure your storage account for monitoring through the portal, Azure Storage uses [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) to track metrics for your account and log request data. 
 
 > [AZURE.NOTE] Additional costs are associated with examining monitoring data in the Management Portal. For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
 
@@ -68,11 +68,11 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 
 2. To change the metrics that are plotted on the chart, take one of the following actions:
 
-- To add a new metric to the chart, click the check box by the metric header. In a narrow display, click ***n* more** to access headers that can't be displayed in the header area.
-
-- To hide a metric that is plotted on the chart, clear the check box by the metric header.
-
-	![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+	- To add a new metric to the chart, click the colored check box next to the metric header in the table below the chart.
+	
+	- To hide a metric that is plotted on the chart, clear the colored check box next to the metric header.
+	
+		![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
 3. By default, the chart shows trends, displaying only the current value of each metric (the **Relative** option at the top of the chart). To display a Y axis so you can see absolute values, select **Absolute**.
 

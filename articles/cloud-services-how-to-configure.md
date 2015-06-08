@@ -25,7 +25,7 @@ You can configure the most commonly used settings for a cloud service in the Azu
 
 You can also enable a Remote Desktop connection to one or all roles running in your cloud service.  Remote Desktop allows you to access the desktop of your application while it is running and troubleshoot and diagnose problems.  You can enable a Remote Desktop connection to your role even if you did not configure the service definition file (.csdef) for Remote Desktop during application development.  There is no need to redeploy your application in order to enable a Remote Desktop connection.
 
-Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://www.windowsazure.com/support/legal/sla/).
+Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
 
 ## Update the cloud service configuration
 
@@ -35,7 +35,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 	
 	On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances. 
 
-2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](../how-to-monitor-a-cloud-service/).
+2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](how-to-monitor-a-cloud-service.md).
 
 
 3. For service roles (grouped by role), you can update the following settings:
@@ -72,7 +72,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 	c. If your cloud service contains any roles that have only one instance, select the **Apply configuration even if one or more roles contain a single instance** check box to enable the configuration updates for the roles to proceed.
 
-	Unless you define at least two instances of every role, Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](http://www.windowsazure.com/support/legal/sla/).
+	Unless you define at least two instances of every role, Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
 
 	d. Click **OK** (checkmark). 
 
@@ -137,7 +137,7 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 5. Click **OK** (checkmark).
 
-[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Set Up a Remote Desktop Connection for a Role in Azure]: https://msdn.microsoft.com/library/azure/hh124107.aspx
 
-[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Using Remote Desktop with Azure Roles]: https://msdn.microsoft.com/library/azure/gg443832.aspx
 			

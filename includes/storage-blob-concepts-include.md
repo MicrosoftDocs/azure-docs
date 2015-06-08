@@ -21,7 +21,7 @@ The Blob service contains the following components:
 ![Blob1][Blob1]
 
 -   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx) for details about storage account capacity.
+    through a storage account. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about storage account capacity.
 
 -   **Container:** A container provides a grouping of a set of blobs.
     All blobs must be in a container. An account can contain an
@@ -34,7 +34,7 @@ The Blob service contains the following components:
     in size. This tutorial uses block blobs. Page blobs, another blob
     type, can be up to 1 TB in size, and are more efficient when ranges
     of bytes in a file are modified frequently. For more information
-    about blobs, see [Understanding Block Blobs and Page Blobs][].
+    about blobs, see [Understanding Block Blobs and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 -   **URL format:** Blobs are addressable using the following URL
     format:   

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="06/03/2015" 
 	ms.author="sdanie"/>
 
 #What is API Management?
@@ -41,13 +41,13 @@ For information, see [How to create and publish a product][].
 
 ## <a name="groups"> </a> Groups
 
-Groups are used to manage the visibility of products to developers. API Management has the following built-in groups.
+Groups are used to manage the visibility of products to developers. API Management has the following immutable system groups.
 
--	**Administrators** - Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
--	**Developers** - Developers are the customers that build applications using your APIs. Developers are granted access to the [developer portal][] and build applications that call the operations of an API.
--	**Guests** - Unauthenticated users, such as prospective customers, visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
+-	**Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers.
+-	**Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
+-	**Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-In addition to these built-in groups, administrators can create custom groups. Custom groups have the same privileges as the built-in developers group, and can be used to manage multiple groups of developers. For example, you could create one custom group for developers that will use the APIs from one product, and another group for developers that will use the APIs from a different product.
+In addition to these system groups, administrators can create custom groups or [leverage external groups in associated Azure Active Directory tenants](api-management-howto-aad.md/#how-to-add-an-external-azure-active-directory-group). Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
 
 For more information, see  [How to create and use groups][].
 
@@ -79,16 +79,16 @@ You can customize the look and feel of your developer portal by adding custom co
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: ../api-management-howto-create-apis
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
-[How to create and use groups]: ../api-management-howto-create-groups
-[How to associate groups with developers]: ../api-management-howto-create-groups/#associate-group-developer
-[How create and configure advanced product settings]: ../api-management-howto-product-with-rules
-[How to create or invite developers]: ../api-management-howto-create-or-invite-developers
-[Policy reference]: ../api-management-policy-reference
-[API Management policies]: ../api-management-howto-policies
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
+[Policy reference]: api-management-policy-reference.md
+[API Management policies]: api-management-howto-policies.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 

@@ -1,6 +1,7 @@
 <properties      
     pageTitle="Partitioning data in DocumentDB | Azure"      
-    description="Learn about how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning."          services="documentdb"      
+    description="Learn about how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning."          
+    services="documentdb"      
     authors="arramac"      
     manager="johnmac"      
     editor="monicar"      
@@ -11,7 +12,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="02/20/2015"      
+    ms.date="05/28/2015"      
     ms.author="arramac"/> 
 
 # Partitioning data in DocumentDB
@@ -25,6 +26,8 @@ After reading this article you will be able to answer the following questions:
  - What is hash, range and lookup partitioning?
  - When would you use each partitioning technique and why?
  - How do you go about building a partitioned application on Azure DocumentDB?
+
+This article presents some concepts about sharding. If you're ready to write code that partitions data using the DocumentDB .NET SDK, take a look at [Partitioning data with the DocumentDB .NET SDK](documentdb-sharding.md).
 
 ## Collections = Partitions
 
@@ -89,7 +92,7 @@ If not, you can store it in any persistent store. A common design pattern we've 
 
 ## Adding and removing partitions
 
-With DocumentDB, you can add and remove create collections at any time and use them to store new incoming data or re-balance data available on existing collections. Review the [Limits][documentdb-limits] page for the number of collections. You can always call us to increase these limits.
+With DocumentDB, you can add and remove create collections at any time and use them to store new incoming data or re-balance data available on existing collections. Review the [Limits](documentdb-limits.md) page for the number of collections. You can always call us to increase these limits.
 
 Adding and removing a new partition with lookup and range partitioning is straightforward. For example, adding a new geographic region or new time range for recent data, you just need to append the new partitions to the partition map. Splitting an existing partition into multiple partitions, or merge two partitions requires a little more effort. You need to either 
 
@@ -100,6 +103,12 @@ Hashing is relatively more complicated for adding and removing partitions. Simpl
 
 A relatively easy way to add new partitions without requiring data movement is to  "spill over" your data to a fresh collection, and then fan-out requests across both the old and new collections. This approach, however, should be used only in rare situations (e.g. spill over in peak time workloads and to hold data temporarily until it can be moved).
 
-### Next Steps
-In this article, we've introduced some common techniques on how you can partition data with DocumentDB, and when to use which technique or combination of techniques. Get started with one of the [supported SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx), and contact us through the [MSDN support forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) if you have questions.
+## Next Steps
+In this article, we've introduced some common techniques on how you can partition data with DocumentDB, and when to use which technique or combination of techniques. 
+
+-   Next, take a look at this [article](documentdb-sharding.md) on how you can partition data using partition resolvers with the DocumentDB SDK. 
+-   Download one of the [supported SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+-   Contact us through the [MSDN support forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) if you have questions.
+   
+
 

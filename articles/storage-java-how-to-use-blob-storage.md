@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="How to use blob storage (Java) | Microsoft Azure" 
+	pageTitle="How to use Blob storage from Java | Microsoft Azure" 
 	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." 
 	services="storage" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
-	manager="adinah" 
-	editor=""/>
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
-# How to use Blob Storage from Java
+# How to use Blob storage from Java
+
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
 ## Overview
 
@@ -65,7 +67,9 @@ The following samples assume that you have used one of these two methods to get 
 
 A CloudBlobClient object lets you get reference objects for containers and blobs. The following code creates a **CloudBlobClient** object. (Note: There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].)
 
-All blobs reside in a container. Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container.
+[AZURE.INCLUDE [storage-container-naming-rules-include](../includes/storage-container-naming-rules-include.md)]
+
+Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container.
 
 	try
     {

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Add Caching to improve performance in Azure API Management" 
-	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+<properties
+	pageTitle="Add Caching to improve performance in Azure API Management"
+	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/27/2015" 
+<tags
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="03/10/2015"
 	ms.author="sdanie"/>
 
 # Add Caching to improve performance in Azure API Management
@@ -33,9 +33,9 @@ In this step, you will review the caching settings of the **GET Resource (cached
 
 >[AZURE.NOTE] Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
 
-To get started, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
 
-![API Management console][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 Click **APIs** from the **API Management** menu on the left, and click **Echo API**.
 
@@ -143,21 +143,20 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to add and publish a product]: ../api-management-howto-add-products
-[Monitoring and analytics]: ../api-management-monitoring
-[Add APIs to a product]: ../api-management-howto-add-products/#add-apis
-[Publish a product]: ../api-management-howto-add-products/#publish-product
-[Get started with Azure API Management]: ../api-management-get-started
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
-

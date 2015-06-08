@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Export telemetry from Application Insights" 
-	description="Export diagnostic and usage data continuously to storage in Microsoft Azure, and download it from there." 
+	pageTitle="Continous export of telemetry from Application Insights" 
+	description="Export diagnostic and usage data to storage in Microsoft Azure, and download it from there." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,21 +12,22 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
-The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download and write whatever code you need to process it.  
+Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
+Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="setup"></a> Set up continuous export
+## <a name="setup"></a> Set up Continuous Export
 
 On your application's Overview blade in the Application Insights portal, open Continuous Export: 
 
 ![Scroll down and click Continuous Export](./media/app-insights-export-telemetry/01-export.png)
 
-Add an export, and choose an [Azure storage account](http://azure.microsoft.com/documentation/articles/storage-introduction/) where you want to put the data:
+Add an export, and choose an [Azure storage account](storage-introduction.md) where you want to put the data:
 
 ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/app-insights-export-telemetry/02-add.png)
 
@@ -35,38 +36,44 @@ Choose the event types you'd like to export:
 ![Click Choose event types](./media/app-insights-export-telemetry/03-types.png)
 
 
-Once you’ve created your export, it starts going. (You only get data that arrives after you create the export.)
+Once you've created your export, it starts going. (You only get data that arrives after you create the export.)
 
 
 If you want to change the event types later, just edit the export:
 
 ![Click Choose event types](./media/app-insights-export-telemetry/05-edit.png)
 
+To stop the stream, click Disable. When you click Enable again, the stream will restart with new data. You won't get the data that arrived in the portal while export was disabled.
 
-To stop the stream, delete the export. Doing so doesn’t delete your data.
+To stop the stream permanently, delete the export. Doing so doesn't delete your data from storage.
+#### Can't add or change an export?
+
+* To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights. [Learn about roles][roles].
 
 ## <a name="analyze"></a> What events do you get?
 
 The exported data is the raw telemetry we receive from your application, except: 
 
-* Web test results aren’t currently included. 
+* Web test results aren't currently included. 
 * We add location data which we calculate from the client IP address.  
 
-Calculated metrics are not included. For example, we don’t export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
+Calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
 ## <a name="get"></a> How do you get them?
 
-When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you’ll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
+When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you'll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
 
 ![Inspect the blob store with a suitable tool](./media/app-insights-export-telemetry/04-data.png)
 
-The date and time are UTC and are when the telemetry was deposited in the store – not the time it was generated. So if you write code to download the data, it can move linearly through the data.
+The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
-To download this data programmatically, use the [blob store REST API](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
+To download this data programmatically, use the [blob store REST API](storage-dotnet-how-to-use-blobs.md#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
 
 Or consider [DataFactory](http://azure.microsoft.com/services/data-factory/), in which you can set up pipelines to manage data at scale.
 
-We start writing a new blob in each hour (if events are received). So you should always process up to the previous hour, but wait for the current hour to complete.
+We write a new blob each minute.
+
+[Code sample][exportcode]
 
 
 ## <a name="format"></a> What does the data look like?
@@ -106,6 +113,8 @@ On a small scale, you can write some code to pull apart your data, read it into 
     }
 
 
+Or you can move it into a SQL database - see the [code sample][exportcode].
+
 On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 
 ## <a name="delete"></a>Delete your old data
@@ -117,16 +126,20 @@ If you change the key to your storage, continuous export will stop working. You'
 
 Open the Continuous Export blade and edit your export. Edit the Export Destination, but just leave the same storage selected. Click OK to confirm.
 
-![](./media/app-insights-export-telemetry/07-resetstore.png)
+![Edit the continuous export, open and close thee export destination.](./media/app-insights-export-telemetry/07-resetstore.png)
 
 The continuous export will restart.
 
+
+## Code Sample
+
+[Move exported data into a SQL database][exportcode]
 
 ## Q & A
 
 * *But all I want is a one-time download of a chart.*  
  
-    We’re working on that one separately. 
+    We're working on that one separately. 
 
 * *I set up an export, but there's no data in my store.*
 
@@ -144,7 +157,7 @@ The continuous export will restart.
 
 * *Is there any limit to the amount of data you put in my store?* 
 
-    No. We’ll keep pushing data in until you delete the export. We’ll stop if we hit the outer limits for blob storage, but that’s pretty huge. It’s up to you to control how much storage you use.  
+    No. We'll keep pushing data in until you delete the export. We'll stop if we hit the outer limits for blob storage, but that's pretty huge. It's up to you to control how much storage you use.  
 
 * *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
 
@@ -152,11 +165,11 @@ The continuous export will restart.
 
 * *Can I pause the export?*
 
-    That's on our backlog.
+    Yes. Click Disable.
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[roles]: app-insights-resources-roles-access-control.md
 

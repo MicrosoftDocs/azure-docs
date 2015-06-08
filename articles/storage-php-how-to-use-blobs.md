@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to use blob storage (PHP) | Microsoft Azure" 
+	pageTitle="How to use Blob storage from PHP | Microsoft Azure" 
 	description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." 
 	documentationCenter="php" 
 	services="storage" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="05/11/2015" 
 	ms.author="tomfitz"/>
 
-# How to use the Blob service from PHP
+# How to use Blob storage from PHP
+
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
 ## Overview
 
@@ -82,6 +84,8 @@ For the examples outlined here, the connection string will be passed directly.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 ## How to: Create a container
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../includes/storage-container-naming-rules-include.md)]
 
 A **BlobRestProxy** object lets you create a blob container with the **createContainer** method. When creating a container, you can set options on the container, but doing so is not required. (The example below shows how to set the container ACL and container metadata.)
 

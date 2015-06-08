@@ -10,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
-	ms.author="glenga"/>
+	ms.date="04/24/2015" 
+	ms.author="ggailey777"/>
 
 # How to create a new mobile service
 
@@ -33,9 +33,9 @@ This topic shows you how to use the [Azure Management Portal][Management Portal]
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
+[Get started with Mobile Services]: mobile-services-javascript-backend-phonegap-get-started.md
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Management Portal]: https://manage.windowsazure.com/
-[.NET backend version]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[.NET backend version]: mobile-services-dotnet-backend-windows-phone-get-started.md

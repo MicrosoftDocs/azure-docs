@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="05/24/2015" 
 	ms.author="mandia"/>
 
 
@@ -25,7 +25,7 @@ You can also back up BizTalk Services using the [BizTalk Services REST API](http
 
 ## Before you Begin
 
-- Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
+- Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md).
 
 	**Note**  Hybrid Connections are NOT backed up, regardless of the Edition.
 

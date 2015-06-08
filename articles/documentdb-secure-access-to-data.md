@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/22/2015" 
 	ms.author="stbaro"/>
 
 # Securing access to DocumentDB data #
@@ -160,5 +160,5 @@ In order to easily obtain all permission resources associated with a particular 
 ##<a name="NextSteps"></a>Next steps
 
 - To learn more about DocumentDB, click [here](http://azure.com/docdb).
-- To learn about managing master and read-only keys, click [here](http://azure.microsoft.com/documentation/articles/documentdb-manage-account/).
+- To learn about managing master and read-only keys, click [here](documentdb-manage-account.md).
 - To learn how to construct DocumentDB authorization tokens, click [here](https://msdn.microsoft.com/library/azure/dn783368.aspx)

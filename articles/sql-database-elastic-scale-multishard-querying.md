@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Multi-Shard Querying" 
-	description="Run queries across shards using Elastic Scale APIs." 
+	pageTitle="Multi-shard querying" 
+	description="Run queries across shards using the elastic database client library." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="stuartozer" 
-	authors="torsteng" 
+	manager="jeffreyg" 
+	authors="sidneyh" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="torsteng@microsoft.com"/>
+	ms.date="04/17/2015" 
+	ms.author="sidneyh"/>
 
-# Multi-Shard Querying
+# Multi-shard querying
+
 ## Overview
-**Multi-shard querying** is used for tasks such as data collection/reporting that require running a query that stretches across several shards. (Contrast this to [data-dependent routing](./sql-database-elastic-scale-data-dependent-routing.md), which performs all work on a single shard.) 
 
-The Elastic Scale client library introduces a new namespace called **Microsoft.Azure.SqlDatabase.ElasticScale.Query** that provides the ability to query multiple shards using a single query and result. It provides a querying abstraction over a collection of shards. It also provides alternative execution policies, in particular partial results, to deal with failures when querying over many shards.  
+**Multi-shard querying** is used for tasks such as data collection/reporting that require running a query that stretches across several shards. (Contrast this to [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md), which performs all work on a single shard.) 
+
+The elastic database client library introduces a new namespace called **Microsoft.Azure.SqlDatabase.ElasticScale.Query** that provides the ability to query multiple shards using a single query and result. It provides a querying abstraction over a collection of shards. It also provides alternative execution policies, in particular partial results, to deal with failures when querying over many shards.  
 
 The main entry point into multi-shard querying is the **MultiShardConnection** class. As with data-dependent routing, the API follows the familiar experience of the **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)** classes and methods. With the **SqlClient** library, the first step is to create a **SqlConnection**, then create a **SqlCommand** for the connection, then execute the command through one of the **Execute** methods. Finally, **SqlDataReader** iterates through the result sets returned from the command execution. The experience with the multi-shard query APIs follows these steps: 
 
@@ -56,11 +58,11 @@ A key difference is the construction of multi-shard connections. Where **SqlConn
     } 
  
 
-Note the call to **myShardMap.GetShards()**. This method retrieves all shards from the shard map and provides an easy way to run a query across all shards from that shard map. The collection of shards for a multi-shard query can be refined further by performing a LINQ query over the collection returned from the call to **myShardMap.GetShards()**. In combination with the partial results policy, the current capability in multi-shard querying has been designed to work well for tens up to hundreds of shards.
-A limitation with multi-shard querying is currently the lack of validation for shards and shardlets that are queried. While data-dependent routing verifies that a given shard is part of the shard map at the time of querying, multi-shard queries do not perform this check. This can lead to multi-shard queries running on shards that have since been removed from the shard map.
+Note the call to **myShardMap.GetShards()**. This method retrieves all shards from the shard map and provides an easy way to run a query across all relevant databases. The collection of shards for a multi-shard query can be refined further by performing a LINQ query over the collection returned from the call to **myShardMap.GetShards()**. In combination with the partial results policy, the current capability in multi-shard querying has been designed to work well for tens up to hundreds of shards.
+A limitation with multi-shard querying is currently the lack of validation for shards and shardlets that are queried. While data-dependent routing verifies that a given shard is part of the shard map at the time of querying, multi-shard queries do not perform this check. This can lead to multi-shard queries running on databases that have since been removed from the shard map.
 
-## Multi-shard Queries and Split-Merge Operations
+## Multi-shard queries and split-merge operations
 
-Multi-shard queries do not verify whether shardlets on the queried shard are participating in ongoing split/merge operations. This can lead to inconsistencies where rows from the same shardlet show for multiple shards in the same multi-shard query. Be aware of these limitations and consider draining ongoing split/merge operations and changes to the shard map while performing multi-shard queries.
+Multi-shard queries do not verify whether shardlets on the queried database are participating in ongoing split-merge operations. This can lead to inconsistencies where rows from the same shardlet show for multiple databases in the same multi-shard query. Be aware of these limitations and consider draining ongoing split-merge operations and changes to the shard map while performing multi-shard queries.
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]

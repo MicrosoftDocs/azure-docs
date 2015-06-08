@@ -66,7 +66,7 @@ To list the blobs in a container, first get a container reference. You can then 
     	}
 	}
 
-There are others ways to list the contents of a blob container. See [How to use Blob Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob) for more information.
+There are others ways to list the contents of a blob container. See [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md/#list-blob) for more information.
 
 #####Download a blob
 To download a blob, first get a reference to the blob and then call the DownloadToStream() method. The following example uses the DownloadToStream() method to transfer the blob contents to a stream object that you can then save as a local file.
@@ -80,7 +80,7 @@ To download a blob, first get a reference to the blob and then call the Download
     	blockBlob.DownloadToStream(fileStream);
 	}
 
-There are other ways to save blobs as files. See [How to use Blob Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs) for more information.
+There are other ways to save blobs as files. See [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs) for more information.
 
 #####Delete a blob
 To delete a blob, first get a reference to the blob and then call the Delete() method on it.

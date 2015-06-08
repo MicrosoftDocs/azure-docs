@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 # Service-side authorization of Mobile Services users

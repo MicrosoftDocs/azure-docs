@@ -4,6 +4,7 @@
  services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
+   writer="Rick-Anderson" 
    manager="wpickett" 
    editor=""/>
 
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple" 
-   ms.date="03/06/2015"
+   ms.date="04/23/2015"
    ms.author="riande"/>
 
 # Manage Azure Redis Cache with Azure PowerShell
@@ -26,7 +27,7 @@ Before you can use Windows PowerShell with Resource Manager, you must have the f
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 	
-- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure).
+- Azure PowerShell version 0.8.0 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 This tutorial is designed for Windows PowerShell beginners. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 

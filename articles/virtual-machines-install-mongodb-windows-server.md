@@ -42,7 +42,7 @@ To provide a storage for the virtual machine, attach a data disk and then initia
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-For instructions on initalizing the disk, see "How to: Initialize a new data disk in Windows Server" in [How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/).
+For instructions on initalizing the disk, see "How to: Initialize a new data disk in Windows Server" in [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md).
 
 ## Install and run MongoDB on the virtual machine 
 

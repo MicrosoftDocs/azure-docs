@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="luisca"/>
+	ms.date="05/18/2015" 
+	ms.author="tedway"/>
 
 
 # Consuming an Azure Machine Learning Web Service from Excel #
 
- Azure Machine Learning Studio makes it easy to consume scoring web services directly from Excel without the need to write any code. 
+ Azure Machine Learning Studio makes it easy to call web services directly from Excel without the need to write any code. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
 ## Steps
 
-1. Publish a web service. [This page](../machine-learning-walkthrough-5-publish-web-service/) explains how to do it. Currently the Excel Workbook feature is only supported for Request/Response services that have a single output (that is, a single scoring label). 
+1. Publish a web service. [This page](machine-learning-walkthrough-5-publish-web-service.md) explains how to do it. Currently the Excel Workbook feature is only supported for Request/Response services that have a single output (that is, a single scoring label). 
  
 2. Once you have a web service, click on the **WEB SERVICES** section on the left of the studio, and then select the web service to consume from Excel. 
 

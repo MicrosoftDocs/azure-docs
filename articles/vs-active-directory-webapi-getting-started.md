@@ -3,7 +3,7 @@
 	description="Information about the getting started with Azure Active Directory (Web API projects) wizard" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Getting Started with Azure Active Directory (Web API Projects)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-active-directory-webapi-getting-started/)
-> - [What Happened](/documentation/articles/vs-active-directory-webapi-what-happened/)
-
-
-##Getting Started with Azure Active Directory (Web API Projects)
+> - [Getting Started](vs-active-directory-webapi-getting-started.md)
+> - [What Happened](vs-active-directory-webapi-what-happened.md)
 
 #####Requiring authentication to access controllers
  

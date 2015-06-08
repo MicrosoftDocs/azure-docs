@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="heidist"/>
 
 # Create your first search solution using Azure Search
@@ -36,7 +36,7 @@ The demo gets you started with Azure Search by walking you through these exercis
 ## Prerequisites
 
 +	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](../search-get-started/) for details.
++	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](search-get-started.md) for details.
 +	[Adventure Works Azure Search Demo project on CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). On the Source tab, click **Download** to get a zip file of the solution. 
 
     ![][12]
@@ -74,7 +74,7 @@ Press **Enter** to close the application. At this point, you have successfully c
 > Use **Run as Administrator** to start Visual Studio. 
 > Open the solution, build it, and then press **F5** to create the index.
 
-To verify index creation and document upload, go to your Search service dashboard in the [Azure Preview portal](https://portal.azure.com). In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.
+To verify index creation and document upload, go to your Search service dashboard in the [Azure management portal](https://portal.azure.com). In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.
 
 Click the **Indexes** tile to show the index list. The indexes list slides out to show the new index and document count.
 

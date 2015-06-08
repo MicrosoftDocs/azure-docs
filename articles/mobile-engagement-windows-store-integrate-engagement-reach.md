@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Windows Store SDK Reach Integration" 
-	description="Latest updates and procedures for Windows Store SDK for Azure Mobile Engagement" 					
+	pageTitle="Windows Universal Apps Reach SDK Integration" 
+	description="How to Integrate Azure Mobile Engagement Reach with Windows Universal Apps"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,30 +13,24 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/06/2015" 
+	ms.author="piyushjo" />
 
-#How to Integrate Engagement Reach on Windows
+#Windows Universal Apps Reach SDK Integration
 
-You must follow the integration procedure described in the [How to Integrate Engagement on Windows](../mobile-engagement-windows-store-integrate-engagement/) document before following this guide.
+You must follow the integration procedure described in the [Windows Universal Engagement SDK Integration](mobile-engagement-windows-store-integrate-engagement.md) before following this guide.
 
-##Embed the Engagement Reach SDK into your Windows project
+##Embed the Engagement Reach SDK into your Windows Universal project
 
 You do not have anything to add. `EngagementReach` references and resources are already in your project.
 
-> [AZURE.TIP] You can customize images located in the `Resources` folder of your project, especially the brand icon (that default to the Engagement icon).
-
-##Add the capabilities
-
-The Engagement Reach SDK needs some additional capabilities.
-
-Open your `Package.appxmanifest` file and go in `Declarations` panel. Select `File Type Associations` in the `Available Declarations` scroll box and add it. Set Name to `engagement_reach_content` and File type to `.txt`.
+> [AZURE.TIP] You can customize images located in the `Resources` folder of your project, especially the brand icon (that default to the Engagement icon). On Universal Apps you can also move the `Resources` folder on your shared project to share its content between apps, but you will have to keep the `Resources\EngagementConfiguration.xml` file on its default location as it is platform dependent.
 
 ##Enable the Windows Notification Service
 
-In order to use the **Windows Notification Service** (referred as WNS) in your `Package.appxmanifest` file on `Application UI` click on `All Image Assets` in the left bot box. At the right of the box in `Notifications` change `toast capable` from `(not set)` to `Yes`.
+In order to use the **Windows Notification Service** (referred as WNS) in your `Package.appxmanifest` file on `Application UI` click on `All Image Assets` in the left bot box. At the right of the box in `Notifications`, change `toast capable` from `(not set)` to `Yes`.
 
-Moreover you need to synchronize your app to your Microsoft account and to engagement platform. On engagement frontend go on your app setting in `native push` and paste your credentials. After that, right click on your project, select `store` and `Associate App with the Store...`.
+Moreover, you need to synchronize your app to your Microsoft account and to the engagement platform. On the engagement frontend, go on your app setting in `native push` and paste your credentials. After that, right click on your project, select `store` and `Associate App with the Store...`.
 
 ##Initialize the Engagement Reach SDK
 
@@ -44,76 +38,76 @@ Modify the `App.xaml.cs`:
 
 -   Add to your `using` statements :
 
-			using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement;
 
 -   Insert `EngagementReach.Instance.Init` just after `EngagementAgent.Instance.Init` in `OnLaunched` :
 
-			protected override void OnLaunched(LaunchActivatedEventArgs args)
-			{
-			  EngagementAgent.Instance.Init(args);
-			  EngagementReach.Instance.Init(args);
-			}
-
-> [AZURE.NOTE] The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
+		protected override void OnLaunched(LaunchActivatedEventArgs args)
+		{
+		  EngagementAgent.Instance.Init(args);
+		  EngagementReach.Instance.Init(args);
+		}
 
 -   If you want to launch engagement reach when your app is activated, override `OnActivated` method:
 
-			protected override void OnActivated(IActivatedEventArgs args)
-			{
-			  EngagementAgent.Instance.Init(args);
-			  EngagementReach.Instance.Init(args);
-			}
+		protected override void OnActivated(IActivatedEventArgs args)
+		{
+		  EngagementAgent.Instance.Init(args);
+		  EngagementReach.Instance.Init(args);
+		}
+
+	The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
 
 > [AZURE.TIP] You can specify the name of the WNS push channel of your application in the `Resources\EngagementConfiguration.xml` file of your project on `<channelName></channelName>`. By default, Engagement creates a name based on the appId. You have no need to specify the name yourself, except if you plan to use the push channel outside of Engagement.
 
 ##Integration
 
-Engagement provides two way to implement Reach notification and announcement. The Overlay integration and the Web View integration.
+Engagement provides two ways to implement Reach notification and announcement: the Overlay integration and the Web View integration.
 
-[Overlay integration](#overlay-integration) doesn't require a lot of code to write into your application. You just need to tag your pages, xaml and cs files, with EngagementPageOverlay. Moreover if you customize Engagement default view your customization will be shared with all tagged pages and just defined once. But if your pages need to inherit from an other object than EngagementPageOverlay you are stuck and forced to use Web View integration.
+windows-sdk-engagement-overlay-integration doesn't require a lot of code to write into your application. You just need to tag your pages, xaml and cs files, with EngagementPageOverlay. Moreover, if you customize the Engagement default view, your customization will be shared with all tagged pages and just defined once. But if your pages need to inherit from an object other than EngagementPageOverlay, you are stuck and forced to use Web View integration.
 
-[Webview integration](#web-view-integration) is more complicated to be implemented. But if your App pages need to inherit from another object than "Page" then you have to integrate the Web View and its behavior.
+windows-sdk-engagement-webview-integration is more complicated to be implemented. But if your App pages need to inherit from an object other than "Page", then you have to integrate the Web View and its behavior.
 
-A best practice on Windows 8.1 store applications, is that you need to add a first level `<Grid></Grid>` element to surround all page content. For Webview integration, just add Webview as child of this grid. If you need to set Engagement component elsewhere, remember that you have to manage the display size yourself.
+> [AZURE.TIP] You should consider adding a first level `<Grid></Grid>` element to surround all page content. For Webview integration, just add Webview as child of this grid. If you need to set Engagement component elsewhere, remember that you have to manage the display size yourself.
 
 ### Overlay integration
 
 Engagement provides an overlay for notification and announcement display.
 
-If you want to use it, do not use [Webview integration](#web-view-integration).
+If you want to use it, do not use windows-sdk-engagement-webview-integration.
 
 In your .xaml file change EngagementPage reference to EngagementPageOverlay
 
 -   Add to your namespaces declarations:
 
-			xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay"
+			xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
 -   Replace `engagement:EngagementPage` with `engagement:EngagementPageOverlay`:
 
 **With EngagementPage:**
 
-			<engagement:EngagementPage 
-			    xmlns:engagement="using:Microsoft.Azure.Engagement">
-			
-			    <!-- layout -->
-			</engagement:EngagementPage>
+		<engagement:EngagementPage 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement">
+		
+		    <!-- layout -->
+		</engagement:EngagementPage>
 
 **With EngagementPageOverlay:**
 
-			<engagement:EngagementPageOverlay 
-			    xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay">
-			
-			    <!-- layout -->
-			</engagement:EngagementPageOverlay>
+		<engagement:EngagementPageOverlay 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
+		
+		    <!-- layout -->
+		</engagement:EngagementPageOverlay>
 
 > **With EngagementPageOverlay for 8.1:**
 
-			<engagement:EngagementPageOverlay 
-			    xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay">
-			    <Grid>
-			      <!-- layout -->
-			    </Grid>
-			</engagement:EngagementPageOverlay>
+		<engagement:EngagementPageOverlay 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
+		    <Grid>
+		      <!-- layout -->
+		    </Grid>
+		</engagement:EngagementPageOverlay>
 
 Then in your .cs file tag your page in "EngagementPageOverlay" instead of "EngagementPage" and import "Microsoft.Azure.Engagement.Overlay".
 
@@ -147,7 +141,7 @@ Then in your .cs file tag your page in "EngagementPageOverlay" instead of "Engag
 
 Now this page uses the engagement overlay mechanism, you don't have to insert a web view.
 
-The Engagement overlay uses the first “Grid” element it founds in your xaml file to add two web views on your page. If you want to locate where web views will be set you can define a grid named “EngagementGrid” like this :
+The Engagement overlay uses the first “Grid” element it finds in your xaml file to add two web views on your page. If you want to locate where web views will be set, you can define a grid named “EngagementGrid” like this:
 
 			<Grid x:Name="EngagementGrid"></Grid>
 
@@ -163,9 +157,9 @@ You can customize the overlay notification and announcement directly on their xa
 
 ### Web View integration
 
-If you want to use it, do not use [Overlay integration](#overlay-integration).
+If you want to use it, do not use windows-sdk-engagement-overlay-integration.
 
-To display engagement content you need to integrate the two xaml WebView in each page you need to display notification and announcement. So add this code in your xaml file:
+To display engagement content, you need to integrate the two xaml WebView in each page and you need to display notification and announcement. So add this code in your xaml file:
 
 			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
@@ -313,11 +307,11 @@ Then, set the content of the `EngagementReach.Instance.Handler` field with your 
 
 By default, Reach will use the embedded resources of the DLL to display the notifications and pages.
 
-To provide a full customization possibilities we only use web view. If you want to customize layouts please override directly the resources files `EngagementAnnouncement.html` and `EngagementNotification.html`. Engagement need all code in `<body></body>` to run correctly. But you can add tag outer `engagement_webview_area`.
+To provide a full customization possibilities we only use web view. If you want to customize layouts, override directly the resources files `EngagementAnnouncement.html` and `EngagementNotification.html`. Engagement needs all code in `<body></body>` to run correctly. But you can add tag outer `engagement_webview_area`.
 
 However, you can decide to use your own resources.
 
-You can override `EngagementReachHandler` methods in your subclass to tell Engagement to use your layouts, but take care to embedded engagement mechanism :
+You can override `EngagementReachHandler` methods in your subclass to tell Engagement to use your layouts, but take care to embedded the engagement mechanism:
 
 **Sample Code :**
 			
@@ -347,10 +341,10 @@ NotfificationHTML is `ms-appx-web:///Resources/EngagementNotification.html`. It 
 
 ### Customization
 
-You can customise notification and announcement web view has you want if you preserve Engagement object. Take care that webview object is described three times. First time in your xaml, second time in your .cs file in the "setwebview()" method and third time in the html file.
+You can customize notification and announcement web view has you want if you preserve Engagement object. Take care that webview object is described three times - the first time in your xaml, second time in your .cs file in the "setwebview()" method, and third time in the html file.
 
 -   In your xaml you describe the current graphical layout webview component.
--   In your .cs file you can define "setwebview()" in which you set the dimension of the two webview (notification, announcement). It is very effective when application is resizing.
+-   In your .cs file you can define "setwebview()" in which you set the dimension of the two webview (notification, announcement). It is very effective when the application is resizing.
 -   In the Engagement html file we describe the webview content, design and the elements positions between each other.
 
 ### Launch message
@@ -386,11 +380,11 @@ You can set the callback in your "Public App(){}" method of your `App.xaml.cs` f
 
 ##Custom scheme tip
 
-We provide custom scheme use. You can send different type of URI from engagement frontend to be used in your engagement application. Default scheme like `http, ftp, ...` are manage by Windows, a window will prompt if they are no default application installed on device. Other scheme like application scheme can be used. Moreover you can use custom scheme for your application.
+We provide custom scheme use. You can send different type of URI from engagement frontend to be used in your engagement application. Default scheme like `http, ftp, ...` are manage by Windows, a window will prompt if they are no default application installed on device. Other scheme like application scheme can be used. Moreover, you can use a custom scheme for your application.
 
 The simple way to set a custom scheme in your application is to open your `Package.appxmanifest` go in `Declarations` panel. Select `Protocol` in the Available Declarations scroll box and add it. Edit the `Name` field with your new protocol desired name.
 
-Now to use these protocol edit your `App.xaml.cs` with the `OnActivated` method and don't forget to initialize engagement here also:
+Now to use this protocol, edit your `App.xaml.cs` with the `OnActivated` method, and don't forget to initialize engagement here also:
 
 			/// <summary>
 			/// Enter point when app his called by another way than user click

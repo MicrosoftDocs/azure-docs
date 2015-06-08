@@ -2,7 +2,7 @@
 	pageTitle="Register for Google authentication - Mobile Services" 
 	description="Learn how to register your apps to use Google to authenticate with Azure Mobile Services." 
 	services="mobile-services" 
-	documentationCenter="" 
+	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="05/13/2015" 
 	ms.author="glenga"/>
 
 # Register your apps for Google login with Mobile Services
@@ -26,23 +26,23 @@ To complete the procedure in this topic, you must have a Google account that has
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> website, sign-in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 
-   	![][1]
+   	![Google API new project](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png)
 
 2. Click **Consent screen**, select your **Email Address**, enter a **Product Name**, then click **Save**. 
 
 3. Click **API & Auth**, click **Credentials**, then click **Create new Client ID**.
 
-   	![][2]
+   	![Create new client ID](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png)
 
-4. Select **Web application**, type your mobile service URL in **Authorized JavaScript Origins**, replace the generated URL in **Authorized Redirect URI** with the URL of your mobile service appended with the path _/login/google_, and then click **Create client ID**.
+4. Select **Web application**, type your mobile service URL in **Authorized JavaScript Origins**, replace the generated URL in **Authorized Redirect URI** with the URL of your mobile service appended with the path `/login/google`, and then click **Create client ID**.
 
-	>[AZURE.NOTE] For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-google_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-google</code>. 
+	>[AZURE.NOTE] For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-google_ your mobile service as a .NET service, such as `https://todolist.azure-mobile.net/signin-google`. 
 
-   	![][3]
+   	![](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png)
 
 5. Under **Client ID for web applications**, make a note of the values of **Client ID** and **Client secret**. 
 
-   	![][4]
+   	![Client credentials](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png)
 
     > [AZURE.IMPORTANT] The client secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
@@ -51,10 +51,9 @@ You are now ready to use a Google login for authentication in your app by provid
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png
-[2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
-[3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
-[4]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png
+
+
+
 [5]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-app-details.png
 
 <!-- URLs. -->

@@ -2,8 +2,9 @@
 	pageTitle="Track HTTP requests in a Java web application" 
 	description="Application Insights lets you measure performance of your web Java web application" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-03-02" 
+	ms.date="05/26/2015" 
 	ms.author="awills"/>
  
 # Track HTTP requests in a Java web application
 
-If you’re running a Java web application, you can view information about the HTTP requests sent to your application, such as the requested resources, failed requests and response times, all in the Application Insights portal.
+If you're running a Java web application, you can view information about the HTTP requests sent to your application, such as the requested resources, failed requests and response times, all in the Application Insights portal.
 
 Install [Application Insights SDK for Java][java], if you haven't already done that.
 
@@ -87,8 +88,11 @@ Locate and open the ApplicationInsights.xml file in your project, and merge the 
 If there is no < TelemetryInitializers> element in this file, add one under the <ApplicationInsights> element.
 
     <TelemetryInitializers>
-      <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add  type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
     </TelemetryInitializers>
 
 
@@ -126,8 +130,10 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[diagnostic]: app-insights-diagnostic-search.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[metrics]: app-insights-metrics-explorer.md
 

@@ -3,7 +3,7 @@
 	description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="ruby" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 
@@ -136,6 +136,10 @@ After creating the Azure Virtual Machine, perform the following steps to install
 	Substitute the user name specified during the creation of the VM, the DNS address of the VM, and the port of the SSH endpoint. For example:
 
 		ssh railsdev@railsvm.cloudapp.net -p 61830
+		
+or for default port 22
+
+		ssh railsdev@railsvm.cloudapp.net
 
 	> [AZURE.NOTE] If you are using Windows as your development environment, you can use a utility such as **PuTTY** for SSH functionality. PuTTY can be obtained from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -166,6 +170,10 @@ From your development envirionment, open a new command-line or terminal session 
 For example:
 
 	scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
+
+or for default port 22
+
+	scp -r -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
 > [AZURE.NOTE] If you are using Windows as your development environment, you can use a utility such as **pscp** for scp functionality. Pscp can be obtained from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -263,7 +271,7 @@ To learn how to use the Azure SDK for Ruby to access Azure services from your Ru
 
 
 <!-- WA.com links -->
-[blobs]: /documentation/articles/storage-ruby-how-to-use-blob-storage
+[blobs]: storage-ruby-how-to-use-blob-storage.md
 
 [cdn-howto]: /develop/ruby/app-services/
 
@@ -271,9 +279,9 @@ To learn how to use the Azure SDK for Ruby to access Azure services from your Ru
 
 [tables]: /develop/ruby/how-to-guides/table-service/
 
-[unicorn-nginx-capistrano]: /documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
+[unicorn-nginx-capistrano]: virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md
 
-[vm-instructions]: /documentation/articles/virtual-machines-linux-tutorial
+[vm-instructions]: virtual-machines-linux-tutorial.md
 
 
 <!-- External Links -->

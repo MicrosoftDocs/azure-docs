@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Manage HDInsight clusters using Ambari | Aure"
+   pageTitle="Manage HDInsight clusters using Ambari | Microsoft Azure"
    description="Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters."
    services="hdinsight"
    documentationCenter=""
@@ -9,18 +9,18 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="05/12/2015"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using Ambari (preview)
 
 Learn how to use Ambari to manage and monitor Linux-based Azure HDInsight clusters.
 
-> [AZURE.NOTE] Much of the information in this article applies only to Linux-based HDInsight clusters. For Windows-based HDInsight clusters, only monitoring through the Ambari REST API is available. See [Monitor Windows-based Hadoop on HDInsight using the Ambari API](../hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] Much of the information in this article applies only to Linux-based HDInsight clusters. For Windows-based HDInsight clusters, only monitoring through the Ambari REST API is available. See [Monitor Windows-based Hadoop on HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 ##<a id="whatis"></a>What is Ambari?
 

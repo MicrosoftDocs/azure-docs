@@ -2,7 +2,7 @@
 	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Xamarin.iOS) | Mobile Dev Center" 
 	description="Learn how to authentication users for single sign-on with ADAL in your Xamarin.iOS application." 
 	documentationCenter="xamarin" 
-	authors="wesmc7777" 
+	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services"/>
@@ -10,16 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/25/2015" 
-	ms.author="wesmc,mahender"/>
+	ms.author="mahender"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
-
 
 ##Overview
 
@@ -134,9 +133,9 @@ This tutorial requires the following:
 
 
 <!-- URLs. -->
-[Get started with data]: /documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[How to Register with the Azure Active Directory]: /documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Get started with data]: partner-xamarin-mobile-services-ios-get-started-data.md
+[Get started with Mobile Services]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
+[How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Xamarin binding for the Active Directory Authentication Library for iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [Xamarin extension]: http://xamarin.com/visual-studio

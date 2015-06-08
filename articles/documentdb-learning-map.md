@@ -3,17 +3,17 @@
 	description="Get a visual map of the resources available to go from 0 to 60 on Azure DocumentDB."
 	services="documentdb" 
 	documentationCenter="" 
-	authors="anhoh" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/02/2015" 
+	ms.date="04/08/2015" 
 	ms.author="anhoh"/>
 
 #Learning Map for Azure DocumentDB

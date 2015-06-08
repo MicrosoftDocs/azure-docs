@@ -13,31 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2015" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
-This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+# Walkthrough Step 2: Upload existing data into an Azure Machine Learning experiment
+
+This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
-1.	[Create an ML workspace][create-workspace]
+1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
 2.	**Upload existing data**
-3.	[Create a new experiment][create-new]
-4.	[Train and evaluate the models][train-models]
-5.	[Publish the web service][publish]
-6.	[Access the web service][access-ws]
-
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
+3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
+4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
+6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
-
-#Step 2: Upload existing data into an Azure Machine Learning experiment  
 
 To develop a predictive model for credit risk, we'll use the "UCI Statlog (German Credit Data) Data Set" from the UCI Machine Learning repository. You can find it here:  
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -82,10 +74,8 @@ Once the data has been converted to CSV format, we need to upload it into Machin
  
 This uploads the data into a dataset module that we can use in an experiment.
 
-For more information about importing various types of data into an experiment, see [Import your training data into Azure Machine Learning Studio][importdata].
+For more information about importing various types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](machine-learning-import-data.md).
 
-[importdata]: ../machine-learning-import-data/
-
-**Next: [Create a new experiment][create-new]**
+**Next: [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png

@@ -4,7 +4,6 @@
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
-	writer="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="06/03/2015"
 	ms.author="krisragh"/>
 
 
@@ -30,6 +29,8 @@ This topic shows you how to call a custom API from an iOS app. A custom API lets
 
 [AZURE.INCLUDE [mobile-services-ios-call-custom-api](../includes/mobile-services-ios-call-custom-api.md)]
 
+This topic showed how to use the **invokeApi** method to call a fairly simple custom API from your iOS app. To learn more about using the **invokeApi** method, see the post [Custom API in Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).  
+
 <!-- Anchors. -->
 [Define the custom API]: #define-custom-api
 [Update the app to call the custom API]: #update-app
@@ -42,9 +43,9 @@ This topic shows you how to call a custom API from an iOS app. A custom API lets
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Mobile Services Quick Start]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
-[Store server scripts in source control]: /documentation/articles/mobile-services-store-scripts-source-control
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Mobile Services Quick Start]: mobile-services-dotnet-backend-ios-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Store server scripts in source control]: mobile-services-store-scripts-source-control.md

@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="06/05/2015" 
 	ms.author="ricksal"/>
 
 
@@ -74,7 +74,7 @@ A table script function always takes three arguments.
 
 - The second argument is always a [user object][User object] that represents the user that submitted the request. 
 
-- The third argument is always a [request object][Request object], by which you can control execution of the requested operation and the response that's sent to the client.
+- The third argument is always a [request object][request object], by which you can control execution of the requested operation and the response that's sent to the client.
 
 Here are the canonical main-function signatures for the table operations: 
 
@@ -232,7 +232,7 @@ The value for the `id` must be unique and it must not include characters from th
 +  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  The ids "." and ".."
 
-You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables).
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
 
 ###<a name="access-headers"></a>How to: Access custom parameters
@@ -1038,7 +1038,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Management Portal]: https://manage.windowsazure.com/
 [Schedule jobs]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[Commands to manage Azure Mobile Services]: /documentation/articles/virtual-machines-command-line-tools/#Mobile_Scripts
+[Commands to manage Azure Mobile Services]: virtual-machines-command-line-tools.md#Mobile_Scripts
 [Windows Store Push]: /develop/mobile/tutorials/get-started-with-push-dotnet/
 [Windows Phone Push]: /develop/mobile/tutorials/get-started-with-push-wp8/
 [iOS Push]: /develop/mobile/tutorials/get-started-with-push-ios/

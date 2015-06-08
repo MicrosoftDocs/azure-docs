@@ -109,7 +109,7 @@ Add another class named `PlayerRank`.
 	    }
 	}
 
-Notice that both classes inherit from the **EntityData** class. Deriving from **EntityData** makes it easy for the app consume the data, using the cross-platform client library for Azure Mobile Services. **EntityData** also makes it easier for an app to [handle database write conflicts](http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/).
+Notice that both classes inherit from the **EntityData** class. Deriving from **EntityData** makes it easy for the app consume the data, using the cross-platform client library for Azure Mobile Services. **EntityData** also makes it easier for an app to [handle database write conflicts](http://azure.microsoft.commobile-services-windows-store-dotnet-handle-database-conflicts.md).
 
 The `PlayerRank` class has a [navigation property](http://msdn.microsoft.com/data/jj713564.aspx) that points to the related `Player` entity. The **[ForeignKey]** attribute tells EF that the `Player` property represents a foreign key.
 
@@ -757,7 +757,7 @@ Now when you run the app, it communicates with the real service.
 
 [Learn more about Azure Mobile Services]: /develop/mobile/resources/
 [Learn more about Web API]: http://asp.net/web-api
-[Handle database write conflicts]: /documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-[Add push notifications]: /documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Handle database write conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[Add push notifications]: notification-hubs-windows-store-dotnet-get-started.md
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
 

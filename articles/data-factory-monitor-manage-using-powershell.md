@@ -13,23 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Azure PowerShell
+> [AZURE.SELECTOR]
+- [Tutorial Overview](data-factory-get-started.md)
+- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+
 The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Preview Portal][azure-preview-portal]. 
 In this tutorial, you will create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial copies data from an Azure blob to an Azure SQL database.       
 
 > [AZURE.NOTE] This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
 ##Prerequisites
-Before you begin this tutorial, you must have the following:
-
-- An Azure subscription. If you do not have a subscription, you can start with a [Free Trial][azure-free-trial].
-- Azure PowerShell installed on your computer. If you do not have it already, download and install [Azure PowerShell][download-azure-powershell] on your computer.
-- Azure Storage Account. You will use the blob storage as a source data store in this tutorial. See [About Storage Accounts][data-factory-create-storage] for steps to create an Azure storage. You will need the **storage account name** and **account key** to do this tutorial. 
-- Azure SQL Database. You will create a sample database and use it as a destination data store in this tutorial. See [How to create and configure an Azure SQL Database][data-factory-create-sql-database] for steps to create an Azure SQL database. You will need the **server name**, **database name**, **user name**, and **password** to do this tutorial.
-- Read through [Introduction to Azure Data Factory][data-factory-introduction] topic for a conceptual overview of the Azure Data Factory service.
+Apart from prerequisites listed in the Tutorial Overview topic, you need to have Azure PowerShell installed on your computer. If you do not have it already, download and install [Azure PowerShell][download-azure-powershell] on your computer.
 
 ##In This Tutorial
 The following table lists the steps you will perform as part of the tutorial and their descriptions. 
@@ -62,7 +61,7 @@ In this step, you use the Azure PowerShell to create an Azure data factory named
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
 
-	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryPSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial.
+	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryPSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial.
 
 ## <a name="CreateLinkedServices"></a>Step 2: Create linked services
 Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database that contains input data or stores output data for a Data Factory pipeline. A compute service is the service that processes  input data and produces output data. 
@@ -83,7 +82,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 2.	In the **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder. 
 3.	You can use the **New-AzureDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial require you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use **Get-AzureDataFactory** to get a DataFactory object and pass the object without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureDataFactory** cmdlet to a variable: **$df**. 
 
-		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoyPSH
+		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
 4.	Now, run the **New-AzureDataFactoryLinkedService** cmdlet to create the linked service: **StorageLinkedService**. 
 
@@ -110,15 +109,14 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 	
 		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-	> [AZURE.NOTE] Confirm that the **Allow access to Azure services** setting is turned ON for your Azure SQL server. To verify and turn it on, do the following:
-	>
-	> <ol>
-	> <li>Click <b>BROWSE</b> hub on the left and click <b>SQL servers</b>.</li>
-	> <li>Select your server, and click <b>SETTINGS</b> on the <b>SQL SERVER</b> blade.</li>
-	> <li>In the <b>SETTINGS</b> blade, click <b>Firewall</b>.</li>
-	> <li>In the <b>Firewalll settings</b> blade, click <b>ON</b> for <b>Allow access to Azure services</b>.</li>
-	> <li>Click <b>ACTIVE</b> hub on the left to switch to the <b>Data Factory</b> blade you were on.</li>
-	> </ol>
+	Confirm that the **Allow access to Azure services** setting is turned ON for your Azure SQL server. To verify and turn it on, do the following:
+
+	1. Click **BROWSE** hub on the left and click **SQL servers**.
+	2. Select your server, and click **SETTINGS** on the SQL SERVER blade.
+	3. In the **SETTINGS** blade, click **Firewall**.
+	4. In the **Firewalll settings** blade, click **ON** for **Allow access to Azure services**.
+	5. Click **ACTIVE** hub on the left to switch to the **Data Factory** blade you were on.
+	
 
 ## <a name="CreateInputAndOutputDataSets"></a>Step 3: Create input and output tables
 
@@ -220,7 +218,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
             { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
         ],
 
-	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
 2.	Run the following command to create the Data Factory table.
 
@@ -317,11 +315,13 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 	- Input for the activity is set to **EmpTableFromBlob** and output for the activity is set to **EmpSQLTable**.
 	- In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
-	> [AZURE.IMPORTANT] Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
-	> If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property.
-	> In the example above, there will be 24 data slices as each data slice is produced hourly.
+	Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
 	
-	> See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property.
+	
+	In the example above, there will be 24 data slices as each data slice is produced hourly.
+	
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 2.	Run the following command to create the Data Factory table. 
 		
 		New-AzureDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
@@ -339,7 +339,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 
 		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
-	> [AZURE.IMPORTANT] Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This should match the **Start** value in the pipeline JSON. 
+	Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This should match the **Start** value in the pipeline JSON. 
 
 	You should see 24 slices, one for each hour from 12 AM of the current day to 12 AM of the next day. 
 	
@@ -391,18 +391,39 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 		PipelineName        : ADFTutorialPipeline
 		Type                : Copy
 
-> [AZURE.IMPORTANT] See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+
+## Next steps
+
+Article | Description
+------ | ---------------
+[Copy data with Azure Data Factory - Copy Activity][copy-activity] | This article provides detailed description of the **Copy Activity** you used in this tutorial. 
+[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an **on-premises SQL Server database** to an Azure blob. 
+[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use **HDInsight Activity** to run a **hive/pig** script to process input data to produce output data.
+[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
+[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a **custom activity** and using it in a pipeline. 
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to **troubleshoot** Azure Data Factory issues. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
+[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
+
+[copy-activity]: data-factory-copy-activity.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[data-factory-create-storage]: ../storage-create-storage-account/
+[data-factory-create-storage]: storage-create-storage-account.md
 
-[adf-get-started]: ../data-factory-get-started
+[adf-get-started]: data-factory-get-started.md
 [azure-preview-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure
-[data-factory-create-sql-database]: ../sql-database-create-configure/
-[data-factory-introduction]: ../data-factory-introduction
+[download-azure-powershell]: powershell-install-configure.md
+[data-factory-create-sql-database]: sql-database-create-configure.md
+[data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
-[sql-management-studio]: ../sql-database-manage-azure-ssms/#Step2
+[sql-management-studio]: sql-database-manage-azure-ssms.md#Step2

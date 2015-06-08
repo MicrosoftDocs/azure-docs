@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Manage Endpoints in Traffic Manager"
    description="This article will help you add, remove, enable and disable endpoints from Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # Add, Disable, Enable or Delete Endpoints
 
@@ -36,12 +36,12 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 6. Select the websites in the list to add them as endpoints for this profile. Clearing the website name removes it from the list of endpoints. Note that you can only select a single website per Azure datacenter (also known as a region). If you select a website in a datacenter that hosts multiple websites, when you select the first website, the others in the same datacenter become unavailable for selection. Also note that only Standard websites are listed.
 7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
 
->[AZURE.NOTE] If you are using the *Failover* load balancing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration. For more information, see [Configure Failover Load Balancing](../traffic-manager-configure-failover-load-balancing).
+>[AZURE.NOTE] If you are using the *Failover* load balancing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration. For more information, see [Configure Failover Load Balancing](traffic-manager-configure-failover-load-balancing.md).
 
 ## To disable an endpoint
 
 1. On the Traffic Manager pane in the Management Portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
-2. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration. 
+2. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration.
 3. Click the endpoint that you want to disable, and then click **Disable** at the bottom of the page.
 4. Traffic will stop flowing to the endpoint based on the DNS Time-to-Live (TTL) configured for the Traffic Manager domain name. You can change the TTL from the Configuration page of the Traffic Manager profile.
 
@@ -64,9 +64,9 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## See Also
 
-[Traffic Manager Overview](../traffic-manager-overview)
+[Traffic Manager Overview](traffic-manager-overview.md)
 
-[About Traffic Manager Monitoring](../traffic-manager-monitoring)
+[About Traffic Manager Monitoring](traffic-manager-monitoring.md)
 
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 

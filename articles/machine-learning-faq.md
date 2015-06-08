@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/07/2015" 
 	ms.author="paulettm"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ)
@@ -25,21 +25,19 @@
 Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign-in, upload data, and immediately start machine learning experiments. Visual composition, a large pallet of modules, and a library of starting templates makes common machine learning tasks simple and quick.  For more information, see the [Azure Machine Learning service overview](/services/machine-learning/).
 
 
-
-
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
  
 **What is Machine Learning Studio?**
 
 Machine Learning Studio is a workbench environment you access through a web browser. Machine Learning Studio hosts a pallet of modules with a visual composition interface that enables you to build an end-to-end, data-science workflow in the form of an experiment. 
 
-For more information about the Machine Learning Studio, see [What is Machine Learning Studio](../machine-learning-what-is-ml-studio/)
+For more information about the Machine Learning Studio, see [What is Machine Learning Studio](machine-learning-what-is-ml-studio.md)
 
 **What is the Machine Learning API service?**
 
 The Machine Learning API service enables you to deploy predictive models built in Machine Learning Studio as scalable, fault-tolerant, web services. The web services created by the Machine Learning API service are REST APIs that provide an interface for communication between external applications and your predictive analytics models. 
 
-See [Connect to a Machine Learning web service](../machine-learning-connect-to-azure-machine-learning-web-service/) for more information.
+See [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md) for more information.
 
 **Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?**
 
@@ -66,23 +64,44 @@ No, however each time an experiment is run that version of the graph is kept and
 ###Importing and exporting data for Machine Learning
 **What data sources does Machine Learning support?**
 
-Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](../machine-learning-import-data/) to learn more about supported file formats. 
+Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](machine-learning-import-data.md) to learn more about supported file formats. 
 
 
 ####<a id="ModuleLimit"></a>How large can the data set be for my modules?
 
-Machine Learning Studio supports  training datasets up to 10 GB. There is no limit on the dataset size for web services.  You can also sample larger datasets via Hive or Azure SQL Database queries before ingestion. If you are working with data larger than 10 GB, you can create multiple datasets and use the **Partition and Sample**, **Split**, or **Join** modules to combine these datasets in Machine Learning Studio to create training sets for building predictive models. Visit the module Help in Machine Learning Studio to learn more about these modules.
+Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB is the total of all input sizes. You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.  
+
+The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:
+
+- Sparse
+- Categorical
+- Strings
+- Binary data
+
+The following modules are limited to datasets less than 10GB:
+
+- Recommender modules
+- SMOTE module
+- Scripting modules: R, Python, SQL
+- Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
+- Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+
+For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
+
 
 ####<a id="UploadLimit"></a>What are the limits for data upload?
 For datasets larger than a couple GB, upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
 
 **Can I read data from Amazon S3?**
 
-If you have a small amount of data and want to expose it via an http URL, then you can use the reader module. For any larger amounts of data to transfer it to Azure Storage first and then use the Reader module to bring it into your experiment. <SEE CLOUD DS PROCESS> 
+If you have a small amount of data and want to expose it via an http URL, then you can use the [Reader][reader] module. For any larger amounts of data to transfer it to Azure Storage first and then use the [Reader][reader] module to bring it into your experiment. 
+<!--
+<SEE CLOUD DS PROCESS>
+--> 
 
 **Is there a built-in image input capability?** 
 
-You can learn about image input capability in the [Image Reader Module documentation](https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84).
+You can learn about image input capability in the [Image Reader][image-reader] reference.
 
 ###Modules 
 
@@ -93,7 +112,7 @@ You can visit the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=4
 
 **Can I bring my existing code into ML Studio?** 
 
-Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning. See [Extend your experiment with R ](../machine-learning-extend-your-experiment-with-r/). 
+Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md). 
 
 ###Data processing 
 **Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?**
@@ -107,14 +126,14 @@ Since the data is being transmitted to the browser and may be large, the data si
 ###Algorithms
 **What existing algorithms are supported in Machine Learning Studio?**
 
-Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the [complete list of machine learning algorithms](https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc).
+Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules][machine-learning-modules].
 
 **Do you automatically suggest the right Machine Learning algorithm to use for my data?** 
 
 No, however there are a number of ways in Machine Learning Studio to compare the results of each algorithm to determine the right one for your problem. 
 
 **Do you have any guidelines on picking one algorithm over another for the provided algorithms?** 
-See [How to choose an algorithm ](../machine-learning-algorithm-choice/). 
+See [How to choose an algorithm ](machine-learning-algorithm-choice.md). 
 
 **Are the provided algorithms written in R or Python?** 
 
@@ -139,11 +158,11 @@ Currently new custom modules can only be created in R.
 ###R module 
 **What R packages are available in Machine Learning Studio?** 
 
-Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](../machine-learning-extend-your-experiment-with-r/) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231). 
+Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231). 
 
 **Is it possible to build a custom R module?** 
 
-Yes, documentation to be published soon. 
+Yes, see [Author custom R modules in Azure Machine Learning](machine-learning-custom-r-modules.md) for more information.
 
 **Is there a REPL environment for R?** 
 
@@ -160,6 +179,11 @@ Not currently, but with the standard Python module or a set of them the same res
 No, there is no REPL environment for Python in the studio. 
 
 ## Web service
+###Retrainining Models Programmatically
+
+**How do I Retrain AzureML Models programmaticlly?**
+Use the Retraining APIs. Sample code is available [here](https://azuremlretrain.codeplex.com/).
+
 ###Create
 
 **Can I deploy the model locally or in an application without an internet connection?**
@@ -168,16 +192,16 @@ No.
 
 **Is there a baseline latency that is expected for all web services?** 
 
-See the [Azure subscription limits](../azure-subscription-service-limits/)
+See the [Azure subscription limits](azure-subscription-service-limits.md)
 
 ###Use
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
-The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](../machine-learning-consume-web-services/). 
+The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](machine-learning-consume-web-services.md). 
 
 **How do I update the model for the deployed web service?** 
 
-Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Publish a Machine Learning web service](../machine-learning-publish-a-machine-learning-web-service/) for details on how to update a deployed web service. 
+Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Publish a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) for details on how to update a deployed web service. 
 
 
 **How do I monitor my Web service deployed in production?** 
@@ -186,7 +210,7 @@ Once a predictive model has been put into production, you can monitor it from th
 
 **Is there a place where I can see the output of my RRS/BES?** 
 
-Yes, you can provide a blob storage location and the output of the RRS/BES will be placed there. 
+Yes, you must provide a blob storage location and the output of the RRS/BES will be placed there. 
 
 
 
@@ -204,7 +228,25 @@ No.
 
 **How much data can I train on?** 
 
-10 GB from end-to-end is the limitation on the data size.  
+Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB is the total of all input sizes. You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.  
+
+The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:
+
+- Sparse
+- Categorical
+- Strings
+- Binary data
+
+The following modules are limited to datasets less than 10GB:
+
+- Recommender modules
+- SMOTE module
+- Scripting modules: R, Python, SQL
+- Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
+- Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+
+For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
+
 
 **Are there any vector size limitations?** 
 
@@ -218,7 +260,7 @@ No.
 
 **Who has access to the http end point for the web service deployed in production by default? How do I restrict access to the end point?** 
 
-Once a predictive model has been put into production, the Azure Portal lists the URL for the deployed web services. Staging service URLs are accessible from the Machine Learning Studio Environment in the web services section; Production service URLs are accessible from Azure Portal, in the Machine Learning section. Access keys are provided for both Staging and Production web services from the web service dashboard in the Machine Learning Studio and Azure portal environments, respectively. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](../machine-learning-connect-to-azure-machine-learning-web-service/).
+Once a predictive model has been put into production, the Azure Portal lists the URL for the deployed web services. Staging service URLs are accessible from the Machine Learning Studio Environment in the web services section; Production service URLs are accessible from Azure Portal, in the Machine Learning section. Access keys are provided for both Staging and Production web services from the web service dashboard in the Machine Learning Studio and Azure portal environments, respectively. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 **What happens if my Storage Account cannot be found?** 
 
@@ -235,7 +277,7 @@ If you have changed Storage Account Access Keys, please ensure to resync the Acc
 
 ##Azure Marketplace 
 
-See the [FAQ for publishing and using apps in the Machine Learning Marketplace](../machine-learning-marketplace-faq/)
+See the [FAQ for publishing and using apps in the Machine Learning Marketplace](machine-learning-marketplace-faq.md)
 
 ##Support and training 
 
@@ -243,14 +285,21 @@ See the [FAQ for publishing and using apps in the Machine Learning Marketplace](
 
 [Azure Machine Learning Documentation Center](/services/machine-learning/) hosts video tutorials as well as how-to guides. These step-by-step guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure ML. 
 
-We will be adding new material to Machine Learning Center on an ongoing basis. You can submit request for additional learning material on Machine Learning Center at [user feedback forum](https://windowsazure.uservoice.com/forums/257792-machine-learning). 
+We will be adding new material to Machine Learning Center on an ongoing basis. You can submit requests for additional learning material on Machine Learning Center at [user feedback forum](https://windowsazure.uservoice.com/forums/257792-machine-learning). 
 
 You can also find training at [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning)
 
 **How do I get support for Azure Machine Learning?** 
 
- To get technical support for Azure Machine Learning,  go to [Azure Support](/support/options/) select **Machine Learning**.
+To get technical support for Azure Machine Learning,  go to [Azure Support](/support/options/) select **Machine Learning**.
 
 Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions. The forum is monitored by the Azure ML team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning). 
 
 
+<!-- Module References -->
+[image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
+[join]: https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/
+[machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
+[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

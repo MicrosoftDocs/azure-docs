@@ -380,13 +380,13 @@ In this section you will create a new custom authorization attribute that can be
 [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
 
 <!-- URLs. -->
-[Add Authentication to your app]: /documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
-[How to Register with the Azure Active Directory]: /documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Add Authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
-[Store Server Scripts]: /documentation/articles/mobile-services-store-scripts-source-control/
-[Register to use an Azure Active Directory Login]: /documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Store Server Scripts]: mobile-services-store-scripts-source-control.md
+[Register to use an Azure Active Directory Login]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[Accessing Azure Active Directory Graph Information]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/
+[Accessing Azure Active Directory Graph Information]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL for .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx

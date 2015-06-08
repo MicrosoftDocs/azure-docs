@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" 
 	description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." 
-	authors="wpickett" 
-	manager="wpickett" 
+	authors="MikeWasson" 
+	manager="wadepickett" 
 	editor="" 
 	services="virtual-machines" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 #Deploy a Ruby on Rails Web application to an Azure VM using Capistrano
@@ -208,7 +208,7 @@ After the virtual machine has been created, connect to it using SSH and use the 
 > 
 > The **~/.rbenv/bin/rbenv install 2.0.0-p451** command can take several minutes to complete.
 
-The **rbenv-install.sh** script performs the following actions:
+The above commands performs the following actions:
 	
 * Updates and upgrades currently installed packages
 * Installs build tools
@@ -351,9 +351,10 @@ On your development environment, modify the application to use the Unicorn web s
 		set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 		set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 		
-		# dirs we want symlinked to the shared folder
+		# dirs and files we want symlinked to the shared folder
 		# during deployment
 		set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+		set :linked_files, %w{config/database.yml config/unicorn.rb}
 		
 		namespace :deploy do
 

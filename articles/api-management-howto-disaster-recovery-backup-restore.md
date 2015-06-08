@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
 # How to implement disaster recovery using service backup and restore in Azure API Management
@@ -35,10 +35,10 @@ where:
 * `serviceName` - the name of the API Management service you are making a backup of specified at the time of its creation
 * `api-version` - replace  with `2014-02-14`
 
-In the body of the request, specify the target Azure storage account, access key, blob container name, and backup name:
+In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
 	'{  
-	    storageAccount : "{storage account for the backup}",  
+	    storageAccount : "{storage account name for the backup}",  
 	    accessKey : "{access key for the account}",  
 	    containerName : "{backup container name}",  
 	    backupName : "{backup blob name}"  
@@ -69,10 +69,10 @@ where:
 * `serviceName` - the name of the API Management service being restored into specified at the time of its creation
 * `api-version` - replace  with `2014-02-14`
 
-In the body of the request, specify the backup file location, i.e. Azure storage account, access key, blob container name, and backup name:
+In the body of the request, specify the backup file location, i.e. Azure storage account name, access key, blob container name, and backup name:
 
 	'{  
-	    storageAccount : "{storage account for the backup}",  
+	    storageAccount : "{storage account name for the backup}",  
 	    accessKey : "{access key for the account}",  
 	    containerName : "{backup container name}",  
 	    backupName : "{backup blob name}"  

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to use the queue service (Ruby) | Microsoft Azure" 
+	pageTitle="How to use Queue storage from Ruby | Microsoft Azure" 
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
 
+# How to use Queue storage from Ruby
 
-
-
-# How to Use the Queue Storage Service from Ruby
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Windows
+This guide shows you how to perform common scenarios using the Microsoft
 Azure Queue Storage service. The samples are written using the Ruby Azure API.
 The scenarios covered include **inserting**, **peeking**, **getting**,
 and **deleting** queue messages, as well as **creating and deleting

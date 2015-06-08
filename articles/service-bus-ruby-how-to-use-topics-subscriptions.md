@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Service Bus topics (Ruby) - Azure" 
-	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." 
-	services="service-bus" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use Service Bus topics (Ruby) - Azure"
+	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications."
+	services="service-bus"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
+<tags
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="03/20/2015"
 	ms.author="tomfitz"/>
 
 
@@ -53,36 +53,34 @@ applications.
 
 ## Create a Service Namespace
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within 
+To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within
 your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
 
 To create a namespace:
 
 1. Open an Azure Powershell console.
 
-2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application. 
+2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application.
 
-      New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -CreateACSNamespace $true
+      New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
 
       ![Create Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
 
 ## Obtain Default Management Credentials for the Namespace
 
-In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace.
+In order to perform management operations, such as creating a queue on the new
+namespace, you must obtain the management credentials for the namespace.
 
-1. Log on to the [Azure Management Portal](http://manage.windowsazure.com/).
+The PowerShell cmdlet you ran to create the Azure service bus namespace displays
+the key you can use to manage the namespace. Copy the **DefaultKey** value. You
+will use this value in your code later in this tutorial.
 
-2. Select the service bus namespace that you created.
+      ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-     ![Select namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/selectns.png)
-
-3. At the bottom, select **Connection Information**.
-
-      ![Select connection](./media/service-bus-ruby-how-to-use-topics-subscriptions/selectconnection.png)
-
-4. Copy the default key. You will use this value in your code.
-
-       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
+> [AZURE.NOTE]
+> You can also find this key if you log on to the
+> [Azure Management Portal](http://manage.windowsazure.com/) and navigate to the
+> connection information for your service bus namespace.
 
 ## Create a Ruby Application
 
@@ -106,13 +104,13 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
 ## Setup an Azure Service Bus Connection
 
-The azure module will read the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS\_KEY** 
+The azure module will read the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS\_KEY**
 for information required to connect to your Azure service bus namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
 
-Set the service bus namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net". 
+Set the service bus namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net".
 
 ## How to Create a Topic
 
@@ -143,7 +141,7 @@ Subscriptions are persistent and will continue to exist until either they, or th
 
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "all-messages" and uses the default **MatchAll** filter.
 
-	subscription = azure_service_bus_service.create_subscription("test-topic", 
+	subscription = azure_service_bus_service.create_subscription("test-topic",
 	  "all-messages")
 
 ### <a id="how-to-create-subscriptions"></a>Create Subscriptions with Filters
@@ -158,29 +156,29 @@ Since the default filter is applied automatically to all new subscriptions, you 
 
 The examples below creates a subscription named "high-messages" with a **Azure::ServiceBus::SqlFilter** that only selects messages that have a custom **message\_number** property greater than 3:
 
-	subscription = azure_service_bus_service.create_subscription("test-topic", 
+	subscription = azure_service_bus_service.create_subscription("test-topic",
 	  "high-messages")
-	azure_service_bus_service.delete_rule("test-topic", "high-messages", 
+	azure_service_bus_service.delete_rule("test-topic", "high-messages",
 	  "$Default")
-	
+
 	rule = Azure::ServiceBus::Rule.new("high-messages-rule")
 	rule.topic = "test-topic"
 	rule.subscription = "high-messages"
-	rule.filter = Azure::ServiceBus::SqlFilter.new({ 
+	rule.filter = Azure::ServiceBus::SqlFilter.new({
 	  :sql_expression => "message_number > 3" })
 	rule = azure_service_bus_service.create_rule(rule)
 
 Similarly, the following example creates a subscription named "low-messages" with a **Azure::ServiceBus::SqlFilter** that only selects messages that have a **message_number** property less than or equal to 3:
 
-	subscription = azure_service_bus_service.create_subscription("test-topic", 
+	subscription = azure_service_bus_service.create_subscription("test-topic",
 	  "low-messages")
-	azure_service_bus_service.delete_rule("test-topic", "low-messages", 
+	azure_service_bus_service.delete_rule("test-topic", "low-messages",
 	  "$Default")
-	
+
 	rule = Azure::ServiceBus::Rule.new("low-messages-rule")
 	rule.topic = "test-topic"
 	rule.subscription = "low-messages"
-	rule.filter = Azure::ServiceBus::SqlFilter.new({ 
+	rule.filter = Azure::ServiceBus::SqlFilter.new({
 	  :sql_expression => "message_number <= 3" })
 	rule = azure_service_bus_service.create_rule(rule)
 
@@ -193,7 +191,7 @@ To send a message to a Service Bus topic, your application must use the **send\_
 The following example demonstrates how to send five test messages to "test-topic". Note that the **message_number** custom property value of each message varies on the iteration of the loop (this will determine which subscription receive it):
 
 	5.times do |i|
-	  message = Azure::ServiceBus::BrokeredMessage.new("test message " + i, 
+	  message = Azure::ServiceBus::BrokeredMessage.new("test message " + i,
 	    { :message_number => i })
 	  azure_service_bus_service.send_topic_message("test-topic", message)
 	end

@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="View, edit, create, and upload JSON documents using the DocumentDB Document Explorer | Azure" 
-	description="Learn about the DocumentDB Document Explorer, an Azure  Preview portal tool to view, edit, create, and upload JSON documents with DocumentDB." 
-	services="documentdb" 
-	authors="stephbaron" 
-	manager="johnmac" 
-	editor="monicar" 
+<properties
+	pageTitle="View, edit, create, and upload JSON documents using the DocumentDB Document Explorer | Azure"
+	description="Learn about the DocumentDB Document Explorer, an Azure Preview portal tool to view, edit, create, and upload JSON documents with DocumentDB."
+	services="documentdb"
+	authors="stephbaron"
+	manager="johnmac"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="2/13/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="stbaro"/>
 
 # View, edit, create, and upload JSON documents using the DocumentDB Document Explorer #
 
-This article provides an overview of the [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure Preview portal tool that enables you to view, edit, create, and upload JSON documents with DocumentDB. 
+This article provides an overview of the [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure Preview portal tool that enables you to view, edit, create, and upload JSON documents with DocumentDB.
 
 By completing this tutorial, you'll be able to answer the following questions:  
 
@@ -32,7 +32,7 @@ Document Explorer can be launched from any of the DocumentDB account, database, 
 
 1. Near the bottom of each blade is a **Developer Tools** lens that contains the **Document Explorer** part.
 
-	![Screenshot of the Document Explorer part](./media/documentdb-view-JSON-document-explorer/documentexplorerpart.png) 
+	![Screenshot of the Document Explorer part](./media/documentdb-view-JSON-document-explorer/documentexplorerpart.png)
 
 2. Simply click the tile to launch Document Explorer.
 
@@ -46,7 +46,7 @@ Document Explorer can be launched from any of the DocumentDB account, database, 
 
 5. Document Explorer also supports filtering the currently loaded set of documents by their id property.  Simply type in the filter box.
 
-	![Screenshot of Document Explorer with filter highlighted](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png) 
+	![Screenshot of Document Explorer with filter highlighted](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
 
 	And the results in the Document Explorer list are filtered based on your supplied criteria.
 
@@ -66,13 +66,15 @@ Document Explorer allows you to easily create, edit and delete documents.
 
 - To create a document, simply click the **Create Document** command and a minimal JSON snippet is provided.
 
-	![Screenshot of Document Explorer create document experience](./media/documentdb-view-JSON-document-explorer/createdocument.png) 
+	![Screenshot of Document Explorer create document experience](./media/documentdb-view-JSON-document-explorer/createdocument.png)
 
 - Simply type or paste the JSON content of the document you wish to create and click the **Save** command to commit your document.
 
 	![Screenshot of Document Explorer save command](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
-	> [AZURE.NOTE] If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value. 
+	> [AZURE.NOTE] If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value.
+
+- If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
 
 - To edit an existing document, simply select it in Document Explorer, edit the document as you see fit, and click the **Save** command.
 
@@ -105,7 +107,7 @@ Document Explorer allows you to easily create, edit and delete documents.
 Document Explorer supports bulk ingestion of one or more existing JSON documents.  
 
 1. To start the upload process, click the **Add Document** command.
-	
+
 	![Screenshot of Document Explorer bulk ingestion functionality](./media/documentdb-view-JSON-document-explorer/adddocument1.png)
 
 2. A new blade opens.  Click the browse button to open a file explorer window and select one or more JSON documents to upload.

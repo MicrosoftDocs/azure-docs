@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="04/29/2015" 
 	ms.author="garye"/>
 
 
@@ -24,6 +24,8 @@ Using the Azure management portal, you can manage your Machine Learning workspac
 - Configure the workspace to allow or deny access
 - Manage web services created in the workspace
 - Delete the workspace
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 In addition, the dashboard tab provides an overview of your workspace usage and a quick glance of your workspace information.  
 
@@ -77,10 +79,9 @@ To manage a web service, click the name in the list to open the web service page
 
 A web service may have one or more endpoints defined. 
 
-- You can define a second endpoint in addition to the "Default" endpoint. To add the endpoint, named "Other", click **ADD ENDPOINT** at the bottom of the page.
-    > [AZURE.NOTE] In the current release a web service may have only two endpoints - if the web service already has two endpoints than this button is disabled.
+- You can define additional endpoints in addition to the "Default" endpoint. To add the endpoint, click **ADD ENDPOINT** at the bottom of the page.
 
-- To delete the "Other" endpoint (you cannot delete the "Default" endpoint), click anywhere on the endpoint row except the name, and click **DELETE ENDPOINT** at the bottom of the page. This removes the endpoint from the web service.
+- To delete an endpoint (you cannot delete the "Default" endpoint), click anywhere on the endpoint row except the name, and click **DELETE ENDPOINT** at the bottom of the page. This removes the endpoint from the web service.
  
     > [AZURE.NOTE] If an application is using the web service endpoint when the endpoint is deleted, the application will receive an error the next time it tries to access the service.
 
@@ -90,6 +91,6 @@ This page also gives you the information you need to be able to access the endpo
 
 You can also publish the web service to the Azure data marketplace from this page. For more information, see [Publish Azure Machine Learning Web Service to the Azure Marketplace][marketplace].
 
-[consume]: ../machine-learning-consume-web-services/
-[marketplace]: ../machine-learning-publish-web-service-to-azure-marketplace/
+[consume]: machine-learning-consume-web-services.md
+[marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 

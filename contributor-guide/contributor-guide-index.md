@@ -19,7 +19,7 @@
 
 - [Git commands for creating a new article or updating an existing article](./git-commands-for-master.md)
 
-- [Git commands for staging an article on the internal preview site](./git-commands-for-sandbox.md)
+<!-- [Git commands for staging an article on the internal preview site](./git-commands-for-sandbox.md)-->
 
 - [File names and locations for Azure technical articles](./file-names-and-locations.md)
 
@@ -32,7 +32,7 @@
 
 - [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
-- [Printable markdown cheatsheet](./media/documents/markdown-cheatsheet.pptx?raw=true)
+- [Printable markdown cheatsheet](./media/documents/markdown-cheatsheet.pdf?raw=true)
 
 - [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
 

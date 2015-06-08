@@ -1,39 +1,33 @@
-<properties 
-	pageTitle="Attach a disk to a virtual machine running Linux in Azure" 
-	description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Attach a disk to a virtual machine running Linux in Azure"
+	description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="1/26/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/29/2015"
 	ms.author="kathydav"/>
 
-#How to Attach a Data Disk to a Linux Virtual Machine
+# How to Attach a Data Disk to a Linux Virtual Machine
 
-You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use. 
+You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
 
-> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage. 
-> The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, on Linux the data disk might be named by the kernel as `/dev/sdc`. If that's the case, you'll need to partition, format, and mount that resource. See the [Azure Linux Agent User Guide](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/) for more information.
+> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
+> The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, on Linux the data disk might be named by the kernel as `/dev/sdc`. If that's the case, you'll need to partition, format, and mount that resource. See the [Azure Linux Agent User Guide][Agent] for details.
 
-- [How to: Attach an empty disk](#attachempty)
-- [How to: Attach an existing disk](#attachexisting)
-- [How to: Initialize a new data disk in Linux](#initializeinlinux)
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
+## How to: Initialize a new data disk in Linux
 
-##<a id="initializeinlinux"></a>How to: Initialize a new data disk in Linux
-
-
-
-1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Linux][logonlinux].
+1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Linux][Logon].
 
 
 
@@ -41,7 +35,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 		# sudo grep SCSI /var/log/messages
 
-	>[AZURE.NOTE] For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default. 
+	>[AZURE.NOTE] For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default.
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
@@ -106,7 +100,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 11. Add the new drive to /etc/fstab:
 
 	To ensure the drive is re-mounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). To find the UUID of the new drive you can use the **blkid** utility:
-	
+
 		# sudo -i blkid
 
 	The output will look similar to the following:
@@ -130,7 +124,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
 
-	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps: 
+	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps:
 
 		# sudo umount /datadrive
 		# sudo mount /datadrive
@@ -138,6 +132,12 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.
 
 
-	>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.
+>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.
 
-[logonlinux]: ../virtual-machines-linux-how-to-log-on/
+## Additional Resources
+[How to log on to a virtual machine running Linux][Logon]
+
+
+<!--Link references-->
+[Agent]: virtual-machines-linux-agent-user-guide.md
+[Logon]: virtual-machines-linux-how-to-log-on.md

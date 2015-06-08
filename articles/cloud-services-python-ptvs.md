@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" 
-	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles." 
-	services="" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio"
+	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
+	services=""
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/09/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="get-started-article" 
+	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
 
@@ -45,7 +45,7 @@ If your scenario involves just a simple website front-end, consider using a ligh
 
 ## Project creation
 
-In Visual Studio, you can select **Azure Cloud Service** in the **New Project** dialog, under **Python**. 
+In Visual Studio, you can select **Azure Cloud Service** in the **New Project** dialog, under **Python**.
 
 ![New Project Dialog](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
@@ -57,7 +57,7 @@ The worker role template comes with boilerplate code to connect to a Azure stora
 
 ![Cloud Service Solution](./media/cloud-services-python-ptvs/worker.png)
 
-You can add web or worker roles to an existing cloud service at any time.  You can choose to add existing projects in your solution, or create new ones. 
+You can add web or worker roles to an existing cloud service at any time.  You can choose to add existing projects in your solution, or create new ones.
 
 ![Add Role Command](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
@@ -106,7 +106,7 @@ For more detailed information on working with web and worker roles in Python Too
 - [Cloud Service Projects][]
 
 For more details on using Azure services from your web and worker roles, such as using Azure storage or service bus, see the following guides:
- 
+
 - [Blob Service][]
 - [Table Service][]
 - [Queue Service][]
@@ -117,26 +117,26 @@ For more details on using Azure services from your web and worker roles, such as
 <!--Link references-->
 
 [What is a Cloud Service?]: /manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: ../fundamentals-application-models/#WebSites
-[execution model-vms]: ../fundamentals-application-models/#VMachine
-[execution model-cloud services]: ../fundamentals-application-models/#CloudServices
+[execution model-web sites]: fundamentals-application-models.md#WebSites
+[execution model-vms]: fundamentals-application-models.md#VMachine
+[execution model-cloud services]: fundamentals-application-models.md#CloudServices
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage-python-how-to-use-blob-storage/
-[Queue Service]: ../storage-python-how-to-use-queue-storage/
-[Table Service]: ../storage-python-how-to-use-table-storage/
-[Service Bus Queues]: ../service-bus-python-how-to-use-queues/
-[Service Bus Topics]: ../service-bus-python-how-to-use-topics-subscriptions/
+[Blob Service]: storage-python-how-to-use-blob-storage.md
+[Queue Service]: storage-python-how-to-use-queue-storage.md
+[Table Service]: storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
+[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
