@@ -82,7 +82,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 2.	In the **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder. 
 3.	You can use the **New-AzureDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial require you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use **Get-AzureDataFactory** to get a DataFactory object and pass the object without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureDataFactory** cmdlet to a variable: **$df**. 
 
-		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoyPSH
+		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
 4.	Now, run the **New-AzureDataFactoryLinkedService** cmdlet to create the linked service: **StorageLinkedService**. 
 
