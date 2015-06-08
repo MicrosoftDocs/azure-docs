@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 
@@ -342,7 +342,7 @@ Hybrid Connections connect an Azure application, like Websites or Mobile Service
 
 To create Hybrid Connections in Azure Websites, see [Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-To use Hybrid Connections in Azure Mobile Services, see [Azure Mobile Services and Hybrid Connections](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+To use Hybrid Connections in Azure Mobile Services, see [Azure Mobile Services and Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
