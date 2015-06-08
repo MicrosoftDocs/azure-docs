@@ -129,7 +129,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 						"type": "HDInsightActivity",
 						"inputs": [],
 						"outputs": [ {"name": "HiveOutputBlobTable"} ],
-						"linkedServiceName": "HDInsightLinkedService",
+						"linkedServiceName": "HDInsightOnDemandLinkedService",
 						"transformation":
 						{
                     		"type": "Hive",
