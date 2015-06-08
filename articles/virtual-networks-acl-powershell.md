@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="06/08/2015"
    ms.author="telmos" />
 
 # How to manage Access Control Lists (ACLs) for Endpoints by using PowerShell
 
-You can create and manage Network Access Control Lists (ACLs) for endpoints by using Azure PowerShell or in the Management Portal. In this topic, you'll find procedures for ACL common tasks that you can complete using PowerShell. For the list of Azure PowerShell cmdlets see [Azure Management Cmdlets](http://go.microsoft.com/fwlink/?LinkId=317721). For more information about ACLs, see [What is a Network Access Control List (ACL)?](../virtual-network-acl). If you want to manage your ACLs by using the Management Portal, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines-set-up-endpoints/).
+You can create and manage Network Access Control Lists (ACLs) for endpoints by using Azure PowerShell or in the Management Portal. In this topic, you'll find procedures for ACL common tasks that you can complete using PowerShell. For the list of Azure PowerShell cmdlets see [Azure Management Cmdlets](http://go.microsoft.com/fwlink/?LinkId=317721). For more information about ACLs, see [What is a Network Access Control List (ACL)?](../virtual-networks-acl). If you want to manage your ACLs by using the Management Portal, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines-set-up-endpoints/).
 
 ## Manage Network ACLs by using Azure PowerShell
 
@@ -93,6 +93,6 @@ In certain scenarios, you might want to remove a Network ACL object from a virtu
 
 ## See Also
 
-[What is a Network Access Control List (ACL)?](../articles/virtual-network-acl)
+[What is a Network Access Control List (ACL)?](../virtual-networks-acl)
 
 [How to Set Up Communication with a Virtual Machine](http://go.microsoft.com/fwlink/?LinkId=303938)
