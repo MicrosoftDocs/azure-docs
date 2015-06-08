@@ -32,8 +32,7 @@ The following steps provide clear, detailed instructions about how to unpack you
 Before you unpack your device, complete the following steps.
 
 >[AZURE.WARNING]
->![warning icon](./media/storsimple-8100-hardware-installation/HCS_Warning_Icon.png)
-![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNIING!** 
+> ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
 >
 > 1. Make sure that you have two people available to manage the weight of the device if you are handling it manually. A fully configured device can weigh up to 32 kg (70 lbs.).
 >
@@ -45,19 +44,19 @@ Next, perform the following steps to unpack your device.
 
 1. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please contact Microsoft Support to help you assess whether the device is in good working order. 
 
-2. Unpack the box. See the following image which shows the unpacked view of your Azure StorSimple device.
+2. Unpack the box. The following image shows the unpacked view of your Azure StorSimple device.
 
-     **Figure 1 Unpacked view of your storage device**
+    **Figure 1 Unpacked view of your storage device**
 
      ![Unpack your storage device](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png) 
 
-      | Label | Description   |
-      | ----- | ------------- |
-      | 1     | Packing box   |
-      | 2     | Bottom foam   |
-      | 3     | Device        |
-      | 4     | Top foam      |
-      | 5     | Accessory box |
+     | Label | Description   |
+     | ----- | ------------- |
+     | 1     | Packing box   |
+     | 2     | Bottom foam   |
+     | 3     | Device        |
+     | 4     | Top foam      |
+     | 5     | Accessory box |
 
 3. After unpacking the box, make sure that you have:
 
@@ -93,10 +92,10 @@ The device must be installed in a standard 19-inch rack that has both front and 
 
 3. Make sure that one 2U slot is available on the rack in which you intend to mount the device. 
 
-> ![warning icon](./media/storsimple-8100-hardware-installation/HCS_Warning_Icon.png)
-![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNIING!** 
- 
-Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
+>[AZURE.WARNING]
+> ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
+> 
+> Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
 
 ### Rack prerequisites
 
@@ -116,14 +115,14 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
 2. Typically, the rails are installed at the factory. If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.<br/>
 
-     **Figure 2 Attaching rail slides to the sides of the enclosure**
+    **Figure 2 Attaching rail slides to the sides of the enclosure**
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
-      | Label | Description              |
-      | ----- | ------------------------ |
-      | 1     | M 3x4 button-head screws |
-      | 2     | Chassis slides           |
+    | Label | Description              |
+    | ----- | ------------------------ |
+    | 1     | M 3x4 button-head screws |
+    | 2     | Chassis slides           |
 
 3. Attach the left rail and right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation.
 
@@ -133,7 +132,7 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
 6. Repeat these steps for the other rail assembly.<br/>
 
-     **Figure 3 Attaching rail assemblies to the rack**
+    **Figure 3 Attaching rail assemblies to the rack**
 
      ![Attaching rail slides to rack cabinet](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
 
@@ -155,7 +154,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
 2. Carefully insert the device into the rails, and then push the device completely into the rack cabinet.<br/>
 
-     **Figure 4 Mounting the device in the rack**
+    **Figure 4 Mounting the device in the rack**
 
     ![Inserting device in the rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
@@ -163,7 +162,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
 4. Install the flange caps by pressing them into position and snapping them in place.<br/>
 
-     **Figure 5 Installing the flange caps**
+    **Figure 5 Installing the flange caps**
 
      ![Installing flange caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
@@ -215,8 +214,9 @@ Perform the following steps to cable your device for power.
 4. Turn on the system by flipping the power switches on both PCMs to the ON position.
 
     >[AZURE.NOTE] To ensure high availability of your system, you should strictly adhere to the power cabling scheme shown in the following diagram.
-<br/>
-     **Figure 6 Power cabling for your device**
+
+
+    **Figure 6 Power cabling for your device**
 
      ![Cable your 2U device for power](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
@@ -238,7 +238,7 @@ To support this redundant controller failover, you need to cable your device net
 
 1. Your device has six network interfaces on each controller: four 1 Gbps, and two 10 Gbps Ethernet ports. Identify the various data ports on the backplane of your device.
 
-     **Figure 7 Back of the device showing data ports**
+    **Figure 7 Back of the device showing data ports**
 
     ![Backplane of 8100 device](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
  
