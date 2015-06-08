@@ -120,14 +120,14 @@ On-prem system port | On the on-premises system, open the port used by the syste
 
 ## FAQ
 
-**Question**: There are two Hybrid Connection Managers. What's the difference?
+**Question**: There are two Hybrid Connection Managers. What's the difference?<br/>
 **Answer**: There’s the [Hybrid Connections](integration-hybrid-connection-overview.md) technology that is used primarily by Web  Apps (formerly websites) and Mobile Apps (formerly mobile services) to connect to on-premises. This Hybrid Connections Manager is its own [setup](integration-hybrid-connection-create-manage.md) and uses an Azure BizTalk Service (behind the scenes). It supports TCP and HTTP protocols only.
 
 With Azure App Service connectors, we also have a Hybrid Connection Manager.  This Hybrid Connection Manager does *not* use an Azure BizTalk Service (behind the scenes) and supports more than the TCP and HTTP protocols. See the [Connectors and API Apps List](app-service-logic-connectors-list.md).
 
 Both use Azure Service Bus to connect to the on-premises system.
 
-**Question**: When I create a custom API App, can I use the App Service Hybrid Connection Manager to connect to on-premises? 
+**Question**: When I create a custom API App, can I use the App Service Hybrid Connection Manager to connect to on-premises? <br/>
 **Answer**: Not in the traditional sense. You can use a built-in connector, configure the App Service Hybrid Connection Manager to connect to the on-premises system. Then, use this connector with your custom API App, possibly using a Logic App. Currently, you cannot develop or create your own hybrid API App (like the SQL Connector or File Connector).
 
 If your custom API uses a TCP or HTTP port, you can use [Hybrid Connections](integration-hybrid-connection-overview.md) and its Hybrid Connection Manager. In this scenario, an Azure BizTalk Service is used. [Connect to on-premises SQL Server from a web app](web-sites-hybrid-connection-connect-on-premises-sql-server.md) may help.  
