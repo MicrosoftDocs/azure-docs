@@ -74,12 +74,14 @@ An example timeline illustrating the monitoring process with a single cloud serv
 
 1. **GET** – The Traffic Manager monitoring system performs a GET on the path and file you specified in the monitoring settings.
 2. **200 OK** – The monitoring system expects an HTTP 200 OK message back within 10 seconds. When it receives this response, it assumes that the cloud service is available. 
->[AZURE.NOTE] Traffic Manager only considers an endpoint to be Online if the return message is a 200 OK. If a non-200 response is received, it will assume the endpoint is not available and will count this as a failed check.
+
+>[AZURE.NOTE] Traffic Manager only considers an endpoint to be Online if the return message is a 200 OK. If a non-200 response is received, it will assume the endpoint is not available and will count this as a failed check. More details about troubleshooting failed checks see [Troubleshooting degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
 3. **30 seconds between checks** – This check will be performed every 30 seconds.
 4. **Cloud service unavailable** – The cloud service becomes unavailable. Traffic Manager will not know until the next monitor check.
 5. **Attempts to access monitoring file (4 tries)** – The monitoring system performs a GET, but does not receive a response in 10 seconds or less. It then performs three more tries at 30 second intervals. This means that at most, it takes approximately 1.5 minutes for the monitoring system to detect when a service becomes unavailable. If one of the tries is successful, then the number of tries is reset. Although not shown in the diagram, if the 200 OK message(s) come back more than 10 seconds after the GET, the monitoring system will still count this as a failed check.
-6. **Marked degraded** – After the fourth failure in a row, the monitoring system will mark the unavailable cloud service as Degraded.
+6. **Marked degraded** – After the fourth failure in a row, the monitoring system will mark the unavailable cloud service as Degraded. 
+
 7. **Traffic to cloud service decreases** – Traffic may continue to flow to the unavailable cloud service. Clients will experience failures because the service is unavailable. Clients and secondary DNS servers have cached the DNS record for the IP address of the unavailable cloud service. They continue to resolve the DNS name of the company domain to the IP address of the service. In addition, secondary DNS servers may still hand out the DNS information of the unavailable service. As clients and secondary DNS servers are updated, traffic to the IP address of the unavailable service will slow. The monitoring system continues to perform checks at 30 second intervals. In this example, the service does not respond and remains unavailable.
 8. **Traffic to cloud service stops** – By this time, most DNS servers and clients should be updated and traffic to the unavailable service stops. The maximum amount time before traffic completely stops is dependent on the TTL time. The default DNS TTL is 300 seconds (5 minutes). Using this value, clients stop using the service after 5 minutes. The monitoring system continues to perform checks at 30 second intervals and the cloud service does not respond.
 9. **Cloud service comes back online and receives traffic** – The service becomes available, but Traffic Manager does not know until the monitoring system performs a check.
@@ -114,4 +116,4 @@ The following table describes the behavior of Traffic Manager monitoring for chi
 
 [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
-[Blog Post- Troubleshooting Traffic Manager Degraded Status](http://go.microsoft.com/fwlink/p/?LinkId=328689)
+[Troubleshooting degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)

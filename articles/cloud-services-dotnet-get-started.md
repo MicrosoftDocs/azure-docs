@@ -258,7 +258,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 7. Save your changes.  
 
-### Configure the solution to use your Azure storage account when you it runs in Azure
+### Configure the solution to use your Azure storage account when it runs in Azure
 
 Azure storage account connection strings for both the web role project and the worker role project are stored in environment settings in the cloud service project. For each project there is a separate set of settings to be used when the application runs locally and when it runs in the cloud. You'll update the cloud environment settings for both web and worker role projects.
 
@@ -468,7 +468,7 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
 	- *Global.asax.cs*  
-	- In the *Views\Shared* folder: <em>_Layout.cshtml</em>.
+	- In the *Views\Shared* folder: <em>\_Layout.cshtml</em>.
 	- In the *Views\Home* folder: *Index.cshtml*.
 	- In the *Controllers* folder: *AdController.cs*.
 	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.
@@ -572,7 +572,7 @@ Similar code gets a reference to the *images* queue and creates a new queue. In 
 		var imagesQueue = queueClient.GetQueueReference("images");
 		imagesQueue.CreateIfNotExists();
 
-### ContosoAdsWeb - _Layout.cshtml
+### ContosoAdsWeb - \_Layout.cshtml
 
 The *_Layout.cshtml* file sets the app name in the header and footer, and creates an "Ads" menu entry.
 
@@ -809,7 +809,5 @@ For a video introduction to Azure Storage best practices and patterns, see [Micr
 For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Azure Cloud Services](/documentation/services/cloud-services/)
+* [How to manage Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
-* [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
-* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
