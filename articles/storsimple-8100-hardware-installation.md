@@ -19,7 +19,9 @@
 
 ## Overview
 
-Your Microsoft Azure StorSimple 8100 is a single enclosure device. This article explains how to unpack, rack-mount, and cable the device hardware before you  configure the StorSimple software. The article also provides a list of transceivers, cables, and switches that work with the 10 GbE network interfaces on your device.
+Your Microsoft Azure StorSimple 8100 is a single enclosure, rack-mounted device. 
+
+This article explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you  configure the StorSimple software.
 
 ## Unpack your StorSimple 8100 device
 
@@ -93,7 +95,7 @@ The device must be installed in a standard 19-inch rack that has both front and 
 
 ### Rack prerequisites
 
-The enclosure is designed for installation in a standard 19-inch rack cabinet with: 
+The 8100 enclosure is designed for installation in a standard 19-inch rack cabinet with: 
 
 - Minimum depth of 27.84 inches from rack post to post.
 - Maximum weight of 32 kg for the device
@@ -101,26 +103,26 @@ The enclosure is designed for installation in a standard 19-inch rack cabinet wi
 
 ### Rack-mounting rail kit
 
-A set of mounting rails is provided for use with the 19-inch rack cabinet. The rails have been tested to handle the maximum enclosure weight. These rails will also allow installation of multiple enclosures without the loss of space within the rack.
+A set of mounting rails is provided for use with the 19-inch rack cabinet. The rails have been tested to handle the maximum enclosure weight. These rails will also allow installation of multiple enclosures without any loss of space within the rack.
 
 #### To install the device on the rails
 
 1. With the enclosure on the work surface, remove the left and right front flange caps by pulling the caps free. The flange caps simply snap onto the flanges.
 
-2. Typically, these rails are installed at the factory. If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.
+2. Typically, the rails are installed at the factory. If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.
 
      **Figure 2 Attaching rail slides to the sides of the enclosure**
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
-    <sup>1</sup> M 3X4 button-head screws<br>
+    <sup>1</sup> M 3x4 button-head screws<br>
     <sup>2</sup> Chassis slides<br>
 
 3. Attach the left rail and right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation.
 
-4. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts and insert the pins into the front and rear-rack post vertical member holes. Be sure that the rail assembly is level.
+4. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts and insert the pins into the front and rear rack post vertical member holes. Be sure that the rail assembly is level.
 
-5. Secure the rail assembly to the rack vertical members by using two of the metric screws provided. Use one screw on the front and one on the rear.
+5. Use two of the provided metric screws to secure the rail assembly to the rack vertical members. Use one screw on the front and one on the rear.
 
 6. Repeat these steps for the other rail assembly.
 
@@ -130,9 +132,9 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
      <sup>1</sup> Clamping screw<br>
      <sup>2</sup> Square-hole front rack post screw<br>
-     <sup>3</sup> Left front rail location pins<br>
+     <sup>3</sup> Left front-rail location pins<br>
      <sup>4</sup> Clamping screw<br>
-     <sup>5</sup> Right front rail location pins<br>
+     <sup>5</sup> Right front-rail location pins<br>
 
 ### Mounting the device in the rack
 
@@ -147,8 +149,6 @@ Using the rack rails that were just installed, perform the following steps to mo
      **Figure 4 Mounting the device in the rack**
 
     ![Inserting device in the rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
- 
-
 
 3. Secure the enclosure in the rack by installing one provided Phillips-head screw through each flange, left and right.
 
@@ -184,7 +184,7 @@ Before you begin the cabling of your device, you will need:
 
 - Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
 
-- [Supported transceivers, cables, and switches for 10 GbE network interfaces](#supported-transceivers,-cables,-and-switches-for-10-GbE-network-interfaces)
+- [Supported transceivers, cables, and switches for 10 GbE network interfaces](supported-transceivers-cables-and-switches-for-10-GbE-network-interfaces.md)
 
 
 ### Power cabling
