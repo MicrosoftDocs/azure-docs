@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,25 +23,11 @@
 
 Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, and the Access Control Issuer Name and Issuer Key. Specifically:
 
-
-<table border="1">
-<tr bgcolor="FAF9F9">
-<td><strong>Task</strong></td>
-<td><strong>Which Issuer Name and Issuer Key</strong></td>
-</tr>
-<tr>
-<td>Deploying your application from Visual Studio</td>
-<td>Access Control Issuer Name and Issuer Key</td>
-</tr>
-<tr>
-<td>Configuring the Azure BizTalk Services Portal</td>
-<td>Access Control Issuer Name and Issuer Key</td>
-</tr>
-<tr>
-<td>Creating LOB Relays with the BizTalk Adapter Services in Visual Studio</td>
-<td>Service Bus Issuer Name and Issuer Key</td>
-</tr>
-</table>
+Task | Which Issuer Name and Issuer Key
+--- | ---
+Deploying your application from Visual Studio | Access Control Issuer Name and Issuer Key
+Configuring the Azure BizTalk Services Portal | Access Control Issuer Name and Issuer Key
+Creating LOB Relays with the BizTalk Adapter Services in Visual Studio | Service Bus Issuer Name and Issuer Key
 
 This topic lists the steps to retrieve the Issuer Name and Issuer Key. 
 

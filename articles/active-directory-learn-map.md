@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 # Learn more about Azure AD
@@ -22,7 +22,8 @@
 [What is Azure AD?](active-directory-whatis.md)<br>
 [How does it work?](active-directory-works.md)<br>
 [Get started](active-directory-get-started.md)<br>
-[Next steps](active-directory-next-steps.md)
+[Next steps](active-directory-next-steps.md)<br>
+[Learn more](active-directory-learn-map.md)
 
 I already have an Azure subscription. How is Azure AD related to that? [How subscriptions are associated with a directory](active-directory-how-subscriptions-associated-directory.md)
 

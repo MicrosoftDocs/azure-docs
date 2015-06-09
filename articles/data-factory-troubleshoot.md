@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -184,7 +184,7 @@ In this walkthrough, you will introduce an error in the tutorial from Get starte
          
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
-	> [AZURE.NOTE] Replace <b>StartDateTime</b> value with the current day and <b>EndDateTime</b> value with the next day. 
+	Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. 
 
 
 ### Use Azure Preview Portal to troubleshoot the error
@@ -229,7 +229,7 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
          
 		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-	> [AZURE.NOTE] Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
+	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -311,7 +311,7 @@ In this scenario, data set is in an error state due to a failure in Hive process
          
 		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-	> [AZURE.NOTE] Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
+	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory

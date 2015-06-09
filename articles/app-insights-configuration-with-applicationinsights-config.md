@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="06/04/2015" 
 	ms.author="awills"/>
 
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
@@ -85,6 +85,59 @@ The following placeholders are supported as `InstanceName`:
     ?APP_WIN32_PROC?? - instance name of the application process  for Win32 counters.
     ??APP_W3SVC_PROC?? - instance name of the application IIS worker process for IIS/ASP.NET counters.
     ??APP_CLR_PROC?? - instance name of the application CLR process for .NET counters.
+
+## Channel parameters (Java)
+
+These parameters affect how the Java SDK should store and flush the telemetry data that it collects.
+
+#### MaxTelemetryBufferCapacity
+
+The number of telemetry items that can be stored in the SDK's in-memory storage. When this number is reached, the telemetry buffer is flushed - that is, the telemetry items are sent to the Application Insights server.
+
+-	Min: 1
+-	Max: 1000
+-	Default: 500
+
+    <ApplicationInsights>
+      ...
+      <Channel>
+       <MaxTelemetryBufferCapacity>100</MaxTelemetryBufferCapacity>
+      </Channel>
+      ...
+    </ApplicationInsights>
+
+#### FlushIntervalInSeconds 
+
+Determines how often the data that is stored in the in-memory storage should be flushed (sent to Application Insights).
+
+-	Min: 1
+-	Max: 300
+-	Default: 5
+
+    <ApplicationInsights>
+      ...
+      <Channel>
+        <FlushIntervalInSeconds>100</FlushIntervalInSeconds>
+      </Channel>
+      ...
+    </ApplicationInsights>
+
+#### MaxTransmissionStorageCapacityInMB
+
+Determines the maximum size in MB that is allotted to the persistent storage on the local disk. This storage is used for persisting telemetry items that failed to be transmitted to the Application Insights endpoint. When the storage size has been met, new telemetry items will be discarded.
+
+-	Min: 1
+-	Max: 100
+-	Default: 10
+
+    <ApplicationInsights>
+      ...
+      <Channel>
+        <MaxTransmissionStorageCapacityInMB>50</MaxTransmissionStorageCapacityInMB>
+      </Channel>
+      ...
+    </ApplicationInsights>
+
 
 ## Context Initializers
 

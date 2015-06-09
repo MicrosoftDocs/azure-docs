@@ -34,9 +34,9 @@ Application Insights SDKs and agents that you combine with your application send
 
 #### How much data can be captured? 
 
-**Per second**: Up to 500 data points per second per instrumentation key (that is, per application).
+**Per second**: Up to 500 data points per second per instrumentation key (that is, per application). For the free [pricing tier][pricing], the limit is 100 dp/s.
 
-**Monthly**: Between 5 and 15 million data points in each calendar month, depending on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/). Except for the free plan, you can buy additional capacity if you hit the limit.
+**Monthly**: Between 5 and 15 million data points in each calendar month, depending on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/). Except for the free [pricing tier][pricing], you can buy additional capacity if you hit the limit.
 
 
 A *data point* is an item of telemetry, such as:
@@ -47,7 +47,8 @@ A *data point* is an item of telemetry, such as:
 
 *How do I know how many data points my app is sending?*
 
-* In Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
+* Open Settings/Quota and Pricing to see the Data Volume chart.
+* Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
 
 #### How long is the data kept? 
@@ -224,6 +225,7 @@ You can [switch off some of the data by editing ApplicationInsights.config][conf
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
+[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 [windows]: app-insights-windows-get-started.md

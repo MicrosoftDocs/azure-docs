@@ -30,9 +30,9 @@ The following steps enable you to debug your API app while it runs in the cloud 
 
 	![Publish project](./media/app-service-api-dotnet-debug/rd-publish.png)
 
-2. In the **Publish Web** dialog, click **Publish** to push any changes to your Azure subscription.
+2. In the **Publish Web** dialog, select the Settings tab and verify that the **Debug** build configuration is selected. When finished, click **Publish** to push any changes to your Azure subscription.
 
-	![Publish project](./media/app-service-api-dotnet-debug/rd-publish-web-preview.png)
+	![Publish project](./media/app-service-api-dotnet-debug/rd-debug-publish.png)
 
 3. A browser window should open and display a message confirming that your API app has been successfully created.
 
@@ -102,6 +102,8 @@ There may be times when you want to debug your API app locally; for example, to 
 	When done, the **appSettings** section of your *web.config* should resemble the following screenshot.
 
 	![API App Host Application Settings for Local Debug](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
+
+	**Note:** The *EMA_* values you added to your *web.config* file in this section contain sensitive authorization information. Therefore, it is recommended that you use caution when committing this file into a public source control medium (such as *github*) as these secrets will then be visible to others. See the article, [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) for more information.   
 
 10. Place one or more breakpoints in your API app's controller code (in the `Get` and `Post` methods).
 

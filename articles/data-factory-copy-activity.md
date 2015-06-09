@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -122,11 +122,67 @@ The Copy Activity supports the following data movement scenarios:
 		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>On-premises File System</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>On-premises MySQL Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>On-premises DB2 Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>On-premises Teradata Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>On-premises Sybase Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>On-premises PostgreSQL Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+	</tr>
+
 
 </table>
 
+See [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx) topic on MSDN Library for more details.  
+
 ### SQL on Infrastructure-as-a-Service (IaaS)
-For SQL on IaaS, Azure as IaaS provider is supported. The following network and VPN topologies are supported. Note that Data Management Gateway is required for case #2 and #3, while not needed for case #1. For details about Data Management Gateway, see [Enable your pipelines to access on-premises data][use-onpremises-datasources].
+SQL Server on IaaS is also supported as both source and sink. Data Management Gateway is required when creating a linked service to SQL Server on IaaS. You should consider installing the Data Management Gateway in a virtual machine other than the one hosting SQL Server to avoid performance degradation due to both SQL Server and the gateway competing for resources.  For details about Data Management Gateway, see [Enable your pipelines to access on-premises data][use-onpremises-datasources].
 
 1.	VM with public DNS name and static public port : private port mapping
 2.	VM with public DNS name without SQL endpoint exposed

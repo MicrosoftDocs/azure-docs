@@ -1,8 +1,6 @@
-# Azure Identity
-
 Managing identity is just as important in the public cloud is it is on premises. To help with this, Azure supports several different cloud identity technologies. They include these:
 
-- You can run Windows Server Active Directory (commonly called just AD) in the cloud using virtual machines created with Azure Virtual Machines. This approach makes sense when you're using Azure to extend your on-premises datacenter into the cloud.
+- You can run Windows Server Active Directory (commonly called just AD) in the cloud using virtual machines created with Azure Virtual zmachines. This approach makes sense when you're using Azure to extend your on-premises datacenter into the cloud.
 
 - You can use Azure Active Directory to give your users single sign-on to Software as a Service (SaaS) applications. Microsoft's Office 365 uses this technology, for example, and applications running on Azure or other cloud platforms can also use it.
 
@@ -13,31 +11,31 @@ This article describes all three of these options.
 
 ## Table of Contents
 
-- [Running Windows Server Active Directory in VMs](#adinvm)
+- [Running Windows Server Active Directory in virtual machines](#adinvm)
 
 - [Using Azure Active Directory](#ad)
 
 - [Using Azure Active Directory Access Control](#ac)
 
 
-## <a name="adinvm"></a>Running Windows Server Active Directory in VMs
+## <a name="adinvm"></a>Running Windows Server Active Directory in virtual machines
 
-Running Windows Server AD in Azure VMs is much like running it on premises. [Figure 1](#fig1) shows a typical example of how this looks.
+Running Windows Server AD in Azure virtual machines is much like running it on-premises. [Figure 1](#fig1) shows a typical example of how this looks.
 
 ![Azure Active Directory in Virtual Machine](./media/identity/identity_01_ADinVM.png)
 
 
-<a name="Fig1"></a>Figure 1: Windows Server Active Directory can run in Azure VMs connected to an organization's on-premises datacenter using Azure Virtual Network.
+<a name="Fig1"></a>Figure 1: Windows Server Active Directory can run in Azure virtual machines connected to an organization's on-premises datacenter using Azure Virtual Network.
 
-In the example shown here, Windows Server AD is running in VMs created using Azure Virtual Machines, the platform's IaaS technology. These VMs and a few others are grouped into a virtual network (VNET) connected to an on-premises datacenter using Azure Virtual Network. The VNET carves out a group of cloud VMs that interact with the on-premises network via a virtual private network (VPN) connection. Doing this lets these Azure VMs look like just another subnet to the on-premises datacenter. As the figure shows, two of those VMs are running Windows Server AD domain controllers. The other VMs in the VNET might be running applications, such as SharePoint, or being used in some other way, such as for development and testing. The on-premises datacenter is also running two Windows Server AD domain controllers.
+In the example shown here, Windows Server AD is running in VMs created using Azure Virtual Machines, the platform's IaaS technology. These VMs and a few others are grouped into a virtual network connected to an on-premises datacenter using Azure Virtual Network. The virtual network carves out a group of cloud virtual machines that interact with the on-premises network via a virtual private network (VPN) connection. Doing this lets these Azure virtual machines look like just another subnet to the on-premises datacenter. As the figure shows, two of those VMs are running Windows Server AD domain controllers. The other virtual machines in the virtual network might be running applications, such as SharePoint, or being used in some other way, such as for development and testing. The on-premises datacenter is also running two Windows Server AD domain controllers.
 
-There are several options for connecting the domain controllers in the cloud with those running on premises. They include these:
+There are several options for connecting the domain controllers in the cloud with those running on premises:
 
 - Make all of them part of a single Active Directory domain.
 
 - Create separate AD domains on-premises and in the cloud that are part of the same forest.
 
-- Create separate AD forests in the cloud and on-premises, then connect the forests using cross-forest trusts or Windows Server Active Directory Federation Services (AD FS), which can also run in VMs on Azure.
+- Create separate AD forests in the cloud and on-premises, then connect the forests using cross-forest trusts or Windows Server Active Directory Federation Services (AD FS), which can also run in virtual machines on Azure.
 
 Whatever choice is made, an administrator should make sure that authentication requests from on-premises users go to cloud domain controllers only when necessary, since the link to the cloud is likely to be slower than on-premises networks. Another factor to consider in connecting cloud and on-premises domain controllers is the traffic generated by replication. Domain controllers in the cloud are typically in their own AD site, which allows an administrator to schedule how often replication is done. Azure charges for traffic sent out of an Azure datacenter, although not for bytes sent in, which might affect the administrator's replication choices. It's also worth pointing out that while Azure does provide its own Domain Name System (DNS) support, this service is missing features required by Active Directory (such as support for Dynamic DNS and SRV records). Because of this, running Windows Server AD on Azure requires setting up your own DNS servers in the cloud.
 
@@ -101,7 +99,7 @@ But while every identity provider issues some kind of token, those tokens aren't
 
 But why do this? Why not instead create an intermediary that can generate a single token format with a common representation of identity information? This approach would make life simpler for the developers who create applications, since they now need to handle only one kind of token. Azure Active Directory Access Control does exactly this, providing an intermediary in the cloud for working with diverse tokens. [Figure 4](#fig4) shows how it works
 
-![Azure Active Directory in Virtual Machine](./media/identity/identity_04_IdentityProviders.png) 
+![Azure Active Directory in Virtual Machine](./media/identity/identity_04_IdentityProviders.png)
 <a id="fig4"></a>Figure 4: Azure Active Directory Access Control makes it easier for applications to accept identity tokens issued by different identity providers.
 
 The process begins when a user attempts to access the application from a browser. The application redirects her to an IdP of her choice (and that the application also trusts). She authenticates herself to this IdP, such as by entering a username and password (step 1), and the IdP returns a token containing information about her (step 2).
@@ -120,4 +118,4 @@ Working with identity is important in nearly every application. The goal of Acce
 
 ##About the Author
 
-David Chappell is Principal of Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) in San Francisco, California. Through his speaking, writing, and consulting,
+David Chappell is Principal of Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) in San Francisco, California.

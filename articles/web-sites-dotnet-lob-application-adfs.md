@@ -201,7 +201,7 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 	<pre class="prettyprint">
 	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
 	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-		add(
+		=> add(
 			store = "_OpaqueIdStore",
 			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
 			query = "{0};{1};{2};{3};{4}",

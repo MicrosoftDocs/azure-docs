@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -423,7 +423,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 			}
 		}
 
-	> [AZURE.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The output table is scheduled to be produced every day, so there will be three slices produced.
+	Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The output table is scheduled to be produced every day, so there will be three slices produced.
 
 	Note the following: 
 
@@ -457,8 +457,13 @@ See [Get started with Azure Data Factory][adfgetstarted] for detailed steps for 
 
 Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:
 
-1. Create an Azure Batch account using instructions in the [Azure Batch Technical Overview][batch-create-account] article if you don't have an account already. Note down the Azure Batch account name and account key. 
-2. Create an Azure Batch pool. You can download and use the [Azure Batch Explorer tool][batch-explorer] to create a pool (or) use [Azure Batch Library for .NET][batch-net-library] to create a pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+1. Create an Azure Batch account using the Azure Management Portal. See [Azure Batch Technical Overview][batch-create-account] article for instructions. Note down the Azure Batch account name and account key. 
+
+	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet. 
+2. Create an Azure Batch pool. You can download and use the [Azure Batch Explorer tool][batch-explorer]  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+	
+	You can also use [New-AzureBatchPool][new-azure-batch-pool] cmdlet to create an Azure Batch pool. 
+
 2. Create an Azure Batch Linked Service using the following JSON template. The Data Factory Editor displays a similar template for you to start with. Specify the Azure Batch account name, account key and pool name in the JSON snippet. 
 
 		{
@@ -484,12 +489,12 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 
 [Azure Data Factory Updates: Execute ADF Custom .NET activities using Azure Batch](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/). 
 
-[batch-net-library]: batch-dotnet-get-started.md
+[batch-net-library]: ./batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch-create-account]: batch-technical-overview.md/#BKMK_Account
-[batch-technical-overview]: batch-technical-overview.md
-[batch-get-started]: batch-dotnet-get-started.md
+[batch-create-account]: ./batch/batch-technical-overview.md/#batch-concepts
+[batch-technical-overview]: ./batch/batch-technical-overview.md
+[batch-get-started]: ./batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
@@ -503,8 +508,9 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-
-
+[new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
+[new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
+[azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
 [azure-developer-center]: http://azure.microsoft.com/develop/net/

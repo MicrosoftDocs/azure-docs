@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/03/2015"
    ms.author="telmos" />
 
 # Instance-Level Public IP Overview
-An Instance-Level Public IP (ILPIP) is an IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the VIP (Virtual IP) that is assigned to your cloud service. Rather, it’s additional IP address that you can use to connect directly to your VM or role instance.
+An Instance-Level Public IP (ILPIP) is an IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the VIP (Virtual IP) that is assigned to your cloud service. Rather, it’s an additional IP address that you can use to connect directly to your VM or role instance.
 
 >[AZURE.NOTE] In the past, an ILPIP was referred to as a PIP, which stands for Public IP. 
 
@@ -24,8 +24,10 @@ An Instance-Level Public IP (ILPIP) is an IP address that you can assign directl
 
 As shown in Figure 1, the cloud service is accessed using a VIP, while the individual VMs are normally accessed using VIP:&lt;port number&gt;. By assigning an ILPIP to a specific VM, that VM can be accessed directly using that IP address.
 
-When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN) instead of using the actual VIP. The same process happens for ILPIP, allowing access to the VM or role instance by FQDN instead of the ILPIP.  
+When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN) instead of using the actual VIP. The same process happens for ILPIP, allowing access to the VM or role instance by FQDN instead of the ILPIP. For instance, if you create a cloud service named *contosoadservice*, and you configure a web role named *contosoweb* with two instances, Azure will register the following A records for the instances:
 
+- contosoweb\_IN_0.contosoadservice.cloudapp.net
+- contosoweb\_IN_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE] You can assign only one ILPIP for each VM or role instance. You can use up to 5 ILPIP's per subscription. At this time, ILPIP is not supported for multi-NIC VMs.
 
@@ -118,12 +120,8 @@ You can also associate an ILPIP to a VM by using a service configuration (CSCFG)
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## See Also
+## Next steps
 
-[Reserved Private IP (DIP)](../virtual-networks-reserved-private-ip)
-
-[Reserved Public IP](../virtual-networks-reserved-public-ip)
-
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Reserved IP](../virtual-networks-reserved-public-ip)
 
 [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)

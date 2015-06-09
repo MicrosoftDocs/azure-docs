@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 
@@ -36,68 +36,23 @@ This does not capture the logs for activities related to BizTalk Service runtime
 ## <a name="bizops"></a>Operations Tracked Using Azure Management Services
 The following table lists the operations that are tracked using the Azure Management Services:
 
-<table border="1" cellpadding="5">
-<tr>
-<td>CreateBizTalkService</td> 
-<td align="left">Operation to create a new BizTalk Service</td> 
-</tr> 
-<tr>
-<td>DeleteBizTalkService</td> 
-<td align="left">Operation to delete a BizTalk Service</td>  
-</tr> 
-<tr>
-<td>RestartBizTalkService</td> 
-<td align="left">Operation to restart a BizTalk Service</td> 
-</tr>
-<tr>
-<td>StartBizTalkService</td> 
-<td align="left">Operation to start a BizTalk Service</td> 
-</tr>
-<tr>
-<td>StopBizTalkService</td> 
-<td align="left">Operation to stop a BizTalk Service</td> 
-</tr>
-<tr>
-<td>DisableBizTalkService</td> 
-<td align="left">Operation to disable a BizTalk Service</td> 
-</tr>
-<tr>
-<td>EnableBizTalkService</td> 
-<td align="left">Operation to enable a BizTalk Service</td> 
-</tr>
-<tr>
-<td>BackupBizTalkService</td> 
-<td align="left">Operation to back up a BizTalk Service</td> 
-</tr>
-<tr>
-<td>RestoreBizTalkService</td> 
-<td align="left">Operation to restore a BizTalk Service from specified backup</td> 
-</tr>
-<tr>
-<td>SuspendBizTalkService</td> 
-<td align="left">Operation to suspend a BizTalk Service</td> 
-</tr>
-<tr>
-<td>ResumeBizTalkService</td> 
-<td align="left">Operation to resume a BizTalk Service</td> 
-</tr>
-<tr>
-<td>ScaleBizTalkService</td> 
-<td align="left">Operation to scale a BizTalk Service up or down</td> 
-</tr>
-<tr>
-<td>ConfigUpdateBizTalkService</td> 
-<td align="left">Operation to update the configuration of a BizTalk Service</td> 
-</tr>
-<tr>
-<td>ServiceUpdateBizTalkService</td> 
-<td align="left">Operation to upgrade or downgrade a BizTalk Service to a different version</td> 
-</tr>
-<tr>
-<td>PurgeBackupBizTalkService</td> 
-<td align="left">Operation to purge backups of the BizTalk Service outside the retention period</td> 
-</tr>
-</table>
+Operation Name | Task
+--- | ---
+CreateBizTalkService | Operation to create a new BizTalk Service
+DeleteBizTalkService | Operation to delete a BizTalk Service
+RestartBizTalkService | Operation to restart a BizTalk Service
+StartBizTalkService | Operation to start a BizTalk Service
+StopBizTalkService | Operation to stop a BizTalk Service
+DisableBizTalkService | Operation to disable a BizTalk Service
+EnableBizTalkService | Operation to enable a BizTalk Service
+BackupBizTalkService | Operation to back up a BizTalk Service
+RestoreBizTalkService | Operation to restore a BizTalk Service from specified backup
+SuspendBizTalkService | Operation to suspend a BizTalk Service
+ResumeBizTalkService | Operation to resume a BizTalk Service
+ScaleBizTalkService | Operation to scale a BizTalk Service up or down
+ConfigUpdateBizTalkService | Operation to update the configuration of a BizTalk Service
+ServiceUpdateBizTalkService | Operation to upgrade or downgrade a BizTalk Service to a different version
+PurgeBackupBizTalkService | Operation to purge backups of the BizTalk Service outside the retention period
 
 
 ## See Also
