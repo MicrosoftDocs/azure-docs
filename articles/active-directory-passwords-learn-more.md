@@ -32,12 +32,12 @@
 
 If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
-* [Password writeback overview](adsspr-overview)
-  - [How pasword writeback works](adsspr-how-it-works)
-  - [Scenarios supported for password writeback](adsspr-supported-scenarios)
-  - [Password writeback security model](adsspr-security-model)
-* [How does the password reset portal work?](sspr-portal-how-it-works)
-  - [What data is used by password reset?](sspr-portal-data-used)
+* [Password writeback overview](#adsspr-overview)
+  - [How pasword writeback works](#adsspr-how-it-works)
+  - [Scenarios supported for password writeback](#adsspr-supported-scenarios)
+  - [Password writeback security model](#adsspr-security-model)
+* [How does the password reset portal work?](#sspr-portal-how-it-works)
+  - [What data is used by password reset?](#sspr-portal-data-used)
 
 ## Password writeback overview <a href="adsspr-overview"></a>
 Password writeback is an [Azure Active Directory Connect](active-directory-aadconnect) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](active-directory-editions.md). 

@@ -31,13 +31,15 @@
 </div>
 
 This section describes how you can use Azure Active Directory’s Password Management reports to view how users are using password reset and change in your organization.
-- Password Management reports overview
-- How to view Password Management reports
-- View password reset registration activity in your organization
-- View password reset activity in your organization
 
-## Overview of Password Management reports
+- [Password Management reports overview](sspr-reports-overview)
+- [How to view Password Management reports](sspr-reports-how-to-view)
+- [View password reset registration activity in your organization](sspr-reports-registration-activity)
+- [View password reset activity in your organization](sspr-reports-reset-activity)
+
+## Overview of Password Management reports <a name="sspr-reports-overview"></a>
 Once you deploy password reset, one of the most common next steps is to see how it is being used in your organization.  For example, you may want to get insight into how users are registering for password reset, or how many password resets have been done in the last few days.  Here are some of the common questions that you will be able to answer with the Password Management reports that exist in the azure management portal today:
+
 - How many people have registered for password reset?
 - Who has registered for password reset?
 - What data are people registering?
@@ -48,8 +50,9 @@ Once you deploy password reset, one of the most common next steps is to see how 
 - Is there any suspicious activity going on with password reset?
 
 
-## How to view Password Management reports
+## How to view Password Management reports <a name="sspr-reports-how-to-view"></a>
 To find the Password Management reports, follow the steps below:
+
 1.	Click on the Active Directory extension in the Azure Management Portal.
 2.	Select your directory from the list that appears in the portal.
 3.	Click on the Reports tab.
@@ -58,9 +61,10 @@ To find the Password Management reports, follow the steps below:
   
   ![][001]
   
-## View password Reset registration activity
+## View password Reset registration activity <a name="sspr-reports-registration-activity"></a>
 
 The password reset registration activity report shows all password reset registrations that have occurred in your organization.  A password reset registration is displayed in this report for any user who has successfully registered authentication information at the password reset registration portal (http://aka.ms/ssprsetup).
+
 - Max time range: 1 month
 - Max number of rows: unlimited
 - Downloadable: Yes, via CSV file
@@ -69,6 +73,7 @@ The password reset registration activity report shows all password reset registr
  
 ### Description of report columns
 The following list explains each of the report columns in detail:
+
 - User – the user who attempted a password reset registration operation.
 - Role – the role of the user in the directory.
 - Date and Time – the date and time of the attempt.
@@ -119,9 +124,10 @@ The following table describes the different values allowed for each column:
             </tr>
           </tbody></table>
 
-## View password Reset activity
+## View password Reset activity <a name="sspr-reports-registration-activity"></a>
 
 This report shows all password reset attempts that have occurred in your organization.
+
 - Max time range: 1 month
 - Max number of rows: unlimited
 - Downloadable: Yes, via CSV file
@@ -131,12 +137,13 @@ This report shows all password reset attempts that have occurred in your organiz
   
 ### Description of report columns
 The following list explains each of the report columns in detail:
-1.	User – the user who attempted a password reset operation (based on the User ID field provided when the user comes to reset a password).
-2.	Role – the role of the user in the directory.
-3.	Date and Time – the date and time of the attempt.
-4.	Method(s) Used – what authentication methods the user used for this reset operation.
-5.	Result – the end result of the password reset operation.
-6.	Details – the details of why the password reset resulted in the value it did.  Also includes any mitigation steps you might take to resolve an unexpected error.
+
+1. User – the user who attempted a password reset operation (based on the User ID field provided when the user comes to reset a password).
+2. Role – the role of the user in the directory.
+3. Date and Time – the date and time of the attempt.
+4. Method(s) Used – what authentication methods the user used for this reset operation.
+5. Result – the end result of the password reset operation.
+6. Details – the details of why the password reset resulted in the value it did.  Also includes any mitigation steps you might take to resolve an unexpected error.
 
 ### Description of report values
 The following table describes the different values allowed for each column:

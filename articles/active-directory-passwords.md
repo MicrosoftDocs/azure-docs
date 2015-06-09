@@ -36,9 +36,9 @@ Azure AD sets itself apart from these offerings by providing some of the easiest
 
 Azure AD Password Management is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.  Read on to learn more about the following:
 
-* [What is possible with Azure AD Password Management?](sspr-whats-possible)
-* [Why use Azure AD Password Management?](sspr-why-use)
-* [Recent Updates to Azure AD Password Management](sspr-recent-updates)
+* [What is possible with Azure AD Password Management?](#sspr-whats-possible)
+* [Why use Azure AD Password Management?](#sspr-why-use)
+* [Recent Updates to Azure AD Password Management](#sspr-recent-updates)
  
 
 ## What is possible with Azure AD Password Management? <a href="sspr-whats-possible"></a>

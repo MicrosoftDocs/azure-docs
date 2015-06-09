@@ -32,26 +32,26 @@
 
 Enabling your users to manage their own cloud Azure Active Directory or on-premises Active Directory passwords takes just a few simple steps. After ensuring that you've met a few simple prerequisites, you'll have password change and reset enabled for your entire organization before you know it. This article will walk you through the following concepts:
 
-* [How to enable users to reset their cloud Azure Active Directory passwords](sspr-enable)
- - [Self-service password reset prerequisites](sspr-prereqs)
- - [Step 1: Configure password reset policy](sspr-step1)
- - [Step 2: Add contact data for your test user](sspr-step2)
- - [Step 3: Reset your password as a user](sspr-step3)
-* [How to enable users to reset or change their on-premises Active Directory passwords](adsspr-enable)
- - [On-premises password reset prerequisites](adsspr-prereqs)
- - [Step 1: Download the latest version of Azure AD Connect](adsspr-step1)
- - [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](adsspr-step2)
- - [Step 3: Configure your firewall](adsspr-step3)
- - [Step 4: Set up the appropriate permissions](adsspr-step4)
- - [Step 5: Reset your AD password as a user and verify](adsspr-step5)
+* [How to enable users to reset their cloud Azure Active Directory passwords](#sspr-enable)
+ - [Self-service password reset prerequisites](#sspr-prereqs)
+ - [Step 1: Configure password reset policy](#sspr-step1)
+ - [Step 2: Add contact data for your test user](#sspr-step2)
+ - [Step 3: Reset your password as a user](#sspr-step3)
+* [How to enable users to reset or change their on-premises Active Directory passwords](#adsspr-enable)
+ - [On-premises password reset prerequisites](#adsspr-prereqs)
+ - [Step 1: Download the latest version of Azure AD Connect](#adsspr-step1)
+ - [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#adsspr-step2)
+ - [Step 3: Configure your firewall](#adsspr-step3)
+ - [Step 4: Set up the appropriate permissions](#adsspr-step4)
+ - [Step 5: Reset your AD password as a user and verify](#adsspr-step5)
 
 ## Enable users to reset their Azure AD passwords <a name="sspr-enable"></a>
 This section walks you through enabling self-service password reset for your AAD cloud directory, registering users for self-service password reset, and then finally performing a test self-service password reset as a user.
 
-- [Self-service password reset prerequisites](sspr-prereqs)
-- [Step 1: Configure the password reset policy for your directory](sspr-step1)
-- [Step 2: Add the contact data for your test user](sspr-step2)
-- [Step 3: Reset your password as a user](sspr-step3)
+- [Self-service password reset prerequisites](#sspr-prereqs)
+- [Step 1: Configure the password reset policy for your directory](#sspr-step1)
+- [Step 2: Add the contact data for your test user](#sspr-step2)
+- [Step 3: Reset your password as a user](#sspr-step3)
 
 
 ###  Prerequisites <a name="sspr-prereqs"></a>
@@ -174,12 +174,12 @@ Now that you’ve configured a user reset policy and specified contact details f
 ## Enable users to reset or change their AD Passwords <a name="adsspr-enable"></a>
 
 This section walks you through configuring password reset to write passwords back to an on-premises Active Directory.
-- [Password Writeback prerequisites](adsspr-prereqs)
-- [Step 1: Download the latest version of Azure AD Connect (or AAD Sync version 1.0.0419.0911 or later)](adsspr-step1)
-- [Step 2: Enable Password Writeback on your Azure AD Connect machine](adsspr-step2)
-- [Step 3: Configure your firewall to allow the writeback service to connect to the cloud](adsspr-step3)
-- [Step 4: Ensure you have the proper permissions defined on your ADMA account for Password Writeback to occur](adsspr-step4)
-- [Step 5: Reset your password as a user and verify it is written back to on-premises AD](adsspr-step5)
+- [Password Writeback prerequisites](#adsspr-prereqs)
+- [Step 1: Download the latest version of Azure AD Connect (or AAD Sync version 1.0.0419.0911 or later)](#adsspr-step1)
+- [Step 2: Enable Password Writeback on your Azure AD Connect machine](#adsspr-step2)
+- [Step 3: Configure your firewall to allow the writeback service to connect to the cloud](#adsspr-step3)
+- [Step 4: Ensure you have the proper permissions defined on your ADMA account for Password Writeback to occur](#adsspr-step4)
+- [Step 5: Reset your password as a user and verify it is written back to on-premises AD](#adsspr-step5)
 
 
 ### Prerequisites <a name="adsspr-prereqs"></a>

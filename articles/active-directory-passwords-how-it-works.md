@@ -32,12 +32,12 @@
 
 Password Management in Azure Active Directory is comprised of several logical components that are described below.  Click on each link to learn more about that component.
 
-- [**Password Management Configuration Portal**](sspr-config) – Administrators can control different facets of how passwords are managed in their tenants by navigating to their directory’s Configure tab in the Azure Management Portal.
-- [**User Registration Portal**](sspr-registration) – Users can self-register for password reset through this web portal.
-- [**User Password Reset Portal**](sspr-portal) – Users can reset their own passwords using a number of different challenges in accordance with the administrator-controlled password reset policy
-- [**User Password Change Portal**](sspr-pwdchange) – Users can change their own passwords at any time by entering their old password and selecting a new password using this web portal
-- [**Password Management Reports**](sspr-reports) – Administrators can view and analyze password reset and registration activity in their tenant by navigating to the “Activity Reports” section of their directory’s “Reports” tab in the Azure Management Portal
-- [**Password Writeback Component of  AAD Sync**](sspr-writeback) - Administrators can optionally enable the Password Writeback feature when installing AADSync to enable management of federated or password synchronized user passwords from the cloud.
+- [**Password Management Configuration Portal**](#sspr-config) – Administrators can control different facets of how passwords are managed in their tenants by navigating to their directory’s Configure tab in the Azure Management Portal.
+- [**User Registration Portal**](#sspr-registration) – Users can self-register for password reset through this web portal.
+- [**User Password Reset Portal**](#sspr-portal) – Users can reset their own passwords using a number of different challenges in accordance with the administrator-controlled password reset policy
+- [**User Password Change Portal**](#sspr-pwdchange) – Users can change their own passwords at any time by entering their old password and selecting a new password using this web portal
+- [**Password Management Reports**](#sspr-reports) – Administrators can view and analyze password reset and registration activity in their tenant by navigating to the “Activity Reports” section of their directory’s “Reports” tab in the Azure Management Portal
+- [**Password Writeback Component of  AAD Sync**](#sspr-writeback) - Administrators can optionally enable the Password Writeback feature when installing AADSync to enable management of federated or password synchronized user passwords from the cloud.
 
 ## Password Management Configuration Portal <a href="sspr-config"></a>
 You can configure Password Management policies for a specific directory using the [Azure Management Portal](https://manage.windowsazure.com) by navigating to the **User Password Reset Policy** section in the directory’s **Configure** tab.  From this configuration page, you can control many aspects of how passwords are managed in your organization, including:
@@ -99,7 +99,7 @@ By navigating to the Reports tab and looking under the Activity Logs section, yo
   
   ![][006]
   
-For more information, see [Get Insights: Azure AD Password Management Reports](active-directory-passwords-get-insights).
+For more information, see [Get Insights: Azure AD Password Management Reports](active-directory-passwords-get-insights.md).
 
 ##Password Writeback component of Azure AD Connect <a href="sspr-writeback"></a>
 If the passwords of users in your organization originate from your on-premises environment (either via federation or password synchronization), you can install the latest version of Azure AD Connect to enable updating those passwords directly from the cloud.  This means that when your users forget or want to modify their AD password, they can do so straight from the web.  Here’s where to find Password Writeback in the AADSync installation wizard:

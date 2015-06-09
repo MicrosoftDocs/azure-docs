@@ -32,14 +32,14 @@
 
 After enabling password reset, the next step you need to take is to get users using the service in your organization. To do this, you'll need to make sure your users are configured to use the service properly and also that your users have the training they need to be successful in managing their own passwords. This article will explain to you the following concepts:
 
-* [How to get your users configured for Password Management](sspr-configure)
-  * [What makes an account configured for password reset](sspr-configure-data-needed)
-  * [Ways you can to populate authentication data yourself](sspr-configure-methods)
-* [The best ways to roll out password reset to your organization](sspr-deploy)
-  * [Email-based rollout + sample email communications](sspr-deploy-email)
-  * [How to use enforced registration to force users to register at sign in](sspr-deploy-enforced)
-  * [How to upload authentication data for user accounts](sspr-deploy-upload)
-* [Sample user and support training materials (coming soon!)](sspr-training)
+* [How to get your users configured for Password Management](#sspr-configure)
+  * [What makes an account configured for password reset](#sspr-configure-data-needed)
+  * [Ways you can to populate authentication data yourself](#sspr-configure-methods)
+* [The best ways to roll out password reset to your organization](#sspr-deploy)
+  * [Email-based rollout + sample email communications](#sspr-deploy-email)
+  * [How to use enforced registration to force users to register at sign in](#sspr-deploy-enforced)
+  * [How to upload authentication data for user accounts](#sspr-deploy-upload)
+* [Sample user and support training materials (coming soon!)](#sspr-training)
 
 ## How to get users configured for password reset <a name="sspr-configure"></a>
 This section describes to you various methods by which you can ensure every user in your organization can use self-service password reset effectively in case they forget their password.

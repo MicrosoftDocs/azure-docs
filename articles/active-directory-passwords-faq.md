@@ -36,10 +36,10 @@ If you find yourself with a question that you don't know the answer to, or are l
 
 This FAQ is split into the following sections:
 
-- [Questions about Password Reset Registration](sspr-faq-registration)
-- [Questions about Password Reset](sspr-faq-reset)
-- [Questions about Password Management Reports](sspr-faq-reports)
-- [Questions about Password Writeback](sspr-faq-writeback)
+- [Questions about Password Reset Registration](#sspr-faq-registration)
+- [Questions about Password Reset](#sspr-faq-reset)
+- [Questions about Password Management Reports](#sspr-faq-reports)
+- [Questions about Password Writeback](#sspr-faq-writeback)
 
 ## Password reset registration <a href="sspr-faq-registration"></a>
  - **Q:  Can my users register their own password reset data?**

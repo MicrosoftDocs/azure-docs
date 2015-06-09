@@ -32,9 +32,9 @@
 
 In order to give your users the best possible experience, we recommend that you explore and play with all of the Password Management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the Active Directory extension in the Azure Management portal. This topic walks you through all of the different Password Management customizations you can make as an administrator from within Configure tab of your directory within the Azure Management Portal, including:
 
-- [Customizing Password Management Look and Feel](sspr-lookandfeel)
-- [Customizing User Password Management Behavior](sspr-behavior)
-- [Customizing Password Management Notifications](sspr-notifications)
+- [Customizing Password Management Look and Feel](#sspr-lookandfeel)
+- [Customizing User Password Management Behavior](#sspr-behavior)
+- [Customizing Password Management Notifications](#sspr-notifications)
 
 ## Password managment look and feel <a href="sspr-lookandfeel"></a>
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the “Directory Properties” section of your directory’s configuration tab.
