@@ -39,7 +39,7 @@ Next, complete the following steps to unpack your device.
 
 #### To unpack your device
 
-1. Inspect the boxes and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please contact technical support to help you assess whether the device is in good working order.
+1. Inspect the boxes and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please contact Microsoft Support to help you assess whether the device is in good working order.
 
 2. Open the two boxes and unpack the primary and EBOD enclosures. The following figure shows the unpacked view of your storage device.
  
@@ -56,7 +56,7 @@ Next, complete the following steps to unpack your device.
      5     | Top foam
      6     | Accessory box
 
-3. After unpacking the two boxes, ensure that you have:
+3. After unpacking the two boxes, make sure that you have:
 
   - 1 primary enclosure (the primary enclosure and EBOD enclosure are in two separate boxes) 
   - 1 EBOD enclosure
@@ -69,7 +69,7 @@ Next, complete the following steps to unpack your device.
   - 2 rack mount kits (4 side rails with mounting hardware, 2 each for the primary enclosure and EBOD enclosure), 1 in each box
   - Getting started documentation
 
-    If you did not receive any of the items listed above, contact technical support. 
+    If you did not receive any of the items listed above, contact Microsoft Support. 
 
 The next step is to rack-mount your device. 
 
@@ -220,7 +220,7 @@ Next, identify the primary enclosure and the EBOD enclosure.
      2     | EBOD enclosure
 
 
-2. Locate the serial numbers on both the primary enclosure and the EBOD enclosure. The serial number sticker is affixed on the back ear of each enclosure. The serial numbers must be identical on both enclosures. Contact technical support immediately if the serial numbers do not match. See the following figure to help you locate the serial numbers.
+2. Locate the serial numbers on both the primary enclosure and the EBOD enclosure. The serial number sticker is affixed on the back ear of each enclosure. The serial numbers must be identical on both enclosures. Contact Microsoft Support immediately if the serial numbers do not match. See the following figure to help you locate the serial numbers.
 
     **Figure 7 Rear view of enclosure showing location of serial number**
 
@@ -375,7 +375,7 @@ Perform the following steps to cable your serial port.
 
 6. Verify that the connection is working by pressing Enter on the console. A serial console menu should appear.
 
-[AZURE.NOTE] Lights-Out Management: When the device is installed in a remote datacenter or in a computer room with limited access, ensure that the serial connections to both controllers are always connected to a serial console switch or similar equipment. This allows out-of-band remote control and support operations in case of network disruption or unexpected failures.
+> [AZURE.NOTE] Lights-Out Management: When the device is installed in a remote datacenter or in a computer room with limited access, ensure that the serial connections to both controllers are always connected to a serial console switch or similar equipment. This allows out-of-band remote control and support operations in case of network disruption or unexpected failures.
 
 You have completed cabling your device for power, network access, and serial connection.The next step is to configure the software on your device.
 
