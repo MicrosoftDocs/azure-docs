@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="06/08/2015"
    ms.author="telmos" />
 
 # Manage DNS servers used by a virtual network (VNet)
@@ -59,8 +59,8 @@ To edit a DNS server list by using a network configuration file, you'll first ex
 
 ## Next Steps
 
-[How to manage Virtual Network (VNet) Properties](../articles/virtual-network-settings)
+[How to manage Virtual Network (VNet) Properties](../virtual-networks-settings)
 
-[How to use public IP addresses in a virtual network](../articles/virtual-network-public-ip-within-vnet)
+[How to use public IP addresses in a virtual network](../virtual-networks-public-ip-within-vnet)
 
-[How to delete a Virtual Network (VNet)](../articles/virtual-network-delete-vnet)
+[How to delete a Virtual Network (VNet)](../virtual-networks-delete-vnet)
