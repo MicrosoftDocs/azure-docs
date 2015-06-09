@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell"
+	pageTitle="Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell"
 	description="Learn how to use Azure PowerShell to create and preconfigure Windows and Resource Manager-based virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -16,11 +16,15 @@
 	ms.date="06/09/2015"
 	ms.author="josephd"/>
 
-# Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell
+# Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell
 
 These steps show you how to construct a set of commands in the Resource Manager mode of Azure PowerShell that create and pre-configure a Windows-based Azure virtual machine. You can use this building block process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment. You can also use it to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. If you are an advanced PowerShell user, you can take the commands and substitute your own values for the variables (the lines beginning with "$")
+
+[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../includes/resource-manager-pointer-to-service-management.md)]
+
+- [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 ## Step 1: Install Azure PowerShell
 
