@@ -6,7 +6,7 @@ Azure Virtual Machines can handle a wide range of cloud hosting tasks. But creat
 App Service is the best choice for many kinds of application workloads. A corporation might want to build or migrate a commercial website that can handle millions of hits a week and is deployed in several data centers across the globe. The same corporation might also have a line-of-business app that tracks expense reports for authenticated users from the corporate Active Directory, and the app might have a mobile device component and connect to on-premise resources and business processes. The expense reports might require periodic background jobs to calculate and summarize large volumes of information. An IT consultant might adapt a popular open source application to set up a content management system for a small business. The figure below shows some of the kinds of web apps that can run in Azure App Service.
 
 <a name="appservice_diagram"></a>
-![app service diagram](media/app-service-choose-me/diagram.png)
+![app service diagram](media/app-service-choose-me-content/diagram.png)
  
 **Figure: Azure App Service supports static web pages, popular web applications, and custom web applications built with various technologies. You can also run mobile backends, API app, and non-web compute workloads (using WebJobs).** 
 
