@@ -174,28 +174,34 @@ This section walks you through configuring password reset to write passwords bac
 Before you can enable and use the Password Writeback, you must make sure you complete the following prerequisites:
 
 - You have an Azure AD tenant with Azure AD Premium enabled.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
-- Password reset has been configured and enabled in your tenant.  For more information, see [Getting Started: Azure AD Password Management](active-directory-editions)
+- Password reset has been configured and enabled in your tenant.  For more information, see [Enable users to reset their Azure AD passwords](#enable-users-to-reset-their-azure-ad-passwords)
 - You have at least one administrator account and one test user account with an Azure AD Premium license that you can use to test this feature.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
+
   > [AZURE.NOTE] Make sure that the administrator account that you use to enable Password Writeback is a cloud administrator account (created in Azure AD), not a federated account (created in on-premises AD and synchronized into Azure AD).
+  
 - You have a single or multi-forest AD on-premises deployment running Windows Server 2008, Windows Server 2008 R2, Windows Server 2012, or Windows Server 2012 R2 with the latest service packs installed.
+
   > [AZURE.NOTE] If you are running an older version of Windows Server 2008 or 2008 R2, you can still use this feature, but will need to [download and install KB 2386717](https://support.microsoft.com/kb/2386717) before being able to enforce your local AD password policy in the cloud.
+  
 - You have the Azure AD Connect tool installed and you have prepared your AD environment for synchronization to the cloud.  For more information, see [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md).
-- If you are using DirSync, you must make sure your organization’s firewall is configured to block outbound connections. You must unblock TCP port 828 or 818 in order to enable and use the Password Writeback.  If you are using Azure AD Sync or Azure AD Connect, this step is not necessary, as only 443 TCP outbound (and in some cases TCP 9350-9354) need to be open.
+- If you are using DirSync, you must make sure your organization’s firewall is configured to block outbound connection and unblock **TCP port 828 or 818** in order to enable and use Password Writeback.  If you are using Azure AD Sync or Azure AD Connect, this step is not necessary, as only **TCP 443** outbound (and in some cases **TCP 9350-9354**) need to be open.
+
   > [AZURE.NOTE] We highly recommend anyone using the Azure AD Sync or DirSync tools upgrades to the latest version of Azure AD Connect to ensure the best possible experience and new features as they are released.
+  
 
 ### Step 1: Download the latest version of Azure AD Connect
-Password Writeback is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number 1.0.0419.0911 or higher.  Password Writeback with automatic account unlock is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number 1.0.0485.0222 or higher. If you are running an older version, please upgrade to at least this version before proceeding. [Click here to download the latest version of Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+Password Writeback is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number **1.0.0419.0911** or higher.  Password Writeback with automatic account unlock is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number **1.0.0485.0222** or higher. If you are running an older version, please upgrade to at least this version before proceeding. [Click here to download the latest version of Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### To check the version of Azure AD Sync
-1.	Navigate to %ProgramFiles%\Azure Active Directory Sync\.
-2.	Find the ConfigWizard.exe executable.
-3.	Right-click the executable and select the Properties option from the context menu.
-4.	Click on the Details tab.
-5.	Find the File version field.
+1.	Navigate to **%ProgramFiles%\Azure Active Directory Sync\**.
+2.	Find the **ConfigWizard.exe** executable.
+3.	Right-click the executable and select the **Properties** option from the context menu.
+4.	Click on the **Details** tab.
+5.	Find the **File version** field.
   
   ![][021]
 
-If this version number is greater than or equal to 1.0.0419.0911, or you are installing Azure AD Connect, you can skip to [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#step-2-enable-password-writeback-in-azure-ad-connect). 
+If this version number is greater than or equal to **1.0.0419.0911**, or you are installing Azure AD Connect, you can skip to [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#step-2-enable-password-writeback-in-azure-ad-connect). 
 
  > [AZURE.NOTE] If this is your first time installing the Azure AD Connect tool, it is recommended that you follow a few best practices to prepare your environment for directory synchronization.  Before you install the Azure AD Connect tool, you must activate directory synchronization in either the Office 365 or the Azure management portals.  For more information, see [Managing Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
