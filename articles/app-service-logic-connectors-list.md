@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="06/08/2015" 
 	ms.author="mandia"/>
 
 
@@ -94,4 +94,4 @@ Connectors can also be used as actions within your Logic App. Actions are useful
 ## More Connectors
 
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)<br/>
-[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-connectors-list.md)
+[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)
