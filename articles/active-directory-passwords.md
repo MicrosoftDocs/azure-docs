@@ -17,29 +17,19 @@
 	ms.author="asteen"/>
 
 # Manage your passwords from any location
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-passwords/" title="What is it" class="current">What is It</a>
-<a href="../active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
-<a href="../active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
-<a href="../active-directory-passwords-customize/" title="Customize">Customize</a>
-<a href="../active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
-<a href="../active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
-<a href="../active-directory-passwords-faq/" title="FAQ">FAQ</a>
-<a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
-<a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
-</div>
-
-Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises.  
-
-Azure AD sets itself apart from these offerings by providing some of the easiest to use and and most powerful self-service capabilities available today.
+Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises. Azure AD sets itself apart from these offerings by providing some of the easiest to use and and most powerful self-service capabilities available today.
 
 Azure AD Password Management is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.  Read on to learn more about the following:
 
-* [What is possible with Azure AD Password Management?](#What-is-possible-with-azure-ad-password-management)
-* [Why use Azure AD Password Management?](#why-use-azure-ad-password-management)
-* [Recent Updates to Azure AD Password Management](#recent-updates)
- 
+* [How it works](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [Getting started](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [Customize](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [Best practices](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [Get insights](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [FAQ](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [Troubleshooting](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [Learn more](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
+
 
 ## What is possible with Azure AD Password Management?
 Here are some of the things you can do with Azure AD's password management capabilities.

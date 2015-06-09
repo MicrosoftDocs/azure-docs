@@ -16,20 +16,7 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-# Deploying Password Management and training users to use it <a name="sspr-best practices"></a>
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-passwords/" title="What is it">What is It</a>
-<a href="../active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
-<a href="../active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
-<a href="../active-directory-passwords-customize/" title="Customize">Customize</a>
-<a href="../active-directory-passwords-best-practices/" title="Best practices" class="current">Best Practices</a>
-<a href="../active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
-<a href="../active-directory-passwords-faq/" title="FAQ">FAQ</a>
-<a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
-<a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
-</div>
-
+# Deploying Password Management and training users to use it
 After enabling password reset, the next step you need to take is to get users using the service in your organization. To do this, you'll need to make sure your users are configured to use the service properly and also that your users have the training they need to be successful in managing their own passwords. This article will explain to you the following concepts:
 
 * [How to get your users configured for Password Management](#how-to-get-users-configured-for-password-reset)

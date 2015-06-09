@@ -17,19 +17,6 @@
 	ms.author="asteen"/>
 
 # Password Management Frequently Asked Questions
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-passwords/" title="What is it">What is It</a>
-<a href="../active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
-<a href="../active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
-<a href="../active-directory-passwords-customize/" title="Customize">Customize</a>
-<a href="../active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
-<a href="../active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
-<a href="../active-directory-passwords-faq/" title="FAQ" class="current">FAQ</a>
-<a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
-<a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
-</div>
-
 The following are some frequently asked questions for all things related to password management. 
 
 If you find yourself with a question that you don't know the answer to, or are looking fror help with a particular problem you are facing, you can read on below to see if we've covered it already.  If we haven't already, don't worry! Feel free to ask any question you have that's not covered here on the [Azure AD Forums](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) and we'll get back to you as soon as we can.
@@ -101,7 +88,7 @@ This FAQ is split into the following sections:
 
  - **Q:  Do you support unlocking local active directory accounts when users reset their passwords?**
  
- > **A:** Yes, when a user resets his or her password and Password Writeback has been deployed with versions of AADSync 1.0.0485.0222 or later, then that user’s account will be automatically unlocked when that user resets his or her password.
+ > **A:** Yes, when a user resets his or her password and Password Writeback has been deployed with all versions of Azure AD Connect, or versions of Azure AD Sync 1.0.0485.0222 or later, then that user’s account will be automatically unlocked when that user resets his or her password.
 
  - **Q:  How can I integrate password reset directly into my user’s desktop sign-in experience?**
  

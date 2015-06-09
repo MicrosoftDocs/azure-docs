@@ -17,19 +17,6 @@
 	ms.author="asteen"/>
 
 # Getting started with Password Management
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-passwords/" title="What is it">What is It</a>
-<a href="../active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
-<a href="../active-directory-passwords-getting-started/" title="Getting started" class="current">Getting Started</a>
-<a href="../active-directory-passwords-customize/" title="Customize">Customize</a>
-<a href="../active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
-<a href="../active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
-<a href="../active-directory-passwords-faq/" title="FAQ">FAQ</a>
-<a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
-<a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
-</div>
-
 Enabling your users to manage their own cloud Azure Active Directory or on-premises Active Directory passwords takes just a few simple steps. After ensuring that you've met a few simple prerequisites, you'll have password change and reset enabled for your entire organization before you know it. This article will walk you through the following concepts:
 
 * [How to enable users to reset their cloud Azure Active Directory passwords](#enable-users-to-reset-their-azure-ad-passwords)
@@ -102,7 +89,7 @@ To configure user password reset policy, complete the following steps:
 You have several options on how to specify data for users in your organization to be used for password reset.
 
 -	Edit users in the Azure Management Portal or the Office 365 Management Portal
--	Use AADSync to synchronize user properties into Azure AD from an on-premises Active Directory domain
+-	Use AAD Connect to synchronize user properties into Azure AD from an on-premises Active Directory domain
 -	Use Windows PowerShell to edit user properties
 -	Allow users to register their own data by guiding them to the registration portal at http://aka.ms/ssprsetup
 -	Require users to register for password reset when they sign in to the Access Panel at http://myapps.microsoft.com by setting the Require users to register SSPR configuration option to Yes.
@@ -227,7 +214,7 @@ Now that you have the Azure AD Connect tool downloaded, you are ready to enable 
 
 #### To enable Password Writeback using Windows PowerShell
 1.	On your Directory Sync computer, open a new elevated Windows PowerShell window.
-2.	If the module is not already loaded, type in the `Import-Module ADSync` command to load the AAD Sync cmdlets into your current session.
+2.	If the module is not already loaded, type in the `Import-Module ADSync` command to load the Azure AD Connect cmdlets into your current session.
 3.	Get the list of AAD Connectors in your system by running the `Get-ADSyncConnector` cmdlet and storing the results in `$aadConnectorName`
 4.	To get the current status of writeback for the current connector by running the following cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	Enable Password Writeback by running the cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
@@ -245,7 +232,7 @@ You can also verify the service was installed correctly by opening Event Viewer,
 ### Step 3: Configure your firewall
 After you have enabled Password Writeback in the Azure AD Connect tool, you will need to make sure the service can connect to the cloud.
 
-1.	Once installation is complete, if you are blocking unknown outbound connections in your environment, you will also need to add the following rules to your firewall. Make sure you reboot your AADSync machine after making these changes:
+1.	Once installation is complete, if you are blocking unknown outbound connections in your environment, you will also need to add the following rules to your firewall. Make sure you reboot your AAD Connect machine after making these changes:
    - Allow outbound connects over port 443 TCP
    - Allow outbound connections to https://ssprsbprodncu-sb.accesscontrol.windows.net/ 
 

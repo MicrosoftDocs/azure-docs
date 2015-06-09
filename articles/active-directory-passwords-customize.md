@@ -17,19 +17,6 @@
 	ms.author="asteen"/>
 
 # Customizing Password Management to fit your organization's needs
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-passwords/" title="What is it">What is It</a>
-<a href="../active-directory-passwords-how-it-works/" title="How it works">How it Works</a>
-<a href="../active-directory-passwords-getting-started/" title="Getting started">Getting Started</a>
-<a href="../active-directory-passwords-customize/" title="Customize" class="current">Customize</a>
-<a href="../active-directory-passwords-best-practices/" title="Best practices">Best Practices</a>
-<a href="../active-directory-passwords-get-insights/" title="Get insights">Get Insights</a>
-<a href="../active-directory-passwords-faq/" title="FAQ">FAQ</a>
-<a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
-<a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
-</div>
-
 In order to give your users the best possible experience, we recommend that you explore and play with all of the Password Management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the Active Directory extension in the Azure Management portal. This topic walks you through all of the different Password Management customizations you can make as an administrator from within Configure tab of your directory within the Azure Management Portal, including:
 
 - [Customizing Password Management Look and Feel](#password-managment-look-and-feel)
@@ -626,7 +613,7 @@ The following table describes how each control affects the experience for users 
                 </p>
                 <ul>
                   <li class="unordered">
-												This control only appears if you have installed Password Writeback by downloading the latest version of AADSync and enabling the <strong>Password Writeback</strong> option under the <strong>optional features</strong> selection screen.<br><br></li>
+												This control only appears if you have installed Password Writeback by downloading the latest version of Azure AD Connect and enabling the <strong>Password Writeback</strong> option under the <strong>optional features</strong> selection screen.<br><br></li>
                   <li class="unordered">
 												If you have enabled Password Writeback and feel there is a configuration issue with the service, you can come to this tab and look at the <strong>password write back service status</strong> label to see if something is wrong.<br><br></li>
                   <li class="unordered">
