@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Log in from the Azure Command-Line Interface (Azure CLI)"
+	pageTitle="Log in from the Azure Command-Line Interface (Azure CLI) | Microsoft Azure"
 	description="Connect to Azure subscription from the Azure Command-Line Interface (Azure CLI)"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="dkshir"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)
 
