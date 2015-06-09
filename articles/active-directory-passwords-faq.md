@@ -75,9 +75,9 @@ This FAQ is split into the following sections:
  - **Q:  What parts of the password reset experience get branded when I set organizational branding in my directory’s configure tab?**
  
  > **A:** The password reset portal will show your organizational logo and will also allow you to configure the Contact your administrator link to point to a custom email or URL. Any email that gets sent by password reset will include your organization’s logo, colors (in this case red), name in the body of the email, and customized from name. See an example with all the branded elements below. To learn more, read Customizing Password Reset Look and Feel.
-  
+
     ![][001]
-  
+
  - **Q:  How can I educate my users about where to go to reset their passwords?**
  
  > **A:** You can send your users to https://passwordreset.microsoftonline.com directly, or you can instruct them to click on the Can’t access your account link found on any School or Work ID sign in screen. You can feel free to publish these links (or create URL redirects to them) in any place that is easily accessible to your users.
@@ -144,9 +144,9 @@ This FAQ is split into the following sections:
  - **Q:  How can I filter the password management reports?**
  
  > **A:** You can filter the password management reports by clicking the small magnifying glass to the extreme right of the column labels, towards the top of the report (see screenshot). If you want to do richer filtering, you can download the report to excel and create a pivot table. 
-  
+
     ![][002]
-  
+
  - **Q:  How far back do the password management reports go?**
  
  > **A:** The password management reports show operations occurring within the last 30 days. We are currently investigating how to make this a longer time period. For now, if you need to archive this data, you can download the reports periodically and save them in a separate location.
