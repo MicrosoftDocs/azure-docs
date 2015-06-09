@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Access datasets from Python with the Machine Learning Python client library  | Azure" 
+	pageTitle="Access datasets with Machine Learning Python client library | Microsoft Azure" 
 	description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
 	services="machine-learning" 
 	documentationCenter="python" 

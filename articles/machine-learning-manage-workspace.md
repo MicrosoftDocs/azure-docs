@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage a Machine Learning workspace | Azure" 
+	pageTitle="Manage a Machine Learning workspace | Microsoft Azure" 
 	description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" 
 	services="machine-learning" 
 	documentationCenter="" 

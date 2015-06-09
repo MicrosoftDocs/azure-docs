@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Import your training data into Machine Learning Studio | Azure"
+	pageTitle="Import training data into Machine Learning Studio | Microsoft Azure"
 	description="How to import your training data Azure Machine Learning Studio from various data sources"
 	services="machine-learning"
 	documentationCenter=""

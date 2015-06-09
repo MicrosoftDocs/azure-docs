@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build advanced analytics solutions in Azure | Azure" 
+	pageTitle="Build advanced analytics solutions in Azure | Microsoft Azure" 
 	description="Use this guide to understand the steps for using Azure for data science and machine learning in the cloud." 
 	services="machine-learning,hdinsight" 
 	solutions="" 

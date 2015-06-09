@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Azure Machine Learning Recommendations API Documentation" 
+<properties 
+	pageTitle="Azure Machine Learning Recommendations API Documentation | Microsoft Azure" 
 	description="Azure Machine Learning Recommendations API Documentation" 
 	services="machine-learning" 
 	documentationCenter="" 

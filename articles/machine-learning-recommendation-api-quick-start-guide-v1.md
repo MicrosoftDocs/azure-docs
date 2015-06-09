@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Quick start guide for the Machine Learning Recommendations API | Azure" 
+	pageTitle="Quick start guide for the Machine Learning Recommendations API | Microsoft Azure" 
 	description="Azure Machine Learning Recommendations - Quick Start Guide" 
 	services="machine-learning" 
 	documentationCenter="" 

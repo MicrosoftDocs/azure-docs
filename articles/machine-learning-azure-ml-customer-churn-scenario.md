@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" 
+	pageTitle="Analyzing Customer Churn using Machine Learning | Microsoft Azure" 
 	description="Case study of developing an integrated model for analyzing and scoring customer churn" 
 	services="machine-learning" 
 	documentationCenter="" 

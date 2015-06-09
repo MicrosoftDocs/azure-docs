@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use the sample datasets in Machine Learning Studio | Azure" 
+	pageTitle="Use the sample datasets in Machine Learning Studio | Microsoft Azure" 
 	description="Descriptions of the sample datasets that are included in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 

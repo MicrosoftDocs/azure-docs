@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guide to the Net# Neural Networks Specification Language for Azure ML" 
+	pageTitle="Guide to the Net# Neural Networks Specification Language | Microsoft Azure" 
 	description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net#" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 
 
 
-# Guide to Net# neural network specification language
+# Guide to Net# neural network specification language for Azure Machine Learning
 
 ##Overview
 Net# is a language developed by Microsoft that is used to define neural network architectures for neural network modules in Microsoft Azure Machine Learning. In this article, you will learn:  

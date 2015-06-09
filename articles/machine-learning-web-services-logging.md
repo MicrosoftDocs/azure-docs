@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Enable logging for Machine Learning web services | Azure" 
-	description="Learn how to enable logging for Machine Learning web services." 
+	pageTitle="Logging for Machine Learning web services | Microsoft Azure" 
+	description="Learn how to enable logging for Machine Learning web services. Logging provides additional information to help troubleshoot the APIs." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 

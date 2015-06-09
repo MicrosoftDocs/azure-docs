@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Quick start guide to R for Azure Machine Learning Studio" 
+	pageTitle="Quick start guide to R for Machine Learning Studio | Microsoft Azure" 
 	description="How to use R in the Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 

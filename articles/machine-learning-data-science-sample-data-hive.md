@@ -1,8 +1,7 @@
 <properties
-	pageTitle="Sample data in Azure HDInsight Hive tables | Azure"
+	pageTitle="Sample data in Azure HDInsight Hive tables | Microsoft Azure"
 	description="Down sampling data in Azure HDInsight Hive Tables"
-	metaKeywords=""
-	services="machine-learning"
+	services="machine-learning,hdinsight"
 	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"

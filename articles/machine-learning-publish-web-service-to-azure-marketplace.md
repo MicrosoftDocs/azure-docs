@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Publish Azure Machine Learning Web Service to the Azure Marketplace | Azure" 
+	pageTitle="Publish machine learning web service to Azure Marketplace | Microsoft Azure" 
 	description="How to publish your Azure Machine Learning Web Service to the Azure Marketplace" 
 	services="machine-learning" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a simple experiment in Machine Learning Studio | Azure"
+	pageTitle="Create a simple experiment in Machine Learning Studio | Microsoft Azure"
 	description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio"
 	services="machine-learning"
 	documentationCenter=""

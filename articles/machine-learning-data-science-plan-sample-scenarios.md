@@ -1,7 +1,6 @@
 <properties
-	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Azure" 
+	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure" 
 	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning." 
-	metaKeywords="" 
 	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 

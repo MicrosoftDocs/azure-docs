@@ -1,7 +1,6 @@
 <properties
-	pageTitle="Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process and Technology | Azure"
+	pageTitle="Submit Hive Queries to Hadoop clusters in the Advanced Analytics Process and Technology | Microsoft Azure"
 	description="Process Data from Hive Tables with Hive queries."
-	metaKeywords=""
 	services="machine-learning"
 	solutions=""
 	documentationCenter=""

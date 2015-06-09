@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Step 4: Train and evaluate the predictive analytic models | Azure" 
+	pageTitle="Step 4: Train and evaluate the predictive analytic models | Microsoft Azure" 
 	description="Solution walkthrough step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 

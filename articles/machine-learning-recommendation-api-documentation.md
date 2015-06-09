@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Machine Learning Recommendations API Documentation" 
-	description="Azure Machine Learning Recommendations API Documentation" 
+	pageTitle="Machine Learning Recommendations API Documentation | Microsoft Azure" 
+	description="Azure Machine Learning Recommendations API documentation for a recommendations engine available in the Microsoft Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="AharonGumnik" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Machine Learning example apps in the Azure Marketplace | Azure" 
+	pageTitle="Machine Learning example apps in the Azure Marketplace | Microsoft Azure" 
 	description="Azure Machine Learning Marketplace App examples show how you can publish your machine learning services to the Azure Marketplace for paying subscribers to use in their apps." 
 	services="machine-learning" 
 	documentationCenter="" 

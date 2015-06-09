@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Machine Learning Gallery | Microsoft Azure" 
-	description="Description of the Azure Machine Learning Gallery site for community published Machine Learning experiment." 
+	pageTitle="Machine Learning Gallery of experiments | Microsoft Azure" 
+	description="Share and discover machine learning experiments in the Azure Machine Learning Gallery. Learn from others’ experiments, or just get started with machine learning." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="cjgronlund" 
@@ -17,7 +17,7 @@
 	ms.author="chhavib;garye"/>
 
 
-# **Machine Learning Gallery** #
+# Share and discover machine learning experiments in Machine Learning Gallery
 The Azure Machine Learning Gallery is a community driven site for discovering experiments that solve interesting problems. It is a destination for users looking to learn from others’ experiments, or to simply get started on Azure Machine Learning. These experiments are primarily contributed by the Azure Machine Learning user community. 
 
 The Gallery also enables users to browse and copy experiments contributed by Microsoft Azure Machine Learning Team.
@@ -26,7 +26,7 @@ The Gallery also enables users to browse and copy experiments contributed by Mic
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-## Benefits ##
+## Benefits 
 Start using the Gallery to enjoy these benefits:
 
 - Discover interesting experiments 
@@ -37,7 +37,7 @@ Sign in using your Microsoft account to enjoy this additional benefits:
 - Copy experiments to your workspace and get started with solving your own problems using Azure ML
 - Contribute and showcase your work
 
-## Discover ##
+## Discover 
 You can search and browse interesting experiments in the Gallery that help solve your machine learning needs or to simply get started on creating Azure Machine Learning experiments. 
 
 You can start using gallery for discovering and learning more about experiments without signing in. 
@@ -50,11 +50,11 @@ If interested in a particular experiment, you can read additional information ab
 You can also comment, provide feedback or ask questions through the comments section on each experiment page. You can further share an experiment of interest with friends or colleagues using share capabilities with LinkedIn or Twitter accounts. 
 You may also email links to these experiments to invite other users to view the experiment pages.
 
-## Download ##
+## Download 
 Azure Machine Learning Gallery you to easily copy experiments to your workspace with a single click and immediately start using it for your purpose. 
 If you are not already signed in while browsing, you will be prompted to sign-in using your Microsoft account before the experiment is copied to their studio workspace.
 
-## Contribute ##
+## Contribute 
 Are you ready to start contributing experiments to the Gallery?
 
 Follow these steps:
@@ -65,12 +65,12 @@ Follow these steps:
 ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
 Enjoy!
 
-## We want to hear from you! ##
+## We want to hear from you! 
 We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery.  
 
 ![Feedback](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
-## Frequently Asked Questions ##
+## Frequently Asked Questions 
 **I would like to make changes to the workflow of the experiment I submitted to the Gallery. How can I do that?**
 
 As of right now we do not support workflow updates to experiments you have already published to the Gallery. You may publish any such changes as a new experiment into the Gallery and delete your old one. We are actively working on enabling publising updates to workflow for already contributed Gallery. Stay Tuned.

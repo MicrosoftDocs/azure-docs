@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Step 6: Access the Machine Learning web service | Azure" 
+	pageTitle="Step 6: Access the Machine Learning web service | Microsoft Azure" 
 	description="Solution walkthrough step 6: Access an active Azure Machine Learning web service" 
 	services="machine-learning" 
 	documentationCenter="" 

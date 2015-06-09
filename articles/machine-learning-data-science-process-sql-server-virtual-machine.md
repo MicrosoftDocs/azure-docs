@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Process Data from SQL Azure | Azure" 
+	pageTitle="Process Data from SQL Azure | Microsoft Azure" 
 	description="Process Data from SQL Azure" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 

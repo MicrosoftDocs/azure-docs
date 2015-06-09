@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Move Data to and from  Azure Blob Storage | Azure" 
+	pageTitle="Move Data to and from  Azure Blob Storage | Microsoft Azure" 
 	description="Move Data to and from  Azure Blob Storage" 
-	services="machine-learning" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 

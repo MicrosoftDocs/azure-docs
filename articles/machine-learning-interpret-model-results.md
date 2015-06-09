@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to interpret model results in Azure Machine Learning   | Azure" 
+	pageTitle="How to interpret model results in Machine Learning | Microsoft Azure" 
 	description="How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs." 
 	services="machine-learning"
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Forecasting - Autoregressive Integrated Moving Average (ARIMA) | Azure" 
+	pageTitle="Forecasting: Autoregressive Integrated Moving Average (ARIMA) | Microsoft Azure" 
 	description="Forecasting - Autoregressive Integrated Moving Average (ARIMA)" 
 	services="machine-learning" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" 
+	pageTitle="Step 2: Upload data into a Machine Learning experiment | Microsoft Azure" 
 	description="Solution walkthrough step 2: Upload existing public data into Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 

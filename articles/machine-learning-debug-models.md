@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Debug your Model in Azure Machine Learning | Azure" 
+	pageTitle="Debug your Model in Azure Machine Learning | Microsoft Azure" 
 	description="Explains how to How to debug your Model in Azure Machine Learning." 
 	services="machine-learning"
 	documentationCenter="" 

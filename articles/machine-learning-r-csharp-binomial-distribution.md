@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Binomial Distribution Suite | Azure" 
+	pageTitle="Binomial Distribution Suite | Microsoft Azure" 
 	description="Binomial Distribution Suite" 
 	services="machine-learning" 
 	documentationCenter="" 

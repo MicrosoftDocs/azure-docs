@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Forecasting-Exponential Smoothing | Azure" 
+	pageTitle="Forecasting-Exponential Smoothing | Microsoft Azure" 
 	description="Web service: Forecasting-Exponential Smoothing" 
 	services="machine-learning" 
 	documentationCenter="" 

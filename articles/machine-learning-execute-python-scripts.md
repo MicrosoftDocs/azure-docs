@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Execute Python scripts in Azure Machine Learning | Azure" 
+	pageTitle="Execute Python scripts in Machine Learning | Microsoft Azure" 
 	description="Outlines the design principles underlying support for Python in Azure Machine Learning and the basic usage scenarios, capabilities, and limitations." 
 	services="machine-learning"
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="FAQ for publishing and using Machine Learning apps in the Azure Marketplace | Azure" 
+	pageTitle="FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Azure" 
 	description="Frequently Asked Questions" 
 	services="machine-learning" 
 	documentationCenter="" 

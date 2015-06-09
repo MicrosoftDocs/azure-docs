@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Common operations in the Machine Learning Recommendations API | Azure" 
+	pageTitle="Common operations in the Machine Learning Recommendations API | Microsoft Azure" 
 	description="Azure ML Recommendation Sample Application" 
 	services="machine-learning" 
 	documentationCenter="" 

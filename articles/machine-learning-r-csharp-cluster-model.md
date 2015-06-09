@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cluster Model | Azure" 
+	pageTitle="Cluster Model | Microsoft Azure" 
 	description="Cluster Model" 
 	services="machine-learning" 
 	documentationCenter="" 

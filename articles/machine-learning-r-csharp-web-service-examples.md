@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Sample Web Services Built with R on Azure ML and Published to Marketplace | Azure" 
-	description="Sample Web Services Built with R on Azure ML and Published to Marketplace" 
+	pageTitle="Sample machine learning web services built with R | Microsoft Azure" 
+	description="Find a broad set of example web services that were created with R and Machine Learning, and published to the Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
@@ -17,7 +17,7 @@
 	ms.author="jaymathe"/> 
 
 
-#Sample solutions using R on Machine Learning and published to Marketplace
+#Sample solutions using R on Machine Learning and published to Microsoft Azure Marketplace
 
 In Azure Machine Learning Studio, users can write R code and with a few clicks, publish it as a web service for applications and devices to consume around the world. 
 

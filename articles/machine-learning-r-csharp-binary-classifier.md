@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Binary Classifier | Azure" 
+	pageTitle="Binary Classifier | Microsoft Azure" 
 	description="Binary Classifier" 
 	services="machine-learning" 
 	documentationCenter="" 

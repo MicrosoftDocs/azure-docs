@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Troubleshooting Guide: Create and connect to an Azure Machine Learning workspace | Azure" 
+	pageTitle="Troubleshoot: Create and connect to a Machine Learning workspace | Microsoft Azure" 
 	description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace" 
 	services="machine-learning" 
 	documentationCenter="" 

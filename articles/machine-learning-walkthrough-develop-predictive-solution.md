@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Develop a predictive solution with Machine Learning | Azure"
+	pageTitle="Develop a predictive solution with Machine Learning | Microsoft Azure"
 	description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio"
 	services="machine-learning"
 	documentationCenter=""

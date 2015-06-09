@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology | Azure" 
+	pageTitle="Customize Hadoop clusters for Advanced Analytics Process and Technology | Microsoft Azure" 
 	description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Difference in Proportions Test | Azure" 
+	pageTitle="Difference in Proportions Test | Microsoft Azure" 
 	description="Difference in Proportions Test" 
 	services="machine-learning" 
 	documentationCenter="" 
