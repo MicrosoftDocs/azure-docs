@@ -270,7 +270,11 @@ These methods work together as the building blocks available for modifying the o
 
 * To take mappings online and offline: use **MarkMappingOffline** and **MarkMappingOnline** to control the online state of a mapping. 
 
-    Certain operations on shard mappings are only allowed when a mapping is in an “offline” state, including UpdateMapping and DeleteMapping. When a mapping is offline, a data-dependent request based on a key included in that mapping will return an error. In addition, when a range is first taken offline, all connections to the affected shard are automatically killed in order to prevent inconsistent or incomplete results for queries directed against ranges being changed. 
+    Certain operations on shard mappings are only allowed when a mapping is in an “offline” state, including **UpdateMapping** and **DeleteMapping**. When a mapping is offline, a data-dependent request based on a key included in that mapping will return an error. In addition, when a range is first taken offline, all connections to the affected shard are automatically killed in order to prevent inconsistent or incomplete results for queries directed against ranges being changed. 
+
+Mappings are immutable objects in .Net.  All of the methods above that change mappings also invalidate any references to them in your code.   To make it easier to perform sequences of operations that change a mapping’s state, all of the methods that change a mapping return a new mapping reference, so operations can be chained.  For example, to delete an existing mapping in shardmap sm that contains the key 25, you can execute the following: 
+
+        sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));
 
 ## Adding a shard 
 
