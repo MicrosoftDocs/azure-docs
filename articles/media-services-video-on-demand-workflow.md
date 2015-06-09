@@ -164,7 +164,7 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 [Content Protection Overview](media-services-content-protection-overview.md)
 
-If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
+If you want to encrypt an asset with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
 
 Use **.NET** or **REST API** to create keys.
 
@@ -197,7 +197,7 @@ Deliver content overview
 > [AZURE.SELECTOR]
 - [Overview](media-services-deliver-content-overview.md)
 
-Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
+Publish assets (by creating Locators) using **Azure Management Portal**, **.NET**, or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
