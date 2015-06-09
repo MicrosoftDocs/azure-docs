@@ -19,14 +19,14 @@
 # Deploying Password Management and training users to use it
 After enabling password reset, the next step you need to take is to get users using the service in your organization. To do this, you'll need to make sure your users are configured to use the service properly and also that your users have the training they need to be successful in managing their own passwords. This article will explain to you the following concepts:
 
-* [How to get your users configured for Password Management](#how-to-get-users-configured-for-password-reset)
+* [**How to get your users configured for Password Management**](#how-to-get-users-configured-for-password-reset)
   * [What makes an account configured for password reset](#what-makes-an-account-configured)
   * [Ways you can to populate authentication data yourself](#ways-to-populate-authentication-data)
-* [The best ways to roll out password reset to your organization](#what-is-the-best-way-to-roll-out-password-reset-for-users)
+* [**The best ways to roll out password reset to your organization**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [Email-based rollout + sample email communications](#email-based-rollout)
   * [How to use enforced registration to force users to register at sign in](#using-enforced-registration)
   * [How to upload authentication data for user accounts](#uploading-data-yourself)
-* [Sample user and support training materials (coming soon!)](#sample-training-materials)
+* [**Sample user and support training materials (coming soon!)**](#sample-training-materials)
 
 ## How to get users configured for password reset
 This section describes to you various methods by which you can ensure every user in your organization can use self-service password reset effectively in case they forget their password.

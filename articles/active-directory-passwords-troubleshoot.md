@@ -19,12 +19,12 @@
 # How to troubleshoot Password Management
 If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to  troubleshoot your deployment:
 
-* [Information to include when you need help](#information-to-include-when-you-need-help)
-* [Problems with Password Management configuration in the Azure Management Portal](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
-* [Problems with Password Managment reports in the Azure Management Portal](#troubleshoot-password-management-reports-in-the-azure-management-portal)
-* [Problems with the Password Reset Registration Portal](#troubleshoot-the-password-reset-registration-portal)
-* [Problems with the Password Reset Portal](#troubleshoot-the-password-reset-portal)
-* [Problems with Password Writeback](#troubleshoot-password-writeback)
+* [**Information to include when you need help**](#information-to-include-when-you-need-help)
+* [**Problems with Password Management configuration in the Azure Management Portal**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
+* [**Problems with Password Managment reports in the Azure Management Portal**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
+* [**Problems with the Password Reset Registration Portal**](#troubleshoot-the-password-reset-registration-portal)
+* [**Problems with the Password Reset Portal**](#troubleshoot-the-password-reset-portal)
+* [**Problems with Password Writeback**](#troubleshoot-password-writeback)
   - [Password Writeback event log error codes](#password-writeback-event-log-error-codes)
   - [Problems with Password Writeback connectivity](#troubleshoot-password-writeback-connectivity)
 

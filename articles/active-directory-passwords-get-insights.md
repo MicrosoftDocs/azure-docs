@@ -19,10 +19,10 @@
 # How to get operational insights with Password Management reports
 This section describes how you can use Azure Active Directory’s Password Management reports to view how users are using password reset and change in your organization.
 
-- [Password Management reports overview](#overview-of-password-management-reports)
-- [How to view Password Management reports](#how-to-view-password-management-reports)
-- [View password reset registration activity in your organization](#view-password-reset-registration-activity)
-- [View password reset activity in your organization](#view-password-reset-activity)
+- [**Password Management reports overview**](#overview-of-password-management-reports)
+- [**How to view Password Management reports**](#how-to-view-password-management-reports)
+- [**View password reset registration activity in your organization**](#view-password-reset-registration-activity)
+- [**View password reset activity in your organization**](#view-password-reset-activity)
 
 ## Overview of Password Management reports
 Once you deploy password reset, one of the most common next steps is to see how it is being used in your organization.  For example, you may want to get insight into how users are registering for password reset, or how many password resets have been done in the last few days.  Here are some of the common questions that you will be able to answer with the Password Management reports that exist in the azure management portal today:

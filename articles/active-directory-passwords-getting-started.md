@@ -19,12 +19,12 @@
 # Getting started with Password Management
 Enabling your users to manage their own cloud Azure Active Directory or on-premises Active Directory passwords takes just a few simple steps. After ensuring that you've met a few simple prerequisites, you'll have password change and reset enabled for your entire organization before you know it. This article will walk you through the following concepts:
 
-* [How to enable users to reset their cloud Azure Active Directory passwords](#enable-users-to-reset-their-azure-ad-passwords)
- - [Self-service password reset prerequisites](#prerequisites)
+* [**How to enable users to reset their cloud Azure Active Directory passwords**](#enable-users-to-reset-their-azure-ad-passwords)
+ - [Self-service password reset prerequisites**](#prerequisites)
  - [Step 1: Configure password reset policy](#step-1-configure-password-reset-policy)
  - [Step 2: Add contact data for your test user](#step-2-add-contact-data-for-your-test-user)
  - [Step 3: Reset your password as a user](#step-3-reset-your-azure-ad-password-as-a-user)
-* [How to enable users to reset or change their on-premises Active Directory passwords](#enable-users-to-reset-or-change-their-ad-passwords)
+* [**How to enable users to reset or change their on-premises Active Directory passwords**](#enable-users-to-reset-or-change-their-ad-passwords)
  - [Password Writeback prerequisites](#writeback-prerequisites)
  - [Step 1: Download the latest version of Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
  - [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#step-2-enable-password-writeback-in-azure-ad-connect)

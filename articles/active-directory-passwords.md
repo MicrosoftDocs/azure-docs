@@ -24,14 +24,14 @@ Azure AD Password Management is a set of capabilities that allow your users to m
 ## Overview
 You can get started with a pilot of Azure AD Password Management in under five minutes, and can have it deployed to your entire organization in hours.  Below are some helpful resources to get you going with the service: 
 
-* [How it works](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-* [Getting started](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
-* [Customize](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-* [Best practices](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-* [Get insights](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-* [FAQ](active-directory-passwords-faq.md) - get answers to frequently asked questions
-* [Troubleshooting](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
-* [Learn more](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 ## What is possible with Azure AD Password Management?

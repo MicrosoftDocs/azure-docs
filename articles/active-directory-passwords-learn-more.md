@@ -19,11 +19,11 @@
 # Learn more about Password Management
 If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
-* [Password writeback overview](#password-writeback-overview)
+* [**Password writeback overview**](#password-writeback-overview)
   - [How pasword writeback works](#how-password-writeback-works)
   - [Scenarios supported for password writeback](#scenarios-supported-for-password-writeback)
   - [Password writeback security model](#password-writeback-security-model)
-* [How does the password reset portal work?](#how-does-the-password-reset-portal-work)
+* [**How does the password reset portal work?**](#how-does-the-password-reset-portal-work)
   - [What data is used by password reset?](#what-data-is-used-by-password-reset)
 
 ## Password writeback overview

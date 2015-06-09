@@ -23,10 +23,10 @@ If you find yourself with a question that you don't know the answer to, or are l
 
 This FAQ is split into the following sections:
 
-- [Questions about Password Reset Registration](#password-reset-registration)
-- [Questions about Password Reset](#password-reset)
-- [Questions about Password Management Reports](#password-management-reports)
-- [Questions about Password Writeback](#password-writeback)
+- [**Questions about Password Reset Registration**](#password-reset-registration)
+- [**Questions about Password Reset**](#password-reset)
+- [**Questions about Password Management Reports**](#password-management-reports)
+- [**Questions about Password Writeback**](#password-writeback)
 
 ## Password reset registration
  - **Q:  Can my users register their own password reset data?**

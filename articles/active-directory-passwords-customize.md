@@ -19,9 +19,9 @@
 # Customizing Password Management to fit your organization's needs
 In order to give your users the best possible experience, we recommend that you explore and play with all of the Password Management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the Active Directory extension in the Azure Management portal. This topic walks you through all of the different Password Management customizations you can make as an administrator from within Configure tab of your directory within the Azure Management Portal, including:
 
-- [Customizing Password Management Look and Feel](#password-managment-look-and-feel)
-- [Customizing User Password Management Behavior](#password-management-behavior)
-- [Customizing Password Management Notifications](#password-management-notifications)
+- [**Customizing Password Management Look and Feel**](#password-managment-look-and-feel)
+- [**Customizing User Password Management Behavior**](#password-management-behavior)
+- [**Customizing Password Management Notifications**](#password-management-notifications)
 
 ## Password managment look and feel
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the “Directory Properties” section of your directory’s configuration tab.
