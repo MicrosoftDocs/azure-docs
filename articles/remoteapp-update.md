@@ -9,9 +9,9 @@
 
 <tags
    ms.service="remoteapp"
-   ms.devlang=""
+   ms.devlang="n/a"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="n/a"
    ms.workload="compute"
    ms.date="06/09/2015"
    ms.author="elizapo"/>
