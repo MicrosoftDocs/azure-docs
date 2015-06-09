@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Install your StorSimple 8100 hardware"
+   pageTitle="Install your StorSimple 8100 device"
    description="Describes how to unpack, rack mount, and cable your StorSimple 8100 device."
    services="storsimple"
    documentationCenter="NA"
@@ -15,7 +15,7 @@
    ms.date="06/09/2015"
    ms.author="v-sharos" />
 
-# Install your StorSimple 8100 hardware
+# Install your StorSimple 8100 device
 
 ## Overview
 

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Install your StorSimple 8600 hardware"
+   pageTitle="Install your StorSimple 8600 device"
    description="Describes how to unpack, rack mount, and cable your StorSimple 8600 device."
    services="storsimple"
    documentationCenter="NA"
@@ -15,7 +15,7 @@
    ms.date="06/09/2015"
    ms.author="v-sharos" />
 
-# Install your StorSimple 8600 hardware
+# Install your StorSimple 8600 device
 
 ## Overview
 Your Microsoft Azure StorSimple 8600 is a dual enclosure device and consists of a primary and an EBOD enclosure. This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8600 device hardware before you configure the StorSimple software.
@@ -29,7 +29,7 @@ The following steps provide clear, detailed instructions on how to unpack your S
 Before you unpack your device, review the following information.
 
 >[AZURE.WARNING]
-> ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
+> ![heavy weight icon](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
 >
 > 1. Make sure that you have two people available to manage the weight of the device if you are handling it manually. A fully configured device can weigh up to 32 kg (70 lbs.).
 >
@@ -73,7 +73,7 @@ Next, complete the following steps to unpack your device.
 
 The next step is to rack-mount your device. 
 
-## Rack-mount your 8600 device
+## Rack-mount your StorSimple 8600 device
 
 Follow the next steps to install your StorSimple 8600 storage device in a standard 19-inch rack with front and rear posts. This device comes with two enclosures: a primary enclosure and an EBOD enclosure. Both of these need to be rack-mounted. 
 
@@ -92,7 +92,7 @@ The enclosures must be installed in a standard 19-inch rack that has both front 
 3. Make sure that one 4U (2 X 2U) slot is available on the rack in which you intend to mount the enclosures. 
 
 >[AZURE.WARNING]
-> ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
+> ![heavy weight icon](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
 > 
 > Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
 
@@ -182,9 +182,9 @@ After you have finished mounting the EBOD enclosure, you will need to mount the 
 
 The next step is to cable your device for power, network, and serial access.
 
-## Cable your 8600 device
+## Cable your StorSimple 8600 device
 
-The following procedures explain how to cable your StorSimple 8100 device for power, network, and serial connections.
+The following procedures explain how to cable your StorSimple 8600 device for power, network, and serial connections.
 
 ### Prerequisites
 
@@ -250,7 +250,7 @@ Next, use the provided SAS cables to connect the EBOD enclosure to the primary e
      3     | EBOD controller 0
      4     | EBOD controller 1
      5,6   | SAS ports on primary enclosure (labeled EBOD)
-     7, 8  | SAS ports on EBOD enclosure (labeled CTRL)
+     7,8   | SAS ports on EBOD enclosure (labeled CTRL)
 
 2. Use the provided SAS cables to connect the EBOD ports to the CTRL ports. 
 
