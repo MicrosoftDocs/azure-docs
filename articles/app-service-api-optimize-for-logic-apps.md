@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="06/09/2015"
 	ms.author="sameerch;guayan;tarcher"/>
 
 # Enhance your API App for Logic Apps #
@@ -27,22 +27,22 @@ If you are new to [API apps](app-service-api-apps-why-best-platform.md) in [Azur
 
 
 ## Add Display Names ##
-The Logic Apps designer displays the names of operations, fields, and parameters, which may at times be cumbersome to read as they are programmatically generated. To improve readability, the Logic Apps designer can, where it is available, display a more readable text value - known as a *display name* - instead of the operation, field, and parameter default names. To accomplish this, the Logic Apps designer scans for the presence of certain properties in the API definition described by the swagger metadata exported from your API app.  The following properties are used as display names:
+The Logic Apps designer displays the names of operations, fields, and parameters, which may at times be cumbersome to read as they are programmatically generated. To improve readability, the Logic Apps designer can, where it is available, display a more readable text value - known as a *display name* - instead of the operation, field, and parameter default names. To accomplish this, the Logic Apps designer scans for the presence of certain properties in the swagger metadata provided by your API app.  The following properties are used as display names:
 
 * Operations (Action and Triggers)  
-  The value of the **summary** property if present; otherwise the value of **operationId** property.
+  The value of the **summary** property if present; otherwise the value of **operationId** property. Note that the Swagger 2.0 specification allows for up to 120 characters for the **summary** property.
 
 * Parameters (Inputs)  
-  The value of the **x-ms-summary** extension property if present; otherwise the value of the **name** property.
+  The value of the **x-ms-summary** extension property if present; otherwise the value of the **name** property. The **x-ms-summary** extension property must be set dynamically in code. That process is described in the "Using Custom Attributes to annotate extension properties" section of this topic. The **name** property can be set using /// comments. That process is described in the "Using XML Comments in API Definition generation" section of this topic.
 
 * Schema Fields (Output Responses)  
-  The value of the **x-ms-summary** extension property if present; otherwise the value of the **name** property.
+  The value of the **x-ms-summary** extension property if present; otherwise the value of the **name** property. The **x-ms-summary** extension property must be set dynamically in code. That process is described in the "Using Custom Attributes to annotate extension properties" section of this topic. The **name** property can be set using /// comments. That process is described in the "Using XML Comments in API Definition generation" section of this topic.
 
-**Note:** It is recommended to keep the length of your display names to 30 characters or less. The Swagger 2.0 specification allows for up to 120 characters for the **summary** property.
+**Note:** It is recommended to keep the length of your display names to 30 characters or less.
 
 ### Using XML Comments in API Definition generation
 
-For development using Visual Studio, it is common practice to annotate your API controllers using [XML comments](https://msdn.microsoft.com/library/b2s063f7.aspx).  When compiled with [/doc](https://msdn.microsoft.com/library/3260k4x7.aspx), the compiler will create an XML documentation file.  The swashbuckle toolset included with the API App SDK can incorporate those comments while generating the API metadata by following these steps:
+For development using Visual Studio, it is common practice to annotate your API controllers using [XML comments](https://msdn.microsoft.com/library/b2s063f7.aspx).  When compiled with [/doc](https://msdn.microsoft.com/library/3260k4x7.aspx), the compiler will create an XML documentation file.  The Swashbuckle toolset included with the API App SDK can incorporate those comments while generating the API metadata, and you can configure your API project to do that by following these steps:
 
 1. Open your project in Visual Studio.
 
@@ -50,7 +50,7 @@ For development using Visual Studio, it is common practice to annotate your API 
 
 	![Project Properties](./media/app-service-api-optimize-for-logic-apps/project-properties.png)
 
-3. When the project's property pages appears, perform the following steps:
+3. When the project's property pages appear, perform the following steps:
 
 	- Select the **Configuration** for which the settings will apply. Typically, you will select All Configurations so that the settings you specify apply to both Debug and Release builds.
 	
@@ -80,8 +80,6 @@ For development using Visual Studio, it is common practice to annotate your API 
 
 8. Finally, specify the XML comments for your controller methods. To do this, open one of your API app's controller files and type /// on an empty line preceding a controller method you want to document. Visual Studio will automatically insert a commented section within which you can specify a method summary as well as parameter and return value information. 
 
-**NOTE**: The XML documentation comments are not metadata that can be read through reflection. Therefore, you will need to package and deploy your comments file along with your API App.  
-
 Now, when you build and publish your API app, you'll see that the documentation file is also in the payload and uploaded with the rest of your API app.
 
 ## Categorize Advanced Operations and Properties
@@ -90,7 +88,7 @@ The Logic Apps designer has limited screen real estate for showing operations, p
 
 To mitigate this clutter, the Logic Apps designer allows you to group the API app's operations and properties into user-defined categories. By using a proper categorization of the operations and properties, an API app can improve the user experience by presenting the most basic and useful operations and properties first.  
 
-To provide this ability, the Logic Apps designer looks for the presence of specific custom vendor extension properties in the swagger API definition of your API App. This property is named **x-ms-visibility** and can take the following values:
+To provide this ability, the Logic Apps designer looks for the presence of a specific custom vendor extension property in the swagger API definition of your API App. This property is named **x-ms-visibility** and can take the following values:
 
 * empty or "none"  
   These operations and properties are readily viewable by the user.
@@ -123,7 +121,12 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 
 2. Define an operation filter called **AddCustomSummaryFilter** that will look for this custom attribute in the operation parameters.
 
-	    public class AddCustomSummaryFilter : IOperationFilter
+
+	    using Swashbuckle.Swagger;
+
+		...
+
+		public class AddCustomSummaryFilter : IOperationFilter
 	    {
 	        public void Apply(Operation operation, SchemaRegistry schemaRegistry, System.Web.Http.Description.ApiDescription apiDescription)
 	        {
@@ -235,4 +238,4 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 
 ## Summary
 
-In this article, you have seen how to enhance the user experience of your API app when it is used in the Logic Apps designer.  As a best practice, it is recommended that you provide proper friendly names for all operations (actions and triggers), parameters and properties.  It is also recommended that you provide no more than 5 basic operations.  For input parameters, we recommend you restrict the number of basic properties to no more than 4, and for properties, the recommendation is 5 or less. The remainder of your operations and properties should be marked as advanced.
+In this article, you have seen how to enhance the user experience of your API app when it is used in the Logic Apps designer.  As a best practice, it is recommended that you provide proper friendly names for all operations (actions and triggers), parameters and properties.  It is also recommended that you provide no more than 5 basic operations.  For input parameters, the recommendation is to restrict the number of basic properties to no more than 4, and for properties, the recommendation is 5 or less. The remainder of your operations and properties should be marked as advanced.
