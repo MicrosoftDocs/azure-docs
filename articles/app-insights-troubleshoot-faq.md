@@ -82,6 +82,29 @@ The details depend on the type of project. For a web application:
 Please see [NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore)
 and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
+####<a name="FailUpdate"></a> I get "project references NuGet package(s) that are missing on my computer" when attempting to build after updating to 0.17 or newer of the NuGet packages.
+
+If you see the error above after updating to the 0.17 or newer NuGet packages, you need to edit the proj file and remove the BCL targets that were left behind.
+
+To do this:
+
+1. Right-click on your project in Solution Explorer and choose Unload Project
+2. Right-click on project again and choose Edit *yourProject.csproj* 
+3. Go to the bottom of the project file and remove the BCL targets similar to: 
+	```
+	<Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+	  
+	  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+	  
+	    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+	    
+	    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+	    
+	  </Target>
+	  ```
+4. Save the file
+5. Right-click on project and choose Reload *yourProject.csproj*
+
 ## No data
 
 #### <a name="q03"></a>I added Application Insights successfully and ran my app, but I've never seen data in the portal.
