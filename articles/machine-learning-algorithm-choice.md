@@ -1,7 +1,7 @@
 <properties 
 	title="" 
 	pageTitle="How to choose machine learning algorithms | Microsoft Azure" 
-	description="How to choose an Azure Machine Learning algorithm for supervised and unsupervised learning in clustering, classification, or regression experiments." 
+	description="How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments." 
 	keywords="machine learning algorithms,types of machine learning algorithms,types of machine learning,clustering,clustering algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
@@ -256,9 +256,9 @@ Poisson regression is often used for modeling count data. Poisson regression ass
 
 ## References
 
-For a complete list of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/) in [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx).
+For a complete list with the types of machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/) in [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx).
 
-You can find more detailed information about machine learning algorithms in the following references, many of which were used in creating this article.
+You can find more detailed information about all types of machine learning algorithms in the following references, many of which were used in creating this article.
 
 * [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
 
