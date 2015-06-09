@@ -160,7 +160,19 @@ Copy these lines to your command set and specify an existing virtual network nam
 	$subnetIndex=<index of the subnet on which to create the NIC for the virtual machine>
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-Copy these lines to your command set and specify the name for the NIC and the globally unique domain name label for the public IP address on the virtual machine. When you create virtual machines in the Service Management mode of Azure PowerShell, Azure completes these steps automatically.
+Next, you create a network interface card (NIC), request a public IP address, and optionally assign it a DNS domain name label. Copy one of the two following options to your command set and fill in the NIC name and DNS domain name label.
+
+Option 1: Specify a NIC name.
+
+Copy these lines to your command set and specify the name for the NIC.
+
+	$nicName="<name of the NIC of the VM>"
+	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
+
+Option 2: Specify a NIC name and a DNS domain name label.
+
+Copy these lines to your command set and specify the name for the NIC and the globally unique domain name label. When you create virtual machines in the Service Management mode of Azure PowerShell, Azure completes these steps automatically.
 
 	$nicName="<name of the NIC of the VM>"
 	$domName="<domain name label>"
@@ -219,7 +231,7 @@ Next, you need to determine the publisher, offer, and SKU of the image for your 
 |MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
 |MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
 
-If the virtual machine image you need is not listed, use the instructions [here](resource-groups-vm-searching.md) to determine the publisher, offer, and SKU names.
+If the virtual machine image you need is not listed, use the instructions [here](resource-groups-vm-searching.md#powershell) to determine the publisher, offer, and SKU names.
 
 Copy these commands to your command set and fill in the publisher, offer, and SKU names.
 
