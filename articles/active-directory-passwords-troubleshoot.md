@@ -1464,7 +1464,7 @@ If disabling and re-enabling the Password Writeback feature does not resolve you
 Re-installing the Azure AD Connect package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment. 
 We recommend, you perform this step only after attempting the first two steps described above.
 
- 1.	Download the latest version of Azure AD Connect [here](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/#download-azure-ad-connect).
+ 1.	Download the latest version of Azure AD Connect [here](active-directory-aadconnect.md#download-azure-ad-connect).
  2.	Since you have already installed Azure AD Connect, you will only need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
  3.	Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required.
 
