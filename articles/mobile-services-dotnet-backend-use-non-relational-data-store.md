@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build a Service Using a Non-Relational Data Store - Azure Mobile Services" 
+	pageTitle="Build a Service Using a Non-Relational Data Store | Azure Mobile Services" 
 	description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -32,13 +32,19 @@ The tutorial requires completion of the [Get started with Mobile Services] or [A
 
 2. Once the account is set up, click **Connection Info** and copy the connection string.
 
-3. In Mobile Services in the [Azure Management Portal], click your mobile service then click the **Configure** tab.
+3. In your mobile service, click the **Configure** tab, scroll down to **Connection strings** and enter a new connection string with a **Name** of `MongoConnectionString` and a **Value** that is your MongoDB connection, then click **Save**. 
 
-4. Under **App Settings**, paste the connection string with the key `MongoConnectionString`, and click **Save**.
+	![Add the MongoDB connection string](./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png)
 
-    ![][1]
+	The storage account connection string is stored encrypted in app settings. You can access this string in any table controller at runtime. 
 
-	This ensures that the connection string is stored securely by Mobile Services and can be accessed by your mobile service when running in Azure.
+8. In Solution Explorer in Visual Studio, open the Web.config file for the mobile service project and add the following new connection string:
+
+		<add name="MongoConnectionString" connectionString="<MONGODB_CONNECTION_STRING>" />
+
+9. Replace the `<MONGODB_CONNECTION_STRING>` placeholder with the MongoDB connection string.
+
+	The mobile service uses this connection string when it runs on your local computer, which lets you test the code before you publish it. When running in Azure, the mobile service instead uses the connection string value set in the portal and ignores the connection string in the project.  
 
 ## <a name="modify-service"></a>Modify data types and table controllers
 
@@ -53,27 +59,6 @@ The tutorial requires completion of the [Get started with Mobile Services] or [A
             public bool Complete { get; set; }
         }
 
-
-2. In the **TodoItemController** class, add the following code:
-
-        static bool connectionStringInitialized = false;
-
-        private void InitializeConnectionString(string connectionStringName)
-        {
-            if (!connectionStringInitialized)
-            {
-                connectionStringInitialized = true;
-                if (!this.Services.Settings.Connections.ContainsKey(connectionStringName))
-                {
-                    var connectionString = this.Services.Settings[connectionStringName];
-                    var connectionSetting = new ConnectionSettings(connectionStringName, connectionString);
-                    this.Services.Settings.Connections.Add(connectionStringName, connectionSetting);
-                }
-            }
-        }
-    
-    This code loads the application setting and tells the mobile service to treat it as a connection that can be used by a **TableController&lt;TEntity&gt;**. Later, you will call this method when when the **TodoItemController** is invoked.
-
 3. In **TodoItemController**, replace the **Initialize** method with the following:
 
         protected override async void Initialize(HttpControllerContext controllerContext)
@@ -82,7 +67,6 @@ The tutorial requires completion of the [Get started with Mobile Services] or [A
             string connectionStringName = "MongoConnectionString";
             string databaseName = "<YOUR-DATABASE-NAME>";
             string collectionName = "todoItems";
-            InitializeConnectionString(connectionStringName);
             DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, 
 				collectionName, Request, Services);
         }
@@ -93,9 +77,11 @@ You are now ready to test the app.
 
 ## <a name="test-application"></a>Test the application
 
-1. Republish your mobile service .NET backend project.
+1. (Optional) Republish your mobile service .NET backend project.
 
-4. Using either the **Try it now** button on the start page as before or using a client app connected to your Mobile App, invoke some operations that generate database changes. 	
+	You can also test your mobile service locally before you publish the .NET backend project to Azure. Whether you test locally or in Azure, the mobile service will be using your MongoDB for storage. 
+
+4. Using either the **Try it now** button on the start page as before or using a client app connected to your Mobile App, query items in the database. 	
  
 	Note that you will not see any items which were previously stored in the SQL database from the quickstart tutorial.
 
@@ -104,6 +90,16 @@ You are now ready to test the app.
 3. Create a new item. 
 
 	The app and mobile service should behave as before, except now your data is being stored in your non-relational store instead of in the SQL Database.
+
+##Next Steps
+
+Now that you have seen how easy it is to use Table storage with .NET backend, consider exploring some other backend storage options:
+
++ [Build a .NET backend Mobile Service that uses Table storage instead of a SQL Database](mobile-services-dotnet-backend-store-data-table-storage.md)</br>Like the tutorial you just completed, this topic shows you how to use a non-relational data store for your mobile service. In this tutorial, you will modify the Mobile Services quickstart project to use Azure Storage instead of a SQL Database as the data store.
+ 
++ [Connect to an on-premises SQL Server using Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>Hybrid Connections lets your mobile service securely connect to your on-premises assets. In this way, you can make your on-premises data accessible to your mobile clients by using Azure. Supported assets include any resource that runs on a static TCP port, including Microsoft SQL Server, MySQL, HTTP Web APIs, and most custom web services.
+
++ [Upload images to Azure Storage using Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Shows you how to extend the TodoList sample project to let you upload images from your app to Azure Blob storage.
 
 
 <!-- Anchors. -->

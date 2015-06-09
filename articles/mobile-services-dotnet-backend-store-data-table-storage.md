@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Build a Service Using a Non-Relational Data Store | Azure Mobile Services" 
-	description="Learn how to use Azure Table storage with your .NET based mobile service." 
+	pageTitle="Build a Service that uses Table storage instead of a SQL Database | Azure Mobile Services" 
+	description="Learn how to use Azure Table storage with your .NET backend mobile service." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -44,7 +44,9 @@ First, you need to configure your mobile service and .NET backend code project t
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
 
-7. In the above string, replace the values of `<ACCOUNT_NAME>` and `<ACCESS_KEY>` with the values from the portal, then click **OK**. 
+	![](./media/mobile-services-dotnet-backend-store-data-table-storage/mobile-blob-storage-app-settings.png)
+
+7. In the above string, replace the values of `<ACCOUNT_NAME>` and `<ACCESS_KEY>` with the values from the portal, then click **Save**. 
 
 	The storage account connection string is stored encrypted in app settings. You can access this string in any table controller at runtime. 
 
@@ -133,7 +135,7 @@ You are now ready to test the app.
 
 Now that you have seen how easy it is to use Table storage with .NET backend, consider exploring some other backend storage options:
 
-+ [Use MongoDB as a data store with your Mobile Services.NET backend](mobile-services-dotnet-backend-use-non-relational-data-store.md)</br>Like the tutorial you just completed, this topic shows you how to use a non-relational data store for your mobile service. In this tutorial, you will modify the Mobile Services quickstart project to use MongoDB instead of SQL as a data store.
++ [Use MongoDB as a data store with your Mobile Services.NET backend](mobile-services-dotnet-backend-use-non-relational-data-store.md)</br>Like the tutorial you just completed, this topic shows you how to use a non-relational data store for your mobile service. In this tutorial, you will modify the Mobile Services quickstart project to use MongoDB instead of SQL Database as the data store.
  
 + [Connect to an on-premises SQL Server using Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>Hybrid Connections lets your mobile service securely connect to your on-premises assets. In this way, you can make your on-premises data accessible to your mobile clients by using Azure. Supported assets include any resource that runs on a static TCP port, including Microsoft SQL Server, MySQL, HTTP Web APIs, and most custom web services.
 
@@ -146,8 +148,6 @@ Now that you have seen how easy it is to use Table storage with .NET backend, co
 
 
 <!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
-[1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png
 
 
 <!-- URLs. -->
