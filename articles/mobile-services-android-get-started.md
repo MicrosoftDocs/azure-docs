@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Azure Mobile Services for Android apps" 
-	description="Follow this tutorial to get started using Azure Mobile Services for Android development." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Azure Mobile Services for Android apps"
+	description="Follow this tutorial to get started using Azure Mobile Services for Android development."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="hero-article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article" 
+	ms.date="06/03/2015"
 	ms.author="ricksal"/>
 
 # Get started with Mobile Services
@@ -34,7 +34,7 @@
 
 ## Prerequisites
 
-Completing this tutorial requires the [Android Developer Tools][Android Studio], which includes the Android Studio integrated development environment, and the latest Android platform. Android 4.2 or a later version is required. 
+Completing this tutorial requires the [Android Developer Tools][Android Studio], which includes the Android Studio integrated development environment, and the latest Android platform. Android 4.2 or a later version is required.
 
 The downloaded quickstart project contains the Azure Mobile Services SDK for Android.
 
@@ -47,7 +47,7 @@ The downloaded quickstart project contains the Azure Mobile Services SDK for And
 
 ## Create a new Android app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
+Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.
 
 In this section you will create a new Android app that is connected to your mobile service.
 
@@ -68,7 +68,7 @@ In this section you will create a new Android app that is connected to your mobi
 
 5. Now download your app:
 	- The latest app version uses the Mobile Services Android SDK 2.0. You can download that version from <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">here</a>. Click **Download Zip**, unzip it, and the project is in GettingStarted under the Android folder.
-	 
+
 	- An earlier version uses the prior version of the SDK. To use it, under **Download and run your app**, click **Download**. This downloads the project for the sample _To do list_ application that is connected to your mobile service. The project files are compressed, so browse to their location and expand the files on your computer.
 
 
@@ -84,7 +84,7 @@ If you would like to see the source code of the completed app, go [here](https:/
 If you would like to see the Eclipse version of this tutorial, go to : [Get started (Eclipse)](mobile-services-android-get-started-EC.md).
 
 ## <a name="next-steps"> </a>Next Steps
-Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
+Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
 * [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
@@ -92,7 +92,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications] 
+* [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
 
 

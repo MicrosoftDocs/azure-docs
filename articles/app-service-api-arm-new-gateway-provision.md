@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Deploy an API app with a new gateway" 
-	description="" 
+	description="Use an Azure Resource Manager template to deploy an API app with a new gateway and new App Service plan." 
 	services="app-service\api" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,27 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/02/2015" 
 	ms.author="tomfitz"/>
 
-# Deploy an API app with a new gateway and service plan
+# Provision an API app with a new gateway
 
 In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure API app and a gateway. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
-For the complete template, see [Web App Linked to GitHub template](www.github.com).
+For the complete template, see [API app with new gateway template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/new-gateway-new-plan-new-apiapp.json).
 
 ## What you will deploy
 
 In this template, you will deploy:
 
-- an API app
-- a new gateway
-- a new app service hosting plan
+- API app
+- new gateway
+- new App Service hosting plan
 
-## Parameters to specify
+## Parameters
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../includes/app-service-api-deploy-parameters.md)]
     
@@ -273,10 +273,10 @@ Notice that the names of the hosting web app and gateway are defined as properti
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/blank.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/blank.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
 
 

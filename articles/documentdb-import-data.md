@@ -181,7 +181,14 @@ Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting.  B
   "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
 }*
 
-The import tool will attempt to infer type information for unquoted values in CSV files (quoted values are always treated as strings).  Types are identified in the following order: number, datetime, boolean.  By default, unquoted values are always trimmed for tabs and spaces, while quoted values are preserved as-is (this behavior can be overridden with the /s.TrimQuoted command line option).   
+The import tool will attempt to infer type information for unquoted values in CSV files (quoted values are always treated as strings).  Types are identified in the following order: number, datetime, boolean.  
+
+There are two other things to note about CSV import: 
+
+1.	By default, unquoted values are always trimmed for tabs and spaces, while quoted values are preserved as-is.  This behavior can be overridden with the Trim quoted values checkbox or the /s.TrimQuoted command line option.
+
+2.	By default, an unquoted null is treated as a null value.  This behavior can be overridden (i.e. treat an unquoted null as a “null” string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command line option.
+
 
 Here is a command line sample for CSV import:
 
@@ -227,6 +234,8 @@ The format of the DocumentDB connection string is:
 > [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
 
 To import from a single DocumentDB collection, enter the name of the collection from which data will be imported.  To import from multiple DocumentDB collections, provide a regular expression to match one or more collection names (e.g. collection01 | collection02 | collection03).  You may optionally specify, or provide a file for, a query to both filter and shape the data to be imported.
+
+> [AZURE.NOTE] Since the collection field accepts regular expressions, if you are importing from a single collection whose name contains regular expression characters, then those characters must be escaped accordingly.
 
 The DocumentDB source importer option has the following advanced options:
 
@@ -397,11 +406,11 @@ You may optionally choose to prettify the resulting JSON, which will increase th
 	
 ## Advanced Configuration
 
-In the Advanced configuration screen, specify the location of the log file to which you would like any errors written.  The following rules apply to this page:
+In the Advanced configuration screen, specify the location of the log file to which you would like any errors written. The following rules apply to this page:
 
-1. If a file name is not provided, then the import tool will store any errors in memory and display the errors on the Results page.
-2. If a file name is provided without a directory, then the file will be created (or overwritten) in the import tool directory.
-3. If you select an existing file, then the file will be overwritten, there is no append option. 
+1.	If a file name is not provided, then all errors will be returned on the Results page.
+2.	If a file name is provided without a directory, then the file will be created (or overwritten) in the current environment directory.
+3.	If you select an existing file, then the file will be overwritten, there is no append option.
 
 	![Screenshot of Advanced configuration screen](./media/documentdb-import-data/AdvancedConfiguration.png)
 

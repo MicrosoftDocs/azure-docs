@@ -50,7 +50,7 @@ The Azure CLI has several commands to help prevent errors and detect what went w
           "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
         }
 
-- **azure group template validate <resource group>**. This command validates your template and template parameter before you use them. Enter a custom or gallery template and the template parameter values you plan to use. This cmdlet tests whether the template is internally consistent and whether your parameter value set matches the template.
+- **azure group template validate <resource group>**. This command validates your templates and template parameters before you use them. Enter a custom or gallery template and the template parameter values you plan to use. 
 
     The following example shows how to validate a template and any required parameters; the Azure CLI prompts you for parameter values that are required.
 
@@ -116,7 +116,7 @@ The Azure CLI has several commands to help prevent errors and detect what went w
                                        Subnet-1
                                        "}}}]}}
 
-        Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
+Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
 
         azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -214,6 +214,44 @@ But Azure Active Directory enables you or your administrator to control which id
 
 You may also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, as well as other scopes. Confirm to your satisfaction that you have the resources available to deploy properly. For complete quota information, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
 
+To examine your own subscription's quotas for cores, you should use the `azure vm list-usage` command in the Azure CLI and the `Get-AzureVMUsage` cmdlet in PowerShell. The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:
+
+    azure vm list-usage
+    info:    Executing command vm list-usage
+    Location: westus
+    data:    Name   Unit   CurrentValue  Limit
+    data:    -----  -----  ------------  -----
+    data:    Cores  Count  0             4    
+    info:    vm list-usage command OK
+
+If you were to try to deploy a template that creates more than 4 cores into the West US region on the above subscription, you would get a deployment error that might look something like this (either in the portal or by investigating the deployment logs):
+
+    statusCode:Conflict
+    serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
+
+In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy. 
+
+> [AZURE.NOTE] Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 resource management cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource management cores in all regions. 
+<!-- -->
+To be specific about cores, for example, you can check the regions for which you should request the proper quota amount by using the following command, which pipes out to **jq** for json parsing.
+<!-- -->
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
+          "name": "virtualMachines",
+          "apiVersions": [
+            "2015-05-01-preview",
+            "2014-12-01-preview"
+          ],
+          "locations": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ]
+        }
+     
 
 ## Azure CLI and PowerShell mode issues
 
@@ -244,7 +282,7 @@ To see whether the provider is registered for use using the Azure CLI, use the `
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-    Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
+Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
 
         azure provider list --json | jq '.[0]'
         {
@@ -351,8 +389,6 @@ Often you may want to use a resource from outside of the current resource group 
       }]
 
     }
-
-
 
 ## Next steps
 

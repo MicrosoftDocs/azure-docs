@@ -20,6 +20,31 @@
 
 > [AZURE.NOTE] When you're searching for VM images in this topic, you're using the [Azure Resource Management mode](resource-group-overview.md) with a recent installation of either the Azure Command-Line Interface for Mac, Linux, and Windows or of Windows PowerShell. With the Azure CLI, enter that mode by typing `azure config mode arm`. With PowerShell, type `Switch-AzureMode AzureResourceManager`. See [Azure CLI with resource management](xplat-cli-azure-resource-manager.md) and [PowerShell with Azure resource management](powershell-azure-resource-manager.md) for more complete update and configuration details. 
 
+## Table of commonly-used images
+
+
+| PublisherName                        | Offer                                 | Sku                         |
+|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
+| OpenLogic                        | CentOS                                     | 7                                |
+| OpenLogic                        | CentOS                                     | 7.1                              |
+| CoreOS                           | CoreOS                                     | Beta                             |
+| CoreOS                           | CoreOS                                     | Stable                           |
+| MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             |
+| MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             |
+| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         |
+| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
+| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      |
+| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    |
+| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      |
+| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               |
+| MicrosoftWindowsServer           | WindowsServer                              | 2008-R2-SP1 |
+| MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          |
+| MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           |
+
+
 ## Azure CLI
 
 The easiest and quickest way to locate an image to use either with `azure vm quick-create` or to create a resource group template file is to call the `azure vm image list` command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer. For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.

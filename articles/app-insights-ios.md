@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Application Insights for Windows desktop apps" 
-    description="Analyze usage and performance of your Windows app with Application Insights." 
+    pageTitle="Application Insights for iOS apps" 
+    description="Analyze usage and performance of your iOS app with Application Insights." 
     services="application-insights" 
     documentationCenter="ios"
     authors="alancameronwills" 

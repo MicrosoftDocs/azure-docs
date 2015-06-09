@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure App Service, Cloud Services and Virtual Machines comparison" 
+<properties
+	pageTitle="Azure App Service, Cloud Services and Virtual Machines comparison"
 	description="Learn when to use Azure App Service, Cloud Services, and Virtual Machines for hosting web applications."
-	services="app-service\web, virtual-machines, cloud-services" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	services="app-service\web, virtual-machines, cloud-services"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
 # Azure App Service, Cloud Services, and Virtual Machines comparison
@@ -22,13 +22,13 @@
 
 Azure offers several ways to host web sites: [Azure App Service][], [Cloud Services][], and [Virtual Machines][]. This article helps you understand the options and make the right choice for your web application.
 
-Azure App Service is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure App Service easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature makes it easy to add background job processing to your App Service web app. 
+Azure App Service is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure App Service easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature makes it easy to add background job processing to your App Service web app.
 
 If you need more control over the web server environment, such as the ability to remote into your server or configure server startup tasks, Azure Cloud Services is typically the best option.
 
 If you have an existing application that would require substantial modifications to run in Azure App Service or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Cloud Services. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.  
 
-The following diagram illustrates the relative degree of control versus ease of use for each of these web hosting options on Azure. 
+The following diagram illustrates the relative degree of control versus ease of use for each of these web hosting options on Azure.
 
 ![ChoicesDiagram][ChoicesDiagram]
 
@@ -52,20 +52,20 @@ Here are some common application scenarios with recommendations as to which Azur
 
 Azure App Service is a great solution for complex business applications. It lets you develop apps that scale automatically on a load balanced platform, are secured with Active Directory, and connect to your on-premises resources. It makes managing those apps easy through a world-class management portal and APIs, and allows you to gain insight into how customers are using them with app insight tools. The new [Webjobs][] feature lets you run background processes and tasks as part of your web tier, while hybrid connectivity and [VNET features](fundamentals-introduction-to-azure.md#networking/) make it easy to connect back to on-premises resources. Azure App Service provides three 9's SLA for web apps and enables you to:
 
-* Run your applications reliably on a self-healing, auto-patching cloud platform. 
+* Run your applications reliably on a self-healing, auto-patching cloud platform.
 * Scale automatically across a global network of datacenters.
-* Back up and restore for disaster recovery. 
+* Back up and restore for disaster recovery.
 * Be ISO, SOC2, and PCI compliant.
 * Integrate with Active Directory
 
-### <a id="corp"></a> I need a reliable way to host my corporate website that scales well and offers global reach. 
+### <a id="corp"></a> I need a reliable way to host my corporate website that scales well and offers global reach.
 
 Azure App Service is a great solution for hosting corporate websites. It enables web apps to scale quickly and easily to meet demand across a global network of datacenters. It offers local reach, fault tolerance, and intelligent traffic management. All on a platform that provides world-class management tools, allowing you to gain insight into site health and site traffic quickly and easily. Azure App Service provides three 9's SLA for web apps and enables you to:
 
-* Run your websites reliably on a self-healing, auto-patching cloud platform. 
+* Run your websites reliably on a self-healing, auto-patching cloud platform.
 * Scale automatically across a global network of datacenters.
-* Back up and restore for disaster recovery. 
-* Manage logs and traffic with integrated tools. 
+* Back up and restore for disaster recovery.
+* Manage logs and traffic with integrated tools.
 * Be ISO, SOC2, and PCI compliant.
 * Integrate with Active Directory
 
@@ -74,8 +74,8 @@ Azure App Service is a great solution for hosting corporate websites. It enables
 Azure App Service makes it easy to avoid the infrastructure costs associated with migrating older IIS6 applications. Microsoft has created [easy to use migration tools and detailed migration guidance](https://www.movemetowebsites.net/) that enable you to check compatibility and identify any changes that need to be made. Integration with Visual Studio, TFS, and common CMS tools makes it easy to deploy IIS6 applications directly to the cloud. Once deployed, the Azure management portal provides robust management tools that enable you to scale down to manage costs and up to meet demand as necessary. With the migration tool you can:
 
 * Quickly and easily migrate your legacy Windows Server 2003 web application to the cloud.
-* Opt to leave your attached SQL database on-premise to create a hybrid application. 
-* Automatically move your SQL database along with your legacy application. 
+* Opt to leave your attached SQL database on-premise to create a hybrid application.
+* Automatically move your SQL database along with your legacy application.
 
 ### <a id="smallbusiness"></a>I'm a small business owner, and I need an inexpensive way to host my site but with future growth in mind.
 
@@ -102,24 +102,24 @@ If you’re running a multi-tier application, such as a web server that connects
 
 Choose Cloud Service for one or more of your tiers if you need more control over the server environment, such as the ability to remote into your server or configure server startup tasks.
 
-Choose Virtual Machines for one or more of your tiers if you want to use your own machine image or run server software or services that you can't configure on Cloud Services. 
+Choose Virtual Machines for one or more of your tiers if you want to use your own machine image or run server software or services that you can't configure on Cloud Services.
 
 ### <a id="custom"></a>My application depends on highly customized Windows or Linux environments and I want to move it to the cloud.
 
 If your application requires complex installation or configuration of software and the operating system, Virtual Machines is probably the best solution. With Virtual Machines, you can:
 
-- Use the Virtual Machine gallery to start with an operating system, such as Windows or Linux, and then customize it for your application requirements. 
-- Create and upload a custom image of an existing on-premises server to run on a virtual machine in Azure. 
+- Use the Virtual Machine gallery to start with an operating system, such as Windows or Linux, and then customize it for your application requirements.
+- Create and upload a custom image of an existing on-premises server to run on a virtual machine in Azure.
 
 ### <a id="oss"></a>My site uses open source software, and I want to host it in Azure
 
 If your open source framework is supported on App Service, the languages and frameworks needed by your application are configured for you automatically. App Service enables you to:
 
-- Use many popular open source languages, such as [.NET][dotnet], [PHP][], [Node.js][nodejs], and [Python][]. 
-- Set up WordPress, Drupal, Umbraco, DNN, and many other third-party web applications. 
-- Migrate an existing application or create a new one from the Application Gallery. 
+- Use many popular open source languages, such as [.NET][dotnet], [PHP][], [Node.js][nodejs], and [Python][].
+- Set up WordPress, Drupal, Umbraco, DNN, and many other third-party web applications.
+- Migrate an existing application or create a new one from the Application Gallery.
 
-If your open source framework is not supported on App Service, you can run it on either of the other two Azure web hosting options. With Cloud Services, you use startup tasks to install and configure any required open source software that runs on Windows. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based. 
+If your open source framework is not supported on App Service, you can run it on either of the other two Azure web hosting options. With Cloud Services, you use startup tasks to install and configure any required open source software that runs on Windows. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
 
@@ -131,7 +131,7 @@ HTTP-based web services enable you to support a wide variety of clients, includi
 
 - Quickly create a web app to host the HTTP web service in one of Azure’s globally distributed datacenters.
 - Migrate existing services or create new ones.
-- Achieve SLA for availability with a single instance, or scale out to multiple dedicated machines. 
+- Achieve SLA for availability with a single instance, or scale out to multiple dedicated machines.
 - Use the published site to provide REST APIs to any HTTP clients, including mobile clients.
 
 In addition, Azure App Service has a new preview feature for REST APIs:  API apps.  For more information about API apps, see [What are API apps](app-service-api-apps-why-best-platform.md).

@@ -69,7 +69,7 @@ You can choose to stop the future backups of a virtual machine with the followin
 - Retain backup data associated with virtual machine in Azure Backup vault
 - Delete backup data associated with virtual machine
 
-If you have selected first option, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](http://azure.microsoft.com/pricing/details/backup/).
+If you have selected the first option, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](http://azure.microsoft.com/pricing/details/backup/).
 
 To Stop protection for a virtual machine:
 
@@ -95,7 +95,7 @@ To Stop protection for a virtual machine:
 
     ![Stop protection](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    If you have not selected **Delete associated backup data** option during **Stop Protection** wizard, then post job completion, protection status changes to **Protection Stopped**.
+    If you have not selected **Delete associated backup data** option during **Stop Protection** wizard, then post job completion, protection status changes to **Protection Stopped**. The data remains with Azure Backup until it is explicitly deleted. You can always delete the data by selecting the virtual machine in the **Protected Items** page and clicking **Delete**. 
 
     ![Stopped protection](./media/backup-azure-manage-vms/protection-stopped-status.png)
 

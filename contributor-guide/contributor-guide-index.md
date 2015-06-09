@@ -6,7 +6,7 @@
 
 ##General guidance
 
-- [Contribute to Azure documentation](./../CONTRIBUTING.md)
+- [Contribute to Azure documentation](./../README.md)
 
 - [Content channel guidance](./content-channel-guidance.md)
 
