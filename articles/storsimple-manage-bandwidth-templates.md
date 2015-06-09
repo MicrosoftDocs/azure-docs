@@ -96,7 +96,7 @@ Perform the following steps to edit a bandwidth template.
 
 > [AZURE.NOTE] You will not be allowed to save your changes if the edited schedule overlaps with an existing schedule in the bandwidth template that you are modifying.
 
-### Delete a bandwidth template
+## Delete a bandwidth template
 
 Perform the following steps to delete a bandwidth template.
 
@@ -110,7 +110,7 @@ If the template is in use by any volume(s), you will not be allowed to delete it
 
 You can delete all the references to the template by accessing the **Volume Containers** page and modifying the volume containers that use this template so that they use another template or use a custom or unlimited bandwidth setting. When all the references have been removed, you can delete the template.
 
-### Use a default bandwidth template
+## Use a default bandwidth template
 
 A default bandwidth template is provided and is used by volume containers by default to enforce bandwidth controls when accessing the cloud. The default template also serves as a ready reference for users who create their own templates. The details of this default template are:
 
@@ -120,7 +120,7 @@ A default bandwidth template is provided and is used by volume containers by def
 
 The default template can be edited. The usage of this template (including edited versions) is tracked.
 
-### Create an all-day bandwidth template that starts at a specified time
+## Create an all-day bandwidth template that starts at a specified time
 
 Follow this procedure to create a schedule that starts at a specified time and runs all day. For example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. 
 
@@ -134,7 +134,7 @@ Follow this procedure to create a schedule that starts at a specified time and r
 
 The composite schedule will then start at a time of your choosing and run all-day.
 
-### Questions and answers about bandwidth templates
+## Questions and answers about bandwidth templates
 
 Q. What happens to bandwidth controls when you are in between the schedules? (A schedule has ended and another one has not started yet.)
 
@@ -164,7 +164,7 @@ Q. What happens if multiple volume containers on my device have schedules that o
 
 A. Let us assume you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
 
-### Best practices for bandwidth templates
+## Best practices for bandwidth templates
 
 Follow these best practices for your StorSimple device:
 
