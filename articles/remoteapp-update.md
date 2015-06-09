@@ -9,9 +9,9 @@
 
 <tags
    ms.service="remoteapp"
-   ms.devlang="n/a"
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="n/a"
+   ms.tgt_pltfrm="NA"
    ms.workload="compute"
    ms.date="06/09/2015"
    ms.author="elizapo"/>
@@ -25,7 +25,7 @@ However, if you are using a custom image (either that you built from scratch or 
 So, how do you go about updating your collection? It's fairly straightforward:
 
 1. Update the image that you used in your collection. Apply any patches or updates needed, and then save it with a new name.
-2. [Upload](remoteapp-uploadimage.md) or [import](remoteapp-image-on-azurevm} that image to RemoteApp.
+2. [Upload](remoteapp-uploadimage.md) or [import](remoteapp-image-on-azurevm) that image to RemoteApp.
 3. Now, on the collection page, click **Update**.
 4. Choose the new image from the **Template Image** list.
 4. Here's the tricky part - you need to decide how to deal with any users that are currently using an app in the collection. You have the following choices:
