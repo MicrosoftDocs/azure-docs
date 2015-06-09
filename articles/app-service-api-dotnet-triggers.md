@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/09/2015" 
 	ms.author="guayan;tarcher"/>
 
 # Azure App Service API app triggers
@@ -22,11 +22,7 @@
 
 This article explains how to implement API app triggers and consume them from a Logic app.
 
-If you are new to the world of API apps, here are some articles to get started.
-
-1. [Create an API App](app-service-dotnet-create-api-app.md) - Create a new API app from scratch, or convert an existing Web API project to an API app. 
-2. [Deploy an API App](app-service-dotnet-deploy-api-app.md) - Deploy an API app to your Azure subscription.
-3. [Debug an API App](app-service-dotnet-remotely-debug-api-app.md) - Use Visual Studio to remotely debug an API app running in Azure.
+If you are new to [API apps](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md), we recommend reading the multi-part series on [creating API apps](app-service-dotnet-create-api-app.md)
 
 In addition, all of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
 
@@ -36,7 +32,7 @@ Note that you'll need to download the following nuget package for the code in th
 
 It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event. The REST API based mechanism that supports this scenario is called an API app trigger. 
 
-For example, let's say your client code is using the [Twitter Connector API app](app-service-logic-connector-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a push or pull trigger to facilitate this need.
+For example, let's say your client code is using the [Twitter Connector API app](app-service-logic-connector-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a poll or push trigger to facilitate this need.
 
 ## Poll trigger versus push trigger
 
