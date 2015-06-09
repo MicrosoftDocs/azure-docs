@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="linux"
 	ms.workload="infrastructure-services"
 	ms.date="06/04/2015"
-	ms.author="SuperScottz"/>
+	ms.author="mingzhan"/>
 
 
 #Install and configure PostgreSQL on Microsoft Azure
