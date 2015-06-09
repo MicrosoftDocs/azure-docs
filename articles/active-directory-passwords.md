@@ -19,7 +19,10 @@
 # Manage your passwords from any location
 Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises. Azure AD sets itself apart from these offerings by providing some of the easiest to use and and most powerful self-service capabilities available today.
 
-Azure AD Password Management is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.  Read on to learn more about the following:
+Azure AD Password Management is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.
+
+## Overview
+You can get started with a pilot of Azure AD Password Management in under five minutes, and can have it deployed to your entire organization in hours.  Below are some helpful resources to get you going with the service: 
 
 * [How it works](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [Getting started](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
