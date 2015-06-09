@@ -125,7 +125,7 @@ To configure a web role to use a PHP runtime that you provide, follow the steps 
 
 5. Add your application files to your web role's root directory. This will be the web server's root directory.
 
-6. Publish your application as described in the [How to: Publish your application](#Publish) section below.
+6. Publish your application as described in the [How to: Publish your application](#how-to-publish-your-application) section below.
 
 > [AZURE.NOTE] The `download.ps1` script (in the `bin` folder of the web role's root directory) can be deleted after following the steps described above for using your own PHP runtime.
 
@@ -168,7 +168,7 @@ To configure a worker role to use a PHP runtime that you provide, follow the ste
 
 5. Add your application files to your worker role's root directory.
 
-6. Publish your application as described in the [How to: Publish your application](#Publish) section below.
+6. Publish your application as described in the [How to: Publish your application](#how-to-publish-your-application) section below.
 
 ## How to: Run your application in the Compute and Storage Emulators
 
