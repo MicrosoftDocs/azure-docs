@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/03/2015"
+   ms.date="06/09/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Gain insights into your Microsoft Azure resource consumption 
 
 Customers and partners require the ability to accurately predict and manage their Azure costs.  As they move from a Capex to an Opex model, they also need the ability to do show-back or charge-back, and provide mode fidelity in estimation and billing, especially for large cloud deployments. 
 
-The Azure Resource Usage and Rate Card APIs discussed in this article address these needs, by enabling new insights into your consumption of Azure resources.  For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+The Azure Resource Usage and Rate Card APIs discussed in this article address these needs, by enabling new insights into your consumption of Azure resources.  For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
 ## Introducing the Azure Resource Usage and RateCard APIs 
 
@@ -65,9 +65,8 @@ Here are some of the scenarios that are made possible with the combination of th
 	- Customers and partners can determine if another Azure offer type gives a better rate on an Azure resource.
 
 ## Partner Solutions
-[**TODO**:Update link/text] See the [Azure Billing Partner Solutions](azure-billing-usage-rate-card-overview.md) article to learn more about the Azure Billing API integration experiences as shared by partners Cloud Cruiser and Cloudyn.
+[**TODO**:Update link/text] To learn more about the integration experiences as shared by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/), see [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](azure-billing-usage-rate-card-partner-solution-cloudyn.md).  In this article you will find detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data. 
 
-[**TODO**:Update link] For a more in-depth look at the partner integration work mentioned above, see the set of [Azure Billing Partner Solutions Tutorials](azure-billing-usage-rate-card-overview.md), which include tutorials and sample code to walk you through each of the respective projects.
 
 ## Next Steps
 
