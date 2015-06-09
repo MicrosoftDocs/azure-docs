@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Getting Started: Azure AD Password Management | Windows Azure" 
+	pageTitle="Getting Started: Azure AD Password Management | Microsoft Azure" 
 	description="Enable users to reset their own passwords, discover pre-requisites for password reset, and enable Password Writeback to manage on-premises passwords in Active Directory." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
 # Getting started with Password Management

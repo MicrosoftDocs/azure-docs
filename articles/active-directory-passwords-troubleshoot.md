@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Troubleshooting: Azure AD Password Management | Windows Azure" 
+	pageTitle="Troubleshooting: Azure AD Password Management | Microsoft Azure" 
 	description="Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
 # How to troubleshoot Password Management

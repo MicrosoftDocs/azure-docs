@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How it works: Azure AD Password Management | Windows Azure" 
+	pageTitle="How it works: Azure AD Password Management | Microsoft Azure" 
 	description="Learn about the different components of Azure AD Password Management, including where users register, reset, and change their passwords, and where admins configure, report on, and enable management of on-premises Active Directory passwords." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
 # How Password Management works

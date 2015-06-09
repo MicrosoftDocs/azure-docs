@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="FAQ: Azure AD Password Management | Windows Azure" 
+	pageTitle="FAQ: Azure AD Password Management | Microsoft Azure" 
 	description="Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory ." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
 # Password Management Frequently Asked Questions

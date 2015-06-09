@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="What is it: Azure AD Password Management | Windows Azure"
+	pageTitle="What is it: Azure AD Password Management | Microsoft Azure"
 	description="Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
 # Manage your passwords from any location

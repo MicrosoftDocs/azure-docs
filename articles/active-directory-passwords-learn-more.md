@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn More: Azure AD Password Management | Windows Azure" 
+	pageTitle="Learn More: Azure AD Password Management | Microsoft Azure" 
 	description="Advanced topics on Azure AD Password Management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
 # Learn more about Password Management
