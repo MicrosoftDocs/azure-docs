@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/08/2015"
+   ms.date="06/09/2015"
    ms.author="v-sharos" />
 
 # Install your StorSimple 8100 hardware
@@ -29,7 +29,7 @@ The following steps provide clear, detailed instructions about how to unpack you
 
 ### Prepare to unpack your device
 
-Before you unpack your device, complete the following steps.
+Before you unpack your device, review the following information.
 
 >[AZURE.WARNING]
 > ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
@@ -38,7 +38,7 @@ Before you unpack your device, complete the following steps.
 >
 > 2. Place the box on a flat, level surface.
 
-Next, perform the following steps to unpack your device.
+Next, complete the following steps to unpack your device.
 
 #### To unpack your device
 
