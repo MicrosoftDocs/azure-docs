@@ -36,8 +36,8 @@ If you have already deployed Password Management, or are just looking to learn m
   - [How pasword writeback works](#how-password-writeback-works)
   - [Scenarios supported for password writeback](#scenarios-supported-for-password-writeback)
   - [Password writeback security model](#password-writeback-security-model)
-* [How does the password reset portal work?](#how-does-the-password-reset-portal-work?)
-  - [What data is used by password reset?](#what-data-is-used-by-password-reset?)
+* [How does the password reset portal work?](#how-does-the-password-reset-portal-work)
+  - [What data is used by password reset?](#what-data-is-used-by-password-reset)
 
 ## Password writeback overview
 Password writeback is an [Azure Active Directory Connect](active-directory-aadconnect) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](active-directory-editions.md). 

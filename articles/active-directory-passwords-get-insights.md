@@ -16,7 +16,7 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-# How to get Operational Insights with Password Management reports
+# How to get operational insights with Password Management reports
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../active-directory-passwords/" title="What is it">What is It</a>

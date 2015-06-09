@@ -37,7 +37,7 @@ Password Management in Azure Active Directory is comprised of several logical co
 - [**User Password Reset Portal**](#user-password-reset-portal) – Users can reset their own passwords using a number of different challenges in accordance with the administrator-controlled password reset policy
 - [**User Password Change Portal**](#user-password-change-portal) – Users can change their own passwords at any time by entering their old password and selecting a new password using this web portal
 - [**Password Management Reports**](#password-management-reports) – Administrators can view and analyze password reset and registration activity in their tenant by navigating to the “Activity Reports” section of their directory’s “Reports” tab in the Azure Management Portal
-- [**Password Writeback Component of  AAD Sync**](#password-writeback-component-of-azure-ad-connect) - Administrators can optionally enable the Password Writeback feature when installing AADSync to enable management of federated or password synchronized user passwords from the cloud.
+- [**Password Writeback Component of Azure AD Connect**](#password-writeback-component-of-azure-ad-connect) - Administrators can optionally enable the Password Writeback feature when installing AADSync to enable management of federated or password synchronized user passwords from the cloud.
 
 ## Password Management Configuration Portal
 You can configure Password Management policies for a specific directory using the [Azure Management Portal](https://manage.windowsazure.com) by navigating to the **User Password Reset Policy** section in the directory’s **Configure** tab.  From this configuration page, you can control many aspects of how passwords are managed in your organization, including:
