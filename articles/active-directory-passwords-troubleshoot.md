@@ -40,7 +40,7 @@ If you cannot solve your issue with the guidance below, you can contact our supp
  - **Support Code** – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results). 
    - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
     
-   ![][001]
+     ![][001]
     
  - **User ID** – what was the ID of the user who saw the error (e.g. user@contoso.com)?
  - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
@@ -1420,7 +1420,7 @@ Restarting the Azure AD Connect Sync Service can help to resolve connectivity is
  3.	Look for the Microsoft Azure AD Connect entry.
  4.	Right-click on the service entry, click Restart, and wait for the operation to complete.
     
-  ![][002]
+    ![][002]
 
 These steps will re-establish your connection with the cloud service and resolve any interruptions you may be experiencing.  If restarting the Sync Service does not resolve your issue, we recommend that you try to disable and re-enable the Password Writeback feature as a next step.
 
@@ -1433,7 +1433,7 @@ Disabling and re-enabling the Password Writeback feature can help to resolve con
  4.	On the Uniquely identifying your users dialog, click the Next button.
  5.	On the Optional features dialog, uncheck the Password write-back checkbox.
   
-  ![][003]
+    ![][003]
   
  6.	Click Next through the remaining dialog pages without changing anything until you get to the Ready to configure page.
  7.	Ensure that the configure page shows the Password write-back option as disabled and then click the green Configure button to commit your changes.
@@ -1441,7 +1441,7 @@ Disabling and re-enabling the Password Writeback feature can help to resolve con
  9.	Re-open the Azure AD Connect configuration wizard.
  10.	Repeat steps 2-8, except ensure you check the Password write-back option on the Optional features screen to re-enable the service.
   
-  ![][004]
+    ![][004]
   
 These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
 

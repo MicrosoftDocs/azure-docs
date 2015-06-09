@@ -46,7 +46,7 @@ To find the Password Management reports, follow the steps below:
 4.	Look under the Activity Logs section.
 5.	Select either the Password reset activity report or the Password reset registration activity report.
   
-  ![][001]
+    ![][001]
   
 ## View password Reset registration activity
 
@@ -56,7 +56,7 @@ The password reset registration activity report shows all password reset registr
 - Max number of rows: unlimited
 - Downloadable: Yes, via CSV file
   
-  ![][002]
+    ![][002]
  
 ### Description of report columns
 The following list explains each of the report columns in detail:
@@ -119,7 +119,7 @@ This report shows all password reset attempts that have occurred in your organiz
 - Max number of rows: unlimited
 - Downloadable: Yes, via CSV file
   
-  ![][003]
+    ![][003]
   
   
 ### Description of report columns

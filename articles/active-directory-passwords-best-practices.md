@@ -69,7 +69,7 @@ There are several ways to inform your users that they can register for and use p
 ### Email-based rollout
 Perhaps the simplest approach to inform your users about to register for or use password reset is by sending them an email instructing them to do so.  Below is a template you can use to do this.  Feel free to replace the colors / logos with those of your own choosing to customize it to fit your needs.
   
-  ![][001]
+    ![][001]
 
 You can download the email template [here](http://1drv.ms/1xWFtQM).
 
@@ -78,15 +78,15 @@ If you want your users to register for password reset themselves, you can also f
 
 You can also optionally define whether or not they will be asked to re-register after a configurable period of time by modifying the Number of days before users must confirm their contact data option to be a non-zero value. See “Customizing User Password Reset Policy” in Self-service password reset in Azure AD: how to customize password reset to meet your needs for more information.
   
-  ![][002]
+    ![][002]
 
 After you enable this option, when users sign in to the access panel, they will see a popup that informs them that their administrator has required them to verify their contact information. They can use it to reset their password if they ever lose access to their account.
   
-  ![][003]
+    ![][003]
   
 Clicking Verify Now brings them to the password reset registration portal at http://aka.ms/ssprsetup and requires them to register.  Registration via this method can be dismissed by clicking the cancel button or closing the window, but users are reminded every time they sign in if they do not register.
   
-  ![][004]
+    ![][004]
 
 ### Uploading data yourself
 If you want to upload authentication data yourself, then users need not register for password reset before being able to reset their passwords.  As long as users have the authentication data defined on their account that meets the password reset policy you have defined, then those users will be able to reset their passwords.
@@ -99,12 +99,12 @@ You can upload the authentication data via the Azure Management Portal by follow
 3.	Select the user you are interested in from the list.
 4.	On the first tab, you will find Alternate Email, which can be used as a property to enable password reset. 
   
-  ![][005]
+    ![][005]
   
 5.	Click on the Work Info tab.
 6.	On this page, you will find Office Phone, Mobile Phone, Authentication Phone, and Authentication Email.  These properties can also be set to allow a user to reset his or her password. 
   
-  ![][006]
+    ![][006]
   
 See Learn how data is used by password reset to see how each of these properties can be used.
 
