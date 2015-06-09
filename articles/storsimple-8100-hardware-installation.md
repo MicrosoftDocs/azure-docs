@@ -194,7 +194,7 @@ Before you begin the cabling of your device, you will need:
 
 - Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
 
-- [Supported transceivers, cables, and switches for 10 GbE network interfaces](storsimple-transceivers-cables-and-switches.md)
+- [Supported transceivers, cables, and switches for 10 GbE network interfaces](https://msdn.microsoft.com/library/azure/dn891474.aspx)
 
 
 ### Power cabling

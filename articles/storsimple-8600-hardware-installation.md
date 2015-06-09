@@ -198,7 +198,7 @@ Before you begin to cable your device, you will need:
 - Provided serial cables
 - Serial-USB converter with the appropriate driver installed on your PC (if needed)
 - Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
-- [Supported transceivers, cables, and switches for 10 GbE network interfaces](storsimple-transceivers-cables-and-switches.md) 
+- [Supported transceivers, cables, and switches for 10 GbE network interfaces](https://msdn.microsoft.com/library/azure/dn891474.aspx) 
 
 ### SAS cabling
 
