@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="06/09/2015" 
 	ms.author="mahender"/>
 
 # Get started with custom authentication
@@ -53,7 +53,7 @@ Because you are using custom authentication and not relying on another identity 
         public DbSet<Account> Accounts { get; set; }
 
 	>[AZURE.NOTE]The code snippets in this tutorial use `todoContext` as the context name. You must update the code snippets for your project's context. 
-
+        &nbsp;
 	Next, you will set up the security functions for working with this data. 
  
 5. Create a class called `CustomLoginProviderUtils` and add the following `using` statement:
