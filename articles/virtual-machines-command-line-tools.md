@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/09/2015"
-	ms.author="dlepow"/>
+	ms.author="danlep"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management
 
