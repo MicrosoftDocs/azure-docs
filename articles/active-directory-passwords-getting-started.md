@@ -44,10 +44,10 @@ This section walks you through enabling self-service password reset for your AAD
 ###  Prerequisites
 Before you can enable and use self-service password reset, you must complete the following prerequisites:
 
-- Create an AAD tenant. For more information, see Getting Started with Azure AD
-- Obtain an Azure subscription. For more information, see What is an Azure AD directory?.
-- Associate your AAD tenant with your Azure subscription. For more information, see How Azure subscriptions are associated with Azure AD.
-- Upgrade to Azure AD Premium or Basic. For more information, see Azure Active Directory Editions.
+- Create an AAD tenant. For more information, see [Getting Started with Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
+- Obtain an Azure subscription. For more information, see [What is an Azure AD tenant?](active-directory-administer.md#what-is-an-azure-ad-tenant).
+- Associate your AAD tenant with your Azure subscription. For more information, see [How Azure subscriptions are associated with Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+- Upgrade to Azure AD Premium or Basic. For more information, see [Azure Active Directory Editions](http://azure.microsoft.com/pricing/details/active-directory/).
 
   >[AZURE.NOTE] To enable self-service password reset, you must upgrade to Azure AD Premium or Azure AD Basic. For more information, Azure Active Directory Editions. This information includes detailed instructions on how to sign up for Azure AD Premium or Basic, how to activate your license plan and activate your Azure AD access, and how to assign access to administrator and user accounts.
   
@@ -57,59 +57,58 @@ Before you can enable and use self-service password reset, you must complete the
 ### Step 1: Configure password reset policy
 To configure user password reset policy, complete the following steps:
  
-1.	Open a browser of your choice and go to the Azure Management Portal.
-2.	In the Azure Management Portal, find the Active Directory extension on the navigation bar on the left hand side.
+1.	Open a browser of your choice and go to the [Azure Management Portal](https://manage.windowsazure.com).
+2.	In the [Azure Management Portal](https://manage.windowsazure.com), find the **Active Directory extension** on the navigation bar on the left hand side.
 
     ![][001]
 
-3. Under the Directory tab, click the directory in which you want to configure the user password reset policy, for example, Wingtip Toys.
+3. Under the **Directory** tab, click the directory in which you want to configure the user password reset policy, for example, Wingtip Toys.
 
     ![][002]
 
-4.	Click the Configure tab.
+4.	Click the **Configure** tab.
 
     ![][003]
 
-5.	Under the Configure tab, scroll down to the user password reset policy section.  This is where you configure every aspect of user password reset policy for a given directory.  This policy applies only to end users in your organization, not administrators. For security reasons, Microsoft controls the password reset policy for administrators. If you do not see this section, make sure that you have signed up for the Azure Active Directory Premium and Basic and assigned a license to the administrator account that is configuring this feature. 
+5.	Under the **Configure** tab, scroll down to the **user password reset policy** section.  This is where you configure every aspect of user password reset policy for a given directory.  This **policy applies only to end users in your organization, not administrators**. For security reasons, Microsoft controls the password reset policy for administrators. If you do not see this section, make sure that you have signed up for the Azure Active Directory Premium and Basic and **assigned a license** to the administrator account that is configuring this feature. 
 
     ![][004]
 
-6.	To configure the user password reset policy, slide the users enabled for password reset toggle to the yes setting.  This reveals several more controls which enable you to configure how this feature works in your directory.  Feel free to customize password reset as you see fit.  If you’d like to learn more about what each of the password reset policy controls does, please see Self-service password reset in Azure AD: how to customize password reset to meet your needs.
+6.	To configure the user password reset policy, slide the **users enabled for password reset** toggle to the **yes** setting.  This reveals several more controls which enable you to configure how this feature works in your directory.  Feel free to customize password reset as you see fit.  If you’d like to learn more about what each of the password reset policy controls does, please see [Customize: Azure AD Password Management](active-directory-passwords-customize).
 
     ![][005]
 
-7.	After configuring user password reset policy as desired for your tenant, click the Save button at the bottom of the screen.
-  
+7.	After configuring user password reset policy as desired for your tenant, click the **Save** button at the bottom of the screen.
+
   >[AZURE.NOTE] A two challenge user password reset policy is recommended so that  you can see how the functionality works in the most complex case.
 
     ![][006]
 
-
 ### Step 2: Add contact data for your test user
 You have several options on how to specify data for users in your organization to be used for password reset.
 
--	Edit users in the Azure Management Portal or the Office 365 Management Portal
+-	Edit users in the [Azure Management Portal](https://manage.windowsazure.com) or the [Office 365 Admin Portal](https://portal.microsoftonline.com)
 -	Use AAD Connect to synchronize user properties into Azure AD from an on-premises Active Directory domain
 -	Use Windows PowerShell to edit user properties
--	Allow users to register their own data by guiding them to the registration portal at http://aka.ms/ssprsetup
--	Require users to register for password reset when they sign in to the Access Panel at http://myapps.microsoft.com by setting the Require users to register SSPR configuration option to Yes.
+-	Allow users to register their own data by guiding them to the registration portal at [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+-	Require users to register for password reset when they sign in to the Access Panel at [http://myapps.microsoft.com](http://myapps.microsoft.com) by setting the **Require users to register when signing in to the access panel** SSPR configuration option to **Yes**.
 
-If you want to learn more about what data is used by password reset, as well as any formatting requirements for this data, please see Learn about data used by password reset.
+If you want to learn more about what data is used by password reset, as well as any formatting requirements for this data, please see [What data is used by password reset?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
 #### To add user contact data via the User Registration Portal
-1.	In order to use the password reset registration portal, you must provide the users in your organization with a link to this page (http://aka.ms/ssprsetup) or turn on the option to require users to register automatically.  Once they click this link, they are asked to sign in with their organizational account.  After doing so, they see the following page:
+1.	In order to use the password reset registration portal, you must provide the users in your organization with a link to this page ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)) or turn on the option to require users to register automatically.  Once they click this link, they are asked to sign in with their organizational account.  After doing so, they see the following page:
 
     ![][007]
 
 2.	Here, users can provide and verify their mobile phone, alternate email address, or security questions.  This is what verifying a mobile phone looks like.
-  
- ![][008]
-  
-3.	After a user specifies this information, the page will update to indicate that the information is valid (it has been obfuscated below).  By clicking the finish or cancel buttons, the user will be brought to the Access Panel.
+
+    ![][008]
+
+3.	After a user specifies this information, the page will update to indicate that the information is valid (it has been obfuscated below).  By clicking the **finish** or **cancel** buttons, the user will be brought to the Access Panel.
 
     ![][009]
 
-4.	Once a user verifies both of these pieces of information, his or her profile will be updated with the data he or she provided.  In this example, the Office Phone number has been specified manually, so the user can also use that as a contact method for resetting his or her password.
+4.	Once a user verifies both of these pieces of information, his or her profile will be updated with the data he or she provided.  In this example, the **Office Phone** number has been specified manually, so the user can also use that as a contact method for resetting his or her password.
 
     ![][010]
 
@@ -117,27 +116,27 @@ If you want to learn more about what data is used by password reset, as well as 
 Now that you’ve configured a user reset policy and specified contact details for your user, this user can perform a self-service password reset.
 
 #### To perform a self-service password reset
-1.	If you go to a site like portal.microsoftonline.com, you’ll see a login screen like the below.  Click the “can’t access your account” link to test the password reset UI.
+1.	If you go to a site like [**portal.microsoftonline.com**](http://portal.microsoftonline.com), you’ll see a login screen like the below.  Click the **Can’t access your account?** link to test the password reset UI.
 
     ![][011]
 
-2.	After clicking “can’t access your account”, you are brought to a new page which will ask for a user ID for which you wish to reset a password.  Enter your test user ID here, pass the captcha, and click “next”.
+2.	After clicking **Can’t access your account?**, you are brought to a new page which will ask for a **user ID** for which you wish to reset a password.  Enter your test **user ID** here, pass the captcha, and click **next**.
 
     ![][012]
 
-3.	Since the user has specified an office phone, mobile phone, and alternate email in this case, you see that he has been given all of those as options to pass the first challenge.
+3.	Since the user has specified an **office phone**, **mobile phone**, and **alternate email** in this case, you see that he or she has been given all of those as options to pass the first challenge.
 
     ![][013]
 
-4.	In this case, choose to call the office phone first.  Note that when selecting a phone-based method, users will be asked to verify their phone number before they can reset their passwords.  This is to prevent malicious individuals from spamming phone numbers of users in your organization.
+4.	In this case, choose to **call** the **office phone** first.  Note that when selecting a phone-based method, users will be asked to **verify their phone number** before they can reset their passwords.  This is to prevent malicious individuals from spamming phone numbers of users in your organization.
 
     ![][014]
 
-5.	Once the user confirms their phone number, clicking call wall cause a spinner to appear and his or her phone to ring.  A message will play once he or she picks up your phone indicating that the user should press “#” to verify his or her account.  Pressing this key will automatically verify that the user possesses the first challenge and advance the UI to the second verification step.
+5.	Once the user confirms their phone number, clicking call wall cause a spinner to appear and his or her phone to ring.  A message will play once he or she picks up your phone indicating that the **user should press “#”** to verify his or her account.  Pressing this key will automatically verify that the user possesses the first challenge and advance the UI to the second verification step.
 
     ![][015]
 
-6.	Once you’ve passed the first challenge, the UI is automatically updated to remove it from the list of choices the user has.  In this case, because you used your Office Phone first, only Mobile Phone and Alternate Email remain as valid options to use as the challenge for the second verification step.  Click on the Email my alternate email option.  After you have done that, pressing email will email the alternate email on file.
+6.	Once you’ve passed the first challenge, the UI is automatically updated to remove it from the list of choices the user has.  In this case, because you used your **Office Phone**first, only **Mobile Phone** and **Alternate Email** remain as valid options to use as the challenge for the second verification step.  Click on the **Email my alternate** email option.  After you have done that, pressing email will email the alternate email on file.
 
     ![][016]
 
@@ -149,7 +148,7 @@ Now that you’ve configured a user reset policy and specified contact details f
 
     ![][018]
 
-9.	Once you’ve met the requirements of the organizational policy, you are allowed to choose a new password.  The password is validated based it meets AAD “strong” password requirements (Password policy in Azure AD), and a strength validator appears to indicate to the user whether the password entered meets that policy.
+9.	Once you’ve met the requirements of the organizational policy, you are allowed to choose a new password.  The password is validated based it meets AAD “strong” password requirements (see [Password policy in Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx)), and a strength validator appears to indicate to the user whether the password entered meets that policy.
 
     ![][019]
 
@@ -203,16 +202,16 @@ Password Writeback is available in releases of Azure AD Connect, or the Azure AD
 
 If this version number is greater than or equal to **1.0.0419.0911**, or you are installing Azure AD Connect, you can skip to [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#step-2-enable-password-writeback-in-azure-ad-connect). 
 
- > [AZURE.NOTE] If this is your first time installing the Azure AD Connect tool, it is recommended that you follow a few best practices to prepare your environment for directory synchronization.  Before you install the Azure AD Connect tool, you must activate directory synchronization in either the Office 365 or the Azure management portals.  For more information, see [Managing Azure AD Connect](active-directory-aadconnect-whats-next.md).
+ > [AZURE.NOTE] If this is your first time installing the Azure AD Connect tool, it is recommended that you follow a few best practices to prepare your environment for directory synchronization.  Before you install the Azure AD Connect tool, you must activate directory synchronization in either the [Office 365 Admin Portal](https://portal.microsoftonline.com) or the [Azure Management Portal](https://manage.windowsazure.com).  For more information, see [Managing Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
 
 ### Step 2: Enable Password Writeback in Azure AD Connect
 Now that you have the Azure AD Connect tool downloaded, you are ready to enable Password Writeback.  You can do this in one of two ways.  You can either enable Password Writeback in the optional features screen of the Azure AD Connect setup wizard, or you can enable it via Windows PowerShell.
 
 #### To enable Password Writeback in the configuration wizard
-1.	On your Directory Sync computer, open the Azure AD Connect configuration wizard.
-2.	Click through the steps until you reach the optional features configuration screen.
-3.	Check the Password write-back option.
+1.	On your **Directory Sync computer**, open the **Azure AD Connect** configuration wizard.
+2.	Click through the steps until you reach the **optional features** configuration screen.
+3.	Check the **Password write-back** option.
 
     ![][022]
 
@@ -221,14 +220,14 @@ Now that you have the Azure AD Connect tool downloaded, you are ready to enable 
 > [AZURE.NOTE] You can disable Password Writeback at any time by either re-running this wizard and deselecting the feature, or by setting the **Write Passwords Back to On-Premises Directory** setting to **No** in the **User Password Reset Policy** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).  For more information about customizing your password reset experience, check out [Customize: Azure AD Password Management](active-directory-passwords-customize.md).
 
 #### To enable Password Writeback using Windows PowerShell
-1.	On your Directory Sync computer, open a new elevated Windows PowerShell window.
+1.	On your **Directory Sync computer**, open a new **elevated Windows PowerShell window**.
 2.	If the module is not already loaded, type in the `Import-Module ADSync` command to load the Azure AD Connect cmdlets into your current session.
 3.	Get the list of AAD Connectors in your system by running the `Get-ADSyncConnector` cmdlet and storing the results in `$aadConnectorName`
 4.	To get the current status of writeback for the current connector by running the following cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
 5.	Enable Password Writeback by running the cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
-> [AZURE.NOTE] If prompted for a credential, make sure that the administrator account that you specify for AzureADCredential is a cloud administrator account (created in Azure AD), not a federated account (created in on-premises AD and synchronized into Azure AD.
-> [AZURE.NOTE] You can disable Password Writeback through PowerShell by repeating the same instructions above but passing `$false` in step or by setting the **Write Passwords Back to On-Premises Directory** setting to **No** in the **User Password Reset Policy section** of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com.
+> [AZURE.NOTE] If prompted for a credential, make sure that the administrator account that you specify for AzureADCredential is a **cloud administrator account (created in Azure AD)**, not a federated account (created in on-premises AD and synchronized into Azure AD.
+> [AZURE.NOTE] You can disable Password Writeback through PowerShell by repeating the same instructions above but passing `$false` in step or by setting the **Write Passwords Back to On-Premises Directory** setting to **No** in the **User Password Reset Policy section** of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).
 
 #### Verify that the configuration was successful
 Once the configuration succeeds, you will see the message Password reset write-back is enabled in the Windows PowerShell window, or a success message in the configuration UI. 
@@ -241,8 +240,9 @@ You can also verify the service was installed correctly by opening Event Viewer,
 After you have enabled Password Writeback in the Azure AD Connect tool, you will need to make sure the service can connect to the cloud.
 
 1.	Once installation is complete, if you are blocking unknown outbound connections in your environment, you will also need to add the following rules to your firewall. Make sure you reboot your AAD Connect machine after making these changes:
-   - Allow outbound connects over port 443 TCP
+   - Allow outbound connections over port 443 TCP
    - Allow outbound connections to https://ssprsbprodncu-sb.accesscontrol.windows.net/ 
+   - When using a proxy or having general connectivity issues, allow outbound connections over port 9350-9534 TCP
 
 ### Step 4: Set up the appropriate Active Directory permissions
 For every forest that contains users whose passwords will be reset, if X is the account that was specified for that forest in the configuration wizard (during initial configuration), then X must be given the **Reset Password**, **Change Password**, **Write Permissions** on `lockoutTime`, and **Write Permissions** on `pwdLastSet`, extended rights on the root object of each domain in that forest. The right should be marked as inherited by all user objects.
@@ -261,7 +261,7 @@ Setting these permissions will allow the MA service account for each forest to m
 
     ![][024]
 
-6.	On the Permissions tab, click Add.
+6.	On the **Permissions** tab, click **Add**.
 
     ![][025]
 
@@ -279,7 +279,7 @@ Setting these permissions will allow the MA service account for each forest to m
 Now that Password Writeback has been enabled, you can test that it works by resetting the password of a user whose account has been synchronized into your cloud tenant.
  
 #### To verify Password Writeback is working properly
-1.	Navigate to http://passwordreset.microsoftonline.com or go to any organizational ID login screen and click the Can’t access your account? link.
+1.	Navigate to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) or go to any organizational ID login screen and click the **Can’t access your account?** link.
 
     ![][029]
 
@@ -288,7 +288,7 @@ Now that Password Writeback has been enabled, you can test that it works by rese
 
     ![][030]
 
-4.	To verify the operation was successful or diagnose any errors, go to your Directory Sync computer, open Event Viewer, navigate to the application event log, and look for event 31002 - PasswordResetSuccess from the source PasswordResetService for your test user.
+4.	To verify the operation was successful or diagnose any errors, go to your **Directory Sync computer**, open **Event Viewer**, navigate to the **application event log**, and look for event **31002 - PasswordResetSuccess** from the source **PasswordResetService** for your test user.
 
     ![][031]
 

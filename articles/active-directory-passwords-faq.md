@@ -35,7 +35,7 @@ This FAQ is split into the following sections:
  
  - **Q:  Can I define password reset data on behalf of my users?**
  
- > **A:** Yes, you can do so with DirSync or PowerShell, or through the Azure Management Portal or Office Admin portal. Learn more about this feature on the blog post Improved Privacy for Azure AD MFA and Password Reset Phone Numbers and by reading Learn how data is used by password reset.
+ > **A:** Yes, you can do so with DirSync or PowerShell, or through the [Azure Management Portal](https://manage.windowsazure.com) or Office Admin portal. Learn more about this feature on the blog post Improved Privacy for Azure AD MFA and Password Reset Phone Numbers and by reading Learn how data is used by password reset.
  
  - **Q:  Can I synchronize data for security questions from on premises?**
  
@@ -59,7 +59,7 @@ This FAQ is split into the following sections:
 
  - **Q:  When is a user considered registered?**
  
- > **A:** A user is considered registered when he or she has at least N pieces of authentication info defined, where N is the Number of Authentication Methods Required that you have set in the Azure Management Portal. To learn more, see Customizing User Password Reset Policy.
+ > **A:** A user is considered registered when he or she has at least N pieces of authentication info defined, where N is the Number of Authentication Methods Required that you have set in the [Azure Management Portal](https://manage.windowsazure.com). To learn more, see Customizing User Password Reset Policy.
 
 
 ## Password reset
@@ -100,7 +100,7 @@ This FAQ is split into the following sections:
 
  - **Q:  How many questions can we configure for the Security Questions authentication option?**
  
- > **A:** You can configure up to 20 custom security questions in the Azure Management Portal.
+ > **A:** You can configure up to 20 custom security questions in the [Azure Management Portal](https://manage.windowsazure.com).
 
  - **Q:  How long may security questions be?**
  
