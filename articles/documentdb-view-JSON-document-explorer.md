@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/11/2015"
+	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
 # View, edit, create, and upload JSON documents using the DocumentDB Document Explorer #

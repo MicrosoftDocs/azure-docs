@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/11/2015"
+	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
 # View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer #
@@ -26,7 +26,7 @@ By completing this tutorial, you'll be able to answer the following questions:
 -	How can I easily view DocumentDB triggers via a web browser?
 -	How can I easily view DocumentDB user-defined functions via a web browser?
 
-##<a id="Launch"></a>Launch and navigate Script Explorer##
+##Launch and navigate Script Explorer
 
 Script Explorer can be launched from any of the DocumentDB account, database, and collection blades.  
 
@@ -63,7 +63,7 @@ Script Explorer can be launched from any of the DocumentDB account, database, an
 	![Screenshot of Script Explorer refresh command](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-##<a id="Create"></a>View Stored Procedures, Triggers, and User-Defined Functions with Explorer##
+##View Stored Procedures, Triggers, and User-Defined Functions with Explorer
 
 Script Explorer allows you to easily view DocumentDB server-side programming artifacts.  
 
@@ -77,6 +77,6 @@ Script Explorer allows you to easily view DocumentDB server-side programming art
 
 	> [AZURE.NOTE] The timestamp (_ts) property is internally represented as epoch time, but Script Explorer displays the value in a human readable GMT format.
 
-##<a name="NextSteps"></a>Next steps
+##Next steps
 
 To learn more about DocumentDB, click [here](http://azure.com/docdb).
