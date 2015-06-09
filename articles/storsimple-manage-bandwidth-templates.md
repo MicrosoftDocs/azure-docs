@@ -122,9 +122,9 @@ The default template can be edited. The usage of this template (including edited
 
 ## Create an all-day bandwidth template that starts at a specified time
 
-Follow this procedure to create a schedule that starts at a specified time and runs all day. For example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. 
+Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example). 
 
-> [AZURE.NOTE] The start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules. Perform the following steps to create an all-day bandwidth template:
+#### To create an all-day bandwidth template
 
 1. Create a schedule that starts at 9 AM in the morning and runs until midnight.
 
