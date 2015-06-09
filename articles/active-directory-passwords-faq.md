@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Active Directory Password Management - FAQ" 
-	description="This article lists frequently asked questions about password management in Azure AD." 
+	pageTitle="FAQ: Azure AD Password Management | Windows Azure" 
+	description="Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory ." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="asteen" 
@@ -30,13 +30,16 @@
 <a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
 </div>
 
-The following are some frequently asked questions for all things related to password management. The FAQ is split into the following sections:
+The following are some frequently asked questions for all things related to password management. 
 
-- [Password Reset Registration](sspr-faq-registration)
-- [Password Reset](sspr-faq-reset)
-- [Password Management Reports](sspr-faq-reports)
-- [Password Writeback](sspr-faq-writeback)
+If you find yourself with a question that you don't know the answer to, or are looking fror help with a particular problem you are facing, you can read on below to see if we've covered it already.  If we haven't already, don't worry! Feel free to ask any question you have that's not covered here on the [Azure AD Forums](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) and we'll get back to you as soon as we can.
 
+This FAQ is split into the following sections:
+
+- [Questions about Password Reset Registration](sspr-faq-registration)
+- [Questions about Password Reset](sspr-faq-reset)
+- [Questions about Password Management Reports](sspr-faq-reports)
+- [Questions about Password Writeback](sspr-faq-writeback)
 
 ## Password reset registration <a href="sspr-faq-registration"></a>
  - **Q:  Can my users register their own password reset data?**
@@ -98,7 +101,7 @@ The following are some frequently asked questions for all things related to pass
 
  - **Q:  Do you support unlocking local active directory accounts when users reset their passwords?**
  
- > **A:** Yes, when a user resets his or her password and password writeback has been deployed with versions of AADSync 1.0.0485.0222 or later, then that user’s account will be automatically unlocked when that user resets his or her password.
+ > **A:** Yes, when a user resets his or her password and Password Writeback has been deployed with versions of AADSync 1.0.0485.0222 or later, then that user’s account will be automatically unlocked when that user resets his or her password.
 
  - **Q:  How can I integrate password reset directly into my user’s desktop sign-in experience?**
  
@@ -166,26 +169,26 @@ The following are some frequently asked questions for all things related to pass
  > **A:** Yes, a maximum of 1,000 rows may appear on either of the Password Management reports, whether they are being shown in the UI or being downloaded. We are currently investigating how to increase this limit.
 
 
-## Password writeback <a href="sspr-faq-writeback"></a>
- - **Q:  How does password writeback work behind the scenes?**
+## Password Writeback <a href="sspr-faq-writeback"></a>
+ - **Q:  How does Password Writeback work behind the scenes?**
  
- > **A:** See How password writeback works for a detailed explanation of what happens when you enable password writeback, as well as how data flows through the system back into your on-premises environment. See “Password writeback security model” in How password writeback works to learn how we ensure password writeback is a highly secure service.
+ > **A:** See How Password Writeback works for a detailed explanation of what happens when you enable Password Writeback, as well as how data flows through the system back into your on-premises environment. See “Password Writeback security model” in How Password Writeback works to learn how we ensure Password Writeback is a highly secure service.
 
- - **Q:  How long does password writeback take to work?  Is there a synchronization delay like with password hash sync?**
+ - **Q:  How long does Password Writeback take to work?  Is there a synchronization delay like with password hash sync?**
  
- > **A:** Password writeback is instant. It is a synchronous pipeline that works fundamentally differently than password hash synchronization. Password writeback allows users to get realtime feedback about the success of their password reset or change operation. The average time for a successful writeback of a password is under 500 ms.
+ > **A:** Password Writeback is instant. It is a synchronous pipeline that works fundamentally differently than password hash synchronization. Password Writeback allows users to get realtime feedback about the success of their password reset or change operation. The average time for a successful writeback of a password is under 500 ms.
 
- - **Q:  What types of accounts does password writeback work for?**
+ - **Q:  What types of accounts does Password Writeback work for?**
  
- > **A:** Password writeback works for Federated and Password Hash Sync’d users.
+ > **A:** Password Writeback works for Federated and Password Hash Sync’d users.
 
- - **Q:  Does password writeback enforce my domain’s password policies?**
+ - **Q:  Does Password Writeback enforce my domain’s password policies?**
  
- > **A:** Yes, password writeback enforces password age, history, complexity, filters and any other restriction you may put in place on passwords in your local domain.
+ > **A:** Yes, Password Writeback enforces password age, history, complexity, filters and any other restriction you may put in place on passwords in your local domain.
 
- - **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
+ - **Q:  Is Password Writeback secure?  How can I be sure I won’t get hacked?**
  
- > **A:** Yes, password writeback is extremely secure. To read more about the 4 layers of security implemented by the password writeback service, check out the “Password writeback security model” in How password writeback works.
+ > **A:** Yes, Password Writeback is extremely secure. To read more about the 4 layers of security implemented by the Password Writeback service, check out the “Password Writeback security model” in How Password Writeback works.
 
 
 **Additional Resources**

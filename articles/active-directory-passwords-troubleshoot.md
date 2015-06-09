@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Active Directory Password Management - Troubleshooting" 
-	description="This article describes how to troubleshoot password management in Azure AD." 
+	pageTitle="Troubleshooting: Azure AD Password Management | Windows Azure" 
+	description="Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="asteen" 
@@ -16,7 +16,19 @@
 	ms.date="05/27/2015" 
 	ms.author="asteen"/>
 
-# How to Troubleshoot Password Management
+# How to troubleshoot Password Management
+If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to  troubleshoot your deployment:
+
+* [Information to include when you need help](troubleshoot-info)
+* [Problems with Password Management configuration in the Azure Management Portal](troubleshoot-sspr-config)
+* [Problems with Password Managment reports in the Azure Management Portal](troubleshoot-sspr-reports)
+* [Problems with the Password Reset Registration Portal](troubleshoot-sspr-registration)
+* [Problems with the Password Reset Portal](troubleshoot-sspr-portal)
+* [Problems with Password Writeback](troubleshoot-sspr-writeback)
+  - [Password Writeback event log error codes](troubleshoot-sspr-writeback-error-codes)
+  - [Problems with Password Writeback connectivity](troubleshoot-sspr-writeback-connectivity)
+
+If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) or contact support and we'll take a look at your problem as soon as we can.
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../active-directory-passwords/" title="What is it">What is It</a>
@@ -30,26 +42,26 @@
 <a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
 </div>
 
-## Information to include when you need help
+## Information to include when you need help <a href="troubleshoot-info"></a>
 
 If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
 
- - General description of the error – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
- - Page – what page were you on when you saw the error (include the URL)?
- - Date / Time / Timezone – what was the precise date and time you saw the error (include the timezone)?
- - Support Code – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results). 
+ - **General description of the error** – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
+ - **Page** – what page were you on when you saw the error (include the URL)?
+ - **Date / Time / Timezone** – what was the precise date and time you saw the error (include the timezone)?
+ - **Support Code** – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results). 
    - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
     
    ![][001]
     
- - User ID – what was the ID of the user who saw the error (e.g. user@contoso.com)?
- - Information about the user – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
- - Application Event Log – if you are using password writeback and the error is in your on-premises infrastructure, please zip up a copy of your application event log from your Azure AD Sync server and send along with your request.
+ - **User ID** – what was the ID of the user who saw the error (e.g. user@contoso.com)?
+ - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
+ - **Application Event Log** – if you are using Password Writeback and the error is in your on-premises infrastructure, please zip up a copy of your application event log from your Azure AD Sync server and send along with your request.
 
 Including this information will help us to solve your problem as quickly as possible.
 
 
-## Troubleshoot password reset configuration in the Azure Management Portal
+## Troubleshoot password reset configuration in the Azure Management Portal <a href="troubleshoot-sspr-config"></a>
 If you encounter an error when configuring password reset, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -113,13 +125,13 @@ If you encounter an error when configuring password reset, you might be able to 
               <p>The <strong>Write Back Passwords to On-Premises</strong> option is not visible under the <strong>Configure</strong> tab in the Azure Management Portal</p>
             </td>
             <td>
-              <p>This option is only visible if you have downloaded AADSync and configured password writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
-              <p>See <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable password writeback</a> for more information on how to do this.</p>
+              <p>This option is only visible if you have downloaded AADSync and configured Password Writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
+              <p>See <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Troubleshoot password management reports in the Azure Management Portal
+## Troubleshoot password management reports in the Azure Management Portal <a href="troubleshoot-sspr-reports"></a>
 If you encounter an error when using the password management reports, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -166,7 +178,7 @@ If you encounter an error when using the password management reports, you might 
           </tr>
         </tbody></table>
 
-## Troubleshoot the password reset registration portal
+## Troubleshoot the password reset registration portal <a href="troubleshoot-sspr-registration"></a>
 If you encounter an error when registering a user for password reset, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -228,7 +240,7 @@ If you encounter an error when registering a user for password reset, you might 
           </tr>
         </tbody></table>
 
-## Troubleshoot the password reset portal
+## Troubleshoot the password reset portal <a href="troubleshoot-sspr-portal"></a>
 If you encounter an error when resetting a password for a user, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -416,8 +428,8 @@ If you encounter an error when resetting a password for a user, you might be abl
           </tr>
         </tbody></table>
 
-## Troubleshoot password writeback
-If you encounter an error when enabling, disabling, or using password writeback, you might be able to resolve it by following the troubleshooting steps below:
+## Troubleshoot Password Writeback <a href="troubleshoot-sspr-writeback"></a>
+If you encounter an error when enabling, disabling, or using Password Writeback, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
           <tbody><tr>
@@ -449,8 +461,8 @@ If you encounter an error when enabling, disabling, or using password writeback,
               <p>After onboarding, federated or password hash synced users cannot reset their passwords.</p>
             </td>
             <td>
-              <p>When password writeback is enabled, the sync engine will call the writeback library to perform the configuration (onboarding) by talking to the cloud onboarding service. Any errors encountered during onboarding or while starting the WCF endpoint for password writeback will result in errors in the Event log in your AADSync machine’s event log.</p>
-              <p>During restart of ADSync service, if writeback was configured, the WCF endpoint will be started up. However, if the startup of the endpoint fails, we will simply log event 6800 and let the sync service startup. Presence of this event means that the password writeback endpoint was not started up. Event log details for this event (6800) along with event log entries generate by PasswordResetService component will indicate why the endpoint could not be started up. Review these event log errors and try to re-start the AADSync if password writeback still isn’t working. If the problem persists, try to disable and re-enable password writeback.</p>
+              <p>When Password Writeback is enabled, the sync engine will call the writeback library to perform the configuration (onboarding) by talking to the cloud onboarding service. Any errors encountered during onboarding or while starting the WCF endpoint for Password Writeback will result in errors in the Event log in your AADSync machine’s event log.</p>
+              <p>During restart of ADSync service, if writeback was configured, the WCF endpoint will be started up. However, if the startup of the endpoint fails, we will simply log event 6800 and let the sync service startup. Presence of this event means that the Password Writeback endpoint was not started up. Event log details for this event (6800) along with event log entries generate by PasswordResetService component will indicate why the endpoint could not be started up. Review these event log errors and try to re-start the AADSync if Password Writeback still isn’t working. If the problem persists, try to disable and re-enable Password Writeback.</p>
             </td>
           </tr>
           <tr>
@@ -458,7 +470,7 @@ If you encounter an error when enabling, disabling, or using password writeback,
               <p>Error configuring writeback during AADSync installation.</p>
             </td>
             <td>
-              <p>At the last step of the AADSync installation process, you see an error indicating that password writeback could not be configured.</p>
+              <p>At the last step of the AADSync installation process, you see an error indicating that Password Writeback could not be configured.</p>
               <p>
                 
               </p>
@@ -508,18 +520,18 @@ If you encounter an error when enabling, disabling, or using password writeback,
               <p>
                 
               </p>
-              <p>Once you have updated these rules, reboot the AAD Sync machine and password writeback should start working again.</p>
+              <p>Once you have updated these rules, reboot the AAD Sync machine and Password Writeback should start working again.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Password writeback endpoint on-prem not reachable</p>
+              <p>Password Writeback endpoint on-prem not reachable</p>
             </td>
             <td>
               <p>After working for some time, federated or password hash synced users cannot reset their passwords.</p>
             </td>
             <td>
-              <p>In some rare cases, the password writeback service may fail to re-start when AADSync has re-started. In these cases, first, check whether password writeback appears to be enabled on-prem. This can be done using the AADSync wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. See “Step 2: Enable password writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable password writeback</a> for more information on how to do this.</p>
+              <p>In some rare cases, the Password Writeback service may fail to re-start when AADSync has re-started. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the AADSync wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
               <p>
                 
               </p>
@@ -538,7 +550,7 @@ If you encounter an error when enabling, disabling, or using password writeback,
               <p>In addition to this, during password reset operations, you may see an error regarding management agent was denied access in your on premises event logs.</p>
             </td>
             <td>
-              <p>If you see these errors in your event log, confirm that the AD MA account (that was specified in the wizard at the time of configuration) has the necessary permissions for password writeback.</p>
+              <p>If you see these errors in your event log, confirm that the AD MA account (that was specified in the wizard at the time of configuration) has the necessary permissions for Password Writeback.</p>
               <p>
                 
               </p>
@@ -548,7 +560,7 @@ If you encounter an error when enabling, disabling, or using password writeback,
           </tr>
           <tr>
             <td>
-              <p>Error when configuring password writeback from the Azure AD Sync configuration wizard </p>
+              <p>Error when configuring Password Writeback from the Azure AD Sync configuration wizard </p>
             </td>
             <td>
               <p>“Unable to Locate MA” error in Wizard while enabling/disabling Password Writeback</p>
@@ -561,9 +573,9 @@ If you encounter an error when enabling, disabling, or using password writeback,
                 <li>
 										You then then change the AAD creds for the connector (using old sync UI) to  (note it’s the same tenant but different domain name). <br><br></li>
                 <li>
-										Now you try to enable/disable password writeback. The wizard will construct the name of the connector using the creds, as “abc.onmicrosoft.com – AAD” and pass to the password writeback cmdlet. This will fail because there is no connector created with this name.<br><br></li>
+										Now you try to enable/disable Password Writeback. The wizard will construct the name of the connector using the creds, as “abc.onmicrosoft.com – AAD” and pass to the Password Writeback cmdlet. This will fail because there is no connector created with this name.<br><br></li>
               </ol>
-              <p>This has been fixed in our latest builds. If you have an older build, the one workaround is to use the powershell cmdlet to enable/disable the feature. See “Step 2: Enable password writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable password writeback</a> for more information on how to do this.</p>
+              <p>This has been fixed in our latest builds. If you have an older build, the one workaround is to use the powershell cmdlet to enable/disable the feature. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
             </td>
           </tr>
           <tr>
@@ -578,7 +590,7 @@ If you encounter an error when enabling, disabling, or using password writeback,
               <p>
                 
               </p>
-              <p>This means the security descriptors on these objects are periodically checked to match the one specified in AdminSDHolder and are reset if they are different. The additional permissions that are needed for password writeback therefore do not trickle to such users. This can result in password writeback not working for such users.As a result, we do not support managing passwords for users within these groups because it breaks the AD security model.</p>
+              <p>This means the security descriptors on these objects are periodically checked to match the one specified in AdminSDHolder and are reset if they are different. The additional permissions that are needed for Password Writeback therefore do not trickle to such users. This can result in Password Writeback not working for such users.As a result, we do not support managing passwords for users within these groups because it breaks the AD security model.</p>
             </td>
           </tr>
           <tr>
@@ -616,7 +628,7 @@ If you encounter an error when enabling, disabling, or using password writeback,
               <p>
                 
               </p>
-              <p>Currently this scenario is not supported for password writeback.</p>
+              <p>Currently this scenario is not supported for Password Writeback.</p>
             </td>
           </tr>
           <tr>
@@ -627,7 +639,7 @@ If you encounter an error when enabling, disabling, or using password writeback,
               <p>Password operations fail with a configuration error. The application event log contains AAD Sync error 6329 with text: 0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent.)</p>
             </td>
             <td>
-              <p>This occurs if the AAD Sync configuration is changed to add&nbsp;a new AD forest (or to remove and re-add an existing forest) <strong>after</strong> the password writeback feature has already been enabled. Password operations for users in such newly added forests will fail. To fix the problem, disable and re-enable the password writeback feature after the forest configuration changes have been completed.</p>
+              <p>This occurs if the AAD Sync configuration is changed to add&nbsp;a new AD forest (or to remove and re-add an existing forest) <strong>after</strong> the Password Writeback feature has already been enabled. Password operations for users in such newly added forests will fail. To fix the problem, disable and re-enable the Password Writeback feature after the forest configuration changes have been completed.</p>
             </td>
           </tr>
           <tr>
@@ -638,14 +650,14 @@ If you encounter an error when enabling, disabling, or using password writeback,
               <p>When attempting to reset a password on behalf of a user from the Azure Management Portal, you see a message stating: “The password reset service running in your on-premises environment does not support administrators resetting user passwords. Please upgrade to the latest version of AAD Sync to resolve this.”</p>
             </td>
             <td>
-              <p>This occurs when the version of the synchronization engine does not support the particular password writeback operation that was used. Versions of AAD Sync later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of AAD Sync or Azure Active Directory Connect (for more information, see <a href="https://msdn.microsoft.com/en-us/library/azure/dn757582.aspx">Directory Integration Tools</a>) to resolve this issue and to get the most out of password writeback in your organization.</p>
+              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of AAD Sync later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of AAD Sync or Azure Active Directory Connect (for more information, see <a href="https://msdn.microsoft.com/en-us/library/azure/dn757582.aspx">Directory Integration Tools</a>) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## Password writeback event log error codes
-A best practice when troubleshooting issues with password writeback is to inspect that Application Event Log on your AADSync machine. This event log will contain events from two sources of interest for password writeback. The PasswordResetService source will describe operations and issues related to the operation of password writeback. The ADSync source will describe operations and issues related to setting passwords in your AD environment.
+## Password Writeback event log error codes <a href="troubleshoot-sspr-writeback-error-codes"></a>
+A best practice when troubleshooting issues with Password Writeback is to inspect that Application Event Log on your AADSync machine. This event log will contain events from two sources of interest for Password Writeback. The PasswordResetService source will describe operations and issues related to the operation of Password Writeback. The ADSync source will describe operations and issues related to setting passwords in your AD environment.
 
 <table>
           <tbody><tr>
@@ -681,7 +693,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>ADSync</p>
             </td>
             <td>
-              <p>This event occurs when the password writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
+              <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
               <ul>
                 <li class="unordered">
 										If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br><br></li>
@@ -766,7 +778,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event occurs if you enable password writeback with Azure AD Sync and indicates that we started onboarding your organization to the password writeback web service.</p>
+              <p>This event occurs if you enable Password Writeback with Azure AD Sync and indicates that we started onboarding your organization to the Password Writeback web service.</p>
             </td>
           </tr>
           <tr>
@@ -780,7 +792,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates the onboarding process was successful and that password writeback capability is ready to use.</p>
+              <p>This event indicates the onboarding process was successful and that Password Writeback capability is ready to use.</p>
             </td>
           </tr>
           <tr>
@@ -904,7 +916,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event occurs if you disable password writeback with Azure AD Sync and indicates that we started offboarding your organization to the password writeback web service.</p>
+              <p>This event occurs if you disable Password Writeback with Azure AD Sync and indicates that we started offboarding your organization to the Password Writeback web service.</p>
             </td>
           </tr>
           <tr>
@@ -918,7 +930,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates the offboarding process was successful and that password writeback capability has been successfully disabled.</p>
+              <p>This event indicates the offboarding process was successful and that Password Writeback capability has been successfully disabled.</p>
             </td>
           </tr>
           <tr>
@@ -932,7 +944,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates the offboarding process was not successful. This could be due to a permissions error on the cloud or on-premises administrator account specified during configuration, or because you are attempting to use a federated cloud global administrator when disabling password writeback. To fix this, check your administrative permissions and that you are not using any federated account while configuring the password writeback capability.</p>
+              <p>This event indicates the offboarding process was not successful. This could be due to a permissions error on the cloud or on-premises administrator account specified during configuration, or because you are attempting to use a federated cloud global administrator when disabling Password Writeback. To fix this, check your administrative permissions and that you are not using any federated account while configuring the Password Writeback capability.</p>
             </td>
           </tr>
           <tr>
@@ -946,7 +958,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the password writeback service has started successfully and is ready to accept password management requests from the cloud.</p>
+              <p>This event indicates that the Password Writeback service has started successfully and is ready to accept password management requests from the cloud.</p>
             </td>
           </tr>
           <tr>
@@ -960,7 +972,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the password writeback service has stopped and that any password management requests from the cloud will not be successful.</p>
+              <p>This event indicates that the Password Writeback service has stopped and that any password management requests from the cloud will not be successful.</p>
             </td>
           </tr>
           <tr>
@@ -1002,7 +1014,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates an unknown error during a password management operation. Look at the exception text in the event for more details. If you are having problems, try disabling and re-enabling password writeback. If this does not help, include a copy of your event log along with the tracking id specified insider to your support engineer.</p>
+              <p>This event indicates an unknown error during a password management operation. Look at the exception text in the event for more details. If you are having problems, try disabling and re-enabling Password Writeback. If this does not help, include a copy of your event log along with the tracking id specified insider to your support engineer.</p>
             </td>
           </tr>
           <tr>
@@ -1030,7 +1042,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates there was an error connecting to your tenant’s service bus instance. This could happen because you are blocking outbound connections in your on-premises environment. Check your firewall to ensure you allow connections over TCP 443 and to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and try again. If you are still having problems, try disabling and re-enabling password writeback.</p>
+              <p>This event indicates there was an error connecting to your tenant’s service bus instance. This could happen because you are blocking outbound connections in your on-premises environment. Check your firewall to ensure you allow connections over TCP 443 and to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and try again. If you are still having problems, try disabling and re-enabling Password Writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1058,7 +1070,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that there was an error decrypting the password that arrived from the cloud. This could be because of a decryption key mismatch between the cloud service and your on-premises environment. In order to resolve this, disable and re-enable password writeback in your on-premises environment.</p>
+              <p>This event indicates that there was an error decrypting the password that arrived from the cloud. This could be because of a decryption key mismatch between the cloud service and your on-premises environment. In order to resolve this, disable and re-enable Password Writeback in your on-premises environment.</p>
             </td>
           </tr>
           <tr>
@@ -1072,7 +1084,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>During onboarding, we save tenant-specific information in a configuration file in your on-premises environment. This event indicates there was an error saving this file or that when the service was started there was an error reading the file. To fix this issue, try disabling and re-enabling password writeback to force a re-write of this configuration file. </p>
+              <p>During onboarding, we save tenant-specific information in a configuration file in your on-premises environment. This event indicates there was an error saving this file or that when the service was started there was an error reading the file. To fix this issue, try disabling and re-enabling Password Writeback to force a re-write of this configuration file. </p>
             </td>
           </tr>
           <tr>
@@ -1100,7 +1112,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>During onboarding, we send data from the cloud to the on-premises password reset service. That data is then written to an in-memory file before being sent to the sync service to store this information securely on disk. This event indicates a problem with writing or updating that data in memory. To fix this issue, try disabling and re-enabling password writeback to force a re-write of this configuration.</p>
+              <p>During onboarding, we send data from the cloud to the on-premises password reset service. That data is then written to an in-memory file before being sent to the sync service to store this information securely on disk. This event indicates a problem with writing or updating that data in memory. To fix this issue, try disabling and re-enabling Password Writeback to force a re-write of this configuration.</p>
             </td>
           </tr>
           <tr>
@@ -1114,7 +1126,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates we received an invalid response from the password reset web service. To fix this issue, try disabling and re-enabling password writeback.</p>
+              <p>This event indicates we received an invalid response from the password reset web service. To fix this issue, try disabling and re-enabling Password Writeback.</p>
             </td>
           </tr>
           <tr>
@@ -1142,7 +1154,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates there was an error when generating the password encryption key or decrypting a password that arrives from the cloud service. This error likely indicates an issue with your environment. Look at the details of your event log to learn more and resolve this issue. You may also try disabling and re-enabling the password writeback service to resolve this.</p>
+              <p>This event indicates there was an error when generating the password encryption key or decrypting a password that arrives from the cloud service. This error likely indicates an issue with your environment. Look at the details of your event log to learn more and resolve this issue. You may also try disabling and re-enabling the Password Writeback service to resolve this.</p>
             </td>
           </tr>
           <tr>
@@ -1212,7 +1224,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>In order to monitor the health of your password writeback service, we send heartbeat data to our password reset web service every 5 minutes. This event indicates that there was an error when sending this health information back to the cloud web service. This health information does not include an OII or PII data, and is purely a heartbeat and basic service statistics so that we can provide service status information in the cloud.</p>
+              <p>In order to monitor the health of your Password Writeback service, we send heartbeat data to our password reset web service every 5 minutes. This event indicates that there was an error when sending this health information back to the cloud web service. This health information does not include an OII or PII data, and is purely a heartbeat and basic service statistics so that we can provide service status information in the cloud.</p>
             </td>
           </tr>
           <tr>
@@ -1268,7 +1280,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the Management Agent service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the MA account in the user’s forest has Reset and Change password permissions on all objects in the forest.  For more information on how do to this, see <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_e">Step 3: Ensure you have the proper permissions defined on your ADMA account for password writeback to occur</a>.</p>
+              <p>This event indicates that the Management Agent service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the MA account in the user’s forest has Reset and Change password permissions on all objects in the forest.  For more information on how do to this, see <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_e">Step 3: Ensure you have the proper permissions defined on your ADMA account for Password Writeback to occur</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1324,7 +1336,7 @@ A best practice when troubleshooting issues with password writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event occurs when the password writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
+              <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
               <ul>
                 <li class="unordered">
 										If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br><br></li>
@@ -1401,12 +1413,12 @@ A best practice when troubleshooting issues with password writeback is to inspec
           </tr>
         </tbody></table>
 		
-## Troubleshoot password writeback connectivity
+## Troubleshoot Password Writeback connectivity <a href="troubleshoot-sspr-writeback-connectivity"></a>
 
-If you are experiencing service interruptions with the password writeback component of Azure AD Sync or Azure AD Connect, here are some quick steps you can take to resolve this:
+If you are experiencing service interruptions with the Password Writeback component of Azure AD Sync or Azure AD Connect, here are some quick steps you can take to resolve this:
 
  - Restart the Azure AD Sync Service
- - Disable and re-enable the password writeback feature
+ - Disable and re-enable the Password Writeback feature
  - Install the latest Azure AD Sync release
  - Troubleshoot Password Writeback
 
@@ -1422,10 +1434,10 @@ Restarting the Azure AD Sync Service can help to resolve connectivity issues or 
     
   ![][002]
 
-These steps will re-establish your connection with the cloud service and resolve any interruptions you may be experiencing.  If restarting the Azure AD Sync Service does not resolve your issue, we recommend that you try to disable and re-enable the password writeback feature as a next step.
+These steps will re-establish your connection with the cloud service and resolve any interruptions you may be experiencing.  If restarting the Azure AD Sync Service does not resolve your issue, we recommend that you try to disable and re-enable the Password Writeback feature as a next step.
 
-### Disable and re-enable the password writeback feature
-Disabling and re-enabling the password writeback feature can help to resolve connectivity issues.
+### Disable and re-enable the Password Writeback feature
+Disabling and re-enabling the Password Writeback feature can help to resolve connectivity issues.
 
  1.	As an administrator, open the Azure AD Sync or Azure AD Connect configuration wizard.
  2.	On the Connect to Azure AD dialog, enter your Azure AD global admin credentials.
@@ -1445,7 +1457,7 @@ Disabling and re-enabling the password writeback feature can help to resolve con
   
 These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
 
-If disabling and re-enabling the password writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Sync or Azure AD Connect as a next step.
+If disabling and re-enabling the Password Writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Sync or Azure AD Connect as a next step.
 
 ### Install the latest Azure AD Sync release
 Re-installing the Azure AD Sync package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment. 
@@ -1457,7 +1469,7 @@ We recommend, you perform this step only after attempting the first two steps de
 
 These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
 
-If installing the latest version of the Azure AD Sync server does not resolve your issue, we recommend that you try disabling and re-enabling password writeback as a final step after installing the latest sync QFE. 
+If installing the latest version of the Azure AD Sync server does not resolve your issue, we recommend that you try disabling and re-enabling Password Writeback as a final step after installing the latest sync QFE. 
 If that does not resolve your issue, then we recommend that you take a look at Troubleshoot Password Writeback and FAQ/Troubleshooting for Azure AD password management to see if your issue may be discussed there.
 
 
