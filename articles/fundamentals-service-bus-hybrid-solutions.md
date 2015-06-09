@@ -122,8 +122,8 @@ Now that you've learned the fundamentals of Azure Service Bus, follow these link
 - How to use [Service Bus relay](service-bus-dotnet-how-to-use-relay.md).
 - Service Bus samples: see the overview on [MSDN][]. 
 
-[svc-bus]: ./media/hybrid-solutions/SvcBus_01_architecture.png
-[queues]: ./media/hybrid-solutions/SvcBus_02_queues.png
-[topics-subs]: ./media/hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
-[relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
+[svc-bus]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_01_architecture.png
+[queues]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_02_queues.png
+[topics-subs]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
+[relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
 [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
