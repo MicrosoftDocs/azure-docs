@@ -1415,10 +1415,10 @@ In general, we recommend that you execute these steps in the order above in orde
 ### Restart the Azure AD Connect Sync Service
 Restarting the Azure AD Connect Sync Service can help to resolve connectivity issues or other transient issues with the service.
 
- 1.	As an administrator, click Start on the server running Azure AD Connect.
- 2.	Type “services.msc” in the search box and press Enter.
- 3.	Look for the Microsoft Azure AD Connect entry.
- 4.	Right-click on the service entry, click Restart, and wait for the operation to complete.
+ 1.	As an administrator, click **Start** on the server running **Azure AD Connect**.
+ 2.	Type **“services.msc”** in the search box and press **Enter**.
+ 3.	Look for the **Microsoft Azure AD Connect** entry.
+ 4.	Right-click on the service entry, click **Restart**, and wait for the operation to complete.
 
     ![][002]
 
@@ -1427,19 +1427,19 @@ These steps will re-establish your connection with the cloud service and resolve
 ### Disable and re-enable the Password Writeback feature
 Disabling and re-enabling the Password Writeback feature can help to resolve connectivity issues.
 
- 1.	As an administrator, open the Azure AD Connect configuration wizard.
- 2.	On the Connect to Azure AD dialog, enter your Azure AD global admin credentials.
- 3.	On the Connect to AD DS dialog, enter your AD Domain Services admin credentials.
- 4.	On the Uniquely identifying your users dialog, click the Next button.
- 5.	On the Optional features dialog, uncheck the Password write-back checkbox.
+ 1.	As an administrator, open the **Azure AD Connect configuration wizard**.
+ 2.	On the **Connect to Azure AD** dialog, enter your **Azure AD global admin credentials**
+ 3.	On the **Connect to AD DS** dialog, enter your **AD Domain Services admin credentials**.
+ 4.	On the **Uniquely identifying your users** dialog, click the **Next** button.
+ 5.	On the **Optional features** dialog, uncheck the **Password write-back** checkbox.
 
     ![][003]
 
- 6.	Click Next through the remaining dialog pages without changing anything until you get to the Ready to configure page.
- 7.	Ensure that the configure page shows the Password write-back option as disabled and then click the green Configure button to commit your changes.
- 8.	On the Finished dialog, deselect the Synchronize now option, and then click Finish to close the wizard.
- 9.	Re-open the Azure AD Connect configuration wizard.
- 10.	Repeat steps 2-8, except ensure you check the Password write-back option on the Optional features screen to re-enable the service.
+ 6.	Click **Next** through the remaining dialog pages without changing anything until you get to the **Ready to configure** page.
+ 7.	Ensure that the configure page shows the **Password write-back option as disabled** and then click the green **Configure** button to commit your changes.
+ 8.	On the **Finished** dialog, deselect the **Synchronize now** option, and then click **Finish** to close the wizard.
+ 9.	Re-open the **Azure AD Connect configuration wizard**.
+ 10.	**Repeat steps 2-8**, except ensure you **check the Password write-back option** on the **Optional features** screen to re-enable the service.
 
     ![][004]
 
@@ -1453,7 +1453,7 @@ We recommend, you perform this step only after attempting the first two steps de
 
  1.	Download the latest version of Azure AD Connect [here](active-directory-aadconnect.md#download-azure-ad-connect).
  2.	Since you have already installed Azure AD Connect, you will only need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
- 3.	Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required.
+ 3.	Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required unless you have customized the out of box sync rules, in which case you should **back these up before proceeding with upgrade and manually re-deploy them after you are finished**.
 
 These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
 

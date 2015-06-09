@@ -69,7 +69,7 @@ There are several ways to inform your users that they can register for and use p
 ### Email-based rollout
 Perhaps the simplest approach to inform your users about to register for or use password reset is by sending them an email instructing them to do so.  Below is a template you can use to do this.  Feel free to replace the colors / logos with those of your own choosing to customize it to fit your needs.
 
-    ![][001]
+  ![][001]
 
 You can download the email template [here](http://1drv.ms/1xWFtQM).
 
@@ -78,15 +78,15 @@ If you want your users to register for password reset themselves, you can also f
 
 You can also optionally define whether or not they will be asked to re-register after a configurable period of time by modifying the **Number of days before users must confirm their contact data** option to be a non-zero value. See [Customizing User Password Management Behavior](active-directory-passwords-customize.md#password-management-behavior) for more information.
 
-    ![][002]
+  ![][002]
 
 After you enable this option, when users sign in to the access panel, they will see a popup that informs them that their administrator has required them to verify their contact information. They can use it to reset their password if they ever lose access to their account.
 
-    ![][003]
+  ![][003]
 
 Clicking **Verify Now** brings them to the **password reset registration portal** at [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) and requires them to register.  Registration via this method can be dismissed by clicking the **cancel** button or closing the window, but users are reminded every time they sign in if they do not register.
 
-    ![][004]
+  ![][004]
 
 ### Uploading data yourself
 If you want to upload authentication data yourself, then users need not register for password reset before being able to reset their passwords.  As long as users have the authentication data defined on their account that meets the password reset policy you have defined, then those users will be able to reset their passwords.

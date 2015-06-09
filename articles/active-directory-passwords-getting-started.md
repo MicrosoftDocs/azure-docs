@@ -82,7 +82,7 @@ To configure user password reset policy, complete the following steps:
 
   >[AZURE.NOTE] A two challenge user password reset policy is recommended so that  you can see how the functionality works in the most complex case.
 
-    ![][006]
+  ![][006]
 
 ### Step 2: Add contact data for your test user
 You have several options on how to specify data for users in your organization to be used for password reset.
@@ -234,7 +234,7 @@ Once the configuration succeeds, you will see the message Password reset write-b
 
 You can also verify the service was installed correctly by opening Event Viewer, navigating to the application event log, and looking for event **31005 - OnboardingEventSuccess** from the source **PasswordResetService**.
 
-    ![][023]
+  ![][023]
 
 ### Step 3: Configure your firewall
 After you have enabled Password Writeback in the Azure AD Connect tool, you will need to make sure the service can connect to the cloud.
