@@ -215,7 +215,6 @@ Now that you have the Azure AD Connect tool downloaded, you are ready to enable 
 3.	Check the Password write-back option.
   
   ![][022]
-  
 4.	Complete the wizard, the final page will summarize the changes and will include the Password Writeback configuration change.
 
 > [AZURE.NOTE] You can disable Password Writeback at any time by either re-running this wizard and deselecting the feature, or by setting the **Write Passwords Back to On-Premises Directory** setting to **No** in the **User Password Reset Policy** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).  For more information about customizing your password reset experience, check out [Customize: Azure AD Password Management](active-directory-passwords-customize.md).
