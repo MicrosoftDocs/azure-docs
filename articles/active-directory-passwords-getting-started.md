@@ -20,7 +20,7 @@
 Enabling your users to manage their own cloud Azure Active Directory or on-premises Active Directory passwords takes just a few simple steps. After ensuring that you've met a few simple prerequisites, you'll have password change and reset enabled for your entire organization before you know it. This article will walk you through the following concepts:
 
 * [**How to enable users to reset their cloud Azure Active Directory passwords**](#enable-users-to-reset-their-azure-ad-passwords)
- - [Self-service password reset prerequisites**](#prerequisites)
+ - [Self-service password reset prerequisites](#prerequisites)
  - [Step 1: Configure password reset policy](#step-1-configure-password-reset-policy)
  - [Step 2: Add contact data for your test user](#step-2-add-contact-data-for-your-test-user)
  - [Step 3: Reset your password as a user](#step-3-reset-your-azure-ad-password-as-a-user)
@@ -161,6 +161,7 @@ Now that you’ve configured a user reset policy and specified contact details f
 ## Enable users to reset or change their AD Passwords
 
 This section walks you through configuring password reset to write passwords back to an on-premises Active Directory.
+
  - [Password Writeback prerequisites](#writeback-prerequisites)
  - [Step 1: Download the latest version of Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
  - [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#step-2-enable-password-writeback-in-azure-ad-connect)
@@ -171,6 +172,7 @@ This section walks you through configuring password reset to write passwords bac
 
 ### Writeback prerequisites
 Before you can enable and use the Password Writeback, you must make sure you complete the following prerequisites:
+
 - You have an Azure AD tenant with Azure AD Premium enabled.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
 - Password reset has been configured and enabled in your tenant.  For more information, see [Getting Started: Azure AD Password Management](active-directory-editions)
 - You have at least one administrator account and one test user account with an Azure AD Premium license that you can use to test this feature.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
