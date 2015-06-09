@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="06/09/2015" 
 	ms.author="spelluru"/>
 
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
@@ -281,7 +281,10 @@ You can pass values for any other Web service parameters using the webServicePar
 		          		}  
 		        	}
 		      	}
-	    	]
+	    	],
+
+			"start": "2015-02-13T00:00:00Z",
+        	"end": "2015-02-14T00:00:00Z"
 		}
 	}
  
@@ -297,6 +300,7 @@ In the above JSON example:
 - The parameters for writer (the ones with '1' suffix) are not automatically filled in by the Data Factory service. Therefore, you need to specify values for these parameters in the **webServiceParameters** section of the activity JSON.  
 - **Customer ID**, **scored labels**, and **scored probabilities** are saved as comma separated columns. 
 - The **Data table name** in this example corresponds to a table in the output database.
+- Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
 
 
