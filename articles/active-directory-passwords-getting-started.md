@@ -162,12 +162,12 @@ Now that you’ve configured a user reset policy and specified contact details f
 
 This section walks you through configuring password reset to write passwords back to an on-premises Active Directory.
 
- - [Password Writeback prerequisites](#writeback-prerequisites)
- - [Step 1: Download the latest version of Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
- - [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#step-2-enable-password-writeback-in-azure-ad-connect)
- - [Step 3: Configure your firewall](#step-3-configure-your-firewall)
- - [Step 4: Set up the appropriate permissions](#step-4-set-up-the-appropriate-active-directory-permissions)
- - [Step 5: Reset your AD password as a user and verify](#step-5-reset-your-ad-password-as-a-user)
+- [Password Writeback prerequisites](#writeback-prerequisites)
+- [Step 1: Download the latest version of Azure AD Connect](#step-1-download-the-latest-version-of-azure-ad-connect)
+- [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#step-2-enable-password-writeback-in-azure-ad-connect)
+- [Step 3: Configure your firewall](#step-3-configure-your-firewall)
+- [Step 4: Set up the appropriate permissions](#step-4-set-up-the-appropriate-active-directory-permissions)
+- [Step 5: Reset your AD password as a user and verify](#step-5-reset-your-ad-password-as-a-user)
 
 
 ### Writeback prerequisites
