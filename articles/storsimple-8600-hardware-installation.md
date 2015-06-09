@@ -284,7 +284,7 @@ Perform the following steps to cable your device for power.
 
 10. Verify that the connection between the EBOD controller and the device controller is active by checking the SAS LEDs (4 LEDs next to the SAS port) on the EBOD controller. The SAS LEDs should be green.
 
-> [AZURE.NOTE To ensure high availability of your system, you are advised to strictly adhere to the power cabling scheme shown in the following diagram.
+> [AZURE.NOTE] To ensure high availability of your system, you are advised to strictly adhere to the power cabling scheme shown in the following diagram.
 
    **Figure 9 Power cabling for your device**
 
@@ -375,7 +375,7 @@ Perform the following steps to cable your serial port.
 
 6. Verify that the connection is working by pressing Enter on the console. A serial console menu should appear.
 
-> [AZURE.NOTE] **Lights-Out Management:** When the device is installed in a remote datacenter or in a computer room with limited access, ensure that the serial connections to both controllers are always connected to a serial console switch or similar equipment. This allows out-of-band remote control and support operations in case of network disruption or unexpected failures.
+> [AZURE.NOTE] **Lights-Out Management: **When the device is installed in a remote datacenter or in a computer room with limited access, ensure that the serial connections to both controllers are always connected to a serial console switch or similar equipment. This allows out-of-band remote control and support operations in case of network disruption or unexpected failures.
 
 You have completed cabling your device for power, network access, and serial connection.The next step is to configure the software on your device.
 
