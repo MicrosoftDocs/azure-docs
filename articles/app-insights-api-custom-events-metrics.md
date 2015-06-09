@@ -452,6 +452,9 @@ A typical use is to identify telemetry coming from different versions or compone
 
 **Define your initializer**
 
+
+*C#*
+
 ```C#
 
     using System;
@@ -473,6 +476,8 @@ A typical use is to identify telemetry coming from different versions or compone
       }
     }
 ```
+
+*Java*
 
 ```Java
 
@@ -501,6 +506,7 @@ In ApplicationInsights.config:
 
 *Alternatively,* you can instantiate the initializer in code:
 
+*C#*
 
 ```C#
 
@@ -511,6 +517,8 @@ In ApplicationInsights.config:
         .Add(new MyContextInitializer());
     }
 ```
+
+*Java*
 
 ```Java
 
@@ -529,6 +537,10 @@ For example, the Application Insights for Web package collects telemetry about H
 If you provide a telemetry initializer, it is called whenever any of the Track*() methods is called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer. 
 
 **Define your initializer**
+
+*C#*
+
+```C#
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -563,7 +575,7 @@ If you provide a telemetry initializer, it is called whenever any of the Track*(
         }
       }
     }
-
+```
 
 **Load your initializer**
 
@@ -579,12 +591,15 @@ In ApplicationInsights.config:
 
 *Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
 
+
+```C#
     protected void Application_Start()
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
         .Add(new MyTelemetryInitializer());
     }
+```
 
 
 [See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
