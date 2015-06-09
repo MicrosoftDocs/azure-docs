@@ -128,11 +128,11 @@ Since Visual Studio uses the Swagger API definition to generate code for the cli
         throw ex;
     } 
 
-Swashbuckle provides two ways of customizing the list of expected HTTP response codes that it generates, one that you can use in Swashbuckle 5.1.5.0, and one you can use in 5.0.0.0 and later. This section covers both of these options. 
+Swashbuckle provides two ways of customizing the list of expected HTTP response codes that it generates, using XML comments or the `SwaggerResponse` attribute. The attribute is easier, but it is only available in Swashbuckle 5.1.5 or later. The API Apps preview new-project template in Visual Studio 2013 includes Swashbuckle version 5.0.0, so if you used the template and don't want to update Swashbuckle, your only option is to use XML comments. 
 
 ### Customize expected response codes using XML comments
 
-The API Apps preview new-project template in Visual Studio 2013 includes Swashbuckle version 5.0.0. If you'd prefer to use the Swashbuckle version included with the template to specify multiple HTTP response codes, you can use special XML comments recognized by the Swashbuckle Swagger generation routine. To specify response codes, perform the following steps. 
+Use this method to specify response codes if your Swashbuckle version is earlier than 5.1.5.
 
 1. First, add XML documentation comments over the methods you wish to specify HTTP response codes for. Taking the sample Web API action shown above and applying the XML documentation to it would result in code like the following example. 
 
@@ -205,7 +205,7 @@ The code for this demonstration can be found in [this GitHub repository](https:/
 
 ### Customize expected response codes using the SwaggerResponse attribute
 
-As of Swashbuckle version 5.1.5, there is a new and cleaner way to specify valid response codes on Web API action methods: the [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) attribute. This section explains how to upgrade the Swashbuckle NuGet package so that you can use the attribute-based method of specifying valid HTTP response codes.
+The [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs) attribute is available in Swashbuckle 5.1.5 and later. In case you have an earlier version in your project, this section starts by explaining how to update the Swashbuckle NuGet package so that you can use this attribute.
 
 1. In **Solution Explorer**, right-click your Web API project and click **Manage NuGet Packages**. 
 
@@ -235,6 +235,10 @@ As of Swashbuckle version 5.1.5, there is a new and cleaner way to specify valid
 		    }
 		}
 
+2. Add a `using` statement for the attribute's namespace:
+
+		using Swashbuckle.Swagger.Annotations;
+		
 1. Browse to the */swagger/docs/v1* URL of your project and the various HTTP response codes will be visible in the Swagger JSON. 
 
 	![](./media/app-service-api-dotnet-swashbuckle-customize/multiple-responses-post-attributes.png)
