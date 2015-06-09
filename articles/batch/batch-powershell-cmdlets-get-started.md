@@ -25,11 +25,11 @@ For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batc
 ## Prerequisites
 
 * **Batch Preview** - Sign up for the [Batch preview](https://account.windowsazure.com/PreviewFeatures), if you haven't already, to work with the service.
-* **Azure PowerShell** - See [How to install and configure Azure PowerShell](powershell-install-configure.md) for prerequisites and download and installation instructions. Batch cmdlets were introduced in version 0.8.10 and later versions.
+* **Azure PowerShell** - See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for prerequisites and download and installation instructions. Batch cmdlets were introduced in version 0.8.10 and later versions.
 
 ## Use the Batch cmdlets
 
-Use standard procedures to start Azure PowerShell and [connect to your Azure subscriptions](powershell-install-configure.md#Connect). Additionally:
+Use standard procedures to start Azure PowerShell and [connect to your Azure subscriptions](../powershell-install-configure.md#Connect). Additionally:
 
 * **Select Azure subscription** - If you have more than subscription, select the subscription where you added the Batch Preview feature:
 
@@ -37,7 +37,7 @@ Use standard procedures to start Azure PowerShell and [connect to your Azure sub
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
-* **Switch to AzureResourceManage mode** - The Batch cmdlets ship in the Azure Resource Manager module. See [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md) for details. To use this module, run the [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) cmdlet:
+* **Switch to AzureResourceManage mode** - The Batch cmdlets ship in the Azure Resource Manager module. See [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) for details. To use this module, run the [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) cmdlet:
 
     ```
     Switch-AzureMode -Name AzureResourceManager

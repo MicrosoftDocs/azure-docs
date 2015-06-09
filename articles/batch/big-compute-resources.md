@@ -57,7 +57,7 @@ Migrate or extend your existing Windows HPC cluster to run your compute intensiv
 
 * [HPC Pack in Azure VMs](https://msdn.microsoft.com/library/azure/dn518135.aspx)
 
-* [Tutorial: Set up a Hybrid Cluster with HPC Pack in Azure](cloud-services-setup-hybrid-hpcpack-cluster.md)
+* [Tutorial: Set up a Hybrid Cluster with HPC Pack in Azure](../cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Windows HPC Forums](https://social.microsoft.com/Forums/home?category=windowshpc)
 
