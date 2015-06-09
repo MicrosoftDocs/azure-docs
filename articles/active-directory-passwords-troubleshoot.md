@@ -17,18 +17,6 @@
 	ms.author="asteen"/>
 
 # How to troubleshoot Password Management
-If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to  troubleshoot your deployment:
-
-* [Information to include when you need help](troubleshoot-info)
-* [Problems with Password Management configuration in the Azure Management Portal](troubleshoot-sspr-config)
-* [Problems with Password Managment reports in the Azure Management Portal](troubleshoot-sspr-reports)
-* [Problems with the Password Reset Registration Portal](troubleshoot-sspr-registration)
-* [Problems with the Password Reset Portal](troubleshoot-sspr-portal)
-* [Problems with Password Writeback](troubleshoot-sspr-writeback)
-  - [Password Writeback event log error codes](troubleshoot-sspr-writeback-error-codes)
-  - [Problems with Password Writeback connectivity](troubleshoot-sspr-writeback-connectivity)
-
-If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) or contact support and we'll take a look at your problem as soon as we can.
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../active-directory-passwords/" title="What is it">What is It</a>
@@ -41,6 +29,19 @@ If you've tried the troubleshooting steps below and are still running into probl
 <a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting" class="current">Troubleshooting</a>
 <a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
 </div>
+
+If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to  troubleshoot your deployment:
+
+* [Information to include when you need help](troubleshoot-info)
+* [Problems with Password Management configuration in the Azure Management Portal](troubleshoot-sspr-config)
+* [Problems with Password Managment reports in the Azure Management Portal](troubleshoot-sspr-reports)
+* [Problems with the Password Reset Registration Portal](troubleshoot-sspr-registration)
+* [Problems with the Password Reset Portal](troubleshoot-sspr-portal)
+* [Problems with Password Writeback](troubleshoot-sspr-writeback)
+  - [Password Writeback event log error codes](troubleshoot-sspr-writeback-error-codes)
+  - [Problems with Password Writeback connectivity](troubleshoot-sspr-writeback-connectivity)
+
+If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) or contact support and we'll take a look at your problem as soon as we can.
 
 ## Information to include when you need help <a href="troubleshoot-info"></a>
 

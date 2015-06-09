@@ -17,16 +17,6 @@
 	ms.author="asteen"/>
 
 # Manage your passwords from any location
-Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises.  
-
-Azure AD sets itself apart from these offerings by providing some of the easiest to use and and most powerful self-service capabilities available today.
-
-Azure AD Password Management is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.  Read on to learn more about the following:
-
-* [What is possible with Azure AD Password Management?](sspr-whats-possible)
-* [Why use Azure AD Password Management?](sspr-why-use)
-* [Recent Updates to Azure AD Password Management](sspr-recent-updates)
- 
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../active-directory-passwords/" title="What is it" class="current">What is It</a>
@@ -39,6 +29,17 @@ Azure AD Password Management is a set of capabilities that allow your users to m
 <a href="../active-directory-passwords-troubleshoot/" title="Troubleshooting">Troubleshooting</a>
 <a href="../active-directory-passwords-learn-more/" title="Learn more">Learn More</a>
 </div>
+
+Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises.  
+
+Azure AD sets itself apart from these offerings by providing some of the easiest to use and and most powerful self-service capabilities available today.
+
+Azure AD Password Management is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.  Read on to learn more about the following:
+
+* [What is possible with Azure AD Password Management?](sspr-whats-possible)
+* [Why use Azure AD Password Management?](sspr-why-use)
+* [Recent Updates to Azure AD Password Management](sspr-recent-updates)
+ 
 
 ## What is possible with Azure AD Password Management? <a href="sspr-whats-possible"></a>
 Here are some of the things you can do with Azure AD's password management capabilities.
