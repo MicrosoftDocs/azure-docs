@@ -522,6 +522,10 @@ Below is the list of result types you may expect when using the password reset a
             </tr>
           </tbody></table>
 
+<br/>
+<br/>
+<br/>
+
 **Additional Resources**
 
 

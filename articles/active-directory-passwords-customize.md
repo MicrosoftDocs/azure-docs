@@ -714,6 +714,10 @@ The following table describes how each control affects the experience for users 
           </tbody></table>
 
 
+<br/>
+<br/>
+<br/>
+
 **Additional Resources**
 
 

@@ -112,6 +112,10 @@ See Learn how data is used by password reset to see how each of these properties
 We are working on sample training materials that you can use to get your IT organization and your users up to speed quickly on how to deploy and use password reset.  Stay tuned!
 
 
+<br/>
+<br/>
+<br/>
+
 **Additional Resources**
 
 

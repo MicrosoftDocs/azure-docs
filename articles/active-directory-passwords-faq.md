@@ -74,7 +74,7 @@ This FAQ is split into the following sections:
 
  - **Q:  What parts of the password reset experience get branded when I set organizational branding in my directory’s configure tab?**
  
- > **A:** The password reset portal will show your organizational logo and will also allow you to configure the Contact your administrator link to point to a custom email or URL. Any email that gets sent by password reset will include your organization’s logo, colors (in this case red), name in the body of the email, and customized <from> name. See an example with all the branded elements below. To learn more, read Customizing Password Reset Look and Feel.
+ > **A:** The password reset portal will show your organizational logo and will also allow you to configure the Contact your administrator link to point to a custom email or URL. Any email that gets sent by password reset will include your organization’s logo, colors (in this case red), name in the body of the email, and customized from name. See an example with all the branded elements below. To learn more, read Customizing Password Reset Look and Feel.
   
   ![][001]
   
@@ -177,6 +177,10 @@ This FAQ is split into the following sections:
  
  > **A:** Yes, Password Writeback is extremely secure. To read more about the 4 layers of security implemented by the Password Writeback service, check out the “Password Writeback security model” in How Password Writeback works.
 
+
+<br/>
+<br/>
+<br/>
 
 **Additional Resources**
 
