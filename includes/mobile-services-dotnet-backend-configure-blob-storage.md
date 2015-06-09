@@ -141,5 +141,5 @@ Next, you will update the quickstart app to add image upload functionality by us
 [10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: storage-create-storage-account.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
