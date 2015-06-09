@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,8 +21,8 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-#Overview
-This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
+##Overview
+This topic shows you how to use Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then sign-in to the Azure Management Portal to view changes to data made when running the app.
 
 To complete this tutorial, you need the following:
 
@@ -35,7 +35,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 1. Download the JavaScript version of the GetStartedWithData sample app from the [Developer Code Samples site]. 
 
-2. In Visual Studio 2012 Express for Windows 8, open the downloaded project, expand the **js** folder and examine the default.js file.
+2. In Visual Studio, open the downloaded project, expand the **js** folder and examine the default.js file.
 
    	Notice that added **TodoItem** objects are stored in an in-memory **List** object.
 
@@ -66,7 +66,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
-#Update the app to use the mobile service
+##Update the app to use the mobile service
 
 [AZURE.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
@@ -110,10 +110,10 @@ This concludes the **Get started with data** tutorial.
 
 This tutorial demonstrated the basics of enabling a Windows Store app to work with data in Mobile Services.  Next, consider reading up on one of these other topics:
 
-* [Get started with authentication]
+* [Add authentication to your app](mobile-services-windows-store-javascript-get-started-users.md)
   <br/>Learn how to authenticate users of your app.
 
-* [Get started with push notifications] 
+* [Add push notifications  to your app](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md) 
   <br/>Learn how to send a very basic push notification to your app.
 
 * [Mobile Services HTML/JavaScript How-to Conceptual Reference](mobile-services-html-how-to-use-client-library.md)
@@ -136,13 +136,6 @@ This tutorial demonstrated the basics of enabling a Windows Store app to work wi
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: mobile-services-windows-store-javascript-validate-modify-data-server-scripts.md
-[Refine queries with paging]: mobile-services-windows-store-javascript-add-paging-data.md
-[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
-[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
-[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
-[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
-
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545

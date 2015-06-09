@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Creating web apps with Django in Azure" 
-	description="A tutorial that introduces you to running a Python web app in Azure App Service Web Apps." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Creating web apps with Django in Azure"
+	description="A tutorial that introduces you to running a Python web app in Azure App Service Web Apps."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article" 
+	ms.date="04/15/2015"
 	ms.author="huguesv"/>
 
 
@@ -55,9 +55,9 @@ You should have Python and Git already installed, but make sure you have either 
 
 ## Web App Creation on Portal
 
-The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.com). 
+The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.com).
 
-1. Log into the Azure Portal and click the **NEW** button in the bottom left corner. 
+1. Log into the Azure Portal and click the **NEW** button in the bottom left corner.
 2. Click **Web + Mobile** > **Azure Marketplace** > **Web Apps**.
 3. In the search box, type "python".
 4. In the search results, select **Django**, then click **Create**.
@@ -111,7 +111,7 @@ IIS proxy for virtual environments and PTVS remote debugging support.
     \requirements.txt
 
 External packages needed by this application. The deployment script will pip install the packages listed in this file.
- 
+
     \web.2.7.config
     \web.3.4.config
 
@@ -229,7 +229,7 @@ First, clone the repository using the URL provided on the Azure Portal, and add 
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### Create virtual environment
 
@@ -318,7 +318,7 @@ First, clone the repository using the URL provided on the Azure Portal, and add 
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### Create virtual environment
 
@@ -419,11 +419,11 @@ When running the application in debug mode, the application serves the static fi
 
 When running the application in release mode, the application does **not** serve the static files. It is the responsibility of the web server to serve the files. For this application, IIS will serve the static files from `/static`.
 
-The collection of static files is done automatically as part of the deployment script, clearing previously collected files. This means the collection occurs on every deployment, slowing down deployment a bit, but it ensures that obsolete files won't be available, avoiding a potential security issue. 
+The collection of static files is done automatically as part of the deployment script, clearing previously collected files. This means the collection occurs on every deployment, slowing down deployment a bit, but it ensures that obsolete files won't be available, avoiding a potential security issue.
 
 If you want to skip collection of static files for your Django application:
 
-    \.skipDjango 
+    \.skipDjango
 
 Then you'll need to do the collection manually on your local machine:
 
@@ -453,7 +453,7 @@ or to enable any:
     ALLOWED_HOSTS = (
         '*',
     )
- 
+
 In practice, you may want to do something more complex to deal with switching between debug and release mode, and getting the host name.
 
 You can set environment variables through the Azure portal **CONFIGURE** page, in the **app settings** section.  This can be useful for setting values that you may not want to appear in the sources (connection strings, passwords, etc), or that you want to set differently between Azure and your local machine. In `settings.py`, you can query the environment variables using `os.getenv`.
@@ -479,8 +479,8 @@ After it's enabled, synchronize the database, run the application and navigate t
 
 ## Next Steps
 
-Follow these links to learn more about Django and Python Tools for Visual Studio: 
- 
+Follow these links to learn more about Django and Python Tools for Visual Studio:
+
 - [Django Documentation]
 - [Python Tools for Visual Studio Documentation]
 
@@ -511,6 +511,5 @@ For information on using SQL Database and MySQL:
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Visual Studio]: http://www.visualstudio.com/
 [PTVS documentation]: http://pytools.codeplex.com/documentation
-[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
+[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
 [Django Documentation]: https://www.djangoproject.com/
-

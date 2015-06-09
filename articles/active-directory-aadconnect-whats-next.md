@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="billmath" 
 	manager="terrylan" 
-	editor="lisatoft"/>
+	editor="bryanla"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,77 +13,92 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/28/2015" 
 	ms.author="billmath"/>
 
 # Managing Azure AD Connect 
 
-
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/active-directory-aadconnect/" title="What is It" class="current">What is It</a>
-<a href="/en-us/documentation/articles/active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
-<a href="/en-us/documentation/articles/active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="/en-us/documentation/articles/active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
-<a href="/en-us/documentation/articles/active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
+<a href="../active-directory-aadconnect/" title="What is It">What is It</a>
+<a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
+<a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
+<a href="../active-directory-aadconnect-whats-next/" title="Whats Next" class="current">Whats Next</a>
+<a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
 </div>
 
 The topics are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organizations needs and requirements.  
 
-## Changing the default configuration
-The default configuration of Azure AD Connect in most instances is sufficient to easily extend your on-premises directories into the cloud.  However there are certain instances when you may need to modify the default and tailor it to your organizations business logic.  In these instances you can modify the default configuration however there are some things you need to be aware of before you do this.
+## Assigning licenses to Azure AD Premium and Enterprise Mobility users
 
-If you are upgrading or moving from Azure AD Sync or DirSync be aware of the following:
+Now that your users have been synchronized to the cloud, you will need to assign them a license so they can get going with cloud apps experiences such as Office 365 and Azure AD Premium. 
 
-- After upgrading Azure AD Sync to a newer version, most settings will be reset back to default.
-- Changes to “out-of-box” synchronization rules are lost after an upgrade has been applied.
-- Deleted “out-of-box” synchronization rules are recreated during an upgrade to a newer version.
-- Custom synchronization rules you have created remain unmodified when an upgrade to a newer version has been applied.
+### To assign an Azure AD Premium or Enterprise Mobility Suite License
+--------------------------------------------------------------------------------
 
-When you need to change the default configuration, do the following:
+1. Sign-in to the Azure Portal as an Administrator.
+2. On the left, select **Active Directory**.
+3. On the Active Directory page, double-click on the directory that has the users you wish to enable.
+4. At the top of the directory page, select **Licenses**.
+5. On the Licenses page, select Active Directory Premium or Enterprise Mobility Suite, and then click **Assign**.
+6. 4.In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.
 
-- When you need to modify an attribute flow of an “out-of-box” synchronization rule, do not change it. Instead, create a new synchronization rule with a higher precedence (lower numeric value) that contains your required attribute flow.
-- Export your custom synchronization rules using the Synchronization Rules Editor. This provides you with a PowerShell script you can use to easily recreate them in the case of a disaster recovery scenario.
-- If you need to change the scope or the join setting in an “out-of-box” synchronization rule, document this and reapply the change after upgrading to a newer version of Azure AD Connect.
+<center>![Cloud](./media/active-directory-aadconnect-whats-next/license.png)</center>
+
+## Verifying the scheduled synchronization task
+If you want to check on the status of a synchronization you can do this by checking in the Azure portal.
+
+### To verify the scheduled synchronization task
+--------------------------------------------------------------------------------
+
+1. Sign-in to the Azure Portal as an Administrator.
+2. On the left, select **Active Directory**.
+3. On the Active Directory page, double-click on the directory that has the users you wish to enable.
+4. At the top of the directory page, select **Directory Integration**.
+5. Under integration with local active directory note the last sync time.
+
+<center>![Cloud](./media/active-directory-aadconnect-whats-next/verify.png)</center>
+
+## Starting a scheduled synchronization task
+If you need to run a synchronization task you can do this by running through the Azure AD Connect wizard again.  You will need to provide your Azure AD credentials.  In the wizard, select the Customize synchronization options task and click next through the wizard and ensure that the Start the synchronization process as soon as the initial configuration completes box is checked.
+
+<center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
 
 
 
+## Additional tasks available in Azure AD Connect
+After your initial installation of Azure AD Connect, you can always start the wizard again from the Azure AD Connect start page or desktop shortcut.  You will notice that going through the wizard again provides some new options in the form of Additional tasks.  
+
+The following table provides a summary of these tasks and a brief description on each of them.
+
+<center>![Join Rule](./media/active-directory-aadconnect-whats-next/addtasks.png)
+</center>
+
+Additional Task | Description 
+------------- | ------------- |
+View the selected scenario  |Allows you to view your current Azure AD Connect solution.  This includes general settings, synchronized directories, synch settings, etc.
+Customize Synchronization options | Allows you to change the current configuration including adding additional Active Directory forests to the configuration or enabling sync options such as user, group, device or password write-back.
+Enable Staging Mode |  This allows you to stage information that will later be synchronized but nothing will be exported to Azure AD or Active Directory.  This allows you to preview the synchronizations before they occur.
 
 
  
 
-## Using the synchronization rules editor
-
-In Azure AD Connect, you can configure and fine-tune the object and attribute flow between Azure AD and your on-premises directories by configuring synchronization rules.  Synchronization rules can be configured using the Synchronization Rules Editor.  The Synchronization Rules Editor is installed when you install Azure AD Connect.  In order to use the Editor you must be a member of the ADSyncAdmins group or the Administrator group you specified during the Azure AD Connect installation. 
-
-In the screen shot below you will see all Synchronization Rules created for your configuration when you install Azure AD Connect using the Express installation. Each line in the table is one Synchronization Rule. To the left under Rule Types the two different types are listed: Inbound and Outbound. Inbound and Outbound is from the view of the metaverse.  That is, we are bringing information from our directories in to the metaverse.  Outbound refers to rules in which we would send information and attributes out to our directories such as our on-premises Active Directory or Azure AD. 
-
-<center>![Synch Rules Editor](./media/active-directory-aadconnect-whats-next/Synch_Rule.png)
-</center>
-
-To create a new rule, you would select Add new rule and then configure the rule.  For example, let's suppose we want to create a join rule where any user in our on-premises directory will join with the metaverse object that has the same phone number.  To do this create the new rule an specify the Connected system, in our case contoso.com, the Connected System Object Type, user, the Metaverse Object Type, person, and the Link Type of Join.
-
-<center>![Create Sync rule](./media/active-directory-aadconnect-whats-next/synch2.png)
-</center>
 
 
-Then on the Join rules screen specify the telephoneNumber under Source attribute and telephoneNumber under Target attribute.  And that is it.  You have now successfully created a join rule.
-
-<center>![Join Rule](./media/active-directory-aadconnect-whats-next/synch3.png)
-</center>
-
-You can use the Synchronization Rules Editor to apply additional business logic outside the default configuration and tailor it to your organizations needs.  For additional information on the Synchronization Rules Editor see [Understanding the default configuration](https://msdn.microsoft.com/library/azure/dn800963.aspx).
 
 
-## Using declarative provisioning 
-Declarative provisioning is "codeless" provisioning and can be setup and configured using the Synchronization Rules Editor.  The Editor can be used setup and create your own provisioning rules.
-
-An essential part of Declarative Provisioning is the expression language used in attribute flows. The language used is a subset of Microsoft® Visual Basic® for Applications (VBA). This language is used in Microsoft Office and users with experience of VBScript will also recognize it. The Declarative Provisioning Expression Language is only using functions and is not a structured language; there are no methods or statements. Functions will instead be nested to express program flow.
-
-For more information on the expression language see [Understanding Declarative Provisioning Expressions](https://msdn.microsoft.com/library/azure/dn801048.aspx)
 
 ## Additional Documentation
-Some of the documentation that was created for Azure AD Sync is still relevant and applies to Azure AD Connect.  Although every effort is being made to bring this documentation over to Azure.com, some of this documentation still resides in the MSDN scoped library.  For additional documentation see [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) and [Azure AD Sync on MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
+For additional documentation on working with Azure AD Connect see the following;
+
+- [Changing the Azure AD Connect default configuration](active-directory-aadconnect-whats-next-change-default-config.md)
+- [Using the Azure AD Connect Synchronization Rules Editor](active-directory-aadconnect-whats-next-synch-rules-editor.md)
+- [Using declarative provisioning](active-directory-aadconnect-whats-next-declarative-prov.md)
+
+Also, some of the documentation that was created for Azure AD Sync is still relevant and applies to Azure AD Connect.  Although every effort is being made to bring this documentation over to Azure.com, some of this documentation still resides in the MSDN scoped library.  For additional documentation see [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) and [Azure AD Sync on MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
+
+
+
 
 **Additional Resources**
 

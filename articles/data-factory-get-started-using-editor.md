@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Data Factory Editor
@@ -56,7 +56,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 7. In the **New data factory** blade, notice that **Add to Startboard** is selected.
 8. Click **Create** in the **New data factory** blade.
 
-	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactory” is not available**, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. Use this name in place of ADFTutorialFactory while performing remaining steps in this tutorial. See [Data Factory - Naming Rules][data-factory-naming-rules] topic for naming rules for Data Factory artifacts.  
+	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactory” is not available**, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. Use this name in place of ADFTutorialFactory while performing remaining steps in this tutorial. See [Data Factory - Naming Rules][data-factory-naming-rules] topic for naming rules for Data Factory artifacts.  
 	 
 	![Data Factory name not available][image-data-factory-name-not-available]
 
@@ -75,7 +75,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
-	> [AZURE.NOTE] See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor. 
+	See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor. 
 	 
 5. In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage linked service in the right pane. 
 
@@ -85,7 +85,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Editor Blob Storage JSON][image-editor-blob-storage-json]    
 	
-	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
 6. Click **Deploy** on the toolbar to deploy the StorageLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar.
 
@@ -165,7 +165,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
             { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
         ],
 
-	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
 2. Click **Deploy** on the toolbar to create and deploy the **EmpTableFromBlob** table. Confirm that you see the **TABLE CREATED SUCCESSFULLY** message on the title bar of the Editor.
 
@@ -268,12 +268,15 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 	- Input for the activity is set to **EmpTableFromBlob** and output for the activity is set to **EmpSQLTable**.
 	- In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
-	> [AZURE.NOTE] Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2015-02-03", which is equivalent to "2015-02-03T00:00:00Z"
-	> Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
-	> If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
-	> In the example above, there will be 24 data slices as each data slice is produced hourly.
+	Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2015-02-03", which is equivalent to "2015-02-03T00:00:00Z"
 	
-	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we will use it in this tutorial. 
+	
+	If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
+	
+	In the example above, there will be 24 data slices as each data slice is produced hourly.
+	
+	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 
 4. Click **Deploy** on the toolbar to create and deploy the **ADFTutorialPipeline**. Confirm that you see the **PIPELINE CREATED SUCCESSFULLY** message.
 5. Now, close the **Editor** blade by clicking **X**. Click **X** again to close the ADFTutorialDataFactory blade with the toolbar and tree view. If you see **your unsaved edits will be discarded** message, click **OK**.
@@ -368,11 +371,11 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 4.	Create **pipelines**. A pipeline consists of one or more activities and processes the inputs and produces outputs. Set the active period for the pipeline by specifying **Start** time and **End** time for the pipeline. The active period defines the time duration in which data slices will be produced. 
 
 
-> [AZURE.NOTE] For a list of supported activities, see [Pipelines and Activities][msdn-activities] 
-> topic and for a list of supported linked services, see [Linked Services][msdn-linkedservices] 
-> topic on MSDN Library.
-> 
-> To do this tutorial using Azure PowerShell, see [Create and monitor a data factory using Azure PowerShell][monitor-manage-using-powershell].  
+For a list of supported activities, see [Pipelines and Activities][msdn-activities] 
+topic and for a list of supported linked services, see [Linked Services][msdn-linkedservices] 
+topic on MSDN Library.
+ 
+To do this tutorial using Azure PowerShell, see [Create and monitor a data factory using Azure PowerShell][monitor-manage-using-powershell].  
 
 ## Next steps
 

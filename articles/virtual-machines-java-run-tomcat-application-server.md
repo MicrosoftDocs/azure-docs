@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # How to run a Java application server on a virtual machine

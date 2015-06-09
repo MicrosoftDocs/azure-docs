@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
-	ms.author="dkshir"/>
+	ms.date="06/02/2015"
+	ms.author="danlep"/>
 
 # Install the Azure CLI
 
@@ -122,7 +122,7 @@ Now you are ready! Next you can [connect to your Azure subscription from the Azu
 
 In a Docker host, run:
 ```
-	docker run -it kmouss/azure-cli
+	docker run -it microsoft/azure-cli
 ```
 
 <a id="additional-resources"></a>

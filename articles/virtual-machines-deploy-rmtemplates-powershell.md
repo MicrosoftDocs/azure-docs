@@ -13,21 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="06/02/2015" 
 	ms.author="josephd"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell
 
-This article show you how to use Azure Resource Manager templates and PowerShell to automate common tasks for deploying and managing Azure Virtual Machines. For more templates you can use, see [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
-
-Common tasks:
+This article shows you how to use Azure Resource Manager templates and PowerShell to automate common tasks for deploying and managing Azure Virtual Machines. For more templates you can use, see [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 
 - [Deploy a Windows VM](#windowsvm)
 - [Create a custom VM image](#customvm)
 - [Deploy a multi-VM application that uses a virtual network and an external load balancer](#multivm)
+- [Remove a resource group](#removerg)
 - [Log on to a virtual machine](#logon)
+- [Display information about a virtual machine](#displayvm)
 - [Start a virtual machine](#start)
 - [Stop a virtual machine](#stop)
+- [Restart a virtual machine](#restart)
+- [Delete a virtual machine](#delete)
 
 Before you get started, make sure you have Azure PowerShell ready to go.
 
@@ -48,7 +50,7 @@ The resources you create using Azure Resource Manager Templates will be deployed
 
 You can learn more about Azure Resource Manager [here](virtual-machines-azurerm-versus-azuresm.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 
-## <a id="windowsvm"></a>Deploy a Windows VM
+## <a id="windowsvm"></a>TASK: Deploy a Windows VM
 
 Use the instructions in this section to deploy a new Azure VM using a Resource Manager Template and Azure PowerShell. This template creates a single virtual machine in a new virtual network with a single subnet.
 
@@ -299,7 +301,7 @@ You will see something like this:
 
 You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
 
-## <a id="customvm"></a>Create a custom VM image
+## <a id="customvm"></a>TASK: Create a custom VM image
 
 Use the instructions in this sections to create a custom VM image in Azure with a Resource Manager template using Azure PowerShell. This template creates a single virtual machine from a specified virtual hard disk (VHD).
 
@@ -424,7 +426,7 @@ You will receive the following type of information:
 	vmSize: Standard_A3
 	...
 
-## <a id="multivm"></a>Deploy a multi-VM application that uses a virtual network and an external load balancer
+## <a id="multivm"></a>TASK: Deploy a multi-VM application that uses a virtual network and an external load balancer
 
 Use the instructions in these sections to deploy a multi-VM application that uses a virtual network and a load balancer with a Resource Manager template using Azure PowerShell. This template creates two virtual machines in a new virtual network with a single subnet in a new cloud service, and adds them to an external load-balanced set for incoming traffic to TCP port 80.
 
@@ -780,7 +782,7 @@ You would see something like this.
 	vmNamePrefix: WEBFARM
 	...
 
-## Remove a resource group
+## <a id="removerg"></a>TASK: Remove a resource group
 
 You can remove any resource group you have created with the **Remove-AzureResourceGroup** command.  Replace everything within the quotes, including the < and > characters, with the correct name.
 
@@ -792,11 +794,11 @@ You will see information like this:
 	Are you sure you want to remove resource group 'BuildRG'
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-## <a id="logon"></a>Log on to a Windows virtual machine
+## <a id="logon"></a>TASK: Log on to a Windows virtual machine
 
 For the detailed steps, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
 
-## Display information about a virtual machine
+## <a id="displayvm"></a>TASK: Display information about a virtual machine
 
 You can see information about a VM using the **Get-AzureVM** command. This command returns a VM object that can be manipulated using various other cmdlets to update the state of the VM. Replace everything within the quotes, including the < and > characters, with the correct names.
 
@@ -864,7 +866,7 @@ You will see information about your virtual machine like this:
 	Type                     : Microsoft.Compute/virtualMachines
 
 
-## <a id="start"></a>Start a virtual machine
+## <a id="start"></a>TASK: Start a virtual machine
 
 You can start a VM using the **Start-AzureVM** command.  Replace everything within the quotes, including the < and > characters, with the correct names.
 
@@ -881,7 +883,7 @@ You will see information like this:
 	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
 	StatusCode          : OK
 
-## <a id="stop"></a>Stop a virtual machine
+## <a id="stop"></a>TASK: Stop a virtual machine
 
 You can stop a VM using the **Stop-AzureVM** command.  Replace everything within the quotes, including the < and > characters, with the correct names.
 
@@ -903,7 +905,7 @@ You will see information like this:
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
-## Restart a virtual machine
+## <a id=restart"></a>TASK: Restart a virtual machine
 
 You can restart a VM using the **Restart-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.
 
@@ -920,7 +922,7 @@ You will see information like this:
 	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
 	StatusCode          : OK
 
-## Delete a virtual machine
+## <a id=delete"></a>TASK: Delete a virtual machine
 
 You can delete a VM using the **Remove-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.  You can use the **-Force** parameter to skip the confirmation prompt.
 

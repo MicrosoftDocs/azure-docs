@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="ExpressRoute FAQ"
    description="The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and additional Technical Details."
    documentationCenter="na"
@@ -6,13 +6,13 @@
    authors="cherylmc"
    manager="adinah"
    editor="tysonn"/>
-<tags 
+<tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/28/2015"
+   ms.workload="infrastructure-services"
+   ms.date="06/04/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -37,13 +37,13 @@ You can select a regional carrier and land Ethernet connections to one of the su
 Check [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
 
 ### If I pay for an ExpressRoute circuit of a given bandwidth, does the VPN connection I purchase from my network service provider have to be the same speed?
-No. You can purchase a VPN connection of any speed from your service provider. However, your connection to Azure will be limited to the ExpressRoute circuit bandwidth that you purchase. 
+No. You can purchase a VPN connection of any speed from your service provider. However, your connection to Azure will be limited to the ExpressRoute circuit bandwidth that you purchase.
 
 ### If I pay for an ExpressRoute circuit of a given bandwidth, do I have the ability to burst up to higher speeds if required?
 Yes. ExpressRoute circuits are configured to support cases where you can burst up to two times the bandwidth limit you procured for no additional cost. Check with your service provider if they support this capability.
 
 ### Can I use the same private network connection with Virtual Network and other Azure services simultaneously?
-Yes. An ExpressRoute circuit, once setup will allow you to access services within a virtual network and other Azure services simultaneously. You will connect to virtual networks over the private peering path and other services over the public peering path. 
+Yes. An ExpressRoute circuit, once setup will allow you to access services within a virtual network and other Azure services simultaneously. You will connect to virtual networks over the private peering path and other services over the public peering path.
 
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
 Please refer to the [ExpressRoute SLA page](http://azure.microsoft.com/support/legal/sla/) for more information.
@@ -111,15 +111,15 @@ The basic steps are outlined below.
 
 The following tutorials will help you:
 
-- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-exps.md)
-- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-nsps.md)
+- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
+- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
 - [Configure a Virtual Network and Gateway for ExpressRoute](expressroute-configuring-vnet-gateway.md)
 
 ### Are there connectivity boundaries for my ExpressRoute circuit?
 Yes. [ExpressRoute partners and locations](expressroute-locations.md) page provides an overview of the connectivity boundaries for an ExpressRoute circuit. Connectivity for an ExpressRoute circuit is limited to a single geopolitical region. Connectivity can be expanded to cross geopolitical regions by enabling the ExpressRoute premium feature.
 
 ### Can I link to more than one virtual network to an ExpressRoute circuit?
-Yes. You can link up to 10 virtual networks to an ExpressRoute circuit. 
+Yes. You can link up to 10 virtual networks to an ExpressRoute circuit.
 
 ### I have multiple Azure subscriptions that contain virtual networks. Can I connect virtual networks that are in separate subscriptions to a single ExpressRoute circuit?
 Yes. You can authorize up to 10 other Azure subscriptions to use a single ExpressRoute circuit. This limit can be increased by enabling the ExpressRoute premium feature.
@@ -142,7 +142,7 @@ Yes. You can advertise default routes (0.0.0.0/0) to block all internet connecti
 Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other.
 
 ### Can I use site-to-site and point-to-site connectivity for virtual networks in conjunction with ExpressRoute?
-Yes. ExpressRoute can coexist with site-to-site and point-to-site VPNs. 
+Yes. ExpressRoute can coexist with site-to-site and point-to-site VPNs.
 
 ### Can I move a virtual network from site-to-site / point-to-site configuration to use ExpressRoute?
 Yes. You will have to create an ExpressRoute gateway within your virtual network. There will be a small downtime associated with the process.
@@ -154,7 +154,7 @@ You must establish an ExpressRoute circuit and configure routes for public peeri
 Yes. We accept up to 4000 route prefixes for private peering and public peering. You can increase this to 10,000 routes if you enable ExpressRoute the premium feature.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
-Prefixes advertised through BGP must be /29 or larger (/28 to /8). 
+Prefixes advertised through BGP must be /29 or larger (/28 to /8).
 
 We will filter out private prefixes (RFC1918) in the public peering BGP session.
 
@@ -168,22 +168,22 @@ The following steps will help Azure recognize the activation request:
 2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
 3. Then do one of the following two items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
 	- On your on-premises network, route the traffic destined for the IP address (obtained in step 2) back to Azure via the public peering.
-	- Have your NSP provider hair-pin the traffic back to Azure via the public peering. 
+	- Have your NSP provider hair-pin the traffic back to Azure via the public peering.
 
 ### Can I change the bandwidth of an ExpressRoute circuit?
 Yes. You can increase the bandwidth of an ExpressRoute circuit without having to tear it down. You will have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You will however not be able to reduce the bandwidth of an ExpressRoute circuit. Having to lower the bandwidth will mean a tear down and recreation of an ExpressRoute circuit.
 
-### How do I change the bandwidth of an ExpressRoute circuit? 
+### How do I change the bandwidth of an ExpressRoute circuit?
 You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell cmdlet.
 
 ## ExpressRoute Premium
 
 ### What is ExpressRoute premium?
 ExpressRoute premium is a collection of features listed below.
- 
+
  - Increased routing table limit from 4000 routes to 10,000 routes for public peering and private peering.
  - Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
- - Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
+ - Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
@@ -196,7 +196,7 @@ The table below provides the increased limits for the number of VNets you can li
 | 50 Mbps      | 10                                     | 20                                            |
 | 100 Mbps     | 10                                     | 25                                            |
 | 500 Mbps     | 10                                     | 40                                            |
-| 1Gbps         | 10                                     | 50                                                                                     
+| 1Gbps         | 10                                     | 50
 |
 
 
@@ -218,7 +218,7 @@ ExpressRoute premium features can be enabled when the feature is enabled and can
 You can disable ExpressRoute premium by calling the update dedicated circuit API / PowerShell cmdlet You must ensure that you have scaled your connectivity needs to meet the default limits before you disable ExpressRoute premium. We will fail request to disable ExpressRoute premium if your utilization scales beyond the default limits.
 
 ### Can I pick and choose the features I want from the premium feature set?
-No. You will not be able to pick the features you need. We enable all features when you turn on ExpressRoute premium. 
+No. You will not be able to pick the features you need. We enable all features when you turn on ExpressRoute premium.
 
 ### How much does ExpressRoute premium cost?
 Refer to the [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/) for cost.
@@ -237,7 +237,7 @@ Yes. ExpressRoute premium is supported cor ExpressRoute circuits connected throu
 1. Review the  [ExpressRoute prerequisites page](expressroute-prerequisites.md) page to make sure you meet the requirements
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/)
-4. Follow the steps listed in the workflows below to setup connectivity. 
+4. Follow the steps listed in the workflows below to setup connectivity.
 
 	- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
 	- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
@@ -250,7 +250,7 @@ The following tutorials will help you:
 - [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
 - [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
 
-### What Office 365 services can be accessed over an ExpressRoute connection? 
+### What Office 365 services can be accessed over an ExpressRoute connection?
 
 **The following Office 365 services are supported**
 
@@ -268,7 +268,7 @@ The following tutorials will help you:
 
 - Yammer
 - Office 365 ProPlus client downloads
-- On-premises Identity Provider Sign-In 
+- On-premises Identity Provider Sign-In
 - Office 365 (operated by 21 Vianet) service in China
 
 You can connect to these services over the internet.

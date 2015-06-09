@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Create BizTalk Services in management portal | Azure" 
-	description="Learn how to provision or create a BizTalk Service in the Azure Management Portal; MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="Create BizTalk Services in management portal | Azure"
+	description="Learn how to provision or create a BizTalk Service in the Azure Management Portal; MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/24/2015" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="06/03/2015"
 	ms.author="mandia"/>
 
 
 
 # Create a BizTalk Service using Azure management portal
 
-Create an Azure BizTalk Service in the Azure Management Portal. 
+Create an Azure BizTalk Service in the Azure Management Portal.
 
 > [AZURE.TIP] To sign into the Azure Management Portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
@@ -44,13 +44,12 @@ Depending on the Edition you choose, not all BizTalk Service settings may be ava
 	<td>You can enter any name but be specific. Some examples include:<br/><br/>
 	<em>mycompany</em>.biztalk.windows.net<br/>
 	<em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-	<em>myapplication</em>.biztalk.windows.net<br/><br/>
-".biztalk.windows.net" is automatically added to the name you enter. This creates a URL that is used to access your BizTalk Service, like <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
+	<em>myapplication</em>.biztalk.windows.net<br/><br/>".biztalk.windows.net" is automatically added to the name you enter. This creates a URL that is used to access your BizTalk Service, like <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
 	</td>
 	</tr>
 	<tr>
 	<td><strong>Edition</strong></td>
-	<td>If you are in the testing/development phase, choose <strong>Developer</strong>. If you are in the production phase, use the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Editions Chart</a> to determine if <strong>Premium</strong>, <strong>Standard</strong>, or <strong>Basic</strong> is the correct choice for your business scenario.	 
+	<td>If you are in the testing/development phase, choose <strong>Developer</strong>. If you are in the production phase, use the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Editions Chart</a> to determine if <strong>Premium</strong>, <strong>Standard</strong>, or <strong>Basic</strong> is the correct choice for your business scenario.
 	</td>
 	</tr>
 	<tr>
@@ -74,20 +73,14 @@ Select the NEXT arrow.
 	<table border="1">
 	<tr>
 	<td><strong>Monitoring/Archiving Storage Account</strong></td>
-	<td>Select an existing storage account or create a new storage account. <br/><br/>
-If you create a new Storage account, enter the <strong>Storage Account Name</strong>.</td>
+	<td>Select an existing storage account or create a new storage account. <br/><br/>If you create a new Storage account, enter the <strong>Storage Account Name</strong>.</td>
 	</tr>
 	<tr>
 	<td><strong>Tracking Database</strong></td>
-	<td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/>
-
-	<blockquote><p> [AZURE.TIP] Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.</p> 
-	</blockquote>
-	</td>
+	<td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/><strong>TIP</strong> Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.</td>
 	</tr>
 	</table>
-
-	Select the NEXT arrow.
+Select the NEXT arrow.
 
 6. Enter the Database settings:
 
@@ -122,7 +115,7 @@ Select the check mark to complete the wizard. The progress icon displays:
 <br/>
 ![Progress icon displays when complete][ProgressComplete]
 
-When complete, the Azure BizTalk Service is created and ready for your applications. The default settings are sufficient. If you want to change the default settings, select **BIZTALK SERVICES** in the left navigation pane, and select your BizTalk Service. Additional settings are displayed in the [Dashboard, Monitor, and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281) at the top. 
+When complete, the Azure BizTalk Service is created and ready for your applications. The default settings are sufficient. If you want to change the default settings, select **BIZTALK SERVICES** in the left navigation pane, and select your BizTalk Service. Additional settings are displayed in the [Dashboard, Monitor, and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281) at the top.
 
 Depending on the state of the BizTalk Service, there are some operations that cannot be completed. For a list of these operations, go to [BizTalk Services State Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870).
 
@@ -142,7 +135,7 @@ As part of BizTalk Service provisioning, a self-signed certificate is created an
 4. Select **Download SSL Certificate**.
 <br/>
 ![Modify SSL Certificate][QuickGlance]
-5. Double-click the certificate and run through the wizard to install the certificate. Make sure you install the certificate under the **Trusted Root Certificate Authorities** store. 
+5. Double-click the certificate and run through the wizard to install the certificate. Make sure you install the certificate under the **Trusted Root Certificate Authorities** store.
 
 #### <a name="AddCert"></a>Add a production-ready certificate
 The self-signed certificate that is automatically created when creating BizTalk Services is intended for use in development environments only. For production scenarios, replace it with a production-ready certificate.
@@ -160,7 +153,7 @@ The self-signed certificate that is automatically created when creating BizTalk 
 
 4. Copy the Access Control values.
 
-When you deploy a BizTalk Service project from Visual Studio, you enter this Access Control namespace. The Access Control Namespace is automatically created for your BizTalk service. 
+When you deploy a BizTalk Service project from Visual Studio, you enter this Access Control namespace. The Access Control Namespace is automatically created for your BizTalk service.
 
 The Access Control values can be used with any application. When Azure BizTalk Services is created, this Access Control namespace controls the authentication with your BizTalk Service deployment. If you want to change the subscription or manage the namespace, select **ACTIVE DIRECTORY** in the left navigation pane and then select your namespace. The task bar lists your options.
 
@@ -168,7 +161,7 @@ Clicking **Manage** opens the Access Control Management Portal. In the Access Co
 <br/>
 ![ACS Service Identities in the Access Control Management Portal][ACSServiceIdentities]
 
-The Access Control service identity is a set of credentials that allow applications or clients to authenticate directly with Access Control and receive a token. 
+The Access Control service identity is a set of credentials that allow applications or clients to authenticate directly with Access Control and receive a token.
 
 > [AZURE.IMPORTANT] The BizTalk Service uses **Owner** for the default service identity and the **Password** value. If you use the Symmetric Key value instead of the Password value, the following error may occur:<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 
@@ -176,7 +169,7 @@ The Access Control service identity is a set of credentials that allow applicati
 
 ## Requirements Explained
 
-These Requirements do not apply to the Free Edition. 
+These Requirements do not apply to the Free Edition.
 <table border="1">
 <tr bgcolor="FAF9F9">
         <td><strong>What you need</strong></td>
@@ -221,9 +214,9 @@ The SQL Database scale is automatically configured. Typically, the default scale
 <li>When creating an X12 or AS2 agreement between partners, you can enable the Archiving feature to store message properties. This data is saved in the Storage Account.</li>
 </ul>
 <br/>
-When you create a BizTalk Service, you can use an existing Storage Account or automatically create a new Storage Account. 
+When you create a BizTalk Service, you can use an existing Storage Account or automatically create a new Storage Account.
 <br/><br/>
-The default Storage settings are sufficient for a BizTalk Service. 
+The default Storage settings are sufficient for a BizTalk Service.
 <br/><br/>
 When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. The BizTalk Service automatically uses the Primary Key.
 <br/><br/>
@@ -264,9 +257,9 @@ When you create an Azure BizTalk Service, the **Hybrid Connections** tab is avai
 
 ![Hybrid Connections Tab][HybridConnectionTab]
 
-Hybrid Connections are used to connect an Azure website or Azure mobile service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.  Hybrid Connections and the BizTalk Adapter Service are different. The BizTalk Adapter Service is used to connect Azure BizTalk Services to an on-premises Line of Business (LOB) system. 
+Hybrid Connections are used to connect an Azure website or Azure mobile service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services.  Hybrid Connections and the BizTalk Adapter Service are different. The BizTalk Adapter Service is used to connect Azure BizTalk Services to an on-premises Line of Business (LOB) system.
 
- See [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274) to learn more, including creating and managing Hybrid Connections. 
+ See [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274) to learn more, including creating and managing Hybrid Connections.
 
 
 ## Next
