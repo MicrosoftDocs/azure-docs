@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="04/08/2015"
+   ms.date="06/09/2015"
    ms.author="mcoskun"/>
 
 # Reliable Collections
@@ -57,8 +57,8 @@ The Reliable Collections APIs are an evolution of concurrent collections APIs
 3. Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
 Today, `Microsoft.ServiceFabric.Data.Collections` contains two collections:
-1. Reliable Dictionary: Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to `ConcurrentDictionary`, both the key and the value can be of any type.
-2. Reliable Queue: Represents a replicated, transactional, and asynchronous strict first-in first-out (FIFO) queue. Similar to `ConcurrentQueue`, the value can be of any type.
+1. [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to `ConcurrentDictionary`, both the key and the value can be of any type.
+2. [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in first-out (FIFO) queue. Similar to `ConcurrentQueue`, the value can be of any type.
 
 ## Isolation Levels
 Isolation level is a measure of the degree isolation is achieved.
@@ -156,3 +156,4 @@ Here are some things to keep in mind:
 - [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md)
 - [Getting Started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
 - [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
+- [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
