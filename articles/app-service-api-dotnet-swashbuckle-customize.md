@@ -198,6 +198,45 @@ Once you use Visual Studio to regenerate the client code for your REST API, the 
 
 The code for this demonstration can be found in [this GitHub repository](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes). Along with the Web API project marked up with XML documentation comments is a Console Application project that contains a generated client for this API. 
 
+### Using Swashbuckle's SwaggerResponse Attribute
+
+As of Swashbuckle version 5.1.5, there exist a new way to specify multiple response codes on Web API action methods known as the *[SwaggerResponseAttribute](https://github.com/domaindrivendev/Swashbuckle/blob/master/Swashbuckle.Core/Swagger/Annotations/SwaggerResponseAttribute.cs)*. This attribute provides a cleaner method of specifying HTTP response codes. This section will demonstrate how to upgrade the Swashbuckle NuGet package so that you can use the attribute-based method of specifying known HTTP response codes.
+
+1. Right-click your Web API project and select the *Manage NuGet Packages* context menu. 
+
+	![](./media/app-service-api-dotnet-swashbuckle-customize/manage-nuget-packages.png)
+
+1. Click the *Update* button next to the *Swashbuckle* NuGet package. 
+
+	![](./media/app-service-api-dotnet-swashbuckle-customize/update-nuget-dialog.png)
+
+1. Add the *SwaggerResponse* attributes to the Web API action methods for which you want to specify known HTTP response codes. 
+
+		[SwaggerResponse(HttpStatusCode.OK)]
+	    [SwaggerResponse(HttpStatusCode.NotFound)]
+	    [ResponseType(typeof(Contact))]
+	    public HttpResponseMessage Get(int id)
+	    {
+	        var contacts = GetContacts();
+	
+	        var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
+	
+	        if (requestedContact == null)
+	        {
+	            return Request.CreateResponse(HttpStatusCode.NotFound);
+	        }
+	        else
+	        {
+	            return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
+	        }
+	    }
+
+1. Browse to the */swagger/docs/v1* URL of your project and the various HTTP response codes will be visible in the Swagger JSON. 
+
+	![](./media/app-service-api-dotnet-swashbuckle-customize/multiple-responses-post-attributes.png)
+
+The code for this demonstration can be found in [this GitHub repository](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes-With-Attributes). Along with the Web API project decorated with the *SwaggerResponse* attribute is a Console Application project that contains a generated client for this API. 
+
 ## Next steps
 
 This article has shown how to customize Swashbuckle to make it generate unique operation ids. For more information, see [Swashbuckle on GitHub](https://github.com/domaindrivendev/Swashbuckle).
