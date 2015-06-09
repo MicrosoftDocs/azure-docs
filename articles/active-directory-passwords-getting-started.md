@@ -184,19 +184,20 @@ This section walks you through configuring password reset to write passwords bac
 
 ### Writeback prerequisites
 Before you can enable and use the Password Writeback, you must make sure you complete the following prerequisites:
-- You have an Azure AD tenant with Azure AD Premium enabled.  For more information, see Azure Active Directory Editions.
-- Password reset has been configured and enabled in your tenant.  For more information, see Self-service password reset in Azure AD: how to enable, configure, and test self-service password reset.
-- You have at least one administrator account and one test user account with an Azure AD Premium license that you can use to test this feature.  For more information, see Azure Active Directory Editions
-  > [AZURE.NOTE] Make sure that the administrator account that you use to enable Password Writeback is a cloud administrator account (created in Azure AD), not a federated account (created in on-premises AD and synchronized into Azure AD.
+- You have an Azure AD tenant with Azure AD Premium enabled.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
+- Password reset has been configured and enabled in your tenant.  For more information, see [Getting Started: Azure AD Password Management](active-directory-editions)
+- You have at least one administrator account and one test user account with an Azure AD Premium license that you can use to test this feature.  For more information, see [Azure Active Directory Editions](active-directory-editions.md).
+  > [AZURE.NOTE] Make sure that the administrator account that you use to enable Password Writeback is a cloud administrator account (created in Azure AD), not a federated account (created in on-premises AD and synchronized into Azure AD).
 - You have a single or multi-forest AD on-premises deployment running Windows Server 2008, Windows Server 2008 R2, Windows Server 2012, or Windows Server 2012 R2 with the latest service packs installed.
-  > [AZURE.NOTE] If you are running an older version of Windows Server 2008 or 2008 R2, you can still use this feature, but will need to install KB 2386717 before being able to enforce your local AD password policy in the cloud.
-- You have the Azure AD Sync tool installed and you have prepared your AD environment for synchronization to the cloud.  For more information, see Directory Integration Tools.
-- If you are using DirSync, you must make sure your organization’s firewall is configured to block outbound connections. You must unblock TCP port 828 or 818 in order to enable and use the Password Writeback.  If you are using AADSync, this step is not necessary, as only 443 TCP outbound needs to be open.
+  > [AZURE.NOTE] If you are running an older version of Windows Server 2008 or 2008 R2, you can still use this feature, but will need to [download and install KB 2386717](https://support.microsoft.com/kb/2386717) before being able to enforce your local AD password policy in the cloud.
+- You have the Azure AD Connect tool installed and you have prepared your AD environment for synchronization to the cloud.  For more information, see [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md).
+- If you are using DirSync, you must make sure your organization’s firewall is configured to block outbound connections. You must unblock TCP port 828 or 818 in order to enable and use the Password Writeback.  If you are using Azure AD Sync or Azure AD Connect, this step is not necessary, as only 443 TCP outbound (and in some cases TCP 9350-9354) need to be open.
+  > [AZURE.NOTE] We highly recommend anyone using the Azure AD Sync or DirSync tools upgrades to the latest version of Azure AD Connect to ensure the best possible experience and new features as they are released.
 
 ### Step 1: Download the latest version of Azure AD Connect
-Password Writeback is available in releases of Azure AD Connect, or the Azure AD Sync Tool with version number 1.0.0419.0911 or higher.  Password Writeback with automatic account unlock is available in releases of the Azure AD Sync Tool with version number 1.0.0485.0222 or higher. If you are running an older version, please upgrade to at least this version before proceeding. [Click here to download the latest version of Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+Password Writeback is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number 1.0.0419.0911 or higher.  Password Writeback with automatic account unlock is available in releases of Azure AD Connect, or the Azure AD Sync tool with version number 1.0.0485.0222 or higher. If you are running an older version, please upgrade to at least this version before proceeding. [Click here to download the latest version of Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
-#### To check your version
+#### To check the version of Azure AD Sync
 1.	Navigate to %ProgramFiles%\Azure Active Directory Sync\.
 2.	Find the ConfigWizard.exe executable.
 3.	Right-click the executable and select the Properties option from the context menu.
@@ -205,15 +206,16 @@ Password Writeback is available in releases of Azure AD Connect, or the Azure AD
   
   ![][021]
 
-If this version number is greater than or equal to 1.0.0419.0911, you can skip to Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules. If you have never installed AADSync before, then here are some resources you can use to learn about pre-requirements for setting up sync:
-1.	If this is your first time installing the Azure AD Sync Tool, it is recommended that you follow a few best practices to prepare your environment for directory synchronization.  Before you install the Azure AD Sync Tool, you must activate directory synchronization in either the Office 365 or the Azure management portals.  For more information, see Azure Active Directory Synchronization Services (AAD Sync).
+If this version number is greater than or equal to 1.0.0419.0911, or you are installing Azure AD Connect, you can skip to [Step 2: Enable Password Writeback in Azure AD Connect through the UI or powershell and verify](#step-2-enable-password-writeback-in-azure-ad-connect). 
+
+ > [AZURE.NOTE] If this is your first time installing the Azure AD Connect tool, it is recommended that you follow a few best practices to prepare your environment for directory synchronization.  Before you install the Azure AD Connect tool, you must activate directory synchronization in either the Office 365 or the Azure management portals.  For more information, see [Managing Azure AD Connect](active-directory-aadconnect-whats-next.md).
 
 
 ### Step 2: Enable Password Writeback in Azure AD Connect
-Now that you have the Azure AD Sync tool downloaded, you are ready to enable Password Writeback.  You can do this in one of two ways.  You can either enable Password Writeback in the optional features screen of the Azure AD Sync setup wizard, or you can enable it via Windows PowerShell.
+Now that you have the Azure AD Connect tool downloaded, you are ready to enable Password Writeback.  You can do this in one of two ways.  You can either enable Password Writeback in the optional features screen of the Azure AD Connect setup wizard, or you can enable it via Windows PowerShell.
 
 #### To enable Password Writeback in the configuration wizard
-1.	On your Directory Sync computer, open the Azure AD Sync configuration wizard.
+1.	On your Directory Sync computer, open the Azure AD Connect configuration wizard.
 2.	Click through the steps until you reach the optional features configuration screen.
 3.	Check the Password write-back option.
   
@@ -221,46 +223,46 @@ Now that you have the Azure AD Sync tool downloaded, you are ready to enable Pas
   
 4.	Complete the wizard, the final page will summarize the changes and will include the Password Writeback configuration change.
 
-> [AZURE.NOTE] You can disable Password Writeback at any time by either re-running this wizard and deselecting the feature, or by setting the Write Passwords Back to On-Premises Directory setting to No in the User Password Reset Policy section of your directory’s Configure tab in the Azure Management Portal.
+> [AZURE.NOTE] You can disable Password Writeback at any time by either re-running this wizard and deselecting the feature, or by setting the **Write Passwords Back to On-Premises Directory** setting to **No** in the **User Password Reset Policy** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com).  For more information about customizing your password reset experience, check out [Customize: Azure AD Password Management](active-directory-passwords-customize.md).
 
 #### To enable Password Writeback using Windows PowerShell
 1.	On your Directory Sync computer, open a new elevated Windows PowerShell window.
-2.	If the module is not already loaded, type in the Import-Module ADSync command to load the AAD Sync cmdlets into your current session.
-3.	Get the list of AAD Connectors in your system by running the Get-ADSyncConnector cmdlet and storing the results in $aadConnectorName
-4.	To get the current status of writeback for the current connector by running the following cmdlet: Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.
-5.	Enable Password Writeback by running the cmdlet: Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName  –Enable $true
+2.	If the module is not already loaded, type in the `Import-Module ADSync` command to load the AAD Sync cmdlets into your current session.
+3.	Get the list of AAD Connectors in your system by running the `Get-ADSyncConnector` cmdlet and storing the results in `$aadConnectorName`
+4.	To get the current status of writeback for the current connector by running the following cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName`
+5.	Enable Password Writeback by running the cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
 > [AZURE.NOTE] If prompted for a credential, make sure that the administrator account that you specify for AzureADCredential is a cloud administrator account (created in Azure AD), not a federated account (created in on-premises AD and synchronized into Azure AD.
-> [AZURE.NOTE] You can disable Password Writeback through PowerShell by repeating the same instructions above but passing $false in step or by setting the Write Passwords Back to On-Premises Directory setting to No in the User Password Reset Policy section of your directory’s Configure tab in the Azure Management Portal.
+> [AZURE.NOTE] You can disable Password Writeback through PowerShell by repeating the same instructions above but passing `$false` in step or by setting the **Write Passwords Back to On-Premises Directory** setting to **No** in the **User Password Reset Policy section** of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com.
 
 #### Verify that the configuration was successful
 Once the configuration succeeds, you will see the message Password reset write-back is enabled in the Windows PowerShell window, or a success message in the configuration UI. 
 
-You can also verify the service was installed correctly by opening Event Viewer, navigating to the application event log, and looking for event 31005 - OnboardingEventSuccess from the source PasswordResetService.
+You can also verify the service was installed correctly by opening Event Viewer, navigating to the application event log, and looking for event **31005 - OnboardingEventSuccess** from the source **PasswordResetService**.
   
   ![][023]
 
 ### Step 3: Configure your firewall
-After you have enabled Password Writeback in the Azure AD Connect or Azure AD Sync tools, you will need to make sure the service can connect to the cloud.
+After you have enabled Password Writeback in the Azure AD Connect tool, you will need to make sure the service can connect to the cloud.
 
 1.	Once installation is complete, if you are blocking unknown outbound connections in your environment, you will also need to add the following rules to your firewall. Make sure you reboot your AADSync machine after making these changes:
    - Allow outbound connects over port 443 TCP
    - Allow outbound connections to https://ssprsbprodncu-sb.accesscontrol.windows.net/ 
 
 ### Step 4: Set up the appropriate Active Directory permissions
-For every forest that contains users whose passwords will be reset, if X is the account that was specified for that forest in the configuration wizard (during initial configuration), then X must be given the Reset Password, Change Password, Write Permissions on “lockoutTime”, and Write Permissions on “pwdLastSet”, extended rights on the root object of each domain in that forest. The right should be marked as inherited by all user objects.
+For every forest that contains users whose passwords will be reset, if X is the account that was specified for that forest in the configuration wizard (during initial configuration), then X must be given the **Reset Password**, **Change Password**, **Write Permissions** on `lockoutTime`, and **Write Permissions** on `pwdLastSet`, extended rights on the root object of each domain in that forest. The right should be marked as inherited by all user objects.
 
-Setting these permissions will allow the MA service account for each forest to manage passwords on behalf of user accounts within that forest. If you neglect to assign these permissions, then, even though writeback will appear to be configured correctly, users will encounter errors when attempting to manage their on-premises passwords from the cloud. Here are the detailed steps on how you can do this using the Active Directory Users and Computers management snap-in:
+Setting these permissions will allow the MA service account for each forest to manage passwords on behalf of user accounts within that forest. If you neglect to assign these permissions, then, even though writeback will appear to be configured correctly, users will encounter errors when attempting to manage their on-premises passwords from the cloud. Here are the detailed steps on how you can do this using the **Active Directory Users and Computers** management snap-in:
 
->[AZURE.NOTE]It could take up to an hour for these permissions to replicate to all objects in your directory.
+>[AZURE.NOTE] It could take up to an hour for these permissions to replicate to all objects in your directory.
 
 #### To set up the right permissions for writeback to occur
 
-1.	Open Active Directory Users and Computers with an account that has the appropriate domain administration permissions.
-2.	In the View Menu option, make sure Advanced Features is turned on.
+1.	Open **Active Directory Users and Computers** with an account that has the appropriate domain administration permissions.
+2.	In the **View Menu** option, make sure **Advanced Features** is turned on.
 3.	In the left panel, right click the object that represents the root of the domain.
-4.	Click on the Security tab.
-5.	Then click Advanced.
+4.	Click on the **Security** tab.
+5.	Then click **Advanced**.
   
   ![][024]
    
@@ -269,14 +271,14 @@ Setting these permissions will allow the MA service account for each forest to m
   ![][025]
     
 7.	Select the account you want to give permissions to (this is the same account that was specified while setting up sync for that forest).
-8.	In the drop down on the top, select Descendent User objects.
-9.	In the Permission Entry dialog box that shows up, check the box for Reset Password, Change Password, Write Permissions on “lockoutTime”, and Write Permissions on “pwdLastSet”.
+8.	In the drop down on the top, select **Descendent User objects**.
+9.	In the **Permission Entry** dialog box that shows up, check the box for **Reset Password**, **Change Password**, **Write Permissions** on `lockoutTime`, and **Write Permissions** on `pwdLastSet`.
   
   ![][026]
   ![][027]
   ![][028]
 
-10.	Then click Apply/Ok through all the open dialog boxes.
+10.	Then click **Apply/Ok** through all the open dialog boxes.
 
 ### Step 5: Reset your AD password as a user
 Now that Password Writeback has been enabled, you can test that it works by resetting the password of a user whose account has been synchronized into your cloud tenant.
