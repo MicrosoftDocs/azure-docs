@@ -32,12 +32,12 @@
 
 This section describes how you can use Azure Active Directory’s Password Management reports to view how users are using password reset and change in your organization.
 
-- [Password Management reports overview](sspr-reports-overview)
-- [How to view Password Management reports](sspr-reports-how-to-view)
-- [View password reset registration activity in your organization](sspr-reports-registration-activity)
-- [View password reset activity in your organization](sspr-reports-reset-activity)
+- [Password Management reports overview](#overview-of-password-management-reports)
+- [How to view Password Management reports](#how-to-view-password-management-reports)
+- [View password reset registration activity in your organization](#view-password-reset-registration-activity)
+- [View password reset activity in your organization](#view-password-reset-activity)
 
-## Overview of Password Management reports <a name="sspr-reports-overview"></a>
+## Overview of Password Management reports
 Once you deploy password reset, one of the most common next steps is to see how it is being used in your organization.  For example, you may want to get insight into how users are registering for password reset, or how many password resets have been done in the last few days.  Here are some of the common questions that you will be able to answer with the Password Management reports that exist in the azure management portal today:
 
 - How many people have registered for password reset?
@@ -50,7 +50,7 @@ Once you deploy password reset, one of the most common next steps is to see how 
 - Is there any suspicious activity going on with password reset?
 
 
-## How to view Password Management reports <a name="sspr-reports-how-to-view"></a>
+## How to view Password Management reports
 To find the Password Management reports, follow the steps below:
 
 1.	Click on the Active Directory extension in the Azure Management Portal.
@@ -61,7 +61,7 @@ To find the Password Management reports, follow the steps below:
   
   ![][001]
   
-## View password Reset registration activity <a name="sspr-reports-registration-activity"></a>
+## View password Reset registration activity
 
 The password reset registration activity report shows all password reset registrations that have occurred in your organization.  A password reset registration is displayed in this report for any user who has successfully registered authentication information at the password reset registration portal (http://aka.ms/ssprsetup).
 
@@ -124,7 +124,7 @@ The following table describes the different values allowed for each column:
             </tr>
           </tbody></table>
 
-## View password Reset activity <a name="sspr-reports-registration-activity"></a>
+## View password reset activity
 
 This report shows all password reset attempts that have occurred in your organization.
 

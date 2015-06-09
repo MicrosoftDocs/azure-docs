@@ -36,12 +36,12 @@ Azure AD sets itself apart from these offerings by providing some of the easiest
 
 Azure AD Password Management is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.  Read on to learn more about the following:
 
-* [What is possible with Azure AD Password Management?](#sspr-whats-possible)
-* [Why use Azure AD Password Management?](#sspr-why-use)
-* [Recent Updates to Azure AD Password Management](#sspr-recent-updates)
+* [What is possible with Azure AD Password Management?](#What-is-possible-with-azure-ad-password-management?)
+* [Why use Azure AD Password Management?](#why-use-azure-ad-password-management?)
+* [Recent Updates to Azure AD Password Management](#recent-updates)
  
 
-## What is possible with Azure AD Password Management? <a href="sspr-whats-possible"></a>
+## What is possible with Azure AD Password Management?
 Here are some of the things you can do with Azure AD's password management capabilities.
 
 - **Self-service password change** allows end users or administrators to change their expired or non-expired passwords without calling an administrator or helpdesk for support.
@@ -50,7 +50,7 @@ Here are some of the things you can do with Azure AD's password management capab
 - **Password management activity reports** give administrators insights into password reset and registration activity occurring in their organization. 
 - **Password Writeback** allows management of on-premises passwords from the cloud so all of the above scenarios can be performed by, or on the behalf of, federated or password synchronized users. Password Writeback requires Azure AD Premium. For more information, see Getting started with Azure AD Premium.
 
-## Why use Azure AD Password Management? <a href="sspr-why-use"></a>
+## Why use Azure AD Password Management?
 Here are some of the reasons you should use Azure AD's password management capabilities
 
 - **Reduce costs** - support-assisted password reset is typically 20% of organization's IT spend
@@ -58,7 +58,7 @@ Here are some of the reasons you should use Azure AD's password management capab
 - **Lower helpdesk volumes** - password management is the single largest helpdesk driver for most organizations
 - **Enable mobility** - users can reset their passwords from wherever they are
 
-## Recent updates <a href="sspr-recent-updates"></a>
+## Recent updates
 **Branded SSPR Registration** - April 2015
 
 - The password reset reigstration page is now branded with your company logo!

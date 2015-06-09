@@ -32,19 +32,19 @@
 
 After enabling password reset, the next step you need to take is to get users using the service in your organization. To do this, you'll need to make sure your users are configured to use the service properly and also that your users have the training they need to be successful in managing their own passwords. This article will explain to you the following concepts:
 
-* [How to get your users configured for Password Management](#sspr-configure)
-  * [What makes an account configured for password reset](#sspr-configure-data-needed)
-  * [Ways you can to populate authentication data yourself](#sspr-configure-methods)
-* [The best ways to roll out password reset to your organization](#sspr-deploy)
-  * [Email-based rollout + sample email communications](#sspr-deploy-email)
-  * [How to use enforced registration to force users to register at sign in](#sspr-deploy-enforced)
-  * [How to upload authentication data for user accounts](#sspr-deploy-upload)
-* [Sample user and support training materials (coming soon!)](#sspr-training)
+* [How to get your users configured for Password Management](#how-to-get-users-configured-for-password-reset)
+  * [What makes an account configured for password reset](#what-makes-an-account-configured)
+  * [Ways you can to populate authentication data yourself](#ways-to-populate-authentication-data)
+* [The best ways to roll out password reset to your organization](#what-is-the-best-way-to-roll-out-password-reset-for-users?)
+  * [Email-based rollout + sample email communications](#email--based-rollout)
+  * [How to use enforced registration to force users to register at sign in](#using-enforced-registration)
+  * [How to upload authentication data for user accounts](#uploading-data-yourself)
+* [Sample user and support training materials (coming soon!)](#sample-training-materials)
 
-## How to get users configured for password reset <a name="sspr-configure"></a>
+## How to get users configured for password reset
 This section describes to you various methods by which you can ensure every user in your organization can use self-service password reset effectively in case they forget their password.
 
-### What makes an account configured <a name="sspr-configure-data-needed"></a>
+### What makes an account configured
 Before a user can use password reset, all of the following conditions must be met:
 
 1.	Password reset must be enabled in the directory.
@@ -56,7 +56,7 @@ Before a user can use password reset, all of the following conditions must be me
  - A minimum set of authentication data is defined as at least one of the enabled authentication options if a one gate policy is configured, or at least two of the enabled authentication options if a two gate policy is configured.
 4.	If the user is using an on-premises account, then Password Writeback must be enabled and turned on
 
-### Ways to populate authentication data <a name="sspr-configure-methods"></a>
+### Ways to populate authentication data
 You have several options on how to specify data for users in your organization to be used for password reset.
 
 - Edit users in the Azure Management Portal or the Office 365 Management Portal
@@ -67,7 +67,7 @@ You have several options on how to specify data for users in your organization t
 
 Users need not register for password reset for the system to work.  For example, if you have existing phone numbers in your local directory, you can synchronize them in Azure AD and we will use them for password reset automatically.
 
-## What is the best way to roll out password reset for users? <a name="sspr-deploy"></a>
+## What is the best way to roll out password reset for users?
 The following are the general rollout steps for password reset:
 
 1.	Enable password reset in your directory by going to the Configure tab in the Azure Management portal and selecting Yes for the Users Enabled for Password Reset option.
@@ -79,14 +79,14 @@ The following are the general rollout steps for password reset:
 
 There are several ways to inform your users that they can register for and use password reset in your organization.  They are detailed below.
 
-### Email-based <a name="sspr-deploy-email"></a>
+### Email-based rollout
 Perhaps the simplest approach to inform your users about to register for or use password reset is by sending them an email instructing them to do so.  Below is a template you can use to do this.  Feel free to replace the colors / logos with those of your own choosing to customize it to fit your needs.
   
   ![][001]
 
 You can download the email template [here](http://1drv.ms/1xWFtQM).
 
-### Using enforced registration <a name="sspr-deploy-enforced"></a>
+### Using enforced registration
 If you want your users to register for password reset themselves, you can also force them to register when they sign in to the access panel at http://myapps.microsoft.com.  You can enable this option from your directory’s Configure tab by enabling the Require Users to Register when Signing in to the Access Panel option.  
 
 You can also optionally define whether or not they will be asked to re-register after a configurable period of time by modifying the Number of days before users must confirm their contact data option to be a non-zero value. See “Customizing User Password Reset Policy” in Self-service password reset in Azure AD: how to customize password reset to meet your needs for more information.
@@ -101,7 +101,7 @@ Clicking Verify Now brings them to the password reset registration portal at htt
   
   ![][004]
 
-### Uploading data yourself <a name="sspr-deploy-upload"></a>
+### Uploading data yourself
 If you want to upload authentication data yourself, then users need not register for password reset before being able to reset their passwords.  As long as users have the authentication data defined on their account that meets the password reset policy you have defined, then those users will be able to reset their passwords.
 
 To learn what properties you can set via AAD Connect or Windows PowerShell, see Learn how data is used by password reset.
@@ -121,7 +121,7 @@ You can upload the authentication data via the Azure Management Portal by follow
   
 See Learn how data is used by password reset to see how each of these properties can be used.
 
-## Sample training materials <a name="sspr-training"></a>
+## Sample training materials
 We are working on sample training materials that you can use to get your IT organization and your users up to speed quickly on how to deploy and use password reset.  Stay tuned!
 
 

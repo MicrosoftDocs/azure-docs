@@ -36,12 +36,12 @@ If you find yourself with a question that you don't know the answer to, or are l
 
 This FAQ is split into the following sections:
 
-- [Questions about Password Reset Registration](#sspr-faq-registration)
-- [Questions about Password Reset](#sspr-faq-reset)
-- [Questions about Password Management Reports](#sspr-faq-reports)
-- [Questions about Password Writeback](#sspr-faq-writeback)
+- [Questions about Password Reset Registration](#password-reset-registration)
+- [Questions about Password Reset](#password-reset)
+- [Questions about Password Management Reports](#password-management-reports)
+- [Questions about Password Writeback](#password-writeback)
 
-## Password reset registration <a href="sspr-faq-registration"></a>
+## Password reset registration
  - **Q:  Can my users register their own password reset data?**
  
  > **A:** Yes, as long as password reset is enabled and they are licensed, they can go to the Password Reset Registration portal at http://aka.ms/ssprsetup to register their authentication information to be used with password reset. Users can also register by going to the access panel at http://myapps.microsoft.com, clicking the profile tab, and clicking the Register for Password Reset option. Learn more about how to get your users configured for password reset by reading How to get users configured for password reset.
@@ -75,7 +75,7 @@ This FAQ is split into the following sections:
  > **A:** A user is considered registered when he or she has at least N pieces of authentication info defined, where N is the Number of Authentication Methods Required that you have set in the Azure Management Portal. To learn more, see Customizing User Password Reset Policy.
 
 
-## Password reset <a href="sspr-faq-reset"></a>
+## Password reset
 
  - **Q:  How long should I wait to receive an email, SMS, or phone call from password reset?**
  
@@ -148,7 +148,7 @@ This FAQ is split into the following sections:
  > **A:** The session lifetime for password reset is 105 minutes. This means that from the beginning of the password reset operation, the user has 105 minutes to reset his or her password. The email and SMS one-time passcode are invalid after this time period expires.
 
 
-## Password management reports <a href="sspr-faq-reports"></a>
+## Password Management reports
 
  - **Q:  How long does it take for data to show up on the password management reports?**
  
@@ -169,7 +169,7 @@ This FAQ is split into the following sections:
  > **A:** Yes, a maximum of 1,000 rows may appear on either of the Password Management reports, whether they are being shown in the UI or being downloaded. We are currently investigating how to increase this limit.
 
 
-## Password Writeback <a href="sspr-faq-writeback"></a>
+## Password Writeback
  - **Q:  How does Password Writeback work behind the scenes?**
  
  > **A:** See How Password Writeback works for a detailed explanation of what happens when you enable Password Writeback, as well as how data flows through the system back into your on-premises environment. See “Password Writeback security model” in How Password Writeback works to learn how we ensure Password Writeback is a highly secure service.

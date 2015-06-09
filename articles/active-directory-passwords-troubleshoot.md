@@ -32,18 +32,18 @@
 
 If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to  troubleshoot your deployment:
 
-* [Information to include when you need help](#troubleshoot-info)
-* [Problems with Password Management configuration in the Azure Management Portal](#troubleshoot-sspr-config)
-* [Problems with Password Managment reports in the Azure Management Portal](#troubleshoot-sspr-reports)
-* [Problems with the Password Reset Registration Portal](#troubleshoot-sspr-registration)
-* [Problems with the Password Reset Portal](#troubleshoot-sspr-portal)
-* [Problems with Password Writeback](#troubleshoot-sspr-writeback)
-  - [Password Writeback event log error codes](#troubleshoot-sspr-writeback-error-codes)
-  - [Problems with Password Writeback connectivity](#troubleshoot-sspr-writeback-connectivity)
+* [Information to include when you need help](#information-to-include-when-you-need-help)
+* [Problems with Password Management configuration in the Azure Management Portal](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
+* [Problems with Password Managment reports in the Azure Management Portal](#troubleshoot-password-management-reports-in-the-azure-management-portal)
+* [Problems with the Password Reset Registration Portal](#troubleshoot-the-password-reset-registration-portal)
+* [Problems with the Password Reset Portal](#troubleshoot-the-password-reset-portal)
+* [Problems with Password Writeback](#troubleshoot-password-writeback)
+  - [Password Writeback event log error codes](#password-writeback-event-log-error-codes)
+  - [Problems with Password Writeback connectivity](#troubleshoot-password-writeback-connectivity)
 
 If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) or contact support and we'll take a look at your problem as soon as we can.
 
-## Information to include when you need help <a href="troubleshoot-info"></a>
+## Information to include when you need help
 
 If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
 
@@ -62,7 +62,7 @@ If you cannot solve your issue with the guidance below, you can contact our supp
 Including this information will help us to solve your problem as quickly as possible.
 
 
-## Troubleshoot password reset configuration in the Azure Management Portal <a href="troubleshoot-sspr-config"></a>
+## Troubleshoot password reset configuration in the Azure Management Portal
 If you encounter an error when configuring password reset, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -132,7 +132,7 @@ If you encounter an error when configuring password reset, you might be able to 
           </tr>
         </tbody></table>
 
-## Troubleshoot password management reports in the Azure Management Portal <a href="troubleshoot-sspr-reports"></a>
+## Troubleshoot password management reports in the Azure Management Portal
 If you encounter an error when using the password management reports, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -179,7 +179,7 @@ If you encounter an error when using the password management reports, you might 
           </tr>
         </tbody></table>
 
-## Troubleshoot the password reset registration portal <a href="troubleshoot-sspr-registration"></a>
+## Troubleshoot the password reset registration portal
 If you encounter an error when registering a user for password reset, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -241,7 +241,7 @@ If you encounter an error when registering a user for password reset, you might 
           </tr>
         </tbody></table>
 
-## Troubleshoot the password reset portal <a href="troubleshoot-sspr-portal"></a>
+## Troubleshoot the password reset portal
 If you encounter an error when resetting a password for a user, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -429,7 +429,7 @@ If you encounter an error when resetting a password for a user, you might be abl
           </tr>
         </tbody></table>
 
-## Troubleshoot Password Writeback <a href="troubleshoot-sspr-writeback"></a>
+## Troubleshoot Password Writeback
 If you encounter an error when enabling, disabling, or using Password Writeback, you might be able to resolve it by following the troubleshooting steps below:
 
 <table>
@@ -657,7 +657,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
         </tbody></table>
 
 
-## Password Writeback event log error codes <a href="troubleshoot-sspr-writeback-error-codes"></a>
+## Password Writeback event log error codes
 A best practice when troubleshooting issues with Password Writeback is to inspect that Application Event Log on your AADSync machine. This event log will contain events from two sources of interest for Password Writeback. The PasswordResetService source will describe operations and issues related to the operation of Password Writeback. The ADSync source will describe operations and issues related to setting passwords in your AD environment.
 
 <table>
@@ -1414,7 +1414,7 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
           </tr>
         </tbody></table>
 		
-## Troubleshoot Password Writeback connectivity <a href="troubleshoot-sspr-writeback-connectivity"></a>
+## Troubleshoot Password Writeback connectivity
 
 If you are experiencing service interruptions with the Password Writeback component of Azure AD Sync or Azure AD Connect, here are some quick steps you can take to resolve this:
 

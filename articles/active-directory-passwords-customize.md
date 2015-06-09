@@ -32,11 +32,11 @@
 
 In order to give your users the best possible experience, we recommend that you explore and play with all of the Password Management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the Active Directory extension in the Azure Management portal. This topic walks you through all of the different Password Management customizations you can make as an administrator from within Configure tab of your directory within the Azure Management Portal, including:
 
-- [Customizing Password Management Look and Feel](#sspr-lookandfeel)
-- [Customizing User Password Management Behavior](#sspr-behavior)
-- [Customizing Password Management Notifications](#sspr-notifications)
+- [Customizing Password Management Look and Feel](#password-managment-look-and-feel)
+- [Customizing User Password Management Behavior](#password-management-behavior)
+- [Customizing Password Management Notifications](#password-management-notifications)
 
-## Password managment look and feel <a href="sspr-lookandfeel"></a>
+## Password managment look and feel
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the “Directory Properties” section of your directory’s configuration tab.
 
 <table>
@@ -122,7 +122,7 @@ The following table describes how each control affects the experience for users 
             </tr>
           </tbody></table>
 
-## Password Management behavior <a href="sspr-behavior"></a>
+## Password Management behavior
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the User Password Reset Policy section of your directory’s Configure tab in the Azure Management Portal.
 
 > [AZURE.NOTE] The administrator account you are using must have an AAD Premium license assigned in order to see these policy controls.<br><br>These policy controls only apply to end users resetting their passwords, not administrators.  Administrators have a default policy of alternate email and/or mobile phone that is specified for them by Microsoft which cannot be changed.
@@ -654,7 +654,7 @@ The following table describes how each control affects the experience for users 
             </tr>
           </tbody></table>
 
-## Password Management notifications <a href="sspr-notifications"></a>
+## Password Management notifications
 The following table describes how each control affects the experience for users and admins who receive password reset notifications.  You can configure these options under the Notifications section of your directory’s Configure tab in the Azure Management Portal.
 
 <table>

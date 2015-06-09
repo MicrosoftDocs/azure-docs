@@ -32,14 +32,14 @@
 
 If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
-* [Password writeback overview](#adsspr-overview)
-  - [How pasword writeback works](#adsspr-how-it-works)
-  - [Scenarios supported for password writeback](#adsspr-supported-scenarios)
-  - [Password writeback security model](#adsspr-security-model)
-* [How does the password reset portal work?](#sspr-portal-how-it-works)
-  - [What data is used by password reset?](#sspr-portal-data-used)
+* [Password writeback overview](#password-writeback-overview)
+  - [How pasword writeback works](#how-password-writeback-works)
+  - [Scenarios supported for password writeback](#scenarios-supported-for-password-writeback)
+  - [Password writeback security model](#password-writeback-security-model)
+* [How does the password reset portal work?](#how-does-the-password-reset-portal-work?)
+  - [What data is used by password reset?](#what-data-is-used-by-password-reset?)
 
-## Password writeback overview <a href="adsspr-overview"></a>
+## Password writeback overview
 Password writeback is an [Azure Active Directory Connect](active-directory-aadconnect) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](active-directory-editions.md). 
 
 Password writeback allows you to configure your cloud tenant to write passwords back to you on-premises Active Directory.  It obviates you from having to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are.  Read on for some of the key features of password writeback:
@@ -53,7 +53,7 @@ Password writeback allows you to configure your cloud tenant to write passwords 
 - **Doesn’t require any inbound firewall rules.**  Password writeback uses an Azure Service Bus relay as an underlying communication channel, meaning that you do not have to open any inbound ports on your firewall for this feature to work, only 443 outbound.
 - **Is not supported for user accounts that exist within protected groups in your on-premises Active Directory.** For more information about protected groups, see [Protected Accounts and Groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 
-### How password writeback works <a href="adsspr-how-it-works"></a>
+### How password writeback works
 Password writeback has three main components:
 
 - Password Reset cloud service (this is also integrated into Azure AD’s password change pages)
@@ -75,12 +75,12 @@ When a federated or password hash sync’d user comes to reset or change his or 
 9.	If the password set operation is successful, we tell the user their password has been modified and that they can go on their merry way.
 10.	If the password set operation fails, we return the error to the user and let them try again.  The operation might fail because the service was down, because the password they selected did not meet organization policies, because we could not find the user in the local AD, or any number of reasons.  We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
-### Scenarios supported for password writeback <a href="adsspr-supported-scenarios"></a>
+### Scenarios supported for password writeback
 The table below describes which scenarios are supported for which versions of our sync capabilities.  In general, it is highly recommended that you install the latest version of [Azure AD Connect](active-directory-aadconnect.md) if you want to use password writeback.
 
 ![][002]
 
-### Password writeback security model <a href="adsspr-security-model"></a>
+### Password writeback security model
 Password writeback is a highly secure and robust service.  In order to ensure your information is protected, we enable a 4-tiered security model that is described below.
 
 - **Tenant specific service-bus relay** – When you set up the service, we set up a tenant-specific service bus relay that is protected by a randomly generated strong password that Microsoft never has access to.
@@ -88,7 +88,7 @@ Password writeback is a highly secure and robust service.  In order to ensure yo
 - **Industry standard TLS** – When a password reset or change operation occurs in the cloud, we take the plaintext password and encrypt it with your public key.  We then plop that into an HTTPS message which is sent over an encrypted channel using Microsoft’s SSL certs to your service bus relay.  After that message arrives into Service Bus, your on-prem agent wakes up, authenticates to Service Bus using the strong password that had been previously generated, picks up the encrypted message, decrypts it using the private key we generated, and then attempts to set the password through the AD DS SetPassword API.  This step is what allows us to enforce your AD on-prem password policy (complexity, age, history, filters, etc) in the cloud.
 - **Message expiration policies** – Finally, if for some reason the message sits in Service Bus because your on-prem service is down, it will be timed out and removed after several minutes in order to increase security even further.
 
-## How does the password reset portal work? <a href="sspr-portal-how-it-works"></a>
+## How does the password reset portal work?
 When a user navigates to the password reset portal, a workflow is kicked off to determine if that user account is valid, what organization that users belongs to, where that user’s password is managed, and whether or not the user is licensed to use the feature.  Read through the steps below to learn about the logic behind the password reset page.
 
 1.	User clicks on the Can’t access your account link or goes directly to https://passwordreset.microsoftonline.com.
@@ -108,7 +108,7 @@ When a user navigates to the password reset portal, a workflow is kicked off to 
 
 Learn more about how to deploy password writeback at [Getting Started: Azure AD Password Management](active-directory-passwords-getting-started.md).
 
-### What data is used by password reset? <a href="sspr-portal-data-used"></a>
+### What data is used by password reset?
 The following table outlines where and how this data is used during password reset and is designed to help you decide which authentication options are appropriate for your organization. This table also shows any formatting requirements for cases where you are providing data on behalf of users from input paths that do not validate this data.
 
 > [AZURE.NOTE] Office Phone does not appear in the registration portal because users are currently not able to edit this property in the directory.
