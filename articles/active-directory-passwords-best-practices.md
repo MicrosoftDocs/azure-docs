@@ -94,6 +94,7 @@ If you want to upload authentication data yourself, then users need not register
 To learn what properties you can set via AAD Connect or Windows PowerShell, see [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
 You can upload the authentication data via the [Azure Management Portal](https://manage.windowsazure.com) by following the steps below:
+
 1.	Navigate to your directory in the **Active Directory extension** in the [Azure Management Portal](https://manage.windowsazure.com).
 2.	Click on the **Users** tab.
 3.	Select the user you are interested in from the list.
