@@ -301,7 +301,7 @@ Library project resources can be overwritten by your application resources. This
 
 ### Broker
 
-Broker component will be delivered with Intune's Company portal app. Account will be created in Account Manager. Account type is "com.microsoft.workaccount". It only allows single SSO account. It will create SSO cookie for this user after completing device challange for one of the apps.
+Broker component will be delivered with Microsoft Intune's Company portal app. Account will be created in Account Manager. Account type is "com.microsoft.workaccount". It only allows single SSO account. It will create SSO cookie for this user after completing device challange for one of the apps.
 
 ### Authority Url and ADFS
 

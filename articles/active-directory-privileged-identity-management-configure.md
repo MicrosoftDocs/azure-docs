@@ -18,7 +18,7 @@
 
 # Azure AD Privileged Identity Management
 
-Azure AD Privileged Identity Management lets you manage, control and monitor your privileged identities and their access to resources in Azure AD, and in other Microsoft online services such as Office 365 or Intune.  
+Azure AD Privileged Identity Management lets you manage, control and monitor your privileged identities and their access to resources in Azure AD, and in other Microsoft online services such as Office 365 or Microsoft Intune.  
 
 To enable users to carry out privileged operations, organizations have often needed to give many of their users permanent privileged access in Azure AD, or for Azure or Office 365 resources, or other SaaS apps. For many customers, this is a growing security risk for their cloud-hosted resources because they cannot sufficiently monitor what those users are doing with their admin privileges. In addition, a compromised user account that has privileged access could impact their overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk.  
 

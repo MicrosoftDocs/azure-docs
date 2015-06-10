@@ -14,103 +14,99 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2015"
+	ms.date="06/09/2015"
 	ms.author="sameerch;guayan;tarcher"/>
 
 # Enhance your API App for Logic Apps #
 
-This article demonstrates how to decorate the API Defintion of your API App so that it works well with Logic Apps. This will enhance the end user experience for your API App when it is used in the Logic Apps designer.
+In this article, you'll learn how to define the API definition of your API app so that it works well with Logic Apps. This will enhance the end user experience for your API app when it is used in the Logic Apps designer.
 
-Some articles to go through before this to help you get started.
+## Prerequisites
 
-1. [Create an API App](app-service-dotnet-create-api-app.md) - Create a new API app from scratch, or convert an existing Web API project to an API app.
-2. [Deploy an API App](app-service-dotnet-deploy-api-app.md) - Deploy an API app to your Azure subscription.
-3. [Debug an API App](app-service-dotnet-remotely-debug-api-app.md) - Use Visual Studio to remotely debug an API app running in Azure.
-4. [Add triggers to an API App](app-service-api-dotnet-triggers.md) - Add triggers to an API App and consume them from Logic Apps
+If you are new to [API apps](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md), we recommend reading the multi-part series on [creating API apps](app-service-dotnet-create-api-app.md)
 
 
 ## Add Display Names ##
-The default names of operations, fields and parameters may not be human readable at all - because of limitations imposed by programming languages, etc.  The Logic Apps designer can, where it is available, display a human readable text instead for the names of the operations, fields and parameters.  The logic apps designer will look for the presence of certain properties in the API definition described by the swagger metadata exported by your API App.  The following properties are used as the display name:
+The Logic Apps designer displays the names of operations, fields, and parameters, which may at times be cumbersome to read as they are programmatically generated. To improve readability, the Logic Apps designer can, where it is available, display a more readable text value - known as a *display name* - instead of the operation, field, and parameter default names. To accomplish this, the Logic Apps designer scans for the presence of certain properties in the swagger metadata provided by your API app.  The following properties are used as display names:
 
 * Operations (Action and Triggers)  
-  The value of the **summary** property if present, otherwise the value of **operationId** property.
+  The value of the **summary** property if present; otherwise the value of **operationId** property. Note that the Swagger 2.0 specification allows for up to 120 characters for the **summary** property.
 
 * Parameters (Inputs)  
-  The value of the **x-ms-summary** extension property if present, otherwise the value of the **name** property.
+  The value of the **x-ms-summary** extension property if present; otherwise the value of the **name** property. The **x-ms-summary** extension property must be set dynamically in code. That process is described in the "Using Custom Attributes to annotate extension properties" section of this topic. The **name** property can be set using /// comments. That process is described in the "Using XML Comments in API Definition generation" section of this topic.
 
 * Schema Fields (Output Responses)  
-  The value of the **x-ms-summary** extension property if present, otherwise the value of the **name** property.
+  The value of the **x-ms-summary** extension property if present; otherwise the value of the **name** property. The **x-ms-summary** extension property must be set dynamically in code. That process is described in the "Using Custom Attributes to annotate extension properties" section of this topic. The **name** property can be set using /// comments. That process is described in the "Using XML Comments in API Definition generation" section of this topic.
 
-Avoid using a long text for the above properties.  We recommend you keep the length to 30 characters or less.  *NOTE: The Swagger 2.0 specification allows for upto 120 characters for the **summary** property.*
-
-
+**Note:** It is recommended to keep the length of your display names to 30 characters or less.
 
 ### Using XML Comments in API Definition generation
 
-For development using Visual Studio, it is common practice to annotate your API Controllers using [XML comments](https://msdn.microsoft.com/library/b2s063f7.aspx).  When compiled with [/doc](https://msdn.microsoft.com/library/3260k4x7.aspx), the compiler will create an XML documentation file.  The swashbuckle toolset included with the API App SDK can incorporate those comments while generating the API metadata.
+For development using Visual Studio, it is common practice to annotate your API controllers using [XML comments](https://msdn.microsoft.com/library/b2s063f7.aspx).  When compiled with [/doc](https://msdn.microsoft.com/library/3260k4x7.aspx), the compiler will create an XML documentation file.  The Swashbuckle toolset included with the API App SDK can incorporate those comments while generating the API metadata, and you can configure your API project to do that by following these steps:
 
-To enable this, follow the steps below:
+1. Open your project in Visual Studio.
 
-1. In Visual Studio, go to Project > {Project Name} Properties. Make sure "XML documentation file" is checked and provide a value there.
+2. From the **Solution Explorer**, right-click the project and select **Properties**.
 
-2. Edit the SwaggerConfig.cs file and uncomment the line that calls GetXmlCommentsPath:
+	![Project Properties](./media/app-service-api-optimize-for-logic-apps/project-properties.png)
 
+3. When the project's property pages appear, perform the following steps:
 
-            GlobalConfiguration.Configuration
-                .EnableSwagger(c =>
-                    {
-                        ...
-                        // If you annonate Controllers and API Types with
-                        // Xml comments (http://msdn.microsoft.com/library/b2s063f7(v=vs.110).aspx), you can incorporate
-                        // those comments into the generated docs and UI. You can enable this by providing the path to one or
-                        // more Xml comment files.
-                        //
-                        c.IncludeXmlComments(GetXmlCommentsPath());
-                        ...
-                    }
+	- Select the **Configuration** for which the settings will apply. Typically, you will select All Configurations so that the settings you specify apply to both Debug and Release builds.
+	
+	- Select the **Build** tab on the left
+	
+	- Confirm that the **XML documentation file** option is checked. Visual Studio will supply a default file name based on your project's name. You can set its value to whatever your naming convention requires or leave it as-is.
 
-3. Provide an implementation for the GetXmlCommentsPath method to return the XML documentation file as provided in Step 1 above.  For example:
+	![Set XML Doc property](./media/app-service-api-optimize-for-logic-apps/xml-documentation-file-property.png)
+
+4. Open the *SwaggerConfig.cs* file (located in the project's **App_Start** folder).
+
+5. Add **using** directives to the top of the *SwaggerConfig.cs* file for the **System** and **System.Globalization** namespaces.
+
+		using System;
+		using System.Globalization;
+ 
+6. Search the *SwaggerConfig.cs* file for a call to **GetXmlCommentsPath**, and uncomment the line so that it executes. Since you have not yet implemented this method, Visual Studio will underline the call to **GetXmlCommentsPath** and indicate that it's not defined in the current context. That's okay. You'll implement it in the next step.
+
+7. Add the following implementation of the **GetXmlCommentsPath** method to the **SwaggerConfig** class (defined in the *SwaggerConfig.cs* file). This method will simply return the XML documentation file you specified earlier in the project's settings.
 
         public static string GetXmlCommentsPath()
         {
-            return System.String.Format(CultureInfo.InvariantCulture, @"{0}\bin\AzureStorageQueueConnector.xml", System.AppDomain.CurrentDomain.BaseDirectory);
+            return String.Format(CultureInfo.InvariantCulture, 
+								 @"{0}\bin\ContactsList.xml", 
+								 AppDomain.CurrentDomain.BaseDirectory);
         }
 
+8. Finally, specify the XML comments for your controller methods. To do this, open one of your API app's controller files and type /// on an empty line preceding a controller method you want to document. Visual Studio will automatically insert a commented section within which you can specify a method summary as well as parameter and return value information. 
 
-4. Specify XML comments in your code.  The following XML Comments are currently supported:
-
-
-  * <summary\> - defines the summary of the operation or a brief description of model classes and fields.
-  * <remarks\> - defines the description of operations.  Specify any other helpful text here.
-  * <param\> - defines the description of parameters
-
-
-**NOTE**: The XMl documentation comments are not metadata that can be read through Reflection, and will need to be packaged and deployed alongwith your API App.  Also, in Step 1 above, make sure that it is enabled for the configuration (Debug and Release) you will be using to publish your API App.  You can enable it for all configurations.
-
+Now, when you build and publish your API app, you'll see that the documentation file is also in the payload and uploaded with the rest of your API app.
 
 ## Categorize Advanced Operations and Properties
 
-The Logic Apps designer has limited real estate for showing operations, parameters and properties. Besides, it is possible that an API App provides an extensive set of operations or properties.  This can clutter the space on the designer and impacts the user experience.
+The Logic Apps designer has limited screen real estate for showing operations, parameters, and properties. Additionally, an API App can define an extensive set of operations and properties. The result of so much information being displayed in a small area can result can make using the designer difficult for the end-user. 
 
-To overcome this, an API App can classify its operations and properties into various categories.  By using a proper categorization of the operations and properties, an API App can increase the user experience by presenting the most basic and useful operations and properties first.  To achieve this, the logic apps designer look for the presence of a specific custom vendor extension properties in the swagger API definition of your API App. This property is named **x-ms-visibility** and can take the following values:
+To mitigate this clutter, the Logic Apps designer allows you to group the API app's operations and properties into user-defined categories. By using a proper categorization of the operations and properties, an API app can improve the user experience by presenting the most basic and useful operations and properties first.  
+
+To provide this ability, the Logic Apps designer looks for the presence of a specific custom vendor extension property in the swagger API definition of your API App. This property is named **x-ms-visibility** and can take the following values:
 
 * empty or "none"  
-  These are treated as normal operations and properties.
+  These operations and properties are readily viewable by the user.
 
 * "advanced"  
-  These operations or properties are treated as advanced.  These are hidden by default but the user can make these visible.
+  As these operations and properties are advanced, they are hidden by default. However, the user can easily access them if needed.
 
 * "internal"  
-  These operations or properties are treated as system or internal properties and not meant to be directly used by the user.  These are hidden by the designer, and is available only in the Code view.  For such properties, you may also specify the **x-ms-scheduler-recommendation** extension property to set the value through the Logic Apps designer.  For an example, refer the article on [adding triggers to an API App](app-service-api-dotnet-triggers.md).
+  These operations and properties are treated as system or internal properties and not meant to be directly used by the user.  As a result, they are hidden by the designer, and available only in the Code View.  For such properties, you may also specify the **x-ms-scheduler-recommendation** extension property to set the value through the Logic Apps designer.  For an example, refer the article on [adding triggers to an API App](app-service-api-dotnet-triggers.md).
 
 
 ## Using Custom Attributes to annotate extension properties
 
-As mentioned above, custom vendor extension properties are used to annotate the API metadata to provide richer information that the Logic Apps designer can use.  If you use static meatdata to describe your API app, you can directly edit the */metadata/apiDefinition.swagger.json* in your project to add the necessary extension properties manually.
+As mentioned above, custom vendor extension properties are used to annotate the API metadata to provide richer information that the Logic Apps designer can use.  If you use static metadata to describe your API app, you can directly edit the */metadata/apiDefinition.swagger.json* in your project to manually add the necessary extension properties.
 
-For API apps that use dynamic metadata, you can make use of custom attributes to annotate your code.  And then, you can define an operation filter in the SwaggerConfig.cs file to look for the custom attributes and add the necessary vendor extension.  This approach is described in detail below for dynamically generating the **x-ms-summary** extension property.
+For API apps that use dynamic metadata, you can make use of custom attributes to annotate your code.  You can then define an operation filter in the *SwaggerConfig.cs* file to look for the custom attributes and add the necessary vendor extension.  This approach is described in detail below for dynamically generating the **x-ms-summary** extension property.
 
-1. Define an attribute class **CustomSummaryAttribute** which will be used to annotate your code.
+1. Define an attribute class called **CustomSummaryAttribute** that will be used to annotate your code.
 
 	    [AttributeUsage(AttributeTargets.All)]
 	    public class CustomSummaryAttribute : Attribute
@@ -123,9 +119,14 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 	        }
 	    }
 
-2. Define an operation filter **AddCustomSummaryFilter** that will look for this custom attribute in the operation parameters.
+2. Define an operation filter called **AddCustomSummaryFilter** that will look for this custom attribute in the operation parameters.
 
-	    public class AddCustomSummaryFilter : IOperationFilter
+
+	    using Swashbuckle.Swagger;
+
+		...
+
+		public class AddCustomSummaryFilter : IOperationFilter
 	    {
 	        public void Apply(Operation operation, SchemaRegistry schemaRegistry, System.Web.Http.Description.ApiDescription apiDescription)
 	        {
@@ -153,7 +154,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 	        }
 	    }
 
-3. Edit the SwaggerConfig.cs file and add the filter class defined above:
+3. Edit the *SwaggerConfig.cs* file and add the filter class defined above.
 
 
             GlobalConfiguration.Configuration
@@ -164,7 +165,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
                         ...
                     }
 
-4. Use the **CustomSummaryAttribute** class to annotate your code.  For example:
+4. Use the **CustomSummaryAttribute** class to annotate your code, as shown in the following code snippet.
 
         /// <summary>
         /// Send Message
@@ -204,9 +205,7 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
                 ],
                 ...
 
-
-
-5. Similarly, you can define schema filter **AddCustomSummarySchemaFilter** to automatically annotate the **x-ms-summary** extension property for your schema models.  For example:
+5. Similarly, you can define schema filter **AddCustomSummarySchemaFilter** to automatically annotate the **x-ms-summary** extension property for your schema models, as in the following example.
 
 	    public class AddCustomSummarySchemaFilter: ISchemaFilter
 	    {
@@ -237,8 +236,6 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 	        }
 	    }
 
-
-
 ## Summary
 
-You have seen how you can enhance the user experience of your API App when it is used in the Logic Apps designer.  As a best practice, it is recommended that you provide proper friendly names for all operations (actions and triggers), parameters and properties.  We also recommend that you provide not more than 5 basic operations.  For input parameters, we recommend you restrict the number of basic properties to not more than 4.  And for properties, we recommend you keep this to 5 or less.  You should mark the rest as advanced as described above.
+In this article, you have seen how to enhance the user experience of your API app when it is used in the Logic Apps designer.  As a best practice, it is recommended that you provide proper friendly names for all operations (actions and triggers), parameters and properties.  It is also recommended that you provide no more than 5 basic operations.  For input parameters, the recommendation is to restrict the number of basic properties to no more than 4, and for properties, the recommendation is 5 or less. The remainder of your operations and properties should be marked as advanced.

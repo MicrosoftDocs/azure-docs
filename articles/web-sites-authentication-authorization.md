@@ -35,7 +35,7 @@ In many scenarios, you want to customize the authentication and authorization be
 	-	Can use an Azure-only identity provider without any on-premise infrastructure.
 	-	Can also configure directory sync with an on-premise AD (managed on-premise).
 	-	Azure AD with directory sync from your on-premise AD domain enables a smooth SSO experience to your web app when AD users access from the intranet and the internet. From the intranet, AD users can automatically access the web app through Integrated Authentication. From the internet, AD users can log into the web app using their Windows credentials.
-	-	Provides SSO to [all applications supported by Azure AD](/marketplace/active-directory/), including Azure, Office 365, Dynamics CRM Online, Windows InTune, and thousands of non-Microsoft cloud applications. 
+	-	Provides SSO to [all applications supported by Azure AD](/marketplace/active-directory/), including Azure, Office 365, Dynamics CRM Online, Microsoft Intune, and thousands of non-Microsoft cloud applications. 
 	-	Azure AD delegates management of [relying party](http://en.wikipedia.org/wiki/Relying_party) applications to non-administrator roles, while application access to sensitive directory data must still be configured by global administrators.
 	-	Sends a general-purpose set of claim types for all relying party applications. For the list of claim types, see [Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx). Claims are not customizable.
 	-	[Azure AD Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx) enables application access to directory data in Azure AD.

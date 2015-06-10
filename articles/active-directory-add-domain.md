@@ -76,7 +76,7 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
 ### Edit DNS records for your cloud services
 
 > [AZURE.NOTE]
-> Using Microsoft Intune? You do not need to edit DNS records for the Windows Intune cloud service.
+> Using Microsoft Intune? You do not need to edit DNS records for the Microsoft Intune cloud service.
 
 After you add and verify your custom domain name, the next step is to edit the DNS records at your domain registrar or DNS hosting provider that point traffic to your cloud service. Azure AD provides the DNS information that you need.
 

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
-	ms.author="AharonGumnik"/>
+	ms.date="06/10/2015" 
+	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
@@ -1881,13 +1881,13 @@ You cannot consume recommendations till the build ends.
 
 Valid build status:
 
-- Create – Model was created.
-- Queued – Model build was triggered and it is queued.
-- Building – Model is being built.
+- Create – Build request was created.
+- Queued – Build request was sent and it is queued.
+- Building – Build is in progress.
 - Success – Build ended successfully.
 - Error – Build ended with a failure.
 - Cancelled – Build was cancelled.
-- Cancelling – Build is being cancelled.
+- Cancelling – A cancel request for the build was sent.
 
 
 Note that the build ID can be found under the following path: `Feed\entry\content\properties\Id`
