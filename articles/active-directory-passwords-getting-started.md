@@ -70,7 +70,9 @@ To configure user password reset policy, complete the following steps:
 
     ![][003]
 
-5.	Under the **Configure** tab, scroll down to the **user password reset policy** section.  This is where you configure every aspect of user password reset policy for a given directory.  This **policy applies only to end users in your organization, not administrators**. For security reasons, Microsoft controls the password reset policy for administrators. If you do not see this section, make sure that you have signed up for the Azure Active Directory Premium and Basic and **assigned a license** to the administrator account that is configuring this feature. 
+5.	Under the **Configure** tab, scroll down to the **user password reset policy** section.  This is where you configure every aspect of user password reset policy for a given directory.  
+
+  >[AZURE.NOTE] This **policy applies only to end users in your organization, not administrators**. For security reasons, Microsoft controls the password reset policy for administrators. If you do not see this section, make sure that you have signed up for the Azure Active Directory Premium or Basic and **assigned a license** to the administrator account that is configuring this feature. 
 
     ![][004]
 
