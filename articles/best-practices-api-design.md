@@ -23,30 +23,6 @@
 
 Some topics in this guidance are under discussion and may change in the future. We welcome your feedback!
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-## Table of Contents
-
-  - [Overview](#overview)
-  - [Introduction to Representational State Transfer (REST)](#introduction-to-representational-state-transfer-rest)
-  - [Design and structure of a RESTful web API](#design-and-structure-of-a-restful-web-api)
-    - [Organizing the web API around resources](#organizing-the-web-api-around-resources)
-    - [Defining operations in terms of HTTP methods](#defining-operations-in-terms-of-http-methods)
-    - [Processing HTTP requests](#processing-http-requests)
-    - [Filtering and paginating data](#filtering-and-paginating-data)
-    - [Handling large binary resources](#handling-large-binary-resources)
-  - [Using the HATEOAS approach to enable navigation to related resources](#using-the-hateoas-approach-to-enable-navigation-to-related-resources)
-  - [Versioning a RESTful web API](#versioning-a-restful-web-api)
-    - [No versioning](#no-versioning)
-    - [URI versioning](#uri-versioning)
-    - [Query string versioning](#query-string-versioning)
-    - [Header versioning](#header-versioning)
-    - [Media type versioning](#media-type-versioning)
-  - [More information](#more-information)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 
 ## Overview
 
