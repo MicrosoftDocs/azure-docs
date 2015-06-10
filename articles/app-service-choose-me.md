@@ -4,9 +4,9 @@
 	headerExpose="" 
 	footerExpose="" 
 	services="cloud-services"
-	authors="Thraka" 
+	authors="cephalin" 
 	documentationCenter=""
-	manager="timlt"/>
+	manager="wpickett"/>
 
 <tags 
 	ms.service="multiple" 
@@ -26,7 +26,6 @@ Azure provides different hosting models for running applications. Each one provi
 | [App Service]      | Scalable Web Apps, Mobile Apps, API Apps, and Logic Apps for any device |
 | [Cloud Services]   | Highly available, scalable n-tier cloud apps with more control of the OS |
 | [Virtual Machines] | Customized Windows and Linux VMs with complete control of the OS |
-
 
 [AZURE.INCLUDE [content](../includes/app-service-choose-me-content.md)]
 

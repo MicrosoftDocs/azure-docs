@@ -4,7 +4,7 @@
 	headerExpose="" 
 	footerExpose="" 
 	services="cloud-services"
-	authors="Thraka" 
+	authors="KBDAzure" 
 	documentationCenter=""
 	manager="timlt"/>
 
