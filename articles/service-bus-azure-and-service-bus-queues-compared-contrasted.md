@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Queues and Service Bus queues - compared and contrasted"
-   description="analyzes differences and similarities between two types of queues offered by Azure"
+   description="Analyzes differences and similarities between two types of queues offered by Azure."
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"

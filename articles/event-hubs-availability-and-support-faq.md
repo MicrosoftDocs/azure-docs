@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Event Hubs Availability and Support FAQ"
-   description="Event Hubs FAQ"
+   description="Event Hubs pricing and FAQ."
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"

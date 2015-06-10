@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Service Bus Relayed Messaging"
-	description="Service Bus relay overview - Azure"
+	description="Overview of Service Bus relay."
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
