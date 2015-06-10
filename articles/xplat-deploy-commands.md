@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Deploying a template using the Azure CLI for Mac, Linux, and Windows"
+   pageTitle="Deploying a template using the Azure CLI for Mac, Linux, and Windows | Microsoft Azure"
    description="Describes the basic steps to deploy or update any template."
    services="virtual-machines"
    documentationCenter=""
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/21/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Deploying a template using the Azure CLI for Mac, Linux, and Windows
 
@@ -27,14 +27,14 @@ The following steps will enable you to deploy one Azure template, even if it is 
 
 ### Download the azuredeploy-parameters.json file
 
-Download the azuredeploy-parameters.json file if one exists for the template you want to deploy. 
+Download the azuredeploy-parameters.json file if one exists for the template you want to deploy.
 
     curl -O https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy-parameters.json
-    
+
 ## Enter your resource group deployment information
-    
-Open this file with your favorite editor. You'll see that you need to specify a value for several of the keys, particularly **adminUsername**, **adminPassword** (remember complexity rules!), and the storage account name and DNS names that you want. 
-    
+
+Open this file with your favorite editor. You'll see that you need to specify a value for several of the keys, particularly **adminUsername**, **adminPassword** (remember complexity rules!), and the storage account name and DNS names that you want.
+
     {
       "newStorageAccountName": {
         "value": "uniquestorageaccountname"
@@ -70,7 +70,7 @@ Open this file with your favorite editor. You'll see that you need to specify a 
         "value": "myNic"
       }
     }
-    
+
 Add either new values -- Azure will create new storage and DNS resources for you if it can -- or use resources that you have already created. The following azuredeploy-parameters.json file shows an example:
 
 
@@ -83,16 +83,16 @@ I also have scripts written that extract individual sections of any portion of t
 ### Deploy your template and parameters files
 
 
-[AZURE.NOTE] You may find that 
-Some templates may have no correspdonding azuredeploy-parameters.json file. 
+[AZURE.NOTE] You may find that
+Some templates may have no correspdonding azuredeploy-parameters.json file.
 
 parameters to set, or they may be already a part of the template itself, depending on what templates you are using. In these cases, you may
 
-If your template contains its parameters directly, or you want to extract the parameters data yourself. For more information about the structure of templates, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx). 
+If your template contains its parameters directly, or you want to extract the parameters data yourself. For more information about the structure of templates, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
 https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (or just the azuredeploy-parameters.json file)
-You can either extract the parameters section of the template -- in which case you'll need to save it back inside the template itself OR as a separate azuredeploy-parameters.json file. You'll need to go obtain the values to place into the parameters. 
+You can either extract the parameters section of the template -- in which case you'll need to save it back inside the template itself OR as a separate azuredeploy-parameters.json file. You'll need to go obtain the values to place into the parameters.
 
 ## Modify the azuredeploy-templates.json file
 
