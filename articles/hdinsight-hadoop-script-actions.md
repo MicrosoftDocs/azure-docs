@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/10/2015" 
 	ms.author="bradsev"/> 
 
 # Script Action development with HDInsight 
@@ -97,13 +97,15 @@ Often in script action development, you will feel the need to set environment va
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to the value 'true' and also sets the scope of this variable to be machine-wide. At times it is important that environment variables are set at the appropriate scope – machine or user. Refer [here](https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx "here") for more information on setting environment variables.
+This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to the value 'true' and also sets the scope of this variable to be machine-wide. At times it is important that environment variables are set at the appropriate scope – machine or user. Refer [here][1] for more information on setting environment variables.
 
 ### Access to locations where the custom scripts are stored
 
 Scripts used to customize a cluster needs to either be in the default storage account for the cluster or in a public read-only container on any other storage account. If your script accesses resources located elsewhere these need to be in a publicly accessible (at least public read-only). For instance you might want to access a file and save it using the SaveFile-HDI command.
 
 	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+
+In this example, you must ensure that the container 'somecontainer' in storage account 'somestorageaccount' is publicly accessible. Otherwise, the script will throw a ‘Not Found’ exception and fail.
 
 ### Throwing exception for failed cluster deployment
 
@@ -116,6 +118,17 @@ If you want to get accurately notified of the fact that cluster customization di
 		# Print error message
 	exit
 	}
+
+In this snippet, if the file did not exist, it would lead to a state where the script actually exits gracefully after printing the error message, and the cluster reaches running state assuming it "successfully" completed cluster customization process. If you want to be accurately notified of the fact that cluster customization essentially did not succeed as expected because of a missing file, it is more appropriate to throw an exception and fail the cluster customization step. To achieve this you must use the following sample code snippet instead.
+
+	If(Test-Path($SomePath)) {
+		#Process file in some way
+	} else {
+		# File does not exist; handle error case
+		# Print error message
+	throw
+	}
+
 
 ## <a name="deployScript"></a>Checklist for deploying a script action
 Here are the steps we took when preparing to deploy these scripts:
@@ -235,3 +248,6 @@ In the event that an execution failure occurs, the output describing it will als
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
+
+<!--Reference links in article-->
+[1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx

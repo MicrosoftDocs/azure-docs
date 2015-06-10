@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article" 
-	ms.date="02/13/2015"
-	ms.author="ricksal;glenga"/>
+	ms.date="06/03/2015"
+	ms.author="ricksal"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 

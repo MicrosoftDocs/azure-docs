@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Schedule recurring jobs in Mobile Services 
@@ -28,11 +28,7 @@ This topic shows you how to use the job scheduler functionality in the Managemen
 + Requesting and storing external data, such as tweets, RSS entries, and location information.
 + Processing or resizing stored images.
 
-This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
-
-+ [Register for Twitter access and store credentials]
-+ [Create the new Updates table]
-+ [Create a new scheduled job]
+This tutorial shows you how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table.
 
 ##<a name="get-oauth-credentials"></a>Register for access to Twitter v1.1 APIs and store credentials
 
@@ -136,7 +132,7 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 
    	This script calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
 
-    >[AZURE.NOTE]This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">How to: Perform bulk inserts</a>.
+    >[AZURE.NOTE]This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see [How to: Perform bulk inserts](mobile-services-how-to-use-server-scripts.md#bulk-inserts).
 
 6. Click **Run Once** to test the script. 
 
@@ -150,7 +146,7 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 
 Congratulations, you have successfully created a new scheduled job in your mobile service. This job will be executed as scheduled until you disable or modify it.
 
-## <a name="nextsteps"> </a>Next Steps
+## <a name="nextsteps"> </a>See also
 
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
@@ -162,18 +158,6 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
-[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
-[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
-[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/10/2015" 
 	ms.author="mimig"/>
 
 # DocumentDB server-side programming: Stored procedures, triggers, and UDFs
@@ -51,7 +51,7 @@ This approach of *“JavaScript as a modern day T-SQL”* frees application deve
 
 The creation and execution of triggers, stored procedure and custom query operators is supported through the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), and [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) in many platforms including .NET, Node.js and JavaScript. **This tutorial uses the [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
-## Stored Procedures
+## Stored procedures
 
 ### Example: Write a simple stored procedure 
 Let’s start with a simple stored procedure that returns a “Hello World” response.
@@ -471,7 +471,7 @@ The UDF can subsequently be used in queries like in the following sample:
 	    console.log("Error" , error);
 	});
 
-## Runtime Support
+## Runtime support
 [DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources.md).
 
 ### Security
@@ -622,18 +622,22 @@ Triggers, unlike stored procedures, cannot be executed directly. Instead they ar
 
 Here the pre-trigger to be run with the request is specified in the x-ms-documentdb-pre-trigger-include header. Correspondingly, any post-triggers are given in the x-ms-documentdb-post-trigger-include header. Note that both pre- and post-triggers can be specified for a given request.
 
-## Sample Code
+## Sample code
 
 You can find more server-side code examples (including [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js), and [update](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)) on our [Github repository](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
 
 Want to share your awesome stored procedure? Please, send us a pull-request! 
 
-## References
+## Next steps
 
-- Azure DocumentDB SDKs – [https://msdn.microsoft.com/library/azure/dn781482.aspx](https://msdn.microsoft.com/library/azure/dn781482.aspx)
-- JSON – [http://www.json.org/](http://www.json.org/) 
-- JavaScript ECMA-262 – [http://www.ecma-international.org/publications/standards/Ecma-262.htm ](http://www.ecma-international.org/publications/standards/Ecma-262.htm )
--	JavaScript – JSON type system [http://www.json.org/js.html](http://www.json.org/js.html) 
--	Secure and Portable Database Extensibility- [http://dl.acm.org/citation.cfm?id=276339](http://dl.acm.org/citation.cfm?id=276339) 
--	Service Oriented Database Architecture - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	Hosting the .NET Runtime in Microsoft SQL server - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) 
+Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Preview portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
+
+You may also find the following references and resources useful in your path to learn more about DocumentDB server-side programming:
+
+- [Azure DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [JSON](http://www.json.org/) 
+- [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+-	[JavaScript – JSON type system](http://www.json.org/js.html) 
+-	[Secure and Portable Database Extensibility](http://dl.acm.org/citation.cfm?id=276339) 
+-	[Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+-	[Hosting the .NET Runtime in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669) 

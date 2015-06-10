@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="06/05/2015" 
 	ms.author="ricksal"/>
 
 
@@ -74,7 +74,7 @@ A table script function always takes three arguments.
 
 - The second argument is always a [user object][User object] that represents the user that submitted the request. 
 
-- The third argument is always a [request object][Request object], by which you can control execution of the requested operation and the response that's sent to the client.
+- The third argument is always a [request object][request object], by which you can control execution of the requested operation and the response that's sent to the client.
 
 Here are the canonical main-function signatures for the table operations: 
 
