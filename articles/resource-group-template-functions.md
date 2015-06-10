@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Resource Manager Template Functions"
-   description="Describes the functions to use in an Azure Resource Manager template to deploy apps to Azure."
+   description="Describes the functions to use in an Azure Resource Manager template to retrieve values, format strings and retrieve deployment information."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/08/2015"
+   ms.author="tomfitz"/>
 
 # Azure Resource Manager Template Functions
 
@@ -52,6 +52,33 @@ The following example shows how to combine multiple values to return a value.
         }
     }
 
+## deployment
+
+**deployment()**
+
+Returns information about the current deployment operation.
+
+The information about the deployment is returned as an object with the following properties:
+
+    {
+      "name": "",
+      "properties": {
+        "template": {},
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+      }
+    }
+
+The following example shows how to return deployment information in the outputs section.
+
+    "outputs": {
+      "exampleOutput": {
+        "value": "[deployment()]",
+        "type" : "object"
+      }
+    }
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -71,6 +98,28 @@ The following example shows how to return the keys from a storage account in the
         "type" : "object" 
       } 
     } 
+
+## padLeft
+
+**padLeft(stringToPad, totalLength, paddingCharacter)**
+
+Returns a right-aligned string by adding characters to the left until reaching the total specified length.
+  
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToPad                        |   Yes    | The string to right-align.
+| totalLength                        |   Yes    | The total number of characters in the returned string.
+| paddingCharacter                   |   Yes    | The character to use for left-padding until the total length is reached.
+
+The following example shows how to pad the user-provided parameter value by adding the zero character until the string reaches 10 characters. If the original parameter value is longer than 10 characters, no characters are added.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
 
 ## parameters
 
@@ -146,6 +195,27 @@ By using the reference expression, you declare that one resource depends on anot
           "type": "string",
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
       }
+    }
+
+## replace
+
+**replace(originalString, oldCharacter, newCharacter)**
+
+Returns a new string with all instances of one character in the specified string replaced by another character.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalString                     |   Yes    | The string that will have all instances of one character replaced by another character.
+| oldCharacter                       |   Yes    | The character to be removed from the original string.
+| newCharacter                       |   Yes    | The character to add in place of the removed character.
+
+The following example shows how to remove all dashes from the user-provided string.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
 ## resourceGroup
@@ -255,6 +325,45 @@ The following example shows the subscription function called in the outputs sect
           "type" : "object" 
       } 
     } 
+
+## toLower
+
+**toLower(stringToChange)**
+
+Converts the specified string to lower case.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToChange                     |   Yes    | The string to convert to lower case.
+
+The following example converts the user-provided parameter value to lower case.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+## toUpper
+
+**toUpper(stringToChange)**
+
+Converts the specified string to upper case.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToChange                     |   Yes    | The string to convert to upper case.
+
+The following example converts the user-provided parameter value to upper case.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
 
 ## variables
 

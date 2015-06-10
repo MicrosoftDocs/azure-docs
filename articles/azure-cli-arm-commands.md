@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management"
+	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management | Microsoft Azure"
 	description="Learn about using the Azure CLI for Mac, Linux, and Windows to manage Azure resources using the Azure CLI arm mode."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 
