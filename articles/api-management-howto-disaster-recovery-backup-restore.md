@@ -44,7 +44,7 @@ In the body of the request, specify the target Azure storage account name, acces
 	    backupName : "{backup blob name}"  
 	}'
 
-Set the value of the `Content-Type` request header to `application\json`.
+Set the value of the `Content-Type` request header to `application/json`.
 
 Backup is a long running operation that may take multiple minutes to complete.  If the request was successful and the backup process was initiated you’ll receive a `202 Accepted` response status code with a `Location` header.  Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress you will continue to receive a '202 Accepted' status code. A Response code of `200 OK` will indicate successful completion of the backup operation.
 
