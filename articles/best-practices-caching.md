@@ -1,7 +1,7 @@
 <properties
    pageTitle="Caching guidance | Microsoft Azure"
    description="Guidance on caching to improve performance and scalability."
-   services="cache"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

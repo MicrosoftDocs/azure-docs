@@ -199,7 +199,7 @@ The following list contains the rules that are enforced per query:
 
 - The collection can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the equivalent of `Families`. `AS` is an optional keyword to alias the identifier.
 
--	Note that once aliased, the original source cannot be bound. For example, `SELECT Familes.id FROM Families f` is syntactically invalid since the identifier "Families" cannot be resolved anymore.
+-	Note that once aliased, the original source cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid since the identifier "Families" cannot be resolved anymore.
 
 -	All properties that need to be referenced must be fully qualified. In the absence of strict schema adherence, this is enforced to avoid any ambiguous bindings. Therefore, `SELECT id FROM Families f` is syntactically invalid since the property `id` is not bound.
 	

@@ -1,7 +1,7 @@
 <properties
    pageTitle="NuGet Packages | Microsoft Azure"
    description="Guidance on NuGet Packages for general retry policy work."
-   services="multiple"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

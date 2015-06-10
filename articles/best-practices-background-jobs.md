@@ -1,7 +1,7 @@
 <properties
    pageTitle="Background jobs guidance | Microsoft Azure"
    description="Guidance on background tasks that run independently of the user interface."
-   services="service-name"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"
