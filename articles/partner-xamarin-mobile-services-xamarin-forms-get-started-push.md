@@ -16,7 +16,7 @@
 	ms.date="06/10/2015"
 	ms.author="normesta"/>
 
-# Add push notifications to your Mobile Services app
+# Add push notifications to your Xamarin.Forms app
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 ##Overview
