@@ -100,7 +100,7 @@ Perform the following steps to regenerate a service registration key.
 
 1. Copy this key and save it for registering any new devices with this service.
 
-1. Click the check icon  to close this dialog box ![Check icon](./media/use-storsimple-manager-service-to-administer-your-storsimple-device-2/IC740895.png).
+1. Click the check icon ![Check icon](./media/storsimple-manage-service/HCS_CheckIcon.png) to close this dialog box.
 
 
 ## Next steps
