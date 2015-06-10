@@ -9,21 +9,21 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.workload="mobile"
+	ms.date="06/10/2015"
 	ms.author="normesta"/>
 
-# Add push notifications to your Mobile Services app
+# Add push notifications to your Xamarin.Forms app
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 ##Overview
 
-This tutorial shows you how to use Azure Mobile Services to send push notifications to the iOS, Android, and Windows Phone app of your Xamarin.Forms solution. Start by creating a mobile service. Then, you'll download a starter sample, register with the appropriate push notification services, and then add code to solution to receive notifications from those services. 
+This tutorial shows you how to use Azure Mobile Services to send push notifications to the iOS, Android, and Windows Phone app of your Xamarin.Forms solution. Start by creating a mobile service. Then, you'll download a starter sample, register with the appropriate push notification services, and add code to the solution to receive notifications from those services. 
 
-When you complete this tutorial, your mobile service will send a push notification each time a user adds a task in one of the apps.
+When you complete this tutorial, your mobile service will send a push notification each time a user adds a task in one of the apps. You can find the completed sample here: [Completed Xamarin.Forms Azure Push Notification Sample].
 
 This tutorial requires the following:
 
@@ -78,7 +78,7 @@ You are now ready to use the new mobile service as data storage for the app.
 ## <a name="download-starter-sample"></a>Download and Configure the Starter Sample
 We'll add push notifications to an existing sample.
   
-1. Download the following sample: [Xamarin Forms Azure Push Notification Sample].
+1. Download the following sample: [Xamarin.Forms Azure Push Notification Starter Sample].
 
 2. In the Management Portal, click **Mobile Services**, and then click the mobile service. Click the **Dashboard** tab and make a note of the **Site URL**. Then click **Manage Keys** and make a note of the **Application Key**. You'll need these values when you access the mobile service from your app code.
 
@@ -289,8 +289,15 @@ Your mobile service is now configured to work with APNS.
 
             // Register for push with Mobile Services
             IEnumerable<string> tag = new List<string>() { "uniqueTag" };
+            
+            const string template = "{\"aps\":{\"alert\":\"$(message)\"}}";
+
+            var expiryDate = DateTime.Now.AddDays(90).ToString
+                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
+
             var push = client.GetPush();
-            push.RegisterNativeAsync(_deviceToken, tag);
+
+            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag)
         }
 
 7. In **AppDelegate**, override the **ReceivedRemoteNotification** event:
@@ -324,21 +331,32 @@ Your app is now updated to support push notifications.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
-        function insert(item, user, request) {
-            request.execute();
-            // Set timeout to delay the notification, to provide time for the
-            // app to be closed on the device to demonstrate toast notifications
-            setTimeout(function() {
-                push.apns.send("uniqueTag", {
-                    alert: "Toast: " + item.text,
-                    payload: {
-                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
-                    }
-                });
-            }, 2500);
-        }
+          function insert(item, user, request) {
+          // Execute the request and send notifications.
+             request.execute({
+             success: function() {                      
+              // Create a template-based payload.
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
 
-    This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.
+              // Write the default response and send a notification
+              // to all platforms.            
+              push.send(null, payload, {               
+                  success: function(pushResponse){
+                  console.log("Sent push:", pushResponse);
+                  // Send the default response.
+                  request.respond();
+                  },              
+                  error: function (pushResponse) {
+                      console.log("Error Sending push:", pushResponse);
+                       // Send the an error response.
+                      request.respond(500, { error: pushResponse });
+                      }           
+               });                 
+              }
+           });   
+          }
+
+    This registers a new insert script, which sends a push notification (the inserted text) to the device provided in the insert request.
 
    >[AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
 
@@ -371,7 +389,47 @@ You'll add push notifications to the Android app by using the Google Cloud Messa
 
 >[AZURE.NOTE] The following steps show you how to update the script registered to the insert operation on the TodoItem table in the Azure Management Portal. You can also access and edit this mobile service script directly in Visual Studio, in the Azure node of Server Explorer. 
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
+In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
+
+   ![][21]
+
+2. In **todoitem**, click the **Script** tab and select **Insert**.
+
+   ![][22]
+
+    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+
+3. Replace the insert function with the following code, and then click **Save**:
+
+          function insert(item, user, request) {
+          // Execute the request and send notifications.
+             request.execute({
+             success: function() {                      
+              // Create a template-based payload.
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+
+              // Write the default response and send a notification
+              // to all platforms.            
+              push.send(null, payload, {               
+                  success: function(pushResponse){
+                  console.log("Sent push:", pushResponse);
+                  // Send the default response.
+                  request.respond();
+                  },              
+                  error: function (pushResponse) {
+                      console.log("Error Sending push:", pushResponse);
+                       // Send the an error response.
+                      request.respond(500, { error: pushResponse });
+                      }           
+               });                 
+              }
+           });   
+          }
+
+
+    This registers a new insert script, which sends a push notification (the inserted text) to the device provided in the insert request.
+
+   >[AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
 
 
 ###<a id="configure-app"></a>Configure the existing project for push notifications
@@ -480,7 +538,9 @@ Your **MainActivity** is now prepared for adding push notifications.
         {
             try
             {
-                await push.RegisterNativeAsync(RegistrationID, tags);
+                const string template = "{\"data\":{\"message\":\"$(message)\"}}";
+
+                await push.RegisterTemplateAsync(RegistrationID, template, "mytemplate", tags);
             }
             catch (Exception ex)
             {
@@ -615,9 +675,13 @@ Before your app can receive push notifications, you must register a notification
                 new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
                 {
 
-                    // Register for notifications using the new channel
-                    await MobileService.GetPush()
-                        .RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
+                   // Register for notifications using the new channel
+                    const string template =
+                    "<?xml version=\"1.0\" encoding=\"utf-8\"?><wp:Notification " +
+                    "xmlns:wp=\"WPNotification\"><wp:Toast><wp:Text1>$(message)</wp:Text1></wp:Toast></wp:Notification>";
+
+                    await client.GetPush()
+                        .RegisterTemplateAsync(CurrentChannel.ChannelUri.ToString(), template, "mytemplate");
                 });
         }
 
@@ -643,35 +707,45 @@ Before your app can receive push notifications, you must register a notification
 
 Finally, you must update the script registered to the insert operation on the TodoItem table to send notifications.
 
-1. Click **TodoItem**, click **Script** and select **Insert**. 
+1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
 
-2. Replace the insert function with the following code, and then click **Save**:
+    ![][21]
 
-		function insert(item, user, request) {
-		// Define a payload for the Windows Phone toast notification.
-		var payload = '<?xml version="1.0" encoding="utf-8"?>' +
-		    '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
-		    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
-		    '</wp:Text2></wp:Toast></wp:Notification>';
-		
-		request.execute({
-		    success: function() {
-		        // If the insert succeeds, send a notification.
-		    	push.mpns.send(null, payload, 'toast', 22, {
-		            success: function(pushResponse) {
-		                console.log("Sent push:", pushResponse);
-						request.respond();
-		                },              
-		                error: function (pushResponse) {
-		                    console.log("Error Sending push:", pushResponse);
-							request.respond(500, { error: pushResponse });
-		                    }
-		                });
-		            }
-		        });      
-		}
+2. In **todoitem**, click the **Script** tab and select **Insert**.
 
-	This insert script sends a push notification (with the text of the inserted item) to all Windows Phone app registrations after the insert succeeds.
+    ![][22]
+
+    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+
+3. Replace the insert function with the following code, and then click **Save**:
+          
+          function insert(item, user, request) {
+          // Execute the request and send notifications.
+             request.execute({
+             success: function() {                      
+              // Create a template-based payload.
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+
+              // Write the default response and send a notification
+              // to all platforms.            
+              push.send(null, payload, {               
+                  success: function(pushResponse){
+                  console.log("Sent push:", pushResponse);
+                  // Send the default response.
+                  request.respond();
+                  },              
+                  error: function (pushResponse) {
+                      console.log("Error Sending push:", pushResponse);
+                       // Send the an error response.
+                      request.respond(500, { error: pushResponse });
+                      }           
+               });                 
+              }
+           });   
+          }
+
+
+    This registers a new insert script, which sends a push notification (the inserted text) to the device provided in the insert request.
 
 3. Click the **Push** tab, check **Enable unauthenticated push notifications**, then click **Save**.
 
@@ -692,82 +766,6 @@ Finally, you must update the script registered to the insert operation on the To
 	![Toast notification received](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-quickstart-push5-wp8.png)
 
 	>[AZURE.NOTE]You will not receive the notification when you are still in the app. To receive a toast notification while the app is active, you must handle the [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) event.
-
-##<a name="all-apps"></a>Update Azure table insert script to send push notifications to all apps
-
-You can modify the insert script on the Azure Management Portal so that a notification appears for all three of your apps (iOS, Android, and Windows).
-
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
-
-    ![][21]
-
-2. In **todoitem**, click the **Script** tab and select **Insert**.
-
-    ![][22]
-
-    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
-
-3. Replace the insert function with the following code, and then click **Save**:
-
-          function insert(item, user, request) {
-    
-          // Define a simple payload for a GCM notification.
-          var GCMPayload = {
-              "data": {
-                "message": item.text
-           }
-        }; 
-        var WinPayload = '<?xml version="1.0" encoding="utf-8"?>' +
-            '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
-            '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
-            '</wp:Text2></wp:Toast></wp:Notification>';
-         
-        request.execute({
-            success: function() {
-                // If the insert succeeds, send a notification.
-                push.gcm.send(null, GCMPayload, {
-                    success: function(pushResponse) {
-                        console.log("Sent push:", pushResponse, GCMPayload);
-                        request.respond();
-                        },              
-                    error: function (pushResponse) {
-                        console.log("Error Sending push:", pushResponse);
-                        request.respond(500, { error: pushResponse });
-                        }
-                    });
-            
-              // iOS
-              setTimeout(function() {
-                push.apns.send("uniqueTag", {
-                    alert: "Toast: " + item.text,
-                    payload: {
-                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
-                   }
-                });
-               }, 2500);
-          
-              // Windows  
-                push.mpns.send(null, WinPayload, 'toast', 22, {
-                success: function(pushResponse) {
-                    console.log("Sent push:", pushResponse);
-                    request.respond();
-                    },              
-                    error: function (pushResponse) {
-                        console.log("Error Sending push:", pushResponse);
-                        request.respond(500, { error: pushResponse });
-                        }
-                    });
-    
-            },
-        error: function(err) {
-            console.log("request.execute error", err)
-            request.respond();
-        }
-      });
-    }
-
-    This registers a new insert script, which sends a notification to all of your apps (iOS, Android, and Windows).
-
    
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -844,4 +842,5 @@ You can modify the insert script on the Azure Management Portal so that a notifi
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Xamarin Forms Azure Push Notification Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
+[Xamarin.Forms Azure Push Notification Starter Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
+[Completed Xamarin.Forms Azure Push Notification Sample]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
