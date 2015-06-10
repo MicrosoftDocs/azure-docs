@@ -35,7 +35,7 @@ You can monitor the following metrics to help determine if you need to scale.
 -	Network Bandwidth
 -	CPU Usage
 
-If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](cache-faq.d#what-redis-cache-offering-and-size-should-i-use).
+If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Scale a cache
 To scale your cache, [browse to the cache](https://msdn.microsoft.com/library/azure/dn793612.aspx#CacheSettings) in the [Azure portal](https://portal.azure.com) and click the **Standard tier** or **Basic tier** part in the **Redis Cache** blade.
@@ -46,7 +46,7 @@ Select the desired pricing tier from the **Pricing tier** blade and click **Sele
 
 ![Pricing tier][redis-cache-pricing-tier-blade]
 
->[!AZURE.NOTE] Caches can't change plans from Basic to Standard or vice versa, and you can't scale down to a 250MB cache from one of the larger sizes. You can scale up from a 250MB cache to a larger size, but you will not be able to scale back down to the 250 MB pricing tier. If you need to change from Basic to Standard or scale down to the 250 MB size you must create a new cache.
+>[AZURE.NOTE] Caches can't change plans from Basic to Standard or vice versa, and you can't scale down to a 250MB cache from one of the larger sizes. You can scale up from a 250MB cache to a larger size, but you will not be able to scale back down to the 250 MB pricing tier. If you need to change from Basic to Standard or scale down to the 250 MB size you must create a new cache.
 
 While the cache is scaling to the new pricing tier, a **Scaling** status is displayed in the **Redis Cache** blade.
 
@@ -54,7 +54,7 @@ While the cache is scaling to the new pricing tier, a **Scaling** status is disp
 
 When scaling is complete, the status changes from **Scaling** to **Running**.
 
->[AZURE.IMPORTANT] During scaling operations, Basic caches are offline and all data in the cache is lost. Once the scaling operation completes, the Basic cache will be back online, with no data. Standard caches remain online during a scaling operation, and no data is typically lost when scaling a Standard cache to a larger size. When scaling a Standard cache to a smaller size, some data may be lost if the new size is smaller than the amount of cached data. Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss.
+>[AZURE.IMPORTANT] During scaling operations, Basic caches are offline and all data in the cache is lost. Once the scaling operation completes, the Basic cache will be back online, with no data. Standard caches remain online during a scaling operation, and no data is typically lost when scaling a Standard cache to a larger size. When scaling a Standard cache to a smaller size, some data may be lost if the new size is smaller than the amount of cached data. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
 ## Scaling FAQ
 
@@ -70,7 +70,7 @@ When a **Basic** cache is scaled, it is shut down and a new cache is provisioned
 
 When a **Standard** cache is scaled, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
 
-## Will I lose data from my cache
+## Will I lose data from my cache during scaling
 
 When a **Basic** cache is scaled, all data is lost and the cache is unavailable during the scaling operation.
 
