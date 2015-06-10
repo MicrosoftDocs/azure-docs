@@ -3,7 +3,7 @@
    description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2015"
-   ms.author="v-sharos" />
+   ms.date="06/10/2015"
+   ms.author="alkohli" />
 
 # Manage your StorSimple bandwidth templates
 
@@ -172,3 +172,6 @@ Follow these best practices for your StorSimple device:
 
 - Calculate the actual bandwidth required for a particular deployment based on the size of the deployment and the required recovery time objective (RTO).
 
+## Next steps
+
+Read more about [StorSimple components](storsimple-components.md).
