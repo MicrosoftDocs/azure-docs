@@ -25,8 +25,6 @@ ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) o
 
 The access control records section on the **Configure** page displays all the access control records with the corresponding IQNs of the hosts.
 
-> [AZURE.IMPORTANT] When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume. When deleting an ACR from a volume, ensure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.
-
 Some of the common tasks related to ACRs are:
 
 - Add an access control record 
@@ -34,6 +32,11 @@ Some of the common tasks related to ACRs are:
 - Delete an access control record 
 
 This tutorial explains how to complete each of these tasks.
+
+> [AZURE.IMPORTANT] 
+> 
+> - When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume. 
+> - When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.
 
 ## Add an access control record
 
