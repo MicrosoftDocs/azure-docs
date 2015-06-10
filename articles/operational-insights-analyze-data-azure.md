@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2015"
+   ms.date="06/09/2015"
    ms.author="banders"/>
 # Analyze data from servers in Microsoft Azure
 
@@ -272,8 +272,8 @@ Use the following procedure to enable storage analysis and configure Operational
 2. Click **Add a Storage Account** to open the **Add Storage Account** box.
 3. Select the storage account that you want to use.
 4. In the **Data Type** list, select a data type: either **Events** or **IIS Logs**.
-5. Click the **OK** image.
-![storage account box](./media/operational-insights-analyze-data-azure/storage-account.png)
+5. Click the **OK** image.  
+  ![storage account box](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. Repeat the above steps for each data type and storage account combination that you want to collect.
 
 In approximately 1 hour you will begin to see data from the storage account available for analysis within Operational Insights.
