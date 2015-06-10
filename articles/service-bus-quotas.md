@@ -3,7 +3,7 @@
    description="Service Bus limits and quotas"
    services="service-bus"
    documentationCenter="na"
-   authors="sethm"
+   authors="sethmanheim"
    manager="timlt"
    editor="tysonn" />
 <tags 
