@@ -202,7 +202,7 @@ Use the following command to list the blob-related commands:
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-##<a id="powershell"></a>Access blob with Azure PowerShell
+##<a id="powershell"></a>Access blobs with Azure PowerShell
 
 > [AZURE.NOTE] The commands in this section provide a basic example of using PowerShell to access data stored in blobs. For a more full-featured example that is customized for working with HDInsight, see the [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
 
