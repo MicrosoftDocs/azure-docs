@@ -83,7 +83,7 @@ You need to install the tools if you want to make any of the following sorts of 
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo. 
+If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - click **Join a Team**, and join **azure-content-read**.
 
 ## Install Git for Windows
 
@@ -115,7 +115,7 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 ## Install a markdown editor
 
-We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor. 
+We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor.
 
 - We recommend GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. **Note**: Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure.
 
@@ -202,7 +202,7 @@ To ensure you are listed correctly as a contributor, you need to configure your 
 
 ###Contributors' Guide Links
 
-- [Overview article](./../CONTRIBUTING.md)
+- [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)
 
 

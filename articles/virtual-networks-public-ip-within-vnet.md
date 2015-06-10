@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="06/08/2015"
    ms.author="telmos" />
 
 # Public IP address space in a Virtual Network (VNet)
@@ -45,8 +45,8 @@ There are a few IP address ranges that are not allowed:
 
 ## Next Steps
 
-[How to manage Virtual Network (VNet) Properties](../articles/virtual-network-settings)
+[How to manage Virtual Network (VNet) Properties](../virtual-networks-settings)
 
-[How to manage DNS servers used by a virtual network (VNet)](../articles/virtual-network-manage-dns-in-vnet)
+[How to manage DNS servers used by a virtual network (VNet)](../virtual-networks-manage-dns-in-vnet)
 
-[How to delete a Virtual Network (VNet)](../articles/virtual-network-delete-vnet)
+[How to delete a Virtual Network (VNet)](../virtual-networks-delete-vnet)

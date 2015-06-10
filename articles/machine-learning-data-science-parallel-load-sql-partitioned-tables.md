@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" F
+	authors="msolhab"
 	manager="paulettm" 
 	editor="cgronlun" />
 

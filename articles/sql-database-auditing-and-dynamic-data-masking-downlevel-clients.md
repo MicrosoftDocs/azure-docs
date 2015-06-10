@@ -3,7 +3,7 @@
 	description="SQL Database Downlevel Clients Support for Auditing and Dynamic Data Masking" 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="nadavhelfman" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="06/01/2015" 
+	ms.author="nadavhelfman/>
  
 # SQL Database -  Downlevel Clients Support for Auditing and Dynamic Data Masking 
 
