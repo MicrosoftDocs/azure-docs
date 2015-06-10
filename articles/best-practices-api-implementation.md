@@ -1,7 +1,7 @@
 <properties
    pageTitle="API implementation guidance | Microsoft Azure"
    description="Guidance upon how to implement an API."
-   services="api-management"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Monitoring and diagnostics guidance | Microsoft Azure"
    description="Best practices for monitoring distributed applications in the cloud."
-   services="cloud-services"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"
