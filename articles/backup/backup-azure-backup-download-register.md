@@ -62,3 +62,4 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 [4]: ./media/backup-azure-backup-download-register/vc.png
 [5]: ./media/backup-azure-backup-download-register/encryption.png
 [6]: ./media/backup-azure-backup-download-register/change.png
+ 

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Download vault credentials in Azure Backup"
    description="Learn how to use vault credentials to authenticate your machine with the Backup vault and Azure Backup service"
    services="backup"
@@ -53,3 +53,4 @@ The vault credential file is downloaded through a secure channel from the Azure 
 <!--Image references-->
 [1]: ./media/backup-azure-backup-download-vc/quickview.png
 [2]: ./media/backup-azure-backup-download-vc/downloadvc.png
+ 

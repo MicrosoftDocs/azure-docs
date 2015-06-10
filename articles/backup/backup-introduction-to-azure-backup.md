@@ -64,3 +64,4 @@ Combined with SCDPM Azure Backup can backup:
 ## Next steps
 + Frequently asked question on the Azure Backup service is listed [here](backup-azure-backup-faq.md).
 + Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+ 

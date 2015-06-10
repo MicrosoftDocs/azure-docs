@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Backup - Offline Backup or Initial Seeding using Azure Import/Export Service"
    description="Learn how Azure Backup enables you to send data off the network using Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service"
    services="backup"
@@ -25,7 +25,7 @@ With Azure Backup and Azure Import/Export, it is simple and straight forward to 
 
 ## Prerequisites
 
-1. It is important to familiarize yourself with the Azure Import export workflow which is listed [here](storage-import-export-service.md).
+1. It is important to familiarize yourself with the Azure Import export workflow which is listed [here](../storage-import-export-service.md).
 
 2. Before initiating the workflow, ensure that a Azure Backup vault has been created, vault credentials have been downloaded, Azure Backup agent has been installed on either your Windows Server/Windows Client or System Center Data Protection Manager (SCDPM) server and that the machine is registered with the Azure Backup vault.
 
@@ -41,7 +41,7 @@ With Azure Backup and Azure Import/Export, it is simple and straight forward to 
 
 
 ## Workflow
-The information provided in this section is for completing the **Offline Backup** workflow so your data can be delivered to an Azure data center and uploaded to Azure storage. If you have questions about the Import service or any aspect of the process, see the Import service overview referenced [above](storage-import-export-service.md).
+The information provided in this section is for completing the **Offline Backup** workflow so your data can be delivered to an Azure data center and uploaded to Azure storage. If you have questions about the Import service or any aspect of the process, see the Import service overview referenced [above](../storage-import-export-service.md).
 
 ### Initiate Offline Backup
 
@@ -124,7 +124,7 @@ Once the operation completes, an *.AIBBlob* and *.BaseBlob* file is created in t
 Once the initial backup data is available in your storage account, the Azure Backup agent copies the contents of the data from this account to the multi-tenanted backup storage account. In the next schedule backup time, the Azure Backup agent performs the incremental backup over the initial backup copy.
 
 ## Next Steps
-+ For any questions on the Azure Import/Export workflow, please refer to this [article](storage-import-export-service.md).
++ For any questions on the Azure Import/Export workflow, please refer to this [article](../storage-import-export-service.md).
 
 + Refer to the Offline Backup section of the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions about the workflow
 
@@ -138,3 +138,4 @@ Once the initial backup data is available in your storage account, the Azure Bac
 [7]: ./media/backup-azure-backup-import-export/complete.png
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
+ 
