@@ -77,7 +77,7 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 
 When complete configuring the statements for the policy, click Save and the changes will be propagated to the API Management proxy immediately.
 
-#<a name="sections"> </a>Understanding policy configuration
+##<a name="sections"> </a>Understanding policy configuration
 
 A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into an inbound (request) and outbound (policy) as shown in the configuration.
 
