@@ -24,32 +24,6 @@
 
 Some topics in this guidance are under discussion and may change in the future. We welcome your feedback!
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [Overview](#overview)
-- [Considerations for implementing a RESTful web API](#considerations-for-implementing-a-restful-web-api)
-  - [Considerations for implementing request routing](#considerations-for-implementing-request-routing)
-  - [Considerations for processing requests](#considerations-for-processing-requests)
-  - [Considerations for handling exceptions](#considerations-for-handling-exceptions)
-  - [Considerations for optimizing client-side data access](#considerations-for-optimizing-client-side-data-access)
-  - [Considerations for handling large requests and responses](#considerations-for-handling-large-requests-and-responses)
-  - [Considerations for maintaining responsiveness, scalability, and availability](#considerations-for-maintaining-responsiveness-scalability-and-availability)
-  - [Considerations for publishing and managing a web API](#considerations-for-publishing-and-managing-a-web-api)
-  - [Considerations for testing a web API](#considerations-for-testing-a-web-api)
-- [Publishing and managing a web API by using the Azure API Management Service](#publishing-and-managing-a-web-api-by-using-the-azure-api-management-service)
-  - [Supporting developers building client applications](#supporting-developers-building-client-applications)
-    - [Documenting the REST operations for a web API](#documenting-the-rest-operations-for-a-web-api)
-    - [Implementing a client SDK](#implementing-a-client-sdk)
-  - [Monitoring a web API](#monitoring-a-web-api)
-    - [Monitoring a web API directly](#monitoring-a-web-api-directly)
-    - [Monitoring a web API through the API Management Service](#monitoring-a-web-api-through-the-api-management-service)
-- [Related patterns](#related-patterns)
-- [More information](#more-information)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Overview
 A carefully-designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focusses on best practices for implementing a web API and publishing it to make it available to client applications. Security concerns are described separately in the API Security Guidance document. You can find detailed information about web API design in the API Design Guidance document.
 
