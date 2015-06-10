@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Move and process log files using Data Factory [PowerShell]
@@ -115,8 +115,10 @@ The tables, user-defined types and stored procedures are used when moving the Ma
 		$azuresqlPassword = <sql azure password>
 
  
-	> [AZURE.NOTE] This script requires you have sqlcmd utility installed on your machine. If you have SQL Server isntalled, you already have it. Otherwise, [download][sqlcmd-install] and install the utility. 
-	> Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.   
+	This script requires you have sqlcmd utility installed on your machine. If you have SQL Server isntalled, you already have it. Otherwise, [download][sqlcmd-install] and install the utility. 
+	
+	Alternatively, you can use the files in the folder: C:\ADFWalkthrough\Scripts to upload pig/hive scripts and sample files to the adfwalkthrough container in the blob storage, and create MarketingCampaignEffectiveness table in the MarketingCamapaigns Azure SQL database.
+   
 2. Confirm that your local machine is allowed to access the Azure SQL Database. To enable access, use the **Azure Management Portal** or **sp_set_firewall_rule** on the master database to create a firewall rule for the IP address of your machine. It may take up to five minutes for this change to take effect. See [Setting firewall rules for Azure SQL][azure-sql-firewall].
 4. In Azure PowerShell, navigate to the location where you have extracted the samples (for example: **C:\ADFWalkthrough**)
 5. Run **uploadSampleDataAndScripts.ps1** 
@@ -188,7 +190,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
 	- Click **LogProcessingFactory** on the **Startboard** (home page)
 	- Click **BROWSE** on the left, click **Everything**, click **Data factories**, and click the data factory.
  
-	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LogProcessingFactory” is not available**, change the name (for example, yournameLogProcessingFactory). Use this name in place of LogProcessingFactory while performing steps in this tutorial.
+	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LogProcessingFactory” is not available**, change the name (for example, yournameLogProcessingFactory). Use this name in place of LogProcessingFactory while performing steps in this tutorial.
  
 ## <a name="MainStep3"></a> Step 3: Create linked services
 
@@ -249,17 +251,18 @@ In this step, you will create the following linked services: StorageLinkedServic
 17. Open **HDInsightLinkedService.json** in your favorite editor and notice that the type is set to **HDInsightOnDemandLinkedService**.
 
 
-	> [AZURE.NOTE] The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
-	> The HDInsightLinkedService links an on-demand HDInsight cluster to the data factory. To use your own HDInsight cluster, update the Properties section of the HDInsightLinkedService.json file as shown below (replace clustername, username, and password with appropriate values): 
-	> 
-			"Properties": 
-			{
-        		"Type": "HDInsightBYOCLinkedService",
-	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
-    	    	"UserName": "<username>",
-    	    	"Password": "<password>",
-    	    	"LinkedServiceName": "HDInsightStorageLinkedService"
-    		}
+	The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+	
+	The HDInsightLinkedService links an on-demand HDInsight cluster to the data factory. To use your own HDInsight cluster, update the Properties section of the HDInsightLinkedService.json file as shown below (replace clustername, username, and password with appropriate values): 
+	
+		"Properties": 
+		{
+    		"Type": "HDInsightBYOCLinkedService",
+        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
+	    	"UserName": "<username>",
+	    	"Password": "<password>",
+	    	"LinkedServiceName": "HDInsightStorageLinkedService"
+		}
 		
 
 18. Use the following command to set $df variable to the name of the data factory.

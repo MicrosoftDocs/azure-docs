@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -423,7 +423,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 			}
 		}
 
-	> [AZURE.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The output table is scheduled to be produced every day, so there will be three slices produced.
+	Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The output table is scheduled to be produced every day, so there will be three slices produced.
 
 	Note the following: 
 
@@ -489,12 +489,12 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 
 [Azure Data Factory Updates: Execute ADF Custom .NET activities using Azure Batch](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/). 
 
-[batch-net-library]: batch-dotnet-get-started.md
+[batch-net-library]: ./batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch-create-account]: batch-technical-overview.md/#batch-concepts
-[batch-technical-overview]: batch-technical-overview.md
-[batch-get-started]: batch-dotnet-get-started.md
+[batch-create-account]: ./batch/batch-technical-overview.md/#batch-concepts
+[batch-technical-overview]: ./batch/batch-technical-overview.md
+[batch-get-started]: ./batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md

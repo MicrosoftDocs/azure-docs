@@ -21,6 +21,7 @@
 
 CDN can be enabled for your origin via Azure Management Portal. The current available origin type includes: Web Apps, storage, Cloud Services. You can also enable CDN for your Azure Media Services Streaming endpoint. Once you enable a CDN endpoint for your origin, all publicly available objects are eligible for CDN edge caching.
 
+Note that now you can also create a custom origin and it does not have to be Azure.
 
 ##To Create a New CDN Endpoint  
 
@@ -38,7 +39,8 @@ CDN can be enabled for your origin via Azure Management Portal. The current avai
 
 	![customorigin][customorigin]
 
-
+	>[AZURE.NOTE] Currently only HTTP is supported for origin and you must use the Media Services extension to enable Azure CDN for an Azure Media Services streaming endpoint.
+	
 5.	Click the **Create** button to create the new endpoint.
 
 

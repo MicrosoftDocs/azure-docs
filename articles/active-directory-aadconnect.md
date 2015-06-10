@@ -59,11 +59,15 @@ Azure AD Connect makes this integration easy and simplifies the management of yo
 ----------------------------------------------------------------------------------------------------------
 ## Download Azure AD Connect
 
-To get started using Azure AD Connect you can download the latest version using the following:  [Download Azure AD Connect Public Preview](http://connect.microsoft.com/site1164/program8612) 
+To get started using Azure AD Connect you can download the latest version using the following:  [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) 
 
 ----------------------------------------------------------------------------------------------------------
 
 ## Recent updates
+
+**Azure AD Connect General Availability** - June 2015
+
+Azure AD Connect has hit General Availability!  This update adds Sync filtering, directory extension attribute sync, user/group/device writeback and more.  For more information see [Read more](http://connect.microsoft.com/site1164/program8612) 
 
 **Azure AD Connect Public Preview March 2015 Update** - March 2015
 
