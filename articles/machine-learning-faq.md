@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure Machine Learning FAQ | Microsoft Azure" 
 	description="Frequently asked questions about Microsoft Azure Machine Learning" 
+	keywords=""
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pablissima" 

@@ -18,7 +18,7 @@
 	ms.author="garye"/>
 
 
-# Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning
+# Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning
 
 Suppose you need to predict an individual's credit risk based on the information they give on a credit application.  
 
