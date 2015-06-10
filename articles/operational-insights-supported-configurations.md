@@ -39,14 +39,8 @@ Using Operational Insights as an attached service has the following prerequisite
 
 See [Viewing Operational Insights Alerts](http://go.microsoft.com/fwlink/?LinkID=293793) for installation and configuration instructions.
 
-If you want to view Operational Insights alerts about SharePoint Server 2010, Lync Server 2013, Lync Server 2010, or System Center 2012 SP1 - Virtual Machine Manager, you need to configure a Run As account for those workloads. See the following information:
+If you want to view Operational Insights alerts about SharePoint Server 2010, Lync Server 2013, Lync Server 2010, or System Center 2012 SP1 - Virtual Machine Manager, you need to configure a Run As account for those workloads. See [Operations Manager considerations with Operational Insights](operational-insights-operations-manager.md) for information about how to set Run As accounts.
 
-
-- [Set the Run As Account For SharePoint](operational-insights-run-as.md)
-
-- [Set the Run As Account for Lync Server](operational-insights-run-as.md)
-
-- [Set the Run As Account for Virtual Machine Manager (VMM)](operational-insights-run-as.md)
 
 ### Operations Manager operating systems
 

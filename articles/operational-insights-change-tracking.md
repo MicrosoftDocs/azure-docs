@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/11/2015"
+   ms.date="06/09/2015"
    ms.author="banders" />
 
 # Identify differences with Change Tracking
