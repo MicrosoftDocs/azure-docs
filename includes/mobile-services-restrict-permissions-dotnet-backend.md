@@ -20,6 +20,6 @@ By default, all requests to mobile service resources are restricted to clients t
 
 4. (Optional) In the web.config project file, set a string value for the `MS_ApplicationKey` app setting. This is the password that you use (with no username) to test the API help pages when you run the service locally.
 
-	[AZURE.NOTE] This string value is not used by the live site in Azure, and you do not need to use the actual application key; any valid string value will work.
+	>[AZURE.NOTE] This string value is not used by the live site in Azure, and you do not need to use the actual application key; any valid string value will work.
  
 4. Republish your project.
