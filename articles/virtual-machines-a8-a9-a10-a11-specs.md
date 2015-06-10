@@ -38,9 +38,10 @@ Size | CPU | Memory
 A8 and A10 | Intel® Xeon® E5-2670<br/>8 cores @ 2.6 GHz | DDR3-1600 MHz<br/>56 GB
 A9 and A11 | Intel® Xeon® E5-2670<br/>16 cores @ 2.6 GHz | DDR3-1600 MHz<br/>112 GB
 
-<br/>
+
 >[AZURE.NOTE]Additional processor details including supported instruction set extensions are at the Intel.com website.
-<br/>
+
+
 ### Network adapters
 
 A8 and A9 instances have two network adapters, which connect to the following two backend Azure networks.
@@ -51,9 +52,9 @@ Network | Description
 10 Gbps Ethernet | Connects to Azure services (such as storage and virtual network) and to the Internet
 32 Gbps backend, RDMA capable | Enables low latency, high throughput application communication between instances within a single cloud service
 
-<br/>
+
 >[AZURE.IMPORTANT]Access to the RDMA network is currently enabled only through applications that use the Microsoft Network Direct interface. See [Access the RDMA network](#access-the-RDMA-network) in this article.
-<br/>
+
 
 A10 and A11 instances have a single, 10 Gbps Ethernet network adapter that connects to Azure services and the Internet.
 
@@ -90,10 +91,9 @@ Prerequisite | Virtual machines (IaaS) | Cloud services (PaaS)
 Operating system | Windows Server 2012 R2 or Windows Server 2012 VMs | Windows Server 2012 R2 or Windows Server 2008 R2 Guest OS family
 MPI | MS-MPI 2012 R2 or later, either standalone or installed via HPC Pack 2012 R2 or later | MS-MPI 2012 R2 or later, installed via HPC Pack 2012 R2 or later
 
-<br/>
+
 >[AZURE.NOTE]For IaaS scenarios, the [HpcVmDrivers extension](https://msdn.microsoft.com/library/azure/dn690126.aspx) must be added to the VMs to install Windows drivers needed for RDMA connectivity.
 
-<br/>
 
 ## Additional things to know
 
