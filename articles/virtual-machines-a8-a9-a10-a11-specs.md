@@ -38,8 +38,9 @@ Size | CPU | Memory
 A8 and A10 | Intel® Xeon® E5-2670<br/>8 cores @ 2.6 GHz | DDR3-1600 MHz<br/>56 GB
 A9 and A11 | Intel® Xeon® E5-2670<br/>16 cores @ 2.6 GHz | DDR3-1600 MHz<br/>112 GB
 
+<br/>
 >[AZURE.NOTE]Additional processor details including supported instruction set extensions are at the Intel.com website.
-
+<br/>
 ### Network adapters
 
 A8 and A9 instances have two network adapters, which connect to the following two backend Azure networks.
@@ -50,7 +51,9 @@ Network | Description
 10 Gbps Ethernet | Connects to Azure services (such as storage and virtual network) and to the Internet
 32 Gbps backend, RDMA capable | Enables low latency, high throughput application communication between instances within a single cloud service
 
+<br/>
 >[AZURE.IMPORTANT]Access to the RDMA network is currently enabled only through applications that use the Microsoft Network Direct interface. See [Access the RDMA network](#access-the-RDMA-network) in this article.
+<br/>
 
 A10 and A11 instances have a single, 10 Gbps Ethernet network adapter that connects to Azure services and the Internet.
 
@@ -59,6 +62,7 @@ A10 and A11 instances have a single, 10 Gbps Ethernet network adapter that conne
 * **Azure account** - if you want to deploy more than a small number of compute intensive instances, consider a pay-as-you-go subscription or other purchase options. You can also use your MSDN subscription. See [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're using an [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/), you can only use a limited number of Azure compute cores.
 
 * **Cores quota** - You might need to increase the cores quota in your Azure subscription from the default of 20 cores, which is not enough for many scenarios with 8-core or 16-core instances. For initial tests you might consider requesting a quota increase to 100 cores. To do this, open a free support ticket as shown in [Understanding Azure Limits and Increases](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+
 >[AZURE.NOTE]Azure quotas are credit limits, not capacity gurantees. You are only charged for cores that you use.
 
 * **Affinity group** - An Azure affinity group can help optimize performance by grouping services or VMs in the same Azure data center. To group the compute intensive instances, we recommend that you create a new affinity group in a region where you plan to deploy the instances. As a best practice, only use the affinity group for the compute intensive instances, not instances of other sizes.
@@ -80,12 +84,16 @@ Within a single cloud service, the A8 and A9 instances can access the RDMA netwo
 
 See the following table for prerequisites for MPI applications to access the RDMA network in virtual machine (IaaS) and cloud service (PaaS) deployments of the A8 or A9 instances. For typical deployment scenarios, see [A8 and A9 Compute Intensive Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
 
+
 Prerequisite | Virtual machines (IaaS) | Cloud services (PaaS)
----------- | ------------ |
+---------- | ------------ | -------------
 Operating system | Windows Server 2012 R2 or Windows Server 2012 VMs | Windows Server 2012 R2 or Windows Server 2008 R2 Guest OS family
 MPI | MS-MPI 2012 R2 or later, either standalone or installed via HPC Pack 2012 R2 or later | MS-MPI 2012 R2 or later, installed via HPC Pack 2012 R2 or later
 
->[AZURE.IMPORTANT]For IaaS scenarios, the [HpcVmDrivers extension](https://msdn.microsoft.com/library/azure/dn690126.aspx) must be added to the VMs to install Windows drivers needed for RDMA connectivity.
+<br/>
+>[AZURE.NOTE]For IaaS scenarios, the [HpcVmDrivers extension](https://msdn.microsoft.com/library/azure/dn690126.aspx) must be added to the VMs to install Windows drivers needed for RDMA connectivity.
+
+<br/>
 
 ## Additional things to know
 
