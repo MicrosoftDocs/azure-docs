@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="06/10/2015"
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
