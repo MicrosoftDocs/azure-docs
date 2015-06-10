@@ -29,6 +29,9 @@ Azure provides different hosting models for running applications. Each one provi
 
 [AZURE.INCLUDE [content](../includes/app-service-choose-me-content.md)]
 
+## Next steps
+* Learn more about [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx)
+
 [App Service]: #tellmeas
 [Virtual Machines]: virtual-machines-choose-me.md
 [Cloud Services]: cloud-services-choose-me.md
