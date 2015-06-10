@@ -48,7 +48,7 @@ Virtual Network supports the following cross-premises connections:
 
 **Point-to-site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection.
 
-Note: You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a dynamic routing gateway. For more information, see [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx).
+Note: You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a dynamic routing gateway. For more information, see [About Virtual Network Secure Cross-Premises Connectivity](http://go.microsoft.com/fwlink/p/?LinkID=532884&clcid=0x409).
 
 ### What is ExpressRoute?
 
@@ -65,11 +65,11 @@ See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 
 ### What should I consider when selecting a VPN device?
 
-We have validated a set of standard site-to-site VPN devices in partnership with device vendors. A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found [here](http://go.microsoft.com/fwlink/?LinkID=248098). All devices in the device families listed as known compatible should work with Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.
+We have validated a set of standard site-to-site VPN devices in partnership with device vendors. A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found [here](http://go.microsoft.com/fwlink/p/?LinkID=248098). All devices in the device families listed as known compatible should work with Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.
 
 ### What do I do if I have a VPN device that isn't in the known compatible device list?
 
-If you do not see your device listed as a known compatible VPN device and want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](http://go.microsoft.com/fwlink/?LinkID=615099). Devices meeting the minimum requirements should work well with Virtual Network. Please contact your device manufacturer for additional support and configuration instructions.
+If you do not see your device listed as a known compatible VPN device and want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](http://go.microsoft.com/fwlink/p/?LinkID=615099). Devices meeting the minimum requirements should work well with Virtual Network. Please contact your device manufacturer for additional support and configuration instructions.
 
 ### Can I use software VPNs to connect to Azure?
 
@@ -165,7 +165,7 @@ Add each range that you want sent through the gateway for your virtual network o
 
 ### Can I configure Forced Tunneling?
 
-Yes. See [About Forced Tunneling](http://go.microsoft.com/fwlink/?LinkId=615153).
+Yes. See [About Forced Tunneling](http://go.microsoft.com/fwlink/p/?LinkId=615153).
 
 ### Can I setup my own VPN server in Azure and use it to connect to my on-premises network?
 
@@ -173,7 +173,7 @@ Yes, you can deploy your own VPN gateways or servers in Azure either from the Az
 
 ### More information about gateway types, requirements, and throughput
 
-For more information, see [Gateways](http://go.microsoft.com/fwlink/?LinkID=615098).
+For more information, see [Gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
 
 ## Multi-Site and VNet-to-VNet Connectivity
 
@@ -219,7 +219,7 @@ No, Azure by default generates different pre-shared keys for different VPN conne
 
 ### Does Azure charge for traffic between virtual networks?
 
-For traffic between different Azure virtual networks, Azure charges only for traffic traversing from one Azure region to another. The charge rate is listed in the Azure pricing page.
+For traffic between different Azure virtual networks, Azure charges only for traffic traversing from one Azure region to another. The charge rate is listed in the Azure VPN Gateway [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) page.
 
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
@@ -241,7 +241,7 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 View more networking FAQs for additional details:
 
-- [Virtual Network FAQ](http://go.microsoft.com/fwlink/?LinkId=615155)
+- [Virtual Network FAQ](http://go.microsoft.com/fwlink/p/?LinkId=615155)
 
 - [ExpressRoute FAQ](expressroute-faqs.md)
 
