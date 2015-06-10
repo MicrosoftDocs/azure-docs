@@ -9,10 +9,10 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.workload="mobile"
 	ms.date="06/10/2015"
 	ms.author="normesta"/>
 
@@ -21,9 +21,9 @@
 
 ##Overview
 
-This tutorial shows you how to use Azure Mobile Services to send push notifications to the iOS, Android, and Windows Phone app of your Xamarin.Forms solution. Start by creating a mobile service. Then, you'll download a starter sample, register with the appropriate push notification services, and then add code to solution to receive notifications from those services. 
+This tutorial shows you how to use Azure Mobile Services to send push notifications to the iOS, Android, and Windows Phone app of your Xamarin.Forms solution. Start by creating a mobile service. Then, you'll download a starter sample, register with the appropriate push notification services, and add code to the solution to receive notifications from those services. 
 
-When you complete this tutorial, your mobile service will send a push notification each time a user adds a task in one of the apps. You can find the completed sample heree: [Completed Xamarin.Forms Azure Push Notification Sample].
+When you complete this tutorial, your mobile service will send a push notification each time a user adds a task in one of the apps. You can find the completed sample here: [Completed Xamarin.Forms Azure Push Notification Sample].
 
 This tutorial requires the following:
 
