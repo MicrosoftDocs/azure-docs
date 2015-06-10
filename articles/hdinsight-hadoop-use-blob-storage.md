@@ -13,7 +13,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="06/10/2015"
 	ms.author="jgao"/>
 
@@ -177,7 +177,7 @@ If neither &lt;BlobStorageContainerName&gt; nor &lt;StorageAccountName&gt; has b
 The &lt;path&gt; is the file or directory HDFS path name. Because containers in Azure Blob storage are simply key-value stores, there is no true hierarchical file system. A slash character ( / ) inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:
 
 	example/jars/hadoop-mapreduce-examples.jar
-	
+
 > [AZURE.NOTE] When working with blobs outside of HDInsight, most utilities do not recognize the WASB format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
 
 ##<a id="azurecli"></a>Access blobs with Azure CLI
@@ -189,7 +189,7 @@ Use the following command to list the blob-related commands:
 **Example of using Azure CLI to upload a file**
 
 	azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-		
+
 **Example of using Azure CLI to download a file**
 
 	azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
@@ -316,14 +316,13 @@ To learn more, see the following articles:
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
 
-[Powershell-install]: install-configure-powershell.md
+[powershell-install]: install-configure-powershell.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-[Powershell-install]: install-configure-powershell.md
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: storage-create-storage-account.md
 
