@@ -17,7 +17,7 @@
 
 # Overview
 
-The StorSimple Manager service runs in Microsoft Azure and connect to multiple StorSimple devices. After you create the service, you can manage these devices from the Microsoft Azure Management Portal running in a browser. This enables you to view, manage, and monitor all the devices that are connected to the StorSimple Manager service from a single, central location, thereby minimizing administrative burden.
+The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. After you create the service, you can use it to manage these devices from the Microsoft Azure Management Portal running in a browser. This allows you to monitor all the devices that are connected to the StorSimple Manager service from a single, central location, thereby minimizing administrative burden.
 
 The StorSimple Manager landing page lists all the StorSimple Manager services that you can use to manage your StorSimple storage devices. For each StorSimple Manager service, the following information is presented on the StorSimple Manager page:
 
@@ -56,7 +56,9 @@ Perform the following steps to create a service.
 
 ## Delete a service
 
-Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud. After a service is deleted, this operation cannot be reversed. Any device that was using this service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
+Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud. 
+
+[AZURE.IMPORTANT] After a service is deleted, the operation cannot be reversed. Any device that was using the service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
 
 Perform the following steps to delete a service.
 
@@ -70,13 +72,11 @@ Perform the following steps to delete a service.
 
 ## Get the service registration key
 
-After you have successfully created a service, you will need to register your StorSimple device with this service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [StorSimple Security](storsimple-security.md). You can get the registration key by accessing **Registration Key** on the **Services** page.
+After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [StorSimple Security](storsimple-security.md). You can get the registration key by accessing **Registration Key** on the **Services** page.
 
 Perform the following steps to get the service registration key.
 
-
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../includes/storsimple-get-service-registration-key.md)]
-
 
 Keep the service registration key in a safe location. You will need this key, as well as the service data encryption key, to register additional devices with this service. After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.
 
