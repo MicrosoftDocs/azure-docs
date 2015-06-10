@@ -25,7 +25,7 @@ This article provides background information and considerations to use the Azure
 
 >[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
-Like [other Azure VM sizes](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/), the A8, A9, A10, and A11 instances support standard or custom Windows Server and Linux operating system images in Azure VMs (IaaS), or Azure Guest OS releases in cloud services (PaaS).
+Like [other Azure VM sizes](virtual-machines-size-specs.md), the A8, A9, A10, and A11 instances support standard or custom Windows Server and Linux operating system images in Azure VMs (IaaS), or Azure Guest OS releases in cloud services (PaaS).
 
 ## Specs
 
