@@ -49,7 +49,7 @@ Integrating your on-premises directories with Azure AD makes your users more pro
 	
 * Organizations can provide users with a common hybrid identity across on-premises or cloud-based services leveraging Windows Server Active Directory and then connecting to Azure Active Directory. 
 * Administrators can provide conditional access based on application resource, device and user identity, network location and multifactor authentication
-* Users can leverage their common identity through accounts in Azure AD to Office 365, Intune, SaaS apps and third-party applications.  
+* Users can leverage their common identity through accounts in Azure AD to Office 365, Microsoft Intune, SaaS apps and third-party applications.  
 * Developers can build applications that leverage the common identity model, integrating applications into Active Directory on-premises or Azure for cloud-based applications
 
 Azure AD Connect makes this integration easy and simplifies the management of your on-premises and cloud identity infrastructure.
