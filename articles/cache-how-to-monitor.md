@@ -91,28 +91,14 @@ The **Monitoring** section has **Hits and Misses**, **Gets and Sets**, **Connect
 
 The **Monitoring** charts display the following metrics.
 
-<table>
-  <tr>
-    <th>Monitoring chart</th>
-    <th>Cache metrics</th>
-  </tr>
-  <tr>
-    <td>Hits and Misses</td>
-    <td>Cache Hits<br>Cache Misses</td>
-  </tr>
-  <tr>
-    <td>Gets and Sets</td>
-    <td>Gets<br>Sets</td>
-  </tr>
-  <tr>
-    <td>Connections</td>
-    <td>Connected Clients</td>
-  </tr>
-  <tr>
-    <td>Total Commands</td>
-    <td>Total Operations</td>
-  </tr>
-</table>
+| Monitoring chart | Cache metrics     |
+|------------------|-------------------|
+| Hits and Misses  | Cache Hits        |
+|                  | Cache Misses      |
+| Gets and Sets    | Gets              |
+|                  | Sets              |
+| Connections      | Connected Clients |
+| Total Commands   | Total Operations  |
 
 For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](how-to-view-metrics-and-customize-metrics-charts) section.
 
@@ -126,28 +112,12 @@ The **Pricing tier** displays the cache pricing tier, and can be used to [scale]
 
 The **Usage** charts display the following metrics.
 
-<table>
-  <tr>
-    <th>Usage chart</th>
-    <th>Cache metrics</th>
-  </tr>
-  <tr>
-    <td>Redis Server Load</td>
-    <td>Server Load</td>
-  </tr>
-  <tr>
-    <td>Memory Usage</td>
-    <td>Used Memory</td>
-  </tr>
-  <tr>
-    <td>Network Bandwidth</td>
-    <td>Cache Write</td>
-  </tr>
-  <tr>
-    <td>CPU Usage</td>
-    <td>CPU</td>
-  </tr>
-</table>
+| Usage chart       | Cache metrics |
+|-------------------|---------------|
+| Redis Server Load | Server Load   |
+| Memory Usage      | Used Memory   |
+| Network Bandwidth | Cache Write   |
+| CPU Usage         | CPU           |
 
 For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](how-to-view-metrics-and-customize-metrics-charts) section.
 
@@ -189,49 +159,17 @@ Alert rules can be viewed and set from the **Metric** blade for a specific monit
 
 Alert rules have the following properties.
 
-<table>
-  <tr>
-    <th>Alert rule property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Resource</td>
-    <td>The resource evaluated by the alert rule. When creating an alert rule from a Redis cache, the cache is the resource.</td>
-  </tr>
-  <tr>
-    <td>Name</td>
-    <td>Name that uniquely identifies the alert rule within the current cache instance.</td>
-  </tr>
-  <tr>
-    <td>Description</td>
-    <td>Optional description of the alert rule.</td>
-  </tr>
-  <tr>
-    <td>Metric</td>
-    <td>The metric to be monitored by the alert rule. For a list of cache metrics, see Available metrics and reporting intervals.</td>
-  </tr>
-  <tr>
-    <td>Condition</td>
-    <td>The condition operator for the alert rule. Possible choices are:<br>greater than<br>greater than or equal to<br>less than<br>less than or equal to</td>
-  </tr>
-
-  <tr>
-    <td>Threshold</td>
-    <td>The value used to compare with the metric using the operator specified by the condition property. Depending on the metric, this value may be in bytes/second, bytes, %, or count.</td>
-  </tr>
-  <tr>
-    <td>Period</td>
-    <td>Specifies the period over which the average value of the metric is used for the alert rule comparison. For example, if the period is Over the last hour, the average value of the metric over the previous hour interval is used for the comparison.<br>If you want to be notified when the threshold is met due to a spike in activity, then a shorter period is appropriate. To be notified when there is sustained activity above the threshold, use a longer period.</td>
-  </tr>
-  <tr>
-    <td>Email service and co-administrators</td>
-    <td>When true, the service administrator and co-administrator are emailed when the alert is activated.</td>
-  </tr>
-  <tr>
-    <td>Additional administrator email</td>
-    <td>Optional email address for an additional administrator to be notified when the alert is activated.</td>
-  </tr>
-</table>
+| Alert rule property                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Resource                            | The resource evaluated by the alert rule. When creating an alert rule from a Redis cache, the cache is the resource.                                                                                                                                                                                                                                                                                                                                                  |
+| Name                                | Name that uniquely identifies the alert rule within the current cache instance.                                                                                                                                                                                                                                                                                                                                                                                       |
+| Description                         | Optional description of the alert rule.                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Metric                              | The metric to be monitored by the alert rule. For a list of cache metrics, see Available metrics and reporting intervals.                                                                                                                                                                                                                                                                                                                                             |
+| Condition                           | The condition operator for the alert rule. Possible choices are: greater than, greater than or equal to, less than, less than or equal to                                                                                                                                                                                                                                                                                                                             |
+| Threshold                           | The value used to compare with the metric using the operator specified by the condition property. Depending on the metric, this value may be in bytes/second, bytes, %, or count.                                                                                                                                                                                                                                                                                     |
+| Period                              | Specifies the period over which the average value of the metric is used for the alert rule comparison. For example, if the period is Over the last hour, the average value of the metric over the previous hour interval is used for the comparison. If you want to be notified when the threshold is met due to a spike in activity, then a shorter period is appropriate. To be notified when there is sustained activity above the threshold, use a longer period. |
+| Email service and co-administrators | When true, the service administrator and co-administrator are emailed when the alert is activated.                                                                                                                                                                                                                                                                                                                                                                    |
+| Additional administrator email      | Optional email address for an additional administrator to be notified when the alert is activated.                                                                                                                                                                                                                                                                                                                                                                    |
 
 Only one notification is sent per alert rule activation. Once the threshold for a rule is exceeded and a notification is sent, the rule is not re-evaluated until the metric falls below the threshold. If the metric subsequently exceeds the threshold, the alert is reactivated and a new notification is sent.
 
