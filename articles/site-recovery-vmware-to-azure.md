@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/1/2015"
+	ms.date="06/10/2015"
 	ms.author="raynew"/>
 
 # Protect on-premises VMware virtual machines or physical servers with Azure Site Recovery
