@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/10/2015"
+	ms.date="06/10/2015"
 	ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management
 
 This guide shows you how easy it is to add protection for your backend API by configuring rate limit and quota policies with Azure API Management.
+
+For more information and a demo of setting rate limits and quotas, see the following video.
+
+> [AZURE.VIDEO rate-limits-and-quotas]
 
 In this tutorial you will create a 'Free Trial' API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API. You will then publish the API, and test the rate limit policy.
 
