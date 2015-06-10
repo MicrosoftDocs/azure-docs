@@ -37,13 +37,16 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 
 ## What can Azure Active Directory do for me?
 Follow the links for more information on Azure Active Directory capabilities.
-* [Single sign-on](https://msdn.microsoft.com/library/azure/dn510976.aspx)
-* [Reporting + analytics](active-directory-view-access-usage-reports.md)
-* [Self-service](http://aka.ms/ssproverview)
-* [On-premises applications](active-directory-application-proxy-configure.md)
-* [Service level agreement](https://msdn.microsoft.com/library/azure/dn532272.aspx)
-* [Identity management](fundamentals-identity.md)
-* [Access management](https://msdn.microsoft.com/library/azure/dn906873.aspx)
+
+
+- [Single sign-on](https://msdn.microsoft.com/library/azure/dn510976.aspx)
+- [Reporting + analytics](active-directory-view-access-usage-reports.md)
+- [Self-service](http://aka.ms/ssproverview)
+- [On-premises applications](active-directory-application-proxy-configure.md)
+- [Service level agreement](https://msdn.microsoft.com/library/azure/dn532272.aspx)
+- [Identity management](fundamentals-identity.md)
+- [Access management](https://msdn.microsoft.com/library/azure/dn906873.aspx)
+
 
 ## Additional Resources
 
