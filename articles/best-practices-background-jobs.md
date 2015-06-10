@@ -19,7 +19,8 @@
 
 # Background jobs guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-background-jobs/pnp-logo.png)
+
 
 ## Overview
 

@@ -19,7 +19,7 @@
 
 # Monitoring and diagnostics guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-monitoring/pnp-logo.png)
 
 ## Overview
 Distributed applications and service running in the cloud are, by their very nature, complex pieces of software that comprise many moving parts. In a production environment, it is important to be able to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system. This information can be used as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.

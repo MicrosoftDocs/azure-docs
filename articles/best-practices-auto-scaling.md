@@ -19,7 +19,7 @@
 
 # Autoscaling guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-auto-scaling/pnp-logo.png)
 
 ## Overview
 Autoscaling is the process of dynamically allocating the resources required by an application to match performance requirements and satisfy service level agreements (SLAs) while minimizing runtime costs. As the volume of work grows, an application may require additional resources to enable it to perform its tasks in a timely manner. As demand slackens, resources can be de-allocated to minimize costs while still maintaining adequate performance and meeting SLAs.

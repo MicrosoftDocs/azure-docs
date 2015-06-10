@@ -19,7 +19,7 @@
 
 # Data partitioning guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-data-partitioning/pnp-logo.png)
 
 ## Overview
 

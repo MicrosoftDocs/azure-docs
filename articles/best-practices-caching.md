@@ -19,7 +19,7 @@
 
 # Caching guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-caching/pnp-logo.png)
 
 Caching is a common technique that aims to improve the performance and
 scalability of a system by temporarily copying frequently accessed data

@@ -19,7 +19,7 @@
 
 # Content Delivery Network (CDN) guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-cdn/pnp-logo.png)
 
 ## Overview
 The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure. The CDN caches publicly available objects loaded from Azure blob storage or an application folder at strategically placed locations to provide maximum bandwidth for delivering content to users. It is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.  

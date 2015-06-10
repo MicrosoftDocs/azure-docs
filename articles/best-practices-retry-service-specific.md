@@ -19,7 +19,7 @@
 
 # Retry service specific guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-retry-service-specific/pnp-logo.png)
 
 ## Overview
 

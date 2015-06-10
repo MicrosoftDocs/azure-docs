@@ -19,7 +19,7 @@
 
 # Retry general guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-retry-general/pnp-logo.png)
 
 ## Overview
 

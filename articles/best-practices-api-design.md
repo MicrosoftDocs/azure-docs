@@ -19,7 +19,7 @@
 
 # API design guidance
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-api-design/pnp-logo.png)
 
 Some topics in this guidance are under discussion and may change in the future. We welcome your feedback!
 

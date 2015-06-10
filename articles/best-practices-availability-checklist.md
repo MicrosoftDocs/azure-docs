@@ -19,7 +19,7 @@
 
 # Availability checklist
 
-![](http://pnp.azurewebsites.net/images/pnp-logo.png)
+![](media/best-practices-availability-checklist/pnp-logo.png)
 
 ## Application design
 
