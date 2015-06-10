@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="06/08/2015" 
 	ms.author="tamram"/>
 
 
@@ -89,7 +89,7 @@ Next, add a new method that generates the shared access signature for the contai
 	    //Set the expiry time and permissions for the container.
 	    //In this case no start time is specified, so the shared access signature becomes valid immediately.
 	    SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
-	    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(4);
+	    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
 	    sasConstraints.Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List;
 	    
 	    //Generate the shared access signature on the container, setting the constraints directly on the signature.
@@ -107,9 +107,9 @@ Add the following lines at the bottom of the **Main()** method, before the call 
 
 Compile and run to output the shared access signature URI for the new container. The URI will be similar to the following URI:       
 
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
 
-Once you have run the code, the shared access signature that you created on the container will be valid for the next four hours. The signature grants a client permission to list blobs in the container and to write a new blob to the container.
+Once you have run the code, the shared access signature that you created on the container will be valid for the next twenty-four hours. The signature grants a client permission to list blobs in the container and to write a new blob to the container.
 
 ### Generate a Shared Access Signature URI for a Blob
 
@@ -137,7 +137,7 @@ Add a new method that creates a new blob and write some text to it, then generat
 	    //The shared access signature will be valid immediately.
 	    SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
 	    sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5);
-	    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(4);
+	    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
 	    sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
 	    
 	    //Generate the shared access signature on the blob, setting the constraints directly on the signature.
@@ -156,7 +156,7 @@ At the bottom of the **Main()** method, add the following lines to call **GetBlo
 
 Compile and run to output the shared access signature URI for the new blob. The URI will be similar to the following URI:
 
-https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+	https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
 ### Create a Stored Access Policy on the Container
 
@@ -164,34 +164,43 @@ Now let's create a stored access policy on the container, which will define the 
 
 In the previous examples, we specified the start time (implicitly or explicitly), the expiry time, and the permissions on the shared access signature URI itself. In the following examples, we will specify these on the stored access policy and not on the shared access signature. Doing so enables us to change these constraints without reissuing the shared access signature.
 
-Note that it's possible to have one or more of the constraints on the shared access signature and the remainder on the stored access policy. However, you can only specify the start time, expiry time, and permissions in one place or the other; for example, you can't specify permissions on the shared access signature and also specify them on the stored access policy.
+It's possible to have one or more of the constraints on the shared access signature and the remainder on the stored access policy. However, you can only specify the start time, expiry time, and permissions in one place or the other; for example, you can't specify permissions on the shared access signature and also specify them on the stored access policy.
 
-Add a new method that creates a new stored access policy and returns the name of the policy:
+Note that when you add an access policy to a container, you must get the container's existing permissions, add the new access policy, and then set the container's permissions.
 
-    static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container, string policyName)
+Add a new method that creates a new stored access policy on a container and returns the name of the policy:
+
+    static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container, 
+		string policyName)
     {
-	    //Create a new stored access policy and define its constraints.
-	    SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
-	    {
-		    SharedAccessExpiryTime = DateTime.UtcNow.AddHours(10),
-		    Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List
-	    };
-	    
-	    //Get the container's existing permissions.
-	    BlobContainerPermissions permissions = new BlobContainerPermissions();
-	    
-	    //Add the new policy to the container's permissions.
-	    permissions.SharedAccessPolicies.Clear();
-	    permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
-	    container.SetPermissions(permissions);
+        //Create a new shared access policy and define its constraints.
+        SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
+        {
+            SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+            Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read
+        };
+
+        //Get the container's existing permissions.
+        BlobContainerPermissions permissions = container.GetPermissions();
+
+        //Add the new policy to the container's permissions, and set the container's permissions.
+        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+        container.SetPermissions(permissions);
     }
 
-At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to call the **CreateSharedAccessPolicy()** method:    
+At the bottom of the **Main()** method, before the call to **Console.ReadLine()**, add the following lines to first clear any existing access policies and then call the **CreateSharedAccessPolicy()** method:    
 
-    //Create an access policy on the container, which may be optionally used to provide constraints for 
+    //Clear any existing access policies on container.
+    BlobContainerPermissions perms = container.GetPermissions();
+    perms.SharedAccessPolicies.Clear();
+    container.SetPermissions(perms);
+
+    //Create a new access policy on the container, which may be optionally used to provide constraints for 
     //shared access signatures on the container and the blob.
     string sharedAccessPolicyName = "tutorialpolicy";
     CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
+
+Note that when you clear the access policies on a container, you must first get the container's existing permissions, then clear the permissions, then set the permissions again.
 
 ### Generate a Shared Access Signature URI on the Container That Uses an Access Policy
 
@@ -250,7 +259,7 @@ At the bottom of the **Main()** method, before the call to **Console.ReadLine()*
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-The **Main()** method should now look like this in its entirety. Run it to write the shared access signature URIs to the console window, then copy and paste them into a text file for use in the second part of this tutorial.    
+The **Main()** method should now look like this in its entirety. Run it to write the shared access signature URIs to the console window, then copy and paste them into a text file for use in the second part of this tutorial.
 
     static void Main(string[] args)
     {
@@ -272,8 +281,13 @@ The **Main()** method should now look like this in its entirety. Run it to write
 	    Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
 	    Console.WriteLine();
 	    
-	    //Create an access policy on the container, which may be optionally used to provide constraints for 
-	    //shared access signatures on the container and the blob.
+        //Clear any existing access policies on container.
+        BlobContainerPermissions perms = container.GetPermissions();
+        perms.SharedAccessPolicies.Clear();
+        container.SetPermissions(perms);
+
+        //Create a new access policy on the container, which may be optionally used to provide constraints for 
+        //shared access signatures on the container and the blob.
 	    string sharedAccessPolicyName = "tutorialpolicy";
 	    CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 	    
@@ -296,7 +310,7 @@ When you run the GenerateSharedAccessSignatures console application, you'll see 
 
 To test the shared access signatures created in the previous examples, we'll create a second console application that uses the signatures to perform operations on the container and on a blob.
 
-Note that if more than four hours have passed since you completed the first part of the tutorial, the signatures you generated where the expiry time was set to four hours will no longer be valid. Similarly, the signatures associated with the stored access policy expire after 10 hours. If one or both of these intervals have passed, you should run the code in the first console application to generate fresh shared access signatures for use in the second part of the tutorial.
+> [AZURE.NOTE] If more than 24 hours have passed since you completed the first part of the tutorial, the signatures you generated will no longer be valid. In this case, you should run the code in the first console application to generate fresh shared access signatures for use in the second part of the tutorial.
 
 In Visual Studio, create a new Windows console application and name it **ConsumeSharedAccessSignatures**. Add references to **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, as you did previously.
 
@@ -322,96 +336,94 @@ Next, we'll add a method that tests some representative container operations usi
 
 Add the following method to Program.cs:
 
+    static void UseContainerSAS(string sas)
+    {
+        //Try performing container operations with the SAS provided.
 
-	static void UseContainerSAS(string sas)
-	{
-	    //Try performing container operations with the SAS provided.
-	
-	    //Return a reference to the container using the SAS URI.
-	    CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
-	
-	    //Create a list to store blob URIs returned by a listing operation on the container.
-	    List<Uri> blobUris = new List<Uri>();
-	
-	    try
-	    {
-	        //Write operation: write a new blob to the container. 
-	        CloudBlockBlob blob = container.GetBlockBlobReference("blobCreatedViaSAS.txt");
-	        string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
-	        MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-	        msWrite.Position = 0;
-	        using (msWrite)
-	        {
-	            blob.UploadFromStream(msWrite);
-	        }
-	        Console.WriteLine("Write operation succeeded for SAS " + sas);
-	        Console.WriteLine();
-	    }
-	    catch (StorageException e)
-	    {
-	        Console.WriteLine("Write operation failed for SAS " + sas);
-	        Console.WriteLine("Additional error information: " + e.Message);
-	        Console.WriteLine();
-	    }
-	
-	    try
-	    {
-	        //List operation: List the blobs in the container, including the one just added.
-	        foreach (ICloudBlob blobListing in container.ListBlobs())
-	        {
-	            blobUris.Add(blobListing.Uri);
-	        }
-	        Console.WriteLine("List operation succeeded for SAS " + sas);
-	        Console.WriteLine();
-	    }
-	    catch (StorageException e)
-	    {
-	        Console.WriteLine("List operation failed for SAS " + sas);
-	        Console.WriteLine("Additional error information: " + e.Message);
-	        Console.WriteLine();
-	    }
-	
-	    try
-	    {
-	        //Read operation: Get a reference to one of the blobs in the container and read it. 
-	        CloudBlockBlob blob = container.GetBlockBlobReference(blobUris[0].ToString());
-	        MemoryStream msRead = new MemoryStream();
-	        msRead.Position = 0;
-	        using (msRead)
-	        {
-	            blob.DownloadToStream(msRead);
-	            Console.WriteLine(msRead.Length);
-	        }
-	        Console.WriteLine("Read operation succeeded for SAS " + sas);
-	        Console.WriteLine();
-	    }
-	    catch (StorageException e)
-	    {
-	        Console.WriteLine("Read operation failed for SAS " + sas);
-	        Console.WriteLine("Additional error information: " + e.Message);
-	        Console.WriteLine();
-	    }
-	    Console.WriteLine();
-	
-	    try
-	    {
-	        //Delete operation: Delete a blob in the container.
-	        CloudBlockBlob blob = container.GetBlockBlobReference(blobUris[0].ToString());
-	        blob.Delete();
-	        Console.WriteLine("Delete operation succeeded for SAS " + sas);
-	        Console.WriteLine();
-	    }
-	    catch (StorageException e)
-	    {
-	        Console.WriteLine("Delete operation failed for SAS " + sas);
-	        Console.WriteLine("Additional error information: " + e.Message);
-	        Console.WriteLine();
-	    }        
-	}
+        //Return a reference to the container using the SAS URI.
+        CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
+
+        //Create a list to store blob URIs returned by a listing operation on the container.
+        List<ICloudBlob> blobList = new List<ICloudBlob>();
+
+        //Write operation: write a new blob to the container. 
+        try
+        {
+            CloudBlockBlob blob = container.GetBlockBlobReference("blobCreatedViaSAS.txt");
+            string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
+            MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
+            msWrite.Position = 0;
+            using (msWrite)
+            {
+                blob.UploadFromStream(msWrite);
+            }
+            Console.WriteLine("Write operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Write operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+
+        //List operation: List the blobs in the container.
+        try
+        {
+            foreach (ICloudBlob blob in container.ListBlobs())
+            {
+                blobList.Add(blob);
+            }
+            Console.WriteLine("List operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("List operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+
+        //Read operation: Get a reference to one of the blobs in the container and read it. 
+        try
+        {
+            CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
+            MemoryStream msRead = new MemoryStream();
+            msRead.Position = 0;
+            using (msRead)
+            {
+                blob.DownloadToStream(msRead);
+                Console.WriteLine(msRead.Length);
+            }
+            Console.WriteLine("Read operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Read operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+
+        //Delete operation: Delete a blob in the container.
+        try
+        {
+            CloudBlockBlob blob = container.GetBlockBlobReference(blobList[0].Name);
+            blob.Delete();
+            Console.WriteLine("Delete operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Delete operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }        
+    }
 
 
 Update the **Main()** method to call **UseContainerSAS()** with both of the shared access signatures that you created on the container:
-
 
 	static void Main(string[] args)
 	{
@@ -424,10 +436,6 @@ Update the **Main()** method to call **UseContainerSAS()** with both of the shar
 	    UseContainerSAS(containerSAS);
 	    UseContainerSAS(containerSASWithAccessPolicy); 
 	    
-	    //Call the test methods with the shared access signatures created on the blob, with and without the access policy.
-	    UseBlobSAS(blobSAS);
-	    UseBlobSAS(blobSASWithAccessPolicy);
-	
 	    Console.ReadLine();
 	}
 
@@ -438,75 +446,74 @@ Finally, we'll add a method that tests some representative blob operations using
 
 Add the following method to Program.cs:
 
+    static void UseBlobSAS(string sas)
+    {
+        //Try performing blob operations using the SAS provided.
 
-	static void UseBlobSAS(string sas)
-	{
-	    //Try performing blob operations using the SAS provided.
-	
-	    //Return a reference to the blob using the SAS URI.
-	    CloudBlockBlob blob = new CloudBlockBlob(new Uri(sas));
-	
-	    try
-	    {
-	        //Write operation: write a new blob to the container. 
-	        string blobContent = "This blob was created with a shared access signature granting write permissions to the blob. ";
-	        MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-	        msWrite.Position = 0;
-	        using (msWrite)
-	        {
-	            blob.UploadFromStream(msWrite);
-	        }
-	        Console.WriteLine("Write operation succeeded for SAS " + sas);
-	        Console.WriteLine();
-	    }
-	    catch (StorageException e)
-	    {
-	        Console.WriteLine("Write operation failed for SAS " + sas);
-	        Console.WriteLine("Additional error information: " + e.Message);
-	        Console.WriteLine();
-	    }
-	
-	    try
-	    {
-	        //Read operation: Read the contents of the blob.
-	        MemoryStream msRead = new MemoryStream();
-	        using (msRead)
-	        {
-	            blob.DownloadToStream(msRead);
-	            msRead.Position = 0;
-	            using (StreamReader reader = new StreamReader(msRead, true))
-	            {
-	                string line;
-	                while ((line = reader.ReadLine()) != null)
-	                {
-	                    Console.WriteLine(line);
-	                }
-	            }
-	        }
-	        Console.WriteLine("Read operation succeeded for SAS " + sas);
-	        Console.WriteLine();
-	    }
-	    catch (StorageException e)
-	    {
-	        Console.WriteLine("Read operation failed for SAS " + sas);
-	        Console.WriteLine("Additional error information: " + e.Message);
-	        Console.WriteLine();
-	    }
-	
-	    try
-	    {
-	        //Delete operation: Delete the blob.
-	        blob.Delete();
-	        Console.WriteLine("Delete operation succeeded for SAS " + sas);
-	        Console.WriteLine();
-	    }
-	    catch (StorageException e)
-	    {
-	        Console.WriteLine("Delete operation failed for SAS " + sas);
-	        Console.WriteLine("Additional error information: " + e.Message);
-	        Console.WriteLine();
-	    }        
-	}
+        //Return a reference to the blob using the SAS URI.
+        CloudBlockBlob blob = new CloudBlockBlob(new Uri(sas));
+
+        //Write operation: Write a new blob to the container. 
+        try
+        {
+            string blobContent = "This blob was created with a shared access signature granting write permissions to the blob. ";
+            MemoryStream msWrite = new MemoryStream(Encoding.UTF8.GetBytes(blobContent));
+            msWrite.Position = 0;
+            using (msWrite)
+            {
+                blob.UploadFromStream(msWrite);
+            }
+            Console.WriteLine("Write operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Write operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+
+        //Read operation: Read the contents of the blob.
+        try
+        {
+            MemoryStream msRead = new MemoryStream();
+            using (msRead)
+            {
+                blob.DownloadToStream(msRead);
+                msRead.Position = 0;
+                using (StreamReader reader = new StreamReader(msRead, true))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        Console.WriteLine(line);
+                    }
+                }
+            }
+            Console.WriteLine("Read operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Read operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+
+        //Delete operation: Delete the blob.
+        try
+        {
+            blob.Delete();
+            Console.WriteLine("Delete operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (StorageException e)
+        {
+            Console.WriteLine("Delete operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }        
+    }
 
 
 Update the **Main()** method to call **UseBlobSAS()** with both of the shared access signatures that you created on the blob:
