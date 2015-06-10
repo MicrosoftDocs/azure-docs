@@ -19,19 +19,13 @@
 
 ## Overview
 
-Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple device. 
+Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple device. ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name and if there is a match, then the connection is established. The access control records section on the **Configure** page displays all the access control records with the corresponding IQNs of the hosts.
 
-ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name and if there is a match, then the connection is established.
-
-The access control records section on the **Configure** page displays all the access control records with the corresponding IQNs of the hosts.
-
-Some of the common tasks related to ACRs are:
+This tutorial explains the following common ACR-related tasks:
 
 - Add an access control record 
 - Edit an access control record 
 - Delete an access control record 
-
-This tutorial explains how to complete each of these tasks.
 
 > [AZURE.IMPORTANT] 
 > 
