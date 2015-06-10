@@ -193,21 +193,21 @@ Yes, it is protected by IPsec/IKE encryption.
 
 Max. 10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the High Performance VPN gateways.
 
-### Can I use P2S VPNs with my virtual network with multiple VPN tunnels?
+### Can I use point-to-site VPNs with my virtual network with multiple VPN tunnels?
 
-Yes, the P2S VPNs can be used with the VPN gateways connecting to multiple on premises sites and other virtual networks
+Yes, point-to-site (P2S) VPNs can be used with the VPN gateways connecting to multiple on premises sites and other virtual networks.
 
-### Can I configure multiple tunnels between my virtual network and my on premises site using multi-site VPN?
+### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
 
-No, redundant tunnels between an Azure virtual network and an on premises site is not supported.
+No, redundant tunnels between an Azure virtual network and an on-premises site is not supported.
 
-### Can there be overlapping address spaces among the connected virtual networks and on premises local sites?
+### Can there be overlapping address spaces among the connected virtual networks and on-premises local sites?
 
-No, overlapping address spaces will cause the NETCFG upload or creating virtual network to fail.
+No. Overlapping address spaces will cause the NETCFG upload or Creating Virtual Network to fail.
 
-### Do I get more bandwidth with more S2S VPNs for a single virtual network?
+### Do I get more bandwidth with more site-to-site VPNs than for a single virtual network?
 
-No, all VPN tunnels, including P2S VPNs, share the same Azure VPN gateway and the available bandwidth.
+No, all VPN tunnels, including point-to-site VPNs, share the same Azure VPN gateway and the available bandwidth.
 
 ### Can I use Azure VPN gateway to transit traffic between my on premises sites or to another virtual network?
 
