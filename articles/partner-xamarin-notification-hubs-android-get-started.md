@@ -101,7 +101,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 		using Android.Util;
 		using Gcm.Client;
 
-3. Add a instance variable to the `MainActivity` class that will be used to show an alert dialog when the app is running.
+3. Add an instance variable to the `MainActivity` class that will be used to show an alert dialog when the app is running.
 
 		public static MainActivity instance;
 
@@ -140,7 +140,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 
 4. Create a new class **MyBroadcastReceiver**.
 
-	> [AZURE.NOTE] We will walk through creating a **BroadcastReceiver** from scratch below. However, a quick alternative to manually creating a **MyBroadcastReceiver.cs** is to refer to the **GcmService.cs** file found in the sample Xamarin.Android project on GitHub. Duplicating the **GcmService.cs** and changing class names can be a great place to start as well.
+	> [AZURE.NOTE] We will walk through creating a **BroadcastReceiver** from scratch below. However, a quick alternative to manually creating a **MyBroadcastReceiver.cs** is to refer to the **GcmService.cs** file found in the sample Xamarin.Android project included with the [NotificationHubs samples][GitHub]. Duplicating the **GcmService.cs** and changing class names can be a great place to start as well.
 
 5. Add the following using statements to **MyBroadcastReceiver.cs** (referring to the component and assembly added earlier):
 
