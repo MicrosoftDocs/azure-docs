@@ -32,6 +32,7 @@ We are always working to improve RemoteApp based on your feedback. Here are roug
 |Ability to publish individual applications to specific users ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | |X| |
 
 Other improvements added earlier this year:
+
 - Upload line-of-business (LOB) applications to a cloud collection, as well as in a hybrid collection
 - Support for Windows Phone
 - Usage metrics dashboard
