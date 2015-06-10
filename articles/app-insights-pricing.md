@@ -35,7 +35,7 @@ You can open the Quota + Pricing blade from your application resource's Settings
 
 * In each calendar month, your application can send up to a specified quantity of telemetry to Application Insights. See the [pricing scheme][pricing] for the  actual numbers. 
 * The quota depends on the pricing tier that you have chosen.
-* The quota is counted from midnight PST on the first day of each month.
+* The quota is counted from midnight UTC on the first day of each month.
 * The Data points chart shows how much of your quota has been used up this month.
 * The quota is measured in *data points.* A single data point is a call to one of the Track methods, whether called explicitly in your code, or by one of the standard telemetry modules. Each row you see in diagnostic search is a data point. Each measurement of a metric such as a performance counter is a data point. 
 * *Session data* is not counted in the quota. This includes counts of users, sessions, environment and device data.
@@ -53,7 +53,7 @@ If your application sends more than the monthly quota, you can:
 
 When you first create a new Application Insights resource, it starts in the Free tier.
 
-At any time, you can switch to the 30 day free Premium trial. This gives you the benefits of the Premium tier. After 30 days, it will automatically revert to whatever tier you were in before - unless you explicitly choose another tier. You can do that at any time during the trial period.
+At any time, you can switch to the 30 day free Premium trial. This gives you the benefits of the Premium tier. After 30 days, it will automatically revert to whatever tier you were in before - unless you explicitly choose another tier. You select the tier you'd like at any time during the trial period, but you'll still get the free trial until the end of the 30-day period.
 
 
 ## How was my quota used?
@@ -66,7 +66,7 @@ Click the chart for more detail, or drag across it for the detail of a time rang
 
 ## Review the bill for your subscription to Azure
 
-Application Insights charges are added to your Azure bill.
+Application Insights charges are added to your Azure bill. You can see details of your Azure bill on the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions). 
 
 ![On the side menu, choose Billing.](./media/app-insights-pricing/02-billing.png)
 
