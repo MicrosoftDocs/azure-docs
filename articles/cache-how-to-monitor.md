@@ -97,8 +97,8 @@ Cache metrics are reported using several reporting intervals, including **Past h
     <td>The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval.</td>
   </tr>
   <tr>
-    <td>Server Load</td>
-    <td>The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. If this counter reaches 100 it means the Redis server has hit a performance ceiling and the CPU can't process work any faster.</td>
+    <td>Redis Server Load</td>
+    <td>The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. If this counter reaches 100 it means the Redis server has hit a performance ceiling and the CPU can't process work any faster. If you are seeing high Redis Server Load then you will see timeout exceptions in the client. In this case you should consider scaling up or partitioning your data into multiple caches.</td>
   </tr>
   <tr>
     <td>Sets</td>

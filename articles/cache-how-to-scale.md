@@ -18,6 +18,8 @@
 
 # How to Scale Azure Redis Cache
 
+>[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview.
+
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure portal](https://portal.azure.com).
 
 >[AZURE.NOTE] When you scale an Azure Redis Cache you can change the size but you can't change from a Standard to a Basic cache and vice versa.
@@ -52,15 +54,11 @@ While the cache is scaling to the new pricing tier, a **Scaling** status is disp
 
 When scaling is complete, the status changes from **Scaling** to **Running**.
 
->[AZURE.IMPORTANT] During scaling operations, Basic caches are offline and all data in the cache is lost. Once the scaling operation completes, the Basic cache will be back online, with no data. Standard caches remain online during a scaling operation, and no data is lost when scaling a Standard cache to a larger size. When scaling a Standard cache to a smaller size, some data may be lost if the new size is smaller than the amount of cached data.
+>[AZURE.IMPORTANT] During scaling operations, Basic caches are offline and all data in the cache is lost. Once the scaling operation completes, the Basic cache will be back online, with no data. Standard caches remain online during a scaling operation, and no data is typically lost when scaling a Standard cache to a larger size. When scaling a Standard cache to a smaller size, some data may be lost if the new size is smaller than the amount of cached data. Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss during a scaling operation.
 
 ## Scaling FAQ
 
 The following list contains answers to commonly asked questions about Azure Redis Cache scaling.
-
-### What is scaling and why do I need it
-
-TODO
 
 ## After scaling, do I have to change my cache name or access keys
 
@@ -76,7 +74,7 @@ When a **Standard** cache is scaled, one of the replicas is shut down and re-pro
 
 When a **Basic** cache is scaled, all data is lost and the cache is unavailable during the scaling operation.
 
-When a **Standard** cache is scaled to a larger size, all data is usually preserved, but there is no SLA on data preservation during a scaling operation. When scaling a **Standard** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy.
+When a **Standard** cache is scaled to a larger size, all data is usually preserved. When scaling a **Standard** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss during a scaling operation.
 
 ## Will my cache be available during scaling
 
@@ -90,11 +88,11 @@ You can't change from a **Basic** to a **Standard** cache or vice versa during a
 
 You can scale up from a **C0** (250 MB) cache to a larger size, but you can't scale a larger size down to a **C0** cache.
 
-Scaling up to a **C4**, **C5**, or **C6** cache may fail in certain situations. If it does, the cache will revert to the original size.
+If a scaling operation fails, the service will try to revert the operation and the cache will revert to the original size.
 
 ## How long does scaling take
 
-Scaling takes approximately 15 to 20 minutes.
+Scaling takes approximately 20 minutes, depending on how much data is in the cache.
 
 ## How can I tell when scaling is complete
 
