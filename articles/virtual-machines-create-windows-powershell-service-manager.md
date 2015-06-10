@@ -151,13 +151,13 @@ To store the output in a $vm variable, run:
 
 Run these commands:
 
->[AZURE.NOTE] You can get the virtual machine and cloud service name from the display of the **Get-AzureVM** command.
->
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
 	$localFile=$localPath + "\" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+
+>[AZURE.NOTE] You can get the virtual machine and cloud service name from the display of the **Get-AzureVM** command.
 
 ## Stop a VM
 
