@@ -17,11 +17,11 @@
 
 # Configure a VPN Gateway in the Management Portal
 
-A VPN gateway is required to create a secure cross-premises connection. There are different types of gateways. The type of gateway you select to create depends on your network design plan and the type of on premises VPN devices you have. For example, some connectivity options require a dynamic routing gateway. You'll want to make sure the device you are using supports the gateway type that you want to create. See [About Gateways](http://go.microsoft.com/fwlink/?LinkID=615098).
+A VPN gateway is required to create a secure cross-premises connection. There are different types of gateways. The type of gateway you select to create depends on your network design plan and the type of on-premises VPN devices you have. For example, some connectivity options require a dynamic routing gateway. You'll want to make sure the device you are using supports the gateway type that you want to create. See [About Gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
 
 ## Procedure workflow
 
-First, create your virtual network, then use steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. For steps to create a virtual network for cross-premises connectivity, see [Configure a Virtual Network with Site-to-Site VPN](vpn-gateway-site-to-site-create.md, or [Configure a Virtual Network with Point-to-Site VPN](vpn-gateway-point-to-site-create.md). If you already have a gateway and you want to change the routing type, see [How to change your gateway type](#How-to-change-your-gateway-type).
+First, create your virtual network, then use steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. For steps to create a virtual network for cross-premises connectivity, see [Configure a Virtual Network with Site-to-Site VPN](vpn-gateway-site-to-site-create.md), or [Configure a Virtual Network with Point-to-Site VPN](vpn-gateway-point-to-site-create.md). If you already have a gateway and you want to change the routing type, see [How to change your gateway type](#How-to-change-your-gateway-type).
 
 1. [Start the virtual network VPN gateway](#Start-the-virtual-network-gateway)
 
@@ -41,7 +41,7 @@ First, create your virtual network, then use steps below to configure the VPN ga
 
 	![Gateway Not Created](./media/configure-a-virtual-network-gateway-in-the-management-portal/IC717025.png)
 
-1. At the bottom of the page, click **Create Gateway**. You can select either *Static Routing* or *Dynamic Routing*. The routing type you select depends on a number of factors. For example, what your VPN device will support and whether you need to support point-to-site connections. Check [About VPN Devices for Virtual Network Connectivity](https://msdn.microsoft.com/library/azure/jj156075.aspx) to verify the routing type that you need. Once the gateway has been created, you can't change between gateway types without deleting and re-creating the gateway. When the system prompts you to confirm that you want the gateway created, click **Yes**.
+1. At the bottom of the page, click **Create Gateway**. You can select either *Static Routing* or *Dynamic Routing*. The routing type you select depends on a number of factors. For example, what your VPN device will support and whether you need to support point-to-site connections. Check [About VPN Devices for Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkId=615934) to verify the routing type that you need. Once the gateway has been created, you can't change between gateway types without deleting and re-creating the gateway. When the system prompts you to confirm that you want the gateway created, click **Yes**.
 
 	![Gateway Type](./media/configure-a-virtual-network-gateway-in-the-management-portal/IC717026.png)
 
