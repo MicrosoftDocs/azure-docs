@@ -1,7 +1,7 @@
 <properties
    pageTitle="Availability checklist | Microsoft Azure"
    description="Checklist that provides guidance for availability concerns during design."
-   services="multiple"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

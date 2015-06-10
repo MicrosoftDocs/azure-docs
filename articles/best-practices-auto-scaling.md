@@ -1,7 +1,7 @@
 <properties
    pageTitle="Autoscaling guidance | Microsoft Azure"
    description="Guidance upon how to autoscale to dynamically allocate resources required by an application."
-   services="cloud-services"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

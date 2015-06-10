@@ -1,7 +1,7 @@
 <properties
    pageTitle="Content Delivery Network (CDN) guidance | Microsoft Azure"
    description="Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure."
-   services="cdn"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"
@@ -73,7 +73,7 @@ Using the CDN is a good way to minimize the load on your application, and maximi
 + You can use query strings to differentiate objects in the cache when content is delivered from dynamic sources such as ASPX pages. However, this behavior can be disabled by a setting in the management portal when you specify the CDN endpoint. When delivering content from blob storage, query strings are treated as string literals so two items that have the same name but different query strings will be stored as separate items on the CDN.
 + You can utilize URL rewriting for resources such as scripts and other content to avoid moving your files to the CDN origin folder.
 + When using Azure storage blobs to hold content for the CDN, the URL of the resources in blobs is case sensitive for the container and blob name.
-+ When using Azure Web Sites, you specify the path to the CDN instance in the links to resources. For example, the following specifies an image file in the **Images** folder of the site that will be delivered through the CDN: 
++ When using Azure Web Sites, you specify the path to the CDN instance in the links to resources. For example, the following specifies an image file in the **Images** folder of the site that will be delivered through the CDN:
   ```
   <img src="http://[your-cdn-instance].vo.msecnd.net/Images/image.jpg" />
   ```
