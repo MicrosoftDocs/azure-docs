@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="06/11/2015"
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
@@ -31,7 +31,7 @@ For the companion topic to configure Linux-based virtual machines, see [Use Azur
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../includes/service-management-pointer-to-resource-manager.md)]
 
-- [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
+- [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 
 ## Step 1: Install Azure PowerShell
@@ -267,3 +267,5 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 [How to install and configure Azure PowerShell](install-configure-powershell.md)
 
 [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md)
+
+[Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)

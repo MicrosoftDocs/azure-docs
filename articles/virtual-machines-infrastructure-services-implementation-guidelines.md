@@ -24,6 +24,8 @@ This guidance identifies many areas for which planning are vital to the success 
 
 > [AZURE.NOTE] Affinity groups have been deprecated and their use is not described here. For more information, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
+> [AZURE.NOTE] This article was adapted from the content in the [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft), Hugo Salcedo (Application Development Manager for Microsoft), and Greg Hinkel (former Application Development Manager for Microsoft) for their original material.
+
 ## 1. Naming Conventions
 
 A good naming convention should be in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with management of those resources.
