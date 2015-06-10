@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/08/2015" 
 	ms.author="mandia"/>
 
 # What are Connectors and BizTalk API Apps
@@ -39,7 +39,6 @@ The Premium connectors extend the reach of App Services further into the enterpr
 
 ## EAI and EDI Services
 Building business critical apps require more than just connectivity. Based on the foundation of Microsoft's industry leading integration platform - BizTalk Server - the BizTalk API Apps provide advanced integration capabilities that can be snapped into your Web, Mobile and Logic Apps with ease. Some of these integration capabilities include Validate, Extract, Transform, Encoders, Trading Partner Management and support for EDI formats like X12, EDIFACT, and AS2.
-
 
 ## Rules
 Business rules encapsulates the policies and decisions that control business processes. Typically, rules are dynamic and change over time for different reasons, including business plans, regulations, and many other reasons. BizTalk Rules in App Services lets you to decouple these policies from your application code and make the change process simpler and faster.

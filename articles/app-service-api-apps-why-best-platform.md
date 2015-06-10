@@ -22,7 +22,7 @@ API Apps are part of the [Azure App Service](app-service-value-prop-what-is.md) 
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-The API Apps part of this suite provides a rich platform and ecosystem for building, consuming and distributing APIs in the cloud and on-premises.
+The API Apps part of this suite provides a rich platform and ecosystem for building, hosting, consuming, and distributing APIs in the cloud and on-premises.
 
 >[AZURE.NOTE] [Azure API Management](/services/api-management/) is a separate service that offers features such as endpoint consolidation and throttling. You can use API Management with API Apps.
 >
@@ -30,32 +30,37 @@ The API Apps part of this suite provides a rich platform and ecosystem for build
 
 ## Why API Apps?
 
-An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs.
+An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs. 
 
-That means API apps share with web apps all the web hosting features of the Azure App Service platform:
+### Web app features for web services
+
+You can use a web app to host a web service, and you get all the web hosting features of the Azure App Service platform:
 
 - Automatic OS patching
 - Enterprise grade security
 - High availability
 - Auto scaling and load balancing
 - [WebJobs](websites-webjobs-resources.md) for background processing
-- Quick and easy deployment, and many continuous delivery options - For information about the range of deployment options available for API apps, see [Deploy a web app in Azure App Service](web-sites-deploy.md). 
+- Quick and easy deployment, and [many continuous delivery options](web-sites-deploy.md)
+- Access on-premises data using [hybrid connections](integration-hybrid-connection-overview.md) and [VNET](web-sites-integrate-with-vnet.md).
 
-The additional features that the API Apps platform provides make it easy to develop, host, and consume APIs:
+### API Apps features available now in preview
 
-- **Bring your API as-is** - Use ASP.NET, Java, PHP, Node.js or Python for your APIs. Your APIs can take advantage of the API Apps platform with no changes.
+If you use API Apps instead of Web Apps to host your web services, App Service provides additional features: 
 
-- **Simple access control** - Configure your APIs for authentication by Azure Active Directory or third-party services such as Facebook and Twitter with no changes to your code. Use a simplified syntax for authorization code. For more information,see [Protect an API app](app-service-api-dotnet-add-authentication.md).
+- **Easy consumption** - Integrated [Swagger](http://swagger.io/) support makes your APIs easily consumable by a variety of clients.  The API Apps SDK can generate client code for your APIs in a variety of languages including C#, Java, and Javascript.
+
+- **Simple access control** - Built-in authentication services support Azure Active Directory or third-party services such as Facebook and Twitter. You can protect an API app fgrom unauthenticated access with no changes to your code. If you're familiar with the authentication services provided by [Azure Mobile Services](mobile-services-windows-dotnet-how-to-use-client-library.md#authentication), API apps builds on that framework and extends it to web services hosted by API Apps.  The App Service SDK also enables you to use a simplified syntax for authorization code. For more information, see [Protect an API app](app-service-api-dotnet-add-authentication.md).
 
 - **Easy connection to SaaS platforms** - [Connector API apps](app-service-logic-what-are-biztalk-api-apps.md) in the Azure Marketplace are provided by Microsoft and third parties to simplify the code you write for interacting with SalesForce, Office 365, Twitter, Facebook, Dropbox, and many others.
 
-- **Access on-premises data** - API Apps can expose APIs that consume data from your own data center using [hybrid connections](integration-hybrid-connection-overview.md) and [VNET](web-sites-integrate-with-vnet.md).
-
-- **Easy consumption** - Use integrated [Swagger](http://swagger.io/) support to make your APIs easily consumable by a variety of clients.  Or use the API Apps SDK to generate client code for your APIs in a variety of languages including C#, Java, and Javascript.
-
-- **Integration with logic apps** - API apps that you create can be consumed by App Service logic apps.    
+- **Integration with logic apps** - API apps that you create can be consumed by [App Service logic apps](app-service-logic-what-are-logic-apps.md).    
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of [creating](app-service-dotnet-create-api-app.md), [deploying](app-service-dotnet-deploy-api-app.md), [debugging](app-service-dotnet-remotely-debug-api-app), and managing API apps.
+
+You can bring your existing API as-is: you don't have to change any of the code in your existing APIs to take advantage of all these features, just deploy your code to an API app. You can use ASP.NET, Java, PHP, Node.js or Python for your APIs.
+
+### API Apps features available in the future
 
 In the near future, the API Apps platform will also create a rich ecosystem of APIs by making it easy to share your code:  
 
