@@ -25,7 +25,7 @@ This walkthrough will give you  a quick and easy way to set up a REST API Servic
 By the end of this walk-through, you should be able to build a running REST API server with the following features:
 
 * A node.js server running an REST API interface with JSON using MongoDB as persistant storage
-* REST APIs leveraging OAuth2 API protection with Bearner tokens using Azure Active Directory
+* REST APIs leveraging OAuth2 API protection with Bearer tokens using Azure Active Directory
 
 
 We've released all of the source code for this running example in GitHub under an Apache 2.0 license, so feel free to clone (or even better, fork!) and provide feedback and pull requests.
