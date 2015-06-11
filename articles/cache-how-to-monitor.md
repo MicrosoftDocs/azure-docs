@@ -184,7 +184,7 @@ Enter the desired rule criteria into the **Add an alert** rule blade and click *
 
 ![Add alert rule][redis-cache-add-alert]
 
->[AZURE.NOTE] When an alert rule is created by clicking **Add alert** from the **Metric** blade, only the metrics displayed on the chart in that blade appear in the Metric drop-down. When an alert rule is created by clicking **Add alert** from the **Alert rules** blade, all cache metrics are available in the **Metric** drop-down.
+>[AZURE.NOTE] When an alert rule is created by clicking **Add alert** from the **Metric** blade, only the metrics displayed on the chart in that blade appear in the **Metric** drop-down. When an alert rule is created by clicking **Add alert** from the **Alert rules** blade, all cache metrics are available in the **Metric** drop-down.
 
 Once an alert rule is saved it appears on the **Alert rules** blade as well as on the **Metric** blade for any charts that display the metric used in the alert rule. To edit an alert rule, click the name of the alert rule to display the **Edit Rule** blade. From the **Edit Rule** blade you can edit the properties of the rule, delete or disable the alert rule, or re-enable the rule if it was previously disabled.
 
