@@ -22,7 +22,7 @@ Service Fabric is a distributed systems platform used to build scalable, reliabl
 ## Applications composed of microservices ##
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices running at very high density on a shared pool of machines (commonly referred to as a Service Fabric cluster).  It provides a sophisticated runtime for building distributed, scalable stateless and stateful microservices and comprehensive application management capabilities for provisioning, deploying, monitoring, upgrading/patching, and deleting deployed applications. 
 
-Service Fabric powers many Microsoft services today such as Azure SQL Databases, Azure DocumentDB, Cortana, Power BI, Intune, Azure Event Hubs, many core Azure Services, and Skype for Business to name a few.
+Service Fabric powers many Microsoft services today such as Azure SQL Databases, Azure DocumentDB, Cortana, Power BI, Microsoft Intune, Azure Event Hubs, many core Azure Services, and Skype for Business to name a few.
 
 Service Fabric is tailored to creating “born in the cloud” services that can start small, as needed, and grow to massive scale with hundreds or thousands of machines, creating Service Fabric clusters across availability sets in a region or across regions.
 

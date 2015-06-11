@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Step 3: Create a new Machine Learning experiment | Azure" 
-	description="Solution walkthrough step 3: Create a new training experiment in Azure Machine Learning Studio" 
+	pageTitle="Step 3: Create a new Machine Learning experiment | Microsoft Azure" 
+	description="Step 3 of the Develop a predictive solution walkthrough: Create a new training experiment in Azure Machine Learning Studio." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 

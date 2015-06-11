@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Machine Learning example app: Frequently Bought Together | Azure" 
+	pageTitle="Machine Learning example app: Frequently Bought Together | Microsoft Azure" 
 	description="A Machine Learning web service that performs online shopping cart analysis to produce product recommendations of items frequently bought together from historical transactions provided by the user." 
 	services="machine-learning" 
 	documentationCenter="" 

@@ -406,7 +406,7 @@ In the portal you manage the features specific to API apps in the **API App** bl
 In this section you create a local Git repository and push from that repository to Azure in order to deploy your sample application to the API app running in Azure App Service.
 
 1. In VSCode on the left navigation bar, select the Git option.
-2. If Git is not already installed, install it by choosing one of the provided links ([Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads)). If you are new to Git, choose **git-scm.com** and select the option to use Git with GitBash and from the Windows Command Prompt. 
+2. If Git is not already installed, install it by choosing one of the provided links ([Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads)). If you are new to Git, choose **git-scm.com** and select the option to use Git with GitBash from the Windows Command Prompt. 
 3. Once Git is installed, restart VSCode and select the Git option on the left bar.
 4. In VSCode, select **Initialize git repository** to make sure your workspace is under git source control. 
 
