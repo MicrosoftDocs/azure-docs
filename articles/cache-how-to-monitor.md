@@ -29,6 +29,7 @@ To view cache metrics, [browse](https://msdn.microsoft.com/library/azure/cbe6d11
 ![Monitor][redis-cache-monitor-overview]
 
 >[AZURE.IMPORTANT] If the following message is displayed in the Azure portal, follow the steps in the [Enable cache diagnostics](#enable-cache-diagnostics) section to enable cache diagnostics.
+>
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
 The **Redis Cache** blade has **Monitoring** charts and **Usage** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. The **Redis Cache** blade also has an **Operations** section that displays cache **Events** and **Alert rules**.
