@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Survival Analysis | Azure" 
+	pageTitle="Survival Analysis with Azure Machine Learning | Microsoft Azure" 
 	description="Survival Analysis event occurrence probability" 
 	services="machine-learning" 
 	documentationCenter="" 

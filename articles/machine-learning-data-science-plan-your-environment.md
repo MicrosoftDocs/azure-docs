@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Plan your Azure Machine Learning advanced analytics environment | Azure" 
+	pageTitle="Plan a Machine Learning advanced analytics environment | Microsoft Azure" 
 	description="Plan your advanced analytics environment by considering key questions." 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Use sample experiments to create new experiments | Azure"
+    pageTitle="Use sample experiments to create new experiments | Microsoft Azure"
     description="Create new Azure Machine Learning experiments from sample experiments and experiments shared by the community."
     services="machine-learning"
     documentationCenter=""
