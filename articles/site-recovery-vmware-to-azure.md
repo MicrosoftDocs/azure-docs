@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Protect on-premises VMware virtual machines or physical servers with Azure Site Recovery" 
-	description="his article describes how to set up Azure Site Recovery to coordinate the replication, failover and recovery of on-premises VMware virtual machines or Windows/Linux physical servers to Azure." 
+	description="This article describes how to set up Azure Site Recovery to coordinate the replication, failover and recovery of on-premises VMware virtual machines or Windows/Linux physical servers to Azure." 
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="06/11/2015"
 	ms.author="raynew"/>
 
 # Protect on-premises VMware virtual machines or physical servers with Azure Site Recovery
