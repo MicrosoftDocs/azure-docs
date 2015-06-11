@@ -3,7 +3,7 @@
     description="Describes the technical specifications and regulatory standards compliance information for the StorSimple device."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/01/2015"
-    ms.author="v-sharos" />
+    ms.date="06/11/2015"
+    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
 
@@ -168,5 +168,5 @@ The plug and the complete power cord assembly must meet the standards appropriat
 
 ## Supported network cables  
 
-For the 10 GbE network interfaces, DATA 2 and DATA 3, the list of supported network cables and modules can be found at this link: [http://www.mellanox.com/page/cables?mtag=cable_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
+For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supported network cables and modules](https://msdn.microsoft.com/en-us/library/dn891474.aspx).
 
