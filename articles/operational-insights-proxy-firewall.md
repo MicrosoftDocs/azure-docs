@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/27/2015"
+   ms.date="06/04/2015"
    ms.author="banders" />
 
 # Configure proxy and firewall settings for Operational Insights
@@ -135,13 +135,20 @@ Use the following procedures to register your Operations Manager management grou
 
 2. Under **RunAs Configuration**, select **Profiles**.
 
-3. Open the **Operational Insights Run As Profile Proxy** profile.
-
+3. Open the **System Center Advisor Run As Profile Proxy** profile.
+![image of the System Center Advisor Run As Proxy profile](./media/operational-insights-proxy-firewall/proxyacct1.png)
 4. In the Run As Profile Wizard, click **Add** to use a Run As account. You can create a new Run As account or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.
+![image of the Run As Profile Wizard](./media/operational-insights-proxy-firewall/proxyacct2.png)
 
-5. To set the account to manage, choose **A selected class, group, or object**, and then select **Operations Manager Management Servers**.
+5. To set the account to manage, choose **A selected class, group, or object** to open the Object Search box.
+![image of the Run As Profile Wizard](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
+6. Search for then select **Operations Manager Management Servers**.
+![image of the Object Search boxc](./media/operational-insights-proxy-firewall/proxyacct3.png)
+7. Click **OK** to close the Add a Run As acount box
+![image of the Run As Profile Wizard](./media/operational-insights-proxy-firewall/proxyacct4.png)
+8. Complete the wizard and save the changes.
+![image of the Run As Profile Wizard](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
-6. Complete the wizard and save the changes.
 
 ### To configure the proxy server on each management server for WinHTTP
 
@@ -160,12 +167,13 @@ Use the following procedures to register your Operations Manager management grou
 2. Select **Device Management**, and then click **Management Servers**.
 
 3. Right-click the name of each management server, click **Properties**, and then set the information on the **Proxy Settings** tab.
+![Proxy Settings tab](./media/operational-insights-proxy-firewall/proxyms.png)
 
 ### To validate that Operational Insights management packs are downloaded
 
-1. If you added solutions by using Operational Insights, you can view them in the Operations Manager console as management packs under **Administration**. Search for Operational Insights to quickly find them.
-
-2. You can also check for Operational Insights management packs by using the following Windows PowerShell commands in the Operations Manager management server:
+- If you added solutions by using Operational Insights, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.
+![management packs downloaded](./media/operational-insights-proxy-firewall/mpdownloaded.png)
+- Or, You can also check for Operational Insights management packs by using the following Windows PowerShell commands in the Operations Manager management server:
 
         get-scommanagementpack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
 
@@ -175,8 +183,9 @@ Use the following procedures to register your Operations Manager management grou
 
 1. In the Operations Manager management server, open Performance Monitor (perfmon.exe), and select **Performance Monitor**.
 
-2. Click **Add**, and then select **Health Service Management Group**s.
+2. Click **Add**, and then select **Health Service Management Groups**.
 
 3. Add all the counters that start with **HTTP**.
-
+![add counters](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in Operational Insights and the configured log collection policy.
+![Performance Monitor showing activity](./media/operational-insights-proxy-firewall/sendingdata2.png)

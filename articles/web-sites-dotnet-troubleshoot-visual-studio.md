@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/08/2015" 
 	ms.author="tdykstra"/>
 
 # Troubleshoot a web app in Azure App Service using Visual Studio
@@ -90,11 +90,9 @@ You typically deploy a web project with the `customErrors` flag in the Web.confi
 
 Frequently the easiest way to find the cause of the error is to enable detailed error messages, which the first of the preceding screenshots explains how to do. That requires a change in the deployed Web.config file. You could edit the *Web.config* file in the project and redeploy the project, or create a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) and deploy a debug build, but there's a quicker way: in **Solution Explorer** you can directly view and edit files in the remote web app by using the *remote view* feature.
 
-1. In **Server Explorer**, expand **Azure**, expand **Web Apps**, and expand the node for the web app you're deploying to.
+1. In **Server Explorer**, expand **Azure**, expand **App Service**, expand the resource group that your web app is located in, and then expand the node for your web app.
 
 	You see nodes that give you access to the web app's content files and log files.
-
-	![File and log files](./media/web-sites-dotnet-troubleshoot-visual-studio/fileandlogfiles.png)
 
 2. Expand the **Files** node, and double-click the *Web.config* file.
 

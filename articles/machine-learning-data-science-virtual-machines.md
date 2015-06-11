@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Data Science Virtual machines in Azure | Azure"
+	pageTitle="Data Science Virtual machines in Azure | Microsoft Azure"
 	description="Set up a Data Science Virtual Machinee"
 	metaKeywords=""
 	services="machine-learning"

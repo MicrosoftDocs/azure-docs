@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 # Using the Hybrid Connection Manager in Azure App Service
@@ -25,21 +25,21 @@ The Hybrid Connection Manager (HCM) is a click-once installer that is installed 
 
 To get started, you need:
 
-- Azure Service Bus namespace ACS connection string
+- Azure Service Bus namespace SAS connection string
 - On-premises system sign-in information, including user name and password. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server login account and password.
 - On-premises server information, including port number and server name. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server name and TCP port number.
 
 ## Get the Service Bus Connection String
 
-In the Azure portal, copy the Service Bus Access Control (ACS) Connection String. This connection string connects your Azure connector to your on-premises system. 
+In the Azure portal, copy the Service Bus root SAS Connection String. This connection string connects your Azure connector to your on-premises system. 
 
 1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=213885), select your Service Bus namespace, and select **Connection Information**:
 
 	![][SB_ConnectInfo]
 
-2. Copy the ACS Connection String:
+2. Copy the SAS Connection String:
 
-	![][SB_ACS]
+	![][SB_SAS]
 
 ## Install the Hybrid Connection Manager
 
@@ -58,7 +58,7 @@ In **Hybrid Connection**, the setup is **incomplete**:
 <br/><br/>
 To install directly from the portal, go to your on-premises IIS server, browse to the portal, and select **Download and Configure**.
 <br/><br/>
-To download the Hybrid Connection Manager, go to your on-premises IIS server, and go to the **ClickOnce application** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). You can then copy the file to your IIS server and run it.
+To download the Hybrid Connection Manager, go to your on-premises IIS server, and go to the **ClickOnce application** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). The installation starts automatically so you can run it.
 
 5. In the **Listener Setup** window, enter the **Primary Configuration String** you previously pasted (in step 3) and select **Install**.
 
@@ -66,7 +66,7 @@ When the setup is complete, the following displays:
 <br/>
 ![][3] 
 
-Now when you browse to the connector again, the hybrid connection status is Connected. You may have to close the connector and reopen it: 
+Now when you browse to the connector again, the hybrid connection status is **Connected**. You may have to close the connector and reopen it: 
 <br/>
 ![][4] 
 
@@ -77,11 +77,15 @@ Now when you browse to the connector again, the hybrid connection status is Conn
 
 When you create a hybrid connection, a website is created on your local on-premises IIS server. The IIS server can be in a DMZ. The TCP port requirements on the IIS server include:
 
-- No incoming TCP ports are required.
-- Allow outbound TCP communication on TCP ports 9350 - 9354. These ports are used to connect to the Service Bus relay.
-- Allow outbound HTTPS connections to TCP port 443. This port is used for hybrid outgoing messages. 
+TCP Port | Why
+--- | ---
+ | No incoming TCP ports are required.
+9350 - 9354 | These ports are used for data transmission. The Service Bus relay manager probes port 9350 to determine if TCP connectivity is available. If it is available, then it assumes that port 9352 is also available. Data traffic goes over port 9352. <br/><br/>Allow outbound connections to these ports.
+5671 | When port 9352 is used for data traffic, port 5671 is used as the the control channel. <br/><br/>Allow outbound connections to this port. 
+80, 443 | If ports 9352 and 5671 are not usable, *then* ports 80 and 443 are the fallback ports used for data transmission and the control channel.<br/><br/>Allow outbound connections to these ports.
+On-prem system port | On the on-premises system, open the port used by the system. For example, SQL Server typically uses port 1433. Open this TCP port.
 
-On the on-premises system, open the port used by the system. For example, SQL Server typically uses port 1433. Open this TCP port.
+[Hosting Behind a Firewall with Service Bus](http://msdn.microsoft.com/library/azure/ee706729.aspx)
 
 ## Troubleshooting
 
@@ -99,7 +103,7 @@ On the on-premises system, open the port used by the system. For example, SQL Se
  - Browse the local connector. For example, if your connector website uses port 6569, browse to http://localhost:6569. A default document is not configured so an `HTTP Error 403.14 - Forbidden error` is expected.
 4. In your firewall, confirm the TCP Ports listed in this topic are open.
 5. Look at the source or destination system:
- - Some on-premises systems require additional installation files. For example, if you're connecting to on-premises SAP, some additional SAP files must be installed on the IIS server.
+ - Some on-premises systems require additional dependency files. For example, if you're connecting to on-premises SAP, some additional SAP files must be installed on the IIS server.
  - Check connectivity to the system with the login account. For example, the TCP port used by the system must be open, like port 1433 for SQL Server. The login account you entered in the Azure portal must have access to the system.
 6. On the IIS server, check the event logs for any errors. 
 7. Cleanup and reinstall the Hybrid Connection Manager: 
@@ -111,17 +115,32 @@ On the on-premises system, open the port used by the system. For example, SQL Se
 ### In the Azure portal
 
 1. Confirm the Service Bus namespace has an **Active** state.
-2. When you create the connector, enter the Service Bus ACS connection string. Do not enter the SAS connection string.
+2. When you create the connector, enter the Service Bus SAS connection string. Do not enter the ACS connection string.
+
+
+## FAQ
+
+**Question**: There are two Hybrid Connection Managers. What's the difference?<br/>
+**Answer**: There’s the [Hybrid Connections](integration-hybrid-connection-overview.md) technology that is used primarily by Web  Apps (formerly websites) and Mobile Apps (formerly mobile services) to connect to on-premises. This Hybrid Connections Manager is its own [setup](integration-hybrid-connection-create-manage.md) and uses an Azure BizTalk Service (behind the scenes). It supports TCP and HTTP protocols only.
+
+With Azure App Service connectors, we also have a Hybrid Connection Manager.  This Hybrid Connection Manager does *not* use an Azure BizTalk Service (behind the scenes) and supports more than the TCP and HTTP protocols. See the [Connectors and API Apps List](app-service-logic-connectors-list.md).
+
+Both use Azure Service Bus to connect to the on-premises system.
+
+**Question**: When I create a custom API App, can I use the App Service Hybrid Connection Manager to connect to on-premises? <br/>
+**Answer**: Not in the traditional sense. You can use a built-in connector, configure the App Service Hybrid Connection Manager to connect to the on-premises system. Then, use this connector with your custom API App, possibly using a Logic App. Currently, you cannot develop or create your own hybrid API App (like the SQL Connector or File Connector).
+
+If your custom API uses a TCP or HTTP port, you can use [Hybrid Connections](integration-hybrid-connection-overview.md) and its Hybrid Connection Manager. In this scenario, an Azure BizTalk Service is used. [Connect to on-premises SQL Server from a web app](web-sites-hybrid-connection-connect-on-premises-sql-server.md) may help.  
 
 
 ## Read More
 
-[Monitor your Connectors and API Apps](app-service-logic-monitor-your-connectors.md)<br/>
 [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)
 
 
+
 [SB_ConnectInfo]: ./media/app-service-logic-hybrid-connection-manager/SB_ConnectInfo.png
-[SB_ACS]: ./media/app-service-logic-hybrid-connection-manager/SB_ACS.png
+[SB_SAS]: ./media/app-service-logic-hybrid-connection-manager/SB_SAS.png
 [PrimaryConfigString]: ./media/app-service-logic-hybrid-connection-manager/PrimaryConfigString.png
 [HCMFlow]: ./media/app-service-logic-hybrid-connection-manager/HCMFlow.png
 [2]: ./media/app-service-logic-hybrid-connection-manager/BrowseSetupIncomplete.jpg

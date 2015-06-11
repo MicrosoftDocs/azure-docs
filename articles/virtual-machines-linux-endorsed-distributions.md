@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/03/2015" 
 	ms.author="szark"/>
 
 
@@ -29,7 +29,7 @@ The following table lists the Linux distributions and versions that are supporte
 
 The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel modules that Microsoft contributes directly to the upstream Linux kernel.  The LIS drivers are either built into the distribution's kernel by default, or for older RHEL/CentOS-based distributions are available as a separate download [here](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409).  Please see [this article](./virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements) for more information about the LIS drivers.
 
-The Azure Linux Agent is already pre-installed on the Linux Gallery images and are typically available from the distribution's package repository.  Source code can be found on [GitHub](https://github.com/azure/walinuxagent).
+The Azure Linux Agent is already pre-installed on the Azure Gallery images and are typically available from the distribution's package repository.  Source code can be found on [GitHub](https://github.com/azure/walinuxagent).
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -40,14 +40,14 @@ The Azure Linux Agent is already pre-installed on the Linux Gallery images and a
 			</tr>
 	<tr>
 		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04.1+, 14.04 & 14.10 </td>
+		<td> Ubuntu 12.04, 14.04, 14.10 and 15.04 </td>
 		<td>In Kernel</td>
 		<td>Package: In repo under "walinuxagent" <br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> CentOS by OpenLogic </th>
-		<td> CentOS 6.3+</td>
+		<td> CentOS 6.3+, 7.0+</td>
 	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS Download</a><br/>
 	        CentOS 6.4+: In Kernel</td>
 		<td>Package: In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo </a> under "WALinuxAgent"<br />
@@ -63,7 +63,7 @@ The Azure Linux Agent is already pre-installed on the Linux Gallery images and a
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4+</td>
+		<td> 6.4+, 7.0+ </td>
         <td>In Kernel</td>
 		<td>Package: In repo under "WALinuxAgent"<br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
@@ -71,9 +71,9 @@ The Azure Linux Agent is already pre-installed on the Linux Gallery images and a
 	</tr>
 	<tr>
 		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+</td>
+		<td> SLES 11 SP3+, SLES 12+ and <br /> SLES for SAP 11.3+ </td>
         <td>In Kernel</td>
-		<td>Package: In <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo under "WALinuxAgent"<br />
+		<td>Package: In <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> repo under "WALinuxAgent"<br />
 			Source: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>

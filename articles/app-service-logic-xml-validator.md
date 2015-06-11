@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="BizTalk XML Validator" 
-   description="BizTalk XML Validator" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajram" 
-   manager="dwrede" 
+<properties
+   pageTitle="BizTalk XML Validator"
+   description="BizTalk XML Validator"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="rajram"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="rajram"/>
 
@@ -64,9 +64,12 @@ Validate Xml action Validates a given xml input against pre-configured schemas.
 
 The action returns the output as an object. Output contains the model representing response of Xml Validator. It consists of result, schema name, root node and error description.
 
+![6]
+
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG
 [2]: ./media/app-service-logic-xml-validator/XmlValidator.SchemasPart.PNG
 [3]: ./media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.PNG
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
+[6]: ./media/app-service-logic-xml-validator/img1.PNG

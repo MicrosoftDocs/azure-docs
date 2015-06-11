@@ -47,7 +47,7 @@ To link to a page on ACOM (such as a pricing page, SLA page or anything else tha
 
 To test your links, push your page to your fork and view it in the rendered view and publish to Sandbox. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
 
-Our [markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md/) shows an alternate way to create crosslinks in markdown so all the crosslinks are coded together at the end of the article, even while they display inline. 
+Our [markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md/) shows an alternate way to create crosslinks in markdown so all the crosslinks are coded together at the end of the article, even while they display inline.
 
 Reference-style links
 
@@ -60,9 +60,9 @@ Inline text:
 Link references at the end of the article:
 
     <!--Reference links in article-->
-    [1]: http://google.com/        
+    [1]: http://google.com/
     [2]: http://search.yahoo.com/  
-    [3]: http://search.msn.com/    
+    [3]: http://search.msn.com/
 
 ## Remember the Azure library chrome!
 If you want to link to an Azure library topic that lives under [this node](https://msdn.microsoft.com/library/azure), remember to specify the Azure chrome in the link (/azure/). The Azure chrome shares the ACOM navigation options and displays only the Azure content of the MSDN library. A properly scoped link looks like this:
@@ -73,7 +73,7 @@ Otherwise, the page will be rendered in the standard MSDN view, with the entire 
 
 ## FWLinks
 
-Avoid FWLinks (our redirection system) in azure.microsoft.com content. They should be used only as a last resort when you need to create a link for a page whose URL you don't yet know. They are almost never actually needed. For ACOM, you define the file name, so you can know what it will be ahead of time. For a library topic that is not yet published, you can create a link that uses the topic GUID so that you don't have to use an FWLink. 
+Avoid FWLinks (our redirection system) in azure.microsoft.com content. They should be used only as a last resort when you need to create a link for a page whose URL you don't yet know. They are almost never actually needed. For ACOM, you define the file name, so you can know what it will be ahead of time. For a library topic that is not yet published, you can create a link that uses the topic GUID so that you don't have to use an FWLink.
 
 If you must use an FWLink on a web page, include the P parameter to make it a permanent redirect:
 
@@ -83,7 +83,7 @@ When you paste the target URL into the FWLink tool, remember to remove the local
 
 ### Contributors' Guide Links
 
-- [Overview article](./../CONTRIBUTING.md)
+- [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)
 
 <!--image references-->

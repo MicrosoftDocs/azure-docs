@@ -47,18 +47,18 @@ If you want to replicate to Azure storage note the following:
 Host operating system | Windows Server 2012 R2 | Prerequisites check will fail if unsupported
 Guest operating system |  <p>Windows Server 2008 R2 or later</p><p>Linux: Centos, openSUSE, SUSE, Ubuntu</p> | Prerequisites check will fail if unsupported. Update the value in the VMM console.
 Guest operating system architecture | 64-bit | Prerequisites check will fail if unsupported
-Operating system disk size |  Between 20 MB and 1023 GB | Prerequisites check will fail if unsupported
+Operating system disk size |  Upto 1023 GB | Prerequisites check will fail if unsupported
 Operating system disk count | 1 | Prerequisites check will fail if unsupported. Update the value in the VMM console
 Data disk count | 16 or less (maximum value is a function of the size of the virtual machine being created. 16 = XL) | Prerequisites check will fail if unsupported
-Data disk VHD size | Between 20 MB and 1023 GB | Prerequisites check will fail if unsupported
+Data disk VHD size | Upto 1023 GB | Prerequisites check will fail if unsupported
 Network adapters | Multiple adapters are supported |
 Static IP address | Supported | If the primary virtual machine is using a static IP address you can pecify the static IP address for the virtual machine that will be created in Azure
 iSCSI disk | Not supported | Prerequisites check will fail if unsupported
 Shared VHD | Not supported | Prerequisites check will fail if unsupported
 FC disk | Not supported | Prerequisites check will fail if unsupported
-Hard disk format| <p>VHD</p><p>VHDX (generation 1 only)</p> | Prerequisites check will fail if unsupported
+Hard disk format| <p>VHD</p><p>VHDX</p> |
 Virtual machine name| Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. Should start and end with a letter or number | Update the value in the virtual machine properties in Site Recovery
-Virtual machine type | <p>Generation 1</p> <p>Generation 2: [Read more information](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) </p> |
+Virtual machine type | <p>Generation 1</p> <p>Generation 2 - Windows</p> |  Generation 2 virtual machine with OS disk type of Basic Disk which includes 1 or 2 Data volumes with disk format as VHDX which is less than 300GB is supported. Linux Generation 2 virtual machines are not supported. [Read more information](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) 
 
 
 ## VMM servers
@@ -168,7 +168,7 @@ Providers and agents are installed on on-premises servers so that they can conne
 - **Replication bandwidth**: If you're short on replication bandwidth note that:
 	- **ExpressRoute**: Site Recovery works with Azure ExpressRoute and WAN optimizers such as Riverbed. [Read more](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) about ExpressRoute.
 	- **Replication traffic**: Site Recovery uses performs a smart initial replication using only data blocks and not the entire VHD. Only changes are replicated during ongoing replication.
-	- **Network traffic**: You can control network traffic used for replication by setting up [Windows QoS](https://technet.microsoft.com/library/hh967468.aspx) with a policy based on the destination IP address and port.  In addition if you're replicating to Azure Site Recovery using the Azure Backup agent. You can configure throttling for that agent. [Read more](https://msdn.microsoft.com/library/azure/dn168844.aspx).
+	- **Network traffic**: You can control network traffic used for replication by setting up [Windows QoS](https://technet.microsoft.com/library/hh967468.aspx) with a policy based on the destination IP address and port.  In addition if you're replicating to Azure Site Recovery using the Azure Backup agent. You can configure throttling for that agent. [Read more](https://support.microsoft.com/kb/3056159).
 - **RTO**: If you want to measure the recovery time objective (RTO) you can expect with Site Recovery we suggest you run a test failover and view the Site Recovery jobs to analyze how much time it takes to complete the operations. If you're failing over to Azure, for the best RTO we recommend that you automate all manual actions by integrating with Azure automation and recovery plans.
 - **RPO**: Site Recovery supports a near-synchronous recovery point objective (RPO) when you replicate to Azure. This assumes sufficient bandwith between your datacenter and Azure.
 
@@ -180,7 +180,7 @@ Providers and agents are installed on on-premises servers so that they can conne
 - **Retain non-RFC internal addresses in Azure**: You can retain non-RFC 1918 address spacees after failover to Azure.
 - **Partial failover to secondary datacenter**: If you fail over a partial site to your secondary datacenter and want to connect back to the primary site, you can use site-to-site VPN to connect a failed over application on the secondary site to infrastructure components running on the primary site. Note that if the entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
 - **Partial failover to Azure**: If you fail over a partial site to Azure and want to connect back to the primary site, you can use a site-to-site VPN to connect a failed over application in Azure to infrastructure components running on the primary site. Note that if the entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
-- **Retain drive letter**: If you want to retain drive letter on virtual machines after failover you can set the SAN policy for the virtual machine to **On**.  [Read more](https://technet.microsoft.com/library/gg252636.aspx).
+- **Retain drive letter**: If you want to retain drive letter on virtual machines after failover you can set the SAN policy for the virtual machine to **On**.  [Read more](https://support.microsoft.com/kb/3031135).
 - **Routing client requests after failover to Azure**: Site Recovery works with Azure Traffic Manager to route client requests to your application after failover. You can use scripts in recovery plans (with Azure Automation) to perform DNS updates.
 
 ## Integration

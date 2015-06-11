@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/19/2015"
+	ms.date="06/08/2015"
 	ms.author="tdykstra"/>
 
 # Get Started with Azure Cloud Services and ASP.NET
@@ -258,7 +258,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 7. Save your changes.  
 
-### Configure the solution to use your Azure storage account when you it runs in Azure
+### Configure the solution to use your Azure storage account when it runs in Azure
 
 Azure storage account connection strings for both the web role project and the worker role project are stored in environment settings in the cloud service project. For each project there is a separate set of settings to be used when the application runs locally and when it runs in the cloud. You'll update the cloud environment settings for both web and worker role projects.
 
@@ -468,7 +468,7 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
 	- *Global.asax.cs*  
-	- In the *Views\Shared* folder: <em>_Layout.cshtml</em>.
+	- In the *Views\Shared* folder: <em>\_Layout.cshtml</em>.
 	- In the *Views\Home* folder: *Index.cshtml*.
 	- In the *Controllers* folder: *AdController.cs*.
 	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.
@@ -572,7 +572,7 @@ Similar code gets a reference to the *images* queue and creates a new queue. In 
 		var imagesQueue = queueClient.GetQueueReference("images");
 		imagesQueue.CreateIfNotExists();
 
-### ContosoAdsWeb - _Layout.cshtml
+### ContosoAdsWeb - \_Layout.cshtml
 
 The *_Layout.cshtml* file sets the app name in the header and footer, and creates an "Ads" menu entry.
 
@@ -766,7 +766,7 @@ Sometimes the content of a queue message causes an error in processing. This is 
 
 This code reads the database to get the image URL, converts the image to a thumbnail, saves the thumbnail in a blob, updates the database with the thumbnail blob URL, and deletes the queue message.
 
->[AZURE.NOTE] The code in the `ConvertImageToThumbnailJPG` method uses classes in the System.Drawing namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.
+>[AZURE.NOTE] The code in the `ConvertImageToThumbnailJPG` method uses classes in the System.Drawing namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service. For more information about image processing options, see [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) and [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ## Troubleshooting
 
@@ -809,7 +809,5 @@ For a video introduction to Azure Storage best practices and patterns, see [Micr
 For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Azure Cloud Services](/documentation/services/cloud-services/)
+* [How to manage Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
-* [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
-* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)

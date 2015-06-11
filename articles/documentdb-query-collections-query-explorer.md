@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="04/29/2015" 
+	ms.date="06/10/2015" 
 	ms.author="stbaro"/>
 
 # Create, edit, and run SQL queries against a DocumentDB collection using Query Explorer #
@@ -30,7 +30,11 @@ By completing this tutorial, you'll be able to answer the following questions:
 
 Query Explorer can be launched from any of the DocumentDB account, database, and collection blades.
   
-1. Near the bottom of each blade is a **Developer Tools** lens, which contains the **Query Explorer** tile.
+1. At the top of the DocumentDB account or database blade, simply click the **Query Explorer** command.
+
+	![Screenshot of the Query Explorer command](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
+
+2. Alternatively, near the bottom of each blade is a **Developer Tools** lens, which contains the **Query Explorer** tile.
 	
 	![Screenshot of Query Explorer part](./media/documentdb-query-collections-query-explorer/queryexplorerpart.png) 
 
@@ -47,6 +51,14 @@ Query Explorer allows you to easily create, edit, and run queries against a Docu
 - When initially opening Query Explorer, a default query of SELECT * FROM c is provided.  You can accept the default query or construct your own and then click the **Run query** button to view the results. Query Explorer supports the DocumentDB SQL query language as described in [Query DocumentDB](documentdb-sql-query.md).
 
 	![Screenshot of Query Explorer query results](./media/documentdb-query-collections-query-explorer/queryresults1.png) 
+
+- You can also enter multiple queries, highlight the one you want to run, and then click the **Run query** button to view the results.
+
+	![Screenshot of Query Explorer Highlight and Run](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png) 
+
+- You can load the contents of an existing file using the **Load File** command.
+
+	![Screenshot of Query Explorer Load File](./media/documentdb-query-collections-query-explorer/loadqueryfile.png) 
 
 - By default, Query Explorer returns results in sets of 100.  If your query produces more than 100 results, simply use the **Next page** and **Previous page** commands to navigate through the result set.
 

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="vturecek"
    manager="timlt"
-   editor=""/>
+   editor="jessebenson"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/17/2015"
+   ms.date="06/09/2015"
    ms.author="vturecek"/>
 
 # Getting Started with Microsoft Azure Service Fabric Reliable Services
@@ -197,3 +197,5 @@ You can now build and deploy your services. Press **F5**, and your application w
 [Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
 [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
+
+[Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)

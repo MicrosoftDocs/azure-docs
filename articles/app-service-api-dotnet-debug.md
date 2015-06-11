@@ -30,9 +30,9 @@ The following steps enable you to debug your API app while it runs in the cloud 
 
 	![Publish project](./media/app-service-api-dotnet-debug/rd-publish.png)
 
-2. In the **Publish Web** dialog, click **Publish** to push any changes to your Azure subscription.
+2. In the **Publish Web** dialog, select the Settings tab and verify that the **Debug** build configuration is selected. When finished, click **Publish** to push any changes to your Azure subscription.
 
-	![Publish project](./media/app-service-api-dotnet-debug/rd-publish-web-preview.png)
+	![Publish project](./media/app-service-api-dotnet-debug/rd-debug-publish.png)
 
 3. A browser window should open and display a message confirming that your API app has been successfully created.
 

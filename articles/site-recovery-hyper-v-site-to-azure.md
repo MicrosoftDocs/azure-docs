@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/07/2015" 
+	ms.date="06/08/2015" 
 	ms.author="raynew"/>
 
 
@@ -163,12 +163,16 @@ Note that if you want to install the Provider on Server Core for Windows Server 
 1. Download the Provider installation file and the registration key.
 2. Extract the Provider installer by typing:
 
-	`C:\Windows\System32> CD C:\ASR`
-	`C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q`
+	    C:\Windows\System32> CD C:\Program Files\Azure Site Recovery Provider
+	    C:\Program Files\Azure Site Recovery Provider>AzureSiteRecoveryProvider.exe /x:. /q
+
 3. Install the Provider by typing:
-	`C:\ASR> setupdr.exe /i`
+
+	    C:\Program Files\Azure Site Recovery Provider> setupdr.exe /i
+
 4. Register the server by typing:
-	`C:\ASR> DRConfigurator.exe /r /Credentials <Path to the registration key file> /FriendlyName <Name of the Hyper-V host>`
+
+	    C:\Program Files\Azure Site Recovery Provider> DRConfigurator.exe /r /Credentials <Location of key> /FriendlyName <Hyper-V host name>
 
 	- /Credentials: Mandatory parameter that specifies the location in which the registration key file is located.
 	- /FriendlyName: Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
@@ -243,8 +247,11 @@ Add virtual machines to a protection group to enable protection for them.
 		 
 		![Configure virtual machine properties](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
 	
+## Step 7: Create a recovery plan
 
-### <a id="recoveryplans"></a>Step 7: Test the deployment
+In order to test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines. To create a recovery plan [follow these instructions](site-recovery-create-recovery-plans.md)
+
+## Step 8: Test the deployment
 
 There are two ways to run a test failover to Azure.
 
@@ -286,3 +293,6 @@ To run the test failover do the following:
 	4. Click **Notes** to record and save any observations associated with the test failover.
 	5.  Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machine.
 
+## Next steps
+
+After your deployment is set up and running, [learn more](site-recovery-failover.md) about failover.

@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
+   ms.date="06/04/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -111,8 +111,8 @@ The basic steps are outlined below.
 
 The following tutorials will help you:
 
-- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-exps.md)
-- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-nsps.md)
+- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
+- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
 - [Configure a Virtual Network and Gateway for ExpressRoute](expressroute-configuring-vnet-gateway.md)
 
 ### Are there connectivity boundaries for my ExpressRoute circuit?

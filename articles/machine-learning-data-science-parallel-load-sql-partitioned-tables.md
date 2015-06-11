@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Azure" 
+	pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Microsoft Azure" 
 	description="Parallel Bulk Data Import Using SQL Partition Tables" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" F
+	authors="msolhab"
 	manager="paulettm" 
 	editor="cgronlun" />
 

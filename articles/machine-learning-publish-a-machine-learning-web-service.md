@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Publish a Machine Learning web service | Azure" 
+	pageTitle="Publish a Machine Learning web service | Microsoft Azure" 
 	description="How to convert a training experiment to a scoring experiment, prepare it for publishing, then publish it as an Azure Machine Learning web service." 
 	services="machine-learning" 
 	documentationCenter="" 

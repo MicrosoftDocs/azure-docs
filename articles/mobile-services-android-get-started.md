@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article" 
-	ms.date="04/09/2015"
+	ms.date="06/03/2015"
 	ms.author="ricksal"/>
 
 # Get started with Mobile Services

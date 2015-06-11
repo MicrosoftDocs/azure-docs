@@ -18,7 +18,7 @@
 
 # How to add users to an elastic database pool
 
-Elastic database jobs allows you to run the same script against every database in an [elastic database pool](sql-database-elastic-pool.md). To run the script, a user with the appropriate permissions must be added to every database in the pool. This user can be the same server-level principal created when **elastic databse jobs** was installed and is the **job credentials** provided to manage the metadata in the **control** database. For more information, see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) or [Adding Users to Your SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+Elastic database jobs allows you to run the same script against every database in an [elastic database pool](sql-database-elastic-pool.md). To run the script, a user with the appropriate permissions must be added to every database in the pool. For more information, see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) or [Adding Users to Your SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Prerequisites
 * [Create an elastic database pool (preview)](sql-database-elastic-pool-portal.md)

@@ -13,11 +13,79 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="06/05/2015"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 06/04/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.583.1575584	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.583.1575584	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.3.583.1575584	(HDP 2.1.12.1-0003 - unchanged))
+* HDInsight		3.2.4.583.1575584	(HDP 2.2.6.1-1)
+* SDK			1.5.8
+
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Fix for 502 bad gateway error for Storm clusters</td>
+<td>This release fixes a bug affecting the job submission API that caused the website to be down after a reboot.</td>
+<td>Service</td>
+<td>Storm</td>
+<td>N/A</td>
+</tr>
+
+</table>
+
+## Notes for 06/01/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.577.1563827	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.577.1563827	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.3.577.1563827	(HDP 2.1.12.1-0003 - unchanged))
+* HDInsight		3.2.4.577.1563827	(HDP 2.2.6.0-2800 - unchanged)
+* SDK			1.5.8
+
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Various bug fixes</td>
+<td>This release fixes bugs related to cluster provisioning.</td>
+<td>Service</td>
+<td>All cluster types</td>
+<td>N/A</td>
+</tr>
+
+</table>
 
 ## Notes for 05/27/2015 release of HDInsight ##
 

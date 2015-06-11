@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connect to an Azure Machine Learning Web Service | Azure" 
+	pageTitle="Connect to a Machine Learning Web Service | Microsoft Azure" 
 	description="With C# or Python, connect to an Azure Machine Learning web service using an authorization key." 
 	services="machine-learning" 
 	documentationCenter="" 

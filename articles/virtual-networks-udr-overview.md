@@ -12,14 +12,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/09/2015"
    ms.author="telmos" />
 
 # User Defined Routes and IP Forwarding
-When you add virtual machines (VMs) to different subnets within the same virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets. The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.
+When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets. The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.
 
 This flow of communication is possible because Azure uses a series of system routes to define how IP traffic flows. System routes control the flow of communication in the following scenarios:
 
+- From within the same subnet.
 - From a subnet to another within a VNet.
 - From VMs to the Internet.
 - From a VNet to another VNet through a VPN gateway.
@@ -29,7 +30,7 @@ The figure below shows a simple setup with a VNet, two subnets, and a few VMs, a
 
 ![System routes in Azure](./media/virtual-networks-udr-overview/Figure1.png)
 
-Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance. You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding in the virtual appliance VM.
+Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance. You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding for the VM running as the virtual appliance.
 
 The figure below shows an example of user defined routes and IP forwarding to force packets going from a frontend subnet to the Internet to pass through a virtual appliance, and all packets going from the frontend subnet to the backend subnet to go through a different appliance. Notice that traffic from the backend subnet to the frontend subnet is still going through the system route, bypassing the appliance.
 
@@ -55,7 +56,7 @@ Every subnet created in a virtual network is automatically associated with a rou
 - **Internet Rule**: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
 ## User Defined Routes
-You cannot view the system routes specified above in your Azure environment, and for most environments, those are the only routes you will need. However, you may need to create a route table and add one or more routes in specific cases, such as:
+For most environments you will only need the system routes already defined by Azure. However, you may need to create a route table and add one or more routes in specific cases, such as:
 
 - Force tunneling to the Internet via your on-premises network.
 - Use of virtual appliances in your Azure environment.
@@ -86,4 +87,5 @@ To learn how to enable IP forwarding for a VM in Azure, see [How to Create Route
 
 ## Next Steps
 
-[How to Create Routes and Enable IP Forwarding in Azure](../virtual-networks-udr-how-to)
+- Learn how to [create routes](/virtual-networks-udr-how-to#How-to-manage-routes) and associate them to subnets.
+- Learn how to [enable IP forwarding for a VM running a virtual appliance](/virtual-networks-udr-how-to#How-to-Manage IP-Forwarding)

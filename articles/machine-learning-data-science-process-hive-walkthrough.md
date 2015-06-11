@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Advanced Analytics Process and Technology in Action: using HDInsight Hadoop clusters | Azure" 
-	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset." 
-	metaKeywords="" 
+	pageTitle="Advanced Analytics Process and Technology in Action: Use Hadoop clusters | Microsoft Azure" 
+	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset."  
 	services="machine-learning,hdinsight" 
 	solutions="" 
 	documentationCenter="" 

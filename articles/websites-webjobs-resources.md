@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="06/07/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs documentation resources
@@ -31,6 +31,7 @@ The WebJobs dashboard in the Azure portal provides powerful management capabilit
 ##<a name="getstarted"></a>Getting started with WebJobs and the WebJobs SDK
 
 * [Introduction to Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
+* [Azure WebJobs are awesome and you should start using them right now!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Blog post by Troy Hunt.)
 * [Azure WebJobs Features](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md)
 * [Background Jobs Guidance by Microsoft Patterns and Practices](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)

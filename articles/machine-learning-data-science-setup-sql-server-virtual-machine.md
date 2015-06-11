@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics | Azure"
+	pageTitle="Set up a SQL Server virtual machine as an IPython Notebook server | Microsoft Azure"
 	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
 	services="machine-learning"
 	solutions="" documentationCenter=""

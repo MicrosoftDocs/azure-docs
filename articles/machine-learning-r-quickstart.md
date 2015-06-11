@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Quick start guide to R for Azure Machine Learning Studio" 
-	description="How to use R in the Azure Machine Learning Studio" 
+	pageTitle="Quickstart tutorial for R language for Machine Learning | Microsoft Azure" 
+	description="Use this R programming tutorial to get started quickly using the R language with Azure Machine Learning Studio to create a forecasting solution." 
+	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -16,25 +17,26 @@
 	ms.date="04/22/2015" 
 	ms.author="larryfr"/>
 
-# Quick start guide to R for Azure Machine Learning
+# Quickstart tutorial for the R programming language for Azure Machine Learning
 
 Stephen F Elston, Ph.D.
 
 ##  Introduction
 
+This quickstart tutorial helps you quickly start extending Azure Machine Learning by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Azure Machine Learning. As you work through tutorial, you will create a complete forecasting solution by using the R language in Azure Machine Learning.  
+
 Microsoft Azure Machine Learning contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Azure Machine Learning can be extended by using R. This combination provides the scalability and ease of deployment of Azure Machine Learning with the flexibility and deep analytics of R.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-This document will help you quickly start extending Azure Machine Learning by using the R language. This guide contains the information you will need to create, test and execute R code within Azure Machine Learning. As you work though this quick start guide, you will create a complete forecasting solution by using the R language in Azure Machine Learning.  
 
 ###Forecasting and the dataset
 
 Forecasting is a widely employed and quite useful analytical method. Common uses range from predicting sales of seasonal items, determining optimal inventory levels, to predicting macroeconomic variables. Forecasting is typically done with time series models.
 
-Time series data is data in which the values have a time index. The time index can be regular, e.g. every month or every minute, or irregular. A time series model is based on time series data. R contains a flexible framework and extensive analytics for time series data.
+Time series data is data in which the values have a time index. The time index can be regular, e.g. every month or every minute, or irregular. A time series model is based on time series data. The R programming language contains a flexible framework and extensive analytics for time series data.
 
-In this quick start guide we will be working with California dairy production and pricing data. This data includes monthly information on the production of several dairy products and the price of milk fat, a benchmark commodity.
+In this quickstart guide we will be working with California dairy production and pricing data. This data includes monthly information on the production of several dairy products and the price of milk fat, a benchmark commodity.
 
 The data used in this article, along with R scripts, can be [downloaded here][download]. This data was originally synthesized from information available from the University of Wisconsin at http://future.aae.wisc.edu/tab/production.html.
 
@@ -52,9 +54,9 @@ We will progress through several steps as you learn how to create, test and exec
 
 * Finally, we will create a seasonal time series forecasting model for milk production.
 
-##<a id="mlstudio"></a>Interacting with R in Machine Learning Studio
+##<a id="mlstudio"></a>Interact with R language in Machine Learning Studio
 
-This section takes you through some basics of interacting with R in the Machine Learning Studio environment. The R language provides a powerful tool to create customized analytics and data manipulation modules within the Azure Machine Learning environment.
+This section takes you through some basics of interacting with the R programming language in the Machine Learning Studio environment. The R language provides a powerful tool to create customized analytics and data manipulation modules within the Azure Machine Learning environment.
 
 I will use RStudio to develop, test and debug R code on a small scale. This code is then cut and paste into an [Execute R Script][execute-r-script] module in Machine Learning Studio ready to run.  
 
@@ -62,7 +64,7 @@ I will use RStudio to develop, test and debug R code on a small scale. This code
 
 Within Machine Learning Studio, R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in Machine Learning Studio is shown in Figure 1.
 
- ![The Machine Learning Studio environment showing the Execute R Script module selected][1]
+ ![R programming language: The Execute R Script module selected in Machine Learning Studio][1]
 
 *Figure 1. The Machine Learning Studio environment showing the Execute R Script module selected.*
 
@@ -78,7 +80,7 @@ We will, of course, be discussing the [Execute R Script][execute-r-script] in gr
 
 When working with complex R functions, I recommend that you edit, test and debug in RStudio. As with any software development, extend your code incrementally and test it on small simple test cases. Then cut and paste your functions into the R script window of the [Execute R Script][execute-r-script] module. This approach allows you to harness both the RStudio integrated development environment (IDE) and the power of Azure Machine Learning.  
 
-####Executing R code
+####Execute R code
 
 Any R code in the [Execute R Script][execute-r-script] module will execute when you run the experiment by clicking on the **Run** button. When execution has completed, a check mark will appear on the [Execute R Script][execute-r-script] icon.
 
@@ -89,7 +91,7 @@ If you are developing R code for, say, a web service by using Azure Machine Lear
 If you need a more complete treatment of R exception handling, I recommend you read the applicable sections of the book by Wickham listed in [Appendix B - Further Reading](#appendixb).
 
 
-####Debugging and testing R in Machine Learning Studio
+####Debug and test R in Machine Learning Studio
 
 To reiterate, I recommend you test and debug your R code on a small scale in RStudio. However, there are cases where you will need to track down R code problems in the [Execute R Script][execute-r-script] itself. In addition, it is good practice to check your results in Machine Learning Studio.
 
@@ -127,18 +129,18 @@ To inspect the value of any object in R, you can print these values to the outpu
 
 ####Packages in Machine Learning Studio
 
-Azure Machine Learning comes with over 350 preinstalled R packages. You can use the following code in the [Execute R Script][execute-r-script] module to retrieve a list of the preinstalled packages.
+Azure Machine Learning comes with over 350 preinstalled R language packages. You can use the following code in the [Execute R Script][execute-r-script] module to retrieve a list of the preinstalled packages.
 
 	data.set <- data.frame(installed.packages())
 	maml.mapOutputPort("data.set")
 
 If you don't understand the last line of this code at the moment, read on. In the rest of this document we will extensively discuss using R in the Azure Machine Learning environment.
 
-###	Introducing RStudio
+###	Introduction to RStudio
 
 RStudio is a widely used IDE for R. I will use RStudio for editing, testing and debugging some of the R code used in this quick start guide. Once R code is tested and ready, you simply cut and paste from the RStudio editor into a Machine Learning Studio [Execute R Script][execute-r-script] module.  
 
-If you do not have R installed on your desktop machine, I recommend you do so now. Free downloads of open source R are available at the Comprehensive R Archive Network (CRAN) at http://www.r-project.org/. There are downloads available for Windows, Mac OS, and Linux/UNIX. Choose a nearby mirror and follow the download directions. In addition, CRAN contains a wealth of useful analytics and data manipulation packages.
+If you do not have the R programming language installed on your desktop machine, I recommend you do so now. Free downloads of open source R language are available at the Comprehensive R Archive Network (CRAN) at [http://www.r-project.org/](http://www.r-project.org/). There are downloads available for Windows, Mac OS, and Linux/UNIX. Choose a nearby mirror and follow the download directions. In addition, CRAN contains a wealth of useful analytics and data manipulation packages.
 
 If you are new to RStudio, you should download and install the desktop version. You can find the RStudio downloads for Windows, Mac OS, and Linux/UNIX at http://www.rstudio.com/products/RStudio/. Follow the directions provided to install RStudio on your desktop machine.  
 
@@ -146,15 +148,15 @@ A tutorial introduction to RStudio is available at https://support.rstudio.com/h
 
 I provide some additional information on using RStudio in [Appendix A][appendixa].  
 
-##<a id="scriptmodule"></a>Getting data in and out of the Execute R Script module
+##<a id="scriptmodule"></a>Get data in and out of the Execute R Script module
 
 In this section we will discuss how you get data into and out of the [Execute R Script][execute-r-script] module. We will review how to handle various data types read into and out of the [Execute R Script][execute-r-script] module.
 
 The complete code for this section is in the zip file you downloaded earlier.
 
-###Loading and checking data in Machine Learning Studio
+###Load and check data in Machine Learning Studio
 
-####<a id="loading"></a>Loading the dataset
+####<a id="loading"></a>Load the dataset
 
 We will start by loading the **csdairydata.csv** file into Azure Machine Learning Studio.
 
@@ -170,7 +172,7 @@ We will start by loading the **csdairydata.csv** file into Azure Machine Learnin
 
 - You should see the new datasets by clicking on the **Datasets** tab.  
 
-####Creating an experiment
+####Create an experiment
 
 Now that we have some data in Machine Learning Studio, we need to create an experiment to do the analysis.  
 
@@ -231,7 +233,7 @@ There are three possible inputs for the [Execute R Script][execute-r-script] mod
 
 Let's look at each of these inputs, going from left to right. You can see the names of each of the inputs by placing your cursor over the input and reading the tooltip.  
 
-####	Script Bundle
+#### Script Bundle
 
 The Script Bundle input allows you to pass the contents of a zip file into [Execute R Script][execute-r-script] module. You can use one of the following commands to read the contents of the zip file into your R code.
 
@@ -262,7 +264,7 @@ Once these steps are complete, the [Execute R Script][execute-r-script] module w
 
 *Figure 5. Experiment using zipped R script.*
 
-####Dataset1
+#### Dataset1
 
 You can pass a rectangular table of data to your R code by using the Dataset1 input. In our simple script the `maml.mapInputPort(1)` function reads the data from port 1. This data is then assigned to a dataframe variable name in your code. In our simple script the first line of code performs the assignment.
 
@@ -418,7 +420,7 @@ Run this code in your experiment and check the result with **Visualize** on the 
 
 Good news! We get the expected results.
 
-###Adding a new column
+###Add a new column
 
 To create time series models it will be convenient to have a column containing the months since the start of the time series. We will create a new column 'Month.Count'.
 
@@ -1030,7 +1032,7 @@ Running this code produces the output shown in Figure 27 at the Result Dataset o
 
 From these results, we see that adding the seasonal factors to the model reduces the RMS error significantly. Not too surprisingly, the RMS error for the training data is a bit less than for the forecast.
 
-##<a id="appendixa"></a>APPENDIX A - Guide to RStudio
+##<a id="appendixa"></a>APPENDIX A: Guide to RStudio
 
 RStudio is quite well documented, so in this appendix I will provide some links to the key sections of the RStudio documentation to get you started.
 
@@ -1050,9 +1052,9 @@ RStudio is quite well documented, so in this appendix I will provide some links 
 
 	The breakpoint troubleshooting features are documented at https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-##<a id="appendixb"></a>APPENDIX B - Further reading
+##<a id="appendixb"></a>APPENDIX B: Further reading
 
-If you are not familiar with R, two introductions are available on CRAN:
+This R programming tutorial covers the basics of what you need to use the R language with Azure Machine Learning Studio. If you are not familiar with R, two introductions are available on CRAN:
 
 - R for Beginners by Emmanuel Paradis is a good place to start at http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
 

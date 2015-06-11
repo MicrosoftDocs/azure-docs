@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2015"
+	ms.date="06/07/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -29,6 +29,10 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Using resource groups to manage your Azure resources](resource-group-portal.md).
 
 In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager. For example, there is a **Subscription Limits** table and a **Subscription Limits - Azure Resource Manager** table. When a limit applies to both scenarios, it is only shown in the first table. Unless otherwise indicated, limits are global across all regions.
+
+> [AZURE.NOTE] It is important to emphasize that quotas for resources in Azure Resource Groups are per-region accessible by your subscription, and are not per-subscription, as the service management quotas are. Let's use core quotas as an example. If you need to request a quota increase with support for cores, you need to decide how many cores you want to use in which regions, and then make a specific request for Azure Resource Group core quotas for the amounts and regions that you want. Therefore, if you need to use 30 cores in West Europe to run your application there; you should specifically request 30 cores in West Europe. But you will not have a core quota increase in any other region -- only West Europe will have the 30-core quota. 
+<!-- -->
+As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) for more help discovering your current quotas for specific regions.
 
 ## Subscription Limits
 
@@ -312,11 +316,11 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
    <td valign="middle"><p>1</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Load Balancers (Internal and Internet facing) per subscription</p></td>
+   <td valign="middle"><p>Load Balancer (Internal and Internet facing) per subscription</p></td>
    <td valign="middle"><p>100 per Region<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Network Load Balancer rules per Load Balancer</p></td>
+   <td valign="middle"><p>Load Balancer (Internal Or Internet facing) rules per Load Balancer</p></td>
    <td valign="middle"><p>150</p></td>
 </tr>
 <tr>

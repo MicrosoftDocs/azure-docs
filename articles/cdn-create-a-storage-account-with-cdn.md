@@ -115,8 +115,6 @@ http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 If you no longer wish to cache an object in the Azure Content
 Delivery Network (CDN), you can take one of the following steps:
 
--   For an Azure blob, you can delete the blob from the public
-    container.
 -   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/library/dd179354.aspx) for more information.
 -   You can disable or delete the CDN endpoint using the Management
     Portal.

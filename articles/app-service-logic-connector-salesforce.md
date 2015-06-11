@@ -28,7 +28,7 @@ Logic apps can trigger based on a variety of data sources and offer connectors t
 
 As part of Connector package settings, the user can specify entities the connector can manage and the actions, input and output parameters are dynamically populated. Following are the different actions available in Salesforce connector.
  
-- Create Entity - Use this action to create a new Salesforce entity such as Account and Case.
+- Create Entity - Use this action to create a new Salesforce entity such as Account, Case or a Custom Object
 
 - Update Entity - Use this action to update an existing Salesforce entity
 

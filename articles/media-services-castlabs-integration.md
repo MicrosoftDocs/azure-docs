@@ -32,7 +32,7 @@ The following diagram demonstrates a high-level Azure Media Services and castLab
 - Media content is stored in AMS.
 - Key IDs of content keys are stored in both castLabs and AMS.
 - castLabs and AMS both have token authentication built in. The following sections discuss authentication tokens. 
-- When a client requests to stream the video, the content is dynamically encrypted with **Common Encryption** (CENC) and dynamically packaged by AMS to any (or all) of the specified protocols: Smooth streaming, HLS or DASH. 
+- When a client requests to stream the video, the content is dynamically encrypted with **Common Encryption** (CENC) and dynamically packaged by AMS to Smooth Streaming and DASH. We also deliver PlayReady M2TS elementary stream encryption for HLS streaming protocol.
 - PlayReady license is retrieved from AMS license server and Widevine license is retrieved from castLabs license server. 
 - Media Player automatically decides which license to fetch based on the client platform capability. 
 
