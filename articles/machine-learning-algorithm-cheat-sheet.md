@@ -50,7 +50,7 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 
 * For a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose an algorithm in Azure Machine Learning](machine-learning-algorithm-choice.md).
 * For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
-* For a complete list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://msdn.microsoft.com/en-us/library/azure/dn906033.aspx) in Machine Learning Studio Algorithm and Module Help.
+* For a complete list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://msdn.microsoft.com/library/azure/dn906033.aspx) in Machine Learning Studio Algorithm and Module Help.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
