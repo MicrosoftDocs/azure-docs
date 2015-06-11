@@ -171,7 +171,7 @@ In this tutorial, you learned how to use Azure Blob storage and SAS with a Xamar
 
 Learn more about blobs, tables, and queues by checking out the following links:
 
-[Introduction to Microsoft Azure Storage](http://azure.microsoft.com/en-us/documentation/articles/storage-introduction/)  
-[How to use Blob Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)  
-[How to use Table Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/)  
-[How to use Queue Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
+[Introduction to Microsoft Azure Storage](storage-introduction.md)  
+[How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)  
+[How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)  
+[How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)

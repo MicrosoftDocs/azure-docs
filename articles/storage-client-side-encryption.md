@@ -21,7 +21,7 @@
 
 ## Overview
 
-Welcome to the [preview of the new Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/4.4.1-preview). This preview library contains new functionality to help developers encrypt data inside client applications before uploading to Azure Storage, and to decrypt data while downloading. The preview library also supports integration with Azure [Key Vault](http://azure.microsoft.com/en-us/services/key-vault/) for storage account key management.
+Welcome to the [preview of the new Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/4.4.1-preview). This preview library contains new functionality to help developers encrypt data inside client applications before uploading to Azure Storage, and to decrypt data while downloading. The preview library also supports integration with Azure [Key Vault](http://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 ## Why use client-side encryption?
 
