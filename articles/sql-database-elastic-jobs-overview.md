@@ -39,8 +39,8 @@
 1.	Install the services used by elastic database jobs. See [Installing elastic database jobs](sql-database-elastic-jobs-service-installation.md). If the installation fails, see [how to uninstall](sql-database-elastic-jobs-uninstall.md).
 2.	Configure the elastic database pool for job execution by [adding a user to each database](sql-database-elastic-jobs-add-logins-to-dbs.md).
 3.	From the elastic database pool view, click  **Create job**.
-4.	Type in the user name and password of a SQL Database that will execute the script. (You create the username and password when installing elastic database jobs).
-5.	Type the name of the job, and paste in or type the script.
+4.	Type the user name and password for the jobs control database (metadata storage for jobs). (You create the user name and password when installing elastic database jobs).
+5.	In the **Create job** blade, type the name of the job, user name and password to the target databases (with sufficient permissions for script execution to succeed), and paste or type the T-SQL script.
 6.	Click **Run** and the job executes the script against each database.
 7.	**Manage jobs** view allows you to see all jobs running, or that have run and the most recent execution status.
 8.	Click any job to see the job execution details and the state of job execution for each database.
@@ -56,7 +56,7 @@ The following components work together to create an Azure Cloud service that ena
 * **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (a common practice for [Azure diagnostics](cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/).
 
 ## Next steps
-[Install the components](sql-database-elastic-jobs-service-installation.md), then [create and add a log in to each database in the pool](sql-database-elastic-jobs-add-logins-to-dbs.md).
+[Install the components](sql-database-elastic-jobs-service-installation.md), then [create and add a log in to each database in the pool](sql-database-elastic-jobs-add-logins-to-dbs.md). To further understand the job creation, see [creating and managing elastic database jobs](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
