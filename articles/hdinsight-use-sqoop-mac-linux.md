@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Sqoop to import and export between a Linux-based HDInsight cluster and an Azure SQL database or SQL Server database.
+Learn how to use Sqoop to import and export between a Linux-based HDInsight cluster and Azure SQL Database or SQL Server database.
 
 > [AZURE.NOTE] The steps in this article use SSH to connect to a Linux-based HDInsight cluster. Windows clients can also use Azure PowerShell to work with Sqoop on Linux-based clusters as documented in [Use Sqoop with Hadoop in HDInsight (PowerShell)](hdinsight-use-sqoop.md).
 
@@ -45,21 +45,7 @@ Before you begin this tutorial, you must have the following:
 
 - **Azure SQL database**: This document provides instructions for creating an example SQL database. For more information on SQL Database, see [Get started using Azure SQL database][sqldatabase-get-started].
 
-* **SQL Server**: If your HDInsight cluster is on the same virtual network in Azure as SQL Server, you can use the steps in this article to import and export data to a SQL Server database.
-
-	> [AZURE.NOTE] HDInsight supports only location-based virtual networks, and it does not currently work with affinity group-based virtual networks.
-
-	* To create and configure a virtual network, see [Virtual Network Configuration Tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
-
-		* When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
-
-			> [AZURE.NOTE] For **point-to-site** virtual networks, SQL Server must be running the VPN client configuration application, which is available from the **Dashboard** of your Azure virtual network configuration.
-
-		* When you are using SQL Server on an Azure virtual machine, any virtual network configuration can be used if the virtual machine hosting SQL Server is a member of the same virtual network as HDInsight.
-
-	* To provision an HDInsight cluster on a virtual network, see [Provision Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md)
-
-	> [AZURE.NOTE] SQL Server must also allow SQL authentication. You must use a SQL Server login to complete the steps in this article.
+* **SQL Server**: The steps in this document can also be used, with some modification, with SQL Server. For more information on requirements specific to using this article with SQL Server, see the [Using SQL Server](#using-sql-server) section.
 
 ##Understand the scenario
 
