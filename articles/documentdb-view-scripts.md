@@ -1,5 +1,5 @@
 <properties
-	pageTitle="View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer | Azure"
+	pageTitle="View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer | Microsoft Azure"
 	description="Learn about the DocumentDB Script Explorer, an Azure Preview portal tool to view DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions."
 	services="documentdb"
 	authors="stephbaron"
@@ -16,7 +16,7 @@
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
-# View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer #
+# View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
 
 This article provides an overview of the [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Script Explorer, an Azure Preview portal tool that enables you to view DocumentDB server-side programming artifacts including stored procedures, triggers, and user-defined functions.  Read more about DocumentDB server-side programming [here](documentdb-programming.md).
 
@@ -26,7 +26,7 @@ By completing this tutorial, you'll be able to answer the following questions:
 -	How can I easily view DocumentDB triggers via a web browser?
 -	How can I easily view DocumentDB user-defined functions via a web browser?
 
-##Launch and navigate Script Explorer
+## Launch and navigate Script Explorer
 
 Script Explorer can be launched from any of the DocumentDB account, database, and collection blades.  
 
@@ -63,7 +63,7 @@ Script Explorer can be launched from any of the DocumentDB account, database, an
 	![Screenshot of Script Explorer refresh command](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 
-##View Stored Procedures, Triggers, and User-Defined Functions with Explorer
+## View stored Procedures, triggers, and user-defined functions with  Script Explorer
 
 Script Explorer allows you to easily view DocumentDB server-side programming artifacts.  
 
@@ -77,6 +77,6 @@ Script Explorer allows you to easily view DocumentDB server-side programming art
 
 	> [AZURE.NOTE] The timestamp (_ts) property is internally represented as epoch time, but Script Explorer displays the value in a human readable GMT format.
 
-##Next steps
+## Next steps
 
 To learn more about DocumentDB, click [here](http://azure.com/docdb).

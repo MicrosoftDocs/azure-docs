@@ -63,4 +63,4 @@ Some organizations, however, have particular reasons for using a federated sign 
 - You require some specific capabilities AD FS has
 	- On premises multi-factor authentication using a third party provider or smart cards (learn about third party MFA providers for AD FS in Windows Server 2012 R2)
 	- Active Directory integration features such as soft account lockout or AD password and work hours policy
-	- Conditional access to both on premises and cloud resources using device registration, Azure AD join, or Intune MDM policies
+	- Conditional access to both on premises and cloud resources using device registration, Azure AD join, or Microsoft Intune MDM policies

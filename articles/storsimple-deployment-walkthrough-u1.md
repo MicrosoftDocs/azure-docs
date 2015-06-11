@@ -3,7 +3,7 @@
    description="Steps and best practices for deploying the StorSimple Update 1 device and service."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/01/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device
 

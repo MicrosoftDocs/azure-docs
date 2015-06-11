@@ -24,6 +24,8 @@ Here is a screenshot of the completed application:
 
 ![][sample-api-app-page]
 
+> [AZURE.NOTE] You can also use Visual Studio Code to build an deploy a Node.js API app in Azure App Service. For more information about Visual Studio Code and Node.js, see [Visual Studio Code](http://code.visualstudio.com/Docs/) and [Developing Node Applications](http://code.visualstudio.com//Docs/nodejs).
+
 ## Create an API app in the Azure preview Portal
 
 > [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/) or [sign up for a free trial](/pricing/free-trial/).
