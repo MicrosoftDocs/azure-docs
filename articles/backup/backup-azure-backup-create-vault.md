@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Backup - Create a backup vault and specify the storage redundancy"
    description="Learn how to create a backup vault, specify storage redundancy options in Azure Backup"
    services="backup"
@@ -67,3 +67,4 @@ If you are using Azure as a tertiary backup storage endpoint (e.g. you are using
 [3]: ./media/backup-azure-backup-create-vault/backupvaultstatus1.png
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
+ 

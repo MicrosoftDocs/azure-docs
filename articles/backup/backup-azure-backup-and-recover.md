@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client"
    description="Learn how to backup and restore from a Windows Server or Windows Client. The article also covers alternate server recovery"
    services="backup"
@@ -132,3 +132,4 @@ Once the input is provided, click on the **Recover** button which triggers the r
 [16]: ./media/backup-azure-backup-and-recover/searchitems.png
 [17]: ./media/backup-azure-backup-and-recover/restorelocation.png
 [18]: ./media/backup-azure-backup-and-recover/encryption.png
+ 

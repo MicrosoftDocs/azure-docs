@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Use Azure Backup to replace your tape infrastructure"
    description="Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure"
    services="backup"
@@ -77,3 +77,4 @@ By clicking on **Modify** in the above screen, customers have further flexibilit
 [3]: ./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
+ 

@@ -158,3 +158,4 @@ To delete backup data on a virtual machine, which is in the “Protection Stoppe
 On the **Dashboard** page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors.
 
   ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+ 

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Backup - FAQ"
    description="Frequently asked questions on the Azure Backup service"
    services="backup"
@@ -188,3 +188,4 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 <!--Image references-->
 [1]: ./media/backup-azure-backup-faq/Schedule.png
 [2]: ./media/backup-azure-backup-faq/RetentionScreen1.png
+ 

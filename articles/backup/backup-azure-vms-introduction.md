@@ -125,7 +125,7 @@ Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=
 - Cross-region backup and restore is not supported.
 - Virtual machine backup using the Azure Backup service is only supported in select regions. Check list of [supported regions](http://azure.microsoft.com/regions/#services). If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - Virtual machine backup using the Azure Backup service is only supported only for select Operating System versions:
-  - **Linux**: The list of distributions endorsed by Azure is available [here](virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM Agent is available on the virtual machine.
+  - **Linux**: The list of distributions endorsed by Azure is available [here](../virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM Agent is available on the virtual machine.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
 If there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
@@ -140,3 +140,4 @@ To get started with virtual machine backup, learn how to:
 + Monitor the backup jobs
 
 
+ 
