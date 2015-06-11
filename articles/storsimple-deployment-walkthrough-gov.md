@@ -3,7 +3,7 @@
    description="Steps and best practices for deploying the StorSimple Update 1 device and service in the Azure Government portal."
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/08/2015"
-   ms.author="alkohli" />
+   ms.date="06/11/2015"
+   ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device
 
@@ -21,7 +21,7 @@
 
 Welcome to Microsoft Azure StorSimple device deployment.
 
-These deployment tutorials apply to StorSimple 8000 Series running Update 1 software in the Azure Government Portal.
+These deployment tutorials apply to the StorSimple 8000 Series running Update 1 software in the Azure Government Portal.
 
 This series of tutorials describes how to configure your StorSimple device, and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
 
