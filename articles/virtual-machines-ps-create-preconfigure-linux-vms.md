@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/11/2015" 
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines
@@ -55,14 +55,14 @@ Here are some examples of ImageFamily values for Linux-based computers:
 - CoreOS Alpha
 - SUSE Linux Enterprise Server 12
 
-Open a fresh instance of the text editor of your choice (or an instance of the PowerShell Integrated Scripting Environment [ISE]) and copy the following into the new text file, substituting the ImageFamily value.
+Open a fresh instance of the text editor of your choice or an instance of the PowerShell Integrated Scripting Environment (ISE). Copy the following into the new text file or the PowerShell ISE, substituting the ImageFamily value.
  
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## Step 4: Build your command set
 
-Build the rest of your command set by copying the appropriate set of blocks below into your new text file and then filling in the variable values and removing the < and > characters. See the two [examples](#examples) at the end of this article for an idea of the final result.
+Build the rest of your command set by copying the appropriate set of blocks below into your new text file or the PowerShell ISE and then filling in the variable values and removing the < and > characters. See the two [examples](#examples) at the end of this article for an idea of the final result.
 
 Start your command set by choosing one of these two command blocks (required).
 
@@ -85,8 +85,6 @@ Specify the initial Linux user name and password (required). Choose a strong pas
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-If you are saving the resulting command set in a file, store it in a secure location to protect the account name and password.
 
 Optionally, specify a set of SSH key pairs that are already deployed in the subscription.
 
@@ -148,15 +146,17 @@ Option 2: Create the virtual machine in an existing cloud service and virtual ne
 
 ## Step 5: Run your command set
 
-Review the Azure PowerShell command set you built in your text editor consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
+Review the Azure PowerShell command set you built in your text editor or the PowerShell ISE consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
 
-Copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine. If you create the virtual machine in the wrong subscription, storage account, cloud service, availability set, virtual network, or subnet, delete the virtual machine, correct the command block syntax, and then run the corrected command set. 
+If you are using a text editor, copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine. Alternately, run your command set in the PowerShell ISE.
+
+If you create the virtual machine in the wrong subscription, storage account, cloud service, availability set, virtual network, or subnet, delete the virtual machine, correct the command block syntax, and then run the corrected command set. 
 
 After the virtual machine is created, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md). 
 
 If you will be creating this virtual machine again or a similar one, you can: 
 
-- Save this command set as a text file or as a PowerShell script file (*.ps1)
+- Save this command set as a PowerShell script file (*.ps1)
 - Save this command set as an Azure automation runbook in the **Automation** section of the Azure Management Portal 
 
 ## <a id="examples"></a>Examples

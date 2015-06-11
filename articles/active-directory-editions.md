@@ -77,7 +77,7 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 ## Comparing editions: Capabilities common to all editions
 
 - Directory as a service
-    For the free edition, there is a 500K object limit. But the 500k object limit does not apply for Office 365, Windows Intune or any other Microsoft online service that relies on Azure Active Directory for directory services. The Basic and Premium editions have no object limit.
+    For the free edition, there is a 500K object limit. But the 500k object limit does not apply for Office 365, Microsoft Intune or any other Microsoft online service that relies on Azure Active Directory for directory services. The Basic and Premium editions have no object limit.
 - User and group management using UI or Windows PowerShell cmdlets
 - Device registration
 - Access Panel portal for single sign-in (SSO) based user access to SaaS and custom applications

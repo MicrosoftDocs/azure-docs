@@ -1,7 +1,7 @@
 <properties
    pageTitle="Data partitioning guidance | Microsoft Azure"
    description="Guidance upon how to separate partitions to be managed and accessed separately."
-   services="storage"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

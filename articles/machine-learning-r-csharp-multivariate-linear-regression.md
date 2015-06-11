@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Multivariate Linear Regression | Azure" 
+	pageTitle="Multivariate Linear Regression | Microsoft Azure" 
 	description="Multivariate Linear Regression" 
 	services="machine-learning" 
 	documentationCenter="" 

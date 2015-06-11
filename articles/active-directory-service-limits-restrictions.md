@@ -31,7 +31,7 @@ A single user can only be associated with a maximum of 20 Azure Active Directory
 
 ## Objects
 
-- There are no limits for subscribers of Azure Active Directory Premium or Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Windows Intune, or any other Microsoft online service that relies on Azure Active Directory for directory services.
+- There are no limits for subscribers of Azure Active Directory Premium or Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune, or any other Microsoft online service that relies on Azure Active Directory for directory services.
 - A maximum of 500,000 objects can be used in a single directory with the Free edition of Azure Active Directory.
 - A non-admin user can create up to 250 objects.
 

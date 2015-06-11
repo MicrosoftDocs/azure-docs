@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Move data to SQL Server on Azure| Azure" 
+	pageTitle="Move data to SQL Server on Azure| Microsoft Azure" 
 	description="Move data to SQL Server on Azure" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
