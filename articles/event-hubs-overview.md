@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Event Hubs Overview"
-   description="introduction to Event Hubs"
+   description="Introduction and overview of Azure Event Hubs."
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Retry general guidance | Microsoft Azure"
    description="Guidance on retry for transient fault handling."
-   services="multiple"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

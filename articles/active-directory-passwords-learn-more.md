@@ -19,11 +19,11 @@
 # Learn more about Password Management
 If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
-* [Password writeback overview](#password-writeback-overview)
+* [**Password writeback overview**](#password-writeback-overview)
   - [How pasword writeback works](#how-password-writeback-works)
   - [Scenarios supported for password writeback](#scenarios-supported-for-password-writeback)
   - [Password writeback security model](#password-writeback-security-model)
-* [How does the password reset portal work?](#how-does-the-password-reset-portal-work)
+* [**How does the password reset portal work?**](#how-does-the-password-reset-portal-work)
   - [What data is used by password reset?](#what-data-is-used-by-password-reset)
 
 ## Password writeback overview
@@ -34,10 +34,10 @@ Password writeback allows you to configure your cloud tenant to write passwords 
 - **Zero delay feedback.**  Password writeback is a synchronous operation.  Your users will be notified immediately if their password did not meet policy or was not able to be reset or changed for any reason.
 - **Supports resetting passwords for users using AD FS or other federation technologies.**  With password writeback, as long as the federated user accounts are synchronized into your Azure AD tenant, they will be able to manage their on-premises AD passwords from the cloud.
 - **Supports resetting passwords for users using password hash sync.** When the password reset service detects that a synchronized user account is enabled for password hash sync, we reset both this account’s on-premises and cloud password simultaneously.
-- **Supports changing passwords from the access panel and O365.**  When federated or password sync’d users come to change their expired or non-expired passwords, we’ll write those passwords back to your local AD environment.
-- **Supports writing back passwords when an admin reset them from the Azure Management Portal.**  Whenever an admin resets a user’s password in the Azure Management portal, if that user is federated or password sync’d, we’ll set the password the admin selects on your local AD, as well.  This is currently not supported in the Office Admin Portal.
+- **Supports changing passwords from the access panel and Office 365.**  When federated or password sync’d users come to change their expired or non-expired passwords, we’ll write those passwords back to your local AD environment.
+- **Supports writing back passwords when an admin reset them from the** [**Azure Management Portal**](https://manage.windowsazure.com).  Whenever an admin resets a user’s password in the [Azure Management Portal](https://manage.windowsazure.com), if that user is federated or password sync’d, we’ll set the password the admin selects on your local AD, as well.  This is currently not supported in the Office Admin Portal.
 - **Enforces your on-premises AD password policies.**  When a user resets his/her password, we make sure that it meets your on-premises AD policy before committing it to that directory.  This includes history, complexity, age, password filters, and any other password restrictions you have defined in your local AD.
-- **Doesn’t require any inbound firewall rules.**  Password writeback uses an Azure Service Bus relay as an underlying communication channel, meaning that you do not have to open any inbound ports on your firewall for this feature to work, only 443 outbound.
+- **Doesn’t require any inbound firewall rules.**  Password writeback uses an Azure Service Bus relay as an underlying communication channel, meaning that you do not have to open any inbound ports on your firewall for this feature to work.
 - **Is not supported for user accounts that exist within protected groups in your on-premises Active Directory.** For more information about protected groups, see [Protected Accounts and Groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 
 ### How password writeback works
@@ -46,26 +46,28 @@ Password writeback has three main components:
 - Password Reset cloud service (this is also integrated into Azure AD’s password change pages)
 - Tenant-specific Azure Service Bus relay
 - On-prem password reset endpoint
- 
- ![][001]
- 
+
+They fit together as described in the below diagram:
+
+  ![][001]
+
 When a federated or password hash sync’d user comes to reset or change his or her password in the cloud, the following occurs:
 
 1.	We check to see what type of password the user has.  If we see the password is managed on premises, then we ensure the writeback service is up and running.  If it is, we let the user proceed, if it is not, we tell the user that their password cannot be reset here.
 2.	Next, the user passes the appropriate authentication gates and reaches the reset password screen.
 3.	The user selects a new password and confirms it.
-4.	Upon clicking submit, we encrypt the plaintext password with a public key that was created during the writeback setup process.
+4.	Upon clicking submit, we encrypt the plaintext password with a symmetric key that was created during the writeback setup process.
 5.	After encrypting the password, we include it in a payload that gets sent over an HTTPS channel to your tenant specific service bus relay (that we also set up for you during the writeback setup process).  This relay is protected by a randomly generated password that only your on-premises installation knows.
 6.	Once the message reaches service bus, the password reset endpoint automatically wakes up and sees that it has a reset request pending.
-7.	The service then looks for the user in question by using the cloud anchor attribute.  For this lookup to succeed, the user object must exist in the AD connector space, it must be linked to the corresponding MV object, and it must be linked to the corresponding AAD connector object. Finally, in order for sync to find this user account, the link from AD connector object to MV must have the sync rule “Microsoft.InfromADUserAccountEnabled.xxx” on the link.  This is needed because when the call comes in from the cloud, the sync engine uses the cloudAnchor attribute to look up the AAD connector space object, then follows the link back to the MV object, and then follows the link back to the AD object. Because there could be multiple AD objects (multi-forest) for the same user, the sync engine relies on the “Microsoft.InfromADUserAccountEnabled.xxx” link to pick the correct one.
+7.	The service then looks for the user in question by using the cloud anchor attribute.  For this lookup to succeed, the user object must exist in the AD connector space, it must be linked to the corresponding MV object, and it must be linked to the corresponding AAD connector object. Finally, in order for sync to find this user account, the link from AD connector object to MV must have the sync rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link.  This is needed because when the call comes in from the cloud, the sync engine uses the cloudAnchor attribute to look up the AAD connector space object, then follows the link back to the MV object, and then follows the link back to the AD object. Because there could be multiple AD objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
 8.	Once the user account is found, we attempt to reset the password directly in the appropriate AD forest.
 9.	If the password set operation is successful, we tell the user their password has been modified and that they can go on their merry way.
 10.	If the password set operation fails, we return the error to the user and let them try again.  The operation might fail because the service was down, because the password they selected did not meet organization policies, because we could not find the user in the local AD, or any number of reasons.  We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
 ### Scenarios supported for password writeback
-The table below describes which scenarios are supported for which versions of our sync capabilities.  In general, it is highly recommended that you install the latest version of [Azure AD Connect](active-directory-aadconnect.md) if you want to use password writeback.
+The table below describes which scenarios are supported for which versions of our sync capabilities.  In general, it is highly recommended that you install the latest version of [Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect) if you want to use password writeback.
 
-![][002]
+  ![][002]
 
 ### Password writeback security model
 Password writeback is a highly secure and robust service.  In order to ensure your information is protected, we enable a 4-tiered security model that is described below.
@@ -78,7 +80,7 @@ Password writeback is a highly secure and robust service.  In order to ensure yo
 ## How does the password reset portal work?
 When a user navigates to the password reset portal, a workflow is kicked off to determine if that user account is valid, what organization that users belongs to, where that user’s password is managed, and whether or not the user is licensed to use the feature.  Read through the steps below to learn about the logic behind the password reset page.
 
-1.	User clicks on the Can’t access your account link or goes directly to https://passwordreset.microsoftonline.com.
+1.	User clicks on the Can’t access your account link or goes directly to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
 2.	User enters a user id and passes a captcha.
 3.	Azure AD verifies if the user is able to use this feature by doing the following:
     - Checks that the user has this feature enabled and an Azure AD license assigned.
@@ -258,6 +260,10 @@ The following table outlines where and how this data is used during password res
             </td>
           </tr>
         </tbody></table>
+
+<br/>
+<br/>
+<br/>
 
 **Additional Resources**
 

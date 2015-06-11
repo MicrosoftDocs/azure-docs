@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Create and load data into Hive tables from Azure blob storage | Azure" 
+	pageTitle="Create and load data into Hive tables from Blob storage | Microsoft Azure" 
 	description="Create Hive tables and load data in blob to hive tables" 
-	metaKeywords="" 
-	services="machine-learning" 
+	services="machine-learning,storage" 
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 

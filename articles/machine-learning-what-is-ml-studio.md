@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="What Is Azure Machine Learning Studio? | Azure" 
-	description="Overview of Azure Machine Learning Studio and its basic components" 
+	pageTitle="What is Azure Machine Learning Studio? | Microsoft Azure" 
+	description="Overview of Azure ML Studio, a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules." 
+	keywords="azure machine learning,azure ml, ml studio"	
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -18,9 +19,9 @@
 
 # What is Azure Machine Learning Studio?
 
-Microsoft Azure Machine Learning Studio is a collaborative visual development environment that enables you to build, test, and deploy predictive analytics solutions that operate on your data. The Machine Learning service and development environment is cloud-based, provides compute resource and memory flexibility, and eliminates setup and installation concerns because you work through your web browser. 
+Microsoft Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
-Machine Learning Studio is where data science, predictive analytics, cloud resources, and your data meet.
+Machine Learning Studio - sometimes called "Azure ML Studio" - is where data science, predictive analytics, cloud resources, and your data meet.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -28,13 +29,13 @@ Machine Learning Studio is where data science, predictive analytics, cloud resou
 
 To develop a predictive analysis model, you typically use data from one or more sources, transform and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 
-**Machine Learning Studio** gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive ***canvas***, connecting them together to form an ***experiment***, which you ***run*** in Machine Learning Studio. To iterate on your model design, you ***edit*** the experiment, ***save*** a copy if desired, and run it again. When you're ready, you can ***publish*** your experiment as a ***web service*** so that your model can be accessed by others. 
+**Azure Machine Learning Studio** gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive ***canvas***, connecting them together to form an ***experiment***, which you ***run*** in Machine Learning Studio. To iterate on your model design, you ***edit*** the experiment, ***save*** a copy if desired, and run it again. When you're ready, you can ***publish*** your experiment as a ***web service*** so that your model can be accessed by others. 
 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
-![ML Studio Overview][ml-studio-overview]
+![Azure ML Studio diagram: Create experiments, read data for many sources, write scored data, write models.][ml-studio-overview]
 
-## Getting started with Machine Learning Studio
+## Get started with Machine Learning Studio
 
 When you first enter Machine Learning Studio, you see the following tabs on the left:
 
@@ -82,7 +83,7 @@ As you build an experiment, the working list of modules is available to the left
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
 
 
-[ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+[ml-studio-overview]:./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
 
 
 <!-- Module References -->

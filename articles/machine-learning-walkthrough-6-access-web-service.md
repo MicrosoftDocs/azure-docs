@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Step 6: Access the Machine Learning web service | Azure" 
-	description="Solution walkthrough step 6: Access an active Azure Machine Learning web service" 
+	pageTitle="Step 6: Access the Machine Learning web service | Microsoft Azure" 
+	description="Step 6 of the Develop a predictive solution walkthrough: Access an active Azure Machine Learning web service." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
