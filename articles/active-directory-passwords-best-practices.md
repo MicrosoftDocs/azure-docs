@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Best Practices: Azure AD Password Management | Microsoft Azure" 
-	description="Deployment & usage best practices and sample end-user documentation & training guides for Password Management in Azure Active Directory." 
+	description="Deployment &amp; usage best practices and sample end-user documentation &amp; training guides for Password Management in Azure Active Directory." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="asteen" 
