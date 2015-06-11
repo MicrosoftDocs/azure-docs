@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Use the sample datasets in Machine Learning Studio | Azure" 
-	description="Descriptions of the sample datasets that are included in Azure Machine Learning Studio" 
+	pageTitle="Use the sample data sets in Machine Learning Studio | Microsoft Azure" 
+	description="Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments." 
+	keywords="data sets,datasets,ml studio,sample data sets"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -17,18 +18,16 @@
 	ms.author="garye"/>
 
 
-# Use the sample datasets in Azure Machine Learning Studio
+# Use the sample data sets in Azure Machine Learning Studio
 
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning, a number of sample experiments and datasets are included by default.
-Many of these sample datasets are used by the sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/), and others are included as examples of various types of data used in machine learning. 
+When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/), and others are included as examples of various types of data used in machine learning. 
 
-Some of these datasets are available in Azure BLOB storage. For these datasets the tables below provide a direct link.
-You can use these datasets in your experiments by using the [Reader][reader] module - to see an example of how to access a dataset, view the properties of the [Reader][reader] module in the sample experiment associated with the dataset.
+Some of these data sets are available in Azure Blob storage. For these data sets the tables below provide a direct link. You can use these data sets in your experiments by using the [Reader][reader] module - to see an example of how to access a dataset, view the properties of the [Reader][reader] module in the sample experiment associated with the dataset.
 
-The rest of these sample datasets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
-You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
+The rest of these sample data sets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
+You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
 
 
 <!--
@@ -39,9 +38,9 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-## Datasets associated with sample models
+## Sample data sets associated with models in the Machine Learning Gallery
 
-The following datasets are used by sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/). 
+The following data sets are used by sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/). 
 For more information about the model and its associated experiment, follow the link in the table to see the model details.
 
 <table>
@@ -170,12 +169,12 @@ For more information about the model and its associated experiment, follow the l
 
 
 
-## Datasets used in sample experiments
+## Data sets used in Machine Learning Studio sample experiments
 
-The following datasets are used by sample experiments that are included in Azure ML Studio but are not used by models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/). 
+The following data sets are used by sample experiments included in [Machine Learning Studio](https://studio.azureml.net/Home). 
 
-You can find these datasets listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
-You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
+You can find these data sets listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
+You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
 
 You can find all of the sample experiments listed here in the **Samples** tab of the **Experiments** page in ML Studio.
 To make a copy of a sample experiment that you can edit, open the experiment in ML Studio and click **Save As**.
@@ -257,11 +256,11 @@ To make a copy of a sample experiment that you can edit, open the experiment in 
 
 
 
-## Miscellaneous sample datasets
+## Miscellaneous sample data sets in Machine Learning Studio
 
-The following datasets are included in ML Studio to provide examples of various types of data used in machine learning.
+The following data sets are included in [Machine Learning Studio](https://studio.azureml.net/Home) to provide examples of various types of data used in machine learning.
 You can find them listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
-You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
+You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
 
 <table>
 <tr>

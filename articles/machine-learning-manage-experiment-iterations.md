@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage experiment iterations in Machine Learning Studio | Azure" 
+	pageTitle="Manage experiment iterations in Machine Learning Studio | Microsoft Azure" 
 	description="How to manage experiment iterations in Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 

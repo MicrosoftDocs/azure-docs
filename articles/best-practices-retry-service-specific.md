@@ -1,7 +1,7 @@
 <properties
    pageTitle="Retry service specific guidance | Microsoft Azure"
    description="Service specific guidance for setting the retry mechanism."
-   services="multiple"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

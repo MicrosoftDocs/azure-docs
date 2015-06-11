@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to consume a Machine Learning web service that has been published from a Machine Learning experiment | Azure" 
+	pageTitle="Consume a Machine Learning web service | Microsoft Azure" 
 	description="Once a machine learning service is published, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service." 
 	services="machine-learning" 
 	solutions="big-data" 
@@ -18,7 +18,7 @@
 	ms.author="bradsev" />
 
 
-# How to consume a published Azure Machine Learning web service
+# How to consume an Azure Machine Learning web service that has been published from a Machine Learning experiment
 
 ## Introduction
 
