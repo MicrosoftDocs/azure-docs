@@ -25,7 +25,7 @@ The [Scenarios for the Advanced Analytics Process and Technology (ADAPT) in Azur
 - [Using Azure SDK in Python](#PythonSDK)
 
 
-> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) to create and schedule a pipeline that will download data from Azure blob storage, pass it to a published Azure Machine Learning web service, receive the predictive analytics results, and upload the results to storage. For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](data-factory-create-predictive-pipelines.md).
+> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) to create and schedule a pipeline that will download data from Azure blob storage, pass it to a published Azure Machine Learning web service, receive the predictive analytics results, and upload the results to storage. For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](./data-factory/data-factory-create-predictive-pipelines.md).
 
 <para></para>
 
