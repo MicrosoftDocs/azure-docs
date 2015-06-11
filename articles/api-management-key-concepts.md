@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="06/10/2015" 
 	ms.author="sdanie"/>
 
 #What is API Management?
 
 API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+
+> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
 
 To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
 
@@ -37,7 +39,9 @@ Products are how APIs are surfaced to developers. Products in API Management hav
 
 Groups are used to manage the visibility of products to developers. Products grant visibility to groups, and developers can view and subscribe to the products that are visible to the groups in which they belong. 
 
-For information, see [How to create and publish a product][].
+For more information, see [How to create and publish a product][] and the following video.
+
+> [AZURE.VIDEO using-products]
 
 ## <a name="groups"> </a> Groups
 
@@ -63,8 +67,13 @@ For more information, see [How to create or invite developers][] and [How to ass
 
 Policies are a powerful capability of API Management that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer, and many other policies are available.
 
-For a complete list of API Management policies, see [Policy reference][]. For more information on using and configuring policies, see [API Management policies][]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][].
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][], [Policy expressions][], and watch the following video.
 
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+
+For a complete list of API Management policies, see [Policy reference][]. For more information on using and configuring policies, see [API Management policies][]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][]. For a demo, see the following video.
+
+> [AZURE.VIDEO rate-limits-and-quotas]
 
 ## <a name="developer-portal"> </a> Developer portal
 

@@ -1,18 +1,19 @@
 <properties 
 	pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" 
 	description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." 
+	services="virtual-machines" 
+	documentationCenter="ruby"
 	authors="MikeWasson" 
 	manager="wadepickett" 
 	editor="" 
-	services="virtual-machines" 
-	documentationCenter=""/>
+	/>
 
 <tags 
 	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.workload="web" 
 	ms.date="02/19/2015" 
 	ms.author="mwasson"/>
 
