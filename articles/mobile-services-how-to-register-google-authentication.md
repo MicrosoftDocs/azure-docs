@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="06/11/2015" 
 	ms.author="glenga"/>
 
 # Register your apps for Google login with Mobile Services
