@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers"
-   description="Provides a conceptual overview of the Azure Resource Usage and RateCard  APIs, which are used to provide insights into Azure resource consumption and trends."
+   description="Provides a unique perspective from Microsoft Azure Billing partner Cloudyn, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloudyn customers that are interesting in using/trying Cloudyn for Azure Services."
    services="billing"
    documentationCenter=""
    authors="BryanLa"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/09/2015"
+   ms.date="06/11/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers 
@@ -59,14 +59,15 @@ Common Cloudyn ITFM use cases enabled by usage and RateCard APIs include:
 + **Category manager** - a powerful feature in Cloudyn that brings order to unorganized cloud resources. It provides users the freedom to create their own unique categories (tags) for effective measuring and reporting that is in line with business practices. Further, users can easily regulate and categorize inconsistent tagging (i.e. typos and other discrepancies) and automatically detect untagged resources for accurate cost attribution.
 <center>![test][7]</center>
 
-## Video Placeholder
-
+## Video 
+[TODO: encode and embed video here]
 
 ## Next Steps
 
-+ [**TODO**:Update link] Check out the [Azure Billing REST API Reference](https://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
-+ [**TODO**:Update link] If you would like to dive right into the sample code, check out our [Usage API and RateCard API samples on Github](https://github.com/Azure/BillingCodeSamples).
-+ + See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
++ See [Gain insights into your Microsoft Azure resource consumption](https://azure.microsoft.com/en-us/documentation/articles/billing-usage-rate-card-overview/) for an overview of the Billing Usage and RateCard APIs. 
++ Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
++ If you would like to dive right into the sample code, check out our [Microsoft Azure Billing API Code Samples on Github](https://github.com/Azure/BillingCodeSamples).
++ See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
 
 <!--Image references-->
 [1]: ./media/azure-billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Overview.png

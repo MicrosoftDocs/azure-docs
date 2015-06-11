@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gain insights into your Microsoft Azure resource consumption"
-   description="Provides a conceptual overview of the Azure Resource Usage and RateCard  APIs, which are used to provide insights into Azure resource consumption and trends."
+   description="Provides a conceptual overview of the Azure Billing Usage and RateCard APIs, which are used to provide insights into Azure resource consumption and trends."
    services="billing"
    documentationCenter=""
    authors="BryanLa"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/09/2015"
+   ms.date="06/11/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Gain insights into your Microsoft Azure resource consumption 
@@ -65,13 +65,13 @@ Here are some of the scenarios that are made possible with the combination of th
 	- Customers and partners can determine if another Azure offer type gives a better rate on an Azure resource.
 
 ## Partner Solutions
-[**TODO**:Update link/text] To learn more about the integration experiences as shared by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/), see [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](azure-billing-usage-rate-card-partner-solution-cloudyn.md).  In this article you will find detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data. 
+To learn more about the integration experiences as shared by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/), see [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md).  In this article you will find detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data. 
 
 
 ## Next Steps
 
-+ [**TODO**:Update link] Check out the [Azure Billing REST API Reference](https://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
-+ [**TODO**:Update link] If you would like to dive right into the sample code, check out our [Usage API and RateCard API samples on Github](https://github.com/Azure/BillingCodeSamples).
++ Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
++ If you would like to dive right into the sample code, check out our [Microsoft Azure Billing API Code Samples on Github](https://github.com/Azure/BillingCodeSamples).
 + + See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
 
 
