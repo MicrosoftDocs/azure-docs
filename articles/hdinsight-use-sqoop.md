@@ -16,9 +16,9 @@
 	ms.date="03/31/2015"
 	ms.author="jgao"/>
 
-[AZURE.INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
-
 #Use Sqoop with Hadoop in HDInsight
+
+[AZURE.INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
 Learn how to use Azure PowerShell and the HDInsight .NET SDK from a workstation to run Sqoop to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 

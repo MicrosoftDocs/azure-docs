@@ -16,9 +16,9 @@
 	ms.date="06/10/2015"
 	ms.author="larryfr"/>
 
-[AZURE.INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
-
 #Use Sqoop with Hadoop in HDInsight
+
+[AZURE.INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
 Learn how to use Sqoop to import and export between a Linux-based HDInsight cluster and an Azure SQL database or SQL Server database.
 
