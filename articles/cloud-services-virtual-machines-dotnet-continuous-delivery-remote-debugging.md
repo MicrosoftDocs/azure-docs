@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Enable remote debugging with continuous delivery"
-	description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure" 
+	description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure"
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="kempb"
@@ -25,7 +25,7 @@ In this topic:
 
 [Enabling remote debugging for virtual machines](#virtualmachine)
 
-<h2> <a name="cloudservice"></a>Enabling remote debugging for cloud services</h2>
+## <a name="cloudservice"></a>Enabling remote debugging for cloud services
 
 1. On the build agent, set up the initial environment for Azure as outlined in [Command-Line Build for Azure](http://msdn.microsoft.com/library/hh535755.aspx).
 2. Because the remote debug runtime (msvsmon.exe) is required for the package, install the [Remote Tools for Visual Studio 2015 RC](http://www.microsoft.com/download/details.aspx?id=46874) (or the [Remote Tools for Visual Studio 2013 Update 5 RC](https://www.microsoft.com/en-us/download/details.aspx?id=46870) if you’re using Visual Studio 2013). As an alternative, you can copy the remote debug binaries from a system that has Visual Studio installed.
