@@ -63,6 +63,7 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and
 9. [Images: Moodle](http://azure.microsoft.com/marketplace/partners/bitnami/moodle270ubuntu1404/)
 11. [Images: Mono as a Service](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
+
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
 
 Debian is an important distribution for the Linux and open-source world based on dpkg and apt-get package management. The MSOpenTech VM Depot has several images to use.
@@ -79,7 +80,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 7. [Images: Apache 2.2.15 on OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [Images: Drupal 7.2, LAMP Server on OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
-### SUSE Enterprise Linux and OpenSUSE
+### SUSE Linux Enterprise Server and openSUSE
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
 11. [How to: Install and Run MySQL](virtual-machines-linux-mysql-use-opensuse.md)
