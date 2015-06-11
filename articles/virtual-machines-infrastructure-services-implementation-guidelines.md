@@ -22,6 +22,8 @@ Azure is an excellent platform to implement dev/test or proof-of-concept configu
 
 This guidance identifies many areas for which planning are vital to the success of an IT workload in Azure. In addition, provides an order to the creation of the necessary resources. Although there is some flexibility, Microsoft recommends that you apply the order in this article to your planning and decision-making.
 
+This article was adapted from the content in the [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft), Hugo Salcedo (Application Development Manager for Microsoft), and Greg Hinkel (former Application Development Manager for Microsoft) for their original material.
+
 > [AZURE.NOTE] Affinity groups have been deprecated and their use is not described here. For more information, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 ## 1. Naming Conventions
