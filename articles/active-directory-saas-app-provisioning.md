@@ -18,12 +18,6 @@
 
 #Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory
 
-[What is It](../active-directory-saas-app-provisioning-what-is/)
-[How it Works](../active-directory-saas-app-provisioning-how-it-works/)
-[Getting Started](../active-directory-saas-app-provisioning-get-started/)
-[Whats Next](../active-directory-saas-app-provisioning-whats-next/)
-[Learn More](../active-directory-saas-app-provisioning-learn-more/) 
-
 ##What is Automated SaaS App User Provisioning?
 
 Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Salesforce, ServiceNow, and more. Some common motivations for using this feature include:
@@ -42,7 +36,7 @@ A key benefit to using Azure AD to handle your SaaS app provisioning is that it'
 
 ##List of Applications that Support Automated Provisioning
 
-Below is a list of the apps that support automated user provisioning today, with links to tutorials on how to get started with integrating these applications:
+Below is a list of the apps that support automated user provisioning today, with links to tutorials on how to get started with integrating them:
 
 1. [Box](http://go.microsoft.com/fwlink/?LinkId=286016)
 2. [Citrix GoToMeeting](http://go.microsoft.com/fwlink/?LinkId=309580)
@@ -57,27 +51,25 @@ Below is a list of the apps that support automated user provisioning today, with
 11. [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
 12. [Workday (inbound provisioning)](https://msdn.microsoft.com/library/azure/dn762434.aspx) (preview)
 
-To request support for additional applications, please contact the engineering team through the following email address: [aad-saas-apps-team@microsoft.com](mailto:aad-saas-apps-team@microsoft.com). The team will then work with you and the application vendor to roll out a provisioning solution in a timely manner.
+To request support for additional applications, please contact the engineering team: [aad-saas-apps-team@microsoft.com](mailto:aad-saas-apps-team@microsoft.com). The team will then work with you and the application vendor to roll out a provisioning solution in a timely manner.
 
 ##Frequently Asked Questions
 
-How frequently does Azure AD check for changes in the directory in order to write them to the application?
+**How frequently does Azure AD check for changes in the directory in order to write them to the application?**
+Azure AD checks for changes every 10 minutes.
 
-> Azure AD checks for changes every 10 minutes.
-
-*If a user is provisioned into a cloud app and then their account info is updated in the application, can that change be written back to Azure AD?*
-
-> Today provisioning can only happen in one direction: it's either outbound or inbound, but not both.
+**If a user is provisioned into a cloud app and then their account info is updated in the application, can that change be written back to Azure AD?**
+Today provisioning can only happen in one direction: it's either outbound or inbound, but not both.
 
 **How long does it take to provision my users?**
 
-> For small and medium-sized directories, it takes only a few minutes. Very large directories may take several hours.
+For small and medium-sized directories, it takes only a few minutes. Very large directories may take several hours.
 
 ***How can I track the progress of the current provisioning job?***
 
 In the Azure Management Portal, visit the Dashboard tab for the application that you are configuring, and look under the "Integration Status" section. [image required]
 
-*What happens if something goes wrong?*
+**What happens if something goes wrong?**
 
 Stuff happens.
 
