@@ -136,33 +136,33 @@ The composite schedule will then start at a time of your choosing and run all-da
 
 ## Questions and answers about bandwidth templates
 
-Q. What happens to bandwidth controls when you are in between the schedules? (A schedule has ended and another one has not started yet.)
+**Q**. What happens to bandwidth controls when you are in between the schedules? (A schedule has ended and another one has not started yet.)
 
-A. In such cases, no bandwidth controls will be employed. This means that the device can use unlimited bandwidth when tiering data to the cloud.
+**A**. In such cases, no bandwidth controls will be employed. This means that the device can use unlimited bandwidth when tiering data to the cloud.
 
-Q. Can you modify bandwidth templates on an offline device?
+**Q**. Can you modify bandwidth templates on an offline device?
 
-A. You will not be able to modify bandwidth templates on volumes containers if the corresponding device is offline.
+**A**. You will not be able to modify bandwidth templates on volumes containers if the corresponding device is offline.
 
-Q. Can you edit a bandwidth template associated with a volume container when the associated volumes are offline?
+**Q**. Can you edit a bandwidth template associated with a volume container when the associated volumes are offline?
 
-A. You can modify a bandwidth template associated with a volume container whose volumes are offline. Note that when volumes are offline, no data will be tiered from the device to the cloud.
+**A**. You can modify a bandwidth template associated with a volume container whose volumes are offline. Note that when volumes are offline, no data will be tiered from the device to the cloud.
 
-Q. Can you delete a default template?
+**Q**. Can you delete a default template?
 
-A. Although you can delete a default template, it is not a good idea to do so. The usage of a default template, including edited versions, is tracked. The tracking data is analyzed and over the course of time, is used to improve the default template.
+**A**. Although you can delete a default template, it is not a good idea to do so. The usage of a default template, including edited versions, is tracked. The tracking data is analyzed and over the course of time, is used to improve the default template.
 
-Q. How do you determine that your bandwidth templates need to be modified?
+**Q**. How do you determine that your bandwidth templates need to be modified?
 
-A. One of the signs that you need to modify the bandwidth templates is when you start seeing the network slow down or choke multiple times in a day. If this happens, monitor the storage and usage network by looking at the I/O Performance and Network Throughput charts.
+**A**. One of the signs that you need to modify the bandwidth templates is when you start seeing the network slow down or choke multiple times in a day. If this happens, monitor the storage and usage network by looking at the I/O Performance and Network Throughput charts.
 
 From the network throughput data, identify the time of day and the volume containers in which the network bottleneck occurs. If this happens when data is being tiered to the cloud (get this information from I/O performance for all volume containers for device to cloud), then you will need to modify the bandwidth templates associated with your volume containers.
 
 After the modified templates are in use, you will need to monitor the network again for significant latencies. If these still exist, then you will need to revisit your bandwidth templates.
 
-Q. What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?
+**Q**. What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?
 
-A. Let us assume you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
+**A**. Let's assume that you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
 
 ## Best practices for bandwidth templates
 
