@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
+	ms.date="06/11/2015"
 	ms.author="jgao"/>
 
 #Use Sqoop with Hadoop in HDInsight (Windows)
