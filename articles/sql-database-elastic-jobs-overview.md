@@ -56,7 +56,7 @@ The following components work together to create an Azure Cloud service that ena
 * **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (a common practice for [Azure diagnostics](cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/).
 
 ## Next steps
-[Install the components](sql-database-elastic-jobs-service-installation.md), then [create and add a log in to each database in the pool](sql-database-elastic-jobs-add-logins-to-dbs.md). To further understand the job creation, see [creating and managing elastic database jobs](sql-database-elastic-jobs-create-and-manage.md).
+[Install the components](sql-database-elastic-jobs-service-installation.md), then [create and add a log in to each database in the pool](sql-database-elastic-jobs-add-logins-to-dbs.md). To further understand job creation and management, see [creating and managing elastic database jobs](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
