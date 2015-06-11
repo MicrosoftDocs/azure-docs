@@ -101,7 +101,7 @@ The **Monitoring** charts display the following metrics.
 | Connections      | Connected Clients |
 | Total Commands   | Total Operations  |
 
-For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](how-to-view-metrics-and-customize-charts) section.
+For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
 
 ## Usage charts
 
@@ -120,7 +120,7 @@ The **Usage** charts display the following metrics.
 | Network Bandwidth | Cache Write   |
 | CPU Usage         | CPU           |
 
-For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](how-to-view-metrics-and-customize-charts) section.
+For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
 
 ## How to view metrics and customize charts
 
