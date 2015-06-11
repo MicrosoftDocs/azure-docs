@@ -16,13 +16,15 @@
 	ms.date="03/31/2015"
 	ms.author="jgao"/>
 
-#Use Sqoop with Hadoop in HDInsight
+#Use Sqoop with Hadoop in HDInsight (Windows)
 
 [AZURE.INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
 Learn how to use Azure PowerShell and the HDInsight .NET SDK from a workstation to run Sqoop to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 
 > [AZURE.NOTE] The steps in this article can be used with either a Windows-based or Linux-based HDInsight cluster; however, these steps will only work from a Windows-based client.
+>
+> If you are using a Linux, OS X, or Unix client and a Linux-based HDInsight server, see [Use Sqoop with Hadoop in HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
 
 ##What is Sqoop?
 
@@ -31,9 +33,6 @@ Although Hadoop is a natural choice for processing unstructured and semistructur
 [Sqoop][sqoop-user-guide-1.4.4] is a tool designed to transfer data between Hadoop clusters and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into an RDBMS. In this tutorial, you are using a SQL Server database for your relational database.
 
 For Sqoop versions that are supported on HDInsight clusters, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
-
-
-
 
 ##Prerequisites
 

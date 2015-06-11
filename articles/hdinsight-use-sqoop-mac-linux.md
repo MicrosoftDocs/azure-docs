@@ -16,7 +16,7 @@
 	ms.date="06/10/2015"
 	ms.author="larryfr"/>
 
-#Use Sqoop with Hadoop in HDInsight
+#Use Sqoop with Hadoop in HDInsight (SSH)
 
 [AZURE.INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -67,7 +67,7 @@ An HDInsight cluster comes with some sample data. You will use a Hive table name
 
 You will first export **hivesampletable** to the Azure SQL database or to SQL Server in a table named **mobiledata**, and then import the table back to HDInsight at **wasb:///tutorials/usesqoop/importeddata**.
 
-##Create a Database
+##Create a database
 
 1. Open a terminal or command prompt and use the following command to create a new Azure SQL Database server:
 
