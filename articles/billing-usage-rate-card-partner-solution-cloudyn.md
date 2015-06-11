@@ -64,7 +64,7 @@ Common Cloudyn ITFM use cases enabled by usage and RateCard APIs include:
 
 ## Next Steps
 
-+ See [Gain insights into your Microsoft Azure resource consumption](https://azure.microsoft.com/en-us/documentation/articles/billing-usage-rate-card-overview/) for an overview of the Billing Usage and RateCard APIs. 
++ See [Gain insights into your Microsoft Azure resource consumption](https://azure.microsoft.com/documentation/articles/billing-usage-rate-card-overview/) for an overview of the Billing Usage and RateCard APIs. 
 + Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
 + If you would like to dive right into the sample code, check out our [Microsoft Azure Billing API Code Samples on Github](https://github.com/Azure/BillingCodeSamples).
 + See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
