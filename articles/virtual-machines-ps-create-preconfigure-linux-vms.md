@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/11/2015" 
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines
@@ -55,7 +55,7 @@ Here are some examples of ImageFamily values for Linux-based computers:
 - CoreOS Alpha
 - SUSE Linux Enterprise Server 12
 
-Open a fresh instance of the text editor of your choice or an instance of the PowerShell Integrated Scripting Environment (ISE). Copy the following into the new text file, substituting the ImageFamily value.
+Open a fresh instance of the text editor of your choice or an instance of the PowerShell Integrated Scripting Environment (ISE). Copy the following into the new text file or the PowerShell ISE, substituting the ImageFamily value.
  
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1

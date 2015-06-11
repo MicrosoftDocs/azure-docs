@@ -46,7 +46,7 @@ Set your Azure subscription and storage account by running these commands at the
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you issue the **Select-AzureSubscription** command. You can also store these commands in a text file for future use.
+You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you issue the **Select-AzureSubscription** command.
 
 ## Step 3: Determine the ImageFamily
 
@@ -65,7 +65,7 @@ Here are some examples of ImageFamily values for Windows-based computers:
 - Windows Server Technical Preview
 - SQL Server 2012 SP1 Enterprise on Windows Server 2012
 
-If you find the image you are looking for, open a fresh instance of the text editor of your choice or an instance of the PowerShell Integrated Scripting Environment (ISE). Copy the following into the new text file or the ISE, substituting the ImageFamily value.
+If you find the image you are looking for, open a fresh instance of the text editor of your choice or the PowerShell Integrated Scripting Environment (ISE). Copy the following into the new text file or the PowerShell ISE, substituting the ImageFamily value.
 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -74,7 +74,7 @@ In some cases, the image name is in the Label property instead of the ImageFamil
 
 	Get-AzureVMImage | select Label -Unique
 
-If you find the right image with this command, open a fresh instance of the text editor of your choice or an instance of the PowerShell ISE. Copy the following into the new text file or the ISE, substituting the Label value.
+If you find the right image with this command, open a fresh instance of the text editor of your choice or the PowerShell ISE. Copy the following into the new text file or the PowerShell ISE, substituting the Label value.
 
 	$label="<Label value>"
 	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -167,9 +167,9 @@ Option 2: Create the virtual machine in an existing cloud service and virtual ne
 
 ## Step 5: Run your command set
 
-Review the Azure PowerShell command set you built in your text editor or the ISE consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
+Review the Azure PowerShell command set you built in your text editor or the PowerShell ISE consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
 
-If you are using a text editor, copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine. Alternately, run the command set in the ISE.
+If you are using a text editor, copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine. Alternately, run the command set in the PowerShell ISE.
 
 If you will be creating this virtual machine again or a similar one, you can:
 

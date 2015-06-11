@@ -133,7 +133,7 @@ Use these commands to list the existing virtual networks.
 
 ## Step 4: Build your command set
 
-Open a fresh instance of the text editor of your choice or an instance of the PowerShell Integrated Scripting Environment (ISE) and copy the following lines to start your command set. Specify the name of the resource group, Azure location, and storage account for this new virtual machine. Replace everything within the quotes, including the < and > characters, with the correct names.
+Open a fresh instance of the text editor of your choice or the PowerShell Integrated Scripting Environment (ISE) and copy the following lines to start your command set. Specify the name of the resource group, Azure location, and storage account for this new virtual machine. Replace everything within the quotes, including the < and > characters, with the correct names.
 
 	Switch-AzureMode AzureResourceManager
 	$rgName="<resource group name>"
