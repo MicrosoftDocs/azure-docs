@@ -51,12 +51,12 @@ The following table lists the power consumption data for the various models of S
  
 | Conditions | 240 V AC | 110 V AC |
 | ---------- | -------- | -------- |
-| Fans slow, drives idle | 1.45 A  1057.76 BTU/hr| 3.19 A  1160.13 BTU/hr|
-| Fans slow, drives accessing | 1.54 A  1126.01 BTU/hr| 3.27 A  1228.37 BTU/hr|
-| Fans fast, drives idle, two PSUs powered | 2.14 A  1671.95 BTU/hr| 4.99 A  1842.56 BTU/hr|
-| Fans fast, drives idle, one PSU powered one idle | 2.05 A  1637.83 BTU/hr| 4.58 A  1706.07 BTU/hr|
-| Fans fast, drives accessing, two PSUs powered | 2.26 A  1740.19 BTU/hr| 4.95 A  1842.56 BTU/hr|
-| Fans fast, drives accessing, one PSU powered one idle | 2.14 A  1671.95 BTU/hr| 4.81 A  1808.44 BTU/hr|
+| Fans slow, drives idle | 1.45 A 0.31 kW  1057.76 BTU/hr| 3.19 A 0.34 kW 1160.13 BTU/hr|
+| Fans slow, drives accessing | 1.54 A 0.33 kW  1126.01 BTU/hr| 3.27 A 0.36 kW 1228.37 BTU/hr|
+| Fans fast, drives idle, two PSUs powered | 2.14 A 0.49 kW  1671.95 BTU/hr| 4.99 A 0.54 kW 1842.56 BTU/hr|
+| Fans fast, drives idle, one PSU powered one idle | 2.05 A   0.48 kW 1637.83 BTU/hr| 4.58 A 0.50 kW 1706.07 BTU/hr|
+| Fans fast, drives accessing, two PSUs powered | 2.26 A 0.51 kW  1740.19 BTU/hr| 4.95 A 0.54 kW 1842.56 BTU/hr|
+| Fans fast, drives accessing, one PSU powered one idle | 2.14 A 0.49 kW 1671.95 BTU/hr| 4.81 A  0.53 kW 1808.44 BTU/hr|
 
 ## Disk drive specifications  
 
@@ -168,5 +168,5 @@ The plug and the complete power cord assembly must meet the standards appropriat
 
 ## Supported network cables  
 
-For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supported network cables and modules](https://msdn.microsoft.com/en-us/library/dn891474.aspx).
+For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supported network cables and modules](https://msdn.microsoft.com/library/dn891474.aspx).
 
