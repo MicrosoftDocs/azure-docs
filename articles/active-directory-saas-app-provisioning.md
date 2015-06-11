@@ -51,19 +51,21 @@ Below is a list of the apps that support automated user provisioning today, with
 11. [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
 12. [Workday (inbound provisioning)](https://msdn.microsoft.com/library/azure/dn762434.aspx) (preview)
 
-To request support for additional applications, please contact the engineering team: [aad-saas-apps-team@microsoft.com](mailto:aad-saas-apps-team@microsoft.com). The team will then work with you and the application vendor to roll out a provisioning solution in a timely manner.
+To request support for additional applications, please contact the engineering team: [aad-saas-apps-team@microsoft.com](mailto:aad-saas-apps-team@microsoft.com). They will then work with you and the SaaS application vendor to roll out a provisioning solution in a timely manner.
 
 ##Frequently Asked Questions
 
-**How frequently does Azure AD check for changes in the directory in order to write them to the application?**
-Azure AD checks for changes every 10 minutes.
+**How frequently does Azure AD update users who have already been provisioned?**
 
-**If a user is provisioned into a cloud app and then their account info is updated in the application, can that change be written back to Azure AD?**
-Today provisioning can only happen in one direction: it's either outbound or inbound, but not both.
+Azure AD checks for changes about every 10 minutes.
 
-**How long does it take to provision my users?**
+**How long will it take to provision my users?**
 
-For small and medium-sized directories, it takes only a few minutes. Very large directories may take several hours.
+Incremental changes happen fairly quickly but if you are trying to provision most of your directory, then it depends on the number of users that you have. Small directories take only a few minutes, medium-sized directories may take several minutes, and very large directories may take hours.
+
+**Can Azure AD write changes from the SaaS app to the directory?**
+
+Today provisioning works in only one direction: it's either outbound or inbound, but not both. Therefore, if you use Azure AD to provision a user to a SaaS app, and then that SaaS app modified a user property, we don't yet support the ability to have that modification written back to the directory.
 
 ***How can I track the progress of the current provisioning job?***
 
