@@ -49,7 +49,7 @@ Before you begin this tutorial, you must have the following:
 
 ##Understand the scenario
 
-An HDInsight cluster comes with some sample data. You will use a Hive table named *hivesampletable*, which references the data file located at *wasb:///hive/warehouse/hivesampletable*. The table contains some mobile device data. The Hive table schema is:
+An HDInsight cluster comes with some sample data. You will use a Hive table named **hivesampletable**, which references the data file located at **wasb:///hive/warehouse/hivesampletable**. The table contains some mobile device data. The Hive table schema is:
 
 | Field | Data type |
 | ----- | --------- |
@@ -65,9 +65,7 @@ An HDInsight cluster comes with some sample data. You will use a Hive table name
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-You will first export *hivesampletable* to the Azure SQL database or to SQL Server in a table named *mobiledata*, and then import the table back to HDInsight by using the following path:
-
-	wasb:///tutorials/usesqoop/importeddata
+You will first export **hivesampletable** to the Azure SQL database or to SQL Server in a table named **mobiledata**, and then import the table back to HDInsight at **wasb:///tutorials/usesqoop/importeddata**.
 
 ##Create a Database
 
