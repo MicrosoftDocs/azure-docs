@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create a StorSimple Manager service"
+   pageTitle="Create and manage the StorSimple Manager service"
    description="Explains how to create and delete the StorSimple Manager service in the Management Portal, and describes how to manage the service registration key."
    services="storsimple"
    documentationCenter=""
@@ -15,7 +15,7 @@
    ms.date="06/12/2015"
    ms.author="v-sharos" />
 
-# Create a StorSimple Manager service
+# Create and manage the StorSimple Manager service
 
 ## Overview
 
