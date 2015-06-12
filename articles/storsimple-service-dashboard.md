@@ -19,7 +19,7 @@
 
 ## Overview
 
-The StorSimple Manager service dashboard provides a summary view of all the devices that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. 
+The StorSimple Manager service dashboard provides a summary view of all the devices that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. This tutorial introduces the dashboard and explains the dashboard content and function.
 
 ![Service dashboard](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
 
@@ -55,7 +55,7 @@ Service data encryption keys are used to encrypt confidential customer data, suc
 
 This following steps describe the rollover process for your service data encryption key.
 
-[AZURE.INCLUDE [storsimple-change-data-encryption-key](../includes/storsimple-change-data-encryption-key.md)
+[AZURE.INCLUDE [storsimple-change-data-encryption-key](../includes/storsimple-change-data-encryption-key.md)]
 
 ## View the operations logs
 
