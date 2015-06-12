@@ -17,7 +17,7 @@
 
 # Configure a VPN gateway in the Management Portal
 
-A VPN gateway is required to create a secure cross-premises connection. There are different types of gateways. The type of gateway you select to create depends on your network design plan and the type of on-premises VPN devices you have. For example, some connectivity options require a dynamic routing gateway. You'll want to make sure the device you are using supports the gateway type that you want to create. See [About Gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+If you want to create a secure cross-premises connection between Azure and your on-premises location, you'll need to configure a VPN gateway. There are different types of gateways and the type of gateway you'll create depends both on your network design plan, and the on-premises VPN device you want to use. For example, some connectivity options, such as a point-to-site connection, require a dynamic routing gateway. If you want to configure your gateway to support both point-to-site (P2S) connections and a site-to-site (S2S) connection, you'll have to configure a dynamic routing gateway even though site-to-site can be configured with either gateway routing type. Additionally, you'll have to make sure the device you want to use for your site-to-site connection will support the gateway type that you want to create. See [About Gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
 
 ## Procedure workflow
 
@@ -118,11 +118,11 @@ On the **Dashboard** page you can view the following:
 - The shared key that is used to configure your gateway connection to your VPN device.
 
 
-## How to change your gateway type
+## How to change your VPN gateway type
 
-Some connectivity configurations are only available for certain gateway types. For example, you may want to add Point-to-Site connectivity to an already existing Site-to-Site connection that has a static gateway. Point-to-Site requires a dynamic gateway, which means in order to configure it, you'll have to change your gateway type.
+Because some connectivity configurations are only available for certain gateway types, you may find that you need to change the gateway type of an existing VPN gateway. For example, you may want to add point-to-site connectivity to an already existing site-to-site connection that has a static gateway. Point-to-site requires a dynamic gateway, which means in order to configure it, you'll have to change your gateway type from static to dynamic.
 
-If you need to change a VPN gateway routing type, from static to dynamic or dynamic to static, you'll delete the existing gateway, and then recreate it with the new routing type. You don't need to delete the entire virtual network in order to change the gateway routing type.
+If you need to change a VPN gateway routing type, you'll delete the existing gateway, and then recreate it with the new routing type. You don't need to delete the entire virtual network in order to change the gateway routing type.
 
 Before changing your gateway type, be sure to verify that your VPN device will support the routing type that you want to use. To download new routing configuration samples and check VPN device requirements, see [About VPN Devices for Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkID=615934).
 
