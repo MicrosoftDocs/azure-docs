@@ -86,4 +86,4 @@ Below is a list of tutorials on how to configure your SaaS application to use Az
 9. [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 10. [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 11. [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-12. [Workday (inbound provisioning)](https://msdn.microsoft.com/library/azure/dn762434.aspx) (preview)
+12. [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx) (inbound provisioning)
