@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using Linear Regression in Azure Machine Learning | Azure" 
+	pageTitle="Using Linear Regression in Machine Learning | Microsoft Azure" 
 	description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
 	metaKeywords="" 
 	services="machine-learning" 

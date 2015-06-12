@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Author Custom R Modules in Azure Machine Learning | Azure" 
+	pageTitle="Author Custom R Modules in Azure Machine Learning | Microsoft Azure" 
 	description="Quick start for authoring custom R modules in Azure Machine Learning." 
 	services="machine-learning" 
 	documentationCenter="" 
