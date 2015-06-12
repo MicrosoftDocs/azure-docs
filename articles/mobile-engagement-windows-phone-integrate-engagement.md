@@ -201,7 +201,7 @@ We recommend to call `StartActivity` inside your `OnNavigatedTo` method of your 
 
 > [AZURE.IMPORTANT] Ensure you end your session correctly.
 >
-> The SDK automatically calls the `EndActivity` method when the application is closed. Thus, it is **HIGHLY** recommended to call the `StartActivity` method whenever the activity of the user change, and to **NEVER** call the `EndActivity` method, this method sends to Engagement server that current user has leave the application, this will impacts all application logs.
+> The SDK automatically calls the `EndActivity` method when the application is closed. Thus, it is **HIGHLY** recommended to call the `StartActivity` method whenever the activity of the user change, and to **NEVER** call the `EndActivity` method. This method sends a message to the Engagement server that the current user has left the application and this impacts all application logs.
 
 ##Advanced reporting
 
