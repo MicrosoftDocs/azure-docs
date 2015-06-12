@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""
-	tags="Azure Resource Manager"/>
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
