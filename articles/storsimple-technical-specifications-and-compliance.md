@@ -28,6 +28,7 @@ The hardware components of your Microsoft Azure StorSimple device adhere to the 
 The StorSimple device has two 100-240V dual fan, SBB-compliant Power Cooling Modules (PCMs). This provides a redundant power configuration. If a PCM fails, the device continues to operate normally on the other PCM until the failed module is replaced.  
 
 The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The following tables list the technical specifications associated with the PCMs.
+
 | Specification           | 580 W PCM (EBOD)                                    | 764 W PCM (Primary)                                |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
 | Maximum output power    | 580 W                                               | 764                                                |
@@ -47,15 +48,16 @@ The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The
 ## Power consumption statistics  
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the various models of StorSimple device. 
+
  
-| Conditions |240 V AC|240 V AC|240 V AC||110 V AC|110 V AC|110 V AC|
+| Conditions | 240 V AC | 240 V AC | 240 V AC || 110 V AC | 110 V AC | 110 V AC |
 | ---------- | -------- | -------- |
-| Fans slow, drives idle |1.45 A|0.31 kW|1057.76 BTU/hr||3.19 A|0.34 kW|1160.13 BTU/hr|
-| Fans slow, drives accessing |1.54 A|0.33 kW |1126.01 BTU/hr||3.27 A |0.36 kW |1228.37 BTU/hr|
-| Fans fast, drives idle, two PSUs powered |2.14 A| 0.49 kW  |1671.95 BTU/hr|| 4.99 A |0.54 kW |1842.56 BTU/hr|
-| Fans fast, drives idle, one PSU powered one idle | 2.05 A | 0.48 kW |1637.83 BTU/hr| |4.58 A |0.50 kW |1706.07 BTU/hr|
-| Fans fast, drives accessing, two PSUs powered | 2.26 A|0.51 kW|1740.19 BTU/hr||4.95 A|0.54 kW|1842.56 BTU/hr|
-| Fans fast, drives accessing, one PSU powered one idle | 2.14 A |0.49 kW |1671.95 BTU/hr|| 4.81 A  |0.53 kW |1808.44 BTU/hr|
+| Fans slow, drives idle | 1.45 A  |0.31 kW | 1057.76 BTU/hr || 3.19 A | 0.34 kW | 1160.13 BTU/hr |
+| Fans slow, drives accessing | 1.54 A | 0.33 kW | 1126.01 BTU/hr || 3.27 A | 0.36 kW | 1228.37 BTU/hr |
+| Fans fast, drives idle, two PSUs powered | 2.14 A | 0.49 kW  | 1671.95 BTU/hr || 4.99 A | 0.54 kW | 1842.56 BTU/hr |
+| Fans fast, drives idle, one PSU powered one idle | 2.05 A | 0.48 kW | 1637.83 BTU/hr | | 4.58 A | 0.50 kW | 1706.07 BTU/hr |
+| Fans fast, drives accessing, two PSUs powered | 2.26 A | 0.51 kW | 1740.19 BTU/hr || 4.95 A | 0.54 kW | 1842.56 BTU/hr |
+| Fans fast, drives accessing, one PSU powered one idle | 2.14 A |0.49 kW | 1671.95 BTU/hr || 4.81 A  | 0.53 kW | 1808.44 BTU/hr |
 
 ## Disk drive specifications  
 
