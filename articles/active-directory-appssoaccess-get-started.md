@@ -78,8 +78,8 @@ For gallery apps that support federated single sign-on, configuration typically 
 
 For gallery apps that support automatic user provisioning, this requires you to give Azure AD permissions to manage your accounts in the SaaS application. At a minimum, you need to provide credentials Azure AD should use when authenticating over to the target application. Whether additional configuration settings need to be provided depends on the requirements of the application.
 
-[Next: Deploying applications to users](active-directory-appssoaccess-deployapps.md
+[Next: Deploying applications to users](active-directory-appssoaccess-deployapps.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-appssoaccess-get-started/onlineappgallery.png
-[2]: ./media/active-directory-appssoaccess-get-started/azuremgmtportal.png
+[1]: ./media/active-directory-appssoaccess-get-started/onlineappgallery.PNG
+[2]: ./media/active-directory-appssoaccess-get-started/azuremgmtportal.PNG

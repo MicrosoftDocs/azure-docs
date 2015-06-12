@@ -38,8 +38,11 @@ Azure AD enables easy integration to many of today’s popular SaaS applications
 The architecture of the integration consists of the following four main building blocks:
 
 * Single sign-on enables users to access their SaaS applications based on their organizational account in Azure AD. Single sign-on is what enables users to authenticate to an application using their single organizational account.
+
 * User provisioning enables user provisioning and de-provisioning into target SaaS based on changes made in Windows Server Active Directory and/or Azure AD. A provisioned account is what enables a user to be authorized to use an application, after they have authenticated through single sign-on.
+
 * Centralized application access management in the Azure Management Portal enables single point of SaaS application access and management, with the ability to delegate application access decision making and approvals to anyone in the organization
+
 * Unified reporting and monitoring of user activity in Azure AD
 
 [Next: How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-works.md)
