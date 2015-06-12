@@ -28,9 +28,9 @@ You do not have anything to add. `EngagementReach` references and resources are 
 
 ##Enable the Windows Notification Service
 
-In order to use the **Windows Notification Service** (referred as WNS) in your `Package.appxmanifest` file on `Application UI` click on `All Image Assets` in the left bot box. At the right of the box in `Notifications`, change `toast capable` from `(not set)` to `Yes`.
+In order to use the **Windows Notification Service** (referred as WNS) in your `Package.appxmanifest` file on `Application UI` click on `All Image Assets` in the left bot box. At the right of the box in `Notifications`, change `toast capable` from `(not set)` to `(Yes)`.
 
-Moreover, you need to synchronize your app to your Microsoft account and to the engagement platform. On the engagement frontend, go on your app setting in `native push` and paste your credentials. After that, right click on your project, select `store` and `Associate App with the Store...`.
+Moreover, you need to synchronize your app to your Microsoft account and to the engagement platform. For this you need to create an account or log on [windows dev center](https://dev.windows.com). After that create a new application and find the SID and secret key. On the engagement frontend, go on your app setting in `native push` and paste your credentials. After that, right click on your project, select `store` and `Associate App with the Store...`. You just need to select the application you have create before to synchronize it.
 
 ##Initialize the Engagement Reach SDK
 
@@ -48,7 +48,7 @@ Modify the `App.xaml.cs`:
 		  EngagementReach.Instance.Init(args);
 		}
 
--   If you want to launch engagement reach when your app is activated, override `OnActivated` method:
+-   If you want to enable engagement reach when your app is activated by a command, another application or a custom scheme, override `OnActivated` method:
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
@@ -64,17 +64,17 @@ Modify the `App.xaml.cs`:
 
 Engagement provides two ways to implement Reach notification and announcement: the Overlay integration and the Web View integration.
 
-windows-sdk-engagement-overlay-integration doesn't require a lot of code to write into your application. You just need to tag your pages, xaml and cs files, with EngagementPageOverlay. Moreover, if you customize the Engagement default view, your customization will be shared with all tagged pages and just defined once. But if your pages need to inherit from an object other than EngagementPageOverlay, you are stuck and forced to use Web View integration.
+Overlay integration doesn't require a lot of code to write into your application. You just need to tag your pages, xaml and cs files, with EngagementPageOverlay. Moreover, if you customize the Engagement default view, your customization will be shared with all tagged pages and just defined once. But if your pages need to inherit from an object other than EngagementPageOverlay, you are stuck and forced to use Web View integration.
 
-windows-sdk-engagement-webview-integration is more complicated to be implemented. But if your App pages need to inherit from an object other than "Page", then you have to integrate the Web View and its behavior.
+Webview integration is more complicated to be implemented. But if your App pages need to inherit from an object other than "Page", then you have to integrate the Web View and its behavior.
 
-> [AZURE.TIP] You should consider adding a first level `<Grid></Grid>` element to surround all page content. For Webview integration, just add Webview as child of this grid. If you need to set Engagement component elsewhere, remember that you have to manage the display size yourself.
+> [AZURE.TIP] You should consider adding a root level `<Grid></Grid>` element to surround all page content. For Webview integration, just add Webview as child of this grid. If you need to set Engagement component elsewhere, remember that you have to manage the display size yourself.
 
 ### Overlay integration
 
 Engagement provides an overlay for notification and announcement display.
 
-If you want to use it, do not use windows-sdk-engagement-webview-integration.
+If you want to use it, do not use webview integration.
 
 In your .xaml file change EngagementPage reference to EngagementPageOverlay
 
@@ -157,7 +157,7 @@ You can customize the overlay notification and announcement directly on their xa
 
 ### Web View integration
 
-If you want to use it, do not use windows-sdk-engagement-overlay-integration.
+If you want to use it, do not use Overlay integration.
 
 To display engagement content, you need to integrate the two xaml WebView in each page and you need to display notification and announcement. So add this code in your xaml file:
 
