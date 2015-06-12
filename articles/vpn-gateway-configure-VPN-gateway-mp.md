@@ -103,7 +103,7 @@ To add or edit the ranges for a Local Network, follow the procedure below.
 
 1. On the **Specify the address space** page, make your network address space changes. Then click the checkmark to save your configuration.
 
-## How to view gateway traffic?
+## How to view gateway traffic
 
 You can view your gateway and gateway traffic from your Virtual Network **Dashboard** page.
 
