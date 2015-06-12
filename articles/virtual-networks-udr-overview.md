@@ -87,5 +87,5 @@ To learn how to enable IP forwarding for a VM in Azure, see [How to Create Route
 
 ## Next Steps
 
-- Learn how to [create routes](/virtual-networks-udr-how-to#How-to-manage-routes) and associate them to subnets.
-- Learn how to [enable IP forwarding for a VM running a virtual appliance](/virtual-networks-udr-how-to#How-to-Manage IP-Forwarding)
+- Learn how to [create routes](../virtual-networks-udr-how-to#How-to-manage-routes) and associate them to subnets.
+- Learn how to [enable IP forwarding for a VM running a virtual appliance](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding)
