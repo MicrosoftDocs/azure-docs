@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="06/09/2015"
 	ms.author="curtand"/>
 
 
@@ -36,14 +36,17 @@ Azure Active Directory (Azure AD) provides an easy way for your business to mana
 
 
 ## What can Azure Active Directory do for me?
-Tap a tile for more information on Azure Active Directory capabilities.<br><br>
-[![Single sign-on](./media/active-directory-whatis/AzureADSingleSignon.png)](active-directory-aadconnect-learn-more.md)
-[![Reporting + analytics](./media/active-directory-whatis/AzureADReportingAnalytics.png)](active-directory-view-access-usage-reports.md)
-[![Self-service](./media/active-directory-whatis/AzureADSelfService.png)](http://aka.ms/ssproverview)
-[![On-premises applications](./media/active-directory-whatis/AzureADOnPremApps.png)](active-directory-application-proxy-configure.md)
-[![Service level agreement](./media/active-directory-whatis/AzureADSLA.png)](https://msdn.microsoft.com/library/azure/dn532272.aspx)
-[![Identity management](./media/active-directory-whatis/AzureADIdentityManagement.png)](fundamentals-identity.md)
-[![Access management](./media/active-directory-whatis/AzureADAccessManagement.png)](https://msdn.microsoft.com/library/azure/dn906873.aspx)
+Follow the links for more information on Azure Active Directory capabilities.
+
+
+- [Single sign-on](https://msdn.microsoft.com/library/azure/dn510976.aspx)
+- [Reporting + analytics](active-directory-view-access-usage-reports.md)
+- [Self-service](http://aka.ms/ssproverview)
+- [On-premises applications](active-directory-application-proxy-configure.md)
+- [Service level agreement](https://msdn.microsoft.com/library/azure/dn532272.aspx)
+- [Identity management](fundamentals-identity.md)
+- [Access management](https://msdn.microsoft.com/library/azure/dn906873.aspx)
+
 
 ## Additional Resources
 
