@@ -21,7 +21,7 @@
 
 ### Can I connect virtual networks in different Azure regions?
 
-Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in different Azure region.
+Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region.
 ### Can I connect virtual networks in different subscriptions?
 
 Yes.
@@ -44,7 +44,7 @@ Virtual Network supports the following cross-premises connections:
 
 ### How is Site-to-Site different from Point-to-Site?
 
-**Site-to-site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. It relies on an IPsec VPN appliance (hardware or soft appliance) to be deployed at the edge of your network for connectivity. In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.
+**Site-to-site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.
 
 **Point-to-site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection.
 
