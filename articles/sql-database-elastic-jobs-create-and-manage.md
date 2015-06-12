@@ -29,12 +29,15 @@
 ## Creating jobs
 
 1. In the elastic database job pool blade, click **Create job**.
-2. Type in the name and password of the database administrator (created at installation).
-2. In the **Create Job** blade, type a name for the job.
-3. Paste or type in the T-SQL script.
-4. Click **Save** and then click **Run**.
+2. Type in the username and password of the database administrator (created at installation of Jobs) for the Jobs Control DB (metadata storage for jobs).
 
 	![Name the job, type or paste in code, and click Run][1]
+2. In the **Create Job** blade, type a name for the job.
+3. Type the user name and password to connect to the target databases with sufficient permissions for script execution to succeed.
+4. Paste or type in the T-SQL script.
+5. Click **Save** and then click **Run**.
+
+	![Create jobs and run][5]
 
 ## Run idempotent jobs
 
@@ -103,4 +106,5 @@ If a job fails, a log of its execution can found. Click the name of the failed j
 [2]: ./media/sql-database-elastic-jobs-create-and-manage/click-manage-jobs.png
 [3]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
-[5]: ./media/sql-database-elastic-jobs-create-and-manage/provide-creds.png
+[5]: ./media/sql-database-elastic-jobs-create-and-manage/screen-2.png
+
