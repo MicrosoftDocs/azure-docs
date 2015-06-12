@@ -61,7 +61,7 @@ At the end of the provisioning configuration wizard there is an option to subscr
 Azure AD provisions users to SaaS apps by connecting to provisioning endpoints provided by each application vendor. These endpoints allow Azure AD to programmatically create, update, and remove users. Below is a brief overview of the different steps that Azure AD takes to automate provisioning.
 
 1. When you enable provisioning for an application for the first time, the following actions are performed:
- - Azure AD will attempt to match any existing users in the SaaS app with their corresponding identities in the directory. <!---For more info, see the section on [how existing users get matched](#matching-existing-saas-app-users-with-the-directory).-->
+ - Azure AD will attempt to match any existing users in the SaaS app with their corresponding identities in the directory.
  - When a user is matched, they are automatically assigned access to the application, which enables them for single sign-on.
  - If you have already specified which users should be assigned, and if Azure AD fails to find existing accounts for those users, Azure AD will provision new accounts for them in the SaaS app.
 2. Once the above setup stage has been completed, Azure AD will check every 10 minutes for the following changes:
@@ -82,11 +82,8 @@ Below is a list of tutorials on how to configure your SaaS application to use Az
 4. [Docusign](http://go.microsoft.com/fwlink/?LinkId=403254)
 5. [Dropbox for Business](http://go.microsoft.com/fwlink/?LinkId=309581)
 6. [Google Apps](http://go.microsoft.com/fwlink/?LinkId=309577)
-7. [Jive](http://go.microsoft.com/fwlink/?LinkId=309591) <!---8. [Netsuite](http://go.microsoft.com/fwlink/?LinkId=403239) (preview)-->
+7. [Jive](http://go.microsoft.com/fwlink/?LinkId=309591)
 9. [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 10. [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 11. [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
 12. [Workday (inbound provisioning)](https://msdn.microsoft.com/library/azure/dn762434.aspx) (preview)
-
-<!---To request provisioning support for additional applications, please submit your request through the [Azure Active Directory Feedback Forum](http://feedback.azure.com/forums/169401-azure-active-directory).-->
-
