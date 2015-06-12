@@ -1,24 +1,28 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK Reach Integration" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK Reach Integration"
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="02/12/2015"
 	ms.author="kapiteir" />
 
 #How to Integrate Engagement Reach on iOS
 
 > [AZURE.IMPORTANT] You must follow the integration procedure described in the How to Integrate Engagement on iOS document before following this guide.
+
+##Enable your app to receive Silent Push Notifications
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
 ##Integration steps
 
@@ -39,7 +43,7 @@
 			  AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
 			  [...]
-			
+
 			  return YES;
 			}
 
@@ -59,7 +63,7 @@
 			   NSLog(@"String data push message with category <%@> received: %@", category, body);
 			   return YES;
 			}
-			
+
 			-(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
 			{
 			   NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
@@ -94,7 +98,7 @@ If it's not done already, you need to register your application to receive push 
 			  [application registerForRemoteNotifications];
 			}
 			else {
-			
+
 			  [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 			}
 
@@ -144,55 +148,55 @@ Here is a full example of integration:
 
 			#pragma mark -
 			#pragma mark Application lifecycle
-			
+
 			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 			{
 			  /* Reach module */
 			  AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			  [reach setAutoBadgeEnabled:YES];
-			
+
 			  /* Engagement initialization */
 			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
 			  [[EngagementAgent shared] setPushDelegate:self];
-			
+
 			  /* Views */
 			  [window addSubview:[tabBarController view]];
 			  [window makeKeyAndVisible];
-			
+
 			  [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
 			  return YES;
 			}
-			
+
 			- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 			{
 			  [[EngagementAgent shared] registerDeviceToken:deviceToken];
 			}
-			
+
 			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 			{
 			  [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
 			}
-			
-			
+
+
 			#pragma mark -
 			#pragma mark Engagement push delegate
-			
+
 			-(void)willRetrieveLaunchMessage
 			{
 			  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 			}
-			
+
 			-(void)didReceiveLaunchMessage:(AEPushMessage *)launchMessage
 			{
 			  /* Hide network activity indicator */
 			  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 			}
-			
+
 			-(void)didFailToRetrieveLaunchMessage
 			{
 			  /* Hide network activity indicator */
 			  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-			
+
 			  /* Display an error alert */
 			  UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil)
 			                         message:NSLocalizedString(@"Could not retrieve message.", nil)
@@ -239,14 +243,14 @@ For example, if you want to redefine the notification view for a specific catego
 			#import "AENotificationView.h"
 			@interface MyNotifier : AEDefaultNotifier
 			@end
-			
+
 			@implementation MyNotifier
-			
+
 			-(NSString*)nibNameForCategory:(NSString*)category
 			{
 			  return "MyNotificationView";
 			}
-			
+
 			@end
 
 This simple example of category assume that you have a file named `MyNotificationView.xib` in your main application bundle. If the method is not able to find a corresponding `.xib`, the notification will not be displayed and Engagement will output a message in the console.
@@ -331,15 +335,15 @@ In your implementation of the `AEAnnouncementViewController` class you will have
 			-(void)loadView
 			{
 			    [super loadView];
-			
+
 			    UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 60)];
 			    titleLabel.font = [UIFont systemFontOfSize:32.0];
 			    titleLabel.text = self.announcement.title;
-			
+
 			    UILabel* bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 60)];
 			    bodyLabel.font = [UIFont systemFontOfSize:24.0];
 			    bodyLabel.text = self.announcement.body;
-			
+
 			    [self.view addSubview:titleLabel];
 			    [self.view addSubview:bodyLabel];
 			}
@@ -375,13 +379,13 @@ Like for advanced notification customization, it is recommended to look at the s
 			  UIButton* okButton;
 			  UIButton* cancelButton;
 			}
-			
+
 			@property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 			@property (nonatomic, retain) IBOutlet UITextView* descTextView;
 			@property (nonatomic, retain) IBOutlet UIWebView* htmlWebView;
 			@property (nonatomic, retain) IBOutlet UIButton* okButton;
 			@property (nonatomic, retain) IBOutlet UIButton* cancelButton;
-			
+
 			-(IBAction)okButtonClicked:(id)sender;
 			-(IBAction)cancelButtonClicked:(id)sender;
 
@@ -394,7 +398,7 @@ Like for advanced notification customization, it is recommended to look at the s
 			@synthesize htmlWebView;
 			@synthesize okButton;
 			@synthesize cancelButton;
-			
+
 			-(id)initWithAnnouncement:(AEReachAnnouncement*)anAnnouncement
 			{
 			  self = [super initWithNibName:@"CustomAnnouncementViewController" bundle:nil];
@@ -403,7 +407,7 @@ Like for advanced notification customization, it is recommended to look at the s
 			  }
 			  return self;
 			}
-			
+
 			- (void) dealloc
 			{
 			  [titleLabel release];
@@ -413,13 +417,13 @@ Like for advanced notification customization, it is recommended to look at the s
 			  [cancelButton release];
 			  [super dealloc];
 			}
-			
+
 			- (void)viewDidLoad {
 			  [super viewDidLoad];
-			
+
 			  /* Init announcement title */
 			  titleLabel.text = self.announcement.title;
-			
+
 			  /* Init announcement body */
 			  if(self.announcement.type == AEAnnouncementTypeHtml)
 			  {
@@ -433,27 +437,26 @@ Like for advanced notification customization, it is recommended to look at the s
 			    htmlWebView.hidden = YES;
 			    descTextView.text = self.announcement.body;
 			  }
-			
+
 			  /* Set action button label */
 			  if([self.announcement.actionLabel length] > 0)
 			    [okButton setTitle:self.announcement.actionLabel forState:UIControlStateNormal];
-			
+
 			  /* Set exit button label */
 			  if([self.announcement.exitLabel length] > 0)
 			    [cancelButton setTitle:self.announcement.exitLabel forState:UIControlStateNormal];
 			}
-			
+
 			#pragma mark Actions
-			
+
 			-(IBAction)okButtonClicked:(id)sender
 			{
 			    [self action];
 			}
-			
+
 			-(IBAction)cancelButtonClicked:(id)sender
 			{
 			    [self exit];
 			}
-			
+
 			@end
- 

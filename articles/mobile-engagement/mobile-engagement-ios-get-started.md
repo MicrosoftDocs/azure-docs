@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="04/30/2015"
 	ms.author="piyushjo" />
 
@@ -173,6 +173,11 @@ This section shows you how to make sure your app connects to the Mobile Engageme
 
 Mobile Engagement allows you to interact and REACH with your users with Push Notifications and In-app Messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
 The following sections will setup your app to receive them.
+
+### Enable your app to receive Silent Push Notifications
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../includes/mobile-engagement-ios-silent-push.md)]  
+
 
 ### Add the Reach library to your project
 

@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="04/30/2015"
 	ms.author="piyushjo" />
 
@@ -24,7 +24,6 @@
 - [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users to an iOS application.
 In this tutorial, you create a blank iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties.
@@ -44,7 +43,7 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 <!--
 ##<a id="register"></a>Enable Apple Push Notification Service
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 -->
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your app
@@ -186,6 +185,10 @@ This section shows you how to make sure your app connects to the Mobile Engageme
 Mobile Engagement allows you to interact and REACH with your users with Push Notifications and In-app Messaging in the context of campaigns. This module is called REACH in the Mobile Engagement portal.
 The following sections will setup your app to receive them.
 
+### Enable your app to receive Silent Push Notifications
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
+
 ### Add the Reach library to your project
 
 1. Right click your project
@@ -315,28 +318,27 @@ We will now create a simple Push Notification campaign that will send a push to 
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
 
 <!-- Images. -->
-[7]: ./media/mobile-engagement-ios-swift-get-started/create-mobile-engagement-app.png
-[8]: ./media/mobile-engagement-ios-swift-get-started/create-azme-popup.png
-[10]: ./media/mobile-engagement-ios-swift-get-started/app-main-page-select-connection-info.png
-[11]: ./media/mobile-engagement-ios-swift-get-started/app-connection-info-page.png
-[12]: ./media/mobile-engagement-ios-swift-get-started/xcode-new-project.png
+[7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png
+[8]: ./media/mobile-engagement-common/create-azme-popup.png
+[10]: ./media/mobile-engagement-common/app-main-page-select-connection-info.png
+[11]: ./media/mobile-engagement-common/app-connection-info-page.png
+[12]: ./media/mobile-engagement-ios-get-started/xcode-new-project.png
 [13]: ./media/mobile-engagement-ios-get-started/xcode-project-props.png
-[14]: ./media/mobile-engagement-ios-swift-get-started/xcode-simple-view.png
-[17]: ./media/mobile-engagement-ios-swift-get-started/xcode-add-files.png
-[18]: ./media/mobile-engagement-ios-swift-get-started/xcode-select-engagement-sdk.png
-[19]: ./media/mobile-engagement-ios-swift-get-started/xcode-build-phases.png
+[14]: ./media/mobile-engagement-ios-get-started/xcode-simple-view.png
+[17]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
+[18]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
+[19]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [22]: ./media/mobile-engagement-ios-get-started/xcode-view-controller.png
-[26]: ./media/mobile-engagement-ios-swift-get-started/engage-button.png
-[27]: ./media/mobile-engagement-ios-swift-get-started/engagement-portal.png
-[28]: ./media/mobile-engagement-ios-swift-get-started/native-push-settings.png
-[30]: ./media/mobile-engagement-ios-swift-get-started/clic-monitor-tab.png
-[31]: ./media/mobile-engagement-ios-swift-get-started/monitor.png
-[33]: ./media/mobile-engagement-ios-swift-get-started/monitor-0.png
-[35]: ./media/mobile-engagement-ios-swift-get-started/new-announcement.png
-[36]: ./media/mobile-engagement-ios-swift-get-started/campaign-first-params.png
-[37]: ./media/mobile-engagement-ios-swift-get-started/campaign-content.png
-[38]: ./media/mobile-engagement-ios-swift-get-started/campaign-create.png
-[39]: ./media/mobile-engagement-ios-swift-get-started/campaign-activate.png
-[40]: ./media/mobile-engagement-ios-swift-get-started/SwiftSelection.png
-[41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png
- 
+[26]: ./media/mobile-engagement-common/engage-button.png
+[27]: ./media/mobile-engagement-common/engagement-portal.png
+[28]: ./media/mobile-engagement-ios-get-started/native-push-settings.png
+[30]: ./media/mobile-engagement-common/clic-monitor-tab.png
+[31]: ./media/mobile-engagement-common/monitor.png
+[33]: ./media/mobile-engagement-ios-get-started/monitor-0.png
+[35]: ./media/mobile-engagement-common/new-announcement.png
+[36]: ./media/mobile-engagement-ios-get-started/campaign-first-params.png
+[37]: ./media/mobile-engagement-common/campaign-content.png
+[38]: ./media/mobile-engagement-common/campaign-create.png
+[39]: ./media/mobile-engagement-common/campaign-activate.png
+[40]: ./media/mobile-engagement-ios-get-started/SwiftSelection.png
+[41]: ./media/mobile-engagement-ios-get-started/AddHeaderFile.png
