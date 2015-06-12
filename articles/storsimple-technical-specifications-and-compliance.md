@@ -27,8 +27,7 @@ The hardware components of your Microsoft Azure StorSimple device adhere to the 
 
 The StorSimple device has two 100-240V dual fan, SBB-compliant Power Cooling Modules (PCMs). This provides a redundant power configuration. If a PCM fails, the device continues to operate normally on the other PCM until the failed module is replaced.  
 
-The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The following tables list the technical specifications associated with the PCMs. 
- 
+The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The following tables list the technical specifications associated with the PCMs.
 | Specification           | 580 W PCM (EBOD)                                    | 764 W PCM (Primary)                                |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
 | Maximum output power    | 580 W                                               | 764                                                |
@@ -47,7 +46,7 @@ The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The
  
 ## Power consumption statistics  
 
-The following table lists the power consumption data for the various models of StorSimple device. 
+The following table lists the typical power consumption data (actual values may vary from the published) for the various models of StorSimple device. 
  
 | Conditions |240 V AC|240 V AC|240 V AC||110 V AC|110 V AC|110 V AC|
 | ---------- | -------- | -------- |
