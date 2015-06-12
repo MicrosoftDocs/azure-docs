@@ -48,16 +48,15 @@ The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The
 ## Power consumption statistics  
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the various models of StorSimple device. 
-
  
  Conditions | 240 V AC | 240 V AC | 240 V AC || 110 V AC | 110 V AC | 110 V AC 
  ---------- | -------- | -------- | -------- |-| -------- | -------- | -------- 
- Fans slow, drives idle | 1.45 A  |0.31 kW | 1057.76 BTU/hr |  | 3.19 A | 0.34 kW | 1160.13 BTU/hr 
- Fans slow, drives accessing | 1.54 A | 0.33 kW | 1126.01 BTU/hr | | 3.27 A | 0.36 kW | 1228.37 BTU/hr 
- Fans fast, drives idle, two PSUs powered | 2.14 A | 0.49 kW  | 1671.95 BTU/hr | | 4.99 A | 0.54 kW | 1842.56 BTU/hr 
- Fans fast, drives idle, one PSU powered one idle | 2.05 A | 0.48 kW | 1637.83 BTU/hr | | 4.58 A | 0.50 kW | 1706.07 BTU/hr 
- Fans fast, drives accessing, two PSUs powered | 2.26 A | 0.51 kW | 1740.19 BTU/hr | | 4.95 A | 0.54 kW | 1842.56 BTU/hr 
- Fans fast, drives accessing, one PSU powered one idle | 2.14 A |0.49 kW | 1671.95 BTU/hr | | 4.81 A  | 0.53 kW | 1808.44 BTU/hr 
+ Fans slow, drives idle | 1.45 A  |0.31 kW | 1057.76 BTU/hr |</br>| 3.19 A | 0.34 kW | 1160.13 BTU/hr 
+ Fans slow, drives accessing | 1.54 A | 0.33 kW | 1126.01 BTU/hr |</br>| 3.27 A | 0.36 kW | 1228.37 BTU/hr 
+ Fans fast, drives idle, two PSUs powered | 2.14 A | 0.49 kW  | 1671.95 BTU/hr |</br>| 4.99 A | 0.54 kW | 1842.56 BTU/hr 
+ Fans fast, drives idle, one PSU powered one idle | 2.05 A | 0.48 kW | 1637.83 BTU/hr |</br>| 4.58 A | 0.50 kW | 1706.07 BTU/hr 
+ Fans fast, drives accessing, two PSUs powered | 2.26 A | 0.51 kW | 1740.19 BTU/hr |</br>| 4.95 A | 0.54 kW | 1842.56 BTU/hr 
+ Fans fast, drives accessing, one PSU powered one idle | 2.14 A |0.49 kW | 1671.95 BTU/hr |</br>| 4.81 A  | 0.53 kW | 1808.44 BTU/hr 
 
 ## Disk drive specifications  
 
@@ -106,7 +105,7 @@ This section lists the specifications related to the enclosure environment. The 
 | Airflow            | System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge). |
 | Altitude, operational  | -30 meters to 3045 meters (-100 feet to 10,000 feet) with maximum operating temperature de-rated by 5°C above 7000 feet. |
 | Altitude, non-operational  | -305 meters to 12,192 meters (-1,000 feet to 40,000 feet) |
-| Shock, operational  | 5g 10 ms ½ sine | 
+| Shock, operational  | 5g 10 ms ½ sine |
 | Shock, non-operational  | 30g 10 ms ½ sine |
 | Vibration, operational  | 0.21g RMS 5-500 Hz random |
 | Vibration, non-operational  | 1.04g RMS 2-200 Hz random |
