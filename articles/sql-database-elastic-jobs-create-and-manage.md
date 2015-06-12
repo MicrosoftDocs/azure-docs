@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/12/2015"
 	ms.author="sidneyh"/>
 
 # Creating and managing elastic database jobs
