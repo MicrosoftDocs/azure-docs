@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="Azure Service Management"/>
 
 <tags 
 	ms.service="virtual-machines" 
