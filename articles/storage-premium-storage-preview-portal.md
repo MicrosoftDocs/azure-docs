@@ -3,8 +3,8 @@
 	description="Learn Azure Premium Storage for Disks. Learn how to create a Premium Storage account."
 	services="storage"
 	documentationCenter=""
-	authors="Selcin"
-	manager="adinah"
+	authors="tamram"
+	manager="carolz"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/01/2015"
-	ms.author="selcint"/>
+	ms.date="06/11/2015"
+	ms.author="tamram;selcint"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
