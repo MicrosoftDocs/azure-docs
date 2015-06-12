@@ -20,6 +20,14 @@
 
 This article addresses some common questions users ask about Azure virtual machines, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles. For general information, start with Virtual Machines Overview.
 
+## I've heard there's a new way to create and manage Azure VMs. What is it?
+
+Azure now offers virtual machines that can be created and managed with Azure Resource Manager and templates. This approach simplifies creating and managing the compute, storage, and networking resources by managing them together, in a resource group. This differs significantly from the service-based approach, in which you manage those resources separately. For details, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
+
+## Should I use Resource Manager-based or Service Management-based VMs?
+
+(Need either a list of the considerations or pointer to an article)
+
 ## What can I run on an Azure VM?
 
 All subscribers can run server software on an Azure virtual machine. Additionally, MSDN subscribers have access to certain Windows client images provided by Azure.
@@ -31,7 +39,6 @@ For server software, you can run recent versions of Windows Server, as well as a
 • For Linux VMs -- [Linux on Azure-Endorsed Distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
-
 
 ## How much storage can I use with a virtual machine?
 
@@ -74,8 +81,11 @@ You need to establish a remote connection to log on to the virtual machine, usin
 - [How to Log on to a Virtual Machine Running Windows Server](http://go.microsoft.com/fwlink/p/?LinkID=254035). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
 - [How to Log on to a Virtual Machine Running Linux](http://go.microsoft.com/fwlink/p/?LinkId=396827). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
-If you’re having problems with Remote Desktop or SSH, try installing and using the VMAccess http://go.microsoft.com/fwlink/p/?LinkId=396856 extension to fix the problem.
-You  can also use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see How to Set Up Endpoints to a Virtual Machine http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/
+If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) extension to help fix the problem. For Windows VMs, additional options include:
+
+- In the Azure Preview Portal, find the VM, then click the **Reset Remote Access** from the Command bar.
+- Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
+- Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md)
 
 If you’re familiar with Hyper-V, you might be looking for a tool similar to Virtual Machine Connection. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
 
@@ -109,15 +119,19 @@ Additional details:
 
 Azure offers several options for anti-virus solutions, but it’s up to you to manage it. For example, you might need a separate subscription for antimalware software, and you’ll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware, Symantec Endpoint Protection, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. The Symantec and TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription. Microsoft Antimalware is free of charge. For details, see: 
 
-How to install and configure Symantec Endpoint Protection on an Azure VM 
-How to install and configure Trend Micro Deep Security as a Service on an Azure VM 
-Deploying Antimalware Solutions on Azure Virtual Machines 
+- How to install and configure Symantec Endpoint Protection on an Azure VM 
+- How to install and configure Trend Micro Deep Security as a Service on an Azure VM 
+- Deploying Antimalware Solutions on Azure Virtual Machines 
 
 ## What are my options for backup and recovery?
 
+Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace. 
+
+An additional option is to use the snapshot capabilities of blob storage. To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
+
 ## How does Azure charge for my VM?
 
-Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. If you create the VM with a VM image containing certain preinstalled software, additional hourly software charges may apply. Azure charges separately for storage for the VM’s operating system and data disks. Temporary disk storage is free. 
+Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply. Azure charges separately for storage for the VM’s operating system and data disks. Temporary disk storage is free. 
 
 You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated). To put a VM in the Stopped (De-allocated) state, do one of the following:
 
@@ -129,7 +143,9 @@ You are charged when the VM status is Running or Stopped, but you are not charge
 
 Generally, you can start, stop, or restart your VM whenever you need to. (For details, see About starting, stopping, and restarting an Azure VM.) Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters. Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
 
-For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime. 
+For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
+
+You also can use the Azure portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/). 
 
 To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see Manage the availability of virtual machines.
 
