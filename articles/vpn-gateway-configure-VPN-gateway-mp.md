@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure a VPN Gateway in the Management Portal"
+   pageTitle="Configure a VPN Gateway in the Management Portal | Microsoft Azure"
    description="This article walks you through configuring your virtual network VPN gateway and changing a VPN gateway routing type from static to dynamic or dynamic to static."
    services="vpn-gateway"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2015"
+   ms.date="06/12/2015"
    ms.author="cherylmc" />
 
 # Configure a VPN gateway in the Management Portal
@@ -39,7 +39,7 @@ First, create your virtual network, then use steps below to configure the VPN ga
 
 1. On the **Dashboard** page, notice that this VNet doesn't have a gateway configured yet. You'll see this status as you go through the steps to configure your gateway.
 
-![Gateway Not Created](./media/vpn-gateway-configure-VPN-gateway-mp/IC717026.png)
+![Gateway Not Created](./media/vpn-gateway-configure-VPN-gateway-mp/IC717025.png)
 
 
 Next, at the bottom of the page, click **Create Gateway**. You can select either *Static Routing* or *Dynamic Routing*. The routing type you select depends on a number of factors. For example, what your VPN device will support and whether you need to support point-to-site connections. Check [About VPN Devices for Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkId=615934) to verify the routing type that you need. Once the gateway has been created, you can't change between gateway types without deleting and re-creating the gateway. When the system prompts you to confirm that you want the gateway created, click **Yes**.
