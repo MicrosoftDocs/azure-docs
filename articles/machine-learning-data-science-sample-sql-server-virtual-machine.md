@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Sample Data in SQL Server on Azure| Azure" 
+	pageTitle="Sample Data in SQL Server on Azure | Microsoft Azure" 
 	description="Sample Data in SQL Server on Azure" 
 	services="machine-learning" 
 	documentationCenter="" 

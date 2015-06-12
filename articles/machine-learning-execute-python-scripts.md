@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Execute Python scripts in Azure Machine Learning | Azure" 
-	description="Outlines the design principles underlying support for Python in Azure Machine Learning and the basic usage scenarios, capabilities, and limitations." 
+	pageTitle="Execute Python machine learning scripts | Microsoft Azure" 
+	description="Outlines design principles underlying support for Python scripts in Azure Machine Learning and basic usage scenarios, capabilities, and limitations." 
+	keywords="python machine learning,pandas,python pandas,python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -17,11 +18,9 @@
 	ms.author="bradsev;garye" />
 
 
-# Execute Python scripts in Azure Machine Learning
+# Execute Python machine learning scripts in Azure Machine Learning Studio
 
-## Introduction
-
-This topic describes the design principles underlying the current support for Python in Azure Machine Learning. The main capabilities are also outlined, including support for importing existing code, exporting visualizations and, finally, some of the limitations and ongoing work are discussed.
+This topic describes the design principles underlying the current support for Python scripts in Azure Machine Learning. The main capabilities are also outlined, including support for importing existing code, exporting visualizations and, finally, some of the limitations and ongoing work are discussed.
 
 [Python](https://www.python.org/) is an indispensable tool in the tool chest of many data scientists. It has an elegant and concise syntax, cross-platform support, a vast collection of powerful libraries, and mature development tools. Python is being used in all phases of the workflow typically used in machine learning modeling, starting from data ingest and processing, to feature construction to training, validation and deployment of models. 
 
@@ -30,12 +29,12 @@ Azure Machine Learning Studio supports embedding Python scripts into various par
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 
-## Design principles
+## Design principles of Python scripts in Machine Learning
 The primary interface to Python in Azure Machine Learning Studio is via the [Execute Python Script][execute-python-script] module shown in Figure 1.
 
-![image1](./media/machine-learning-execute-python-scripts/figure1a.png)
+![image1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![image2](./media/machine-learning-execute-python-scripts/figure1b.png)
+![image2](./media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)
 
 Figure 1. The **Execute Python Script** module.
 
@@ -43,23 +42,24 @@ The [Execute Python Script][execute-python-script] module accepts up to three in
 
 1.	*Must be idiomatic for Python users.* Most Python users factor their code as functions inside modules, so putting a lot of executable statements in a top-level module is relatively rare. As a result, the script box also takes a specially named Python function as opposed to just a sequence of statements. The objects exposed in the function are standard Python library types such as [Pandas](http://pandas.pydata.org/) data frames and [NumPy](http://www.numpy.org/) arrays.
 2.	*Must have high-fidelity between local and cloud executions.* The backend used to execute the Python code is based on [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, a widely-used cross-platform scientific Python distribution. It comes with close to 200 of the most common Python packages. Therefore, a data scientist can debug and qualify their code on his or her local Azure Machine Learning compatible Anaconda environment using existing development environments such as [IPython](http://ipython.org/) notebook or [Python Tools for Visual Studio](http://pytools.codeplex.com/) and run it as part of an Azure Machine Learning experiment with high confidence. Further, the `azureml_main` entry point is a vanilla Python function and can be authored without Azure Machine Learning specific code or the SDK installed.
-3.	*Must be seamless composable with other Azure Machine Learning modules.* The [Execute Python Script][execute-python-script] module accepts, as inputs and outputs, standard Azure Machine Learning datasets. The underlying framework transparently and efficiently bridges the Azure Machine Learning and Python runtimes (supporting features such as missing values). Python can therefore be used in conjunction with existing Azure Machine Learning workflows, including those that call into R and SQLite. One can therefore envisage workflows that:
+3.	*Must be seamlessly composable with other Azure Machine Learning modules.* The [Execute Python Script][execute-python-script] module accepts, as inputs and outputs, standard Azure Machine Learning datasets. The underlying framework transparently and efficiently bridges the Azure Machine Learning and Python runtimes (supporting features such as missing values). Python can therefore be used in conjunction with existing Azure Machine Learning workflows, including those that call into R and SQLite. One can therefore envisage workflows that:
   * use Python and Pandas for data pre-processing and cleaning, 
   * feed the data to a SQL transformation, joining multiple datasets to form features, 
-  * train models using the extensive collection of algorithms in Azure Machine Learning,  and 
+  * train models using the extensive collection of algorithms in Azure Machine Learning, and 
   * evaluate and post-process the results using R.
 
 
-## Basic usage
+## Basic usage scenarios in Machine Learning for Python scripts
 In this section, we survey some of the basic uses of the [Execute Python Script][execute-python-script] module.
-As mentioned earlier, any inputs to the Python module are exposed as Pandas data frames. More information on Pandas and how it can be used to manipulate data effectively and efficiently can be found in *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012) by W. McKinney. The function must return a single Pandas data frame packaged inside of a Python [sequence](https://docs.python.org/2/c-api/sequence.html) such as a tuple, list, or NumPy array. The first element of this sequence is then returned in the first output port of the module. This scheme is shown in Figure 2.
+As mentioned earlier, any inputs to the Python module are exposed as Pandas data frames. More information on Python Pandas and how it can be used to manipulate data effectively and efficiently can be found in *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012) by W. McKinney. The function must return a single Pandas data frame packaged inside of a Python [sequence](https://docs.python.org/2/c-api/sequence.html) such as a tuple, list, or NumPy array. The first element of this sequence is then returned in the first output port of the module. This scheme is shown in Figure 2.
 
-![image3](./media/machine-learning-execute-python-scripts/figure2.png)
-                                                                    Figure 2. Mapping of input ports to parameters and return value to output port.
+![image3](./media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)
+
+Figure 2. Mapping of input ports to parameters and return value to output port.
 
 More detailed semantics of how the input ports get mapped to parameters of the `azureml_main` function are shown in Table 1:
 
-![image1T](./media/machine-learning-execute-python-scripts/table-1.png)
+![image1T](./media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 Table 1. Mapping of input ports to function parameters.
 
@@ -77,13 +77,13 @@ Any [Execute Python Script][execute-python-script] modules in a scoring experime
 
 ![image4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
-![image5](./media/machine-learning-execute-python-scripts/figure3b.png)
+![image5](./media/machine-learning-execute-python-scripts/python-script-with-python-pandas.png)
 
 Figure 3. Web service for evaluating a Python expression.
 
 A web service created from this experiment takes as input a Python expression (as a string), sends it to the Python interpreter and returns a table containing both the expression and the evaluated result.
 
-## Importing existing Python modules
+## Importing existing Python script modules
 A common use-case for many data scientists is to incorporate existing Python scripts into Azure Machine Learning experiments. Instead of concatenating and pasting all the code into a single script box, the [Execute Python Script][execute-python-script] module accepts a third input port to which a zip file that contains the Python modules can be connected. The file is then unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly.
 
 As an example, consider the file Hello.py containing a simple “Hello, World” function.
@@ -143,7 +143,7 @@ Note that it is possible to return multiple figures by saving them into differen
 
 
 ## Advanced examples
-The Anaconda environment installed in Azure Machine Learning contains common packages such as NumPy, SciPy and Scikits-Learn and these can be effectively used for various data processing tasks in a typical machine-learning pipeline. As an example, the following experiment and script illustrates the use of ensemble learners in Scikits-Learn to compute feature importance scores for a dataset. The scores can then be used to perform supervised feature selection before feeding into another machine learning model.
+The Anaconda environment installed in Azure Machine Learning contains common packages such as NumPy, SciPy and Scikits-Learn and these can be effectively used for various data processing tasks in a typical machine learning pipeline. As an example, the following experiment and script illustrates the use of ensemble learners in Scikits-Learn to compute feature importance scores for a dataset. The scores can then be used to perform supervised feature selection before feeding into another machine learning model.
 
 The Python function to compute the importance scores and order the features based on it is shown below:
 

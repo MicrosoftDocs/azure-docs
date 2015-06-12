@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to choose parameters to optimize your algorithms in Azure Machine Learning | Azure" 
+	pageTitle="How to choose parameters to optimize your algorithms in Azure Machine Learning | Microsoft Azure" 
 	description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning." 
 	services="machine-learning"
 	documentationCenter="" 

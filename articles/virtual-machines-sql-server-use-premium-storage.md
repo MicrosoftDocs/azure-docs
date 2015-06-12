@@ -18,6 +18,7 @@
 
 # Use Azure Premium Storage with SQL Server on Virtual Machines
 
+
 ## Overview
 
 [Azure Premium Storage](storage-premium-storage-preview-portal.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/). This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) shows a full comphrensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
@@ -32,6 +33,7 @@ It is important to understand the end-to-end process of utilizing Azure Premium 
 
 For more background information on SQL Server in Azure Virtual Machines, see [SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
 
+**Author:** Daniel Sol
 **Technical Reviewers:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
 ## Prerequisites for Premium Storage
