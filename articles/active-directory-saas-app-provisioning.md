@@ -70,7 +70,7 @@ Azure AD provisions users to SaaS apps by connecting to provisioning endpoints p
  - If a user is granted access and they already have an account in the SaaS app, that account will be marked as enabled, and certain user properties may be updated if they are out-of-date compared to the directory.
  - If a user's information (such as phone number, office location, etc) has been changed in the directory, then that information will also be updated in the SaaS application.
 
-For more information on how attributes are mapped between Azure AD and your SaaS app, see the article on [Customizing Attribute Mappings](https://msdn.microsoft.com/en-us/library/azure/dn872469.aspx).
+For more information on how attributes are mapped between Azure AD and your SaaS app, see the article on [Customizing Attribute Mappings](https://msdn.microsoft.com/library/azure/dn872469.aspx).
 
 ##Getting Started with Automated User Provisioning
 
