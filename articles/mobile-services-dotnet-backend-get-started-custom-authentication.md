@@ -217,7 +217,7 @@ One of the fundamental constructs in the Mobile Services authentication pipeline
             return;
         }
 
-	This method is a no-op here since **CustomLoginProvider** is not integrating with the authentication pipeline.
+	This method is not implemented because **CustomLoginProvider** is not integrating with the authentication pipeline.
 
 4. Add the following implementation of the abstract method `ParseCredentials` to **CustomLoginProvider**. 
 
