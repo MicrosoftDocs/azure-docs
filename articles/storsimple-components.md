@@ -3,7 +3,7 @@
    description="Describes the StorSimple device, services, and management technologies." 
    services="storsimple" 
    documentationCenter="NA" 
-   authors="alkohli" 
+   authors="SharS" 
    manager="AdinaH" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="05/29/2015"
-   ms.author="alkohli"/>
+   ms.date="06/11/2015"
+   ms.author="v-sharos"/>
 
 
 # What are the StorSimple components? 

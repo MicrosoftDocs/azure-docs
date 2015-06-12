@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/12/2015" 
 	ms.author="spelluru"/>
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
@@ -320,7 +320,7 @@ When copying data into SQL Server or Azure SQL Database, a user specified stored
 The stored procedure feature takes advantage of [Table-Valued Parameters][table-valued-parameters].
 
 ## Specify encoding for text files
-Though UTF-8 encoding is quite popular, often time text files in Azure Blob follow other encodings due to historical reasons. The **encodingName** property allows you to specify the encoding by code page name for tables of TextFormat type. For the list of valid encoding names, see: Encoding.EncodingName Property. For example: windows-1250 or shift_jis. The default value is: UTF-8. See [Encoding class](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) for valid encoding names.  
+Though UTF-8 encoding is quite popular, often time text files in Azure Blob follow other encodings due to historical reasons. The **encodingName** property allows you to specify the encoding by code page name for tables of TextFormat type. For the list of valid encoding names, see: Encoding.EncodingName Property. For example: windows-1250 or shift_jis. The default value is: UTF-8. See [Encoding class](https://msdn.microsoft.com/library/system.text.encoding.aspx) for valid encoding names.  
 
 ## See Also
 
