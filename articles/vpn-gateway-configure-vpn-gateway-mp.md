@@ -39,20 +39,20 @@ First, create your virtual network, then use steps below to configure the VPN ga
 
 1. On the **Dashboard** page, notice that this VNet doesn't have a gateway configured yet. You'll see this status as you go through the steps to configure your gateway.
 
-![Gateway Not Created](./media/vpn-gateway-configure-VPN-gateway-mp/IC717025.png)
+![Gateway Not Created](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
 Next, at the bottom of the page, click **Create Gateway**. You can select either *Static Routing* or *Dynamic Routing*. The routing type you select depends on a number of factors. For example, what your VPN device will support and whether you need to support point-to-site connections. Check [About VPN Devices for Virtual Network Connectivity](http://go.microsoft.com/fwlink/p/?LinkId=615934) to verify the routing type that you need. Once the gateway has been created, you can't change between gateway types without deleting and re-creating the gateway. When the system prompts you to confirm that you want the gateway created, click **Yes**.
 
-![Gateway Type](./media/vpn-gateway-configure-VPN-gateway-mp/IC717026.png)
+![Gateway Type](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
 When your gateway is creating, notice the gateway graphic on the page changes to yellow and says *Creating Gateway*. It may take up to 25 minutes for the gateway to create. You'll have to wait until the gateway is complete before you can move forward with other configuration settings.
 
-![Gateway Creating](./media/vpn-gateway-configure-VPN-gateway-mp/IC717027.png)
+![Gateway Creating](./media/vpn-gateway-configure-vpn-gateway-mp/IC717027.png)
 
 When the gateway changes to *Connecting*, you can gather the information you'll need for your VPN device.
 
-![Gateway Connecting](./media/vpn-gateway-configure-VPN-gateway-mp/IC717028.png)
+![Gateway Connecting](./media/vpn-gateway-configure-vpn-gateway-mp/IC717028.png)
 
 ## Gather information for your VPN device configuration
 
@@ -62,7 +62,7 @@ After the gateway has been created, gather information for your VPN device confi
 
 1. **Shared key -** Click **Manage Key** at the bottom of the screen. Click the icon next to the key in order to copy it to your clipboard, and then paste and save the key. Note that this button only works when there is a single S2S VPN tunnel. If you have multiple S2S VPN tunnels, please use the Get Virtual Network Gateway Shared Key API or PowerShell cmdlet.
 
-![Manage Key](./media/vpn-gateway-configure-VPN-gateway-mp/IC717029.png)
+![Manage Key](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
 
 ## Configure your VPN device
