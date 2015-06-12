@@ -176,7 +176,7 @@ The following sections will setup your app to receive them.
 
 ### Enable your app to receive Silent Push Notifications
 
-[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../includes/mobile-engagement-ios-silent-push.md)]  
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]  
 
 
 ### Add the Reach library to your project
@@ -308,4 +308,3 @@ We will now create a simple Push Notification campaign that will send a push to 
 [37]: ./media/mobile-engagement-ios-get-started/campaign-content.png
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
- 

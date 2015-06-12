@@ -174,7 +174,7 @@ This section shows you how to make sure your app connects to the Mobile Engageme
 
 5. If it worked, you should now see one session in the monitor!
 
-**Congratulations!** You suceeded the first step of this tutorial and have an app that connects to the Mobile Engagement backend, and that is already sending data
+**Congratulations!** You succeeded the first step of this tutorial and have an app that connects to the Mobile Engagement backend, and that is already sending data
 
 6. Clicking the Home button of the simulator will bring back the number of sessions in the monitor back to 0 as shown above
 

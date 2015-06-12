@@ -20,7 +20,7 @@
 
 > [AZURE.IMPORTANT] You must follow the integration procedure described in the How to Integrate Engagement on iOS document before following this guide.
 
-##Enable your app to receive Silent Push Notifications
+### Enable your app to receive Silent Push Notifications
 
 [AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
