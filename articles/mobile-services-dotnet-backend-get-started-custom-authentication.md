@@ -220,6 +220,7 @@ One of the fundamental constructs in the Mobile Services authentication pipeline
 	This method is a no-op here since **CustomLoginProvider** is not integrating with the authentication pipeline.
 
 4. Add the following implementation of the abstract method `ParseCredentials` to **CustomLoginProvider**. 
+
         public override ProviderCredentials ParseCredentials(JObject serialized)
         {
             if (serialized == null)
