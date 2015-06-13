@@ -19,9 +19,11 @@
 
 If you want to create a secure cross-premises connection between Azure and your on-premises location, you'll need to configure a VPN gateway. There are different types of gateways and the type of gateway you'll create depends both on your network design plan, and the on-premises VPN device you want to use. For example, some connectivity options, such as a point-to-site connection, require a dynamic routing gateway. If you want to configure your gateway to support both point-to-site (P2S) connections and a site-to-site (S2S) connection, you'll have to configure a dynamic routing gateway even though site-to-site can be configured with either gateway routing type. Additionally, you'll have to make sure the device you want to use for your site-to-site connection will support the gateway type that you want to create. See [About Gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
 
-## Procedure workflow
+## Configuration overview
 
-First, create your virtual network, then use steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. For steps to create a virtual network for cross-premises connectivity, see [Configure a Virtual Network with Site-to-Site VPN](vpn-gateway-site-to-site-create.md), or [Configure a Virtual Network with Point-to-Site VPN](vpn-gateway-point-to-site-create.md). If you already have a gateway and you want to change the routing type, see [How to change your gateway type](#How-to-change-your-gateway-type).
+Before you configure your gateway, you'll first need to create your virtual network. For steps to create a virtual network for cross-premises connectivity, see [Configure a Virtual Network with Site-to-Site VPN](vpn-gateway-site-to-site-create.md), or [Configure a Virtual Network with Point-to-Site VPN](vpn-gateway-point-to-site-create.md). Then, use steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. 
+
+If you already have a VPN gateway and you want to change the routing type, see [How to change your gateway type](#How-to-change-your-gateway-type).
 
 1. [Start the virtual network VPN gateway](#start-the-virtual-network-gateway)
 
