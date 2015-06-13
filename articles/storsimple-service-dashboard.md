@@ -59,7 +59,7 @@ This following steps describe the rollover process for your service data encrypt
 
 ## View the operations logs
 
-You can view the operation logs by clicking the operation logs link available in the quick glance pane of the dashboard. This will take you to the management services page, where you can filter and see the logs specific to your StorSimple Manager service.
+You can view the operation logs by clicking the operation logs link available in the **quick glance** pane of the dashboard. This will take you to the management services page, where you can filter and see the logs specific to your StorSimple Manager service.
 
 ## Next steps
 
