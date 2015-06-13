@@ -1,3 +1,21 @@
+<properties
+   pageTitle="SQL Data Warehouse system views | Microsoft Azure"
+   description="Links to system views content for SQL Data Warehouse."
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/13/2015"
+   ms.author="barbkess"/>
+
 # System Views
 
 ## External operations catalog views

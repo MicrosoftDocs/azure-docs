@@ -1,3 +1,22 @@
+<properties
+   pageTitle="SQL Data Warehouse Transact-SQL language elements | Microsoft Azure"
+   description="List of links to reference content for the Transact-SQL language elements used for SQL Data Warehouse."
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="05/09/2015"
+   ms.author="barbkess"/>
+
+
 # Language elements
 
 ## Core elements
