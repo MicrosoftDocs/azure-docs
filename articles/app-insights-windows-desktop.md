@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Application Insights for Windows desktop apps" 
+	pageTitle="Application Insights for Windows desktop apps and services" 
 	description="Analyze usage and performance of your Windows app with Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
 
-# Application Insights on Windows Desktop apps
+# Application Insights on Windows Desktop apps and services
 
 *Application Insights is in preview.*
 
@@ -23,7 +23,7 @@
 
 Application Insights lets you monitor your deployed application for usage and performance.
 
-Support for Windows Desktop apps are provide by the Application Insights core SDK. This SDK provides the full API support for all telemetry data but does not provide any telemetry auto collection.
+Support for Windows desktop apps and services are provided by the Application Insights core SDK. This SDK provides the full API support for all telemetry data but does not provide any telemetry auto collection.
 
 
 ## <a name="add"></a> Create an Application Insights resource
