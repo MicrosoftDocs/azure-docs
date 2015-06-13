@@ -23,15 +23,15 @@ If you want to create a secure cross-premises connection between Azure and your 
 
 Before you configure your gateway, you'll first need to create your virtual network. For steps to create a virtual network for cross-premises connectivity, see [Configure a Virtual Network with Site-to-Site VPN](vpn-gateway-site-to-site-create.md), or [Configure a Virtual Network with Point-to-Site VPN](vpn-gateway-point-to-site-create.md). Then, use steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. 
 
-If you already have a VPN gateway and you want to change the routing type, see [How to change your gateway type](#How-to-change-your-gateway-type).
+If you already have a VPN gateway and you want to change the routing type, see [How to change your gateway type](#how-to-change-your-VPN-gateway-type).
 
-1. [Start the virtual network VPN gateway](#start-the-virtual-network-gateway)
+1. [Start the virtual network VPN gateway](#start-the-virtual-network-VPN-gateway)
 
-1. [Gather information for your VPN device configuration](#gather-information-for-your-vpn-device-configuration)
+1. [Gather information for your VPN device configuration](#gather-information-for-your-VPN-device-configuration)
 
-1. [Configure your VPN Device](configure-your-vpn-Device)
+1. [Configure your VPN Device](configure-your-VPN-device)
 
-1. [Verify your Local Network ranges and Gateway IP address](#verify-your-local-network-ranges-and-Gateway-IP-address)
+1. [Verify your Local Network ranges and Gateway IP address](#verify-your-local-network-ranges-and-VPN-gateway-ip-address)
 
 ## Start the virtual network VPN gateway
 
