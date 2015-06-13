@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="06/13/2015" 
 	ms.author="erikre;tarcher"/>
 
 # Create an ASP.NET 5 web app in Visual Studio Code
