@@ -255,7 +255,7 @@ One of the fundamental constructs in the Mobile Services authentication pipeline
 	
 6. Open the WebApiConfig.cs project file in the App_Start folder and the following line of code after the ConfigOptions is created:
 		
-	options.LoginProviders.Add(typeof(CustomLoginProvider));
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
 	
 
