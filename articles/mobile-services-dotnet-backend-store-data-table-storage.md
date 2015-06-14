@@ -113,7 +113,7 @@ You need to make one change on the client side to make the quickstart app work w
 
 	This is an example of how this ID might be set in a C# app, where the partition part is fixed and the row part is GUID-based.
 
-		 todoItem.Id = string.Format("partition,row{0}", Guid.NewGuid());
+		 todoItem.Id = string.Format("partition,{0}", Guid.NewGuid());
 
 You are now ready to test the app.
 
