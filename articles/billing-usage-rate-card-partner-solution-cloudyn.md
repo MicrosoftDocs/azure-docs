@@ -1,6 +1,6 @@
 <properties
    pageTitle="Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers"
-   description="Provides a unique perspective from Microsoft Azure Billing partner Cloudyn, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloudyn customers that are interesting in using/trying Cloudyn for Azure Services."
+   description="Provides a unique perspective from Microsoft Azure Billing partner Cloudyn, on their experiences integrating the Azure Billing APIs into their product.  This is especially useful for Azure and Cloudyn customers that are interested in using/trying Cloudyn for Azure Services."
    services="billing"
    documentationCenter=""
    authors="BryanLa"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/11/2015"
+   ms.date="06/15/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers 
@@ -73,10 +73,10 @@ Common Cloudyn ITFM use cases enabled by usage and RateCard APIs include:
 + For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
 <!--Image references-->
-[1]: ./media/azure-billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Overview.png
-[2]: ./media/azure-billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Engine-Overview.png
-[3]: ./media/azure-billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Analysis-Pie-Chart.png
-[4]: ./media/azure-billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Allocation-360-Chart.png
-[5]: ./media/azure-billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Effective-Sizing.png
-[6]: ./media/azure-billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
-[7]: ./media/azure-billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
+[1]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Overview.png
+[2]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-ITFM-Engine-Overview.png
+[3]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Analysis-Pie-Chart.png
+[4]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Allocation-360-Chart.png
+[5]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Effective-Sizing.png
+[6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
+[7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
