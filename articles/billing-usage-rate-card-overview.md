@@ -18,9 +18,9 @@
 
 # Gain insights into your Microsoft Azure resource consumption 
 
-Customers and partners require the ability to accurately predict and manage their Azure costs.  As they move from a Capex to an Opex model, they also need the ability to do show-back or charge-back, and provide mode fidelity in estimation and billing, especially for large cloud deployments. 
+Customers and partners require the ability to accurately predict and manage their Azure costs.  As they move from a Capex to an Opex model, they also need the ability to do showback vs. chargeback analysis, and provide mode fidelity in estimation and billing, especially for large cloud deployments. 
 
-The Azure Resource Usage and Rate Card APIs discussed in this article address these needs, by enabling new insights into your consumption of Azure resources.  For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+The Azure Resource Usage and Rate Card APIs discussed in this article address these needs, by enabling new insights into your consumption of Azure resources.  
 
 ## Introducing the Azure Resource Usage and RateCard APIs 
 
@@ -44,7 +44,7 @@ This REST API is also planned to be part of the Azure Resource Management REST A
 
 - **Supports Azure Role-based Access Control** - customers and partners can configure their access policies on the Azure Preview Portal or through PowerShell cmdlets to dictate which  users or applications can get access to the RateCard information. Callers will be required to use standard Azure Active Directory tokens for authentication. The caller will need to be added to either the Reader, Owner or Contributor role to be authorized to get access to the usage data for a particular Azure subscription.
 	
-- **Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)** - This API provides the rates at an offer-level, and not specific to an Azure subscription-level.  As EA offers have customized rates per enrollment, we are unable to provide the EA rates at this time. The caller of this API is required to pass in the offer information to get back the resource details and rates. 
+- **Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)** - This API provides Azure offer-level rate information, vs. subscription-level.  The caller of this API is required to pass in the offer information to get back the resource details and rates.  As EA offers have customized rates per enrollment, we are unable to provide the EA rates at this time.
 
 ## Scenarios
 
@@ -56,7 +56,7 @@ Here are some of the scenarios that are made possible with the combination of th
 
 - Predict bill – customers and partners can get their estimated consumption and cloud spend and apply machine learning algorithms to predict what their bill would be at the end of the billing cycle.
 
-- Pre-consumption cost analysis – customers can also use the RateCard API to predict how much would their bill be if they were to move their workloads to Azure, by providing desired usage numbers. If customers have existing workloads in other clouds or private clouds, they can also map their usage with the Azure rates to get a better estimate of their estimated Azure spend.
+- Pre-consumption cost analysis – customers can also use the RateCard API to predict how much their bill would be if they were to move their workloads to Azure, by providing desired usage numbers. If customers have existing workloads in other clouds or private clouds, they can also map their usage with the Azure rates to get a better estimate of their estimated Azure spend.
 
 - What-if analysis:
 
@@ -64,14 +64,16 @@ Here are some of the scenarios that are made possible with the combination of th
 
 	- Customers and partners can determine if another Azure offer type gives a better rate on an Azure resource.
 
-## Partner Solutions
-To learn more about the integration experiences as shared by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/), see [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md).  In this article you will find detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data. 
+## Partner solutions
+To learn more about the integration experiences as offered by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/), see [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md).  In this article you will find detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data. 
 
 
 ## Next Steps
-
-+ Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more information on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
++ Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more details on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
 + If you would like to dive right into the sample code, check out our [Microsoft Azure Billing API Code Samples on Github](https://github.com/Azure/BillingCodeSamples).
+
+## Learn more
 + See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
++ For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
 
 
