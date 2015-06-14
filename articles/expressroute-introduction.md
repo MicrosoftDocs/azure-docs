@@ -47,7 +47,7 @@ We partner with cloud exchange service providers such as Equinix and TeleCity gr
 If you want a direct layer 3 connection through an exchange provider, you can do this one of 3 ways:
 
 - You can be co-located with the cloud exchanges such as Equinix's Cloud Exchange or TeleCity's Cloud IX in the locations we offer services in. In such cases you will order redundant connectivity to the cloud exchange. 
-- You can work with Ethernet providers such as Level 3 to have Ethernet circuits setup between your data centers and Microsoft. 
+- You can work with providers such as Level 3 to have Ethernet circuits setup between your data centers and Microsoft. 
 - You can work with your local connectivity provider to acquire redundant connectivity to the closest exchange provider facility and connect to the cloud exchange.
 
 We do require you to have redundant connectivity me meet the requirements for our SLA. We do not support direct connectivity to the Microsoft edge. Dedicated circuits will always be enabled through an Ethernet provider or the local cloud exchange. While this sets up layer 2 connectivity between Microsoft and your network, we will not support extending the layer 2 domain. You must setup redundant routing sessions between your edge routers and the Microsoft edge routers to have layer 3 connectivity.
@@ -100,9 +100,9 @@ The table below compares the three routing domains.
 |**Routing Interface IP adressess**|RFC1918 and public IP addresses|Public IP addresses registered to customers / NSP in routing registries.| Public IP addresses registered to customers / NSP in routing registries.|
 |**MD5 Hash support**| Yes|Yes|Yes|
 
-You can choose to enable one or more of the routing domains as part of their dedicated circuit. You can choose to have all the routing domains put on the same VPN (for NSP case) if they wish to ingest them into a single routing domain. You can also put them on different routing domains similar to the diagram above. The recommended configuration is that private peering is connected directly to the your core network, and the public and Microsoft peering links connected to your extranet.
+You can choose to enable one or more of the routing domains as part of their dedicated circuit. You can choose to have all the routing domains put on the same VPN (for NSP case) if they wish to ingest them into a single routing domain. You can also put them on different routing domains similar to the diagram above. The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links connected to your extranet.
  
-If a you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through EXPs, you will be responsible for configuring and managing routing (unless EXP offers to manage routing for you).If you choose to connect through NSPs, you can rely on the NSP to manage routing for you. You can learn more by reviewing the workflows for setting up ExpressRoute
+If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through EXPs, you will be responsible for configuring and managing routing (unless EXP offers to manage routing for you).If you choose to connect through NSPs, you can rely on the NSP to manage routing for you. You can learn more by reviewing the workflows for setting up ExpressRoute
 
 - [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
 - [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
