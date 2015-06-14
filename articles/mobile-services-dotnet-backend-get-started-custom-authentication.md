@@ -253,7 +253,7 @@ One of the fundamental constructs in the Mobile Services authentication pipeline
 
 	This method translates a [ClaimsIdentity] into a [ProviderCredentials] object that is used in the authentication token issuance phase. You will again want to capture any additional claims in this method.
 	
-6. Open the WebApiConfig.cs project file in the App_Start folder and the following line of code after the ConfigOptions is created:
+6. Open the WebApiConfig.cs project file in the App_Start folder and the following line of code after the **ConfigOptions** is created:
 		
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
