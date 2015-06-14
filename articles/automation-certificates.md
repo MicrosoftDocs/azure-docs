@@ -15,7 +15,7 @@
    ms.date="06/14/2015"
    ms.author="bwren" />
 
-# Certificates
+# Certificate assets in Azure Automation
 
 Certificates can be stored securely in Azure Automation so they can be accessed by runbooks using the **Get-AutomationCertificate** activity. This allows you to create runbooks that use certificates for authentication or adds them to Azure or third party resources that your runbook may be creating or configuring.
 
