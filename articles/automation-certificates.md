@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Certificates"
+   pageTitle="Certificate assets in Azure Automation"
    description="Certificates can be stored securely in Azure Automation so they can be accessed by runbooks to authenticate against Azure and third party resources.  This article explains the details of certificates and how to work with them in both textual and graphical authoring."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="06/14/2015"
    ms.author="bwren" />
 
 # Certificates
