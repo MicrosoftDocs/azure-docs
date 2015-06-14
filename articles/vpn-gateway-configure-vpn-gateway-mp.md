@@ -25,7 +25,7 @@ Before you configure your gateway, you'll first need to create your virtual netw
 
 If you already have a VPN gateway and you want to change the routing type, see [How to change your VPN gateway type](#how-to-change-your-vpn-gateway-type).
 
-1. [Create the virtual network VPN gateway](#create-the-virtual-network-vpn-gateway)
+1. [Create a VPN gateway](#create-a-vpn-gateway)
 
 1. [Gather information for your VPN device configuration](#gather-information-for-your-vpn-device-configuration)
 
@@ -33,7 +33,7 @@ If you already have a VPN gateway and you want to change the routing type, see [
 
 1. [Verify your local network ranges and VPN gateway IP address](#verify-your-local-network-ranges-and-vpn-gateway-ip-address)
 
-## Create the virtual network VPN gateway
+## Create a VPN gateway
 
 1. On the **Networks** page, verify that the status column for your virtual network is **Created**.
 
@@ -136,7 +136,7 @@ Before changing your gateway type, be sure to verify that your VPN device will s
 
 1. **Create a new VPN gateway.**
 
-	Use the procedure at the top of the page to create a new gateway: [Create the virtual network VPN gateway](#create-the-virtual-network-vpn-gateway).
+	Use the procedure at the top of the page to create a new gateway: [Create a VPN gateway](#create-a-vpn-gateway).
 
 
 ## Next steps
