@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/14/2015" 
 	ms.author="erikre;tarcher"/>
 
 # Create an ASP.NET 5 web app in Visual Studio Code
@@ -161,7 +161,7 @@ Git is a distributed version control system that you can use to deploy your Azur
 
 1. Log into the [Azure preview portal](https://portal.azure.com).
 
-2. Click **Browse**.
+2. Click **Browse All**.
 
 3. Click **Web Apps** to view a list of the web apps associated with your Azure subscription.
 
@@ -173,11 +173,11 @@ Git is a distributed version control system that you can use to deploy your Azur
 
 6. Click **Choose Source > Local Git Repository**.
 
-3. Click **OK**.
+7. Click **OK**.
 
 	![Azure Local Git Respository](./media/web-sites-create-web-app-using-vscode/15-azure-localrepository.png)
 
-4. If you have not previously set up deployment credentials for publishing a web app or other App Service app, set them up now:
+8. If you have not previously set up deployment credentials for publishing a web app or other App Service app, set them up now:
 
 	* Click **FTP** to set deployment credentials.
 
@@ -187,9 +187,10 @@ Git is a distributed version control system that you can use to deploy your Azur
 
 	![Azure Deployment Credentials](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
 
-5. In your web app's blade, click **Settings > Properties**. The URL of the remote Git repository that you'll deploy to is shown under **GIT URL**.
+9. In your web app's blade, click **Settings > Properties**. The URL of the remote Git repository that you'll deploy to is shown under **
+10.  URL**.
 
-6. Copy the **GIT URL** value for later use in the tutorial.
+10. Copy the **GIT URL** value for later use in the tutorial.
 
 	![Azure Git URL](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
 
@@ -199,17 +200,21 @@ In this section, you will create a local Git repository and push from that repos
 
 1. In VS Code, select the **Git** option in the left navigation bar.
 
+	![Git icon in VS Code](./media/web-sites-create-web-app-using-vscode/git-icon.png)
+
 2. Select **Initialize git repository** to make sure your workspace is under git source control. 
 
 	![Initialize Git](./media/web-sites-create-web-app-using-vscode/19-initgit.png)
 
-3. Add a commit message and select **Commit All**.
+3. Add a commit message and click the **Commit All** check icon.
 
 	![Git Commit All](./media/web-sites-create-web-app-using-vscode/20-git-commit.png)
 
-4. After GIT has completed processing, open a command prompt.
+4. After Git has completed processing, you'll see that there are no files listed in the Git window under **Changes**. 
 
-5. Change directories to the directory housing your web app.
+	![Git no changes](./media/web-sites-create-web-app-using-vscode/no-changes.png)
+
+5. Open a command prompt, and change directories to the directory housing your web app.
 
 6. Create a remote reference for pushing updates to your web app by using the Git URL (ending in ".git") that you copied earlier.
 
@@ -238,7 +243,7 @@ This can be done in two ways:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* In the Azure preview portal, locate the web app blade for your web app, and **Browse** to view your app in your default browser.
+* In the Azure preview portal, locate the web app blade for your web app, and click **Browse** to view your app in your default browser.
 
 ![Azure web app](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
 
