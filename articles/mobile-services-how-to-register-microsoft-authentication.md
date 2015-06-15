@@ -77,9 +77,10 @@ The first step in this section applies only to Windows Phone 8, Windows Phone 8.
 	The **Root domain** should be filled-in automatically.
 
 4. Click **App Settings** and make a note of the values of the **Client ID**, **Client secret** and **Package SID**. 
-
+	
    	![Microsoft account app settings](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
-    &nbsp;
+	
+	
     > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app. Only Windows Store app registrations will see a Package SID field.
 
 4. In the [Azure Management Portal], click the **Identity** tab for the mobile service, enter the client ID, client secret and package SID obtained from your identity provider, and click **Save**. 

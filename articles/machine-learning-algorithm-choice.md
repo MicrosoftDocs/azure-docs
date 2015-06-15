@@ -1,7 +1,8 @@
 <properties 
 	title="" 
-	pageTitle="How to choose an algorithm in Azure Machine Learning | Azure" 
-	description="Explains how to How to choose an algorithm in Azure Machine Learning." 
+	pageTitle="How to choose machine learning algorithms | Microsoft Azure" 
+	description="How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments." 
+	keywords="machine learning algorithms,types of machine learning algorithms,types of machine learning,clustering,clustering algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -18,9 +19,9 @@
 	ms.author="bradsev;garye" />
 
 
-# How to choose an algorithm in Azure Machine Learning
+# How to choose Azure Machine Learning algorithms for clustering, classification, or regression
 
-This topic explains some basic aspects of the machine learning approach. In particular, it outlines how to select an appropriate algorithm to analyze a given type of data, to answer a question posed, to accomplish a specified task, or to provide criteria for making a decision. 
+This topic explains some basic aspects of the machine learning approach. In particular, you'll learn how to choose appropriate machine learning algorithms to analyze given types of data, to answer questions posed, to accomplish specified tasks, or to provide criteria for making decisions. 
 
 > [AZURE.TIP] The [Microsoft Azure Machine Learning Algorithm Cheat Sheet](machine-learning-algorithm-cheat-sheet.md) is a handy reference to accompany this article.
 
@@ -29,7 +30,7 @@ When using machine learning to do analytics, we are usually faced with two quest
 * What kind of analysis do we need to accomplish our objectives with the data available? 
 * What is the most appropriate algorithm or model to use to do this analysis?
 
-Three types of analysis are discussed and their use cases are compared: 
+Three types of machine learning analysis are discussed and their use cases are compared: 
 
 * **Clustering**
 * **Classification** 
@@ -39,22 +40,22 @@ Three types of analysis are discussed and their use cases are compared:
 
 
 <a name="anchor-1"></a>
-##Machine Learning
+## Machine Learning algorithms learn from data
 
-Machine Learning is a discipline that studies a class of algorithms that are data-driven. In other words, they are designed to learn from the data and do not impose a specific, predetermined model to test against the data. The idea is to acquire knowledge more inductively by examining the patterns in a dataset rather than by using the *hypothetical-deductive* method where you try to guess the appropriate model for the entire dataset first and then test it empirically. 
+Machine Learning is a discipline that studies a class of algorithms that are designed to learn from the data and do not impose a specific, predetermined model to test against the data. The idea is to acquire knowledge more inductively by examining the patterns in a dataset rather than by using the *hypothetical-deductive* method where you try to guess the appropriate model for the entire dataset first and then test it empirically. 
 
-This type of learning from data comes in two flavors: *supervised learning* and *unsupervised learning*. 
+Types of machine learning - also thought of as learning from data - come in two flavors: *supervised learning* and *unsupervised learning*. 
 
 <a name="anchor-2"></a>
-##Supervised Learning  
+## Supervised Learning  
 
-Supervised learning requires that the target variable be well defined and that a sufficient number of its values are given. 
+Supervised learning requires that the target variable be well-defined and that a sufficient number of its values are given. 
 
-Supervised learning is the type of learning that takes place when the correct output results (or target variables) for the training instances to be input are known. The objective of training a machine learning algorithm is to find the model (that is, a rule or function) that maps the inputs into the known output values. This is similar to having a supervisor who can tell the algorithmic agent whether or not it's mapping the inputs to the outputs correctly. Once the learning process is complete and we have a workable model, it can be applied to new input data to predict the expected output where, unlike the training dataset, the target value are not known in advance.
+Supervised learning is the type of machine learning that takes place when the correct output results (or target variables) for the training instances to be input are known. The objective of training a machine learning algorithm is to find the model (that is, a rule or function) that maps the inputs into the known output values. This is similar to having a supervisor who can tell the algorithmic agent whether or not it's mapping the inputs to the outputs correctly. Once the learning process is complete and we have a workable model, it can be applied to new input data to predict the expected output where, unlike the training dataset, the target value are not known in advance.
 
 The type of model is determined by the nature of the target variable.
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help9.png)
+![Diagram of supervised learning: Model from labeled data and use it to predict outcomes from new data.](./media/machine-learning-algorithm-choice/supervised-learning-using-known-data-to-model-solution.png)
 
 There are two broad categories of analysis that employ supervised learning: *classification* and *regression*. Supervised learning is fairly common in classification problems because the goal is often to get the computer to learn a classification system that we have created. The responses usually are just a few known values(labels), such as 'true' or 'false', or 'high', 'medium', or 'low'. Classification algorithms apply to nominal values, not ordinal response values. Digit recognition is a common example of classification learning. More generally, classification learning is appropriate for any problem where it's both useful and easy to determine the classification.
 
@@ -64,7 +65,7 @@ Supervised learning is also the most common technique for training neural networ
 
 > Both of these techniques are highly dependent on the information given by the pre-determined classifications. In the case of neural networks, the classification is used to determine the error of the network and then adjust the network to minimize it, and in decision trees, the classifications are used to determine what attributes provide the most information that can be used to solve the classification puzzle. ... both of these examples thrive on having some "supervision" in the form of pre-determined classifications. 
 
-> Speech recognition using hidden Markov models and Bayesian networks relies on some elements of supervision as well in order to adjust parameters to, as usual, minimize the error on the given inputs. [[Machine Learning, Part II: Supervised and Unsupervised Learning](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/)]
+>  Speech recognition using hidden Markov models and Bayesian networks relies on some elements of supervision as well in order to adjust parameters to, as usual, minimize the error on the given inputs. [[Machine Learning, Part II: Supervised and Unsupervised Learning](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/)]
 
 
 <a name="anchor-3"></a>
@@ -81,18 +82,18 @@ In Azure Machine Learning we can perform both unsupervised and supervised learni
 Clustering is an example of unsupervised learning. In this type of learning, the goal is to find similarities in the training data and to partition the dataset into subsets that are demarcated by these similarities. 
 The expectation that the most significant clusters discovered by these data-driven procedures are consistent with our intuitive classification is often, but not always, satisfied. 
 
-Although the algorithm won't assign appropriate names to these clusters, it can produce them and then use them to anticipate similarities expected in new examples by classifying them into the most appropriate cluster. This data-driven approach can work well when sufficient data is available. For instance, social information filtering algorithms, such as those used by Amazon.com to recommend books, are based on finding similar groups of people and then assigning new users to these groups for the purpose of making recommendations.
+Although the clustering algorithm won't assign appropriate names to these clusters, it can produce them and then use them to anticipate similarities expected in new examples by classifying them into the most appropriate cluster. This data-driven approach can work well when sufficient data is available. For instance, social information filtering algorithms, such as those used by Amazon.com to recommend books, are based on finding similar groups of people and then assigning new users to these groups for the purpose of making recommendations.
 
 The clustering algorithm available in Azure Machine Learning is [K-Means Clustering][k-means-clustering].
 
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help10.png)
+![K-Means clustering algorithm exeperiment: Screenshot](./media/machine-learning-algorithm-choice/k-means-clustering-algorithm-menu.png)
 
-K-means is one of the simplest unsupervised learning algorithms that solve well known clustering problems. 
+K-means is one of the simplest unsupervised clustering algorithms that solve well known clustering problems. 
 The KMeans algorithm clusters data by trying to separate samples into N groups of equal variance, minimizing 
 the "inertia" or "within-cluster sum-of-squares" criterion.
 This algorithm requires the number of clusters to be specified. K-means can scale to a large number of samples and has been used in a wide range of application areas across many different fields.
 
-The [K-Means Clustering][k-means-clustering] module that implements the K-means algorithm returns an untrained K-means clustering model that can be passed to the [Train Clustering Model][train-clustering-model] module for training.
+The [K-Means Clustering][k-means-clustering] algorithm module returns an untrained K-means clustering model that can be passed to the [Train Clustering Model][train-clustering-model] module for training.
 
 ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/k4.png)
 
@@ -255,9 +256,9 @@ Poisson regression is often used for modeling count data. Poisson regression ass
 
 ## References
 
-For a complete list of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/) in [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx).
+For a complete list with the types of machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/) in [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx).
 
-You can find more detailed information about machine learning algorithms in the following references, many of which were used in creating this article.
+You can find more detailed information about all types of machine learning algorithms in the following references, many of which were used in creating this article.
 
 * [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
 

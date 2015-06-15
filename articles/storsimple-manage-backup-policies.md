@@ -3,7 +3,7 @@
    description="Explains how you can use the StorSimple Manager service to create and manage backup jobs and backup schedules."
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
+   ms.date="06/11/2015"
+   ms.author="v-sharos" />
 
 # Manage your StorSimple backup policies
 

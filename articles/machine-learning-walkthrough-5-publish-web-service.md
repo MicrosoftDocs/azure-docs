@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Step 5: Publish the Machine Learning web service | Azure" 
-	description="Solution walkthrough step 5: Publish a scoring experiment in Azure Machine Learning Studio as an Azure Machine Learning web service" 
+	pageTitle="Step 5: Publish the Machine Learning web service | Microsoft Azure" 
+	description="Step 5 of the Develop a predictive solution walkthrough: Publish a scoring experiment in Machine Learning Studio as a web service." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 

@@ -32,7 +32,7 @@
 | 2. Click **BROWSE**. | ![Browse Services][2] |
 | 3.	Click **SQL servers**. A list of SQL Server names is displayed. | ![Select SQL Server service][3] |
 | 4. Select the server you want to copy to a new server with  SQL Database Update enabled. | ![Shows a list of SQL Servers][4] |
-| 5. Click **Latest SQL Database Update V12**. | ![Latest preview feature][5] |
+| 5. Click **Settings** or **Server version** to upgrade your server to V12.  | ![Latest preview feature][5] |
 | 6. Click **UPGRADE THIS SERVER**. | ![Upgrades the SQL Server to the preview][6] |
 
 
@@ -72,21 +72,21 @@ For reference documentation about these Powershell cmdlets, see:
 - [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
 
 
-The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources.
+The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources. 
 
 
 ## Related Links
 
--  [What's new in SQL Database V12](sql-database-v12-whats-new.md)
+-  [What's new in SQL Database V12](sql-database-v12-whats-new.md) 
 - [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
-[1]: ./media/sql-database-preview-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-preview-upgrade/browse.png
-[3]: ./media/sql-database-preview-upgrade/sqlserver.png
-[4]: ./media/sql-database-preview-upgrade/sqlserverlist.png
-[5]: ./media/sql-database-preview-upgrade/latestprview.png
-[6]: ./media/sql-database-preview-upgrade/upgrade.png
-[7]: ./media/sql-database-preview-upgrade/typeservername.png
-[8]: ./media/sql-database-preview-upgrade/enabled.png
+[1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
+[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
+[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
+[4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
+[5]: ./media/sql-database-v12-upgrade/latestprview.png
+[6]: ./media/sql-database-v12-upgrade/upgrade.png
+[7]: ./media/sql-database-v12-upgrade/typeservername.png
+[8]: ./media/sql-database-v12-upgrade/enabled.png

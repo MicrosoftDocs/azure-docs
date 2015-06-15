@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Azure Machine Learning Web Service Parameters | Azure" 
+	pageTitle="Use Azure Machine Learning Web Service Parameters | Microsoft Azure" 
 	description="How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed." 
 	services="machine-learning" 
 	documentationCenter="" 

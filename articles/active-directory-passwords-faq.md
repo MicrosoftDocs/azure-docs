@@ -23,10 +23,10 @@ If you find yourself with a question that you don't know the answer to, or are l
 
 This FAQ is split into the following sections:
 
-- [Questions about Password Reset Registration](#password-reset-registration)
-- [Questions about Password Reset](#password-reset)
-- [Questions about Password Management Reports](#password-management-reports)
-- [Questions about Password Writeback](#password-writeback)
+- [**Questions about Password Reset Registration**](#password-reset-registration)
+- [**Questions about Password Reset**](#password-reset)
+- [**Questions about Password Management Reports**](#password-management-reports)
+- [**Questions about Password Writeback**](#password-writeback)
 
 ## Password reset registration
  - **Q:  Can my users register their own password reset data?**
@@ -35,7 +35,7 @@ This FAQ is split into the following sections:
  
  - **Q:  Can I define password reset data on behalf of my users?**
  
- > **A:** Yes, you can do so with DirSync or PowerShell, or through the Azure Management Portal or Office Admin portal. Learn more about this feature on the blog post Improved Privacy for Azure AD MFA and Password Reset Phone Numbers and by reading Learn how data is used by password reset.
+ > **A:** Yes, you can do so with DirSync or PowerShell, or through the [Azure Management Portal](https://manage.windowsazure.com) or Office Admin portal. Learn more about this feature on the blog post Improved Privacy for Azure AD MFA and Password Reset Phone Numbers and by reading Learn how data is used by password reset.
  
  - **Q:  Can I synchronize data for security questions from on premises?**
  
@@ -59,7 +59,7 @@ This FAQ is split into the following sections:
 
  - **Q:  When is a user considered registered?**
  
- > **A:** A user is considered registered when he or she has at least N pieces of authentication info defined, where N is the Number of Authentication Methods Required that you have set in the Azure Management Portal. To learn more, see Customizing User Password Reset Policy.
+ > **A:** A user is considered registered when he or she has at least N pieces of authentication info defined, where N is the Number of Authentication Methods Required that you have set in the [Azure Management Portal](https://manage.windowsazure.com). To learn more, see Customizing User Password Reset Policy.
 
 
 ## Password reset
@@ -74,10 +74,10 @@ This FAQ is split into the following sections:
 
  - **Q:  What parts of the password reset experience get branded when I set organizational branding in my directory’s configure tab?**
  
- > **A:** The password reset portal will show your organizational logo and will also allow you to configure the Contact your administrator link to point to a custom email or URL. Any email that gets sent by password reset will include your organization’s logo, colors (in this case red), name in the body of the email, and customized <from> name. See an example with all the branded elements below. To learn more, read Customizing Password Reset Look and Feel.
-  
+ > **A:** The password reset portal will show your organizational logo and will also allow you to configure the Contact your administrator link to point to a custom email or URL. Any email that gets sent by password reset will include your organization’s logo, colors (in this case red), name in the body of the email, and customized from name. See an example with all the branded elements below. To learn more, read Customizing Password Reset Look and Feel.
+
   ![][001]
-  
+
  - **Q:  How can I educate my users about where to go to reset their passwords?**
  
  > **A:** You can send your users to https://passwordreset.microsoftonline.com directly, or you can instruct them to click on the Can’t access your account link found on any School or Work ID sign in screen. You can feel free to publish these links (or create URL redirects to them) in any place that is easily accessible to your users.
@@ -100,7 +100,7 @@ This FAQ is split into the following sections:
 
  - **Q:  How many questions can we configure for the Security Questions authentication option?**
  
- > **A:** You can configure up to 20 custom security questions in the Azure Management Portal.
+ > **A:** You can configure up to 20 custom security questions in the [Azure Management Portal](https://manage.windowsazure.com).
 
  - **Q:  How long may security questions be?**
  
@@ -144,9 +144,9 @@ This FAQ is split into the following sections:
  - **Q:  How can I filter the password management reports?**
  
  > **A:** You can filter the password management reports by clicking the small magnifying glass to the extreme right of the column labels, towards the top of the report (see screenshot). If you want to do richer filtering, you can download the report to excel and create a pivot table. 
-  
+
   ![][002]
-  
+
  - **Q:  How far back do the password management reports go?**
  
  > **A:** The password management reports show operations occurring within the last 30 days. We are currently investigating how to make this a longer time period. For now, if you need to archive this data, you can download the reports periodically and save them in a separate location.
@@ -177,6 +177,10 @@ This FAQ is split into the following sections:
  
  > **A:** Yes, Password Writeback is extremely secure. To read more about the 4 layers of security implemented by the Password Writeback service, check out the “Password Writeback security model” in How Password Writeback works.
 
+
+<br/>
+<br/>
+<br/>
 
 **Additional Resources**
 
