@@ -1,6 +1,6 @@
 <properties 
    pageTitle="About VPN Gateways for Virtual Network | Microsoft Azure"
-   description="Learn about basic, standard, and high performance gateway SKUs, VPN gateway/ExpressRoute coexist, static and dynamic gateway routing types, and gateway requirements for Virtual Network connectivity."
+   description="Learn about Basic, Standard, and High Performance VPN Gateway SKUs, VPN Gateway and ExpressRoute coexist, Static and Dynamic gateway routing types, and gateway requirements for virtual network connectivity."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -33,23 +33,21 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 ## Gateway types
 
-Select the gateway type that is required by your configuration. In the case of site-to-site configurations, you'll need to verify that the gateway type is supported by your router and for the type of IPsec/IKE parameters and configuration that you require. 
+There are two gateway types, static routing (also known as a policy based VPN), and dynamic routing (also known as a route-based VPN). Some configurations will only work with a specific routing type. And some VPN devices only work with a certain routing type. When you create a VPN gateway, you'll select the gateway type that is required by your configuration, making sure that the device you select also supports that routing type. 
 
-When you create a VPN gateway, you’ll specify either a static, or dynamic routing gateway. It's important to know what your networking plan is in advance because you cannot change gateway routing types after the gateway has been created without deleting and recreating the gateway.
+For example, if you plan to use a site-to-site configuration concurrently with a point-to-site configuration, you’ll need to configure a dynamic routing VPN gateway. While it's true that site-to-site configurations will work with static routing gateways, point-to-site configurations require a dynamic routing gateway. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations.
 
-Some configurations require a specific gateway type. For example, if you plan to use a site-to-site configuration concurrently with a point-to-site configuration, you’ll need to configure a dynamic routing VPN gateway because point-to-site requires Azure dynamic routing gateway and they both will be using the same gateway. 
-
-Additionally, you'll want to verify that your VPN device supports the type of gateway you want to create. For example, if you need to create a dynamic gateway If your device doesn't support route-based VPNs, you will have to reconsider your plan and use either a different VPN device, or move forward with a site-to-site configuration only. If you later acquire a VPN device that is capable of route-based VPNs, you can change the gateway type.
+Additionally, you'll want to verify that your VPN device supports the type of gateway and the type of IPsec/IKE parameters and configuration that you require. For example, if you want to create a dynamic gateway, if your device doesn't support route-based VPNs, you will have to reconsider your plan and use either a different VPN device, or move forward with a static routing gateway configuration. If you later acquire a VPN device that is capable of route-based VPNs (dynamic routing gateway), you can change the gateway type.
 
 Below are the two types of gateways:
 
-- **Static routing –** Static routing gateways support policy-based VPNs. Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on premises network and your Azure VNet. The traffic selectors or policies are usually defined as an access list in your VPN configurations.
+- **Static routing –** Static routing gateways support **policy-based VPNs**. Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on premises network and your Azure VNet. The traffic selectors or policies are usually defined as an access list in your VPN configurations.
 
-	>[AZURE.NOTE] Not all configurations are compatible with static routing VPN gateway. Multi-Site configurations, VNet-to-VNet configurations, and Point-to-Site connections all require Azure dynamic routing gateways. The gateway type is specified in their configuration instructions. 
+	>[AZURE.NOTE] Not all configurations are compatible with static routing VPN gateway. Multi-site configurations, VNet-to-VNet configurations, and point-to-site connections all require Azure dynamic routing gateways. You'll see the gateway requirements in the articles for each configuration. 
 
-- **Dynamic routing –** Dynamic routing gateways implement route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
+- **Dynamic routing –** Dynamic routing gateways implement **route-based VPNs**. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
-## <a id="bkmk_GatewayRequirements"></a> Gateway requirements
+## Gateway requirements
 
 The table below lists the requirements for both static and dynamic VPN gateways.
 
@@ -66,15 +64,17 @@ The table below lists the requirements for both static and dynamic VPN gateways.
 
 ## Next Steps
 
-Select the VPN device for your configuration. See [About VPN Devices](http://go.microsoft.com/fwlink/p/?LinkID=615934).
+Select the VPN device for your configuration. See [About VPN devices](http://go.microsoft.com/fwlink/p/?LinkID=615934).
 
 Configure your virtual network. For cross-premises connections, see the following articles: 
 
-- [Configure a Cross-Premises Site-to-Site connection to an Azure Virtual Network](vpn-gateway-site-to-site-create.md)
-- [Configure a Point-to-Site VPN connection to an Azure Virtual Network](vpn-gateway-point-to-site-create.md)
-- [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
+- [Configure a cross-premises site-to-site connection to an Azure Virtual Network](vpn-gateway-site-to-site-create.md)
+- [Configure a point-to-site VPN connection to an Azure Virtual Network](vpn-gateway-point-to-site-create.md)
+- [Configure a site-to-site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
 
 If you want to configure a VPN gateway, see [Configure a VPN gateway](http://go.microsoft.com/fwlink/p/?LinkId=615106).
 
 If you want to change your VPN gateway type, see [Change a virtual network VPN gateway type](http://go.microsoft.com/fwlink/p/?LinkId=615109).
+
+If you want to connect multiple sites to a virtual network, see [Connect multiple on-premises sites to a virtual network](http://go.microsoft.com/fwlink/p/?LinkID=615106)
 
