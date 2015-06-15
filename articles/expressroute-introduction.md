@@ -17,7 +17,7 @@
 
 # ExpressRoute Technical Overview
 
-Microsoft Azure ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as a MPLS VPN provided by a network service provider).
+Microsoft Azure ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as an MPLS VPN provided by a network service provider).
  
 ExpressRoute connections offer higher security, more reliability, faster speeds and lower latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits. If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.
 
@@ -64,11 +64,11 @@ If you use VPN services from any of the network service providers we partner wit
 For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure ExpressRoute circuits through NSPs](expressroute-configuring-nsps.md).
 
 ## ExpressRoute Peerings
-The figure below provides a logical representation of connectivity between your WAN and Microsoft. You must order a “dedicated circuit” to connect your WAN to Microsoft through a connectivity provider (NSP / EXP). A “dedicated circuit” represents a logical connection between your WAN and Microsoft through the connectivity provider. You may order many dedicated circuits, each of them can be in the same or different regions and can be connected to your WAN through different service providers. 
+The figure below provides a logical representation of connectivity between your WAN and Microsoft. You must order a *dedicated circuit* to connect your WAN to Microsoft through a connectivity provider (NSP / EXP). A dedicated circuit represents a logical connection between your WAN and Microsoft through the connectivity provider. You may order many dedicated circuits, each of them can be in the same or different regions and can be connected to your WAN through different service providers. 
 
 ![](./media/expressroute-introduction/expressroute-basic.png)
 
-A dedicated circuit will have multiple routing domains associated with it – public, private and Microsoft. Each of the routing domains are configured identically on a pair of routers (in active-active or loadsharing configuration) for high availability. 
+A dedicated circuit will have multiple routing domains associated with it – public, private, and Microsoft. Each of the routing domains are configured identically on a pair of routers (in active-active or loadsharing configuration) for high availability. 
 
 ![](./media/expressroute-introduction/expressroute-peerings.png)
 
@@ -80,7 +80,7 @@ You can connect more than one virtual network to the private peering domain. Rev
   
 
 ### Public Peering
-Services such as Azure Storage, SQL databases and Websites are offered on public IP addresses. You can privately connect to services hosted on public IP addresses (including VIPs of your cloud services) through the public peering routing domain. You can connect the public peering domain to your extranet and connect to all Azure services on their public IP addresses from your WAN without having to connect through the internet. Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. Once public peering is enabled, you will be able to connect to all Azure services (we do not allow you to selectively pick services for which we advertise routes to). You can review the list of prefixes we advertise to you through this peering at [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653) page. You can define custom route filters within your network to consume only the routes you need. 
+Services such as Azure Storage, SQL databases and Websites are offered on public IP addresses. You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain. You can connect the public peering domain to your extranet and connect to all Azure services on their public IP addresses from your WAN without having to connect through the internet. Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. Once public peering is enabled, you will be able to connect to all Azure services. We do not allow you to selectively pick services for which we advertise routes to. You can review the list of prefixes we advertise to you through this peering at [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653) page. You can define custom route filters within your network to consume only the routes you need. 
 
 Review the [FAQ page](expressroute-faqs.md) for more information on services supported through the public peering routing domain. 
  
@@ -95,20 +95,17 @@ The table below compares the three routing domains.
 ||**Private Peering**|**Public Peering**|**Microsoft Peering**|
 |---|---|---|---|
 |**Max. # prefixes supported per peering**|4000 by default, 10,000 with ExpressRoute Premium|4000 by default, 10,000 with ExpressRoute Premium|200|
-|**IP address ranges supported**|Any valid IPv4 address within your WAN|Public IPv4 addresses owned by you or your connectivity provider|Public IPv4 ddresses owned by you or your connectivity provider|
-|**AS Number Requirements**|Private and public AS numbers . Customer must own public AS number. | Private and public AS numbers . Customer must own public AS number.| Public AS numbers only. AS number must be validated against routing registries to validate ownership.|
-|**Routing Interface IP adressess**|RFC1918 and public IP addresses|Public IP addresses registered to customers / NSP in routing registries.| Public IP addresses registered to customers / NSP in routing registries.|
+|**IP address ranges supported**|Any valid IPv4 address within your WAN|Public IPv4 addresses owned by you or your connectivity provider|Public IPv4 addresses owned by you or your connectivity provider|
+|**AS Number Requirements**|Private and public AS numbers . Customer must own public AS number. | Private and public AS numbers. Customer must own public AS number.| Public AS numbers only. AS number must be validated against routing registries to validate ownership.|
+|**Routing Interface IP addresses**|RFC1918 and public IP addresses|Public IP addresses registered to customers / NSP in routing registries.| Public IP addresses registered to customers / NSP in routing registries.|
 |**MD5 Hash support**| Yes|Yes|Yes|
 
 You can choose to enable one or more of the routing domains as part of their dedicated circuit. You can choose to have all the routing domains put on the same VPN (for NSP case) if they wish to ingest them into a single routing domain. You can also put them on different routing domains similar to the diagram above. The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links connected to your extranet.
  
-If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through EXPs, you will be responsible for configuring and managing routing (unless EXP offers to manage routing for you).If you choose to connect through NSPs, you can rely on the NSP to manage routing for you. You can learn more by reviewing the workflows for setting up ExpressRoute
+If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through EXPs, you will be responsible for configuring and managing routing (unless EXP offers to manage routing for you). If you choose to connect through NSPs, you can rely on the NSP to manage routing for you. You can learn more by reviewing the workflows for setting up ExpressRoute
 
-- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
-- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
 
 ## Next Steps
 
-- [ExpressRoute Service Providers and Locations](expressroute-locations.md) 
-- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
-- [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
+- Find a service provider. See [ExpressRoute Service Providers and Locations](expressroute-locations.md).
+- Configure your ExpressRoute connection. See [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md) or [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md) for instructions.
