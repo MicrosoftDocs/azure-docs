@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to evaluate model performance in Azure Machine Learning | Azure" 
+	pageTitle="Evaluate model performance in Machine Learning | Microsoft Azure" 
 	description="Explains how to evaluate model performance in Azure Machine Learning." 
 	services="machine-learning"
 	documentationCenter="" 

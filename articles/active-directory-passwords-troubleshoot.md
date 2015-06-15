@@ -19,12 +19,12 @@
 # How to troubleshoot Password Management
 If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to  troubleshoot your deployment:
 
-* [Information to include when you need help](#information-to-include-when-you-need-help)
-* [Problems with Password Management configuration in the Azure Management Portal](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
-* [Problems with Password Managment reports in the Azure Management Portal](#troubleshoot-password-management-reports-in-the-azure-management-portal)
-* [Problems with the Password Reset Registration Portal](#troubleshoot-the-password-reset-registration-portal)
-* [Problems with the Password Reset Portal](#troubleshoot-the-password-reset-portal)
-* [Problems with Password Writeback](#troubleshoot-password-writeback)
+* [**Information to include when you need help**](#information-to-include-when-you-need-help)
+* [**Problems with Password Management configuration in the Azure Management Portal**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
+* [**Problems with Password Managment reports in the Azure Management Portal**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
+* [**Problems with the Password Reset Registration Portal**](#troubleshoot-the-password-reset-registration-portal)
+* [**Problems with the Password Reset Portal**](#troubleshoot-the-password-reset-portal)
+* [**Problems with Password Writeback**](#troubleshoot-password-writeback)
   - [Password Writeback event log error codes](#password-writeback-event-log-error-codes)
   - [Problems with Password Writeback connectivity](#troubleshoot-password-writeback-connectivity)
 
@@ -39,9 +39,9 @@ If you cannot solve your issue with the guidance below, you can contact our supp
  - **Date / Time / Timezone** – what was the precise date and time you saw the error (include the timezone)?
  - **Support Code** – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results). 
    - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
-    
-   ![][001]
-    
+
+    ![][001]
+
  - **User ID** – what was the ID of the user who saw the error (e.g. user@contoso.com)?
  - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
  - **Application Event Log** – if you are using Password Writeback and the error is in your on-premises infrastructure, please zip up a copy of your application event log from your Azure AD Connect server and send along with your request.
@@ -102,7 +102,7 @@ If you encounter an error when configuring password reset, you might be able to 
             </td>
             <td>
               <p>Many elements of UI are hidden until they are needed. Try enabling all the options on the page if you want to see.</p>
-              <p>See <a href="https://msdn.microsoft.com/en-us/library/azure/4ed05772-b6fc-4b64-981f-816db5e501ae#BKMK_b">Customizing User Password Reset Policy</a> for more info about all of the controls that are available to you.</p>
+              <p>See <a href="../active-directory-passwords-customize#password-management-behavior">Customizing User Password Reset Policy</a> for more info about all of the controls that are available to you.</p>
             </td>
           </tr>
           <tr>
@@ -114,7 +114,7 @@ If you encounter an error when configuring password reset, you might be able to 
             </td>
             <td>
               <p>This option is only visible if you have downloaded Azure AD Connect and configured Password Writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
-              <p>See <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
+              <p>See <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
             </td>
           </tr>
         </tbody></table>
@@ -223,7 +223,7 @@ If you encounter an error when registering a user for password reset, you might 
             </td>
             <td>
               <p>This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue that cannot be resolved. </p>
-              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#BKMK_1">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
+              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#information-to-include-when-you-need-help">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
             </td>
           </tr>
         </tbody></table>
@@ -289,7 +289,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Ensure that user has properly formed contact data on file in the directory before proceeding. See <a href="https://msdn.microsoft.com/en-us/library/azure/9a081af1-02f6-44ef-ae06-03997e14933c#BKMK_1">Learn how data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
+              <p>Ensure that user has properly formed contact data on file in the directory before proceeding. See <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
             </td>
           </tr>
           <tr>
@@ -305,7 +305,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
             </td>
             <td>
-              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="https://msdn.microsoft.com/en-us/library/azure/9a081af1-02f6-44ef-ae06-03997e14933c#BKMK_1">Learn how data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
+              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
             </td>
           </tr>
           <tr>
@@ -327,7 +327,7 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>User clicks “text me” or “call me” and then never receives anything.</p>
             </td>
             <td>
-              <p>This could be the result of a mal-formed phone number in the directory. Make sure the phone number is in the format “+ccc xxxyyyzzzzXeeee”. To learn more about formatting phone numbers for use with password reset see <a href="https://msdn.microsoft.com/en-us/library/azure/9a081af1-02f6-44ef-ae06-03997e14933c#BKMK_1">Learn how data is used by password reset</a>.</p>
+              <p>This could be the result of a mal-formed phone number in the directory. Make sure the phone number is in the format “+ccc xxxyyyzzzzXeeee”. To learn more about formatting phone numbers for use with password reset see <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">What data is used by password reset</a>.</p>
               <p>If you require an extension to be routed to the user in question, note that password reset does not support extensions, even if you specify one in the directory (they are stripped before the call is dispatched). Try using a number without an extension, or integrating the extension into the phone number in your PBX.</p>
             </td>
           </tr>
@@ -340,7 +340,7 @@ If you encounter an error when resetting a password for a user, you might be abl
             </td>
             <td>
               <p>The most common cause for this issue is that the message is rejected by a spam filter. Check your spam, junk, or deleted items folder for the email.</p>
-              <p>Also ensure that you are checking the right email for the message…lots of people have very similar email addresses and end up checking the wrong inbox for the message. If neither of these options work, it’s also possible that the email address in the directory is malformed, check to make sure the email address is the right one and try again. To learn more about formatting email addresses for use with password reset see <a href="https://msdn.microsoft.com/en-us/library/azure/9a081af1-02f6-44ef-ae06-03997e14933c#BKMK_1">Learn how data is used by password reset</a>.</p>
+              <p>Also ensure that you are checking the right email for the message…lots of people have very similar email addresses and end up checking the wrong inbox for the message. If neither of these options work, it’s also possible that the email address in the directory is malformed, check to make sure the email address is the right one and try again. To learn more about formatting email addresses for use with password reset see <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">What data is used by password reset</a>.</p>
             </td>
           </tr>
           <tr>
@@ -372,11 +372,11 @@ If you encounter an error when resetting a password for a user, you might be abl
               <p>We implement an automatic throttling mechanism to block users from attempting to reset their passwords too many times in a short period of time. This occurs when:</p>
               <ol class="ordered">
                 <li>
-										User attempts to validate a phone number 5 times in one hour.<br><br></li>
+										User attempts to validate a phone number 5 times in one hour.<br\><br\></li>
                 <li>
-										User attempts to use the security questions gate 5 times in one hour.<br><br></li>
+										User attempts to use the security questions gate 5 times in one hour.<br\><br\></li>
                 <li>
-										User attempts to reset a password for the same user account 5 times in one hour.<br><br></li>
+										User attempts to reset a password for the same user account 5 times in one hour.<br\><br\></li>
               </ol>
               <p>To fix this, instruct the user to wait 24 hours after the last attempt, and the user will then be able to reset his or her password.</p>
             </td>
@@ -411,7 +411,7 @@ If you encounter an error when resetting a password for a user, you might be abl
             </td>
             <td>
               <p>This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue that cannot be resolved. </p>
-              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#BKMK_1">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
+              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#information-to-include-when-you-need-help">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
             </td>
           </tr>
         </tbody></table>
@@ -468,11 +468,11 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>This error occurs in the following two cases:</p>
               <ul>
                 <li class="unordered">
-										You have specified an incorrect password for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br><br></li>
+										You have specified an incorrect password for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										You have attempted to use a federated user for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br><br></li>
+										You have attempted to use a federated user for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br\><br\></li>
               </ul>
               <p>To fix this error, please ensure that you are not using a federated account for the global administrator you specified at the beginning of the Azure AD Connect installation process, and that the password specified is correct.</p>
             </td>
@@ -499,11 +499,11 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>Make sure your firewall allows outbound connections for the following:</p>
               <ul>
                 <li class="unordered">
-										All traffic over TCP 443 (HTTPS)<br><br></li>
+										All traffic over TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Outbound connections to <br><br></li>
+										Outbound connections to <br\><br\></li>
               </ul>
               <p>
                 
@@ -519,7 +519,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>After working for some time, federated or password hash synced users cannot reset their passwords.</p>
             </td>
             <td>
-              <p>In some rare cases, the Password Writeback service may fail to re-start when Azure AD Connect has re-started. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the Azure AD Connect wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
+              <p>In some rare cases, the Password Writeback service may fail to re-start when Azure AD Connect has re-started. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the Azure AD Connect wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
               <p>
                 
               </p>
@@ -557,13 +557,13 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>There is a known bug in the released version of Azure AD Connect which manifests in the following situation:</p>
               <ol class="ordered">
                 <li>
-										You configure Azure AD Connect for tenant abc.com (Verified domain) using creds . This results in AAD connector with name “abc.com – AAD” being created.<br><br></li>
+										You configure Azure AD Connect for tenant abc.com (Verified domain) using creds . This results in AAD connector with name “abc.com – AAD” being created.<br\><br\></li>
                 <li>
-										You then then change the AAD creds for the connector (using old sync UI) to  (note it’s the same tenant but different domain name). <br><br></li>
+										You then then change the AAD creds for the connector (using old sync UI) to  (note it’s the same tenant but different domain name). <br\><br\></li>
                 <li>
-										Now you try to enable/disable Password Writeback. The wizard will construct the name of the connector using the creds, as “abc.onmicrosoft.com – AAD” and pass to the Password Writeback cmdlet. This will fail because there is no connector created with this name.<br><br></li>
+										Now you try to enable/disable Password Writeback. The wizard will construct the name of the connector using the creds, as “abc.onmicrosoft.com – AAD” and pass to the Password Writeback cmdlet. This will fail because there is no connector created with this name.<br\><br\></li>
               </ol>
-              <p>This has been fixed in our latest builds. If you have an older build, the one workaround is to use the powershell cmdlet to enable/disable the feature. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_3">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
+              <p>This has been fixed in our latest builds. If you have an older build, the one workaround is to use the powershell cmdlet to enable/disable the feature. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
             </td>
           </tr>
           <tr>
@@ -574,7 +574,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>Federated or password hash sync’d users who are part of protected groups and attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
             </td>
             <td>
-              <p>Privileged users in Active Directory are protected using AdminSDHolder. See <a href="https://technet.microsoft.com/en-us/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/en-us/magazine/2009.09.sdadminholder.aspx</a> for more details. </p>
+              <p>Privileged users in Active Directory are protected using AdminSDHolder. See <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> for more details. </p>
               <p>
                 
               </p>
@@ -638,7 +638,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>When attempting to reset a password on behalf of a user from the Azure Management Portal, you see a message stating: “The password reset service running in your on-premises environment does not support administrators resetting user passwords. Please upgrade to the latest version of Azure AD Connect to resolve this.”</p>
             </td>
             <td>
-              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect (for more information, see <a href="https://msdn.microsoft.com/en-us/library/azure/dn757582.aspx">Directory Integration Tools</a>) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
+              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect (for more information, see <a href="../active-directory-aadconnect#download-azure-ad-connect">Directory Integration Tools</a>) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
             </td>
           </tr>
         </tbody></table>
@@ -684,19 +684,19 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
               <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
               <ul>
                 <li class="unordered">
-										If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br><br></li>
+										If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br><br></li>
+										If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br><br></li>
+										If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br><br></li>
+										If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -742,17 +742,17 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
               <p>This event indicates that a user selected a password, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br><br></li>
+										The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br><br></li>
+										The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br><br></li>
+										The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>See <a href="#BKMK_7">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -825,17 +825,17 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
               <p>This event indicates that a user selected a password, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br><br></li>
+										The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br><br></li>
+										The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br><br></li>
+										The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>See <a href="#BKMK_7">Troubleshoot Password Writeback</a> to learn more about what other situations can cause this error.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situations can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -880,17 +880,17 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
               <p>The admin selected a password on behalf of a user, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
               <ul>
                 <li class="unordered">
-										The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br><br></li>
+										The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br><br></li>
+										The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br><br></li>
+										The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
               </ul>
-              <p>See <a href="#BKMK_7">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
+              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
             </td>
           </tr>
           <tr>
@@ -1156,7 +1156,7 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the on-premises service could not properly communicate with the password reset web service to initiate the onboarding process. This may be because of a firewall rule or problem getting an auth token for your tenant. To fix this, ensure that you are not blocking outbound connections over 443 or to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and that the AAD admin account you are using to onboard is not federated. </p>
+              <p>This event indicates that the on-premises service could not properly communicate with the password reset web service to initiate the onboarding process. This may be because of a firewall rule or problem getting an auth token for your tenant. To fix this, ensure that you are not blocking outbound connections over TCP 443 and TCP 9350-9354 or to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and that the AAD admin account you are using to onboard is not federated. </p>
             </td>
           </tr>
           <tr>
@@ -1268,7 +1268,7 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the Management Agent service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the MA account in the user’s forest has Reset and Change password permissions on all objects in the forest.  For more information on how do to this, see <a href="https://msdn.microsoft.com/en-us/library/azure/52a6b69e-5fbf-4e1c-83b9-4568659c5341#BKMK_e">Step 3: Ensure you have the proper permissions defined on your ADMA account for Password Writeback to occur</a>.</p>
+              <p>This event indicates that the Management Agent service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the MA account in the user’s forest has Reset and Change password permissions on all objects in the forest.  For more information on how do to this, see <a href="../active-directory-passwords-getting-started#step-4-set-up-the-appropriate-active-directory-permissions">Step 4: Set up the appropriate Active Directory permissions</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1327,19 +1327,19 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
               <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
               <ul>
                 <li class="unordered">
-										If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br><br></li>
+										If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br><br></li>
+										If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br><br></li>
+										If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br><br></li>
+										If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -1415,34 +1415,34 @@ In general, we recommend that you execute these steps in the order above in orde
 ### Restart the Azure AD Connect Sync Service
 Restarting the Azure AD Connect Sync Service can help to resolve connectivity issues or other transient issues with the service.
 
- 1.	As an administrator, click Start on the server running Azure AD Connect.
- 2.	Type “services.msc” in the search box and press Enter.
- 3.	Look for the Microsoft Azure AD Connect entry.
- 4.	Right-click on the service entry, click Restart, and wait for the operation to complete.
-    
-  ![][002]
+ 1.	As an administrator, click **Start** on the server running **Azure AD Connect**.
+ 2.	Type **“services.msc”** in the search box and press **Enter**.
+ 3.	Look for the **Microsoft Azure AD Connect** entry.
+ 4.	Right-click on the service entry, click **Restart**, and wait for the operation to complete.
+
+    ![][002]
 
 These steps will re-establish your connection with the cloud service and resolve any interruptions you may be experiencing.  If restarting the Sync Service does not resolve your issue, we recommend that you try to disable and re-enable the Password Writeback feature as a next step.
 
 ### Disable and re-enable the Password Writeback feature
 Disabling and re-enabling the Password Writeback feature can help to resolve connectivity issues.
 
- 1.	As an administrator, open the Azure AD Connect configuration wizard.
- 2.	On the Connect to Azure AD dialog, enter your Azure AD global admin credentials.
- 3.	On the Connect to AD DS dialog, enter your AD Domain Services admin credentials.
- 4.	On the Uniquely identifying your users dialog, click the Next button.
- 5.	On the Optional features dialog, uncheck the Password write-back checkbox.
-  
-  ![][003]
-  
- 6.	Click Next through the remaining dialog pages without changing anything until you get to the Ready to configure page.
- 7.	Ensure that the configure page shows the Password write-back option as disabled and then click the green Configure button to commit your changes.
- 8.	On the Finished dialog, deselect the Synchronize now option, and then click Finish to close the wizard.
- 9.	Re-open the Azure AD Connect configuration wizard.
- 10.	Repeat steps 2-8, except ensure you check the Password write-back option on the Optional features screen to re-enable the service.
-  
-  ![][004]
-  
+ 1.	As an administrator, open the **Azure AD Connect configuration wizard**.
+ 2.	On the **Connect to Azure AD** dialog, enter your **Azure AD global admin credentials**
+ 3.	On the **Connect to AD DS** dialog, enter your **AD Domain Services admin credentials**.
+ 4.	On the **Uniquely identifying your users** dialog, click the **Next** button.
+ 5.	On the **Optional features** dialog, uncheck the **Password write-back** checkbox.
+
+    ![][003]
+
+ 6.	Click **Next** through the remaining dialog pages without changing anything until you get to the **Ready to configure** page.
+ 7.	Ensure that the configure page shows the **Password write-back option as disabled** and then click the green **Configure** button to commit your changes.
+ 8.	On the **Finished** dialog, deselect the **Synchronize now** option, and then click **Finish** to close the wizard.
+ 9.	Re-open the **Azure AD Connect configuration wizard**.
+ 10.	**Repeat steps 2-8**, except ensure you **check the Password write-back option** on the **Optional features** screen to re-enable the service.
+
+    ![][004]
+
 These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
 
 If disabling and re-enabling the Password Writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Connect as a next step.
@@ -1453,7 +1453,7 @@ We recommend, you perform this step only after attempting the first two steps de
 
  1.	Download the latest version of Azure AD Connect [here](active-directory-aadconnect.md#download-azure-ad-connect).
  2.	Since you have already installed Azure AD Connect, you will only need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
- 3.	Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required.
+ 3.	Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required unless you have customized the out of box sync rules, in which case you should **back these up before proceeding with upgrade and manually re-deploy them after you are finished**.
 
 These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing. 
 
@@ -1461,6 +1461,10 @@ If installing the latest version of the Azure AD Connect server does not resolve
 
 If that does not resolve your issue, then we recommend that you take a look at [Troubleshoot Password Writeback](#troubleshoot-password-writeback) and the [Azure AD password Management FAQ](active-directory-passwords-faq.md) to see if your issue may be discussed there.
 
+
+<br/>
+<br/>
+<br/>
 
 **Additional Resources**
 

@@ -1,7 +1,8 @@
 <properties 
-	pageTitle="Scaling API Endpoints" 
+	pageTitle="Scaling API Endpoints | Microsoft Azure" 
 	description="Scaling web service endpoints in Azure Machine Learning" 
-	services="machine-learning" 
+	services="machine-learning"
+	documentationCenter="" 
 	authors="hiteshmadan" 
 	manager="padou" 
 	editor=""/>

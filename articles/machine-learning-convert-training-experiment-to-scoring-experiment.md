@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Convert a Machine Learning training experiment to a scoring experiment | Azure" 
+	pageTitle="Convert a Machine Learning training experiment to scoring | Microsoft Azure" 
 	description="How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a scoring experiment which can be published as a web service." 
 	services="machine-learning" 
 	documentationCenter="" 

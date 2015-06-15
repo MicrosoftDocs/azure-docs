@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,12 +14,25 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="06/12/2015" 
 	ms.author="kathydav"/>
 
 
-#How to Log on to a Virtual Machine Running Windows Server#
+# How to Log on to a Virtual Machine Running Windows Server#
 
-To log on to a virtual machine running Windows Server, use the Connect button in the Management Portal to start a Remote Desktop Connection. (For Linux VMs, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md).)
+You'll use the **Connect** button in the Azure Portal to start a Remote Desktop session. (For Linux VMs, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md).)
+
+## How to log on
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
+
+## Troubleshooting tips
+
+Here are a few things to try quickly:
+
+For problems with the Remote Desktop connection, try resetting the configuration from the portal. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
+
+For problems with your password, try resetting it from the portal. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.
+
+If those don't work, you'll need to do more extensive troubleshooting. For instructions, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
+ 

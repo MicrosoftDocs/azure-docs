@@ -133,7 +133,7 @@ Use these commands to list the existing virtual networks.
 
 ## Step 4: Build your command set
 
-Open a fresh instance of the text editor of your choice (or an instance of the PowerShell Integrated Scripting Environment [ISE]), copy the following lines to start your command set, and then specify the name of the resource group, Azure location, and storage account for this new virtual machine. Replace everything within the quotes, including the < and > characters, with the correct names.
+Open a fresh instance of the text editor of your choice or the PowerShell Integrated Scripting Environment (ISE) and copy the following lines to start your command set. Specify the name of the resource group, Azure location, and storage account for this new virtual machine. Replace everything within the quotes, including the < and > characters, with the correct names.
 
 	Switch-AzureMode AzureResourceManager
 	$rgName="<resource group name>"
@@ -257,13 +257,11 @@ Finally, copy these commands to your command set and fill in the name identifier
 
 ## Step 5: Run your command set
 
-Review the Azure PowerShell command set you built in your text editor consisting of multiple blocks of commands from Step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
-Copy the command set to the clipboard and then right-click your open Azure PowerShell prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine. Alternately, copy the command set into the Azure PowerShell ISE and run them from there.
+Review the Azure PowerShell command set you built in your text editor or the PowerShell ISE consisting of multiple blocks of commands from Step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
 
-If you will be creating this virtual machine again or a similar one, you can:
+If you have your commands in a text editor, copy the command set to the clipboard and then right-click your open Azure PowerShell prompt. This will issue the command set as a series of PowerShell commands and create your Azure virtual machine. Alternately, run the command set from the Azure PowerShell ISE.
 
-- Save this command set as a text file or as a PowerShell script file (*.ps1)
-- Save this command set as an Azure automation runbook in the Automation section of the Azure Management Portal
+If you will be creating this virtual machine again or a similar one, you can save this command set as a PowerShell script file (*.ps1).
 
 ## Example
 

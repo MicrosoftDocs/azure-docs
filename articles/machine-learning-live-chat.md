@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Get help from Machine Learning Live Chat Support | Azure" 
+    pageTitle="Get help from Machine Learning Live Chat Support | Microsoft Azure" 
     description="Get real-time help for Machine Learning in the cloud with the Live Chat Support feature." 
     services="machine-learning" 
     documentationCenter="" 
