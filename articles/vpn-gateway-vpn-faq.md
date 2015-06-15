@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/12/2015"
+   ms.date="06/15/2015"
    ms.author="cherylmc" />
 
 # VPN Gateway FAQ
@@ -28,7 +28,7 @@ Yes.
 ### Can I connect to multiple sites from a single virtual network?
 
 You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#Multi-Site-and-VNet-to-VNet-Connectivity) FAQ section.
-## What are my Cross-Premises connection options?
+## What are my cross-premises connection options?
 
 Virtual Network supports the following cross-premises connections:
 
@@ -42,7 +42,7 @@ Virtual Network supports the following cross-premises connections:
 
 - [ExpressRoute](expressroute-overview.md) - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](expressroute-overview.md) and the [ExpressRoute FAQ](expressroute-faqs.md) for more information.
 
-### How is Site-to-Site different from Point-to-Site?
+### What is the difference between a site-to-site connection and point-to-site?
 
 **Site-to-site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.
 
@@ -58,7 +58,7 @@ ExpressRoute connections offer better security, more reliability, higher bandwid
 
 See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 
-## VPN Devices and Site-to-Site connections
+## VPN devices and site-to-site connections
 
 ### What should I consider when selecting a VPN device?
 
@@ -74,7 +74,7 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## Point-to-Site connections
+## Point-to-site connections
 
 ### What operating systems can I use with point-to-site?
 
@@ -172,7 +172,7 @@ Yes, you can deploy your own VPN gateways or servers in Azure either from the Az
 
 For more information, see [Gateways](http://go.microsoft.com/fwlink/p/?LinkID=615098).
 
-## Multi-Site and VNet-to-VNet connectivity
+## Multi-site and VNet-to-VNet connectivity
 
 ### Which type of gateways can support multi-site and VNet-to-VNet connectivity?
 
@@ -234,7 +234,7 @@ If you have a virtual network with cross-premises connectivity configured, you c
 
 No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway. Traffic has a destination IP located within the virtual network will stay within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway. If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway. Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network. Also, you'll want to verify that the DNS server you are using is resolving the name to the proper IP address.
 
-## Next steps
+## Next Steps
 
 View more networking FAQs for additional details:
 
