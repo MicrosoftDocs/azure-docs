@@ -217,9 +217,10 @@ One of the fundamental constructs in the Mobile Services authentication pipeline
             return;
         }
 
-	This method is a no-op here since **CustomLoginProvider** is not integrating with the authentication pipeline.
+	This method is not implemented because **CustomLoginProvider** is not integrating with the authentication pipeline.
 
 4. Add the following implementation of the abstract method `ParseCredentials` to **CustomLoginProvider**. 
+
         public override ProviderCredentials ParseCredentials(JObject serialized)
         {
             if (serialized == null)
@@ -251,6 +252,12 @@ One of the fundamental constructs in the Mobile Services authentication pipeline
         }
 
 	This method translates a [ClaimsIdentity] into a [ProviderCredentials] object that is used in the authentication token issuance phase. You will again want to capture any additional claims in this method.
+	
+6. Open the WebApiConfig.cs project file in the App_Start folder and the following line of code after the **ConfigOptions** is created:
+		
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
+
+	
 
 ## Create the sign-in endpoint
 

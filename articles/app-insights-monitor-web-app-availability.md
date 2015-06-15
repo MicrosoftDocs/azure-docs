@@ -54,6 +54,8 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 - **The URL** must be visible from the public internet. It can include a query string - so for example you could exercise your database a little. If the URL resolves to a redirect, we will follow it, up to 10 redirects.
 
+- If **Enable retries** is selected, then when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual interval. Retry is temporarily suspended until the next success. This rule is applied independently at each test location.
+
 - **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
 - **Success criteria**:
@@ -61,6 +63,7 @@ In your Application Insights resource, look for the Availability tile. Click it 
     **HTTP status code**: 200 is usual. 
 
     **Content match**: a string, like "Welcome!" We'll test that it occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+
 
 - **Alerts** are, by default, sent to you if there are repeated failures over 15 minutes. But you can change it to be more or less sensitive, and you can also change the notified email addresses.
 
