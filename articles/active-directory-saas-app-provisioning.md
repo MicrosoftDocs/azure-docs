@@ -20,7 +20,7 @@
 
 ##What is Automated SaaS App User Provisioning?
 
-Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Salesforce, ServiceNow, Dropbox, and more. Some common motivations for using this feature include:
+Azure Active Directory allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and more. Some common motivations for using this feature include:
 
 - To avoid the costs, inefficiencies, and human error associated with manual provisioning processes.
 - To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
@@ -30,7 +30,7 @@ A key benefit to using Azure AD to handle your SaaS app provisioning is that it'
 
 - Customize provisioning rules to fit your organization's existing app deployments.
 - Provisioned users will be continuously kept up-to-date based on changes from the directory.
-- Provisioning of non-user objects such as groups, depending on what the SaaS app supports.
+- Provisioning of non-user objects such as groups to SaaS apps that support them.
 - Optional email alerts for provisioning errors.
 - Reporting and activity logs to help with monitoring and troubleshooting.
 
@@ -38,23 +38,23 @@ A key benefit to using Azure AD to handle your SaaS app provisioning is that it'
 
 **How frequently does Azure AD write directory changes to the SaaS app?**
 
-Azure AD checks for changes every 10 minutes.
+Azure AD checks for changes every five to ten minutes. If the SaaS app is returning several errors (such as in the case of invalid admin credentials), then Azure AD will gradually slow its frequency to up to once per day until the errors are fixed.
 
 **How long will it take to provision my users?**
 
-Incremental changes happen nearly instantly but if you are trying to provision most of your directory, then it depends on the number of users that you have. Small directories take only a few minutes, medium-sized directories may take several minutes, and very large directories may take several hours.
-
-**Can Azure AD write changes from the SaaS app to the directory?**
-
-Today provisioning works in only one direction: it's either outbound or inbound, but not both. Therefore, if you use Azure AD to provision a user to a SaaS app, and then that SaaS app modifies a user property, we don't yet support the ability to have that modification written back to the directory.
+Incremental changes happen nearly instantly but if you are trying to provision most of your directory, then it depends on the number of users and groups that you have. Small directories take only a few minutes, medium-sized directories may take several minutes, and very large directories may take several hours.
 
 **How can I track the progress of the current provisioning job?**
 
-In the Azure Management Portal, visit the Dashboard tab for the SaaS application that you are provisioning to, and look under the "Integration Status" section near the bottom of the page.
+You can review the Account Provisioning Report under the Reports section of your directory. Another option is to visit the Dashboard tab for the SaaS application that you are provisioning to, and look under the "Integration Status" section near the bottom of the page.
 
 **How will I know if users fail to get provisioned properly?**
 
 At the end of the provisioning configuration wizard there is an option to subscribe to email notifications for provisioning failures. You can also check the Provisioning Errors Report to see which users failed to be provisioned and why.
+
+**Can Azure AD write changes from the SaaS app back to the directory?**
+
+For most SaaS apps, provisioning is outbound-only, which means that users are written from the directory to the application, and changes from the application cannot be written back to the directory. For [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx), however, provisioning is inbound-only, which means that that users are imported into the directory from Workday, and likewise, changes in the directory do not get written back into Workday.
 
 ##How Does Automated Provisioning Work?
 
@@ -63,11 +63,11 @@ Azure AD provisions users to SaaS apps by connecting to provisioning endpoints p
 1. When you enable provisioning for an application for the first time, the following actions are performed:
  - Azure AD will attempt to match any existing users in the SaaS app with their corresponding identities in the directory.
  - When a user is matched, they are automatically assigned access to the application, which enables them for single sign-on.
- - If you have already specified which users should be assigned, and if Azure AD fails to find existing accounts for those users, Azure AD will provision new accounts for them in the SaaS app.
-2. Once the above setup stage has been completed, Azure AD will check every 10 minutes for the following changes:
- - If new users have been granted access to the application (either directly or through group membership), then they will be provisioned a new account in the SaaS app.
+ - If you have already specified which users should be assigned to the application, and if Azure AD fails to find existing accounts for those users, Azure AD will provision new accounts for them in the application.
+2. Once the initial synchronization has been completed as described above, Azure AD will check every 10 minutes for the following changes:
+ - If new users have been assigned to the application (either directly or through group membership), then they will be provisioned a new account in the SaaS app.
  - If a user's access has been removed, then their account in the SaaS app will be marked as disabled (users are never fully deleted, which protects you from data loss in the event of a misconfiguration).
- - If a user is granted access and they already have an account in the SaaS app, that account will be marked as enabled, and certain user properties may be updated if they are out-of-date compared to the directory.
+ - If a user was recently assigned to the application and they already had an account in the SaaS app, that account will be marked as enabled, and certain user properties may be updated if they are out-of-date compared to the directory.
  - If a user's information (such as phone number, office location, etc) has been changed in the directory, then that information will also be updated in the SaaS application.
 
 For more information on how attributes are mapped between Azure AD and your SaaS app, see the article on [Customizing Attribute Mappings](https://msdn.microsoft.com/library/azure/dn872469.aspx).
