@@ -170,7 +170,7 @@
 
 <sup>2</sup>Basic and Standard sites run on dedicated machines. The actual number of sites that you can host on these machines depends on the activity of the sites, the size of the machine instances, and the corresponding resource utilization.
 
-<sup>3</sup>With the exception of the Free tier, the limits on Web Hosting Plans are per resource group. For more information on creating and managing resource groups, see [Using Resource groups to manage your Azure resources](../articles/azure-preview-portal-using-resource-groups/).
+<sup>3</sup>With the exception of the Free tier, the limits on Web Hosting Plans are per resource group. For more information on creating and managing resource groups, see [Azure Resource Manager Overview](../articles/resource-group-overview.md/).
 
 <sup>4</sup>Dedicated instances can be Small, Medium, or Large. See the [Azure Web Sites Pricing Page](http://azure.microsoft.com/pricing/details/web-sites/) for more details. Additional instances are available by opening a support request.
 
