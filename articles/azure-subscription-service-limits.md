@@ -107,6 +107,11 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
 
+## Mobile Engagement Limits
+
+[AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
+
+
 ## SQL Database Limits
 
 [AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
