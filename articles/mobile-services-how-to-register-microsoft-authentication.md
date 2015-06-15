@@ -48,7 +48,7 @@ Windows Store apps must first be registered with the Windows Dev Center.
 
    	This displays the **Associate Your App with the Windows Store** Wizard.
 
-5. In the wizard, click **Sign in** and then login with your Microsoft account, select the app name that you reserved in step 2, click **Next** > **Associate**.
+5. In the wizard, click **Sign in** and then login with your Microsoft account, select the app name that you reserved in step 2, then click **Next** > **Associate**.
 
    	This adds the required Windows Store registration information to the application manifest.   
 
