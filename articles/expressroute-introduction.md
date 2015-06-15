@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="06/15/2015"
    ms.author="cherylmc"/>
 
-# ExpressRoute Technical Overview
+# ExpressRoute technical overview
 
 Microsoft Azure ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as an MPLS VPN provided by a network service provider).
  
@@ -27,7 +27,7 @@ See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 
 In order to connect your WAN to Microsoft cloud services, you must order a dedicated circuit and have it enabled through a connectivity provider. There are two connectivity provider types to choose from: direct layer 3 through an exchange provider (EXP), or layer 3 through a network service provider (NSP). You can choose to enable one or both types of connectivity between your WAN and the Microsoft cloud.  
 
-## Exchange Providers and Network Service Providers
+## Exchange providers and network service providers
 ExpressRoute providers are classified as Network Service Providers (NSPs) and Exchange providers (EXPs).
 
 ![](./media/expressroute-introduction/expressroute-nsp-exp.png)
@@ -41,7 +41,7 @@ ExpressRoute providers are classified as Network Service Providers (NSPs) and Ex
 |**Routing**|BGP sessions directly with customer edge routers| BGP sessions with telco|
 |**Pricing**|[EXP pricing](http://azure.microsoft.com/pricing/details/expressroute/)|[NSP pricing](http://azure.microsoft.com/pricing/details/expressroute/)|
 
-### Exchange Providers (EXPs)
+### Exchange providers (EXPs)
 We partner with cloud exchange service providers such as Equinix and TeleCity group, and also with point-to-point connectivity service providers such as Cole and Level 3, to offer connectivity between Azure and the customer’s premises. We offer circuit bandwidths from 200 Mbps to 10 Gbps (200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps).
 
 If you want a direct layer 3 connection through an exchange provider, you can do this one of 3 ways:
@@ -55,7 +55,7 @@ We do require you to have redundant connectivity me meet the requirements for ou
 For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure an ExpressRoute Connection through an EXP](expressroute-configuring-exps.md).
 
 
-### Network Service Providers (NSPs)
+### Network service providers (NSPs)
 
 We partner with Telcos such as AT&T, and British Telecom to offer connectivity between Azure and your WAN. We offer circuit bandwidths from 10 Mbps to 1 Gbps (10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps). 
 
@@ -63,7 +63,7 @@ If you use VPN services from any of the network service providers we partner wit
 
 For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure ExpressRoute circuits through NSPs](expressroute-configuring-nsps.md).
 
-## ExpressRoute Peerings
+## ExpressRoute peerings
 The figure below provides a logical representation of connectivity between your WAN and Microsoft. You must order a *dedicated circuit* to connect your WAN to Microsoft through a connectivity provider (NSP / EXP). A dedicated circuit represents a logical connection between your WAN and Microsoft through the connectivity provider. You may order many dedicated circuits, each of them can be in the same or different regions and can be connected to your WAN through different service providers. 
 
 ![](./media/expressroute-introduction/expressroute-basic.png)
@@ -73,18 +73,18 @@ A dedicated circuit will have multiple routing domains associated with it – pu
 ![](./media/expressroute-introduction/expressroute-peerings.png)
 
 
-### Private Peering
+### Private peering
 Azure compute services, namely virtual machines (IaaS) and cloud services (PaaS) deployed within a virtual network can be connected through the private peering domain. The private peering domain is considered to be a trusted extension of your core network into Microsoft Azure. You can setup bidirectional connectivity between your core network and Azure virtual networks (VNets). This will enable you to connect to virtual machines and cloud services directly on their private IP addresses.  
 
 You can connect more than one virtual network to the private peering domain. Review the [FAQ page](expressroute-faqs.md) for information on limits and limitations. 
   
 
-### Public Peering
+### Public peering
 Services such as Azure Storage, SQL databases and Websites are offered on public IP addresses. You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain. You can connect the public peering domain to your extranet and connect to all Azure services on their public IP addresses from your WAN without having to connect through the internet. Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. Once public peering is enabled, you will be able to connect to all Azure services. We do not allow you to selectively pick services for which we advertise routes to. You can review the list of prefixes we advertise to you through this peering at [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653) page. You can define custom route filters within your network to consume only the routes you need. 
 
 Review the [FAQ page](expressroute-faqs.md) for more information on services supported through the public peering routing domain. 
  
-### Microsoft Peering
+### Microsoft peering
 Connectivity to all other Microsoft online services (such as Office 365 services) will be through the Microsoft peering. We enable bidirectional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain. You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and must adhere to all the rules we define. Review the [ExpressRoute prerequisites](expressroute-prerequisites.md) page for more information.
 
 Review the [FAQ page](expressroute-faqs.md) for more information on services supported, costs and configuration details. Review the [ExpressRoute Locations](expressroute-locations.md) page for information on the list of connectivity providers offering Microsoft peering support.
