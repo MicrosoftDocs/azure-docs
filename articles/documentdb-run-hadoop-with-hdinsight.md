@@ -48,7 +48,7 @@ Don't have time to complete the tutorial and just want to get the full sample Po
 	<tr><th>Supported HDInsight Versions</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Change Log</th>
-		<td>Fixed connector's compatability with the <a href="https://www.microsoft.com/download/details.aspx?id=40886/">Microsoft Hive ODBC driver</a></br>
+		<td>Fixed connector's compatability with the <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC driver</a></br>
 			Added ability to change output collection offer type (S3 offer by default)</br>
 			Minor bug fixes</br>
 		</td></tr>
