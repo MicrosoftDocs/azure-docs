@@ -90,24 +90,24 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
 	Then, modify the **Main** method to the **Program** class as shown below, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
 
-      static void Main(string[] args)
-      {
-        string eventHubConnectionString = "{event hub connection string}";
-        string eventHubName = "{event hub name}";
-        string storageAccountName = "{storage account name}";
-        string storageAccountKey = "{storage account key}";
-        string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-            storageAccountName, storageAccountKey);
+        static void Main(string[] args)
+        {
+          string eventHubConnectionString = "{event hub connection string}";
+          string eventHubName = "{event hub name}";
+          string storageAccountName = "{storage account name}";
+          string storageAccountKey = "{storage account key}";
+          string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
+              storageAccountName, storageAccountKey);
 
-        string eventProcessorHostName = Guid.NewGuid().ToString();
-        EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-        Console.WriteLine("Registering EventProcessor...");
-        eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+          string eventProcessorHostName = Guid.NewGuid().ToString();
+          EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+          Console.WriteLine("Registering EventProcessor...");
+          eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
 
-        Console.WriteLine("Receiving. Press enter key to stop worker.");
-        Console.ReadLine();
-        eventProcessorHost.UnregisterEventProcessorAsync().Wait();
-      }
+          Console.WriteLine("Receiving. Press enter key to stop worker.");
+          Console.ReadLine();
+          eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+        }
 
 > [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost], as shown in the [Scaled out event processing] sample. In those cases, the various instances  automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost] instances based on the machines (or roles) in which they are deployed. For more information about these topics, refer to the [Event Hubs Overview] and [Event Hubs Programming Guide] topics.
 
