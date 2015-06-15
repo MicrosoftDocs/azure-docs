@@ -23,7 +23,7 @@ VPN Gateways are used to send network traffic between virtual networks and on-pr
 There are 3 VPN Gateway SKUs; Basic, Standard, and High Performance. The table below shows the gateway types and the estimated aggregate throughput. 
 Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](http://azure.microsoft.com/pricing/details/vpn-gateway/).
 
-| SKU         | VPN Gateway and ExpressRoute Co-exist | ExpressRoute Gateway Throughput | VPN Gateway Throughput | VPN Gateway Max IPsec Tunnels |
+| SKU         | VPN Gateway and ExpressRoute coexist | ExpressRoute Gateway throughput | VPN Gateway throughput | VPN Gateway max IPsec tunnels |
 |-------------|-----------------------------------|---------------------------------|------------------------|-------------------------------|
 | Basic       | No                                | 500 Mbps                        | 100 Mbps               | 10                            |
 | Standard    | Yes                               | 1000 Mbps                       | 100 Mbps               | 10                            |
@@ -33,11 +33,11 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 ## Gateway types
 
-There are two gateway types, static routing (also known as a policy based VPN), and dynamic routing (also known as a route-based VPN). Some configurations will only work with a specific routing type. And some VPN devices only work with a certain routing type. When you create a VPN gateway, you'll select the gateway type that is required by your configuration, making sure that the device you select also supports that routing type. 
+There are two gateway types, *static routing* (also known as a policy-based VPN), and *dynamic routing* (also known as a route-based VPN). Some configurations will only work with a specific routing type, and some VPN devices only work with a certain routing type. When you create a VPN gateway, you'll select the gateway type that is required by your configuration, making sure that the VPN device you select also supports that routing type. 
 
 For example, if you plan to use a site-to-site configuration concurrently with a point-to-site configuration, you’ll need to configure a dynamic routing VPN gateway. While it's true that site-to-site configurations will work with static routing gateways, point-to-site configurations require a dynamic routing gateway. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations.
 
-Additionally, you'll want to verify that your VPN device supports the type of gateway and the type of IPsec/IKE parameters and configuration that you require. For example, if you want to create a dynamic gateway, if your device doesn't support route-based VPNs, you will have to reconsider your plan and use either a different VPN device, or move forward with a static routing gateway configuration. If you later acquire a VPN device that is capable of route-based VPNs (dynamic routing gateway), you can change the gateway type.
+Additionally, you'll want to verify that your VPN device supports the type of gateway and the IPsec/IKE parameters and configuration that you require. For example, if you want to create a dynamic gateway and your VPN device doesn't support route-based VPNs, you will have to reconsider your plans. You can decide to either acquire a different VPN device that supports dynamic gateways, or create a VPN gateway connection that supports a static routing gateway. If you later acquire a VPN device that is capable of supporting a dynamic routing gateway, you can always recreate the gateway as dynamic to use the device. In that case, you'll need to only recreate the gateway. You won't need to recreate the virtual network.
 
 Below are the two types of gateways:
 
