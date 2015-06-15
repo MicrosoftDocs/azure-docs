@@ -65,8 +65,9 @@ Here are some of the scenarios that are made possible with the combination of th
 	- Customers and partners can determine if another Azure offer type gives a better rate on an Azure resource.
 
 ## Partner solutions
-To learn more about the integration experiences as offered by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/), see [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md).  In this article you will find detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data. 
+To learn more about the integration experience as offered by Azure Billing API partner [Cloudyn](https://www.cloudyn.com/microsoft-azure/), see [Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers](billing-usage-rate-card-partner-solution-cloudyn.md).  In this article you will find detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data. 
 
+[Cloud Cruiser's Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) works directly from the WAP portal.  This enables customers to seamlessly manage both the operational and financial aspects of their Windows Azure private or hosted public cloud from a single user interface.  See [Cloud Cruiser and Microsoft Azure Billing API Integration](billing-usage-rate-card-partner-solution-cloudcruiser.md) for more coverage of their integration experiences. 
 
 ## Next Steps
 + Check out the [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) for more details on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.
