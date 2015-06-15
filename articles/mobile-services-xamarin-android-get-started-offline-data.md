@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/20/2015"
+	ms.date="06/15/2015"
 	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
