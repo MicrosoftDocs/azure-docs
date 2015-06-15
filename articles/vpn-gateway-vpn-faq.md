@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Virtual Network Cross-Premises Connection FAQ | Microsoft Azure"
-   description="The Cross-Premises FAQ for Virtual Network VPN connections, connections for hybrid configurations, and VPN gateways"
+   pageTitle="Virtual Network VPN Gateway FAQ | Microsoft Azure"
+   description="The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways"
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
