@@ -20,7 +20,7 @@
 
 Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to use the HDInsight .NET SDK to submit MapReduce, Hadoop streaming, and Hive jobs.
 
-> [AZURE.NOTE] The steps in this article must be performed from a Windows client. For information on using a Linux, OS X, or Unix client to work with MapReduce, Hive, or Pig, see the following articles and select either the **SSH** or **Curl** links within each:
+> [AZURE.NOTE] The steps in this article must be performed from a Windows client. For information on using a Linux, OS X, or Unix client to work with MapReduce, Hive, or Pig on HDInsight, see the following articles and select either the **SSH** or **Curl** links within each:
 >
 > - [Use Hive with HDInsight](hdinsight-use-hive.md)
 > - [Use Pig with HDInsight](hdinsight-use-pig.md)
