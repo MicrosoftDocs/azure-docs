@@ -19,7 +19,7 @@
 
 # Handling conflicts with offline data sync in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 ##Overview
 
