@@ -51,8 +51,11 @@ Now that you have a Microsoft app, you can complete one of our quick start
 tutorials to get up & running with Microsoft Identity.  Here are a few
 recommendations:
 
-Call O365 Rest APIs: [AZURE.INCLUDE [active-directory-devquickstarts-platforms](../includes/active-directory-devquickstarts-platforms.md)]
+Call O365 Rest APIs:
+[AZURE.INCLUDE [active-directory-devquickstarts-platforms](../includes/active-directory-devquickstarts-platforms.md)]
 
-Add Microsoft Identity Sign In: [AZURE.INCLUDE [active-directory-devquickstarts-platforms](../includes/active-directory-devquickstarts-platforms.md)]
+Add Microsoft Identity Sign In:
+[AZURE.INCLUDE [active-directory-devquickstarts-platforms](../includes/active-directory-devquickstarts-platforms.md)]
 
-Secure A Custom Web API: [AZURE.INCLUDE [active-directory-devquickstarts-platforms](../includes/active-directory-devquickstarts-platforms.md)]
+Secure A Custom Web API:
+[AZURE.INCLUDE [active-directory-devquickstarts-platforms](../includes/active-directory-devquickstarts-platforms.md)]

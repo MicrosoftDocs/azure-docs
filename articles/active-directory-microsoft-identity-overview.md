@@ -45,8 +45,9 @@ To get your own Microsoft Identity integrated app up & running, try out one of o
 
 ## Reference
 These links will be useful for exploring the platform in depth:
+
 - [ADAL Library Reference]()
 - [Microsoft Identity Protocol Reference]()
 - [Microsoft Identity FAQs](active-directory-microsoft-identity-faq.md)
 - [Office 365 Rest API Reference]()
-- [Scopes and Resources in Microsoft Identity](active-directory-microsoft-identity-scopes.md) 
+- [Scopes and Resources in Microsoft Identity](active-directory-microsoft-identity-scopes.md)
