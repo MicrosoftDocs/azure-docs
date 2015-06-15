@@ -20,7 +20,7 @@
 
 ##What is Automated SaaS App User Provisioning?
 
-Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Salesforce, ServiceNow, and more. Some common motivations for using this feature include:
+Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Salesforce, ServiceNow, Dropbox, and more. Some common motivations for using this feature include:
 
 - To avoid the costs, inefficiencies, and human error associated with manual provisioning processes.
 - To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
@@ -42,7 +42,7 @@ Azure AD checks for changes every 10 minutes.
 
 **How long will it take to provision my users?**
 
-Incremental changes happen nearly instantly but if you are trying to provision most of your directory, then it depends on the number of users that you have. Small directories take only a few minutes, medium-sized directories may take several minutes, and very large directories may take hours.
+Incremental changes happen nearly instantly but if you are trying to provision most of your directory, then it depends on the number of users that you have. Small directories take only a few minutes, medium-sized directories may take several minutes, and very large directories may take several hours.
 
 **Can Azure AD write changes from the SaaS app to the directory?**
 
