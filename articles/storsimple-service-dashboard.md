@@ -23,7 +23,7 @@ The StorSimple Manager service dashboard page provides a summary view of all the
 
 ![Service dashboard](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
 
-## Dashboard page
+**Dashboard page**
 
 The StorSimple Manager service dashboard displays the following information:
 
@@ -37,7 +37,7 @@ The StorSimple Manager service dashboard displays the following information:
 
 - The **quick glance** area provides useful information such as service status, number of devices connected to the service, location of the service, and details of the subscription that is associated with the service. There is also a link to the operations log. Click the link to see a list of all completed StorSimple Manager service operations.
 
-The tasks you can perform using the service dashboard page are:
+You can use the StorSimple Manager service dashboard page to initiate the following tasks:
 
 - View or regenerate the service registration key 
 - Change the service data encryption key 
