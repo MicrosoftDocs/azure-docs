@@ -31,7 +31,7 @@
 </tr>
 </table>
 
-<sup>1</sup>Each virtual network supports a single [virtual network gateway][gateway].
+<sup>1</sup>Each virtual network supports a single [virtual network gateway](http://msdn.microsoft.com/library/azure/jj156210.aspx).
 
 <sup>2</sup>The total number of machines includes Virtual Machines and Web/Worker role instances.
 
