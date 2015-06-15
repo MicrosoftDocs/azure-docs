@@ -52,6 +52,7 @@ When you open your API App, you are in the API App blade. You can use **Settings
 ![](./media/app-service-api-manage-in-portal/apiappblade.png)
 
 Some examples include: 
+
 - **Configure access level** (**Settings** > **Application settings**) : The default value is internal, which means only API apps in the same resource group are allowed to call the API app. For more information, see [Protect an API app](app-service-api-dotnet-add-authentication.md).   
 - **Configure update policy** (**Settings** > **Application settings**) : Default value is **On**.  This means that when a new version of the API app is published to the marketplace, your API app is automatically  updated to the new version if it is a non-breaking change.  
 - **Configure authentication for outgoing calls from the API app** (**Settings** > **Authentication**) : If the API app makes calls to an external service that requires authentication, the required configuration values are entered here. For example, a Dropbox connector requires a client ID and a client secret to access the Dropbox service.
@@ -65,6 +66,7 @@ Many of the tasks and features within the API app are also available when you se
 ![](./media/app-service-api-manage-in-portal/apiappbladetohost.png)
 
 You can: 
+
 - Stop, start, and restart the web app that hosts your custom API app. These tasks can also be done in **API app host**. The two blades share much of the same UI. 
 - The monitoring information provided on the **API app** blade is the same as what **API app host** shows. 
 - The only tasks in **API app** blade that are not duplicates from  **API app host** are previously listed, like configure the authentication and the other tasks listed.
