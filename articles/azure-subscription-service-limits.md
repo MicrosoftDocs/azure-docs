@@ -348,7 +348,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 <sup>1</sup>Limit can be increased by contacting support.
 
 
-## Storage Limits
+## Standard Storage Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -422,6 +422,27 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 <sup>2</sup>For virtual machines in the Basic Tier, do not place more than 66 highly used VHDs in a storage account to avoid the 20,000 total request rate limit (20,000/300). For virtual machines in the Standard Tier, do not place more than 40 highly used VHDs in a storage account (20,000/500). For more information, see [Virtual Machine and Cloud Service Sizes for Azure][vmsizes].
 
 <sup>3</sup>GRS is [Geo Redundant Storage][georedundantstorage]. LRS is [Locally Redundant Storage][locallyredundantstorage]. Note that GRS is also locally redundant.
+
+## Premium Storage Limits
+
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="middle">Resource</th>
+   <th align="left" valign="middle">Default Limit</th>
+</tr>
+<tr>
+   <td valign="middle"><p>Total Disk capacity per account</p></td>
+   <td valign="middle"><p>35 TB</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Total Snapshot capacity per account</p></td>
+   <td valign="middle"><p>10 TB</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Max bandwidth per account (ingress + egress)</p></td>
+   <td valign="middle"><p>50 Gbps</p></td>
+</tr>
+</table>
 
 
 ## Storage Limits - Azure Resource Manager
