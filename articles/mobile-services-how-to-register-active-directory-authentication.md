@@ -32,7 +32,7 @@ This topic shows you how to register your apps to be able to use Azure Active Di
 
     ![Mobile service app URL for AAD](./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png)
 
-2. Navigate to **Active Directory** in the management portal, click your directory, click the **Domains** tab on your Active Directory and make a note of your directory's default domain .
+2. Navigate to **Active Directory** in the management portal, click your directory, click the **Domains** tab on your Active Directory and make a note of your directory's default domain.
 
 3. Click the **Applications** tab at the top, click **Add**, then click **Add an application my organization is developing**.
 
