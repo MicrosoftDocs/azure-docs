@@ -58,7 +58,10 @@ Common Cloudyn ITFM use cases enabled by usage and RateCard APIs include:
 <center>![center][7]</center>
 
 ## Video 
-[TODO: encode and embed video here]
+
+Here's a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data. 
+> [AZURE.VIDEO Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs]
+
 
 ## Next Steps
 
