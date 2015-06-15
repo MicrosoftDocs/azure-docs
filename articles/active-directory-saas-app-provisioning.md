@@ -30,7 +30,7 @@ A key benefit to using Azure AD to handle your SaaS app provisioning is that it'
 
 - Customize provisioning rules to fit your organization's existing app deployments.
 - Provisioned users will be continuously kept up-to-date based on changes from the directory.
-- You can provision non-user objects such as groups and contacts, depending on what the SaaS app supports.
+- You can provision non-user objects such as groups, depending on what the SaaS app supports.
 - Optional email alerts for provisioning errors.
 - Reporting and activity logs to help with monitoring and troubleshooting.
 
