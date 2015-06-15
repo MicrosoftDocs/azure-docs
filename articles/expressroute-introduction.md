@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Introduction to ExpressRoute"
-   description="This page provides an overview of the ExpressRoute service."
+   pageTitle="Introduction to ExpressRoute | Microsoft Azure"
+   description="This page provides an overview of the ExpressRoute service, including how an ExpressRoute connection works, working with exchange providers and network service providers, and ExpressRoute public, private, and Microsoft peering."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -25,7 +25,7 @@ See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 
 ## How does an ExpressRoute connection work?
 
-In order to connect your WAN to Microsoft cloud services, you must order a dedicated circuit and have it enabled through a connectivity provider. There are two connectivity provider types to choose from: direct layer 3 through an exchange provider (EXP), or layer 3 through a network service provider (NSP). You can choose to enable one or both types of connectivity between your WAN and the Microsoft cloud.  
+In order to connect your WAN to Microsoft cloud services, you must order a dedicated circuit and have it enabled through a connectivity provider. There are two connectivity provider types to choose from: direct layer 3 through an exchange provider (EXP), or layer 3 through a network service provider (NSP). You can choose to enable one, or both types of connectivity between your WAN and the Microsoft cloud.  
 
 ## Exchange providers and network service providers
 ExpressRoute providers are classified as Network Service Providers (NSPs) and Exchange providers (EXPs).
@@ -52,7 +52,7 @@ If you want a direct layer 3 connection through an exchange provider, you can do
 
 We do require you to have redundant connectivity me meet the requirements for our SLA. We do not support direct connectivity to the Microsoft edge. Dedicated circuits will always be enabled through an Ethernet provider or the local cloud exchange. While this sets up layer 2 connectivity between Microsoft and your network, we will not support extending the layer 2 domain. You must setup redundant routing sessions between your edge routers and the Microsoft edge routers to have layer 3 connectivity.
 
-For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure an ExpressRoute Connection through an EXP](expressroute-configuring-exps.md).
+For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md).
 
 
 ### Network service providers (NSPs)
@@ -61,7 +61,7 @@ We partner with Telcos such as AT&T, and British Telecom to offer connectivity b
 
 If you use VPN services from any of the network service providers we partner with, they can extend the networks into Azure without having to deploy any new hardware or making major configuration changes to your existing networks.
 
-For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure ExpressRoute circuits through NSPs](expressroute-configuring-nsps.md).
+For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md).
 
 ## ExpressRoute peerings
 The figure below provides a logical representation of connectivity between your WAN and Microsoft. You must order a *dedicated circuit* to connect your WAN to Microsoft through a connectivity provider (NSP / EXP). A dedicated circuit represents a logical connection between your WAN and Microsoft through the connectivity provider. You may order many dedicated circuits, each of them can be in the same or different regions and can be connected to your WAN through different service providers. 
@@ -108,4 +108,4 @@ If you choose to have all three peering sessions, you must have three pairs of B
 ## Next Steps
 
 - Find a service provider. See [ExpressRoute Service Providers and Locations](expressroute-locations.md).
-- Configure your ExpressRoute connection. See [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md) or [Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md) for instructions.
+- Configure your ExpressRoute connection. See [Configure an ExpressRoute connection through a network service provider](expressroute-configuring-nsps.md) or [Configure an ExpressRoute connection through an exchange provider](expressroute-configuring-exps.md) for instructions.
