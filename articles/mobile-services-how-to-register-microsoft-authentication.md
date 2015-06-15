@@ -40,7 +40,7 @@ Windows Store apps must first be registered with the Windows Dev Center.
 
    	This creates a new Windows Store registration for your app.
 
-3. In Visual Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services].
+3. In Visual Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 4. In solution explorer, right-click the Windows Store app project, click **Store**, and then click **Associate App with the Store...**. 
 
