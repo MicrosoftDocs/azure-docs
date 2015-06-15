@@ -161,7 +161,6 @@ Download and integrate the SDK library
 		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 		<uses-permission android:name="android.permission.VIBRATE" />
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
 	The result should be as shown below:
