@@ -128,9 +128,7 @@ You should see output similar to the following.
 
 ##<a id="next"></a>Next steps
 
-In this tutorial, you did most of the steps manually. In a production environment, you would write your app on a development machine and deploy it to the Azure VM. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources.
-
-For information on automating deployment of your Rails application, as well as using the Unicorn web server and NginX, see [Unicorn+NginX+Capistrano with an Azure Virtual Machine][unicorn-nginx-capistrano].
+In this tutorial, you did most of the steps manually. In a production environment, you would write your app on a development machine and deploy it to the Azure VM. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources. For more information, see http://rubyonrails.org/deploy/.
 
 To learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 
@@ -152,8 +150,6 @@ To use Azure services from your Ruby application, see:
 [management-portal]: https://manage.windowsazure.com/
 
 [tables]: /develop/ruby/how-to-guides/table-service/
-
-[unicorn-nginx-capistrano]: virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md
 
 [vm-instructions]: virtual-machines-linux-tutorial.md
 
