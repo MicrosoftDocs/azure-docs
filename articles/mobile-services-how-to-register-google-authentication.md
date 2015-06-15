@@ -33,7 +33,7 @@ To complete the procedure in this topic, you must have a Google account that has
 
 2. Click **Consent screen**, select your **Email Address**, enter a **Product Name**, then click **Save**. 
 
-3. Click **API & Auth**, click **Credentials**, then click **Create new Client ID**.
+3. Click **API & Auth** > **Credentials** > **Create new Client ID**.
 
    	![Create new client ID](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png)
 
