@@ -1,7 +1,7 @@
 
 First, you need to register your app with an identity provider at their site, then set those credentials in your mobile service. 
 
-1. In the [Azure Management portal], navigate to your mobile service, then click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
+1. In the [Azure Management portal], navigate to your mobile service, then click **Dashboard** and make a note of the **Mobile Service URL** value.
 
 2. Register your app with one of the following supported identity providers. 
 
