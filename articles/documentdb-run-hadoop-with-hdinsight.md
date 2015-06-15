@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="06/11/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
@@ -42,13 +42,14 @@ Don't have time to complete the tutorial and just want to get the full sample Po
 	<tr><th>Hadoop Connector Version</th>
 		<td>1.0.0</td></tr>
 	<tr><th>Script Uri</th>
-		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v02.ps1</td></tr>
+		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
 	<tr><th>Date Modified</th>
-		<td>04/08/2015</td></tr>
+		<td>06/11/2015</td></tr>
 	<tr><th>Supported HDInsight Versions</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Change Log</th>
-		<td>Added ability to change output collection offer type (S3 offer by default)</br>
+		<td>Fixed connector's compatability with the <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC driver</a></br>
+			Added ability to change output collection offer type (S3 offer by default)</br>
 			Minor bug fixes</br>
 		</td></tr>
 </table>
@@ -173,7 +174,7 @@ This tutorial uses Script Action from the Azure management portal to customize y
 			<td>Specify a name for the script action.</td></tr>
 		<tr><td>Script URI</td>
 			<td>Specify the URI to the script that is invoked to customize the cluster.</br></br>
-			Please enter: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v02.ps1</strong>.</td></tr>
+			Please enter: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</strong>.</td></tr>
 		<tr><td>Node Type</td>
 			<td>Specifies the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.</br></br>
 			Please select <strong>All Nodes</strong>.</td></tr>
@@ -229,7 +230,7 @@ This tutorial uses Script Action from the Azure management portal to customize y
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
-                            "create external table DocumentDB_timestamps(id string, ts INT) "  +
+                            "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
                             "tblproperties ( " + 
                                 "'DocumentDB.endpoint' = '<DocumentDB Endpoint>', " +
