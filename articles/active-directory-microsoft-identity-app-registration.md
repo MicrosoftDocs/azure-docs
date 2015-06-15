@@ -59,5 +59,5 @@ recommendations:
 | [Call O365 Rest APIs - SPA]()| [Add sign in to an single page app]()   |
 | | [Secure a custom Web API]()  |
 
-> [AZURE.SELECTOR]
-- ![Android](./media/active-directory-devquickstarts/droid-logo-light-blue.png)
+
+[AZURE.INCLUDE [active-directory-devquickstarts-platforms](../includes/active-directory-devquickstarts-platforms.md)]
