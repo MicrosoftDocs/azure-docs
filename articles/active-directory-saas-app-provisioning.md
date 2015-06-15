@@ -3,7 +3,7 @@
    description="An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications."
    services="active-directory"
    documentationCenter=""
-   authors="acceleron3000"
+   authors="liviodlc"
    manager="TerryLanfear"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="05/07/2015"
-   ms.author="acceleron3000"/>
+   ms.author="liviodlc"/>
 
 #Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory
 
