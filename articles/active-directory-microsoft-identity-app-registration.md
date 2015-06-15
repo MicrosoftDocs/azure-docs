@@ -25,7 +25,7 @@ may have with Azure AD or MSA - it's time to create a brand new one.
 > [AZURE.NOTE]
 These instructions apply to the Microsoft Identity Public Preview.  For instructions on how to register an app with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
-
+## Visit the Microsoft Application Registration Portal
 First things first - navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the new app registration portal where you can manage anything & everything about your Microsoft apps.
 
 Sign in with a Microsoft Identity - that is, either your MSA or Azure AD/Office 365 account.  If you don't have either, sign up for a new account. Go ahead, it won't take long - we'll wait here.
@@ -58,3 +58,6 @@ recommendations:
 | [Call O365 Rest APIs - Windows]()| [Add sign in to a Windows app]()   |
 | [Call O365 Rest APIs - SPA]()| [Add sign in to an single page app]()   |
 | | [Secure a custom Web API]()  |
+
+> [AZURE.SELECTOR]
+- ![Android](./media/active-directory-devquickstarts/droid-logo-light-blue.png)
