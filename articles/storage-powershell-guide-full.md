@@ -299,6 +299,13 @@ You can copy blobs across storage accounts and regions asynchronously. The follo
 
 Note that this example performs an asynchronous copy. You can monitor the status of each copy by running the [Get-AzureStorageBlobCopyState](http://msdn.microsoft.com/library/azure/dn806406.aspx) cmdlet.
 
+### How to copy blobs from a secondary location
+You can copy blobs from the secondary locatioon of a RA-GRS enabled account. 
+
+    #define secondary storage context using a connection string constructed from secondary endpoints. 
+    $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;BlobEndpoint=http://***-secondary.blob.core.windows.net;FileEndpoint=http://***-secondary.file.core.windows.net;QueueEndpoint=http://***-secondary.queue.core.windows.net; TableEndpoint=http://***-secondary.table.core.windows.net;"
+    Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
+
 ### How to delete a blob
 To delete a blob, first get a blob reference and then call the Remove-AzureStorageBlob cmdlet on it. The following example deletes all the blobs in a given container. The example first sets variables for a storage account, and then creates a storage context. Next, the example retrieves a blob reference using the [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) cmdlet and runs the [Remove-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806399.aspx) cmdlet to remove blobs from a container in Azure storage.
 
