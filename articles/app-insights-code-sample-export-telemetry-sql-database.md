@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Code sample: export telemetry to SQL Database from Application Insights" 
+	pageTitle="Code sample: export to SQL from Application Insights using a worker role" 
 	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,9 @@
 	ms.date="04/07/2015" 
 	ms.author="awills"/>
  
-# Code sample: load telemetry into SQL Database from Application Insights
+# Code sample: export to SQL from Application Insights using a worker role
 
-This article shows how to move your telemetry from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and a small amount of code. 
+This article shows how to move your telemetry data from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and a small amount of code. 
 
 Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.
 
@@ -509,8 +509,14 @@ This is the schema for the table that will be generated for PageView.
     GO
 
 
-[Download](https://sesitai.codeplex.com/) the complete working code, change the `app.config` settings & publish the worker role to Azure to see it in action.
+To see this example in action, [download](https://sesitai.codeplex.com/) the complete working code, change the `app.config` settings & publish the worker role to Azure.
 
+
+## Related articles
+
+* [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Continuous Export in Application Insights](app-insights-export-telemetry.md)
+* [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
 <!--Link references-->
 
