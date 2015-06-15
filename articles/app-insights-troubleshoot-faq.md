@@ -26,7 +26,7 @@
 #### <a name="q01"></a>I don't see any option to Add Application Insights to my project in Visual Studio
 
 + Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Application Insights Tools.
-+ Although the Tools don't support all types of application, you can probably still add an Application Insights SDK to your project manually. Use [this procedure][windows]. 
++ Although the tools don't support all types of applications, you can probably still add an Application Insights SDK to your project manually. Use [this procedure][windows]. 
 
 
 #### <a name="q02"></a>My new web project was created, but adding Application Insights failed.
@@ -88,7 +88,7 @@ If you see the error above after updating to the 0.17 or newer NuGet packages, y
 
 To do this:
 
-1. Right-click on your project in Solution Explorer and choose Unload Project
+1. Right-click on your project in Solution Explorer and choose Unload Project.
 2. Right-click on project again and choose Edit *yourProject.csproj* 
 3. Go to the bottom of the project file and remove the BCL targets similar to: 
 	```
@@ -102,8 +102,8 @@ To do this:
 	    
 	  </Target>
 	  ```
-4. Save the file
-5. Right-click on project and choose Reload *yourProject.csproj*
+4. Save the file.
+5. Right-click on the project and choose Reload *yourProject.csproj*
 
 ## No data
 
