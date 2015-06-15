@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2015"
+	ms.date="06/11/2015"
 	ms.author="szark"/>
 
 
@@ -74,10 +74,13 @@ The Azure Linux Agent includes functionality to automatically detect this name c
 
  - [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
 
-### Ubuntu Images
-Ubuntu images utilize cloud-init, which provides additional capabilities for bootstrapping a virtual machine.
+### Cloud-Init
+**Ubuntu** and **CoreOS** images utilize cloud-init pn Azure, which provides additional capabilities for bootstrapping a virtual machine.
 
- - See [How to Inject Custom Data](virtual-machines-how-to-inject-custom-data.md) and [Custom Data and Cloud-Init on Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [How to Inject Custom Data](virtual-machines-how-to-inject-custom-data.md)
+ - [Custom Data and Cloud-Init on Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
+ - [How to Use CoreOS on Azure](virtual-machines-linux-coreos-how-to.md)
 
 
 ## <a id="virtualmachine"></a>Virtual Machine Image Capture
@@ -99,8 +102,9 @@ Each virtual machine has a temporary, local *resource disk* attached. Because da
 
 On Linux, the resource disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images).
 
+
 	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
 On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](virtual-machines-linux-how-to-attach-disk.md).
 
- - See also: [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
+ - **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)

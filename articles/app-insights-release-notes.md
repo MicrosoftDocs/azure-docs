@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,20 +12,22 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="06/11/2015" 
 	ms.author="awills"/>
  
-# Release Notes - Application Insights
+# SDK Release Notes - Application Insights
 
-Read also our [Service Updates](http://azure.microsoft.com/updates/?service=application-insights) which summarize major improvements.
 
+Here are detailed release notes for our SDKs:
 
 * [.NET](app-insights-release-notes-dotnet.md)
-* [Android](app-insights-release-notes-android.md)
-* [iOS](app-insights-release-notes-ios.md)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](app-insights-release-notes-java.md)
 * [JavaScript](app-insights-release-notes-javascript.md)
 * [Windows Phone and Store C#|VB](app-insights-release-notes-windows.md)
 * [Windows Phone and Store C++](app-insights-release-notes-windows-cpp.md)
+* [Other platforms](https://github.com/Microsoft/ApplicationInsights-Home)
 
+Read also our [Service Updates](http://azure.microsoft.com/updates/?service=application-insights) which summarize major improvements in the Application Insights service as a whole.
 

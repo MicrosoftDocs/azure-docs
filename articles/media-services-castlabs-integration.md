@@ -106,7 +106,7 @@ To playback a video encrypted with common encryption (PlayReady), you can use th
 7.	Update the player.
 8.	The video should be playing.
 
-For playing back the protected video in HTML5 with Chrome with the castLabs player, please contact castLabs to get access to the player. When you have access, there are 2 things to be aware of:
+For playing back the protected video in HTML5 with Chrome with the castLabs player, please contact yanmf@microsoft.com to get access to the player. When you have access, there are 2 things to be aware of:
 
 1.	The castLabs player needs access to the MPEG-DASH manifest file, so append (format=mpd-time-csf) to your manifest file to get the MPEG-DASH manifest file, instead of the default Smooth Streaming one.
 
