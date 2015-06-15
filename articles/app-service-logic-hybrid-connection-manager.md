@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="06/14/2015" 
 	ms.author="mandia"/>
 
 # Using the Hybrid Connection Manager in Azure App Service
@@ -25,7 +25,7 @@ The Hybrid Connection Manager (HCM) is a click-once installer that is installed 
 
 To get started, you need:
 
-- Azure Service Bus namespace SAS connection string
+- Azure Service Bus relay namespace SAS connection string. See [Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/) to determine which tier includes relays.
 - On-premises system sign-in information, including user name and password. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server login account and password.
 - On-premises server information, including port number and server name. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server name and TCP port number.
 
@@ -135,7 +135,8 @@ If your custom API uses a TCP or HTTP port, you can use [Hybrid Connections](int
 
 ## Read More
 
-[Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)
+[Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
 
 
 

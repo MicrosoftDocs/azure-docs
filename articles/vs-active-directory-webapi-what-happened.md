@@ -67,7 +67,7 @@ The following configuration entries have been added.
     		<add key="ida:Audience" value="The App ID Uri from the wizard" /> 
 	</appSettings>` </pre>
 
-###An Azure Azure AD App was created 
+###An Azure AD App was created 
 
 An Azure AD Application was created in the directory that you selected in the wizard.
 
