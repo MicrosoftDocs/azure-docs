@@ -47,22 +47,21 @@ On the Scale page, you can manually increase or decrease the number of running i
 
 2. Click **Scale**. Automatic scaling is disabled by default for all roles, which means that you can manually change the number of instances that are used by your application.
 
-  ![Scale page][manual_scale]
+    ![Scale page][manual_scale]
 
 3. Each role in the cloud service has a slider for changing the number of instances to use. To add a role instance, drag the bar right. To remove an instance, drag the bar left.
-
-  ![Scale role][slider_role] 
-
-
-  You can only increase the number of instances that are used if the appropriate number of cores are available to support the instances. The colors of the slider represent the used and available cores in your subscription:
-
-  - Blue represents the cores that are used by the selected role
-
-  - Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription
-
-  - Light grey represents the cores that are available to use for scaling
-
-  - Pink represents a change made that has not been saved
+    
+    ![Scale role][slider_role] 
+    
+    You can only increase the number of instances that are used if the appropriate number of cores are available to support the instances. The colors of the slider represent the used and available cores in your subscription:
+    
+    - Blue represents the cores that are used by the selected role
+    
+    - Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription
+    
+    - Light grey represents the cores that are available to use for scaling
+    
+    - Pink represents a change made that has not been saved
 
 4. Click **Save**. Role instances will be added or removed based on your selections.
 
@@ -81,47 +80,47 @@ On the Scale page, you can configure your cloud service to automatically increas
 
 3. Scroll to the section for the role or availability set, and then click **CPU**. This enables automatic scaling of your application based on the average percentage of CPU resources that it uses.
 
-  ![Autoscale on][autoscale_on]
+    ![Autoscale on][autoscale_on]
 
 4. Each role or availability set has a slider for changing the number of instances that can be used. To set the maximum number of instances that can be used, drag the bar on the right to the right. To set the minimum number of instances that can be used, drag the bar on the left to the left.
-
-  **Note:** On the Scale page, **Instance** represents either a role instance or an instance of a Virtual Machine.
-
-  ![Instance range][instance_range]
-
-  The maximum number of instances is limited by the cores that are available in the subscription. The colors of the slider represent the used and available cores in your subscription:
-
-  - Blue represents the maximum number of cores that the role can use.
-
-  - Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription. When this value overlaps the cores used by the role, the color turns to dark blue.
-
-  - Light grey represents the cores that are available to use for scaling.
-
-  - Pink represents a change has been made that has not been saved.
+    
+    **Note:** On the Scale page, **Instance** represents either a role instance or an instance of a Virtual Machine.
+    
+    ![Instance range][instance_range]
+    
+    The maximum number of instances is limited by the cores that are available in the subscription. The colors of the slider represent the used and available cores in your subscription:
+    
+    - Blue represents the maximum number of cores that the role can use.
+    
+    - Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription. When this value overlaps the cores used by the role, the color turns to dark blue.
+    
+    - Light grey represents the cores that are available to use for scaling.
+    
+    - Pink represents a change has been made that has not been saved.
 
 5. A slider is used for specifying the range of average percentage of CPU usage. When the average percentage of CPU usage goes above the maximum setting, more role instances are created or Virtual Machines are turned on. When the average percentage of CPU usage goes below the minimum setting, role instances are deleted or Virtual Machines are turned off. To set the maximum average CPU percentage, drag the bar on the right to the right. To set the minimum average CPU percentage, drag the bar on the left to the left.
 
-  ![Target cpu][target_cpu]
+    ![Target cpu][target_cpu]
 
 6. You can specify the number of instances to add or turn on each time your application is scaled up. To increase the number of instances that are created or turned on when your application is scaled up, drag the bar right. To decrease the number, drag the bar left.
 
-  ![Scale cpu up][scale_cpuup]
+    ![Scale cpu up][scale_cpuup]
 
 7. Set the number of minutes to wait between the last scaling action and the next scale-up action. The last scaling action can be either scale-up or scale-down.
 
-  ![Up time][scale_uptime]
+    ![Up time][scale_uptime]
 
-  All instances are included when calculating the average percentage of CPU usage and the average is based on use over the previous hour. Depending on the number of instances that your application is using, it can take longer than the specified wait time for the scale action to occur if the wait time is set very low. The minimum time between scaling actions is five minutes. Scaling actions cannot occur if any of the instances are in a transitioning state.
+    All instances are included when calculating the average percentage of CPU usage and the average is based on use over the previous hour. Depending on the number of instances that your application is using, it can take longer than the specified wait time for the scale action to occur if the wait time is set very low. The minimum time between scaling actions is five minutes. Scaling actions cannot occur if any of the instances are in a transitioning state.
 
 8. You can also specify the number of instances to delete or turn off when your application is scaled down.  To increase the number of instances that are deleted or turned off when your application is scaled down, drag the bar right. To decrease the number, drag the bar left.
 
-	![Scale cpu down][scale_cpudown]
-
-	If your application can have sudden increases in CPU usage, you must make sure that you have a sufficient minimum number of instances to handle them.
+    ![Scale cpu down][scale_cpudown]
+    
+    If your application can have sudden increases in CPU usage, you must make sure that you have a sufficient minimum number of instances to handle them.
 
 9. Set the number of minutes to wait between the last scaling action and the next scale-down action. The last scaling action can be either scale-up or scale-down.
 
-	![Down time][scale_downtime]
+    ![Down time][scale_downtime]
 
 10. Click **Save**. The scaling action can take up to five minutes to finish.
 
@@ -131,49 +130,49 @@ On the Scale page, you can configure your cloud service to automatically increas
 2. Click **Scale**.
 3. Scroll to the section for the role or availability set, and then click **Queue**. This enables automatic scaling of your application based on a target number of queue messages.
 
-	![Scale queue][scale_queue]
+    ![Scale queue][scale_queue]
 
 4. Each role or availability set in the cloud service has a slider for changing the number of instances that can be used. To set the maximum number of instances that can be used, drag the bar on the right to the right. To set the minimum number of instances that can be used, drag the bar on the left to the left.
 
-	![Queue range][queue_range]
-
-	**Note:** On the Scale page, **Instance** represents either a role instance or an instance of a Virtual Machine.
-	
-	The maximum number of instances is limited by the cores that are available in the subscription. The colors of the slider represent the used and available cores in your subscription:
-	- Blue represents the maximum number of cores that the role can use.
-	- Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription. When this value overlaps the cores used by the role, the color turns to dark blue.
-	- Light grey represents the cores that are available to use for scaling.
-	- Pink represents a change has been made that has not been saved.
+    ![Queue range][queue_range]
+    
+    **Note:** On the Scale page, **Instance** represents either a role instance or an instance of a Virtual Machine.
+    
+    The maximum number of instances is limited by the cores that are available in the subscription. The colors of the slider represent the used and available cores in your subscription:
+    - Blue represents the maximum number of cores that the role can use.
+    - Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription. When this value overlaps the cores used by the role, the color turns to dark blue.
+    - Light grey represents the cores that are available to use for scaling.
+    - Pink represents a change has been made that has not been saved.
 
 5. Select the storage account that is associated with the queue that you want to use.
 
-	![Storage name][storage_name]	
+    ![Storage name][storage_name]	
 
 6. Select the queue.
 
-	![Queue name][queue_name]
+    ![Queue name][queue_name]
 
 7. Specify the number of messages that you expect each instance to support. Instances will scale based on the total number of messages divided by the target number of messages per machine.
 
-	![Message number][message_number]
+    ![Message number][message_number]
 
 8. You can specify the number of instances to add or turn on each time your application is scaled up. To increase the number of instances that are added or turned on when your application is scaled up, drag the bar right. To decrease the number, drag the bar left.
 
-	![Scale cpu up][scale_cpuup]
+    ![Scale cpu up][scale_cpuup]
 
 9. Set the number of minutes to wait between the last scaling action and the next scale-up action. The last scaling action can be either scale-up or scale-down.
 
-	![Up time][scale_uptime]
-
-	The minimum time between scaling actions is five minutes. Scaling actions cannot occur if any of the instances are in a transitioning state.
+    ![Up time][scale_uptime]
+    
+    The minimum time between scaling actions is five minutes. Scaling actions cannot occur if any of the instances are in a transitioning state.
 
 10. You can also specify the number of instances to delete or not use when your application is scaled down.  A slider is used to specify the scaling increment. To increase the number of instances that are deleted or not used when your application is scaled down, drag the bar right. To decrease the number, drag the bar left.
 
-	![Scale cpu down][scale_cpudown]
+    ![Scale cpu down][scale_cpudown]
 
 11.	Set the number of minutes to wait between the last scaling action and the next scale-down action. The last scaling action can be either scale-up or scale-down.
 
-	![Down time][scale_downtime]
+    ![Down time][scale_downtime]
 
 12. Click **Save**. The scaling action can take up to five minutes to finish.
 
@@ -185,7 +184,7 @@ Often when you scale a role, it's beneficial to scale the database that the appl
 2. Click **Scale**.
 3. In the Linked Resources section, select the edition to use for the database.
 
-	![Linked resources][linked_resources]
+    ![Linked resources][linked_resources]
 
 4. Select the size of the database.
 5. Click **Save** to update the linked resources.
@@ -204,7 +203,7 @@ You can schedule automatic scaling of your application by configuring schedules 
 2. Click **Scale**.
 3. On the Scale page, click **set up schedule times**.
 
-	![Schedule scaling][scale_schedule]
+    ![Schedule scaling][scale_schedule]
 
 4. Select the type of scaling schedule that you want to set up.
 
