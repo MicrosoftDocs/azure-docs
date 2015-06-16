@@ -256,7 +256,7 @@ In your development environment, use the following steps to run the Temperature 
 
 ### Publish the website dashboard
 
-1. To deploy the dashboard to an Azure Website, follow the steps in [Build and deploy a Node.js website to Azure](web-sites-nodejs-develop-deploy-mac.md). Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
+1. To deploy the dashboard to an Azure Website, follow the steps in [Build and deploy a Node.js website to Azure](app-service-web/web-sites-nodejs-develop-deploy-mac.md). Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
 
 2. When the website is created, go to the site in the Azure portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save** at the bottom of the page.
 

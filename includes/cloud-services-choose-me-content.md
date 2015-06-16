@@ -32,6 +32,6 @@ Cloud Services also provides monitoring. Like Azure Virtual Machines, it will de
 
 The PaaS nature of Cloud Services has other implications, too. One of the most important is that applications built on this technology should be written to run correctly when any web or worker role instance fails. To achieve this, a Cloud Services application shouldn't maintain state in the file system of its own VMs. Unlike VMs created with Azure Virtual Machines, writes made to Cloud Services VMs aren't persistent; there's nothing like a Virtual Machines data disk. Instead, a Cloud Services application should explicitly write all state to SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure, both important goals of Cloud Services.
 
-[App Services]: app-service-web-overview.md
+[App Services]: ../article/app-service-web/app-service-web-overview.md
 [Virtual Machines]: https://msdn.microsoft.com/library/azure/jj156143.aspx
 [Cloud Services]: #tellme
