@@ -118,6 +118,11 @@ When you specify a value for a parameter, you select a data source to determine 
 |Empty String|An empty string value.|
 |Null|A Null value.|
 |PowerShell Expression|Specify simple PowerShell expression.  The expression will be evaluated before the activity and the result used for the parameter value.  You can use variables to refer to the output of an activity or a runbook input parameter.|
+|Runbook Input Parameter (*Coming soon)|Use one of runbook input parameters directly as value for the activity input parameter.|
+|Automation Variable Asset (*Coming soon)|A value of existing Automation Variable.|
+|Automation Credential Asset (*Coming soon)|A value of existing Automation Credential.|
+|Automation Certificate Asset (*Coming soon)|An instance of existing Automation Certificate.|
+|Automation Connection Asset (*Coming soon)|An instance of existing Automation Connection.|
 |Unselect|Clears any value that was previously configured.|
 
 
