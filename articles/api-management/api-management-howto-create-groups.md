@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # How to create and use groups to manage developer accounts in Azure API Management
@@ -46,7 +46,7 @@ Enter a unique name for the group and an optional description, and click **Save*
 
 ![Add new group][api-management-add-group-window]
 
-The new group is displayed in the groups tab. To edit the **Name** or **Description** of the group, click the name of the group in the list. To delete the group, click **delete**.
+The new group is displayed in the groups tab. To edit the **Name** or **Description** of the group, click the name of the group in the list. To delete the group, click **Delete**.
 
 ![Group added][api-management-new-group]
 
@@ -62,13 +62,15 @@ Select the **Visibility** tab to add and remove groups, and to view the current 
 
 ![Set visibility][api-management-add-group-to-product-visibility]
 
+>[AZURE.NOTE] To add Azure Active Directory groups, see [How to authorize developer accounts using Azure Active Directory in Azure API Management](api-management-howto-aad.md).
+>
 >To configure groups from the **Visibility** tab for a product, click **Manage Groups**.
 
 Once a product is associated with a group, developers in that group can view and subscribe to the product.
 
 ## <a name="associate-group-developer"> </a>Associate groups with developers
 
-To associate groups with developers, click **Developers** from the **API Management** menu on the left, and then check the box beside the developers you wish to associate with a group.
+To associate groups with developers, click **Users** from the **API Management** menu on the left, and then check the box beside the developers you wish to associate with a group.
 
 ![Add developer to group][api-management-add-group-to-developer]
 
@@ -76,7 +78,7 @@ Once the desired developers are checked, click the desired group in the **Add to
 
 ![Developers][api-management-add-group-to-developer-saved]
 
-Once the association is added between the developer and the group, you can view it in the **Developers** tab.
+Once the association is added between the developer and the group, you can view it in the **Users** tab.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -102,4 +104,4 @@ Once a developer is added to a group, they can view and subscribe to the product
 [How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
 [Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance 
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance

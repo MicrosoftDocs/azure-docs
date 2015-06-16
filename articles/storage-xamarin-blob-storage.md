@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure Blob Storage on Xamarin | Microsoft Azure" 
+	pageTitle="How to use Blob Storage from Xamarin (Preview) | Microsoft Azure" 
 	description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage." 
 	services="storage" 
 	documentationCenter="xamarin" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/15/2015" 
 	ms.author="tamram"/>
 
-# Get started with Azure Blob Storage on Xamarin (Preview)
+# How to use Blob Storage from Xamarin (Preview)
+
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
 ## Overview
 
