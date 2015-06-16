@@ -39,9 +39,9 @@ The StorSimple Manager service dashboard displays the following information:
 
 You can use the StorSimple Manager service dashboard page to initiate the following tasks:
 
-- View or regenerate the service registration key 
-- Change the service data encryption key 
-- View the operation logs 
+- View or regenerate the service registration key.
+- Change the service data encryption key.
+- View the operation logs.
 
 ## View or regenerate the service registration key
 
