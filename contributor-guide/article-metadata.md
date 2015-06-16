@@ -66,8 +66,11 @@ The tags section uses this syntax:
 - cloud-services
 - data-factory
 - documentdb
+- dns
+- event-hubs
 - hdinsight
 - key-vault
+- load-balancer
 - machine-learning
 - media-services
 - mobile-engagement
@@ -78,6 +81,7 @@ The tags section uses this syntax:
 - recovery-manager
 - redis-cache
 - remoteapp
+- rights-management
 - search
 - service-bus
 - service-fabric
@@ -90,6 +94,7 @@ The tags section uses this syntax:
 - virtual-machines
 - virtual-network
 - visual-studio-online
+- vpn-gateway
 - web-sites
 
 ![](./media/article-metadata/checkmark-small.png)**documentationCenter**: Required for dev-centric articles best featured through a dev center. Specify the single dev center or language that applies to the article. The value you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
