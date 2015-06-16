@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2015"
-   ms.author="joaoma;kwill-MSFT" />
+   ms.author="joaoma;kwill" />
 
 
 # Performance considerations for Traffic Manager

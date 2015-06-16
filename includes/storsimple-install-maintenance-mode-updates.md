@@ -35,7 +35,7 @@
 
 	`Get-HcsUpdateStatus`
 	
-	If the `RunInPogresss` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed.  
+	If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed.  
 
 7. When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.
 
