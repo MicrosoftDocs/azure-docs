@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/14/2015"
    ms.author="vagarw"/>
 
 # Using the SharePoint Connector in your logic app
@@ -26,94 +26,46 @@ The SharePoint Online Connector and SharePoint Server Connector gallery app prov
 
 To use the SharePoint Online Connector, you need to first create an instance of the SharePoint Online Connector API app. This can be done as follows:
 
-1. Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
+1. In the Azure startboard, select **Marketplace**.
+2. Select **API Apps** and search for “SharePoint Online Connector”.
+3. Enter the Name, App Service Plan, and other properties.
+4. Enter the following package settings:
 
-2. Browse to "Web and Mobile > API apps" and search for “SharePoint Online Connector”
+	Name | Required | Description
+--- | --- | ---
+Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter *https://microsoft.sharepoint.com/teams/wabstest*.
+Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter *Lists/Task, Shared Documents*.
 
-3. Configure the SharePoint Online Connector and click Create. Following are the parameters you would need to provide to create the connector:
+5. When complete, the Package Settings look similar to the following: 
+<br/>
+![][1]
 
-	<table>
-	  <tr>
-	    <td><b>Name</b></td>
-	    <td><b>Required</b></td>
-	    <td><b>Description</b></td>
-	  </tr>
-	  <tr>
-	    <td>Site URL</td>
-	    <td>Yes</td>
-	    <td>Specify the complete URL of the SharePoint web site. Ex: https://microsoft.sharepoint.com/teams/wabstest </td>
-	  </tr>
-	  <tr>
-	    <td>Document Library / List Relative URLs</td>
-	    <td>Yes</td>
-	    <td>Specify the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. Ex: Lists/Task, Shared Documents'.</td>
-	  </tr>
-	</table>
-	![][1]
-
-
-4. Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Online Connector.
+Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Online Connector.
 
 ## Creating a SharePoint Server Connector for your Logic App
 
 To use the SharePoint Server Connector, you need to first create an instance of the SharePoint Server Connector API app. This can be done as follows:
 
-1. Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
+1. In the Azure startboard, select **Marketplace**.
+2. Select **API Apps** and search for “SharePoint Server Connector”.
+3. Enter the Name, App Service Plan, and other properties.
+4. Enter the following package settings:
 
-2. Browse to "Web and Mobile > API apps" and search for “SharePoint Server Connector”
+	Name | Required | Description
+--- | --- | ---
+Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter *https://microsoft.sharepoint.com/teams/wabstest*.
+Authentication Mode | Yes | Enter the authentication mode to connect to SharePoint Site. Options include:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>If you choose Default, the credentials running the SharePoint Connector are used; Username/Password are not required. Username and Password are required for other authentication types.<br/><br/>**Note** Anonymous authentication is not supported.
+User Name | No | Enter a valid user name to connect to SharePoint site, if Authentication mode is not Default.
+Password | No | Enter a valid password to connect to SharePoint site, if Authentication mode is not Default.
+Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter *Lists/Task, Shared Documents*.
+Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
 
-3. Configure the SharePoint Server Connector and click Create. Following are the parameters you would need to provide to create the connector:
+5. When complete, the Package Settings look similar to the following: 
+<br/>
+![][2]
 
-	<table>
-	  <tr>
-	    <td><b>Name</b></td>
-	    <td><b>Required</b></td>
-	    <td><b>Description</b></td>
-	  </tr>
-	  <tr>
-	    <td>Site URL</td>
-	    <td>Yes</td>
-	    <td>Specify the complete URL of the SharePoint web site. Ex: https://microsoft.sharepoint.com/teams/wabstest </td>
-	  </tr>
-	  <tr>
-	    <td>Authentication Mode</td>
-	    <td>Yes</td>
-	    <td>Specify the authentication mode to connect to SharePoint Site. The allowed Values are:<br><br>
-			Default<br>			
-			WindowsAuthentication<br>
-			FormBasedAuthentication.<br><br>
-	
-	In case you choose Default credentials, default credentials under which SharePoint Microservice is running are used and Username/Password is not required. Username and Password fields are compulsory for other authentication types. <br><br>Note:Anonymous authentication is not supported.</td>
-	  </tr>
-	  <tr>
-	    <td>User Name</td>
-	    <td>No</td>
-	    <td>Specify a valid user name to connect to SharePoint site, if Authentication mode is not Default.</td>
-	  </tr>
-	  <tr>
-	    <td>Password</td>
-	    <td>No</td>
-	    <td>Specify a valid password to connect to SharePoint site, if Authentication mode is not Default.</td>
-	  </tr>
-	  <tr>
-	    <td>Document Library / List Relative URLs</td>
-	    <td>Yes</td>
-	    <td>Specify the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. Ex: Lists/Task, Shared Documents'.</td>
-	  </tr>
-	  <tr>
-	    <td>Service Bus Connection String</td>
-	    <td>No</td>
-	    <td>This should be a valid Service Bus Namespace connection string.<br><br>
-	
-	You would need to install a listener agent on a server that can access your SharePoint server. <br>You can go to your API App summary page and click on 'Hybrid Connection' to install the agent.</td>
-	  </tr>
-	</table>
+Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Server Connector.
 
-
-	![][2]
-
-4. Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Server Connector.
-5. You would need to install a listener agent on a server that can access your SharePoint Server. You can go to your API App summary page and click on 'Hybrid Connection' to install the agent
 
 ## Using the SharePoint Connector in your Logic App
 
@@ -984,6 +936,14 @@ This action gets an item from the Item list.
   </tr>
 </table>
 
+
+## Hybrid Configuration (Optional)
+
+> [AZURE.NOTE] This step is required only if you are using SharePoint on-premises behind your firewall.
+
+App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SharePoint Server, the Hybrid Connection Manager is required. 
+
+See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png

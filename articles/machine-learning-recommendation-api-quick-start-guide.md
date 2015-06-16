@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
-	ms.author="jaymathe"/>
+	ms.date="06/12/2015" 
+	ms.author="luisca"/>
 
 # Quick start guide for the Machine Learning Recommendations API
 
@@ -459,6 +459,7 @@ Valid build status:
 Valid values for build type:
 - Rank - Rank build. (For rank build details, please refer to the "Machine Learning Recommendation API documentation" document.)
 - Recommendation - Recommendation build.
+- Fbt - Frequently bought together build.
 
 OData XML
 
