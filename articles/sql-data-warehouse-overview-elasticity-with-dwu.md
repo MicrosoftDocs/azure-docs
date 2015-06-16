@@ -36,16 +36,15 @@ The unit of measure (UOM) for these metrics is million rows per second (MilRows/
 
 | DWU | CCI scan rate (MilRows/sec) | CCI load rate (MilRows/sec) | Bulk table copy (MilRows/Sec) |
 | :-- | :---------------------------| :-------------------------- | :---------------------------- |
-| 01 | 01 | 15 | 10 |
-| 02 | 02 | 30 | 20 |
-| 03 | 03 | 45 | 30 |
-| 04 | 04 | 60 | 40 |
-| 05 | 05 | 75 | 50 |
-| 06 | 06 | 90 | 60 |
-| 07 | 07 | 105 | 70 |
-| 08 | 08 | 120 | 80 |
-| 09 | 09 | 135 | 90 |
-| 10 | 10 | 150 | 100 |
+| DWU100 | 01 | 15 | 10 |
+| DWU200 | 02 | 30 | 20 |
+| DWU300 | 03 | 45 | 30 |
+| DWU400 | 04 | 60 | 40 |
+| DWU500 | 05 | 75 | 50 |
+| DWU600 | 06 | 90 | 60 |
+| DWU1000 | 10 | 150 | 100 |
+| DWU1500 | 10 | 150 | 100 |
+| DWU2000 | 10 | 150 | 100 |
 
 > [Azure.Note] Bulk table copy is measured by running a statement called CREATE TABLE AS SELECT (CTAS). This is a new Transact-SQL statement specific to SQL Data Warehouse.
 
