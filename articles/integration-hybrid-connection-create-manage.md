@@ -33,7 +33,7 @@ This topic lists these steps.
 
 A Hybrid Connection can be created in the Azure Management Portal using Web Apps **or** using BizTalk Services. 
 
-**To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](web-sites-hybrid-connection-get-started.md).
+**To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](app-service-web/web-sites-hybrid-connection-get-started.md).
 
 **To create Hybrid Connections in BizTalk Services**:
 
@@ -62,7 +62,7 @@ Port | Enter the port number of the on-premises resource. For example, if you're
 
 ## <a name="LinkWebSite"></a>Link your Azure Web Apps or Azure Mobile Apps
 
-To link the Azure Web Apps to an existing Hybrid Connection, select **use an existing Hybrid Connection** in the Hybrid Connections blade. See [Connect Azure Web Apps to an On-Premises Resource](web-sites-hybrid-connection-get-started.md).
+To link the Azure Web Apps to an existing Hybrid Connection, select **use an existing Hybrid Connection** in the Hybrid Connections blade. See [Connect Azure Web Apps to an On-Premises Resource](app-service-web/web-sites-hybrid-connection-get-started.md).
 
 To link the Azure Mobile Apps to an existing Hybrid Connection, select **add hybrid connection** when changing or creating a Mobile Service. See [Azure Mobile Services and Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
@@ -149,8 +149,8 @@ Once copied, you can use Group Policy Editor to change the policy.
 
 ## Next
 
-[Connect Azure Web Apps to an On-Premises Resource](web-sites-hybrid-connection-get-started.md)<br/>
-[Connect to on-premises SQL Server from Azure Web Apps](web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
+[Connect Azure Web Apps to an On-Premises Resource](app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Connect to on-premises SQL Server from Azure Web Apps](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 [Azure Mobile Services and Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md)<br/>
 [Hybrid Connections Overview](integration-hybrid-connection-overview.md)
 

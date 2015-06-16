@@ -626,6 +626,6 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 ## More Information ##
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
 - [Serve Content from Azure CDN in Your Web Application](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Use Azure CDN in Azure App Service](cdn-websites-with-cdn.md)
+- [Use Azure CDN in Azure App Service](app-service-web/cdn-websites-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Using CDN for Azure](cdn-how-to-use-cdn.md)
