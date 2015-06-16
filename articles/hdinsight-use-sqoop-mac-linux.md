@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="06/15/2015"
 	ms.author="larryfr"/>
 
 #Use Sqoop with Hadoop in HDInsight (SSH)
@@ -109,7 +109,7 @@ You will first export **hivesampletable** to the Azure SQL database or to SQL Se
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-4. Once FreeTDS has been installed, use the following command to connect to the SQL Database:
+4. Once FreeTDS has been installed, use the following command to connect to the SQL Database server you created previously:
 
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 

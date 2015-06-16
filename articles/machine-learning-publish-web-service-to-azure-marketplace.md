@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/12/2015" 
 	ms.author="luisca"/>
 
 # Publish Azure Machine Learning Web Service to the Azure Marketplace 

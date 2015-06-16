@@ -63,6 +63,7 @@ Ubuntu is a very popular and Azure-endorsed Linux distribution based on dpkg and
 9. [Images: Moodle](http://azure.microsoft.com/marketplace/partners/bitnami/moodle270ubuntu1404/)
 11. [Images: Mono as a Service](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
+
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
 
 Debian is an important distribution for the Linux and open-source world based on dpkg and apt-get package management. The MSOpenTech VM Depot has several images to use.
@@ -79,7 +80,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 7. [Images: Apache 2.2.15 on OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [Images: Drupal 7.2, LAMP Server on OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
-### SUSE Enterprise Linux and OpenSUSE
+### SUSE Linux Enterprise Server and openSUSE
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
 11. [How to: Install and Run MySQL](virtual-machines-linux-mysql-use-opensuse.md)
@@ -167,7 +168,6 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 5. [Azure Service Management SDK: Go](https://github.com/MSOpenTech/azure-sdk-for-go)
 5. [Azure Service Management SDK: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
     - [How to: Install Ruby on Rails](virtual-machines-ruby-rails-web-app-linux.md)
-    - [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 6. [Azure Service Management SDK: Python](https://github.com/Azure/azure-sdk-for-python)
     - [How to: Django Hello World Web Application (Mac-Linux)](virtual-machines-python-django-web-app-linux.md)
 7. [Azure Service Management SDK: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
@@ -228,8 +228,6 @@ This section contains information about several different storage approaches and
     - [MySQL High Availability Architecture in Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [How to: Create a Multi-Master cluster of MariaDbs](virtual-machines-mariadb-cluster.md)
-7. PostgreSQL
-    - [How to: Install Ruby on Rails with Capistrano, Nginx, Unicorn, and PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 8. [Installing Postgres with corosync, pg_bouncer using ILB](https://github.com/chgeuer/postgres-azure)
 
 

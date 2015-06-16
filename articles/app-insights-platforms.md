@@ -50,7 +50,7 @@
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
-+ [Windows desktop](app-insights-windows-desktop.md)
++ [Windows desktop applications and services](app-insights-windows-desktop.md)
 + [Anything else](#projects)
 
 
