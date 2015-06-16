@@ -145,9 +145,8 @@ Each SQL Server DMV has a PDW-specific column called pdw_node_id, which is the i
 
 >[AZURE.NOTE] To use SQL Server PDW DMVs in SQL Server PDW, insert ‘pdw_nodes_’ into the name, as shown in the following table. 
 
-| -----------------------------; | --------------------------------------------; |
 | DMV name in SQL Data Warehouse | Link to SQL Server Transact-SQL topic on MSDN |
-| -----------------------------; | --------------------------------------------; |
+| :----------------------------- | :-------------------------------------------- |
 | sys.dm_pdw_nodes_db_file_space_usage | sys.dm_db_file_space_usage (Transact-SQL) |
 | sys.dm_pdw_nodes_db_index_usage_stats | sys.dm_db_index_usage_stats (Transact-SQL |
 | sys.dm_pdw_nodes_db_partition_stats | sys.dm_db_partition_stats (Transact-SQL) |
