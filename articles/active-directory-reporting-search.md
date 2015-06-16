@@ -18,7 +18,7 @@
 
 # Azure Active Directory Reporting Search
 
-Azure Active Directory includes a search panel to make it easy for
+Azure Active Directory provides directory admins the ability to search for user security, activity, and audit events across multiple reports.
 
 To find the search panel, navigate to the Azure Management Portal -> Your Azure Active Directory -> Reports. The panel can be found at the top of the list of reports.
 
