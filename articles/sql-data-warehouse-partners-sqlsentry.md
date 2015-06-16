@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2015"
+   ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
 #SQL Sentry
@@ -53,7 +53,7 @@ Performance Advisor for APS and Performance Advisor for Azure SQL Data Warehouse
 [6]:./media/markdown-template-for-new-articles/pretty49.png
 [7]:./media/markdown-template-for-new-articles/channel-9.png
 [8]:./media/markdown-template-for-new-articles/copytemplate.png
-[logo]:./media/sql-data-warehouse-partners/sqlsentry_logo_med.png
+[logo]:./media/sql-data-warehouse-partners/sql_sentry_logo_med.png
 
 
 <!--Link references--In actual articles, you only need a single period before the slash. -->

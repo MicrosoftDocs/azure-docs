@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2015"
+   ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
 #Looker
