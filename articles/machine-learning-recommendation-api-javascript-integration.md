@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Machine Learning Recommendations - JavaScript Integration" 
+	pageTitle="Machine Learning Recommendations: JavaScript Integration | Microsoft Azure" 
 	description="Azure Machine Learning Recommendations - JavaScript Integration – documentation" 
 	services="machine-learning" 
 	documentationCenter="" 

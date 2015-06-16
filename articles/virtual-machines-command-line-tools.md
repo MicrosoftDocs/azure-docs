@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management"
+	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management | Microsoft Azure"
 	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure using the Azure CLI asm mode."
 	services="web-sites, virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management
 

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Sample data in Azure Blob Storage| Azure" 
+	pageTitle="Sample data in Azure Blob Storage| Microsoft Azure" 
 	description="Sample data in Azure Blob Storage" 
-	services="machine-learning" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 

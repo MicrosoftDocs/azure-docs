@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/02/2015"
-   ms.author="joaoma" />
+   ms.author="joaoma;kwill-MSFT" />
 # Troubleshooting degraded status on Azure Traffic Manager
 This page will describe how to troubleshoot Azure Traffic Manager profile which is showing a degraded status, and provide some key points to understand about traffic manager probes.
 

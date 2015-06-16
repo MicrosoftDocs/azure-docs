@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="03/16/2015"
+	ms.date="06/09/2015"
 	ms.author="wesmc"/>
 
 # Getting Started with Notification Hubs
@@ -131,13 +131,13 @@ Your notification hub is now configured to work with WNS, and you have the conne
 
 	This downloads, installs, and adds a reference in all projects to the Azure Messaging library for Windows using the <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet package</a>.
 
-3. Open the App.xaml.cs project file and add the following `using` statements:
+3. Open the App.xaml.cs project file and add the following `using` statements. In a universal project, this file is located in the `<project_name>.Shared` folder.
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
 		using Windows.UI.Popups;
 
-	In a universal project, this file is located in the `<project_name>.Shared` folder.
+	
 
 4. Also in App.xaml.cs, add the following **InitNotificationsAsync** method definition to the **App** class:
 

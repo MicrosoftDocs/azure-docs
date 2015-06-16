@@ -3,7 +3,7 @@
     description="Describes the technical specifications and regulatory standards compliance information for the StorSimple device."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/01/2015"
-    ms.author="v-sharos" />
+    ms.date="06/15/2015"
+    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
 
@@ -27,8 +27,8 @@ The hardware components of your Microsoft Azure StorSimple device adhere to the 
 
 The StorSimple device has two 100-240V dual fan, SBB-compliant Power Cooling Modules (PCMs). This provides a redundant power configuration. If a PCM fails, the device continues to operate normally on the other PCM until the failed module is replaced.  
 
-The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The following tables list the technical specifications associated with the PCMs. 
- 
+The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The following tables list the technical specifications associated with the PCMs.
+
 | Specification           | 580 W PCM (EBOD)                                    | 764 W PCM (Primary)                                |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
 | Maximum output power    | 580 W                                               | 764                                                |
@@ -47,16 +47,16 @@ The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The
  
 ## Power consumption statistics  
 
-The following table lists the power consumption data for the various models of StorSimple device. 
+The following table lists the typical power consumption data (actual values may vary from the published) for the various models of StorSimple device. 
  
-| Conditions | 240 V AC | 110 V AC |
-| ---------- | -------- | -------- |
-| Fans slow, drives idle | 1.45 A  0.31 kW | 3.19 A  0.34 kW |
-| Fans slow, drives accessing | 1.54 A  0.33 kW | 3.27 A  0.36 kW |
-| Fans fast, drives idle, two PSUs powered | 2.14 A  0.49 kW | 4.99 A  0.54 kW |
-| Fans fast, drives idle, one PSU powered one idle | 2.05 A  0.48 kW | 4.58 A  0.5 kW |
-| Fans fast, drives accessing, two PSUs powered | 2.26 A  0.51 kW | 4.95 A  0.54 kW |
-| Fans fast, drives accessing, one PSU powered one idle | 2.14 A  0.49 kW | 4.81 A  0.53 kW |
+ Conditions | 240 V AC | 240 V AC | 240 V AC | 110 V AC | 110 V AC | 110 V AC 
+ ---------- | -------- | -------- | -------- | -------- | -------- | -------- 
+ Fans slow, drives idle | 1.45 A  |0.31 kW | 1057.76 BTU/hr | 3.19 A | 0.34 kW | 1160.13 BTU/hr 
+ Fans slow, drives accessing | 1.54 A | 0.33 kW | 1126.01 BTU/hr | 3.27 A | 0.36 kW | 1228.37 BTU/hr 
+ Fans fast, drives idle, two PSUs powered | 2.14 A | 0.49 kW  | 1671.95 BTU/hr | 4.99 A | 0.54 kW | 1842.56 BTU/hr 
+ Fans fast, drives idle, one PSU powered one idle | 2.05 A | 0.48 kW | 1637.83 BTU/hr | 4.58 A | 0.50 kW | 1706.07 BTU/hr 
+ Fans fast, drives accessing, two PSUs powered | 2.26 A | 0.51 kW | 1740.19 BTU/hr | 4.95 A | 0.54 kW | 1842.56 BTU/hr 
+ Fans fast, drives accessing, one PSU powered one idle | 2.14 A |0.49 kW | 1671.95 BTU/hr | 4.81 A  | 0.53 kW | 1808.44 BTU/hr 
 
 ## Disk drive specifications  
 
@@ -105,7 +105,7 @@ This section lists the specifications related to the enclosure environment. The 
 | Airflow            | System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge). |
 | Altitude, operational  | -30 meters to 3045 meters (-100 feet to 10,000 feet) with maximum operating temperature de-rated by 5°C above 7000 feet. |
 | Altitude, non-operational  | -305 meters to 12,192 meters (-1,000 feet to 40,000 feet) |
-| Shock, operational  | 5g 10 ms ½ sine | 
+| Shock, operational  | 5g 10 ms ½ sine |
 | Shock, non-operational  | 30g 10 ms ½ sine |
 | Vibration, operational  | 0.21g RMS 5-500 Hz random |
 | Vibration, non-operational  | 1.04g RMS 2-200 Hz random |
@@ -168,5 +168,5 @@ The plug and the complete power cord assembly must meet the standards appropriat
 
 ## Supported network cables  
 
-For the 10 GbE network interfaces, DATA 2 and DATA 3, the list of supported network cables and modules can be found at this link: [http://www.mellanox.com/page/cables?mtag=cable_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
+For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supported network cables and modules](https://msdn.microsoft.com/library/dn891474.aspx).
 

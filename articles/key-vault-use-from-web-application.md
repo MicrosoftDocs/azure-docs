@@ -33,11 +33,11 @@ To complete this tutorial, you must have the following:
 - A Client ID and Client Secret for a web application registered with Azure Active Directory that has access to your Key Vault
 - A web application. We will be showing the steps for an ASP.NET MVC application deployed in Azure as a Web App. 
 
-[AZURE.NOTE]  It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](keyvault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application. 
+> [AZURE.NOTE]  It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](key-vault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application. 
 
 The web application that will be accessing the Key Vault is the one that is registered in Azure Active Directory and has been given access to your Key Vault. If this is not the case, go back to Register an Application in the Get Started tutorial and repeat the steps listed. 
 
-This tutorial is designed for web developers that understand the basics of creating web applications on Azure. For more information about Azure Web Apps, see [Web Apps overview](app-service-web-overview.md).
+This tutorial is designed for web developers that understand the basics of creating web applications on Azure. For more information about Azure Web Apps, see [Web Apps overview](app-service-web/app-service-web-overview.md).
 
 
 

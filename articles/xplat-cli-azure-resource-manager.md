@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management"
+	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management | Microsoft Azure"
 	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management."
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services="virtual-machines"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
-	ms.author="dkshir;rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 

@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Azure Machine Learning FAQ | Azure" 
-	description="Frequently asked questions about Microsoft Azure Machine Learning" 
+	pageTitle="Azure Machine Learning FAQ | Microsoft Azure" 
+	description="Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling." 
+	keywords="machine learning introduction,predictive modeling,what is machine learning"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pablissima" 
@@ -16,13 +17,15 @@
 	ms.date="05/07/2015" 
 	ms.author="paulettm"/>
 
-#Azure Machine Learning Frequently Asked Questions (FAQ)
+#Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilties, limitations, and support
+
+This FAQ is answers questions about the Azure Machine Learning, a cloud service for predictive modeling and operationalizing solutions through web services. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support. 
  
 ##General questions
 
 **What is Azure Machine Learning?**
  
-Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign-in, upload data, and immediately start machine learning experiments. Visual composition, a large pallet of modules, and a library of starting templates makes common machine learning tasks simple and quick.  For more information, see the [Azure Machine Learning service overview](/services/machine-learning/).
+Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign-in, upload data, and immediately start machine learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates makes common machine learning tasks simple and quick.  For more information, see the [Azure Machine Learning service overview](/services/machine-learning/). For a machine learning introduction covering key terminology and concepts, see [Introduction to Azure Machine Learning](machine-learning-what-is-machine-learning.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
@@ -38,10 +41,6 @@ For more information about the Machine Learning Studio, see [What is Machine Lea
 The Machine Learning API service enables you to deploy predictive models built in Machine Learning Studio as scalable, fault-tolerant, web services. The web services created by the Machine Learning API service are REST APIs that provide an interface for communication between external applications and your predictive analytics models. 
 
 See [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md) for more information.
-
-**Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?**
-
-No, that is not supported, however custom R and Python code can be used to define a module.
 
 
 ##Billing questions
@@ -113,6 +112,11 @@ You can visit the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=4
 **Can I bring my existing code into ML Studio?** 
 
 Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md). 
+
+**Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?**
+
+No, that is not supported, however custom R and Python code can be used to define a module.
+
 
 ###Data processing 
 **Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?**

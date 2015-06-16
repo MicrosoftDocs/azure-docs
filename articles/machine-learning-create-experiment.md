@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Create a simple experiment in Machine Learning Studio | Azure"
-	description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio"
+	pageTitle="Create a simple experiment in Machine Learning Studio | Microsoft Azure"
+	description="A first machine learning tutorial for creating a simple experiment to train and test a linear regression model in Azure Machine Learning Studio."
+	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -16,22 +17,22 @@
 	ms.date="04/21/2015"
 	ms.author="garye"/>
 
-#Create your first experiment in Azure Machine Learning Studio
+#Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio
 
-In this article, we'll create a machine learning model that will predict the price of an automobile based on different variables such as make and technical specifications. To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment.
+In this first machine learning tutorial, we'll create a linear regression model that predicts the price of an automobile based on different variables such as make and technical specifications. To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
+A Machine Learning Studio experiment consists of drag-and-drop components to *create a model*, *train the model*, and *score and test the model*. The experiment uses predictive modeling techniques in the form of Machine Learning Studio modules that ingest data, train a model against it, and apply the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 
-To open Machine Learning Studio, click this link: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For help getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/).
+Open Machine Learning Studio: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For help getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/).
 
 And for more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
 
 ##Five steps to create an experiment
 
-Here are the five basic steps that you can follow to build an experiment in Machine Learning Studio to allow you to create, train, and score your model:  
+In this machine learning tutorial, you'll follow five basic steps to build an experiment in Machine Learning Studio in order to create, train, and score your model:  
 
 - Create a model
 	- [Step 1: Get data]
@@ -144,7 +145,7 @@ We want to predict the price of an automobile, which can be any value, so we'll 
 
 2. Run the experiment. This allows the [Project Columns][project-columns] and [Split][split] modules to pass column definitions to the modules we'll be adding next.  
 
-3. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas, and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize a learning algorithm.
+3. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas, and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms.
 
 	For this experiment, select the [Linear Regression][linear-regression] module under the **Regression** category (you can also find the module by typing "linear regression" in the palette Search box), and drag it to the experiment canvas.
 
@@ -158,7 +159,7 @@ We want to predict the price of an automobile, which can be any value, so we'll 
 
 The result is a trained regression model that can be used to score new samples to make predictions.
 
-![Applying the learning algorithm][screen8]
+![Applying the machine learning algorithm][screen8]
 
 ## Step 5: Predict new automobile prices
 
@@ -188,11 +189,11 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 The final experiment should look like this:
 
-![Complete experiment][screen10]
+![Machine learning tutorial: Complete linear regression experiment that uses predictive modeling techniques.][screen10]
 
 ## What's next?
 
-Now that you have your experiment set up, you can iterate to try to improve the model. For instance, you can change the features you use in your prediction. Or you can modify the properties of the [Linear Regression][linear-regression] algorithm or try a different algorithm altogether. You can even add multiple algorithms to your experiment at one time and compare two by using the [Evaluate Model][evaluate-model] module.
+Now that you've completed a first machine learning tutorial and have your experiment set up, you can iterate to try to improve the model. For instance, you can change the features you use in your prediction. Or you can modify the properties of the [Linear Regression][linear-regression] algorithm or try a different algorithm altogether. You can even add multiple machine learning algorithms to your experiment at one time and compare two by using the [Evaluate Model][evaluate-model] module.
 
 > [AZURE.TIP] Use the **SAVE AS** button under the experiment canvas to copy any iteration of your experiment. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** under the canvas. See [Manage experiment iterations in Azure Machine Learning Studio][runhistory] for more details.
 
@@ -202,7 +203,7 @@ When you're satisfied with your model, you can publish it as a web service to be
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-For a more extensive and detailed walkthrough for creating, training, scoring, and publishing a predictive model, see [Develop a predictive solution by using Azure Machine Learning ][walkthrough].
+For a more extensive and detailed walkthrough of predictive modeling techniques for creating, training, scoring, and publishing a model, see [Develop a predictive solution by using Azure Machine Learning ][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -220,7 +221,7 @@ For a more extensive and detailed walkthrough for creating, training, scoring, a
 [screen8]:./media/machine-learning-create-experiment/screen8.png
 [screen8a]:./media/machine-learning-create-experiment/screen8a.png
 [screen9]:./media/machine-learning-create-experiment/screen9.png
-[screen10]:./media/machine-learning-create-experiment/screen10.png
+[screen10]:./media/machine-learning-create-experiment/complete-linear-regression-experiment.png
 
 
 <!-- Module References -->

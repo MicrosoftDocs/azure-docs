@@ -23,7 +23,7 @@
 
 You can connect Operational Insights to an existing System Center Operations Manager environment. This will allow you to use existing Operations Manager agents for data collection. For additional information about using Operations Manager with Operational Insights, see [Operations Manager considerations with Operational Insights](operational-insights-operations-manager.md).
 
-If you use Operations Manager to monitor any of the following workloads, then you'll need to set Operations Manager run-as accounts for them. See [Operations Manager run-as accounts for Operational Insights](operational-insights-run-as.md) for more information about setting the accounts.
+If you use Operations Manager to monitor any of the following workloads, then you'll need to set Operations Manager run-as accounts for them. See  [Operations Manager considerations with Operational Insights](operational-insights-operations-manager.md) for more information about setting the accounts.
 
 - SQL Assessment
 - Virtual Machine Manager

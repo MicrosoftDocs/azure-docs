@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Machine Learning Algorithm Cheat Sheet | Azure" 
-	description="A downloadable machine learning algorithm cheat sheet that can help you figure out how to choose a machine learning algorithm."
+	pageTitle="Machine learning algorithm cheat sheet | Microsoft Azure" 
+	description="A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio."
+	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="brohrer" 
@@ -17,22 +18,26 @@
 	ms.author="brohrer;garye" />
 
 
-# Microsoft Azure Machine Learning Algorithm Cheat Sheet
+# Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms that you can use to build your predictive analytics solutions. These algorithms fall into the general machine learning categories of ***regression***, ***classification***, ***clustering***, and ***anomaly detection***, and each one is designed to address a different type of machine learning problem.
-
-The question is, is there something that can help me quickly figure out how to choose a machine learning algorithm for my specific solution?
-
-The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** is designed to help you sift through the available machine learning algorithms and choose the appropriate one to use for your predictive analytics solution.
+The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms. 
 The cheat sheet asks you questions about both the nature of your data and the problem you're working to address, and then suggests an algorithm for you to try.
+
+[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms for your predictive analytics solutions. These algorithms fall into the general machine learning categories of ***regression***, ***classification***, ***clustering***, and ***anomaly detection***, and each one is designed to address a different type of machine learning problem.
+
+
+
+## Download  the machine learning algorithm cheat sheet
+
+Download the Machine Learning Algorithm Cheat Sheet and get help figuring out how to choose a machine learning algorithm for your solution. To keep it nearby, you can print the cheat sheet in tabloid size (11 x 17 in.). 
 
 **Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v2.pdf)**
 
-![Machine Learning Algorithm cheat sheet: How do I choose a Machine Learning algorithm?][cheat-sheet]
+![Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.][cheat-sheet]
 
-[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/cheat-sheet-small.png
+[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-microsoft-azure.png
 
-[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 
 <!-- This is now covered in the first footnote below
 [Azure Machine Learning Studio](https://studio.azureml.net/) gives you the flexibility to experiment - 
@@ -41,12 +46,17 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 -->
 
-For a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose an algorithm in Azure Machine Learning](machine-learning-algorithm-choice.md).
-For a list of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
+## More help with algorithms 
 
-###Footnotes:
+* For a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose an algorithm in Azure Machine Learning](machine-learning-algorithm-choice.md).
+* For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
+* For a complete list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://msdn.microsoft.com/library/azure/dn906033.aspx) in Machine Learning Studio Algorithm and Module Help.
 
-* The suggestions offered in this cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data. 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
+## Notes and terminology definitions for the machine learning algorithm cheat sheet
+
+* The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data. 
 
 * Every machine learning algorithm has its own style or *inductive bias*. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But knowing which will be the best fit beforehand is not always possible. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92). 	
 
@@ -67,6 +77,7 @@ For a list of all the machine learning algorithms available in Machine Learning 
 * Several methods, including logistic regression and the Bayes point machine, assume **linear class boundaries**, that is, that the boundaries between classes are approximately straight lines (or hyperplanes in the more general case). Often this is a characteristic of the data that you don’t know until after you’ve tried to separate it, but it’s something that typically can be learned by visualizing beforehand. If the class boundaries look very irregular, stick with decision trees, decision jungles, support vector machines, or neural networks. 
 
 * Neural networks can be used with categorical variables by creating a **dummy variable** for each category and setting it to 1 in cases where the category applies, 0 where it doesn’t.
+
 
 <!-- This is how you can add a link to the image in HTML. Don't know how to do this in markdown.
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
