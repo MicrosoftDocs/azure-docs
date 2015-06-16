@@ -16,16 +16,17 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#LogiAnalytics
+# LogiAnalytics
 ![][logo]
-##Who we are
+
+## Who we are
 [LogiAnalytics][website] is the leader in self-service analytics, delivering tools designed to meet the needs of users, IT and product managers. At Logi, we are re-imagining how software can empower individuals, and the organizations and products that serve them, with analytics that can be embedded directly into the business applications people use every day. From interactive dashboards to ad hoc queries and visual analysis, Logi enables users to explore and discover insights, and make data-driven decisions.    
 
-##What We Offer
+## What We Offer
 Logi Analytics’ information platform, Logi Info, empowers technology professionals with a fast, agile, and cost-effective way to create and deliver compelling dashboards, reports, and analyses as standalone analytical applications or embedded directly into critical business applications. Combined with the Microsoft Azure SQL Data Warehouse, the joint solution puts the power of information at everyone’s fingertips. Logi Analytics and Microsoft Azure based applications deploy quickly so your modern workforce can access information anytime, anywhere, and from any device without delay.
 
 
-##Resources
+## Resources
 [LogiAnalytics Homepage][website]
 
 [LogiAnalytics on the Microsoft Azure Marketplace][website1]

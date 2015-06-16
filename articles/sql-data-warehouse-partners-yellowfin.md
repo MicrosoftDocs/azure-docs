@@ -16,15 +16,16 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#YellowFin
+# YellowFin
 ![][logo]
-##Who we are
+
+## Who we are
 At [YellowFin][website], we are passionate about making Business Intelligence easy. And by easy, we mean easy for everyone. With more than 1 million end users, Yellowfin has been ranked by BARC’s The BI Survey - the world’s largest survey of BI users - as the top Ad-hoc Reporting and Dashboard vendor in Cloud BI for the last 3 years in a row. Yellowfin has been developed to satisfy a range of BI needs - from small business, to massive enterprise deployments. Yellowfin’s award winning reporting and analytics platform include innovative collaboration, mapping and mobile features. Yellowfin is Web-based, cost effecting, easy to use and deploy - so it’s ideal for the cloud.
 
-##What We Offer 
+## What We Offer 
 Yellowfin is a 100% browser-based platform that can be deployed either on-premise or in the cloud. Just launch your free trial version of Yellowfin for Azure directly from the Azure Marketplace, or download from our website to get started. Connectors for Azure SQL Data Warehouse make it easy to access and start sharing beautiful dashboards via any platform or device. Yellowfin’s innovative platform includes all the data discovery features you need, whilst providing the perfect balance between the ease of use business users require, with the governance needs of enterprise IT. Get started with a free trial that enables 3 users to create and share unlimited reports and dashboards for 1 year. Easily upgrade at any time to seamlessly scale throughout your enterprise.
 
-##Resources
+## Resources
 [YellowFin Homepage][website]
 
 [Demo Video][website1]

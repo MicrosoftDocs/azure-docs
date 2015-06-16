@@ -16,12 +16,13 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Bryte Systems
+# Bryte Systems
 ![][logo]
-##Who we are
+
+## Who we are
 [Bryte Systems][website]  is a specialist in Data Movement and Integration technologies for over 15 years, we are now focused on helping clients build scalable cloud based Data Warehouses and Data Lakes to uncover insights from an ever growing volume of existing and new sources. 
 
-##What We Offer
+## What We Offer
 Automated Data Transfer and Azure Integration.  
  
 Click based user interface to set up data transfer to Azure SQL Data Warehouse in minutes without the need for any coding or scripting. 
@@ -47,9 +48,7 @@ Common use cases:
  
 •	CSV, JSON or XML files to Azure SQL Data Warehouse
 
-
-
-##Resources
+## Resources
 [Bryte Systems Homepage][website]
 
 [Bryte Flow Change Data Capture][website1]

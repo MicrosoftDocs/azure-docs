@@ -16,16 +16,17 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Dell Statistica
+# Dell Statistica
 ![][logo]
-##Who we are
+
+## Who we are
 [Dell Software][website] helps customers unlock greater potential through the power of technology—delivering scalable, affordable and simple-to-use solutions that simplify IT and mitigate risk. This software, when combined with Dell hardware and services, drives unmatched efficiency and productivity to accelerate business results.  
 
-##What We Offer
+## What We Offer
 Dell Statistica and Microsoft Azure SQL Data Warehouse service integration enables customers to use Statistica Advanced Analytics platform in tandem with the Microsoft Azure Machine Learning Service. With this combination customers get the robust predictive analytics capabilities and flexibility, while enjoying the many advantages of a cloud deployment.
 
 
-##Resources
+## Resources
 [Dell Software Homepage][website]
 
 [Statistica Overview][website1]

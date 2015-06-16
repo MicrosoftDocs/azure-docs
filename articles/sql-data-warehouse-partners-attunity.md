@@ -16,15 +16,16 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Attunity
+# Attunity
 ![][logo]
-##Who we are
+
+### Who we are
 [Attunity CloudBeam][website]  is a leading provider of data movement, optimization and availability software solutions for efficient visibility, integration, and distribution of data across heterogeneous enterprise platforms and the cloud. More than 2,000 customers worldwide, including more than half of the Fortune 100 companies, rely on Attunity’s software to ensure their business-critical data is optimized and accessible when, where and how it is needed.
 
-##What we offer
+### What we offer
 Attunity CloudBeam offers fast set up and streamlined loading from a wide variety of sources to the MicrosoftSQL Data Warehouse. It empowers Azure users, allowing them to quickly integrate data from heterogeneous data sources and maintain the changed data continuously.
 
-##Resources
+### Resources
 [Attunity Homepage][website]
 
 [Integration with Microsoft Analytics Platform System][website1]

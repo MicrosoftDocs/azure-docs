@@ -16,12 +16,13 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Informatica
+# Informatica
 ![][logo]
-##Who we are
+
+## Who we are
 [Informatica][website] is the market leader in data integration infrastructure for analytics and data warehouse initiatives.   Our solutions help organizations of all types (enterprises, government organizations, small/medium size businesses) bridge the gap between raw, messy data and reliable, scalable analytics.     
 
-##What We Offer
+## What We Offer
 Informatica’s provides Cloud data integration and data quality solutions that can help ensure agility, scalability, and operational confidence in your next analytics and/or data warehousing project.  
 
 These solutions allow our customers to:
@@ -35,7 +36,7 @@ These solutions allow our customers to:
 •	Operationalize and make repeatable formerly manual processes for accessing and integrating data.
 
 
-##Resources
+## Resources
 [Informatica Homepage][website]
 
 [Informatica Cloud for Microsoft Azure - Free-Trial][website1]

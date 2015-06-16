@@ -16,15 +16,16 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Tableau
+# Tableau
 ![][logo]
-##Who we are
+
+## Who we are
 [Tableau Software][website] helps people see and understand data. Tableau helps anyone quickly analyze, visualize and share information. More than 26,000 customer accounts get rapid results with Tableau in the office and on-the-go. And tens of thousands of people use Tableau Public to share data in their blogs and websites.  
 
-##What We Offer 
+## What We Offer 
 Tableau supports connectivity to Microsoft Azure SQL Data Warehouse through a native, optimized connector to both Tableau Desktop and Tableau Server.  Tableau Desktop allows users to connect to data in Azure SQL Data Warehouse and quickly create visualizations and interactive dashboards with an easy-to-use, drag and drop interface.  Tableau Server is both a browser- and mobile-based tool that enables users to publish dashboards and share them throughout the organization.
 
-##Resources
+## Resources
 [Tableau Homepage][website]
 
 [See more solutions][solutions]

@@ -18,17 +18,18 @@
 
 #SiSense
 ![][logo]
-##Who we are
+
+## Who we are
 [SiSense][website] is a full-stack Business Intelligence software that comes with everything a business needs to analyze and visualize data: a high performance analytical database, the ability to join multiple sources, simple data extraction (ETL), and web-based data visualization. 
 
 The Sisense environment is intuitive and built with the end-user in mind, allowing business users to engage in self-service data discovery, while giving analysts the tools they need to analyze large complex datasets quickly. It is the only tool that allows users to answer complex questions without scripting or coding.
 
-##What We Offer 
+## What We Offer 
 Catering to organizations of all sizes, Sisense has already won the hearts of such heavyweights as eBay, Samsung and Wix and currently has customers in 49 countries.
 
 Sisense on Azure - Deploying Sisense on MS Azure allows users to enjoy all the advantages of cloud storage while maintaining full control of data management and integration, and to combine data stored in Azure with a multitude of other cloud and on-premise sources.
 
-##Resources
+## Resources
 [SiSense Homepage][website]
 
 [Product Overview][website1]
