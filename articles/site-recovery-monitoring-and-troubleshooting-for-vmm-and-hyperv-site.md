@@ -125,8 +125,8 @@ Replication Health* to see the details.
 
 | Scenarios               	| Event Sources                                                                                                                                                                                        	|
 |-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| VMM Site Protection     	|  VMM Server <ul><li>**  **</li></ul> Hyper-V Host <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (For Azure as Target)</li><li>**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
-| Hyper-V Site Protection 	| <ul><li>**Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li>**Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li>	**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
+| VMM Site Protection     	|  VMM Server <ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> Hyper-V Host <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (For Azure as Target)</li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
+| Hyper-V Site Protection 	| <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li> **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li>	**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
 
 #### Hyper-V Replication Logging Options
 
