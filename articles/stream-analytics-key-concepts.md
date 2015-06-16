@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/02/2015" 
+	ms.date="06/16/2015" 
 	ms.author="jeffstok" />
 
 
@@ -30,7 +30,7 @@ With Stream Analytics, you can:
 - Process telemetry data for near real-time monitoring and diagnostics. 
 - Capture and archive real-time events for future processing
 
-For more information, see [Introduction to Azure Stream Analytics](stream.analytics.introduction). 
+For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md). 
 
 A Stream Analytics job includes all of the following:
 * One or more input sources
@@ -42,10 +42,10 @@ A Stream Analytics job includes all of the following:
 
 ### Data stream
 
-Each Stream Analytics job definition must contain at least one data stream input source to be consumed and transformed by the job. [Azure Blob storage](azure.blob.storage) and [Azure Event Hubs](azure.event.hubs) are supported as data stream input sources. Event Hubs input sources are used to collect event streams from multiple different devices and services, while Blob storage can be used an input source for ingesting large amounts of data. Because blobs do not stream data, Stream Analytics jobs over blobs will not be temporal in nature unless the records in the blob contain timestamps.
+Each Stream Analytics job definition must contain at least one data stream input source to be consumed and transformed by the job. [Azure Blob storage](http://azure.microsoft.com/documentation/services/storage/) and [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/) are supported as data stream input sources. Event Hubs input sources are used to collect event streams from multiple different devices and services, while Blob storage can be used an input source for ingesting large amounts of data. Because blobs do not stream data, Stream Analytics jobs over blobs will not be temporal in nature unless the records in the blob contain timestamps.
 
 ### Reference data
-Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. [Azure Blob storage](azure.blob.storage) is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
+Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. [Azure Blob storage](http://azure.microsoft.com/documentation/services/storage/) is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
 
 To enable support for refreshing reference data the user needs to specify a list of blobs in the input configuration using the {date} and {time} tokens inside the path pattern. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone.
 
@@ -105,7 +105,7 @@ You can also decide to wait for only a limited time: ‘Maximum allowed arrival 
 When streaming job query uses the TIMESTAMP BY keyword, there are no guarantees about the order in which the events will arrive to input, Some events in the same input partition may be lagging, parameter ‘Maximum allowed disorder within an input’ causes the streaming job to act on events that are outside of the order tolerance, according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps.
 
 ### Additional resources
-For details on creating input sources, see [Azure Event Hubs developer guide](azure.event.hubs.developer.guide) and [Use Azure Blob Storage](azure.blob.storage.use).  
+For details on creating input sources, see [Azure Event Hubs developer guide](http://msdn.microsoft.com/library/azure/dn789972.aspx) and [Use Azure Blob Storage](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/).  
 
 
 
@@ -132,14 +132,14 @@ For more complex queries, the standard SQL clause **WITH** can be used to specif
 	FROM step1 
 	GROUP BY TumblingWindow (day, 1) 
 
-To learn more about the query language, see [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference). 
+To learn more about the query language, see [Azure Stream Analytics Query Language Reference](http://go.microsoft.com/fwlink/?LinkID=513299). 
 
 ## Output
 The output target is where the results of the Stream Analytics job will be written to. Results are written continuously to the output target as the job processes input events. The following output targets are supported:
 
 - Azure Event Hubs - Choose Event Hubs as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
 - Azure Blob storage - Use Blob storage for long-term archival of output or for storing data for later processing.
-- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage.introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
+- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage-introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Azure SQL Database - This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
@@ -147,7 +147,7 @@ The output target is where the results of the Stream Analytics job will be writt
 
 A Stream Analytics job can be scaled through configuring streaming units, which define the amount of data processing power a job receives. Each streaming unit corresponds to roughly 1MB/second of throughput. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
 
-For details, see [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs).
+For details, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md).
 
 
 ## Monitor and troubleshoot jobs
@@ -204,25 +204,3 @@ Now that you're familiar with the key concepts of Stream Analytics, try:
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-
-<!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
-
-[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
-
-[stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: stream-analytics-limitations.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
