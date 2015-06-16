@@ -38,7 +38,7 @@ To get started using Azure AD Connect you can download the latest version using 
 ## Before you install Azure AD Connect
 Before you install Azure AD Connect with Express Settings, there are a few things that you will need. 
 
-For Custom options such as multiple forests or federated sign on, find out about additional requirements [here.](active-directory-aadconnect-get-started-custom.md)
+
  
 - An Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/)
 - An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with
@@ -48,7 +48,7 @@ For Custom options such as multiple forests or federated sign on, find out about
 - Optional:  A test user account to verify synchronization. 
 
 
-
+For Custom options such as multiple forests or federated sign on, find out about additional requirements [here.](active-directory-aadconnect-get-started-custom.md)
 
 
 ## Express installation of Azure AD Connect
@@ -59,7 +59,7 @@ Selecting Express Settings is the default option and is one of the most common s
 ### To install Azure AD Connect using express settings
 --------------------------------------------------------------------------------------------
 
-1. Login to the server you wish to install Azure AD Connect as an Enterprise Administrator.  This should be the server you wish to be the sync server.
+1. Login to the server you wish to install Azure AD Connect on as an Enterprise Administrator.  This should be the server you wish to be the sync server.
 2. Navigate to and double-click on AzureADConnect.msi
 3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.
 4. On the Express settings screen, click **Use express settings**.
@@ -68,11 +68,11 @@ Selecting Express Settings is the default option and is one of the most common s
 8. On the Connect to AD DS screen enter the username and password for an enterprise admin account.  Click **Next**.
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. On the Ready to configure screen, click **Install**.
-	- Optionally on the Ready to Configure page, you can un-check the “Start the synchronization process as soon as configuration completes” checkbox.  If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.  Once the task is enabled, synchronization will run every three hours.
-	- Also optionally you can choose to configure sync services for Exchange Hybrid deployment by checking the corresponding checkbox.  If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.
+	- Optionally on the Ready to Configure page, you can un-check the “**Start the synchronization process as soon as configuration completes**” checkbox.  If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.  Once the task is enabled, synchronization will run every three hours.
+	- Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by checking the corresponding checkbox.  If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.
 
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
-8. Once this completes, click **Exit**.
+8. Once the installation completes, click **Exit**.
 
 
 <br>
@@ -86,15 +86,15 @@ For a video on using the express installation check out the following:
 
 ## Verifying the installation
 
-After you have successfully installed Azure AD Connect you can verify that synchronization is occurring by logging into the Azure portal and checking the last sync time. 
+After you have successfully installed Azure AD Connect you can verify that synchronization is occurring by signing in to the Azure portal and checking the last sync time. 
 
-1.  Sign in to the Azure portal
-2.  On the left select Active Directory
-3.  Double-click on the directory you just used to setup Azure AD Connect
+1.  Sign in to the Azure portal.
+2.  On the left select Active Directory.
+3.  Double-click on the directory you just used to setup Azure AD Connect.
 4.  At the top, select Directory Integration.  Note the last sync time.
 
 <center>![Express Installation](./media/active-directory-aadconnect-get-started/verify.png)</center>
 
 ## What to do next
-Now that you have Azure AD Connect installed you can use the link [here](active-directory-aadconnect-whats-next.md) to get going with post installation tasks such as  assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options..
+Now that you have Azure AD Connect installed you can use the link [here](active-directory-aadconnect-whats-next.md) to get going with post installation tasks such as  assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options.
 

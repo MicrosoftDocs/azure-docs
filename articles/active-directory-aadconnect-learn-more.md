@@ -39,11 +39,14 @@ The following is a list of additional resources for using Azure AD Connect and i
 
 ## Videos
 
+Ignite 2015 presentation on extending your on-premises directories to the cloud.
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
 <br>
 <br>
+
+Watch this video to learn how easy it is to extend your on-premises Active Directory to the cloud by using the express settings of Azure Active Directory Connect.
 
 [AZURE.VIDEO azure-active-directory-connect-express-settings]
 

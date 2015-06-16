@@ -30,7 +30,7 @@ The following are advanced operational topics that allow you to customize Azure 
 
 ## Assigning licenses to Azure AD Premium and Enterprise Mobility users
 
-Now that your users have been synchronized to the cloud, you will need to assign them a license so they can get going with cloud apps experiences such as Office 365 and Azure AD Premium. 
+Now that your users have been synchronized to the cloud, you will need to assign them a license so they can get going with cloud apps such as Office 365. 
 
 ### To assign an Azure AD Premium or Enterprise Mobility Suite License
 --------------------------------------------------------------------------------
@@ -39,9 +39,6 @@ Now that your users have been synchronized to the cloud, you will need to assign
 <li>On the left, select **Active Directory**.</li>
 <li>On the Active Directory page, double-click on the directory that has the users you wish to enable.</li>
 <li>At the top of the directory page, select **Licenses**.</li>
-
-<center>![Cloud](./media/active-directory-aadconnect-whats-next/license.png)</center>
-
 <li>On the Licenses page, select Active Directory Premium or Enterprise Mobility Suite, and then click **Assign**.</li>
 <li>In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.</li>
 
