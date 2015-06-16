@@ -35,7 +35,7 @@ Before you begin this tutorial, you must have the following:
 - An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
 - [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](web-sites-java-get-started.md)
+- [An Azure Website with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](app-service-web/web-sites-java-get-started.md)
 
 If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article. 
 
@@ -744,7 +744,7 @@ Azure Websites makes deploying Java Applications as simple as exporting your app
  - In the Destination box, choose a destination to save the WAR file.
  - Click **Finish**.
 
-3. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory. For instructions on uploading the file, see [Adding an application to your Java website on Azure](web-sites-java-add-app.md).
+3. Now that you have a WAR file in hand, you can simply upload it to your Azure Website's **webapps** directory. For instructions on uploading the file, see [Adding an application to your Java website on Azure](app-service-web/web-sites-java-add-app.md).
 
 	Once the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 4. To view your finished product, navigate to http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ and start adding your tasks!

@@ -21,7 +21,7 @@
 # Connect to and query your SQL Database with C&#x23;
 
 
-This topic provides a C# code sample that shows you how to connect to an existing AdventureWorks SQL Database by using ADO.NET. The sample compiles to a console application that queries the database and displays the results.
+This topic provides a C# code sample that shows you how to connect to an existing AdventureWorks SQL Database by using ADO.NET. The sample compiles to a console application that queries the database and displays the result set.
 
 
 ## Prerequisites
@@ -34,7 +34,7 @@ This topic provides a C# code sample that shows you how to connect to an existin
 ## Step 1: Console application
 
 
-1. Create a C# console application by using Visual Studio.
+1. Create a C# console application using Visual Studio.
 
 
 ![Connect and query](./media/sql-database-connect-query/ConnectandQuery_VisualStudio.png)
@@ -43,7 +43,7 @@ This topic provides a C# code sample that shows you how to connect to an existin
 ## Step 2: SQL code sample
 
 
-1. Copy and paste the code sample from below into your console application.
+1. Copy and paste the code sample below into your console application.
 
 
 > [AZURE.WARNING] The code sample is designed to be as short as possible to make it easy to understand. The sample is not meant to be used in production.
@@ -121,7 +121,7 @@ Paste this source code into your **Program.cs** file.
 ![Portal](.\media\sql-database-connect-query\ConnectandQuery_portal.png)
 
 
-On the database connection strings blade, you see the appropriate connection strings for ADO.NET, ODBC, PHP, and JDBC.
+On the database connection strings blade, you can find the appropriate connection strings for ADO.NET, ODBC, PHP, and JDBC.
 
 
 ## Step 4: Substitute real connection information

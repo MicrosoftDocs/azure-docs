@@ -75,5 +75,5 @@ Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library
 * [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
 * [Scale instance count automatically](insights-how-to-scale.md) to make sure your service is available and responsive.
 * [Monitor application performance](insights-perf-analytics.md) if you want to understand exactly how your code is performing in the cloud.
-* Use [Application Insights for JavaScript apps and web pages](app-insights-web-track-usage.md) to get client analytics about the browsers that visit a web page.
-* [Monitor availability and responsiveness of any web page](app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
+* Use [Application Insights for JavaScript apps and web pages](application-insights/app-insights-web-track-usage.md) to get client analytics about the browsers that visit a web page.
+* [Monitor availability and responsiveness of any web page](application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
