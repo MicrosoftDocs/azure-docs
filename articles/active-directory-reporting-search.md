@@ -38,12 +38,12 @@ Not all reports are included in search results yet. This table indicates which r
 |	Irregular sign in activity							|	No (Coming soon!)	|
 |	Users with anomalous sign in activity				|	No (Coming soon!)	|
 |	Users with leaked credentials						|	No (Coming soon!)	|
-|	Audit report										|	No (Coming soon!)	|
-|	Password reset activity								|	No (Coming soon!)	|
-|	Password reset registration activity				|	No (Coming soon!)	|
-|	Self service groups activity						|	No (Coming soon!)	|
+|	Audit report										|	Yes					|
+|	Password reset activity								|	Yes					|
+|	Password reset registration activity				|	Yes					|
+|	Self service groups activity						|	Yes					|
 |	Application usage									|	No (Coming soon!)	|
-|	Account provisioning activity						|	No (Coming soon!)	|
+|	Account provisioning activity						|	Yes					|
 |	Password rollover status							|	No (Coming soon!)	|
 |	Account provisioning errors							|	No (Coming soon!)	|
 |	RMS usage											|	No (Coming soon!)	|
