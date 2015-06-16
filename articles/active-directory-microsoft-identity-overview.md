@@ -35,13 +35,7 @@ For more information, you might want to check out our [Microsoft Identity FAQs](
 ## Getting Started
 To get your own Microsoft Identity integrated app up & running, try out one of our quick start tutorials:
 
-| Microsoft Identity + Office 365 | Microsoft Identity Sign In |
-| ----------------------- | ------------------------------- |
-| [Call O365 Rest APIs - iOS]()| [Add sign in to an iOS app]()   |
-| [Call O365 Rest APIs - Android]()| [Add sign in to an Android app]()   |
-| [Call O365 Rest APIs - Windows]()| [Add sign in to a Windows app]()   |
-| [Call O365 Rest APIs - SPA]()| [Add sign in to an single page app]()   |
-| | [Secure a custom Web API]()  |
+[AZURE.INCLUDE [active-directory-msid-quickstart-table](../includes/active-directory-msid-quickstart-table.md)]
 
 ## Reference
 These links will be useful for exploring the platform in depth:
