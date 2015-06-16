@@ -186,19 +186,19 @@ URL at <http://aka.ms/getazuresupport>
 
 ## KB Articles
 
--   [*How to preserve the drive letter for protected virtual machines
+-   [How to preserve the drive letter for protected virtual machines
     > that are failed over or migrated to
-    > Azure*](http://support.microsoft.com/kb/3031135)
+    > Azure](http://support.microsoft.com/kb/3031135)
 
--   [*How to troubleshoot Azure Recovery
-    > Services*](http://support.microsoft.com/kb/3005185)
+-   [How to troubleshoot Azure Recovery
+    > Services](http://support.microsoft.com/kb/3005185)
 
--   [*How to Enable Debug Logging for the Azure Site Recovery in Hyper-V
-    > Site Protection*](http://support.microsoft.com/kb/3033922)
+-   [How to Enable Debug Logging for the Azure Site Recovery in Hyper-V
+    > Site Protection](http://support.microsoft.com/kb/3033922)
 
--   [*ASR: "The cluster resource could not be found" error when you try
+-   [ASR: "The cluster resource could not be found" error when you try
     > to enable protection for a virtual
-    > machine*](http://support.microsoft.com/kb/3010979)
+    > machine](http://support.microsoft.com/kb/3010979)
     
 -   [Understand & Troubleshoot Hyper-V Replica
     > Guide](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
