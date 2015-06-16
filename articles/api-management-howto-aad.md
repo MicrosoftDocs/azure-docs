@@ -3,7 +3,7 @@
 	description="Learn how to authorize users using Azure Active Directory in API Management." 
 	services="api-management" 
 	documentationCenter="API Management" 
-	authors="sdanie" 
+	authors="steved0x" 
 	manager="dwrede" 
 	editor=""/>
 
