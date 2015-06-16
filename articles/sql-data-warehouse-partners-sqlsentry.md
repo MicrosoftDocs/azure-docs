@@ -16,18 +16,18 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#SQL Sentry
+# SQL Sentry
 ![][logo]
-##Who we are
+## Who we are
 [SQL Sentry][website] delivers software products that optimize the performance of database and server environments around the globe. SQL Sentry Performance Advisor® for SQL Server delivers an advanced performance dashboard with relevant Windows and SQL Server metrics in a single view, along with detailed insight of heavy SQL, blocking, deadlocks, and disk bottlenecks. SQL Sentry Performance Advisor for Analysis Services provides unparalleled insight into Analysis Services performance, including bottlenecks related to memory, storage systems, aggregation usage, queries and processing. SQL Sentry Event Manager® is the ultimate scheduling, alerting and response system for managing SQL Server jobs, SharePoint jobs and other events that impact performance.
 
-##What We Offer 
+## What We Offer 
 Performance Advisor for Analytics Platform System (APS) and Performance Advisor for Azure SQL Data Warehouse were created with the goal of providing enhanced performance monitoring and troubleshooting tools for these advanced data warehouse platforms, both on-prem and in-cloud.
  
 Performance Advisor for APS and Performance Advisor for Azure SQL Data Warehouse:
 
 •	Performance Dashboard
- 
+
 •	Historical Point In Time Performance Analysis
 
 •	Innovative Views For Data Skew and Movement
@@ -41,7 +41,7 @@ Performance Advisor for APS and Performance Advisor for Azure SQL Data Warehouse
 •	Robust Alerting and Response System
 
 
-##Resources
+## Resources
 [SQL Sentry][website]
 
 [Performance Advisor Overview][website1]

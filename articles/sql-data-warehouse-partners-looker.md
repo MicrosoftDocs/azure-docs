@@ -16,9 +16,10 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Looker
+# Looker
 ![][logo]
-##Who we are
+
+## Who we are
 [Looker][website] provides self-service data discovery to business teams and centralized modeling, metadata and administration for data teams, making it a fully integrated solution supporting organization-wide business intelligence.
 
 For data teams, Looker offers a flexible and powerful modeling layer that enables them to efficiently support a wide range of analysis. Instead of servicing a never-ending list of requests and producing one off reports, data teams can focus their time on building a reusable model, introducing and integrating new data sources, and working on more complex analysis.
@@ -26,7 +27,7 @@ For data teams, Looker offers a flexible and powerful modeling layer that enable
 For business teams, Looker provides access to a fully web-based data discovery environment with a common vocabulary of definitions and metrics shared across the full organization, making data more trustworthy and easier to collaborate around. Business teams can quickly ask and answer their own questions without having to ask for help.
 
 
-##What We Offer
+## What We Offer
 Looker’s architecture takes full advantage of SQL Data Warehouse’s elastic compute and powerful performance. With Looker, there is no need to ETL data out of SQL Data Warehouse into a separate data store, cube the data, or reduce the data to a subset. Looker connects directly to the database and uses SQL Data Warehouse’s analytics capability to execute queries. 
 
 Looker’s semantic modeling layer, LookML, enables data teams to rapidly describe the full dataset, without moving it or re-architecting it. Looker leverages the performance of SQL Data Warehouse to transform the data on-the-fly at query time, enabling a much more nimble environment for data teams to generate analysis and for business teams to explore the data.
@@ -37,7 +38,7 @@ Looker can be deployed in the cloud or on-premises. With SQL Data Warehouse and 
 
 
 
-##Resources
+## Resources
 [Looker Products][website]
 
 [Looker Customers][website1]

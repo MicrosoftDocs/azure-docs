@@ -16,13 +16,14 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Qlik
+# Qlik
 ![][logo]
-##Who we are
+
+## Who we are
 Traditional business intelligence systems restrict the agility required to deliver solutions that are needed today. [Qlik][website]® has always been focused on innovative solutions that keep pace with every individuals’ – and organizations’ – changing requirements. Qlik pioneered the market for Data Discovery and is the leader in this segment as validated by independent analyst firms. Approximately 34,000 customers rely on Qlik solutions to gain meaning out of information from varied sources, exploring the hidden relationships within data that lead to insights that ignite good ideas.  Headquartered in Radnor, Pennsylvania, Qlik has offices around the world with more than 1700 partners covering more than 100 countries.  
 
 
-##What We Offer
+## What We Offer
 Explore Big Data Freely Without the Usual Limitations:
 
 By using Qlik’s platform with Azure SQL Data Warehouse to access large data sets for data discovery, users can leverage the scalability and performance of Microsoft Azure infrastructure. Qlik applications maintain all the self-service and associative experience that users like while having robust cloud management capabilities with process scheduling and automation. Qlik leverages Microsoft Azure SQL Data Warehouse scalability and database-as-a-service nature to provide a combined robust architecture. Qlik’s data governance capabilities are well complemented by Azure SQL Data Warehouse restore and geo-replication capabilities. Furthermore, applications created using Qlik’s platform and Azure SQL Data Warehouse deliver the same great Qlik mobile, social, and collaborative experience.
@@ -45,7 +46,7 @@ Azure SQL Data Warehouse customers using Qlik’s platform gain the following ad
 
 •	Leverage caching capabilities as needed to offer a great experience.
 
-##Resources
+## Resources
 [Qlik Homepage][website]
 
 [Qlik Products][website1]

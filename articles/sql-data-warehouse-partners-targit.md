@@ -16,14 +16,15 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Targit
+# Targit
 ![][logo]
-##Who we are
+
+## Who we are
 [Targit][website] is the maker of the Targit Decision Suite, the Business Intelligence and Analytics solution for all business users. With over 18 years of experience in the Business Intelligence and Analytics segment and over 580,000 users globally, Targit has been consistently considered as a top player in the industry by Gartner and BARC. The company is a Microsoft Gold Certified Partner, recognized for strong applications development. 
 
 The Targit Decision Suite is the only BI and Analytics platform that delivers real-time dashboards, self-service analytics, user-friendly reporting, stunning mobile capabilities, and the market's simplest data-discovery technology in a single, cohesive solution.
 
-##What We Offer 
+## What We Offer 
 The majority of Targit installations are based on Microsoft SQL Server which is the preferred solution for our partners and consultants.  Compared to many other BI platforms, we do not rely on a proprietary backend.
 An important part of your Business Intelligence project is to get the data foundation in place. Building a data warehouse is often the right choice, then adding cubes on top to get the best performance when slicing and dicing data. However, with TARGIT, you do not need a data warehouse, as many other options for accessing your data are available.
 
@@ -34,8 +35,8 @@ Targit solutions can be based on all data sources. We have implemented successfu
 Below, we have listed some of data sources that can provide data for Targit solutions: Microsoft SQL Server, Microsoft Analytical Platform System, Azure SQL Database, CSV, Cloudera, Hadoop, HDInsight, MongoDB, Prophix, MySQL, Aspect4, Oracle Hyperion, Microsoft Excel, Oracle JD Edwards, Teradata, Epicor, EXASOL, Google BigQuery, Ross, Sage, SAP, SAS, and Sybase.
 
 
-##Resources
-[Targit] Homepage[website]
+## Resources
+[Targit Homepage][website]
 
 [Integration with Microsoft Analytic Platform System][website1]
 

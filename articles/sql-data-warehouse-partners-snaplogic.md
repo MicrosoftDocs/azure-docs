@@ -16,17 +16,18 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#SnapLogic
+# SnapLogic
 ![][logo]
-##Who we are
+
+## Who we are
 [SnapLogic][website] is the industry’s first unified data and application integration platform as a service (iPaaS). It gives enterprise IT organizations and lines of business the power to connect faster and improve return on their cloud application and big data investments. Founded by Gaurav Dhillon, co-founder and former CEO of Informatica, and backed by leading venture investors Andreessen Horowitz and Ignition Partners, SnapLogic is powering enterprise application and data processes in prominent companies across the Global 2000.
 
-##What We Offer 
+## What We Offer 
 SnapLogic enables customers to quickly transfer up to petabytes of data into and out of Microsoft Azure SQL Data Warehouse leveraging Azure infrastructure. The data can be moved at any latency (scheduled batch, event-driven and continuous streaming) to meet the requirements of a diverse set of business users. 
 
 In addition, SnapLogic offers pre-built connectivity to over 300 different data sources including on-premises applications like ERP and Finance applications to social media, mobile and big data. The HTM5-based multi-tenant cloud service enables users to easily snap and assemble data flows in a drag-and-drop interface powerful enough for developers yet easy enough for “citizen integrators.” 
 
-##Resources
+## Resources
 [SnapLogic Homepage][website]
 
 [Enterprise Application Integration][website1]

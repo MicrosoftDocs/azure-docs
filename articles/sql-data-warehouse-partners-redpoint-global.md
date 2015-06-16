@@ -16,13 +16,14 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Redpoint Global
+# Redpoint Global
 ![][logo]
-##Who we are
+
+## Who we are
 [Redpoint Global][website] was founded in 2006 by a team of highly accomplished CRM, marketing, data analytics, and software development professionals dedicated to a single mission: Empower data-driven organizations by unlocking the full value of their data to drive customer engagement and profitable, sustained growth. 
 RedPoint delivers world-class customer engagement and data management solutions that are consistently innovative, comprehensive and easy to use. Our efforts don’t go unrecognized:  In 2013, Gartner cited RedPoint as a “Cool Vendor” in CRM. The same year CIO Review named RedPoint one of the top 100 Companies in Big Data.  The company has been included in Gartner Magic Quadrants for both Data Quality and Multi-channel Campaign Management. In RedPoint’s debut appearance, Forrester listed RedPoint as a Leader in The Forrester Wave™: Cross-Channel Campaign Management, Q3 2014 report. In the 2015 Gartner Critical Capabilities for Data Quality Tools report, RedPoint received the highest product scores in the Operational/Transactional Data Quality and Data Integration Use Cases; second highest in Data Migration, and third highest in Big Data and Information Governance Initiatives, holding upper quartile ratings in 6 out of 6 use cases reviewed. 
   
-##What We Offer - Redpoint Interaction
+## What We Offer - Redpoint Interaction
 A centralized point of operational control for marketing organizations, RedPoint Interaction eliminates the fragmentation and silos that undermine consistent customer engagement. Now marketers can design and execute omnichannel campaigns and real-time inbound interactions – all from the same, intuitive drag-and-drop interface in the Cloud.  
 
 The Microsoft Azure SQL Data Warehouse and Azure SQL Data Lake services magnify the power of RedPoint Interaction by allowing marketers to leverage both structured and unstructured data easily. Users can build complete customer profiles, derive powerful insights and drive optimal omni-channel customer engagement in real-time. 
@@ -35,7 +36,7 @@ Take advantage of these capabilities:
 
 •	Incorporate your social and web log data directly into your campaigns - Through the Microsoft Azure SQL Data Lake services, RedPoint Interaction users can gain fast insights from social, web and other digital data, regardless of size, type or structure and use them to improve interactions with their omni-channel customers. 
 
-##What We Offer - Redpoint Data Management
+## What We Offer - Redpoint Data Management
 RedPoint Data Management™ support for the Microsoft Azure SQL Data Warehouse and Azure SQL Data Lake enables users to perform structured and unstructured data management through one easy-to-use interface. The combined solution makes ETL/ELT, data quality, data integration, and master key management easily available at whatever scale the user needs and at the most powerful performance levels. 
 Experience the “drag-and-drop” ease of RedPoint Data Management with all your data operations, including: load any data source into Hadoop; cleanse data for consistent formats and standardization; integrate and transform data using probabilistic & heuristic matching rules; take the work to the data.
 
@@ -47,7 +48,7 @@ Experience the “drag-and-drop” ease of RedPoint Data Management with all you
 
 •	Gain greater control over your data - Enjoy centralized control over your data projects, including detailed version control. Leverage the linear scaling of the Microsoft Azure SQL Data Warehouse and Azure SQL Data Lake services.
 
-##Resources
+## Resources
 [Redpoint Global Homepage][website]
 
 [Interaction Solution Overview][website1]

@@ -16,16 +16,17 @@
    ms.date="06/15/2015"
    ms.author="joliang;barbkess"/>
 
-#Coffing Data Warehousing
+# Coffing Data Warehousing
 ![][logo]
-##Who we are
+ 
+## Who we are
 [Coffing Data Warehousing][website] has been in business since 1994 and prides itself on building excellent software.  Our Nexus Chameleon software has been used on the desktops of major corporations for 10 years.  Our commitment to querying and integrating all systems has made us an outstanding choice for the cloud.   
 
-##What We Offer
+## What We Offer
 Coffing Data Warehousing offers the Nexus Chameleon, designed from inception to query all systems.  Nexus allows a user to reach any data on any system within their entire enterprise.  Nexus will display tables visually, and in color, and show users what tables can be joined together across the enterprise.  Nexus even builds the SQL as the user chooses the columns they want on the answer set.  Nexus does all the hard work, automated in the background when you click EXECUTE.  
 
 
-##Resources
+## Resources
 [Coffing Data Warehousing Homepage][website]
 
 [See more solutions][solutions]
