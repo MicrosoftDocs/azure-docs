@@ -43,7 +43,7 @@ Below are the two types of gateways:
 
 - **Static routing –** Static routing gateways support **policy-based VPNs**. Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on premises network and your Azure VNet. The traffic selectors or policies are usually defined as an access list in your VPN configurations.
 
-	>[AZURE.NOTE] Not all configurations are compatible with static routing VPN gateway. Multi-site configurations, VNet-to-VNet configurations, and point-to-site connections all require Azure dynamic routing gateways. You'll see the gateway requirements in the articles for each configuration. 
+	>[AZURE.NOTE] Not all configurations are compatible with static routing VPN gateways. Multi-site configurations, VNet-to-VNet configurations, and point-to-site connections all require Azure dynamic routing gateways. You'll see the gateway requirements in the articles for each configuration. 
 
 - **Dynamic routing –** Dynamic routing gateways implement **route-based VPNs**. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
@@ -56,7 +56,7 @@ The table below lists the requirements for both static and dynamic VPN gateways.
 |-----------------------------------------|--------------------------------|-----------------------------------------------------------------------|-----------------------------------|----------------------------------|
 |    Site-to-Site connectivity   (S2S)    | Policy-based VPN configuration | Route-based VPN configuration                                         | Route-based VPN configuration     | Route-based VPN configuration    |
 | Point-to-Site connectivity (P2S)        | Not supported                  | Supported (Can coexist with S2S)                                      | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| Authentication method                   |    Pre-shared key              | - Pre-shared key for S2S connectivity - Certificates for P2S connectivity | - Pre-shared key for S2S connectivity - Certificates for P2S connectivity | - Pre-shared key for S2S connectivity - Certificates for P2S connectivity |
+| Authentication method                   |    Pre-shared key              | -Pre-shared key for S2S connectivity -Certificates for P2S connectivity | -Pre-shared key for S2S connectivity -Certificates for P2S connectivity | -Pre-shared key for S2S connectivity -Certificates for P2S connectivity |
 | Maximum number of S2S connections       | 1                              | 10                                                                    | 10                                | 30                               |
 | Maximum number of P2S connections       | Not supported                  | 128                                                                   | 128                               | 128                              |
 | Active routing support (BGP)            | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
