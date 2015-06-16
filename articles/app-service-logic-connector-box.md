@@ -154,7 +154,7 @@ Once your API app is created, you can now use the Box Connector as a action for 
 
 	![][4]
 
-7. Llist of actions is displayed and you can choose appropriate operation that you want to perform.  
+7. List of actions is displayed and you can choose appropriate operation that you want to perform.  
 
 	![][5]
 
