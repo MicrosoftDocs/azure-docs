@@ -63,22 +63,7 @@ Changing the service data encryption key is a 3-step process:
 2. Using Windows PowerShell for StorSimple, initiate the service data encryption key change.
 3. If you have more than one StorSimple device, update the service data encryption key on the other devices.
 
-### Which devices can be authorized to change a service data encryption key?
-
-The device must meet the following criteria before it can be authorized to initiate service data encryption key changes:
-
-- The device must be online to be eligible for service data encryption key change authorization.
-
-- You can authorize the same device again after 30 minutes if the key change has not been initiated.
-
-- You can authorize a different device, provided that the key change has not been initiated by the previously authorized device. After the new device has been authorized, the old device cannot initiate the change.
-
-- You cannot authorize a device while the rollover of the service data encryption key is in progress.
-
-- You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not. In such cases, the eligible devices are the ones that have completed the service data encryption key change.
-
-- StorSimple virtual device are not shown in the list of eligible devices that can be authorized to start the key change in the Management Portal.
-This following steps describe the rollover process for the service data encryption key.
+The following steps describe the rollover process for the service data encryption key.
 
 [AZURE.INCLUDE [storsimple-change-data-encryption-key](../includes/storsimple-change-data-encryption-key.md)]
 
