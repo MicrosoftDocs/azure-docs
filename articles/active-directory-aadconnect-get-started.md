@@ -33,7 +33,7 @@ The following documentation will help you get started with Azure Active Director
 
 
 
-To get started using Azure AD Connect you can download the latest version using the following:  [Download Azure AD Connect](http://connect.microsoft.com/site1164/program8612) 
+To get started using Azure AD Connect you can download the latest version using the following:  [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkID=615771) 
 
 ## Before you install Azure AD Connect
 Before you install Azure AD Connect with Express Settings, there are a few things that you will need. 

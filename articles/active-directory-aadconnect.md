@@ -63,25 +63,7 @@ To get started using Azure AD Connect you can download the latest version using 
 
 ----------------------------------------------------------------------------------------------------------
 
-## Recent updates
 
-**Azure AD Connect General Availability** - June 2015
-
-Azure AD Connect has hit General Availability!  This update adds Sync filtering, directory extension attribute sync, user/group/device writeback and more.  For more information see [Read more](http://connect.microsoft.com/site1164/program8612) 
-
-**Azure AD Connect Public Preview March 2015 Update** - March 2015
-
-An update for Azure AD Connect Public Preview is now available.  This update adds Sync filtering, directory extension attribute sync, user/group/device writeback and more.  See the documentation in the download for all of the new changes.  To download the March 2015 update see [Download Azure AD Connect Public Preview](http://connect.microsoft.com/site1164/program8612) 
-
-
-**Azure AD Connect in Public Preview** - December 2014
-
-Back in August I posted a blog announcing the beta release of Azure AD Connect. Since then we have received a lot of feedback and made improvements in AAD Connect and AAD Sync, including multi forest support and password write back. [Read more](http://blogs.technet.com/b/ad/archive/2014/12/15/azure-ad-connect-one-simple-fast-lightweight-tool-to-connect-active-directory-and-azure-active-directory.aspx) 
-
-
-**Introducing Azure AD Connect** - August 2014
-
-We've heard consistent feedback that integrating your on premises identities with Azure AD is harder than it should be.  There are too many pages of documentation to read, too many different tools to download and configure, and far too much on premises hardware required.  We agree! [Read more](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)
 
 
 
