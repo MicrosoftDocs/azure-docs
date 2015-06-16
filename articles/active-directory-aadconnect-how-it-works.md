@@ -22,10 +22,10 @@
 <a href="../active-directory-aadconnect/" title="What is It">What is It</a>
 <a href="../active-directory-aadconnect-how-it-works/" title="How it Works" class="current">How it Works</a>
 <a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
+<a href="../active-directory-aadconnect-whats-next/" title="What's Next">What's Next</a>
 <a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
 </div>
-Azure Active Directory Connect is made up of three primary parts that make up Azure Active Directory Connect.  They are the synchronization services, the optional Active Directory Federation Services piece, and the monitoring piece which is done using Azure AD Connect Health.
+Azure Active Directory Connect is made up of three primary parts.  They are the synchronization services, the optional Active Directory Federation Services piece, and the monitoring piece which is done using Azure AD Connect Health.
 
 
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
@@ -51,10 +51,3 @@ The following is a list of per-requisites and supporting components that Azure A
 
 
 
-**Additional Resources**
-
-* [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md)
-* [Getting started with Azure AD Connect](active-directory-aadconnect-get-started.md)
-* [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
-* [Learn More](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)

@@ -22,7 +22,7 @@
 <a href="../active-directory-aadconnect/" title="What is It">What is It</a>
 <a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
 <a href="../active-directory-aadconnect-get-started/" title="Getting Started" class="current">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
+<a href="../active-directory-aadconnect-whats-next/" title="What's Next">What's Next</a>
 <a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
 </div>
 
@@ -33,16 +33,13 @@ The following documentation will help you get started with Azure Active Director
 
 
 
-To get started using Azure AD Connect you can download the latest version:  [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkID=615771) 
+To get started using Azure AD Connect you can download the latest version using the following:  [Download Azure AD Connect](http://connect.microsoft.com/site1164/program8612) 
 
 ## Before you install Azure AD Connect
 Before you install Azure AD Connect with Express Settings, there are a few things that you will need. 
 
 For Custom options such as multiple forests or federated sign on, find out about additional requirements [here.](active-directory-aadconnect-get-started-custom.md)
  
-To get started with Express Settings, make sure you have the following
- 
-
 - An Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/)
 - An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with
 - An AD Domain Controller or member server with Windows Server 2008 or later
@@ -81,7 +78,7 @@ Selecting Express Settings is the default option and is one of the most common s
 <br>
 <br>
 
-For additional information on using the express installation check out the following video:
+For a video on using the express installation check out the following:
 
 <center>[AZURE.VIDEO azure-active-directory-connect-express-settings]</center>
 
@@ -100,12 +97,4 @@ After you have successfully installed Azure AD Connect you can verify that synch
 
 ## What to do next
 Now that you have Azure AD Connect installed you can use the link [here](active-directory-aadconnect-whats-next.md) to get going with post installation tasks such as  assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options..
-
-**Additional Resources**
-
-* [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md)
-* [How Azure AD Connect works](active-directory-aadconnect-how-it-works.md)
-* [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
-* [Learn More](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
 
