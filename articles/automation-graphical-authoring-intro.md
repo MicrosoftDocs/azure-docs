@@ -115,11 +115,11 @@ When you specify a value for a parameter, you select a data source to determine 
 |:---|:---|
 |Constant Value|Type in a value for the parameter.  This is only available for the following data types: Int32,Int64,String,Boolean,DateTime,Switch. |
 |Activity Output|Output from an activity that precedes the current activity in the workflow.  All valid activities will be listed.  Select just the activity to use its output for the parameter value.  If the activity outputs an object with multiple properties, then you can type in the name of the property after selecting the activity.|
-|Runbook Input Parameter *(Coming soon)*|Select a runbook input parameter as input to the activity parameter.|  
-|Automation Variable Asset *(Coming soon)*|Select an Automation Variable as input.|  
-|Automation Credential Asset *(Coming soon)*|Select an Automation Credential as input.|  
-|Automation Certificate Asset *(Coming soon)*|Select an Automation Certificate as input.|  
-|Automation Connection Asset *(Coming soon)*|Select an Automation Connection as input.| 
+|Runbook Input Parameter<br>*(Coming soon)*|Select a runbook input parameter as input to the activity parameter.|  
+|Automation Variable Asset<br>*(Coming soon)*|Select an Automation Variable as input.|  
+|Automation Credential Asset<br>*(Coming soon)*|Select an Automation Credential as input.|  
+|Automation Certificate Asset<br>*(Coming soon)*|Select an Automation Certificate as input.|  
+|Automation Connection Asset<br>*(Coming soon)*|Select an Automation Connection as input.| 
 |PowerShell Expression|Specify simple PowerShell expression.  The expression will be evaluated before the activity and the result used for the parameter value.  You can use variables to refer to the output of an activity or a runbook input parameter.|
 |Empty String|An empty string value.|
 |Null|A Null value.|
