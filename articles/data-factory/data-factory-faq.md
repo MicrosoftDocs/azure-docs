@@ -91,7 +91,6 @@ No. Like other Azure resources, the name of an Azure data factory cannot be chan
 	- On-premises File System
 	- On-premises MySQL
 	- On-premises DB2
-	- On-premises DB2
 	- On-premises Teradata
 	- On-premises Sybase
 	- On-premises PostgreSQL.  
