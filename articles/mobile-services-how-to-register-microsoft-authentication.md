@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/14/2015" 
 	ms.author="glenga"/>
 
 # Register your app to use Microsoft account for authentication
+
+[AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../includes/mobile-services-selector-register-identity-provider.md)]
+
+## Overview 
 
 This topic shows you how to register your mobile app to be able to use Microsoft account as an identity provider with Azure Mobile Services. The same steps apply for both service-directed authentication and client-directed authentication using the Live SDK.
 
@@ -30,13 +34,13 @@ Windows Store apps must first be registered with the Windows Dev Center.
 
    	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-submit-win8-app.png)
 
-2. Select **Create a new app by reserving a unique name** and click **Continue**, then type a name for your app in **App name**, click **Reserve app name**, and then click **Save**.
+2. Select **Create a new app by reserving a unique name** and click **Continue**, then type a name for your app in **App name**, click **Reserve app name** and then **Save**.
 
    	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-name.png)
 
    	This creates a new Windows Store registration for your app.
 
-3. In Visual Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services].
+3. In Visual Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 4. In solution explorer, right-click the Windows Store app project, click **Store**, and then click **Associate App with the Store...**. 
 
@@ -44,7 +48,7 @@ Windows Store apps must first be registered with the Windows Dev Center.
 
    	This displays the **Associate Your App with the Windows Store** Wizard.
 
-5. In the wizard, click **Sign in** and then login with your Microsoft account, select the app name that you reserved in step 2, click **Next**, and then click **Associate**.
+5. In the wizard, click **Sign in** and then login with your Microsoft account, select the app name that you reserved in step 2, then click **Next** > **Associate**.
 
    	This adds the required Windows Store registration information to the application manifest.   
 
