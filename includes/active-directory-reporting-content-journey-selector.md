@@ -1,4 +1,3 @@
-> [AZURE.SELECTOR]
 - [What it is](../articles/active-directory-reporting-what-it-is.md)
 - [How it works](../articles/active-directory-reporting-how-it-works.md)
 - [Getting started](../articles/active-directory-reporting-getting-started.md)
