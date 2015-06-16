@@ -52,7 +52,7 @@ Here we have a simple JSON document for the Andersen family, the parents, childr
 	       }
 	    ],
 	    "address": { "state": "WA", "county": "King", "city": "seattle" },
-	    "creationDate": 1431620472
+	    "creationDate": 1431620472,
 	    "isRegistered": true
 	}
 
@@ -84,7 +84,7 @@ Here's a second document with one subtle difference – `givenName` and `familyN
 	             "grade": 8 }
 	    ],
 	    "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-	    "creationDate": 1431620462
+	    "creationDate": 1431620462,
 	    "isRegistered": false
 	}
 

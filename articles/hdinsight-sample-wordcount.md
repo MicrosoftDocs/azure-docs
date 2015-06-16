@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="06/15/2015" 
 	ms.author="bradsev"/>
 
 #Run a MapReduce word count example written in Java on a Hadoop cluster in HDInsight
 
 This tutorial shows you how to run a MapReduce word count example on a Hadoop cluster in HDInsight. The program is written in Java. It counts word occurrences in a text file, and then outputs a new text file that contains each word paired with its frequency of occurrence. The text file analyzed in this sample is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci.
 
+> [AZURE.NOTE] The steps in this document require a Windows client. For steps on using the word count example from a Linux, OS X, or Unix client, with a Linux-based HDInsight cluster, see [Use MapReduce with Hadoop on HDInsight with SSH](hdinsight-hadoop-use-mapreduce-ssh.md) or [Use MapReduce with Hadoop on HDInsight using Curl](hdinsight-hadoop-use-mapreduce-curl.md).
 
 **You will learn:**
 
@@ -109,7 +110,7 @@ The output from the WordCount script should appear in the command window:
 ![Word frequency results in PowerShell from the Hadoop MapReduce word count example in HDInsight.][image-hdi-sample-wordcount-output]
 
 Note that the output files of a MapReduce job are immutable. So if you rerun this sample, you need to change the name of the output file.
- 
+
 ## <a id="java-code"></a>Java code for the WordCount MapReduce program</h2>
 
 
