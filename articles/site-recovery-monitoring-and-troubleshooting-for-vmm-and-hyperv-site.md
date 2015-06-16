@@ -3,7 +3,7 @@
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  VMM or Hyper-V Site protection." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="anoob-backer" 
+	authors="anbacker" 
 	manager="mkjain" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/29/2015" 
+	ms.date="06/16/2015" 
 	ms.author="anbacker"/>
 	
 # Monitoring and Troubleshooting Guide for VMM and Hyper-V Site Protection
