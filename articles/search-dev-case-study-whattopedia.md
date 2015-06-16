@@ -64,7 +64,7 @@ Looking at the green boxes in the previous diagram, you’ll see that the WhatTo
 
 - [Azure Search](http://azure.microsoft.com/services/search/)
 - [Azure Websites using MVC 4](http://azure.microsoft.com/services/websites/)
-- [Azure WebJobs for scheduled tasks](websites-webjobs-resources.md)
+- [Azure WebJobs for scheduled tasks](app-service-web/websites-webjobs-resources.md)
 - [Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
 - [Azure BLOB Storage](http://azure.microsoft.com/services/storage/)
 - [SendGrid Email Delivery](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -418,5 +418,5 @@ The following code builds the indexer mentioned in the section on building the p
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

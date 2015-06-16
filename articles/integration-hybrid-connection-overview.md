@@ -92,8 +92,8 @@ Port | Why you need it
 ## Next
 
 [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)<br/>
-[Connect an Azure Website to an On-Premises Resource](web-sites-hybrid-connection-get-started.md)<br/>
-[Connect to on-premises SQL Server from an Azure web app](web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
+[Connect an Azure Website to an On-Premises Resource](app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Connect to on-premises SQL Server from an Azure web app](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 [Azure Mobile Services and Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
