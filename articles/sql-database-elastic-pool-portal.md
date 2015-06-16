@@ -73,7 +73,7 @@ An elastic pool's pricing tier is somewhat analogous to a SQL database's service
 
 ### Add databases
 
-At any time, you can select the specific databases you want to be included in the pool.  When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
+At any time, you can select the specific databases you want to be included in the pool.  When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. Azure evaluates the utilization history of databases and recommends an elastic pool when it is more cost effective than using performance levels for single databases. If an elastic pool is recommended, Azure provides recommended amount of pool DTUs, min/max DTU settings for each database in the pool, and a list of recommended databases. In order for database to be considered as a candidate for elastic pool it must exist for at least 14 days and it must not be in Premium pricing tier (public preview is limited to Standard only, therefore Premium DBs are not considered as viable). You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
 
    ![Add databases][5]
 

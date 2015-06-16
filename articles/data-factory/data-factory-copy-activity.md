@@ -56,10 +56,12 @@ The Copy Activity supports the following data movement scenarios:
 		<th>Azure SQL Database</th>
 		<th>On-premises SQL Server</th>
 		<th>SQL Server on IaaS</th>
+		<th>Azure DocumentDB</th>
 	</tr>	
 
 	<tr>
 		<td><b>Azure Blob</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -74,10 +76,12 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td>X</td>
 	</tr>	
 
 	<tr>
 		<td><b>Azure SQL Database</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -93,6 +97,7 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -102,11 +107,13 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<td><b>On-premises File System</b></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -120,11 +127,13 @@ The Copy Activity supports the following data movement scenarios:
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<td><b>On-premises File System</b></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -138,6 +147,7 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -145,6 +155,7 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
@@ -156,6 +167,7 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -163,6 +175,7 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
@@ -174,8 +187,18 @@ The Copy Activity supports the following data movement scenarios:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>Azure DocumentDB</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 
 </table>
 

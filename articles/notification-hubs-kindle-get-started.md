@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="get-started-article" 
-	ms.date="03/16/2015"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs

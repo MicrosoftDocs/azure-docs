@@ -1,6 +1,6 @@
 > [AZURE.SELECTOR]
-- [Windows Universal](../articles/notification-hubs-windows-store-dotnet-get-started.md)
-- [Windows Phone](../articles/notification-hubs-windows-phone-get-started.md)
+- [Universal Windows 8](../articles/notification-hubs-windows-store-dotnet-get-started.md)
+- [Windows Phone 8](../articles/notification-hubs-windows-phone-get-started.md)
 - [iOS](../articles/notification-hubs-ios-get-started.md)
 - [Android](../articles/notification-hubs-android-get-started.md)
 - [Kindle](../articles/notification-hubs-kindle-get-started.md)
