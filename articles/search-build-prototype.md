@@ -13,19 +13,19 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/21/2015" 
+	ms.date="06/16/2015" 
 	ms.author="heidist"/>
 
 # Build a prototype application for Azure Search
 
 Developers who evaluate Azure Search almost always start with a preliminary test application that demonstrates the value of adding Azure Search to a custom application.
 In this article, we give you a few building blocks to speed up the prototyping process.
-
-- Guidance on how to structure the data you'll upload to Azure Search. You need one dataset for each  index. The data must be JSON data, but it does not have to be a local file in your solution. We provided local data files to keep the prototype simple.
  
 - A visual studio C# project that includes data.json and schema.json files. Having sample data lets you immediately build and run the solution, confirming the solution works on your system before you write one line of code. 
 
-	If possible, try to substitute these standalone, disconnected schema and data files with data from your business. When you run the application, an index based on your schema, and documents based on your data files, will be immediately available to work with in Azure Search.
+	If possible, try to substitute these standalone, disconnected schema and data files with data from your business. Then, when you run the application, the index that gets created is based on your schema, and documents based on your data files, will be immediately available to work with in Azure Search.
+
+- Guidance on how to structure the data you'll upload to Azure Search. You need one dataset for each  index. Azure Search uses JSON for data serialization.
 
 - Lastly, we'll point you to a few additional features that will take your prototype to the next level, incorporating search-specific features like faceted navigation, scoring profiles for tuning results, type-ahead or auto-complete queries, and search page-related functionality that isn't available in strictly full-text search alternative.
 
@@ -35,9 +35,11 @@ In the end, you will have a prototype application, using your data, to demonstra
 
 Search operations are performed against a search index that you create on Azure Search. An index has multiple parts, including scoring profiles and suggesters, but the bulk of an index consists of data fields used in search operations. 
 
-The data that you'll upload to an Azure Search index should be a flat data file, where each field in your dataset maps to an equivalent field in the index. This dataset populates the fields of your index (other parts of the index, such as a scoring profile, are added separately). If your organizational data is in a relational database, you will need to identify or create a single view or table that can be used to load data into your index.
+The dataset providing the fields should be a flat data file (in JSON), where each field in your dataset maps to an equivalent field in the index you are trying to populate. Other parts of the index, such as a scoring profile or CORS options, are added independently, directly in the schema.
 
-To create a dataset that can be uploaded using the code in this prototype sample, you will need to put it into JSON format, stored in standalone disconnected data files that are embedded in the solution.
+Data sources that use JSON natively, such as as Azure Table Storage, will provide data that is easier to consume than relational data, you will require a single view or table that provides all fields in one rowset.
+
+To upload data and schema files using the code in the prototype sample application, you can overwrite the default schema and data files that are embedded in the solution.
 
 > [AZURE.NOTE] You can load multiple data files, perhaps to upload data in batches, but the structure of the data has to be the same for every data file you upload to the same index. You cannot join indexes; each index functions as a standalone search corpus.
 
