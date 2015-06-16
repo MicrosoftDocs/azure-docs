@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # How to Use Azure SQL Database in Java
@@ -397,7 +397,7 @@ To retrieve rows using a clause, use the code as shown above, except change the 
 	
 WHERE clauses can also be used when retrieving counts, updating rows, or deleting rows.
 
-<h2><a id="to_retrieve_row_count"></a>To retrieve a count of rows</h2>
+## To retrieve a count of rows
 
 The following code shows you how to retrieve a count of rows from the **Person** table.
  

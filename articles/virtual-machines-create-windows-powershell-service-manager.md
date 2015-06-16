@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a Windows virtual machine with PowerShell and Azure Service Manager" 
+	pageTitle="Create and Manage a Windows Virtual Machine with PowerShell and Azure Service Management" 
 	description="Use Azure PowerShell to quickly create a new Windows virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -13,10 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="06/09/2015" 
 	ms.author="josephd"/>
 
-# Create a Windows virtual machine with PowerShell and Azure Service Manager
+# Create and Manage a Windows Virtual Machine with PowerShell and Azure Service Management
+
+This article describes how to create and manage a Windows-based Azure Virtual Machine using Azure Service Management and PowerShell.
+
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../includes/service-management-pointer-to-resource-manager.md)]
+
+- [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+
+## Set up Azure PowerShell
 
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 0.8.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
@@ -39,7 +47,9 @@ Now, replace everything within the quotes, including the < and > characters, wit
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
 
-Next, you need a storage account. You can display your current list of storage accounts with this command.
+## Create a virtual machine
+
+First, you need a storage account. You can display your current list of storage accounts with this command.
 
 	Get-AzureStorageAccount | sort Label | Select Label
 
@@ -48,6 +58,7 @@ If you do not already have one, create a new storage account. You must pick a un
 	Test-AzureName -Storage <Proposed storage account name>
 
 If this command returns "False", your proposed name is unique. 
+
 You will need to specify the location of an Azure datacenter when creating a storage account. To get a list of Azure datacenters, run this command.
 
 	Get-AzureLocation | sort Name | Select Name
@@ -125,6 +136,59 @@ Here is an example of what running the command set looks like.
 	--------------------                    -----------                            --------------
 	New-AzureVM                             8072cbd1-4abe-9278-9de2-8826b56e9221   Succeeded
 	
+## Display information about a virtual machine
+This is a basic task you'll use often. Use it to get information about a VM, perform tasks on a VM, or get output to store in a variable. 
+
+To get info about the VM, run this command, replacing everything in the quotes, including the < and > characters:
+
+     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+To store the output in a $vm variable, run:
+
+    $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## Log on to a Windows-based virtual machine
+
+Run these commands:
+
+	$svcName="<cloud service name>"
+	$vmName="<virtual machine name>"
+	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile=$localPath + "\" + $vmname + ".rdp"
+	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+
+>[AZURE.NOTE] You can get the virtual machine and cloud service name from the display of the **Get-AzureVM** command.
+
+## Stop a VM
+
+Run this command:
+
+    Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+>[AZURE.IMPORTANT] Use the **StayProvisioned** parameter to keep the virtual IP (VIP) of the cloud service in case it's the last VM in that cloud service. If you use this parameter, you'll still be billed for the VM.
+
+## Start a VM
+
+Run this command:
+
+    Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## Attach a Data Disk
+This task requires a few steps. First, you use the **Add-AzureDataDisk** cmdlet to add the disk to the $vm object, then you use Update-AzureVM cmdlet to update the configuration of the VM.
+
+You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it in the same command.
+
+To attach a new disk, run this command:
+
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> | Update-AzureVM
+
+To attach an existing data disks, run this command:
+
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
+
+To attach data disks from an existing .vhd file in blob storage, run this command:
+
+    Add-AzureDataDisk -ImportFrom -MediaLocation  "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" -DiskLabel "<main>" -LUN <0> | Update-AzureVM
 
 ## Additional Resources
 

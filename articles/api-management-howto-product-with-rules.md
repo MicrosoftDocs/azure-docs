@@ -1,24 +1,28 @@
-<properties 
-	pageTitle="Protect your API with rate limits using Azure API Management" 
-	description="Learn how to protect your API with quotas and throttling (rate-limiting) policies." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+<properties
+	pageTitle="Protect your API with rate limits using Azure API Management"
+	description="Learn how to protect your API with quotas and throttling (rate-limiting) policies."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/10/2015" 
+<tags
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="06/10/2015"
 	ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management
 
 This guide shows you how easy it is to add protection for your backend API by configuring rate limit and quota policies with Azure API Management.
+
+For more information and a demo of setting rate limits and quotas, see the following video.
+
+> [AZURE.VIDEO rate-limits-and-quotas]
 
 In this tutorial you will create a 'Free Trial' API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API. You will then publish the API, and test the rate limit policy.
 
@@ -38,7 +42,7 @@ Click **Products** in the **API Management** menu on the left to display the **P
 
 ![Add product][api-management-add-product]
 
-Click **add product** to display the **Add new product** pop up window. 
+Click **add product** to display the **Add new product** pop up window.
 
 ![Add new product][api-management-new-product-window]
 
@@ -152,12 +156,12 @@ When you have finished configuring the policy, it should match the following exa
 			<quota calls="200" renewal-period="604800">
 			</quota>
 			<base />
-        
+
 	</inbound>
 	<outbound>
-        
+
 		<base />
-        
+
 		</outbound>
 	</policies>
 
@@ -287,6 +291,3 @@ When the rate limit policy of 10 calls per minute in effect, subsequent calls wi
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-

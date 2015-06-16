@@ -1,13 +1,13 @@
 <properties 
    pageTitle="Reserved IP"
    description="Understand reserved IPs, VIP, ILPIP, and how to manage them"
-   services="virtual-networks"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-networks"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -115,12 +115,10 @@ You can also associate a reserved IP to a cloud service by sing a service config
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## See Also
+## Next steps
 
 [Reserved Private IP](../virtual-networks-reserved-private-ip)
 
 [Instance-Level Public IP (ILPIP)](../virtual-networks-instance-level-public-ip)
-
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
 [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)

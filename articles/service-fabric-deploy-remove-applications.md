@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Service Fabric application deployment"
    description="How to deploy and remove applications in Service Fabric"
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/23/2015"
+   ms.date="06/03/2015"
    ms.author="alexwun"/>
 
 # Deploy an application

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Advanced Analytics Process Technology (ADAPT) guide for Azure Machine Learning | Azure" 
+	pageTitle="Build advanced analytics solutions in Azure | Microsoft Azure" 
 	description="Use this guide to understand the steps for using Azure for data science and machine learning in the cloud." 
 	services="machine-learning,hdinsight" 
 	solutions="" 
@@ -15,12 +15,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="required" 
-	ms.date="05/29/2015" 
+	ms.date="06/03/2015" 
 	ms.author="bradsev;sachouks" />
 
-# Advanced Analytics Process Technology (ADAPT) guide for Azure Machine Learning
+# Build advanced analytics solutions in Azure
 
-This guide to Advanced Analytics Process Technology (ADAPT) provides a map of the data science tasks typically involved in building and deploying predictive models using Azure Machine Learning. It shows how the Azure platform enables tasks such as ingesting data from various sources, preparing it for use in Azure Machine Learning, and then creating operationalized models with an Azure Machine Learning  experiment that can be consumed by end user applications, programmatically or otherwise. While the map shows the core series steps involved in a typical end-to-end data science exercise, not all steps are required and their precise sequence can vary depending on the location, size and complexity of the data.
+This Advanced Analytics Process and Technology (ADAPT) guide outlines the data science tasks typically involved in building and deploying predictive models with Azure Machine Learning. It shows how the Azure platform enables tasks such as ingesting data from various sources, preparing it for use in Azure Machine Learning, and then creating operationalized models with an Azure Machine Learning  experiment that can be consumed by end user applications, programmatically or otherwise. While the map shows the core series steps involved in a typical end-to-end data science exercise, not all steps are required and their precise sequence can vary depending on the location, size and complexity of the data.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 

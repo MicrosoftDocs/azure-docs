@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="FAQ for setting up and using the Machine Learning Recommendations API | Azure" 
+	pageTitle="Set up and use the Machine Learning Recommendations API | Microsoft Azure" 
 	description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
 	services="machine-learning" 
 	documentationCenter="" 

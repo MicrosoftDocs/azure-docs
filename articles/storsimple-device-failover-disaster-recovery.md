@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/17/2015"
+   ms.date="05/29/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -112,11 +112,13 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 1. In the wizard that opens up, under **Choose volume container to failover**, complete the following:
 													
-	1. In the list of volume containers, select the volume containers you would like to fail over.
+	a. In the list of volume containers, select the volume containers you would like to fail over.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
-1. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. Only the devices that have sufficient capacity are displayed in the drop-down list.
+	b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. Only the devices that have sufficient capacity are displayed in the drop-down list.  
+	
+	>[AZURE.NOTE] **If your physical device is running Update 1, you can fail over to a virtual device running Update 1 only. If the target virtual device is running a lower software version, you will see an error to the effect that your target device software needs to be updated.**
 
 1. Finally, review all the failover settings under Confirm failover. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 

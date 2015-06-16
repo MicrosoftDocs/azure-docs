@@ -723,7 +723,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-storm-get-started]: hdinsight-storm-getting-started.md
 
 [azure-management-portal]: https://manage.windowsazure.com/

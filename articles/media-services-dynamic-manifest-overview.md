@@ -176,7 +176,7 @@ You can combine multiple filtering rules in a single filter. As an example you c
 
 The following topic discusses Media Services entities that are related to filters. The topic also shows how to programmatically create filters.  
 
-[Create filters with REST APIs](media-services-rest-create-filters).
+[Create filters with REST APIs](media-services-rest-dynamic-manifest.md).
 
 ##Know issues and limitations
 

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,15 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
 Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
+Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="setup"></a> Set up continuous export
+## <a name="setup"></a> Set up Continuous Export
 
 On your application's Overview blade in the Application Insights portal, open Continuous Export: 
 
@@ -45,6 +46,7 @@ If you want to change the event types later, just edit the export:
 To stop the stream, click Disable. When you click Enable again, the stream will restart with new data. You won't get the data that arrived in the portal while export was disabled.
 
 To stop the stream permanently, delete the export. Doing so doesn't delete your data from storage.
+
 #### Can't add or change an export?
 
 * To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights. [Learn about roles][roles].
@@ -58,7 +60,7 @@ The exported data is the raw telemetry we receive from your application, except:
 
 Calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
-## <a name="get"></a> How do you get them?
+## <a name="get"></a> Inspect the data
 
 When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you'll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
 
@@ -66,16 +68,9 @@ When you open your blob store with a tool such as [Server Explorer](http://msdn.
 
 The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
-To download this data programmatically, use the [blob store REST API](storage-dotnet-how-to-use-blobs.md#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
-
-Or consider [DataFactory](http://azure.microsoft.com/services/data-factory/), in which you can set up pipelines to manage data at scale.
-
-We write a new blob each minute.
-
-[Code sample][exportcode]
 
 
-## <a name="format"></a> What does the data look like?
+## <a name="format"></a> Data format
 
 * Each blob is a text file that contains multiple '\n'-separated rows.
 * Each row is an unformatted JSON document. If you want to sit and stare at it, try a viewer such as Notepad++ with the JSON plug-in:
@@ -90,7 +85,7 @@ Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values
 
 
 
-## How to process it?
+## Processing the data
 
 On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on. For example:
 
@@ -111,8 +106,17 @@ On a small scale, you can write some code to pull apart your data, read it into 
       }
     }
 
+For a larger code sample, see [using a worker role][exportasa].
 
-Or you can move it into a SQL database - see the [code sample][exportcode].
+#### Export to SQL
+
+Another option is to move the data to a SQL database, where you can perform more powerful analytics.
+
+We have samples showing two alternative methods of moving the data from the blob storage to a database:
+
+* [Export to SQL using a worker role][exportcode]
+* [Export to SQL using Stream Analytics][exportasa]
+
 
 On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 
@@ -129,10 +133,6 @@ Open the Continuous Export blade and edit your export. Edit the Export Destinati
 
 The continuous export will restart.
 
-
-## Code Sample
-
-[Move exported data into a SQL database][exportcode]
 
 ## Q & A
 
@@ -170,5 +170,6 @@ The continuous export will restart.
 <!--Link references-->
 
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 

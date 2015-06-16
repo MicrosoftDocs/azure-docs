@@ -117,16 +117,6 @@ The following tables show the sizes and the capacities offered by each.
 
 ### See Also
 
-#### Concepts
-
-[Set Up a Cloud Service for Azure](https://msdn.microsoft.com/library/hh124108)  
-
- [Configure Sizes for Cloud Services](https://msdn.microsoft.com/library/ee814754)
-
-#### Other Resources
-
 [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md) 
  
- [About the A8, A9, A10, and A11 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?linkid=328042)
-
-[Sizes for Cloud Services](cloud-services-sizes-specs.md)
+[About the A8, A9, A10, and A11 Compute Intensive Instances](http://go.microsoft.com/fwlink/p/?linkid=328042)

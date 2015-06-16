@@ -1,8 +1,7 @@
 <properties
-	pageTitle="Sample data in Azure HDInsight Hive tables | Azure"
+	pageTitle="Sample data in Azure HDInsight Hive tables | Microsoft Azure"
 	description="Down sampling data in Azure HDInsight Hive Tables"
-	metaKeywords=""
-	services="machine-learning"
+	services="machine-learning,hdinsight"
 	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
@@ -20,7 +19,7 @@
 
 # Sample data in Azure HDInsight Hive tables
 
-If the dataset you plan to analyze is big, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Advanced Analytics Process Technology of Azure Machine Learning, is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is big, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Advanced Analytics Process and Technology (ADAPT) of Azure Machine Learning, is to enable fast prototyping of the data processing functions and machine learning models.
 
 In this article, we describe how to down-sample data in Azure HDInsight Hive tables using Hive queries. We cover three popularly used sampling methods: Uniform random sampling, random sampling by groups, and stratified sampling.
 

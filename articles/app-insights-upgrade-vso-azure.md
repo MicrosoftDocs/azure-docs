@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
  
 # Upgrade from the old Visual Studio Online version of Application Insights
@@ -40,16 +40,17 @@ If your web pages include telemetry calls in the body such as logEvent or logPag
 7. Server monitor: If your app is a service running on IIS, uninstall Microsoft Monitoring Agent from the server, and then [install Application Insights Status Monitor][redfield].
 8. Web tests: If you were using web availability tests, [recreate them on the new portal][availability], with their alerts.
 9. Alerts: Set up [alerts on metrics][alerts] in the Azure portal.
-10. Perf counters: If you used performance counters, you can write your own code to sample the counters periodically and send them using [TrackMetric()][track].
+
 
 ## If you have a Java web service ...
 
 1. In your server machine, disable the old agent by removing references to the APM agent from the web service startup file. On a TomCat server, edit Catalina.bat. On a JBoss server, edit Run.bat. 
 2. Restart the web service.
 3. In the Microsoft Azure portal, [add a new Application Insights resource][java]. In your development machine, add [the Java SDK][java] to your web project.
-You can now [send custom telemetry][track] from the server code.
 4. Replace the scripts in the <head> sections of your web pages. (There might be just one copy in a server side include.) [Get the new script from the Quick Start blade in your new Application Insights resource in Azure][usage]. 
 If your web pages include telemetry calls in the body such as logEvent or logPage, [update them to use the new API][track].
+8. Web tests: If you were using web availability tests, [recreate them on the new portal][availability], with their alerts.
+9. Alerts: Set up [alerts on metrics][alerts] in the Azure portal.
 
 
 

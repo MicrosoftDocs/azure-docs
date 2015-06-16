@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/01/2015"
    ms.author="telmos" />
 
 # Multiple VIPs per cloud service
@@ -31,6 +31,17 @@ VIPs are dynamic by default, which means that the actual IP address assigned to 
 >[AZURE.NOTE] Please see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/) for information on pricing on VIPs and reserved IPs.
 
 You can use PowerShell to verify the VIPs used by your cloud services, as well as add and remove VIPs, associate a VIP to an endpoint, and configure load balancing on a specific VIP. 
+
+## Limitations
+
+At this time, multi VIP functionality is limited to the following scenarios:
+
+- **IaaS only**. You can only enable multi VIP for cloud services that contain VMs. You cannot use multi VIP in PaaS scenarios, with role instances.
+- **PowerShell only**. You can only manage multi VIP by using PowerShell.
+- **No ARM support**. There is no support for multi VIP in Azure Resource Manager.
+
+>[AZURE.IMPORTANT] These limitations are temporary, and may change at any time. Make sure to revisit this page to verify future changes.
+
 
 ## How to add a VIP to a cloud service
 To add a VIP to your service, run the following PowerShell command:

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Supported Token and Claim Types
@@ -421,6 +421,5 @@ In addition to claims, the token includes a version number in **ver** and **appi
     }.
 
 ##See Also
-### Concepts
 
-[Azure Active Directory Authentication Protocols](active-directory-authentication-protocols.md)
+[Azure Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)

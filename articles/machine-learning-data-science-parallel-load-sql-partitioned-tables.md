@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Azure" 
+	pageTitle="Parallel Bulk Data Import Using SQL Partition Tables | Microsoft Azure" 
 	description="Parallel Bulk Data Import Using SQL Partition Tables" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" F
+	authors="msolhab"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -181,6 +180,6 @@ or,
 
  > [AZURE.NOTE] You may choose to create the indexes before bulk importing the data. Index creation before bulk importing will slow down the data loading.
 
-### Advanced Analytics Process Technology in Action Example
+### Advanced Analytics Process and Technology in Action Example
 
-For an end-to-end walkthrough example using the Advanced Analytics Process Technology (ADAPT) with a public dataset, see [Advanced Analytics Process Technology in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example using the Advanced Analytics Process and Technology (ADAPT) with a public dataset, see [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).

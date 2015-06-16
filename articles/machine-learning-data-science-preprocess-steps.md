@@ -1,7 +1,6 @@
 <properties
-	pageTitle="Pre-process and Clean Data | Azure"
+	pageTitle="Pre-process and Clean Data | Microsoft Azure"
 	description="Pre-process and Clean Data"
-	metaKeywords="data cleansing"
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -20,7 +19,7 @@
 
 # Prepare data for machine learning
 
-Pre-processing and cleaning data are important tasks that typically must be conducted before using a dataset effectively for machine learning. This task is part of the Advanced Analytics Process Technology (ADAPT) provided by Azure Machine Learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results.  
+Pre-processing and cleaning data are important tasks that typically must be conducted before using a dataset effectively for machine learning. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning. Raw data is often noisy and unreliable, and may be missing values. Using such data for modeling can produce misleading results.  
 
 This article introduces various data processing concepts and tasks that can be taken before ingesting data into Azure Machine Learning. For more detailed instructions on this process, see the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md)
 

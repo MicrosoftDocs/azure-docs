@@ -14,7 +14,7 @@
 	ms.date="04/28/2015" 
 	ms.author="sergkanz"/>
  
-# Release Notes for Application Insights SDK for ASP.NET
+# Release Notes for Application Insights SDK for Windows Phone and Store
 
 
 ## Version 0.16 

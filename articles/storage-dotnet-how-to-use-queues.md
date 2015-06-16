@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Queue storage from .NET | Microsoft Azure" 
-	description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="adinah" 
+<properties
+	pageTitle="How to use Queue storage from .NET | Microsoft Azure"
+	description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="hero-article" 
+	ms.date="03/11/2015"
 	ms.author="tamram"/>
 
 # How to use Queue storage from .NET
@@ -26,7 +26,7 @@ This guide will show you how to perform common scenarios using the
 Azure Queue storage service. The samples are written in C\# code
 and use the Azure Storage Client for .NET. The scenarios covered include **inserting**,
 **peeking**, **getting**, and **deleting** queue messages, as well as
-**creating and deleting queues**. 
+**creating and deleting queues**.
 
 > [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [Programmatically access Queue storage](#programmatically-access-queue-storage) below for more details on obtaining the Storage Client Library.
 
@@ -151,7 +151,7 @@ that triggers an application error each time it is processed.
 	// Get the message from the queue and update the message contents.
     CloudQueueMessage message = queue.GetMessage();
     message.SetMessageContent("Updated contents.") ;
-    queue.UpdateMessage(message, 
+    queue.UpdateMessage(message,
         TimeSpan.FromSeconds(0.0),  // Make it visible immediately.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
@@ -313,7 +313,7 @@ to learn about more complex storage tasks.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx 
+  [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

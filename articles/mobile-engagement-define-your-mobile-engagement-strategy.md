@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Define your Mobile Engagement Strategy" 
-	description="Learn how to use onboard and optimize your Mobile Engagement with Analytics and Push Notifications." 
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+<properties
+	pageTitle="Define your Mobile Engagement Strategy"
+	description="Learn how to use onboard and optimize your Mobile Engagement with Analytics and Push Notifications."
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/10/2015"
 	ms.author="kapiteir" />
 
 #Define your Mobile Engagement Strategy
@@ -32,7 +32,7 @@ But for that, you'll have to start with **understanding your users**, then creat
 
 **Building your Mobile Engagement strategy requires looking first at your app's objectives and KPIs.**
 
-Starting by defining those objectives/KPIs helps to define your engagement use-cases with the right prism. 
+Starting by defining those objectives/KPIs helps to define your engagement use-cases with the right prism.
 
 Your use-cases are a simple list of campaigns you'd like to make to communicate with your users, ranging from the simple welcome, to the very advanced utility notification triggered by your IT system. A well constructed use case must include at least the trio *what-who-when*:
 
@@ -48,9 +48,9 @@ Once use-cases and segment are defined, it gives a guideline to define the data 
 Based on the integration, once applications are published, you as a Marketers will be able to see your analytics in real-time, segment your audience and then start to send smart targeted push notification to engage with end-users in or out of the app.
 
 ###Use-cases to get started
-1. Welcome strategy: Create several push notification campaigns based on the end-user behavior at the launch of the application in order to re-engage at D+2/5/10/15 after the first session and increase first run retention.	
-2. Promote a new content (feature, article/video, product, etc.) based on the behavior of end-user to send the information only to end-users that are more likely to engage.	
-3. Rate the application: target less than 1% of your user base that is most likely to rate the app 5 stars on the store.	
+1. Welcome strategy: Create several push notification campaigns based on the end-user behavior at the launch of the application in order to re-engage at D+2/5/10/15 after the first session and increase first run retention.
+2. Promote a new content (feature, article/video, product, etc.) based on the behavior of end-user to send the information only to end-users that are more likely to engage.
+3. Rate the application: target less than 1% of your user base that is most likely to rate the app 5 stars on the store.
 4. Boost subscriptions: Promote valuable contents to end-users that have not seen them yet to increase subscription.
 5. Tutorial: No more mandatory tutorial for everyone. Why not build great tutorials in-app and then triger them through in-app messages only if the user seems to not use or have difficulty using a feature?
 
@@ -86,21 +86,21 @@ Collect what products or brands an audience should be more likely to consume bas
 
 ####Banking
 
-Collect if end-users have created an account at the first launch of the application. Aim to deploy a welcome strategy with targeted push notification and increase the number of account subscription. 
+Collect if end-users have created an account at the first launch of the application. Aim to deploy a welcome strategy with targeted push notification and increase the number of account subscription.
 
 ###How to create a great tag plan?
 
 A tag plan must be like a description of the user-path or a kind of workflow of the application, providing all the necessary tags (data) that must be collected to have enough analytics to understand user behavior and properly segment the user base. This is not a technical process. Hence, marketers are able to specify the data they want to collect based on their Mobile Engagement strategy.
- 
-The minimum is to tag at least all the Screens (called `Activities` in Mobile Engagement) of an application. This will allow understanding the user-path. 
 
-An Activity can embed `Events` that collect action information like clicking on a button. This allows collecting interaction within the application. Therefore, Marketers are able to know what screen users are visiting and what are they doing. 
+The minimum is to tag at least all the Screens (called `Activities` in Mobile Engagement) of an application. This will allow understanding the user-path.
 
-`Jobs` are actions with a duration. This is very useful for marketer to understand how long time it takes for a user to create an account or to login for instance. This also could be useful for developers to monitor how long it takes to call a web service. 
+An Activity can embed `Events` that collect action information like clicking on a button. This allows collecting interaction within the application. Therefore, Marketers are able to know what screen users are visiting and what are they doing.
 
-`Errors` can also be monitored to know if users are having issues in your app. For example getting often connection issues. 
+`Jobs` are actions with a duration. This is very useful for marketer to understand how long time it takes for a user to create an account or to login for instance. This also could be useful for developers to monitor how long it takes to call a web service.
 
-All of this type of data can be augmented with Parameters (`extra-information` in Mobile Engagement) allowing gathering dynamic data from the application. This is important to allow fine grained segmentation. For instance marketers could segment user based on the type of content they have consume. The type of content will be this dynamic information of an `activity` or an `event`. 
+`Errors` can also be monitored to know if users are having issues in your app. For example getting often connection issues.
+
+All of this type of data can be augmented with Parameters (`extra-information` in Mobile Engagement) allowing gathering dynamic data from the application. This is important to allow fine grained segmentation. For instance marketers could segment user based on the type of content they have consume. The type of content will be this dynamic information of an `activity` or an `event`.
 
 `App-information` are data that allows to know in real-time what is the status of the application or of the user. This helps also to category an audience base and target it quickly. It can be for example a true/false status of whether the user is logging in or not, or his subscription expiration date.
 

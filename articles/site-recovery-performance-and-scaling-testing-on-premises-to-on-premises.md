@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="05/14/2015"
@@ -208,7 +208,7 @@ The table summarizes the performance metrics and counters that were measured in 
 To start deploying ASR:
 
 - [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md)
-- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure)
-- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm)
-- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san)
-- [Set up protection with a single VMM server](site-recovery-single-vmm)
+- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure.md)
+- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
+- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san.md)
+- [Set up protection with a single VMM server](site-recovery-single-vmm.md)

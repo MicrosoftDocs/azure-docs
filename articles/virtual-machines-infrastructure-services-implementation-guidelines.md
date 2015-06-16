@@ -13,24 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="06/09/2015" 
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Implementation Guidelines
  
-Azure is an excellent platform to implement dev/test or proof-of-concept configurations, since it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test or proof-of-concept environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
+Azure is an excellent platform to implement dev/test or proof-of-concept configurations, since it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
 
-This guidance identifies many areas for which planning are key to the success of an IT infrastructure or workload in Azure. In addition, it helps the implementation of solutions on the Azure platform by providing an order to the creation of the necessary resources. Although there is some flexibility, Microsoft recommends that you apply this order to your planning and decision-making.
+This guidance identifies many areas for which planning are vital to the success of an IT workload in Azure. In addition, provides an order to the creation of the necessary resources. Although there is some flexibility, Microsoft recommends that you apply the order in this article to your planning and decision-making.
 
-1.	Naming conventions
-2.	Subscriptions and accounts
-3.	Storage
-4.	Virtual networks
-5.	Cloud services
-6.	Availability Sets
-7.	Virtual machines
-
-Establishing a good naming convention, as well as following a specific, systematic order to creating the resources in Azure immensely reduces administrative burden and increases the chances of success for any implementation project.
+This article was adapted from the content in the [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft), Hugo Salcedo (Application Development Manager for Microsoft), and Greg Hinkel (former Application Development Manager for Microsoft) for their original material.
 
 > [AZURE.NOTE] Affinity groups have been deprecated and their use is not described here. For more information, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
@@ -38,7 +30,7 @@ Establishing a good naming convention, as well as following a specific, systemat
 
 A good naming convention should be in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with management of those resources.
 
-You may choose to follow a specific set of naming conventions defined for your entire organization, or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well. 
+You might choose to follow a specific set of naming conventions defined for your entire organization, or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well. 
 
 You should agree upon the set of naming conventions up front. There are some considerations regarding naming conventions that cut across the sets of rules that make up those conventions.
 
@@ -64,7 +56,7 @@ Environment | dev, stg, prod | Depending on the purpose and name of each environ
 Location | usw (West US), use (East US 2) | Depending on the region of the datacenter or the region of the organization.
 Azure component, service, or product | Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
 Role | sql, ora, sp, iis | Depending on the role of the VM.
-Instance | 01, 02, 03, etc. | For resources that may have more than one instance. For example, load balanced web servers in a cloud service.
+Instance | 01, 02, 03, etc. | For resources that have more than one instance. For example, load balanced web servers in a cloud service.
 		
 When establishing your naming conventions, make sure that they clearly state which affixes to use for each type of resource, and in which position (prefix vs suffix).
 
@@ -91,9 +83,9 @@ Names should be as descriptive as possible, to ensure that the name can provide 
 
 ### Computer Names
 
-When administrators create a virtual machine, Microsoft Azure will require them to provide a virtual machine name. Microsoft Azure will use the virtual machine name as the Azure virtual machine resource name. Azure will use the same name as the computer name for the operating system installed in the virtual machine. However, these names may not always be the same. 
+When administrators create a virtual machine, Microsoft Azure will require them to provide a virtual machine name. Microsoft Azure will use the virtual machine name as the Azure virtual machine resource name. Azure will use the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same. 
 
-In cases in which a virtual machine is created from a .VHD file that already contains an operating system, the virtual machine name in Microsoft Azure may differ from the virtual machine’s OS computer name. This situation may add a degree of difficulty to virtual machine management and we discourage it. Always ensure that the Azure virtual machine resource name is the same name as the computer name as assigned to the operating system of that virtual machine.
+In cases in which a virtual machine is created from a .VHD file that already contains an operating system, the virtual machine name in Microsoft Azure might differ from the virtual machine’s OS computer name. This situation might add a degree of difficulty to virtual machine management and we discourage it. Always ensure that the Azure virtual machine resource name is the same name as the computer name as assigned to the operating system of that virtual machine.
 
 We recommend that the Azure Virtual Machine name be the same as the underlying OS computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS Computer Naming Conventions](https://support.microsoft.com/kb/188997/).
 
@@ -105,11 +97,11 @@ Storage accounts have special rules governing their names. You can only use lowe
 - mystorageaccount.table.core.windows.net
 - mystorageaccount.queue.core.windows.net
 
-In addition, storage accounts may take advantage of containers. These must adhere to the naming conventions as described in [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+In addition, storage accounts can take advantage of containers. These must adhere to the naming conventions as described in [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 ### Azure Building Block names
 
-Azure Building Blocks are application level services that Azure offers, typically to those applications taking advantage of PaaS features, although IaaS resources may leverage some, like Azure SQL, Traffic Manager, and others.
+Azure Building Blocks are application level services that Azure offers, typically to those applications taking advantage of PaaS features, although IaaS resources might leverage some, like Azure SQL, Traffic Manager, and others.
 
 These services rely on an array of artifacts that are created and registered in Azure. These also need to be considered in your naming conventions.
 
@@ -131,7 +123,7 @@ In order to work with Azure, you need one or more Azure subscriptions. Resources
 - For consumers and customers without an Enterprise Enrollment, the top-most resource is the Account.
 - Subscriptions are associated to accounts, and there can be one or more subscriptions per account. Azure records billing information at the subscription level.
 
-Due to the limit of two hierarchy levels on the Account/Subscription relationship, it is important to align the naming convention of accounts and subscriptions to the billing needs. For instance, if a global company uses Azure, they may choose to have one account per region, and have subscriptions managed at the region level.
+Due to the limit of two hierarchy levels on the Account/Subscription relationship, it is important to align the naming convention of accounts and subscriptions to the billing needs. For instance, if a global company uses Azure, they might choose to have one account per region, and have subscriptions managed at the region level.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub01.png)
   
@@ -167,7 +159,7 @@ There are two types of storage available from Azure. Standard storage gives you 
 
 Storage accounts are bound to scalability targets. See [Microsoft Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
 
-Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure blobs, whereas the temporary disk is backed by storage local to the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, since the machine may silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
+Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure blobs, whereas the temporary disk is backed by storage local to the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, since the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
 
 Operating system disks and data disks have a maximum size of 1023 GB since the maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 10243 bytes). You can implement disk striping in Windows to surpass this limit.
 
@@ -221,7 +213,7 @@ Cloud service names are especially important in IaaS because Azure uses them as 
 
 Microsoft Azure exposes the cloud service names, since they are associated to the VIP, in the domain “cloudapp.net”. For better user experience of the application, a vanity name should be configured as needed to replace the fully qualified cloud service name. This is typically done with a CNAME record in your public DNS that maps the public DNS name of your resource (for example, www.contoso.com) to the DNS name of the cloud service hosting the resource (for example, the cloud service hosting the web servers for www.contoso.com).
 
-In addition, the naming convention used for cloud services may need to tolerate exceptions because the cloud service names must be unique among all other Microsoft Azure cloud services, regardless of the Microsoft Azure tenant.
+In addition, the naming convention used for cloud services might need to tolerate exceptions because the cloud service names must be unique among all other Microsoft Azure cloud services, regardless of the Microsoft Azure tenant.
 
 Azure subscriptions can support a maximum of 200 cloud services.
 
@@ -295,7 +287,7 @@ Tasks:
 
 ## 6. Availability Sets
 
-In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure may update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
+In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
 
 In Azure IaaS, the concept of role is not significant, since each IaaS virtual machine represents a role with a single instance. In order to hint Azure not to bring down two or more associated machines at the same time (e.g. for OS updates of the node where they reside), the concept of availability sets was introduced. An availability set tells Azure not to bring down all the machines in the same availability set at the same time to prevent a service outage. The virtual machine members of an availability set have a 99.95% uptime service level agreement. 
 

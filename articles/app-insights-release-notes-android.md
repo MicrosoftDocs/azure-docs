@@ -17,6 +17,6 @@
 # Release Notes for Application Insights SDK for Android
 
 
-[Using the iOS SDK](app-insights-android.md)
+[Using the Android SDK](app-insights-android.md)
 
 

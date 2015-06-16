@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/05/2015" 
 	ms.author="donnam"/>
 
 
@@ -272,7 +272,7 @@ The app is now able to receive events from Pusher, and to update the local Todo 
 
 
 
-<h2><a name="install-scripts"></a>Install server scripts</h2>
+##<a name="install-scripts"></a>Install server scripts
 
 
 
@@ -385,7 +385,7 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 
 
 
-<h2><a name="test-app"></a>Test your app</h2>
+##<a name="test-app"></a>Test your app
 
 
 

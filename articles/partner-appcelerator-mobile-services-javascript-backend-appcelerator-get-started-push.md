@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="06/03/2015" 
 	ms.author="mahender"/>
 
 # Get started with push notifications in Mobile Services (legacy push)

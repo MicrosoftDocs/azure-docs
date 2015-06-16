@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/12/2015"
+	ms.date="06/02/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure portal
 
-Using the Azure portal, you can provision Hadoop clusters in Azure HDInsight, change the Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
+Using the [Azure portal](https://manage.windowsazure.com), you can provision Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
 
 ## Other tools for administering HDInsight
 There are also other tools available for administering HDInsight in addition to the Azure portal.
@@ -87,7 +87,7 @@ The credentials for the cluster that you provided at its creation give access to
 3. Click the HDInsight cluster that you want to connect to.
 4. From the top of the page, click **CONFIGURATION**.
 5. From the bottom of the page, click **ENABLE REMOTE**.
-6. In the **Configure Remote Desktop** wizard, enter a user name and password for the remote desktop. Note that the user name must be different from the one used to create the cluster (**admin** by default with the Quick Create option). Enter an expiration date in the **EXPIRES ON** box. Note that the expiration date must be in the future and no more than a week from the present. The expiration time of day is assumed by default to be midnight of the specified date. Then click the check icon.
+6. In the **Configure Remote Desktop** wizard, enter a user name and password for the remote desktop. Note that the user name must be different from the one used to create the cluster (**admin** by default with the Quick Create option). Enter an expiration date in the **EXPIRES ON** box. Note that the expiration date must be in the future and up to 90 days from today. The expiration time of day is assumed by default to be midnight of the specified date. Then click the check icon.
 
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 

@@ -170,9 +170,9 @@
 
 <sup>2</sup>Basic and Standard sites run on dedicated machines. The actual number of sites that you can host on these machines depends on the activity of the sites, the size of the machine instances, and the corresponding resource utilization.
 
-<sup>3</sup>With the exception of the Free tier, the limits on Web Hosting Plans are per resource group. For more information on creating and managing resource groups, see [Using Resource groups to manage your Azure resources][useresourcegroups].
+<sup>3</sup>With the exception of the Free tier, the limits on Web Hosting Plans are per resource group. For more information on creating and managing resource groups, see [Azure Resource Manager Overview](../articles/resource-group-overview.md).
 
-<sup>4</sup>Dedicated instances can be Small, Medium, or Large. See the [Azure Web Sites Pricing Page][websitespricing] for more details. Additional instances are available by opening a support request.
+<sup>4</sup>Dedicated instances can be Small, Medium, or Large. See the [Azure Web Sites Pricing Page](http://azure.microsoft.com/pricing/details/web-sites/) for more details. Additional instances are available by opening a support request.
 
 <sup>5</sup>All Web Sites share the same storage resources for site content. Therefore, the storage limit is the total size across all sites rather than per web site. Storage limits can be increased by opening a support request.
 
@@ -182,10 +182,7 @@
 
 <sup>8</sup>This value represents concurrent web socket connections per web site instance. For example, if you scaled a Basic web site out to two instances, you would effectively have 700 concurrent connections (350 x 2).
 
-<sup>9</sup>For the Basic tier, standard [SSL pricing applies][sslpricing].
+<sup>9</sup>For the Basic tier, standard [SSL pricing applies](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections).
 
 <sup>10</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your Web Sites instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs.
 
-  [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
-  [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections

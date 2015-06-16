@@ -18,6 +18,13 @@
 
 [Using the SDK for .NET](app-insights-start-monitoring-app-health-usage.md)
 
+## Version 0.17
+- Removed dependency to EventSource NuGet for the framework 4.5 applications.
+- Anonymous User and Session cookies will not be generated on server side. Telemetry modules ```WebSessionTrackingTelemetryModule``` and ```WebUserTrackingTelemetryModule``` are no longer supported and were removed from ApplicationInsights.config file. Cookies from JavaScript SDK will be respected.
+- Persistence channel optimized for high-load scenarios is used for web SDK. "Spiral of death" issue fixed. Spiral of death is a condition when spike in telemetry items count that greatly exceeds throttling limit on endpoint will lead to retry after certain time and will be throttled during retry again.
+- Developer Mode is optimized for production. If left by mistake it will not cause as big overhead as before attempting to output additional information.
+- Developer Mode by default will only be enabled when application is under debugger. You can override it using ```DeveloperMode``` property of  ```ITelemetryChannel``` interface.
+
 ## Version 0.16 
 
 2015-04-28 preview
@@ -34,3 +41,4 @@
 ## Version 0.13
 
 No release notes for older versions available.
+

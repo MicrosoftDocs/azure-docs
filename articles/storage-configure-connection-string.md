@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuring Azure Connection Strings" 
-	description="Learn how to configure connection strings to storage account in Azure." 
+	pageTitle="Configure a Connection String to Azure Storage | Microsoft Azure" 
+	description="Learn how to configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate programmatic access to resources in a storage account. The connection string may encapsulate your account access key for an account that you own, or it may include a shared access signature for accessing resources in an account without the access key." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,30 +13,45 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/28/2015" 
 	ms.author="tamram"/>
 
 # Configure Azure Storage Connection Strings
 
 ## Overview
 
-A connection string includes the information necessary to access your storage account in Azure programmatically. You can configure a connection string to connect to Azure Storage in the following ways:
+A connection string includes the information necessary to access Azure Storage resources programmatically. Your application uses the connection string to provide to Azure Storage the information needed to authenticate access.
+
+You can configure a connection string to:
 
 - Connect to the Azure storage emulator while you are locally testing your service or application.
+- Connect to a storage account in Azure by using either the default endpoints for the storage services, or explicit endpoints that you have defined.
+- Access resources in a storage account via a shared access signature (SAS).
 
-- Connect to a storage account in Azure by using the default endpoints for the storage services.
+## Storing your connection string
 
-- Connect to a storage account in Azure by using explicit endpoints for the storage services.
+Your application will need to store the connection string in order to authenticate access to Azure Storage when it is running. You have a few different options for storing your connection string:
 
-If your application is a cloud service running in Azure, you'll usually save your connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). If your application is running in another environment (for example, on the desktop), then you will usually save your connection string in an app.config file or another configuration file. You can use the Azure `CloudConfigurationManager` class to access your connection string at runtime regardless of where it is running.
+- For an application running on the desktop or on a device, you can store the connection string in an app.config file or another configuration file. If you are using an app.config file, add the connection string to the **AppSettings **section.
+- For an application running in an Azure cloud service, you can store your connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
+
+Storing your connection string within a configuration file makes it easy to update the connection string to switch between the storage emulator and an Azure storage account in the cloud. You only need to edit the connection string to point to your storage account. 
+
+You can use the Azure [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) class to access your connection string at runtime regardless of where your application is running.
 
 ## Create a connection string to the storage emulator
 
-The storage emulator is a local account with a well-known name and key. Since the account name and key are the same for all users, you can use a shortcut string format to refer to the storage emulator within a connection string. Set the value of the connection string to `UseDevelopmentStorage=true`.
+The storage emulator account is a local account with a well-known name and key. You can use a shortcut string format, `UseDevelopmentStorage=true`, to refer to the storage emulator from within a connection string. For example, a connection string to the storage emulator in an app.config will look like this: 
+
+    <appSettings>
+      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
+    </appSettings>
 
 You can also specify an HTTP proxy to use when you're testing your service against the storage emulator. This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services. To specify a proxy, add the `DevelopmentStorageProxyUri` option to the connection string, and set its value to the proxy URI. For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+
+See [Use the Azure Storage Emulator for Development and Testing](storage-use-emulator.md) for more information about the storage emulator.
 
 ## Create a connection string to an Azure storage account
 
@@ -51,7 +66,7 @@ For example, your connection string will look similar to the following sample co
 
 > [AZURE.NOTE] Azure Storage supports both HTTP and HTTPS in a connection string; however, using HTTPS is highly recommended.
     
-## Creating a connection string to an explicit Storage endpoint
+## Creating a connection string to an explicit storage endpoint
 
 You can to explicitly specify the service endpoints in your connection string if:
 

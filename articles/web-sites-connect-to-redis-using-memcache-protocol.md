@@ -10,7 +10,7 @@
 <tags
    ms.service="app-service-web"
    ms.devlang="php"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="windows"
    ms.workload="web"
    ms.date="03/31/2015"

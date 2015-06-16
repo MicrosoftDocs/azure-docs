@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Create and load data into Hive tables from Azure blob storage | Azure" 
+	pageTitle="Create and load data into Hive tables from Blob storage | Microsoft Azure" 
 	description="Create Hive tables and load data in blob to hive tables" 
-	metaKeywords="" 
-	services="machine-learning" 
+	services="machine-learning,storage" 
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
@@ -28,7 +27,7 @@ The Hive queries are shared in the [Github repository](https://github.com/Azure/
 
 If you create an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](machine-learning-data-science-setup-virtual-machine.md), this script file should have been downloaded to the *C:\Users\<user name>\Documents\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
 
-We assume that the data for Hive tables is in an **uncompressed** tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster. If you want to practice on the _NYC Taxi Trip Data_, you need to first  download the 24 [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips/) files (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and then upload them to the default (or appropriate container) of the Azure storage account that was used by the procedure outlined in the [Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process Technology](machine-learning-data-science-customize-hadoop-cluster.md) topic. 
+We assume that the data for Hive tables is in an **uncompressed** tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster. If you want to practice on the _NYC Taxi Trip Data_, you need to first  download the 24 [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips/) files (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and then upload them to the default (or appropriate container) of the Azure storage account that was used by the procedure outlined in the [Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology](machine-learning-data-science-customize-hadoop-cluster.md) topic. 
 
 Hive queries can be submitted from the Hadoop Command Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there. For instructions on how to do this, see [Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process](machine-learning-data-science-process-hive-tables.md).
 

@@ -3,7 +3,7 @@
    description="Explains how to use Windows PowerShell for StorSimple to install maintenance mode updates."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2015"
-   ms.author="v-sharos" />
+   ms.date="05/29/2015"
+   ms.author="alkohli" />
 
 #### To install Maintenance mode updates via Windows PowerShell for StorSimple
 
@@ -31,6 +31,12 @@
 
 6. You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart. 
 
-7. When the restart of the first controller is finished, connect to the other controller, and perform steps 1 through 6.
+7. Monitor the status of updates. Type:
+
+	`Get-HcsUpdateStatus`
+	
+	If the `RunInPogresss` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed.  
+
+7. When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.
 
 8. After both controllers are updated, exit Maintenance mode. See [Exit Maintenance mode](#exit-maintenance-mode) for instructions.

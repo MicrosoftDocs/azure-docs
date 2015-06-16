@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/29/2015" 
+	ms.date="06/02/2015" 
 	ms.author="jeffstok" />
 
 
@@ -187,7 +187,7 @@ You can adjust the following top-level settings for a Stream Analytics job:
 
 The status of Stream Analytics jobs can be inspected in the Azure portal. Running jobs can be in one of two states: **Running**, or **Degraded**. The definition for each of these states is below:
 
-- **Running** - The job is allocated, processing input, or waiting to process input. If the job shows a Running state without producing output, it is likely that the data processing time window is large or the query logic is complicated.
+- **Running** - The job is allocated, processing input, or waiting to process input. If the job shows a Running state without producing output, it is likely that the data processing time window is large or the query logic is complicated. Another reason may be that currently there isn't any data being sent to the job.
 - **Degraded** - This state indicates that a Stream Analytics job is encountering one of the following errors: input/output communication errors, query errors, or retry-able run-time errors. To distinguish what type of error(s) the job is encountering, view the operation logs.
 
 

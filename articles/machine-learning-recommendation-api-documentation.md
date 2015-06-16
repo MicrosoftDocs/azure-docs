@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Machine Learning Recommendations API Documentation" 
-	description="Azure Machine Learning Recommendations API Documentation" 
+	pageTitle="Machine Learning Recommendations API Documentation | Microsoft Azure" 
+	description="Azure Machine Learning Recommendations API documentation for a recommendations engine available in the Microsoft Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="AharonGumnik" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
-	ms.author="AharonGumnik"/>
+	ms.date="06/10/2015" 
+	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
@@ -1780,11 +1780,11 @@ OData
 
 ##11. Build
 
-  This section explains the different APIs related to builds. There are 3 types of build: a recommendation build, a rank build and an FBT (frequently bought together) build.
+  This section explains the different APIs related to builds. There are 3 types of builds: a recommendation build, a rank build and an FBT (frequently bought together) build.
 
 The recommendation build's purpose is to generate a recommendation model used for predictions. Predictions (for this type of build) come in two flavors:
-* I2I - a.k.a. Item to Item recommendations - given an item or a list of item this option will predict a list of item that are likely to be of high interest.
-* U2I - a.k.a. User to Item recommendations - given an user id (and optionally a list of item) this option will predict a list of item that are likely to be of high interest for the given user (and its additional choice of item). The U2I recommendation  are based on the history of items that were of interest for the user up to the time the model was build.
+* I2I - a.k.a. Item to Item recommendations - given an item or a list of items this option will predict a list of items that are likely to be of high interest.
+* U2I - a.k.a. User to Item recommendations - given a user id (and optionally a list of items) this option will predict a list of items that are likely to be of high interest for the given user (and its additional choice of items). The U2I recommendations are based on the history of items that were of interest for the user up to the time the model was built.
 
 A rank build is a technical build that allows you to learn about the usefulness of your features. Usually, in order to get the best result for a recommendation model involving features, you should take the following steps:
 - Trigger a rank build (unless the score of your features is stable) and wait till you get the feature score.
@@ -1802,7 +1802,7 @@ There is no restriction on running a rank build and a recommendation build concu
 
 An FBT (Frequently bought together) build is yet another recommendations algorithm called sometimes "conservative" recommender, which is good for catalogs that are not homogeneous in nature (homogeneous: books, movies, some food, fashion; non-homogeneous: computer and devices, cross-domain, highly diverse).
 
-Note: if the usage files that you uploaded contain the optional field "event type" then for FBT modeling only "Purchase" events will be used. If no event type is provided all events will be considered as purchase.
+Note: if the usage files that you uploaded contain the optional field "event type" then for FBT modelling only "Purchase" events will be used. If no event type is provided all events will be considered as purchase.
 
 
 ####11.1 Build parameters
@@ -1881,13 +1881,13 @@ You cannot consume recommendations till the build ends.
 
 Valid build status:
 
-- Create – Model was created.
-- Queued – Model build was triggered and it is queued.
-- Building – Model is being built.
+- Create – Build request was created.
+- Queued – Build request was sent and it is queued.
+- Building – Build is in progress.
 - Success – Build ended successfully.
 - Error – Build ended with a failure.
 - Cancelled – Build was cancelled.
-- Cancelling – Build is being cancelled.
+- Cancelling – A cancel request for the build was sent.
 
 
 Note that the build ID can be found under the following path: `Feed\entry\content\properties\Id`
@@ -2629,7 +2629,131 @@ The response includes one entry per recommended item. Each entry has the followi
 
 See a response example in 12.1
 
-###12.3. Get User Recommendations (for active build)
+###12.3. Get FBT Recommendations (for active build)
+
+Get recommendations of the active build of type "Fbt" based on a seed (input) item.
+
+| HTTP Method | URI |
+|:--------|:--------|
+|GET     |`<rootURI>/ItemFbtRecommend?modelId=%27<modelId>%27&itemId=%27<itemId>%27&numberOfResults=<int>&minimalScore=<double>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemId=%271003%27&numberOfResults=10&minimalScore=<double>&includeMetadata=false&apiVersion=%271.0%27`|
+
+|	Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+| modelId | Unique identifier of the model |
+| itemId | Item to recommend for. <br>Max length: 1024 |
+| numberOfResults | Number of required results |
+| minimalScore | Minimal score that a frequent set should have in order to be included in the returned results |
+| includeMetatadata | Future use, always false |
+| apiVersion | 1.0 |
+
+**Response:**
+
+HTTP Status code: 200
+
+
+The response includes one entry per recommended item set (a set of items which are usually bought together with the seed/input item). Each entry has the following data:
+- `Feed\entry\content\properties\Id1` – Recommended item ID.
+- `Feed\entry\content\properties\Name1` – Name of the item.
+- `Feed\entry\content\properties\Id2` – 2nd recommended item ID (optional).
+- `Feed\entry\content\properties\Name2` – Name of the 2nd item (optional).
+- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+
+The example response below includes 3 recommended item sets.
+
+OData XML
+
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  	<title type="text" />
+ 	 <subtitle type="text">Get Recommendation</subtitle>
+ 	 <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemId='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'</id>
+  	<rights type="text" />
+  	<updated>2014-10-05T12:28:48Z</updated>
+  	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'" />
+  	<entry>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <title type="text">GetFbtRecommendationEntity</title>
+    <updated>2014-10-05T12:28:48Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id1 m:type="Edm.String">159</d:Id1>
+        <d:Name1 m:type="Edm.String">159</d:Name1>
+		<d:Id2 m:type="Edm.String"></d:Id2>
+        <d:Name2 m:type="Edm.String"></d:Name2>
+        <d:Rating m:type="Edm.Double">0.543343480387708</d:Rating>
+        <d:Reasoning m:type="Edm.String">People who bought '1003' also bought '159'</d:Reasoning>
+      </m:properties>
+    </content>
+ 	 </entry>
+ 	 <entry>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    <title type="text">GetFbtRecommendationEntity</title>
+    <updated>2014-10-05T12:28:48Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id1 m:type="Edm.String">52</d:Id1>
+        <d:Name1 m:type="Edm.String">52</d:Name1>
+		<d:Id2 m:type="Edm.String"></d:Id2>
+        <d:Name2 m:type="Edm.String"></d:Name2>
+        <d:Rating m:type="Edm.Double">0.533343480387708</d:Rating>
+        <d:Reasoning m:type="Edm.String">People who bought '1003' also bought '52'</d:Reasoning>
+      </m:properties>
+    </content>
+ 	 </entry>
+ 	 <entry>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+    <title type="text">GetFbtRecommendationEntity</title>
+    <updated>2014-10-05T12:28:48Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id1 m:type="Edm.String">35</d:Id1>
+        <d:Name1 m:type="Edm.String">35</d:Name1>
+		<d:Id2 m:type="Edm.String">102</d:Id2>
+        <d:Name2 m:type="Edm.String">102</d:Name2>
+        <d:Rating m:type="Edm.Double">0.523343480387708</d:Rating>
+        <d:Reasoning m:type="Edm.String">People who bought '1003' also bought '35' and '102'</d:Reasoning>
+      </m:properties>
+    </content>
+ 	 </entry>
+	</feed>
+
+###12.4. Get FBT Recommendations (of a specific build)
+
+Get recommendations of a specific build of type "Fbt".
+
+| HTTP Method | URI |
+|:--------|:--------|
+|GET     |`<rootURI>/ItemFbtRecommend?modelId=%27<modelId>%27&itemId=%27<itemId>%27&numberOfResults=<int>&minimalScore=<double>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemId=%271003%27&numberOfResults=10&minimalScore=0.1&includeMetadata=false&buildId=1234&apiVersion=%271.0%27`|
+
+|	Parameter Name	|	Valid Values						|
+|:--------			|:--------								|
+| modelId | Unique identifier of the model |
+| itemId | Item to recommend for. <br>Max length: 1024 |
+| numberOfResults | Number of required results |
+| minimalScore | Minimal score that a frequent set should have in order to be included in the returned results |
+| includeMetatadata | Future use, always false |
+| buildId | the build id to use for this recommendation request |
+| apiVersion | 1.0 |
+
+**Response:**
+
+HTTP Status code: 200
+
+
+The response includes one entry per recommended item set (a set of items which are usually bought together with the seed/input item). Each entry has the following data:
+- `Feed\entry\content\properties\Id1` – Recommended item ID.
+- `Feed\entry\content\properties\Name1` – Name of the item.
+- `Feed\entry\content\properties\Id2` – 2nd recommended item ID (optional).
+- `Feed\entry\content\properties\Name2` – Name of the 2nd item (optional).
+- `Feed\entry\content\properties\Rating` – Rating of the recommendation; higher number means higher confidence.
+- `Feed\entry\content\properties\Reasoning` – Recommendation reasoning (e.g. recommendation explanations).
+
+See a response example in 12.3
+
+###12.5. Get User Recommendations (for active build)
 
 Get user recommendations of a build of type "Recommendation" marked as active build.
 
@@ -2664,7 +2788,7 @@ The response includes one entry per recommended item. Each entry has the followi
 
 See a response example in 12.1
 
-###12.4. Get User Recommendations with item list (for active build)
+###12.6. Get User Recommendations with item list (for active build)
 
 Get user recommendations of a build of type "Recommendation" marked as active build with an additional list of items
 
@@ -2701,7 +2825,7 @@ The response includes one entry per recommended item. Each entry has the followi
 
 See a response example in 12.1
 
-###12.5. Get User Recommendations  (of a specific build)
+###12.7. Get User Recommendations  (of a specific build)
 
 Get user recommendations of a specific build of type "Recommendation".
 
@@ -2737,7 +2861,7 @@ The response includes one entry per recommended item. Each entry has the followi
 See a response example in 12.1
 
 
-###12.6. Get User Recommendations with item list (of a specific build)
+###12.8. Get User Recommendations with item list (of a specific build)
 
 Get user recommendations of a specific build of type "Recommendation" and the list of additional items.
 

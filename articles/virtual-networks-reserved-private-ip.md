@@ -90,12 +90,10 @@ To add a static internal IP to the VM created using the script above, runt he fo
 	| Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `
 	| Update-AzureVM
 
-## See Also
+## Next steps
 
-[Reserved Public IP](../virtual-networks-reserved-public-ip)
+[Reserved IP](../virtual-networks-reserved-public-ip)
 
 [Instance-Level Public IP (ILPIP)](../virtual-networks-instance-level-public-ip)
-
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
 [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)

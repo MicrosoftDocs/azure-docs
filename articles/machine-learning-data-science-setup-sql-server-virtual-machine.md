@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics | Azure"
+	pageTitle="Set up a SQL Server virtual machine as an IPython Notebook server | Microsoft Azure"
 	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
 	services="machine-learning"
 	solutions="" documentationCenter=""
@@ -354,7 +354,7 @@ because it can be redirected to a new IP address.)
 
 ##<a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
 
-In later stages of the Advanced Analytics Process Technology, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Advanced Analytics Process Technology guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+In later stages of the Advanced Analytics Process and Technology, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Advanced Analytics Process and Technology guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
 2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
@@ -389,7 +389,7 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 
 ## Your Azure SQL Server VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Advanced Analytics Process Technology.
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Advanced Analytics Process and Technology (ADAPT).
 
 The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 

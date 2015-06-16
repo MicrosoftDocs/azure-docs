@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/14/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app
@@ -22,18 +22,11 @@
 
 This topic shows you how to authenticate users in Azure Mobile Services from your universal Windows app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
-This tutorial walks you through these basic steps to enable authentication in your app:
-
-1. [Register your app for authentication and configure Mobile Services]
-2. [Restrict table permissions to authenticated users]
-3. [Add authentication to the app]
-5. [Store authentication tokens on the client]
-
-This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
+This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services] or [Add Mobile Services to an existing app](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md). 
 
 >[AZURE.NOTE]This tutorial shows you how to authenticate users in Windows Store and Windows Phone Store 8.1 apps. For a Windows Phone 8.0 or Windows Phone Silverlight 8.1 app, see this version of [Get started with authentication in Mobile Services](mobile-services-windows-phone-get-started-users.md).
 
->This tutorial demonstrates the authentication flow managed by Mobile Services using a variety of identity providers. This method is easy to configure and supports multiple providers. To instead use Live Connect with client-managed authentication and provide a single sign-on experience in your Windows Phone app, see the topic [Authenticate your Windows Store app with client managed authentication using Microsoft account](mobile-services-windows-store-dotnet-single-sign-on.md). By using client-managed authentication, your app has access to additional user data maintained by the identity provider. You can get the same user data in your mobile service by by calling the **user.getIdentities()** function in server scripts. For more information, see [this post](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+>This tutorial demonstrates a service-managed authentication flow using a variety of identity providers. This method is easy to configure and supports multiple providers. To instead use a client-managed flow using Live SDK in your Windows Store app, see the topic [Authenticate your Windows Store app with client managed authentication using Microsoft account](mobile-services-windows-store-dotnet-single-sign-on.md). 
 
 ##<a name="register"></a> Register your app for authentication and configure Mobile Services
 
@@ -57,7 +50,15 @@ Now, any user authenticated by your trusted identity providers can access the *T
 
 ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Service-side authorization of Mobile Services users](mobile-services-javascript-backend-service-side-authorization.md), you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in the [Mobile Services .NET How-to Conceptual Reference]
+In the next tutorial, [Service-side authorization of Mobile Services users](mobile-services-javascript-backend-service-side-authorization.md), you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+
+##See also
+
++ [Enhanced users feature](http://go.microsoft.com/fwlink/p/?LinkId=506605)<br/>
+You can get additional user data maintained by the identity provider in your mobile service by by calling the **user.getIdentities()** function in server scripts. 
+
++ [Mobile Services .NET How-to Conceptual Reference]<br/>Learn more about how to use Mobile Services with a .NET client.
+
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register

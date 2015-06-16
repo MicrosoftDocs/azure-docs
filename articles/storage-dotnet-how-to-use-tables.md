@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Table storage from .NET | Microsoft Azure" 
-	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="adinah" 
+<properties
+	pageTitle="How to use Table storage from .NET | Microsoft Azure"
+	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="hero-article" 
+	ms.date="03/11/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Overview
 
-This guide will show you how to perform common scenarios using the 
+This guide will show you how to perform common scenarios using the
 Azure Table Storage Service. The samples are written in C\# code
 and use the Azure Storage Client Library for .NET. The scenarios covered include **creating and
 deleting a table**, as well as **working with table entities**.
@@ -81,7 +81,7 @@ key and last name as the partition key. Together, an entity's partition
 and row key uniquely identify the entity in the table. Entities with the
 same partition key can be queried faster than those with different
 partition keys, but using diverse partition keys allows for greater parallel
-operation scalability.  For any property that should be stored in the table service, 
+operation scalability.  For any property that should be stored in the table service,
 the property must be a public property of a supported type that exposes both `get` and `set`.
 Also, your entity type *must* expose a parameter-less constructor.
 
@@ -92,7 +92,7 @@ Also, your entity type *must* expose a parameter-less constructor.
             this.PartitionKey = lastName;
             this.RowKey = firstName;
         }
-		
+
         public CustomerEntity() { }
 
         public string Email { get; set; }
@@ -110,7 +110,7 @@ is represented by a **TableOperation** object.  The following code example shows
 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-	
+
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
 
@@ -147,7 +147,7 @@ to a **TableBatchOperation** using the **Insert** method. Then **CloudTable.Exec
 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-    
+
 	// Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
@@ -158,12 +158,12 @@ to a **TableBatchOperation** using the **Insert** method. Then **CloudTable.Exec
 	CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
 	customer1.Email = "Jeff@contoso.com";
 	customer1.PhoneNumber = "425-555-0104";
-            
+
 	// Create another customer entity and add it to the table.
 	CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
 	customer2.Email = "Ben@contoso.com";
 	customer2.PhoneNumber = "425-555-0102";
-            
+
 	// Add both customer entities to the batch insert operation.
 	batchOperation.Insert(customer1);
 	batchOperation.Insert(customer2);
@@ -236,7 +236,7 @@ You can write a query to retrieve a single, specific entity. The
 following code uses a **TableOperation** to specify the customer 'Ben Smith'.
 This method returns just one entity, rather than a
 collection, and the returned value in **TableResult.Result** is a **CustomerEntity**.
-Specifying both partition and row keys in a query is the fastest way to 
+Specifying both partition and row keys in a query is the fastest way to
 retrieve a single entity from the Table service.
 
     // Retrieve the storage account from the connection string.
@@ -266,13 +266,13 @@ retrieve a single entity from the Table service.
 To update an entity, retrieve it from the table service, modify the
 entity object, and then save the changes back to the table service. The
 following code changes an existing customer's phone number. Instead of
-calling **Insert**, this code uses 
+calling **Insert**, this code uses
 **Replace**. This causes the entity to be fully replaced on the server,
 unless the entity on the server has changed since it was retrieved, in
 which case the operation will fail.  This failure is to prevent your application
-from inadvertently overwriting a change made between the retrieval and 
+from inadvertently overwriting a change made between the retrieval and
 update by another component of your application.  The proper handling of this failure
-is to retrieve the entity again, make your changes (if still valid), and then 
+is to retrieve the entity again, make your changes (if still valid), and then
 perform another **Replace** operation.  The next section will
 show you how to override this behavior.
 
@@ -321,9 +321,9 @@ Sometimes, however, you don't know if the entity exists on the server
 and the current values stored in it are irrelevant - your update should
 overwrite them all.  To accomplish this, you would use an **InsertOrReplace**
 operation.  This operation inserts the entity if it doesn't exist, or
-replaces it if it does, regardless of when the last update was made.  In the 
+replaces it if it does, regardless of when the last update was made.  In the
 following code example, the customer entity for Ben Smith is still retrieved, but it is then saved back to the server using **InsertOrReplace**.  Any updates
-made to the entity between the retrieval and update operation will be 
+made to the entity between the retrieval and update operation will be
 overwritten.
 
     // Retrieve the storage account from the connection string.
@@ -366,7 +366,7 @@ overwritten.
 
 A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the
 following code returns only the email addresses of entities in the
-table. This is done by using a query of **DynamicTableEntity** and 
+table. This is done by using a query of **DynamicTableEntity** and
 also an **EntityResolver**. You can learn more about projection in this [blog post][]. Note that projection is not supported on the local storage emulator, so this code runs only when using an account on the table service.
 
     // Retrieve storage account from connection string
@@ -454,23 +454,23 @@ If you are reading a large number of entities, and you want to process/display e
 
     // Initialize a default TableQuery to retrieve all the entities in the table
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
-	
+
     // Initialize the continuation token to null to start from the beginning of the table
     TableContinuationToken continuationToken = null;
-	
+
     do
     {
         // Retrieve a segment (up to 1000 entities)
-        TableQuerySegment<CustomerEntity> tableQueryResult = 
+        TableQuerySegment<CustomerEntity> tableQueryResult =
             await table.ExecuteQuerySegmentedAsync(tableQuery, continuationToken);
-		
-        // Assign the new continuation token to tell the service where to 
+
+        // Assign the new continuation token to tell the service where to
         // continue on the next iteration (or null if it has reached the end)
         continuationToken = tableQueryResult.ContinuationToken;
-		
+
         // Print the number of rows retrieved
         Console.WriteLine("Rows retrieved {0}", tableQueryResult.Results.Count);
-		
+
     // Loop until a null continuation token is received indicating the end of the table
     } while(continuationToken != null);
 
@@ -500,13 +500,13 @@ to learn about more complex storage tasks.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-  
+
   [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
   [Blob7]: ./media/storage-dotnet-how-to-use-table-storage/blob7.png
   [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
-  
+
   [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx

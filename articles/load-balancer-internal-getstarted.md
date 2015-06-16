@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Gettting started with Internal load balancer | Microsoft Azure "
    description="Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments"
    services="load-balancer"
@@ -6,10 +6,10 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/01/2015"
@@ -39,7 +39,7 @@ For an existing cloud service or a cloud service deployed under a regional virtu
 	$ilb="<Name of your ILB instance>"
 	$subnet="<Name of the subnet within your virtual network-optional>"
 	$IP="<The IPv4 address to use on the subnet-optional>"
-	
+
 	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
 
@@ -211,7 +211,7 @@ Here is an example:
 	$images = Get-AzureVMImage
 	New-AzureVMConfig -Name $vmname -InstanceSize Small -ImageName $images[50].ImageName | Add-AzureProvisioningConfig -Windows -AdminUsername $adminuser -Password $adminpw | New-AzureVM -ServiceName $svc -InternalLoadBalancerConfig $myilbconfig -Location $regionname –VNetName $vnet
 
-## Configuring ILB for Cloud Services 
+## Configuring ILB for Cloud Services
 
 
 ILB is supported for both Virtual machines and Cloud Services
@@ -220,7 +220,7 @@ An ILB endpoint created in a Cloud Service that is outside a Regional Virtual Ne
 The ILB configuration has to be set during the creation of the first deployment in the Cloud Service, as shown in the cmdlet sample below.
 
 ### Create a local ILB Object
-	$myilbconfig = New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName "MyILB" 
+	$myilbconfig = New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName "MyILB"
 
 ### Add Internal Load Balancer for a new service
 
@@ -277,4 +277,3 @@ To obtain additional information about ILB cmdlets, run the following commands a
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-

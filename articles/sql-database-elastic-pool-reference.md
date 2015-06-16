@@ -96,6 +96,8 @@ The storage limit of the pool is determined by the amount of DTUs of the pool; e
 
 *units in API are MB, not GB
 
+If the storage limit of a pool is exceeded, then all of the databases in the pool become read-only. If this occurs try increasing the DTUs or storage of the pool itself, or moving one or more databases out of the pool. To identify and prevent exceeding the pool storage limit you can create an alert in the Portal to trigger when the storage utilization of the pool exceeds a preset value.
+
 ## Worker and session limits
 
 The maximum number of concurrent workers and concurrent sessions supported for all databases in an elastic pool depends on the DTU setting for the pool: 

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Add Caching to improve performance in Azure API Management" 
-	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+<properties
+	pageTitle="Add Caching to improve performance in Azure API Management"
+	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/10/2015" 
+<tags
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="03/10/2015"
 	ms.author="sdanie"/>
 
 # Add Caching to improve performance in Azure API Management
@@ -160,4 +160,3 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
-

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="06/04/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
@@ -52,6 +52,7 @@ Here we have a simple JSON document for the Andersen family, the parents, childr
 	       }
 	    ],
 	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
 	    "isRegistered": true
 	}
 
@@ -83,6 +84,7 @@ Here's a second document with one subtle difference – `givenName` and `familyN
 	             "grade": 8 }
 	    ],
 	    "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+	    "creationDate": 1431620462,
 	    "isRegistered": false
 	}
 
@@ -112,6 +114,7 @@ Now let's try a few queries against this data to understand some of the key aspe
 	       }
 	    ],
 	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
 	    "isRegistered": true
 	}]
 
@@ -142,6 +145,7 @@ The next query returns all the given names of children in the family whose id ma
 	FROM Families f 
 	JOIN c IN f.children 
 	WHERE f.id = 'WakefieldFamily'
+	ORDER BY f.creationDate ASC
 
 **Results**
 
@@ -195,7 +199,7 @@ The following list contains the rules that are enforced per query:
 
 - The collection can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the equivalent of `Families`. `AS` is an optional keyword to alias the identifier.
 
--	Note that once aliased, the original source cannot be bound. For example, `SELECT Familes.id FROM Families f` is syntactically invalid since the identifier "Families" cannot be resolved anymore.
+-	Note that once aliased, the original source cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid since the identifier "Families" cannot be resolved anymore.
 
 -	All properties that need to be referenced must be fully qualified. In the absence of strict schema adherence, this is enforced to avoid any ambiguous bindings. Therefore, `SELECT id FROM Families f` is syntactically invalid since the property `id` is not bound.
 	
@@ -847,12 +851,6 @@ The Coalesce (??) operator can be used to efficiently check for the presence of 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-Similarly, you can also query for the absence of a property ("undefined") like in the following example.
-
-    SELECT *
-    FROM classes c
-    WHERE c.lastName ?? true
-
 ##SELECT Clause
 The SELECT clause (**`SELECT <select_list>`**) is mandatory and specifies what values will be retrieved from the query, just like in ANSI-SQL. The subset that's been filtered on top of the source documents are passed onto the projection phase, where the specified JSON values are retrieved and a new JSON object is constructed, for each input passed onto it. 
 
@@ -1106,9 +1104,31 @@ The special operator (*) is supported to project the document as-is. When used, 
 	       }
 	    ],
 	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
 	    "isRegistered": true
 	}]
 
+##ORDER BY Clause
+Like in ANSI-SQL, you can now include an optional Order By clause while querying. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. For example, here's a query that retrieves families in order of creation date (stored as epoch time in seconds).
+
+**Query**
+
+	SELECT f.id, f.creationDate
+	FROM Families f 
+	ORDER BY f.creationDate DESC
+	
+**Results**
+	
+	[
+	  {
+	    "id": "WakefieldFamily",
+	    "creationDate": 1431620462
+	  },
+	  {
+	    "id": "AndersenFamily",
+	    "creationDate": 1431620472	
+	  }
+	]
 ##Advanced Concepts
 ###Iteration
 A new construct was added via the **IN** keyword in DocumentDB SQL to provide support for iterating over JSON arrays. The FROM source provides support for iteration. Let's start with the following example:
@@ -1352,40 +1372,38 @@ The DocumentDB SQL grammar is extended to support custom application logic using
 Below is an example of how a UDF can be registered at the DocumentDB database, specifically under a document collection.
 
    
-	   UserDefinedFunction sqrtUdf = new UserDefinedFunction
+	   UserDefinedFunction regexMatchUdf = new UserDefinedFunction
 	   {
-	       Id = "SQRT",
-	       Body = @"function(number) { 
-	                   return Math.sqrt(number);
+	       Id = "REGEX_MATCH",
+	       Body = @"function (input, pattern) { 
+	                   return input.match(pattern) !== null;
 	               };",
 	   };
+	   
 	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
 	       collectionSelfLink/* link of the parent collection*/, 
-	       sqrtUdf).Result;  
+	       regexMatchUdf).Result;  
                                                                              
-The preceding example creates a UDF whose name is `SQRT`. It accepts a single JSON value `number` and calculates the square root of the number using the Math library.
+The preceding example creates a UDF whose name is `REGEX_MATCH`. It accepts two JSON string values `input` and `pattern` and checks if the first matches the pattern specified in the second using JavaScript's string.match() function.
 
 
 We can now use this UDF in a query in a projection. UDFs must be qualified with the case-sensitive prefix "udf." when called from within queries. 
 
->[AZURE.NOTE] Prior to 3/17/2015, DocumentDB supported UDF calls without the "udf." prefix like SELECT SQRT(5). This calling pattern has been deprecated.  
+>[AZURE.NOTE] Prior to 3/17/2015, DocumentDB supported UDF calls without the "udf." prefix like SELECT REGEX_MATCH(). This calling pattern has been deprecated.  
 
 **Query**
 
-	SELECT udf.SQRT(c.grade)
-	FROM c IN Families.children
+	SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
+	FROM Families
 
 **Results**
 
 	[
 	  {
-	    "$1": 2.23606797749979
+	    "$1": true
 	  }, 
 	  {
-	    "$1": 1
-	  }, 
-	  {
-	    "$1": 2.8284271247461903
+	    "$1": false
 	  }
 	]
 
@@ -1393,14 +1411,15 @@ The UDF can also be used inside a filter as shown in the example below, also qua
 
 **Query**
 
-	SELECT c.grade
-	FROM c IN Familes.children
-	WHERE udf.SQRT(c.grade) = 1
+	SELECT Families.id, Families.address.city
+	FROM Families
+	WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 
 **Results**
 
 	[{
-	    "grade": 1
+	    "id": "AndersenFamily",
+	    "city": "Seattle"
 	}]
 
 

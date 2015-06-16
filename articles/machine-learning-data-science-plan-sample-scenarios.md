@@ -1,7 +1,6 @@
 <properties
-	pageTitle="Scenarios for the Advanced Analytics Process Technology in Azure Machine Learning | Azure" 
+	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure" 
 	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning." 
-	metaKeywords="" 
 	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 
@@ -19,9 +18,9 @@
 	ms.author="msolhab;bradsev" /> 
 
 
-# Scenarios for the Advanced Analytics Process Technology in Azure Machine Learning
+# Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled with the Advanced Analytics Process Technology (ADAPT) in Azure Machine Learning. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure. 
+This article outlines the variety of sample data sources and target scenarios that can be handled with the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure. 
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
@@ -299,17 +298,17 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 ## <a name="decisiontree"></a>Decision tree for scenario selection
 ------------------------
 
-The following diagram summarizes the scenarios described above and the Advanced Analytics Process Technology choices made that take you to each of the itemized scenarios. Note that data processing, exploration, feature engineering, and sampling may take place in one or more method/environment -- at the source, intermediate, and/or target environments – and may proceed iteratively as needed. The diagram only serves as an illustration of some of possible flows and does not provide an exhaustive enumeration.
+The following diagram summarizes the scenarios described above and the Advanced Analytics Process and Technology choices made that take you to each of the itemized scenarios. Note that data processing, exploration, feature engineering, and sampling may take place in one or more method/environment -- at the source, intermediate, and/or target environments – and may proceed iteratively as needed. The diagram only serves as an illustration of some of possible flows and does not provide an exhaustive enumeration.
 
 ![Sample DS process walkthrough scenarios][8]
 
 ### Advanced Analytics in action Examples
 
-For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process using a public dataset, see: 
+For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see: 
 
 
-* [Advanced Analytics Process Technology in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-* [Advanced Analytics Process Technology in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
+* [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Advanced Analytics Process and Technology in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png

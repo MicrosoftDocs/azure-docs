@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Blob storage from .NET | Microsoft Azure" 
-	description="Learn how to use Microsoft Azure Blob storage to upload, download, list, and delete blob content. Samples are written in C#." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="adinah" 
+<properties
+	pageTitle="How to use Blob storage from .NET | Microsoft Azure"
+	description="Learn how to use Microsoft Azure Blob storage to upload, download, list, and delete blob content. Samples are written in C#."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="hero-article" 
+	ms.date="05/11/2015"
 	ms.author="tamram"/>
 
 
@@ -73,7 +73,7 @@ This example shows how to create a container if it does not already exist:
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Retrieve a reference to a container. 
+    // Retrieve a reference to a container.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
     // Create the container if it doesn't already exist.
@@ -86,8 +86,8 @@ to everyone, you can set the container to be public using the following
 code:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess = 
- 	    BlobContainerPublicAccessType.Blob }); 
+        new BlobContainerPermissions { PublicAccess =
+ 	    BlobContainerPublicAccessType.Blob });
 
 Anyone on the Internet can see blobs in a public container, but you can
 modify or delete them only if you have the appropriate access key.
@@ -118,24 +118,24 @@ or overwrite it if it does exist. The following example shows how to upload a bl
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
         blockBlob.UploadFromStream(fileStream);
-    } 
+    }
 
 ## List the blobs in a container
 
 To list the blobs in a container, first get a container reference. You
 can then use the container's **ListBlobs** method to retrieve the blobs and/or directories
-within it. To access the rich set of properties and methods for a 
-returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**, 
-**CloudPageBlob**, or **CloudBlobDirectory** object.  If the type is unknown, you can use a 
-type check to determine which to cast it to.  The following code 
-demonstrates how to retrieve and output the URI of each item in 
+within it. To access the rich set of properties and methods for a
+returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**,
+**CloudPageBlob**, or **CloudBlobDirectory** object.  If the type is unknown, you can use a
+type check to determine which to cast it to.  The following code
+demonstrates how to retrieve and output the URI of each item in
 the `photos` container:
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the blob client. 
+    // Create the blob client.
 	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
 	// Retrieve reference to a previously created container.
@@ -149,7 +149,7 @@ the `photos` container:
 			CloudBlockBlob blob = (CloudBlockBlob)item;
 
 			Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-                                        
+
 		}
 		else if (item.GetType() == typeof(CloudPageBlob))
 		{
@@ -161,7 +161,7 @@ the `photos` container:
 		else if (item.GetType() == typeof(CloudBlobDirectory))
 		{
 			CloudBlobDirectory directory = (CloudBlobDirectory)item;
-			
+
 			Console.WriteLine("Directory: {0}", directory.Uri);
 		}
 	}
@@ -186,7 +186,7 @@ When you call **ListBlobs** on the 'photos' container (as in the above sample), 
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to 
+Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to
 **true**. In this case, every blob in the container is returned as a **CloudBlockBlob** object. The call to **ListBlobs** to return a flat listing looks like this:
 
     // Loop over items within the container and output the length and URI.
@@ -230,7 +230,7 @@ contents to a stream object that you can then persist to a local file.
     using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
     {
         blockBlob.DownloadToStream(fileStream);
-    } 
+    }
 
 You can also use the **DownloadToStream** method to download the contents of a blob as a text string.
 
@@ -273,7 +273,7 @@ To delete a blob, first get a blob reference and then call the
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
 
     // Delete the blob.
-    blockBlob.Delete(); 
+    blockBlob.Delete();
 
 
 ## List blobs in pages asynchronously
@@ -297,7 +297,7 @@ Because the sample method calls an asynchronous method, it must be prefaced with
         //When the continuation token is null, the last page has been returned and execution can exit the loop.
         do
         {
-            //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter, 
+            //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
             //or by calling a different overload.
             resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
             if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
@@ -341,7 +341,7 @@ to learn about more complex storage tasks.
   [Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
-  
+
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx

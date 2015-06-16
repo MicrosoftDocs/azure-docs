@@ -4,8 +4,8 @@
 	services="storage" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
-	manager="adinah" 
-	editor=""/>
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # How to use Blob storage from Java

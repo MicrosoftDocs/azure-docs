@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="04/26/2015" 
 	ms.author="awills"/>
 
@@ -58,14 +58,12 @@ What you want | What to do | What you get
 
 ## <a name="video"></a>Videos
 
-#### Introduction
 
-> [AZURE.VIDEO application-insights-for-asp-net]
+> [AZURE.VIDEO 218]
 
-#### Get started
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
-> [AZURE.VIDEO get-application-insights-any-app-or-service]
-
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
 
 

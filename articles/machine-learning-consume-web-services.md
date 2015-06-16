@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to consume a Machine Learning web service that has been published from a Machine Learning experiment | Azure" 
+	pageTitle="Consume a Machine Learning web service | Microsoft Azure" 
 	description="Once a machine learning service is published, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service." 
 	services="machine-learning" 
 	solutions="big-data" 
@@ -18,7 +18,7 @@
 	ms.author="bradsev" />
 
 
-# How to consume a published Azure Machine Learning web service
+# How to consume an Azure Machine Learning web service that has been published from a Machine Learning experiment
 
 ## Introduction
 
@@ -38,8 +38,7 @@ An Azure Machine Learning web service can be consumed in two different ways, eit
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
-For information about how to create and publish an Azure Machine Learning web service, 
-see [Publish an Azure Machine Learning web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and publishing it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
+For information about how to create and publish an Azure Machine Learning web service, see [Publish an Azure Machine Learning web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and publishing it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
@@ -128,6 +127,7 @@ Similarly, the API response is also called out, again for this service specifica
 Towards the bottom of the page you will find the code examples. Below is the code sample for the C# implementation 
                    
 **Sample Code**
+
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
@@ -199,17 +199,26 @@ Towards the bottom of the page you will find the code examples. Below is the cod
 	}
 
 ### BES Example
-On the API help page, in addition to the URI, you will find information about several calls that are available. Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed. But it does not actually execute it before the API response is received. There are three things a developer can do with the BES service, which are described below.
+On the API help page, in addition to the URI, you will find information about several calls that are available. Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed. Here are the operations currently supported for batch jobs:
 
-1. Submit a Batch Execution job
-1. Get the status or result of a Batch Execution job
-1. Delete a Batch Execution Job  
+1. Create (submit) a batch job
+1. Start this batch job
+1. Get the status or result of the batch job
+1. Cancel a running batch job
 
-**1. Submit a Batch Execution job**
+**1. Create a Batch Execution Job**
 
-You submit a batch execution job by providing information about where the batch data is stored. For this example, we will assume the records we want batch scored are in a blob file in a storage account.
+When creating a batch job for your Azure Machine Learning service endpoint, one can specify several parameters that will define this batch execution:
 
-The response to a batch job is a job id, again, because the job is run asynchronously. We will use the job id to get the job status and results at a later time.
+* **Input**: represents a blob reference to where the batch job's input is stored.
+* **GlobalParameters**: represents the set of global parameters one can define for their experiment. An Azure Machine Learning experiment can have both required and optional parameters that customize the service's execution, and the caller is expected to provide all required parameters, if applicable. These parameters are specified as a collection of key-value pairs.
+* **Outputs**: if the service has defined one or more outputs, we allow the caller to redirect any of them to an Azure blob location of their choice. This will allow you to save the service's output(s) in a preferred location and under a predictable name, as otherwise the output blob name is randomly generated. **NOTE** that the service expects the output content, based on its type, to be saved as supported formats:
+  - data set outputs: can save as **.csv, .tsv, .arff**
+  - trained model outputs: can save as **.ilearner**
+  
+  Output location overrides are specified as a collection of *<output name, blob reference>* pairs, where the *output name* is the user defined name for a specific output node (also shown on the service's API help page), and *blob reference* is a reference to an Azure blob location where the output is to be redirected to.
+  
+All these job creation parameters can be optional depending on the nature of your service. For example, services with no input node defined, do not require passing in an *Input* parameter, and the output location override feature is completely optional, as outputs will otherwise be stored in the default storage account that was set up for your Azure Machine Learning workspace. Below, we show a sample request payload, as passed to the REST API, for a service where only the input information is passed in:
 
 **Sample Request**
 
@@ -221,256 +230,195 @@ The response to a batch job is a job id, again, because the job is run asynchron
 	    "BaseLocation": null,
 	    "SasBlobToken": null
 	  },
-	  "Output": null,
-	  "GlobalParameters": {}
+	  "Outputs": null,
+	  "GlobalParameters": null
 	}
 
+The response to the batch job creation API is the unique job id that was associated to your job. This id is very important because it provides the only means for you to reference this job in the system for other operations.  
+  
 **Sample Response**
 
 	"539d0bc2fde945b6ac986b851d0000f0" // The JOB_ID
 
-**Sample Code**
+**2. Start a Batch Execution Job**
 
-	// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
-	// Instructions for doing this in Visual Studio:
-	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.AspNet.WebApi.Client
-	
-	using System;
-	using System.Collections.Generic;
-	using System.Net.Http;
-	using System.Threading.Tasks;
-	using System.Net.Http.Headers;
-	
-	namespace CallBatchExecutionService
-	{
-	    internal class Program
-	    {
-	        private static void Main(string[] args)
-	        {
-	            InvokeBatchExecutionService().Wait();
-	        }
-	
-	        private static async Task InvokeBatchExecutionService()
-	        {
-	            // API Information
-	            const string BESUrl = "[BES URI]";
-	            const string ApiKey = "abc123"; 
-	            // The storage account information
-	            const string StorageAccountName = @"mystorageacct"; 
-	            const string StorageAccountKey = @"Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==";
-	            // Storage file with the batch of records
-	            const string StorageInputFile = @"/mycontainermydatablob.csv"; 
-	
-	
-	            String connString = String.Format(
-	                "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-	                StorageAccountName,
-	                StorageAccountKey);
-	
-	            BatchRequest request = new BatchRequest();
-	            request.Input.RelativeLocation = StorageInputFile;
-	            request.Input.ConnectionString = connString;
-	
-	            using (var client = new HttpClient())
-	            {
-	                client.BaseAddress = new Uri(BESUrl);
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
-	
-	                HttpResponseMessage response = await client.PostAsJsonAsync("", request);
-	                if (response.IsSuccessStatusCode)
-	                {
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    Console.WriteLine("Job ID: {0}", result);
-	                }
-	                else
-	                {
-	                    Console.WriteLine("Failed with status code: {0}", response.StatusCode);
-	                }
-	            }
-	        }
-	    }
-	
-	    public class BatchInput
-	    {
-	        public String ConnectionString { get; set; }
-	        public String RelativeLocation { get; set; }
-	        public String BaseLocation { get; set; }
-	        public String SasBlobToken { get; set; }
-	
-	        public BatchInput()
-	        {
-	            ConnectionString = null;
-	            RelativeLocation = null;
-	            BaseLocation = null;
-	            SasBlobToken = null;
-	        }
-	    }
-	
-	    public class BatchRequest
-	    {
-	        public BatchInput Input { get; set; }
-	
-	        public Object Output { get; set; }
-	
-	        public Dictionary<string, string> GlobalParameters { get; set; }
-	
-	        public BatchRequest()
-	        {
-	            this.GlobalParameters = new Dictionary<string, string>();
-	            Input = new BatchInput();
-	            Output = null;
-	        }
-	    }
-	}
-	
-**2. Get the status or result of a Batch Execution job**
+Creating a batch job only registers it within the system, and places it in a *Not started* state. To actually schedule the job for execution, you will have to call the **start** API described on the service endpoint's API help page and provide the job id obtained when the job was created.
+  
+**3. Get the Status of a Batch Execution Job**
 
-To get the result of a job, you must first have the job id, which was in the response to the job submission. There is no real input on this API call. It uses a slight change to the BES URI and the request method. Instead of a POST request, is uses a GET request following the URI defined on the API help page.
+You can poll the status of your asynchronous batch job at any time by passing the job's id to the GetJobStatus API. The API response will contain an indicator of the job's current state, as well as the actual results of the batch job if this has completed successfully. In the case of an error, more information about the actual reasons behind the failure are returned in the *Details* property.
  
-The response, however, is layered.
-
 **Response Payload**
 
 	{
 	    "StatusCode": STATUS_CODE,
-	    "Result": RESULT,
+	    "Results": RESULTS,
 	    "Details": DETAILS
 	}
 
-`StatusCode` may have a value of 0, 1, 2, 3 or 4 with the following semantics:
+*StatusCode* can be one of the following:
 
-* 0	Not started
-* 1	Running
-* 2	Failed
-* 3	Canceled
-* 4	Finished
+* Not started
+* Running
+* Failed
+* Cancelled
+* Finished
 
-If the job does not finished, `Result` is **null**. If the job is finished, `Result` would be of the form: 
+The *Results* property is populated only if the job has completed successfully (it is **null** otherwise). Upon the job's completion and if the service has at least one output node defined, the results will be returned as a collection of *[output name, blob reference]* pairs, where the blob reference is a SAS read-only reference to the blob containing the actual result. 
+
+**Sample Response**
 
 	{
-	  "ConnectionString": null,
-	  "RelativeLocation": "RELATIVE_LOCATION",
-	  "BaseLocation": "BASE_LOCATION",
-	  "SasBlobToken": "SAS_BLOB_TOKEN"
+	    "Status Code": "Finished",
+	    "Results":
+	    {
+	        "dataOutput":
+	        {              
+	            "ConnectionString": null,
+	            "RelativeLocation": "outputs/dataOutput.csv",
+	            "BaseLocation": "https://mystorageaccount.blob.core.windows.net/",
+	            "SasBlobToken": "?sv=2013-08-15&sr=b&sig=ABCD&st=2015-04-04T05%3A39%3A55Z&se=2015-04-05T05%3A44%3A55Z&sp=r"              
+	        },
+	        "trainedModelOutput":
+	        {              
+	            "ConnectionString": null,
+	            "RelativeLocation": "models/trainedModel.ilearner",
+	            "BaseLocation": "https://mystorageaccount.blob.core.windows.net/",
+	            "SasBlobToken": "?sv=2013-08-15&sr=b&sig=EFGH%3D&st=2015-04-04T05%3A39%3A55Z&se=2015-04-05T05%3A44%3A55Z&sp=r"              
+	        },           
+	    },
+	    "Details": null
 	}
 
-Details shows the error details, if any .
+**4. Cancel a Batch Execution Job**
 
-**Sample Code**
+A running batch job can be cancelled at any time by calling the designated CancelJob API and passing in the job's id. This would be done for various reasons such as that the job is taking too long to complete. 
 
-	// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
+The code sample below demonstrates how one can submit and monitor a batch job against an Azure Machine Learning service endpoint:
+
+#### **Sample Code**
+
+	// This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
 	// Instructions for doing this in Visual Studio:
 	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.AspNet.WebApi.Client
-	//
-	// Also, add a reference to Microsoft.WindowsAzure.Storage.dll for reading from and writing to the Azure blob storage
+	// Install-Package Microsoft.Azure.MachineLearning 
 	
-	using System;
-	using System.IO;
-	using System.Net.Http;
-	using System.Net.Http.Headers;
-	using System.Threading.Tasks;
-	using Newtonsoft.Json;
-	
-	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Auth;
-	using Microsoft.WindowsAzure.Storage.Blob;
+	  using System;
+	  using System.Collections.Generic;
+	  using System.Threading.Tasks;
+	  
+	  using Microsoft.Azure.MachineLearning;
+	  using Microsoft.Azure.MachineLearning.Contracts;
+	  using Microsoft.Azure.MachineLearning.Exceptions;
 	
 	namespace CallBatchExecutionService
 	{
 	    class Program
 	    {
 	        static void Main(string[] args)
-	        {
-	            String jobId = "123";
-	            InvokeBatchExecutionService(jobId).Wait();
+	        {	            
+	            InvokeBatchExecutionService().Wait();
 	        }
 	
-	        static async Task InvokeBatchExecutionService(String JobId)
+	        static async Task InvokeBatchExecutionService()
 	        {
-	            Console.WriteLine(String.Format("Getting job status for job {0}", JobId));
+	            // First collect and fill in the URI and access key for your web service endpoint.
+	            // These are available on your service's API help page.
+	            var endpointUri = "https://ussouthcentral.services.azureml.net/workspaces/YOUR_WORKSPACE_ID/services/YOUR_SERVICE_ENDPOINT_ID/";
+	            string accessKey = "YOUR_SERVICE_ENDPOINT_ACCESS_KEY";
 	
-	            // BES Information
-	            const string BaseUrl = @"[BES Job Id]/{0}";
-	            const string ApiKey = "abc123"; 
-	            // Replace this with the location you would like to use for your output file
-	            const string OutputFileLocation = @"myresults.csv"; 
+	            // Create an Azure Machine Learning runtime client for this endpoint
+	            var runtimeClient = new RuntimeClient(endpointUri, accessKey);
 	
-	            using (var client = new HttpClient())
+	            // Define the request information for your batch job. This information can contain:
+	            // -- A reference to the AzureBlob containing the input for your job run
+	            // -- A set of values for global parameters defined as part of your experiment and service
+	            // -- A set of output blob locations that allow you to redirect the job's results
+	
+	            // NOTE: This sample is applicable, as is, for a service with explicit input port and
+	            // potential global parameters. Also, we choose to also demo how you could override the
+	            // location of one of the output blobs that could be generated by your service. You might 
+	            // need to tweak these features to adjust the sample to your service.
+	            //
+	            // All of these properties of a BatchJobRequest shown below can be optional, depending on
+	            // your service, so it is not required to specify all with any request.  If you do not want to
+	            // use any of the parameters, a null value should be passed in its place.
+	
+	            // Define the reference to the blob containing your input data. 
+	            // This reference can be defined either based on a SAS uri as show below, or the
+	            // connection string / container / blob name values.
+	            BlobReference inputBlob = BlobReference.CreateFromSasBlobUri(new Uri("YOUR_CUSTOM_OUTPUT_BLOB_SAS_URI", UriKind.Absolute));
+	              
+	            // If desired, one can override the location where the job outputs are to be stored. We can also build
+	            // a BlobReference by passing in the storage account details and name of the blob where we want the output
+	            // to be redirected to.
+	            var outputLocations = new Dictionary<string, BlobReference>
 	            {
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
-	
-	                HttpResponseMessage response = await client.GetAsync(String.Format(BaseUrl, JobId));
-	                if (response.IsSuccessStatusCode)
 	                {
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    BatchResponseStructure responseStruct = JsonConvert.DeserializeObject<BatchResponseStructure>(result);
+	                    "YOUR_OUTPUT_NODE_NAME", 
+	                    BlobReference.CreateFromConnectionStringData(
+	                      connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
+	                      containerName: "YOUR_CONTAINER_NAME",
+	                      blobName: "YOUR_BLOB.csv");
+	                }
+	            };
+	            
+	            // If applicable, you can also set the global parameters for your service
+	            var globalParameters = new Dictionary<string, string>
+	            {
+	                { "YOUR_GLOBAL_PARAMETER", "PARAMETER_VALUE" }
+	            };
+	                
+	            var jobRequest = new BatchJobRequest
+	            {
+	                Input = inputBlob,
+	                GlobalParameters = globalParameters,
+	                Outputs = outputLocations
+	            };
 	
-	                    switch (responseStruct.StatusCode)
+	            try
+	            {
+	                // Register the batch job with the system, which will grant you access to a job object
+	                BatchJob job = await runtimeClient.RegisterBatchJobAsync(jobRequest);
+	
+	                // Start the job to allow it to be scheduled in the running queue
+	                await job.StartAsync();
+	
+	                // Wait for the job's completion and handle the output
+	                BatchJobStatus jobStatus = await job.WaitForCompletionAsync();
+	                if (jobStatus.JobState == JobState.Finished)
+	                {
+	                    // Process job outputs
+	                    Console.WriteLine(@"Job {0} has completed successfully and returned {1} outputs", job.Id, jobStatus.Results.Count);
+	                    foreach (var output in jobStatus.Results)
 	                    {
-	                        case (int)BatchScoreStatusCode.NotStarted:
-	                            Console.WriteLine("Not started...");
-	                            break;
-	                        case (int)BatchScoreStatusCode.Running:
-	                            Console.WriteLine("Running...");
-	                            break;
-	                        case (int)BatchScoreStatusCode.Failed:
-	                            Console.WriteLine("Failed!");
-	                            Console.WriteLine(string.Format(@"Error details: {0}", status.Details));
-	                            break;
-	                        case (int)BatchScoreStatusCode.Cancelled:
-	                            Console.WriteLine("Cancelled!");
-	                            break;
-	                        case (int)BatchScoreStatusCode.Finished:
-	                            Console.WriteLine("Finished!");
-	                            var credentials = new StorageCredentials(status.Result.SasBlobToken);
-	                            var cloudBlob = new CloudBlockBlob(new Uri(new Uri(responseStruct.Result.BaseLocation), 
-	                                                                                               responseStruct.Result.RelativeLocation), credentials);
-	                            cloudBlob.DownloadToFile(OutputFileLocation, FileMode.Create);
-	                            Console.WriteLine(string.Format(@"The results have been written to the file {0}", OutputFileLocation));
-	                            break;
+	                        Console.WriteLine(@"\t{0}: {1}", output.Key, output.Value.AbsoluteUri);
 	                    }
 	                }
-	                else
+	                else if (jobStatus.JobState == JobState.Failed)
 	                {
-	                    Console.WriteLine(String.Format("Batch Result : Failed with status code: {0}", response.StatusCode));
+	                    // Handle job failure
+	                    Console.WriteLine(@"Job {0} has failed with this error: {1}", job.Id, jobStatus.Details);
 	                }
+	            }
+	            catch (ArgumentException aex)
+	            {
+	                Console.WriteLine("Argument {0} is invalid: {1}", aex.ParamName, aex.Message);
+	            }
+	            catch (RuntimeException runtimeError)
+	            {
+	                Console.WriteLine("Runtime error occurred: {0} - {1}", runtimeError.ErrorCode, runtimeError.Message);
+	                Console.WriteLine("Error details:");
+	                foreach (var errorDetails in runtimeError.Details)
+	                {
+	                    Console.WriteLine("\t{0} - {1}", errorDetails.Code, errorDetails.Message);
+	                }
+	            }
+	            catch (Exception ex)
+	            {
+	                Console.WriteLine("Unexpected error occurred: {0} - {1}", ex.GetType().Name, ex.Message);
 	            }
 	        }
 	    }
-	
-	    public enum BatchScoreStatusCode : int
-	    {
-	        NotStarted = 0,
-	        Running = 1,
-	        Failed = 2,
-	        Cancelled = 3,
-	        Finished = 4
-	    }
-	
-	    public class BatchResult
-	    {
-	        public String ConnectionString { get; set; }
-	        public String RelativeLocation { get; set; }
-	        public String BaseLocation { get; set; }
-	        public String SasBlobToken { get; set; }
-	    }
-	
-	    public class BatchResponseStructure
-	    {
-	        public int StatusCode { get; set; }
-	        public BatchResult Result { get; set; }
-	        public String Details { get; set; }
-	        public BatchResponseStructure()
-	        {
-	            this.Result = new BatchResult();
-	        }
-	    }
 	}
-
-**3. Delete a Batch Execution Job**              
-A job can also be deleted once it has started. This would be done for various reasons such as that the job is taking too long to complete. To delete a job, you must first have the job id, which was contained in the response to the job submission.
-
-There is no real input on this API call. A slight change to the BES URI and the request method. Instead of a POST request, it uses a DELETE request following the URI defined on the API help page. The code sample for this is very straightforward.
 

@@ -244,6 +244,36 @@ In this section you change the code in the ContactsList API app so that it retri
 
 1. In Visual Studio, open the API app project that you deployed in [Deploy an API app](app-service-dotnet-deploy-api-app.md) and have been calling for this tutorial.
 
+3. Open the apiapp.json file, and add a line that indicates the API app uses Azure Active Directory authentication.
+
+		"authentication": [{"type": "aad"}]
+
+	The final apiapp.json file will resemble the following example:
+
+		{
+		    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+		    "id": "ContactsList",
+		    "namespace": "microsoft.com",
+		    "gateway": "2015-01-14",
+		    "version": "1.0.0",
+		    "title": "ContactsList",
+		    "summary": "",
+		    "author": "",
+		    "endpoints": {
+		        "apiDefinition": "/swagger/docs/v1",
+		        "status": null
+		    },
+		    "authentication": [{"type": "aad"}]
+		}
+
+	This tutorial uses Azure Active Directory as an example. For other providers you would use the appropriate identifier. Here are the valid provider values:
+
+	* "aad"
+	* "microsoftaccount"
+	* "google"
+	* "twitter"
+	* "facebook". 
+
 2. In the *ContactsController.cs* file, replace the code  in the `Get` method with the following code.
 
 		var runtime = Runtime.FromAppSettings(Request);
@@ -258,13 +288,7 @@ In this section you change the code in the ContactsList API app so that it retri
 
 	Instead of the three sample contacts, the code returns contact information for the logged-on user. 
 
-	The sample code uses Azure Active Directory. For other providers you would use the appropriate token name and claims identifiers. Here are the valid token name values:
-
-	* "aad"
-	* "microsoftaccount"
-	* "google"
-	* "twitter"
-	* "facebook". 
+	The sample code uses Azure Active Directory. For other providers you would use the appropriate token name and claims identifier as shown in the previous step.
 
 	For information about Azure Active Directory claims that are available, see [Supported Token and Claim Types](https://msdn.microsoft.com/library/dn195587.aspx).
 
@@ -288,4 +312,5 @@ You've seen how to protect an Azure API app by requiring Azure Active Directory 
 
 [Azure portal]: https://manage.windowsazure.com/
 [Azure preview portal]: https://portal.azure.com/
+
 

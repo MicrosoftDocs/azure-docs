@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
+	ms.date="06/08/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Command-line Interface (Azure CLI)
@@ -22,7 +22,7 @@ Learn how to use the Azure CLI to manage Hadoop clusters in Azure HDInsight. The
 
 The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>.
 
-This article covers only using the Azure CLI from Windows. For a general guide on how to use Azure CLI, see [How to use the Azure CLI] [azure-command-line-tools].
+This article covers only using the Azure CLI with HDInsight. For a general guide on how to use Azure CLI, see [How to use the Azure CLI] [azure-command-line-tools].
 
 
 ##Prerequisites
@@ -31,63 +31,11 @@ Before you begin this article, you must have the following:
 
 - **Azure subscription** - Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
+- **Azure CLI** - See [Install and configure the Azure CLI](xplat-cli.md) for installation and configuration information.
+
 ##Installation
-The command-line interface can be installed via *Node.js Package Manager (NPM)* or Windows Installer.
 
-**To install the command-line interface by using NPM**
-
-1.	Browse to **www.nodejs.org**.
-2.	Click **INSTALL** and follow the instructions, using the default settings.
-3.	Open **Command Prompt** (or **Azure Command Prompt**, or **Developer Command Prompt for VS2012**) from your workstation.
-4.	Run the following command in the command prompt window:
-
-		npm install -g azure-cli
-
-	> [AZURE.NOTE] If you get an error saying the NPM command is not found, verify that the following paths are in the **PATH** environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
-
-
-5.	Run the following command to verify the installation:
-
-		azure hdinsight -h
-
-	You can use the **-h** switch at different levels to display the help information. For example:
-
-		azure -h
-		azure hdinsight -h
-		azure hdinsight cluster -h
-		azure hdinsight cluster create -h
-
-**To install the command-line interface by using Windows Installer**
-
-1.	Browse to **http://azure.microsoft.com/downloads/**.
-2.	Scroll down to the **Command line tools** section, and then click **Azure Command-Line Interface** and follow the Web Platform Installer wizard.
-
-##Download and import an Azure account publishsettings file
-
-Before using the Azure CLI, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the Azure CLI will use for subsequent operations. You need to import your publishsettings file only once.
-
-> [AZURE.NOTE] The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. In Windows, modify the folder properties or use BitLocker Drive Encryption.
-
-
-**To download and import the publishsettings file**
-
-1.	Open a command prompt.
-2.	Run the following command to download the publishsettings file:
-
-		azure account download
-
-	![Azure CLI downloading Azure account.][image-cli-account-download-import]
-
-	The command shows the instructions for downloading the file, including a URL.
-
-3.	Open Internet Explorer and browse to the URL listed in the command prompt window.
-4.	Click **Save** to save the file to the workstation.
-5.	From the command prompt window, run the following command to import the publishsettings file:
-
-		azure account import <file>
-
-	In the previous screenshot, the publishsettings file was saved to the C:\HDInsight folder on the workstation.
-
+If you have not already done so, use the [Install and configure the Azure CLI](xplat-cli.md) document to install and configure the Azure CLI.
 
 ##Provision an HDInsight cluster
 

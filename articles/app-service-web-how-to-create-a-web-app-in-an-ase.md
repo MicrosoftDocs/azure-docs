@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="How to Create a Web App in an App Service Environment" 
-	description="Creation flow for web apps and app service plans examined for an app service environment" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="stefsch" 
+<properties
+	pageTitle="How to Create a Web App in an App Service Environment"
+	description="Creation flow for web apps and app service plans examined for an app service environment"
+	services="app-service\web"
+	documentationCenter=""
+	authors="ccompy"
+	manager="stefsch"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/27/2015"
 	ms.author="ccompy"/>
 
 # How to Create a Web App in an App Service Environment #
 
-Creating web apps is nearly the same in an App Service Environments (ASE) as it is normally.  If you are unfamiliar with the App Service Environment capability then read the document here [What is an App Service Environment](app-service-app-service-environment-intro.md). 
+Creating web apps is nearly the same in an App Service Environments (ASE) as it is normally.  If you are unfamiliar with the App Service Environment capability then read the document here [What is an App Service Environment](app-service-app-service-environment-intro.md).
 
 To create an web app in an ASE you need to first start by having an ASE.   For details around creating an ASE read the document here: [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -27,13 +27,13 @@ The first step to creating a web app is creating or selecting an App Service Pla
 ![][1]
 
 
-If you are using an App Service Plan that you have already created in your App Service Environment, select that plan, enter the name for your web app and select Create.  It's the same flow as when you create a web app normally.  The major difference here is that your web app will be reached at: 
+If you are using an App Service Plan that you have already created in your App Service Environment, select that plan, enter the name for your web app and select Create.  It's the same flow as when you create a web app normally.  The major difference here is that your web app will be reached at:
 
 [*sitename*].[*name of your App Service Environment*].p.azurewebsites.net
- 
-instead of 
 
-[*sitename*].azurewebsites.net   
+instead of
+
+[*sitename*].azurewebsites.net
 
 For now, your web app name needs to be unique across the entire Azure App Service.  This means you if you want to create a web app named "thisismywebapp" then there currently cannot be any other web app named "thisismywebapp" in the Azure App Service.  
 
@@ -41,17 +41,17 @@ For now, your web app name needs to be unique across the entire Azure App Servic
 
 App Service Plans are a managed set of your web apps.  When you select pricing, the price charged is applied to the App Service Plan rather than to the individual apps.  To scale up the number of instances of a web app you scale up the instances of your ASP and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  You can learn more about App Service Plans from the document here: [Azure App Service plans in-depth](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-If you are making a new App Service Plan, there are some differences to creating an ASP in an App Service Environment.  Among other things, your worker choices are different as there are no shared workers in an App Service Environment.  The workers you have to use are the ones that have been allocated to the App Service Environment by the admin.  This means that to create a new ASP, you need to have more workers allocated to your App Service Environment than the total number of instances across all of your ASPs in your App Service Environment.  If you don't have enough workers in your App Service Environment to create your ASP, you need to work with your App Service Environment admin to get them added.    
+If you are making a new App Service Plan, there are some differences to creating an ASP in an App Service Environment.  Among other things, your worker choices are different as there are no shared workers in an App Service Environment.  The workers you have to use are the ones that have been allocated to the App Service Environment by the admin.  This means that to create a new ASP, you need to have more workers allocated to your App Service Environment than the total number of instances across all of your ASPs in your App Service Environment.  If you don't have enough workers in your App Service Environment to create your ASP, you need to work with your App Service Environment admin to get them added.
 
 Another difference with App Service Environment hosted ASPs is the lack of pricing selection.  When you have an App Service Environment you are paying compute resources used by the system and do not have added charges for the ASPs in that environment.  Normally when you create an ASP you select a pricing plan which determines your billing.  An App Service Environment is essentially a private location where you can create content.  You pay for the environment and not to host your content.
 
 ### Selecting your App Service Environment ###
 
-Because an App Service Environment is essentially a private deployment location, you start by selecting the ASE you wish to use from your location picker. 
+Because an App Service Environment is essentially a private deployment location, you start by selecting the ASE you wish to use from your location picker.
 
 ![][2]
 
-After selection the UI will update and replace the pricing plan picker with a worker pool picker.  The location shows the name of the ASE system and the region it is in.  Under the URL the domain name for the ASE replaces the normally present .azurewebsites.net with the name of the App Service Environment.    
+After selection the UI will update and replace the pricing plan picker with a worker pool picker.  The location shows the name of the ASE system and the region it is in.  Under the URL the domain name for the ASE replaces the normally present .azurewebsites.net with the name of the App Service Environment.
 
 ![][3]
 

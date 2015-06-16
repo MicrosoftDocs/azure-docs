@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Deploy your on-premises StorSimple device"
    description="Steps and best practices for deploying the StorSimple device and service."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device
 
@@ -23,15 +23,15 @@
 
 Welcome to Microsoft Azure StorSimple device deployment.
 
-These deployment tutorials apply to StorSimple 8000 Series Release Version, Update 0.1, Update 0.2, and Update 0.3.
+These deployment tutorials apply to StorSimple 8000 Series Release Version, StorSimple 8000 Series Update 0.1, StorSimple 8000 Series Update 0.2, and StorSimple 8000 Series Update 0.3.
 
-This series of tutorials describes how to configure your StorSimple devices, and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
+This series of tutorials describes how to configure your StorSimple device, and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
 
 > [AZURE.NOTE] The StorSimple deployment information published on the Microsoft Azure website and in the MSDN Library applies to StorSimple 8000 series devices only. For complete information about the 7000 series devices, go to: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). For 7000 series deployment information, see the [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/).
 
 The information in these tutorials assumes that you have reviewed the safety precautions and configuration checklist, and unpacked, racked, and cabled your StorSimple device. If you still need to perform those tasks, go to  [Safety precautions](https://msdn.microsoft.com/library/azure/dn772366.aspx), [Configuration checklist](https://msdn.microsoft.com/library/azure/dn757787.aspx), and [Hardware installation of your device](https://msdn.microsoft.com/library/azure/dn772375.aspx), as appropriate.
 
-You will need administrator privileges to complete the setup and configuration process. We recommend that you review the pre-installation checklist before you begin. The deployment and configuration process can take some time to complete. 
+You will need administrator privileges to complete the setup and configuration process. We recommend that you review the pre-installation checklist before you begin. The deployment and configuration process can take some time to complete.
 
 ## Pre-installation checklist
 
@@ -40,7 +40,7 @@ The following pre-installation checklist describes the information that you need
 |   | Requirements          | Details                | Values        |
 |---| --------------------- | ---------------------- | ------------- |
 | 1 | Friendly name for your device | A descriptive name for the device | |
-| 2 | Network settings <ol><li>Device IP address</li><li>Network interfaces, 4x1 GbE, 2x10 GbE</li><li>Fixed controller IP</li><li>Subnet masks</li><li>Gateway</li></ol> | Total IPs required: 8 <ol><li>One per device</li><li>One per network interface enabled, total 6</li><li>One per controller, total 2</li><li>One for each IP address</li><li>One per device</li></ol> | |
+| 2 | Network settings <ol><li>Network interfaces, 4x1 GbE, 2x10 GbE</li><li>Fixed controller IP</li><li>Subnet masks</li><li>Gateway</li></ol> | Total IPs required: 8 <ol><li>One per network interface enabled, total 6</li><li>One per controller, total 2</li><li>One for each IP address</li><li>One per device</li></ol> | |
 | 3 | Serial access         | Initial device configuration | Yes/No |
 | 4 | DNS server IP addresses | Required to connect to Microsoft Azure: total of 2 required for high availability | |
 | 5 | NTP server IP addresses | Required to synchronize time with Azure: 1 required, 1 optional | |
@@ -79,13 +79,13 @@ Before configuring the device, make sure that:
 
 Follow these required steps to configure your StorSimple device and connect it to your StorSimple Manager service:
 
-- Step 1: Create a new service 
+- Step 1: Create a new service
 - Step 2: Get the service registration key
-- Step 3: Configure and register the device through Windows PowerShell for StorSimple 
+- Step 3: Configure and register the device through Windows PowerShell for StorSimple
 - Step 4: Complete minimum device setup
-- Step 5: Create a volume container 
+- Step 5: Create a volume container
 - Step 6: Create a volume
-- Step 7: Mount, initialize, and format a volume 
+- Step 7: Mount, initialize, and format a volume
 - Step 8: Take a backup
 
 In addition to the required steps, there are a few optional steps that you might need to complete as you deploy your solution. These optional steps explain how to:
@@ -104,9 +104,9 @@ A StorSimple Manager service can manage multiple StorSimple devices. Perform the
 
 [AZURE.INCLUDE [storsimple-create-new-service](../includes/storsimple-create-new-service.md)]
 
-> [AZURE.IMPORTANT] If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service. This storage account will be used when you create a volume container. 
+> [AZURE.IMPORTANT] If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service. This storage account will be used when you create a volume container.
 >
-> * If you did not create a storage account automatically, go to [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service) for detailed instructions. 
+> * If you did not create a storage account automatically, go to [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service) for detailed instructions.
 > * If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2:-get-the-service-registration-key).
 
 ## Step 2: Get the service registration key
@@ -126,7 +126,7 @@ Use Windows PowerShell for StorSimple to complete the initial setup of your Stor
 
 ## Step 4: Complete minimum device setup
 
-For the minimum device configuration of your StorSimple device, you are required to: 
+For the minimum device configuration of your StorSimple device, you are required to:
 
 - Set up the secondary DNS server.
 - Enable iSCSI on at least one network interface.
@@ -138,7 +138,7 @@ Perform the following steps in the Management Portal to complete the minimum dev
 
 ## Step 5: Create a volume container
 
-A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it. You will need to create a volume container before you can start provisioning volumes on your StorSimple device. 
+A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it. You will need to create a volume container before you can start provisioning volumes on your StorSimple device.
 
 Perform the following steps in the Management Portal to create a volume container.
 
@@ -148,7 +148,7 @@ Perform the following steps in the Management Portal to create a volume containe
 
 After you create a volume container, you can provision a storage volume on the StorSimple device for your servers. Perform the following steps in the Management Portal to create a volume.
 
-> [AZURE.IMPORTANT] Azure StorSimple can create only thinly provisioned volumes.  You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system. 
+> [AZURE.IMPORTANT] Azure StorSimple can create only thinly provisioned volumes.  You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system.
 
 [AZURE.INCLUDE [storsimple-create-volume](../includes/storsimple-create-volume.md)]
 
@@ -160,13 +160,13 @@ Perform these steps on your Windows Server host.
 
 ## Step 8: Take a backup
 
-Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times. You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots. Each of these backup types can be **Scheduled** or **Manual**. 
+Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times. You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots. Each of these backup types can be **Scheduled** or **Manual**.
 
 Perform the following steps in the Management Portal to create a scheduled backup.
 
 [AZURE.INCLUDE [storsimple-take-backup](../includes/storsimple-take-backup.md)]
 
-You can take a manual backup at any time. For procedures, go to [Create a manual backup](#Create-a-manual-backup). 
+You can take a manual backup at any time. For procedures, go to [Create a manual backup](#Create-a-manual-backup).
 
 ## Configure a new storage account for the service
 
@@ -199,9 +199,9 @@ Perform the following steps in the Management Portal to create an on-demand manu
 
 ## Configure MPIO
 
-Multipath I/O (MPIO) is an optional feature and is not installed on Windows Server by default. It should be installed as a feature through Server Manager. 
+Multipath I/O (MPIO) is an optional feature and is not installed on Windows Server by default. It should be installed as a feature through Server Manager.
 
-> [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device. 
+> [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device.
 
 For MPIO installation instructions, go to [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
 

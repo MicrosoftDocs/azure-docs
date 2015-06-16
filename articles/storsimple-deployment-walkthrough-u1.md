@@ -3,7 +3,7 @@
    description="Steps and best practices for deploying the StorSimple Update 1 device and service."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device
 
@@ -39,7 +39,7 @@ The following pre-installation checklist describes the information that you need
 
 |   | Requirements          | Details                | Values        |
 |---| --------------------- | ---------------------- | ------------- |
-| 1 | Network settings <ol><li>Device IP address</li><li>Network interfaces, 4x1 GbE, 2x10 GbE</li><li>Fixed controller IP</li><li>Subnet masks</li><li>Gateway</li></ol> | Total IPs required: 8 <ol><li>One per device</li><li>One per network interface enabled, total 6</li><li>One per controller, total 2, required to connect to the Internet to service updates</li><li>One for each IP address</li><li>One per device</li></ol> | |
+| 1 | Network settings <ol><li>Network interfaces, 4x1 GbE, 2x10 GbE</li><li>Fixed controller IP</li><li>Subnet masks</li><li>Gateway</li></ol> | Total IPs required: 8 <ol><li>One per network interface enabled, total 6</li><li>One per controller, total 2, required to connect to the Internet to service updates</li><li>One for each IP address</li><li>One per device</li></ol> | |
 | 2 | Serial access         | Initial device configuration | Yes/No |
 | 3 | DNS server IP addresses | Required to connect to Microsoft Azure: total of 2 required for high availability | |
 | 4 | NTP server IP addresses | Required to synchronize time with Azure: 1 required, 1 optional | |

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Troubleshoot with monitoring indicators"
+    pageTitle="StorSimple monitoring indicators"
     description="Describes the LEDs and alarms used to monitor the status of the StorSimple device."
     services="storsimple"
     documentationCenter="NA"
@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/07/2015"
+    ms.date="06/11/2015"
     ms.author="v-sharos" />
 
-# Troubleshoot with monitoring indicators   
+# StorSimple monitoring indicators   
 
 ## Overview
 

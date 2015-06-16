@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use CDN - Azure feature guide" 
-	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="zhangmanling" 
-	manager="dwrede" 
+<properties
+	pageTitle="How to use CDN - Azure feature guide"
+	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content."
+	services="cdn"
+	documentationCenter=".net"
+	authors="zhangmanling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article" 
+	ms.date="05/05/2015"
 	ms.author="mazha"/>
 
 
@@ -35,7 +35,7 @@ Existing CDN customers can now use the Azure CDN in the [Azure Management Portal
 ## Step 1: Create a storage account
 
 Use the following procedure to create a new storage account for a
-Azure subscription. A storage account gives access to 
+Azure subscription. A storage account gives access to
 Azure storage services. The storage account represents the highest level
 of the namespace for accessing each of the Azure storage service
 components: Blob services, Queue services, and Table services. For more
@@ -68,7 +68,7 @@ Azure Service Management API, see the [Create Storage Account](http://msdn.micro
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
 
     **Important:** The URL label forms the subdomain of the storage
-    account URI and must be unique among all hosted services in 
+    account URI and must be unique among all hosted services in
     Azure.
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
@@ -96,14 +96,14 @@ when the cached content time-to-live period expires.
 
 2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
 
-3. In the **Origin Domain** dropdown, select the storage account you created in the previous section from the list of your available storage accounts. 
+3. In the **Origin Domain** dropdown, select the storage account you created in the previous section from the list of your available storage accounts.
 
 4. Click the **Create** button to create the new endpoint.
 
-5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
+5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain.
 
 	The origin domain is the location from which the CDN caches
-    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/library/gg680306.aspx) for more information. 
+    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/library/gg680306.aspx) for more information.
 
 
     > [AZURE.NOTE] The configuration created for the endpoint will not
@@ -139,7 +139,7 @@ expires, the CDN will check to see whether the CDN endpoint is still
 valid and the object still anonymously accessible. If it is not, then
 the object will no longer be cached.
 
-The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](http://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
+The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](http://azure.microsoft.com/support/options/)  if you need to immediately purge content.
 
 ## Additional resources
 
@@ -159,4 +159,3 @@ The ability to immediately purge content is currently not supported on Azure Man
 
 
 [create-new-storage-account]: ./media/cdn-how-to-use/CDN_CreateNewStorageAcct.png
-

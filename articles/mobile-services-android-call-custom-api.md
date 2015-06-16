@@ -44,9 +44,9 @@ You will add this functionality to the app that you created when you completed e
 
 ## Next steps
 
-Now that you have created a custom API and called it from your Android app, consider finding out more about the following Mobile Services topics:
+This topic showed how to use the **invokeApi** method to call a fairly simple custom API from your Android app. To learn more about using the **invokeApi** method, see the post [Custom API in Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).  
 
-
+Also, consider finding out more about the following Mobile Services topics:
 
 * [Mobile Services server script reference]
   <br/>Learn more about creating custom APIs.

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="05/28/2015" 
 	ms.author="jgao"/>
 
-#Analyze flight delay data by using Hadoop in HDInsight
+#Analyze flight delay data by using Hive in HDInsight
 
 Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data. 
 
@@ -42,14 +42,14 @@ The main portion of the tutorial shows you how to use one Windows PowerShell scr
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.
 
 
-##<a id="prerequisite"></a>Prerequisites
+###Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
 * A workstation with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 * An Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-###Understand HDInsight storage
+**Understand HDInsight storage**
 
 Hadoop clusters in HDInsight use Azure Blob storage for data storage. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
@@ -91,7 +91,7 @@ The following table lists the files used in this tutorial:
 
 
 
-###Understand the Hive internal table and external table
+**Understand the Hive internal table and external table**
 
 There are a few things you need to know about the Hive internal table and external table:
 

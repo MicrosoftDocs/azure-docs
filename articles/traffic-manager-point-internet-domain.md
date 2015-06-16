@@ -6,10 +6,10 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/27/2015"
@@ -21,7 +21,7 @@ To point your company domain name to a Traffic Manager domain name, modify the D
 
 For example, to point the company domain name **www.contoso.com** to the Traffic Manager domain name **contoso.trafficmanager.net**, you would update your DNS resource record to be the following:
 
-    www.contoso.com IN CNAME contoso.trafficmanager.net 
+    www.contoso.com IN CNAME contoso.trafficmanager.net
 
 All traffic requests to *www.contoso.com* will now be directed to *contoso.trafficmanager.net*.
 

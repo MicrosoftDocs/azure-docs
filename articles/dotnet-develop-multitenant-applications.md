@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/19/2014"
+	ms.date="06/05/2015"
 	ms.author="wpickett"/>
 
 # Multitenant Applications in Azure

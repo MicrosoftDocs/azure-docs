@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Accessing Azure Active Directory Graph Information
@@ -59,7 +59,7 @@ In this section, you will create the GetUserInfo custom API that will use the Az
 If you've never used custom APIs with Mobile Services, refer to the [Custom API Tutorial] before completing this section.
 
 1. In Visual Studio, right click mobile service .NET backend project and click **Manage NuGet Packages**.
-2. In the NuGet Package Manager dialog, enter **ADAL** in the search criteria to find and install the **Active Directory Authentication Library** for your mobile service. This tutorial was most recently tested with the 3.0.110281957-alpha (Prerelease) version of the ADAL package.
+2. In the NuGet Package Manager dialog, enter **ADAL** in the search criteria to find and install the **Active Directory Authentication Library** for your mobile service. This tutorial was most recently tested with the 3.3.205061641-alpha (Prerelease) version of the ADAL package.
 
 
 3. In Visual Studio, right click the **Controllers** folder for the mobile service project and click **Add** to add a new **Microsoft Azure Mobile Services Custom Controller** named `GetUserInfoController`. The client will call this API to get user information from the Active Directory.

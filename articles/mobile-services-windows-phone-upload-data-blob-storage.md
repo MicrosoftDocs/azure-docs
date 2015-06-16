@@ -2,8 +2,7 @@
 	pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" 
 	description="Learn how to use Mobile Services to upload images to Azure Blob Storage." 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
-	writer="wesmc" 
+	authors="ggailey777" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="wesmc"/>
+	ms.date="06/04/2015" 
+	ms.author="glenga"/>
 
 # Upload images to Azure Storage by using Mobile Services
 
@@ -49,7 +48,7 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
 2. In the left pane, select the **Online** category, select **Include Prerelease**, search for **WindowsAzure.Storage-Preview**, click **Install** on the **Azure Storage** package, then accept the license agreements. 
 
-  	![][2]
+  	![Add Azure Storage NuGet](./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
   	This adds the client library for Azure storage services to the project.
 
@@ -77,6 +76,8 @@ Now that you have been able to securely upload images by integrating your mobile
 
   Learn how to use the Mobile Services job scheduler functionality to define server script code that is executed on a schedule that you define.
 
+##See also
+
 + [Mobile Services server script reference]
 
   Reference topics for using server scripts to perform server-side tasks and integration with other Azure components and external resources.
@@ -85,32 +86,18 @@ Now that you have been able to securely upload images by integrating your mobile
 
   Learn more about how to use Mobile Services with .NET
   
- 
-
 <!-- Images. -->
 
-
-[2]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-
-
-[5]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
-[6]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-wp8.png
-[7]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
-[8]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-save-wp8.png
-[9]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-final-wp8.png
-
-[11]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png
-
 <!-- URLs. -->
-[Send email from Mobile Services with SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
-[Schedule backend jobs in Mobile Services]: /develop/mobile/tutorials/schedule-backend-tasks/
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Send email from Mobile Services with SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
+[Schedule backend jobs in Mobile Services]: mobile-services-schedule-recurring-tasks.md
+[Mobile Services server script reference]: mobile-services-how-to-use-server-scripts.md
 [Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 

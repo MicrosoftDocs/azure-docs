@@ -18,6 +18,17 @@
 
 [Using the SDK for Java](app-insights-java-get-started.md)
 
+## Version 0.9.6
+- Make the Java SDK compatible with servlet v2.5 and HttpClient pre-v4.3
+- Adding support for Java EE interceptors
+- Removing redundant dependencies from the Logback appender
+
+## Version 0.9.5  
+
+- Fix for an issue where custom events are not correlated with Users/Sessions due to cookie parsing errors.  
+- Improved logic for resolving the location of the ApplicationInsights.xml configuration file.
+- Removed tracking of sessions and users (this will only be done by client-side SDKs).
+
 ## Version 0.9.4
 
 - Support collecting performance counters from 32-bit Windows machines.

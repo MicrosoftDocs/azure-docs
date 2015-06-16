@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="StorSimple 8000 Series release notes - January 2015"
+    pageTitle="StorSimple 8000 Series Update 0.2 release notes - January 2015"
     description="Describes the new features, issues, and workarounds for the January 2015 Microsoft Azure StorSimple release."
     services="storsimple"
     documentationCenter="NA"
@@ -12,11 +12,11 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
+    ms.date="06/02/2015"
     ms.author="v-sharos" />
 
 
-# StorSimple 8000 Series release notes - January 2015
+# StorSimple 8000 Series Update 0.2 release notes - January 2015
 
 ## Overview
 

@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Get started with a Hadoop emulator for HDInsight | Microsoft Azure" 
-	description="Use an installed emulator with a MapReduce tutorial and other samples to learn the Hadoop ecosystem. HDInsight emulator works like a Hadoop sandbox." 
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"	
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	authors="nitinme" 
+<properties
+	pageTitle="Get started with a Hadoop emulator for HDInsight | Microsoft Azure"
+	description="Use an installed emulator with a MapReduce tutorial and other samples to learn the Hadoop ecosystem. HDInsight emulator works like a Hadoop sandbox."
+	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
+	editor="cgronlun"
+	manager="paulettm"
+	services="hdinsight"
+	authors="nitinme"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="05/07/2015"
 	ms.author="nitinme"/>
 
-# Get started in the Hadoop ecosystem with the HDInsight Emulator, a Hadoop sandbox 
+# Get started in the Hadoop ecosystem with the HDInsight Emulator, a Hadoop sandbox
 
 This tutorial gets you started with Hadoop clusters in the Microsoft HDInsight Emulator for Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md).
 
@@ -26,22 +26,22 @@ Once the emulator is installed, you follow a MapReduce tutorial for word count a
 > [AZURE.NOTE] The HDInsight Emulator includes only a Hadoop cluster. It does not include HBase or Storm.
 
 
-The HDInsight Emulator provides a local development environment much like a Hadoop sandbox. If you are familiar with Hadoop, you can get started with the HDInsight Emulator by using the Hadoop Distributed File System (HDFS). In HDInsight, the default file system is Azure Blob storage. So eventually, you will want to develop your jobs by using Azure Blob storage. To use Azure Blob storage with the HDInsight Emulator, you must make changes to the configuration of the emulator. 
+The HDInsight Emulator provides a local development environment much like a Hadoop sandbox. If you are familiar with Hadoop, you can get started with the HDInsight Emulator by using the Hadoop Distributed File System (HDFS). In HDInsight, the default file system is Azure Blob storage. So eventually, you will want to develop your jobs by using Azure Blob storage. To use Azure Blob storage with the HDInsight Emulator, you must make changes to the configuration of the emulator.
 
-> [AZURE.NOTE] The HDInsight Emulator can use only a single node deployment. 
+> [AZURE.NOTE] The HDInsight Emulator can use only a single node deployment.
 
 
-## Prerequisites	
+## Prerequisites
 Before you begin this tutorial, you must have the following:
 
 - The HDInsight Emulator requires a 64-bit version of Windows. One of the following requirements must be satisfied:
 
 	- Windows 7 Service Pack 1
 	- Windows Server 2008 R2 Service Pack 1
-	- Windows 8 
+	- Windows 8
 	- Windows Server 2012
 
-- Install and configure Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](install-configure-powershell.md). 
+- Install and configure Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](install-configure-powershell.md).
 
 
 ##<a name="install"></a>Install the HDInsight Emulator
@@ -58,8 +58,8 @@ The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform I
 **To install the HDInsight Emulator**
 
 1. Open Internet Explorer, and then browse to the [Microsoft HDInsight Emulator for Azure installation page][hdinsight-emulator-install].
-2. Click **Install Now**. 
-3. Click **Run** when prompted for the installation of HDINSIGHT.exe at the bottom of the page. 
+2. Click **Install Now**.
+3. Click **Run** when prompted for the installation of HDINSIGHT.exe at the bottom of the page.
 4. Click the **Yes** button in the **User Account Control** window that pops up to complete the installation. The Web Platform Installer window appears.
 6. Click **Install** on the bottom of the page.
 7. Click **I Accept** to agree to the licensing terms.
@@ -67,13 +67,13 @@ The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform I
 9. Click **Exit** to close the Web Platform Installer window.
 
 **To verify the HDInsight Emulator installation**
-	
-The installation should have installed three icons on your desktop. The three icons are linked as follows: 
-	
+
+The installation should have installed three icons on your desktop. The three icons are linked as follows:
+
 - **Hadoop Command Line** - The Hadoop command prompt from which MapReduce, Pig and Hive jobs are run in the HDInsight Emulator.
 
 - **Hadoop NameNode Status** - The NameNode maintains a tree-based directory for all the files in HDFS. It also keeps track of where the data for all the files are kept in a Hadoop cluster. Clients communicate with the NameNode in order to figure out where the data nodes for all the files are stored.
-	
+
 - **Hadoop Yarn Status** - The job tracker that allocates MapReduce tasks to nodes in a cluster.
 
 The installation should have also installed several local services. The following is a screenshot of the Services window:
@@ -123,16 +123,16 @@ Once the connection is successfully established, you can use the HDInsight VS to
 
 3. You might get an error when Visual Studio tries to connect to WebHCat service (“error”: “Could not find job job_XXXX_0001”). In this case, you must restart the WebHCat service and try again. To restart the WebHCat service, start the **Services** MMC, right-click **Apache Hadoop Templeton** (this is the old name for WebHCat service), and click **Restart**.
 
-##<a name="runwordcount"></a>A word-count MapReduce tutorial 
+##<a name="runwordcount"></a>A word-count MapReduce tutorial
 
-Now that you have the HDInsight Emulator configured on your workstation, try this MapReduce tutorial to test the installation. You will first upload some data files to HDFS, and then run a word count MapReduce job to count the frequency of specific words in those files. 
+Now that you have the HDInsight Emulator configured on your workstation, try this MapReduce tutorial to test the installation. You will first upload some data files to HDFS, and then run a word count MapReduce job to count the frequency of specific words in those files.
 
 The word-counting MapReduce program has been packaged into *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar*. The jar file is located at the *C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce* folder.
 
 The MapReduce job to count words takes two arguments:
 
 - An input folder. You will use *hdfs://localhost/user/HDIUser* as the input folder.
-- An output folder. You will use *hdfs://localhost/user/HDIUser/WordCount_Output* as the output folder. The output folder cannot be an existing folder, or the MapReduce job will fail. If you want to run the MapReduce job for the second time, you must either specify a different output folder or delete the existing output folder. 
+- An output folder. You will use *hdfs://localhost/user/HDIUser/WordCount_Output* as the output folder. The output folder cannot be an existing folder, or the MapReduce job will fail. If you want to run the MapReduce job for the second time, you must either specify a different output folder or delete the existing output folder.
 
 **To run the word-count MapReduce job**
 
@@ -148,7 +148,7 @@ The MapReduce job to count words takes two arguments:
 
 		hadoop fs -mkdir /user
 		hadoop fs -mkdir /user/HDIUser
-	
+
 3. Run the following Hadoop command to copy some local text files to HDFS:
 
 		hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\*.txt /user/HDIUser
@@ -187,7 +187,7 @@ For more information on Hadoop commands, see [Hadoop commands manual][hadoop-com
 
 The HDInsight Emulator installation provides some samples to get users started with learning Apache Hadoop-based services on Windows. These samples cover some tasks that are typically needed when processing a big dataset. Building on the MapReduce tutorial above, the the samples will help you become more familiar with the MapReduce programming model and its ecosystem.
 
-The sample data is organized around processing IIS World Wide Web Consortium (W3C) log data. A data generation tool is provided to create and import the datasets in various sizes to HDFS or Azure Blob storage. (See [Use Azure Blob storage for HDInsight](hdinsight-use-blob-storage.md) for more information). MapReduce, Pig, or Hive jobs can then be run on the pages of data generated by the Azure PowerShell script. Pig and Hive scripts are a layer of abstraction over MapReduce, and eventually compile to MapReduce programs. You can run a series of jobs to observe the effects of using these different technologies and how the data size affects the execution of the processing tasks. 
+The sample data is organized around processing IIS World Wide Web Consortium (W3C) log data. A data generation tool is provided to create and import the datasets in various sizes to HDFS or Azure Blob storage. (See [Use Azure Blob storage for HDInsight](hdinsight-use-blob-storage.md) for more information). MapReduce, Pig, or Hive jobs can then be run on the pages of data generated by the Azure PowerShell script. Pig and Hive scripts are a layer of abstraction over MapReduce, and eventually compile to MapReduce programs. You can run a series of jobs to observe the effects of using these different technologies and how the data size affects the execution of the processing tasks.
 
 ### In this section
 
@@ -202,11 +202,11 @@ The sample data is organized around processing IIS World Wide Web Consortium (W3
 
 The W3C scenario generates and imports IIS W3C log data in three sizes into HDFS or Azure Blob storage: 1MB (small), 500MB (medium), and 2GB (large). It provides three job types and implements each of them in C#, Java, Pig and Hive.
 
-- **totalhits** - Calculates the total number of requests for a given page. 
-- **avgtime** - Calculates the average time taken (in seconds) for a request per page. 
-- **errors** - Calculates the number of errors per page, per hour, for requests whose status was 404 or 500. 
+- **totalhits** - Calculates the total number of requests for a given page.
+- **avgtime** - Calculates the average time taken (in seconds) for a request per page.
+- **errors** - Calculates the number of errors per page, per hour, for requests whose status was 404 or 500.
 
-These samples and their documentation do not provide an in-depth study or full implementation of the key Hadoop technologies. The cluster used has only a single node and so the effect of adding more nodes cannot, with this release, be observed. 
+These samples and their documentation do not provide an in-depth study or full implementation of the key Hadoop technologies. The cluster used has only a single node and so the effect of adding more nodes cannot, with this release, be observed.
 
 ###<a name="loaddata"></a>Load sample W3C log data
 
@@ -218,7 +218,7 @@ Generating and importing the data to HDFS is done via the Azure PowerShell scrip
 2. Change the directory to **C:\hdp\GettingStarted**.
 3. Run the following command to generate and import data to HDFS:
 
-		powershell -File importdata.ps1 w3c -ExecutionPolicy unrestricted 
+		powershell -File importdata.ps1 w3c -ExecutionPolicy unrestricted
 
 	If you want to load data into Azure Blob storage instead, see [Connect to Azure Blob storage](#blobstorage).
 
@@ -226,7 +226,7 @@ Generating and importing the data to HDFS is done via the Azure PowerShell scrip
 
 		hadoop fs -ls -R /w3c
 
-	The output should be similar to the following: 
+	The output should be similar to the following:
 
 		C:\hdp\GettingStarted>hadoop fs -ls -R /w3c
 		drwxr-xr-x   - username hdfs          0 2014-09-08 15:40 /w3c/input
@@ -267,7 +267,7 @@ The jar file and the source files are located in the C:\Hadoop\GettingStarted\Ja
 	<table border="1">
 	<tr><td>Parameter</td><td>Note</td></tr>
 	<tr><td>w3c_scenarios.jar</td><td>The jar file is located in the C:\hdp\GettingStarted\Java folder.</td></tr>
-	<tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>The type can be substituted by one of the following: 
+	<tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>The type can be substituted by one of the following:
 	<ul>
 	<li>microsoft.hadoop.w3c.AverageTimeTaken</li>
 	<li>microsoft.hadoop.w3c.ErrorsByPage</li>
@@ -308,13 +308,13 @@ The Hive query engine might feel familiar to analysts with strong Structured Que
 
         hadoop fs -mkdir /w3c/hive
 		hadoop fs -mkdir /w3c/hive/input
-        
+
 		hadoop fs -cp /w3c/input/small/data_w3c_small.txt /w3c/hive/input
 
 5. Run the following command to execute the **w3ccreate.hql** script file. The script creates a Hive table, and loads data to the Hive table:
 
 	> [AZURE.NOTE] At this stage, you can also use the HDInsight Visual Studio tools to run the Hive query. Open Visual Studio, create a new Project, and from the HDInsight template, select **Hive Application**. Once the project opens, add the query as a new item. The query is available at **C:/hdp/GettingStarted/Hive/w3c**. Once the query is added to the project, replace **${hiveconf:input}** with **/w3c/hive/input**, and then press **Submit**.
-        
+
 		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
 	The output shall be similar to the following:
@@ -351,14 +351,14 @@ The Hive query engine might feel familiar to analysts with strong Structured Que
 
 	The w3ctotalhitsbypage.hql HiveQL script is:
 
-		SELECT filtered.cs_uri_stem,COUNT(*) 
+		SELECT filtered.cs_uri_stem,COUNT(*)
 		FROM (
 		  SELECT logdate,cs_uri_stem from w3c WHERE logdate NOT RLIKE '.*#.*'
 		) filtered
 		GROUP BY (filtered.cs_uri_stem);
 
 	The end of the output shall be similar to the following:
-		
+
 		MapReduce Total cumulative CPU time: 5 seconds 391 msec
 		Ended Job = job_1410201800143_0008
 		MapReduce Jobs Launched:
@@ -376,7 +376,7 @@ Note that as a first step in each of the jobs, a table will be created and data 
 
 ### <a name="pig"></a>Run Pig jobs
 
-Pig processing uses a data-flow language called *Pig Latin*. Pig Latin abstractions provide richer data structures than MapReduce, and perform for Hadoop what SQL performs for relational database management systems. 
+Pig processing uses a data-flow language called *Pig Latin*. Pig Latin abstractions provide richer data structures than MapReduce, and perform for Hadoop what SQL performs for relational database management systems.
 
 
 **To run the pig jobs**
@@ -398,12 +398,12 @@ Pig processing uses a data-flow language called *Pig Latin*. Pig Latin abstracti
 	</ul>
 	</td></tr>
 	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td> You can substitute the parameter with a larger file:
-	
+
 	<ul>
 	<li>/w3c/input/medium/data_w3c_medium.txt</li>
 	<li>/w3c/input/large/data_w3c_large.txt</li>
 	</ul>
-	
+
 	</td></tr>
 	</table>
 
@@ -412,7 +412,7 @@ Pig processing uses a data-flow language called *Pig Latin*. Pig Latin abstracti
 		(/Info.aspx,1135)
 		(/UserService,1126)
 		(/Default.aspx,3380)
-		
+
 Note that since Pig scripts compile to MapReduce jobs, and potentially to more than one such job, you might see multiple MapReduce jobs executing in the course of processing a Pig job.
 
 <!---
@@ -474,11 +474,11 @@ For example:
 Some of the Azure PowerShell cmdlets are also supported on the HDInsight Emulator. These cmdlets include:
 
 - HDInsight job definition cmdlets
-	
+
 	- New-AzureHDInsightSqoopJobDefinition
 	- New-AzureHDInsightStreamingMapReduceJobDefinition
-	- New-AzureHDInsightPigJobDefinition                                                                                          
-	- New-AzureHDInsightHiveJobDefinition                                                                                           
+	- New-AzureHDInsightPigJobDefinition
+	- New-AzureHDInsightHiveJobDefinition
 	- New-AzureHDInsightMapReduceJobDefinition
 - Start-AzureHDInsightJob
 - Get-AzureHDInsightJob
@@ -496,7 +496,7 @@ For more information about submitting Hadoop jobs, see [Submit Hadoop jobs progr
 
 
 ##<a name="remove"></a> Remove the HDInsight Emulator
-On the computer where you have the emulator installed, open Control Panel and under **Programs**, click **Uninstall a Program**. From the list of installed programs, right-click **Microsoft HDInsight Emulator for Azure**, and then click **Uninstall**. 
+On the computer where you have the emulator installed, open Control Panel and under **Programs**, click **Uninstall a Program**. From the list of installed programs, right-click **Microsoft HDInsight Emulator for Azure**, and then click **Uninstall**.
 
 
 ##<a name="nextsteps"></a> Next steps
@@ -522,7 +522,7 @@ In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sand
 
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-get-started.md
 [hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -531,4 +531,4 @@ In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sand
 
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
-[image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png 
+[image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png

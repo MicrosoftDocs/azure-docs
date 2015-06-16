@@ -12,18 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="06/11/2015"
    ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device
-
-[AZURE.INCLUDE [storsimple-version-selector](../includes/storsimple-version-selector.md)]
 
 ## Overview
 
 Welcome to Microsoft Azure StorSimple device deployment.
 
-These deployment tutorials apply to StorSimple 8000 Series in the Azure Government Portal.
+These deployment tutorials apply to the StorSimple 8000 Series running Update 1 software in the Azure Government Portal.
 
 This series of tutorials describes how to configure your StorSimple device, and includes a pre-installation checklist, configuration prerequisites, and detailed configuration steps.
 
@@ -39,7 +37,7 @@ The following pre-installation checklist describes the information that you need
 
 |   | Requirements          | Details                | Values        |
 |---| --------------------- | ---------------------- | ------------- |
-| 1 | Network settings <ol><li>Device IP address</li><li>Network interfaces, 4x1 GbE, 2x10 GbE</li><li>Fixed controller IP</li><li>Subnet masks</li><li>Gateway</li></ol> | Total IPs required: 8 <ol><li>One per device</li><li>One per network interface enabled, total 6</li><li>One per controller, total 2, required to connect to the Internet to service updates</li><li>One for each IP address</li><li>One per device</li></ol> | |
+| 1 | Network settings <ol><li>Network interfaces, 4x1 GbE, 2x10 GbE</li><li>Fixed controller IP</li><li>Subnet masks</li><li>Gateway</li></ol> | Total IPs required: 8 <ol><li>One per network interface enabled, total 6</li><li>One per controller, total 2, required to connect to the Internet to service updates</li><li>One for each IP address</li><li>One per device</li></ol> | |
 | 2 | Serial access         | Initial device configuration | Yes/No |
 | 3 | DNS server IP addresses | Required to connect to Microsoft Azure: total of 2 required for high availability | |
 | 4 | NTP server IP addresses | Required to synchronize time with Azure: 1 required, 1 optional | |

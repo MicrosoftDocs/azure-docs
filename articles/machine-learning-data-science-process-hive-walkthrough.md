@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Advanced Analytics Process Technology in Action: using HDInsight Hadoop clusters | Azure" 
-	description="Using the Advanced Analytics Process Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset." 
-	metaKeywords="" 
+	pageTitle="Advanced Analytics Process and Technology in Action: Use Hadoop clusters | Microsoft Azure" 
+	description="Using the Advanced Analytics Process and Technology (ADAPT) for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset."  
 	services="machine-learning,hdinsight" 
 	solutions="" 
 	documentationCenter="" 
@@ -19,11 +18,11 @@
 	ms.author="hangzh;bradsev" /> 
 
                 
-# Advanced Analytics Process Technology in Action: using HDInsight Hadoop clusters
+# Advanced Analytics Process and Technology in Action: using HDInsight Hadoop clusters
 
-In this walkthrough, you use the Advanced Analytics Process Technology (ADAPT) in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
+In this walkthrough, you use the Advanced Analytics Process  and Technology (ADAPT) in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](http://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
 
-For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Advanced Analytics Process Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md).
+For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Advanced Analytics Process and Technology in Action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
 It is also possible to use an iPython notebook to accomplish the tasks presented the walkthrough using the 1 TB dataset. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
@@ -84,7 +83,7 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
 
 1. [Create a storage account](storage-whatis-account.md): This storage account is used for storing data in Azure Blob Storage. The data used in HDInsight clusters also resides here.
 
-2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process Technology](machine-learning-data-science-customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
+2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](machine-learning-data-science-customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
 
 	* Remember to link the storage account created in step 1 with your HDInsight cluster when creating it. This storage account is used to access data that is processed within the cluster.
 	

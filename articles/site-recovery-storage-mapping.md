@@ -1,31 +1,31 @@
 <properties
-	pageTitle="Site Recovery storage mapping" 
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+	pageTitle="Site Recovery storage mapping"
+	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="site-recovery" 
+<tags
+	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="05/08/2015" 
+	ms.workload="storage-backup-recovery"
+	ms.date="05/08/2015"
 	ms.author="raynew"/>
 
 
 # Site Recovery storage mapping
 
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Site Recovery Overview](hyper-v-recovery-manager-overview/).
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Site Recovery Overview](site-recovery-overview.md).
 
 
 ## About this article
 
-Storage mapping is an important element of your Site Recovery deployment. It ensures your making optimal use of storage. This article describes storage mapping and provides a couple of examples to help you understand how storage mapping works. 
+Storage mapping is an important element of your Site Recovery deployment. It ensures your making optimal use of storage. This article describes storage mapping and provides a couple of examples to help you understand how storage mapping works.
 
 
 Post any questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -62,10 +62,10 @@ If classifications are configured correctly in VMM when you select the source an
 **Location** | **VMM server** | **File share (source)** | **Classification (source)** | **Mapped to** | **File share (target)**
 ---|---|--- |---|---|---
 New York | VMM_Source| SourceShare1 | GOLD | GOLD_TARGET | TargetShare1
- |  | SourceShare2 | SILVER | SILVER_TARGET | TargetShare2 
- | | SourceShare3 | BRONZE | BRONZE_TARGET | TargetShare3 
-Chicago | VMM_Target |  | GOLD_TARGET | Not mapped | 
-| | | SILVER_TARGET | Not mapped | 
+ |  | SourceShare2 | SILVER | SILVER_TARGET | TargetShare2
+ | | SourceShare3 | BRONZE | BRONZE_TARGET | TargetShare3
+Chicago | VMM_Target |  | GOLD_TARGET | Not mapped |
+| | | SILVER_TARGET | Not mapped |
  | | | BRONZE_TARGET | Not mapped
 
 You'd configure these on the **Server Storage** tab in the **Resources** page of the Site Recovery portal.
@@ -86,12 +86,12 @@ If the target classification is assigned to multiple SMB shares or CSVs the opti
 
 The following table show how storage classification and cluster shared volumes are set up in our example.
 
-**Location** | **Classification** | **Associated storage** 
+**Location** | **Classification** | **Associated storage**
 ---|---|---
 New York | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p>
  | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p>
 Chicago | GOLD_TARGET | <p>C:\ClusterStorage\TargetVolume1</p><p>\\FileServer\TargetShare1</p>
- | SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\\FileServer\TargetShare2</p> 
+ | SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\\FileServer\TargetShare2</p>
 
 This table summarizes the behavior when you enable protection for virtual machines (VM1 - VM5) in this example environment.
 
@@ -105,4 +105,4 @@ VM5 | C:\ClusterStorage\SourceVolume3 | N/A | No mapping so default storage loca
 
 ## Next steps
 
-Now that you have a better understanding of storage mapping start reading the [best practices](site-recovery-best-practices/) to prepare for deployment.
+Now that you have a better understanding of storage mapping start reading the [best practices](site-recovery-best-practices.md) to prepare for deployment.

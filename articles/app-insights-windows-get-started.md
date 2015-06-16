@@ -64,10 +64,8 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Pick the latest version of the appropriate package - one of:
-   * Application Insights for Windows applications - *for Windows Phone and Store apps*
-   * Application Insights for Web Apps
-   * Application Insights API - *for Windows desktop apps* 
+3. Pick **Application Insights for Windows applications**
+
 4. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
     `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
@@ -108,9 +106,16 @@ Click any chart to see more detail.
 
 [Publish your application](http://dev.windows.com/publish) and watch the data accumulate as users download and use it.
 
-## <a name="ide"></a>The automated way
+## What's next?
 
-If you prefer to use Visual Studio to perform the setup steps, you can do that with Windows Phone, Windows Store, and many other types of apps.
+* [Detect and diagnose crashes in your app][windowsCrash]
+* [Learn about metrics][metrics]
+* [Learn about diagnostic search][diagnostic]
+
+
+## <a name="ide"></a>Automated setup
+
+If you prefer to let Visual Studio perform the setup steps, you can do that with Windows Phone, Windows Store, and many other types of apps.
 
 ###<a name="new"></a> If you're creating a new Windows app project ...
 
@@ -131,11 +136,13 @@ Add Application Insights from Solution Explorer.
 
 ## <a name="usage"></a>Next Steps
 
-[Track usage of your app][windowsUsage]
 
 [Detect and diagnose crashes in your app][windowsCrash]
 
 [Capture and search diagnostic logs][diagnostic]
+
+
+[Track usage of your app][windowsUsage]
 
 [Use the API to send custom telemetry][api]
 
@@ -148,6 +155,7 @@ Add Application Insights from Solution Explorer.
 [api]: app-insights-api-custom-events-metrics.md
 [azure]: insights-perf-analytics.md
 [diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md

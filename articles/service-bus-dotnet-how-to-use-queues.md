@@ -12,7 +12,7 @@
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.date="03/18/2015"
     ms.author="sethm"/>
 
@@ -272,7 +272,7 @@ to process messages as they arrive into the "TestQueue".
             // Indicates a problem, unlock message in queue
             message.Abandon();
         }
-    };
+    }, options);
 
 This example configures the [`OnMessage`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.onmessage.aspx) callback using an [`OnMessageOptions`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.onmessageoptions.aspx) object. [`AutoComplete`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx)
 is set to **false** to enable manual control over when to call [`Complete`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) on the received message.

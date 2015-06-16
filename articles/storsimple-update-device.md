@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/27/2015"
+   ms.date="06/11/2015"
    ms.author="v-sharos" />
 
 # Update your StorSimple device
@@ -52,11 +52,14 @@ For details on how to install Maintenance mode updates, see [Install Maintenance
 
 You can use the Management Portal to apply updates to your StorSimple device.
 
+
 [AZURE.INCLUDE [storsimple-install-updates-manually](../includes/storsimple-install-updates-manually.md)]
 
 ## Install regular updates via Windows PowerShell for StorSimple
 
 Alternatively, you can use Windows PowerShell for StorSimple to apply regular (Normal mode) updates.
+
+> [AZURE.IMPORTANT] Though you can install regular updates using Windows PowerShell for StorSimple, we strongly recommend that you install regular updates through the Management Portal. Starting Update 1, pre-checks are performed prior to installing updates from the Portal  that will preempt failures and ensure a smoother experience. 
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -71,25 +74,26 @@ If you need to apply Maintenance mode updates, you will receive an alert through
 > - Before entering Maintenance mode, verify that both device controllers are healthy by checking the **Hardware Status** on the **Maintenance** page in the Management Portal. If the controller is not healthy, contact Microsoft Support for the next steps. For more information, go to Contact Microsoft Support. 
 > - When you are in Maintenance mode, you need to apply the update first on one controller and then on the other controller.
 
-### Connect to the serial console
+### Step 1: Connect to the serial console
 
 First, use an application such as PuTTY to access the serial console. The following procedure explains how to use PuTTY to connect to the serial console.
 
 [AZURE.INCLUDE [storsimple-use-putty](../includes/storsimple-use-putty.md)]
 
-### Enter Maintenance mode
+### Step 2: Enter Maintenance mode
 
 After you connect to the console, determine whether there are updates to install, and enter Maintenance mode to install them.
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../includes/storsimple-enter-maintenance-mode.md)]
 
-### Install your updates
+### Step 3: Install your updates
 
 Next, install your updates.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### Exit Maintenance mode
+    
+### Step 4: Exit Maintenance mode
 
 Finally, exit Maintenance mode.
 
@@ -110,7 +114,7 @@ The following procedures explain how to use Windows PowerShell for StorSimple to
 
 ## What happens to updates if you perform a factory reset of the device?
 
-If a device is reset to factory settings, then all the updates are lost. After the factory-reset device is registered and configured, you will need to manually install updates through the Management Portal and/or Windows PowerShell for StorSimple. For more information about factory resets, see [Reset the device to factory default settings](https://msdn.microsoft.com/library/azure/dn772373.aspx).
+If a device is reset to factory settings, then all the updates are lost. After the factory-reset device is registered and configured, you will need to manually install updates through the Management Portal and/or Windows PowerShell for StorSimple. For more information about factory reset, see [Reset the device to factory default settings](https://msdn.microsoft.com/library/azure/dn772373.aspx).
 
 ## Next steps
 
