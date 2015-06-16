@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # How to customize the look and feel of the developer portal in Azure API Management
