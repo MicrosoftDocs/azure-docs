@@ -63,7 +63,7 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
 2. Install Application Insights SDK for Web Apps.
 
-    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-asp-net/04-ai-nuget.png)
+    ![Search for "Application Insights"](./media/app-insights-asp-net/04-ai-nuget.png)
 
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:

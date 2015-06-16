@@ -49,7 +49,7 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
 2. Install Application Insights SDK for C++ Apps.
 
-    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-asp-net/04-ai-nuget.png)
+    ![Select Include Prerelease and search for "Application Insights"](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. In your projects settings for release and debug: 
   - Add $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc to the project properties -> VC++ Directories -> Include Directories

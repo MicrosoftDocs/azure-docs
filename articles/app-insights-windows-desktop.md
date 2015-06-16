@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps and services
@@ -46,7 +46,7 @@ Support for Windows desktop apps and services are provided by the Application In
 
 2. Install the Application Insights API package.
 
-    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
+    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 

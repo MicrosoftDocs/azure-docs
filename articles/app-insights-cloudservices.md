@@ -61,7 +61,7 @@ As an alternative, you could send data from all the roles to just one resource, 
 
 2. Install the Application Insights SDK for Web Apps.
 
-    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
+    ![Search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
     (As an alternative, you could choose Application Insights SDK for Web Apps. This provides some built-in performance counter telemetry. )
 
