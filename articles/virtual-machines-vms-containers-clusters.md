@@ -32,15 +32,15 @@ Well, yes -- and no. Containers, like any other technology, are not going to mag
 - how fast and with what confidence it can be tested
 - how fast and with what confidence it can be deployed
 
-That said, remember that underneath containers there is still a container host -- an operating system, and in a public cloud that means running in a hypervisor. Even if you already love the idea of containers, you're still going to need a VM infrastructure hosting the containers, but the benefits are that containers do not care on which VM they are running (although whether the container wants a Linux or Windows environment will be important).
+That said, remember that underneath containers there is still a container host -- an operating system, and in a public cloud that means a Virtual Machine. Even if you already love the idea of containers, you're still going to need a VM infrastructure hosting the containers, but the benefits are that containers do not care on which VM they are running (although whether the container wants a Linux or Windows execution environment will be important). 
 
 ## What are containers good for?
 
-They're great for many things, but especially for creating single-service, [microservice]-oriented distributed applications. This is especially true in public cloud environments, in which you rent VMs when and where you want them. For example, instead of needing to create 9 VMs of a large size to create a highly-available, distributed application, you might now only use 4 VMs but create your application with 20 containers. You can adjust to usage spikes with more containers rather than more VMs, using the remaining overall CPU load much more efficiently than before.
-
-In general, it's easy to see that this is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. We won't go deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but **Docker** and its ecosystem offers tremendous benefits to both developers and IT professionals.
+They're great for many things, but especially for creating single-service, [microservice]-oriented distributed applications. This is especially true in public cloud environments like Azure, in which you rent VMs when and where you want them. For example, instead of needing to create 9 Azure VMs of a large size to create a highly-available, distributed application, you might now only use 4 VMs but create your application with 20 containers. You can adjust to usage spikes with more containers rather than more Azure VMs, and use the remaining overall CPU load much more efficiently than before.
 
 ### Benefits for developers
+
+In general, it's easy to see that container technology is is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. This topic will not dive deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but **Docker** and its ecosystem offers tremendous benefits to both developers and IT professionals.
 
 Developers take to Docker containers quickly, because above all it makes using Linux containers easy:
 
@@ -49,7 +49,7 @@ Developers take to Docker containers quickly, because above all it makes using L
 - They can think of isolated application components instead of computers.
 - They can use a large number of tools that understand docker containers and images
 
-Another benefit of Docker containers in particular is the emphasis on one primary process per container, which matches fairly nicely the [microservices] architectural approach that many distributed applications are using, especially on public cloud platforms. Of course, there are many other ways of implementing a microservice-style  architecture, including [zure Cloud Services](http://azure.microsoft.com/services/cloud-services/) as well as [Azure Service Fabric](http://azure.microsoft.com/campaigns/service-fabric/).
+Another benefit of Docker containers in particular is the emphasis on one primary process per container, which matches fairly nicely the [microservices] architectural approach that many distributed applications are using, especially on public cloud platforms. Of course, there are many other ways of implementing a microservice-style  architecture, including [zure Cloud Services](http://azure.microsoft.com/services/cloud-services/) as well as [Azure Service Fabric](http://azure.microsoft.com/campaigns/service-fabric/). Which approach you use will depend upon many factors specific to your scenario.
 
 ### Benefits for operations and IT professionals
 
@@ -61,17 +61,13 @@ IT and operations professionals also benefit from the combination of containers 
 
 Features like these -- and there are more -- excite established businesses, where professional information technology organizations have the job of fitting the resources -- including pure processing power -- to the tasks required to not only stay in business, but increase customer satisfaction and reach. Small businesses, ISVs, and startups have exactly the same requirement, but they might describe it differently. 
 
-
 ### Benefits of virtual machines
 
 If virtual machines start more slowly, make it a bit harder to optimize CPU usage, and do not easily help develop microservices, they do have very important benefits: 
 
-1. By default, they have much more robust security protections for host computer
+1. By default, they have much more robust default security protections for host computer
 2. They support any major OS and application configurations
 3. They have longstanding tool ecosystems for command and control
-
-In addition, there are always good scenarios for using operating systems directly on "bare metal" -- that is, using a native operating system installation. 
-
 
 ## High-level feature comparison of VMs and containers
 
@@ -116,19 +112,17 @@ Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-d
 
 Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports Linux (LXC-style) clusters, as well as having their own container system. 
 
-Think about trying out [mesosphere's Data Center Operating System (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/).
+In addition, you can try out [mesosphere's Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS is based on the open-source [mesos](http://mesos.apache.org/) "distributed systems kernel" that enables you to treat your datacenter as one addressable service. Mesos was derived from lessons learned at Twitter and many other web-scale businesses.
 
 Also, [kubernetes](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure) is an open-source system for VM and container cluster management derived from lessons learned at Google that runs locally or on other cloud platorms like Microsoft Azure. You can even use [kubernetes with weave to provide networking support](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
 ## Security issues for containers, clusters, and orchestration systems
 
-New technologies are often so useful, so interesting, that security considerations are often discussed as a footnote or later, after issues have arisen during early deployments. 
-
 As mentioned above, all technologies are tools. Just as not every computing workload belongs in a public cloud, not every application should be built using containers. If you've read through the [high-level feature comparison of VMs and containers](#high-level-feature-comparison-of-VMs-and-containers) section, above, then you'll see reasons you might investigate whether using a container approach is really what you want to do in your specific scenario. 
 
 For example, start-up speed is very useful, especially in a multitenant or untrusted-code scenarios. Another customer? Just throw up another container and run their code; it happens very, very quickly compared with the minutes a new VM might take to start up.
 
-However, without extra configuration and extra steps taken, hosted code with ill-intent might attempt to probe the shared kernel for vulnerabilities. This is much, much harder to do in hypervisors, as the kernel is an emulated kernel, which provides an extra level of protection. 
+However, without extra configuration and extra steps taken, hosted code with ill-intent might attempt to probe the shared kernel for vulnerabilities. This is much harder to do in hypervisors, as the kernel is an emulated kernel, which provides an extra level of protection. 
 
 There are very good mitigations to support this scenario using containers, and Docker has collaborated with the Center for Internet Security to [publish an article on Docker Security Best Practices](https://blog.docker.com/2015/05/understanding-docker-security-and-best-practices/). In addition, there are many important scenarios for using both VMs and containers specifically when code either is or might be insecure, some of which are discussed [here](http://jpetazzo.github.io/2015/05/27/docker-images-vulnerabilities/). 
 
@@ -212,8 +206,6 @@ Check out [Docker](https://www.docker.com) and [Windows Server Containers](https
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
+
 
 
