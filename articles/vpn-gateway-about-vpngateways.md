@@ -29,7 +29,7 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 | Standard    | Yes                               | 1000 Mbps                       | 100 Mbps               | 10                            |
 | High Performance | Yes                               | 2000 Mbps                       | 200 Mbps               | 30                            |
 
-**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross premises connections across the Internet, but should be used as a maximum possible measure.
+**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
 
 ## Gateway types
 
@@ -76,5 +76,5 @@ If you want to configure a VPN gateway, see [Configure a VPN gateway](http://go.
 
 If you want to change your VPN gateway type, see [Change a virtual network VPN gateway type](http://go.microsoft.com/fwlink/p/?LinkId=615109).
 
-If you want to connect multiple sites to a virtual network, see [Connect multiple on-premises sites to a virtual network](http://go.microsoft.com/fwlink/p/?LinkID=615106)
+If you want to connect multiple sites to a virtual network, see [Connect multiple on-premises sites to a virtual network](http://go.microsoft.com/fwlink/p/?LinkID=615106).
 
