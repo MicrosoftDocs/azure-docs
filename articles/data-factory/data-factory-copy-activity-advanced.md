@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.date="06/15/2015" 
 	ms.author="spelluru"/>
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
@@ -236,7 +236,6 @@ The data types specified in the Structure section of the Table definition is onl
 		<ul>
 			<li> <b>TextFormat:</b> all column types are treated as string, and all column names are set as "Prop_<0-N>"</li> 
 			<li><b>AvroFormat:</b> use the built-in column types and names in Avro file.</li> 
-			<li><b>JsonFormat:</b> all column types are treated as string, and use the built-in column names in Json file.</li>
 		</ul>
 		</td>
 	</tr>
