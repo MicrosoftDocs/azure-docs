@@ -105,7 +105,7 @@ You can also decide to wait for only a limited time: ‘Maximum allowed arrival 
 When streaming job query uses the TIMESTAMP BY keyword, there are no guarantees about the order in which the events will arrive to input, Some events in the same input partition may be lagging, parameter ‘Maximum allowed disorder within an input’ causes the streaming job to act on events that are outside of the order tolerance, according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps.
 
 ### Additional resources
-For details on creating input sources, see [Azure Event Hubs developer guide](http://msdn.microsoft.com/library/azure/dn789972.aspx) and [Use Azure Blob Storage](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/).  
+For details on creating input sources, see [Azure Event Hubs developer guide](http://msdn.microsoft.com/library/azure/dn789972.aspx) and [Use Azure Blob Storage](storage-dotnet-how-to-use-blobs.md).  
 
 
 
