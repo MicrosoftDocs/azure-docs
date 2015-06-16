@@ -26,10 +26,12 @@ Azure Active Directory allows you to automate the creation, maintenance, and rem
 - To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
 - To easily import a bulk number of users into a particular SaaS application.
 
-A key benefit to using Azure AD to handle your SaaS app provisioning is that it's fully integrated with the access management policies that you have already defined for single sign-on (SSO). Therefore, granting a new user access to a particular application will not only enable SSO but will also ensure that an account has been provisioned for them. Automated user provisioning also includes the following functionality:
+A key benefit to using Azure AD to handle your SaaS app provisioning is that it's fully integrated with the access management policies that you have already defined for single sign-on (SSO). Therefore, granting a new user access to a particular application will not only enable SSO but will also ensure that an account has been provisioned for them.
 
-- Customize provisioning rules to fit your organization's existing app deployments.
-- Provisioned users will be continuously kept up-to-date based on changes from the directory.
+Automated user provisioning also includes the following functionality:
+
+- Customization options that let you tailor your provisioning solution around the SaaS apps that your organization is currently using, as they are currently configured.
+- Automated maintenance that keeps provisioned users up to date based on changes from the directory.
 - Provisioning of non-user objects such as groups to SaaS apps that support them.
 - Optional email alerts for provisioning errors.
 - Reporting and activity logs to help with monitoring and troubleshooting.
