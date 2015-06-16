@@ -63,7 +63,7 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 2. You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.
 Create a new Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets the .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role.
-If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](web-sites-dotnet-get-started.md).
+If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
 
 3. Open the shortcut menu for the solution, and choose **Commit**.<br/>
 ![][7]
@@ -207,7 +207,7 @@ When you use Git, you usually make changes in a working branch and integrate int
 
 11. Navigate to the **Builds** view and find the build that just got triggered for the working branch.
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). For additional tips on using Git with Visual Studio Online, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Online to publish to Azure, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). For additional tips on using Git with Visual Studio Online, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and for information about using a Git repository that's not managed by Visual Studio Online to publish to Azure, see [Continuous deployment using GIT in Azure App Service](app-service-web/web-sites-publish-source-control.md).
 
 [Step 1: Create a Git repository.]: #step1
 [Step 2: Create a project and push it to your Git repository.]: #step2

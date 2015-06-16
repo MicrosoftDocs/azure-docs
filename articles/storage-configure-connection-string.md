@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="06/15/2015" 
 	ms.author="tamram"/>
 
 # Configure Azure Storage Connection Strings
@@ -32,7 +32,7 @@ You can configure a connection string to:
 
 Your application will need to store the connection string in order to authenticate access to Azure Storage when it is running. You have a few different options for storing your connection string:
 
-- For an application running on the desktop or on a device, you can store the connection string in an app.config file or another configuration file. If you are using an app.config file, add the connection string to the **AppSettings **section.
+- For an application running on the desktop or on a device, you can store the connection string in an app.config file or another configuration file. If you are using an app.config file, add the connection string to the **AppSettings** section.
 - For an application running in an Azure cloud service, you can store your connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
 
 Storing your connection string within a configuration file makes it easy to update the connection string to switch between the storage emulator and an Azure storage account in the cloud. You only need to edit the connection string to point to your storage account. 
