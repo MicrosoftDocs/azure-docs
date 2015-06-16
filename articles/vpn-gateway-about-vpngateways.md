@@ -17,7 +17,7 @@
 
 # About VPN gateways
 
-VPN Gateways are used to send network traffic between virtual networks and on-premises locations, or between multiple virtual networks (VNet-to-VNet). When creating a gateway, there are a number of factors to take into consideration. You'll need to know which Gateway SKU that you want to use, the routing type that is needed for your configuration - dynamic or static, and the VPN device that you plan to use if a VPN device is needed for your configuration. 
+VPN Gateways are used to send network traffic between virtual networks and on-premises locations, or between multiple virtual networks (VNet-to-VNet). When creating a gateway, there are a number of factors to take into consideration. You'll need to know which Gateway SKU that you want to use, the routing type that is needed for your configuration (dynamic or static) and the VPN device that you plan to use if a VPN device is needed for your configuration. 
 
 ## Gateway SKUs
 There are 3 VPN Gateway SKUs; Basic, Standard, and High Performance. The table below shows the gateway types and the estimated aggregate throughput. 
