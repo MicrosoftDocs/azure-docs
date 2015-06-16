@@ -17,7 +17,7 @@
 
 # About VPN gateways
 
-VPN Gateways are used to send network traffic between virtual networks and on-premises locations, or between multiple virtual networks (VNet-to-VNet). When creating a gateway, there are a number of factors to take into consideration. You'll need to know which Gateway SKU your network plan requires, the routing type that is needed for your configuration - dynamic or static, and the VPN device that you plan to use if a VPN device is needed for your configuration. 
+VPN Gateways are used to send network traffic between virtual networks and on-premises locations, or between multiple virtual networks (VNet-to-VNet). When creating a gateway, there are a number of factors to take into consideration. You'll need to know which Gateway SKU that you want to use, the routing type that is needed for your configuration - dynamic or static, and the VPN device that you plan to use if a VPN device is needed for your configuration. 
 
 ## Gateway SKUs
 There are 3 VPN Gateway SKUs; Basic, Standard, and High Performance. The table below shows the gateway types and the estimated aggregate throughput. 
@@ -33,7 +33,7 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 ## Gateway types
 
-There are two gateway types, *static routing* (also known as a policy-based VPN), and *dynamic routing* (also known as a route-based VPN). Some configurations will only work with a specific routing type, and some VPN devices only work with a certain routing type. When you create a VPN gateway, you'll select the gateway type that is required by your configuration, making sure that the VPN device you select also supports that routing type. 
+There are two gateway types, *static routing* (also known as a policy-based VPN), and *dynamic routing* (also known as a route-based VPN). Some configurations will only work with a specific routing type, while some VPN devices only work with a certain routing type. When you create a VPN gateway, you'll select the gateway type that is required for your configuration, making sure that the VPN device you select also supports that routing type. 
 
 For example, if you plan to use a site-to-site configuration concurrently with a point-to-site configuration, you’ll need to configure a dynamic routing VPN gateway. While it's true that site-to-site configurations will work with static routing gateways, point-to-site configurations require a dynamic routing gateway. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations.
 
@@ -56,7 +56,7 @@ The table below lists the requirements for both static and dynamic VPN gateways.
 |-----------------------------------------|--------------------------------|-----------------------------------------------------------------------|-----------------------------------|----------------------------------|
 |    Site-to-Site connectivity   (S2S)    | Policy-based VPN configuration | Route-based VPN configuration                                         | Route-based VPN configuration     | Route-based VPN configuration    |
 | Point-to-Site connectivity (P2S)        | Not supported                  | Supported (Can coexist with S2S)                                      | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| Authentication method                   |    Pre-shared key              | Pre-shared key for S2S connectivity Certificates for P2S connectivity | Pre-shared key for S2S connectivity Certificates for P2S connectivity | Pre-shared key for S2S connectivity Certificates for P2S connectivity |
+| Authentication method                   |    Pre-shared key              | - Pre-shared key for S2S connectivity - Certificates for P2S connectivity | - Pre-shared key for S2S connectivity - Certificates for P2S connectivity | - Pre-shared key for S2S connectivity - Certificates for P2S connectivity |
 | Maximum number of S2S connections       | 1                              | 10                                                                    | 10                                | 30                               |
 | Maximum number of P2S connections       | Not supported                  | 128                                                                   | 128                               | 128                              |
 | Active routing support (BGP)            | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
