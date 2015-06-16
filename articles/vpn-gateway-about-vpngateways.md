@@ -43,7 +43,7 @@ Below are the two types of gateways:
 
 - **Static routing –** Static routing gateways support **policy-based VPNs**. Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on premises network and your Azure VNet. The traffic selectors or policies are usually defined as an access list in your VPN configurations.
 
-	>[AZURE.NOTE] Not all configurations are compatible with static routing VPN gateways. Multi-site configurations, VNet-to-VNet configurations, and point-to-site connections all require Azure dynamic routing gateways. You'll see the gateway requirements in the articles for each configuration. 
+	>[AZURE.NOTE] Not all configurations are compatible with static routing VPN gateways. For example, multi-site configurations, VNet-to-VNet configurations, and point-to-site connections all require dynamic routing gateways. You'll see the gateway requirements in the articles for each configuration. 
 
 - **Dynamic routing –** Dynamic routing gateways implement **route-based VPNs**. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
