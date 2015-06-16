@@ -552,7 +552,7 @@ and then click **Update tasks**.
 
 ## <a name="_Toc395783182"></a>Step 7: Deploy your application to Azure Websites
 
-1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this [here](web-sites-publish-source-control-git.md#step4).
+1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this [here](app-service-web/web-sites-publish-source-control-git.md#step4).
 
 2. Add your Azure Website as a git remote.
 

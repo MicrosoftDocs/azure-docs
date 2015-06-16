@@ -468,7 +468,7 @@ to learn how to do more complex storage tasks.
   [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: web-sites-nodejs-use-webmatrix.md
+  [Web Site with WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [Node.js Web Application with Storage]: storage-nodejs-use-table-storage-web-site.md
-  [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Web Application with Storage]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+  [Create and deploy a Node.js application to an Azure Web Site]: app-service-web/web-sites-nodejs-develop-deploy-mac.md

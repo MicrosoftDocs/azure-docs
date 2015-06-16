@@ -35,7 +35,7 @@ To learn more about using the Azure Redis Cache:
  
 - [Redis Azure Cache docs ](http://azure.microsoft.com/documentation/services/cache/): This page provides many good links to using the Redis Azure cache.
 - [MVC movie app with Azure Redis Cache in 15 minutes](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): The blog post provides a quick start to using the Azure Redis cache in an ASP.NET MVC app.
-- [How to Use ASP.NET Session State with Azure Websites](web-sites-dotnet-session-state-caching.md): This topic explains how to use the Azure Redis Cache Service for session state.
+- [How to Use ASP.NET Session State with Azure Websites](app-service-web/web-sites-dotnet-session-state-caching.md): This topic explains how to use the Azure Redis Cache Service for session state.
 
 
 

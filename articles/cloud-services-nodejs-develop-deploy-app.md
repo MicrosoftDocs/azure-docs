@@ -29,7 +29,7 @@ scalable cloud applications in Azure. They allow the separation and independent
 management and scale-out of front-end and back-end components of your application.  Cloud Services
 provide a robust dedicated virtual machine for hosting each role reliably.
 
-For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](choose-web-site-cloud-service-vm.md).
+For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](app-service-web/choose-web-site-cloud-service-vm.md).
 
 >[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight web app.</a> You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
 
