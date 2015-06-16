@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 
@@ -38,7 +38,7 @@ The policies editor consists of three main sections: the policy scope (top), the
 
 ![Policies editor][policies-editor]
 
-To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the 15 Day Free Trial product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
+To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the Starter product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
 
 ![Scope][policies-scope]
 
@@ -46,7 +46,7 @@ Since a policy has already been applied, the configuration is shown in the defin
 
 ![Configure][policies-configure]
 
-The policy is displayed read-only at first. In order to edit the definition click the Configure Policy action.
+The policy is displayed read-only at first. In order to edit the definition click the **Configure Policy** action.
 
 ![Edit][policies-edit]
 
