@@ -30,7 +30,7 @@ A key benefit to using Azure AD to handle provisioning to your SaaS apps is that
 
 Automated user provisioning also includes the following functionality:
 
-- Customization options to help Azure AD fit the SaaS apps that your organization is currently using, as they are currently configured.
+- Customization options to help you fit Azure AD to the SaaS apps that your organization is currently using, as they are currently configured.
 - Automated maintenance that keeps provisioned users up to date based on changes from the directory.
 - Provisioning of non-user objects such as groups to SaaS apps that support them.
 - Optional email alerts for provisioning errors.
