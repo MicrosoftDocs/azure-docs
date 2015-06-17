@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How manage developer accounts in Azure API Management" 
-	description="Learn how to create or invite developers in Azure API Management" 
+	pageTitle="How manage user accounts in Azure API Management" 
+	description="Learn how to create or invite users in Azure API Management" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-# How to manage developer accounts in Azure API Management
+# How to manage user accounts in Azure API Management
 
 In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance.
 
 ## <a name="create-developer"> </a>Create a new developer
 
-To create a new developer, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
-
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+To create a new developer, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 ![Publisher portal][api-management-management-console]
 
@@ -56,7 +54,7 @@ A confirmation message is displayed, but the newly invited developer does not ap
 
 ![Invite confirmation][api-management-invite-developer-confirmation]
 
->When a developer is invited, an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][].
+When a developer is invited, an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][].
 
 Once the invitation is accepted, the account becomes active.
 
@@ -91,4 +89,4 @@ Once a developer account is created, you can associate it with roles and subscri
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Configure email templates]: api-management-howto-configure-notifications.md#email-templates 
+[Configure email templates]: api-management-howto-configure-notifications.md#email-templates

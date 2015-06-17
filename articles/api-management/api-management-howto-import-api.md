@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # How to import the definition of an API with operations in Azure API Management
@@ -25,17 +25,13 @@ APIs and their operations can be imported using the following formats.
 -	WADL
 -	Swagger
 
-This guide shows how create a new API and import its operations in one step.
-
->For information on manually creating an API and adding operations, see [How to create APIs][] and [How to add operations to an API][].
+This guide shows how create a new API and import its operations in one step. For information on manually creating an API and adding operations, see [How to create APIs][] and [How to add operations to an API][].
 
 ## <a name="import-api"> </a>Import an API
 
-APIs are created and configured in the publisher portal. To access the publisher portal, click **Manage** in the Azure Portal for your API Management service.
+APIs are created and configured in the publisher portal. To access the publisher portal, click **Manage** in the Azure Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 ![Publisher portal][api-management-management-console]
-
->If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 Click **APIs** from the **API Management** menu on the left, and then click **import API**.
 
@@ -57,6 +53,8 @@ After providing the API specification, use the radio buttons on the right to ind
 Next, enter a **Web API URL suffix**. This is appended to the base URL for your API management service. The base URL is common for all APIs hosted on each instance of an API Management service. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API in a specific API management service instance.
 
 Once all values are entered, click **Save** to create the API and the associated operations. 
+
+>[AZURE.NOTE] For a tutorial of importing a basic calculator API in Swagger format, see [Manage your first API in Azure API Management](api-management-get-started.md).
 
 ## <a name="export-api"> </a> Export an API
 
@@ -96,4 +94,3 @@ Once an API is created and the operations imported, you can review and configure
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create APIs]: api-management-howto-create-apis.md
 [How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings
- 
