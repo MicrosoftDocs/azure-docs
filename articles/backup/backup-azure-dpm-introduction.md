@@ -25,7 +25,7 @@ This article provides an introduction to using Microsoft Azure Backup to protect
 - The typical errors encountered and how to deal with them
 - Supported scenarios
 
-System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Windows Azure Backup. DPM interacts with Azure Backup as follows:
+System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup. DPM interacts with Azure Backup as follows:
 
 - **DPM deployed as a physical server or on-premises virtual machine** — If DPM is deployed as a physical server or as an on-premises Hyper-V virtual machine you can back up data to an Azure Backup vault in addition to disk and tape backup.
 - **DPM deployed as an Azure virtual machine** — From System Center 2012 R2 with Update 3, DPM can be deployed as an Azure virtual machine. If DPM is deployed as an Azure virtual machine you can back up data to Azure disks attached to the DPM Azure virtual machine, or you can offload the data storage by backing it up to an Azure Backup vault.
@@ -143,5 +143,3 @@ And these are unsupported:
 - Sparse stream
 
 >[AZURE.NOTE] From in System Center 2012 DPM with SP1 onwards you can backup up workloads protected by DPM to Azure using Microsoft Azure Backup.
-
-
