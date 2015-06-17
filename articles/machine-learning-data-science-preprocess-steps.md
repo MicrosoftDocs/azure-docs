@@ -1,7 +1,6 @@
 <properties
-	pageTitle="Pre-process and Clean Data | Azure"
+	pageTitle="Pre-process and Clean Data | Microsoft Azure"
 	description="Pre-process and Clean Data"
-	metaKeywords="data cleansing"
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"

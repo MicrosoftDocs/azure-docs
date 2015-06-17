@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Forecasting - ETS + STL  | Azure" 
+	pageTitle="Forecasting - ETS + STL  | Microsoft Azure" 
 	description="Forecasting - ETS + STL" 
 	services="machine-learning" 
 	documentationCenter="" 

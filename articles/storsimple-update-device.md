@@ -3,7 +3,7 @@
    description="Explains how to use the StorSimple update feature to install regular and maintenance mode updates and hotfixes."
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/02/2015"
-   ms.author="alkohli" />
+   ms.date="06/15/2015"
+   ms.author="v-sharos" />
 
 # Update your StorSimple device
 

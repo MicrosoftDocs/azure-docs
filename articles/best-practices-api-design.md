@@ -1,7 +1,7 @@
 <properties
    pageTitle="API design guidance | Microsoft Azure"
    description="Guidance upon how to create a well designed API."
-   services="api-management"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"

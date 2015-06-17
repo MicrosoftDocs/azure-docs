@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="03/16/2015"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs

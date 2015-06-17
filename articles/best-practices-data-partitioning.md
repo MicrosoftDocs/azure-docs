@@ -1,7 +1,7 @@
 <properties
    pageTitle="Data partitioning guidance | Microsoft Azure"
    description="Guidance upon how to separate partitions to be managed and accessed separately."
-   services="storage"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"
@@ -223,7 +223,7 @@ The partitioning scheme that you implement can have a significant bearing on the
 
 - Group data that is used together into the same shard and avoid operations that need to access data held in multiple shards. Bear in mind that with Elastic Scale a shard is a SQL database in its own right, and Azure SQL Database does not support cross-database joins; these operations have to be performed on the client-side. Also remember that with Azure SQL Database referential integrity constraints, triggers, and stored procedures in one database cannot reference objects in another, so don't design a system that has dependencies between shards. However, a SQL database can contain tables holding copies of reference data frequently used by queries and other operations, and these tables do not have to belong to any specific shardlet. Replicating this data across shards can help to remove the need to join data that spans databases. Ideally, such data should be static or slow-moving to minimize the replication effort and reduce the chances of it becoming stale.
 
-	> [AZURE.NOTE] Although Azure SQL Database does not support cross-database joins, the Elastic Scale API enables you to perform cross-shard queries that can transparently iterate through the data held in all the shardlets referenced by a shard map. The Elastic Scale API breaks cross-shard queries down into a series of individual queries (one for each database) and then merges the results together. For more information, see the [Multi-Shard Querying](sql-database-elastic-scale-multishard-querying/) page on the Microsoft website.
+	> [AZURE.NOTE] Although Azure SQL Database does not support cross-database joins, the Elastic Scale API enables you to perform cross-shard queries that can transparently iterate through the data held in all the shardlets referenced by a shard map. The Elastic Scale API breaks cross-shard queries down into a series of individual queries (one for each database) and then merges the results together. For more information, see the [Multi-Shard Querying](sql-database-elastic-scale-multishard-querying.md) page on the Microsoft website.
 
 - The data stored in shardlets that belong to the same shard map should have the same schema. For example, don't create a list shard map that points to some shardlets containing tenant data and other shardlets containing product information. This rule is not enforced by Elastic Scale, but data management and querying becomes very complex if each shardlet has a different schema. In the example just cited, you should create two list shard maps; one referencing tenant data and the other point to product information. Remember that the data belonging to different shardlets can be stored in the same shard.
 
@@ -297,7 +297,7 @@ Blob storage is automatically partitioned based on the blob name. Each blob is h
 
 The actions of writing a single block (block blob) or page (page blob) are atomic, but operations that span blocks, pages, or blobs are not. If you need to ensure consistency when performing write operations across blocks, pages, and blobs, you will need to take out a write lock by using a blob lease.
 
-Azure blob storage supports transfer rates of up to 60MB per second or 500 requests per second for each blob. If you anticipate surpassing these limits, and the blob data is relatively static, then consider replicating blobs by using the Azure Content Delivery Network (CDN). For more information, see the page [Using CDN for Azure](cdn-how-to-use/) on the Microsoft website. For additional guidance and considerations, see the article Content Delivery Network (CDN).
+Azure blob storage supports transfer rates of up to 60MB per second or 500 requests per second for each blob. If you anticipate surpassing these limits, and the blob data is relatively static, then consider replicating blobs by using the Azure Content Delivery Network (CDN). For more information, see the page [Using CDN for Azure](cdn-how-to-use.md) on the Microsoft website. For additional guidance and considerations, see the article Content Delivery Network (CDN).
 
 ## Partitioning Azure storage queues
 
@@ -336,7 +336,7 @@ Documents are organized into collections. A collection enables you to group rela
 
 Document collections provide a natural mechanism to partition data within a single database. Internally, a DocumentDB database can span several servers, and DocumentDB may attempt to spread the load by distributing collections across servers. The simplest way to implement sharding is to create a collection for each shard.
 
-> [AZURE.NOTE] Each DocumentDB is allocated resources in terms of a _performance level_. A performance level is associated with with a _request unit_ (RU) rate limit. The RU rate limit specifies the volume of resources that will be reserved for that collection and is available for exclusive use by that collection. The cost of a collection depends on the performance level selected for that collection; the higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure management portal. For more information, see the page [Performance levels in DocumentDB](documentdb-performance-levels/) on the Microsoft website.
+> [AZURE.NOTE] Each DocumentDB is allocated resources in terms of a _performance level_. A performance level is associated with with a _request unit_ (RU) rate limit. The RU rate limit specifies the volume of resources that will be reserved for that collection and is available for exclusive use by that collection. The cost of a collection depends on the performance level selected for that collection; the higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure management portal. For more information, see the page [Performance levels in DocumentDB](documentdb-performance-levels.md) on the Microsoft website.
 
 All databases are created in the context of a DocumentDB account. A single DocumentDB account can contain several databases, and specifies in which region the databases are created. Each DocumentDB account also enforces its own access control. You can use DocumentDB accounts to geo-locate shards (collections within databases) close to the users that need to access them, and enforce restrictions so that only those users can connect to them.
 
@@ -445,7 +445,7 @@ To retain some availability, it could be possible to mark the original shard as 
 
 Online migration is more complex to perform but is less disruptive to users as data remains available during the entire procedure. The process is similar to that used by offline migration, except that the original shard is not marked offline (step 1). Depending on the granularity of the migration process (item by item or shard by shard), the data access code in the client applications may have to handle reading and writing data held in two locations (the original shard and the new shard)
 
-For an example of a solution that supports online migration, see the [Split/Merge Service for Elastic Scale](sql-database-elastic-scale-overview-split-and-merge/), documented online on the Microsoft website.
+For an example of a solution that supports online migration, see the [Split/Merge Service for Elastic Scale](sql-database-elastic-scale-overview-split-and-merge.md), documented online on the Microsoft website.
 
 ## Related patterns and guidance
 
@@ -462,7 +462,7 @@ The following patterns may also be relevant to your scenario when considering st
 
 - The [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279.aspx) page on the Microsoft website provides detailed documentation describing how to create and use SQL databases.
 - The page [Azure SQL Database Elastic Scale Overview](sql-database-elastic-scale-introduction.md) on the Microsoft website provides a comprehensive introduction to Elastic Scale.
-- The topic [Splitting and Merging with Elastic Scale](sql-database-elastic-scale-overview-split-and-merge/) on the Microsoft website contains information on using the Split/Merge service to manage Elastic Scale shards.
+- The topic [Splitting and Merging with Elastic Scale](sql-database-elastic-scale-overview-split-and-merge.md) on the Microsoft website contains information on using the Split/Merge service to manage Elastic Scale shards.
 - The page [Azure Storage Scalability and Performance Targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website documents the current sizing and throughput limits of Azure storage.
 - The [Performing Entity Group Transactions](https://msdn.microsoft.com/library/azure/dd894038.aspx) page on the Microsoft website provides detailed information about implementing transactional operations over entities stored in Azure table storage.
 - The article [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx) on the Microsoft website contains detailed information on partitioning data in Azure table storage.
@@ -472,7 +472,7 @@ The following patterns may also be relevant to your scenario when considering st
 - The [Azure Search Overview](https://msdn.microsoft.com/library/azure/dn798933.aspx) page on the Microsoft website provides a full description of the capabilities available with the Azure Search service.
 - The [Limits and Constraints (Azure Search API)](https://msdn.microsoft.com/library/azure/dn798934.aspx) page on the Microsoft website contains information on the capacity of each instance of the Azure Search service.
 - The [Supported Data Types (Azure Search)](https://msdn.microsoft.com/library/azure/dn798938.aspx) page on the Microsoft website summarizes the data types that you can use in searchable documents and indexes.
-- The [Microsoft Azure Cache](http://azure.microsoft.com/services/cache/) page on the Microsoft website provides an introduction to Azure Redis Cache.
+- The [Microsoft Azure Cache](http://azure.microsoft.com/services/cache.md) page on the Microsoft website provides an introduction to Azure Redis Cache.
 - The page [Partitioning: how to split data among multiple Redis instances](http://redis.io/topics/partitioning) on the Redis website provides information on implementing partitioning with Redis.
 - The page [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) on the Microsoft website walks through an example showing how to build and configure a Redis node running as an Azure VM.
 - The [Data Types](http://redis.io/topics/data-types) page on the Redis website describes the data types that are available with Redis and Azure Redis Cache.

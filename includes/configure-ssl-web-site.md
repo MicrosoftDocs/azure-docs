@@ -444,7 +444,7 @@ At this point, you should be able to visit your web app using `HTTPS://` instead
 
 Azure App Service do *not* enforce HTTPS. Visitors may still access your web app using HTTP, which may compromise your web app's security. If you want to enforce HTTPS for your web app, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure App Service, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure .** 
 
-> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to a web app](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to a web app](../article/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 > 
 > For information on programmatic redirection of requests using other programming languages and frameworks, consult the documentation for those technologies.
 
@@ -512,8 +512,8 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 ## More Resources ##
 - [Microsoft Azure Trust Center](/support/trust-center/security/)
 - [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Enable diagnostic logging](../articles/web-sites-enable-diagnostic-log.md)
-- [Configuring Web Sites](../articles/web-sites-configure.md)
+- [Enable diagnostic logging](../article/app-service-web/web-sites-enable-diagnostic-log.md)
+- [Configuring Web Sites](../article/app-service-web/web-sites-configure.md)
 - [Azure Management Portal](https://manage.windowsazure.com)
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
@@ -522,7 +522,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

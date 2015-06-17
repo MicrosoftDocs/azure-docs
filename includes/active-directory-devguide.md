@@ -1,1 +1,1 @@
-> [AZURE.NOTE] This article is part of the [Azure Active Directory Developer's Guide](active-directory-developers-guide.md).
+*This article is part of the [Azure Active Directory Developer's Guide](active-directory-developers-guide.md).*

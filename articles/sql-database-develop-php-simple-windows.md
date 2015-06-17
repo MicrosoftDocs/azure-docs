@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to SQL Database by using PHP on Windows"
+	pageTitle="PHP on Windows to SQL DB | Microsoft Azure"
 	description="Presents a sample PHP program that connects to Azure SQL Database from a Windows client, and provides links to the necessary software components needed by the client."
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="06/10/2015"
 	ms.author="mebha"/>
 
 
@@ -35,7 +35,7 @@ To run the PHP code sample given in this topic, your client computer must have t
 
 - [Microsoft Drivers for PHP for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contains the latest bits)
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Microsfot ODBC Driver] (https://www.microsoft.com/en-us/download/details.aspx?id=36434)
+- [Microsoft ODBC Driver] (https://www.microsoft.com/en-us/download/details.aspx?id=36434)
 - IIS Express
 - [PHP 5.6 for IIS Express] (http://www.microsoft.com/web/downloads/platform.aspx) : Download using the platform installer. Make sure you use Internet Explorer to download the platform installer
 

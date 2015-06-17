@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Consuming an Azure Machine Learning Web Service from Excel | Azure" 
+	pageTitle="Consume a Machine Learning Web Service from Excel | Microsoft Azure" 
 	description="Consume an Azure Machine Learning Web Service from Excel" 
 	services="machine-learning" 
 	documentationCenter="" 

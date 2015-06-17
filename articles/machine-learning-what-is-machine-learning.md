@@ -1,7 +1,8 @@
 <properties
-    pageTitle="What is Azure Machine Learning? | Microsoft Azure"
-    description="Explains basic concepts of the fully-managed Machine Learning service on Microsoft Azure you can use to create, operationalize, and monetize solutions."
-    services="machine-learning"
+    pageTitle="What is Machine Learning on Azure? | Microsoft Azure"
+    description="Explains basic concepts of the fully-managed Machine Learning service, a cloud technology you can use to create, operationalize, and monetize solutions."
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"    
+	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
     manager="neerajkh"
@@ -20,9 +21,10 @@
 # Introduction to machine learning on Microsoft Azure
 
 ## What is machine learning?
+
 Machine learning is at work all around you. When you shop online, machine learning helps recommend other products based on what you've purchased. When your credit card is swiped, machine learning helps the bank do fraud detection and notify you if the transaction seems suspicious.
 
-Machine learning is the process of building predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.
+Machine learning uses predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.
 
 ## What is Machine Learning on Microsoft Azure?
 
@@ -32,15 +34,21 @@ Azure Machine Learning not only provides tools to model predictive analytics, bu
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
+## What is predictive analytics?
+
+Predictive analytics uses various statistical techniques - in this case, machine learning - to analyze collected or current data for patterns or trends in order to forecast future events. 
+
+Azure Machine Learning is a particularly powerful way to do predictive analytics: You can work from a ready-to-use library of algorithms, create models on an internet-connected PC without purchasing additional equipment or infrastructure, and deploy your predictive solution quickly. You can also find ready-to-use examples and solutions in the [Mirosoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) or [Machine Learning Gallery](http://gallery.azureml.net/).
+
 ## Build complete machine learning solutions in the cloud
 
-Azure Machine Learning has everything you need to create predictive analytics solutions in the cloud.
+Azure Machine Learning has everything you need to create predictive analytics solutions in the cloud from a large algorithm library, to a studio for building models, to an easy way to deploy your model as a web service.
 
 ### Machine Learning Studio: Create predictive models
 
 Create predictive models in [Machine Learning Studio](machine-learning-what-is-ml-studio.md), a browser-based tool, by dragging, dropping, and connecting modules.
 
-![Predictive analytics experiments in the cloud with Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+![What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
 
 * Use a large library of [Machine Learning algorithms and modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio to jump-start your predictive models. Choose from a library of sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing. Extend Studio modules with your own custom  [R](machine-learning-r-quickstart.md) and [Python](machine-learning-execute-python-scripts.md) scripts.
 * In [Machine Learning Community Gallery](machine-learning-gallery-how-to-use-contribute-publish.md), you can get started with Azure Machine Learning and learn from others in the community. Try experiments authored by others, ask questions or post comments about experiments, or publish your own experiments. You can also share links to experiments via social networks such as LinkedIn and Twitter.  
@@ -52,10 +60,11 @@ Create predictive models in [Machine Learning Studio](machine-learning-what-is-m
 * Purchase ready-to-consume web services from [Mirosoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), such as Recommendations, Text Analytics, and Anomaly Detection.
 
 * Operationalize your predictive analytics models:
-    * [Publish web services](machine-learning-publish-a-machine-learning-web-service.md).
-    * [Train and retrain models through APIs](machine-learning-retrain-models-programmatically.md).
-    * [Manage web service endpoints](machine-learning-create-endpoint.md).
-    * [Scale web services](machine-learning-scaling-endpoints.md).
+    * [Publish web services](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Train and retrain models through APIs](machine-learning-retrain-models-programmatically.md)
+    * [Manage web service endpoints](machine-learning-create-endpoint.md)
+    * [Scale web services](machine-learning-scaling-endpoints.md)
+    * [Consume web services](machine-learning-consume-web-services.md)
 
 ## Key machine learning terminology and concepts
 ### Data exploration, descriptive analytics, and predictive analytics
@@ -73,12 +82,12 @@ Create predictive models in [Machine Learning Studio](machine-learning-what-is-m
  **Unsupervised learning** is used on data with no labels, and the goal is to find relationships in the data. For instance, you might want to find groupings of customer demographics with similar buying habits.
 
 ### Model training and evaluation
-A machine learning model is an abstraction of the question you are trying to answer or the outcome you want to predict.
+A machine learning model is an abstraction of the question you are trying to answer or the outcome you want to predict. Models are trained and evaluated from existing data.
 
 #### Training from data
-In Azure Machine Learning, a model is the combined product of training data fed through an algorithm module and functional modules, such as a scoring module.
+In Azure Machine Learning, a model is built from an algorithm module that processes training data and functional modules, such as a scoring module.
 
-In supervised learning, training a model involves using data for which you know the outcomes. If you're training a fraud detection model, you'll use a set of transactions that are labeled as fraudulent or valid. You'll split your data set randomly, and use part to train the model and part to test or evaluate the model.
+In supervised learning, if you're training a fraud detection model, you'll use a set of transactions that are labeled as either fraudulent or valid. You'll split your data set randomly, and use part to train the model and part to test or evaluate the model.
 
 #### Evaluation data
 Once you have a trained model, evaluate the model using the remaining test data. You use data you already know the outcomes for, so that you can tell whether your model predicts accurately.

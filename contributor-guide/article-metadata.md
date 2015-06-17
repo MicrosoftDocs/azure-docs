@@ -112,7 +112,13 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
 
-![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the following approved values: mysql, billing, architecture. This value does not support free-form tags or hashtags.
+![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the approved values. These values are meant to provide a way to group content together when the content grouping is not service-specific. These tags can also provide labeling that indicates the technology stack the article applies to. This value **does not** support free-form tags or hashtags; the tags must be enabled on the site. The approved values are:
+
+  - architecture
+  - azure-resource-manager
+  - azure-service-management
+  - billing
+  - mysql
 
 ## Attributes and values for the tags section
 

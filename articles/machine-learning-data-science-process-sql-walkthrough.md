@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Advanced Analytics Process and Technology in Action: using SQL Server | Azure" 
-	description="Advanced Analytics Process and Technology in Action" metaKeywords="" 
+	pageTitle="Advanced Analytics Process and Technology in Action: using SQL Server | Microsoft Azure" 
+	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 

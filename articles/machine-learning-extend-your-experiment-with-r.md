@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Extend your experiment with R | Azure"
+	pageTitle="Extend your experiment with R | Microsoft Azure"
 	description="How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module."
 	services="machine-learning"
 	documentationCenter=""

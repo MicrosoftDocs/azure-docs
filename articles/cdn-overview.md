@@ -51,7 +51,7 @@ When you enable CDN access for a storage account, the Management Portal provides
 
 ##Caching content from Azure websites
 
-You can enable CDN from your websites to cache your web contents, such as images, scripts, and stylesheets. See [Integrate an Azure Website with Azure CDN](cdn-websites-with-cdn.md).
+You can enable CDN from your websites to cache your web contents, such as images, scripts, and stylesheets. See [Integrate an Azure Website with Azure CDN](app-service-web/cdn-websites-with-cdn.md).
 
 When you enable CDN access for a website, the Management Portal provides you with a CDN domain name in the following format: http://<identifier>.vo.msecnd.net/. This domain name can be used to retrieve objects from a website. For example, given a public container named cdn and an image file called music.png, users can access the object using either of the following two URLs:
 
