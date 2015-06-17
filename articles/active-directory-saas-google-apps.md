@@ -20,7 +20,14 @@
 
 ##Overview
 
+
+
 what does azure ad support
+link to saas apps docs
+link to saml docs
+link to provisioning docs
+link to list of supported apps.
+GADS vs Provisioning
 
 ##How to Enable Single Sign-On to Google Apps
 
