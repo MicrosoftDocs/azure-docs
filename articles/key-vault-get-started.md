@@ -117,7 +117,7 @@ Then type the following to import the key from the .PFX file, which protects the
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. For example: **https://ContosoKeyVault.vault.azure.net/Keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**  
+You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. For example: **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**  
 
 To display the URI for this key, type:
 
@@ -131,7 +131,7 @@ Then, type the following:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-You can now reference this password that you added to Azure Key Vault, by using its URI. For example: **https://ContosoVault.vault.azure.net/Secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
+You can now reference this password that you added to Azure Key Vault, by using its URI. For example: **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
 
 To display the URI for this secret, type:
 
