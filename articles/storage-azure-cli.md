@@ -84,11 +84,7 @@ See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.micr
 
     - **<destination_folder>** Enter a path to a local directory to store files downloaded from Azure Storage, such as: “~/downloadImages”.
 
-<<<<<<< Updated upstream
 7. After you’ve updated the necessary variables in vim, press key combinations “Esc, : , wq!” to save the script.
-=======
-7. After you’ve updated the necessary variables in vim, press key combinations "Esc, : , wq" to save the script. 
->>>>>>> Stashed changes
 
 8. To run this script, simply type the script file name in the bash console. After this script runs, you should have a local destination folder that includes the downloaded image file. The following screenshot shows an example output:
 
