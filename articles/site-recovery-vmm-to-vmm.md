@@ -59,6 +59,11 @@ Make sure you have these prerequisites in place:
 - The host and target Hyper-V servers must be running at least Windows Server 2012 with Hyper-V role and have the latest updates installed.
 - If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. For instructions see [Configure Hyper-V Replica Broker](hhttp://go.microsoft.com/fwlink/?LinkId=403937).
 - Any Hyper-V host server or cluster for which you want to manage protection must be included in a VMM cloud.
+
+The picture below shows the different communication channels and ports used by Azure Site Recovery for orchestration and replication
+
+![E2E Topology](./media/site-recovery-vmm-to-vmm/E2ETopology.png)
+
  
 ### Network mapping prerequisites
 Network mapping ensures that replica virtual machines are optimally placed on Hyper-V host servers after failover and that they can connect to appropriate VM networks. If you don't configure network mapping replica virtual machines won't be connected to VM networks after failover. If you want to deploy network mapping you'll need the following:

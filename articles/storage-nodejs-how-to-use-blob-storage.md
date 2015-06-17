@@ -378,8 +378,8 @@ to learn how to do more complex storage tasks.
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: storage-nodejs-use-table-storage-cloud-service-app.md
-[Node.js Web Application with Storage]: storage-nodejs-use-table-storage-web-site.md
-[Web Site with WebMatrix]: web-sites-nodejs-use-webmatrix.md
+[Node.js Web Application with Storage]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Web Site with WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Management Portal]: http://manage.windowsazure.com
 [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md

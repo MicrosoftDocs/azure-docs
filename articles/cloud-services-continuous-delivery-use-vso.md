@@ -52,7 +52,7 @@ Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to
 You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, create a new Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
-If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](web-sites-dotnet-get-started.md).
+If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
 
 > [AZURE.NOTE] Visual Studio Online only support CI deployments of Visual Studio Web Applications at this time. Web Site projects are out of scope.
 
@@ -244,7 +244,7 @@ This step applies only to web apps, not cloud services. To put a quality gate on
 
 For more about unit testing in Visual Studio Online, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474).
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Continuous deployment using GIT in Azure App Service](app-service-web/web-sites-publish-source-control.md).
 
 [Step 1: Create a team project.]: #step1
 [Step 2: Check in a project to source control.]: #step2
