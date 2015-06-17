@@ -21,7 +21,7 @@ Azure Internal Load Balancing (ILB) provides load balancing between virtual mach
 
 
 
-## Creating a load balancer set for Virtual Machines
+## Creating an Internal load-balanced set for Virtual Machines
 
 To create an Azure internal load-balanced set and the servers that will send their traffic to it, you must do the following:
 
