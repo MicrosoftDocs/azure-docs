@@ -59,11 +59,12 @@ For existing virtual machines, you can add endpoints to the ILB instance with th
 	$svc="<Cloud service name>"
 	$vmname="<Name of the VM>"
 	$epname="<Name of the endpoint>"
+	$lbsetname="<Name of the load balancer set>"
 	$prot="tcp" or "udp"
 	$locport=<local port number>
 	$pubport=<public port number>
 	$ilb="<Name of your ILB instance>"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbsetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 To use these commands, fill in the values and remove the < and >.
 
@@ -74,11 +75,12 @@ Here is an example:
 	$svc="AZ-LOB1"
 	$vmname="SQL-LOBAZ1"
 	$epname="SQL1"
+	$lbsetname="SQL-LB"
 	$prot="tcp"
 	$locport=1433
 	$pubport=1433
 	$ilb="SQL ILB"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
 ### Step 3: Configure your servers to send their traffic to the new ILB endpoint
@@ -130,16 +132,17 @@ The following commands configure a new ILB instance named PARTNER-DBTIER and add
 	$locport=1433
 	$pubport=1433
 	$epname="DBTIER1"
+	$lbsetname="SQL-LB"
 	$vmname="PARTNER-SQL-1"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 	$epname="DBTIER2"
 	$vmname="PARTNER-SQL-2"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 	$epname="DBTIER3"
 	$vmname="PARTNER-SQL-3"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 Next, Contoso determined the VIP of the PARTNER-DBTIER ILB instance with the following command:
 
@@ -178,16 +181,17 @@ The following commands create an ILB instance named LEGAL-ILB and add endpoints 
 	$locport=80
 	$pubport=80
 	$epname="LOB1"
+	$lbsetname="LOB-LB"
 	$vmname="LEGAL-1"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname-LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 	$epname="LOB2"
 	$vmname="LEGAL2"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 	$epname="LOB3"
 	$vmname="LEGAL3"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
 Next, Contoso configured the DNS A record for the legalnet.corp.contoso.com name to use 198.168.99.145.
