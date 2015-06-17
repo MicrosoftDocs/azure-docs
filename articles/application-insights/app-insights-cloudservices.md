@@ -131,7 +131,7 @@ In addition, the following are also collected for web roles:
 	* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 You can specify additional custom or other windows performance counters as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)
-  <img src="http://i.imgur.com/OLfMo2f.png" width="450">
+  ![](./media/app-insights-cloudservices/OLfMo2f.png)
 
 ### Correlated Telemetry for Worker Roles
 
@@ -142,11 +142,12 @@ This will allow you to see whether the latency/failure issue was caused due to a
 Here's how:
 
 * Set the correlation Id into a CallContext as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). In this case, we are using the Request ID as the correlation id
-* Add a custom TelemetryInitializer implementation, that will set the Operation.Id to the correlationId set above. Shown here: [ItemCorrelationTelemetryInitializer] (https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
+* Add a custom TelemetryInitializer implementation, that will set the Operation.Id to the correlationId set above. Shown here: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
 * Add the custom telemetry initializer. You could do that in the ApplicationInsights.config file, or in code as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
 
-That's it! The portal experience is already wired up to help you see all associated telemetry at a glace:
-<img src="http://i.imgur.com/bHxuUhd.png" width="450">
+That's it! The portal experience is already wired up to help you see all associated telemetry at a glance:
+
+![](./media/app-insights-cloudservices/bHxuUhd.png)
 
 #### No data?
 
@@ -169,47 +170,11 @@ To get the full 360-degree view of your application, there are some more things 
 * [Track custom events and metrics][api] in client or server or both, to learn more about how your application is used.
 * [Set up web tests][availability] to make sure your application stays live and responsive.
 
-#### Track requests for worker roles
 
-You can capture the performance of calls to worker roles by tracking them in the same way as HTTP requests. In Application Insights, the Request telemetry type measures a unit of named server side work that can be timed and can independently succeed or fail. While HTTP requests are captured automatically by the SDK, you can insert your own code to track requests to worker roles.
-
-Here's a typical run loop for a worker role:
-
-```C#
-
-    while (true)
-    {
-      Stopwatch s1 = Stopwatch.StartNew();
-      var startTime = DateTimeOffset.UtcNow;
-      try
-      {
-        // ... get and process messages ...
-
-        s1.Stop();
-        telemetryClient.TrackRequest("CheckItemsTable",
-            startTime, s1.Elapsed, SUCCESS_CODE, true);
-      }
-      catch (Exception ex)
-      {
-        string err = ex.Message;
-        if (ex.InnerException != null)
-        {
-           err += " Inner Exception: " + ex.InnerException.Message;
-        }
-        s1.Stop();
-        telemetryClient.TrackRequest("CheckItemsTable", 
-            startTime, s1.Elapsed, FAILURE_CODE, false);
-        telemetryClient.TrackException(ex);
-
-        // Don't flood if we have a bug in queue process loop.
-        System.Threading.Thread.Sleep(60 * 1000);
-      }
-    }
-```
 
 ## Example
 
-There's [an example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) which monitors a service that has a web role and two worker roles.
+[The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
 
 
 
