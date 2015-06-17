@@ -34,7 +34,7 @@ Requirements to use the extension on your VM:
 ## Services available with the extension
 
 - **SQL automated backup**: This service automates the scheduling of backups for all databases for the default instance of SQL Server in the VM. To see more information about this service, see [Automated backup for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn906091.aspx).
-- **SQL automated patching**: This service lets you configure a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. To see more information about this service, see [Automated patching for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/en-us/library/azure/dn961166.aspx).
+- **SQL automated patching**: This service lets you configure a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. To see more information about this service, see [Automated patching for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn961166.aspx).
 
 ## Add the extension with Powershell
 If you provision your SQL Server VM using the [Azure Preview Portal](https://portal.azure.com/), the extension will be automatically installed. For SQL Server VMs provisioned with the [Azure Management Portal](https://manage.windowsazure.com), or for VMs which you bring your own SQL license to, you can add this extension to an existing VM using the following Azure PowerShell cmdlet.
