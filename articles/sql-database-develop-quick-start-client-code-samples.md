@@ -54,7 +54,7 @@ This section provides links to code sample topics for client programs that run o
 
 | Language | Short | Retry | Relational to object |
 | :-- | :-- | :-- | :-- |
-| Python | [Homebrew](sql-database-develop-python-simple-mac-osx.md) | . | . |
+| Python | [pymssql](sql-database-develop-python-simple-mac-osx.md) | . | . |
 
 
 ## Clients on Windows
