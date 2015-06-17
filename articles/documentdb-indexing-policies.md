@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/28/2015" 
+    ms.date="06/16/2015" 
     ms.author="mimig"/>
 
 
@@ -416,7 +416,7 @@ To measure the overhead of indexing on each write operation (create, update, or 
 
 Follow the links below for index policy management samples and to learn more about DocumentDB's query language.
 
-1.	[DocumentDB .NET Index Management code samples](https://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af/sourcecode?fileId=134860&pathId=1399591856)
+1.	[DocumentDB .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2.	[DocumentDB REST API Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3.	[Query with DocumentDB SQL](documentdb-sql-query.md)
 

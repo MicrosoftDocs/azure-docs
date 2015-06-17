@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/16/2015" 
 	ms.author="arramac"/>
 
 # How to partition data in DocumentDB with the .NET SDK
@@ -164,7 +164,7 @@ You can chain PartitionResolvers by implementing your own IPartitionResolver tha
 * [Partitioning data with DocumentDB concepts](documentdb-partition-data.md)
 * [DocumentDB collections and performance levels](documentdb-performance-levels.md)
 * [DocumentDB .NET SDK Documentation at MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-* [DocumentDB .NET samples](https://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af)
+* [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB Limits](documentdb-limits.md)
 * [DocumentDB Blog on Performance Tips](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
