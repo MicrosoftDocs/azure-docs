@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # How to create APIs in Azure API Management
@@ -94,4 +94,4 @@ Once an API is created and the settings configured, the next steps are to add th
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [How to secure back-end services using mutual certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
-[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md 
+[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md

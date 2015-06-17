@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="03/19/2015" 
+    ms.date="06/16/2015" 
     ms.author="andrl"/>
 
 #Connecting DocumentDB with Azure Search using indexers

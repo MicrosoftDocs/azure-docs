@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/20/2015" 
+	ms.date="06/17/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -287,6 +287,5 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: stream-analytics-limitations.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301

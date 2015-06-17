@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # How to configure notifications and email templates in Azure API Management
@@ -112,4 +112,4 @@ Click **Preview** or **Send a test** to see how the email will look or send a te
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
 [Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance 
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance

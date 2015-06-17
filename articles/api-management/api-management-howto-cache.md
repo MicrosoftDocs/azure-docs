@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/10/2015"
+	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
 # Add Caching to improve performance in Azure API Management
@@ -145,7 +145,7 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
+[Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
@@ -160,4 +160,3 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
- 
