@@ -51,9 +51,13 @@ Make sure you have these prerequisites in place:
 
 ### Hyper-V prerequisites
 
-- The host Hyper-V servers must be running at least Windows Server 2012 with Hyper-V role and have the latest updates installed.
+- The host Hyper-V servers must be running at least Windows Server 2012 R2 with Hyper-V role and have the latest updates installed.
 - If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. For instructions see [Configure Hyper-V Replica Broker](http://go.microsoft.com/fwlink/?LinkId=403937).
 - Any Hyper-V host server or cluster for which you want to manage protection must be included in a VMM cloud.
+
+The picture below shows the different communication channels and ports used by Azure Site Recovery for orchestration and replication
+
+![E2A Topology](./media/site-recovery-vmm-to-azure/E2ATopology.png)
 
 ### Network mapping prerequisites
 When you protect virtual machines in Azure network mapping maps between VM networks on the source VMM server and target Azure networks to enable the following:

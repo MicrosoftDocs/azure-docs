@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="03/11/2015"
+	ms.date="06/15/2015"
 	ms.author="tamram"/>
 
 # How to use Queue storage from .NET

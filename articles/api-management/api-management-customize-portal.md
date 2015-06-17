@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/10/2015"
+	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
 # Customizing the developer portal in Azure API Management
@@ -98,4 +98,3 @@ Click on the "Welcome" page to edit what is displayed on the home page of the de
 [Get started with advanced API configuration]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
- 

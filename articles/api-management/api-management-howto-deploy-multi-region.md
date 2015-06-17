@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015"
+	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
 # How to deploy an Azure API Management service instance to multiple Azure regions
@@ -75,4 +75,3 @@ Once the desired regions are removed, click **Save**.
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
- 
