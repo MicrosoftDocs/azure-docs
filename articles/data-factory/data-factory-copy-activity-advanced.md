@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/15/2015" 
 	ms.author="spelluru"/>
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
@@ -236,7 +236,6 @@ The data types specified in the Structure section of the Table definition is onl
 		<ul>
 			<li> <b>TextFormat:</b> all column types are treated as string, and all column names are set as "Prop_<0-N>"</li> 
 			<li><b>AvroFormat:</b> use the built-in column types and names in Avro file.</li> 
-			<li><b>JsonFormat:</b> all column types are treated as string, and use the built-in column names in Json file.</li>
 		</ul>
 		</td>
 	</tr>
@@ -320,7 +319,7 @@ When copying data into SQL Server or Azure SQL Database, a user specified stored
 The stored procedure feature takes advantage of [Table-Valued Parameters][table-valued-parameters].
 
 ## Specify encoding for text files
-Though UTF-8 encoding is quite popular, often time text files in Azure Blob follow other encodings due to historical reasons. The **encodingName** property allows you to specify the encoding by code page name for tables of TextFormat type. For the list of valid encoding names, see: Encoding.EncodingName Property. For example: windows-1250 or shift_jis. The default value is: UTF-8. See [Encoding class](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) for valid encoding names.  
+Though UTF-8 encoding is quite popular, often time text files in Azure Blob follow other encodings due to historical reasons. The **encodingName** property allows you to specify the encoding by code page name for tables of TextFormat type. For the list of valid encoding names, see: Encoding.EncodingName Property. For example: windows-1250 or shift_jis. The default value is: UTF-8. See [Encoding class](https://msdn.microsoft.com/library/system.text.encoding.aspx) for valid encoding names.  
 
 ## See Also
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="06/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -81,7 +81,7 @@ Hybrid Connections require only outbound TCP or HTTP connectivity from your priv
 
 The following TCP ports are used by Hybrid Connections:
 
-Port | Why
+Port | Why you need it
 --- | ---
 9350 - 9354 | These ports are used for data transmission. The Service Bus relay manager probes port 9350 to determine if TCP connectivity is available. If it is available, then it assumes that port 9352 is also available. Data traffic goes over port 9352. <br/><br/>Allow outbound connections to these ports.
 5671 | When port 9352 is used for data traffic, port 5671 is used as the the control channel. <br/><br/>Allow outbound connections to this port. 
@@ -92,8 +92,8 @@ Port | Why
 ## Next
 
 [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)<br/>
-[Connect an Azure Website to an On-Premises Resource](web-sites-hybrid-connection-get-started.md)<br/>
-[Connect to on-premises SQL Server from an Azure web app](web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
+[Connect an Azure Website to an On-Premises Resource](app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Connect to on-premises SQL Server from an Azure web app](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 [Azure Mobile Services and Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 

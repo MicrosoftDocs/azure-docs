@@ -73,7 +73,7 @@ You can learn about the events emitted from the Reliable Actors runtime [here](s
 Note that in order to get Reliable Actors runtime method calls, EventLevel.Verbose must be used (as shown in examples above).
 
 ## Setting up Application Insights
-An instrumentation key is what ties your Service Fabric app to your Application Insights resource.  You can learn how to get your instrumentation key by following [Application Insight's guide](app-insights-create-new-resource.md#create-an-application-insights-resource).
+An instrumentation key is what ties your Service Fabric app to your Application Insights resource.  You can learn how to get your instrumentation key by following [Application Insight's guide](application-insights/app-insights-create-new-resource.md#create-an-application-insights-resource).
 Select 'Other' for application type when creating resources.
 
 ![Select Other for AI app type](media/service-fabric-diagnostics-application-insights-setup/AI-app-type-other.JPG)
@@ -85,7 +85,7 @@ Once you have your instrumentation key, you can insert it into the ApplicationIn
 ```
 
 ## Viewing data
-You can [customize the App Insights blade](app-insights-metrics-explorer.md) to fit your needs. 
+You can [customize the App Insights blade](application-insights/app-insights-metrics-explorer.md) to fit your needs. 
 Most Service Fabric events will show up as 'Custom Events', while Fabric Actor method calls and service RunAsync() calls will show up as requests.  
 Modeling these events as requests allows you to use the 'request name' dimension and 'request duration' metric when building charts.
 New charts, metrics, and events will continue to be added which you will be able to leverage in the future.
@@ -93,5 +93,5 @@ New charts, metrics, and events will continue to be added which you will be able
 ## Next steps
 Learn more about using Application Insights to instrument your Service Fabric apps.
 
-- [Getting started with Application Insights](app-insights-get-started.md)
-- [Learn to create your own custom events and metrics](app-insights-custom-events-metrics-api.md)
+- [Getting started with Application Insights](application-insights/app-insights-get-started.md)
+- [Learn to create your own custom events and metrics](application-insights/app-insights-custom-events-metrics-api.md)

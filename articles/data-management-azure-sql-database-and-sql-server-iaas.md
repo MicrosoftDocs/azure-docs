@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/23/2015" 
