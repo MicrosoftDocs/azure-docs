@@ -98,7 +98,7 @@ If your connectivity provider is not in the list above sections, you can still c
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 
-## ExpressRoute and Microsoft Cloud Services
+## ExpressRoute and Microsoft cloud services
 The tables below provide details on connectivity providers and the list of Microsoft cloud services they support. Contact your service provider.
 
 ### Exchange Providers (EXPs)
@@ -129,7 +129,7 @@ The tables below provide details on connectivity providers and the list of Micro
 |**Verizon**|Supported|| 
 
 
-## ExpressRoute System Integrators
+## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
 
 
