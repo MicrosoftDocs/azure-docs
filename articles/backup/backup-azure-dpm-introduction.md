@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introduction to Azure DPM backup"
+	pageTitle="Introduction to Azure DPM backup | Microsoft Azure"
 	description="An introduction to backing up DPM servers using the Azure Backup service"
 	services="backup"
 	documentationCenter=""
@@ -24,7 +24,6 @@ This article provides an introduction to using Microsoft Azure Backup to protect
 - The prerequisites to achieve a smooth backup experience
 - The typical errors encountered and how to deal with them
 - Supported scenarios
-- Ways to provide feedback on scenarios missing from this article.
 
 System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Windows Azure Backup. DPM interacts with Azure Backup as follows:
 
@@ -145,4 +144,4 @@ And these are unsupported:
 
 >[AZURE.NOTE] From in System Center 2012 DPM with SP1 onwards you can backup up workloads protected by DPM to Azure using Microsoft Azure Backup.
 
-If there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+
