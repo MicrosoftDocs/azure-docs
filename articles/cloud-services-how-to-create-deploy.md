@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/24/2015"
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -125,7 +125,6 @@ Three cloud service features require special configurations before you export a 
 6. Click **OK** (checkmark) to begin the cloud service deployment.
 
 	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
-
 
 	You can monitor the status of the deployment in the message area. Click OK to hide the message.
 

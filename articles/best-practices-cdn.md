@@ -1,7 +1,7 @@
 <properties
    pageTitle="Content Delivery Network (CDN) guidance | Microsoft Azure"
    description="Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure."
-   services="cdn"
+   services=""
    documentationCenter="na"
    authors="dragon119"
    manager="masimms"
@@ -47,7 +47,7 @@ Typical uses for the CDN include:
 - Coping with the growing load on applications that service mobile and fixed devices that are part of the Internet of Things (IoT). The huge numbers of such devices and appliances could easily overwhelm the application if it was required to process broadcast messages and manage firmware update distribution directly.
 
 - Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increase running costs. For example, when an update is released to an operating system, for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.  
- 
+
 - The following table shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure West US. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](http://msdn.microsoft.com/library/azure/gg680302.aspx).  
 
 <table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><a name="_MailEndCompose" href="#"><span /></a><br /></th><th><p>Time to First Byte (Origin)</p></th><th><p>Time to First Byte (CDN)</p></th><th><p>% faster for CDN</p></th></tr><tr><td><p>* San Jose, CA</p></td><td><p>47.5</p></td><td><p>46.5</p></td><td><p>2 %</p></td></tr><tr><td><p>** Dulles, VA</p></td><td><p>109</p></td><td><p>40.5</p></td><td><p>169 %</p></td></tr><tr><td><p>Buenos Aires, AR</p></td><td><p>210</p></td><td><p>151</p></td><td><p>39 %</p></td></tr><tr><td><p>* London, UK</p></td><td><p>195</p></td><td><p>44</p></td><td><p>343 %</p></td></tr><tr><td><p>Shanghai, CN</p></td><td><p>242</p></td><td><p>206</p></td><td><p>17 %</p></td></tr><tr><td><p>* Singapore</p></td><td><p>214</p></td><td><p>74</p></td><td><p>189%</p></td></tr><tr><td><p>* Tokyo, JP</p></td><td><p>163</p></td><td><p>48</p></td><td><p>240 %</p></td></tr><tr><td><p>Seoul, KR</p></td><td><p>190</p></td><td><p>190</p></td><td><p>0 %</p></td></tr></table>* Has an Azure CDN node in the same city.  
@@ -101,7 +101,7 @@ Using the CDN is a good way to minimize the load on your application, and maximi
 
 - When using Azure storage blobs to hold content for the CDN, the URL of the resources in blobs is case sensitive for the container and blob name.
 
-- When using Azure Web Sites, you specify the path to the CDN instance in the links to resources. For example, the following specifies an image file in the **Images** folder of the site that will be delivered through the CDN: 
+- When using Azure Web Sites, you specify the path to the CDN instance in the links to resources. For example, the following specifies an image file in the **Images** folder of the site that will be delivered through the CDN:
 
   ```
   <img src="http://[your-cdn-instance].vo.msecnd.net/Images/image.jpg" />

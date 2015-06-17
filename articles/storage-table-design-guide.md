@@ -3,8 +3,8 @@
    description="Design Scalable and Performant Tables in Azure Table Storage"
    services="storage"
    documentationCenter="na"
-   authors="Tamram" 
-   manager="adinah"
+   authors="tamram" 
+   manager="carolz"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="02/26/2015"
+   ms.date="06/12/2015"
    ms.author="tamram"/>
 
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
@@ -240,8 +240,6 @@ Your choice of **PartitionKey** should balance the need to enables the use of EG
 At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution and would prevent the table service from being able to load-balance requests. At the other extreme, you could store one entity per partition which would be scalable and the table service to load-balance requests, but which would prevent you from using EGTs.  
 
 An ideal **PartitionKey** is one that enables you to use efficient queries and that has sufficient partitions to ensure your solution is scalable. Typically, you will find that your entities will have a suitable property that distributes your entities across sufficient partitions.  
-
->[AZURE.NOTE]For example, in a system that stores information about users or employees, User Id can be a good **PartitionKey**.  
 
 There are additional considerations in your choice of **PartitionKey** that relate to how you will insert, update, and delete entities: see the section [Design for data modification](#design-for-data-modification) below.  
 

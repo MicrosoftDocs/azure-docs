@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create and manage your StorSimple Manager service"
+   pageTitle="Deploy the StorSimple Manager service"
    description="Explains how to create and delete the StorSimple Manager service in the Management Portal, and describes how to manage the service registration key."
    services="storsimple"
    documentationCenter=""
@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="06/12/2015"
    ms.author="v-sharos" />
 
-# Overview
+# Deploy the StorSimple Manager service
+
+## Overview
 
 The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. After you create the service, you can use it to manage these devices from the Microsoft Azure Management Portal running in a browser. This allows you to monitor all the devices that are connected to the StorSimple Manager service from a single, central location, thereby minimizing administrative burden.
 

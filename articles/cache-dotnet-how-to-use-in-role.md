@@ -50,7 +50,7 @@ features:
 
 In-Role Cache provides a way to perform caching by using a portion of the memory of the virtual machines that host the role instances in your Azure cloud services (also known as hosted services). You have greater flexibility in terms of deployment options, the caches can be very large in size and have no cache specific quota restrictions.
 
->[AZURE.NOTE] Starting with Azure SDK 2.6, In-Role Cache is using Microsoft Azure Storage SDK version 4.3. In previous versions of the Azure SDK, In-Role Cache used Azure Storage SDK 1.7. Applications using In-Role Cache with versions of the Azure SDK before 2.6 should migrate to Azure SDK 2.6 before Azure Storage version 2011-08-18 is decommissioned on December 9th, 2015. For more information, see [Azure SDK 2.6 Release Notes - In-Role Cache](azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) and [Microsoft Azure Storage Service Version Removal](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
+>[AZURE.NOTE] Starting with Azure SDK 2.6, In-Role Cache is using Microsoft Azure Storage SDK version 4.3. In previous versions of the Azure SDK, In-Role Cache used Azure Storage SDK 1.7. Applications using In-Role Cache with versions of the Azure SDK before 2.6 should migrate to Azure SDK 2.6 before Azure Storage version 2011-08-18 is decommissioned on December 9th, 2015. For more information, see [Azure SDK 2.6 Release Notes - In-Role Cache](app-service-web/azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) and [Microsoft Azure Storage Service Version Removal](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
 
 Caching on role instances has the following advantages:
 

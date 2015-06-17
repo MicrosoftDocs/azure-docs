@@ -141,4 +141,4 @@ However, you may want to have more agressive scaling during the day, or the week
 * [Receive alert notifications](insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
 * [Monitor application performance](insights-perf-analytics.md) if you want to understand exactly how your code is performing in the cloud.
 * [View events and audit logs](insights-debugging-with-events.md) to learn everything that has happened in your service.
-* [Monitor availability and responsiveness of any web page](app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
+* [Monitor availability and responsiveness of any web page](application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.

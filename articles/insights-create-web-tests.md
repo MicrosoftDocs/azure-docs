@@ -19,4 +19,4 @@
 # Monitor availability and responsiveness of any web site
 
 
-> [AZURE.NOTE] This article has moved. Please see: [Monitor availability and responsiveness of any web site](app-insights-monitor-web-app-availability.md)
+> [AZURE.NOTE] This article has moved. Please see: [Monitor availability and responsiveness of any web site](application-insights/app-insights-monitor-web-app-availability.md)

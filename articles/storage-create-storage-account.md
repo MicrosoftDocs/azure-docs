@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/05/2015"
+	ms.date="06/15/2015"
 	ms.author="tamram"/>
 
 
@@ -21,12 +21,14 @@
 
 ## Overview
 
-An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your data, and by default, it is available only to you, the account owner.
+An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your Azure Storage data objects. By default, the data in your account is available only to you, the account owner.
 
 There are two types of storage accounts:
 
-- A standard storage account includes Blob, Table, and Queue storage. File storage is available by request via the [Azure Preview page](/services/preview/).
-- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/services/preview/). See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for an in-depth overview of Premium Storage.
+- A standard storage account includes Blob, Table, and Queue storage. File storage is available by request via the [Azure Preview page](http://azure.microsoft.com/services/preview/).
+- A premium storage account currently supports Azure Virtual Machine disks only. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md) for an in-depth overview of Premium Storage.
+
+## Storage account billing
 
 You are billed for Azure Storage usage based on your storage account. Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress.
 
@@ -39,7 +41,7 @@ The [Storage Pricing Details](http://azure.microsoft.com/pricing/details/#storag
 
 For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
-> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/documentation/services/virtual-machines/) for more details. <br />
+> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/) for more details.
 
 ## Create a storage account
 
