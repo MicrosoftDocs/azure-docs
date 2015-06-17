@@ -26,7 +26,7 @@ When you create a Cloud Service, Azure assigns it to a subdomain of cloudapp.net
 However, you can also expose your application on your own domain name, such as contoso.com. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
 
 > [AZURE.NOTE]
-> The procedures in this task apply to Azure Cloud Services. For Websites, see [Configuring a Custom Domain Name for an Azure App Service Web App](app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For Websites, see [Configuring a Custom Domain Name for an Azure App Service Web App](app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](storage/storage-custom-domain-name.md).
 
 
 ## Understand CNAME and A records
