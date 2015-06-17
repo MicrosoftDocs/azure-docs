@@ -18,13 +18,15 @@
 
 #Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (preview)
 
+[AZURE.INCLUDE [mahout-selector](../includes/hdinsight-selector-mahout.md)]
+
 Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
 
 Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you will use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
 
 > [AZURE.NOTE] The steps in this document require a Linux-based Hadoop on HDInsight cluster (preview). For information on using Mahout with a Windows-based cluster, see [Generate movie recommendations by using Apache Mahout with Windows-based Hadoop in HDInsight](hdinsight-mahout.md)
 
-##prerequisites
+##Prerequisites
 
 * A Linux-based Hadoop on HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted]
 
@@ -78,11 +80,11 @@ Conveniently, [GroupLens Research][movielens] provides rating data for movies in
 
 ##Run the job
 
-1. Use the following command to run the recommendation job:
+Use the following command to run the recommendation job:
 
-		mahout recommenditembased -s SIMILARITY_COOCCURRENCE --input /example/data/u.data --output /example/data/mahoutout  --tempDir /temp/mahouttemp
+	mahout recommenditembased -s SIMILARITY_COOCCURRENCE --input /example/data/u.data --output /example/data/mahoutout  --tempDir /temp/mahouttemp
 
-	> [AZURE.NOTE] The job may take several minutes to complete, and may run multiple MapReduce jobs.
+> [AZURE.NOTE] The job may take several minutes to complete, and may run multiple MapReduce jobs.
 
 ##View the output
 

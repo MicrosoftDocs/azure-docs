@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # How to add operations to an API in Azure API Management
@@ -162,4 +162,4 @@ Once the operations are added to an API, the next step is to associate the API w
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
-[How to cache operation results in Azure API Management]: api-management-howto-cache.md 
+[How to cache operation results in Azure API Management]: api-management-howto-cache.md
