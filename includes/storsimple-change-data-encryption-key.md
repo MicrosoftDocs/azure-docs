@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Change the StorSimple data encryption key"
-   description="Describes how to authorize a StorSimple device so that it can change the StorSimple data encryption key."
+   description="Describes how to authorize a StorSimple device so that it can change the data encryption key, and then explains the key change process."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
