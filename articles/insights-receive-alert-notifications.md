@@ -60,7 +60,7 @@ You can of course edit this alert rule, and **Disable** or **Enable** it if you 
 
 * [Monitor service metrics](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
-* [Monitor availability and responsiveness of any web page](app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
+* [Monitor availability and responsiveness of any web page](application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
 * [Monitor application performance](insights-perf-analytics.md) if you want to understand exactly how your code is performing in the cloud.
 * [View events and audit logs](insights-debugging-with-events.md) to learn everything that has happened in your service.
 * [Track service health](insights-service-health.md) to find out when Azure has experienced performance degradation or service interruptions.

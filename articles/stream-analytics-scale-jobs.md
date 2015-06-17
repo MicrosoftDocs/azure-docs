@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/20/2015"
+	ms.date="06/17/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs to increase throughput
@@ -253,7 +253,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: stream-analytics-developer-guide.md
-[stream.analytics.limitations]: stream-analytics-limitations.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299

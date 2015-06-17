@@ -51,8 +51,7 @@ Connectivity across geopolitical regions is not supported. You can work with you
 | **[Level 3 Communications - Exchange]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)**              | Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC                                                                                                       |
 | **NEXTDC**                                                                                                                     | Melbourne, Sydney+                                                                                                                                                    |
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)**                 | Amsterdam, London                                                                                                                                                     |
-| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**      | Melbourne+, Sydney+                      |
-
+| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**      | Melbourne+, Sydney+                                                                                                                                                   |
 | **[Zayo Group]( http://www.zayo.com/)**                                                                                        | Washington DC                                                                                                                                                         |
 
  **+** denotes coming soon

@@ -22,7 +22,7 @@
 <a href="../active-directory-aadconnect/" title="What is It">What is It</a>
 <a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
 <a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
+<a href="../active-directory-aadconnect-whats-next/" title="What's Next">What's Next</a>
 <a href="../active-directory-aadconnect-learn-more/" title="Learn More" class="current">Learn More</a>
 </div>
 
@@ -39,20 +39,14 @@ The following is a list of additional resources for using Azure AD Connect and i
 
 ## Videos
 
+Ignite 2015 presentation on extending your on-premises directories to the cloud.
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
 <br>
 <br>
 
+Watch this video to learn how easy it is to extend your on-premises Active Directory to the cloud by using the express settings of Azure Active Directory Connect.
+
 [AZURE.VIDEO azure-active-directory-connect-express-settings]
 
-
-
-**Additional Resources**
-
-* [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md)
-* [How Azure AD Connect works](active-directory-aadconnect-how-it-works.md)
-* [Getting started with Azure AD Connect](active-directory-aadconnect-get-started.md)
-* [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)

@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="06/03/2015"
+      ms.date="06/15/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with PowerShell and .NET

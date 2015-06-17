@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs to push notifications to users"
 	services="notification-hubs"
 	documentationCenter=""
-	authors="piyushjo"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article" 
-	ms.date="03/15/2015"
-	ms.author="piyushjo"/>
+	ms.date="06/16/2015"
+	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
 
