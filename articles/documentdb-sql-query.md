@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="06/16/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
@@ -180,7 +180,7 @@ Therefore, when we designed the DocumentDB indexing subsystem, we set the follow
 
 -	Storage efficiency: For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable. This is crucial because DocumentDB allows the developer to make cost based tradeoffs between index overhead in relation to the query performance.  
 
-Refer to the [DocumentDB samples](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) on MSDN for samples showing how to configure the indexing policy for a collection. Let’s now get into the details of the DocumentDB SQL grammar.
+Refer to the [DocumentDB samples](https://github.com/Azure/azure-documentdb-net) on MSDN for samples showing how to configure the indexing policy for a collection. Let’s now get into the details of the DocumentDB SQL grammar.
 
 
 ##Basics of DocumentDB Query
@@ -2422,7 +2422,7 @@ The .NET client automatically iterates through all the pages of query results in
 
 Developers can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the` ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` can be set to enable scans when the query cannot be supported by the configured indexing policy.
 
-Refer to [DocumentDB .NET samples](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) for more samples containing queries. 
+Refer to [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net) for more samples containing queries. 
 
 ###JavaScript Server-side API 
 DocumentDB provides a programming model for executing JavaScript based application logic directly on the collections using stored procedures and triggers. The JavaScript logic registered at a collection level can then issue database operations on the operations on the documents of the given collection. These operations are wrapped in ambient ACID transactions.
@@ -2464,7 +2464,7 @@ The following example show how to use the queryDocuments in the JavaScript serve
 ##References
 1.	[Introduction to Azure DocumentDB][introduction]
 2.	[DocumentDB SQL specification](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3.	[DocumentDB .NET samples](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
+3.	[DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
 4.	[DocumentDB Consistency Levels][consistency-levels]
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
