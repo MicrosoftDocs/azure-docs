@@ -20,6 +20,7 @@
 
 Additional security verification settings are used when an admin has configured your account to require that both your password and a response from your phone must be used to verify your identity. This means you have been enrolled to use multi-factor authentication.  This information will help you get started with setting it up, configuring it and provide information on where to go if you need to change things.
 
+
 ## How to get going and use multi-factor authentication
 
 Select one of the topics below to get started.

@@ -20,7 +20,7 @@
 
  Additional security verification settings are used when an admin has configured your account to require that both your password and a response from your phone must be used to verify your identity. If an administrator has configured your account to require additional security verification, **you will be unable to sign-in until you have completed the auto-enrollment process**. 
 
-## Determine how you will use multi-factor authentication?
+## Determine how you will use multi-factor authentication
 
  The first time that you sign in after your account has been configured, you will be prompted to begin the auto-enrollment process.  You can begin this process by clicking **Set it up now.** 
 
