@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the Microsoft Azure StorSimple Manager service dashboard"
+   pageTitle="Use the StorSimple Manager service dashboard | Microsoft Azure"
    description="Describes the service dashboard and explains how to use it to monitor the health of your StorSimple solution."
    services="storsimple"
    documentationCenter=""
