@@ -251,9 +251,9 @@ Now that you understand how to get data into HDInsight, read the following artic
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
-[azure-create-storage-account]: storage-create-storage-account.md
-[azure-azcopy-download]: storage-use-azcopy.md
-[azure-azcopy]: storage-use-azcopy.md
+[azure-create-storage-account]: storage/storage-create-storage-account.md
+[azure-azcopy-download]: storage/storage-use-azcopy.md
+[azure-azcopy]: storage/storage-use-azcopy.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
@@ -265,7 +265,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[sqldatabase-create-configure]: sql-database-create-configure.md
+[sqldatabase-create-configure]: sql-database/sql-database-create-configure.md
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
