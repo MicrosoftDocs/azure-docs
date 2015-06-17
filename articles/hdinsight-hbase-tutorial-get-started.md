@@ -216,7 +216,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 2. Enter the following HiveQL script into Hive Editor, and then click **SUBMIT**. The Hive query queries the data in the HBase table:
 
-     	SELECT count(*) FROM hbasecontact;
+     	SELECT count(*) FROM hbasecontacts;
 
 4. To retrieve the results of the Hive query, click the **View Details** link in the **Job Session** window when the job finishes running. There will be only one job output file because you put one record into the HBase table.
 
