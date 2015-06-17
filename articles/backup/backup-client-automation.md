@@ -67,7 +67,7 @@ The available options include:
 
 
 ### Registering with the Azure Backup service
-Before you can register with the Azure Backup service, ensure that the [prerequistes](https://azure.microsoft.com/documentation/articles/backup-try-azure-backup-in-10-mins/) are met:
+Before you can register with the Azure Backup service, ensure that the [prerequistes](backup-try-azure-backup-in-10-mins.md) are met:
 - Have a valid Azure subscription
 - Create a backup vault
 - Download the vault credentials and store it in a convenient location (like *C:\Downloads\*). The vault credentials can also be renamed for your convenience.
@@ -163,4 +163,4 @@ PS C:\> $s = New-PSSession -ComputerName REMOTESERVER01
 PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePath $d $a -Wait } -ArgumentList $agent $args
 ```
 ## Next steps
-For more information about Azure Backup for Windows Server/Client see [Introduction to Azure Backup](https://azure.microsoft.com/documentation/articles/backup-introduction-to-azure-backup/)
+For more information about Azure Backup for Windows Server/Client see [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
