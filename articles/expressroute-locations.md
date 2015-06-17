@@ -129,7 +129,7 @@ The tables below provide details on connectivity providers and the list of Micro
 |**Verizon**|Supported|| 
 
 
-## ExpressRoute system integrators
+## ExpressRoute System Integrators
 Enabling private connectivity to fit your needs can be challenging based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
 
 
