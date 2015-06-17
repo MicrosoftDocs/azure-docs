@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="06/15/2015"
    ms.author="joaoma" />
 
 # Get started configuring an internal load balancer
@@ -37,7 +37,7 @@ For an existing cloud service or a cloud service deployed under a regional virtu
 
 	$svc="<Cloud Service Name>"
 	$ilb="<Name of your ILB instance>"
-	$subnet="<Name of the subnet within your virtual network-optional>"
+	$subnet="<Name of the subnet within your virtual network>"
 	$IP="<The IPv4 address to use on the subnet-optional>"
 
 	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
