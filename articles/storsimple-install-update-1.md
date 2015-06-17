@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/05/2015"
+   ms.date="06/17/2015"
    ms.author="alkohli" />
 
 # Install Update 1 on your StorSimple device
 
 ## Overview
 
-This tutorial explains how to install Update 1 on a StorSimple device that is running a software version prior to Update 1. Your device could be running the generally available (GA) release, Update 0.1, Update 0.2, or Update 0.3 software. The tutorial also explains what to do if a gateway is configured on a network interface other than DATA 0 on your StorSimple device. 
+This tutorial explains how to install Update 1 on a StorSimple device that is running a software version prior to Update 1. Your device could be running the generally available (GA) release, Update 0.1, Update 0.2, or Update 0.3 software.  
 
 During this installation, if your device is running a version prior to Update 1, then checks are performed on your device. These checks determine the device health in terms of hardware state and network connectivity.
 
@@ -75,41 +75,6 @@ We recommend that you use the Azure Management Portal to update a device that is
 
 [AZURE.INCLUDE [storsimple-install-update-via-portal](../includes/storsimple-install-update-via-portal.md)]
 
-## Install Update 1 on a device with a gateway on a non-DATA 0 network interface 
-
-This procedure applies to StorSimple devices that are running a software version prior to Update 1 and have a gateway set on a network interface other than DATA 0.
- 
-If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Management Portal. See [Use the Management Portal to install Update 1](#use-the-management-portal-to-install-update-1).
- 
-> [AZURE.NOTE] This procedure needs to be performed only once to apply Update 1. You can use the Azure Management Portal to apply subsequent updates.
- 
-If your device is running pre-Update 1 software and it has a gateway set for a network interface other than DATA 0, you can apply Update 1 in the following two ways:
-
-- **Option 1**: Download the update and apply it by using the [Start-HcsHotfix](https://technet.microsoft.com/library/dn688134.aspx) cmdlet from the Windows PowerShell interface of the device. This is the recommended method.
-
-- **Option 2**: Install the update directly from the Management Portal.
- 
-Detailed instructions for each of these are provided in the following sections.
-
-### Option 1: Use Windows PowerShell for StorSimple to apply Update 1
-
-Before using this procedure to apply the update, make sure that:
-
-- Both device controllers are online.
-
-- DATA 2 and DATA 3 are disabled. You will need to do this only if the devices are running the GA release. Devices running Update 0.2 and 0.3 do not require them to be disabled. After the update is complete, you can enable these network interfaces again.
- 
-Perform the following steps to apply Update 1. The update could take a few hours to complete.
-
-[AZURE.INCLUDE [storsimple-install-update-option1](../includes/storsimple-install-update-option1.md)]
-
-### Option 2: Use the Azure Management Portal to apply Update 1
-
-The update may take a few hours to complete. If your hosts are in different subnets, removing the gateway configuration on the iSCSI interfaces could result in downtime. We recommend that you configure DATA 0 for iSCSI traffic to reduce the downtime.
- 
-Perform the following steps to clear the gateway setting and then apply the update.
- 
-[AZURE.INCLUDE [storsimple-install-update-option2](../includes/storsimple-install-update-option2.md)]
 
 ## Troubleshooting update failures
 
@@ -125,7 +90,7 @@ You will need to make sure that both controllers are healthy and online. You wil
 
 One likely cause for this could be that you do not have connectivity to the Microsoft Update servers. This is a manual check that needs to be performed. If you lose connectivity to the update server, your update job would fail. You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:
 
- `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP outside of datacenter>`
+ `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
 Run the cmdlet on both controllers.
  
