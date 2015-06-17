@@ -18,7 +18,7 @@
 
 #Choose the multi-factor security solution for you
 
-Because there are several flavors of Azure Multi-Factor Authentication we must determine a couple of things to determine which one is the correct one to use.  Those things are:
+Because there are several flavors of Azure Multi-Factor Authentication we must determine a couple of things in order to figure out which version is the proper one to use.  Those things are:
 
 -	[What am I trying to secure](#what-am-i-trying-to-secure)
 -	[Where are the users located](#where-are-the-users-located)
