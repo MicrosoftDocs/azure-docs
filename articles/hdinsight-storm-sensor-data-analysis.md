@@ -22,7 +22,7 @@ Learn how to use Apache Storm on HDInsight to process sensor data from Azure Eve
 
 ## Prerequisites
 
-* An Azure subscription
+* An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * An [Apache Storm on HDInsight cluster](hdinsight-storm-getting-started.md)
 

@@ -41,7 +41,7 @@ Before you begin this tutorial, you must have the following:
 	- Windows 8
 	- Windows Server 2012
 
-- Install and configure Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](install-configure-powershell.md).
+- **Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##<a name="install"></a>Install the HDInsight Emulator

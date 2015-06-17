@@ -37,11 +37,10 @@ The other samples that are available to help you get up to speed in using HDInsi
 
 **Prerequisites**:
 
-- You must have an Azure account. For options on signing up for an account, see the [Try Azure out for free](http://azure.microsoft.com/pricing/free-trial/) page.
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
+- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
-
-- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see  [Install and configure Azure PowerShell] [powershell-install-configure].
 
 
 ## <a id="run-sample"></a>Run the sample with Azure PowerShell

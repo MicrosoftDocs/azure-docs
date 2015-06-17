@@ -37,8 +37,8 @@ This article provides instructions on the different ways to provision a cluster.
 
 Before you begin this article, you must have the following:
 
-- An Azure subscription. Azure is a subscription-based platform. The Azure PowerShell cmdlets for HDInsight perform the tasks with your subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Free Trial</a>.
-- Secure Shell (SSH) keys. If you want to remote into a Linux cluster by using SSH with a key instead of a password, using a key is the recommended method as it is more secure. For instructions on how to generate SSH keys, refer to the following articles:
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Secure Shell (SSH) keys**. If you want to remote into a Linux cluster by using SSH with a key instead of a password, using a key is the recommended method as it is more secure. For instructions on how to generate SSH keys, refer to the following articles:
 	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 

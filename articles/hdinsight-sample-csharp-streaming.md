@@ -44,11 +44,10 @@ For more information about the Hadoop Streaming interface, see [Hadoop Streaming
 
 Before you begin, you must have the following:
 
-- An Azure account. For options for signing up for an account, see [Try Azure for free](http://azure.microsoft.com/pricing/free-trial/) page.
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
+- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- A provisioned HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
-
-- Azure PowerShell. It must be configured for use with your account. For instructions about how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 
 ## <a id="run-sample"></a>Run the sample with Azure PowerShell
