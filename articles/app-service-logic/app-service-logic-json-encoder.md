@@ -37,7 +37,7 @@ BizTalk JSON Encoder can be used as an action. It does not have any triggers.
 	![Xml to JSON input][5]
 - Provide the inputs for the action and configure it
 
-	![Encode and send configured][10]
+	![Encode and send configured][6]
 
 <table>
 	<tr>
@@ -70,4 +70,4 @@ You can also review performance statistics and control security to the connector
 [3]: ./media/app-service-logic-json-encoder/ActionSettings.PNG
 [4]: ./media/app-service-logic-json-encoder/ListOfActions.PNG
 [5]: ./media/app-service-logic-json-encoder/EncodeInput.PNG
-[6]: ./media/app-service-logic-json-encoder/EncodeAndSendConfigured.PNG
+[6]: ./media/app-service-logic-json-encoder/EncodeConfigured.PNG
