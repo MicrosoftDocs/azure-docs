@@ -106,8 +106,8 @@ Now that the connector is created, you can add it to a business flow using a Log
 You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
 
 <!--References -->
-[1]: app-service-logic-connector-tpm
-[2]: app-service-logic-create-a-trading-partner-agreement
+[1]: app-service-logic-connector-tpm.md
+[2]: app-service-logic-create-a-trading-partner-agreement.md
 [3]: ./media/app-service-logic-connector-as2/TriggerSettings.PNG
 [4]: ./media/app-service-logic-connector-as2/TriggerOptions.PNG
 [5]: ./media/app-service-logic-connector-as2/ReceiveAndDecodeInput.PNG

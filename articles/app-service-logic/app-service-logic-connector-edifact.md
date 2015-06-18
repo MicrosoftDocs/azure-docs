@@ -137,8 +137,8 @@ You can also review performance statistics and control security to the connector
 
 
 <!--References -->
-[1]: app-service-logic-connector-tpm 
-[2]: app-service-logic-create-a-trading-partner-agreement
+[1]: app-service-logic-connector-tpm.md
+[2]: app-service-logic-create-a-trading-partner-agreement.md
 [3]: ./media/app-service-logic-connector-edifact/TriggerSettings.PNG
 [4]: ./media/app-service-logic-connector-edifact/ListOfTriggers.PNG
 [5]: ./media/app-service-logic-connector-edifact/ReleaseBatchTriggerInput.PNG
