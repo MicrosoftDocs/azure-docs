@@ -18,13 +18,13 @@
 
 # Manage API apps in Azure App Service
 
-This article shows how use the [Azure preview portal](https://portal.azure.com/) to perform API app management tasks.  Some of the tasks you can do include the following:
+This article shows how use the [Azure preview portal](https://portal.azure.com/) to perform API app management and monitoring tasks. Here are some of the tasks you can do:
 
 - Configure authentication 
 - Enable auto-scaling
 - View logs
-- See how many requests are made and see how much data is being used by your API app
-- Backup your API App and create alerts
+- See how many requests are made and see how much data is being used by an API app
+- Backup an API App and create alerts
 - Configure role-based access security
 
 The article also shows how to do some management tasks in the Server Explorer window in Visual Studio.
@@ -128,6 +128,8 @@ To get to an API app in Server Explorer, click **Azure > App Service > [the reso
 
 ![](./media/app-service-api-manage-in-portal/se.png)
 
-## Summary
+## Next steps
 
-This article has shown how to use the Azure portal to perform API app management tasks. For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md)
+This article has shown how to use the Azure portal to perform API app management tasks. 
+
+For information about how to manage API apps by using the command line, see the articles in the **Automate** section of the menu that appears on the left side of the article (on wide browser windows) or at the top of the article (on narrow browser windows).
