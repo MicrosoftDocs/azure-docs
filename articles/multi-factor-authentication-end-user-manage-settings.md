@@ -17,13 +17,7 @@
 	ms.author="billmath"/>
 
 # Managing your settings with Azure Multi-Factor Authentication
-
-[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
-[Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
-[Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
-
+The following information is provided to help you manage your multi-factor authentication settings.
 
 ## Changing your settings depends on how you use multi-factor authentication
 There are several different places you can go to change your multi-factor authentication settings.  Where you go depends on how you are using multi-factor authentication.   Choose the one that best describes you.

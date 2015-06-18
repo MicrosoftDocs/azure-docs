@@ -157,7 +157,7 @@ Storage is an integral part of any Azure solution, since not only does it provid
  
 There are two types of storage available from Azure. Standard storage gives you access to Blob storage, Table storage, Queue storage, and File storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure Virtual Machine disks only.
 
-Storage accounts are bound to scalability targets. See [Microsoft Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
+Storage accounts are bound to scalability targets. See [Microsoft Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure Storage Scalability and Performance Targets](storage/storage-scalability-targets.md).
 
 Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure blobs, whereas the temporary disk is backed by storage local to the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, since the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
 
@@ -541,7 +541,7 @@ These Azure PowerShell commands create the virtual machines in this configuratio
 
 [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-[Azure Storage Scalability and Performance Targets](storage-scalability-targets.md)
+[Azure Storage Scalability and Performance Targets](storage/storage-scalability-targets.md)
 
 [Cloud Platform Integration Framework (Azure Architecture Patterns)](azure-architectures-cpif-overview.md)
 

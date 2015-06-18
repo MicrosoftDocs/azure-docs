@@ -38,7 +38,8 @@ For Sqoop versions that are supported on HDInsight clusters, see [What's new in 
 
 Before you begin this tutorial, you must have the following:
 
-- **Workstation**: A computer with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute Azure PowerShell scripts, you must run Azure PowerShell as an administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
+- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+ To execute Azure PowerShell scripts, you must run Azure PowerShell as an administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 
 - **Azure HDInsight cluster**: For instructions about cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You need the following data to go through the tutorial:
 
@@ -638,8 +639,8 @@ Now you have learned how to use Sqoop. To learn more, see:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
-[sqldatabase-get-started]: sql-database-get-started.md
-[sqldatabase-create-configue]: sql-database-create-configure.md
+[sqldatabase-get-started]: sql-database/sql-database-get-started.md
+[sqldatabase-create-configue]: sql-database/sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: install-configure-powershell.md

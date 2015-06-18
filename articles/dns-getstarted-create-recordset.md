@@ -48,19 +48,20 @@ The Time-to-Live, or TTL, specifies how long each record is cached by clients be
 
 ## Create record sets and records
 
-In the following example we will show how to create a record set and records:
+In the following example we will show how to create a record set and records.  We'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets.md)
 
 
 ### Step 1
 
-Create record set for the DNS Zone and define the record type for it:
-and assign to a variable $rs:
+Create record set and assign to a variable $rs:
 
-	PS C:\>$rs=New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 The record set has relative name ‘www’ in the DNS Zone ‘contoso.com’, so the fully-qualified name of the records will be ‘www.contoso.com’.  The record type is ‘A’ and the TTL is 60 seconds.
 
-The record set is empty and we have to add records to be able to use the newly create "www" record set.<BR>
+>[AZURE.NOTE] To create a record set in the apex of the zone (in this case, 'contoso.com'), use the record name "@", including the quotation marks. This is a common DNS convention.
+
+The record set is empty and we have to add records to be able to use the newly created "www" record set.<BR>
 
 ### Step 2
 

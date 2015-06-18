@@ -26,7 +26,7 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 You must have the following to successfully complete this Apache Storm tutorial:
 
-* An Azure subscription
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Create an Azure Storage account
 

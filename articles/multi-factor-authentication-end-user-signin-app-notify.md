@@ -19,15 +19,6 @@
 
 # Signing in to the mobile app using notification with Azure Multi-Factor Authentication
 
-[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
-[Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
-[Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
-
-
-
-
 The following information will describe the experience of using multi-factor authentication with your mobile app when you are sent a notification.
 
 ## To sign in with a notification sent to your mobile app
