@@ -28,4 +28,4 @@ The TPM API App is the base requirement of the AS2 connector, and the X12 or EDI
 To know more about trading partner agreement, click [here][1]
 
 <!--References-->
-[1]: app-service-logic-create-a-trading-partner-agreement
+[1]: app-service-logic-create-a-trading-partner-agreement.md
