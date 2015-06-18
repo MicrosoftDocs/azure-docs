@@ -1,10 +1,10 @@
-﻿<properties 
-   pageTitle="Azure Active Directory Audit Report Events" 
-   description="Audited events that are available for viewing and downloading from your Azure Active Directory" 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="kenhoff" 
-   manager="mbaldwin" 
+﻿<properties
+   pageTitle="Azure Active Directory Audit Report Events"
+   description="Audited events that are available for viewing and downloading from your Azure Active Directory"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,18 +12,24 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
+   ms.workload="identity"
    ms.date="04/13/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory Audit Report Events
 
-The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Management Portal](https://manage.windowsazure.com/).  
+The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Management Portal](https://manage.windowsazure.com/).
+
+## Audit report retention
+
+Events in the Azure AD Audit report are retained for 180 days.
+
+For customers interested in storing their audit events for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store. See [Getting Started with the Reporting API](active-directory-reporting-api-getting-started.md) for details.
 
 ## Properties included with each audit event
 
 | Property	| Description								|
-| ------	| ------								|		
+| ------	| ------								|
 | Date and Time	| The date and time that the audit event occured			|
 | Actor		| The user or service principal that performed the action		|
 | Action	| The action that was performed						|
@@ -66,7 +72,7 @@ The Azure Active Directory Audit Report helps customers identify privileged acti
 | Set Company Information		| Updated the company-level information. See the [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) PowerShell cmdlet for more details.	|
 | Set force change user password	| Set the property that forces a user to change their password on login.													|
 
-<!--- 
+<!---
 
 List of events that still need descriptions:
 
