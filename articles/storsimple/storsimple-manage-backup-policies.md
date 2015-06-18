@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Manage your StorSimple backup policies"
+   pageTitle="Manage your StorSimple backup policies | Microsoft Azure"
    description="Explains how you can use the StorSimple Manager service to create and manage backup jobs and backup schedules."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor=""/>
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/11/2015"
-   ms.author="v-sharos" />
+   ms.date="06/17/2015"
+   ms.author="v-sharos"/>
 
 # Manage your StorSimple backup policies
 
@@ -21,7 +21,7 @@
 
 This tutorial explains how to use the StorSimple Manager service **Backup Policies** page to control backup processes and backup retention for your StorSimple volumes. It also describes how to complete a manual backup.
 
-The **Backup Policies** page allows you to manage backup policies and schedule local and cloud snapshots. (Backup policies are used to configure backup schedules and backup retention for a collection of volumes.) This page lists the backup policies, their types, the associated volumes, the number of backups retained, and the option to enable these policies.
+The **Backup Policies** page allows you to manage backup policies and schedule local and cloud snapshots. (Backup policies are used to configure backup schedules and backup retention for a collection of volumes.) Backup policies enable you to take a snapshot of multiple volumes simultaneously. This means that the backups created by a backup policy will be crash-consistent copies. This page lists the backup policies, their types, the associated volumes, the number of backups retained, and the option to enable these policies.
 
 The **Backup Policies** page also allows you to filter the existing backup policies by one or more of the following fields:
 
