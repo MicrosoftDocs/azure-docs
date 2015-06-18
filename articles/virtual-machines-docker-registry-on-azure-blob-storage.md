@@ -1,13 +1,12 @@
 <properties title="Deploying Your Own Private Docker Registry on Azure"
   pageTitle="Deploying Your Own Private Docker Registry on Azure"
-  description="Describes how you can use Docker Registry to host your container images on Azure Blob Storage service."
+  description="Describes how you can use Docker Registry to host your container images on the Azure Blob Storage service."
   services="virtual-machines"
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
-  videoId=""
   editor="squillace"
-  scriptId=""
-  manager="" />
+  manager="" 
+  tags="" />
 
 <tags
   ms.service="virtual-machines"
