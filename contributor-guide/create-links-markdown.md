@@ -23,16 +23,16 @@ Old link syntax to link from one ACOM tech doc to another:
 **New link syntax**
 
 Article links from a subdirectory to an article in the root directory:
-'''[link text](../article-name.md)
+    [link text](../article-name.md)
 
 Article in the root folder links to an article in a service subdirectory: 
-'''[link text](batch/article-name.md)
+    [link text](batch/article-name.md)
 
 Article in a service subdirectory links to an article that is in another service subdirectory:
-'''[link text](../service-folder/article-name.md)
+    [link text](../service-folder/article-name.md)
  
 Article in a directory links to another article in the same directory:
-'''[link text](article-name.md)
+    [link text](article-name.md)
 
 
 You do not have to create anchors anymore - they are automatically generated at publishing time for all H2 headings. The only thing you have to do is create links to the H2 sections:
