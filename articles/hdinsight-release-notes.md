@@ -13,11 +13,69 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2015"
+	ms.date="06/18/2015"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 06/18/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.596.1601657	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.596.1601657	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.4.596.1601657	(HDP 2.1.15.0-2334)
+* HDInsight		3.2.4.596.1601657	(HDP 2.2.6.1-0002)
+* SDK			1.5.8
+
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Additional HTTPS ports opened</td>
+<td>The cloud service now opens 5 ports 8001 to 8005 on the cluster E.g. at https://<clustername>.azurehdinsight.net:8001/. Requests to these URLs are authenticated using the same basic authentication password mechanism as port 443. These ports bind to the same port on the active headnode. Script actions can be used to make customer services listen on these ports on the headnode and route to outside the  cluster.</td>
+<td>Cloud Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Intermittent MapReduce shuffle issue for HDInsight 3.2</td>
+<td>Fix for a rare, intermittent race condition  in Map Reduce Shuffle on large clusters resulting in occassional task failures. See <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a> for more information.</td>
+<td>Hadoop Core</td>
+<td>All</td>
+<td><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a></td>
+</tr>
+
+<tr>
+<td>Move to Latest Azure Java SDK 2.2 for HDInsight 3.2</td>
+<td>Moved to latest version of the Azure SDK for Java used by the WASB driver. The latest SDK has a few fixes and the release notes for the same are available at https://github.com/Azure/azure-storage-java/blob/master/ChangeLog.txt.</td>
+<td>Hadoop Core</td>
+<td>All</td>
+<td><a href="https://issues.apache.org/jira/browse/HADOOP-11959" target="_blank">HADOOP-11959</a></td>
+</tr>
+
+<tr>
+<td>Move to HDP 2.1.15 for HDInsight 3.1 clusters</td>
+<td>Hortonworks release notes for the release are available <a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.15-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.15.html" target="_blank">here</a>.</td>
+<td>HDP</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+</table>
 
 ## Notes for 06/04/2015 release of HDInsight ##
 
@@ -25,7 +83,7 @@ The full version numbers for HDInsight clusters deployed with this release:
 
 * HDInsight 	2.1.10.583.1575584	(HDP 1.3.12.0-01795 - unchanged)
 * HDInsight 	3.0.6.583.1575584	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.3.583.1575584	(HDP 2.1.12.1-0003 - unchanged))
+* HDInsight 	3.1.3.583.1575584	(HDP 2.1.12.1-0003 - unchanged)
 * HDInsight		3.2.4.583.1575584	(HDP 2.2.6.1-1)
 * SDK			1.5.8
 
