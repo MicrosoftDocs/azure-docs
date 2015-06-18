@@ -23,15 +23,19 @@ Old link syntax to link from one ACOM tech doc to another:
 **New link syntax**
 
 Article links from a subdirectory to an article in the root directory:
+
     [link text](../article-name.md)
 
 Article in the root folder links to an article in a service subdirectory: 
-    [link text](batch/article-name.md)
+
+    [link text](service-folder/article-name.md)
 
 Article in a service subdirectory links to an article that is in another service subdirectory:
+
     [link text](../service-folder/article-name.md)
  
 Article in a directory links to another article in the same directory:
+
     [link text](article-name.md)
 
 
@@ -57,10 +61,10 @@ Since includes are located in another directory, you will need to use relative p
 If you have selectors embedded in an include, you would use this sort of linking:
 
     > [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
-    - [(Text1 | Example1 )](../articles/example-azure-note.md)
-    - [(Text1 | Example2 )](../articles/example-azure-selector-list.md)
-    - [(Text2 | Example3 )](../articles/example-azure-selector-list2.md)
-    - [(Text2 | Example4 )](../articles/example-code.md)
+    - [(Text1 | Example1 )](../articles/service-folder/example-azure-note.md)
+    - [(Text1 | Example2 )](../articles/service-folder/example-azure-selector-list.md)
+    - [(Text2 | Example3 )](../articles/service-folder/example-azure-selector-list2.md)
+    - [(Text2 | Example4 )](../articles/service-folder/example-code.md)
 
 To link to a page on ACOM (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale. The goal here is that links work in GitHub and on the rendered site:
 
