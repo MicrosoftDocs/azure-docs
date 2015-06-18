@@ -4,11 +4,11 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
-	ms.service="azure-active-directory-connect" 
+	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -20,11 +20,11 @@
 
 # Azure AD Connect User Sign on options
 
-Azure AD Connect allows your users to sign on to both cloud and on premises resources using the same passwords.  You can choose from several different ways to enable this.
+Azure AD Connect allows your users to sign on to both cloud and on-premises resources using the same passwords.  You can choose from several different ways to enable this.
 
 
 ### Password synchronization
-With password synchronization, hashes of user passwords are synchronized from your on premises Active Directory to Azure AD.  When passwords are changed or reset on premises, the new passwords are synchronized immediately to Azure AD so that your users can always use the same password for cloud resources as they do on premises.  The passwords are never sent to Azure AD nor stored in Azure AD in clear text.
+With password synchronization, hashes of user passwords are synchronized from your on-premises Active Directory to Azure AD.  When passwords are changed or reset on premises, the new passwords are synchronized immediately to Azure AD so that your users can always use the same password for cloud resources as they do on-premises.  The passwords are never sent to Azure AD nor stored in Azure AD in clear text.
 Password synchronization can be used together with password write-back to enable self service password reset in Azure AD.
 
 <center>![Cloud](./media/active-directory-aadconnect-user-interface/passwordhash.png)</center>
@@ -33,7 +33,7 @@ Password synchronization can be used together with password write-back to enable
 
 
 ### Federation using a new or existing AD FS in Windows Server 2012 R2 farm
-With federated sign on, your users can sign on to Azure AD based services with their on premises passwords and, while on the corporate network, without having to enter their passwords again.  The federation option with AD FS allows you to deploy a new or specify an existing AD FS in Windows Server 2012 R2 farm.  If you choose to specify an existing farm, Azure AD Connect will configure the trust between your farm and Azure AD so that your users can sign on.
+With federated sign on, your users can sign on to Azure AD based services with their on-premises passwords and, while on the corporate network, without having to enter their passwords again.  The federation option with AD FS allows you to deploy a new or specify an existing AD FS in Windows Server 2012 R2 farm.  If you choose to specify an existing farm, Azure AD Connect will configure the trust between your farm and Azure AD so that your users can sign on.
 
 <center>![Cloud](./media/active-directory-aadconnect-user-interface/federatedsignin.png)</center>
 
@@ -61,6 +61,6 @@ Some organizations, however, have particular reasons for using a federated sign 
 - Your security policy prohibits synchronizing password hashes to the cloud
 - You require that users experience seamless SSO (without additional password prompts) when accessing cloud resources from domain joined machines on the corporate network
 - You require some specific capabilities AD FS has
-	- On premises multi-factor authentication using a third party provider or smart cards (learn about third party MFA providers for AD FS in Windows Server 2012 R2)
+	- On-premises multi-factor authentication using a third party provider or smart cards (learn about third party MFA providers for AD FS in Windows Server 2012 R2)
 	- Active Directory integration features such as soft account lockout or AD password and work hours policy
-	- Conditional access to both on premises and cloud resources using device registration, Azure AD join, or Microsoft Intune MDM policies
+	- Conditional access to both on-premises and cloud resources using device registration, Azure AD join, or Intune MDM policies

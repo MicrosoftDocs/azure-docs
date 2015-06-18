@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/15/2015" 
 	ms.author="davidmu"/>
 
 # Deploy Azure Resources Using .NET Libraries and a Template
@@ -25,9 +25,9 @@ By using resource groups and templates, you're able to manage all of the resourc
 To complete this tutorial you also need:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Azure storage account](storage-create-storage-account.md)
+- [Azure storage account](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
-- [Azure PowerShell](install-configure-powershell.md)
+- [Azure PowerShell](powershell-install-configure.md)
 
 It takes about 30 minutes to do these steps.
 

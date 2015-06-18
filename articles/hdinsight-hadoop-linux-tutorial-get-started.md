@@ -39,8 +39,7 @@ Assume you have a large unstructured data set and you want to run queries on it 
 
 Before you begin this Linux tutorial for Hadoop, you must have the following:
 
-
-- An Azure subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Free Trial</a>.
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 **Estimated time to complete:** 30 minutes
 
@@ -78,7 +77,7 @@ To simplify this tutorial, only the default Blob container and the default Stora
 
 
 For more information, see
-[How to Create a Storage Account](storage-create-storage-account.md) and [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
+[How to Create a Storage Account](storage/storage-create-storage-account.md) and [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
 

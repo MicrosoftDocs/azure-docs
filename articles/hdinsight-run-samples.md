@@ -34,11 +34,10 @@ Much additional documentation exists on the web for Hadoop-related technologies,
 
 **Prerequisites**:
 
-- You must have a Microsoft Azure account. For options about signing up for an account, see [Azure: Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
+- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Provision Hadoop clusters in HDInsight by using custom options](hdinsight-provision-clusters.md)
-
-- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions about how to do this, see  [How to install and configure Azure PowerShell] [powershell-install-configure].
 
 
 ## The samples ##

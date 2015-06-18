@@ -27,9 +27,9 @@ One key feature of the Microsoft big-data solution is the integration of Microso
 
 Before you begin this article, you must have the following:
 
-- An HDInsight cluster. To configure one, see [Get started with Azure HDInsight][hdinsight-get-started].
-- A computer that is running Windows 7, Windows Server 2008 R2, or a later operating system.
-- Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone, or Office 2010 Professional Plus.
+- **An HDInsight cluster**. To configure one, see [Get started with Azure HDInsight][hdinsight-get-started].
+- **A workstation** that is running Windows 7, Windows Server 2008 R2, or a later operating system.
+- **Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone, or Office 2010 Professional Plus**.
 
 
 ## <a id="InstallPowerQuery"></a>Install Microsoft Power Query for Excel

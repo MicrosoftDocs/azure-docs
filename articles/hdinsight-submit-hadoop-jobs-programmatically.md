@@ -30,8 +30,9 @@ Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to 
 
 Before you begin this article, you must have the following:
 
-* An Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Azure PowerShell. For instructions, see [Install and configure Azure PowerShell] [powershell-install-configure].
+* **An Azure HDInsight cluster**. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
+- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
 
 
 ##Submit MapReduce jobs by using Azure PowerShell
