@@ -29,7 +29,7 @@ This article covers only using the Azure CLI with HDInsight. For a general guide
 
 Before you begin this article, you must have the following:
 
-- **Azure subscription** - Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Azure CLI** - See [Install and configure the Azure CLI](xplat-cli.md) for installation and configuration information.
 
@@ -142,7 +142,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 
 
 [azure-command-line-tools]: xplat-cli.md
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage/storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

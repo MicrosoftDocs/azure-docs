@@ -18,15 +18,9 @@
 
 #How Azure Multi-Factor Authentication works
 
-[Whats Is It](multi-factor-authentication.md)<br> 
-[How it Works](multi-factor-authentication-how-it-works.md)<br>
-[Getting Started](multi-factor-authentication-get-started.md)<br>
-[What's Next](multi-factor-authentication-whats-next.md)<br>
-[Learn More](multi-factor-authentication-learn-more.md)
-
 The security of multi-factor authentication lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user's password, it is useless without also having possession of the trusted device. Should the user lose the device, the person who finds it won't be able to use it unless he or she also knows the user's password.
 
-<center>![Proofup](./media/multi-factor-authentication-how-it-works/howitworks.png)</center>
+![Proofup](./media/multi-factor-authentication-how-it-works/howitworks.png)
 
 
 
@@ -34,11 +28,13 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 
 - phone call 
 - text message
-- mobile app notification—allowing users to choose the method they prefer.
+- mobile app notification—allowing users to choose the method they prefer
+- mobile app verification code
+- 3rd party OATH tokens
 
 For additional information oh how it works see the following video.
 
-[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]</center>
+[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ##Methods available for multi-factor authentication
 When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification. 
@@ -48,13 +44,8 @@ Verification Method  | Description
 Phone Call | A call is placed to a user’s smart phone asking them to verify that they are signing in by pressing the # sign.  This will complete the verification process.  This option is configurable and can be changed to a code that you specify.
 Text Message | A text message will be sent to a user’s smart phone with a 6 digit code.  Enter this code in to complete the verification process.
 Mobile App Notification | A verification request will be sent to a user’s smart phone asking them complete the verification by selecting Verify from the mobile app. This will occur if you selected app notification as your primary verification method.  If they receive this when they are not signing in, they can choose to report it as fraud.
-One-time Passcode with Mobile App | A one-time passcode will be sent to the mobile app that is running on a user’s smart phone.  This will occur if you selected one-time passcode as your primary verification method.
+Verification code with Mobile App | A verification code will be sent to the mobile app that is running on a user’s smart phone.  This will occur if you selected a verification code as your primary verification method.
 
-##How users enroll
-
-Once Azure Multi-Factor Authentication has been "turned on" for your Azure Active Directory instance, users will be prompted to complete the enrollment process the next time that they sign-in.  This is done by supplying a smart phone (an office or home phone can also be used) or selecting mobile app and then a quick verification with the primary method that was selected will occur.  Once this is complete, that is it.  The user is now enrolled and will be required to enter the secondary authentication method when signing in or trying to access applications.
-
-![Proofup](./media/multi-factor-authentication-how-it-works/proofup1.png)
 
 ##Available versions of Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication is available in three different versions.  The table below describes each of these in more detail.
@@ -69,9 +60,9 @@ Azure Multi-Factor Authentication | Azure Multi-Factor Authentication offers the
 The following table below provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
 
 
-Feature  | Multi-Factor Authentication for Office 365 (included in Office 365 SKUs)|Multi-Factor Authentication for Azure Administrators (included with Azure subscription) | Azure Multi-Factor Authentication (incluced in Azure AD Premium and Enterprise Mobility Suite) 
+Feature  | Multi-Factor Authentication for Office 365 (included in Office 365 SKUs)|Multi-Factor Authentication for Azure Administrators (included with Azure subscription) | Azure Multi-Factor Authentication (included in Azure AD Premium and Enterprise Mobility Suite) 
 ------------- | :-------------: |:-------------: |:-------------: |
-Administrators can protect accounts with MFA| * | * (Availabe only for Azure Administrator accounts)|*
+Administrators can protect accounts with MFA| * | * (Available only for Azure Administrator accounts)|*
 Mobile app as a second factor|* | * | *
 Phone call as a second factor|* | * | *
 SMS as a second factor|* | * | *

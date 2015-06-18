@@ -37,8 +37,8 @@ This article provides instructions on the different ways to provision a cluster.
 
 Before you begin this article, you must have the following:
 
-- An Azure subscription. Azure is a subscription-based platform. The Azure PowerShell cmdlets for HDInsight perform the tasks with your subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Free Trial</a>.
-- Secure Shell (SSH) keys. If you want to remote into a Linux cluster by using SSH with a key instead of a password, using a key is the recommended method as it is more secure. For instructions on how to generate SSH keys, refer to the following articles:
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Secure Shell (SSH) keys**. If you want to remote into a Linux cluster by using SSH with a key instead of a password, using a key is the recommended method as it is more secure. For instructions on how to generate SSH keys, refer to the following articles:
 	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -79,7 +79,7 @@ Windows | Click [here](#portal) | Click [here](#cli) | Click [here](#sdk) | Clic
 
 ### <a id="portal"></a> Using the Azure portal
 
-HDInsight clusters use an Azure Blob storage container as the default file system. An Azure Storage account located in the same datacenter is required before you can create an HDInsight cluster. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](storage-create-storage-account.md).
+HDInsight clusters use an Azure Blob storage container as the default file system. An Azure Storage account located in the same datacenter is required before you can create an HDInsight cluster. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](storage/storage-create-storage-account.md).
 
 
 > [AZURE.NOTE] Currently, only the **Southeast Asia**, **North Europe**, **East US**, and **South Central US** regions can host HDInsight Linux clusters.
@@ -357,7 +357,7 @@ HDInsight uses an Azure Blob storage container as the default file system. An Az
 	When prompted for a location, select a location where an HDInsight Linux cluster can be provisioned. The storage must be in the same location as the HDInsight cluster.
 
 
-For information on creating an Azure Storage account by using the Azure portal, see [Create, manage, or delete a storage account](storage-create-storage-account.md).
+For information on creating an Azure Storage account by using the Azure portal, see [Create, manage, or delete a storage account](storage/storage-create-storage-account.md).
 
 If you already have a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -370,7 +370,7 @@ If you already have a Storage account but do not know the account name and accou
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-For details on getting the information by using the Azure portal, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account](storage-create-storage-account.md).
+For details on getting the information by using the Azure portal, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account](storage/storage-create-storage-account.md).
 
 An HDInsight cluster also requires a container within a Storage account. If the Storage account you provide does not already have a container, **azure hdinsight cluster create** prompts you for a container name and creates it as well. However, if you want to create the container beforehand, you can use the following command:
 

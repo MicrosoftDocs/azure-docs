@@ -21,7 +21,7 @@
 
 ## Overview
 
-[Azure Premium Storage](storage-premium-storage-preview-portal.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/). This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) shows a full comphrensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
+[Azure Premium Storage](storage/storage-premium-storage-preview-portal.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/). This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) shows a full comphrensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
 
 It is important to understand the end-to-end process of utilizing Azure Premium Storage with SQL Server on IAAS VMs. This includes:
 
@@ -144,7 +144,7 @@ Once you have mapped VHDs to Physical Disks in Storage Pools you can then detach
 
 The amount of storage performance depends on the DS* VM size specified and the VHD sizes. The VMs have different allowances for the number of VHDs that can be attached and the maximum bandwidth they will support (MB/s). For the specific bandwidth numbers, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Increased IOPS are achieved with larger disk sizes. You should consider this when you think about your migration path. For details, [see the table for IOPS and Disk Types](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage). 
+Increased IOPS are achieved with larger disk sizes. You should consider this when you think about your migration path. For details, [see the table for IOPS and Disk Types](storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage). 
 
 Finally, consider that VMs have different maximum disk bandwidths they will support for all disks attached. Under high load, you could saturate the maximum disk bandwidth available for that VM role size. For example a Standard_DS14 will support up to 512MB/s; therefore, with three P30 disks you could saturate the disk bandwidth of the VM. But in this example, the throughput limit could be exceeded depending on the mix of read and write IOs.
 
@@ -1123,7 +1123,7 @@ To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayso
 	![Appendix15][25]
 
 ## Additional Resources
-- [Azure Premium Storage](storage-premium-storage-preview-portal.md)
+- [Azure Premium Storage](storage/storage-premium-storage-preview-portal.md)
 - [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md)
 

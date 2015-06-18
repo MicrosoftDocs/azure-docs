@@ -25,7 +25,7 @@ By using resource groups and templates, you're able to manage all of the resourc
 To complete this tutorial you also need:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Azure storage account](storage-create-storage-account.md)
+- [Azure storage account](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
 - [Azure PowerShell](powershell-install-configure.md)
 

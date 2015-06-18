@@ -81,7 +81,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 BCP is a command line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premise SQL Server, SQL Azure and SQL Server VM on Azure). 
 
 > [AZURE.NOTE] **Where should my data be for BCP?**  
-> While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
+> While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](storage/storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
 
 1. Ensure that the database and the tables are created on the target SQL Server database. Here is an example of how to do that using the `Create Database` and `Create Table` commands:
 

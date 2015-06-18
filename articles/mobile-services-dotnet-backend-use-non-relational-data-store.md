@@ -117,5 +117,5 @@ Now that you have seen how easy it is to use Table storage with .NET backend, co
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Add Mobile Services to an existing app]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[What is the Table Service]: storage/storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
