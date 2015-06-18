@@ -27,7 +27,7 @@ container image to a Docker private registry on Microsoft Azure using Azure Blob
 This document assumes:
 
 1. You know how to use Docker and have Docker images to store. (You don't? [Learn about Docker](https://www.docker.com))
-2. You have a server that has Docker engine installed. (You don't? [Do it quickly on Azure.](http://azure.microsoft.com/en-us/documentation/templates/docker-simple-on-ubuntu/))
+2. You have a server that has Docker engine installed. (You don't? [Do it quickly on Azure.](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
 
 ## What is a Private Docker Registry?
