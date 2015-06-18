@@ -28,6 +28,8 @@ Record sets are created using the New-AzureDnsRecordSet cmdlet.  You need to spe
 
 >[AZURE.NOTE] The record set name must be a relative name, excluding the zone name.  For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.
 
+>[AZURE.NOTE] For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
+
 Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
@@ -101,8 +103,9 @@ The sequence of operations to create a record can also be ‘piped’, passing t
 	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Create MX record set with single record
+In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com").  This is common for MX records.
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-mx" -RecordType MX -Zone $zone -Ttl 60
+	PS C:\> $rs = New-AzureDnsRecordSet -Name "@" -RecordType MX -Zone $zone -Ttl 60
 	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
 	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
 
