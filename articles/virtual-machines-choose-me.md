@@ -3,10 +3,11 @@
 	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines" 
 	headerExpose="" 
 	footerExpose="" 
-	services="cloud-services"
+	services="virtual-machines"
 	authors="KBDAzure" 
 	documentationCenter=""
-	manager="timlt"/>
+	manager="timlt"
+	tags=""/>
 
 <tags 
 	ms.service="multiple" 
@@ -24,7 +25,7 @@ Azure provides different hosting models for running applications. Each one provi
 [AZURE.INCLUDE [content](../includes/virtual-machines-choose-me-content.md)]
 
 ## Next steps
-* Learn more about [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx)
+Learn more about [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx)
 
 [App Service]: app-service-choose-me.md
 [Virtual Machines]: #tellmevm

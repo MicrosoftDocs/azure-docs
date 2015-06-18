@@ -36,12 +36,13 @@ Along with the OS, other configuration choices you have with VMs include:
 
 - The size, which determines factors such as how many disks you can attach and the processing power. Azure offers a wide variety of sizes to support many types of uses. For details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).  
 - The Azure region where your new VM will be hosted, such as in the US, Europe, or Asia. 
+- VM extensions, which give your virtual machine additional capabilities, such as running anti-virus or using the Desired State Configuration feature of Windows PowerShell.
 
-Other factors to consider for VMs include:
+Other benefits to consider for VMs include:
 
 **Pay-as-you-go** -- Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. For details, see [Virtual Machines Pricing](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/).
 
-**Resiliency** -- Azure monitors the physical hardware that hosts each running VM. If a physical server running a VM fails, Azure notices this, moves the VM to new hardware and restarts the VM. This process is sometimes called service healing. Azure also protects a virtual machine's data, by keeping redunandant copies of the VHDs in blob storage. 
+**Resiliency** -- Azure monitors the physical hardware that hosts each running VM. If a physical server running a VM fails, Azure notices this, moves the VM to new hardware and restarts the VM. This process is sometimes called service healing. Azure also protects a virtual machine's data, by keeping redundant copies of the VHDs in blob storage. 
 
 
 
