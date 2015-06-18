@@ -16,7 +16,7 @@
    ms.date="03/20/2015"
    ms.author="vagarw"/>
 
-# **Using the Box Connector in your logic app**
+# Using the Box Connector in your logic app
 
 
 
@@ -45,7 +45,7 @@ The Box gallery app provides you Actions as mechanisms to interact with Box:
 	  </tr>
 	</table>
 
-	*Note: It does not return any file content.*
+	>[AZURE.NOTE] It does not return any file content.
 
 
 
@@ -68,7 +68,7 @@ The Box gallery app provides you Actions as mechanisms to interact with Box:
 	    <td>No</td>
 	  </tr>
 	</table>
-	*Note: this operation will not delete the file after reading it.*
+	>[AZURE.NOTE] This operation will not delete the file after reading it.
 
 
 
@@ -116,7 +116,7 @@ The Box gallery app provides you Actions as mechanisms to interact with Box:
 
 
 
-## **Creating a Box Connector for your Logic App** ##
+## Creating a Box Connector for your Logic App
 
 To use the Box Connector, you need to first create an instance of the Box Connector API app. You can do this from within the Logic App designer or outside it as well. Creating it outside the designer can be done as follows:
 
@@ -131,7 +131,7 @@ To use the Box Connector, you need to first create an instance of the Box Connec
 4. Once that’s done, you can now create a logic App in the same resource group to use the Box Connector.
 
 
-## **Using the Box Connector in your Logic App** ##
+## Using the Box Connector in your Logic App
 
 Once your API app is created, you can now use the Box Connector as a action for your Logic App. To do this, you need to:
 
