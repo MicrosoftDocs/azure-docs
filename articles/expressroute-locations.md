@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/14/2015"
+   ms.date="06/17/2015"
    ms.author="cherylmc" />
 
-# ExpressRoute Partners and Peering Locations
+# ExpressRoute partners and peering locations
 The tables on this page provide information on ExpressRoute connectivity providers (EXPs and NSPs), ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
-## ExpressRoute Connectivity Providers
+## ExpressRoute connectivity providers
 ExpressRoute is supported across all Azure regions and locations. The map below provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
  
 ![](./media/expressroute-locations/expressroute-locations-map.png)
@@ -38,7 +38,7 @@ You will have access to Azure services across all regions within a geopolitical 
 Connectivity across geopolitical regions is not supported. You can work with your connectivity provider to extend connectivity across geopolitical regions using their network.
 
 
-### Exchange Provider (EXP) Locations
+## Exchange Provider (EXP) locations
 
 | **Service Provider**                                                                                                           | **Locations**                                                                                                                                        |
 |--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -58,7 +58,7 @@ Connectivity across geopolitical regions is not supported. You can work with you
 
 See [Configure your EXP connection](expressroute-configuring-exps.md) for steps to set up your connection.
 
-### Network Service Provider (NSP) Locations
+## Network Service Provider (NSP) locations
 
 
 | **Service Provider**                                                                                                              | **Locations**                                                   |
@@ -80,7 +80,7 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 
 See [Configure your NSP connection](expressroute-configuring-nsps.md) for steps to set up your connection.
 
-### Connectivity through service providers not listed above
+## Connectivity through service providers not listed 
 
 If your connectivity provider is not in the list above sections, you can still create a connection.
 
@@ -98,7 +98,7 @@ If your connectivity provider is not in the list above sections, you can still c
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 
-## ExpressRoute and Microsoft Cloud Services
+## ExpressRoute and Microsoft cloud services
 The tables below provide details on connectivity providers and the list of Microsoft cloud services they support. Contact your service provider.
 
 ### Exchange Providers (EXPs)
@@ -129,7 +129,7 @@ The tables below provide details on connectivity providers and the list of Micro
 |**Verizon**|Supported|| 
 
 
-## ExpressRoute System Integrators
+## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
 
 
