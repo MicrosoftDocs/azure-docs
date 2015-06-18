@@ -48,7 +48,7 @@ The Time-to-Live, or TTL, specifies how long each record is cached by clients be
 
 ## Create record sets and records
 
-In the following example we will show how to create a record set and records.  WE'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets.md)
+In the following example we will show how to create a record set and records.  We'll use the DNS 'A' record type, for other record types see [How to manage DNS records](dns-operations-recordsets.md)
 
 
 ### Step 1
