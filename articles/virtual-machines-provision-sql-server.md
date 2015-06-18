@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/17/2015" 
 	ms.author="jroth"/>
 
 # Provisioning a SQL Server Virtual Machine on Azure #
@@ -27,7 +27,7 @@ In this tutorial, you will:
 * [Complete configuration steps to connect to the virtual machine using SQL Server Management Studio on another computer](#SSMS)
 * [Next steps](#Optional)
 
-##<a id="Provision">Connect to the Azure management portal and provision a virtual machine from the gallery</a>
+##<a id="Provision">Provision a SQL Server virtual machine from the gallery</a>
 
 1. Log in to the [Azure Management Portal](http://manage.windowsazure.com) using your account. If you do not have an Azure account, visit [Azure free trial](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -89,7 +89,7 @@ You can create a new virtual machine by using the per-minute paid SQL Server edi
 	- Running
 	
 
-##<a id="RemoteDesktop">Open the virtual machine using Remote Desktop and complete setup</a>
+##<a id="RemoteDesktop">Open the VM using Remote Desktop to complete setup</a>
 
 1. When provisioning completes, click on the name of your virtual machine to go to the DASHBOARD page. At the bottom of the page, click **Connect**.
 2. Click the **Open** button.
@@ -122,7 +122,7 @@ The connection path is summarized by the following diagram:
 
 ![Connecting to a SQL Server virtual machine][Image8b]
 
-##<a id="Endpoint">Create a TCP endpoint for the virtual machine</a>
+###<a id="Endpoint">Create a TCP endpoint for the virtual machine</a>
 
 In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
@@ -143,7 +143,7 @@ In order to access SQL Server from the internet, the virtual machine must have a
 
 6. Click the check mark to continue. The endpoint is created.
 
-##<a id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</a>
+###<a id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</a>
 
 1. Connect to the virtual machine via Windows Remote Desktop. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER. 
 
@@ -295,7 +295,7 @@ To get the port number, log in to the Azure Management Portal and find the Virtu
 
 	![Connect using SSMS][Image33]
 
-### <a id="cdea"> Connecting to the Database Engine from your application</a>
+## <a id="cdea">Connect to the Database Engine from your application</a>
 
 If you can connect to an instance of SQL Server running on an Azure virtual machine by using Management Studio, you should be able to connect by using a connection string similar to the following.
 
