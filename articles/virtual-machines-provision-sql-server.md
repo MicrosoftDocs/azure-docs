@@ -3,7 +3,7 @@
 	description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="rothja" 
 	manager="jeffreyg" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="06/18/2015" 
+	ms.author="jroth"/>
 
 # Provisioning a SQL Server Virtual Machine on Azure #
 
@@ -62,7 +62,7 @@ You can create a new virtual machine by using the per-minute paid SQL Server edi
 
 	Click the next arrow on the bottom right to continue.
 
-	![VM Configuration](./media/virtual-machines-provision-sql-server/4VM-Config.png)
+	![VM Configuration][Image4]
 
 
 5. On the second **Virtual machine configuration** page, configure resources for networking, storage, and availability:
@@ -103,9 +103,11 @@ You can create a new virtual machine by using the per-minute paid SQL Server edi
 
 Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer. Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way. 
 
-##<a id="SSMS">Complete Configuration steps to connect to the virtual machine Using SQL Server Management Studio on another computer</a>
+##<a id="SSMS">Connect to the SQL Server VM instance from SSMS on another computer</a>
 
-Before you can connect to the instance of SQL Server from the internet, you must complete the following tasks as described in the sections that follow:
+The following steps demonstrate how to connect to the SQL Server instance over the internet using SQL Server Management Studio (SSMS). However, the same steps apply to making your SQL Server virtual machine accessible for your applications, running both on-premises and in Azure.
+
+Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks as described in the sections that follow:
 
 - [Create a TCP endpoint for the virtual machine](#Endpoint)
 - [Open TCP ports in the Windows firewall](#FW)
@@ -122,7 +124,9 @@ The connection path is summarized by the following diagram:
 
 ##<a id="Endpoint">Create a TCP endpoint for the virtual machine</a>
 
-The virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
+In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
+
+>[AZURE.NOTE] If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint. In that case, you could continue to the next step. For more information, see [Connectivity Considerations for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133152.aspx).
 
 1. On the Azure Management Portal, click on **VIRTUAL MACHINES**.
 	
@@ -162,7 +166,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 	![Allow Connections][Image15]
 
-7. In the **Profile** dialog box, select **Public**, and then click **Next**. 
+7. In the **Profile** dialog box, select **Public**, **Private**, and **Domain**. Then click **Next**. 
 
     **Security Note:**  Selecting **Public** allows access over the internet. Whenever possible, select a more restrictive profile.
 
@@ -197,7 +201,9 @@ For more information about enabling protocols for the SQL Server Database Engine
 
 ###<a id="Mixed">Configure SQL Server for mixed mode authentication</a>
 
-The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication. (Configuring mixed mode authentication might not be necessary if you have configured an Azure Virtual Network. For more information, see [Connectivity Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294723) topic in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294719) documentation set.
+The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
+
+>[AZURE.NOTE] Configuring mixed mode authentication might not be necessary if you have configured an Azure Virtual Network with a configured domain environment.
 
 1. While connected to the virtual machine, on the Start page, type **SQL Server 2014 Management Studio** and click the selected icon.
 
@@ -293,7 +299,7 @@ To get the port number, log in to the Azure Management Portal and find the Virtu
 
 If you can connect to an instance of SQL Server running on an Azure virtual machine by using Management Studio, you should be able to connect by using a connection string similar to the following.
 
-	connectionString="Server=<DNS_Name>;Integrated Security=false;User ID=<login_name>;Password=<your_password>;"providerName="System.Data.SqlClient"
+	connectionString = "Server=tutorialtestVM.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 For more information, see [How to Troubleshoot Connecting to the SQL Server Database Engine](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
@@ -319,10 +325,6 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 
 [Connectivity Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
-- Tutorial: Connect to SQL Server in the same cloud service 
-- Tutorial: Connect to SQL Server in a different cloud service 
-- Tutorial: Connect ASP.NET application to SQL Server in Azure via Virtual Network 
-
 [Performance Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294724)
 
 [Security Considerations for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294725)
@@ -335,10 +337,6 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 - Tutorial: AlwaysOn Availability Groups in Azure (PowerShell)
 - Tutorial: Listener Configuration for AlwaysOn Availability Groups
 - Tutorial: Add Azure Replica Wizard
-- Tutorial: Database Mirroring for Disaster Recovery in Azure
-- Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
-- Tutorial: Database Mirroring for High Availability in Azure
-- Tutorial: Log Shipping for Disaster Recovery in Hybrid IT 
 - Troubleshooting Availability Group Listener in Azure
 
 [Backup and Restore for SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294728)
@@ -359,10 +357,9 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 
 - [White paper: Deploy SQL Server Business Intelligence in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
 
-- [White paper: Performance Guidance for SQL Server in Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
-
 - [White paper: Reporting Services report viewer control and Microsoft Azure virtual machine based report servers](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
+[Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
@@ -374,7 +371,7 @@ You've seen how to create and configure a SQL Server on an Azure virtual machine
 [Image13]: ./media/virtual-machines-provision-sql-server/13New-FW-Rule.png
 [Image14]: ./media/virtual-machines-provision-sql-server/14Port-1433.png
 [Image15]: ./media/virtual-machines-provision-sql-server/15Allow-Connection.png
-[Image16]: ./media/virtual-machines-provision-sql-server/16Public-Profile.png
+[Image16]: ./media/virtual-machines-provision-sql-server/16Public-Private-Domain-Profile.png
 [Image17]: ./media/virtual-machines-provision-sql-server/17Rule-Name.png
 [Image18]: ./media/virtual-machines-provision-sql-server/18Start-SSMS.png
 [Image19]: ./media/virtual-machines-provision-sql-server/19Connect-to-Server.png
