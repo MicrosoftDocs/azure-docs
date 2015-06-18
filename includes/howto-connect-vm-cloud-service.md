@@ -1,4 +1,4 @@
-<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
+﻿<properties authors="KBDAzure" editor="tysonn" manager="timlt" /> 
 
 Virtual machines are always placed in a cloud service, which acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints to access the virtual machine over the Internet. The cloud service can optionally be in a virtual network. 
 
