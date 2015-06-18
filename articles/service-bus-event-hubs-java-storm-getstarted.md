@@ -12,8 +12,8 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="java"
 	ms.devlang="java"
-	ms.topic="article" 
-	ms.date="04/22/2015"
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
