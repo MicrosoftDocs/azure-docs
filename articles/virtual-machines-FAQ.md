@@ -6,7 +6,7 @@
 	authors="KBDAzure" 
 	manager="timlt" 
 	editor=""
-	tags="Azure Resource Manager,Azure Service Management"/>
+	tags="azure-resource-manager, azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -14,20 +14,12 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="06/18/2015" 
 	ms.author="kathydav"/>
 
 # Azure Virtual Machines FAQ
 
 This article addresses some common questions users ask about Azure virtual machines, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles. For general information, start with Virtual Machines Overview.
-
-## I've heard there's a new way to create and manage Azure VMs. What is it?
-
-Azure now offers virtual machines that can be created and managed with Azure Resource Manager and templates. This approach simplifies creating and managing the compute, storage, and networking resources by managing them together, in a resource group. This differs significantly from the service-based approach, in which you manage those resources separately. For details, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
-
-## Should I use Resource Manager-based or Service Management-based VMs?
-
-(Need either a list of the considerations or pointer to an article)
 
 ## What can I run on an Azure VM?
 
@@ -73,7 +65,7 @@ For Service Management-based VMs, you can use Azure Virtual Network to extend yo
 
 You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine. This means, for example, that you can’t join an existing virtual machine to a virtual network. However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.
 
-For Resource Management-based VMs, you can't include them in your existing, on-premises infrastructure at this time. Instead, you'll need to (NEED DETAILS) until this capability is available. 
+For Resource Management-based VMs, you can't include them in your existing, on-premises infrastructure at this time.
 
 ## How can I access  my virtual machine?
 
