@@ -19,18 +19,7 @@
 # Manage Azure SQL Database Resources with PowerShell
 
 
-In this topic you use a PowerShell commands to perform many Azure SQL Database tasks.
-
-## Step 1: Install Azure SDK
-
-If you haven't already, use the instructions in [How to install and configure Azure PowerShell to install Azure PowerShell](../powershell-install-configure.md) on your local computer. Then, open an Azure PowerShell command prompt.
-
-
-For a list of valid Azure SQL Database server locations you can run the following cmdlets in your Azure Powershell Command Prompt
-
-		$AzureSQLLocations = Get-AzureLocation | Where-Object Name -Like "*SQL/Servers"
-		$AzureSQLLocations.Locations
-
+This topic provides PowerShell commands to perform many Azure SQL Database tasks.
 
 
 ## Prerequisites
@@ -66,8 +55,12 @@ To select the subscription you need your subscription Id (**-SubscriptionId**) o
 
 ## Create a resource group
 
-Create the resource group that will contain the server. You can edit the next command to use whatever valid location you want. For a list of valid locations run **(Get-AzureLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations**.
+Create the resource group that will contain the server. You can edit the next command to use any valid location. 
 
+For a list of valid Azure SQL Database server locations run the following cmdlets:
+
+		$AzureSQLLocations = Get-AzureLocation | Where-Object Name -Like "*SQL/Servers"
+		$AzureSQLLocations.Locations
 
 If you already have a resource group you can jump ahead to create a server, or you can run the following command to create a new resource group:
 
