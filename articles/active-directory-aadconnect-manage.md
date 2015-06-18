@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="lisatoft"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="active-directory" 
