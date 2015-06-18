@@ -46,7 +46,7 @@ Here is an example using the Azure Management Portal for the existing cloud serv
 
 After you create a virtual machine, it's a good idea to add a data disk so your services and workloads have a location to store data. See one of the following:
 
-[How to Attach a Data Disk to a Linux Virtual Machine](../articles/virtual-machines-linux-how-to-attach-disk.md)
+[How to Attach a Data Disk to a Linux Virtual Machine](../articles/virtual-machines/virtual-machines-linux-how-to-attach-disk.md)
 
-[How to Attach a Data Disk to a Windows Virtual Machine](../articles/storage-windows-attach-disk.md)
+[How to Attach a Data Disk to a Windows Virtual Machine](../articles/virtual-machines/storage-windows-attach-disk.md)
 
