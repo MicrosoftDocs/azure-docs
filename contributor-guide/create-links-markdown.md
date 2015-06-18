@@ -14,7 +14,7 @@
 
 ### Markdown syntax for ACOM relative links
 
-To create an inline link from an ACOM technical article to another ACOM technical article, use this link format.   If you create any new links to or from Batch articles, you’ll need to follow the new linking syntax.
+To create an inline link from an ACOM technical article to another ACOM technical article, use this link format.   If you create any new links to or from articles in subdirectory folders, you’ll need to follow the new linking syntax.
 
 Old link syntax to link from one ACOM tech doc to another:
 
