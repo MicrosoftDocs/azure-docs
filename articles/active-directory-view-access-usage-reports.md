@@ -84,26 +84,6 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	RMS device usage									|			|		|	RMS Only	|
 |	RMS enabled application usage						|			|		|	RMS Only	|
 
-Report name  | Available in this edition
-------------- | -------------  
-[Sign ins from unknown sources](#sign-ins-from-unknown-sources) | Free and Premium
-[Sign ins after multiple failures](#sign-ins-after-multiple-failures) | Free and Premium
-[Sign ins from multiple geographies](sign-ins-from-multiple-geographies) | Free and Premium
-[Sign ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) | Premium
-[Anomalous sign in activity](#anamolous-sign-in-activity) | Premium
-[Sign ins from possibly infected devices](#sign-ins-from-possibly-infected-devices) | Premium
-[Users with anomalous sign in activity](#users-with-anomalous-sign-in-activity) | Premium
-[Application usage: summary](#application-usage-summary) | Premium
-[Application usage: detailed](#application-usage-detailed) | Premium
-[Application dashboard](#application-dashboard) | Free and Premium
-[Account provisioning errors](#account-provisioning-errors) | Free and Premium
-[Devices](#devices) | Premium
-[Activity](#activity) | Free and Premium
-[Audit report](#audit-report) | Free and Premium
-[Groups activity report](#groups-activity-report) | Premium
-[Password Reset Registration Activity Report](#password-reset-registration-activity-report) | Premium
-[Password reset activity](#password-reset-activity) | Premium
-
 ## Report details
 
 ### Sign ins from unknown sources
