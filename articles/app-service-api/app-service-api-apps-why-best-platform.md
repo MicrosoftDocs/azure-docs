@@ -26,7 +26,7 @@ API Apps is part of [Azure App Service](../app-service/app-service-value-prop-wh
 
 ## Why API Apps?
 
-API Apps provides capabilities for developing, deploying, publishing, consuming and managing RESTful web APIs. When you use API Apps to host your APIs, App Service provides the following features. These are available today in public preview:
+API Apps provides capabilities for developing, deploying, publishing, consuming and managing RESTful web APIs. App Service provides the following features available today in public preview:
 
 - **Easy consumption** - Integrated [Swagger](http://swagger.io/) support makes your APIs easily consumable by a variety of clients.  The API Apps SDK can generate client code for your APIs in a variety of languages including C#, Java, and Javascript.
 
