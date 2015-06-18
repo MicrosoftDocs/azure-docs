@@ -50,8 +50,9 @@ To link to an anchor in another article in the same subfolder:
     [Configure your profile](media-services-create-account.md#configure-your-profile)
 
 To link to an anchor in the same service subfolder:
+
     [link text](service-folder/article-name.md#anchor-name)
-    [Configure your profile](media-services-create-account.md#configure-your-profile)
+    [Configure your profile](service-folder/media-services-create-account.md#configure-your-profile)
 
 
 Since includes are located in another directory, you will need to use relative paths as below. For a link to a single article, use this format:
