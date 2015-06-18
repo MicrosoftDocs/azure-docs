@@ -14,10 +14,26 @@
 
 ### Markdown syntax for ACOM relative links
 
-To create an inline link from an ACOM technical article to another ACOM technical article, use this link format:
+To create an inline link from an ACOM technical article to another ACOM technical article, use this link format.   If you create any new links to or from Batch articles, you’ll need to follow the new linking syntax.
 
-    [link text](article-name.md)
-    [Create a Media Services account](media-services-create-account.md)
+Old link syntax to link from one ACOM tech doc to another:
+
+'''[link text](filename.md)
+
+**New link syntax**
+
+Article links from a subdirectory to an article in the root directory:
+'''[link text](../article-name.md)
+
+Article in the root folder links to an article in a service subdirectory: 
+'''[link text](batch/article-name.md)
+
+Article in a service subdirectory links to an article that is in another service subdirectory:
+'''[link text](../service-folder/article-name.md)
+ 
+Article in a directory links to another article in the same directory:
+'''[link text](article-name.md)
+
 
 You do not have to create anchors anymore - they are automatically generated at publishing time for all H2 headings. The only thing you have to do is create links to the H2 sections:
 
