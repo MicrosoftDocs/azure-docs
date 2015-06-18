@@ -71,15 +71,19 @@ If you have Azure AD Premium or the Enterprise Mobility Suite, you do not need t
 
 ### To assign an Azure AD Premium or Enterprise Mobilitiy Suite License
 --------------------------------------------------------------------------------
+<ol>
 
-1. Sign-in to the Azure Portal as an Administrator.
-2. On the left, select **Active Directory**.
-3. On the Active Directory page, double-click on the directory that has the users you wish to enable.
-4. At the top of the directory page, select **Licenses**.
-5. On the Licenses page, select Active Directory Premium or Enterprise Mobility Suite, and then click **Assign**.
-6. 4.In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.
+<li>Sign-in to the Azure Portal as an Administrator.</li>
+<li>On the left, select **Active Directory**.</li>
+<li>On the Active Directory page, double-click on the directory that has the users you wish to enable.</li>
+<li>At the top of the directory page, select **Licenses**.</li>
+<li>On the Licenses page, select Active Directory Premium or Enterprise Mobility Suite, and then click **Assign**.</li>
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/license.png)</center>
+
+<li>In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.</li>
+
+
 
 ## Turn-on multi-factor authentication for users
 
