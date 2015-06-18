@@ -18,6 +18,7 @@
 
 # Azure Active Directory Report Retention Policies
 
+Azure AD's reports retain data for a certain number of days, indicated here.
 
 |	Report												|	Description	|
 |	------												|	-----		|
