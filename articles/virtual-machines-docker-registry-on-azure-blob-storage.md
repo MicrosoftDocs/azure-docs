@@ -1,9 +1,7 @@
 <properties title="Deploying Your Own Private Docker Registry on Azure"
   pageTitle="Deploying Your Own Private Docker Registry on Azure"
   description="Describes how you can use Docker Registry to host your container images on Azure Blob Storage service."
-  metaKeywords="docker, docker images, containers, docker registry, docker distribution, virtual machines, vm"
   services="virtual-machines"
-  solutions="dev-test"
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   videoId=""
@@ -17,7 +15,8 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
-  ms.date="06/17/2015" ms.author="ahmetb" />
+  ms.date="06/17/2015" 
+  ms.author="ahmetb" />
 
 # Deploying Your Own Private Docker Registry on Azure
 
@@ -119,6 +118,10 @@ use the deployment command above.
 > Please read the [Configuring Docker
 Registry][registry-config] documentation to learn how to secure the
 registry instance and your images.
+
+## Next Steps
+
+Once you have your registry set up, it's time to go use it some more. Start with the docker [registry-docs]. 
 
 [docker-hub]: https://hub.docker.com/
 [registry]: https://github.com/docker/distribution
