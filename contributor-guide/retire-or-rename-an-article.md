@@ -48,7 +48,7 @@ You'll have to work with the person who maintains and updates the documentation 
 
 ## Step 5: Retire the article
 
-After you've completed the three prior steps and those changes are live, then you can delete the article from the repository. 
+After you've completed the three prior steps and those changes are live, then you can delete the article from the repository.
 ## Step 6: Remove links from MSDN
 
 Review the content QA tool for broken links to the retired or renamed topic and remove/fix the links in all MSDN topics affected.
@@ -62,5 +62,5 @@ Go to these web pages to remove cached web pages from search engines:
 
 ### Contributors' guide links
 
-- [Overview article](./../CONTRIBUTING.md)
+- [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)

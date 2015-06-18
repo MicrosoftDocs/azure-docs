@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="04/16/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 

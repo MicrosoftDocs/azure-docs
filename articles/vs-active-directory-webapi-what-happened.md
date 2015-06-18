@@ -3,7 +3,7 @@
 	description="Describes what was changed in your Visual Studio project after you ran the Azure Active Directory wizard" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
  
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/06/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # What happened to my project?
 
@@ -67,7 +67,7 @@ The following configuration entries have been added.
     		<add key="ida:Audience" value="The App ID Uri from the wizard" /> 
 	</appSettings>` </pre>
 
-###An Azure Azure AD App was created 
+###An Azure AD App was created 
 
 An Azure AD Application was created in the directory that you selected in the wizard.
 

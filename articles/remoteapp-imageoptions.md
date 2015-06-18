@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Create a RemoteApp image"
+    pageTitle="Create an Azure RemoteApp image"
     description="Learn about the options available for creating images for RemoteApp" 
     services="remoteapp" 
     solutions="" 
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/08/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
 
-# Create a RemoteApp image
+# Create an Azure RemoteApp image
 
 Azure RemoteApp uses images to hold the apps that you share with your users. To create a RemoteApp collection with your choice of applications, whether it is cloud or hybrid, you  start by creating an image with those applications installed. Then, create a collection that uses that image, assign users to the collection, and publish apps to those users. 
 

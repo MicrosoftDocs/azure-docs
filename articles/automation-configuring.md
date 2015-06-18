@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configuring Azure Automation"
    description="Describes steps that you must perform to configure Azure Automation for initial use."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/13/2015"
@@ -24,6 +24,11 @@ This article describes the actions you must perform to initially start using Azu
 When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets) from the Automation resources contained in other Automation accounts. You can use Automation accounts to separate Automation resources into separate logical environments. For example, you might use one account for development and another for production.
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage Azure services in any region. The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.
+
+>[AZURE.NOTE] Automation accounts, and the resources they contain, that are created with the Azure preview portal cannot be accessed in the Azure portal. If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules. 
+>
+>Automation accounts created with the Azure portal can be managed by either portal and either set of cmdlets. Once the account is created, it makes no difference how you create and manage resources within the account. If you are planning to continue to use the Azure portal, then you should use it instead of the Azure preview portal to create any Automation accounts.
+
 
 An Automation account may be suspended if there is an issue with your Azure account, such as an overdue payment. In this case, you can’t access the account, any running jobs will be suspended, and all schedules will be disabled. You will be able to view the account, but you won’t be able to see any resources in it. Once you correct the issue and the Automation account is enabled, you will have to enable your schedules and restart any runbooks that were suspended.
 
@@ -58,6 +63,5 @@ You can retrieve the credential in a runbook using the [Get-AutomationPSCredenti
 
 You should repeat these lines after any [checkpoints](automation-runbook-execution/#checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
 
-# Related articles
-- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) 
-
+## Related articles
+- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)

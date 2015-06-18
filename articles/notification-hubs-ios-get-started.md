@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Azure Notification Hubs" 
-	description="Learn how to use Azure Notification Hubs to push notifications." 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Azure Notification Hubs"
+	description="Learn how to use Azure Notification Hubs to push notifications."
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
 	ms.topic="hero-article" 
-	ms.date="05/27/2015" 
+	ms.date="05/27/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
@@ -25,7 +25,7 @@
 This topic shows you how to use Azure Notification Hubs to send push notifications to an iOS application.
 In this tutorial you create a blank iOS app that receives push notifications using the Apple Push Notification service (APNs). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
 
-This tutorial demonstrates the simple broadcast scenario using notification hubs. 
+This tutorial demonstrates the simple broadcast scenario using notification hubs.
 
 ##Prerequisites
 
@@ -97,6 +97,8 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 3. Under **Targets**, click your project name, then click the **Build Settings** tab and expand **Code Signing Identity**, then under **Debug** set your **code-signing identity**. Toggle **Levels** from **Basic** to **All** and set the **Provisioning Profile** to the provisioning profile that you created previously.
 
+	If you don't see the new provisioning profile you created in XCode, try refreshing the profiles for your signing idenity by clicking **XCode** on the menu bar and then click **Preferences**, the **Account** tab, **View Details** button, click your signing idenity and click the refresh button in the bottom right corner.
+
    	![][9]
 
 4. Download **version 1.2.4** of the [Mobile Services iOS SDK] and unzip the file. In XCode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your XCode project. Select **Copy items if needed**, then click **Add**.
@@ -110,12 +112,10 @@ Your notification hub is now configured to work with APNS, and you have the conn
 6. In your AppDelegate.m file add the following code in the `didFinishLaunchingWithOptions` method based on your version of iOS. This code registers your device handle with APNS:
 
 	For iOS 8:
-   
+
 	 	UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
-                                            UIUserNotificationTypeAlert |
-                                            UIUserNotificationTypeBadge
-					    					categories:nil];
- 
+												UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+
     	[[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     	[[UIApplication sharedApplication] registerForRemoteNotifications];
 
@@ -127,8 +127,8 @@ Your notification hub is now configured to work with APNS, and you have the conn
 7. In the same file, add the following methods and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* you noted earlier. This code gives the device token to the notification hub so the notification hub can send notifications:
 
 	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:
-		                              @"<Enter your listen connection string>" notificationHubPath:@"<Enter your hub name>"];
+		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<Enter your listen connection string>"
+										notificationHubPath:@"<Enter your hub name>"];
 
 		    [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
 		        if (error != nil) {
@@ -142,11 +142,11 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 		-(void)MessageBox:(NSString *)title message:(NSString *)messageText
 		{
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self 
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
 				cancelButtonTitle:@"OK" otherButtonTitles: nil];
 			[alert show];
 		}
-		
+
 
 8. In the same file, add the following method to display an **UIAlert** if the notification is received while the app is active:
 
@@ -169,11 +169,11 @@ You can test receiving notifications in your app by send notifications in the Az
 
 ![][31]
 
-1. In XCode, open your Main.storyboard and add the following UI components from the object library to allow the user to send push notifications.
+1. In XCode, open your Main.storyboard and add the following UI components from the object library to allow the user to send push notifications in the app.
 
-	- A Label with no label text. It will be used to report errors sending notifications. **Lines** property should be set to 0 so it will auto size constrained to the top of the view.
-	- A Text field with placeholder text set to **Enter Notification Message**. Constrain the field just below the label as shown below. Set the **Return Key** to **Send** and set the View Controller as the outlet delegate.
-	- A Button titled **Send Notification** centered and constrained just below the text field.
+	- A Label with no label text. It will be used to report errors sending notifications. **Lines** property should be set to **0** so it will auto size constrained to the right and left margins and the top of the view.
+	- A Text field with **Placeholder** text set to **Enter Notification Message**. Constrain the field just below the label as shown below. Set the View Controller as the outlet delegate.
+	- A Button titled **Send Notification** constrained just below the text field and in the horizontal center.
 
 	The view should look as follows:
 
@@ -184,33 +184,32 @@ You can test receiving notifications in your app by send notifications in the Az
 
 
 		#import <CommonCrypto/CommonHMAC.h>
-		
+
 		#define API_VERSION @"?api-version=2015-01"
 		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
 		#define HUBNAME @"<Enter the name of your hub>"
 
 
-3. Add outlets for the label and text field in your view and update your `interface` definition to support UITextFieldDelegate, NSURLConnectionDataDelegate, and NSXMLParserDelegate. Add the three property declarations shown below to help support calling the REST API and parsing the response.
+3. Add outlets for the label and text field connected your view and update your `interface` definition to support `UITextFieldDelegate` and `NSXMLParserDelegate`. Add the three property declarations shown below to help support calling the REST API and parsing the response.
 
 	Your ViewController.h file should look as follows:
 
 		#import <UIKit/UIKit.h>
 		#import <CommonCrypto/CommonHMAC.h>
-		
+
 		#define API_VERSION @"?api-version=2015-01"
 		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
 		#define HUBNAME @"<Enter the name of your hub>"
 
-		@interface ViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
+		@interface ViewController : UIViewController <UITextFieldDelegate, NSXMLParserDelegate>
 		{
-			NSURLConnection *currentConnection;
 			NSXMLParser *xmlParser;
 		}
-		
+
+		// Make sure these outlets are connected to your UI by ctrl+dragging.
 		@property (weak, nonatomic) IBOutlet UITextField *notificationMessage;
 		@property (weak, nonatomic) IBOutlet UILabel *sendResults;
 
-		@property (retain, nonatomic) NSMutableData *apiReturnXMLData;
 		@property (copy, nonatomic) NSString *statusResult;
 		@property (copy, nonatomic) NSString *currentElement;
 
@@ -221,32 +220,32 @@ You can test receiving notifications in your app by send notifications in the Az
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
-		NSString *HuSasKeyValue;
+		NSString *HubSasKeyValue;
 
 		-(void)ParseConnectionString
 		{
 			NSArray *parts = [HUBFULLACCESS componentsSeparatedByString:@";"];
 			NSString *part;
-		
-			if ([parts count] != 3) 
+
+			if ([parts count] != 3)
 			{
 				NSException* parseException = [NSException exceptionWithName:@"ConnectionStringParseException"
 					reason:@"Invalid full shared access connection string" userInfo:nil];
-		
+
 				@throw parseException;
 			}
-		    
-			for (part in parts) 
+
+			for (part in parts)
 			{
 				if ([part hasPrefix:@"Endpoint"])
 				{
 					HubEndpoint = [NSString stringWithFormat:@"https%@",[part substringFromIndex:11]];
-				} 
-				else if ([part hasPrefix:@"SharedAccessKeyName"]) 
+				}
+				else if ([part hasPrefix:@"SharedAccessKeyName"])
 				{
 					HubSasKeyName = [part substringFromIndex:20];
-				} 
-				else if ([part hasPrefix:@"SharedAccessKey"]) 
+				}
+				else if ([part hasPrefix:@"SharedAccessKey"])
 				{
 					HubSasKeyValue = [part substringFromIndex:16];
 				}
@@ -256,7 +255,7 @@ You can test receiving notifications in your app by send notifications in the Az
 5. In ViewController.m, update the `viewDidLoad` method to parse the connection string when the view loads. Also add the utility methods shown below.  
 
 
-		- (void)viewDidLoad 
+		- (void)viewDidLoad
 		{
 			[super viewDidLoad];
 			[self ParseConnectionString];
@@ -264,17 +263,17 @@ You can test receiving notifications in your app by send notifications in the Az
 
 		-(NSString *)CF_URLEncodedString:(NSString *)inputString
 		{
-			return (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)inputString, 
+		   return (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)inputString,
 				NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
 		}
-		
+
 		-(void)MessageBox:(NSString *)title message:(NSString *)messageText
 		{
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self 
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
 				cancelButtonTitle:@"OK" otherButtonTitles: nil];
 			[alert show];
 		}
-		
+
 
 
 
@@ -288,7 +287,7 @@ You can test receiving notifications in your app by send notifications in the Az
 			NSString *signature = NULL;
 			NSString *token = NULL;
 
-			@try 
+			@try
 			{
 				// Add expiration
 				uri = [uri lowercaseString];
@@ -307,146 +306,140 @@ You can test receiving notifications in your app by send notifications in the Az
 				CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
 				NSData *rawHmac = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
-				        
+
 				// construct authorization token string
 				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
 					targetUri, signature, expires, HubSasKeyName];
 			}
-			@catch (NSException *exception) 
+			@catch (NSException *exception)
 			{
 				[self MessageBox:@"Exception Generating SaS Token" message:[exception reason]];
 			}
-			@finally 
+			@finally
 			{
 				if (utf8LowercasedUri != NULL)
 					CFRelease((CFStringRef)utf8LowercasedUri);
 				if (signature != NULL)
 				CFRelease((CFStringRef)signature);
 			}
-			    
+
 			return token;
 		}
 
 
-7. Add an action for the **Send Notification** button that executes the following code.
+7. **Ctrl+drag** from the **Send Notification** button to ViewController.m to add an action for the **Touch Down** event that executes the REST API call using the following code.
 
-		- (IBAction)SendNotificationMessage:(id)sender {
-		    NSString *json = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"%@\"}}", self.notificationMessage.text];
-		
+		- (IBAction)SendNotificationMessage:(id)sender
+		{
 			self.sendResults.text = @"";
-		
-			NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint, HUBNAME, API_VERSION]];
-		
+			[self SendNotificationRESTAPI];
+		}
+
+		- (void)SendNotificationRESTAPI
+		{
+		    NSURLSession* session = [NSURLSession
+                             sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+                             delegate:nil delegateQueue:nil];
+
+			// Apple Notification format of the notification message
+		    NSString *json = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"%@\"}}",
+								self.notificationMessage.text];
+
+			// Construct the messages REST endpoint
+			NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
+												HUBNAME, API_VERSION]];
+
+			// Generated the token to be used in the authorization header.
 			NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
-		
+
 			//Create the request to add the APNS notification message to the hub
 			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 			[request setHTTPMethod:@"POST"];
 			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+
+			// Signify apple notification format
 			[request setValue:@"apple" forHTTPHeaderField:@"ServiceBusNotification-Format"];
-		
+
 			//Authenticate the notification message POST request with the SaS token
 			[request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-			
+
 			//Add the notification message body
 			[request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
-		    
-			if (currentConnection)
+
+			// Send the REST request
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
-				[currentConnection cancel];
-				currentConnection = NULL;
-				self.apiReturnXMLData = NULL;
-			}
-		
-			currentConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-		
-			self.apiReturnXMLData = [NSMutableData data];
+		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+		        if (error || httpResponse.statusCode != 200)
+		        {
+		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+		        }
+				if (data != NULL)
+				{
+		        	xmlParser = [[NSXMLParser alloc] initWithData:data];
+		        	[xmlParser setDelegate:self];
+		       		[xmlParser parse];
+		    	}
+		    }];
+		    [dataTask resume];
 		}
 
 
-8. In ViewController.m, add the following delegate method to support the **Send** keyboard button for the text field.
+8. In ViewController.m, add the following delegate method to support closing the keyboard for the text field. **Ctrl+drag** from the text field to the View Controller icon in the interface designer to set the view controller as the outlet delegate.
 
 		//===[ Implement UITextFieldDelegate methods ]===
-		
-		-(BOOL)textFieldShouldReturn:(UITextField *)notificationMessage 
+
+		-(BOOL)textFieldShouldReturn:(UITextField *)textField
 		{
-			[notificationMessage resignFirstResponder];
-			[self SendNotificationMessage:NULL];
-			
+			[textField resignFirstResponder];
 			return YES;
 		}
 
 
-9. In ViewController.m, add the following delegate methods to support calling the REST API using the `NSURLConnection`.
-
-		//===[ Implement NSURLConnectionDataDelegate methods ]===
-		
-		-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-		{
-			[self MessageBox:@"POST Request Failed" message:[error localizedDescription]];
-		}
-		
-		-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-		{
-			[self.apiReturnXMLData appendData:data];
-		}
-		
-		-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-		{
-			[self.apiReturnXMLData setLength:0];
-		}
-		
-		-(void)connectionDidFinishLoading:(NSURLConnection *)connection
-		{
-			xmlParser = [[NSXMLParser alloc] initWithData:self.apiReturnXMLData];
-			[xmlParser setDelegate:self];
-			[xmlParser parse];
-
-			currentConnection = NULL;
-		}
-
-
-
-10. In ViewController.m, add the following delegate methods to support parsing the response using `NSXMLParser`.
+9. In ViewController.m, add the following delegate methods to support parsing the response using `NSXMLParser`.
 
 		//===[ Implement NSXMLParserDelegate methods ]===
-		
+
 		-(void)parserDidStartDocument:(NSXMLParser *)parser
 		{
 		    self.statusResult = @"";
 		}
-		
-		-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName 
-			namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName 
+
+		-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
+			namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 			attributes:(NSDictionary *)attributeDict
 		{
 		    NSString * element = [elementName lowercaseString];
 		    NSLog(@"*** New element parsed : %@ ***",element);
-		    
+
 		    if ([element isEqualToString:@"code"] | [element isEqualToString:@"detail"])
 		    {
 		        self.currentElement = element;
 		    }
-		}		
-		
+		}
+
 		-(void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)parsedString
 		{
 		    self.statusResult = [self.statusResult stringByAppendingString:
 		        [NSString stringWithFormat:@"%@ : %@\n", self.currentElement, parsedString]];
-		}		
-		
+		}
+
 		-(void)parserDidEndDocument:(NSXMLParser *)parser
 		{
-		    [self.sendResults setText:self.statusResult];
+			// Set the status label text on the UI thread
+			dispatch_async(dispatch_get_main_queue(),
+			^{
+				[self.sendResults setText:self.statusResult];
+			});
 		}
-		
 
 
 
-11. Build the project and verify no errors.
+10. Build the project and verify no errors.
 
 
- 
+
 You can find all the possible notification payloads in the Apple [Local and Push Notification Programming Guide].
 
 
@@ -512,9 +505,8 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: mobile-services-javascript-backend-ios-get-started-push.md 
+[Get started with push notifications in Mobile Services]: mobile-services-javascript-backend-ios-get-started-push.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-send-breaking-news.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-

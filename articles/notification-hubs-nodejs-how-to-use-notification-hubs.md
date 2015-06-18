@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="How to use Notification Hubs with Node.js" 
-	description="Learn how to use Notification Hubs to send push notifications from a Node.js application." 
-	services="notification-hubs" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use Notification Hubs with Node.js"
+	description="Learn how to use Notification Hubs to send push notifications from a Node.js application."
+	services="notification-hubs"
+	documentationCenter="nodejs"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="mwasson"/>
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
-<div class="dev-center-tutorial-selector sublanding"> 
+<div class="dev-center-tutorial-selector sublanding">
     	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
 </div>
 
@@ -88,7 +88,7 @@ The connection **connectionstring** value can be obtained from the Azure Managem
 
 3. Select **View Connection String** from the **quick glance** section, and copy the connection string value.
 
-> [AZURE.NOTE] You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by Azure PowerShell or the **azure sb namespace show** command with the Azure Command-Line Tools.
+> [AZURE.NOTE] You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by Azure PowerShell or the **azure sb namespace show** command with the Azure Command-Line Interface (Azure CLI).
 
 </div>
 
@@ -226,4 +226,3 @@ links to learn more.
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
-

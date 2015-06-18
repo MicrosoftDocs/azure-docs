@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="How to use Azure Redis Cache with Java" 
-   description="Get started with Azure Redis Cache using Java" 
-   services="redis-cache" 
-   documentationCenter="" 
-   authors="MikeWasson" 
-   manager="wpickett" 
+<properties
+   pageTitle="How to use Azure Redis Cache with Java"
+   description="Get started with Azure Redis Cache using Java"
+   services="redis-cache"
+   documentationCenter=""
+   authors="MikeWasson"
+   manager="wpickett"
    editor=""/>
 
 <tags
    ms.service="cache"
    ms.devlang="java"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="cache-redis"
-   ms.workload="required" 
+   ms.workload="required"
    ms.date="04/30/2015"
    ms.author="mwasson"/>
 
-# How to use Azure Redis Cache with Java 
+# How to use Azure Redis Cache with Java
 
 Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
@@ -32,7 +32,7 @@ This tutorial uses Jedis, but you can use any Java client listed at [http://redi
 
 ## Create a Redis cache on Azure
 
-In the [Azure Management Portal Preview](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**. 
+In the [Azure Management Portal Preview](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
 
   ![][1]
 
@@ -59,7 +59,7 @@ Click the link under **Ports**, and click **No** for "Allow access only via SSL"
 	package com.mycompany.app;
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
-	 
+
 	/* Make sure your turn on non SSL port in Azure Redis using the Configuration section in the Azure portal */
 	public class App
 	{
@@ -72,12 +72,12 @@ Click the link under **Ports**, and click **No** for "Allow access only via SSL"
      	jedis.set("foo", "bar");
      	String value = jedis.get("foo");
 	  }
-	} 
-    
+	}
+
 
 ## Next steps
 
-- [Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. 
+- [Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache.
 - Read the official [Redis documentation](http://redis.io/documentation).
 
 
@@ -86,4 +86,3 @@ Click the link under **Ports**, and click **No** for "Allow access only via SSL"
 [2]: ./media/cache-java-get-started/cache02.png
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
-

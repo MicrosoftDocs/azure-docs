@@ -13,18 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 # How to add a user in RemoteApp
 
-Before your users can see and use the apps in RemoteApp, you have to grant them access. This is the easy part: On the **User Access** tab, enter the account information for the user to grant access to this service.
+Before your users can see and use the apps in RemoteApp, you have to grant them access to your collection. This is the easy part: On the **User Access** tab, enter the account information for the user and then click the check mark.
 
 What account information do you need? That depends on the type of collection you created (cloud or hybrid) and whether you are using Office 365 ProPlus in that collection.
 
 ## Supported user identities
 
-Azure RemoteApp has two deployment methods: cloud and hybrid. Each supports using different user identities for user access to applications.  
+The different collection types (cloud vs. hybrid) support using different user identities for user access to applications.  
 
 For a hybrid collection of RemoteApp, you need to set up an Active Directory domain infrastructure on premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory.  
 
@@ -48,7 +48,7 @@ You can use this table as a quick reference for which identity is supported in y
 Check out [more information](remoteapp-ad.md) about configuring Active Directory for RemoteApp.
 
 
-**Note:** The Azure Active Directory users must be from the tenant that's associated with your subscription. (You can view and modify your subscription on the **Settings** tab in the portal. See [Change the Azure Active Directory tenant used by RemoteApp](remoteapp-changetenant.md) for more information.)
+> [AZURE.NOTE] The Azure Active Directory users must be from the tenant that's associated with your subscription. (You can view and modify your subscription on the **Settings** tab in the portal. See [Change the Azure Active Directory tenant used by RemoteApp](remoteapp-changetenant.md) for more information.)
 
 ## Office 365 ProPlus user account information
 If you are using the Office 365 ProPlus template image in your collection *or* if you created a custom image that uses Office 365, you are only allowed to add Azure Active Directory users that have Office 365 subscriptions for the default domain of your subscription. See [Using Office 365 with Azure RemoteApp](remoteapp-o365.md) for more information.

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Log in from the Azure Command-Line Interface (Azure CLI)"
+	pageTitle="Log in from the Azure Command-Line Interface (Azure CLI) | Microsoft Azure"
 	description="Connect to Azure subscription from the Azure Command-Line Interface (Azure CLI)"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="dkshir"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)
 
-The Azure CLI is a set of open source, cross-platform commands for working with the Azure Platform. This document describes how to connect to your Azure subscription from the xplat-cli. For installation instructions, see [Install Azure CLI](xplat-cli-install.md).
+The Azure CLI is a set of open source, cross-platform commands for working with the Azure Platform. This document describes how to connect to your Azure subscription from the Azure CLI. For installation instructions, see [Install Azure CLI](xplat-cli-install.md).
 
 <a id="configure"></a>
 ## How to connect to your Azure subscription
@@ -91,7 +91,7 @@ Next, import the `.publishsettings` file by running the following command:
 
 	azure account import <path to your .publishsettings file>
 
-After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Command-Line Tools and presents a security risk as it can be used to gain access to your subscription.
+After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Azure CLI and presents a security risk as it can be used to gain access to your subscription.
 
 > [AZURE.NOTE] Whether you login with a work or school account or import publish settings, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
 >
@@ -101,7 +101,7 @@ After importing your publish settings, you should delete the `.publishsettings` 
 
 ### Multiple subscriptions
 
-If you have multiple Azure subscriptions, connecting to Azure will grant access to all subscriptions associated with your credentials. One subscription will be selected as the default, and used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, using the `azure account list` command. This command will return information similar to the following:
+If you have multiple Azure subscriptions, connecting to Azure will grant access to all subscriptions associated with your credentials. One subscription will be selected as the default, and used by the Azure CLI when performing operations. You can view the subscriptions, as well as which one is the default, using the `azure account list` command. This command will return information similar to the following:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -124,9 +124,9 @@ Once you are connected to your Azure subscription, you can start using the Azure
 <a id="additional-resources"></a>
 ## Additional resources
 
-* [Using the Azure CLI with the Service Management (or ASM mode) commands][xplatasm]
+* [Using the Azure CLI with the Service Management (or ASM mode) commands][cliasm]
 
-* [Using the Azure CLI with the Resource Management (or ARM mode) commands][xplatarm]
+* [Using the Azure CLI with the Resource Management (or ARM mode) commands][cliarm]
 
 * For more information on the Azure CLI, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
@@ -142,5 +142,5 @@ Once you are connected to your Azure subscription, you can start using the Azure
 [free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md

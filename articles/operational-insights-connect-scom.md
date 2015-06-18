@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="Connect to Operational Insights from System Center Operations Manager" 
-   description="Learn about how to connect to Operational Insights through Operations Manager." 
-   services="operational-insights" 
-   documentationCenter="" 
-   authors="lauracr" 
-   manager="jwhit" 
+<properties
+   pageTitle="Connect to Operational Insights from System Center Operations Manager"
+   description="Learn about how to connect to Operational Insights through Operations Manager."
+   services="operational-insights"
+   documentationCenter=""
+   authors="lauracr"
+   manager="jwhit"
    editor=""/>
 
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
+   ms.workload="na"
    ms.date="04/30/2015"
    ms.author="lauracr"/>
 
-# Connect to Operational Insights from System Center Operations Manager 
+# Connect to Operational Insights from System Center Operations Manager
 
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 You can connect Operational Insights to an existing System Center Operations Manager environment. This will allow you to use existing Operations Manager agents for data collection. For additional information about using Operations Manager with Operational Insights, see [Operations Manager considerations with Operational Insights](operational-insights-operations-manager.md).
 
-If you use Operations Manager to monitor any of the following workloads, then you'll need to set Operations Manager run-as accounts for them. See [Operations Manager run-as accounts for Operational Insights](operational-insights-run-as.md) for more information about setting the accounts.
+If you use Operations Manager to monitor any of the following workloads, then you'll need to set Operations Manager run-as accounts for them. See  [Operations Manager considerations with Operational Insights](operational-insights-operations-manager.md) for more information about setting the accounts.
 
 - SQL Assessment
 - Virtual Machine Manager
@@ -38,7 +38,7 @@ If you use Operations Manager to monitor any of the following workloads, then yo
 
 2. Expand the **Operational Insights** node and click **Operational Insights Connection**.
 
-3. Click the **Register to Operational Insights** link and follow the onscreen instructions. 
+3. Click the **Register to Operational Insights** link and follow the onscreen instructions.
 
 4. After completing the registration wizard, click **Add a Computer/Group**.
 ![Operations Manager add a computer/group](./media/operational-insights-connect-scom/om01.png)

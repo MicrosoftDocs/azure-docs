@@ -12,8 +12,8 @@
     ms.workload="operational-insights"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/07/2015"
+    ms.topic="get-started-article"
+    ms.date="06/09/2015"
     ms.author="banders"/>
 
 # Set up your workspace and manage settings
@@ -35,11 +35,11 @@ You might choose to have multiple workspaces to segregate data from different en
 Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple Operational Insights workspaces.
 By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace. The administrator can then invite additional Microsoft accounts or pick users from his Azure Active Directory.
 
-##<a id="linkworkspace"></a>Link an existing workspace to an Azure subscription
+## Link an existing workspace to an Azure subscription
 
 It is possible to create a workspace from [opinsights.azure.com](http://opinsights.azure.com).  However, certain limits exist for these workspaces, the most notable being a limit of 500MB/day of data uploads if you're using a free account.  To make changes to this workspace you will need to **link your existing workspace to an Azure subscription**.
 
->[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal should be **the same** as the account you use to access your Operational Insights workspace. If this is not the case, see [Add a user to an existing workspace](#addusertoexistingworkspace).
+>[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal should be **the same** as the account you use to access your Operational Insights workspace. If this is not the case, see [Add a user to an existing workspace](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
 1. Sign in to the Azure Management Portal.
 2. In the bottom left of the portal, click **+ New**.
@@ -47,7 +47,7 @@ It is possible to create a workspace from [opinsights.azure.com](http://opinsigh
 4. Click **Quick Create**.
 5. On the **Account** list, you should see a list of your existing workspaces that have *not yet* been linked to your Azure subscription. Select an account.
 
-  >[AZURE.NOTE] If you do not see the workspace you'd like to link here, this means your Azure subscription does not have access to your Operational Insights workspace.  You will need to grant access to this account from inside your Operational Insights workspace.  To do so, see [Add a user to an existing workspace](#addusertoexistingworkspace).
+  >[AZURE.NOTE] If you do not see the workspace you'd like to link here, this means your Azure subscription does not have access to your Operational Insights workspace.  You will need to grant access to this account from inside your Operational Insights workspace.  To do so, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
   ![link account](./media/operational-insights-setup-workspace/link-account.png)
 <p>
@@ -57,7 +57,7 @@ It is possible to create a workspace from [opinsights.azure.com](http://opinsigh
 
 There are three workspace plan types for Operational Insights: **Free**, **Standard** and **Premium**.  If you are on a *free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a '**pay-as-you-go plan**' in order to collect data beyond this limit. At any time your can convert your plan type.  For more information on Operational Insights pricing, see [Pricing Details](http://azure.microsoft.com/pricing/operational-insights/)
 
->[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace from [opinsights.azure.com](http://opinsights.azure.com), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#linkworkspace).
+>[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace from [opinsights.azure.com](http://opinsights.azure.com), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#link-an-existing-workspace-to-an-Azure-subscription).
 
 ### Change plan type
 
@@ -77,22 +77,15 @@ Finally, choose the plan you'd like to upgrade to and click **SAVE**.  You will 
 
 If you are the administrator of an Microsoft Azure Operational Insights workspace, you can change the name of the workspace.
 
-###To change the workspace name
+### To change the workspace name
 
-1. Click your workspace name.
-<p>
-![workspace name](./media/operational-insights-setup-workspace/settings01.png)
-<p>
-2. Click the configure icon.
-<p>
-![configure icon](./media/operational-insights-setup-workspace/settings02.png)
-<p>
+1. Click your workspace name.  
+  ![workspace name](./media/operational-insights-setup-workspace/settings01.png)
+2. Click the configure icon.  
+  ![configure icon](./media/operational-insights-setup-workspace/settings02.png)
 3. On the **Settings** page  in Operational Insights, in the **Manage User Accounts** section, click **Manage users**.
-<p>
-![manage users](./media/operational-insights-setup-workspace/settings03.png)
-<p>
+  ![manage users](./media/operational-insights-setup-workspace/settings03.png)
 4. In the Operational Insights portal, on the **Settings** page enter the new name in the **Workspace name** field.
-
 5. Click **Save**.
 
 ## Change user information
@@ -120,7 +113,7 @@ Are you not seeing emails that you think you should? Try checking your spam filt
 
 2. Click **Save**.
 
-##<a id="addusertoexistingworkspace"></a>Add a user to an existing workspace
+## Add a user to an existing workspace
 
 
 Use the following steps to add a user or group to an Operational Insights workspace. The user or group will be able to view and act on all alerts that are associated with this workspace.
@@ -130,36 +123,24 @@ Use the following steps to add a user or group to an Operational Insights worksp
 ### To add a user to an existing workspace
 1. Click your workspace name.
 2. Click the configure icon.
-3. On the **Settings** page  in Operational Insights, in the **Manage User Accounts** section, click **Manage users**.
-<p>
-![manage users](./media/operational-insights-setup-workspace/settings04.png)
-<p>
-4. In the **Manage Users** window, click **Add**.
-<p>
-![settings page](./media/operational-insights-setup-workspace/manage-users01.png)
-<p>
+3. On the **Settings** page  in Operational Insights, in the **Manage User Accounts** section, click **Manage users**.  
+  ![manage users](./media/operational-insights-setup-workspace/settings04.png)
+4. In the **Manage Users** window, click **Add**.  
+  ![settings page](./media/operational-insights-setup-workspace/manage-users01.png)
 5. If your Operational Insights account is associated with Azure Active Directory, specify **Organizational account**.
-
-    >[AZURE.NOTE] You will not see this step if your Operational Insights account uses only Microsoft accounts.
-<p>
-![add user account type](./media/operational-insights-setup-workspace/manage-users02.png)
-<p>
+  >[AZURE.NOTE] You will not see this step if your Operational Insights account uses only Microsoft accounts.
+  ![add user account type](./media/operational-insights-setup-workspace/manage-users02.png)
 6. Enter the new user information for the Microsoft account or the organizational account.If you are adding an organizational account, you can enter part of the user or group’s name or email alias, and then click **Check Names** to locate the specific user or group.
-
-    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single Operational Insights account to two—one for administrators and one for users. Using more groups might impact the performance of Operational Insights.
-
-7. Select the role for this new user: **Administrator** or **User**.
-<p>
-![add user workspace role](./media/operational-insights-setup-workspace/manage-users03.png)
-<p>
+  >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single Operational Insights account to two—one for administrators and one for users. Using more groups might impact the performance of Operational Insights.
+7. Select the role for this new user: **Administrator** or **User**.  
+  ![add user workspace role](./media/operational-insights-setup-workspace/manage-users03.png)
 8. Click **OK**.
 
-    If you are adding a Microsoft account, an invitation to join your account is sent to the email you provided. After the user follows the instructions in the invitation to join Operational Insights, the user can view the alerts and account information for this Operational Insights account, and you will be able to view the user information in the **Manage Users** window.
+  If you are adding a Microsoft account, an invitation to join your account is sent to the email you provided. After the user follows the instructions in the invitation to join Operational Insights, the user can view the alerts and account information for this Operational Insights account, and you will be able to view the user information in the **Manage Users** window.
+  If you are adding an organizational account, the user will be able to access Operational Insights immediately.  
+  ![invitation](./media/operational-insights-setup-workspace/manage-users04.png)
 
-    If you are adding an organizational account, the user will be able to access Operational Insights immediately.
-<p>
-![invitation](./media/operational-insights-setup-workspace/manage-users04.png)
-<p>
+
 ## Add an Azure Active Directory Organization to an existing workspace
 
 You can associate your Operational Insights workspace with an Azure Active Directory domain. This enables you to add users from Active Directory directly to your Operational Insights workspace without requiring a separate Microsoft account.
@@ -167,16 +148,12 @@ You can associate your Operational Insights workspace with an Azure Active Direc
 ### To add an Azure Active Directory Organization to an existing workspace
 
 1. On the Settings page in Operational Insights, click **Add Organization**.
-<p>
-![invitation](./media/operational-insights-setup-workspace/add-org.png)
-<p>
+  ![invitation](./media/operational-insights-setup-workspace/add-org.png)
 2. Review the information about organizational accounts, and then click **Next**.
-
 3. Enter the identity information for the administrator of your Azure Active Directory domain, and then click **Sign in**.
-
 4. Click **Grant access** to enable Operational Insights to use the identity information in your Active Directory domain.
-<p>
-![linked](./media/operational-insights-setup-workspace/ad-existing01.png)
+  ![linked](./media/operational-insights-setup-workspace/ad-existing01.png)
+
 
 ## Edit an existing user account
 

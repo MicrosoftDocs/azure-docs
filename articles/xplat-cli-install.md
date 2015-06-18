@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
-	ms.author="dkshir"/>
+	ms.date="06/02/2015"
+	ms.author="danlep"/>
 
 # Install the Azure CLI
 
@@ -122,15 +122,15 @@ Now you are ready! Next you can [connect to your Azure subscription from the Azu
 
 In a Docker host, run:
 ```
-	docker run -it kmouss/azure-cli
+	docker run -it microsoft/azure-cli
 ```
 
 <a id="additional-resources"></a>
 ## Additional resources
 
-* [Using the Azure CLI with the Service Management (or ASM mode) commands][xplatasm]
+* [Using the Azure CLI with the Service Management (or ASM mode) commands][cliasm]
 
-* [Using the Azure CLI with the Resource Management (or ARM mode) commands][xplatarm]
+* [Using the Azure CLI with the Resource Management (or ARM mode) commands][cliarm]
 
 * For more information on Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
@@ -144,5 +144,5 @@ In a Docker host, run:
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md

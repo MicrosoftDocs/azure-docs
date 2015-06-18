@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to create a hybrid collection for RemoteApp" 
+	pageTitle="How to create a hybrid collection for Azure RemoteApp" 
 	description="Learn how to create a deployment of RemoteApp that connects to your internal network." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# How to create a hybrid collection for RemoteApp
+# How to create a hybrid collection for Azure RemoteApp
 
 There are two kinds of RemoteApp collections: 
 
 - Cloud: resides completely in Azure and is created using the **Quick create** option in the Azure management portal.  
 - Hybrid: includes a virtual network for on-premises access and is created using the **Create with VNET** option in the management portal.
 
-This tutorial walks you through the process of creating a hybrid collection. There are seven steps: 
+This tutorial walks you through the process of creating a hybrid collection. There are eight steps: 
 
 1.	Decide what [image](remoteapp-imageoptions.md) to use for your collection. You can create a custom image or use one of the Microsoft images included with your subscription.
 2. Set up your virtual network.

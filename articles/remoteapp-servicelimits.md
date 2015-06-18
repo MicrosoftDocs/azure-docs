@@ -25,7 +25,7 @@ This topic outlines the service limits for Azure RemoteApp.
 All collections:
 
 - Collections per user: 1
-- Published apps per collection: 5000 
+- Published apps per collection: 100 
 
 Trial collections:
 

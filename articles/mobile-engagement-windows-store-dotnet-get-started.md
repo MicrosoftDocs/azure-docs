@@ -1,31 +1,31 @@
-<properties 
-	pageTitle="Get Started with Azure Mobile Engagement for Windows Universal Apps" 
+<properties
+	pageTitle="Get Started with Azure Mobile Engagement for Windows Universal Apps"
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Windows Universal Apps."
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
-	
+
 # Get Started with Azure Mobile Engagement for Windows Universal Apps
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
 
-This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Universal application. 
+This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Universal application.
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. You will create a blank Windows Universal App that collects basic app usage data and receives push notifications using Windows Notification Service (WNS). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
 
 This tutorial requires the following:
@@ -44,22 +44,22 @@ This tutorial requires the following:
    	![][7]
 
 3. In the popup that appears, enter the following information:
- 
+
    	![][8]
 
 	- **Application Name**: type the name of your application. Feel free to use any character.
-	- **Platform**: Select the target platform (**Windows Universal**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform). 
+	- **Platform**: Select the target platform (**Windows Universal**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform).
 	- **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto generated name should provide you a strong basis. You should also append the platform name to avoid any name clash as this name must be unique.
 	- **Location**: Select the data center where this app (and more importantly its Collection) will be hosted.
 	- **Collection**: If you have already created an application, select a previously created Collection, otherwise select New Collection.
 	- **Collection Name**: This represents your group of applications. It will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
 
-	> [AZURE.TIP] If your Universal App is going to target both Windows and Windows Phone platform then you should still create two Mobile Engagement Applications one for each supported platforms. This is to ensure that you are able to create proper segmentation of the audience and are able to send appropriately targeted notifications for each platform. 
+	> [AZURE.TIP] If your Universal App is going to target both Windows and Windows Phone platform then you should still create two Mobile Engagement Applications one for each supported platforms. This is to ensure that you are able to create proper segmentation of the audience and are able to send appropriately targeted notifications for each platform.
 
 4. Select the app you just created in the **Applications** tab.
 
 5. Click on **Connection Info** in order to display the connection settings to put into your SDK integration in your mobile app.
- 
+
    	![][10]
 
 6. Copy the **Connection String** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your Universal App.
@@ -82,14 +82,14 @@ You may skip this step if you already have an app and are familiar with Windows 
 
    	![][13]
 
-You have now created a new Windows Universal App project in which we will integrate the Azure Mobile Engagement SDK. 
+You have now created a new Windows Universal App project in which we will integrate the Azure Mobile Engagement SDK.
 
-###Connect your app to Mobile Engagement backend 
+###Connect your app to Mobile Engagement backend
 
-1. Install [Mobile Engagement Windows Universal SDK] nuget package in your project. If you are targeting both Windows and Windows Phone platforms then you will need to do this for both the projects. The same Nuget package will place the correct platform specific binaries in each project. 
+1. Install [Mobile Engagement Windows Universal SDK] nuget package in your project. If you are targeting both Windows and Windows Phone platforms then you will need to do this for both the projects. The same Nuget package will place the correct platform specific binaries in each project.
 
-2. Open `Package.appxmanifest` and add the following if it isn't automatically added: 
-		
+2. Open `Package.appxmanifest` and add the following if it isn't automatically added:
+
 		Internet (Client)
 
 	![][20]
@@ -98,7 +98,7 @@ You have now created a new Windows Universal App project in which we will integr
 
 	![][22]
 
-	>[AZURE.TIP] If your App is going to target both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platforms. This is to ensure that you are able to create proper segmentation of the audience and are able to send appropriately targeted notifications for each platform. 
+	>[AZURE.TIP] If your App is going to target both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platforms. This is to ensure that you are able to create proper segmentation of the audience and are able to send appropriately targeted notifications for each platform.
 
 4. In the `App.xaml.cs` file:
 
@@ -107,11 +107,11 @@ You have now created a new Windows Universal App project in which we will integr
 			using Microsoft.Azure.Engagement;
 
 	b. Initialize the SDK in the `OnLaunched` method:
-			
+
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
 			  EngagementAgent.Instance.Init(e);
-			
+
 			  //... rest of the code
 			}
 
@@ -120,7 +120,7 @@ You have now created a new Windows Universal App project in which we will integr
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
 			  EngagementAgent.Instance.Init(e);
-			
+
 			  //... rest of the code
 			}
 
@@ -141,7 +141,7 @@ In order to start sending data and ensuring that the users are active, you must 
 	a. Add to your namespaces declarations:
 
 			xmlns:engagement="using:Microsoft.Azure.Engagement"
-	
+
 	b. Replace the `Page` in the xml tag name with `engagement:EngagementPage`
 
 ###Ensure your app is connected with realtime monitoring
@@ -161,7 +161,7 @@ This section shows you how to make sure your app connects to the Mobile Engageme
 
 4. Back in Visual Studio, launch your app either in the emulator or in a connected device.
 
-5. If it worked, you should now see one session in the monitor in real time! 
+5. If it worked, you should now see one session in the monitor in real time!
 ![][33]
 
 **Congratulations!** You succeeded in completing the first step of this tutorial with an app that connects to the Mobile Engagement back-end, which is already sending data.
@@ -199,7 +199,7 @@ You're all set for sending a Toast, now we will verify that you have correctly d
 
 ###Grant Access to Mobile Engagement to send Notifications
 
-1. You'll have to associate your app with a Windows Store App to obtain your `Package security identifier (SID)` and your `Secret Key` (Client Secret). You can create an app from the [Windows Store Dev Center] and then make sure to **Associate App with Store** from Visual Studio. 
+1. You'll have to associate your app with a Windows Store App to obtain your `Package security identifier (SID)` and your `Secret Key` (Client Secret). You can create an app from the [Windows Store Dev Center] and then make sure to **Associate App with Store** from Visual Studio.
 
 2. Navigate to the **Settings** of your Mobile Engagement Portal, and click `Native Push` section on the left.
 
@@ -235,7 +235,7 @@ We will now create a simple Push Notification campaign that will send a push not
 6. Last step, click on **Activate** activate your campaign and send push notifications.
 ![][41]
 
-You should now see a toast notification from your campaign on your device - the app should be closed to see this toast notification. If the app was running, then ensure you have it closed for couple of minutes before activating the campaign to be able to receive toast notification. If you want to integrate in-app notification so that the notification shows up in the app when it is opened, see [Windows Universal Apps - Overlay integration]. 
+You should now see a toast notification from your campaign on your device - the app should be closed to see this toast notification. If the app was running, then ensure you have it closed for couple of minutes before activating the campaign to be able to receive toast notification. If you want to integrate in-app notification so that the notification shows up in the app when it is opened, see [Windows Universal Apps - Overlay integration].
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/

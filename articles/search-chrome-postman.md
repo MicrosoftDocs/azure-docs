@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to use Chrome Postman with Azure Search" 
-	description="How to use Chrome Postman with Azure Search" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="How to use Chrome Postman with Azure Search"
+	description="How to use Chrome Postman with Azure Search"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""
     tags="azure-portal"/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="04/27/2015"
 	ms.author="heidist"/>
 
 # How to use Chrome Postman with Azure Search #
@@ -22,7 +22,7 @@
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") is a tool provided as part of Google Chrome that allows developers to work efficiently with REST-based API services such as Azure Search. You can use Postman to quickly create, and query your search indexes by sending API calls through Postman, without having to write any code. This approach is an efficient way to learn the API and try out new features.
 
 ![][1]
- 
+
 ## Requirements ##
 
 You must have an Azure Search service. As with any custom application that uses Azure Search, you will need the URL to your service, plus an admin `api-key` so that you can create the index. For instructions on how to get the values for your Search service, see [Create a service in the portal](search-create-service-portal.md).
@@ -31,9 +31,9 @@ You must have an Azure Search service. As with any custom application that uses 
 To download Postman, visit the [Google Chrome Store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). The link from this page allows you to download and install the REST client for Postman. Once installed, you can launch Postman from the Chrome App Launcher.
 
 ![][2]
- 
+
 ## Configuring Postman to Query Azure Search ##
-To configure Postman, follow the steps: 
+To configure Postman, follow the steps:
 
 1. Enter your Azure Search service URL where it says "Enter request URL here".  
 2. Append to the URL: `?api-version=2015-02-28`. You could also specify a different API version. See [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
@@ -55,21 +55,21 @@ Next, we will expand on what we completed in the last step by issuing a REST cal
 3. In the RAW body content, enter the following JSON:
 
 	    {
-	    "name": "trails", 
+	    "name": "trails",
 	    "fields": [
-	    {"name": "id", "type": "Edm.String", "key": true, "searchable": false}, 
-	    {"name": "name", "type": "Edm.String"}, 
-	    {"name": "county", "type": "Edm.String"}, 
-	    {"name": "elevation", "type": "Edm.Int32"}, 
+	    {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
+	    {"name": "name", "type": "Edm.String"},
+	    {"name": "county", "type": "Edm.String"},
+	    {"name": "elevation", "type": "Edm.Int32"},
 	    {"name": "location", "type": "Edm.GeographyPoint"} ]
 	    }
 
 4. Click **Send**.
 
 ![][4]
- 
+
 ## Posting Documents to an Azure Search index with Postman ##
-Now that the index is created, we can load documents into it. To do this, we'll post a group of documents in a batch, using data for five trails from the United States Geological Survey (USGS )dataset: 
+Now that the index is created, we can load documents into it. To do this, we'll post a group of documents in a batch, using data for five trails from the United States Geological Survey (USGS )dataset:
 
 1. Change the URL to: `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28` using your search service name. Notice that the URL includes a path to the index you just created.
 2. Change the HTTP type to `POST`.
@@ -84,18 +84,18 @@ Now that the index is created, we can load documents into it. To do this, we'll 
 		    {"@search.action": "upload", "id": "1517508", "name": "Cavanaugh-Oso Truck Trail", "county": "Skagit", "elevation":339, "location": { "type": "Point", "coordinates": [-121.9470829,48.2981608] }}
 	      ]
 	    }
-    
+
 4. Click **Send**.
 
 ![][5]
 
 ## Querying the Index with Postman ##
-The final step is to query the index and issue a simple full-text search request for the word *trail*. 
+The final step is to query the index and issue a simple full-text search request for the word *trail*.
 
 1. Enter the following in the URL: `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail` using your search service name. Notice that the URL includes the `search` query parameter and a search term of *trail*.
 2. Change the HTTP request type to `GET`.
 3. Click **Send**.
- 
+
 In the Response, you should see the JSON search results returned from Azure Search.
 
 ![][6]

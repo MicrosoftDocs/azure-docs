@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Learn about features in BizTalk Services editions | Azure" 
-	description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="Learn about features in BizTalk Services editions | Azure"
+	description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium. MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/03/2015" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="03/03/2015"
 	ms.author="mandia"/>
 
 
@@ -26,7 +26,7 @@ Azure BizTalk Services offers several editions to choose. Use this topic to dete
 
 **FREE (Preview)**
 
-Can create and manage Hybrid Connections. A Hybrid Connection is an easy way to connect an Azure Website to an on-premises system, like SQL Server. 
+Can create and manage Hybrid Connections. A Hybrid Connection is an easy way to connect an Azure Website to an on-premises system, like SQL Server.
 
 **DEVELOPER**
 
@@ -36,11 +36,11 @@ Includes Hybrid Connections, EAI & EDI message processing with an easy-to-use tr
 
 Includes most of the Developer capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also offers high availability, and the option to scale with a Service Level Agreement (SLA).
 
-**STANDARD** 
+**STANDARD**
 
 Includes all the Basic capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also offers high availability, and the option to scale with a Service Level Agreement (SLA).
 
-**PREMIUM** 
+**PREMIUM**
 
 Includes all the Standard capabilities with increases in Hybrid Connections, EAI bridges, EDI Agreements, and BizTalk Adapter Pack connections. Also includes archiving, high availability, and the option to scale with a Service Level Agreement (SLA).
 
@@ -217,26 +217,26 @@ BizTalk Services provides a true Platform-as-a-Service (PaaS) architecture for b
 - Microsoft ensures availability
 - You control scale on-demand by simply requesting more or less capacity through the Azure management portal
 
-BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service (IaaS) architecture. You  create virtual machines and configure them exactly like your on-premises environment, making it easier to run existing applications in the cloud with no code changes. With IaaS, you are still responsible for configuring the virtual machines,  managing the virtual machines (for example, installing software and OS patches), and  architecting the application for high availability. 
+BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service (IaaS) architecture. You  create virtual machines and configure them exactly like your on-premises environment, making it easier to run existing applications in the cloud with no code changes. With IaaS, you are still responsible for configuring the virtual machines,  managing the virtual machines (for example, installing software and OS patches), and  architecting the application for high availability.
 
 If you are looking at building new integration solutions that minimize your infrastructure management effort, use BizTalk Services. If you are looking to quickly migrate your existing BizTalk solutions or looking for an on-demand environment to develop and test BizTalk Server applications, use BizTalk Server on an Azure Virtual Machine.
 
 #### What is the difference between BizTalk Adapter Service and Hybrid Connections?
-The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Adapter Service uses the BizTalk Adapter Pack to connect to an on-premises Line of Business (LOB) system. A Hybrid Connection provides an easy and convenient way to connect Azure applications, like Websites and Mobile Services, to an on-premises resource. 
+The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Adapter Service uses the BizTalk Adapter Pack to connect to an on-premises Line of Business (LOB) system. A Hybrid Connection provides an easy and convenient way to connect Azure applications, like Websites and Mobile Services, to an on-premises resource.
 
 #### What does "Hybrid Connection Data Transfer (GB) per Unit" mean? Is this per minute/hour/day/week/month? What happens when the limit is reached?
 
 The Hybrid Connection cost per unit depends on the BizTalk Services edition. Simply put, costs  depend on how much data you transfer. For example, transferring 10GB data daily costs less than transferring 100GB daily. Use the [Pricing Calculator](http://azure.microsoft.com/pricing/calculator/?scenario=full) for BizTalk Services to determine specific costs. Typically, the limits are enforced daily. If you exceed the limit, any overage is charged at the rate of $1 per GB.
 
-#### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one? 
+#### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one?
 
 Each agreement comprises of two different bridges, a send side communication bridge and a receive side communication bridge.
 
-####  What happens when I hit the quota limit on number of bridges or agreements? 
+####  What happens when I hit the quota limit on number of bridges or agreements?
 
 You are not able to deploy any new bridges or create any new agreements. To deploy more, you  need to scale up to more units of the BizTalk service, or upgrade to a higher Edition.
 
-#### How do I migrate from one tier of BizTalk Services to another? 
+#### How do I migrate from one tier of BizTalk Services to another?
 
 Use the backup and restore flow for migrating from one tier to another. Only some migration paths are supported. Refer to [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873) for more details on the migration paths supported.
 

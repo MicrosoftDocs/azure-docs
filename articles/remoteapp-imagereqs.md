@@ -13,13 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/19/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
 
 # Requirements for RemoteApp images
-RemoteApp uses a Windows Server 2012 R2 image to host all the programs that you want to share with your users. To create a custom RemoteApp image, you can start with an existing image or [create a new one](remoteapp-create-custom-image.md). The requirements for the image that can be uploaded for use with Azure RemoteApp are:
+RemoteApp uses a Windows Server 2012 R2 image to host all the programs that you want to share with your users. To create a custom RemoteApp image, you can start with an existing image or [create a new one](remoteapp-create-custom-image.md). 
+
+> [AZURE.TIP] Did you know that your Azure RemoteApp subscription gives you access to a prebuild Windows Server 2012 R2 image in the Azure VM gallery that you can use to create your own template image? [Check it out](remoteapp-image-on-azurevm.md).  
+
+
+The requirements for the image that can be uploaded for use with Azure RemoteApp are:
 
 
 - Custom applications don’t store data locally on the image. These images are stateless and should only contain applications.

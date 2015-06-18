@@ -115,8 +115,6 @@ http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 If you no longer wish to cache an object in the Azure Content
 Delivery Network (CDN), you can take one of the following steps:
 
--   For an Azure blob, you can delete the blob from the public
-    container.
 -   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/library/dd179354.aspx) for more information.
 -   You can disable or delete the CDN endpoint using the Management
     Portal.
@@ -141,7 +139,7 @@ The ability to immediately purge content is currently not supported on Azure Man
 [Azure CDN Node Locations]: cdn-pop-locations.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [billing plan]: /pricing/calculator/?scenario=full
-[How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: storage-custom-domain-name.md
+[How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: storage/storage-custom-domain-name.md
 [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: cdn-overview.md
 [How to: Manage Storage Accounts for an Azure Subscription]: https://msdn.microsoft.com/en-us/library/azure/hh531793.aspx

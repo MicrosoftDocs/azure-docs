@@ -122,7 +122,7 @@ If you have not previously used Azure PowerShell with Resource Manager, see [Usi
 
 ## Deploy with Azure CLI for Mac, Linux and Windows
 
-If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](virtual-machines/xplat-cli-azure-resource-manager.md).
 
 1. Login to your Azure account. After providing your credentials, the command returns the result of your login.
 
@@ -248,7 +248,7 @@ If you use a parameter file to pass the parameter values to your template during
 
 ## Next steps
 - [Azure Resource Manager Overview](./resource-group-overview.md)
-- [Deploy resources using .NET libraries and a template](./arm-template-deployment.md)
+- [Deploy resources using .NET libraries and a template](virtual-machines/arm-template-deployment.md)
 - [Authoring templates](./resource-group-authoring-templates.md)
 - [Template functions](./resource-group-template-functions.md)
 - [Advanced template operations](./resource-group-advanced-template.md)  

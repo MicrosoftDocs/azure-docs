@@ -78,7 +78,7 @@ The remainder of this section covers a few points about each project. Where appr
 
 To keep things simple, the data is embedded within the solution, in a text file generated from data on the [United States Geological Services (USGS) web site](http://geonames.usgs.gov/domestic/download_data.htm). 
 
-Alternatives to embedding data include [indexers for DocumentDB](documentdb-search-indexer.md) or [indexers for Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
+Alternatives to embedding data include [indexers for DocumentDB](documentdb/documentdb-search-indexer.md) or [indexers for Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
 
 You can also load data from an on premises SQL Server database. [This tutorial](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) shows you how.
 

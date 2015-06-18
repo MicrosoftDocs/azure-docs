@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="vturecek"
    manager="timlt"
-   editor=""/>
+   editor="jessebenson"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/17/2015"
-   ms.author="vturecek@microsoft.com"/>
+   ms.date="06/09/2015"
+   ms.author="vturecek"/>
 
 # Getting Started with Microsoft Azure Service Fabric Reliable Services
 
@@ -42,7 +42,7 @@ You will see 2 projects in the created solution:
 
 ## Implement the service
 
-Open the **Service.cs** file in the service project. In Service Fabric, a service can run any business logic whatsoever. The service API provides two entry points for your code:
+Open the **HelloWorld.cs** file in the service project. In Service Fabric, a service can run any business logic whatsoever. The service API provides two entry points for your code:
 
  - An open-ended entry point method called *RunAsync* where you can begin executing any workload you want, such as long-running compute workloads.
 
@@ -69,7 +69,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 In this tutorial, we will focus on the `RunAsync()` entry point method where you can immediately start running your code.
 The project template includes an example implementation of `RunAsync()` that increments a rolling count.
 
- > [AZURE.NOTE] For details on working with a communication stack, check out [Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-reliable-services-communication-webapi.md)
+> [AZURE.NOTE] For details on working with a communication stack, check out [Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-reliable-services-communication-webapi.md)
 
 
 ### RunAsync
@@ -108,7 +108,7 @@ Select **Service Fabric Stateful Service** and name it "HelloWorldStateful". Cli
 
 ![Use the New Project dialog to create a new Service Fabric Stateful Service](media/service-fabric-reliable-services-helloworld-walkthrough/hello-stateful-NewProject.png)
 
-Your application should now have two services: the stateless service *HelloWorld* and the stateful service *HelloWorldStateful*. Open **Service.cs** in *HelloWorldStateful*:
+Your application should now have two services: the stateless service *HelloWorld* and the stateful service *HelloWorldStateful*. Open **HelloWorldStateful.cs** in *HelloWorldStateful*:
 
 ```C#
 
@@ -183,7 +183,7 @@ They also support *transactional* operations so you can keep state consistent be
 
 You can now build and deploy your services. Press **F5**, and your application will be built and deployed to your local cluster. Once the services are running, you can see the generated ETW events in a **Diagnostic Events** window. Note that there are events displayed from both the stateless service and the stateful service in the application. You can pause the stream by clicking the *Pause* button, and then examine message details by expanding a message.
 
-  > [AZURE.NOTE] Before running the application, make sure you have a local development cluster running. Check out the [Getting Started Guide](service-fabric-get-started.md) to get your local environment set up.
+> [AZURE.NOTE] Before running the application, make sure you have a local development cluster running. Check out the [Getting Started Guide](service-fabric-get-started.md) to get your local environment set up.
 
 ![View diagnostic events in Visual Studio](media/service-fabric-reliable-services-helloworld-walkthrough/hello-stateful-Output.png)
 
@@ -197,3 +197,5 @@ You can now build and deploy your services. Press **F5**, and your application w
 [Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
 [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
+
+[Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)

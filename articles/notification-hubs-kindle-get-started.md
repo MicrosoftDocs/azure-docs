@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Azure Notification Hubs" 
-	description="Learn how to use Azure Notification Hubs to send push notifications." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Azure Notification Hubs"
+	description="Learn how to use Azure Notification Hubs to send push notifications."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-kindle" 
-	ms.devlang="Java" 
-	ms.topic="hero-article" 
-	ms.date="03/16/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-kindle"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs
@@ -22,7 +22,7 @@
 
 ##Overview
 
-This topic shows you how to use Azure Notification Hubs to send push notifications to a Kindle application. 
+This topic shows you how to use Azure Notification Hubs to send push notifications to a Kindle application.
 In this tutorial, you create a blank Kindle app that receives push notifications using Amazon Device Messaging (ADM).
 
 ##Prerequisites
@@ -91,7 +91,7 @@ Edit your app manifest to support ADM:
 
 		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-2. Add permissions as the first element under the manifest element. Substitute **[YOUR PACKAGE NAME]** with the package used to create your app. 
+2. Add permissions as the first element under the manifest element. Substitute **[YOUR PACKAGE NAME]** with the package used to create your app.
 
 		<permission
 	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -100,11 +100,11 @@ Edit your app manifest to support ADM:
 		<uses-permission android:name="android.permission.INTERNET"/>
 
 		<uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
- 
+
 		<!-- This permission allows your app access to receive push notifications
 		from ADM. -->
 		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
- 
+
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -116,18 +116,18 @@ Edit your app manifest to support ADM:
 		<service
 		    android:name="[YOUR SERVICE NAME]"
 		    android:exported="false" />
-		 
+
 		<receiver
 		    android:name="[YOUR SERVICE NAME]$Receiver"
-		 
+
 		    <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
 		    android:permission="com.amazon.device.messaging.permission.SEND" >
-		 
+
 		    <!-- To interact with ADM, your app must listen for the following intents. -->
 		    <intent-filter>
 		  <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
 		  <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-		 
+
 		  <!-- Replace the name in the category tag with your app's package name. -->
 		  <category android:name="[YOUR PACKAGE NAME]" />
 		    </intent-filter>
@@ -166,7 +166,7 @@ Edit your app manifest to support ADM:
 		public MyADMMessageHandler() {
 				super("MyADMMessageHandler");
 			}
-	
+
 			public static class Receiver extends ADMMessageReceiver
     		{
         		public Receiver()
@@ -174,10 +174,10 @@ Edit your app manifest to support ADM:
             		super(MyADMMessageHandler.class);
         		}
     		}
-	
+
 			private void sendNotification(String msg) {
 				Context ctx = getApplicationContext();
-		
+
 	   		 mNotificationManager = (NotificationManager)
 	    			ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -197,10 +197,10 @@ Edit your app manifest to support ADM:
 		}
 
 4. Add the following code to the `OnMessage()` method:
-	
+
 		String nhMessage = intent.getExtras().getString("msg");
 		sendNotification(nhMessage);
- 
+
 5. Add the following code to the `OnRegistered` method:
 
 			try {
@@ -219,7 +219,7 @@ Edit your app manifest to support ADM:
 
 7. Then, in the `MainActivity` method, add the following import statement:
 
-		import com.amazon.device.messaging.ADM;				
+		import com.amazon.device.messaging.ADM;
 
 8. Now, add the following code at the end of the `OnCreate` method:
 
@@ -252,7 +252,7 @@ Edit your app manifest to support ADM:
 2. In the emulator, swipe from the top and click **Settings**, then click **My account**, and register with a valid Amazon account.
 3. In Eclipse, run the app.
 
-> [AZURE.NOTE] If a problem occurs, check the time of the emulator (or device). The time value must be accurate. To change the time of the Kindle emulator, you can run the following command from your Android SDK platform-tools directory: 
+> [AZURE.NOTE] If a problem occurs, check the time of the emulator (or device). The time value must be accurate. To change the time of the Kindle emulator, you can run the following command from your Android SDK platform-tools directory:
 
 		adb shell  date -s "yyyymmdd.hhmmss"
 

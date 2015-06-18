@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Handling database write conflicts
@@ -31,7 +31,7 @@ In this tutorial you will add functionality to the quickstart app to handle cont
 
 This tutorial requires the following
 
-+ Microsoft Visual Studio 2012 Express for Windows or later.
++ Microsoft Visual Studio 2013 or later.
 + This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 + [Azure Account]
 + Azure Mobile Services NuGet Package 1.1.0 or later. To get the latest version, follow these steps below:
@@ -66,12 +66,7 @@ In this section you will update the TodoList user interface to allow updating th
 		</ListView>
 
 
-3. In MainPage.xaml.cs, add the following `using` directive to the top of the page.
-
-		using System.Threading.Tasks;
-
-
-4. In the Visual Studio Solution Explorer, open MainPage.xaml.cs. Add the event handler to the MainPage for the TextBox `LostFocus` event as shown below.
+4. In the Visual Studio Solution Explorer, open MainPage.cs in the shared project. Add the event handler to the MainPage for the TextBox `LostFocus` event as shown below.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -86,7 +81,7 @@ In this section you will update the TodoList user interface to allow updating th
             }
         }
 
-4. In MainPage.xaml.cs, add the definition for the MainPage `UpdateToDoItem()` method referenced in the event handler as shown below.
+4. In MainPage.cs for the shared project, add the definition for the MainPage `UpdateToDoItem()` method referenced in the event handler as shown below.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -112,7 +107,7 @@ The application now writes the text changes to each item back to the database wh
 
 Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` system property. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact. For more information on the System Properties for Mobile Services, see [System Properties].
 
-1. In MainPage.xaml.cs update the **TodoItem** class definition with the following code to include the **__version** system property enabling support for write conflict detection.
+1. Open TodoItem.cs in the shared project and update the `TodoItem` class definition with the following code to include the `__version` system property enabling support for write conflict detection.
 
 		public class TodoItem
 		{
@@ -133,7 +128,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
 
 
-2. By adding the `Version` property to the `TodoItem` class, the application will be notified with a `MobileServicePreconditionFailedException` exception during an update if the record has changed since the last query. This exception includes the latest version of the item from the server. In MainPage.xaml.cs, add the following code to handle the exception in the `UpdateToDoItem()` method.
+2. By adding the `Version` property to the `TodoItem` class, the application will be notified with a `MobileServicePreconditionFailedException` exception during an update if the record has changed since the last query. This exception includes the latest version of the item from the server. In MainPage.cs for the shared project, add the following code to handle the exception in the `UpdateToDoItem()` method.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -167,7 +162,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. In MainPage.xaml.cs, add the definition for the `ResolveConflict()` method referenced in `UpdateToDoItem()`. Notice that in order to resolve the conflict, you set the local item's version to the updated version from the server before committing the user's decision. Otherwise, you will continually encounter the conflict.
+3. In MainPage.cs, add the definition for the `ResolveConflict()` method referenced in `UpdateToDoItem()`. Notice that in order to resolve the conflict, you set the local item's version to the updated version from the server before committing the user's decision. Otherwise, you will continually encounter the conflict.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)

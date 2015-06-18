@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Azure Cloud Services and ASP.NET" 
-	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure storage queues and blobs." 
-	services="cloud-services, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+<properties
+	pageTitle="Get Started with Azure Cloud Services and ASP.NET"
+	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure storage queues and blobs."
+	services="cloud-services, storage"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="5/19/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="06/08/2015"
 	ms.author="tdykstra"/>
 
 # Get Started with Azure Cloud Services and ASP.NET
@@ -24,7 +24,7 @@
 
 ## Overview
 
-This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](fundamentals-application-models.md#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery. 
+This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](fundamentals-application-models.md#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery.
 
 The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and finally how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
 
@@ -34,11 +34,11 @@ The application is an advertising bulletin board. Users create an ad by entering
 
 ![Ad list](./media/cloud-services-dotnet-get-started/list.png)
 
-The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process. 
+The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
 ## Alternative architecture: Websites and WebJobs
 
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](app-service-web/websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](app-service-web/choose-web-site-cloud-service-vm.md).
 
 ## What you'll learn
 
@@ -51,7 +51,7 @@ This tutorial shows how to run both front-end and back-end in an Azure cloud ser
 
 ## Prerequisites
 
-The tutorial assumes that you understand [basic concepts about Azure cloud services](fundamentals-application-models.md#CloudServices) such as *web role* and *worker role* terminology.  It also assumes that you know how to work with [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projects in Visual Studio. The sample application uses MVC, but most of the tutorial also applies to Web Forms. 
+The tutorial assumes that you understand [basic concepts about Azure cloud services](fundamentals-application-models.md#CloudServices) such as *web role* and *worker role* terminology.  It also assumes that you know how to work with [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projects in Visual Studio. The sample application uses MVC, but most of the tutorial also applies to Web Forms.
 
 You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -84,13 +84,13 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 3. Press CTRL+SHIFT+B to build the solution.
 
-	By default, Visual Studio automatically restores the NuGet package content, which was not included in the *.zip* file. If the packages don't restore, install them manually by going to the **Manage NuGet Packages for Solution** dialog and clicking the **Restore** button at the top right. 
+	By default, Visual Studio automatically restores the NuGet package content, which was not included in the *.zip* file. If the packages don't restore, install them manually by going to the **Manage NuGet Packages for Solution** dialog and clicking the **Restore** button at the top right.
 
 3. In **Solution Explorer**, make sure that **ContosoAdsCloudService** is selected as the startup project.
 
 1. Press CTRL+F5 to run the application.
 
-	When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) database to simulate Azure cloud storage. 
+	When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) database to simulate Azure cloud storage.
 
 	The first time you run a cloud service project, the it takes a minute or so for the emulators to start up. When emulator startup is finished, the default browser opens to the application home page.
 
@@ -102,7 +102,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 	![Create page](./media/cloud-services-dotnet-get-started/create.png)
 
-	The app goes to the Index page, but it doesn't show a thumbnail for the new ad because that processing hasn't happened yet.   
+	The app goes to the Index page, but it doesn't show a thumbnail for the new ad because that processing hasn't happened yet.
 
 3. Wait a moment and then refresh the Index page to see the thumbnail.
 
@@ -114,13 +114,13 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 You've been running the application entirely on your local computer, with no connection to the cloud. The storage emulator stores the queue and blob data in a SQL Server Express LocalDB database, and the application stores the ad data in another LocalDB database. Entity Framework Code First automatically created the ad database the first time the web app tried to access it.
 
-In the following section you'll configure the solution to use Azure cloud resources for queues, blobs, and the application database when it runs in the cloud. If you wanted to continue to run locally but use cloud storage and database resources, you could do that; it's just a matter of setting connection strings, which you'll see how to do. 
+In the following section you'll configure the solution to use Azure cloud resources for queues, blobs, and the application database when it runs in the cloud. If you wanted to continue to run locally but use cloud storage and database resources, you could do that; it's just a matter of setting connection strings, which you'll see how to do.
 
 ## Deploy the application to Azure
 
 You'll do the following steps to run the application in the cloud:
 
-* Create an Azure cloud service 
+* Create an Azure cloud service
 * Create an Azure SQL database
 * Create an Azure storage account
 * Configure the solution to use your Azure SQL database when it runs in Azure
@@ -135,7 +135,7 @@ An Azure cloud service is the environment the application will run in.
 
 2. Click **New** - **Compute** - **Cloud Service** - **Quick Create**.
 
-4. In the URL input box, enter a URL prefix. 
+4. In the URL input box, enter a URL prefix.
 
 	This URL has to be unique.  You'll get an error message if the prefix you choose is already in use by someone else.
 
@@ -143,15 +143,15 @@ An Azure cloud service is the environment the application will run in.
 
 	This field specifies which datacenter your cloud service will be hosted in. For a production application, you'd choose the region closest to your customers. For this tutorial, choose the region closest to you.
 
-6. Click **Create Cloud Service**. 
+6. Click **Create Cloud Service**.
 
 	In the following image, a cloud service is created with the URL contosoads.cloudapp.net.
 
-	![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)	
+	![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### Create an Azure SQL database
 
-When the app runs in the cloud, it will use a cloud-based database. 
+When the app runs in the cloud, it will use a cloud-based database.
 
 1. In the [Azure Management Portal](http://manage.windowsazure.com), click **New** - **Data Services** - **SQL Database** - **Quick Create**.
 
@@ -161,17 +161,17 @@ When the app runs in the cloud, it will use a cloud-based database.
 
 	Alternatively, if your subscription already has a server, you can select that server from the drop-down list.
 
-1. Choose the same **Region** that you chose for the cloud service. 
+1. Choose the same **Region** that you chose for the cloud service.
 
 	When the cloud service and database are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
-1. Enter an administrator **Login Name** and **Password**. 
+1. Enter an administrator **Login Name** and **Password**.
 
 	If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a server that you created previously, you'll be prompted for the password to the administrative user account you already created.
 
 1. Click **Create SQL Database**.
 
-	![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)	
+	![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)
 
 1. After Azure finishes creating the database, click the **SQL Databases** tab in the left pane of the portal, and then click the name of the new database.
 
@@ -191,7 +191,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 1. In the [Azure Management Portal](http://manage.windowsazure.com), click **New** - **Data Services** - **Storage** - **Quick Create**.
 
-4. In the **URL** box, enter a URL prefix. 
+4. In the **URL** box, enter a URL prefix.
 
 	This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll have to choose a different prefix.
 
@@ -201,13 +201,13 @@ In a real-world application, you would typically create separate accounts for ap
 
 	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
-6. Set the **Replication** drop-down list to **Locally redundant**. 
+6. Set the **Replication** drop-down list to **Locally redundant**.
 
 	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
-5. Click **Create Storage Account**. 
+5. Click **Create Storage Account**.
 
-	![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)	
+	![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
 	In the image, a storage account is created with the URL `contosoads.core.windows.net`.
 
@@ -219,7 +219,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 >[AZURE.NOTE] In this section and the next section you store credentials in project files. [Don't store sensitive data in public source code repositories](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 
-1. In the ContosoAdsWeb project, open the *Web.Release.config* transform file for the application *Web.config* file, delete the comment block that contains a `<connectionStrings>` element, and paste the following code in its place. 
+1. In the ContosoAdsWeb project, open the *Web.Release.config* transform file for the application *Web.config* file, delete the comment block that contains a `<connectionStrings>` element, and paste the following code in its place.
 
 		<connectionStrings>
 	        <add name="ContosoAdsContext" connectionString="{connectionstring}"
@@ -230,11 +230,11 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 2. In the [Azure Management Portal](http://manage.windowsazure.com), click **SQL Databases** in the left pane, click the database you created for this tutorial, click the **Dashboard** tab, and then click **Show connection strings**.
 
-	![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)	
+	![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)
 
 	The portal displays connection strings, with a placeholder for the password.
 
-	![Connection strings](./media/cloud-services-dotnet-get-started/connstrings.png)	
+	![Connection strings](./media/cloud-services-dotnet-get-started/connstrings.png)
 
 4. In the *Web.Release.config* transform file, delete `{connectionstring}` and paste in its place the ADO.NET connection string from the management portal.
 
@@ -246,7 +246,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 5. In **Solution Explorer**, under **Roles** in the cloud service project, right-click **ContosoAdsWorker** and click **Properties**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)	
+	![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 
 6. Click the **Settings** tab.
 
@@ -254,29 +254,29 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 7. Select the text in the `ContosoAdsDbConnectionString` setting, and then paste the connection string that you copied from the previous section of the tutorial.
 
-	![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)	
+	![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 
 7. Save your changes.  
- 
-### Configure the solution to use your Azure storage account when you it runs in Azure
 
-Azure storage account connection strings for both the web role project and the worker role project are stored in environment settings in the cloud service project. For each project there is a separate set of settings to be used when the application runs locally and when it runs in the cloud. You'll update the cloud environment settings for both web and worker role projects. 
+### Configure the solution to use your Azure storage account when it runs in Azure
+
+Azure storage account connection strings for both the web role project and the worker role project are stored in environment settings in the cloud service project. For each project there is a separate set of settings to be used when the application runs locally and when it runs in the cloud. You'll update the cloud environment settings for both web and worker role projects.
 
 4. In **Solution Explorer**, right-click **ContosoAdsWeb** under **Roles** in the **ContosoAdsCloudService** project, and click **Properties**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)	
+	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
 5. Click the **Settings** tab. In the **Service Configuration** drop-down box, choose **Cloud**.
 
-	![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)	
+	![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 
 6. Select the **StorageConnectionString** entry, and you'll see an ellipsis (**...**) button at the right end of the line. Click the ellipsis button to open the **Create Storage Account Connection String** dialog box.
 
-	![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)	
+	![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
 1. In the **Create Storage Connection String** dialog, click **Connect using your subscription**, choose the storage account that you created earlier, and then click **OK**. If you're not already logged in, you'll be prompted for your Azure account credentials.
 
-	![Create Storage Connection String](./media/cloud-services-dotnet-get-started/createstoragecs.png)	
+	![Create Storage Connection String](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 
 1. Save your changes.
 
@@ -317,29 +317,29 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 3.	In **Solution Explorer**, right-click the **ContosoAdsCloudService** cloud project and select **Publish**.
 
-	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)	
+	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)
 
 2. In the **Sign in** step of the **Publish Azure Application** wizard, click **Next**.
 
-	![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)	
+	![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)
 
 3. In the **Settings** step of the wizard, click **Next**.
 
-	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)	
+	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
 	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
 
 2. In the **Summary** step, click **Publish**.
 
-	![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)	
-   
-   The **Azure Activity Log** window opens in Visual Studio. 
+	![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
+
+   The **Azure Activity Log** window opens in Visual Studio.
 
 2. Click the right arrow icon to expand the deployment details.
 
 	The deployment can take up to 5 minutes or more to complete.
 
-	![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)	
+	![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)
 
 1. When the deployment status is complete, click the **Website URL** to launch the application.
 
@@ -347,9 +347,9 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 >[AZURE.NOTE] When you're finished testing, delete or stop the cloud service. Even if you're not using the cloud service, it's accruing charges because virtual machine resources are reserved for it. And if you leave it running, anyone who finds your URL can create and view ads. In the [Azure Management Portal](http://manage.windowsazure.com), go to the **Dashboard** tab for your cloud service, and then click the **Delete** button at the bottom of the page. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
 
-## Create the application from scratch 
+## Create the application from scratch
 
-If you haven't already downloaded 
+If you haven't already downloaded
 [the completed application](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), do that now. You'll copy files from the downloaded project into the new project.
 
 Creating the Contoso Ads application involves the following steps:
@@ -361,7 +361,7 @@ Creating the Contoso Ads application involves the following steps:
 * Add code files
 
 After the solution is created, you'll review the code that is unique to cloud service projects and Azure blobs and queues.
- 
+
 ### Create a cloud service Visual Studio solution
 
 1. In Visual Studio, choose **New Project** from the **File** menu.
@@ -370,21 +370,21 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 3. Name the project and solution ContosoAdsCloudService, and then click **OK**.
 
-	![New Project](./media/cloud-services-dotnet-get-started/newproject.png)	
+	![New Project](./media/cloud-services-dotnet-get-started/newproject.png)
 
 4. In the **New Azure Cloud Service** dialog, add a web role and a worker role. Name the web role ContosoAdsWeb, and name the worker role ContosoAdsWorker. (Use the pencil icon in the right-hand pane to change the default names of the roles.)
 
-	![New Cloud Service Project](./media/cloud-services-dotnet-get-started/newcsproj.png)	
+	![New Cloud Service Project](./media/cloud-services-dotnet-get-started/newcsproj.png)
 
 5. When you see the **New ASP.NET Project** dialog for the web role, choose the MVC template, and click **Change Authentication**.
 
-	![Change Authentication](./media/cloud-services-dotnet-get-started/chgauth.png)	
+	![Change Authentication](./media/cloud-services-dotnet-get-started/chgauth.png)
 
 7. In the Change Authentication dialog, choose **No Authentication**, and then click **OK**.
 
-	![No Authentication](./media/cloud-services-dotnet-get-started/noauth.png)	
+	![No Authentication](./media/cloud-services-dotnet-get-started/noauth.png)
 
-8. In the **New ASP.NET Project** dialog, click **OK**. 
+8. In the **New ASP.NET Project** dialog, click **OK**.
 
 9. In **Solution Explorer**, right-click the solution (not one of the projects), and choose **Add - New Project**.
 
@@ -399,13 +399,13 @@ After the solution is created, you'll review the code that is unique to cloud se
 11. Open the **Manage NuGet Packages** dialog for the solution.
 
 12. In the left pane, select **Updates**.
-   
+
 13. Look for the *Azure Storage* package, and if it's in the list, click **Update** to get the latest version of the storage client library.
 
-	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)	
+	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
 
 	The storage client library is updated more frequently than Visual Studio project templates, so you'll often find that the version in a newly created projected needs to be updated.
- 
+
 14. In the left pane, select **Online**.
 
 16. Find the *EntityFramework* NuGet package, and install it in all three projects.
@@ -436,7 +436,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 2. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)	
+	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
 3. In the **ContosAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
@@ -444,7 +444,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 4. Add a new setting named *StorageConnectionString*. Set **Type** to *ConnectionString*, and set **Value** to *UseDevelopmentStorage=true*.
 
-	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)	
+	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)
 
 5. Save your changes.
 
@@ -455,9 +455,9 @@ In this section you configure Azure Storage and SQL connection strings for testi
 	* Name: ContosoAdsDbConnectionString
 	* Type: String
 	* Value: Paste the same connection string you used for the web role project:
-	
+
 			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
-	
+
 ### Add code files
 
 In this section you copy code files from the downloaded solution into the new solution. The following sections will show and explain key parts of this code.
@@ -468,7 +468,7 @@ To add files to a project or a folder, right-click the project or folder and cli
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
 	- *Global.asax.cs*  
-	- In the *Views\Shared* folder: <em>_Layout.cshtml</em>.
+	- In the *Views\Shared* folder: <em>\_Layout.cshtml</em>.
 	- In the *Views\Home* folder: *Index.cshtml*.
 	- In the *Controllers* folder: *AdController.cs*.
 	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.
@@ -541,7 +541,7 @@ The ContosoAdsContext class specifies that the Ad class is used in a DbSet colle
 		    }
 		    public System.Data.Entity.DbSet<Ad> Ads { get; set; }
 		}
- 
+
 The class has two constructors. The first of them is used by the web project, and specifies the name of a connection string that is stored in the Web.config file. The second constructor enables you to pass in the actual connection string. That is needed by the worker role project, since it doesn't have a Web.config file. You saw earlier where this connection string was stored, and you'll see later how the code retrieves the connection string when it instantiates the DbContext class.
 
 ### ContosoAdsWeb - Global.asax.cs
@@ -572,14 +572,14 @@ Similar code gets a reference to the *images* queue and creates a new queue. In 
 		var imagesQueue = queueClient.GetQueueReference("images");
 		imagesQueue.CreateIfNotExists();
 
-### ContosoAdsWeb - _Layout.cshtml
+### ContosoAdsWeb - \_Layout.cshtml
 
 The *_Layout.cshtml* file sets the app name in the header and footer, and creates an "Ads" menu entry.
 
 ### ContosoAdsWeb - Views\Home\Index.cshtml
 
 The *Views\Home\Index.cshtml* file displays category links on the home page. The links pass the integer value of the `Category` enum in a querystring variable to the Ads Index page.
-	
+
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
 		<li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
@@ -587,7 +587,7 @@ The *Views\Home\Index.cshtml* file displays category links on the home page. The
 
 ### ContosoAdsWeb - AdController.cs
 
-In the *AdController.cs* file the constructor calls the `InitializeStorage` method to create Azure Storage Client Library objects that provide an API for working with blobs and queues. 
+In the *AdController.cs* file the constructor calls the `InitializeStorage` method to create Azure Storage Client Library objects that provide an API for working with blobs and queues.
 
 Then the code gets a reference to the *images* blob container as you saw earlier in *Global.asax.cs*. While doing that it sets a default [retry policy](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) appropriate for a web app. The default exponential backoff retry policy could hang the web app for longer than a minute on repeated retries for a transient fault. The retry policy specified here waits 3 seconds after each try for up to 3 tries.
 
@@ -637,7 +637,7 @@ After the HttpPost `Create` method uploads a blob and updates the database, it c
 		await queue.AddMessageAsync(queueMessage);
 
 The code for the HttpPost `Edit` method is similar except that if the user selects a new image file any blobs that already exist must be deleted.
- 
+
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
 		    await DeleteAdBlobsAsync(ad);
@@ -666,7 +666,7 @@ Here is the code that deletes blobs when you delete an ad:
 		    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
 		    await blobToDelete.DeleteAsync();
 		}
- 
+
 ### ContosoAdsWeb - Views\Ad\Index.cshtml and Details.cshtml
 
 The *Index.cshtml* file displays thumbnails with the other ad data:
@@ -705,7 +705,7 @@ The `Run` method is called when the `OnStart` method finishes its initialization
 		public override void Run()
 		{
 		    CloudQueueMessage msg = null;
-		
+
 		    while (true)
 		    {
 		        try
@@ -745,28 +745,28 @@ Sometimes the content of a queue message causes an error in processing. This is 
 		    {
 		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
 		    }
-		
+
 		    CloudBlockBlob inputBlob = this.imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
-		
+
 		    string thumbnailName = Path.GetFileNameWithoutExtension(inputBlob.Name) + "thumb.jpg";
 		    CloudBlockBlob outputBlob = this.imagesBlobContainer.GetBlockBlobReference(thumbnailName);
-		
+
 		    using (Stream input = inputBlob.OpenRead())
 		    using (Stream output = outputBlob.OpenWrite())
 		    {
 		        ConvertImageToThumbnailJPG(input, output);
 		        outputBlob.Properties.ContentType = "image/jpeg";
 		    }
-		
+
 		    ad.ThumbnailURL = outputBlob.Uri.ToString();
 		    db.SaveChanges();
-		
+
 		    this.imagesQueue.DeleteMessage(msg);
 		}
 
 This code reads the database to get the image URL, converts the image to a thumbnail, saves the thumbnail in a blob, updates the database with the thumbnail blob URL, and deletes the queue message.
 
->[AZURE.NOTE] The code in the `ConvertImageToThumbnailJPG` method uses classes in the System.Drawing namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.
+>[AZURE.NOTE] The code in the `ConvertImageToThumbnailJPG` method uses classes in the System.Drawing namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service. For more information about image processing options, see [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) and [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ## Troubleshooting
 
@@ -809,7 +809,5 @@ For a video introduction to Azure Storage best practices and patterns, see [Micr
 For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Azure Cloud Services](/documentation/services/cloud-services/)
+* [How to manage Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
-* [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
-* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)

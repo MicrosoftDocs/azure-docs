@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/24/2015" 
+	ms.date="06/09/2015" 
 	ms.author="lindydonna"/>
 
 # <a name="getting-started"></a>Get started with Mobile Services
@@ -77,7 +77,7 @@ The final stage of this tutorial is to build and run your new app.
 
 3. Press the **Run** button to build the project and start the app. You will be asked to select an emulator or a connected USB device. 
 
-	> [AUZRE.NOTE] To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
+	> [AZURE.NOTE] To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 
 4. In the app, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
 
