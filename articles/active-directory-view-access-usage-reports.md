@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="View your access and usage reports" 
-	description="A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="kenhoff" 
-	manager="TerryLan" 
+<properties
+	pageTitle="View your access and usage reports"
+	description="A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="kenhoff"
+	manager="TerryLan"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/10/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="kenhoff;Justinha"/>
 
 # View your access and usage reports
@@ -22,21 +22,69 @@ You can use Azure Active Directory's access and usage reports to gain visibility
 
 In the Azure Management Portal, reports are categorized in the following ways:
 
-- Anomaly reports – Contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to make a determination about whether an event is suspicious. 
-- Integrated Application reports – Provides insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications. 
+- Anomaly reports – Contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to make a determination about whether an event is suspicious.
+- Integrated Application reports – Provides insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications.
 - Error reports – Indicate errors that may occur when provisioning accounts to external applications.
 - User-specific reports – Display device/sign in activity data for a specific user.
 - Activity logs – Contain a record of all audited events within the last 24 hours, last 7 days, or last 30 days, as well as group activity changes, and password reset and registration activity.
 
 > [AZURE.NOTE]
-> 
+>
 - Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory Premium](active-directory-get-started-premium.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
 - Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 
-## Anomaly reports
+## Report descriptions
 
-Report name  | Available in this edition    	
+|	Report												|	Description																					|
+|	------												|	-----																						|
+|	Sign ins from unknown sources						|	May indicate an attempt to sign in without being traced.									|
+|	Sign ins after multiple failures					|	May indicate a successful brute force attack.												|
+|	Sign ins from multiple geographies					|	May indicate that multiple users are signing in with the same account.						|
+|	Sign ins from IP addresses with suspicious activity	|	May indicate a successful sign in after a sustained intrusion attempt.						|
+|	Sign ins from possibly infected devices				|	May indicate an attempt to sign in from possibly infected devices.							|
+|	Irregular sign in activity							|	May indicate events anomalous to users’ sign in patterns.									|
+|	Users with anomalous sign in activity				|	Indicates users whose accounts may have been compromised.									|
+|	Users with leaked credentials						|	Users with leaked credentials																|
+|	Audit report										|	Audited events in your directory															|
+|	Password reset activity								|	Provides a detailed view of password resets that occur in your organization.				|
+|	Password reset registration activity				|	Provides a detailed view of password reset registrations that occur in your organization.	|
+|	Self service groups activity						|	Provides an activity log to all group self service activity in your directory				|
+|	Application usage									|	Provides a usage summary for all SaaS applications integrated with your directory.			|
+|	Account provisioning activity						|	Provides a history of attempts to provision accounts to external applications.				|
+|	Password rollover status							|	Provides a detailed overview of automatic password rollover status of SaaS applications.	|
+|	Account provisioning errors							|	Indicates an impact to users’ access to external applications.								|
+|	RMS usage											|	Provides a summary for Rights Management usage												|
+|	Most active RMS users								|	Lists top 1000 active users who accessed RMS-protected files								|
+|	RMS device usage									|	Lists devices used for accessing RMS-protected files										|
+|	RMS enabled application usage						|	Provides usage of RMS enabled applications													|
+
+## Report editions
+
+|	Report												|	Free	|	Basic	|	Premium		|
+|	------												|	----	|	-----	|	--------	|
+|	Sign ins from unknown sources						|	✓		|	✓	|	✓			|
+|	Sign ins after multiple failures					|	✓		|	✓	|	✓			|
+|	Sign ins from multiple geographies					|	✓		|	✓	|	✓			|
+|	Sign ins from IP addresses with suspicious activity	|			|		|	✓			|
+|	Sign ins from possibly infected devices				|			|		|	✓			|
+|	Irregular sign in activity							|			|		|	✓			|
+|	Users with anomalous sign in activity				|			|		|	✓			|
+|	Users with leaked credentials						|			|		|	✓			|
+|	Audit report										|			|		|	✓			|
+|	Password reset activity								|			|		|	✓			|
+|	Password reset registration activity				|			|		|	✓			|
+|	Self service groups activity						|			|		|	✓			|
+|	Application usage									|			|		|	✓			|
+|	Account provisioning activity						|	✓		|	✓	|	✓			|
+|	Password rollover status							|			|		|	✓			|
+|	Account provisioning errors							|	✓		|	✓	|	✓			|
+|	RMS usage											|			|		|	RMS Only	|
+|	Most active RMS users								|			|		|	RMS Only	|
+|	RMS device usage									|			|		|	RMS Only	|
+|	RMS enabled application usage						|			|		|	RMS Only	|
+
+Report name  | Available in this edition
 ------------- | -------------  
 [Sign ins from unknown sources](#sign-ins-from-unknown-sources) | Free and Premium
 [Sign ins after multiple failures](#sign-ins-after-multiple-failures) | Free and Premium
@@ -55,7 +103,8 @@ Report name  | Available in this edition
 [Groups activity report](#groups-activity-report) | Premium
 [Password Reset Registration Activity Report](#password-reset-registration-activity-report) | Premium
 [Password reset activity](#password-reset-activity) | Premium
- 
+
+## Report details
 
 ### Sign ins from unknown sources
 
@@ -199,7 +248,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 2. On the Reports page, click the report you want to view and/or download.
     >
     > [AZURE.NOTE] If this is the first time you have used the reporting feature of Azure Active Directory, you will see a message to Opt In. If you agree, click the check mark icon to continue.
-    
+
 3. Click the drop-down menu next to Interval, and then select one of the following time ranges that should be used when generating this report:
     - Last 24 hours
     - Last 7 days
@@ -211,7 +260,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 If you are viewing any anomaly reports, you may notice that you can ignore various events that show up in related reports. To ignore an event, simply highlight the event in the report and then click **Ignore**. The **Ignore** button will permanently remove the highlighted event from the report and can only be used by licensed global admins.
 
-## Automatic email notifications 
+## Automatic email notifications
 
 ### What reports generate email notifications
 
@@ -246,12 +295,12 @@ The email is sent to all global admins who have been assigned an Active Director
 
 ### How often are these emails sent?
 
-Once an email is sent, the next one will be sent only when 10 or more new Anomalous Sign In events are encountered within 30 days of sending that email. How do I access the report mentioned in the email? 
+Once an email is sent, the next one will be sent only when 10 or more new Anomalous Sign In events are encountered within 30 days of sending that email. How do I access the report mentioned in the email?
 
 When you click on the link, you will be redirected to the report page within the Azure Management Portal. In order to access the report, you need to be both:
 
 - An admin or co-admin of your Azure subscription
-- A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see Azure Active Directory editions. 
+- A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see Azure Active Directory editions.
 
 ### Can I turn off these emails?
 
