@@ -34,7 +34,7 @@ API Apps provides capabilities for developing, deploying, publishing, consuming 
 
 ### API Apps features available now in preview
 
-When you use API Apps to host your APIs, App Services provides the following features:
+When you use API Apps to host your APIs, App Service provides the following features:
 
 - **Easy consumption** - Integrated [Swagger](http://swagger.io/) support makes your APIs easily consumable by a variety of clients.  The API Apps SDK can generate client code for your APIs in a variety of languages including C#, Java, and Javascript.
 
