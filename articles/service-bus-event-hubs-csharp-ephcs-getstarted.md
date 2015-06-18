@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
 	ms.topic="hero-article"
-	ms.date="04/27/2015"
+	ms.date="06/17/2015"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs

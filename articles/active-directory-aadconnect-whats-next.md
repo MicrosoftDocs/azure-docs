@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -22,27 +22,26 @@
 <a href="../active-directory-aadconnect/" title="What is It">What is It</a>
 <a href="../active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
 <a href="../active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="../active-directory-aadconnect-whats-next/" title="Whats Next" class="current">Whats Next</a>
+<a href="../active-directory-aadconnect-whats-next/" title="What's Next" class="current">What's Next</a>
 <a href="../active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
 </div>
 
-The topics are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organizations needs and requirements.  
+The following are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organization's needs and requirements.  
 
 ## Assigning licenses to Azure AD Premium and Enterprise Mobility users
 
-Now that your users have been synchronized to the cloud, you will need to assign them a license so they can get going with cloud apps experiences such as Office 365 and Azure AD Premium. 
+Now that your users have been synchronized to the cloud, you will need to assign them a license so they can get going with cloud apps such as Office 365. 
 
 ### To assign an Azure AD Premium or Enterprise Mobility Suite License
 --------------------------------------------------------------------------------
+<ol>
+<li>Sign-in to the Azure Portal as an Administrator.</li>
+<li>On the left, select **Active Directory**.</li>
+<li>On the Active Directory page, double-click on the directory that has the users you wish to enable.</li>
+<li>At the top of the directory page, select **Licenses**.</li>
+<li>On the Licenses page, select Active Directory Premium or Enterprise Mobility Suite, and then click **Assign**.</li>
+<li>In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.</li>
 
-1. Sign-in to the Azure Portal as an Administrator.
-2. On the left, select **Active Directory**.
-3. On the Active Directory page, double-click on the directory that has the users you wish to enable.
-4. At the top of the directory page, select **Licenses**.
-5. On the Licenses page, select Active Directory Premium or Enterprise Mobility Suite, and then click **Assign**.
-6. 4.In the dialog box, select the users you want to assign licenses to, and then click the check mark icon to save the changes.
-
-<center>![Cloud](./media/active-directory-aadconnect-whats-next/license.png)</center>
 
 ## Verifying the scheduled synchronization task
 If you want to check on the status of a synchronization you can do this by checking in the Azure portal.
@@ -59,7 +58,7 @@ If you want to check on the status of a synchronization you can do this by check
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/verify.png)</center>
 
 ## Starting a scheduled synchronization task
-If you need to run a synchronization task you can do this by running through the Azure AD Connect wizard again.  You will need to provide your Azure AD credentials.  In the wizard, select the Customize synchronization options task and click next through the wizard and ensure that the Start the synchronization process as soon as the initial configuration completes box is checked.
+If you need to run a synchronization task you can do this by running through the Azure AD Connect wizard again.  You will need to provide your Azure AD credentials.  In the wizard, select the **Customize synchronization options** task and click next through the wizard. At the end, ensure that the **Start the synchronization process as soon as the initial configuration completes** box is checked.
 
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
@@ -98,13 +97,3 @@ For additional documentation on working with Azure AD Connect see the following;
 Also, some of the documentation that was created for Azure AD Sync is still relevant and applies to Azure AD Connect.  Although every effort is being made to bring this documentation over to Azure.com, some of this documentation still resides in the MSDN scoped library.  For additional documentation see [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) and [Azure AD Sync on MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
 
 
-
-
-**Additional Resources**
-
-* [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md)
-* [How Azure AD Connect works](active-directory-aadconnect-how-it-works.md)
-* [Getting started with Azure AD Connect](active-directory-aadconnect-get-started.md)
-* [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
-* [Learn More](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)

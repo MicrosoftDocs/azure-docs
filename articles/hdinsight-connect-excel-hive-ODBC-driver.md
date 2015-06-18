@@ -29,9 +29,8 @@ It is also possible to connect the data associated with an HDInsight cluster and
 
 Before you begin this article, you must have the following:
 
-- An HDInsight cluster. To configure one, see [Get started with Azure HDInsight][hdinsight-get-started].
-- A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2.
-- Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
+- **An HDInsight cluster**. To configure one, see [Get started with Azure HDInsight][hdinsight-get-started].
+- **A workstation** with Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 
 ##<a id="InstallHiveODBCDriver"></a>Install the Microsoft Hive ODBC Driver

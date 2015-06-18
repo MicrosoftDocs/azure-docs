@@ -12,8 +12,8 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
-	ms.topic="article" 
-	ms.date="02/10/2015"
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs

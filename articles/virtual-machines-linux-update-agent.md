@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/16/2015"
 	ms.author="mingzhan"/>
 
 
@@ -32,9 +32,13 @@ For Ubuntu, just type:
      
     #sudo apt-get install waagent
 
-and on CentOS and Oracle Linux, type:
+and on CentOS, type:
 
     #sudo yum install waagent
+
+For Oracle Linux, make sure the add-on repository enabled in file `/etc/yum.repo.d/public-yum-ol6.repo` or `/etc/yum.repo.d/public-yum-ol7.repo`, then type:
+
+    #sudo yum install WALinuxAgent
 
 Typically this is all you need, but if for some reason you need to install it from https://github.com directly, use the following steps. 
 

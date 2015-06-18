@@ -21,7 +21,7 @@
 
 
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/server.png)</center>
+<center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
 Now that we have determined whether to use on-premises multi-factor authentication, lets get going.  This page covers a new installation of the server and getting it setup with on-premises Active Directory.  If you already have the Phonefactor server installed and are looking for how to do this see Upgrading to the Azure Multi-Factor Server or if you are looking for information on installing just the web service see Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service.
 

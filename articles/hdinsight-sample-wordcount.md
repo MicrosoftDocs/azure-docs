@@ -30,11 +30,13 @@ This tutorial shows you how to run a MapReduce word count example on a Hadoop cl
 
 **Prerequisites**:
 
-- You must have an Azure account. For options about signing up for an account, see the [Try out Azure for free](http://azure.microsoft.com/pricing/free-trial/) page.
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Get Started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
+- **An HDInsight cluster**. For instructions about the various ways in which such clusters can be created, see [Get Started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
 
-- You must have installed Azure PowerShell, and have it configured for use with your account. For instructions about how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
+- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
+
 
 ## <a id="run-sample"></a>Run the sample by using Azure PowerShell</h2>
 
