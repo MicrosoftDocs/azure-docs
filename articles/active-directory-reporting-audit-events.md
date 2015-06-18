@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/13/2015"
+   ms.date="06/18/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory Audit Report Events
