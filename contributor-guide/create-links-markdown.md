@@ -20,7 +20,7 @@ Old link syntax to link from one ACOM tech doc to another:
 
     [link text](filename.md)
 
-**New link syntax**
+**New link syntax** 
 
 Article links from a subdirectory to an article in the root directory:
 
@@ -75,7 +75,7 @@ To test your links, push your page to your fork and view it in the rendered view
 
 Our [markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md/) shows an alternate way to create crosslinks in markdown so all the crosslinks are coded together at the end of the article, even while they display inline.
 
-Reference-style links
+## Reference-style links
 
 You can use reference style links to make your source content easier to read. The reference style links replace the inline link syntax with simplified syntax that allows you to move the long URLs to the end of the article. Here's Daring Fireball's example:
 
