@@ -77,7 +77,7 @@ To simplify this tutorial, only the default Blob container and the default Stora
 
 
 For more information, see
-[How to Create a Storage Account](storage-create-storage-account.md) and [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
+[How to Create a Storage Account](storage/storage-create-storage-account.md) and [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
 

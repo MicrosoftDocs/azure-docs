@@ -719,11 +719,11 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
-[sqldatabase-create-configue]: sql-database-create-configure.md
-[sqldatabase-get-started]: sql-database-get-started.md
+[sqldatabase-create-configue]: sql-database/sql-database-create-configure.md
+[sqldatabase-get-started]: sql-database/sql-database-get-started.md
 
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: storage-create-storage-account.md 
+[azure-create-storageaccount]: storage/storage-create-storage-account.md 
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

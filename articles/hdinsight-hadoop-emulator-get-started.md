@@ -433,7 +433,7 @@ The HDInsight Emulator uses HDFS as the default file system. However, Azure HDIn
 
 >[AZURE.NOTE] For more information on how HDInsight uses Azure Blob storage, see [Use Azure Blob storage with HDInsight](hdinsight-use-blob-storage.md).
 
-Before you start with the instructions below, you must have created a storage account. For instructions, see [How To Create a Storage Account](storage-create-storage-account.md).
+Before you start with the instructions below, you must have created a storage account. For instructions, see [How To Create a Storage Account](storage/storage-create-storage-account.md).
 
 **To create a container**
 
@@ -511,7 +511,7 @@ In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sand
 
 
 [azure-sdk]: http://azure.microsoft.com/downloads/
-[azure-create-storage-account]: storage-create-storage-account.md
+[azure-create-storage-account]: storage/storage-create-storage-account.md
 [azure-management-portal]: https://manage.windowsazure.com/
 [netstat-url]: http://technet.microsoft.com/library/ff961504.aspx
 

@@ -396,7 +396,7 @@ In this tutorial you learned how to provision an HBase cluster. To learn more, s
 [vm-create]: virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://manage.windowsazure.com
-[azure-create-storageaccount]: storage-create-storage-account.md 
+[azure-create-storageaccount]: storage/storage-create-storage-account.md 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
