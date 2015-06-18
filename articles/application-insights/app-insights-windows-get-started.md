@@ -133,6 +133,12 @@ Add Application Insights from Solution Explorer.
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
 
+## To upgrade to a new release of the SDK
+
+When a [new SDK version is released](app-insights-release-notes-windows.md):
+* Right-click your project and choose Manage NuGet Packages. 
+* Select the installed Application Insights packages and choose Action: Upgrade.
+
 
 ## <a name="usage"></a>Next Steps
 

@@ -58,6 +58,14 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 4. Add ApplicationInsights.winmd as a reference to your project from  $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native\<PLATFORM TYPE>\release\ApplicationInsights
 5. Add the AppInsights_Win10-UAP.dll from  $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native\<PLATFORM TYPE>\release\AppInsights_Win10-UAP. Go to properties and set content to YES. This will copy the dll to your build directory.
 
+
+#### To update the SDK to future versions
+
+When a new [SDK is released](app-insights-release-notes-windows-cpp.md):
+
+* In NuGet package manager, select the installed SDK and choose Action: Upgrade.
+* Repeat the installation steps, using the new version number.
+
 ## Use the SDK
 
 Initialize the SDK and start tracking telemetry.

@@ -72,6 +72,9 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
     (You can alternatively [set the key by writing some code][apikey] in your app.)
 
+#### To upgrade to future SDK versions
+
+To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again. Select the installed SDK and choose Action: Update.
 
 
 ## <a name="run"></a> 3. Run your project
