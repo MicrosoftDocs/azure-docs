@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/01/2015" 
-	ms.author="nadavhelfman/>
+	ms.author="nadavhelfman"/>
  
 # SQL Database -  Downlevel Clients Support for Auditing and Dynamic Data Masking 
 
