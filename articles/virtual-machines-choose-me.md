@@ -14,19 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="06/17/2015" 
 	ms.author="kathydav"/>
 
 # Should I Choose Azure Virtual Machines?
 
-Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do. Are Virtual Machines the choice for you?
-
-| Compute Options    | Audience   |
-| ------------------ | --------   |
-| [App Service]      | Scalable Web Apps, Mobile Apps, API Apps, and Logic Apps for any device |
-| [Cloud Services]   | Highly available, scalable n-tier cloud apps with more control of the OS |
-| [Virtual Machines] | Customized Windows and Linux VMs with complete control of the OS |
-
+Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do. Is an Azure VM the choice for you?
 
 [AZURE.INCLUDE [content](../includes/virtual-machines-choose-me-content.md)]
 
