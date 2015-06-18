@@ -18,7 +18,7 @@ To create an inline link from an ACOM technical article to another ACOM technica
 
 Old link syntax to link from one ACOM tech doc to another:
 
-'''[link text](filename.md)
+    [link text](filename.md)
 
 **New link syntax**
 
