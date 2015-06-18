@@ -36,11 +36,11 @@ Connectors can be used in Logic apps to fetch, process or push data as a part of
 
 To use the HDInsight Connector, you need to create an instance of the HDInsight Connector API App. The can be done as follows:
 
-1. Open the Azure Marketplace using the '+ NEW' option on the left side of the Azure Portal and select 'Marketplace'
-2. Browse to 'API Apps' and search for “HDInsight Connector”, select it and click 'Create'
-3. Provide the common details such as Name, App service plan, and so on in the first blade
-4. As part of Package settings, provide the HDInsight cluster user name and password and click 'OK'
-5. Click 'Create'
+1. Open the Azure Marketplace using the '+ NEW' option on the left side of the Azure Portal and select 'Marketplace'.
+2. Browse to 'API Apps' and search for “HDInsight Connector”, select it and click 'Create'.
+3. Provide the common details such as Name, App service plan, and so on in the first blade.
+4. As part of Package settings, provide the HDInsight cluster user name and password and click 'OK'.
+5. Click 'Create'.
 
 
  ![][1]  
@@ -54,10 +54,10 @@ Browse to the just created HDInsight Connector API App and you will see that the
 ![][2] 
 
 To upload the management certificate to your API App, you need to do the following
-1. Click on the 'Security' component
-2. In the 'Security' blade click on the 'UPLOAD CERTIFICATE'
-3. Browse and select the certificate file in the next blade
-4. Once the certificate is selected, click on OK.
+1. Click on the 'Security' component.
+2. In the 'Security' blade, click 'UPLOAD CERTIFICATE'.
+3. Browse and select the certificate file in the next blade.
+4. Once the certificate is selected, click OK.
 
 Once the certificate is successfully uploaded, the certificate details are shown.
 
@@ -70,7 +70,7 @@ Note: In case you want to change the certificate, you can upload another certifi
 HDInsight Connector can be used only as an action in logic app. Let us take a simple logic app which creates a cluster, runs a 'Hive' job and deletes the cluster at the end of job completion.
 
 
-- In the 'Start logic' card, click on 'Run this logic manually'.
+- In the 'Start logic' card, click 'Run this logic manually'.
 - Select the HDInsight Connector API App created from the gallery and it shows all the actions available.
 
 ![][5] 
