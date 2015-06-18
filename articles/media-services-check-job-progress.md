@@ -105,7 +105,7 @@ The following code example defines the StateChanged event handler. This event ha
 
 ##<a id="check_progress_with_queues"></a>Use Azure Queue storage to monitor Media Services job notifications
 
-Microsoft Azure Media Services has the ability to deliver notification messages to the [Azure Queue storage](storage-dotnet-how-to-use-queues.md#what-is) when processing media jobs. This topic shows how to get these notification messages from Queue storage.
+Microsoft Azure Media Services has the ability to deliver notification messages to the [Azure Queue storage](storage/storage-dotnet-how-to-use-queues.md#what-is) when processing media jobs. This topic shows how to get these notification messages from Queue storage.
 
 Messages delivered to Queue storage can be accessed from anywhere in the world. The Azure Queue messaging architecture is reliable and highly scalable. Polling Queue storage is recommended over using other methods. 
 

@@ -65,7 +65,7 @@
 </tr>
 </table>
 
-<sup>1</sup>For more details on these limits, see [Azure Storage Scalability and Performance Targets](../articles/storage-scalability-targets.md).
+<sup>1</sup>For more details on these limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
 
 <sup>2</sup>For virtual machines in the Basic Tier, do not place more than 66 highly used VHDs in a storage account to avoid the 20,000 total request rate limit (20,000/300). For virtual machines in the Standard Tier, do not place more than 40 highly used VHDs in a storage account (20,000/500). For more information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
 
