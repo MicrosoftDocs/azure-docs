@@ -16,7 +16,7 @@
    ms.date="06/17/2015"
    ms.author="adhurwit"/>
 
-# Encrypt and Decrypt Blobs in Microsoft Azure Storage using Azure Key Vault
+# Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
 
 ## Introduction
  
@@ -226,6 +226,12 @@ In your console application, you can use the same call as before to retrieve thi
 That's it. Enjoy!
 
 ## Next Steps
+
+For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+
+For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+
+For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
 
 <!--Image references-->
