@@ -39,8 +39,7 @@ Assume you have a large unstructured data set and you want to run queries on it 
 
 Before you begin this Linux tutorial for Hadoop, you must have the following:
 
-
-- An Azure subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Free Trial</a>.
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 **Estimated time to complete:** 30 minutes
 

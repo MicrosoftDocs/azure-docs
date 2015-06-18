@@ -23,13 +23,12 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 ## Prerequisites
 
-* An Azure Subscription
+- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **A Windows or Linux based Hadoop on HDInsight cluster**. See [Provision Linux-based Hadoop on HDInsight](hdinsight-hadoop-provision-linux-clusters.md) or [Provision Windows-based Hadoop on HDInsight](hdinsight-provision-clusters.md) for more information.
 
-* A Windows or Linux based Hadoop on HDInsight cluster - see [Provision Linux-based Hadoop on HDInsight](hdinsight-hadoop-provision-linux-clusters.md) or [Provision Windows-based Hadoop on HDInsight](hdinsight-provision-clusters.md) for more information.
+* **[Maven](http://maven.apache.org/)**
 
-* [Maven](http://maven.apache.org/)
-
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later
+* **[Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later**
 
 ## Create and build the project
 
