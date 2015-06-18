@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sidneyh" />
 
 # Elastic database jobs overview
 
-**Elastic database jobs** (preview) enables you to run T-SQL scripts (jobs) against all of the databases in an [elastic database pool (preview)](sql-database-elastic-pool.md). For example, you can easily update the schema in every database to include a new table. Normally, you must connect to each database independently in order to run T-SQL statements or perform other administrative tasks. **Elastic database jobs** handles the task of logging in, and reliabily running the script for you, while logging the status of execution for each database.
+**Elastic database jobs** (preview) enables you to run T-SQL scripts (jobs) against all of the databases in an [elastic database pool (preview)](sql-database-elastic-pool.md). For example, you can easily update the schema in every database to include a new table. Normally, you must connect to each database independently in order to run T-SQL statements or perform other administrative tasks. **Elastic database jobs** handles the task of logging in, and reliabily running the script for you, while logging the status of execution for each database. For instructions on installing the preview, go to [Installing the elastic database job components](sql-database-elastic-jobs-service-installation.md).
 
 ![Elastic database job service][1]
 
