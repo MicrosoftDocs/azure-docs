@@ -4,11 +4,11 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
-	ms.service="azure-active-directory-connect" 
+	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -40,11 +40,10 @@ Before you install Azure AD Connect with Express Settings, there are a few thing
 
 
  
-- An Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/)
+- An Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/) - This is only required for accessing the Azure portal and not for using Azure AD Connect.  If you are using PowerShell or Office 365 you do not need an Azure subscription to use Azure AD Connect.
 - An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with
 - An AD Domain Controller or member server with Windows Server 2008 or later
 - An Enterprise Administrator account for your local Active Directory
-- Optional:  Azure AD Premium or an [Azure AD Premium trial](http://aka.ms/aadptrial)
 - Optional:  A test user account to verify synchronization. 
 
 
