@@ -46,7 +46,7 @@ When you use API Apps to host your APIs, App Service provides the following feat
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of [creating](app-service-dotnet-create-api-app.md), [deploying](app-service-dotnet-deploy-api-app.md), [debugging](app-service-dotnet-remotely-debug-api-app), and managing API apps.
 
-Because API Apps is built on top of App Service Web Apps, your API app can additionally use [features of App Service Web Apps](../app-service-web/app-service-web-overview.md). This means you can bring your existing API as-is: you don't have to change any of the code in your existing APIs to take advantage of API App features, just deploy your code to an API app. You can use ASP.NET, Java, PHP, Node.js or Python for your APIs.
+Because API Apps is built on top of App Service Web Apps, your API app can additionally use [features of App Service Web Apps](../app-service-web/app-service-web-overview.md). This also means you can bring your existing API as-is: you don't have to change any of the code in your existing APIs to take advantage of API App features, just deploy your code to an API app. You can use ASP.NET, Java, PHP, Node.js or Python for your APIs.
 
 ### API Apps features available in the future
 
