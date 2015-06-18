@@ -98,13 +98,16 @@ The [sample application](https://github.com/Microsoft/ApplicationInsights-Home/t
 Here's an example of what you see at the Application Insights portal:
 
 * Rich diagnostics with automatically correlated requests and dependencies:
-  ![](./media/app-insights-cloudservices/SMxacy4.png)
+
+    ![](./media/app-insights-cloudservices/SMxacy4.png)
 
 * Performance of the web role, with dependency information:
-  ![](./media/app-insights-cloudservices/6yOBtKu.png)
+
+    ![](./media/app-insights-cloudservices/6yOBtKu.png)
 
 * Here's a screenshot on the requests and dependency information for a worker role:
-  ![](./media/app-insights-cloudservices/a5R0PBk.png)
+
+    ![](./media/app-insights-cloudservices/a5R0PBk.png)
 
 ### Reporting Exceptions
 

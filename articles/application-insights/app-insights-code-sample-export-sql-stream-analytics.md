@@ -95,7 +95,7 @@ And also, the data will export to your storage, where you can inspect the conten
 
 ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to write some code to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to write some code to move the data to a SQL database. That will make it easy to run lots of interesting queries.
+The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to a SQL database. That will make it easy to run lots of interesting queries.
 
 ## Create an Azure SQL Database
 
