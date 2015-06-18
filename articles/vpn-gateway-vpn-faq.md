@@ -40,7 +40,7 @@ Virtual Network supports the following cross-premises connections:
 
 - [Multi-Site](http://go.microsoft.com/fwlink/?LinkID=615106) - This is a variation of a site-to-site configuration that allows you to connect multiple on-premises sites to a virtual network.
 
-- [ExpressRoute](expressroute-overview.md) - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](expressroute-overview.md) and the [ExpressRoute FAQ](expressroute-faqs.md) for more information.
+- [ExpressRoute](expressroute-overview.md) - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](expressroute-overview.md) and the [ExpressRoute FAQ](expressroute/expressroute-faqs.md) for more information.
 
 ### What is the difference between a site-to-site connection and point-to-site?
 
@@ -56,7 +56,7 @@ ExpressRoute lets you create private connections between Microsoft datacenters a
 
 ExpressRoute connections offer better security, more reliability, higher bandwidth, and lower latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits. If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.
 
-See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
+See the [ExpressRoute FAQ](expressroute/expressroute-faqs.md) for more details.
 
 ## VPN devices and site-to-site connections
 
@@ -240,5 +240,5 @@ View more networking FAQs for additional details:
 
 - [Virtual Network FAQ](http://go.microsoft.com/fwlink/p/?LinkId=615155)
 
-- [ExpressRoute FAQ](expressroute-faqs.md)
+- [ExpressRoute FAQ](expressroute/expressroute-faqs.md)
 
