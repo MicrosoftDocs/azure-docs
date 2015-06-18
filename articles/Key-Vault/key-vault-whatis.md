@@ -20,7 +20,7 @@
 
 # What is Azure Key Vault? 
 
->[AZURE.NOTE]  Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](](../../../../pricing/details/key-vault/).
+Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](](../../../../pricing/details/key-vault/).
 ## Introduction
 
 Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs (keys never leave the HSM boundary). HSMs are certified to FIPS 140-2 level 2.  

@@ -17,7 +17,7 @@
 	ms.author="cabailey"/>
 
 # Get Started with Azure Key Vault #
->[AZURE.NOTE]  Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](](../../../../pricing/details/key-vault/).
+Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](](../../../../pricing/details/key-vault/).
 ## Introduction  
 Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure. It walks you through the process of using Windows PowerShell to create a vault that contains a key or password that you can then use with an Azure application. It then shows you how an application can then use that key or password.
 
