@@ -38,7 +38,7 @@ To complete this tutorial, you must have the following:
 - Azure PowerShell 
 
 
-## Overview of the Client-Side Encryption Process
+## Overview of the Client-Side Encryption process
 
 For an overview of Client-Side Encryption for Microsoft Azure Storage, see [http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx "Getting Started with Client-Side Encryption for Microsoft Azure Storage")
 
@@ -50,7 +50,7 @@ Here is the process as described in that blog post:
 4. The encrypted data is then uploaded to the Azure Storage service.
 
 
-## Set-Up your Azure Key Vault
+## Set-up your Azure Key Vault
 In order to proceed with this tutorial, you need to do the following which are outlined in the tutorial:  [Get Started with Azure Key Vault](key-vault-get-started.md) 
 
 - Create a key vault
@@ -63,7 +63,7 @@ Make note of the ClientID and ClientSecret that were generated when registering 
 Create both a key in the key vault. We will assume for the rest of the tutorial that you have used the following names: ContosoKeyVault and TestRSAKey1. 
 
 
-## Create a Console Application with Packages and AppSettings
+## Create a console application with packages and AppSettings
 
 In Visual Studio, create a new Console Application.
 
@@ -102,7 +102,7 @@ Add the following using statements and make sure to add a reference to System.Co
 	using System.IO;
 
 
-## Add method to Get Token to your Console Application
+## Add method to get token to your console application
 
 The following method is used by Key Vault classes that need to authenticate for access to your Key Vault. 
 
@@ -120,7 +120,7 @@ The following method is used by Key Vault classes that need to authenticate for 
 	    return result.AccessToken;
 	}
 
-## Access Storage and Key Vault in your Program 
+## Access storage and Key Vault in your program 
 
 In the Main function, add the following code:
 
@@ -147,7 +147,7 @@ In the Main function, add the following code:
 > The Key Vault Extensions are classes that seem specifically created for client-side encryption in Azure Storage. They contain an interface for keys - IKey - and classes based on the concept of a Key Resolver. There are two implementations of IKey that you need to know: RSAKey and SymmetricKey. Now they happen to coincide with the things that are contained in a Key Vault, but at this point they are independent classes (so the Key and Secret retrieved by the Key Vault Client do not implement IKey). 
 
 
-## Encrypt Blob and Upload
+## Encrypt blob and upload
 Add the following code to encrypt a Blob and upload it to your Azure Storage account. The ResolveKeyAsync method that is used returns an IKey. 
 
 	
@@ -177,7 +177,7 @@ Following is a screenshot from the current Azure Management portal for a blob th
 
 
 
-## Decrypt Blob and Download
+## Decrypt blob and download
 Decryption is really when the Resolver classes make sense. The ID of the key used for encryption is associated with the Blob in its metadata, so there is no reason for you to retrieve the key and remember the association between key and blob. You just have to make sure that the key remains in the Key Vault.   
 
 The private key of an RSA Key remains in Key Vault, so for decryption to occur the Encrypted Key from the blob metadata which contains the CEC (content encryption key) is sent to Key Vault for decryption. 
@@ -225,7 +225,7 @@ In your console application, you can use the same call as before to retrieve thi
 
 That's it. Enjoy!
 
-## Next Steps
+## Next steps
 
 For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 
