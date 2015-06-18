@@ -23,7 +23,7 @@ This article describes how to deploy Site Recovery to:
 - **Protect VMware virtual machines**—Coordinate replication, failover, and recovery of on-premises VMware virtual machines to Azure
 - **Protect physical servers**—Coordinate replication, failover, and recovery on-premises physical Windows and Linux servers to Azure using the Azure Site Recovery service.
 
-The article includes an overview of the scenario, deployment prerequisites, and set up instructions. At the end of the article you'll test failover to Azure to make sure it's working properly. 
+The article includes an overview of the scenario, deployment prerequisites, and set up instructions.
 If you run into problems, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## What is Azure Site Recovery?
