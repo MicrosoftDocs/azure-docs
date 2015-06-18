@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage an API app" 
+	pageTitle="Manage API apps" 
 	description="Learn how to manage Azure App Service API apps by using the Azure portal and Visual Studio Server Explorer." 
 	services="app-service\api" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="06/17/2015" 
 	ms.author="tdykstra"/>
 
-# Manage an API app in Azure App Service
+# Manage API apps in Azure App Service
 
 This article shows how use the [Azure preview portal](https://portal.azure.com/) to perform API app management tasks.  Some of the tasks you can do include the following:
 
@@ -104,7 +104,7 @@ To get to the **API App Host** blade, click **API app host** in the **API App** 
 
 ![](./media/app-service-api-manage-in-portal/apiapphostbladenocallouts.png)
 
-## Navigate to the Gateway blade
+### Navigate to the Gateway blade
 
 To get to the **Gateway** blade, click the **Gateway** link in the **API App** blade.
    
@@ -112,7 +112,7 @@ To get to the **Gateway** blade, click the **Gateway** link in the **API App** b
 
 ![](./media/app-service-api-manage-in-portal/gatewaybladenocallout.png)
 
-## Navigate to the Gateway host blade
+### Navigate to the Gateway host blade
 
 To get to the **Gateway Host** blade, click the **Gateway host** link in the **Gateway** blade.
    
