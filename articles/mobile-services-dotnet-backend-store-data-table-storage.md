@@ -34,7 +34,7 @@ First, you need to configure your mobile service and .NET backend code project t
 
   	This adds support for Azure storage services to the .NET backend mobile service project.
 
-3. If you haven't yet created your storage account, see [How To Create a Storage Account](storage-create-storage-account.md).
+3. If you haven't yet created your storage account, see [How To Create a Storage Account](storage/storage-create-storage-account.md).
 
 4. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
 
@@ -154,5 +154,5 @@ Now that you have seen how easy it is to use Table storage with .NET backend, co
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Add Mobile Services to an existing app]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[What is the Table Service]: storage/storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
