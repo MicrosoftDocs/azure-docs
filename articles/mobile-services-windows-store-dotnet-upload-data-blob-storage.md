@@ -31,7 +31,7 @@ In this tutorial you add functionality to the Mobile Services quickstart app to 
 This tutorial requires the following:
 
 + Microsoft Visual Studio 2012 Express for Windows 8, or a later version
-+ [Azure Storage account](storage-create-storage-account.md)
++ [Azure Storage account](storage/storage-create-storage-account.md)
 + A camera or other image capture device attached to your computer.
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
@@ -97,7 +97,7 @@ Now that you have been able to securely upload images by integrating your mobile
 [Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: storage-create-storage-account.md
+[How To Create a Storage Account]: storage/storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

@@ -25,7 +25,7 @@ This tutorial shows you how to use some of the available clients in the Compute,
 To complete this tutorial you also need:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Azure storage account](storage-create-storage-account.md)
+- [Azure storage account](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
 - [Azure PowerShell](install-configure-powershell.md)
 

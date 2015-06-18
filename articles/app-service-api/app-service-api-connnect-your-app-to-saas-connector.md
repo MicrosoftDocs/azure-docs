@@ -24,7 +24,7 @@ This tutorial shows how to install, configure, and test a [Software-as-a-Service
 
 For example, if you want to code HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated. A Dropbox connector takes care of the complexity of authentication so that you can focus on writing your business-specific code.
 
-> [AZURE.WARNING] The instructions here **should *not* to be followed if you want to use a SaaS connector from a logic app**. Please see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) for details on how to use SaaS connectors inside logic apps. This article is specifically if you want use *code* to call your connector.
+> [AZURE.NOTE] The instructions here are not required if you want to use a SaaS connector from a logic app. For information  about how to use SaaS connectors inside logic apps, see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
  
 This tutorial uses a DropBox connector as an example and walks you through the following steps:
 

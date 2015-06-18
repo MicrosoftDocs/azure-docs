@@ -46,9 +46,9 @@ Azure Data Factory supports the following capabilities to enable simple consumpt
 
 See the following topics for consuming data using Power Query: 
 
-- [Power Query: Connect to Microsoft Azure Table Storage] [Power-Query-Azure-Table]
-- [Power Query: Connect to Microsoft Azure Blob Storage] [Power-Query-Azure-Blob]
-- [Power Query: Connect to Microsoft Azure SQL Database] [Power-Query-Azure-SQL]
+- [Power Query: Connect to Microsoft Azure Table Storage][Power-Query-Azure-Table]
+- [Power Query: Connect to Microsoft Azure Blob Storage][Power-Query-Azure-Blob]
+- [Power Query: Connect to Microsoft Azure SQL Database][Power-Query-Azure-SQL]
 - [Power Query: Connect to Microsoft On-premises SQL Server][Power-Query-OnPrem-SQL] 
 
 

@@ -158,8 +158,8 @@ Supports .NET 3.5, 4.0
 
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2.40             | WA-GUEST-OS-2.40_201505-01 | Projected July 9 2015  | Will be updated when 2.42 is released | TBD |
-| 2.39             | WA-GUEST-OS-2.39_201505-01 | June 12 2015           | Will be updated when 2.41 is released | TBD |
+| 2.40             | WA-GUEST-OS-2.40_201506-01 | Projected July 9 2015  | Will be updated when 2.42 is released | TBD |
+| 2.39             | WA-GUEST-OS-2.39_201505-02 | June 12 2015           | Will be updated when 2.41 is released | TBD |
 | 2.38             | WA-GUEST-OS-2.38_201504-01 | April 17 2015          | Will be updated when 2.40 is released | TBD |
 | 2.37             | WA-GUEST-OS-2.37_201503-01 | April 2 2015           | July 12 2015 | TBD |
 | 2.36             | WA-GUEST-OS-2.36_201502-01 | Mar 9 2015             | May 17 2015  | TBD |

@@ -63,7 +63,7 @@ Before you begin creating your advanced analytics environment, consider the foll
 
 Depending on your scenario, you might also need the following:
 
-1.  Azure Tools: [Azure PowerShell SDK](install-configure-powershell.md), [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage-use-azcopy.md), and others
+1.  Azure Tools: [Azure PowerShell SDK](install-configure-powershell.md), [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage/storage-use-azcopy.md), and others
 2.  Azure Virtual Machines running SQL Server
 3.  Azure HDInsight (Hadoop)
 4.  Azure Virtual Networks for on-prem to Azure file sharing
