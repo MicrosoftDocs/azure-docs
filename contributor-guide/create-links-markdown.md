@@ -34,7 +34,7 @@ Article in a service subdirectory links to an article that is in another service
 
     [link text](../service-folder/article-name.md)
  
-Article in a directory links to another article in the same directory:
+Article in a directory links to another article in the same folder:
 
     [link text](article-name.md)
 
@@ -49,7 +49,7 @@ To link to an anchor in another article in the same subfolder:
     [link text](article-name.md#anchor-name)
     [Configure your profile](media-services-create-account.md#configure-your-profile)
 
-To link to an anchor in the same service subfolder:
+To link to an anchor in another service subfolder:
 
     [link text](service-folder/article-name.md#anchor-name)
     [Configure your profile](service-folder/media-services-create-account.md#configure-your-profile)
@@ -57,7 +57,7 @@ To link to an anchor in the same service subfolder:
 
 Since includes are located in another directory, you will need to use relative paths as below. For a link to a single article, use this format:
 
-    [link text](../articles/file-name.md)
+    [link text](../articles/service-folder/file-name.md)
 
 If you have selectors embedded in an include, you would use this sort of linking:
 
