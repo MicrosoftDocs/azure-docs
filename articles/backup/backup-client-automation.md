@@ -33,7 +33,7 @@ The following setup and registration tasks can be automated with Windows PowerSh
 - Networking
 
 ### Installing the Azure Backup agent
-Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](aka.ms/azurebackup_agent). Save the installer to an easily accessible location like *C:\Downloads\*.
+Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent). Save the installer to an easily accessible location like *C:\Downloads\*.
 
 To install the agent, run the following command in an elevated Windows PowerShell console:
 
