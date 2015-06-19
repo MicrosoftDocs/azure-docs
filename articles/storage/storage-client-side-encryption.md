@@ -58,7 +58,7 @@ In the preview version, the client library supports encryption of whole blobs on
 
 During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service. 
 
-> [AZURE.CAUTION] If you are editing or uploading your own metadata for the blob, you need to ensure that this metadata is preserved. If you upload new metadata without this metadata, the wrapped CEK, IV and other metadata will be lost and the blob content will never be retrievable again.
+> [AZURE.WARNING] If you are editing or uploading your own metadata for the blob, you need to ensure that this metadata is preserved. If you upload new metadata without this metadata, the wrapped CEK, IV and other metadata will be lost and the blob content will never be retrievable again.
 
 Downloading an encrypted blob involves retrieving the content of the entire blob using the **DownloadTo***/**BlobReadStream** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
@@ -80,7 +80,7 @@ During decryption, the wrapped key is extracted from the queue message and unwra
 
 In the preview version, the client library supports encryption of entity properties for insert and replace operations. 
 
->[AZURE.NOTE] Merge is not currently supported due to some limitations. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.
+>[AZURE.NOTE] Merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.
 
 Table data encryption works as follows:  
 
@@ -148,7 +148,7 @@ The [encryption samples](https://github.com/Azure/azure-storage-net/tree/preview
 
 ### Blobs
 
-Users will create a BlobEncryptionPolicy object and set it in the request options (per API or at a client level by using DefaultRequestOptions). Everything else will be handled by the client library internally.
+Users will create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
@@ -168,7 +168,7 @@ Users will create a BlobEncryptionPolicy object and set it in the request option
 
 ### Queues
 
-Users will create a QueueEncryptionPolicy object and set it in the request options (per API or at a client level by using DefaultRequestOptions). Everything else will be handled by the client library internally.
+Users will create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
 
 	// Create the IKey used for encryption.
@@ -186,9 +186,9 @@ Users will create a QueueEncryptionPolicy object and set it in the request optio
 
 ### Tables
 
-In addition to creating an encryption policy and setting it on request options, users will have to specify an EncryptionResolver in TableRequestOptions or set attributes on the entity.
+In addition to creating an encryption policy and setting it on request options, users will have to specify an **EncryptionResolver** in **TableRequestOptions** or set attributes on the entity.
 
-#### Using Resolver
+#### Using the resolver
 
 
 	// Create the IKey used for encryption.
@@ -223,7 +223,7 @@ In addition to creating an encryption policy and setting it on request options, 
  	TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
  	TableResult result = currentTable.Execute(operation, retrieveOptions, null);
 
-#### Using Attributes
+#### Using attributes
 
 As mentioned above, if the entity implements TableEntity, then the properties can be decorated with the [EncryptProperty] attribute instead of specifying the EncryptionResolver.
 
