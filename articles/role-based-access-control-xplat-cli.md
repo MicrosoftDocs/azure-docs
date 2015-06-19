@@ -31,7 +31,7 @@ In this tutorial, you'll learn how to use Azure CLI to manage role based access 
 Before you can use Azure CLI to manage RBAC, you must have the following:
 
 - Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](xplat-cli.md).
-- Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Azure CLI: [Using the Azure CLI with the Resource Manager](xplat-cli-azure-resource-manager.md)
+- Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Azure CLI: [Using the Azure CLI with the Resource Manager](virtual-machines/xplat-cli-azure-resource-manager.md)
 
 ## In this tutorial ##
 
@@ -47,7 +47,7 @@ Since RBAC only works with Azure Resource Manager, the first thing to do is to s
 
     azure config mode arm
 
-For more information, please refer to [Using the Azure CLI with the Resource Manager](xplat-cli-azure-resource-manager.md)
+For more information, please refer to [Using the Azure CLI with the Resource Manager](virtual-machines/xplat-cli-azure-resource-manager.md)
 
 To connect to your Azure subscriptions, type:
 
@@ -141,7 +141,7 @@ To learn more about managing role-based access control with Azure CLI and relate
 
 - [Role based access control in Azure](role-based-access-control-configure.md)
 - [Install and Configure the Azure CLI](xplat-cli.md)
-- [Using the Azure CLI with the Resource Manager](xplat-cli-azure-resource-manager.md)
+- [Using the Azure CLI with the Resource Manager](virtual-machines/xplat-cli-azure-resource-manager.md)
 - [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Configure role based access control using Windows PowerShell](role-based-access-control-powershell.md)
