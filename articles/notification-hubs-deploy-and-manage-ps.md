@@ -92,22 +92,22 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 ```
 
 
-## Provisioning a New Notification Hub 
+## Provisioning a new Notification Hub 
 
 To provision a new notification hub, use the [.NET API for Service Bus]. This article focuses only on notification hubs. To work with other service bus entities, see [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md).
 
 In this part of the script you set up four local variables. 
 
-+ `$Namespace` : Set this to the name of the namespace where you want to create a notification hub.
-+ `$Path` : Set this path to the name of the new notification hub.  For example, "MyHub".    
-+ `$WnsPackageSid` : Set this to the package SID for you Windows App from the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-+ `$WnsSecretkey`: Set this to the secret key for you Windows App from the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace` : Set this to the name of the namespace where you want to create a notification hub.
+2. `$Path` : Set this path to the name of the new notification hub.  For example, "MyHub".    
+3. `$WnsPackageSid` : Set this to the package SID for you Windows App from the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+4. `$WnsSecretkey`: Set this to the secret key for you Windows App from the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
 These variables are used to connect to your Service Bus namespace and create a new Notification Hub configured to handle Windows Notification Services (WNS) notifications with WNS credentials for a Windows App. For information on obtaining the package SID and secret key see, the [Getting Started with Notification Hubs](notification-hubs-windows-store-dotnet-get-started.md) tutorial. 
 
-The following script snippet uses the `NamespaceManager` object to check to see if the Notification Hub identified by `$Path` exists.
++ The script snippet uses the `NamespaceManager` object to check to see if the Notification Hub identified by `$Path` exists.
 
-If it does not exist, the script will create an `NotificationHubDescription` with WNS credentials and pass that to the `NamespaceManager` class `CreateNotificationHub` method.
++ If it does not exist, the script will create an `NotificationHubDescription` with WNS credentials and pass that to the `NamespaceManager` class `CreateNotificationHub` method.
 
 ``` powershell
 
