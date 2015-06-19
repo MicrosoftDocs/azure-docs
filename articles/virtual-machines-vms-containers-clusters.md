@@ -1,15 +1,19 @@
 <properties title="Virtual Machines, Containers, and Clusters in Azure" pageTitle="Virtual Machines, Containers, and Clusters in Azure" description="Describes Virtual Machines, Docker and Linux ontainers, and their usage in clusters in Azure, including the benefits of each and scenarios in which each approach works very well." services="virtual-machines" solutions="infrastructure" documentationCenter="virtual-machines" authors="squillace" videoId="" scriptId="" manager="timlt" />
+	
 
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="infrastructure" ms.workload="infrastructure" ms.date="06/07/2015" ms.author="rasquill" />
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Virtual Machines, Containers, and Clusters in Azure
 
-Azure already offers you great [hypervisor](http://en.wikipedia.org/wiki/Hypervisor) technology -- an emulation of physical computer hardware -- to enable agile movement of software deployments and increased usage of hardware resources. In the past few years, Linux container technology -- especially [Docker](https://www.docker.com) and its ecosystem -- has dramatically expanding the agility with which you can develop, deploy, test, and repair distributed software, especially in public cloud systems like Microsoft Azure. 
+Azure offers you a great range of technologies built on virtual machines -- based on the emulation of physical computer hardware -- to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. 
+
+In the past few years, Linux container technology -- especially [Docker](https://www.docker.com) and its ecosystem -- has dramatically expanding the agility with which you can develop and manage distributed software, especially in public cloud systems like Microsoft Azure. 
 
 **But that's old news.** The *new* news is that Azure offers you:
-- a choice of Docker container implementation models
-- Azure Resource Manager templates to describe complex solutions for deployment or updating
+- Many ways to create Docker hosts for containers to suit your needs
+- Azure Resource Manager templates to simplify deploying and updating complex distributed applications 
+- 
 - integration with multiple Windows, Linux, and open-source configuration management tools
 
 And because you can programmatically create VMs and Docker containers on Azure, you can also use *orchestration* tools -- also called continuous integration or continous deployment tools -- to create a combination of Virtual Machines (VMs), Linux containers (of which the most well known are [Docker](https://www.docker.com) containers), and soon [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) to move your businesses forward and make your users happier. 
@@ -17,6 +21,8 @@ And because you can programmatically create VMs and Docker containers on Azure, 
 This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're [right here](#tools-for-working-with-containers).
 
 ## The difference between virtual machines and containers
+
+[hypervisor](http://en.wikipedia.org/wiki/Hypervisor) technology -- an emulation of physical computer hardware -- 
 
 Virtual machines run inside an isolated hardware emulation environment provided by a hypervisor. In Azure, you do not have to manage any hypervisor; you just create Virtual Machines by choosing the operating system configure it to run the way you want. It is a complete operating system, isolated from other VMs by Windows Server Hyper-V, the hypervisor used by Azure. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage the operating system and to configure applications you install and run. 
 
