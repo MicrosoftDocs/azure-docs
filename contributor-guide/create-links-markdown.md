@@ -57,7 +57,7 @@ To link to an anchor in another service subfolder:
 
 Since includes are located in another directory, you will need to use relative paths as below. For a link to a single article, use this format:
 
-    [link text](../articles/service-folder/file-name.md)
+    [link text](](../../includes/file-name.md)
 
 If you have selectors embedded in an include, you would use this sort of linking:
 
