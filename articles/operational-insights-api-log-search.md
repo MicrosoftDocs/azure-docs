@@ -25,7 +25,7 @@ This guide provides a basic tutorial describing how you can use the Operational 
 
 The Operational Insights Log Search API is RESTful and can be accessed via the Azure Resource Manager API. In this document you will find examples where the API is accessed through the [ARMClient](https://github.com/projectkudu/ARMClient), an open source command line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Operational Insights Log Search API. With these tools you can utilize the RESTful Azure Resource Manager API to make calls to Operational Insights workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
 
-The Azure Resource Manager can be used via a [Library for .NET](https://msdn.microsoft.com/en-us/library/azure/dn910477.aspx) as well as a [REST API](https://msdn.microsoft.com/en-us/library/azure/mt163658.aspx). Review the liked web pages to learn more.
+The Azure Resource Manager can be used via a [Library for .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) as well as a [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). Review the liked web pages to learn more.
 
 ## Basic Search API tutorial
 
