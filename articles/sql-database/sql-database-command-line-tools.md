@@ -104,7 +104,7 @@ You can scale your database up or down with the [Set-AzureSqlDatabase](https://m
 
 ## Delete a SQL database
 
-You can delete a SQL database with the [Remove-AzureSqlDatabase](https://msdn.microsoft.com/en-us/library/mt125977.aspx) command. The following example deletes a SQL database named TestDB12.
+You can delete a SQL database with the [Remove-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125977.aspx) command. The following example deletes a SQL database named TestDB12.
 
 	PS C:\>Remove-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
 
