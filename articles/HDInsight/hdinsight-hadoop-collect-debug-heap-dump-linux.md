@@ -23,7 +23,7 @@
 
 Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they are very useful for diagnosing problems that occur at run-time.
 
-> [AZURE.NOTE] The information in this article only applies to Linux-based HDInsight. For information on Windows-based HDInsight, see [Enable heap dumps for Hadoop services on Windows-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump.md)
+> [AZURE.NOTE] The information in this article only applies to Linux-based HDInsight. For information on Windows-based HDInsight, see [Enable heap dumps for Hadoop services on Windows-based HDInsight](hdinsight-hadoop-collect-debug-heap-dumps.md)
 
 ## <a name="whichServices"></a>Services
 
