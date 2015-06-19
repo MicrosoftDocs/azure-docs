@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Manage using CLI | Overview"
+	pageTitle="Manage Key Vault using CLI | Overview"
 	description="Use this tutorial to automate common tasks in Key Vault using the CLI"
 	services="key-vault"
 	documentationCenter=""
-	authors="mbaldwin"
+	authors="msmbaldwin"
 	manager="mbaldwin"/>
 
 <tags
@@ -11,9 +11,9 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="06/18/2015"
-	ms.author="cabailey"/>
+	ms.author="bruceper"/>
 
 # Get Started with Azure Key Vault #
 
@@ -191,7 +191,7 @@ For example, if your vault name is ContosoKeyVault and the application you want 
 
 ## If you want to use a hardware security module (HSM) ##
 
-For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are certified to FIPS 140-2 Level 2 and Common Criteria EAL4+. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets][].
+For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are certified to FIPS 140-2 Level 2 and Common Criteria EAL4+. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets][#delete-the-key-vault-and-associated-keys-and-secrets].
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 
