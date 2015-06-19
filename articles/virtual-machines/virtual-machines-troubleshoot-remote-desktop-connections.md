@@ -280,8 +280,4 @@ For information about using Azure Support, see the [Microsoft Azure Support FAQ]
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
-[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
-
- 
+[Troubleshoot Secure Shell (SSH) Connections to a Linux-based Azure Virtual Machine](virtual-machines-troubleshoot-ssh-connections.md) 
