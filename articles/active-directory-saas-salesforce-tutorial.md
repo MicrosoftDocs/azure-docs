@@ -18,7 +18,7 @@
 
 #Tutorial: How to integrate Salesforce with Azure Active Directory
 
-This tutorial will help you get started with using Salesforce with Azure Active Directory.
+This tutorial will show you how to connect your Salesforce environment to your Azure Active Directory.
 
 ##Prerequisites
 
@@ -26,7 +26,7 @@ This tutorial will help you get started with using Salesforce with Azure Active 
 
 2. You must have a valid tenant in [Salesforce.com](https://www.salesforce.com/).
 
-> [AZURE.WARNING] If you are following this tutorial with a Salesforce.com trial account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased.
+> [AZURE.WARNING] If you are using a Salesforce.com **trial** account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased.
 > 
 > You can get around this limitation by using a [free developer account](https://developer.salesforce.com/signup) to complete this tutorial.
 
@@ -163,13 +163,13 @@ You can follow this tutorial using the following videos:
 
 	![Click the Configure User Provisioning button][20]
 
-2. In the **Configure user provisioning** dialog, type in your Salesforce admin username and password. These credentials must be for an account that has the **System Administrator** profile assigned to it in Salesforce.
-
-	> [AZURE.NOTE] If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step.
+2. In the **Configure user provisioning** dialog, type in your Salesforce admin username and password.
 
 	![Type in your admin username or password][21]
 
-3. To get your Salesforce security token, open a new tab and sign into your Salesforce admin account. On the top right corner of the page, click on your name, and then click on **My Settings**.
+	> [AZURE.NOTE] If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step. These account must have the **System Administrator** profile assigned to it in Salesforce.
+
+3. To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account. On the top right corner of the page, click on your name, and then click on **My Settings**.
 
 	![Click on your name, then click on My Settings][22]
 
@@ -195,21 +195,21 @@ You can follow this tutorial using the following videos:
 
 1. To test your configuration, start creating a new test account in the directory.
 
-2. On the Salesforce Quick Start page, click **Assign Users**.
+2. On the Salesforce Quick Start page, click on the **Assign Users** button.
 
 	![Click on Assign Users][27]
 
-3. Select your test user, and click **Assign**:
+3. Select your test user, and click the **Assign** button at the bottom of the screen:
 
  - If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:
 
-	![Confirm the assignment.][28]
+		![Confirm the assignment.][28]
 
  - If you have enabled automated user provisioning, then you'll see a prompt to define what type of Salesforce profile the user should have. Newly provisioned users should appear in your Salesforce environment after a few minutes.
 
-	![Confirm the assignment.][29]
+		![Confirm the assignment.][29]
 
-	> [AZURE.WARNING] If you are provisioning to a Salesforce developer environment, you will have a very limited number of licenses available for each profile. In this case it's best to provision to the **Chatter Free User** profile, which has 4,999 licenses available.
+		> [AZURE.WARNING] If you are provisioning to a Salesforce developer environment, you will have a very limited number of licenses available for each profile. In this case it's best to provision to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com/](https://myapps.microsoft.com/), sing into the test account, and click on **Salesforce**.
 
