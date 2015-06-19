@@ -1282,7 +1282,7 @@ Run this command:
 ## <a id="start-a-virtual-machine"></a>TASK: Start a VM
 
 Run this command:
-Azure Resource Manager Overview
+
     azure vm start <group name> <virtual machine name>
 
 ## <a id="attach-a-data-disk"></a>TASK: Attach a Data Disk
