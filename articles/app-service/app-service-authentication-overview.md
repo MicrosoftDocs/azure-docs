@@ -141,7 +141,9 @@ For these providers, the gateway maintains access tokens and associates them wit
 
 ![](./media/app-service-authentication-overview/saastoken.png)
 
-The App Service runtime support and SDKs make it relatively easy to write code that accesses resources secured by one of these providers.  For these and many other providers you can also access secured resources by using a prepackaged [connector API app](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md).  
+The App Service runtime support and SDKs make it relatively easy to write code that accesses resources secured by one of these providers. There is a preliminary step not shown in the diagram: you have to set up an account with the provider and configure the provider's client ID and client secret settings in Azure App Service.
+
+For these and many other providers you can also access secured resources by using a prepackaged [connector API app](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md).  
 
 <!-- 
 ## Authorization
