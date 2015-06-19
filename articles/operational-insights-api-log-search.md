@@ -34,15 +34,15 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 1. Install [Chocolatey](https://chocolatey.org/), which is an an Open Source Machine Package Manager for Windows.
 2. Open a PowerShell window as administrator and then run the following command:
 
-  ```
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
-```
+    ```
+    @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+    ```
 
 3. Install the ARMClient by opening a new command prompt and run the following command:
 
-  ```
-choco install armclient
-```
+    ```
+    choco install armclient
+    ```
 
 ### To perform a simple search using the ARMClient
 
@@ -340,3 +340,15 @@ You may specify the start and end markers that will be used by search to wrap th
 ```
 
 Notice that the result above contains an error message that has been prefixed and appended.
+
+
+
+2. To include the code block, I must indent once.
+
+    ```powershell
+    Set-AzureAclConfig –AddRule –ACL $acl1 –Order 200 `
+                       –Action permit –RemoteSubnet "157.0.0.0/8" `
+                       –Description "web frontend ACL config"
+    ```
+
+3. Some more lines
