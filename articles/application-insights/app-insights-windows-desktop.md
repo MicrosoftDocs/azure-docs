@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights for Windows desktop apps and services" 
-	description="Analyze usage and performance of your Windows app with Application Insights." 
+	description="Analyze usage and performance of your Windows desktop app with Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps and services
@@ -23,7 +23,7 @@
 
 Application Insights lets you monitor your deployed application for usage and performance.
 
-Support for Windows desktop apps and services are provided by the Application Insights core SDK. This SDK provides the full API support for all telemetry data but does not provide any telemetry auto collection.
+Support for Windows desktop apps and services are provided by the Application Insights core SDK. This SDK provides full API support for all telemetry data but does not provide any telemetry auto collection.
 
 
 ## <a name="add"></a> Create an Application Insights resource
@@ -33,6 +33,7 @@ Support for Windows desktop apps and services are provided by the Application In
 
     ![Click New, Application Insights](./media/app-insights-windows-desktop/01-new.png)
 
+    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
 2.  Take a copy of the Instrumentation Key.
 
@@ -46,11 +47,11 @@ Support for Windows desktop apps and services are provided by the Application In
 
 2. Install the Application Insights API package.
 
-    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
+    ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
-    &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
 
     As an alternative you can achieve the same effect with this code:
     
@@ -61,7 +62,7 @@ Support for Windows desktop apps and services are provided by the Application In
 
 Create a `TelemetryClient` instance and then [use it to send telemetry][api].
 
-Use `TelemetryClient.Flush` to send messages before closing the app. (This is not recommended for other types of app.)
+Use `TelemetryClient.Flush()` to send messages before closing the app. The Core SDK uses an in-memory buffer. The flush method will ensure this buffer is emptied helping to ensure no data loss on process shutdown. (This is not recommended for other types of app. The platforms SDKs implement this behavior automatically.)
 
 For example, in a Windows Forms application, you could write:
 
@@ -108,9 +109,10 @@ Use any of the [Application Insights API][api] to send telemetry. In Windows Des
 
 #### Context initializers
 
-As an alternative to setting session data in each TelemetryClient instance, you can use a context initializer:
+To see counts of users and sessions you can set the values on each `TelemetryClient` instance. Alternatively, you can use a context initializer to perform this addition for all clients:
 
 ```C#
+
     class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
@@ -128,6 +130,7 @@ As an alternative to setting session data in each TelemetryClient instance, you 
             TelemetryConfiguration.Active.ContextInitializers.Add(
                 new UserSessionInitializer());
             ...
+
 ```
 
 
