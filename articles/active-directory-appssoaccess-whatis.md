@@ -98,13 +98,13 @@ Ready to get started? To deploy single sign-on between Azure AD and SaaS applica
 
 ###Using the Azure AD application gallery
 
-The [Azure Active Directory Application Gallery](http://azure.microsoft.com/en-us/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
+The [Azure Active Directory Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
 
 ![][1]
 
 Here are some tips for finding apps by what capabilities they support:
 
-*	Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](http://azure.microsoft.com/en-us/marketplace/active-directory/all/).
+*	Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/).
 
 *	A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found [here](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
@@ -118,7 +118,7 @@ If your application is not found in the Azure AD application gallery, then you h
 
 
 *	**Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
-  * https://msdn.microsoft.com/en-us/library/azure/dn499820.aspx
+  * https://msdn.microsoft.com/library/azure/dn499820.aspx
   * https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
   * https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
   * https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore
@@ -160,13 +160,13 @@ Which method(s) you choose to deploy in your organization is your discretion.
 
 ###Azure AD access panel
 
-The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with [Azure Active Directory Premium](https://msdn.microsoft.com/en-us/library/azure/dn532272.aspx), you can also utilize self-service group management capabilities through the Access Panel.
+The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx), you can also utilize self-service group management capabilities through the Access Panel.
 
 ![][3]
 
 The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription or Office 365 subscription.
 
-For more information on the Azure AD access panel, see the [introduction to the access panel](https://msdn.microsoft.com/en-us/library/azure/dn308586.aspx).
+For more information on the Azure AD access panel, see the [introduction to the access panel](https://msdn.microsoft.com/library/azure/dn308586.aspx).
 
 ###Office 365 application launcher
 
@@ -174,7 +174,7 @@ For organizations that have deployed Office 365, applications assigned to users 
 
 ![][4]
 
-For more information about the Office 365 application launcher, see [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher).
+For more information about the Office 365 application launcher, see [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ###Direct sign-on to federated apps
 
