@@ -3,8 +3,8 @@
    description="The list of updates applied to Guest OS releases" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
+   authors="yuemlu" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -28,7 +28,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-057    | [3033890] | Vulnerability in Windows Media Player Could Allow Remote Code Execution | 4.21, 3.28, 2.40 | June 9, 2015 |
 | MS15-060    | [3059317] | Vulnerability in Microsoft Common Controls Could Allow Remote Code Execution | 4.21, 3.28, 2.40 | June 9, 2015 |
 | MS15-061    | [3057839] | Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
-| MS15-062    | [3055642] | Vulnerability in Active Directory Federation Services Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-062    | [3062577] | Vulnerability in Active Directory Federation Services Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
 | MS15-063    | [3063858] | Vulnerability in Windows Kernel Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
 
 ## May Guest OS
@@ -199,7 +199,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3033890]:http://support.microsoft.com/kb/3033890
 [3059317]:http://support.microsoft.com/kb/3059317
 [3057839]:http://support.microsoft.com/kb/3057839
-[3055642]:http://support.microsoft.com/kb/3055642
+[3062577]:http://support.microsoft.com/kb/3062577
 [3063858]:http://support.microsoft.com/kb/3063858
 
 
