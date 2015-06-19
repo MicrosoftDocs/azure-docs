@@ -48,12 +48,16 @@ To get started:
 
     If your app type isn't listed, take a look at the [Getting Started][start] page.
 
-4. In this example, we're monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK. We tell it the name of our Application Insights resource:
+4. In this example, we're monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK. Tell it the name of your Application Insights resource:
 
-    ![In Visual Studio, in the New Project dialog, check Add Application Insights, and under Send telemetry to, choose to create a new app, or use an existing one.](./media/app-insights-code-sample-export-sql-stream-analytics/030-new-project.png)
+    ![In Visual Studio Solution Explorer, right-click your project and choose Add Application Insights. At Send telemetry to, choose to create a new resource, or use an existing one.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
+
+5. Publish your app, and watch telemetry data appearing in your Application Insights resource.
 
 
 ## Create storage in Azure
+
+Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
 1. Create a storage account in your subscription in the [Azure portal][portal].
 
@@ -95,7 +99,7 @@ And also, the data will export to your storage, where you can inspect the conten
 
 ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to write some code to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to write some code to move the data to a SQL database. That will make it easy to run lots of interesting queries.
+The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to a SQL database. That will make it easy to run lots of interesting queries.
 
 ## Create an Azure SQL Database
 

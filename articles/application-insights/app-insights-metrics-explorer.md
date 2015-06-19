@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -158,7 +158,28 @@ To be notified by email of unusual values of any metric, add an alert. You can c
 
 ![In Metrics Explorer, choose Alert rules, Add Alert](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
 
-[Learn more][alerts].
+[Learn more about alerts][alerts].
+
+## Export to Excel
+
+You can export metric data that is displayed in Metric Explorer to an Excel file. The exported data includes data from all charts and tables as seen in the portal. 
+
+
+![In Metrics Explorer, choose Alert rules, Add Alert](./media/app-insights-metrics-explorer/31-export.png)
+
+The data for each chart or table is exported to a separate sheet in the Excel file.
+
+What you see is what gets exported. Change the time range or filters if you want to change the range of data exported. For tables, if the **load more** command is showing, you can click it before you click Export, to have more data exported.
+
+*Export works only for Internet Explorer and Chrome at present. We’re working on adding support for other browsers.*
+
+If you want data continuously exported so that you can process it externally, consider using [Continous export](app-insights-export-telemetry.md).
+
+
+## Next steps
+
+* [Monitoring usage with Application Insights](app-insights-overview-usage.md)
+* [Using Diagnostic Search](app-insights-diagnostic-search.md)
 
 
 <!--Link references-->
