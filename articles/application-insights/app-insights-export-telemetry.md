@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -138,7 +138,7 @@ The continuous export will restart.
 
 * *But all I want is a one-time download of a chart.*  
  
-    We're working on that one separately. 
+    Yes, you can do that. At the top of the blade, click [Export Data](app-insights-metrics-explorer.md#export-to-excel).
 
 * *I set up an export, but there's no data in my store.*
 

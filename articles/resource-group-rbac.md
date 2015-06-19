@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="06/18/2015"
    ms.author="tomfitz"/>
 
 # Managing and Auditing Access to Resources
@@ -118,7 +118,7 @@ To view all available roles for your subscription run the **Get-AzureRoleDefinit
 
 2. Get the service principal object Id by running the **Get-AzureADServicePrincipal** command and providing the name of the application in your subscription. ExampleApplication is shown below.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -ServicePrincipalName ExampleApplicationName
+        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
 
 3. Create the role assignments for the service principal by running the **New-AzureRoleAssignment** command.
 

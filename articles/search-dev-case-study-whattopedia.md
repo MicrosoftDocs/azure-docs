@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure" 
 	description="Learn how to build an information portal and meta search engine using Search service on Microsoft Azure" 
 	services="search, sql-database,  storage, web-sites" 
@@ -15,9 +15,9 @@
 	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
-<h1>Azure Search Developer Case Study</h1>
+# Azure Search Developer Case Study
 
-<font size="5">How [WhatToPedia.com](http://whattopedia.com/) built an infomedia portal on Microsoft Azure</font>
+## How [WhatToPedia.com](http://whattopedia.com/) built an infomedia portal on Microsoft Azure
 
  ![][6]  &nbsp;&nbsp;&nbsp;  <font size="9">The big idea</font> 
 
@@ -417,6 +417,6 @@ The following code builds the indexer mentioned in the section on building the p
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
