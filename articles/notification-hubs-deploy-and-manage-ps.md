@@ -46,7 +46,7 @@ information about obtaining a subscription, see [Purchase Options],
 ## Including a reference to the .NET assembly for Service Bus
 
 Managing Azure Notification Hubs is not yet included with the PowerShell cmdlets in Azure PowerShell. To provision notification hubs and other service bus entities that are not exposed through the existing cmdlets, you can use the .NET client for
-Service Bus in the [Service Bus NuGet package].
+Service Bus in the [Service Bus NuGet package](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 First, make sure your script can locate the **Microsoft.ServiceBus.dll** assembly, which is installed as a NuGet package in a Visual Studio project. In order to be flexible, the script performs these steps:
 
