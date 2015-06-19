@@ -25,9 +25,13 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 
 #### To upgrade to the latest SDK 
 
+* Take a copy of ApplicationInsights.config, to keep any customizations you have done.
 * In Solution Explorer, right-click your project and choose **Manage NuGet packages**.
 * Set the filter to show installed packages. 
 * Select the installed Application Insights packages and choose Upgrade.
+* Compare the old and new versions of ApplicationInsights.config. Merge back any customizations you made to the old version.
+* Rebuild your solution.
+
 
 ## Version 0.16 
 
