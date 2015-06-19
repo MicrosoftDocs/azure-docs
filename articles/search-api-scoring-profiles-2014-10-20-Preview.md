@@ -142,7 +142,7 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
 
 To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query. 
 
-Start with the [Template][#bkmk_template] provided in this topic.
+Start with the [Template](#bkmk_template) provided in this topic.
 
 Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming Rules](http://msdn.microsoft.com/library/azure/dn857353.aspx) for more information.
 
