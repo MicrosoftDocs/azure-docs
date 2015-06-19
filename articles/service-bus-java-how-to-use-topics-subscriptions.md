@@ -43,7 +43,7 @@ Add the Azure Libraries for Java to your build path and include it in your proje
 Management operations for Service Bus topics can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
 constructed with an appropriate configuration that encapsulates the
-token permissions to manage it, and the **ServiceBusContract** class is
+SAS token with permissions to manage it, and the **ServiceBusContract** class is
 the sole point of communication with Azure.
 
 The **ServiceBusService** class provides methods to create, enumerate,
