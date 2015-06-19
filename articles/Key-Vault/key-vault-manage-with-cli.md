@@ -56,7 +56,6 @@ You can also read the following tutorials to get familiar with Azure Resource Ma
 - [Using Azure Cross-Platform Command-Line Interface with Azure Resource Manager](xplat-cli-azure-resource-manager.md)
 
 
-
 ## Connect to your subscriptions
 
 To log in using an organizational account, use the following command:
@@ -131,9 +130,7 @@ If you want Azure Key Vault to create a software-protected key for you, use the 
 
 However, if you have an existing key in a .pem file saved as local file in a file named softkey.pem that you want to upload to Azure Key Vault, type the following to import the key from the .PEM file, which protects the key by software in the Key Vault service:
 
-    azure vault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem'
-
-If the .pem file is protected by a password, you first need to create a clear-text version using openssl rsa -in privkey.pem -passin pass:PaSSW0RD -out softkey.pem.
+    azure vault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password ‘PaSSWORD’
 
 You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI listed in the output as ‘key kid’. For example: **https://ContosoKeyVault.vault.azure.net/Keys/ContosoFirstKey/a10f5336-9d93-44a3-9e26-e86e3488b768** 
 
@@ -204,9 +201,7 @@ You can add software-protected keys (as shown earlier) and HSM-protected keys to
     azure vault key create --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --destination 'HSM'
 You can use the following command to import a key from a .pem file on your computer. This command imports the key into HSMs in the Key Vault service:
 
-    azure vault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM'
-
-If the .pem file is protected by a password, you first need to create a clear-text version using openssl rsa -in privkey.pem -passin pass:PaSSW0RD -out softkey.pem.
+    azure vault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' –-password ‘PaSSWORD’
 
 The next command imports a “bring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
 
