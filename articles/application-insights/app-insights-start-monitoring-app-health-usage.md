@@ -63,7 +63,7 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
 2. Install Application Insights SDK for Web Apps.
 
-    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
+    ![Search for "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
@@ -72,6 +72,11 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
     (You can alternatively [set the key by writing some code][apikey] in your app.)
 
+#### To upgrade to future SDK versions
+
+To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again and filter on installed packages. Select Microsoft.ApplicationInsights.Web and choose Upgrade.
+
+If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
 
 ## <a name="run"></a> 3. Run your project

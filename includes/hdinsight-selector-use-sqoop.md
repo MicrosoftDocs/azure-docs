@@ -1,3 +1,3 @@
 > [AZURE.SELECTOR]
-- [SSH](../articles/hdinsight-use-sqoop-mac-linux.md)
-- [PowerShell](../articles/hdinsight-use-sqoop.md)
+- [SSH](../articles/hdinsight/hdinsight-use-sqoop-mac-linux.md)
+- [PowerShell](../articles/hdinsight/hdinsight-use-sqoop.md)
