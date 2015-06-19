@@ -338,15 +338,13 @@ To enable protection the operating system and operating system disk properties m
 		```
 			
 3. Enable the DR for the VM by running the following command:
-	
-```
+
 	
 	$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
 	
-		
-	```
 
 ## Test your deployment
+
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan. Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
 
 - If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.
