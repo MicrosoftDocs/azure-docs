@@ -18,7 +18,7 @@
 
 #Tutorial: How to integrate Salesforce with Azure Active Directory
 
-This tutorial will show you how to connect your Salesforce environment to your Azure Active Directory.
+This tutorial will show you how to connect your Salesforce environment to your Azure Active Directory. You will learn how to configure single sign-on to Salesforce, enable automated user provisioning, and assign users to have access to Salesforce.
 
 ##Prerequisites
 
