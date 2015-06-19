@@ -191,7 +191,7 @@ For example, if your vault name is ContosoKeyVault and the application you want 
 
 ## If you want to use a hardware security module (HSM) ##
 
-For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are certified to FIPS 140-2 Level 2 and Common Criteria EAL4+. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets][#delete-the-key-vault-and-associated-keys-and-secrets].
+For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are certified to FIPS 140-2 Level 2 and Common Criteria EAL4+. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 
