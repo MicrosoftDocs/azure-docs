@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/19/2015" 
 	ms.author="sdanie"/>
 
 #What is API Management?
@@ -25,6 +25,17 @@ API Management helps organizations publish APIs to external, partner and interna
 To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
 
 This topic provides an overview of API Management key concepts.
+
+>[AZURE.NOTE] For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
+>
+> - Common API requirements and challenges
+>     - Decoupling APIs and presenting facades
+>     - Getting developers up and running quickly
+>     - Securing access
+>     - Analytics and metrics
+> - Gaining control and insight with an API Management platform
+> - Using cloud vs on-premise solutions
+> - Azure API Management
 
 ## <a name="apis"> </a>APIs and operations
 
