@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
 
 # Create a new Application Insights resource
@@ -78,6 +78,9 @@ Click the Search tile to see [Diagnostic Search][diagnostic], where the first ev
 
 Click Refresh after a few seconds if you're expecting more data.
 
+## Creating a resource automatically
+
+You can write a [PowerShell script](app-insights-powershell-script-create-resource.md) to create a resource automatically.
 
 
 <!--Link references-->
