@@ -82,9 +82,9 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
 In PowerShell, run these cmdlets:
 
-```
 
-	$UserName = "<user@live.com>"
+
+			$UserName = "<user@live.com>"
 	$Password = "<password>"
 	$AzureSubscriptionName = "prod_sub1"
 
@@ -93,7 +93,6 @@ In PowerShell, run these cmdlets:
 	Add-AzureAccount -Credential $Cred;
 	$AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 
-```
 
 Replace the elements within the "< >" with your specific information.
 
@@ -134,11 +133,9 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 	
 2.	Set the vault context by running the following commands:
 	
-	```
-	
+	```	
 		$VaultSettingFilePath = $vaultSetingsFile.FilePath 
 		$VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
-	
 ```
 
 ## Step 4: Install the Azure Site Recovery Provider
@@ -253,32 +250,20 @@ Run the following command on all VMM hosts:
 	```
 	
 4.	After the job has finished, run the following command:
-	
-	```
-	
-	Do
-	{
-	                $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-	                if($job -eq $null -or $job.StateDescription -ne "Completed")
-	                {
-	                                $isJobLeftForProcessing = $true;
-	                }
-	                
-	                
-	
-	```
-	
+
+			$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+			if($job -eq $null -or $job.StateDescription -ne "Completed")
+			{
+				$isJobLeftForProcessing = $true;
+			}
 5. After the job has finished processing, run the following command:
-		
-	```
+
+		if($isJobLeftForProcessing)
+			{
+			Start-Sleep -Seconds 60
+			}
+				}While($isJobLeftForProcessing)
 	
-	                if($isJobLeftForProcessing)
-	                {
-	                                Start-Sleep -Seconds 60
-	                }
-	}While($isJobLeftForProcessing)
-	
-	```
 	
 To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
 
@@ -289,11 +274,10 @@ Note that if the target network has multiple subnets and one of those subnets ha
 
 The first command gets servers for the current Azure Site Recovery vault. The command stores the Microsoft Azure Site Recovery servers in the $Servers array variable.
 
-```
+
 
 	$Servers = Get-AzureSiteRecoveryServer
 
-```
 
 The second command gets the site recovery network for the first server in the $Servers array. The command stores the networks in the $Networks variable.
 
@@ -349,20 +333,18 @@ To enable protection the operating system and operating system disk properties m
 		
 	```
 	
-		$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
+	$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 		
 		```
 			
 3. Enable the DR for the VM by running the following command:
-	
-```
+
 	
 	$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
 	
-		
-	```
 
 ## Test your deployment
+
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan. Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
 
 - If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.
@@ -479,4 +461,3 @@ if($isJobLeftForProcessing)
 
 <LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
 </UL>
-
