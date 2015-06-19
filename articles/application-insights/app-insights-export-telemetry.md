@@ -152,7 +152,7 @@ The continuous export will restart.
 
 * *Can I export straight to my own on-premises store?* 
 
-    No, sorry. Our export engine needs to rely on a big open throat to push the data into.  
+    No, sorry. Our export engine currently only works with Azure storage at this time.  
 
 * *Is there any limit to the amount of data you put in my store?* 
 
