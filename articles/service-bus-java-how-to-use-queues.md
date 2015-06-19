@@ -26,6 +26,8 @@ messages**, and **deleting queues**.
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues-java.md)]
 
 ## Configure your application to use Service Bus
+Make sure you have installed the [Azure SDK for Java][] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
+![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
 Add the following import statements to the top of the Java file:
 
@@ -250,6 +252,7 @@ Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+	[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
