@@ -82,9 +82,9 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
 In PowerShell, run these cmdlets:
 
-```
 
-	$UserName = "<user@live.com>"
+
+			$UserName = "<user@live.com>"
 	$Password = "<password>"
 	$AzureSubscriptionName = "prod_sub1"
 
@@ -93,7 +93,6 @@ In PowerShell, run these cmdlets:
 	Add-AzureAccount -Credential $Cred;
 	$AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 
-```
 
 Replace the elements within the "< >" with your specific information.
 
@@ -275,11 +274,10 @@ Note that if the target network has multiple subnets and one of those subnets ha
 
 The first command gets servers for the current Azure Site Recovery vault. The command stores the Microsoft Azure Site Recovery servers in the $Servers array variable.
 
-```
+
 
 	$Servers = Get-AzureSiteRecoveryServer
 
-```
 
 The second command gets the site recovery network for the first server in the $Servers array. The command stores the networks in the $Networks variable.
 
@@ -335,7 +333,7 @@ To enable protection the operating system and operating system disk properties m
 		
 	```
 	
-		$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
+	$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 		
 		```
 			
