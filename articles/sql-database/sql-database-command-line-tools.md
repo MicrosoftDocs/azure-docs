@@ -38,9 +38,9 @@ For detailed information, see [Using Windows PowerShell with Resource Manager](.
 
 
 
-## Configure your credentials and select your subscription
+## Configure your credentials
 
-To run PowerShell Cmdlets against your Azure subscription you must first establish access to your Azure account. Run the following and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
+To run PowerShell cmdlets against your Azure subscription you must first establish access to your Azure account. Run the following and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
 	PS C:\>Add-AzureAccount
 
@@ -49,9 +49,9 @@ After successfully signing in you should see some information on screen that inc
 
 ## Select your Azure subscription
 
-To select the subscription you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset.
+To select the subscription you want to work with you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset.
 
-Run the following cmdlet with your subscription Id to set your current subscription:
+Run the following cmdlet with your subscription information to set your current subscription:
 
 	PS C:\>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -66,7 +66,7 @@ For a list of valid Azure SQL Database server locations run the following cmdlet
 		$AzureSQLLocations = Get-AzureLocation | Where-Object Name -Like "*SQL/Servers"
 		$AzureSQLLocations.Locations
 
-If you already have a resource group you can jump ahead to create a server, or you can run the following command to create a new resource group:
+If you already have a resource group you can jump ahead to create a server, or you can edit and run the following command to create a new resource group:
 
 	PS C:\>New-AzureResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
 
