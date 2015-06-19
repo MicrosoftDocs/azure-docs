@@ -25,7 +25,7 @@ Another approach is to use a VM on your own hardware. Compared to that approach,
 
 This table helps you compare the choices offered by Azure.
 
-[AZURE.INCLUDE [content](../includes/virtual-machines-choose-me-content.md)]
+[AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
  
 ## Next Steps
 

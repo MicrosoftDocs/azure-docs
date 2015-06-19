@@ -22,7 +22,7 @@
 
 Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do. Is an Azure VM the choice for you?
 
-[AZURE.INCLUDE [content](../includes/virtual-machines-choose-me-content.md)]
+[AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## Next steps
 Learn more about [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx)
