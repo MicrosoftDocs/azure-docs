@@ -7,7 +7,7 @@
 	authors="KBDAzure" 
 	documentationCenter=""
 	manager="timlt"
-	tags=""/>
+	tags=azure-resource-manager, azure-service-management/>
 
 <tags 
 	ms.service="multiple" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/19/2015" 
 	ms.author="kathydav"/>
 
 # Should I Choose Azure Virtual Machines?

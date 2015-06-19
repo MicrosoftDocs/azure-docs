@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor="tysonn"
-	tags="/>
+	tags="azure-resource-manager, azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/18/2015"
+	ms.date="06/19/2015"
 	ms.author="kathydav"/>
 
 #About Azure Virtual Machines
@@ -44,4 +44,7 @@ Because those tutorials help you create a VM quickly, they show you only one way
 If you're just starting to learn about Azure Virtual Machines, be sure to also check out the Frequently Asked Questions. 
 
 
-
+<!--links-->
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
