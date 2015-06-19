@@ -33,10 +33,13 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 
 1. Install [Chocolatey](https://chocolatey.org/), which is an an Open Source Machine Package Manager for Windows.
 2. Open a PowerShell window as administrator and then run the following command:
+
   ```
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 ```
+
 3. Install the ARMClient by opening a new command prompt and run the following command:
+
   ```
 choco install armclient
 ```
@@ -48,6 +51,7 @@ choco install armclient
   armclient login
   ```
   A successful login lists all subscriptions tied to the given account. For example:
+
   ```
 PS C:\Users\SampleUserName> armclient login
 Welcome YourEmail@ORG.com (Tenant: zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz)
@@ -57,7 +61,6 @@ Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 1)
 Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 2)
 Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
 ```
-
 2. Get the Operations Management Suite Workspaces. For example:
   ```
 armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
@@ -80,10 +83,12 @@ armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups
 }
 ```
 3. Create your search variable. For example:
+
   ```
 $mySearch = "{ 'top':150, 'query':'Error'}”;
 ```
 4. Search using your new search variable. For example:
+
   ```
 armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
 ```
@@ -94,11 +99,13 @@ The following examples show you how you can use the Search API.
 ### Search - Action/Read
 
 **Sample Url:**
+
 ```
 	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
 ```
 
 **Request:**
+
 ```
 	$savedSearchParametersJson =
 	{
@@ -127,6 +134,7 @@ The following table describes the properties that are available.
 
 
 **Response:**
+
 ```
 	{
 	  "id" : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -179,6 +187,7 @@ The following table describes the properties that are available.
 ### Search/{ID} - Action/Read
 
 **Request the contents of a Saved Search:**
+
 ```
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
 ```
@@ -188,6 +197,7 @@ The following table describes the properties that are available.
 ### Saved searches - REST only
 
 **Request List of Saved Searches:**
+
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
   ```
@@ -211,6 +221,7 @@ The following table describes the properties that are available.
 ### Delete saved searches
 
 **Request:**
+
 ```
 	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
 ```
@@ -218,6 +229,7 @@ The following table describes the properties that are available.
 ### Update saved searches
 
  **Request:**
+
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
 	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
@@ -228,11 +240,13 @@ The following table describes the properties that are available.
 Here’s a way to see the fields for all log types for the data collected in your workspace. For example, if you want you know if the Event type has a field named Computer, then this is one way to look up and confirm.
 
 **Request for Fields:**
+
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
 ```
 
 **Response:**
+
 ```
 	{
 	  "__metadata" : {
