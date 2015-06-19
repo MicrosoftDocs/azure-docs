@@ -209,7 +209,7 @@ You can follow this tutorial using the following videos:
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.WARNING] If you are provisioning to a Salesforce developer environment, you will have a very limited number of licenses available for each profile. In this case it's best to provision to the **Chatter Free User** profile, which has 4,999 licenses available.
+		> [AZURE.WARNING] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](https://myapps.microsoft.com/), then sign into the test account, and click on **Salesforce**.
 
