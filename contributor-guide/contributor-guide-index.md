@@ -6,7 +6,7 @@
 
 ##General guidance
 
-- [Contribute to Azure documentation](./../CONTRIBUTING.md)
+- [Contribute to Azure documentation](./../README.md)
 
 - [Content channel guidance](./content-channel-guidance.md)
 
@@ -19,7 +19,7 @@
 
 - [Git commands for creating a new article or updating an existing article](./git-commands-for-master.md)
 
-- [Git commands for staging an article on the internal preview site](./git-commands-for-sandbox.md)
+<!-- [Git commands for staging an article on the internal preview site](./git-commands-for-sandbox.md)-->
 
 - [File names and locations for Azure technical articles](./file-names-and-locations.md)
 

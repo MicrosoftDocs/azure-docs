@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="05/26/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Managed Cache Service
@@ -186,7 +186,8 @@ To configure a client application using the Cache NuGet package, right-click the
 
 ![NuGetPackageMenu][NuGetPackageMenu]
 
-Type **WindowsAzure.Caching** into the **Search Online** text box, and select **Windows Azure Cache** from the results. Click **Install**, and then click **I Accept**.
+Type **WindowsAzure.Caching** into the **Search Online** text box, and select **Windows**  
+**Azure** **Cache** from the results. Click **Install**, and then click **I Accept**.
 
 ![NuGetPackage][NuGetPackage]
 
@@ -268,8 +269,6 @@ The NuGet package also adds references to the following assemblies:
 If your project is a web project, the following assembly reference is also added:
 
 -	Microsoft.Web.DistributedCache.dll.
-
->These assemblies are located in the C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\[sdk version]\\ref\\Caching\\ folder.
 
 Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 

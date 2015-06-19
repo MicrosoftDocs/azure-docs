@@ -284,7 +284,7 @@ To demonstrate .NET to JMS messaging:
 	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 	exit
 
-<h2>Unsupported features and restrictions</h2>
+## Unsupported features and restrictions
 
 The following features of the .NET Service Bus API are not currently supported when using AMQP:
 
@@ -301,13 +301,13 @@ The following features of the .NET Service Bus API are not currently supported w
 
 For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx). This topic includes a detailed list of unsupported APIs.
 
-<h2>Summary</h2>
+## Summary
 
 This how-to guide showed how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API.
 
 You can also use Service Bus AMQP 1.0 from other languages including Java, C, Python, and PHP. Components built using these languages can exchange messages reliably and at full fidelity using AMQP 1.0 in Service Bus. For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx).
 
-<h2>Further information</h2>
+## Next steps
 
 * [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)

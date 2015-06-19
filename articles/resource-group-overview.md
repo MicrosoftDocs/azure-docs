@@ -1,28 +1,28 @@
 <properties
    pageTitle="Azure Resource Manager Overview"
    description="Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure."
-   services="azure-portal"
+   services="multiple"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="multiple"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/29/2015"
    ms.author="tomfitz"/>
 
-# Azure Resource Manager Overview 
+# Azure Resource Manager Overview
 
 Applications are typically made up of many components – maybe a web app, database, database server, storage, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group.  
 
 Azure Resource Manager natively integrates access control into the management platform so you can specify which actions a user in your organization can take for a resource group.  
 
-> [AZURE.NOTE] This topic describes resources, groups, and templates using the preview portal to demonstrate the concepts. However, you can also create, manage, and delete Azure resources using the [Azure CLI for Mac, Linux, and Windows](xplat-cli-azure-resource-manager.md) as well as [PowerShell](powershell-azure-resource-manager.md).
+> [AZURE.NOTE] This topic describes resources, groups, and templates using the preview portal to demonstrate the concepts. However, you can also create, manage, and delete Azure resources using the [Azure CLI for Mac, Linux, and Windows](virtual-machines/xplat-cli-azure-resource-manager.md) as well as [PowerShell](powershell-azure-resource-manager.md).
 
 ## Resource Groups
 
@@ -40,11 +40,11 @@ In the Azure preview portal, all new resources are created in a resource group. 
 
 The following image shows a resource group with a web site, a database, and Application Insights.
 
-![resouce group summary](./media/resource-group-overview/resourcegroupsummary.png)
+![resource group summary](./media/resource-group-overview/resourcegroupsummary.png)
 
 A resource group can also be linked to a resource in another resource group. A resource is considered linked when a deployment dependency exists between resources in different resource groups. For example, if a web app in one resource group connects to database in another resource group, those resources are linked.
 
-![linked resouce](./media/resource-group-overview/linkedresource.png)
+![linked resource](./media/resource-group-overview/linkedresource.png)
 
 From the preview portal, you can easily view costs, monitor events, and manage alerts. The following image shows the consolidated billing for a group.
 
@@ -78,7 +78,7 @@ In the preview portal, you can start working with tags by clicking on the tag ic
 
 ![tags](./media/resource-group-overview/tags.png)
 
-Resources do not need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than users inadvertently applying slightly different tags (such as "dept" instead of "department"). 
+Resources do not need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than users inadvertently applying slightly different tags (such as "dept" instead of "department").
 
 For more information about tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md).
 
@@ -92,7 +92,7 @@ In the preview portal, you can define access control by clicking on the access b
 
 Azure Resource Manager automatically logs user actions for auditing.
 
-You can also explicitly lock critical resources to prevent users from deleting or modifying them. 
+You can also explicitly lock critical resources to prevent users from deleting or modifying them.
 
 For more information about role-based access control, see [Role-based access control in the Microsoft Azure preview portal](./role-based-access-control-configure.md).
 
@@ -104,7 +104,7 @@ Azure Resource Manager provides completely compatible operations through Azure P
 
 For information about PowerShell, see [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./virtual-machines/xplat-cli-azure-resource-manager.md).
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
@@ -112,15 +112,15 @@ For information about the REST API, see [Azure Resource Manager REST API Referen
 Getting Started
 
 - [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI with Resource Manager](./xplat-cli-azure-resource-manager.md)
+- [Using the Azure CLI with Resource Manager](./virtual-machines/xplat-cli-azure-resource-manager.md)
 - [Using the Azure Portal to manage resources](./resource-group-portal.md)
 
 Creating and Deploying Applications
 
 - [Authoring templates](./resource-group-authoring-templates.md)
 - [Deploying templates](./resource-group-template-deploy.md)
-- [Troubleshooting deployments](./resource-group-deploy-debug.md)
-- [Deploy using .NET libraries and template](./arm-template-deployment.md)
+- [Troubleshooting deployments](virtual-machines/resource-group-deploy-debug.md)
+- [Deploy using .NET libraries and template](virtual-machines/arm-template-deployment.md)
 - [Template functions](./resource-group-template-functions.md)
 - [Advance template operations](./resource-group-advanced-template.md)
 
@@ -134,5 +134,3 @@ Managing and Auditing Access
 - [Role-based access control in the preview portal](./role-based-access-control-configure.md)
 - [Authenticating a service principal](./resource-group-authenticate-service-principal.md)
 - [Create a new service principal using the Azure portal](./resource-group-create-service-principal-portal.md)
-
-

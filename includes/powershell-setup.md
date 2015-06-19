@@ -6,14 +6,14 @@
    ms.topic="article"
    ms.tgt_pltfrm=""
    ms.workload="infrastructure"
-   ms.date="04/14/2015"
+   ms.date="05/12/2015"
    ms.author="josephd" />
 
 ## Setting up PowerShell
 
 Before you can use Azure PowerShell, follow these steps.
 
-### Step 1: Verify PowerShell versions
+### Verify PowerShell versions
 
 Before you can use Windows PowerShell, you must have Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.
 
@@ -46,7 +46,7 @@ You should see something like this.
 For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md).
 
 
-### Step 2: Set your Azure account and subscription
+### Set your Azure account and subscription
 
 If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -74,6 +74,6 @@ You will receive the following type of information:
 You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current	
+	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
 For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](powershell-install-configure.md#Connect).

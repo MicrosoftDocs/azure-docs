@@ -10,23 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="windows" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Send push notifications to authenticated users
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-This topic shows you how to send push notifications to an authenticate user on any registered device. Unlike the previous [push notification][Get started with push notifications] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications. Registration is also modified to add a tag based on the assigned user ID. Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.
-
-This tutorial walks you through the following process:
-
-1. [Updating the service to require authentication for registration]
-2. [Updating the app to log in before registration]
-3. [Testing the app]
+This topic shows you how to send push notifications to an authenticate user on any registered device. Unlike the previous [Add push notifications to your app] tutorial, this tutorial changes your mobile service to require that a user be authenticated before the client can register with the notification hub for push notifications. Registration is also modified to add a tag based on the assigned user ID. Finally, the server script is updated to send the notification only to the authenticated user instead of to all registrations.
  
 This tutorial supports both Windows Store and Windows Phone Store apps.
 
@@ -34,9 +28,9 @@ This tutorial supports both Windows Store and Windows Phone Store apps.
 
 Before you start this tutorial, you must have already completed these Mobile Services tutorials:
 
-+ [Get started with authentication]<br/>Adds a login requirement to the TodoList sample app.
++ [Add authentication to your app]<br/>Adds a login requirement to the TodoList sample app.
 
-+ [Get started with push notifications]<br/>Configures the TodoList sample app for push notifications by using Notification Hubs. 
++ [Add push notifications to your app]<br/>Configures the TodoList sample app for push notifications by using Notification Hubs. 
 
 After you have completed both tutorials, you can prevent unauthenticated users from registering for push notifications from your mobile service.
 
@@ -82,10 +76,6 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 [AZURE.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)] 
 
-<!---## <a name="next-steps"> </a>Next steps
-
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
-
 <!-- Anchors. -->
 [Updating the service to require authentication for registration]: #register
 [Updating the app to log in before registration]: #update-app
@@ -94,8 +84,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 
 <!-- URLs. -->
-[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
-[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
+[Add authentication to your app]: mobile-services-windows-store-javascript-get-started-users.md
+[Add push notifications to your app]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library

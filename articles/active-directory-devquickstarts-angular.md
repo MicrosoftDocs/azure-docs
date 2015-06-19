@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
-	manager="terrylan"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags
@@ -18,6 +18,9 @@
 
 
 # Securing AngularJS Single Page Apps with Azure AD
+
+[AZURE.INCLUDE [active-directory-devguide](../includes/active-directory-devguide.md)]
+
 Azure AD makes it simple and straightforward for you to add sign in, sign out, and secure OAuth API calls to your single page apps.  It enables your app to authenticate users with their Active Directory accounts and consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
 For javascript applications running in a browser, Azure AD provides the Active Directory Authentication Library, or adal.js.  Adal.js's sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we'll build an AngularJS To Do List application that:

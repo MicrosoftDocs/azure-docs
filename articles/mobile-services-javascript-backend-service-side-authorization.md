@@ -2,6 +2,7 @@
 	pageTitle="Service-side Authorization of Users in Mobile Services with JavaScript Backend | Mobile Dev Center"
 	description="Learn how to authorize users in JavaScript backend of Azure Mobile Services"
 	services="mobile-services"
+	documentationCenter=""
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="javascript"
+	ms.date="05/20/2015"
 	ms.author="krisragh"/>
 
 # Service-side Authorization of Users in Mobile Services
@@ -20,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-This topic shows you how to use server-side scripts to authorize users. In this tutorial, you register scripts with Azure Mobile Services, filter queries based on user IDs, and give users access to only their own data.
+This topic shows you how to use server-side scripts to authorize users. In this tutorial, you register scripts with Azure Mobile Services, filter queries based on user IDs, and give users access to only their own data. Filtering a user's query results by the user ID is the most basic form of authorization. Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access.
 
 This tutorial is based on the Mobile Services Quick Start and builds on the [Add Authentication to Existing Mobile Services App] tutorial. Please complete [Add Authentication to Existing Mobile Services App] first.
 
@@ -28,29 +30,23 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click on your mobile service. Click the **Data** tab, then click the **TodoItem** table.
 
-2. Click **Script**, then select the **Insert** operation.
-
-   	![][2]
-
-3. Replace the existing script with the following function, and then click **Save**. This script adds the user ID of the authenticated user to the item before insertion.
+2. Click **Script**, select the **Insert** operation, replace the existing script with the following function, and then click **Save**. 
 
         function insert(item, user, request) {
           item.userId = user.userId;
           request.execute();
         }
 
+	This script adds the user ID of the authenticated user to the item before insertion.
 
-    > [AZURE.NOTE] [Dynamic schema must be enabled](https://msdn.microsoft.com/library/azure/jj193175.aspx) for this to work. This setting is enabled by default for new mobile services.
+    >[AZURE.NOTE] Make sure that [dynamic schema](https://msdn.microsoft.com/library/azure/jj193175.aspx) is enabled. Otherwise, the *userId* column is not added automatically. This setting is enabled by default for a new mobile service.
 
-5. Similarly, replace the existing **Read** operation with the following function. This script filters returned TodoItem objects so that a user receives only the items that they insert themselves.
+3. Similarly, replace the existing **Read** operation with the following function. This script filters returned TodoItem objects so that a user receives only the items that they insert themselves.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
            request.execute();
         }
-
-
-
 
 ## <a name="test-app"></a>Test the app
 
@@ -63,19 +59,12 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
-[1]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
-[2]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-insert-script-users.png
-[3]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
 
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-with-data-ios
 [Add Authentication to Existing Mobile Services App]: /develop/mobile/tutorials/get-started-with-users-ios
-[Add Push Notifications to Existing App]: /develop/mobile/tutorials/get-started-with-push-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/

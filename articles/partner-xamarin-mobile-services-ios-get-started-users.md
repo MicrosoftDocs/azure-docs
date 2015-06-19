@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2014"
+	ms.date="05/14/2015"
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -32,11 +32,11 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 Completing this tutorial requires [Xamarin.iOS], XCode 6.0 and iOS 7.0 or later versions.
 
-<h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
+##<a name="register"></a>Register your app for authentication and configure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
+##<a name="permissions"></a>Restrict permissions to authenticated users
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
@@ -50,17 +50,17 @@ Completing this tutorial requires [Xamarin.iOS], XCode 6.0 and iOS 7.0 or later 
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a>Add authentication to the app</h2>
+##<a name="add-authentication"></a>Add authentication to the app
 
-1. Open the **TodoService** project file and add the following variables
+1. Open the **ToDoService** project file and add the following variables
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. Then add a new method named **Authenticate** to **TodoService** defined as:
+2. Then add a new method named **Authenticate** to **ToDoService** defined as:
 
-        private async Task Authenticate(UIViewController view)
+        private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
             {
@@ -74,34 +74,34 @@ Next, you will update the app to authenticate users before requesting resources 
 
 	> [AZURE.NOTE] If you are using an identity provider other than a Microsoft Account, change the value passed to **LoginAsync** above to one of the following: _Facebook_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-3. Move the request for the **TodoItem** table from the **TodoService** constructor into a new method named **CreateTable**:
+3. Move the request for the **ToDoItem** table from the **ToDoService** constructor into a new method named **CreateTable**:
 
         private async Task CreateTable()
         {
-            // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetTable<TodoItem>();
+            // Create an MSTable instance to allow us to work with the ToDoItem table
+            todoTable = client.GetSyncTable<ToDoItem>();
         }
 
 4. Create a new asynchronous public method named **LoginAndGetData** defined as:
 
-        public async Task LoginAndGetData(UIViewController view)
+        public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
         }
 
-5. In the **TodoListViewController** override the **ViewDidAppear** method and define it as found below. This logs in the user if the **TodoService** doesn't yet have a handle on the user:
+5. In the **TodoListViewController** override the **ViewDidAppear** method and define it as found below. This logs in the user if the **ToDoService** doesn't yet have a handle on the user:
 
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
-                await TodoService.DefaultService.LoginAndGetData(this);
+                await QSToDoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;

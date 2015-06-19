@@ -18,18 +18,11 @@
 
 # Store project code in source control
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
-</div>
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
 
 This topic shows you how to use the source control provided by Azure Mobile Services to store your server scripts. Scripts and other JavaScript backend code files can be promoted from your local Git repository to your production mobile service. It also shows how to define shared code that can be required by multiple scripts and how to use the package.json file to add Node.js modules to your mobile service. 
-
-The tutorial guides you through the following steps:
-
-1. [Enable source control in your mobile service].
-2. [Install Git and create the local repository].
-3. [Deploy updated script files to your mobile service].
-4. [Leverage shared code and Node.js modules in your server scripts].
 
 To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.
 
@@ -101,31 +94,21 @@ Now that you have created your local repository, you can make changes to server 
 	
 	You should see a series of commands that indicates that the commit is deployed to the mobile service.
 
-6. Back in the Management Portal, click the **Data** tab, then click the **TodoItem** table.
-
-	![][5]
-
-3. Click **Script**, then select the **Insert** operation.
-
-	![][6]
-
+6. Back in the Management Portal, click the **Data** tab, then click the **TodoItem** table, click  **Script**, then select the **Insert** operation.
+7. 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
 ##<a name="use-npm"></a>Leverage shared code and Node.js modules in your server scripts
 
-Mobile Services provides access to the full set of core Node.js modules, which you can use in your code by using the **require** function. Your mobile service can also use Node.js modules that are not part of the core Node.js package, and you can even define your own shared code as Node.js modules. For more information about creating modules, see [Modules][Node.js API Documentation: Modules] in the Node.js API reference documentation.
+Mobile Services provides access to the full set of core Node.js modules, which you can use in your code by using the **require** function. Your mobile service can also use Node.js modules that are not part of the core Node.js package, and you can even define your own shared code as Node.js modules. For more information about creating modules, see [Modules] in the Node.js API reference documentation.
 
 The recommended way to add Node.js modules to your mobile service is by adding references to the service's package.json file. Next, you will add the [node-uuid] Node.js module to your mobile service by updating the package.json file. When the update is pushed to Azure, the mobile service is restarted and the module is installed. This module is then used to generate a new GUID value for the **uuid** property on inserted items. 
 
-2. Navigate to the `.\service` folder of your local Git repository, and open the package.json file in a text editor.
+2. Navigate to the `.\service` folder of your local Git repository, and open the package.json file in a text editor, and add the following field to the **dependencies** object:
 
-3. Locate the  
+		"node-uuid": "~1.4.3"
 
-		npm install node-uuid
-
-	NPM creates the `node_modules` directory in the current location and installs the [node-uuid] module in the `\node-uuid` subdirectory. 
-
-	> [AZURE.NOTE] When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
+	>[AZURE.NOTE]This update to the package.json file will cause a restart in your mobile service after the commit is pushed.
 
 4. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
 
@@ -176,5 +159,5 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Work with server scripts in Mobile Services]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-ios-call-custom-api.md
-[Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
+[Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid

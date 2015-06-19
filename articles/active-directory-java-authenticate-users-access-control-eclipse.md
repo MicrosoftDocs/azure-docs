@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to use Access Control (Java) - Azure feature guide" 
-	description="Learn how to develop and use Access Control with Java in Azure." 
+<properties
+    pageTitle="How to use Access Control (Java) - Azure feature guide"
+    description="Learn how to develop and use Access Control with Java in Azure."
 	services="active-directory" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="jimbe" />
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="robmcm"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="06/03/2015"
+    ms.author="robmcm" />
 
 # How to Authenticate Web Users with Azure Access Control Service Using Eclipse
 
@@ -23,24 +23,7 @@ This guide will show you how to use the Azure Access Control Service (ACS) withi
 > [AZURE.NOTE]
 > The Azure Access Services Control Filter (by Microsoft Open Technologies) is a community technology preview. As pre-release software, it is not formally supported by Microsoft Open Technologies, Inc. nor Microsoft.
 
-## Table of Contents
-
--   [What is ACS?][]
--   [Concepts][]
--   [Prerequisites][]
--   [Create an ACS namespace][]
--   [Add identity providers][]
--   [Add a relying party application][]
--   [Create rules][]
--   [Upload a certificate to your ACS namespace][]
--   [Review the Application Integration Page][]
--   [Create a Java web application][]
--   [Add the ACS Filter library to your application][]
--   [Deploy to the compute emulator][]
--   [Deploy to Azure][]
--   [Next steps][]
-
-## <a name="what-is"></a>What is ACS?
+## What is ACS?
 
 Most developers are not identity experts and generally do not want to
 spend time developing authentication and authorization mechanisms for
@@ -59,7 +42,7 @@ The following features are available in ACS:
 
 For more information about ACS, see [Access Control Service 2.0][].
 
-## <a name="concepts"></a>Concepts
+## Concepts
 
 Azure ACS is built on the principals of claims-based identity -
 a consistent approach to creating authentication mechanisms for
@@ -132,7 +115,7 @@ application:
 6.  ACS validates the security token issued by the IP, inputs the identity claims in this token into the ACS rules engine, calculates the output identity claims, and issues a new security token that contains these output claims.
 7.  ACS redirects the client to the RP. The client sends the new security token issued by ACS to the RP. The RP validates the signature on the security token issued by ACS, validates the claims in this token, and returns the page that was originally requested.
 
-## <a name="pre"></a>Prerequisites
+## Prerequisites
 
 To complete the tasks in this guide, you will need the following:
 
@@ -140,11 +123,11 @@ To complete the tasks in this guide, you will need the following:
 - Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
 - A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, or Jetty.
 - an Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
-- The Azure Plugin for Eclipse with Java (by Microsoft Open Technologies), April 2014 release. For more information, see [Installing the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+- The Azure Plugin for Eclipse with Java (by Microsoft Open Technologies), April 2014 release. For more information, see [Installing the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
 - An X.509 certificate to use with your application. You will need this certificate in both public certificate (.cer) and Personal Information Exchange (.PFX) format. (Options for creating this certificate will be described later in this tutorial).
-- Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
+- Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
 
-## <a name="create-namespace"></a>Create an ACS Namespace
+## Create an ACS Namespace
 
 To begin using Access Control Service (ACS) in Azure, you must
 create an ACS namespace. The namespace provides a unique scope for
@@ -160,7 +143,7 @@ addressing ACS resources from within your application.
 
 Azure creates and activates the namespace. Wait until the status of the new namespace is **Active** before continuing. 
 
-## <a name="add-IP"></a>Add identity providers
+## Add identity providers
 
 In this task, you add IPs to use with your RP application for
 authentication. For demonstration purposes, this task shows how to add
@@ -175,7 +158,7 @@ Management Portal.
 Windows Live ID is now enabled as an IP for your ACS namespace. Next, you
 specify your Java web application (to be created later) as an RP.
 
-## <a name="add-RP"></a>Add a relying party application
+## Add a relying party application
 
 In this task, you configure ACS to recognize your Java web
 application as a valid RP application.
@@ -198,7 +181,7 @@ You have now successfully configured your Java web application when it is run in
 http://localhost:8080/) to be an RP in your ACS namespace. Next, create
 the rules that ACS uses to process claims for the RP.
 
-## <a name="create-rules"></a>Create rules
+## Create rules
 
 In this task, you define the rules that drive how claims are passed from
 IPs to your RP. For the purpose of this guide, we will simply configure
@@ -211,7 +194,7 @@ token, without filtering or modifying them.
 4.  On the **Generate Rules: Default Rule Group for Azure Web App** page, ensure Windows Live ID is checked and then click **Generate**.	
 5.  On the **Edit Rule Group** page, click **Save**.
 
-## <a name="upload-certificate"></a>Upload a certificate to your ACS namespace
+## Upload a certificate to your ACS namespace
 
 In this task, you upload a .PFX certificate that will be used to sign token requests created by your ACS namespace.
 
@@ -229,7 +212,7 @@ Next, review the information in the Application Integration page and
 copy the URI that you will need to configure your Java web
 application to use ACS.
 
-## <a name="review-app-int"></a>Review the Application Integration page
+## Review the Application Integration page
 
 You can find all the information and the code necessary to configure
 your Java web application (the RP application) to work with ACS on
@@ -243,7 +226,7 @@ federated authentication.
 
 In the **Login Page Integration: Azure Web App** page, the URL listed in **Option 1: Link to an ACS-hosted login page** will be used in your Java web application. You will need this value when you add the Azure Access Control Services Filter library to your Java application.
 
-## <a name="create-java-app"></a>Create a Java web application
+## Create a Java web application
 1. Within Eclipse, at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don't see **Dynamic Web Project** listed as an available project after clicking **File**, **New**, then do the following: click **File**, click **New**, click **Project**, expand **Web**, click **Dynamic Web Project**, and click **Next**.) For purposes of this tutorial, name the project **MyACSHelloWorld**. (Ensure you use this name, subsequent steps in this tutorial expect your WAR file to be named MyACSHelloWorld). Your screen will appear similar to the following:
 
     ![Create a Hello World project for ACS exampple][create_acs_hello_world]
@@ -265,7 +248,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
     
     Save index.jsp.
   
-## <a name="add_acs_filter_library"></a>Add the ACS Filter library to your application
+## Add the ACS Filter library to your application
 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Build Path**, and then click **Configure Build Path**.
 2. In the **Java Build Path** dialog, click the **Libraries** tab.
@@ -287,18 +270,18 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 12. Click **Yes** when presented with with a dialog box stating that a web.xml file will be created.
 13. Click **OK** to close the **Java Build Path** dialog.
 
-## <a name="deploy_compute_emulator"></a>Deploy to the compute emulator
+## Deploy to the compute emulator
 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Azure**, and then click **Package for Azure**.
 2. For **Project name**, type **MyAzureACSProject** and click **Next**.
-3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) tutorial).
+3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) tutorial).
 4. Click **Finish**.
 5. Click the **Run in Azure Emulator** button.
 6. After your Java web application starts in the compute emulator, close all instances of your browser (so that any current browser sessions do not interfere with your ACS login test).
 7. Run your application by opening <http://localhost:8080/MyACSHelloWorld/> in your browser (or <https://localhost:8080/MyACSHelloWorld/> if you checked **Require HTTPS connections**). You should be prompted for a Windows Live ID login, then you should be taken to the return URL specified for your relying party application.
 99.  When you have finished viewing your application, click the **Reset Azure Emulator** button.
 
-## <a name="deploy_azure"></a>Deploy to Azure
+## Deploy to Azure
 
 To deploy to Azure, you'll need to change the relying party realm and return URL for your ACS namespace.
 
@@ -325,11 +308,11 @@ To deploy to Azure, you'll need to change the relying party realm and return URL
 
 13. Click **Finish** to close the **Edit Library** dialog.
 14. Click **OK** to close the **Properties for MyACSHelloWorld** dialog.
-15. In Eclipse, click the **Publish to Azure Cloud** button. Respond to the prompts, similar as done in the **To deploy your application to Azure** section of the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) topic. 
+15. In Eclipse, click the **Publish to Azure Cloud** button. Respond to the prompts, similar as done in the **To deploy your application to Azure** section of the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) topic. 
 
 After your web application has been deployed, close any open browser sessions, run your web application, and you should be prompted to sign in with Windows Live ID credentials, followed by being sent to the return URL of your relying party application.
 
-When you are done using your ACS Hello World application, remember to delete the deployment (you can learn how to delete a deployment in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) topic).
+When you are done using your ACS Hello World application, remember to delete the deployment (you can learn how to delete a deployment in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) topic).
 
 
 ## <a name="next_steps"></a>Next steps
@@ -373,7 +356,7 @@ At this point, your certificate would be included in your deployment. Note that 
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [project website]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[How to view SAML returned by the Azure Access Control Service]: /develop/java/how-to-guides/view-saml-returned-by-acs/
+[How to view SAML returned by the Azure Access Control Service]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451

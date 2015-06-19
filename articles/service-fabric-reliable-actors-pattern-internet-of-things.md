@@ -205,7 +205,7 @@ Azure Service Fabric Actors also takes care of the lifetime of the Actors. Think
 We conclude that more and more customers will look at Azure Service Fabric Actors as a key building block for their IoT implementations.
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 

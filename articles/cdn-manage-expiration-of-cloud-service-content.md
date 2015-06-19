@@ -3,7 +3,7 @@
  description="" 
  services="cdn" 
  documentationCenter=".NET" 
- authors="Juliako" 
+ authors="zhangmanling" 
  manager="dwrede" 
  editor=""/>
 <tags 

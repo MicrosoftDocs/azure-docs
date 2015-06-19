@@ -1,23 +1,24 @@
-<properties 
-	pageTitle="Operational Insights Security" 
-	description="Learn about how Operational Insights protects your privacy and secures your data." 
-	services="operational-insights" 
-	documentationCenter="" 
-	authors="bandersmsft" 
-	manager="jwhit" 
+<properties
+	pageTitle="Operational Insights Security"
+	description="Learn about how Operational Insights protects your privacy and secures your data."
+	services="operational-insights"
+	documentationCenter=""
+	authors="bandersmsft"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="operational-insights" 
-	ms.workload="dev-center-name" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/20/2015" 
+<tags
+	ms.service="operational-insights"
+	ms.workload="dev-center-name"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/07/2015"
 	ms.author="banders"/>
 
-# Operational Insights security#
+# Operational Insights security
 
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. We recognize that when you entrust your data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
 
@@ -27,11 +28,11 @@ This article explains how data is collected, processed, and secured in Microsoft
 
 The Operational Insights service manages your data securely by using the following methods:
 
-**Data segregation:** Customer data is kept logically separate on each component throughout the Operational Insights service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. 
+**Data segregation:** Customer data is kept logically separate on each component throughout the Operational Insights service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service.
 
 Each customer has a dedicated Azure blob that houses the long-term data. The blob is encrypted with unique per-customer keys, which are changed every 90 days.
 
-**Data retention:** Aggregated metrics for each of the intelligence packs is stored in a SQL Database hosted by Microsoft Azure. This data is stored for 390 days. Indexed search data is stored for 10 days on average before the data is groomed. If the upper limit of 20 million records for each data type is reached earlier, Operational Insights grooms the data earlier than 10 days. If the data limit is not reached by 10 days, Operational Insights waits until the limit is reached to groom it.
+**Data retention:** Aggregated metrics for each of the solutions (previously called intelligence packs) is stored in a SQL Database hosted by Microsoft Azure. This data is stored for 390 days. Indexed log search data is stored for 10 days on average before the data is groomed. If the upper limit of 20 million records for each data type is reached earlier, Operational Insights grooms the data earlier than 10 days. If the data limit is not reached by 10 days, Operational Insights waits until the limit is reached to groom it.
 
 **Physical security:** The Operational Insights service is manned by Microsoft personnel and all activities are logged and can be audited. The Operational Insights service runs completely in Azure and complies with the Azure common engineering criteria. You can view details about the physical security of Azure assets on page 18 of the [Microsoft Azure Security Overview](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf).
 
@@ -43,7 +44,7 @@ We currently meet the following security standards:
 - Microsoft Trustworthy Computing Certification
 
 
-## Data flow security 
+## Data flow security
 The following diagram shows the flow of information from your company and how it is secured as is moves to the Operational Insights service, ultimately seen by you in Operational Insights. More information about each step follows the diagram.
 
 ![Image of Operational Insights data collection and security](./media/operational-insights-security/security.png)
@@ -61,14 +62,14 @@ An Operational Insights account is where data is collected, aggregated, analyzed
 
 When the configuration wizard is complete, each Operations Manager management group establishes a connection with the Operational Insights service. You then use the Add Computers Wizard to choose which computers in the management group are allowed to send data to the service.
 
-Both types of agents collect data for Operational Insights. The type of data that is collected is dependent on the types of intelligence packs used. An intelligence pack is a bundle of predefined views, search queries, data collection rules, and processing logic. Only Operational Insights administrators can use Operational Insights to import an intelligence pack. After the intelligence pack is imported, it is moved to the Operations Manager management servers (if used), and then to the Operations Manager agents that you have chosen. Afterward, the agents collect the data.
+Both types of agents collect data for Operational Insights. The type of data that is collected is dependent on the types of solutions used. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only Operational Insights administrators can use Operational Insights to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to the Operations Manager agents that you have chosen. Afterward, the agents collect the data.
 
-The following table lists the available intelligence packs in Operational Insights and the types of data they collect.
+The following table lists the available solutions in Operational Insights and the types of data they collect.
 
 <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
     <tr align="left" valign="top">
-		<td><b>Intelligence pack</b></td>
+		<td><b>Solution</b></td>
 		<td><b>Data types</b></td>
     </tr>
     <tr align="left" valign="top">
@@ -147,11 +148,10 @@ With Operations Manager, you register an account with the Operational Insights s
 
 ### 3. The Operational Insights service receives and processes data
 
-The Operational Insights service ensures that incoming data is from a trusted source by validating certificates and the data integrity. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](http://azure.microsoft.com/documentation/services/storage/). Each Operational Insights user has a dedicated Azure blob, which is accessible only to that user. The type of data that is stored is dependent on the types of intelligence packs that were imported and used to collect data.
+The Operational Insights service ensures that incoming data is from a trusted source by validating certificates and the data integrity. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](http://azure.microsoft.com/documentation/services/storage/). Each Operational Insights user has a dedicated Azure blob, which is accessible only to that user. The type of data that is stored is dependent on the types of solutions that were imported and used to collect data.
 
 The Operational Insights service processes the raw data, and the aggregated processed data is stored in a SQL database. Communication between the Operational Insights service and SQL database relies on SQL database authentication.
 
 ### 4. Use Operational Insights to access the data
 
 You can sign in to Operational Insights by using the account you set up previously. All traffic between Operational Insights and the Operational Insights service is sent over a secure HTTPS channel.
-

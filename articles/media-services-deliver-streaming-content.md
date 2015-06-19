@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Deliver Streaming Content from Media Services – Azure" 
+	pageTitle="How to Deliver Streaming Content from Media Services" 
 	description="Learn how to create a locator that is used to build a streaming URL. Code samples are written in C# and use the Media Services SDK for .NET." 
 	authors="juliako" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 

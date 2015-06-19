@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="TerryLan" 
-	editor="LisaToft"
-	tags="azure-classic-portal"/>
+	editor="LisaToft"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
 # Create or edit users in Azure AD
@@ -42,7 +41,7 @@ If your organization uses more than one domain, you should know about the follow
 
 If the user that you are trying to edit is synchronized with your on-premises Active Directory service, an error message appears, and you will be unable to edit the user using this procedure. To edit the user, use your local Active Directory management tools.
  
-To edit a user in the Azure classic portal:
+To edit a user in the Azure Management Portal:
 
 1. Click **Active Directory**, and then click on the name of your organization’s directory.
 2. On the **Users** page, click on the display name of the user you want to edit.
@@ -68,7 +67,7 @@ To create an external user, create a user in the portal and for **Type of User**
 
 When you add a user from one directory into a new directory, that user is an external user in the new directory. Initially, the display name and user name are copied from the user's "home directory" and stamped onto the external user in the other directory. From then on, those and other properties of the external user object are entirely independent: if you make a change to the user in the home directory, such as changing the user's name, adding a job title, etc. those changes are not propagated to the external user account in the other directory. 
 
-The only linkage between the two objects is that the user always authenticates against the home directory or with their Microsoft Account. That's why you don't see an option to reset the password or enable multi factor authentication for an external user account: currently the authentication policy of the home directory or Microsoft Account is the only one that's evaluated when the user signs in.
+The only linkage between the two objects is that the user always authenticates against the home directory or with their Microsoft Account. That's why you don't see an option to reset the password or enable multi-factor authentication for an external user account: currently the authentication policy of the home directory or Microsoft Account is the only one that's evaluated when the user signs in.
 
 > [AZURE.NOTE]
 > You can still disable the external user in the directory and this will block access to your directory.
@@ -86,7 +85,6 @@ A **guest** is a user in your directory that has a User Type set to "Guest". Reg
 Guests have a limited set of rights in the directory. These rights limit the ability for Guests to discover information about other users in the directory while still being able to interact with the users and groups associated with the resources they are working on. For example, a Guest assigned to an Azure subscription will be able to see other users and groups associated with the Azure subscription. They can also locate other users in the directory who should be given access to the subscription provided they know the full email address of the user. A Guest is only able to see a limited set of properties of other users. These properties are limited to display name, email address, user principal name (UPN) and thumbnail photo.
 
 ## Configure user access policies
-
 
 The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator. 
 To open the **Configure** tab in the Azure portal, click **Active Directory**, and then click the name of the directory.

@@ -167,7 +167,7 @@ When configuring the token restricted policy, you must specify the primary verif
 
 ###<a id="dynamic_packaging"></a>Dynamic packaging
 
-When working with Media Services it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](https://msdn.microsoft.com/library/azure/jj889436.aspx). 
+When working with Media Services it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). 
 
 
 ###Streaming endpoint

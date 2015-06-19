@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,8 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [June 2015 Release](#june_changes_15)
+- [May 2015 Release](#may_changes_15)
 - [April 2015 Release](#april_changes_15)
 - [March 2015 Release](#march_changes_15)
 - [February 2015 Release](#february_changes_15)
@@ -69,6 +71,28 @@ These release notes summarize changes from previous releases and known issues.
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="june_changes_15"></a>June 2015 Release
+
+###Media Services .NET SDK Updates
+
+Azure Media Services .NET SDK is now version 3.3.0.0. The following functionality was added in this release:  
+
+- support for OpenId Connect Discovery spec,
+- support for handling keys rollover on identity provider side. 
+
+If you are using an identity provider which exposes OpenID Connect discovery document (as the following prviders do: Azure Active Directory, Google, Salesforce ), you can instruct Azure Media Services to obtain signing keys for validation of JWT token from OpenID connect discovery spec. 
+
+For more information, see [Using Json Web Keys from OpenID Connect discovery spec to work with JWT token authentication in Azure Media Services](http://gtrifonov.com/2015/06/07/using-json-web-keys-from-openid-connect-discovery-spec-to-work-with-jwt-token-authentication-in-azure-media-services/).
+
+
+##<a id="may_changes_15"></a>May 2015 Release
+
+Announcing the following new features:
+
+- [A preview of Live Encoding with Media Services](media-services-manage-live-encoder-enabled-channels.md)
+- [Dynamic manifest](media-services-dynamic-manifest-overview.md)
+- [A preview of Azure Media Hyperlapse media processor](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ##<a id="april_changes_15"></a>April 2015 Release
 

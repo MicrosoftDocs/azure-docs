@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 #How To: Update Media Services after Rolling Storage Access Keys
@@ -33,7 +33,7 @@ This topic describes steps you would take to roll storage keys and update Media 
 
 ## Step 1: Regenerate secondary storage access key
 
-Start with regenerating secondary storage key. By default, the secondary key is not used by Media Services.  For information on how to roll storage keys, see [How to: View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Start with regenerating secondary storage key. By default, the secondary key is not used by Media Services.  For information on how to roll storage keys, see [How to: View, copy, and regenerate storage access keys](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
   
 ##<a id="step2"></a>Step 2:  Update Media Services to use the new secondary storage key
 
@@ -91,7 +91,7 @@ To update expiration date on a locator, use [REST](http://msdn.microsoft.com/lib
 
 ##Step 5: Regenerate  primary storage access key
 
-Regenerate the primary storage access key. For information on how to roll storage keys, see [How to: View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Regenerate the primary storage access key. For information on how to roll storage keys, see [How to: View, copy, and regenerate storage access keys](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ##Step 6: Update Media Services to use the new primary storage key
 	

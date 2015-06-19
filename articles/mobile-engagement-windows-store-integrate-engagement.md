@@ -26,7 +26,7 @@
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your Windows Universal application.
 
-The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Universal app](../mobile-engagement-windows-store-use-engagement-api/)) since these statistics are application dependent.
+The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Universal app](mobile-engagement-windows-store-use-engagement-api.md) since these statistics are application dependent.
 
 ##Supported versions
 
@@ -220,7 +220,7 @@ We recommend to call `StartActivity` inside your `OnNavigatedTo` method of your 
 
 > [AZURE.IMPORTANT]  Ensure you end your session correctly.
 > 
-> The Windows Universal SDK automatically calls the `EndActivity` method when the application is closed. Thus, it is *HIGHLY* recommended to call the `StartActivity` method whenever the activity of the user change, and to *NEVER* call the `EndActivity` method, since calling this method forces the current session to be ended.
+> The Windows Universal SDK automatically calls the `EndActivity` method when the application is closed. Thus, it is **HIGHLY** recommended to call the `StartActivity` method whenever the activity of the user change, and to **NEVER** call the `EndActivity` method, this method sends to Engagement server that current user has leave the application, this will impacts all application logs.
 
 ##Advanced reporting
 
@@ -263,7 +263,7 @@ To do so, call the method:
 
 The argument is a value in **milliseconds**. At any time, if you want to reactivate the real-time logging, just call the method without any parameter, or with the 0 value.
 
-The burst mode slightly increase the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration will be rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). It is recommended to use a burst threshold no longer than 30000 (30s).
+The burst mode slightly increase the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration will be rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). It is recommended to use a burst threshold no longer than 30000 (30s). You have to be aware that saved logs are limited to 300 items. If sending is too long you can lose some logs.
 
 > [AZURE.WARNING] The burst threshold cannot be configured to a period lesser than 1s. If you try to do so, the SDK will show a trace with the error and will automatically reset to the default value, i.e., 0s. This will trigger the SDK to report the logs in real-time.
 

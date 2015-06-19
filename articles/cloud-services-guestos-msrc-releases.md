@@ -3,8 +3,8 @@
    description="The list of updates applied to Guest OS releases" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
+   authors="yuemlu" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -19,6 +19,41 @@
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## June Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-056    | [3058515] | Cumulative Security Update for Internet Explorer | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-057    | [3033890] | Vulnerability in Windows Media Player Could Allow Remote Code Execution | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-060    | [3059317] | Vulnerability in Microsoft Common Controls Could Allow Remote Code Execution | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-061    | [3057839] | Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-062    | [3062577] | Vulnerability in Active Directory Federation Services Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-063    | [3063858] | Vulnerability in Windows Kernel Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+
+## May Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-043    | [3049563] | Cumulative Security Update for Internet Explorer | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-044    | [3057110] | Vulnerabilities in Microsoft Font Drivers Could Allow Remote Code Execution | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-045    | [3046002] | Vulnerability in Windows Journal Could Allow Remote Code Execution | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-048    | [3057134] | Vulnerabilities in .NET Framework Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-050    | [3055642] | Vulnerability in Service Control Manager Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-051    | [3057191] | Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-052    | [3050514] | Vulnerability in Windows Kernel Could Allow Security Feature Bypass | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-053    | [3057263] | Vulnerabilities in JScript and VBScript Scripting Engine Could Allow Security Feature Bypass | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-054    | [3051768] | Vulnerability in Microsoft Management Console File Format Could Allow Denial of Service | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-055    | [3061518] | Vulnerability in Schannel Could Allow Security Feature Bypass Important Information Disclosure | 4.20, 3.27, 2.39 | May 12, 2015 |
+| MS15-032    | [3038314] | Cumulative Security Update for Internet Explorer | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-035    | [3046306] | Vulnerability in Microsoft Graphics Component Could Allow Remote Code Execution | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-037    | [3046269] | Vulnerability in Windows Task Scheduler Could Allow Elevation of Privilege | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-038    | [3049576] | Vulnerabilities in Microsoft Windows Could Allow Elevation of Privilege Important  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-039    | [3046482] | Vulnerability in XML Core Services Could Allow Security Feature Bypass  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-040    | [3045711] | Vulnerability in ADFS Could Allow Information Disclosure  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-041    | [3048010] | Vulnerability in .NET Framework Could Allow Information Disclosure  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| MS15-042    | [3047234] | Vulnerability in Windows Hyper-V Could Allow Denial of Service  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
+| NA   | [3045755] | Update to Improve PKU2U Authentication  | 4.20, 3.27, 2.39 |  Apr 17, 2015 |
 
 ## April Guest OS
 
@@ -39,7 +74,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-024    | [3035132][3035132] | Vulnerability in PNG Processing Could Allow Information Disclosure           | 4.18, 3.25, 2.37 | N/A |
 | MS15-025    | [3038680][3038680] | Vulnerabilities in Windows Kernel could allow Elevation of Privilege         | 4.18, 3.25, 2.37 | N/A |
 | MS15-027    | [3002657][3002657] | Vulnerability in NETLOGON Could Allow Spoofing                               | 4.18, 3.25, 2.37 | N/A |
+| MS15-028    | [3030377] | Vulnerability in Windows Task Scheduler Could Allow Security Feature Bypass  | 4.18, 3.25, 2.37 | N/A |
 | MS15-029    | [3035126][3035126] | Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure | 4.18, 3.25, 2.37 | N/A |
+| MS15-030    | [3039976] | Vulnerability in Remote Desktop Protocol Could Allow Denial of Service | 4.18, 3.25, 2.37 | N/A |
 
 > [AZURE.NOTE] Bulletin MS15-031 may appear as uninstalled. However, it does not apply to this Guest OS release.
 
@@ -133,6 +170,38 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3038680]: http://support.microsoft.com/kb/3038680
 [3002657]: http://support.microsoft.com/kb/3002657
 [3035126]: http://support.microsoft.com/kb/3035126
+
+[3049563]:http://support.microsoft.com/kb/3049563
+[3057110]:http://support.microsoft.com/kb/3057110
+[3046002]:http://support.microsoft.com/kb/3046002
+[3057134]:http://support.microsoft.com/kb/3057134
+[3055642]:http://support.microsoft.com/kb/3055642
+[3057191]:http://support.microsoft.com/kb/3057191
+[3050514]:http://support.microsoft.com/kb/3050514
+[3057263]:http://support.microsoft.com/kb/3057263
+[3051768]:http://support.microsoft.com/kb/3051768
+[3061518]:http://support.microsoft.com/kb/3061518
+
+[3038314]:http://support.microsoft.com/kb/3038314
+[3042553]:http://support.microsoft.com/kb/3042553
+[3046306]:http://support.microsoft.com/kb/3046306
+[3046269]:http://support.microsoft.com/kb/3046269
+[3049576]:http://support.microsoft.com/kb/3049576
+[3046482]:http://support.microsoft.com/kb/3046482
+[3045711]:http://support.microsoft.com/kb/3045711
+[3048010]:http://support.microsoft.com/kb/3048010
+[3047234]:http://support.microsoft.com/kb/3047234
+[3045755]:http://support.microsoft.com/kb/3045755
+[3030377]:http://support.microsoft.com/kb/3030377
+[3039976]:http://support.microsoft.com/kb/3039976
+
+[3058515]:http://support.microsoft.com/kb/3058515
+[3033890]:http://support.microsoft.com/kb/3033890
+[3059317]:http://support.microsoft.com/kb/3059317
+[3057839]:http://support.microsoft.com/kb/3057839
+[3062577]:http://support.microsoft.com/kb/3062577
+[3063858]:http://support.microsoft.com/kb/3063858
+
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

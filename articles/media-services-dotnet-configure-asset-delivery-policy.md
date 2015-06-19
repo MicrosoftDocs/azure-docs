@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 #How to: Configure Asset Delivery Policies

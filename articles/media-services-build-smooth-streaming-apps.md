@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" 
+	pageTitle="Smooth Streaming Windows Store App Tutorial" 
 	description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
 
@@ -31,14 +31,14 @@ This tutorial contains four lessons:
 3. Select Smooth Streaming Streams
 4. Select Smooth Streaming Tracks
 
-#Prerequisites
+##Prerequisites
 - Windows 8 32-bit or 64-bit. You can get [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx) from MSDN.
 - Visual Studio 2012 or Visual Studio Express 2012 for Windows 8 installed on Windows 8. You can get the trial version from [here](http://www.microsoft.com/visualstudio/11/downloads).
 - [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 The completed solution for each lesson can be downloaded from MSDN Developer Code Samples (Code Gallery): [Lesson 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "A Simple Windows 8 Smooth Streaming Media Player"), [Lesson 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control"), [Lesson 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "A Windows 8 Smooth Streaming Media Player with Stream Selection"), and [Lesson 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "A Windows 8 Smooth Streaming Media Player with Track Selection").
 
-#Lesson 1: Create a Basic Smooth Streaming Store Application
+##Lesson 1: Create a Basic Smooth Streaming Store Application
 In this lesson, you will create a Windows Store application with a MediaElement control to play Smooth Stream content.  The running application looks like:
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
@@ -248,7 +248,7 @@ The finished the code behind file shall look like this:
 You have completed lesson1.  In this lesson, you use a MediaElement control to playback Smooth Streaming content.  In the next lesson, you will add a slider to control the progress of the Smooth Streaming content.
 
 
-#Lesson 2: Add a Slider Bar to Control the Media Progress
+##Lesson 2: Add a Slider Bar to Control the Media Progress
 In lesson 1, you created a Windows Store application with a MediaElement XAML control to playback Smooth Streaming media content.  It comes some basic media functions like start, stop and pause.  In this lesson, you will add a slider bar control to the application.
 
 In this tutorial, we will use a timer to update the slider position based on the current position of the MediaElement control.  The slider start and end time also need to be updated in case of live content.  This can be better handled in the adaptive source update event.
@@ -523,7 +523,7 @@ The same events are available on Adaptive Source manger level as well, which can
 
 You have completed lesson 2.  In this lesson you added a slider to application. 
 
-#Lesson 3: Select Smooth Streaming Streams
+##Lesson 3: Select Smooth Streaming Streams
 Smooth Streaming is capable to stream content with multiple language audio tracks that are selectable by the viewers.  In this lesson, you will enable viewers to select streams. This lesson contains the following procedures:
 
 1. Modify the XAML file
@@ -797,7 +797,7 @@ Smooth Streaming is capable to stream content with multiple language audio track
 
 You have completed lesson 3.  In this lesson, you add the functionality to choose streams.
 
-#Lesson 4: Select Smooth Streaming Tracks
+##Lesson 4: Select Smooth Streaming Tracks
 A Smooth Streaming presentation can contain multiple video files encoded with different quality levels (bit rates) and resolutions. In this lesson, you will enable users to select tracks. This lesson contains the following procedures:
 
 1. Modify the XAML file
@@ -1001,7 +1001,7 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
 You have completed lesson 4.  In this lesson, you add the functionality to choose tracks.
 
 
-#Other Resources:
+##Other Resources:
 - [How to build a Smooth Streaming Windows 8 JavaScript application with advanced features](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Smooth Streaming Technical Overview](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 

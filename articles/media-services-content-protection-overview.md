@@ -18,13 +18,32 @@
 
 #Protecting Content Overview
 
-Microsoft Azure Media Services enables you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients. 
+
+Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients. 
 
 ![content-protection][content-protection]
 
 To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
 
 ##Concepts
+
+###Asset encryption options
+
+Depending on the type of content you want to upload, store, and deliver, Media Services provides various encryption options that you can choose from.
+
+**None** No encryption is used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
+
+If you plan to deliver an MP4 using progressive download, use this option to upload your content.
+
+**StorageEncrypted** – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk. 
+
+In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, PlayReady, or no encryption). 
+
+**CommonEncryptionProtected** - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
+
+**EnvelopeEncryptionProtected** – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES). Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.
+
+
 
 ###Dynamic encryption
 
@@ -37,6 +56,8 @@ If you want for Media Services to encrypt an asset, you need to associate an enc
 You also need to configure the asset's delivery policy. If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.  
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+
+>[AZURE.NOTE]To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
 ###PlayReady DRM licenses and AES clear keys delivery services
 
@@ -57,7 +78,7 @@ When configuring the token restricted policy, you must specify the primary verif
 
 ##Common scenarios
 
-###Protect content in storage, deliver dynamically encrypted streaming media  
+###Protect content in storage, deliver dynamically encrypted streaming media, use AMS key\license deliver service  
 
 1. Ingest a high-quality mezzanine file into an asset. Apply storage encryption option to the asset.
 2. Configure streaming endpoints.
@@ -71,6 +92,11 @@ When configuring the token restricted policy, you must specify the primary verif
 ###Use Media Service key and license delivery service with your own encryption and streaming services
 
 For more information, see [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
+
+###Integrating with partners
+
+[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
+
 
 ##Common content encryption tasks
 

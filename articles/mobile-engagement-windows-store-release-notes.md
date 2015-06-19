@@ -18,6 +18,10 @@
 
 #Windows Universal Apps SDK Release Notes
 
+##3.1.0 (05/21/2015)
+
+-   The Mobile Engagement device id is now based on a GUID generated at installation time
+
 ##3.0.1 (04/29/2015)
 
 -   Fixed a bug affecting the SDK initialization on some Windows Phone WinRT apps.

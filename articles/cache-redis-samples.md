@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache samples 
@@ -24,7 +24,19 @@ This topic provides a list of Azure Redis Cache samples, covering scenarios such
 
 The samples in this section show the basics of connecting to an Azure Redis Cache instance and reading and writing data to the cache using a variety of languages and Redis clients.
 
-The [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample shows how to read and write items from a cache using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .NET client.
+The [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample shows how to perform various cache operations using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .NET client.
+
+This sample shows how to:
+
+-	Use various connection options
+-	Read and write objects to and from the cache using synchronous and asynchronous operations
+-	Use Redis MGET/MSET commands to return values of specified keys
+-	Perform Redis transactional operations
+-	Work with Redis lists and sorted sets
+-	Store .NET objects using JsonConvert serializers
+-	Use Redis sets to implement tagging
+
+For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on github, and for more usage scenarios see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) unit tests.
 
 [How to use Azure Redis Cache with Node.js](cache-nodejs-get-started.md) shows you how to get started with Azure Redis Cache using Node.js and the [node_redis](https://github.com/mranney/node_redis) client.
 
@@ -59,4 +71,10 @@ The [Manage Azure Redis Cache using Azure Management Libraries](https://github.c
 
 The [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample demonstrates how you can access monitoring data for your Azure Redis Cache outside of the Azure portal.
 
+## A Twitter-style clone written using PHP and Redis
 
+The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello World. It is a minimal Twitter-style social network clone written using Redis and PHP using the [Predis](https://github.com/nrk/predis) client. The source code is designed to be very simple and at the same time to show different Redis data structures.
+
+## Bandwidth monitor
+
+The [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) sample allows you to monitor the bandwidth used on the client. To measure the bandwidth, run the sample on the cache client machine, make calls to the cache, and observe the bandwidth reported by the bandwidth monitor sample.

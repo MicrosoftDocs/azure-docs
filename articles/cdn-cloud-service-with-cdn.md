@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="tysonn"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="cdn" 
@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/27/2015" 
 	ms.author="cephalin"/>
 
-<a name="intro"></a>
-# Integrate a cloud service with Azure CDN #
+#<a name="intro"></a> Integrate a cloud service with Azure CDN #
+
+<!-- Keeping this article pinned to the old portal because CDN is not yet lit up in the new portal -->
 
 A cloud service can be integrated with Azure CDN, serving any content from the cloud service's `~/CDN` path. This approach gives you the following advantages:
 
@@ -49,7 +50,7 @@ This tutorial has the following prerequisites:
 -	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 > [AZURE.NOTE] You need an Azure account to complete this tutorial:
-> + You can [open an Azure account for free](/pricing/free-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
+> + You can [open an Azure account for free](/pricing/free-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps.
 > + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 <a name="deploy"></a>
@@ -397,7 +398,7 @@ Scripts and CSS stylesheets change infrequently and are prime candidates for the
 -	Fallback mechanism when your CDN endpoint fails
 -	Minimize code modification
 
-In the **WebRole1** project that you created in [Integrate an Azure CDN endpoint with your Azure website and serve static content in your Web pages from Azure CDN](#deploy), open *App_Start\BundleConfig.cs* and take a look at the `bundles.Add()` method calls.
+In the **WebRole1** project that you created in [Deploy a cloud service with an integrated CDN endpoint](#deploy), open *App_Start\BundleConfig.cs* and take a look at the `bundles.Add()` method calls.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -622,9 +623,9 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
-# More Information #
-- [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+## More Information ##
+- [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
 - [Serve Content from Azure CDN in Your Web Application](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integrate an Azure Website with Azure CDN](cdn-websites-with-cdn.md)
+- [Use Azure CDN in Azure App Service](app-service-web/cdn-websites-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](cdn-how-to-use.md)
+- [Using CDN for Azure](cdn-how-to-use-cdn.md)

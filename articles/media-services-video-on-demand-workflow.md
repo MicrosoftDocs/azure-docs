@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/08/2015" 
 	ms.author="juliako"/>
 
 
@@ -90,34 +90,36 @@ This article contains links to topics that show how to set up your development e
 
 For concepts related to delivering your content on demand, see [Media Services Concepts](media-services-concepts.md).
 
-##Creating a Media Services account
+##Common Tasks: Delivering Media on-Demand
+
+###Creating a Media Services account
 
 Use **Azure Management Portal** to [Create Azure Media Services Account](media-services-create-account.md). 
 
-##Setting up development environment  
+###Setting up development environment  
 
 Choose **.NET** or **REST API** for your development environment.
 
 [AZURE.INCLUDE [media-services-selector-setup](../includes/media-services-selector-setup.md)]
 
-##Connecting programmatically  
+###Connecting programmatically  
 
 Choose **.NET** or **REST API** to programmatically connect to Azure Media Services.
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
 
-##Configuring streaming endpoints
+###Configuring streaming endpoints
 
 For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md).
 
-##Uploading media 
+###Uploading media 
 
 Upload your files using **Azure Management Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-##Creating jobs \ tasks
+###Creating jobs \ tasks
 
 A job is an entity that contains metadata about a set of tasks (for example, encoding or indexing). Each task performs an atomic operation on the input asset(s). For example on how to create encoding jobs, see:
 
@@ -131,11 +133,11 @@ The following examples create encoding jobs with **Azure Management Portal**, **
 
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-##Indexing
+####Indexing
 
 [AZURE.INCLUDE [media-services-selector-index-content](../includes/media-services-selector-index-content.md)]
 
-##Encoding 
+####Encoding 
 
 **Overview**: 
 
@@ -150,46 +152,60 @@ Advanced encoding with **Media Encoder Premium Workflow** using **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-advanced-encoding](../includes/media-services-selector-advanced-encoding.md)]
 
-
-##Monitoring job progress
+####Monitoring job progress
 
 Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../includes/media-services-selector-job-progress.md)]
 
-##Creating content key
-
-Create a content key with which you want to encrypt your asset using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../includes/media-services-selector-create-contentkey.md)]
-
-##Configuring content key authorization policy 
-
-Configure content protection and key authorization policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
-
-
-##Publishing and delivering assets
+###Protecting content 
 
 **Overview**: 
 
-- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
-- [Delivering Content Overview](media-services-deliver-content-overview.md)
+[Content Protection Overview](media-services-content-protection-overview.md)
+
+If you want to encrypt an asset with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
+
+Use **.NET** or **REST API** to create keys.
+
+[AZURE.INCLUDE [media-services-selector-create-contentkey](../includes/media-services-selector-create-contentkey.md)]
+
+Once you create the content key, you can configure key authorization policy using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
+
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
+
+####Integrating with partners
+
+[Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
+
+###Publishing and delivering assets
+
+Dynamic Packaging Overview 
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-dynamic-packaging-overview.md)
+
+
+Deliver content overview 
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
+
+Publish assets (by creating Locators) using **Azure Management Portal**, **.NET**, or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
-##Enabling Azure CDN
+###Enabling Azure CDN
 
 Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
 
-##Scaling a Media Services account
+###Scaling a Media Services account
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with. 
 
@@ -197,7 +213,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 
 [This](media-services-how-to-scale.md) topic links to relevant topics.
 
-##Playback your content with existing players
+###Playback your content with existing players
 
 For more information, see [playing your content with existing players](media-services-playback-content-with-existing-players.md).
 

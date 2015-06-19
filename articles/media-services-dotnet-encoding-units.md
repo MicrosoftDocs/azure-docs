@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
@@ -45,17 +45,26 @@ To change the reserved unit type and the number of encoding reserved units using
 
 By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
 
-To open a support ticket do the following: 
+###Open a support ticket
 
-1. Log in to your Azure account at [Management Portal](http://manage.windowsazure.com).
-2. Go to [Support](http://www.windowsazure.com/support/contact/).
-3. Click on "Get Support".
-4. Select your subscription.
-5. Under support type select "Technical".
-6. Click on "Create Ticket".
-7. Select "Azure Media Services" in the product list presented on the next page.
-8. Select "Media Processing" as "Problem type" and then select "Reservation Units" under category.
-9. Click Continue.
-10. Follow instructions on next page and then enter details about how many Encoding or On-Demand Streaming reserved units you need.
-11. Click submit to open the ticket.
+To open a support ticket do the following:
+
+1. Click [Get Support](https://manage.windowsazure.com/?getsupport=true). If you are not logged in, you will be prompted to enter your credentials.
+
+1. Select your subscription.
+ 
+1. Under support type, select "Technical".
+ 
+1. Click on "Create Ticket". 
+ 
+1. Select "Azure Media Services" in the product list presented on the next page.
+ 
+1. Select a "Problem type" that is appropriate for your issue.
+ 
+1. Click Continue.
+ 
+1. Follow instructions on next page and then enter details about your issue.   
+ 
+1. Click submit to open the ticket.
+ 
 

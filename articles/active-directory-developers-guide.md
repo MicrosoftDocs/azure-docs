@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory Developer's Guides"
+   pageTitle="Azure Active Directory Developer's Guide"
    description="A comprehensive guide to developer-oriented resources for Azure Active Directory"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,23 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/10/2015"
    ms.author="mbaldwin"/>
 
 
 # Azure Active Directory Developer's Guide
 
-<a name='overview'></a>
 ## Overview
-
-_Read these overview topics to learn the basics of Azure Active Directory, or jump to [getting started](#getting-started)._
-
-Azure Active Directory offers developers an effective way to integrate identity management in their applications. Industry standard protocols such as SAML 2.0, WS-Federation, and OpenID Connect makes sign-in possible on a variety of platforms such as .Net, Java, Node.js, and PHP. The REST-based Graph API enables developers to read and write to the directory from any platform. Through support for OAuth 2.0, developers can build mobile and web applications that integrate with Microsoft and third party web APIs, and build their own secure web APIs. Open source client libraries are available for .Net, Windows Store, iOS and Android with additional libraries under development.
-
-These articles provide developers with high-level information about the use, implementation, and key features of Azure Active Directory. We suggest you read them in order.
+As an Identity Management As A Service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications. The following articles provide overviews on implementation, and key features of Azure Active Directory. We suggest you read them in order, or jump to [getting started](#getting-started) if you're ready to dig in. 
 
 
-1. **[How To Integrate with Azure AD](active-directory-how-to-integrate.md)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
+1. **[The benefits of Azure AD Integration](active-directory-how-to-integrate.md)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
 
 1. **[Using Azure AD for sign in](active-directory-authentication-scenarios.md)**: Take advantage of Azure Active Directory's simplified authentication to provide sign on to your application.
 
@@ -39,13 +33,14 @@ These articles provide developers with high-level information about the use, imp
 
 1. **[Libraries](https://msdn.microsoft.com/library/azure/dn151135.aspx)**: Easily authenticate users to obtain access tokens with the Azure Authentication Libraries.
 
+To view AAD overviews presented at the Build 2015 conference, see the [videos](#videos) section below.
 
-<a name='getting-started'></a>
+
 ## Getting Started
 
 These tutorials are tailored for multiple platforms, and allow you to quickly start developing with Azure Active Directory. As a prerequisite you must [get an Azure Active Directory tenant](active-directory-howto-tenant.md).
 
-**Mobile or PC application quickstart guides**:
+#### Mobile or PC application quickstart guides
 
 - [iOS](active-directory-devquickstarts-ios.md)
 - [Android](active-directory-devquickstarts-android.md)
@@ -56,98 +51,24 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 - [Cordova](active-directory-devquickstarts-cordova.md)
 
 
-**Web Application or Web API quickstart guides**:
+####Web Application or Web API quickstart guides
 
 - [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
 - [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
 - [Javascript](active-directory-devquickstarts-angular.md)
 - [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
-<!-- COMMENT
 
-* [Daemon or Device](http://www.azure.com)
-
--->
-<a name='howtos'></a>
 ## How Tos
 
 These articles describe how to perform specific tasks using Azure Active Directory (AD).
 
 - [How to get an Azure AD tenant](active-directory-howto-tenant.md)
 - [How to list your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
-
-<!--
-
-* [Call Office 365 APIs]()
+- [How to get started with the Office 365 APIs in apps](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [How to submit Web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 
 
-* [Use Azure AD for Authorization]()
-
-
-* [Manage Session Lifetime]()
-
-
-* [Build Automated Tests]()
-
-
-* [Use Direct Name/Password Sign-In]()
-
-
-
-<a name='scenarios'></a>
-## Scenarios
-
-Each of the scenarios below can be developed using various languages and platforms, and there are complete code samples available on GitHub for each. In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API.
-
-The following diagram illustrates these scenarios and application types, and how different components can be added:
-
-![Application Types and scenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
-
-These are the five primary application scenarios supported by Azure AD:
-
-- [Web Browser to Web Application][]: A user needs to sign in to a web application that is secured by Azure AD.
-
-- [Single Page Application (SPA)][]: A user needs to sign in to a single page application that is secured by Azure AD.
-
-- [Native Application to Web API][]: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD.
-
-- [Web Application to Web API][]: A web application needs to get resources from a web API secured by Azure AD.
-
-- [Daemon or Server Application to Web API][]: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD.
-
-
-* [Integrate Azure AD with an Existing SaaS Application]()
-
-
-* [Using Azure AD for Sign-In and Directory Services with a Multi-Tenant SaaS Application]()
-
-
-* [Building Management Services for Microsoft Azure - Delegated Access using Azure AD]()
-
-
-<a name='troubleshooting'></a>
-## Troubleshooting
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in felis eu justo scelerisque eleifend. Vestibulum a dui sit amet nisi ornare tempus. Vivamus mattis tristique tellus, in faucibus quam. Proin pellentesque nisi interdum orci lobortis, ac posuere est facilisis. Curabitur in dapibus tortor.
-
-
-* [Where to get support]()
-
-
-* [ADAL Diagnostic Logging]()
-
-
-* [Authentication Error Codes]()
-
-
-* [Graph API Error Codes](https://msdn.microsoft.com/library/azure/hh974480.aspx)
-
-
-* [Common configuration issues]()
-
-
-COMMENT -->
-<a name='reference'></a>
 ## Reference
 
 These articles provide foundation reference for REST and authentication library APIs, protocols, errors, code samples, and endpoints.  
@@ -184,8 +105,29 @@ These articles provide foundation reference for REST and authentication library 
 
 - **[Supported Security Tokens and Claims](active-directory-token-and-claims.md)**: A guide of understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
 
-### Social
+## Videos
+
+### Build 2015
+
+These overview presentations on developing apps with Azure Active Directory feature speakers that work directly in the engineering team, and cover fundamental topics, including IDMaaS, authentication, identity federation, and single sign-on.
+
+- **[Azure Active Directory: Identity Management as a Service for Modern Applications](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
+- **[Develop Modern Web Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
+- **[Develop Modern Native Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
+
+### Azure Friday
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) is a recurring Friday 1:1 video series dedicated to bringing you short 10-15 minute interviews with experts on a variety of Azure topics.  Use the Services Filter feature on the page to see all Azure Active Directory videos.
+
+- **[Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
+- **[Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**
+- **[Azure Identity 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)**
+
+## Social
 
 - **[Active Directory Team Blog](http://blogs.technet.com/b/ad/)**: Keep abreast of the latest developments in the world of Azure AD.
+
+- **[Azure AD Graph Blog](http://blogs.msdn.com/b/aadgraphteam)**: Azure AD information specific to the Graph API.
+
+- **[Cloud Identity](http://www.cloudidentity.net)**: Thoughts on Identity Management as a Service, from a Principle Azure Active Directory PM.  
 
 - **[Azure AD on Twitter](https://twitter.com/azuread)**: Azure AD announcements in 140 characters or less.

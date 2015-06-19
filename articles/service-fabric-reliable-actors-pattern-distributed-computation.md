@@ -186,7 +186,7 @@ At this point, it should be clear how we could potentially enhance the Leaderboa
 We are by no means asserting that Azure Service Fabric is a drop-in replacement for other distributed computation of big data frameworks or high performance computing. There are some things it is just built to handle better than others. However one can model workflows and distributed parallel computation in Azure Service Fabric while still getting the simplicity benefits it provides.
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 

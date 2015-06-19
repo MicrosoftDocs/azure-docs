@@ -1,6 +1,21 @@
-<properties pageTitle="Media Services quotas and limitation" description="This topic describes quotas and limitations associated with Microsoft Azure Media Services." services="media-services" documentationCenter="" authors="Juliako" manager="dwrede" />
+<properties 
+	pageTitle="Media Services quotas and limitation" 
+	description="This topic describes quotas and limitations associated with Microsoft Azure Media Services." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/23/2015" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/16/2015" 
+	ms.author="juliako"/>
+
 
 #Quotas and Limitations
 
@@ -16,9 +31,7 @@ This topic describes quotas and limitations associated with Microsoft Azure Medi
  
 - The maximum number of assets per job: 100.
  
-- This number includes queued, finished, active, and canceled jobs. It does not include deleted jobs.
- 
-- The maximum number of jobs in your account should not exceed 50,000.
+- The maximum number of jobs in your account should not exceed 50,000. This number includes queued, finished, active, and canceled jobs. It does not include deleted jobs.
  
 - You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request. For more information, see [Job record limit for Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) and [Managing Assets](https://msdn.microsoft.com/library/azure/dn642436.aspx). 
  
@@ -32,7 +45,6 @@ This topic describes quotas and limitations associated with Microsoft Azure Medi
 
 - You cannot have more than 25 Media Services accounts in a single subscription.
 
-- Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code. For more information, see the description of the 503 error in the [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) topic.
 
 - By default, you can add up to 5 Live channels to your Media Services account. 
 
@@ -54,7 +66,10 @@ This topic describes quotas and limitations associated with Microsoft Azure Medi
 	**Important**
 	Do not create more Media Services accounts to increase limits, instead submit a support ticket.
 
-##How to request a higher limit for updatable quotas
+
+- Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code. For more information, see the description of the 503 error in the [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) topic.
+
+##<a id="request_higher_limit"></a>How to request a higher limit for updatable quotas
 
 ###Updatable quotas
 
@@ -85,7 +100,7 @@ To open a support ticket do the following:
  
 1. Click Continue.
  
-1. Follow instructions on next page and then enter details about how many Encoding or Streaming reserved units you need. 
+1. Follow instructions on next page and then enter details about your issue.   
  
 1. Click submit to open the ticket.
  

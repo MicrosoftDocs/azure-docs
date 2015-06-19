@@ -26,7 +26,7 @@ securing data sent across the internet. This common task discusses how
 to specify an HTTPS endpoint for a Node.js application hosted as an Azure Cloud Service in a web role and how to upload an
 SSL certificate to secure your application.
 
-> [AZURE.NOTE] The steps in this article only apply to node applications hosted as an Azure Cloud Service in a web role; for Websites, see [Configuring an SSL certificate for an Azure website](web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] The steps in this article only apply to node applications hosted as an Azure Cloud Service in a web role; for Websites, see [Configuring an SSL certificate for an Azure website](app-service-web/web-sites-configure-ssl-certificate.md).
 
 This task includes the following steps:
 

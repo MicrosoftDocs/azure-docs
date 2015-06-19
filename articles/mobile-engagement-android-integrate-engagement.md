@@ -28,10 +28,11 @@ This procedure describes the simplest way to activate Engagement's Analytics and
 
 > [AZURE.IMPORTANT] Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
  
-The following steps are enough to activates the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see android-sdk-engagement-advanced) since these statistics are application dependent.
+The following steps are enough to activates the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Android](mobile-engagement-android-use-engagement-api.md) since these statistics are application dependent.
 
 ##Embed the Engagement SDK and service into your Android project
 
+Download the Android SDK from [here](http://go.microsoft.com/?linkid=9863935&clcid=0x409)
 Get `mobile-engagement-VERSION.jar` and put them into the `libs` folder of your Android project (create the libs folder if it does not exist yet).
 
 > [AZURE.IMPORTANT]
@@ -166,7 +167,7 @@ This example very similiar to the `EngagementActivity` class and its variants, w
 
 ##Test
 
-Now please verify your integration by reading How to Test Engagement Integration on Android.
+Now please verify your integration by running your mobile app in an emulator or device and verifying that it registers a session on the Monitor tab. 
 
 The next sections are optional.
 

@@ -26,7 +26,7 @@ These patterns represent classes of problems that are applicable to a wide range
 While the scenarios are based on real cases we have stripped out most of the domain-specific concerns to make the patterns clearer for the reader. You may find that much of the sample code is simple or obvious. We are including that code for the sake of completeness and not because it’s anything particularly clever or impressive.
 The patterns presented in this paper are not intended to be comprehensive or canonical—some developers might solve the same problem or pattern a different way than we present.
 
-[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 

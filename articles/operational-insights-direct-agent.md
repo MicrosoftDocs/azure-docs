@@ -1,24 +1,27 @@
-<properties 
-	pageTitle="Connect computers directly to Operational Insights " 
-	description="You can connect computers directly to Operational Insights by installing the Operational Insights agent to each computer you want to on board." 
-	services="operational-insights" 
-	documentationCenter="" 
-	authors="bandersmsft" 
-	manager="jwhit" 
+<properties
+	pageTitle="Connect computers directly to Operational Insights "
+	description="You can connect computers directly to Operational Insights by installing the Operational Insights agent to each computer you want to on board."
+	services="operational-insights"
+	documentationCenter=""
+	authors="bandersmsft"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="operational-insights" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="operational-insights"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/07/2015" 
 	ms.author="banders"/>
-# Connect computers directly to Operational Insights 
+# Connect computers directly to Operational Insights
 
-You can connect computers directly to Operational Insights by installing the Operational Insights agent on each computer you want to on board. 
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
+You can connect computers directly to Operational Insights by installing the Operational Insights agent on each computer you want to on board.
+
+> [AZURE.TIP] For virtual machines running in Azure, install the agent by following the steps in [Analyze data from servers in Microsoft Azure](operational-insights-analyze-data-azure.md)
 
 ## Download and install the agent
 Use the following procedures to download and install the Operational Insights agent.
@@ -44,7 +47,7 @@ Use the following procedures to download and install the Operational Insights ag
 ```MMASetup-AMD64.exe /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"```
 
 ## Configure the Microsoft Monitoring Agent (optional)
-Use the following information to enable an agent to communicate directly with the Microsoft Azure Operational Insights service. After you've configured the agent, it will register with the agent service and will get necessary configuration information and management packs that contain intelligence pack information.
+Use the following information to enable an agent to communicate directly with the Microsoft Azure Operational Insights service. After you've configured the agent, it will register with the agent service and will get necessary configuration information and management packs that contain solution information.
 
 After data is collected from computers monitored by the agent, the number of computers monitored will appear in the Operational Insights portal in the **Connected Sources** tab in **Settings** under **Attach Servers Directly (64 bit)**. For any computer that sends data, you can view its data and assessment information in the Operational Insights portal.
 
@@ -74,4 +77,4 @@ $healthServiceSettings.ReloadConfiguration()
 ## Configure proxy and firewall settings (optional)
 If you have proxy servers or firewalls in your environment that restrict access to the Internet, you might need to follow the following procedures to enable Operations Manager or agents to communicate to the Operational Insights service.
 
-- [Configure proxy and firewall settings (Optional)](operational-insights-proxy-firewall.md) 
+- [Configure proxy and firewall settings (Optional)](operational-insights-proxy-firewall.md)

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter="android"
 	authors="brandwe"
-	manager="terrylan"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags
@@ -17,6 +17,9 @@
 	ms.author="brandwe"/>
 
 # Integrate Azure AD into an Android App
+
+[AZURE.INCLUDE [active-directory-devguide](../includes/active-directory-devguide.md)]
+
 If you're developing a desktop application, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
 For Android clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build an Android To-Do List application that:
@@ -298,7 +301,7 @@ Library project resources can be overwritten by your application resources. This
 
 ### Broker
 
-Broker component will be delivered with Intune's Company portal app. Account will be created in Account Manager. Account type is "com.microsoft.workaccount". It only allows single SSO account. It will create SSO cookie for this user after completing device challange for one of the apps.
+Broker component will be delivered with Microsoft Intune's Company portal app. Account will be created in Account Manager. Account type is "com.microsoft.workaccount". It only allows single SSO account. It will create SSO cookie for this user after completing device challange for one of the apps.
 
 ### Authority Url and ADFS
 

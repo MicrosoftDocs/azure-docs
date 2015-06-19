@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="2/26/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 # Schedule recurring jobs in Mobile Services 
@@ -29,14 +28,7 @@ This topic shows you how to use the job scheduler functionality in the Managemen
 + Requesting and storing external data, such as tweets, RSS entries, and location information.
 + Processing or resizing stored images.
 
-This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
-
-1. [Register for Twitter access and store credentials]
-2. [Download and install the LINQ to Twitter library]
-3. [Create the new Updates table]
-4. [Create a new scheduled job]
-5. [Test the scheduled job locally]
-6. [Publish the service and register the job]
+This tutorial walks you through how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table.
 
 >[AZURE.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
 

@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Free 30 day trial of RemoteApp"
-    description="Check out the 30 day free trial for RemoteApp." 
+    pageTitle="Free 30 day trial of Azure RemoteApp"
+    description="Check out the 30 day free trial for Azure RemoteApp." 
     services="remoteapp" 
     solutions="" documentationCenter="" 
     authors="lizap" 
@@ -9,18 +9,18 @@
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/19/2015" 
+    ms.date="05/26/2015" 
     ms.author="elizapo" />
 
 
 
 # Free 30 day trial of RemoteApp
 
-If you have an Azure subscription, you can try RemoteApp free for 30 days. To start, simply sign in to the Azure Management Portal, navigate to the RemoteApp node, and then create a collection. This is a great way to test drive the full administrative experience before converting to a paid subscription of Azure RemoteApp.  
+If you have an Azure subscription, you can try Azure RemoteApp free for 30 days. To start, simply sign in to the Azure Management Portal, navigate to the Azure RemoteApp node, and then create a collection. This is a great way to test drive the full administrative experience before converting to a paid subscription of Azure RemoteApp.  
 
 While in trial mode, you can create two collections with a 10 user per collection limit. There are no other limitations. You can convert your trial to a paid subscription at any time. After 30 days your collections will go into disabled state if you don’t convert to paid subscription. 
 

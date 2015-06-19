@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Change the Azure Active Directory tenant in RemoteApp"
-    description="Learn how to change the Azure Active Directory tenant associated with RemoteApp" 
+    pageTitle="Change the Azure Active Directory tenant in Azure RemoteApp"
+    description="Learn how to change the Azure Active Directory tenant associated with Azure RemoteApp" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
     authors="lizap" 
@@ -13,18 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/19/2015" 
+    ms.date="05/26/2015" 
     ms.author="elizapo" />
 
 
 
-# Change the Azure Active Directory tenant in RemoteApp
+# Change the Azure Active Directory tenant in Azure RemoteApp
 
-RemoteApp uses Azure Active Directory (Azure AD) to allow user access. The only Azure AD tenant that you can use is the one associated with the Azure subscription. You can view the associated subscription on the Settings page in the portal. Look at the Directory column on the Subscriptions tab. 
+Azure RemoteApp uses Azure Active Directory (Azure AD) to allow user access. The only Azure AD tenant that you can use is the one associated with the Azure subscription. You can view the associated subscription on the Settings page in the portal. Look at the Directory column on the Subscriptions tab. 
 
 If you want to use a different tenant, use these steps to change the association with your subscription:
 
-1. In the portal, remove any Azure AD users to which you’ve given access to RemoteApp services.
+1. In the portal, remove any Azure AD users to which you’ve given access to Azure RemoteApp collections.
 
 
 2. Set a Microsoft account (formerly called a Live ID) as the Service Administrator. (Look at **Settings -> Administrators**.)
@@ -44,4 +44,4 @@ If you want to use a different tenant, use these steps to change the association
 
 
 
-You can now use the new Azure AD tenant to control access to the Azure subscription and to configure user access in RemoteApp.
+You can now use the new Azure AD tenant to control access to the Azure subscription and to configure user access in Azure RemoteApp.

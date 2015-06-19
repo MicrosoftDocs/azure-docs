@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/24/2015"
+   ms.date="05/18/2015"
    ms.author="jesseb"/>
 
 # Debugging your Service Fabric Application in Visual Studio using F5
@@ -55,7 +55,7 @@ You can save time and money by deploying and debugging your Service Fabric appli
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Importance of testability](service-fabric-testability-importance.md).
+- [Test a Service Fabric service](service-fabric-test-your-service-index.md).
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->

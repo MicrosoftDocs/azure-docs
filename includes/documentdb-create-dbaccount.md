@@ -13,9 +13,7 @@
 	![Screen shot of the New DocumentDB blade][3] 
 
 
-	- In the **Id** box, enter a name to identify the DocumentDB account. This value becomes the host name within the URI. The **Id** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. 
-	
-		> [AZURE.NOTE] *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
+	- In the **Id** box, enter a name to identify the DocumentDB account. This value becomes the host name within the URI. The **Id** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
 
 	- The **Account Tier** lens is locked because DocumentDB supports a single standard account tier. For more information, see [DocumentDB pricing](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
 
@@ -34,12 +32,9 @@
 
 	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group][6]
 
-5.	After the DocumentDB account has been created, it is ready for use with the default settings.
+5.	After the DocumentDB account has been created, it is ready for use with the default settings. Note that the default consistency of the DocumentDB account is set to Session.  You can adjust the default consistency setting via the [Azure Preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB). 
 
-	> [AZURE.NOTE] The default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [Azure Preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).  
- 
     ![Screen shot of the Resource Group blade][7]  
-
 
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
@@ -52,4 +47,4 @@
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]:documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md

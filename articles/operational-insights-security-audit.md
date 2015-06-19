@@ -1,23 +1,25 @@
-<properties 
+<properties
    pageTitle="Explore Operational Insights security and audit data"
-   description="Learn about how you can use the Security and Audit intelligence pack to get a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention"
+   description="Learn about how you can use the Security and Audit solution to get a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/02/2015"
+   ms.date="06/08/2015"
    ms.author="banders" />
 
 # Explore Operational Insights security and audit data
 
-The Operational Insights Security and Audit intelligence pack provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention.
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
+
+The Operational Insights Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention.
 
 In this article, you will:
 
@@ -34,9 +36,9 @@ In this article, you will:
 3. On the **Security and Audit** page, review the information in the **NOTABLE ISSUES** blade. In the example image, you'll see 6 notable issues for today, with 2 from yesterday. In this example, there is 1 suspicious executable. Click **Suspicious Executables** in the **NOTABLE ISSUES** blade.
  ![Image of the Security and Audit page](./media/operational-insights-security-audit/sec-audit-dash03.png)
 4. Search displays the query and results for the suspicious executable that you clicked. In the example, there is 1 result and its file hash is displayed. Click the **FILEHASH** ID.
- ![Image of Search results filehash](./media/operational-insights-security-audit/sec-audit-search01.png) 
+ ![Image of Search results filehash](./media/operational-insights-security-audit/sec-audit-search01.png)
 5. Search displays additional information about the executable file, including its file path and process name. Click the **Process &lt;file name&gt;**. In the example, this is HEXEDIT.EXE.
-![Image of Search results process](./media/operational-insights-security-audit/sec-audit-search02.png) 
+![Image of Search results process](./media/operational-insights-security-audit/sec-audit-search02.png)
 6. Search appends the name of the process in quotations marks to the query. "**HEXEDIT.EXE"**, in this example.
  ![Image of the Search query](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. In the Search query box, remove everything but the process name and quotation marks and then click the Search icon.
@@ -48,13 +50,13 @@ In this article, you will:
 
 **Look for evidence**
 
-When you conduct a forensic analysis using the Security and Audit intelligence pack, you're looking for evidence that potentially malicious users leave behind. Regardless of what users are doing in their IT environment, many of the activities they participate in generate security artifacts. You should note that logs are often wiped by attackers and it is often the first step they take in hiding their path.
+When you conduct a forensic analysis using the Security and Audit solution, you're looking for evidence that potentially malicious users leave behind. Regardless of what users are doing in their IT environment, many of the activities they participate in generate security artifacts. You should note that logs are often wiped by attackers and it is often the first step they take in hiding their path.
 
 However, whether users are accessing their own computers or accessing them remotely, evidence about their use is stored in event logs. Operational Insights collects these artifacts *as soon as they occur*, before anyone can tamper with them, and allows you to perform different types of analysis by correlating data across multiple computers.
 
 **Understand how to configure and collect audit events**
 
-To get the most out of the Security and Audit Intelligence pack, you should configure the level of audit events gathered by your Windows environment that will best suit your needs, using the following resources.
+To get the most out of the Security and Audit solution, you should configure the level of audit events gathered by your Windows environment that will best suit your needs, using the following resources.
 
 - [How to Configure Security Policy Settings](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
 
@@ -76,7 +78,7 @@ The Windows computing environment gives you the ability to configure the capture
 
 **Investigate abnormal activity patterns**
 
-Security breaches usually originate from legitimate credentials and require a malicious user to attempt to get an elevated privilege through attacks. The Security and Audit intelligence pack does not focus on intrusion detection—instead, but it does help you to investigate and discover patterns of abnormal activities with Notable Issues. For example, you should investigate the following abnormal activities and any others that appear under **Notable Issues**.
+Security breaches usually originate from legitimate credentials and require a malicious user to attempt to get an elevated privilege through attacks. The Security and Audit solution does not focus on intrusion detection—instead, but it does help you to investigate and discover patterns of abnormal activities with Notable Issues. For example, you should investigate the following abnormal activities and any others that appear under **Notable Issues**.
 
 - unusual logons on a computer from a user who doesn’t normally use it
 
@@ -92,11 +94,11 @@ Security breaches usually originate from legitimate credentials and require a ma
 
 Your organization might have computer and network compliance policies and regulations that you must abide by, requiring extensive auditing records. For example, if your organization is a finance company you might need to keep records that prove for any given point in time, which user performed a specific operation on the network. You might also be required to generate reports detailing the activity of a specific user, or selected server on-demand, and go back in time many months—sometimes even years back.
 
-You can use the Security and Audit intelligence pack to collect auditing data throughout your IT environment, whether your computers are on premise or in the cloud. All auditing data is stored, indexed, and with a Premium subscription to Operational Insights all data is stored indefinitely. Then you can view auditing data, perform searches, and correlate across different data types and computers to get comprehensive results for any time interval since the data was collected.
+You can use the Security and Audit solution to collect auditing data throughout your IT environment, whether your computers are on premise or in the cloud. All auditing data is stored, indexed, and retained per your subscription. With a Premium subscription to Operational Insights, an unlimited amount of data is stored for one year. Then you can view auditing data, perform searches, and correlate across different data types and computers to get comprehensive results for any time interval since the data was collected.
 
 **Use Group Policy to collect auditing data**
 
-Any auditing data that you want to collect and send to Operational Insights is fully managed with Group Policy. You use it to define security configurations as part of a Group Policy Object (GPO), which are linked to Active Directory containers such as sites, domains, and organizational units, and they help you manage security settings. Policy data is logged and later sent to the Operational Insights service. 
+Any auditing data that you want to collect and send to Operational Insights is fully managed with Group Policy. You use it to define security configurations as part of a Group Policy Object (GPO), which are linked to Active Directory containers such as sites, domains, and organizational units, and they help you manage security settings. Policy data is logged and later sent to the Operational Insights service.
 
 **Use AppLocker to gather auditing data**
 

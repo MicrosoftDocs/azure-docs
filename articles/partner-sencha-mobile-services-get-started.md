@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Get Started with Azure Mobile Services and Sencha" 
-	description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Azure Mobile Services and Sencha"
+	description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-sencha" 
-	ms.devlang="multiple" 
-	ms.topic="hero-article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-sencha"
+	ms.devlang="multiple"
+	ms.topic="article" 
+	ms.date="04/24/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
@@ -89,13 +89,13 @@ The extension for Azure is installed either manually or as a Sencha Package. The
 
 ###Manual installation
 
-In most Touch applications, if you wish to add an external library of classes, you simply download the package, unpack it in your application directory and configure the Touch loader with the location of the library. 
+In most Touch applications, if you wish to add an external library of classes, you simply download the package, unpack it in your application directory and configure the Touch loader with the location of the library.
 
 You can manually add the Azure extensions to your application using the following steps:
 
 1. Download the Azure extensions package from [here](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure). (You may use your Sencha Forums ID to access this area.)
 
-2. Copy the Azure extensions package from the download directory to where you would ultimately want it to reside and unpack it : 
+2. Copy the Azure extensions package from the download directory to where you would ultimately want it to reside and unpack it :
 
         $ cd /path/to/application
 	    $ mv /download-location/azure.zip .
@@ -122,7 +122,7 @@ To download and install the Azure extensions package from the Sencha Packages re
     	        "touch-azure"
         	]
     	}
-    
+
 2. Rebuild your application using **sencha cmd** to fetch and install the package:
 
 	    $ sencha app build
@@ -133,12 +133,12 @@ Whichever command you run, Sencha Cmd will download and expand the package to yo
 
 ##Include and configure Azure
 
-**Filename**: app.js 
+**Filename**: app.js
 
 Now that the Azure extension has been downloaded and installed in your application directory, the next step is to tell your application where to find the source files, and to require those files:
 
 1. Configure the Sencha Loader with the location of the source code:
- 
+
         Ext.Loader.setConfig({
        	    enabled : true,
            	paths   : {
@@ -244,7 +244,7 @@ The Azure proxy will automatically set all HTTP headers with the appropriate CRU
 	});
 
 
-###Store your ToDo items 
+###Store your ToDo items
 
 **Filename**: app/store/TodoItems.js
 
@@ -274,7 +274,7 @@ We also have some additional configuration options for the store such as specify
 
 **Filename**: app/view/DataItem.js
 
-Now that we have defined the structure of each ToDo item, and created a store to place all the records in, we should think about how we wish to display this information to the user of the app. We normally display information to the user through the use of **Views**. A view can be one of any number of Touch components, individually or combined with others. 
+Now that we have defined the structure of each ToDo item, and created a store to place all the records in, we should think about how we wish to display this information to the user of the app. We normally display information to the user through the use of **Views**. A view can be one of any number of Touch components, individually or combined with others.
 
 The view below is comprised of a ListItem which defines how each record will be displayed along with some buttons which will accommodate actions to delete each item.
 
@@ -352,7 +352,7 @@ The view below is comprised of a ListItem which defines how each record will be 
 
 **Filename**: app/view/Main.js
 
-Now that we have defined the layout of an individual ToDo list item (above) we want to wrap a full user interface around that list which defines the actual list of items, an application title, and a button to add a new task. 
+Now that we have defined the layout of an individual ToDo list item (above) we want to wrap a full user interface around that list which defines the actual list of items, an application title, and a button to add a new task.
 
 	Ext.define('Basic.view.Main', {
     	extend : 'Ext.dataview.List',
@@ -469,8 +469,8 @@ The final step in our application is to respond to button presses (delete, save,
             	failure: function (rec, operation) {
                 	Ext.Msg.alert(
                     	'Error',
-                    	Ext.util.Format.format('There was an error deleting this task.<br/><br/>	Status Code: {0}<br/>Status Text: {1}', 
-                    	operation.error.status, 
+                    	Ext.util.Format.format('There was an error deleting this task.<br/><br/>	Status Code: {0}<br/>Status Text: {1}',
+                    	operation.error.status,
                     	operation.error.statusText)
                 	);
             	}
@@ -494,8 +494,8 @@ The final step in our application is to respond to button presses (delete, save,
 	                    rec.reject(true);
     	                Ext.Msg.alert(
         	                'Error',
-            	            Ext.util.Format.format('There was an error updating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}', 
-            	            operation.error.status, 
+            	            Ext.util.Format.format('There was an error updating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
+            	            operation.error.status,
             	            operation.error.statusText)
 	                    );
     	            }
@@ -519,8 +519,8 @@ The final step in our application is to respond to button presses (delete, save,
                             	rec.reject();
                             	Ext.Msg.alert(
                                 	'Error',
-                                	Ext.util.Format.format('There was an error updating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}', 
-                                	operation.error.status, 
+                                	Ext.util.Format.format('There was an error updating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
+                                	operation.error.status,
                                 	operation.error.statusText)
                             	);
                         	}
@@ -562,8 +562,8 @@ The final step in our application is to respond to button presses (delete, save,
                 	failure: function (rec, operation) {
                     	Ext.Msg.alert(
                         	'Error',
-                        	Ext.util.Format.format('There was an error creating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}', 
-                        	operation.error.status, 
+                        	Ext.util.Format.format('There was an error creating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
+                        	operation.error.status,
                         	operation.error.statusText)
                     	);
                 	}
@@ -702,7 +702,7 @@ Then, dive into more information about the Sencha Touch Extensions for Azure:
 
   * [Download Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
   * [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
- 
+
 
 ##Summary
 

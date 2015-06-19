@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement Troubleshooting Guide - APIs" 
-   description="Troubleshooting Guides for Azure Mobile Engagement" 
+   description="Troubleshooting Guides for Azure Mobile Engagement - APIs" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
 
 # Troubleshooting guide for API issues
@@ -35,7 +35,8 @@ The following are possible issues you may encounter with how administrators inte
 
 ### See also
  
-- [Concepts - Glossary][Link 6], [API Documentation][Link 4], [XMPP Protocol Info]( http://xmpp.org/extensions/xep-0199.html)
+- [API Documentation][Link 4]
+- [XMPP Protocol Info]( http://xmpp.org/extensions/xep-0199.html)
  
 ## Unable to use the API to perform the same action available in the Azure Mobile Engagement UI
 
@@ -77,7 +78,7 @@ The following are possible issues you may encounter with how administrators inte
         409        Name already associated to a different device ID or campaign.
         413        Too many device identifiers (current limit is 1,000), POST URL encoded entity is over 2MB, or the period is too large to be displayed (the server didn’t retrieve the analytics because the user request is for a period that is too large).
         503        Analytics not available yet (the requested information is not computed yet for an application).
-        504         The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
+        504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
 ### See also
 
@@ -95,7 +96,7 @@ The following are possible issues you may encounter with how administrators inte
 
 ### See also
 
-- [Troubleshooting Guide - SDK][Link 25], [SDK Documentation][Link 5]
+- [Troubleshooting Guide - SDK][Link 25]
  
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

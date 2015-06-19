@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # Troubleshooting guide for Push and Reach issues
 
@@ -31,7 +30,7 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 - Test just an In App push and just an Out of App push to determine if something is an In App or Out of App issue.
 - Test from both the UI and the API as a troubleshooting step to see what additional error information is available both places.
 - Out of App pushes won't work unless both Azure Mobile Engagement and Reach are integrated in the SDK.
-- Out of App pushes won't work if certificates aren't valid, or are using PROD vs. DEV correctly (iOS only). (**Note:** "Out of app" push notifications may not be delivered to iOS, if you have both the development (DEV) and production (PROD) versions of your application installed on the same device since the security token associated with your certificate may be invalidated by Apple. To resolve this issue, uninstall both the DEV and PROD versions of your application and re-install only the one version on your device.)
+- Pushes won't work if certificates aren't valid, or are using PROD vs. DEV correctly (iOS only). (**Note:** "Out of app" push notifications may not be delivered to iOS, if you have both the development (DEV) and production (PROD) versions of your application installed on the same device since the security token associated with your certificate may be invalidated by Apple. To resolve this issue, uninstall both the DEV and PROD versions of your application and re-install only the one version on your device.)
 - Out of App push counts are handled differently in different platforms (iOS shows less information than Android if native pushes are disabled on a device, the API can provide more information than the UI on push stats).
 - Out of App pushes can be blocked by customers at OS level (iOS and Android).
 - Out of App pushes will be shown as disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but may fail silently from the API.
@@ -45,10 +44,6 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 - For issues with the Push API, confirm that you really do want to use the Push API instead of the Reach API (since the Reach API is used more often) and that you are not confusing the "payload" and "notifier" parameters.
 - Test your push campaign with both a device connected via WIFI and 3G to eliminate the network connection as a possible source of problems.
 
-### See also
-
-- [Troubleshooting Guide - SDK][Link 25], [Troubleshooting Guide - Push][Link 23], [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications][Link 5]
- 
 ## Push testing
 
 ### Issue
@@ -59,10 +54,7 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 - Test devices are setup differently for each platform, but causing an event in your app on a test device and looking for your Device ID in the portal should work to find your device ID for all platforms.
 - Test devices work differently with IDFA vs. IDFV (iOS only).
 
-### See also
 
-- [UI Documentation - Reach][Link 17]
- 
 ## Push customization
 
 ### Issue
@@ -86,13 +78,6 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 the notification is clicked. 
 - The main reason that "pushed" numbers are different than different than "delivered" numbers for reach campaigns is that "in app" and "out of app" notifications are counted differently. "In app" notifications are handled by Mobile Engagement, but "Out of app" notifications are handled by the notification center in the OS of your device.
 
-### See also
-
-- [How Tos - First Push][Link 27], [Troubleshooting Guide - Push][Link 23], [HTTP Protocol Info]( http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
-- [Apple Developer - "Opt Out" UI Info](http://support.apple.com/kb/HT3576), [Apple Developer - "Opt Out" Dev Info](https://developer.apple.com/notifications/), [Apple Developer - "Opt Out" Troubleshooting](https://developer.apple.com/library/ios/technotes/tn2265/), [Apple Developer - URL Scheme](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html) 
-- [Android Developer - "Opt Out" UI Info](http://developer.android.com/about/versions/jelly-bean.html), [Android Developer - "Opt Out" Patterns](http://developer.android.com/design/patterns/notifications.html), [Android Developer - "Opt Out" Notifier](http://developer.android.com/guide/topics/ui/notifiers/notifications.html), [Android Developer - "Opt Out" Preview](https://developer.android.com/preview/notifications.html), [Android Developer - "Opt Out" Reference](http://developer.android.com/reference/android/app/Notification.html), [Android Developer - Intent Filter Scheme](http://developer.android.com/guide/components/intents-filters.html#DataTest), 
- [Android Developer - Intent Filter Reference Guide](http://developer.android.com/reference/android/content/Intent.html#toUri)
-
 ## Push targeting
 
 ### Issue
@@ -108,10 +93,7 @@ the notification is clicked.
 - Setting a “Language” is different than targeting based on country or locale, which is also different than targeting based on Geo-location based on a phone location or GPS location.
 - The message in the “default language” is sent to any customer who doesn't have their device set to one of the alternate languages you specify.
 
-### See also
 
-- [UI Documentation - Reach][Link 17], [UI Documentation - Settings][Link 20], [API Documentation - Reach][Link 4], [API Documentation - Push][Link 4], [API Documentation - Device][Link 4]
- 
 ## Push scheduling
 
 ### Issue
@@ -127,37 +109,3 @@ the notification is clicked.
 - If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.
 - If you use a custom category in Reach to display in-app notifications, you need to follow the correct life-cycle of a notification, or else the notification may not be cleared when the user dismiss it.
 
-### See also
-
-- [Reach How Tos - Schedule Campaign][Link 3], [UI Documentation - Reach New Push Campaign][Link 27]
- 
-<!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md

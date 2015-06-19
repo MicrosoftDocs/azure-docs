@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Continuous delivery with Visual Studio Online in Azure" 
-	description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." 
-	services="app-service\web" 
+	description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services." 
+	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="cloud-services" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/08/2015" 
 	ms.author="kempb"/>
 
 
@@ -42,17 +42,17 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 -	[Step 7: Run unit tests (optional)][]
 
-<h2> <a name="step1"></a>Step 1: Create a team project</h2>
+## <a name="step1"></a>Step 1: Create a team project
 
 Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-<h2><a name="step2"> </a>Step 2: Check in a project to source control</h2>
+## <a name="step2"> </a>Step 2: Check in a project to source control
 
 1. In Visual Studio, open the solution you want to deploy, or create a new one.
-You can deploy a website or a cloud service (Azure Application) by following the steps in this walkthrough.
+You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, create a new Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
-If you want to create a website, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure Websites and ASP.NET](web-sites-dotnet-get-started.md).
+If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](app-service-web/web-sites-dotnet-get-started.md).
 
 > [AZURE.NOTE] Visual Studio Online only support CI deployments of Visual Studio Web Applications at this time. Web Site projects are out of scope.
 
@@ -73,9 +73,9 @@ If you want to create a website, choose the ASP.NET Web Application project temp
 Note the options to include or exclude specific changes when you check in. If desired changes are excluded, choose the **Include All** link.<br/>
 ![][9]
 
-<h2> <a name="step3"> </a>Step 3: Connect the project to Azure</h2>
+## <a name="step3"> </a>Step 3: Connect the project to Azure
 
-1. Now that you have a VSO team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure Portal](http://manage.windowsazure.com), select your cloud service or website, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Website** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Online** link.<br/>
+1. Now that you have a VSO team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure Portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Online** link.<br/>
 ![][10]
 
 2. In the wizard, type the name of your Visual Studio Online account in the textbox and click the **Authorize Now** link. You might be asked to sign in.<br/>
@@ -90,7 +90,7 @@ Note the options to include or exclude specific changes when you check in. If de
 5. When your project is linked, you will see some instructions for checking in changes to your Visual Studio Online team project.  On your next check-in, Visual Studio Online will build and deploy your project to Azure.  Try this now by clicking the **Check In from Visual Studio** link, and then the **Launch Visual Studio** link (or the equivalent **Visual Studio** button at the bottom of the portal screen).<br/>
 ![][14]
 
-<h2><a name="step4"> </a>Step 4: Trigger a rebuild and redeploy your project</h2>
+## <a name="step4"> </a>Step 4: Trigger a rebuild and redeploy your project
 
 1. In Visual Studio's Team Explorer, click the **Source Control Explorer** link.<br/>
 ![][15]
@@ -128,7 +128,7 @@ The Team Explorer shows that a build has been triggered for your check-in.<br/>
 In the **Trigger** tab, you will see that the build definition is set to build on every check-in by default.<br/>
 ![][26]
 <br/>
-In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or website. If you are working with websites, the properties you see will be different from those shown here.<br/>
+In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web app. If you are working with web apps, the properties you see will be different from those shown here.<br/>
 ![][27]
 <br/>
 Specify values for the properties if you want different values than the defaults. The properties for Azure publishing are in the Deployment section.
@@ -138,9 +138,9 @@ The following table shows the available properties in the Deployment section:
 ><tr><td>Allow Untrusted Certificates</td><td>If false, SSL certificates must be signed by a root authority.</td></tr>
 <tr><td>Allow Upgrade</td><td>Allows a the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.</td></tr>
 ><tr><td>Do Not Delete</td><td>If true, do not overwrite an existing unrelated deployment (upgrade is allowed).</td></tr>
-<tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a website, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
+<tr><td>Path to Deployment Settings</td><td>The path to your .pubxml file for a web app, relative to the root folder of the repo. Ignored for cloud services.</td></tr>
 <tr><td>Sharepoint Deployment Environment</td><td>The same as the service name</td></tr>
-<tr><td>Azure Deployment Environment</td><td>The website or cloud service name</td></tr>
+<tr><td>Azure Deployment Environment</td><td>The web app or cloud service name</td></tr>
 </table>
 <br/>
 
@@ -156,7 +156,7 @@ If you are using multiple service configurations (.cscfg files), you can specify
 13. In the [Azure Portal](http://manage.windowsazure.com), you can view the associated deployment on the Deployments tab when the staging environment is selected.<br/>
 ![][30]
 
-14.	Browse to your site's URL. For a website, just click the Browse button on the command bar. For a cloud service, choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the Alternate Cloud Service Environment property to Production. This screenshot shows where the site URL is on the cloud service's dashboard page: <br/>
+14.	Browse to your site's URL. For a web app, just click the Browse button on the command bar. For a cloud service, choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the Alternate Cloud Service Environment property to Production. This screenshot shows where the site URL is on the cloud service's dashboard page: <br/>
 ![][31]
 <br/>
 A new browser tab will open to reveal your running site.<br/>
@@ -165,19 +165,19 @@ A new browser tab will open to reveal your running site.<br/>
 15.	For cloud services, if you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments. The latest one marked as Active.<br/>
 ![][33]
 
-<h2> <a name="step5"> </a>Step 5: Redeploy an earlier build</h2>
+## <a name="step5"> </a>Step 5: Redeploy an earlier build
 
 This step applies to cloud services and is optional. In the management portal, select an earlier deployment and click the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS, and create a new entry in your deployment history.<br/>
 ![][34]
 
-<h2> <a name="step6"> </a>Step 6: Change the Production deployment</h2>
+## <a name="step6"> </a>Step 6: Change the Production deployment
 
-This step applies only to cloud services, not websites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
+This step applies only to cloud services, not web apps. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
 ![][35]
 
-<h2> <a name="step7"> </a>Step 7: Run unit tests</h2>
+## <a name="step7"> </a>Step 7: Run unit tests
 
-This step applies only to websites, not cloud services. To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.
+This step applies only to web apps, not cloud services. To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.
 
 1.  In Visual Studio, add a unit test project.<br/>
 ![][39]
@@ -244,7 +244,7 @@ This step applies only to websites, not cloud services. To put a quality gate on
 
 For more about unit testing in Visual Studio Online, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474).
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publish to Azure Websites with Git](web-sites-publish-source-control.md).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Continuous deployment using GIT in Azure App Service](app-service-web/web-sites-publish-source-control.md).
 
 [Step 1: Create a team project.]: #step1
 [Step 2: Check in a project to source control.]: #step2

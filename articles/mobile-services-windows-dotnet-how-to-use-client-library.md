@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="05/01/2015" 
 	ms.author="glenga"/>
 
 # How to use a .NET client for Azure Mobile Services
@@ -22,11 +22,11 @@
 
 ##Overview
 
-This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial ([Windows Store quickstart tutorial]/[Windows Phone quickstart tutorial]) and the "Getting Started with Data in .NET" tutorial ([Windows Store data tutorial]/[Windows Phone data tutorial]). The quickstart tutorial requires the [Mobile Services SDK] and helps you configure your account and create your first mobile service.
+This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart]() tutorial or the tutorial [Add Mobile Services to an existing app](). 
 
 [AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-<h2><a name="setup"></a>Setup and Prerequisites</h2>
+##<a name="setup"></a>Setup and Prerequisites
 
 We assume that you have created a mobile service and a table. For more information see [Create a table](http://go.microsoft.com/fwlink/?LinkId=298592). In the code used in this topic, the table is named `TodoItem` and it will have the following columns: `Id`, `Text`, and `Complete`.
 
@@ -238,7 +238,7 @@ String IDs provide you with the following benefits:
 + Records are easier to merge from different tables or databases.
 + IDs values can integrate better with an application's logic.
 
-When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in a .NET mobile backend service. To learn more about generating GUIDs in a JavaScript backend mobile service, see [How to: Generate unique ID values](/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
+When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in a .NET mobile backend service. To learn more about generating GUIDs in a JavaScript backend mobile service, see [How to: Generate unique ID values](mobile-services-how-to-use-server-scripts.md#generate-guids). 
 
 You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
@@ -435,13 +435,13 @@ Finally, imagine that your table has many fields, but you only want to display s
 
 ##<a name="authentication"></a>How to: Authenticate users
 
-Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Windows Store][Windows Store authentication]/[Windows Phone][Windows Phone authentication])
+Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the tutorial [Add authentication to your app].
 
 Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
 ###Server flow
 To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app,
-you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the "Get started with authentication" tutorial ([Windows Store][Windows Store authentication]/[Windows Phone][Windows Phone authentication]).
+you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the tutorial [Add authentication to your app].
 
 Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow login by using Facebook.
 
@@ -647,18 +647,6 @@ Using this property, you may set one of the many Json.NET properties, such as th
 
 This property converts all properties to lower case during serialization.
 
-##<a name="nextsteps"></a>Next steps
-
-Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
-
-* [Add Mobile Services to an existing app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* [Add authentication to your mobile services app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md)
-  <br/>Learn how to authenticate users of your app with an identity provider.
-
-* [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
-
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
 [Concepts]: #concepts
@@ -692,31 +680,17 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Windows Store quickstart tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started/
-[Windows Phone quickstart tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-wp8/
-[Windows Store data tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Windows Phone data tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-wp8/
-[Windows Store authentication]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Windows Phone authentication]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-users-wp8/
+[Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet/
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables
-[Optimistic Concurrency Tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
+[CLI to manage Mobile Services tables]: virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
+[Optimistic Concurrency Tutorial]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx

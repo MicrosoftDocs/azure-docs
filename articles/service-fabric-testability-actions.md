@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2014"
+   ms.date="03/17/2015"
    ms.author="heeldin;motanv"/>
 
 # Testability actions
@@ -169,16 +169,14 @@ class Test
 
         // Create FabricClient with connection & security information here.
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
-
+        await fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
     }
 
     static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
     {
         // Create FabricClient with connection & security information here.
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
-
+        await fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
     }
 }
 ```

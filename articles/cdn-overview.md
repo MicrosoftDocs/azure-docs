@@ -3,7 +3,7 @@
 	description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content." 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="akucer" 
+	authors="zhangmanling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2015" 
-	ms.author="akucer"/>
+	ms.date="05/26/2015" 
+	ms.author="mazha"/>
 
 #Overview of the Azure Content Delivery Network (CDN)
 
@@ -51,12 +51,13 @@ When you enable CDN access for a storage account, the Management Portal provides
 
 ##Caching content from Azure websites
 
-You can enable CDN from your websites to cache your web contents, such as images, scripts, and stylesheets. See [Integrate an Azure Website with Azure CDN](cdn-websites-with-cdn.md).
+You can enable CDN from your websites to cache your web contents, such as images, scripts, and stylesheets. See [Integrate an Azure Website with Azure CDN](app-service-web/cdn-websites-with-cdn.md).
 
 When you enable CDN access for a website, the Management Portal provides you with a CDN domain name in the following format: http://<identifier>.vo.msecnd.net/. This domain name can be used to retrieve objects from a website. For example, given a public container named cdn and an image file called music.png, users can access the object using either of the following two URLs:
 
 - **Azure Website URL**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
-- **Azure CDN URL**: `http://<identifier>.vo.msecnd.net/cdn/music.png` 
+- **Azure CDN URL**: `http://<identifier>.vo.msecnd.net/cdn/music.png`
+ 
 ##Caching content from Azure cloud services
 
 You can cache objects to the CDN that are provided by a Azure cloud service. 

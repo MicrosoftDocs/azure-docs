@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Supported configurations for Operational Insights"
    description="Learn about the configurations needed for Operational Insights"
    services="operational-insights"
@@ -6,16 +6,18 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2015"
+   ms.date="05/20/2015"
    ms.author="banders" />
 
 # Supported configurations for Operational Insights
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 What do you need to use Operational Insights? Check out the following information to prepare for Operational Insights.
 
@@ -37,14 +39,8 @@ Using Operational Insights as an attached service has the following prerequisite
 
 See [Viewing Operational Insights Alerts](http://go.microsoft.com/fwlink/?LinkID=293793) for installation and configuration instructions.
 
-If you want to view Operational Insights alerts about SharePoint Server 2010, Lync Server 2013, Lync Server 2010, or System Center 2012 SP1 - Virtual Machine Manager, you need to configure a Run As account for those workloads. See the following information:
+If you want to view Operational Insights alerts about SharePoint Server 2010, Lync Server 2013, Lync Server 2010, or System Center 2012 SP1 - Virtual Machine Manager, you need to configure a Run As account for those workloads. See [Operations Manager considerations with Operational Insights](operational-insights-operations-manager.md) for information about how to set Run As accounts.
 
-
-- [Set the Run As Account For SharePoint](operational-insights-run-as.md)
-
-- [Set the Run As Account for Lync Server](operational-insights-run-as.md)
-
-- [Set the Run As Account for Virtual Machine Manager (VMM)](operational-insights-run-as.md)
 
 ### Operations Manager operating systems
 
@@ -103,4 +99,3 @@ For SQL Server, the following 32-bit and 64-bit editions are supported for analy
 - SQL Server 2008 and 2008 R2 Express
 
 In addition, the 32-bit edition of SQL Server is supported when running in the WOW64 implementation.
-

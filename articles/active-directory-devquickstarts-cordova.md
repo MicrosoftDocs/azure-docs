@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="vibronet"
-	manager="terrylan"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags
@@ -17,6 +17,9 @@
 	ms.author="vittorib"/>
 
 # Integrate Azure AD with an Apache Cordova app
+
+[AZURE.INCLUDE [active-directory-devguide](../includes/active-directory-devguide.md)]
+
 Apache Cordova makes it possible for you to develop HTML5/JavaScript applications which can run on mobile devices as full-fledged native applications.
 With Azure AD, you can add enterprise grade authentication capabilities to your Cordova applications. Thanks to a Cordova plugin wrapping Azure AD's native SDKs on iOS, Android, Windows Store and Windows Phone, you can enhance your application to support sign on with your users' AD accounts, gain access to Office 365 and Azure API, and even protect calls to your own custom Web API.
 

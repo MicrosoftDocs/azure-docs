@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="04/17/2015"
-   ms.author="vturecek@microsoft.com"/>
+   ms.date="05/18/2015"
+   ms.author="vturecek"/>
 
-# Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)
+# Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host
 
 Service Fabric puts the power in your hands when deciding how you want your services to communicate with users and with each other. This tutorial focuses on implementing service communication using ASP.NET Web API with OWIN self-hosting in Service Fabric's *Reliable Services* API. We'll go in depth into the *Reliable Services* pluggable communication API and show you step-by-step how to set up a custom communication listener for you service with Web API used as an example. To see a complete example of a Web API communication listener, check out the [Service Fabric WebApplication sample on GitHub](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/WebApplication).
 
@@ -578,6 +578,31 @@ You can now build and deploy your service. Press **F5** in Visual Studio to buil
 
 Once the service is running, open a browser and navigate to [http://localhost/api](http://localhost/api) to test it out.
 
+## Scale it out
+
+Scaling out stateless web apps typically means adding more machines and spinning up the web app on them. Service Fabric's orchestration engine can do this for you whenever new nodes are added to a cluster. When creating instances of a stateless service, you can specify the number of instances you want to create. Service Fabric will place that number of instances on nodes in the cluster accordingly, making sure not to create more than one instance on any one node. You can also instruct Service Fabric to always create an instance on every node by specifying "-1" for the instance count. This guarantees that whenever you add nodes to scale out your cluster, an instance of your stateless service will be created on the new nodes. This value is a property of the service instance, so it is set when creating a service instance either through PowerShell: 
+
+```powershell
+
+New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -ServiceName "fabric:/WebServiceApplication/WebService" -ServiceTypeName "WebServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1
+
+```
+
+Or when defining a default service in a Visual Studio Stateless Service project:
+
+```xml
+
+<DefaultServices>
+  <Service Name="WebService">
+    <StatelessService ServiceTypeName="WebServiceType" InstanceCount="-1">
+      <SingletonPartition />
+    </StatelessService>
+  </Service>
+</DefaultServices>
+
+```
+
+For more information on creating application and service instances, see [how to deploy and remove applications](service-fabric-deploy-remove-applications.md).
 
 ## ASP.NET 5
 
