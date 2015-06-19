@@ -106,6 +106,11 @@ In PowerShell, replace the elements within the "< >" with your specific informat
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
 	$OutputPathForSettingsFile = "<c:\>"
+
+```
+
+
+```
 	New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
 	$vault = Get-AzureSiteRecoveryVault -Name $VaultName;
 
@@ -115,79 +120,80 @@ In PowerShell, replace the elements within the "< >" with your specific informat
 
 Generate a registration key in the vault. After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.
 
-1. Get the vault setting file and set the context: In PowerShell, replace the elements within the "< >" with your specific information, and run these commands:
-
-```
-
-	$VaultName = "<testvault123>"
-	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<c:\>"
-	$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
-
-```
-
-2. Set the vault context by running the following commands:
-
-```
-
-	$VaultSettingFilePath = $vaultSetingsFile.FilePath 
-	$VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
-
+1.	Get the vault setting file and set the context:
+	
+	```
+	
+		$VaultName = "<testvault123>"
+		$VaultGeo  = "<Southeast Asia>"
+		$OutputPathForSettingsFile = "<c:\>"
+	
+		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
+	
+	```
+	
+2.	Set the vault context by running the following commands:
+	
+	```
+	
+		$VaultSettingFilePath = $vaultSetingsFile.FilePath 
+		$VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
+	
 ```
 
 ## Step 4: Install the Azure Site Recovery Provider
 
-1. On the VMM machine, create a directory by running the following command:
-
-```
-
-	pushd C:\ASR\
-
-```
-
+1.	On the VMM machine, create a directory by running the following command:
+	
+	```
+	
+		pushd C:\ASR\
+	
+	```
+	
 2. Extract the files using the downloaded provider by running the following command
-
-```
-
-	AzureSiteRecoveryProvider.exe /x:. /q
-
-```
-
+	
+	```
+	
+		AzureSiteRecoveryProvider.exe /x:. /q
+	
+	```
+	
 3. Install the provider using the following commands:
-
-```
-
-.\SetupDr.exe /i
-
-```
-
-```
-
-$installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
-do
-{
-                $isNotInstalled = $true;
-                if(Test-Path $installationRegPath)
-                {
-                                $isNotInstalled = $false;
-                }
-}While($isNotInstalled)
-
-```
-
-Wait for the installation to finish.
-
+	
+	```
+	
+	.\SetupDr.exe /i
+	
+	```
+	
+	```
+	
+	$installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
+	do
+	{
+	                $isNotInstalled = $true;
+	                if(Test-Path $installationRegPath)
+	                {
+	                                $isNotInstalled = $false;
+	                }
+	}While($isNotInstalled)
+	
+	```
+	
+	Wait for the installation to finish.
+	
 4. Register the server in the vault using the following command:
-
-```
-
-$BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
-pushd $BinPath
-$encryptionFilePath = "C:\temp\"
-.\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
-
-```
-
+	
+	```
+	
+	$BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
+	pushd $BinPath
+	$encryptionFilePath = "C:\temp\"
+	.\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
+	
+	```
+	
 ## Step 5: Create an Azure storage account
 
 If you don't have an Azure storage account, create a geo-replication enabled account by running the following command:
@@ -219,61 +225,61 @@ Run the following command on all VMM hosts:
 
 ## Step 7: Configure cloud protection settings
 
-1. Create a cloud protection profile to Azure by running the following command:
-
-```
-
-$ReplicationFrequencyInSeconds = "300";
-$ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvider HyperVReplica -RecoveryAzureSubscription $AzureSubscriptionName `
--RecoveryAzureStorageAccount $StorageAccountName -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds;
-
-```
-
-2. Get a protection container by running the following commands:
-
-```
-
-	$PrimaryCloud = "testcloud"
-	$protectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $PrimaryCloud;	
-
-```
-
-3. Start the association of the protection container with the cloud:
-
-```
-
-	$associationJob = Start-AzureSiteRecoveryProtectionProfileAssociationJob -ProtectionProfile $profileResult -PrimaryProtectionContainer $protectionContainer;	
-
-```
-
-4. After the job has finished, run the following command:
-
-```
-
-Do
-{
-                $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-                if($job -eq $null -or $job.StateDescription -ne "Completed")
-                {
-                                $isJobLeftForProcessing = $true;
-                }
-                
-                
-
-```
-
-5. After the job has finished processing, run the following command:
+1.	Create a cloud protection profile to Azure by running the following command:
 	
-```
-
-                if($isJobLeftForProcessing)
-                {
-                                Start-Sleep -Seconds 60
-                }
-}While($isJobLeftForProcessing)
-
-```
-
+	```
+	
+	$ReplicationFrequencyInSeconds = "300";
+	$ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvider 	HyperVReplica -RecoveryAzureSubscription $AzureSubscriptionName `
+	-RecoveryAzureStorageAccount $StorageAccountName -ReplicationFrequencyInSeconds 	$ReplicationFrequencyInSeconds;
+	
+	```
+	
+2.	Get a protection container by running the following commands:
+	
+	```
+	
+		$PrimaryCloud = "testcloud"
+		$protectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $PrimaryCloud;	
+	
+	```
+	
+3.	Start the association of the protection container with the cloud:
+	
+	```
+	
+		$associationJob = Start-AzureSiteRecoveryProtectionProfileAssociationJob -	ProtectionProfile $profileResult -PrimaryProtectionContainer $protectionContainer;		
+	
+	```
+	
+4.	After the job has finished, run the following command:
+	
+	```
+	
+	Do
+	{
+	                $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+	                if($job -eq $null -or $job.StateDescription -ne "Completed")
+	                {
+	                                $isJobLeftForProcessing = $true;
+	                }
+	                
+	                
+	
+	```
+	
+5. After the job has finished processing, run the following command:
+		
+	```
+	
+	                if($isJobLeftForProcessing)
+	                {
+	                                Start-Sleep -Seconds 60
+	                }
+	}While($isJobLeftForProcessing)
+	
+	```
+	
 To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
 
 ## Step 8: Configure network mapping
@@ -325,33 +331,36 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 
 After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:
 
-- Virtual machines must meet Azure requirements. Check these in <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Prerequisites and support</a> in the Planning guide.
-- To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
+Virtual machines must meet Azure requirements. Check these in <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Prerequisites and support</a> in the Planning guide.
+
+To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
 
-1. To enable protection, run the following command to get the protection container:
-
-```
-
-$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
-
-```
-
+	
+1.	To enable protection, run the following command to get the protection container:
+		
+	```
+	
+	$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
+	
+	```
+	
 2. Get the protection entity (VM) by running the following command:
-
-```
-
-$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-
-```
-
+		
+	```
+	
+		$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
+		
+		```
+			
 3. Enable the DR for the VM by running the following command:
 	
 ```
-
-$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Protection Enable -Force
-
-```
+	
+	$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
+	
+		
+	```
 
 ## Test your deployment
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan. Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
@@ -365,74 +374,74 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 1. Create an .xml file as a template for your recovery plan using the data below, and then save it as "C:\RPTemplatePath.xml".
 2. Change the RecoveryPlan node Id, Name, PrimaryServerId, and SecondaryServerId.
-3. Change the ProtectionEntity node PrimaryProtectionEntityId (vmid from VMM
-4. ). You can add more VMs by adding more ProtectionEntity nodes.
-
-```
-
-<#
-<?xml version="1.0" encoding="utf-16"?>
-<RecoveryPlan Id="d0323b26-5be2-471b-addc-0a8742796610" Name="rp-test" PrimaryServerId="9350a530-d5af-435b-9f2b-b941b5d9fcd5" SecondaryServerId="21a9403c-6ec1-44f2-b744-b4e50b792387" Description="" Version="V2014_07">
-  <Actions />
-  <ActionGroups>
-    <ShutdownAllActionGroup Id="ShutdownAllActionGroup">
-      <PreActionSequence />
-      <PostActionSequence />
-    </ShutdownAllActionGroup>
-    <FailoverAllActionGroup Id="FailoverAllActionGroup">
-      <PreActionSequence />
-      <PostActionSequence />
-    </FailoverAllActionGroup>
-    <BootActionGroup Id="DefaultActionGroup">
-      <PreActionSequence />
-      <PostActionSequence />
-      <ProtectionEntity PrimaryProtectionEntityId="d4c8ce92-a613-4c63-9b03-cf163cc36ef8" />
-    </BootActionGroup>
-  </ActionGroups>
-  <ActionGroupSequence>
-    <ActionGroup Id="ShutdownAllActionGroup" ActionId="ShutdownAllActionGroup" Before="FailoverAllActionGroup" />
-    <ActionGroup Id="FailoverAllActionGroup" ActionId="FailoverAllActionGroup" After="ShutdownAllActionGroup" Before="DefaultActionGroup" />
-    <ActionGroup Id="DefaultActionGroup" ActionId="DefaultActionGroup" After="FailoverAllActionGroup"/>
-  </ActionGroupSequence>
-</RecoveryPlan>
-#>
-
-```
-
+3. Change the ProtectionEntity node PrimaryProtectionEntityId (vmid from VMM).
+4. You can add more VMs by adding more ProtectionEntity nodes.
+	
+	```
+	
+	<#
+	<?xml version="1.0" encoding="utf-16"?>
+	<RecoveryPlan Id="d0323b26-5be2-471b-addc-0a8742796610" Name="rp-test" 	PrimaryServerId="9350a530-d5af-435b-9f2b-b941b5d9fcd5" 	SecondaryServerId="21a9403c-6ec1-44f2-b744-b4e50b792387" Description="" 	Version="V2014_07">
+	  <Actions />
+	  <ActionGroups>
+	    <ShutdownAllActionGroup Id="ShutdownAllActionGroup">
+	      <PreActionSequence />
+	      <PostActionSequence />
+	    </ShutdownAllActionGroup>
+	    <FailoverAllActionGroup Id="FailoverAllActionGroup">
+	      <PreActionSequence />
+	      <PostActionSequence />
+	    </FailoverAllActionGroup>
+	    <BootActionGroup Id="DefaultActionGroup">
+	      <PreActionSequence />
+	      <PostActionSequence />
+	      <ProtectionEntity PrimaryProtectionEntityId="d4c8ce92-a613-4c63-9b03-	cf163cc36ef8" />
+	    </BootActionGroup>
+	  </ActionGroups>
+	  <ActionGroupSequence>
+	    <ActionGroup Id="ShutdownAllActionGroup" ActionId="ShutdownAllActionGroup" 	Before="FailoverAllActionGroup" />
+	    <ActionGroup Id="FailoverAllActionGroup" ActionId="FailoverAllActionGroup" 	After="ShutdownAllActionGroup" Before="DefaultActionGroup" />
+	    <ActionGroup Id="DefaultActionGroup" ActionId="DefaultActionGroup" After="FailoverAllActionGroup"/>
+	  </ActionGroupSequence>
+	</RecoveryPlan>
+	#>
+	
+	```
+	
 4. Fill in the data in the template:
-
-```
-
-$TemplatePath = "C:\RPTemplatePath.xml";
-
-```
-
+	
+	```
+	
+	$TemplatePath = "C:\RPTemplatePath.xml";
+	
+	```
+	
 5. Create the RecoveryPlan:
-
-```
-
-	$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
-
-```
-
+	
+	```
+	
+		$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
+	
+	```
+	
 ### Run a test failover
 
 1. Get the RecoveryPlan object by running the following command:
-
-```
-
-	$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
-
-```
-
+	
+	```
+	
+		$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
+	
+	```
+	
 2. Start the test failover by running the following command:
-
-```
-
-$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
-
-```
-
+	
+	```
+	
+	$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
+	
+	```
+	
 ## <a name=monitor></a> Monitor Activity
 
 Use the following commands to monitor the activity. Note that you have to wait in between jobs for the processing to finish.
