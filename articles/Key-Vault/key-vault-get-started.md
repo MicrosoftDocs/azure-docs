@@ -26,7 +26,7 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 
 >[AZURE.NOTE]  This tutorial does not include instructions how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
->Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions. Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli.md).
+>Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions. 
 
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
