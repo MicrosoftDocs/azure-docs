@@ -18,8 +18,6 @@
 
 #Azure Active Directory integration with Google Apps
 
-##Overview
-
 
 
 what does azure ad support
