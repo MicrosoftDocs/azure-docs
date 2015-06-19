@@ -22,7 +22,7 @@ Applications are typically made up of many components – maybe a web app, datab
 
 Azure Resource Manager natively integrates access control into the management platform so you can specify which actions a user in your organization can take for a resource group.  
 
-> [AZURE.NOTE] This topic describes resources, groups, and templates using the preview portal to demonstrate the concepts. However, you can also create, manage, and delete Azure resources using the [Azure CLI for Mac, Linux, and Windows](xplat-cli-azure-resource-manager.md) as well as [PowerShell](powershell-azure-resource-manager.md).
+> [AZURE.NOTE] This topic describes resources, groups, and templates using the preview portal to demonstrate the concepts. However, you can also create, manage, and delete Azure resources using the [Azure CLI for Mac, Linux, and Windows](virtual-machines/xplat-cli-azure-resource-manager.md) as well as [PowerShell](powershell-azure-resource-manager.md).
 
 ## Resource Groups
 
@@ -104,7 +104,7 @@ Azure Resource Manager provides completely compatible operations through Azure P
 
 For information about PowerShell, see [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./virtual-machines/xplat-cli-azure-resource-manager.md).
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
@@ -112,15 +112,15 @@ For information about the REST API, see [Azure Resource Manager REST API Referen
 Getting Started
 
 - [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI with Resource Manager](./xplat-cli-azure-resource-manager.md)
+- [Using the Azure CLI with Resource Manager](./virtual-machines/xplat-cli-azure-resource-manager.md)
 - [Using the Azure Portal to manage resources](./resource-group-portal.md)
 
 Creating and Deploying Applications
 
 - [Authoring templates](./resource-group-authoring-templates.md)
 - [Deploying templates](./resource-group-template-deploy.md)
-- [Troubleshooting deployments](./resource-group-deploy-debug.md)
-- [Deploy using .NET libraries and template](./arm-template-deployment.md)
+- [Troubleshooting deployments](virtual-machines/resource-group-deploy-debug.md)
+- [Deploy using .NET libraries and template](virtual-machines/arm-template-deployment.md)
 - [Template functions](./resource-group-template-functions.md)
 - [Advance template operations](./resource-group-advanced-template.md)
 

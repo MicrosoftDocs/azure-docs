@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
 # Application Insights for Windows Phone and Store apps
@@ -60,11 +60,11 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
     ![](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Select **Online**, **Include prerelease**, and search for "Application Insights".
+2. Search for "Application Insights".
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Pick **Application Insights for Windows applications**
+3. Pick **Application Insights for .NET Windows applications**
 
 4. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
@@ -132,6 +132,12 @@ Add Application Insights from Solution Explorer.
 
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
+
+## To upgrade to a new release of the SDK
+
+When a [new SDK version is released](app-insights-release-notes-windows.md):
+* Right-click your project and choose Manage NuGet Packages. 
+* Select the installed Application Insights packages and choose Action: Upgrade.
 
 
 ## <a name="usage"></a>Next Steps

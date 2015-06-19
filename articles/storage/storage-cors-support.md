@@ -3,8 +3,8 @@
 	description="Learn how to enable CORS Support for the Microsoft Azure Storage Services." 
 	services="storage" 
 	documentationCenter=".net" 
-	authors="andtyler" 
-	manager="aungoo" 
+	authors="tamram" 
+	manager="carolz" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
-	ms.author="andtyler"/>
+	ms.date="06/18/2015" 
+	ms.author="tamram;andtyler"/>
 
 # Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -110,26 +110,28 @@ You can specify to enable the Azure CDN integration for a Streaming Endpoint (it
 
 To set the Azure CDN integration to true:
 
-- The streaming endpoint must have at least one streaming (scale) unit. If later you want to set scale units to 0, you must first disable the CDN integration. 
+- The streaming endpoint must have at least one streaming (scale) unit. If later you want to set scale units to 0, you must first disable the CDN integration. By default when you create a new streaming endpoint one streaming unit is automatically set.
 
 - The streaming endpoint must be in a stopped state. Once the CDN gets enabled, you can start the streaming endpoint. 
 
-It could take up to 90 min for the Azure CDN integration to get enabled.   
+It could take up to 90 min for the Azure CDN integration to get enabled.  It takes up to two hours for the changes to be active across all the CDN POPs.
+
+
+CDN integration is enabled in all the Azure data centers: US West, US East, North Europe, West Europe, Japan West, Japan East, South East Asia and East Asia.
 
 Once it is enabled, the following configurations get disabled: **Custom Host Names** and **Access Control**.
 
-Not all data centers support the Azure CDN integration. If you are using Azure Management Portal, you will see the **ENABLE CDN** option if it is available in your data center. 
-
 ![Streaming Endpoint Enable CDN][streaming-endpoint-enable-cdn]
 
-If you are using .NET SDK or REST API, you need to check whether or not your data center has the Azure CDN integration available. 
 
-To check, do the following:
+###Additional considerations
 
-1. Try to set the CdnEnabled to true.
-1. Check the returned result for an HTTP Error Code 412 (PreconditionFailed) with a message of  "Streaming endpoint CdnEnabled property cannot be set to true as CDN capability is not available in the current region." 
+- When CDN is enabled for a streaming endpoint, clients cannot request content directly from the origin. If you need the ability to test your content with or without CDN you can create another streaming endpoint that isn’t CDN enabled.
+- Your streaming endpoint hostname remains the same after enabling CDN. You don’t need to make any changes to your media services workflow after CDN is enabled. For example, if your streaming endpoint hostname is strasbourg.streaming.mediaservices.windows.net, after enabling CDN, the exact same hostname is used.
+- For new streaming endpoints, you can enable CDN simply by creating a new endpoint; for existing streaming endpoints, you will need to first stop the endpoint and then enable the CDN.
+ 
 
-	If you get this error, the data center does not support it. You should try another data center.
+For more information see, [Announcing Azure Media Services integration with Azure CDN (Content Delivery Network)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
 
 
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
