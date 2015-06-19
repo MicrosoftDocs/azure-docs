@@ -962,7 +962,11 @@ You will see information like this:
 
 ## <a id="logon"></a>TASK: Log on to a Windows virtual machine
 
-For the detailed steps, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
+From the [Azure Preview Portal](https://portal.azure.com/), click **Browse all > Virtual Machines (v2) >** *VM name* **> Connect**.
+
+When prompted to open or save an RDP file, click **Open**, and then click **Connect**. Type the credentials of a valid account, and then click **OK**.
+
+When prompted to connect despite the certificate errors, click **Yes**.
 
 ## <a id="displayvm"></a>TASK: Display information about a virtual machine
 
