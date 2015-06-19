@@ -120,6 +120,11 @@ To do this:
 4. Save the file.
 5. Right-click on the project and choose Reload *yourProject.csproj*
 
+## How do I upgrade from older SDK versions?
+
+See the [release notes](app-insights-release-notes.md) for the SDK appropriate to your type of application. 
+
+
 ## No data
 
 #### <a name="q03"></a>I added Application Insights successfully and ran my app, but I've never seen data in the portal.
@@ -216,6 +221,9 @@ See [Data Retention and Privacy][data].
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
+## Automation
+
+You can [write a PowerShell script](app-insights-powershell-script-create-resource.md) to create an Application Insights resource.
 
 
 <!--Link references-->
