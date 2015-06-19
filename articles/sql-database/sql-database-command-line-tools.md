@@ -121,7 +121,15 @@ If you will be creating these Azure SQL resources again or a similar ones, you c
 - Save this as a PowerShell script file (*.ps1)
 - Save this as an Azure automation runbook in the Automation section of the Azure Management Portal 
 
+## Next Steps
 
+Combine commands and automate. For example, replace everything within the quotes, including the < and > characters, with your values to create a server, firewall rule and database:
+
+
+    PS C:\>New-AzureResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
+    PS C:\>New-AzureSqlServer -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -Location "<Location>" -ServerVersion "12.0"
+    PS C:\>New-AzureSqlServerFirewallRule -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -FirewallRuleName "<firewallRuleName>" -StartIpAddress "<192.168.0.198>" -EndIpAddress "<192.168.0.199>"
+    PS C:\>New-AzureSqlDatabase -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -DatabaseName "<databaseName>" -Edition <Standard> -RequestedServiceObjectiveName "<S1>"
 
 ## Related Information
 
