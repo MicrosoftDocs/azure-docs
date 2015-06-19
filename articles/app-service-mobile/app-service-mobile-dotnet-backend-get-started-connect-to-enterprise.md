@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="03/05/2015"
+	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # Connect your mobile app to SaaS APIs
