@@ -19,7 +19,7 @@
 # Manage Azure SQL Database Resources with PowerShell
 
 
-This topic provides PowerShell commands to perform many Azure SQL Database tasks.
+This topic provides PowerShell commands to perform many Azure SQL Database tasks using Azure Resource Manager cmdlets.
 
 
 ## Prerequisites
@@ -28,9 +28,11 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-The cmdlets for creating and managing Azure SQL Databases and elastic pools are located in the Azure Resource Manager module. When you start Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet.
+The cmdlets for creating and managing Azure SQL Databases are located in the Azure Resource Manager module. When you start Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet.
 
 	PS C:\>Switch-AzureMode -Name AzureResourceManager
+
+If you get a warning saying 'The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.' You can ignore it and move on to the next section.
 
 For detailed information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -51,7 +53,7 @@ To select the subscription you need your subscription Id (**-SubscriptionId**) o
 
 	PS C:\>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-
+The following commands will be run against the subscription you just selected above.
 
 ## Create a resource group
 
@@ -68,7 +70,7 @@ If you already have a resource group you can jump ahead to create a server, or y
 
 ## Create a server 
 
-Elastic pools are created inside Azure SQL Servers. If you already have a server you can go to the next step, or you can run the following command to create a new V12 server. Replace the ServerName with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use whatever valid location you choose.
+You can run the following command to create a new V12 server. Replace server12 with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use any valid location.
 
 	PS C:\>New-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
