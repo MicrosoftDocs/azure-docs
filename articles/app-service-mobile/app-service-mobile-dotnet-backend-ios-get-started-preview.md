@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="get-started-article"
-	ms.date="02/20/2015"
+	ms.date="06/18/2015"
 	ms.author="yuaxu"/>
 
 # <a name="getting-started"> </a>Create an iOS app
