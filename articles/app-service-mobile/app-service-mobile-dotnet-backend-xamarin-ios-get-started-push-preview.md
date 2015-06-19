@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="02/22/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Xamarin iOS App
