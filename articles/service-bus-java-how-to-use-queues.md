@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Service Bus queues (Java) - Azure" 
-	description="Learn how to use Service Bus queues in Azure. Code samples written in Java." 
-	services="service-bus" 
-	documentationCenter="java" 
-	authors="sethmanheim" 
-	manager="timlt" 
+<properties
+	pageTitle="How to use Service Bus queues (Java) - Azure"
+	description="Learn how to use Service Bus queues in Azure. Code samples written in Java."
+	services="service-bus"
+	documentationCenter="java"
+	authors="sethmanheim"
+	manager="timlt"
 	/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="03/26/2015" 
+<tags
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="06/19/2015"
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -23,7 +23,7 @@ written in Java and use the [Azure SDK for Java][]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
 
-[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
+[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues-java.md)]
 
 ## Configure your application to use Service Bus
 
@@ -31,34 +31,34 @@ Add the following import statements to the top of the Java file:
 
 	// Include the following imports to use Service Bus APIs
 	import com.microsoft.windowsazure.services.servicebus.*;
-	import com.microsoft.windowsazure.services.servicebus.models.*; 
-	import com.microsoft.windowsazure.core.*; 
+	import com.microsoft.windowsazure.services.servicebus.models.*;
+	import com.microsoft.windowsazure.core.*;
 	import javax.xml.datatype.*;
-	
+
 ## How to create a queue
 
 Management operations for Service Bus queues can be performed via the
 **ServiceBusContract** class. A **ServiceBusContract** object is
 constructed with an appropriate configuration that encapsulates the
-token permissions to manage it, and the **ServiceBusContract** class is
+SAS token with permissions to manage it, and the **ServiceBusContract** class is
 the sole point of communication with Azure.
 
 The **ServiceBusService** class provides methods to create, enumerate,
 and delete queues. The example below shows how a **ServiceBusService** object
 can be used to create a queue named "TestQueue", with a namespace named "HowToSample":
 
-    Configuration config = 
-    	ServiceBusConfiguration.configureWithWrapAuthentication(
-          "HowToSample",
-          "your_service_bus_owner",
-          "your_service_bus_key",
-          ".servicebus.windows.net",
-          "-sb.accesscontrol.windows.net/WRAPv0.9");
+		Configuration config =
+			ServiceBusConfiguration.configureWithSASAuthentication(
+					"HowToSample",
+					"RootManageSharedAccessKey",
+					"SAS_key_value",
+					".servicebus.windows.net"
+					);
 
     ServiceBusContract service = ServiceBusService.create(config);
     QueueInfo queueInfo = new QueueInfo("TestQueue");
     try
-    {     
+    {
 		CreateQueueResult result = service.createQueue(queueInfo);
     }
 	catch (ServiceException e)
@@ -75,7 +75,7 @@ to create a queue named "TestQueue" with a maximum size of 5GB:
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
-    queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes); 
+    queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
     CreateQueueResult result = service.createQueue(queueInfo);
 
 Note that you can use the **listQueues** method on **ServiceBusContract**
@@ -94,7 +94,7 @@ message for the "TestQueue" queue we created above within our
         BrokeredMessage message = new BrokeredMessage("MyMessage");
         service.sendQueueMessage("TestQueue", message);
     }
-    catch (ServiceException e) 
+    catch (ServiceException e)
     {
         System.out.print("ServiceException encountered: ");
         System.out.println(e.getMessage());
@@ -120,7 +120,7 @@ The following example demonstrates how to send five test messages to the
          // Create message, passing a string message for the body.
          BrokeredMessage message = new BrokeredMessage("Test message " + i);
          // Set an additional app-specific property.
-         message.setProperty("MyProperty", i); 
+         message.setProperty("MyProperty", i);
          // Send message to the queue
          service.sendQueueMessage("TestQueue", message);
     }
@@ -169,14 +169,14 @@ our "TestQueue":
 	{
 		ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
 		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-	
-		while(true)  { 
-	         ReceiveQueueMessageResult resultQM = 
+
+		while(true)  {
+	         ReceiveQueueMessageResult resultQM =
 	     			service.receiveQueueMessage("TestQueue", opts);
 		    BrokeredMessage message = resultQM.getValue();
 		    if (message != null && message.getMessageId() != null)
 		    {
-			    System.out.println("MessageID: " + message.getMessageId());    
+			    System.out.println("MessageID: " + message.getMessageId());
 			    // Display the queue message.
 			    System.out.print("From queue: ");
 			    byte[] b = new byte[200];
@@ -190,16 +190,16 @@ our "TestQueue":
 	                numRead = message.getBody().read(b);
 			    }
 	            System.out.println();
-			    System.out.println("Custom Property: " + 
+			    System.out.println("Custom Property: " +
 			        message.getProperty("MyProperty"));
 			    // Remove message from queue.
 			    System.out.println("Deleting this message.");
 			    //service.deleteMessage(message);
 		    }  
 		    else  
-		    {        
-		        System.out.println("Finishing up - no more messages.");        
-		        break; 
+		    {
+		        System.out.println("Finishing up - no more messages.");
+		        break;
 		        // Added to handle no more messages.
 		        // Could instead wait for more messages to be added.
 		    }
@@ -214,7 +214,7 @@ our "TestQueue":
 	    System.out.print("Generic exception encountered: ");
 	    System.out.println(e.getMessage());
 	    System.exit(-1);
-	} 	
+	}
 
 ## How to handle application crashes and unreadable messages
 
