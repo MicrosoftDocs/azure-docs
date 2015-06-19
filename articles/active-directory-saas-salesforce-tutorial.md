@@ -89,7 +89,7 @@ You can follow this tutorial using the following videos:
 
 	![Download certificate][9]
 
-6. Open a new tab in your browser and log in to your Salesforce account as an administrator.
+6. Open a new tab in your browser and log in to your Salesforce administrator account.
 
 7. Under the **Administrator** navigation pane, click **Security Controls** to expand the related section. Then click on **Single Sign-On Settings**.
 
@@ -98,6 +98,8 @@ You can follow this tutorial using the following videos:
 8. On the **Single Sign-On Settings** page, click the **Edit** button.
 
 	![Click the Edit button][11]
+
+	> [AZURE.WARNING] If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact Salesforce's support in order to have the feature enabled for you.
 
 9. Select **SAML Enabled**, and then click **Save**.
 
@@ -112,21 +114,104 @@ You can follow this tutorial using the following videos:
 	![Screenshot of the configurations that you should make][14]
 
  - For the **Name** field, type in a friendly name for this configuration. Providing a value for **Name** does automatically populate the **API Name** textbox.
- - In Azure AD, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox in Salesforce.
- - In the Entity Id textbox, type your Salesforce domain name using the following pattern:
+
+ - In Azure AD, copy the **Issuer URL** value, and then paste it into the **Issuer** field in Salesforce.
+
+ - In the **Entity Id textbox**, type your Salesforce domain name using the following pattern:
      - Enterprise account: `https://<domain>.my.salesforce.com`
      - Developer account: `https://<domain>-dev-ed.my.salesforce.com`
- - Click **Browse** to open the **Choose File to Upload** dialog, select your Salesforce certificate, and the 
 
-	> [AZURE.WARNING] In order to be able to configure single sign-on on your Salesforce environment, you need to first contact the Salesforce Support to get this feature enabled.
+ - Click **Browse** to open the **Choose File to Upload** dialog, select your Salesforce certificate, and then click **Open** to upload the certificate.
+
+ - For **SAML Identity Type**, select **Assertion contains User's salesforce.com username**.
+
+ - For **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**
+
+ - In Azure AD, copy the **Remote Login URL** value, and then paste it into the **Identity Provider Login URL** field in Salesforce.
+
+ - For **Service Provider Initiated Request Binding**, select **HTTP Redirect**.
+
+ - Finally, click **Save** to apply your SAML single sign-on settings.
+
+12. On the left navigation pane in Salesforce, click **Domain Management** to expand the related section, and then click **My Domain**.
+
+	![Click on My Domain][15]
+
+13. Scroll down to the **Authentication Configuration** section, and click the **Edit** button.
+
+	![Click the Edit button][16]
+
+14. In the **Authentication Service** section, select the friendly name of your SAML SSO configuration, and then click **Save**.
+
+	![Select your SSO configuration][17]
+
+	> [AZURE.NOTE] If more than one authentication service is selected, then when users attempt to initiate single sign-on to your Salesforce environment, they will be prompted to select which authentication service they would like to sign in with. If you don’t want this to happen, then you should **leave all other authentication services unchecked**.
+
+15. In Azure AD, select the single sign-on configuration confirmation checkbox to enable the certificate that you uploaded to Salesforce. Then click **Next**.
+
+	![Check the confirmation checkbox][18]
+
+16. On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration. 
+
+	![Type in your email address.][19]
+
+17. Click **Complete** to close the dialog. To test your configuration, see the section below titled [Assign Users to Salesforce](#step-4-assign-users-to-salesforce).
 
 ##Step 3: Enable Automated User Provisioning
 
-stuff
+1. In the Azure AD Quick Start page for Salesforce, click on the **Configure user provisioning** button.
+
+	![Click the Configure User Provisioning button][20]
+
+2. In the **Configure user provisioning** dialog, type in your Salesforce admin username and password. These credentials must be for an account that has the **System Administrator** profile assigned to it in Salesforce.
+
+	> [AZURE.NOTE] If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step.
+
+	![Type in your admin username or password][21]
+
+3. To get your Salesforce security token, open a new tab and sign into your Salesforce admin account. On the top right corner of the page, click on your name, and then click on **My Settings**.
+
+	![Click on your name, then click on My Settings][22]
+
+4. On the left navigation pane, click on **Personal** to expand the related section, and then click on **Reset My Security Token**.
+
+	![Click on your name, then click on My Settings][23]
+
+5. On the **Reset My Security Token** page, click on the **Reset Security Token** button.
+
+	![Read the warnings.][24]
+
+6. Check the email inbox associated with this admin account. Look for an email from Salesforce.com that contains the new security token.
+
+7. Copy the token, go to your Azure AD window, and paste it into the **User Security Token** field. Then click **Next**.
+
+	![Paste in the security token][25]
+
+8. On the confirmation page, you can choose to receive email notifications for when provisioning failures occur. Click **Complete** to close the dialog.
+
+	![Type in your email address to receive notifications][26]
 
 ##Step 4: Assign Users to Salesforce
 
-stuff
+1. To test your configuration, start creating a new test account in the directory.
+
+2. On the Salesforce Quick Start page, click **Assign Users**.
+
+	![Click on Assign Users][27]
+
+3. Select your test user, and click **Assign**:
+
+ - If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:
+
+	![Confirm the assignment.][28]
+
+ - If you have enabled automated user provisioning, then you'll see a prompt to define what type of Salesforce profile the user should have. Newly provisioned users should appear in your Salesforce environment after a few minutes.
+
+	![Confirm the assignment.][29]
+
+	> [AZURE.WARNING] If you are provisioning to a Salesforce developer environment, you will have a very limited number of licenses available for each profile. In this case it's best to provision to the **Chatter Free User** profile, which has 4,999 licenses available.
+
+4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com/](https://myapps.microsoft.com/), sing into the test account, and click on **Salesforce**.
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -143,3 +228,18 @@ stuff
 [12]: ./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png
 [13]: ./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png
 [14]: ./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png
+[15]: ./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png
+[16]: ./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png
+[17]: ./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png
+[18]: ./media/active-directory-saas-salesforce-tutorial/sso-confirm.png
+[19]: ./media/active-directory-saas-salesforce-tutorial/sso-notification.png
+[20]: ./media/active-directory-saas-salesforce-tutorial/config-prov.png
+[21]: ./media/active-directory-saas-salesforce-tutorial/config-prov-dialog.png
+[22]: ./media/active-directory-saas-salesforce-tutorial/sf-my-settings.png
+[23]: ./media/active-directory-saas-salesforce-tutorial/sf-personal-reset.png
+[24]: ./media/active-directory-saas-salesforce-tutorial/sf-reset-token.png
+[25]: ./media/active-directory-saas-salesforce-tutorial/got-the-token.png
+[26]: ./media/active-directory-saas-salesforce-tutorial/prov-confirm.png
+[27]: ./media/active-directory-saas-salesforce-tutorial/assign-users.png
+[28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
+[29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
