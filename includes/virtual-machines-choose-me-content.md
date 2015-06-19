@@ -22,7 +22,6 @@ Like other virtual machines, a VM in Azure has an operating system, storage and 
 -	BizTalk Server 
 -	SharePoint Server
 
-
 Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. The following figure shows this, as well as two of the tools for creating and managing your VMs.
 
 <a name="fig_createvms"></a>
