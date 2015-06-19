@@ -33,20 +33,23 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 
 1. Install [Chocolatey](https://chocolatey.org/), which is an an Open Source Machine Package Manager for Windows.
 2. Open a PowerShell window as administrator and then run the following command:
-        ```
+
+  ```
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 ```
+
 3. Install the ARMClient by opening a new command prompt and run the following command:
-        ```
+
+  ```
 choco install armclient
 ```
 
 ### To perform a simple search using the ARMClient
 
 1. Login to your Microsoft or OrgID account:
-```
+        ```
   armclient login
-  ```
+```
   A successful login lists all subscriptions tied to the given account. For example:
 
   ```
