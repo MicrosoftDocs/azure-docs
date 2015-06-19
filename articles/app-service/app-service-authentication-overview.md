@@ -221,6 +221,7 @@ This section provides links to more information about authentication protocols, 
 
 ### <a id="maclient"></a>Mobile Apps client flow
 
+* [Add Azure Active Directory single sign-on to your iOS app](../app-service-mobile/app-service-mobile-dotnet-backend-ios-aad-sso-preview.md)
 
 ### <a id="maserver"></a>Mobile Apps server flow
 
