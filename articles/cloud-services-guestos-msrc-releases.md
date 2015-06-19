@@ -20,6 +20,17 @@
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
+## June Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-056    | [3058515] | Cumulative Security Update for Internet Explorer | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-057    | [3033890] | Vulnerability in Windows Media Player Could Allow Remote Code Execution | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-060    | [3059317] | Vulnerability in Microsoft Common Controls Could Allow Remote Code Execution | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-061    | [3057839] | Vulnerabilities in Windows Kernel-Mode Drivers Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-062    | [3055642] | Vulnerability in Active Directory Federation Services Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+| MS15-063    | [3063858] | Vulnerability in Windows Kernel Could Allow Elevation of Privilege | 4.21, 3.28, 2.40 | June 9, 2015 |
+
 ## May Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
@@ -63,7 +74,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-024    | [3035132][3035132] | Vulnerability in PNG Processing Could Allow Information Disclosure           | 4.18, 3.25, 2.37 | N/A |
 | MS15-025    | [3038680][3038680] | Vulnerabilities in Windows Kernel could allow Elevation of Privilege         | 4.18, 3.25, 2.37 | N/A |
 | MS15-027    | [3002657][3002657] | Vulnerability in NETLOGON Could Allow Spoofing                               | 4.18, 3.25, 2.37 | N/A |
+| MS15-028    | [3030377] | Vulnerability in Windows Task Scheduler Could Allow Security Feature Bypass  | 4.18, 3.25, 2.37 | N/A |
 | MS15-029    | [3035126][3035126] | Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure | 4.18, 3.25, 2.37 | N/A |
+| MS15-030    | [3039976] | Vulnerability in Remote Desktop Protocol Could Allow Denial of Service | 4.18, 3.25, 2.37 | N/A |
 
 > [AZURE.NOTE] Bulletin MS15-031 may appear as uninstalled. However, it does not apply to this Guest OS release.
 
@@ -179,6 +192,16 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3048010]:http://support.microsoft.com/kb/3048010
 [3047234]:http://support.microsoft.com/kb/3047234
 [3045755]:http://support.microsoft.com/kb/3045755
+[3030377]:http://support.microsoft.com/kb/3030377
+[3039976]:http://support.microsoft.com/kb/3039976
+
+[3058515]:http://support.microsoft.com/kb/3058515
+[3033890]:http://support.microsoft.com/kb/3033890
+[3059317]:http://support.microsoft.com/kb/3059317
+[3057839]:http://support.microsoft.com/kb/3057839
+[3055642]:http://support.microsoft.com/kb/3055642
+[3063858]:http://support.microsoft.com/kb/3063858
+
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
