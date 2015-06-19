@@ -137,15 +137,9 @@ You can alter these defaults by editing the code snippet:
 * `sessionRenewalMs` : The time, in milliseconds, to expire the session due to user’s inactivity. Default: 30 minutes.
 * `sessionExpirationMs` : The maximum session length, in milliseconds. If the user remains active after this time, another session is counted. Default: 24 hours.
 
-#### Session duration
+**Session duration** is a [metric][metrics] that records the span of time between the first and last telemetry items of the session. (It doesn't include the timeout period.)
 
-The span of time between the first and last telemetry items of the session. (It doesn't include the timeout period.)
-
-
-
-#### Session count
-
-Session count in a certain interval is defined as a number of unique sessions with some activity during this interval. When you look at a long time range such as daily session count for the past week, this is usually equivalent to the total number of sessions. 
+**Session count** in a certain interval is defined as the number of unique sessions with some activity during this interval. When you look at a long time range such as daily session count for the past week, this is usually equivalent to the total number of sessions. 
 
 However, when you explore shorter time ranges such as hourly grain, a long session spanning multiple hours will be counted for each hour in which the session was active. 
 
@@ -378,6 +372,7 @@ And of course, when the feature is live, make sure you look at the analytics and
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [windows]: app-insights-windows-get-started.md
 
