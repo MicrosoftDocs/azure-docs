@@ -34,7 +34,7 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 1. Install [Chocolatey](https://chocolatey.org/), which is an an Open Source Machine Package Manager for Windows.
 2. Open a PowerShell window as administrator and then run the following command:
 
-  ```
+    ```
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 ```
 
