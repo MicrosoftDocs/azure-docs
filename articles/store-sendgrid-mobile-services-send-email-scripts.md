@@ -3,18 +3,18 @@
 	description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="thinkingserious" 
+	authors="Erikre" 
 	manager="sendgrid" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/27/2014" 
-	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
+	ms.date="04/24/2015" 
+	ms.author="Erikre"/>
 
 
 # Send email from Mobile Services with SendGrid
@@ -31,11 +31,11 @@ This tutorial walks you through these basic steps to enable email functionality:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<h2><a name="sign-up"></a>Create a new SendGrid account</h2>
+## <a name="sign-up"></a>Create a new SendGrid account
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-<h2><a name="add-script"></a>Register a new script that sends emails</h2>
+## <a name="add-script"></a>Register a new script that sends emails
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
@@ -92,7 +92,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 6. Click the **Save** button. You have now configured a script to send an email each time a record is inserted into the **TodoItem** table.
 
-<h2><a name="insert-data"></a>Insert test data to receive email</h2>
+## <a name="insert-data"></a>Insert test data to receive email
 
 1. In the client app project, run the quickstart application. 
 
@@ -130,7 +130,7 @@ these links to learn more about SendGrid.
 [4]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
 [Azure Management Portal]: https://manage.windowsazure.com/

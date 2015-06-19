@@ -3,7 +3,7 @@ In this section you add two new users to your directory along with the new Sales
 ### Create the users
 
 
-1. In the [Azure Management Portal] navigate to the directory that you previously configured for authentication when you completed the [Get Started with Authentication] tutorial.
+1. In the [Azure Management Portal] navigate to the directory that you previously configured for authentication when you completed the tutorial to add authentication to your app.
 2. Click **Users** at the top of the page. Then click the **Add User** button at the bottom. 
 3. Complete the new user dialogs creating to create a user named **Bob**. Note the temporary password for the user. 
 4. Create another user named **Dave**. Note the temporary password for the user.
@@ -28,8 +28,11 @@ In this section you add two new users to your directory along with the new Sales
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/group-membership.png)
 
-3. On the Sales group page, click **Configure**, then notice the **Object ID** for the sales group. This tutorial actually looks up the group's object id using the Graph APIs. So you won't need the id. However, in some cases its better not to use the group name because it may change where the id stays the same. If you want to store the group id as an app setting on the mobile service, or hard code it into your code, this is where you find it.
+3. On the Sales group page, click **Properties**, then copy the **Object ID** for the sales group at the bottom of the page. 
 
+   
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
 
+4. Navigate back to your mobile service configuration page and add the object id as an app setting named **AAD\_SALES\_GROUP\_ID**. This tutorial uses group's object id as an app setting instead of looking up the id based on the group name. This is because the group name may change where the id stays the same.
 
+    ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)

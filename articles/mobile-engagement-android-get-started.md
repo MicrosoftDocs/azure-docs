@@ -1,25 +1,31 @@
-<properties 
-	pageTitle="Get Started with Azure Mobile Engagement" 
-	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications." 					services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+<properties
+	pageTitle="Get Started with Azure Mobile Engagement"
+	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Android Apps."
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="02/11/2015" 
-	ms.author="kapiteir" />
-	
-# Get started with Mobile Engagement
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="05/01/2015"
+	ms.author="piyushjo" />
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-engagement-windows-store-dotnet-get-started/" title="Windows Store">Windows Store</a><a href="/en-us/documentation/articles/mobile-engagement-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-engagement-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-engagement-android-get-started/" title="Android" class="current">Android</a></div>
+# Get Started with Azure Mobile Engagement for Android Apps
 
-This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of an Android application. 
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
+- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [Android](mobile-engagement-android-get-started.md)
+
+This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of an Android application.
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
 
 
@@ -47,7 +53,7 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
    	![][7]
 
 3. In the popup that appears, enter the following information:
- 
+
    	![][8]
 
 	1. **Application Name**: you can type the name of your application. Feel free to use any character.
@@ -61,11 +67,11 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 	When you're done, click the check button to finish the creation of your app.
 
 4. Now click/select the app you just created in the **Application** tab.
- 
+
    	![][9]
 
 5. Then click on **Connection Info** in order to display the connection settings to put into your SDK integration.
- 
+
    	![][10]
 
 6. Finally, write down the **Connection String**, which is what you will need to identify this app from your Application code.
@@ -92,8 +98,7 @@ You may skip this step if you already have an app and are familiar with Android 
 
    	![][13]
 
-3. Now select the target form factor and API level then click **Next**. 
-
+3. Now select the target form factor and API level then click **Next**.
 	>[AZURE.NOTE] Mobile Engagement requires API level 10 minimum (Android 2.3.3).
 
    	![][14]
@@ -149,8 +154,8 @@ Download and integrate the SDK library
 
 ###Add permissions & Service declaration
 
-1. Add these permissions to the Manifest.xml of your project immediately preceding the `<application>` tag:
-	
+1. Add these permissions to the Manifest.xml of your project immediately before or after the `<application>` tag:
+
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -158,13 +163,16 @@ Download and integrate the SDK library
 		<uses-permission android:name="android.permission.VIBRATE" />
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
+	The result should be as shown below:
+
+	![][21]
 
 2. Add the following between the < application > and </application > tags to declare the agent service:
 
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
  			android:exported="false"
- 			android:label="<Your application name>Service"
+ 			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
 3. In the code you just pasted, replace "< Your application name>" in the label. For example:
@@ -172,7 +180,7 @@ Download and integrate the SDK library
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
  			android:exported="false"
- 			android:label="MySuperAppService"
+ 			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
 ###Send a Screen to Mobile Engagement
@@ -203,7 +211,7 @@ This section shows you how to make sure your app connects to the Mobile Engageme
 4. Back in Android Studio, launch your app either in the monitor or in a connected device by clicking the green triangle and then selecting your device.
 	![][32]
 
-5. If it worked, you should now see one session in the monitor! 
+5. If it worked, you should now see one session in the monitor!
 	![][33]
 
 **Congratulations!** You suceeded in completing the first step of this tutorial with an app that connects to the Mobile Engagement backend, which is already sending data.
@@ -261,17 +269,21 @@ The following sections will setup your app to receive them.
 		![][24]
 
 ###Specify a default icon in notifications
-The following code will define the default icon that will display with notifications. Here we used the icon provided with the project created by Android Studio. This xml snippet is to be pasted into your Manifest.xml between the < application > and </application > tags
+The following code will define the default icon that will display with notifications. This is a requirement for the notifications otherwise they will not be displayed. 
 
-		<meta-data android:name="engagement:reach:notification:icon" android:value="ic_launcher" />
+This xml snippet is to be pasted into your Manifest.xml between the < application > and </application > tags.
+
+Make sure you are using an icon which exists in the **drawable** folder (e.g. engagement_close.png).  
+	
+		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
 ###Enable your app to receive GCM Push Notifications
 
-1. Enter your gcm:sender metadata by copy-pasting the following into your Manifest.xml between the < application > and </application > tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console.
+1. Enter your gcm:sender metadata by copy-pasting the following into your Manifest.xml between the < application > and </application > tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console. The \n is intentional so make sure you end the project number with it.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
-2. Paste the code below into your Manifest.xml between the < application > and </application > tags. Note that in `<category android:name="com.mycompany.mysuperapp" />` we used the package name of the project. In your own production project it will be different.
+2. Paste the code below into your Manifest.xml between the < application > and </application > tags. Replace the package name <Your package name>.
 
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
 		android:exported="false">
@@ -279,20 +291,20 @@ The following code will define the default icon that will display with notificat
 				<action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			</intent-filter>
 		</receiver>
-		
+
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
 				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<category android:name="com.mycompany.mysuperapp" />
+				<category android:name="<Your package name>" />
 			</intent-filter>
 		</receiver>
 
-3. Add the last set of permissions highlighted below before the < application> tag. Again we used this project package name that you'll have to replace in your production app.
+3. Add the last set of permissions highlighted below or after the < application> tag. Replace the package name <Your package name>.
 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 		<uses-permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" />
-		<permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
 ###Grant access to your GCM API Key to Mobile Engagement
 
@@ -350,14 +362,12 @@ We will now create a simple Push Notification campaign that will send a push not
 <!-- URLs. -->
 [Mobile Engagement Android SDK]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
-[Azure Management Portal]: https://manage.windowsazure.com
-
 <!-- Images. -->
-[7]: ./media/mobile-engagement-android-get-started/create-mobile-engagement-app.png
-[8]: ./media/mobile-engagement-android-get-started/create-azme-popup.png
+[7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png
+[8]: ./media/mobile-engagement-common/create-azme-popup.png
 [9]: ./media/mobile-engagement-android-get-started/select-app.png
-[10]: ./media/mobile-engagement-android-get-started/app-main-page-select-connection-info.png
-[11]: ./media/mobile-engagement-android-get-started/app-connection-info-page.png
+[10]: ./media/mobile-engagement-common/app-main-page-select-connection-info.png
+[11]: ./media/mobile-engagement-common/app-connection-info-page.png
 [12]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [13]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
 [14]: ./media/mobile-engagement-android-get-started/android-studio-project-props2.png
@@ -367,20 +377,21 @@ We will now create a simple Push Notification campaign that will send a push not
 [18]: ./media/mobile-engagement-android-get-started/paste-jar.png
 [19]: ./media/mobile-engagement-android-get-started/sync-project.png
 [20]: ./media/mobile-engagement-android-get-started/resolve-classes.png
+[21]: ./media/mobile-engagement-android-get-started/permissions.png
 [22]: ./media/mobile-engagement-android-get-started/subclass-activity.png
 [23]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [24]: ./media/mobile-engagement-android-get-started/paste-resources.png
-[26]: ./media/mobile-engagement-android-get-started/engage-button.png
-[27]: ./media/mobile-engagement-android-get-started/engagement-portal.png
+[26]: ./media/mobile-engagement-common/engage-button.png
+[27]: ./media/mobile-engagement-common/engagement-portal.png
 [28]: ./media/mobile-engagement-android-get-started/native-push-settings.png
 [29]: ./media/mobile-engagement-android-get-started/api-key.png
-[30]: ./media/mobile-engagement-android-get-started/clic-monitor-tab.png
-[31]: ./media/mobile-engagement-android-get-started/monitor.png
+[30]: ./media/mobile-engagement-common/clic-monitor-tab.png
+[31]: ./media/mobile-engagement-common/monitor.png
 [32]: ./media/mobile-engagement-android-get-started/launch.png
 [33]: ./media/mobile-engagement-android-get-started/monitor-trafic.png
-[34]: ./media/mobile-engagement-android-get-started/reach-tab.png
-[35]: ./media/mobile-engagement-android-get-started/new-announcement.png
+[34]: ./media/mobile-engagement-common/reach-tab.png
+[35]: ./media/mobile-engagement-common/new-announcement.png
 [36]: ./media/mobile-engagement-android-get-started/campaign-first-params.png
-[37]: ./media/mobile-engagement-android-get-started/campaign-content.png
-[38]: ./media/mobile-engagement-android-get-started/campaign-create.png
-[39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
+[37]: ./media/mobile-engagement-common/campaign-content.png
+[38]: ./media/mobile-engagement-common/campaign-create.png
+[39]: ./media/mobile-engagement-common/campaign-activate.png

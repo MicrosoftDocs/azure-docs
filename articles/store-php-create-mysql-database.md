@@ -1,22 +1,24 @@
-<properties 
-	pageTitle="How to create a MySQL Database in Azure" 
-	description="Learn how to use ClearDB to create a MySQL database in an Azure data center." 
-	documentationCenter="php" 
-	services="" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="mollybos"/>
+<properties
+	pageTitle="How to create a MySQL Database in Azure"
+	description="Learn how to use ClearDB to create a MySQL database in an Azure data center."
+	documentationCenter="php"
+	services=""
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"
+	tags="mysql"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="09/25/2014" 
+<tags
+	ms.service="multiple"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
-[AZURE.INCLUDE [create-mysql-db](../includes/create-mysql-db.md)]
+#How to Create a MySQL Database in Azure
 
+[AZURE.INCLUDE [create-mysql-db](../includes/create-mysql-db.md)]
 
 A sample that shows how to use MySQL with PHP on Azure is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql>.

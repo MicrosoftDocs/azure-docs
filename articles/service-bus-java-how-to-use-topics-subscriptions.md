@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/26/2015" 
 	ms.author="sethm"/>
 
 # How to use Service Bus topics/subscriptions
@@ -31,9 +31,9 @@ messages to a topic**, **receiving messages from a subscription**, and
 Add the following import statements to the top of the Java file:
 
     // Include the following imports to use service bus APIs
-    import com.microsoft.windowsazure.services.serviceBus.*;
-    import com.microsoft.windowsazure.services.serviceBus.models.*;
-    import com.microsoft.windowsazure.services.core.*;
+    import com.microsoft.windowsazure.services.servicebus.*;
+    import com.microsoft.windowsazure.services.servicebus.models.*;
+    import com.microsoft.windowsazure.core.*;
     import javax.xml.datatype.*;
 
 Add the Azure Libraries for Java to your build path and include it in your project deployment assembly.
@@ -51,12 +51,12 @@ and delete topics. The example below shows how a **ServiceBusService** object
 can be used to create a topic named "TestTopic", with a namespace named "HowToSample":
 
     Configuration config = 
-    	ServiceBusConfiguration.configureWithWrapAuthentication(
+    	ServiceBusConfiguration.configureWithSASAuthentication(
           "HowToSample",
-          "your_service_bus_owner",
-          "your_service_bus_key",
-          ".servicebus.windows.net",
-          "-sb.accesscontrol.windows.net/WRAPv0.9");
+          "SAS_key_name",
+          "SAS_key_value",
+          ".servicebus.windows.net"
+          );
 
 	ServiceBusContract service = ServiceBusService.create(config);
     TopicInfo topicInfo = new TopicInfo("TestTopic");
@@ -70,7 +70,7 @@ can be used to create a topic named "TestTopic", with a namespace named "HowToSa
 		System.exit(-1);
 	}
 
-There are methods on **TopicInfo** that allow properties of the topic to
+There are methods on **TopicInfo** that enable properties of the topic to
 be tuned (for example: to set the default "time-to-live" value to be
 applied to messages sent to the topic). The following example shows how
 to create a topic named "TestTopic" with a maximum size of 5GB:
@@ -326,7 +326,7 @@ with the topic. Subscriptions can also be deleted independently.
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
 
-  [Azure SDK for Java]: http://azure.microsoft.com/en-us/develop/java/
+  [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials

@@ -36,5 +36,5 @@ In this section you will register your mobile service with the Azure Active Dire
 6. In the Azure Management portal, click **Manage Manifest** for the application again and click **Upload Manifest**.  Browse to the location of the application manifest that you just updated and upload the manifest.
 
 <!-- URLs. -->
-[How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[How to Register with the Azure Active Directory]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/

@@ -1,12 +1,12 @@
 <properties title="" pageTitle="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" description="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
 
-#Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)#
+#Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)
 
-> [AZURE.NOTE] This article describes a prototype of new functionality that is not in the released version of the API. Read more about versions and supportability at [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) on MSDN. For more information about other features in this preview API, see [Azure Search Service REST API Version: 2014-10-20-Preview](http://azure.microsoft.com/en-us/documentation/articles/search-api-2014-10-20-preview/).
+> [AZURE.NOTE] This article describes a prototype of new functionality that is not in the released version of the API. Read more about versions and supportability at [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) on MSDN. For more information about other features in this preview API, see [Azure Search Service REST API Version: 2014-10-20-Preview](../search-api-2014-10-20-preview/).
 
-## Overview ##
+## Overview
 
 Azure Search can integrate directly with some common data sources, removing the need to write code to index your data. To set up this up, you can call the Azure Search API to create and manage **indexers** and **data sources**. 
 
@@ -27,7 +27,7 @@ We're considering adding support for additional data sources in the future. To h
 
 **NOTE** The features described here are supported beginning with Azure Search API version `2014-10-20-Preview`.
 
-## Typical Usage Flow ##
+## Typical Usage Flow
 
 Typical steps to set up automatic indexing are as follows:
 
@@ -39,19 +39,19 @@ Typical steps to set up automatic indexing are as follows:
   
 4. Create an Azure Search indexer and monitor its execution as described in the Indexer Operations section below
 
-## Naming Rules ##
+## Naming Rules
 
 - A data source name must only contain lowercase letters, digits or dashes, cannot start or end with dashes and is limited to 128 characters.
 - An indexer name must only contain lowercase letters, digits or dashes, cannot start or end with dashes and is limited to 128 characters.
 
-## Limits and Constraints ##
+## Limits and Constraints
 
-See [Limits and Constraints page](http://msdn.microsoft.com/en-us/library/azure/dn798934.aspx) for details. 
+See [Limits and Constraints page](http://msdn.microsoft.com/library/azure/dn798934.aspx) for details. 
 
-# Data Source Operations #
+## Data Source Operations
 You can create and manage data sources in Azure Search service via simple HTTP requests (POST, GET, PUT, DELETE) against a given data source resource. 
 
-## Create Data Source ##
+### Create Data Source
 
 You can create a new data source within an Azure Search service using an HTTP POST request.
 	
@@ -80,7 +80,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Create Data Source** request must include an `api-key` header set to your admin key (as opposed to a query key). 
  
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Preview Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Preview Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 <a name="CreateDataSourceRequestSyntax"></a>
 **Request Body Syntax**
@@ -137,7 +137,7 @@ This policy can be specified as follows:
 
 ***SQL Integrated Change Detection Policy***
 
-If your SQL database supports [SQL Integrated Change Tracking](http://technet.microsoft.com/en-us/library/cc280462(v=SQL.105).aspx), we recommend using SQL Integrated Change Tracking Policy. This policy enables the most efficient change tracking, and allows Azure Search to identify deleted rows without you having to have an explicit "soft delete" column in your schema.
+If your SQL database supports [SQL Integrated Change Tracking](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), we recommend using SQL Integrated Change Tracking Policy. This policy enables the most efficient change tracking, and allows Azure Search to identify deleted rows without you having to have an explicit "soft delete" column in your schema.
 
 SQL integrated change tracking is supported starting with the following SQL database versions: 
 - SQL Server 2008 R2, if you're using SQL IaaS VMs.
@@ -193,7 +193,7 @@ If you only intend to use the data source for one-time copy of the data, policy 
 
 For a successful request: 201 Created. 
 
-## Update Data Source ##
+### Update Data Source
 
 You can update an existing data source using an HTTP PUT request. You specify the name of the data source to update on the request URI:
 
@@ -210,7 +210,7 @@ For a successful request: 201 Created if a new data source was created, and 204 
 **NOTE:**
 Some properties cannot be updated on an existing data source. For example, you cannot change the type of an existing data source.  
 
-## List Data Sources ##
+### List Data Sources
 
 The **List Data Sources** operation returns a list of the data sources in your Azure Search service. 
 
@@ -244,7 +244,7 @@ In this case, the response from the above example would appear as follows:
 
 This is a useful technique to save bandwidth if you have a lot of data sources in your Search service.
 
-## Get Data Source ##
+### Get Data Source
 
 The **Get Data Source** operation gets the data source definition from Azure Search.
 
@@ -274,7 +274,7 @@ The response is similar to examples in [Create Data Source example requests](#Cr
 
 **NOTE** Do not set the `Accept` request header to `application/json;odata.metadata=none` when calling this API as doing so will cause `@odata.type` attribute to be omitted from the response and you won't be able to differentiate between data change and data deletion detection policies of different types. 
 
-## Delete Data Source ##
+### Delete Data Source
 
 The **Delete Data Source** operation removes a data source from your Azure Search service.
 
@@ -287,7 +287,7 @@ The **Delete Data Source** operation removes a data source from your Azure Searc
 
 Status Code: 204 No Content is returned for a successful response.
 
-# Indexer Operations #
+## Indexer Operations
 
 An indexer is the resource that connects data sources with target search indexes. You should plan on creating one indexer for every target index and data source combination. You can have multiple indexers writing into the same index. However, an indexer can only write into a single index. 
 
@@ -295,7 +295,7 @@ You can create and manage indexers via simple HTTP requests (POST, GET, PUT, DEL
 
 After creating an indexer, you can retrieve its execution status using the [Get Indexer Status](#GetIndexerStatus) operation. You can also run an indexer at any time (instead of or in addition to running it periodically on a schedule) using the [Run Indexer](#RunIndexer) operation.
 
-## Create Indexer ##
+### Create Indexer
 
 You can create a new indexer within an Azure Search service using an HTTP POST request.
 	
@@ -330,7 +330,7 @@ The syntax for structuring the request payload is as follows. A sample request i
 
 An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. Schedule has the following attributes:
 
-- `interval`: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: "P[nD][T[nH][nM]]". Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
+- `interval`: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
 
 - `startTime`: Required. An UTC datetime when the indexer should start running. 
 
@@ -338,9 +338,9 @@ An indexer can optionally specify a schedule. If a schedule is present, the inde
 
 An indexer can optionally specify several parameters that affect its behavior. All of the parameters are optional.  
 
-- `maxFailedItems` : The number of items that can fail to be indexed before an indexer run is considered as failure. Default is `1`. Information about failed items is returned by the [Get Indexer Status](#GetIndexerStatus) operation. 
+- `maxFailedItems` : The number of items that can fail to be indexed before an indexer run is considered as failure. Default is `0`. Information about failed items is returned by the [Get Indexer Status](#GetIndexerStatus) operation. 
 
-- `maxFailedItemsPerBatch` : The number of items that can fail to be indexed in each batch before an indexer run is considered as failure. Default is `1`.
+- `maxFailedItemsPerBatch` : The number of items that can fail to be indexed in each batch before an indexer run is considered as failure. Default is `0`.
 
 - `base64EncodeKeys`: Specifies whether or not document keys will be base-64 encoded. Azure Search imposes restrictions on characters that can be present in a document key. However, the values in your source data may contain characters that are invalid. If it is necessary to index such values as document keys, this flag can be set to true. Default is `false`.
 
@@ -362,7 +362,7 @@ The following example creates an indexer that copies data from the table referen
 
 201 Created for a successful request.
 
-## Update Indexer ##
+### Update Indexer
 
 You can update an existing indexer using an HTTP PUT request. You specify the name of the indexer to update on the request URI:
 
@@ -378,7 +378,7 @@ The request body syntax is the same as for [Create Indexer requests](#CreateInde
 
 For a successful request: 201 Created if a new indexer was created, and 204 No Content if an existing indexer was updated.
 
-## List Indexers ##
+### List Indexers
 
 The **List Indexers** operation returns the list of indexers in your Azure Search service. 
 
@@ -414,7 +414,7 @@ In this case, the response from the above example would appear as follows:
 
 This is a useful technique to save bandwidth if you have a lot of indexers in your Search service.
 
-## Get Indexer ##
+### Get Indexer
 
 The **Get Indexer** operation gets the indexer definition from Azure Search.
 
@@ -436,7 +436,7 @@ The response is similar to examples in [Create Indexer example requests](#Create
         "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 5, "base64EncodeKeys": false }
 	}
 
-## Delete Indexer ##
+### Delete Indexer
 
 The **Delete Indexer** operation removes an indexer from your Azure Search service.
 
@@ -450,7 +450,7 @@ When an indexer is deleted, the indexer executions in progress at that time will
 Status Code: 204 No Content is returned for a successful response.
 
 <a name="RunIndexer"></a>
-## Run Indexer ##
+### Run Indexer
 
 In addition to running periodically on a schedule, an indexer can also be invoked on demand via the **Run Indexer** operation: 
 
@@ -462,7 +462,7 @@ In addition to running periodically on a schedule, an indexer can also be invoke
 Status Code: 202 Accepted is returned for a successful response.
 
 <a name="GetIndexerStatus"></a>
-## Get Indexer Status ##
+### Get Indexer Status
 
 The **Get Indexer Status** operation retrieves the current status and execution history of an indexer: 
 
@@ -551,7 +551,7 @@ Indexer execution status captures the status of a single indexer execution. It c
 - `reset` indicates that the indexer has been reset by a call to Reset Indexer API (see below). 
 
 <a name="ResetIndexer"></a>
-## Reset Indexer ##
+### Reset Indexer
 
 The **Reset Indexer** operation resets the change tracking state associated with the indexer. This allows you to trigger from-scratch re-indexing (for example, if your data source schema has changed), or to change the data change detection policy for a data source associated with the indexer.   
 
@@ -562,7 +562,7 @@ The **Reset Indexer** operation resets the change tracking state associated with
 
 Status Code: 204 No Content for a successful response.
 
-## Mapping between SQL Data Types and Azure Search Data Types ##
+## Mapping between SQL Data Types and Azure Search Data Types
 
 <table style="font-size:12">
 <tr>
@@ -624,7 +624,7 @@ Status Code: 204 No Content for a successful response.
 </tr>
 </table>
 
-## Mapping between JSON Data Types and Azure Search Data Types ##
+## Mapping between JSON Data Types and Azure Search Data Types
 
 <table style="font-size:12">
 <tr>

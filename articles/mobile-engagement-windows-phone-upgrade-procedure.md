@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Windows Phone SDK Integration" 
-	description="Windows Phone SDK Upgrade Procedures for Azure Mobile Engagement" 					
+	pageTitle="Windows Phone Silverlight SDK Upgrade Procedures" 
+	description="Windows Phone Silverlight SDK Upgrade Procedures for Azure Mobile Engagement" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,12 +11,12 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 
-#Upgrade procedures
+#Windows Phone Silverlight SDK Upgrade Procedures
 
 If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
@@ -26,13 +26,13 @@ You may have to follow several procedures if you missed several versions of the 
 
 The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
 
->[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
+> [Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
 
 If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.1.1 first then apply the following procedure
 
 ### Nuget package
 
-Replace Capptain.WindowsPhone.nupkg by azuresdk-mobileengagement-windowsphone-VERSION.nupkg in archive package lib folder.
+Replace **Capptain.WindowsPhone** by **MicrosoftAzure.MobileEngagement** Nuget package.
 
 ### Applying Mobile Engagement
 
@@ -40,7 +40,7 @@ The SDK uses the term `Engagement`. You need to update your project to match thi
 
 You need to uninstall your current Capptain nuget package. Consider that all your changes in Capptain Resources folder will be removed. If you want to keep those files then make a copy of them.
 
-After that, install the new Microsoft Azure Engagement nuget package on your project. You can find it directly on [nuget website]. or here index. This action replaces all resources files used by Engagement and adds the new Engagement DLL to your project References.
+After that, install the new Microsoft Azure Engagement nuget package on your project. You can find it directly on [Nuget](http://www.nuget.org/packages/MicrosoftAzure.MobileEngagement). This action replaces all resources files used by Engagement and adds the new Engagement DLL to your project References.
 
 You have to clean your project references by deleting Capptain DLL references. If you do not make this, the version of Capptain will conflict and errors will happen.
 
@@ -48,60 +48,60 @@ If you have customized Capptain resources, copy your old files content and paste
 
 When those steps are completed you only have to replace old Capptain references by the new Engagement references.
 
-All Capptain namespaces have to be updated.
+1. All Capptain namespaces have to be updated.
 
-Before migration:
+	Before migration:
+	
+		using Capptain.Agent;
+		using Capptain.Reach;
+	
+	After migration:
+	
+		using Microsoft.Azure.Engagement;
 
-			using Capptain.Agent;
-			using Capptain.Reach;
+2. All Capptain classes that contain "Capptain" should contain "Engagement".
 
-After migration:
+	Before migration:
+	
+		public sealed partial class MainPage : CapptainPage
+		{
+		  protected override string GetCapptainPageName()
+		  {
+		    return "Capptain Demo";
+		  }
+		  ...
+		}
+	
+	After migration:
+	
+		public sealed partial class MainPage : EngagementPage
+		{
+		  protected override string GetEngagementPageName()
+		  {
+		    return "Engagement Demo";
+		  }
+		  ...
+		}
 
-			using Microsoft.Azure.Engagement;
+3. For xaml files Capptain namespace and attributes also change.
 
-All Capptain classes that contain "Capptain" should contain "Engagement".
+	Before migration:
+	
+		<capptain:CapptainPage
+		...
+		xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
+		...
+		</capptain:CapptainPage>
+	
+	After migration:
+	
+		<engagement:EngagementPage
+		...
+		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+		...
+		</engagement:EngagementPage>
 
-Before migration:
-
-			public sealed partial class MainPage : CapptainPage
-			{
-			  protected override string GetCapptainPageName()
-			  {
-			    return "Capptain Demo";
-			  }
-			  ...
-			}
-
-After migration:
-
-			public sealed partial class MainPage : EngagementPage
-			{
-			  protected override string GetEngagementPageName()
-			  {
-			    return "Engagement Demo";
-			  }
-			  ...
-			}
-
-For xaml files Capptain namespace and attributes also change.
-
-Before migration:
-
-			<capptain:CapptainPage
-			...
-			xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
-			...
-			</capptain:CapptainPage>
-
-After migration:
-
-			<engagement:EngagementPage
-			...
-			xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-			...
-			</engagement:EngagementPage>
-
-For the other resources like Capptain pictures, please note that they also have been renamed to use "Engagement".
+4. For the other resources like Capptain pictures, please note that they also have been renamed to use "Engagement".
 
 ### Application ID / SDK Key
 
@@ -115,28 +115,28 @@ Edit this file to specify:
 
 If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:
 
-			/* Engagement configuration. */
-			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-			engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-			
-			/* Initialize Engagement angent with above configuration. */
-			EngagementAgent.Instance.Init(engagementConfiguration);
+		/* Engagement configuration. */
+		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+		engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+		
+		/* Initialize Engagement angent with above configuration. */
+		EngagementAgent.Instance.Init(engagementConfiguration);
 
-The connection string for your application is displayed on Azure Portal.
+The connection string for your application is displayed in the Azure Management Portal.
 
 ### Items name change
 
-Every items named ...capptain... has been named ...engagement... It is the same for Capptain and Engagement.
+All items named *capptain* have been named *engagement*. Similarly for *Capptain* to *Engagement*.
 
-Examples on commonly used Capptain items :
+Examples of commonly used Capptain items :
 
-> -   CapptainConfiguration now named EngagementConfiguration
-> -   CapptainAgent now named EngagementAgent
-> -   CapptainReach now named EngagementReach
-> -   CapptainHttpConfig now named EngagementHttpConfig
-> -   GetCapptainPageName now named GetEngagementPageName
+-   CapptainConfiguration now named EngagementConfiguration
+-   CapptainAgent now named EngagementAgent
+-   CapptainReach now named EngagementReach
+-   CapptainHttpConfig now named EngagementHttpConfig
+-   GetCapptainPageName now named GetEngagementPageName
 
 Note that rename also affects overridden methods.
 
 
-[nuget website]:http://www.nuget.org/packages/Capptain.WindowsPhone
+

@@ -10,25 +10,19 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/5/2014" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
-
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend">JavaScript backend</a>
-</div>
 
 # Store project code in source control
 
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+
 This topic shows you how to use the source control provided by Azure Mobile Services to store your .NET backend service project. Your project can be published by simply uploading from your local Git repository to your production mobile service. 
-
-The tutorial guides you through the following steps:
-
-1. [Enable source control in your mobile service].
-2. [Install Git and create the local repository].
-3. [Publish your project by using Git].
 
 To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.
 
@@ -94,29 +88,16 @@ Now that you have created your local repository, you can publish your .NET backe
 
 Now, your mobile service project is maintained in source control, and you can publish service updates by simply pushing updates from your local repository. For information about making data model changes in a .NET backend mobile service that uses a SQL Database, see [How to make data model changes to a .NET backend mobile service].
 
-## <a name="next-steps"> </a>Next steps
-
-Now that you have completed this tutorial you know how to store your scripts in source control. Consider learning more about mobile services: 
-
-+ [How to make data model changes to a .NET backend mobile service]
-	<br/> Shows how to use Entity Framework Code First Migrations to make data model changes to an existing Azure SQL Database to avoid losing existing data. 	
-
-+ [Call a custom API from the client] 
-	<br/> Shows how to create custom APIs that can be called from the client.
-
 <!-- Anchors. -->
-[Enable source control in your mobile service]: #enable-source-control
-[Install Git and create the local repository]: #clone-repo
-[Publish your project by using Git]: #deploy-scripts
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Git website]: http://git-scm.com
-[Source control]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Add Mobile Services to an existing app]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Add Mobile Services to an existing app]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Call a custom API from the client]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api/
-[How to make data model changes to a .NET backend mobile service]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[How to make data model changes to a .NET backend mobile service]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md

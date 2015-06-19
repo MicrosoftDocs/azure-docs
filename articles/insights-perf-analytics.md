@@ -1,79 +1,83 @@
 <properties 
-	pageTitle="How to use end user analytics" 
-	description="End user analytics for Microsoft Azure websites." 
-	services="application-insights" 
+	pageTitle="Monitor application performance" 
+	description="Chart load and response time, dependency information and set alerts on performance." 
+	services="azure-portal"
+    documentationCenter="na"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="04/28/2015" 
 	ms.author="awills"/>
 
-# Performance analytics for Microsoft Azure websites
+# Monitor application performance
 
-After enabling the Azure WebSite extension (detailed steps below) you’ll be able to see statistics and details on your code's application dependencies.  These application dependencies are automatically discovered. 
+In the [Azure Portal](http://portal.azure.com) you can set up monitoring to collect the  statistics and details on the application dependencies in your web apps or virtual machines.
 
-Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
+Azure supports Application performance monitoring (or, *APM*) by leveraging *extensions*. These extensions are installed into your application and collect the data and report back to the monitoring services. 
+
+## Enable an extension
+
+1. Click **Browse** and select the web app or virtual machine you would like to instrument.
+
+2. Click on the **Application monitoring** tile under **Monitoring**.
+
+3. Choose the extension provider you would like to use, such as **Application Insights** or **New Relic**.
+
+![Web app APM](./media/insights-perf-analytics/05-extend.png)
+
+Or if you're using a virtual machine:
+
+![Virtual machine](./media/insights-perf-analytics/10-vm1.png)
+
+### For Application Insights: rebuild with the SDK
+
+New Relic can be automatically installed without any additional instrumentation, but Application Insights has one additional requirement.
+
+In Visual Studio, add the Application Insights SDK to your project.
+
+![Right-click the web project and choose Add Application Insights](./media/insights-perf-analytics/03-add.png)
+
+When you're asked to login, use the credentials for your Azure account.
+
+You can test the telemetry by running the app in your development machine, or you can just go ahead and republish it. 
+
+The SDK provides an API so that you can [write custom telemetry](application-insights/app-insights-api-custom-events-metrics.md) to track usage.
+
+## Explore the data
+
+Use your application for a while to generate some telemetry.
+
+1. Then, from your web app or virtual machine blade, you'll see the extension installed.
+2. Click on the row that represents your application to navigate to that provider:
+![Click Refresh](./media/insights-perf-analytics/06-overview.png)
+
+You can also use **Browse** to go directly to the Application Insights component or New Relic account that you used.
+
+Once you get to the blade, for Application Insights, for example, you can:
+- Open Performance:
+
+![On the Application Insights overview blade, click the Performance tile](./media/insights-perf-analytics/07-dependency.png)
+
+- Drill through to see individual requests:
+
+![In the grid, click a dependency to see related requests.](./media/insights-perf-analytics/08-requests.png)
+
+- Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
 
 ![](./media/insights-perf-analytics/01-example.png) 
 
 
 
-## Set up Performance Analytics
+## Next steps
 
-#### 1. Add Application Insights to your Visual Studio project
-
-In your project in Visual Studio 2013 Update 3 or later, add Application Insights to your project.
-
-![In Solution Explorer, right-click your project and choose Add Application Insights](./media/insights-perf-analytics/03-add.png)
-
-Or if you're creating a new project, just make sure to check the Application Insights option:
-
-![In the New Project dialog, check Add Application Insights](./media/insights-perf-analytics/04-new.png)
-
-
-When you're asked to login, use the credentials for your Azure account.
-
-#### 2. Enable Application Insights in your Azure website
-
-Enable the Application Insights Extension on the Azure web site blade (not the Application Insight blade):
-
-![In your Azure website blade, click Extensions. In the Extensions blade, click Add, then Choose Extension, then Application Insights](./media/insights-perf-analytics/05-extend.png)
-
-*Can I automate this step?*
-
-Yes, there's a REST API for Azure websites. In PowerShell:
-
-    $extension = "https://<sitename>.scm.azurewebsites.net/api/siteextensions/Microsoft.ApplicationInsights.AzureWebSites"
-    Invoke-RestMethod -Uri $extension -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method PUT -Verbose
-
-
-
-## Explore the data
-
-Use your website for a while to generate some data.
-
-Then refresh your Application Insights blade and scroll down to the performance lens.
-
-![Click Refresh](./media/insights-perf-analytics/06-overview.png)
-
-Drill into the first or second chart to see your code dependencies:
-
-![Click a chart to see more detail](./media/insights-perf-analytics/07-dependency.png)
-
-Drill through to see individual requests:
-
-![In the grid, click a dependency to see related requests.](./media/insights-perf-analytics/08-requests.png)
-
-## Get more Application Insights
-
-* [Monitor usage][azure-usage] to find out how many users you have, how often they visit, and how the pages perform on their browsers
-* [Create web tests][azure-availability] to make sure your site is available and responsive
-
-[azure-usage]: ../insights-usage-analytics/
-[azure-availability]: ../insights-create-web-tests/
+* [Monitor service health metrics](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
+* [Receive alert notifications](insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
+* Use [Application Insights for JavaScript apps and web pages](application-insights/app-insights-web-track-usage.md) to get client analytics about the browsers that visit a web page.
+* [Monitor availability and responsiveness of any web page](application-insights/app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.

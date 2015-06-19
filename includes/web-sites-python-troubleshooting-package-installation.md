@@ -1,4 +1,4 @@
-Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the Azure website).
+Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).
 
 In this section, we'll look at ways to deal with this issue.
 
@@ -10,7 +10,7 @@ With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][]
 
 ### Build wheels (requires Windows)
 
-Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the Azure website (Windows/32-bit/2.7 or 3.4).
+Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
 If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
 
@@ -55,15 +55,15 @@ Add this to the deployment script:
 
 ### Include the virtual environment in the repository (requires Windows)
 
-Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the Azure website (Windows/32-bit/2.7 or 3.4).
+Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
 
 If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
 
     .skipPythonDeployment
 
-We recommend that you delete the existing virtual environment on the site, to prevent leftover files from when the virtual environment was managed automatically.
+We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.
 
 
-[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/
-[Microsoft Visual C++ Compiler for Python 2.7]: http:://aka.ms/vcpython27
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949

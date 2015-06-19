@@ -1,4 +1,4 @@
-1. Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio (on the right end: if in doubt, hover the mouse pointer over the icon). Locate the target version of the Android SDK that is used in your project , open it, and choose **Google APIs**, if it is not already installed.
+1. Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking **Tools** -> **Android** -> **SDK Manager** on the menu. Locate the target version of the Android SDK that is used in your project , open it, and choose **Google APIs**, if it is not already installed.
 
 2. Scroll down to **Extras**, expand it, and choose **Google Play Services**, as shown below. Click **Install Packages**. Note the SDK path, for use in the following step. 
 
@@ -15,7 +15,7 @@
 
 5. Under *defaultConfig*, change *minSdkVersion* to 9.
  
-6. Click the **Sync Project with Gradle Files** button in the tool bar.
+6. Click the **Sync Project with Gradle Files** icon in the tool bar.
 
 7. Open **AndroidManifest.xml** and add this tag to the *application* tag.
 

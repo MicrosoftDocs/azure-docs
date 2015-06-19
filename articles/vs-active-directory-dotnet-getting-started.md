@@ -3,7 +3,7 @@
 	description="How to get started using Azure Active Directory in Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Getting Started with Azure Active Directory (.NET Projects)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-active-directory-dotnet-getting-started/)
-> - [What Happened](/documentation/articles/vs-active-directory-dotnet-what-happened/)
-
-## Getting Started with Azure Active Directory (.NET Projects)
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
 #####Requiring authentication to access controllers 
 

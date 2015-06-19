@@ -31,4 +31,4 @@ You can use the [Azure command-line interface][] to create the files.  Use this 
 
 When these files don't exist, Azure creates a temporary deployment script and runs it.  It is identical to the one you create with the command above.
 
-[Azure command-line interface]: http://azure.microsoft.com/en-us/downloads/
+[Azure command-line interface]: http://azure.microsoft.com/downloads/

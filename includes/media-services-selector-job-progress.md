@@ -1,4 +1,4 @@
 > [AZURE.SELECTOR]
-- [Portal](/en-us/documentation/articles/media-services-portal-check-job-progress/)
-- [.NET SDK](/en-us/documentation/articles/media-services-check-job-progress/)
-- [REST API](/en-us/documentation/articles/media-services-rest-check-job-progress/)
+- [Portal](../articles/media-services-portal-check-job-progress.md)
+- [.NET SDK](../articles/media-services-check-job-progress.md)
+- [REST API](../articles/media-services-rest-check-job-progress.md)

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="heidist"/>
 
 #How to implement faceted navigation in Azure Search#
@@ -31,7 +31,7 @@ In Azure Search, faceted navigation is built at query time, using attributed fie
 
 In terms of application development, writing code that constructs queries constitutes the bulk of the work. Many of the application behaviors that you would want from faceted navigation is provided by the service, including built-in support for setting up ranges and getting counts for facet results. The service also includes sensible defaults that help you avoid unwieldy navigation structures. 
 
-For a hands-on experience, we recommend this sample on CodePlex:  [Azure Search AdventureWorks Catalog](../search-create-first-solution/)
+For a hands-on experience, we recommend this sample on CodePlex: [Azure Search AdventureWorks Catalog](https://azuresearchadventureworksdemo.codeplex.com/)
 
 You can also watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). At 45:25, there is a demo on how to implement facets.
 
@@ -76,7 +76,7 @@ In application code, the pattern is to use facet query parameters to return the 
 
 **Query Basics in Azure Search**
 
-In Azure Search, a request is specified through one or more query parameters (see [Search Documents](http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx) for a description of each one). None of the query parameters are required, but you must have at least one in order for a query to be valid.
+In Azure Search, a request is specified through one or more query parameters (see [Search Documents](http://msdn.microsoft.com/library/azure/dn798927.aspx) for a description of each one). None of the query parameters are required, but you must have at least one in order for a query to be valid.
 
 Precision, generally understood as the ability to filter out irrelevant hits, is achieved through one or both of these expressions:
 
@@ -176,7 +176,7 @@ Notice that facets are integral in this sample application. The search experienc
 
   ![][4]
  
-A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `intervals:<integer>`, and  `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx) for usage details.
+A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `intervals:<integer>`, and  `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for usage details.
 
 Along with facets, the request formulated by your application should also build filters to narrow down the set of candidate documents based on a facet value selection. For a bike store, faceted navigation provides clues to questions like "What colors, manufacturers, and types of bikes are available", while filtering answers questions like "Which exact bikes are red, mountain bikes, in this price range".
 
@@ -250,7 +250,7 @@ In the query response, this value indicates the number of matching items in the 
 
 **Levels in faceted navigation** 
 
-As noted, there is no direct support for nesting facets in a hierarchy. Out of the box, faceted navigation only supports one level of filters. However, workarounds do exist. You can encode a hierarchical facet structure in a `Collection(Edm.String)` with one entry point per hierarchy. Implementing this workaround is beyond the scope of this article, but you can read about collections in [OData by Example](http://msdn.microsoft.com/en-us/library/ff478141.aspx). 
+As noted, there is no direct support for nesting facets in a hierarchy. Out of the box, faceted navigation only supports one level of filters. However, workarounds do exist. You can encode a hierarchical facet structure in a `Collection(Edm.String)` with one entry point per hierarchy. Implementing this workaround is beyond the scope of this article, but you can read about collections in [OData by Example](http://msdn.microsoft.com/library/ff478141.aspx). 
 
 **Validate fields**
 
@@ -262,7 +262,7 @@ When adding a filter to a faceted query, you might want to retain the facet stat
 
 **Sharding implications on facet counts**
 
-Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Search (forum post)](https://social.msdn.microsoft.com/Forums/azure/en-US/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Search (forum post)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
 
 Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each one reports the top N facets by document count, which is then combined into a single result. If some shards have a lot of matching values, while others have less, you may find that some facet values are missing or under-counted in the results.
 
@@ -271,7 +271,7 @@ Although this behavior could change at any time, if you encounter this behavior 
 <a name="rangefacets"></a>
 # Facet navigation based on a range values #
 
-Faceting over ranges is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx).
+Faceting over ranges is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it will automatically create ranges of 0 -10, 10-20, 20-30. The sample application removes any intervals that are empty. 
 
@@ -309,14 +309,14 @@ There are two Geospatial functions in Azure Search, **geo.distance** and **geo.i
 
 - The **geo.intersects** function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant list of coordinates passed as part of the filter.
 
-You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/en-us/library/azure/dn798921.aspx). To learn more about geospatial search, see [Create a geospatial search application in Azure Search](../search-create-geospatial/).
+You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx). To learn more about geospatial search, see [Create a geospatial search application in Azure Search](search-create-geospatial.md).
 
 <a name="tryitout"></a>
 # Try it out #
 
 Azure Search Adventure Works Demo on Codeplex contains the examples referenced in this article. As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
 
-1.	Configure the sample application (see [Create your first application for instructions](./search-create-first-solution/)). 
+1.	Configure the sample application (see [Create your first application for instructions](search-create-first-solution.md)). 
 
 	Notice the schema that is defined in the Program.cs file of the CatalogIndexer project. It specifies facetable fields for color, listPrice, size, weight, categoryName, and modelName.  Only a few of these (color, listPrice, categoryName) are actually implemented in faceted navigation.
 
@@ -376,11 +376,11 @@ For more insights on design principles for faceted navigation, we recommend the 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: ../search-create-first-solution/
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/en-us/library/azure/dn798921.aspx
-[Create a geospatial search application in Azure Search]: ../search-create-geospatial/
+[Create your first application]: search-create-first-solution.md
+[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[Create a geospatial search application in Azure Search]: search-create-geospatial.md
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx
+[Faceting on Azure Search forum post]: faceting-on-azure-search.md?forum=azuresearch
+[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 

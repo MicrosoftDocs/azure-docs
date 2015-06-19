@@ -13,23 +13,24 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="05/04/2015" 
 	ms.author="kapiteir" />
 
 
-#Android SDK for Azure Mobile Engagement v3.0.0
-Start here to get all the details on how to integrate Azure Mobile Engagement in an Android App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](../mobile-engagement-android-get-started/).
+#Android SDK for Azure Mobile Engagement
 
-Click to see the [SDK Content](../mobile-engagement-android-sdk-content)
+Start here to get all the details on how to integrate Azure Mobile Engagement in an Android App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-android-get-started.md).
+
+Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
 
 ##Integration procedures
-1. Start here: [How to integrate Mobile Engagement in your Android app](../mobile-engagement-android-integrate-engagement/)
+1. Start here: [How to integrate Mobile Engagement in your Android app](mobile-engagement-android-integrate-engagement.md)
 
-2. For Notifications: [How to integrate Reach (Notifications) in your Android app](../mobile-engagement-android-integrate-engagement-reach/)
-	1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](../mobile-engagement-android-gcm-integrate/)
-	2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](../mobile-engagement-android-adm-integrate/)
+2. For Notifications: [How to integrate Reach (Notifications) in your Android app](mobile-engagement-android-integrate-engagement-reach.md)
+	1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+	2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Android app](../mobile-engagement-android-use-engagement-api/)
+3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
 
 
 ##Release notes
@@ -37,27 +38,27 @@ Click to see the [SDK Content](../mobile-engagement-android-sdk-content)
 ###3.0.0 (02/17/2015)
 
 -   Initial Release of Azure Mobile Engagement
--   appId configuration is replaced by a connection string configuration.
--   Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.
--   Removed API to send and receive messages between devices.
--   Security improvements.
--   Google Play and SmartAd tracking removed.
+-   appId configuration is replaced by a connection string configuration
+-   Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities
+-   Removed API to send and receive messages between devices
+-   Security improvements
+-   Google Play and SmartAd tracking removed
 
-For earlier version please see the [complete release notes](../mobile-engagement-android-release-notes/)
+For earlier versions, please see the [complete release notes](mobile-engagement-android-release-notes.md).
 
 ##Upgrade procedures
 
 If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
-You may have to follow several procedures if you missed several versions of the SDK see the complete [Upgrade Procedures](../mobile-engagement-android-upgrade-procedure/). For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.
+You may have to follow several procedures if you missed several versions of the SDK see the complete [Upgrade Procedures](mobile-engagement-android-upgrade-procedure.md). For example if you migrate from 1.4.0 to 1.6.0, you have to first follow the "from 1.4.0 to 1.5.0" procedure and then the "from 1.5.0 to 1.6.0" procedure.
 
-Whatever the version you upgrade from, you have to replace all the `mobile-engagement-VERSION.jar` by the new ones.
+Whatever the version you upgrade from, you have to replace all the `mobile-engagement-VERSION.jar` with the new ones.
 
 ###From 2.4.0 to 3.0.0
 
-The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
+The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. If you are migrating from an earlier version, please consult the Capptain web site to migrate to 2.4.0 first and then apply the following procedure.
 
->[AZURE.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
+>[AZURE.IMPORTANT] Capptain and Mobile Engagement are not the same services, and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers.
 
 #### JAR file
 
@@ -65,7 +66,7 @@ Replace `capptain.jar` by `mobile-engagement-VERSION.jar` in your `libs` folder.
 
 #### Resource files
 
-Every resource file that we provided (prefixed by `capptain_`) have to be replaced by the new ones (prefixed with `engagement_`).
+Every resource file that we provided (prefixed by `capptain_`) has to be replaced by the new ones (prefixed with `engagement_`).
 
 If you customized those files, you have to re-apply your customization on the new files, **all the identifiers in the resource files have also been renamed**.
 
@@ -91,7 +92,7 @@ Please remove this section from your `AndroidManifest.xml` if you have it:
 
 #### Java API
 
-Every call to any Java class of our SDK have to be renamed, for example `CapptainAgent.getInstance(this)` must be renamed `EngagementAgent.getInstance(this)`, `extends CapptainActivity` must be renamed `extends EngagementActivity` etc...
+Every call to any Java class of our SDK has to be renamed; for example, `CapptainAgent.getInstance(this)` must be renamed `EngagementAgent.getInstance(this)`, `extends CapptainActivity` must be renamed `extends EngagementActivity` etc...
 
 If you were integrated with default agent preference files, the default file name is now `engagement.agent` and the key is `engagement:agent`.
 
@@ -99,13 +100,13 @@ When creating web announcements, the Javascript binder is now `engagementReachCo
 
 #### AndroidManifest.xml
 
-A lot of changes happened there, the service is not shared anymore and a lot of receivers are not exportable anymore.
+A lot of changes happened there, the service is not shared anymore, and a lot of receivers are not exportable anymore.
 
-The service declaration is now simpler, remove the intent filter and all meta-data inside it, and add `exportable=false`.
+The service declaration is now simpler; remove the intent filter and all meta-data inside it, and add `exportable=false`.
 
 Plus everything is renamed to use engagement.
 
-It must now looks like:
+It now looks like:
 
 			<service
 			  android:name="com.microsoft.azure.engagement.service.EngagementService"

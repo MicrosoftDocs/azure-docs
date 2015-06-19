@@ -1,9 +1,5 @@
 
-1. Open the shared project file MainPage.cs and add the following using statement:
-
-        using Windows.UI.Popups;
-
-2. Add the following code snippet to the MainPage class:
+1. Open the shared project file MainPage.cs and add the following code snippet to the MainPage class:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -52,7 +48,7 @@
 
             // Hide the login button and load items from the mobile service.
             this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            RefreshTodoItems();
+            await RefreshTodoItems();
         }
 		
 5. In the Windows Store app project, open the MainPage.xaml project file and add the following **Button** element just before the element that defines the **Save** button:
@@ -60,7 +56,10 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Repeat the previous step for the Windows Phone Store app project, but this time add the **Button** in the **TitlePanel**, after the **TextBlock** element.
+6. In the Windows Phone app project, add the following **Button** elements just just before the element that defines the **Save** button:
+
+		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button> 
 
 5. Open the shared App.xaml.cs project file and add the following using statement, if it doesn't already exist:
 

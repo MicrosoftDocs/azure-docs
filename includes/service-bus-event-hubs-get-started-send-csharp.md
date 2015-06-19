@@ -1,5 +1,5 @@
 ## Send messages to Event Hubs
-In this section, you will write a Windows console app to send events to your Event Hub.
+In this section, you'll write a Windows console app that sends events to your Event Hub.
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
 
@@ -17,16 +17,17 @@ In this section, you will write a Windows console app to send events to your Eve
 
 4. Add the following `using` statement at the top of the **Program.cs** file:
 
+		using System.Threading;
 		using Microsoft.ServiceBus.Messaging;
 
-5. Add the following `static` fields to the **Program** class, substituting the values with the name of the Event Hub you created in the previous section, and the connection string with **send** rights:
+5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the connection string with **Send** rights:
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
 
 6. Add the following method to the **Program** class:
 
-		static async Task SendingRandomMessages()
+		static void SendingRandomMessages()
         {
             var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
             while (true)
@@ -34,28 +35,28 @@ In this section, you will write a Windows console app to send events to your Eve
                 try
                 {
                     var message = Guid.NewGuid().ToString();
-                    Console.WriteLine("{0} > Sending message: {1}", DateTime.Now.ToString(), message);
-                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+                    Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+                    eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
                 }
                 catch (Exception exception)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("{0} > Exception: {1}", DateTime.Now.ToString(), exception.Message);
+                    Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
                     Console.ResetColor();
                 }
 
-                await Task.Delay(200);
+                Thread.Sleep(200);
             }
         }
 
-	This method will continuously send events to your Event Hub with a 200ms delay.
+	This method continuously sends events to your Event Hub with a 200ms delay.
 
 7. Finally, add the following lines to the **Main** method:
 
 		Console.WriteLine("Press Ctrl-C to stop the sender process");
         Console.WriteLine("Press Enter to start now");
         Console.ReadLine();
-        SendingRandomMessages().Wait();
+        SendingRandomMessages();
 
 
 <!-- Images -->

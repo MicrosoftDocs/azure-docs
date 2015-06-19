@@ -9,11 +9,11 @@
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="2/17/2015" 
+    ms.date="04/28/2015" 
     ms.author="elizapo" />
 
 
@@ -96,3 +96,14 @@ Use the following information to configure Azure Active Directory
 - [Directory integration](http://technet.microsoft.com/library/jj573653.aspx) – Use this information to choose a directory integration option – either [DirSync with Password Synchronization](http://technet.microsoft.com/library/dn441214.aspx) or [DirSync with federation](http://technet.microsoft.com/library/dn441213.aspx).
 
 You can also configure [Multi-Factor Authentication (MFA)](http://technet.microsoft.com/library/dn249466.aspx).
+
+## Trouble configuring your directory synchronization?
+
+If you are having trouble configuring directory synchronization, check the following:
+
+- You are using the latest version of Azure Directory Sync tool 
+-	In the management portal, under **Active Directory->Default Directory->Domains**, you already added your custom domain (e.g mydomain.com) and made it the primary one.
+-	Under **Active Directory->Default Directory->Users**, you add a new user under that domain (e.g. myAzureSyncUser@mydomain.com).
+-	On your domain in Active Directory, you added a new domain user and made him a member of Enterprise Admins  (e.g. myDomainSyncUser@mydomain.com).
+
+Now start the Azure Directory Sync tool, and use **myAzureSyncUser@mydomain.com** credentials for the first prompt (Microsoft Azure Active Directory Administrator Credentials) and use **myDomainSyncUser@mydomain.com** for the second prompt.

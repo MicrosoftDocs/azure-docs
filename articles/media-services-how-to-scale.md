@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/24/2015" 
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ This topic links to relevant topics.
 
 ##<a id="streaming_endpoins"></a>Streaming Reserved Units
 
-For more information, see [Scaling streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+For more information, see [Scaling streaming units](media-services-manage-origins.md#scale_streaming_endpoints).
 
 ##<a id="encoding_reserved_units"></a>Encoding Reserved Units
 
@@ -37,10 +37,11 @@ For information about scaling encoding units, see the following **Portal** and *
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
 
+Note that the reserved units are the same for Encoding and Indexing tasks.
 
 ##<a id="storage"></a>Scale Storage
 
-For more information, see [Managing Media Services Assets across Multiple Storage Accounts](https://msdn.microsoft.com/en-us/library/azure/dn271889.aspx) and [Working with Azure Storage](https://msdn.microsoft.com/en-us/library/azure/dn767951.aspx).
+For more information, see [Managing Media Services Assets across Multiple Storage Accounts](https://msdn.microsoft.com/library/azure/dn271889.aspx) and [Working with Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
 
 

@@ -10,33 +10,33 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/25/2014" 
-	ms.author="MicrosoftHelp@twilio.com"/>
+	ms.date="04/24/2015" 
+	ms.author="devinrader"/>
 
 
-<h1>How to use Twilio for voice and SMS capabilities from Mobile Services</h1>
+# How to use Twilio for voice and SMS capabilities from Mobile Services
 
 This topic shows you how to perform common tasks using the Twilio API with Azure Mobile Services. In this tutorial you will learn how to create Custom API scripts that use the Twilio API to initiate a phone call and to send a Short Message Service (SMS) message. 
 
-<h2><a id="WhatIs"></a>What is Twilio?</h2>
+## <a id="WhatIs"></a>What is Twilio?
 Twilio is powering the future of business communications, enabling developers to embed voice, VoIP, and messaging into applications. They virtualize all infrastructure needed in a cloud-based, global environment, exposing it through the Twilio communications API platform. Applications are simple to build and scalable. Enjoy flexibility with pay-as-you go pricing, and benefit from cloud reliability.
 
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** enables your applications to send and receive SMS messages. **Twilio Client** allows you to make VoIP calls from any phone, tablet, or browser and supports WebRTC.
 
-<h2><a id="Pricing"></a>Twilio Pricing and Special Offers</h2>
+## <a id="Pricing"></a>Twilio Pricing and Special Offers
 Azure customers receive a [special offer][special_offer]: complimentary $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at [ahoy.twilio.com/azure][special_offer].
 
 Twilio is a pay-as-you-go service. There are no set-up fees and you can close your account at any time. You can find more details at [Twilio Pricing][twilio_pricing].  
 
-<h2><a id="Concepts"></a>Concepts</h2>
+## <a id="Concepts"></a>Concepts
 The Twilio API is a RESTful API that provides voice and SMS functionality for applications. Client libraries are available in multiple languages; for a list, see [Twilio API Libraries] [twilio_libraries].  Additional tutorials are available for using the Twilio any Azure application written in [.NET][azure_twilio_howto_dotnet], [node.js][azure_twilio_howto_node], [Java][azure_twilio_howto_java], [PHP][azure_twilio_howto_php], [Python][azure_twilio_howto_python] or [Ruby][azure_twilio_howto_ruby].
 
 Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML).
 
-<h3><a id="Verbs"></a>Twilio verbs</h3>
+### <a id="Verbs"></a>Twilio verbs
 The API makes use of Twilio verbs; for example, the **&lt;Say&gt;** verb instructs Twilio to audibly deliver a message on a call. 
 
 The following is a list of Twilio verbs.  Learn about the other verbs and capabilities via [Twilio Markup Language documentation](http://www.twilio.com/docs/api/twiml).
@@ -52,7 +52,7 @@ The following is a list of Twilio verbs.  Learn about the other verbs and capabi
 * **&lt;Say&gt;**: Converts text to speech that is made on a call.
 * **&lt;Sms&gt;**: Sends an SMS message.
 
-<h3> <a id="TwiML"></a>TwiML</h3>
+### <a id="TwiML"></a>TwiML
 TwiML is a set of XML-based instructions based on the Twilio verbs that inform Twilio of how to process a call or SMS.
 
 As an example, the following TwiML would convert the text **Hello World** to speech.
@@ -66,20 +66,20 @@ When your application calls the Twilio API, one of the API parameters is the URL
 
 For more information about Twilio verbs, their attributes, and TwiML, see [TwiML][twiml]. For additional information about the Twilio API, see [Twilio API][twilio_api].
 
-<h2><a id="CreateAccount"></a>Create a Twilio Account</h2>
+## <a id="CreateAccount"></a>Create a Twilio Account
 When you're ready to get a Twilio account, sign up at [Try Twilio][try_twilio]. You can start with a free account, and upgrade your account later.
 
 When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page][twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
-<h2><a id="create_app"></a>Create a Mobile Service</h2>
-A Mobile Service that hosts a Twilio enabled application is no different from any other Mobile Service. You simply add the Twilio node.js library in order to reference it from your Mobile Service Custom API scripts. For information on creating an initial mobile service, see [Getting Started with Mobile Services](/en-us/documentation/articles/mobile-services-ios-get-started/).
+## <a id="create_app"></a>Create a Mobile Service
+A Mobile Service that hosts a Twilio enabled application is no different from any other Mobile Service. You simply add the Twilio node.js library in order to reference it from your Mobile Service Custom API scripts. For information on creating an initial mobile service, see [Getting Started with Mobile Services](mobile-services-ios-get-started.md).
 
-<h2><a id="ConfigureMobileService"></a>Configure Your Mobile Service to use the Twilio Node.js Library</h2>
+## <a id="ConfigureMobileService"></a>Configure Your Mobile Service to use the Twilio Node.js Library
 Twilio provides a Node.js library that wraps various aspects of Twilio to provide simple and easy ways to interact with the Twilio REST API and Twilio Client to generate TwiML responses.
 
 To use the Twilio node.js library in your Mobile Service, you need leverage Mobile Services npm module support, which you can do by storing your scripts in source control. 
 
-1. Complete the tutorial [Store Scripts in Source Control](/en-us/documentation/articles/mobile-services-store-scripts-source-control/). This walks you through setting-up source control for your Mobile Services and storing your server scripts in a Git repository.
+1. Complete the tutorial [Store Scripts in Source Control](mobile-services-store-scripts-source-control.md). This walks you through setting-up source control for your Mobile Services and storing your server scripts in a Git repository.
 
 2. After you have set up source control for your Mobile Service, open the repository on your local computer, browse to the `\services` subfolder, open the package.json file in a text editor, and add the following field to the **dependencies** object:
 
@@ -90,7 +90,7 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 		{
 		  "name": "todolist",
 		  "version": "1.0.0",
-		  "description": "todolist - hosted on Windows Azure Mobile Services",
+		  "description": "todolist - hosted on Azure Mobile Services",
 		  "main": "server.js",
 		  "engines": {
 		    "node": ">= 0.8.19"
@@ -113,7 +113,7 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 	
 The mobile service now installs and loads the Twilio package so you can reference and use the Twilio library in your custom API and table scripts.
 
-<h2><a id="howto_make_call"></a>How to: Make an outgoing call</h2>
+## <a id="howto_make_call"></a>How to: Make an outgoing call
 The following script shows how to initiate an outgoing call from your Mobile Service using the **makeCall** function. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
 
     var twilio = require('twilio');
@@ -137,7 +137,7 @@ For more information about the parameters passed in to the **client.makeCall** f
 
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response. For more information, see [How to: Provide TwiML responses from your own web site](#howto_provide_twiml_responses).
 
-<h2><a id="howto_send_sms"></a>How to: Send an SMS message</h2>
+## <a id="howto_send_sms"></a>How to: Send an SMS message
 The following code shows how to send an SMS message using the **sendSms**  function. The **From** number is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account before you run the code.
 
     var twilio = require('twilio');
@@ -166,7 +166,7 @@ The following code shows how to send an SMS message using the **sendSms**  funct
     };
 
 
-<h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML responses from your own website</h2>
+## <a id="howto_provide_twiml_responses"></a>How to: Provide TwiML responses from your own website
 
 When your application initiates a call to the Twilio API - for example, via the client.InitiateOutboundCall method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in How to: Make an outgoing call uses the Twilio-provided URL http://twimlets.com/message to return the response.
 
@@ -222,9 +222,9 @@ Once you have set up a way to provide TwiML responses, you can pass that URL int
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
 
-[azure_twilio_howto_dotnet]: /en-us/develop/net/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_java]: /en-us/develop/java/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_node]: /en-us/develop/nodejs/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_ruby]: /en-us/develop/ruby/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_python]: /en-us/develop/python/how-to-guides/twilio-voice-and-sms-service/
-[azure_twilio_howto_php]: /en-us/develop/php/how-to-guides/twilio-voice-and-sms-service/
+[azure_twilio_howto_dotnet]: /develop/net/how-to-guides/twilio-voice-and-sms-service/
+[azure_twilio_howto_java]: /develop/java/how-to-guides/twilio-voice-and-sms-service/
+[azure_twilio_howto_node]: /develop/nodejs/how-to-guides/twilio-voice-and-sms-service/
+[azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
+[azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
+[azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/

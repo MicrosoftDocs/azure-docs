@@ -1,26 +1,22 @@
 <properties 
-	urldisplayname="Team Foundation Service" 
-	headerexpose="" 
 	pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" 
-	metakeywords="" 
-	footerexpose="" 
-	description="Learn how to test the performance of a cloud service in the local Azure Compute Emulator by using the Visual Studio profiler" 
-	umbraconavihide="0" 
-	disquscomments="1" 
-	authors="kempb" 
+	services="cloud-services"
+	description="Investigate performance issues in cloud services with the Visual Studio profiler" 
+	documentationCenter=""
+	authors="patshea123" 
 	manager="douge" 
-	editor="tglee" 
-	services="cloud-services" 
-	documentationCenter=""/>
+	editor="tglee"
+	tags="" 
+	/>
 
 <tags 
 	ms.service="cloud-services" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="kempb"/>
+	ms.date="05/27/2015" 
+	ms.author="patshea"/>
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
 
@@ -37,20 +33,6 @@ This article covers the CPU Sampling method of profiling, which can be done loca
 ## Prerequisites
 
 You can run the profiler locally only if you have Visual Studio Premium or Visual Studio Ultimate. 
-
-## In this article:
-
--   [Step 1: Configure Visual Studio for Profiling][]
-
--   [Step 2: Attach to a Process][]
-
--   [Step 3: View Profiling Reports][]
-
--   [Step 4: Make Changes and Compare Performance][]
-
--   [Troubleshooting][]
-
--   [Next Steps][]
 
 ## <a name="step1"> </a> Step 1: Configure Visual Studio for Profiling
 

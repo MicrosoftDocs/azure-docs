@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center" 
-	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your iOS application" 
+	description="Learn how to use Azure Mobile Services to handle conflicts when syncing offline data in your iOS application" 
 	documentationCenter="ios" 
 	authors="krisragh" 
 	manager="dwrede" 
@@ -10,20 +10,20 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
-	ms.author="krisragh,donnam"/>
+	ms.date="04/16/2015" 
+	ms.author="krisragh;donnam"/>
 
 
 # Handling Conflicts with Offline Data Sync in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services. This tutorial builds on the steps and the sample app from the previous tutorial [Get Started with Offline Data]. Before you begin this tutorial, you must first complete [Get Started with Offline Data].
 
->[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
+>[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>.
 
 This tutorial walks you through these basic steps:
 
@@ -465,8 +465,8 @@ Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an
 [Adding a Scene to a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
 [Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
 [Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: /en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[How to use the Mobile Services client library for iOS]: mobile-services-ios-how-to-use-client-library.md
 [Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[Get Started with Offline Data]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
+[Get Started with Offline Data]: mobile-services-ios-get-started-offline-data.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md

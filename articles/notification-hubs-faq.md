@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="04/24/2015" 
 	ms.author="piyushjo" />
 
 #Azure Notification Hubs - Frequently Asked Questions (FAQs)
@@ -120,26 +120,26 @@ Azure Notification Hubs enable viewing telemetry data in the Azure management po
 Note that successful notifications only mean that the notifications have been delivered to the external Push Notification Service (e.g. APNS for Apple, GCM for Google etc) and then it is upto the PNS to deliver the notification to the devices and the PNS do not expose these metrics to us.  
 It also provides the capability to export the telemetry programmatically (in Standard Tier). See this sample for details - [NH - Metrics sample]
 
-[Notification Hubs Pricing]: http://azure.microsoft.com/en-us/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/en-us/support/legal/sla/
+[Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [CaseStudy - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [CaseStudy - Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [CaseStudy - Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [CaseStudy - Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [CaseStudy - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [NH - REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[NH - Getting Started Tutorials]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/
-[Send SMS with Mobile Services]: http://azure.microsoft.com/en-us/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
-[Chrome Apps tutorial]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/en-us/pricing/details/mobile-services/
-[Backend Registration guidance]: https://msdn.microsoft.com/en-us/library/azure/dn743807.aspx 
-[Backend Registration guidance - 2]: https://msdn.microsoft.com/en-us/library/azure/dn530747.aspx
-[NH Security model]: https://msdn.microsoft.com/en-us/library/azure/dn495373.aspx.
-[NH - Secure Push tutorial]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[NH - troubleshooting]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-diagnosing/
-[NH - Metrics]: https://msdn.microsoft.com/en-us/library/dn458822.aspx
+[NH - Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Send SMS with Mobile Services]: http://azure.microsoft.com/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
+[Chrome Apps tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx 
+[Backend Registration guidance - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
+[NH Security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
+[NH - Secure Push tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[NH - troubleshooting]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[NH - Metrics]: https://msdn.microsoft.com/library/dn458822.aspx
 [NH - Metrics sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-[Registrations Export/Import]: https://msdn.microsoft.com/en-us/library/dn790624.aspx
+[Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
  
 
 

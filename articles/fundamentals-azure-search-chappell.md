@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="03/12/2015" 
 	ms.author="heidist"/>
 
 # Introduction to Azure search #
@@ -33,8 +33,11 @@ This paper is an overview of the technology and what features and scenarios it s
 
 **Author:** David Chappell, Principal of Chappell & Associates
 
-**Published:** December 2014
+**Updated:** March 2015
 
-**Revision:** 1.0
+**Revision:** 1.1
 
-**Download:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introducing Azure Search" PDF file</a>
+**Downloads:** 
+
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introducing Azure Search" (in PDF)</a>
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introducing Azure Search" (in Microsoft Word)</a>

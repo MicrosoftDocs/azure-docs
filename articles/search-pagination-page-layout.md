@@ -13,16 +13,16 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="heidist"/>
 
 #How to page search results in Azure Search#
 
 This article provides guidance on how to use the Azure Search Service REST API to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation.
  
-In every case mentioned below, page-related options that contribute data or information to your search results page are specified through the [Search Document](http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx) requests sent to your Azure Search Service. Requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response.
+In every case mentioned below, page-related options that contribute data or information to your search results page are specified through the [Search Document](http://msdn.microsoft.com/library/azure/dn798927.aspx) requests sent to your Azure Search Service. Requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response.
 
-> [AZURE.NOTE] A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. Please see the [Azure Search Service REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) documentation for details about request syntax.
+> [AZURE.NOTE] A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. Please see the [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) documentation for details about request syntax.
 
 ## Total hits and Page Counts ##
 
@@ -60,7 +60,7 @@ To return a subset of fields for a tiled layout:
 
 Images and media files are not directly searchable and should be stored in another storage platform, such as Azure Blob storage, to reduce costs. In the index and documents, define a field that stores the URL address of the external content. You can then use the field as an image reference. The URL to the image should be in the document.
 
-To retrieve a product description page for an **onClick** event, use [Lookup Document](http://msdn.microsoft.com/en-us/library/azure/dn798929.aspx) to pass in the key of the document to retrieve. The data type of the key is `Edm.String`. In this example, it is *246810*. 
+To retrieve a product description page for an **onClick** event, use [Lookup Document](http://msdn.microsoft.com/library/azure/dn798929.aspx) to pass in the key of the document to retrieve. The data type of the key is `Edm.String`. In this example, it is *246810*. 
    
     	GET /indexes/onlineCatalog/docs/246810
 
@@ -82,11 +82,11 @@ You would create a method that accepts the selected sort option as input, and re
 
  ![][5]
  
-> [AZURE.NOTE] While the default scoring is sufficient for many scenarios, we recommend basing relevance on a custom scoring profile instead. A custom scoring profile gives you a way to boost items that are more beneficial to your business. See [Add a scoring profile](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) for more information. 
+> [AZURE.NOTE] While the default scoring is sufficient for many scenarios, we recommend basing relevance on a custom scoring profile instead. A custom scoring profile gives you a way to boost items that are more beneficial to your business. See [Add a scoring profile](http://msdn.microsoft.com/library/azure/dn798928.aspx) for more information. 
 
 ## Faceted navigation ##
 
-Search navigation is common on a results page, often located at the side or top of a page. In Azure Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-faceted-navigation/) for details.
+Search navigation is common on a results page, often located at the side or top of a page. In Azure Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Search](search-faceted-navigation.md) for details.
 
 ## Filters at the page level ##
 
@@ -96,15 +96,15 @@ You can send a filter with or without a search expression. For example, the foll
 
     	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-See [Search Documents (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx) for more information about `$filter` expressions.
+See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for more information about `$filter` expressions.
 
 ## See Also ##
 
-- [Azure Search Service REST API](http://msdn.microsoft.com/en-us/library/azure/dn798935.aspx)
-- [Index Operations](http://msdn.microsoft.com/en-us/library/azure/dn798918.aspx)
-- [Document Operations](http://msdn.microsoft.com/en-us/library/azure/dn800962.aspx)
-- [Learning Roadmap](http://msdn.microsoft.com/en-us/library/azure/dn818681.aspx)
-- [Faceted Navigation in Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-faceted-navigation/)
+- [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)
+- [Index Operations](http://msdn.microsoft.com/library/azure/dn798918.aspx)
+- [Document Operations](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+- [Video and tutorials about Azure Search](http://msdn.microsoft.com/library/azure/dn818681.aspx)
+- [Faceted Navigation in Azure Search](search-faceted-navigation.md)
 
 
 <!--Image references-->

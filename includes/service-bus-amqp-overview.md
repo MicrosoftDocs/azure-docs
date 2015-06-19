@@ -91,8 +91,8 @@ For more information about how to obtain and use these libraries with Service Bu
 
 *    [How to use AMQP 1.0 with the Service Bus .NET API](http://aka.ms/lym3vk)
 *    [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
-*    [Service Bus AMQP Developer's Guide](http://msdn.microsoft.com/en-us/library/jj841071.aspx)
+*    [Service Bus AMQP Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx)
 *    [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0 specification](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-amqp-overview/Example1.png
-[Service Bus AMQP Developer's Guide]: http://msdn.microsoft.com/en-us/library/jj841071.aspx
+[Service Bus AMQP Developer's Guide]: http://msdn.microsoft.com/library/jj841071.aspx

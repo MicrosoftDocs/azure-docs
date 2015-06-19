@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Deliver Streaming Content from Media Services – Azure" 
+	pageTitle="How to Deliver Streaming Content from Media Services" 
 	description="Learn how to create a locator that is used to build a streaming URL. Code samples are written in C# and use the Media Services SDK for .NET." 
 	authors="juliako" 
 	manager="dwrede" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 #How to: Deliver streaming content
 
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
 
 ##Overview
 
-You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](../media-services-encode-asset) topic shows how to encode into an adaptive bitrate MP4 set. Before you create a locator you should configure asset delivery policy as described in [this](../media-services-dotnet-configure-asset-delivery-policy) topic. 
+You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](media-services-encode-asset.md) topic shows how to encode into an adaptive bitrate MP4 set. Before you create a locator you should configure asset delivery policy as described in [this](media-services-dotnet-configure-asset-delivery-policy.md) topic. 
 
 You can also use an OnDemand streaming locator to build URLs that point to MP4 files that can be progressively downloaded.  
 

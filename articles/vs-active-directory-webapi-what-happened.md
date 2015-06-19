@@ -3,7 +3,7 @@
 	description="Describes what was changed in your Visual Studio project after you ran the Azure Active Directory wizard" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
  
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# What happened to my project?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-active-directory-webapi-getting-started/)
-> - [What Happened](/documentation/articles/vs-active-directory-webapi-what-happened/)
+> - [Getting Started](vs-active-directory-webapi-getting-started.md)
+> - [What Happened](vs-active-directory-webapi-what-happened.md)
 
 ###<span id="whathappened">What happened to my project?</span>
 
@@ -32,7 +34,6 @@ References have been added.
 - `Microsoft.Owin.Security.ActiveDirectory`
 - `Microsoft.Owin.Security.Jwt`
 - `Microsoft.Owin.Security.OAuth`
-- `Newtonsoft.Json`
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
@@ -44,7 +45,6 @@ References have been added.
 - `Microsoft.Owin.Security.ActiveDirectory`
 - `Microsoft.Owin.Security.Jwt`
 - `Microsoft.Owin.Security.OAuth`
-- `Newtonsoft.Json`
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt` 
 
@@ -54,7 +54,7 @@ An authentication startup class, **App_Start/Startup.Auth.cs** was added to your
 
 #####Startup code was added to your project 
 
-If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)` was added to that method. Otherwise, a Startup class was added to your project. 
+If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)`. Otherwise, a Startup class was added to your project. 
 
 
 #####Your app.config or web.config file has new configuration values.
@@ -67,7 +67,7 @@ The following configuration entries have been added.
     		<add key="ida:Audience" value="The App ID Uri from the wizard" /> 
 	</appSettings>` </pre>
 
-###An Azure Azure AD App was created 
+###An Azure AD App was created 
 
 An Azure AD Application was created in the directory that you selected in the wizard.
 

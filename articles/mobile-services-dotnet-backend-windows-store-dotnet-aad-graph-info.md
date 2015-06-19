@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/13/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Accessing Azure Active Directory Graph Information
@@ -26,7 +26,7 @@
 
 Like the other identity providers offered with Mobile Services, the Azure Active Directory (AAD) provider also supports a rich Graph API which can be used for programmatic access to the directory. In this tutorial you update the ToDoList app to personalize the authenticated user’s app experience returning additional user information you retrieve from the directory using the [Graph REST API].
 
-For more information on the Azure AD Graph API, see the [Windows Azure Active Directory Graph Team Blog]. 
+For more information on the Azure AD Graph API, see the [Azure Active Directory Graph Team Blog]. 
 
 
 >[AZURE.NOTE] The intent of this tutorial is to extend your knowledge of authentication with the Azure Active Directory. It is expected that you have completed the [Add Authentication to your app] tutorial using the Azure Active Directory authentication provider. This tutorial continues to update the TodoItem application used in the [Add Authentication to your app] tutorial. 
@@ -59,7 +59,7 @@ In this section, you will create the GetUserInfo custom API that will use the Az
 If you've never used custom APIs with Mobile Services, refer to the [Custom API Tutorial] before completing this section.
 
 1. In Visual Studio, right click mobile service .NET backend project and click **Manage NuGet Packages**.
-2. In the NuGet Package Manager dialog, enter **ADAL** in the search criteria to find and install the **Active Directory Authentication Library** for your mobile service. This tutorial was most recently tested with the 3.0.110281957-alpha (Prerelease) version of the ADAL package.
+2. In the NuGet Package Manager dialog, enter **ADAL** in the search criteria to find and install the **Active Directory Authentication Library** for your mobile service. This tutorial was most recently tested with the 3.3.205061641-alpha (Prerelease) version of the ADAL package.
 
 
 3. In Visual Studio, right click the **Controllers** folder for the mobile service project and click **Add** to add a new **Microsoft Azure Mobile Services Custom Controller** named `GetUserInfoController`. The client will call this API to get user information from the Active Directory.
@@ -242,13 +242,13 @@ In the next tutorial, [Role based access control with the AAD in Mobile Services
 
 
 <!-- URLs. -->
-[Add Authentication to your app]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
-[How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Add Authentication to your app]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
+[How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Graph REST API]: http://msdn.microsoft.com/en-us/library/azure/hh974478.aspx
-[Custom API Tutorial]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
-[Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
-[Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Windows Azure Active Directory Graph Team Blog]: http://go.microsoft.com/fwlink/?LinkId=510536
-[Get User]: http://msdn.microsoft.com/en-us/library/azure/dn151678.aspx
-[Role based access control with the AAD in Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
+[Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[Custom API Tutorial]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
+[Store Server Scripts]: mobile-services-store-scripts-source-control.md
+[Register to use an Azure Active Directory Login]: mobile-services-how-to-register-active-directory-authentication.md
+[Azure Active Directory Graph Team Blog]: http://go.microsoft.com/fwlink/?LinkId=510536
+[Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
+[Role based access control with the AAD in Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
