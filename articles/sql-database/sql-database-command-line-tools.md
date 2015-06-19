@@ -28,7 +28,7 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-The cmdlets for creating and managing Azure SQL Databases are located in the Azure Resource Manager module. When you start Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet.
+The cmdlets for creating and managing Azure SQL Databases are located in the Azure Resource Manager module. When you start Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the **Switch-AzureMode** cmdlet.
 
 	PS C:\>Switch-AzureMode -Name AzureResourceManager
 
@@ -49,7 +49,9 @@ After successfully signing in you should see some information on screen that inc
 
 ## Select your Azure subscription
 
-To select the subscription you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription info run the following cmdlet to set your current subscription:
+To select the subscription you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset.
+
+Run the following cmdlet with your subscription Id to set your current subscription:
 
 	PS C:\>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -70,7 +72,7 @@ If you already have a resource group you can jump ahead to create a server, or y
 
 ## Create a server 
 
-You can run the following command to create a new V12 server. Replace server12 with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use any valid location.
+To create a new V12 server use the [New-AzureSqlServer](https://msdn.microsoft.com/library/mt163526.aspx) command. Replace server12 with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use any valid location.
 
 	PS C:\>New-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
@@ -78,7 +80,7 @@ When you run this command a window opens asking for a **User name** and **Passwo
 
 ## Create a server firewall rule
 
-Establish a firewall rule to access the server. Run the following command replacing the start and end IP addresses with valid values for your client.
+To create a firewall rule to access the server use the [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx) command. Run the following command replacing the start and end IP addresses with valid values for your client.
 
 If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all azure traffic access to the server.
 
@@ -88,29 +90,29 @@ For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.c
 
 ## Create a SQL database
 
-If you already have a server you can create a database. The following example creates a SQL database named TestDB12. The database is created as a Standard S1 database.
+To create a database use the [New-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125915.aspx) command. You need a server to create a database. The following example creates a SQL database named TestDB12. The database is created as a Standard S1 database.
 
 	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S1"
 
 
 ## Change the performance level of a SQL database
 
-You can use PowerShell to scale your database up or down. The following example scales up a SQL database named TestDB12 from its current performance level to a Standard S3 level.
+You can scale your database up or down with the [Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx) command. The following example scales up a SQL database named TestDB12 from its current performance level to a Standard S3 level.
 
 	PS C:\>Set-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
 
 
 ## Delete a SQL database
 
-You can delete a SQL database. The following example deletes a SQL database named TestDB12.
+You can delete a SQL database with the [Remove-AzureSqlDatabase](https://msdn.microsoft.com/en-us/library/mt125977.aspx) command. The following example deletes a SQL database named TestDB12.
 
 	PS C:\>Remove-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
 
 ## Delete a server
 
-You can also delete a server. The following example deletes a server named server12.
+You can also delete a server with the [Remove-AzureSqlServer](https://msdn.microsoft.com/library/mt125891.aspx) command. The following example deletes a server named server12.
 
-	PS C:\>Remove-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
+	PS C:\>Remove-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
