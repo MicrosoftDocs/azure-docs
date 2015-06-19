@@ -74,13 +74,15 @@ If you want to deploy network mapping you'll need the following:
 	- [Configure and monitor virtual networks in Azure](http://go.microsoft.com/fwlink/?LinkId=402555)
 
 ###PowerShell prerequisites
-Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see [How to install and configure Azure PowerShell](powershell-install-configure.md). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/en-us/library/dn850420.aspx). 
+Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see [How to install and configure Azure PowerShell](powershell-install-configure.md). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://msdn.microsoft.com/library/dn850420.aspx). 
 
 To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see [Get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
 ## Step 1: Set the subscription 
 
 In PowerShell, run these cmdlets:
+
+```
 
 	$UserName = "<user@live.com>"
 	$Password = "<password>"
@@ -91,11 +93,15 @@ In PowerShell, run these cmdlets:
 	Add-AzureAccount -Credential $Cred;
 	$AzureSubscription = Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 
+```
+
 Replace the elements within the "< >" with your specific information.
 
 ## Step 2: Create a Site Recovery vault
 
 In PowerShell, replace the elements within the "< >" with your specific information, and run these commands:
+
+```
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
@@ -103,6 +109,7 @@ In PowerShell, replace the elements within the "< >" with your specific informat
 	New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
 	$vault = Get-AzureSiteRecoveryVault -Name $VaultName;
 
+```
 
 ## Step 3: Generate a vault registration key
 
@@ -110,27 +117,41 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 1. Get the vault setting file and set the context: In PowerShell, replace the elements within the "< >" with your specific information, and run these commands:
 
+```
+
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
 	$OutputPathForSettingsFile = "<c:\>"
 	$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 
+```
 
 2. Set the vault context by running the following commands:
+
+```
 
 	$VaultSettingFilePath = $vaultSetingsFile.FilePath 
 	$VaultContext = Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath -ErrorAction Stop
 
+```
 
-## Step 3: Install the Azure Site Recovery Provider
+## Step 4: Install the Azure Site Recovery Provider
 
 1. On the VMM machine, create a directory by running the following command:
 
+```
+
 	pushd C:\ASR\
+
+```
 
 2. Extract the files using the downloaded provider by running the following command
 
+```
+
 	AzureSiteRecoveryProvider.exe /x:. /q
+
+```
 
 3. Install the provider using the following commands:
 
@@ -153,11 +174,13 @@ do
 }While($isNotInstalled)
 
 ```
+
 Wait for the installation to finish.
 
 4. Register the server in the vault using the following command:
 
 ```
+
 $BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
 pushd $BinPath
 $encryptionFilePath = "C:\temp\"
@@ -165,7 +188,7 @@ $encryptionFilePath = "C:\temp\"
 
 ```
 
-## Step 4: Create an Azure storage account
+## Step 5: Create an Azure storage account
 
 If you don't have an Azure storage account, create a geo-replication enabled account by running the following command:
 
@@ -181,17 +204,20 @@ New-AzureStorageAccount -StorageAccountName $StorageAccountName -Label $StorageA
 Note that the storage account must be in the same region as the Azure Site Recovery service, and be associated with the same subscription.
 
 
-## Step 5: Install the Azure Recovery Services Agent
+## Step 6: Install the Azure Recovery Services Agent
 
 From the Azure portal, install the Azure Recovery Services agent on each Hyper-V host server located in the VMM clouds you want to protect.
 
 Run the following command on all VMM hosts:
 
+```
+
 	marsagentinstaller.exe /q /nu
 
+```
 
 
-## Step 6: Configure cloud protection settings
+## Step 7: Configure cloud protection settings
 
 1. Create a cloud protection profile to Azure by running the following command:
 
@@ -205,16 +231,25 @@ $ProfileResult = New-AzureSiteRecoveryProtectionProfileObject -ReplicationProvid
 
 2. Get a protection container by running the following commands:
 
+```
+
 	$PrimaryCloud = "testcloud"
 	$protectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $PrimaryCloud;	
 
+```
+
 3. Start the association of the protection container with the cloud:
 
+```
+
 	$associationJob = Start-AzureSiteRecoveryProtectionProfileAssociationJob -ProtectionProfile $profileResult -PrimaryProtectionContainer $protectionContainer;	
+
+```
 
 4. After the job has finished, run the following command:
 
 ```
+
 Do
 {
                 $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
@@ -241,32 +276,52 @@ Do
 
 To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
 
-## Step 7: Configure network mapping
+## Step 8: Configure network mapping
 Before you begin network mapping verify that virtual machines on the source VMM server are connected to a VM network. In addition, create one or more Azure virtual networks. Note that multiple VM networks can be mapped to a single Azure network.
 
 Note that if the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there is not a target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
 
 The first command gets servers for the current Azure Site Recovery vault. The command stores the Microsoft Azure Site Recovery servers in the $Servers array variable.
 
+```
+
 	$Servers = Get-AzureSiteRecoveryServer
+
+```
 
 The second command gets the site recovery network for the first server in the $Servers array. The command stores the networks in the $Networks variable.
 
+```
+
 	$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
+
+```
 
 The third command gets your Azure subscriptions by using the Get-AzureSubscription cmdlet, and then stores that value in the $Subscriptions variable. 
 
+```
+
 	$Subscriptions = Get-AzureSubscription
+
+```
 
 The fourth command gets Azure virtual networks by using the Get-AzureVNetSite cmdlet, and then that value in the $AzureVmNetworks variable.
 
+```
+
 	$AzureVmNetworks = Get-AzureVNetSite
+
+```
 
 The final cmdlet creates a mapping between the primary network and the Azure virtual machine network. The cmdlet specifies the primary network as the first element of $Networks. The cmdlet specifies a virtual machine network as the first element of $AzureVmNetworks by using its ID. The command includes your Azure subscription ID. 
 
-	PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+```
 
-## Step 8: Enable protection for virtual machines
+PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+
+```
+
+## Step 9: Enable protection for virtual machines
 
 After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:
 
@@ -274,18 +329,29 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 - To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
 
 
-
 1. To enable protection, run the following command to get the protection container:
 
-	$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
+```
+
+$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
+
+```
 
 2. Get the protection entity (VM) by running the following command:
-	$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
+
+```
+
+$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
+
+```
 
 3. Enable the DR for the VM by running the following command:
 	
-	$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Protection Enable -Force
+```
 
+$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Protection Enable -Force
+
+```
 
 ## Test your deployment
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan. Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
@@ -335,22 +401,37 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 4. Fill in the data in the template:
 
-	$TemplatePath = "C:\RPTemplatePath.xml";
+```
+
+$TemplatePath = "C:\RPTemplatePath.xml";
+
+```
 
 5. Create the RecoveryPlan:
 
+```
+
 	$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
 
-
+```
 
 ### Run a test failover
 
 1. Get the RecoveryPlan object by running the following command:
-	
+
+```
+
 	$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
 
+```
+
 2. Start the test failover by running the following command:
-	$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
+
+```
+
+$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
+
+```
 
 ## <a name=monitor></a> Monitor Activity
 
@@ -380,11 +461,10 @@ if($isJobLeftForProcessing)
 ```
 
 
-
 ##<a id="next" name="next" href="#next"></a>Next steps
 <UL>
 
-<LI>For more information about Azure Site Recovery PowerShell cmdlets, see the article<a href="https://msdn.microsoft.com/en-us/library/dn850420.aspx"> here</a>.
+<LI>For more information about Azure Site Recovery PowerShell cmdlets, see the article<a href="https://msdn.microsoft.com/library/dn850420.aspx"> here</a>.
 
 <LI>To plan and deploy Azure Site Recovery in a full production environment, see <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning Guide for Azure Site Recovery</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Deployment Guide for Azure Site Recovery</a>.</LI>
 
