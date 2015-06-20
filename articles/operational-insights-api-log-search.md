@@ -63,36 +63,39 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 2. Get the Operations Management Suite Workspaces. For example:
-  ```
-armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
-```
+
+    ```
+    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
+    ```
+
   A successful Get call would output all workspaces tied to the subscription. For example:
-  ```
-{
-  "value": [
-{
-  "properties": {
-"source": "External",
-"customerId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-"portalUrl": "https://eus.login.mms.microsoft.com/SignIn.aspx?returnUrl=https%3a%2f%2feus.mms.microsoft.com%2fMain.aspx%3fcid%xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-  },
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/{WORKSPACE NAME}",
-  "name": "{WORKSPACE NAME}",
-  "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "East US"
-   ]
-}
-```
+
+    ```
+    {
+    "value": [
+    {
+      "properties": {
+    "source": "External",
+    "customerId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "portalUrl": "https://eus.login.mms.microsoft.com/SignIn.aspx?returnUrl=https%3a%2f%2feus.mms.microsoft.com%2fMain.aspx%3fcid%xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      },
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/{WORKSPACE NAME}",
+      "name": "{WORKSPACE NAME}",
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "location": "East US"
+       ]
+    }
+    ```
 3. Create your search variable. For example:
 
-  ```
-$mySearch = "{ 'top':150, 'query':'Error'}”;
-```
+    ```
+    $mySearch = "{ 'top':150, 'query':'Error'}”;
+    ```
 4. Search using your new search variable. For example:
 
-  ```
-armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
-```
+    ```
+    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
+    ```
 
 ## Search API reference examples
 The following examples show you how you can use the Search API.
