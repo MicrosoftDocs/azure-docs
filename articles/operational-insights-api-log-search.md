@@ -62,6 +62,7 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 2)
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
+
 2. Get the Operations Management Suite Workspaces. For example:
 
     ```
@@ -344,15 +345,3 @@ You may specify the start and end markers that will be used by search to wrap th
 ```
 
 Notice that the result above contains an error message that has been prefixed and appended.
-
-
-
-2. To include the code block, I must indent once.
-
-    ```powershell
-    Set-AzureAclConfig –AddRule –ACL $acl1 –Order 200 `
-                       –Action permit –RemoteSubnet "157.0.0.0/8" `
-                       –Description "web frontend ACL config"
-    ```
-
-3. Some more lines
