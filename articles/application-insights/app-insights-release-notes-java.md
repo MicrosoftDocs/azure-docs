@@ -35,15 +35,15 @@ See [Get started with the SDK for Java](app-insights-java-get-started.md).
  
 
 ## Version 0.9.6
-- Make the Java SDK compatible with servlet v2.5 and HttpClient pre-v4.3
-- Adding support for Java EE interceptors
-- Removing redundant dependencies from the Logback appender
+- Make the Java SDK compatible with servlet v2.5 and HttpClient pre-v4.3.
+- Adding support for Java EE interceptors.
+- Removing redundant dependencies from the Logback appender.
 
 ## Version 0.9.5  
 
 - Fix for an issue where custom events are not correlated with Users/Sessions due to cookie parsing errors.  
 - Improved logic for resolving the location of the ApplicationInsights.xml configuration file.
-- Removed tracking of sessions and users (this will only be done by client-side SDKs).
+- Anonymous User and Session cookies will not be generated on the server side. To implement user and session tracking for web apps, instrumentation with the JavaScript SDK is now required – cookies from the JavaScript SDK are still respected. Note that this change may cause a significant restatement of user and session counts as only user-originated sessions are being counted now.
 
 ## Version 0.9.4
 
