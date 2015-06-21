@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Store server scripts in source control - Azure Mobile Services" 
+	pageTitle="Use New Relic to monitor Mobile Services | Azure Mobile Services" 
 	description="Learn how to use the New Relic add-on to monitor your mobile service." 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
