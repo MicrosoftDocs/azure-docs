@@ -23,27 +23,37 @@ This article not only discusses these concepts at a high level, it also contains
 
 ## The difference between virtual machines and containers
 
-[hypervisor](http://en.wikipedia.org/wiki/Hypervisor) technology -- an emulation of physical computer hardware -- 
+Virtual machines run inside an isolated hardware emulation environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). The [Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) service handles all this for you. In Azure, you just create Virtual Machines by choosing the operating system and configuring it to run the way you want. Azure VMs are complete operating systems, isolated from other VMs by Windows Server Hyper-V, the hypervisor used by Azure. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage  operating systems and to configure applications you install and run. 
 
-Virtual machines run inside an isolated hardware emulation environment provided by a hypervisor. In Azure, you do not have to manage any hypervisor; you just create Virtual Machines by choosing the operating system configure it to run the way you want. It is a complete operating system, isolated from other VMs by Windows Server Hyper-V, the hypervisor used by Azure. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage the operating system and to configure applications you install and run. 
+Linux containers](http://en.wikipedia.org/wiki/LXC) -- which includes those created and hosted using docker tools, but there are several approaches -- do not require or use a hypervisor to provide isolation. Instead, the container host uses the process and file system isolation features of the Linux kernel to expose to the container (and its application) only certain kernel features and its own isolated file system (at a minimum). From the point of view of an application running inside a container, the container appears to be a unique operating system instance. The contained applications cannot see processes or any other resources outside of its container. 
 
-[Docker](https://www.docker.com/) and other [Linux container](http://en.wikipedia.org/wiki/LXC) technologies (and there are many others) do not require or use a hypervisor to provide isolation. Instead, the container host uses the process and file system isolation features of the Linux kernel to expose to the container (and its application) only certain kernel features and its own isolated file system (at a minimum). From the point of view of an application running inside a container, the container appears to be a unique operating system instance. The contained applications cannot see processes or any other resources outside of its container. Because in this isolation and execution model the kernel of the Docker host computer is shared, and because the disk usage of the container now does not include an entire operating system, both the start-up time of the container and the required disk storage overhead are much, much smaller. It's pretty cool.
+Because in this isolation and execution model the kernel of the Docker host computer is shared, and because the disk usage of the container now does not include an entire operating system, both the start-up time of the container and the required disk storage overhead are much, much smaller. 
 
-[Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) provide the same advantages as Linux containers for applications that run on Windows. Windows Server Containers support the docker image format and the docker remote API. As a result, an application using Windows Server Containers can be developed, published, retrieved, and deployed using the exact same commands as developers on Mac and Linux and have a much reduced disk footprint and start-up time compared to VMs. Those are two pretty cool things.
+It's pretty cool.
+
+[Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) provide the same advantages as Linux containers for applications that run on Windows. Windows Server Containers support the docker image format and the docker remote API. As a result, an application using Windows Server Containers can be developed, published, retrieved, and deployed using the exact same commands as developers on Mac and Linux. 
+
+That's pretty cool, too.
 
 ### Is this too good to be true?
 
-Well, yes -- and no. Containers, like any other technology, are not going to magically wipe away all the hard work required by distributed applications. Yet, at the same time containers do really change:
+Well, yes -- and no. Containers, like any other technology, do not magically wipe away all the hard work required by distributed applications. Yet, at the same time containers do really change:
 
-- how fast a service can be developed and shared widely
+- how fast application code can be developed and shared widely
 - how fast and with what confidence it can be tested
 - how fast and with what confidence it can be deployed
 
-That said, remember that underneath containers there is still a container host -- an operating system, and in a public cloud that means a Virtual Machine. Even if you already love the idea of containers, you're still going to need a VM infrastructure hosting the containers, but the benefits are that containers do not care on which VM they are running (although whether the container wants a Linux or Windows execution environment will be important). 
+That said, remember containers execute on a container host -- an operating system, and in Azure that means an Azure Virtual Machine. Even if you already love the idea of containers, you're still going to need a VM infrastructure hosting the containers, but the benefits are that containers do not care on which VM they are running (although whether the container wants a Linux or Windows execution environment will be important, for example). 
 
 ## What are containers good for?
 
-They're great for many things, but especially for creating single-service, [microservice]-oriented distributed applications. This is especially true in public cloud environments like Azure, in which you rent VMs when and where you want them. For example, instead of needing to create 9 Azure VMs of a large size to create a highly-available, distributed application, you might now only use 4 VMs but create your application with 20 containers. You can adjust to usage spikes with more containers rather than more Azure VMs, and use the remaining overall CPU load much more efficiently than before.
+They're great for many things, but especially for creating single-service, [microservice]-oriented distributed applications, in which application design is based on more small, composable parts rather than on larger, more strongly coupled components. 
+
+This is especially true in public cloud environments like Azure, in which you rent VMs when and where you want them. Not only do you get isolation and rapid deployment and orchestration tools, but you can make more efficient application infrastructure decisions. 
+
+For example, you might currently have a deployment consisting of 9 Azure VMs of a large size for a highly-available, distributed application. If the components of this application can be deployed in containers, you might be able to use only 4 VMs and deploy your application components inside 20 containers for redundancy and load balancing. 
+
+This is just an examle, of course, but if you can do this in your scenario, you can adjust to usage spikes with more containers rather than more Azure VMs, and use the remaining overall CPU load much more efficiently than before.
 
 ### Benefits for developers
 
