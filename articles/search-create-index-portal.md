@@ -27,7 +27,7 @@ To complete this task, make sure you have an Azure Search service that's ready t
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
 	- In the Jumpbar, click **Home**. The home page has tiles for every service in your subscription. Click on the tile to open the service dashboard.
-	- In the Jumpbar, click **Browse** | **Filter by** | **Search services** to find your Search service in the list.
+	- In the Jumpbar, click **Browse All** | **Filter by** | **Search services** to find your Search service in the list.
 
 3. In the service dashboard, you will see a command bar at the top, including one for **Add Index**.
 
@@ -63,7 +63,7 @@ In Azure Search, index attributes such as searchable, facetable, and filterable 
 
 The portal is different. In the portal, search behaviors are off by default so that you can select all of the behaviors that apply, on a field by field basis.
 
-1. Click **Add/Edit fields** to add more fields. In this exercise, we'll recreate the *hotels* index mentioned in the article [How to use Fiddler with Azure Search](search-fiddler.md).
+1. Click **Add/Edit fields** to add more fields. In this exercise, we'll recreate the *hotels* index described in the article [How to use Fiddler with Azure Search](search-fiddler.md).
 
 	![][4]
 
@@ -71,15 +71,25 @@ The portal is different. In the portal, search behaviors are off by default so t
 
 	![][5]
 
-	See [Naming rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) and [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for reference information on field names and types.
+	Review [Naming rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) and [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for reference information on field names and types.
 
-3. Click **Save** at the top of the page.
+    Index attributes consist of the following items:
 
-  	![][6]
+	- **Retrievable** specifies whether a field can be returned in a search result.
+	- **Filterable** allows the field to be used in **$filter** queries.
+	- **Sortable** allows the field to be used as a sort option.
+	- **Facetable** allows a field to be used in a faceted navigation structure for self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single product or service category) work best as facets.
+	- **Key** is the unique ID of each document, used for document look up. Every index must have one key. Only one field can be the key, and it must be set to Edm.String.
+	- **Searchable** marks the field as full-text searchable.
+
+3. To remove any fields you don't want, right-click and select **Delete**.
+
+4. Click **OK** to save the index you just defined, and then click **OK** on the Add index page to build the index.
+
 
 ##Next steps
 
-Although the index is defined, it won't be ready to use until you load documents. To do this easily, continue on with [How to use Fiddler with Azure Search](search-fiddler.md), at **Load Documents**. You can then follow the remaining steps in that article to run some queries.
+Although the index is defined, it won't be ready to use until you load documents. Assuming that you're recreating the Hotels index, used for testing purposes, you can easily load the small number of documents for that index in [Fiddler](search-fiddler.md), using the instructions in the **Load Documents** section of [How to use Fiddler with Azure Search](search-fiddler.md). You can then follow the remaining steps in that article to run some queries.
 
 Once you are comfortable with the basic index, consider adding a language analyzer or suggester to add multilanguage support or type-ahead suggestions. Both features are specified in the index schema. See [Language Support](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx) and [Create Index](https://msdn.microsoft.com/library/azure/dn798941.aspx) for more information.
 
@@ -89,4 +99,3 @@ Once you are comfortable with the basic index, consider adding a language analyz
 [3]: ./media/search-create-index-portal/AzureSearch-PortalIndex-3.PNG
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
-[6]: ./media/search-create-index-portal/AzureSearch-PortalIndex-6.PNG

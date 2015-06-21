@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="04/27/2015"
+	ms.date="06/21/2015"
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the portal
