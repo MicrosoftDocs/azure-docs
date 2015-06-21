@@ -53,20 +53,22 @@ This is especially true in public cloud environments like Azure, in which you re
 
 For example, you might currently have a deployment consisting of 9 Azure VMs of a large size for a highly-available, distributed application. If the components of this application can be deployed in containers, you might be able to use only 4 VMs and deploy your application components inside 20 containers for redundancy and load balancing. 
 
-This is just an examle, of course, but if you can do this in your scenario, you can adjust to usage spikes with more containers rather than more Azure VMs, and use the remaining overall CPU load much more efficiently than before.
+This is just an example, of course, but if you can do this in your scenario, you can adjust to usage spikes with more containers rather than more Azure VMs, and use the remaining overall CPU load much more efficiently than before.
+
+Of course, there are many other ways of implementing a microservice-style  architecture, including [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) as well as [Azure Service Fabric](http://azure.microsoft.com/campaigns/service-fabric/). Which approach you use will depend upon many factors specific to your scenario.
+
+In addition, there are many scenarios that do not lend themselves to a microservices approach; you will know best whether microservices and containers will help you. 
 
 ### Benefits for developers
 
-In general, it's easy to see that container technology is is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. This topic will not dive deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but **Docker** and its ecosystem offers tremendous benefits to both developers and IT professionals.
+In general, it's easy to see that container technology is is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. This topic will not dive deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but **Docker** and its ecosystem offer tremendous benefits to both developers and IT professionals.
 
 Developers take to Docker containers quickly, because above all it makes using Linux containers easy:
 
 - They can use simple, incremental commands to create a fixed image that is easy to deploy and can automate building those images using a dockerfile
-- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to public or private docker registries. 
-- They can think of isolated application components instead of computers.
-- They can use a large number of tools that understand docker containers and images
-
-Another benefit of Docker containers in particular is the emphasis on one primary process per container, which matches fairly nicely the [microservices] architectural approach that many distributed applications are using, especially on public cloud platforms. Of course, there are many other ways of implementing a microservice-style  architecture, including [zure Cloud Services](http://azure.microsoft.com/services/cloud-services/) as well as [Azure Service Fabric](http://azure.microsoft.com/campaigns/service-fabric/). Which approach you use will depend upon many factors specific to your scenario.
+- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to [public](https://registry.hub.docker.com/) or [private docker registries](virtual-machines-docker-registry-on-azure-blob-storage.md) 
+- They can think of isolated application components instead of computers
+- They can use a large number of tools that understand docker containers and different base images
 
 ### Benefits for operations and IT professionals
 
@@ -80,7 +82,7 @@ Features like these -- and there are more -- excite established businesses, wher
 
 ### Benefits of virtual machines
 
-If virtual machines start more slowly, make it a bit harder to optimize CPU usage, and do not easily help develop microservices, they do have very important benefits: 
+If virtual machines start more slowly, make it a bit harder to optimize CPU usage, and do not map directly to a microservices architecture, they do have very important benefits: 
 
 1. By default, they have much more robust default security protections for host computer
 2. They support any major OS and application configurations
@@ -88,25 +90,23 @@ If virtual machines start more slowly, make it a bit harder to optimize CPU usag
 
 ## High-level feature comparison of VMs and containers
 
-The following table describes at a very high level the kind of feature differences that -- without much extra work -- exist between hypervisors and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs, and that as with all software, extra work provides increased feature support.
+The following table describes at a very high level the kind of feature differences that -- without much extra work -- exist between VMs and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs, and that as with all software, extra work provides increased feature support, especially in the area of security.
 
-|   Feature      | Hypervisors | Containers  | Who Really Likes It |
-| :------------- |-------------| ----------- | ------------------- |
-| Process Isolation | More or less complete | If root is obtained, container host could be compromised | IT/Ops specialists |
-| Memory on disk required | Complete OS plus apps | App requirements only | IT/Ops specialists, devs |
-| Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  | IT Ops and devs and test |
-| Container Automation | Varies widely depending on OS and apps | [Docker image gallery](https://registry.hub.docker.com/); others | devs and ops specialists |
-| Portability | Portable With Proper Preparation | Portable within image format; typically smaller | IT/Ops specialists, devs, test |
-| Fixed app image | can be | typically is | IT/Ops specialists, devs, test |
-| encourages microservice architecture approaches | to a lesser degree | to a much greater degree | IT/ops specialists and dev, test |
-| "Default" security support | to a greater degree | to a slightly lesser degree | IT/Ops, CIO |
+|   Feature      | VMs | Containers  | 
+| :------------- |-------------| ----------- | 
+| Memory on disk required | Complete OS image plus apps | App requirements only |
+| Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  | 
+| Image Automation | Varies widely depending on OS and apps | [Docker registry](https://registry.hub.docker.com/); others | 
+| Portability | Portable With Proper Preparation | Portable within image format; typically smaller | 
+| Fixed app image | can be | typically is | 
+| "Default" security support | to a greater degree | to a slightly lesser degree | 
 
 
-## Creating and orchestrating clusters of VMs and containers
+## Creating and managing groups of VMs and containers
 
-At this point, any architect, developer, or IT operations ninja will be thinking, "I can automate ALL of this; this really IS Data-Center-As-A-Service (DCAAS?)". 
+At this point, any architect, developer, or IT operations ninja will be thinking, "I can automate ALL of this; this really IS Data-Center-As-A-Service!". 
 
-You're right, it can be, and there are any number of systems, some of which you may already use, that can either manage VM clusters and inject custom code -- using scripts, usually with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can -- and perhaps already have -- automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli.md). 
+You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage Azure VM clusters and inject custom code using scripts, usually with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can -- and perhaps already have -- automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli.md). 
 
 These abilities are often then migrated to tools like [Puppet](https://puppetlabs.com/) and [Chef](https://www.chef.io/) to automate the creation of and configuration for VMs at scale. (There are links to using these tools with Azure [here](#tools-for-working-with-containers).) 
 
@@ -143,7 +143,7 @@ However, without extra configuration and extra steps taken, hosted code with ill
 
 There are very good mitigations to support this scenario using containers, and Docker has collaborated with the Center for Internet Security to [publish an article on Docker Security Best Practices](https://blog.docker.com/2015/05/understanding-docker-security-and-best-practices/). In addition, there are many important scenarios for using both VMs and containers specifically when code either is or might be insecure, some of which are discussed [here](http://jpetazzo.github.io/2015/05/27/docker-images-vulnerabilities/). 
 
-## Tools for working with containers
+## Tools for working with Azure VMs and containers
 
 Working with containers and automating clusters uses tools. This section provides a list of only some of the most useful or important concepts and tools about containers, clusters, and the larger configuration and orchestration tools used with them. 
 
