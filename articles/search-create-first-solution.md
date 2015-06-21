@@ -47,7 +47,7 @@ This solution contains two projects:
 +	**CatalogIndex** creates an Azure Search index and loads data from a SQL Server database included with the project.
 +	**AdventureWorksWeb** is an MVC4-based application that queries the Azure Search index. This tutorial assumes that you have a working knowledge of ASP.NET MVC.
 
-> [AZURE.NOTE] At a minimum, you need an [Azure trial account](../includes/free-trial-note.md) to complete this tutorial. You can also [try the Azure App Service using the Web App | ASP.NET + Azure Search template](https://tryappservice.azure.com/) for up one hour per free session: no subscription required.
+> [AZURE.NOTE] At a minimum, you need an [Azure trial account](../includes/free-trial-note.md) to complete this tutorial. You could also [try the Azure App Service using the Web App | ASP.NET + Azure Search template](https://tryappservice.azure.com/) for free - one hour per session - no subscription required.
 
 <a id="sub-2"></a>
 ## Create an Azure Search index
