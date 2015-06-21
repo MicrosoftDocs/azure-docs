@@ -1,22 +1,23 @@
-<properties title="Virtual Machines, Containers, and Clusters in Azure" pageTitle="Virtual Machines, Containers, and Clusters in Azure" description="Describes Virtual Machines, Docker and Linux ontainers, and their usage in clusters in Azure, including the benefits of each and scenarios in which each approach works very well." services="virtual-machines" solutions="infrastructure" documentationCenter="virtual-machines" authors="squillace" videoId="" scriptId="" manager="timlt" />
+<properties title="Virtual Machines and Containers in Azure" pageTitle="Virtual Machines and Containers in Azure" description="Describes Virtual Machines, Docker and Linux ontainers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." services="virtual-machines" solutions="infrastructure" documentationCenter="virtual-machines" authors="squillace" videoId="" scriptId="" manager="timlt" />
 	
 
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="infrastructure" ms.workload="infrastructure" ms.date="06/07/2015" ms.author="rasquill" />
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="infrastructure" ms.workload="infrastructure" ms.date="06/22/2015" ms.author="rasquill" />
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
-# Virtual Machines, Containers, and Clusters in Azure
+# Virtual Machines and Containers in Azure
 
 Azure offers you a great range of technologies built on virtual machines -- based on the emulation of physical computer hardware -- to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. 
 
-In the past few years, Linux container technology -- especially [Docker](https://www.docker.com) and its ecosystem -- has dramatically expanding the agility with which you can develop and manage distributed software, especially in public cloud systems like Microsoft Azure. 
+In the past few years, Linux container technology -- especially the [Docker](https://www.docker.com) approach to containers and the docker ecosystem -- has dramatically expanded the ways you can develop and manage distributed software, especially in public cloud systems like Microsoft Azure. 
+
+Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level -- in addition to the agility that Azure VMs already give you.
 
 **But that's old news.** The *new* news is that Azure offers you:
-- Many ways to create Docker hosts for containers to suit your needs
-- Azure Resource Manager templates to simplify deploying and updating complex distributed applications 
-- 
-- integration with multiple Windows, Linux, and open-source configuration management tools
+- [Many](virtual-machines-docker-with-xplat-cli.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-docker-ubuntu-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation, including [built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
+- Azure Resource Manager templates to simplify deploying and updating complex distributed applications.
+- integration with a large array of both proprietary and open-source configuration management tools
 
-And because you can programmatically create VMs and Docker containers on Azure, you can also use *orchestration* tools -- also called continuous integration or continous deployment tools -- to create a combination of Virtual Machines (VMs), Linux containers (of which the most well known are [Docker](https://www.docker.com) containers), and soon [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) to move your businesses forward and make your users happier. 
+And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create  groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and soon [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) to move your businesses forward and make your users happier. 
 
 This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're [right here](#tools-for-working-with-containers).
 
