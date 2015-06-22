@@ -38,20 +38,12 @@ Azure App Service offers built-in authentication services that implement [OAuth 
 
 Any Azure resource group that contains API apps or mobile apps includes a *gateway*. The gateway is an Azure resource that runs in a web app and handles administrative tasks including authentication for API apps and mobile apps in the resource group.
 
-The gateway handles login procedures, manages tokens, and prevents unauthenticated calls from reaching API apps that are configured to require authenticated access.  The gateway can control access to API apps because all incoming HTTP requests destined for API apps in the resource group are routed through the gateway.
+The gateway handles login procedures, manages tokens, and prevents unauthenticated calls from reaching API apps that are [configured to require authenticated access](../app-service-api/app-service-api-dotnet-add-authentication.md#protect-the-api-app).  The gateway can control access to API apps because all incoming HTTP requests destined for API apps in the resource group are routed through the gateway.
 
 The following diagram illustrates these gateway functions.
 
 ![](./media/app-service-authentication-overview/gateway.png)
 
-### API app access levels
-
-Azure controls access to an API app based on its *access level*:
-
-* **Public Authenticated** - The gateway only forwards authenticated requests to the API app.
-* **Public Anonymous** - The gateway forwards all requests to the API app.
-* **Internal** - The gateway forwards to the API app only requests from other API apps in the same resource group.
-   
 ### Gateway features
 
 The gateway authentication services offer several advantages over running your own implementation of OAuth 2.0:
