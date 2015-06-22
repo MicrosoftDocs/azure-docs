@@ -16,7 +16,7 @@
 	ms.date="05/28/2015" 
 	ms.author="billmath"/>
 
-# Use your on-premises identity infrastructure in the cloud
+# Enabling your directory for hybrid management with Azure AD Connect
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../active-directory-aadconnect/" title="What is It" class="current">What is It</a>
