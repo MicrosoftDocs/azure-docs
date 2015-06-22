@@ -18,23 +18,32 @@
 
 #Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory
 
-##What is Automated SaaS App User Provisioning?
+##What is Automated User Provisioning for SaaS Apps?
 
-Azure Active Directory (Azure AD) allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and more. Some common motivations for using this feature include:
+Azure Active Directory (Azure AD) allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and more.
+
+Below are some examples of what this feature allows you to do:
+
+- Automatically create new accounts in the right SaaS apps for new people when they join your team.
+- Have accounts be automatically removed from SaaS apps when people inevitably leave the team.
+- Ensure that the identities in your SaaS apps are kept up to date based on changes in the directory.
+- Provision non-user objects, such as groups, to SaaS apps that support them.
+
+Automated user provisioning also includes the following functionality:
+
+- The ability to match existing identities between Azure AD and SaaS apps.
+- Customization options to help Azure AD fit the current configurations of the SaaS apps that your organization is currently using.
+- Optional email alerts for provisioning errors.
+- Reporting and activity logs to help with monitoring and troubleshooting.
+
+##Why Use Automated Provisioning?
+
+Some common motivations for using this feature include:
 
 - To avoid the costs, inefficiencies, and human error associated with manual provisioning processes.
 - To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
 - To easily import a bulk number of users into a particular SaaS application.
-
-A key benefit to using Azure AD to handle provisioning to your SaaS apps is that it's fully integrated with the access management policies that you have already defined for single sign-on (SSO). Therefore, granting a new user access to a particular application will not only enable SSO but will also ensure that an account has been provisioned for them.
-
-Automated user provisioning also includes the following functionality:
-
-- Customization options to help you fit Azure AD to the SaaS apps that your organization is currently using, as they are currently configured.
-- Automated maintenance that keeps provisioned users up to date based on changes from the directory.
-- Provisioning of non-user objects such as groups to SaaS apps that support them.
-- Optional email alerts for provisioning errors.
-- Reporting and activity logs to help with monitoring and troubleshooting.
+- To enjoy the convenience of having your provisioning solution run off of the same app access policies that you defined for Azure AD Single Sign-On.
 
 ##Frequently Asked Questions
 
@@ -74,9 +83,9 @@ Azure AD provisions users to SaaS apps by connecting to provisioning endpoints p
 
 For more information on how attributes are mapped between Azure AD and your SaaS app, see the article on [Customizing Attribute Mappings](https://msdn.microsoft.com/library/azure/dn872469.aspx).
 
-##Getting Started with Automated User Provisioning
+##List of Apps that Support Automated User Provisioning
 
-Below is a list of tutorials on how to configure your SaaS application to use Azure AD for automated user provisioning:
+Click on an app to see a tutorial on how to configure automated provisioning for it:
 
 - [Box](http://go.microsoft.com/fwlink/?LinkId=286016)
 - [Citrix GoToMeeting](http://go.microsoft.com/fwlink/?LinkId=309580)
@@ -89,3 +98,7 @@ Below is a list of tutorials on how to configure your SaaS application to use Az
 - [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 - [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
 - [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx) (inbound provisioning)
+
+In order for an application to support automated user provisioning, it must first provide the necessary endpoints that allow for external programs to automate the creation, maintenance, and removal of users. Therefore, not all SaaS apps are compatible with this feature. For apps that do support this, the Azure AD engineering team will then be able to build a provisioning connector to those apps, and this work is prioritized by the needs of current and prospective customers.
+
+To contact the Azure AD engineering team to request provisioning support for additional applications, please submit a message through the [Azure Active Directory feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory).
