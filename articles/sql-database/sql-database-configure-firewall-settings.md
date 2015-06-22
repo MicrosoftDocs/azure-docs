@@ -22,7 +22,7 @@
 
  Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.
 
-**Important**  To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](https://msdn.microsoft.com/en-us/library/azure/ee621782.aspx). 
+**Important**  To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx). 
 
 
 ## Server-Level Firewall Rules
