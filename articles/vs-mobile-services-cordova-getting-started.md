@@ -48,6 +48,7 @@ Insert a new item into a data table. An id (a GUID of type string) is automatica
     }
     
     var items = new Array();
+    var insertTodoItem = function (todoItem) {
         todoTable.insert(todoItem).done(function (item) {
             items.push(item)
         });
@@ -61,7 +62,6 @@ The following code queries a table for all items, sorted by the text field. You 
         .read().done(function (results) {
             items = results.slice();
         });
-    });
 
 You can use the where method to modify the query. Here's an example that filters out completed items.
 
