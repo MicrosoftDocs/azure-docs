@@ -33,7 +33,6 @@ In the Azure Management Portal, reports are categorized in the following ways:
 - Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory Premium](active-directory-get-started-premium.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
 - Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-
 ## Report descriptions
 
 |	Report												|	Description																					|
@@ -234,7 +233,9 @@ If you suspect that a user account may be compromised or any kind of suspicious 
     - Last 7 days
     - Last 30 days
 4. Click the check mark icon to run the report.
+	- Up to 1000 events will be shown in the Azure Management Portal.
 5. If applicable, click **Download** to download the report to a compressed file in Comma Separated Values (CSV) format for offline viewing or archiving purposes.
+	- Up to 75,000 events will be included in the downloaded file.
 
 ## Ignore an event
 
@@ -290,4 +291,3 @@ Yes, to turn off notifications related to anomalous sign ins within the Azure Ma
 
 - [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
- 
