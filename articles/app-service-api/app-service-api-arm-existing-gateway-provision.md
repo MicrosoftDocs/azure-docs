@@ -23,6 +23,8 @@ how to define parameters that are specified when the deployment is executed. You
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
+For more information about deploying apps, see [Deploy a complex application predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
 For the complete template, see [API App with existing gateway  template](../../templates/app-service-api-arm-existing-gateway-provision/).
 
 ## What you will deploy
