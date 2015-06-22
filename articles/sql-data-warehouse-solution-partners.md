@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="05/09/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.author="joliang;barbkess"/>
 
 # SQL Data Warehouse solution partners #
 
@@ -47,27 +47,27 @@ To create your end-to-end data warehouse solution, choose from a  wide variety o
 [6]:./media/markdown-template-for-new-articles/pretty49.png
 [7]:./media/markdown-template-for-new-articles/channel-9.png
 [8]:./media/markdown-template-for-new-articles/copytemplate.png
-[attunity_logo]:./media/sql-data-warehouse-partners/attunity_logo.png
-[birst_logo]:./media/sql-data-warehouse-partners/birst_logo.png
-[bryte_systems_logo]:./media/sql-data-warehouse-partners/bryte_systems_logo.png
-[clearstory_data_logo]:./media/sql-data-warehouse-partners/clearstory_data_logo.png
-[coffing_data_warehousing_logo]:./media/sql-data-warehouse-partners/coffing_data_warehousing_logo.png
-[dell_statistica_logo]:./media/sql-data-warehouse-partners/dell_statistica_logo.png
-[dundas_software_logo]:./media/sql-data-warehouse-partners/dundas_software_logo.png
-[inbrein_logo]:./media/sql-data-warehouse-partners/inbrein_logo.png
-[infolibrarian_logo]:./media/sql-data-warehouse-partners/infolibrarian_logo.png
-[informatica_logo]:./media/sql-data-warehouse-partners/informatica_logo.png
-[jinfonet_logo]:./media/sql-data-warehouse-partners/jinfonet_logo.png
-[logianalytics_logo]:./media/sql-data-warehouse-partners/logianalytics_logo.png
-[looker_logo]:./media/sql-data-warehouse-partners/looker_logo.png
-[qlik_logo]:./media/sql-data-warehouse-partners/qlik_logo.png
-[redpoint_global_logo]:./media/sql-data-warehouse-partners/redpoint_global_logo.png
-[sisense_logo]:./media/sql-data-warehouse-partners/sisense_logo.png
-[snaplogic_logo]:./media/sql-data-warehouse-partners/snaplogic_logo.png
-[sql_sentry_logo]:./media/sql-data-warehouse-partners/sql_sentry_logo.png
-[tableau_logo]:./media/sql-data-warehouse-partners/tableau_logo.png
-[targit_logo]:./media/sql-data-warehouse-partners/targit_logo.png
-[yellowfin_logo]:./media/sql-data-warehouse-partners/yellowfin_logo.png
+[attunity_logo]:./media/sql-data-warehouse-solution-partners/attunity_logo.png
+[birst_logo]:./media/sql-data-warehouse-solution-partners/birst_logo.png
+[bryte_systems_logo]:./media/sql-data-warehouse-solution-partners/bryte_systems_logo.png
+[clearstory_data_logo]:./media/sql-data-warehouse-solution-partners/clearstory_data_logo.png
+[coffing_data_warehousing_logo]:./media/sql-data-warehouse-solution-partners/coffing_data_warehousing_logo.png
+[dell_statistica_logo]:./media/sql-data-warehouse-solution-partners/dell_statistica_logo.png
+[dundas_software_logo]:./media/sql-data-warehouse-solution-partners/dundas_software_logo.png
+[inbrein_logo]:./media/sql-data-warehouse-solution-partners/inbrein_logo.png
+[infolibrarian_logo]:./media/sql-data-warehouse-solution-partners/infolibrarian_logo.png
+[informatica_logo]:./media/sql-data-warehouse-solution-partners/informatica_logo.png
+[jinfonet_logo]:./media/sql-data-warehouse-solution-partners/jinfonet_logo.png
+[logianalytics_logo]:./media/sql-data-warehouse-solution-partners/logianalytics_logo.png
+[looker_logo]:./media/sql-data-warehouse-solution-partners/looker_logo.png
+[qlik_logo]:./media/sql-data-warehouse-solution-partners/qlik_logo.png
+[redpoint_global_logo]:./media/sql-data-warehouse-solution-partners/redpoint_global_logo.png
+[sisense_logo]:./media/sql-data-warehouse-solution-partners/sisense_logo.png
+[snaplogic_logo]:./media/sql-data-warehouse-solution-partners/snaplogic_logo.png
+[sql_sentry_logo]:./media/sql-data-warehouse-solution-partners/sql_sentry_logo.png
+[tableau_logo]:./media/sql-data-warehouse-solution-partners/tableau_logo.png
+[targit_logo]:./media/sql-data-warehouse-solution-partners/targit_logo.png
+[yellowfin_logo]:./media/sql-data-warehouse-solution-partners/yellowfin_logo.png
 
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [attunity_more]:./sql-data-warehouse-partners-attunity.md
