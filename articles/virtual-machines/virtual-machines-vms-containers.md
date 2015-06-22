@@ -79,7 +79,7 @@ IT and operations professionals also benefit from the combination of containers 
 
 Features like these -- and there are more -- excite established businesses, where professional information technology organizations have the job of fitting resources -- including pure processing power -- to the tasks required to not only stay in business, but increase customer satisfaction and reach. Small businesses, ISVs, and startups have exactly the same requirement, but they might describe it differently. 
 
-### What are virtual machines good for?
+## What are virtual machines good for?
 
 Virtual machines provide the backbone of cloud computing, and that doesn't change. If virtual machines start more slowly, make it a bit harder to optimize CPU usage, and do not map directly to a microservices architecture, they do have very important benefits: 
 
