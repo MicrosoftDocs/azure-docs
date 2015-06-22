@@ -1,0 +1,214 @@
+<properties 
+   pageTitle="Configure Application Gateway for SSL offload | Microsoft Azure"
+   description="This article provides instructions to configure SSL offload on an Azure Application Gateway."
+   documentationCenter="na"
+   services="application-gateway"
+   authors="cherylmc"
+   manager="jdial"
+   editor="tysonn"/>
+<tags 
+   ms.service="application-gateway"
+   ms.devlang="na"
+   ms.topic="get-started-article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="06/22/2015"
+   ms.author="cherylmc"/>
+
+# Configure Application Gateway for SSL offload
+
+Application Gateway can be configured to terminate the SSL session at the gateway, thus avoiding costly SSL decryption on the web farm. SSL offload also simplifies the application's frontend server setup and management.
+
+## Before you begin
+
+1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest PowerShell cmdlets from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
+2. Verify that you have a working virtual network with valid subnet.
+3. Verify that you have backend servers either in the virtual network or with a Public-IP/VIP assigned.
+
+To configure SSL offload on an Application Gateway, do the following steps in the order listed. Below the steps are examples of each cmdlet you will use.
+
+1. [Create a new Application Gateway](#create-a-new-application-gateway)
+2. [Upload SSL certificates](#upload-ssl-certificates) 
+3. [Configure the gateway](#configure-the-application-gateway)
+4. [Set the gateway configuration](#set-the-application-gateway-configuration)
+5. [Start the gateway](#start-the-application-gateway)
+
+
+## Create a new Application Gateway:
+
+**To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own.
+
+This sample shows the cmdlet on the first line followed by the output. 
+
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName kagavnet -Subnets @("Subnet-1")
+
+	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
+	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
+	Name       HTTP Status Code     Operation ID                             Error 
+	----       ----------------     ------------                             ----
+	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
+
+**To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet.
+
+This sample shows the cmdlet on the first line followed by the output. 
+
+
+Note that in the sample, `Description`, `InstanceCount` (default value: 2), `GatewaySize` (default value: Medium) are optional parameters. `Vip` and `DnsName` are shown as blank since the gateway is not started yet. These will be created once the gateway is in a running state.
+
+This sample shows the cmdlet on the first line followed by the output. 
+
+	PS C:\> Get-AzureApplicationGateway AppGwTest
+
+	VERBOSE: 4:39:39 PM - Begin Operation:
+	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
+	Operation: Get-AzureApplicationGateway
+	Name: AppGwTest	
+	Description: 
+	VnetName: kagavnet 
+	Subnets: {Subnet-1} 
+	InstanceCount: 2 
+	GatewaySize: Medium 
+	State: Stopped 
+	Vip: 
+	DnsName:
+
+
+## Upload SSL certificates 
+
+Use `Add-AzureApplicationGatewaySslCertificate` to upload the server certificate in pfx format to the Application Gateway. The certificate name is a user-chosen name and must be unique within the Application Gateway. This certificate is referred to by this name in all certificate management operations on the Application Gateway.
+
+This sample shows the cmdlet on the first line followed by the output. Replace the values in the sample with your own.
+
+	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName SslCert -Password <password> -CertificateFile <full path to pfx file> 
+	
+	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
+	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
+	Name       HTTP Status Code     Operation ID                             Error 
+	----       ----------------     ------------                             ----
+	Successful OK                   21fdc5a0-3bf7-2c12-ad98-192e0dd078ef
+
+Use the `Get-AzureApplicationGatewayCertificate` cmdlet to validate certificate upload.
+
+This sample shows the cmdlet on the first line followed by the output. 
+
+	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest 
+
+	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
+	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
+	Name           : SslCert 
+	SubjectName    : CN=gwcert.app.test.contoso.com 
+	Thumbprint     : AF5ADD77E160A01A6......EE48D1A 
+	ThumbprintAlgo : sha1RSA
+
+
+## Configure the Application Gateway
+
+Application Gateway configuration has the following entities that can be combined to construct the configuration. 
+ 
+- **Backend server pool:** List of IP address of backend servers. This IP should either belong to the VNET subnet or should be a public-IP/VIP. 
+- **Backend server pool settings:** Every pool has setting like port, protocol, cookie-based affinity. Setting is tied to a pool and gets applied to all servers in a pool.
+- **Frontend Port:** This port is the public port opened on application gateway. Customer traffic would be hitting this port and then redirected t o one of the backend server.
+- **Listener:** Listener has a frontend port, protocol (http or https) and SSL certificate name (if configuring SSL offload). 
+- **Rule:** Rule binds listener and backend server pool and defines which backend server pool traffic should be directed to when it hits a particular listener. 
+
+For SSL certificates configuration, the protocol in `HttpListener` should change to Https (case sensitive). `SslCert` element needs to be added to `HttpListener` with the value set to the same name as used in upload of SSL certificates section above.
+
+Configuration can be constructed either programmatically by creating a configuration object or by using configuration XML file.
+
+### Configuration XML
+	<?xml version="1.0" encoding="utf-8"?>
+	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+	    <FrontendPorts>
+	        <FrontendPort>
+	            <Name>FrontendPort1</Name>
+	            <Port>80</Port>
+	        </FrontendPort>
+	    </FrontendPorts>
+	    <BackendAddressPools>
+	        <BackendAddressPool>
+	            <Name>BackendPool1</Name>
+	            <IPAddresses>
+	                <IPAddress>10.0.0.1</IPAddress>
+	                <IPAddress>10.0.0.2</IPAddress>
+	            </IPAddresses>
+	        </BackendAddressPool>
+	    </BackendAddressPools>
+	    <BackendHttpSettingsList>
+	        <BackendHttpSettings>
+	            <Name>BackendSetting1</Name>
+	            <Port>80</Port>
+	            <Protocol>Http</Protocol>
+	            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+	        </BackendHttpSettings>
+	    </BackendHttpSettingsList>
+	    <HttpListeners>
+	        <HttpListener>
+	            <Name>HTTPListener1</Name>
+	            <FrontendPort>FrontendPort1</FrontendPort>
+				<SslCert>GWCert</SslCert> 
+	            <Protocol>Https</Protocol>
+	        </HttpListener>
+	    </HttpListeners>
+	    <HttpLoadBalancingRules>
+	        <HttpLoadBalancingRule>
+	            <Name>HttpLBRule1</Name>
+	            <Type>basic</Type>
+	            <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
+	            <Listener>HTTPListener1</Listener>
+	            <BackendAddressPool>BackendPool1</BackendAddressPool>
+	        </HttpLoadBalancingRule>
+	    </HttpLoadBalancingRules>
+	</ApplicationGatewayConfiguration>
+
+## Set the Application Gateway configuration
+
+The `Set-ApplicationGatewayConfig` cmdlet can be run either with configuration object or with configuration XML file. Here we will work with the configuration XML file.
+
+This sample shows the cmdlet on the first line followed by the output. Replace the values with your own.
+
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+
+	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
+	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
+	Name       HTTP Status Code     Operation ID                             Error 
+	----       ----------------     ------------                             ----
+	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
+
+## Start the Application Gateway
+
+Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. This is the cmdlet that provisions the gateway. Once the cmdlet is run successfully, billing starts.
+
+This sample shows the cmdlet on the first line followed by the output. Replace the values in the sample with your own.
+
+**Note** `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes.
+   
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
+
+	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
+	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
+	Name       HTTP Status Code     Operation ID                             Error 
+	----       ----------------     ------------                             ----
+	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
+
+
+Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, `State` should be "*Running*", and `Vip` and `DnsName` should have valid entries. 
+
+This sample shows the cmdlet on the first line followed by the output. In this sample, the gateway is up and ready to take traffic.
+
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
+
+	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
+	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
+	Name          : AppGwTest 
+	Description   : 
+	VnetName      : kagavnet 
+	Subnets       : {Subnet-1} 
+	InstanceCount : 2 
+	GatewaySize   : Medium 
+	State         : Running 
+	Vip           : 138.91.170.26 
+	DnsName       : <dnsname>.cloudapp.net
+
+
+
+
