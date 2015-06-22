@@ -220,6 +220,7 @@ Service Info 1 | Service Info 1 | This column provides the project name that the
 Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata.
 
 In addition to some new fields and name changes to csv Version 2, there will be standardized formatting for the data in the below fields:
+
 - **Instance ID**: The Instance ID field represents the user specified identifier for the service provisioned. Currently, there are two formats in which the Instance ID is represented: it is either the name of the Resource or the fully qualified Resource ID. Microsoft Azure services are transitioning to represent the Instance ID in a standardized fully qualified Resource ID format _**(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)**_. As services transition to the new format you will see the Instance ID data field change from just the resource name to Resource ID. The Resource ID is the format used by the [Azure Resource Manager API](https://msdn.microsoft.com/en-us/library/azure/dn790567.aspx) to identify resources in an a subscription.
 
 ![instanceid](./media/billing-understand-your-bill/instanceid.png)
