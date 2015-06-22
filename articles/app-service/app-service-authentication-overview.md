@@ -22,7 +22,7 @@
 
 This article explains the built-in authentication features for [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) and [mobile apps](../app-service-mobile/app-service-mobile-value-prop-preview.md). 
 
-The [Resources](#resources) section at the end of the article provides links to related how-to documentation.
+The [Next steps](#next-steps) section at the end of the article provides links to related how-to documentation.
 
 ## Azure App Service gateway
 
@@ -187,9 +187,9 @@ At present App Service does not support using a do-it-yourself solution alongsid
 
 If you have existing APIs that you want to protect with authentication, you can do that with the Azure API Management service. For information about using API Management with API apps, see this blog post by Panos Kefalidis: [Taking advantage of API Management for API Apps](http://www.kefalidis.me/2015/06/taking-advantage-of-api-management-for-api-apps/) 
 
-## Resources
+## Next steps
 
-This section provides links to more information about authentication protocols, gateway authentication, and alternative authentication methods.
+This article has explained the authentication services provided by Azure App Service for API Apps and Mobile Apps. Here are some links to resources for learning about the underlying authentication protocols, and documentation about how to use the App Service authentication features.
 
 * [OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT)](#oauth)
 * API Apps resources
