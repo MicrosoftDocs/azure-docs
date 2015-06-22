@@ -57,6 +57,10 @@ The implementation of these methods does not involve dealing with locking or oth
 
 > [AZURE.TIP] The Fabric Actors runtime emits some [events and performance counters related to actor methods](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). They are useful in diagnostics and performance monitoring.
 
+The following rules pertaining to actor interface methods are worth mentioning:
+- Actor interface methods cannot be overloaded.
+- Actor interface methods must not have out, ref or optional parameters.
+
 ## Actor Communication
 The Actors client API provides communication between an actor instance and an actor client. To communicate with an actor, a client creates an actor proxy object that implements the actor interface. The client interacts with the actor by invoking methods on the proxy object. The actor proxy can be used for client-to-actor as well as actor-to-actor communication. Continuing our calculator example, the client code for a calculator actor could be written as shown below:
 
