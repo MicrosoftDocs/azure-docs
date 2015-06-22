@@ -229,10 +229,10 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 
 ![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Tags**:  This column contains the user specified resource tags. The tags can be used to group billing records. For example, you can use tags to distribute costs by department using the service. Learn more about [using tags to organize Azure Resources](https://azure.microsoft.com/en-us/documentation/articles/resource-group-using-tags/).  Services that support emitting tags are:
+- **Tags**:  This column contains the user specified resource tags. The tags can be used to group billing records. For example, you can use tags to distribute costs by department using the service. Learn more about [using tags to organize Azure Resources](/resource-group-using-tags.md/).  Services that support emitting tags are:
     - Virtual Machines
     - Storage and
-    - Networking services provisioned using the [Azure Resource Manager API](https://msdn.microsoft.com/en-us/library/azure/dn790567.aspx)
+    - Networking services provisioned using the [Azure Resource Manager API](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![tags](./media/billing-understand-your-bill/tags.png)
 
@@ -247,12 +247,12 @@ Please see these additional sources for more details on each service. These file
 To find the most current version, enter in the Year and Month (looking for May 2015 file, enter in **052015** into the section _**“MMYYYY”**_ in the above URL).  This spreadsheet provides a listing of all possible combinations of the service related fields in the **Usage Download Report**.
 
 ## More Resources
-Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, under [Manage your services](https://msdn.microsoft.com/en-us/library/azure/dn578292.aspx) for some very helpful links:
-- [Manage your payment method](https://msdn.microsoft.com/en-us/library/azure/dn736054.aspx)
-- [Edit payment information for an existing credit card](https://msdn.microsoft.com/en-us/library/azure/dn736053.aspx)
-- [Add a new credit cared to use as a payment method](https://msdn.microsoft.com/en-us/library/azure/dn736057.aspx)
-- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/en-us/library/azure/dn736050.aspx)
-- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/en-us/library/azure/dn736049.aspx)
+Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, under [Manage your services](https://msdn.microsoft.com/library/azure/dn578292.aspx) for some very helpful links:
+- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+- [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
+- [Add a new credit cared to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
+- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
+- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
 
 
 
