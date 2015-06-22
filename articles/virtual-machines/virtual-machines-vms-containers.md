@@ -56,13 +56,11 @@ For example, you might currently have a deployment consisting of 9 Azure VMs of 
 
 This is just an example, of course, but if you can do this in your scenario, you can adjust to usage spikes with more containers rather than more Azure VMs, and use the remaining overall CPU load much more efficiently than before.
 
-
-
 In addition, there are many scenarios that do not lend themselves to a microservices approach; you will know best whether microservices and containers will help you. 
 
 ### Benefits for developers
 
-In general, it's easy to see that container technology is is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. This topic will not dive deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but **Docker** and its ecosystem offer tremendous benefits to both developers and IT professionals.
+In general, it's easy to see that container technology is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. This topic will not dive deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but **Docker** and its ecosystem offer tremendous benefits to both developers and IT professionals.
 
 Developers take to Docker containers quickly, because above all it makes using Linux containers easy:
 
