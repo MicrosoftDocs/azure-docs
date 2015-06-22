@@ -24,7 +24,7 @@ and subscriptions**, **creating subscription filters**, **sending
 messages to a topic**, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**.
 
-[AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics-java.md)]
+[AZURE.INCLUDE [service-bus-java-how-to-create-topic](../includes/service-bus-java-how-to-create-topic.md)]
 
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:

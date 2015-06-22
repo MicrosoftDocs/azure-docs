@@ -15,7 +15,7 @@ received and processed by the receivers in the order in which they were
 added to the queue, and each message is received and processed by only
 one message consumer.
 
-![QueueConcepts](./media/howto-service-bus-queues-java/sb-queues-08.png)
+![QueueConcepts](./media/service-bus-java-how-to-create-queue/sb-queues-08.png)
 
 Service Bus queues are a general-purpose technology that can be used for
 a wide variety of scenarios:
@@ -45,11 +45,11 @@ To create a service namespace:
     **Service Bus**.
 
 3.  In the lower pane of the Management Portal, click **Create**.
-	![](./media/howto-service-bus-queues-java/sb-queues-03.png)
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
 4.  In the **Add a new namespace** dialog, enter a namespace name.
     The system immediately checks to see if the name is available.
-	![](./media/howto-service-bus-queues-java/sb-queues-04.png)
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
@@ -61,7 +61,7 @@ To create a service namespace:
 
 6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
-	![](./media/howto-service-bus-queues-java/getting-started-multi-tier-27.png)
+	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
 The namespace you created takes a moment to activate, and will then appear in the management portal. Wait until the namespace status is **Active** before continuing.
 
@@ -75,16 +75,16 @@ namespace. You can obtain these credentials from the Azure management portal.
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces:
-	![](./media/howto-service-bus-queues-java/sb-queues-13.png)
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  Click on the namespace you just created from the list shown.
 
 3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/howto-service-bus-queues-java/sb-queues-14.png)
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
 4.  Make a note of the primary key, or copy it to the clipboard.
 
   [Azure Management Portal]: http://manage.windowsazure.com
   [Azure Management Portal]: http://manage.windowsazure.com
 
-  [34]: ./media/howto-service-bus-queues-java/VSProperties.png
+  [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png

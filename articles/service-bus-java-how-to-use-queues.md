@@ -23,7 +23,7 @@ written in Java and use the [Azure SDK for Java][]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
 
-[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues-java.md)]
+[AZURE.INCLUDE [service-bus-java-how-to-create-queue](../includes/service-bus-java-how-to-create-queue.md)]
 
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:

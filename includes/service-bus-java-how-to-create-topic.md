@@ -6,7 +6,7 @@ components of a distributed application do not communicate directly with
 each other; instead they exchange messages via a topic, which acts as an
 intermediary.
 
-![TopicConcepts](./media/howto-service-bus-topics-java/sb-topics-01.png)
+![TopicConcepts](./media/service-bus-java-how-to-create-topic/sb-topics-01.png)
 
 In contrast with Service Bus queues, in which each message is processed by a
 single consumer, topics and subscriptions provide a "one-to-many" form
@@ -77,16 +77,16 @@ credentials for the namespace. You can obtain these credentials from the Azure m
     ![][3]
 
 3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/howto-service-bus-topics-java/sb-queues-14.png)
+	![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
 
 4.  Make a note of the primary key, or copy it to the clipboard.
 
 
   [Azure Management Portal]: http://manage.windowsazure.com
-  [0]: ./media/howto-service-bus-topics-java/sb-queues-13.png
-  [2]: ./media/howto-service-bus-topics-java/sb-queues-04.png
-  [3]: ./media/howto-service-bus-topics-java/sb-queues-09.png
-  [4]: ./media/howto-service-bus-topics-java/sb-queues-06.png
+  [0]: ./media/service-bus-java-how-to-create-topic/sb-queues-13.png
+  [2]: ./media/service-bus-java-how-to-create-topic/sb-queues-04.png
+  [3]: ./media/service-bus-java-how-to-create-topic/sb-queues-09.png
+  [4]: ./media/service-bus-java-how-to-create-topic/sb-queues-06.png
 
-  [6]: ./media/howto-service-bus-topics-java/getting-started-multi-tier-27.png
-  [34]: ./media/howto-service-bus-topics-java/VSProperties.png
+  [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
+  [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
