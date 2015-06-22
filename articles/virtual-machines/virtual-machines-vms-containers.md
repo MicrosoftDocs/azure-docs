@@ -48,7 +48,7 @@ That said, remember containers execute on a container host -- an operating syste
 
 ## What are containers good for?
 
-They're great for many things, but especially for creating single-service, [microservice]-oriented distributed applications, in which application design is based on more small, composable parts rather than on larger, more strongly coupled components. 
+They're great for many things, but they encourage -- as do [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) and [Azure Service Fabric](service-fabric-overview.md) -- the creation of single-service, [microservice]-oriented distributed applications, in which application design is based on more small, composable parts rather than on larger, more strongly coupled components. 
 
 This is especially true in public cloud environments like Azure, in which you rent VMs when and where you want them. Not only do you get isolation and rapid deployment and orchestration tools, but you can make more efficient application infrastructure decisions. 
 
@@ -56,7 +56,7 @@ For example, you might currently have a deployment consisting of 9 Azure VMs of 
 
 This is just an example, of course, but if you can do this in your scenario, you can adjust to usage spikes with more containers rather than more Azure VMs, and use the remaining overall CPU load much more efficiently than before.
 
-Of course, there are many other ways of implementing a microservice-style  architecture, including [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) as well as [Azure Service Fabric](http://azure.microsoft.com/campaigns/service-fabric/). Which approach you use will depend upon many factors specific to your scenario.
+
 
 In addition, there are many scenarios that do not lend themselves to a microservices approach; you will know best whether microservices and containers will help you. 
 
