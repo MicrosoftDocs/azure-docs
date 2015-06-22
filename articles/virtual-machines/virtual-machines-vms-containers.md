@@ -58,9 +58,9 @@ This is just an example, of course, but if you can do this in your scenario, you
 
 In addition, there are many scenarios that do not lend themselves to a microservices approach; you will know best whether microservices and containers will help you. 
 
-### Benefits for developers
+### Container benefits for developers
 
-In general, it's easy to see that container technology is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. This topic will not dive deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but **Docker** and its ecosystem offer tremendous benefits to both developers and IT professionals.
+In general, it's easy to see that container technology is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. This topic will not dive deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but Docker and its ecosystem offer tremendous benefits to both developers and IT professionals.
 
 Developers take to Docker containers quickly, because above all it makes using Linux containers easy:
 
@@ -69,7 +69,7 @@ Developers take to Docker containers quickly, because above all it makes using L
 - They can think of isolated application components instead of computers
 - They can use a large number of tools that understand docker containers and different base images
 
-### Benefits for operations and IT professionals
+### Container benefits for operations and IT professionals
 
 IT and operations professionals also benefit from the combination of containers and virtual machines. 
 
@@ -77,15 +77,18 @@ IT and operations professionals also benefit from the combination of containers 
 - contained code is verifiably identical
 - contained services can be started, stopped, and moved quickly between development, test, and production environments
 
-Features like these -- and there are more -- excite established businesses, where professional information technology organizations have the job of fitting the resources -- including pure processing power -- to the tasks required to not only stay in business, but increase customer satisfaction and reach. Small businesses, ISVs, and startups have exactly the same requirement, but they might describe it differently. 
+Features like these -- and there are more -- excite established businesses, where professional information technology organizations have the job of fitting resources -- including pure processing power -- to the tasks required to not only stay in business, but increase customer satisfaction and reach. Small businesses, ISVs, and startups have exactly the same requirement, but they might describe it differently. 
 
-### Benefits of virtual machines
+### What are virtual machines good for?
 
-If virtual machines start more slowly, make it a bit harder to optimize CPU usage, and do not map directly to a microservices architecture, they do have very important benefits: 
+Virtual machines provide the backbone of cloud computing, and that doesn't change. If virtual machines start more slowly, make it a bit harder to optimize CPU usage, and do not map directly to a microservices architecture, they do have very important benefits: 
 
 1. By default, they have much more robust default security protections for host computer
 2. They support any major OS and application configurations
 3. They have longstanding tool ecosystems for command and control
+4. They provide the execution environment to host containers
+
+The last item is important, because a contained application still requires a specific operating system and CPU type, depending upon the calls the application will make. It's important to remember that you install containers on VMs because they contain the applications you want to deploy; containers are not replacements for VMs or operating systems.
 
 ## High-level feature comparison of VMs and containers
 
@@ -105,7 +108,7 @@ The following table describes at a very high level the kind of feature differenc
 
 At this point, any architect, developer, or IT operations ninja will be thinking, "I can automate ALL of this; this really IS Data-Center-As-A-Service!". 
 
-You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage Azure VM clusters and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can -- and perhaps already have -- automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli.md). 
+You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage groups of Azure VMs and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can -- and perhaps already have -- automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli.md). 
 
 These abilities are often then migrated to tools like [Puppet](https://puppetlabs.com/) and [Chef](https://www.chef.io/) to automate the creation of and configuration for VMs at scale. (There are links to using these tools with Azure [here](#tools-for-working-with-containers).) 
 
@@ -130,7 +133,7 @@ Also, [kubernetes](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kub
 
 [CoreOS]([CoreOS](virtual-machines-linux-coreos-how-to.md)), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](virtual-machines-linux-coreos-fleet-get-started.md). 
 
-Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports Linux (LXC-style) clusters, as well as having their own container system. 
+Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports Linux (LXC-style) clusters, as well as having their own Linux container and application management. 
 
 ## Tools for working with Azure VMs and containers
 
