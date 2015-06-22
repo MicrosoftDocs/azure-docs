@@ -119,13 +119,13 @@ For the final step, use PolyBase to import data from Azure blob storage to SQL D
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
 <!--Link references--In actual articles, you only need a single period before the slash.-->
-[Data Migration Tools]: ./sql-data-warehouse-migrate-data-tools/
+[Data Migration Tools]: ./sql-data-warehouse-migrate-data-tools.md
 
 <!--External references-->
 [ExpressRoute]: http://azure.microsoft.com/en-gb/services/expressroute/
 [AZCopy]: http://azure.microsoft.com/en-gb/documentation/articles/storage-use-azcopy/
 [ADF Copy]: http://azure.microsoft.com/en-gb/documentation/articles/data-factory-copy-activity/
-[production version]: http://aka.ms/downloadazcopy
-[preview version]: http://aka.ms/downloadazcopypr
+[production version]: http://aka.ms/downloadazcopy/
+[preview version]: http://aka.ms/downloadazcopypr/
 [ADF Copy examples]: http://azure.microsoft.com/en-gb/documentation/articles/data-factory-copy-activity-examples/
 
