@@ -66,13 +66,6 @@ The gateway authentication services offer several advantages over running your o
 
 * Debugging is easier because you can configure a program to use the gateway while running in debug mode locally, and you don't have to change redirect URLs in your identity provider account.
 
-<!-- 
-revisit inclusion of consent server at a later date
-### Azure App Service Consent Server
-
-An App Service feature that is available but not recommended for developing API apps and mobile apps is the App Service Consent Server. This feature is an App Service implementation of OAuth 2.0 for getting access to a resource (such as a Twitter account) from the resource provider (such as Twitter) by the resource owner (the Twitter account owner). This solution is secure when used in [logic apps](../app-service-mobile/app-service-logic-what-are-logic-apps.md) with connector API apps provided by Microsoft, because the users of the app can't create their own client ID and client secret and spoof the login page. In the logic app scenario, the logic app is the secure trusted third party. For custom-developed API apps and mobile apps, the potential for spoofing the resource provider login makes the App Service Consent Server less secure than the options listed above.
--->
-
 ## Server flow vs. client flow
 
 The App Service gateway offers two ways to authenticate clients:  *client flow* and *server flow*. In both flows, the client application sends the user credentials (typically, user name and password) directly to the identity provider. Neither the gateway nor your application receives user credentials in either flow.
@@ -145,11 +138,6 @@ The App Service runtime support and SDKs make it relatively easy to write code t
 
 For these and many other providers you can also access secured resources by using a prepackaged [connector API app](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md).  
 
-<!-- 
-## Authorization
-How to get claims, roles, etc. This could be several sections.
---> 
-
 ## SDK availability
 
 For API apps, The SDK for .NET provides authentication functionality:
@@ -169,13 +157,6 @@ For Mobile Apps, SDKs are available for the following platforms:
 ## Alternative authentication methods
 
 If the gateway authentication services don't meet the needs of your app, you can handle authentication yourself, or use the Azure API Management service.
-
-<!--
-Doesn't appear that easy auth works with api apps.
-### <a id="easyauth"></a>Azure App Service Web Apps Authentication and Authorization
-
-The [Web Apps authentication and authorization](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/) feature lets you protect an App Service web app with Azure Active Directory by configuring some simple settings in the web app. It works for API apps and mobile apps because these are web apps that have additional features for hosting APIs or mobile backends. This option only works for Azure Active Directory, it must be configured for each web app separately, and it only controls access to the web app as a whole(authentication) without providing a way to differentiate between resources within the web app (authorization).
--->
 
 ### <a id="doityourself"></a>Do-it-yourself authentication
 
@@ -199,7 +180,7 @@ This article has explained the authentication services provided by Azure App Ser
 * Mobile Apps resources
 	* [Mobile Apps client flow](#maclient)
 	* [Mobile Apps server flow](#maserver)
-	* [Mobile Apps on-behalf-of calls](maobo)
+	* [Mobile Apps on-behalf-of calls](#maobo)
 
 ### <a id="oauth"></a>OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT)
 
@@ -216,7 +197,7 @@ This article has explained the authentication services provided by Azure App Ser
 * [Protect an API app](../app-service-api/app-service-api-dotnet-add-authentication.md) - The API app configuration part applies to both client and server flow, but the test-in-browser part illustrates server flow.
 * [Consume an API app in Azure App Service from a .NET client](../app-service-api/app-service-api-dotnet-consume.md) - The sample code for an authenticated call illustrates server flow. 
 
-### <a id="apiaaobo"></a>API Apps on-behalf-of calls to secured resources
+### <a id="apiaobo"></a>API Apps on-behalf-of calls to secured resources
 
 * [Deploy and configure a SaaS connector API app in Azure App Service](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md) - Illustrates how to provision a prepackaged connector API app, configure it, and call it using browser tools.
 * A tutorial that shows how to write your own connector -- that is, provision and configure a custom API app that makes on-behalf-of calls to secured resources -- is under development.
@@ -229,7 +210,7 @@ This article has explained the authentication services provided by Azure App Ser
 
 * [Add authentication to your iOS app](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-users-preview.md)
 * [Add authentication to your Xamarin.iOS app](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md)
-* [Add authentication to your Xamarin.Android app](../app-service-mobile/app-service-mobile-dotnet-backend-xamaarin-android-get-started-users-preview.md)
+* [Add authentication to your Xamarin.Android app](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md)
 * [Add authentication to your Windows app](../app-service-mobile/app-service-mobile-dotnet-backend-windows-store-get-started-users-preview.md)
 
 ### <a id="maobo"></a>Mobile Apps on-behalf-of calls to secured resources
