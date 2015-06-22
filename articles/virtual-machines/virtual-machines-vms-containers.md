@@ -81,7 +81,7 @@ Features like these -- and there are more -- excite established businesses, wher
 
 ## What are virtual machines good for?
 
-Virtual machines provide the backbone of cloud computing, and that doesn't change. If virtual machines start more slowly, make it a bit harder to optimize CPU usage, and do not map directly to a microservices architecture, they do have very important benefits: 
+Virtual machines provide the backbone of cloud computing, and that doesn't change. If virtual machines start more slowly, have a larger disk footprint, and do not map directly to a microservices architecture, they do have very important benefits: 
 
 1. By default, they have much more robust default security protections for host computer
 2. They support any major OS and application configurations
