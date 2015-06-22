@@ -24,15 +24,15 @@ This article not only discusses these concepts at a high level, it also contains
 
 ## The difference between virtual machines and containers
 
-Virtual machines run inside an isolated hardware emulation environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). The [Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) service handles all this for you. In Azure, you just create Virtual Machines by choosing the operating system and configuring it to run the way you want -- or by uploading your own custom VM image. Azure VMs are complete operating systems, isolated from other VMs by Windows Server Hyper-V, the hypervisor used by Azure. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage  operating systems and to configure applications you install and run. 
+Virtual machines run inside an isolated hardware emulation environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, the [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) service handles all that for you: You just create Virtual Machines by choosing the operating system and configuring it to run the way you want -- or by uploading your own custom VM image. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage  operating systems and to configure applications you install and run. 
 
-[Linux containers](http://en.wikipedia.org/wiki/LXC) -- which includes those created and hosted using docker tools, but there are several approaches -- do not require or use a hypervisor to provide isolation. Instead, the container host uses the process and file system isolation features of the Linux kernel to expose to the container (and its application) only certain kernel features and its own isolated file system (at a minimum). From the point of view of an application running inside a container, the container appears to be a unique operating system instance. The contained applications cannot see processes or any other resources outside of its container. 
+[Linux containers](http://en.wikipedia.org/wiki/LXC) -- which includes those created and hosted using docker tools, and there are other approaches -- do not require or use a hypervisor to provide isolation. Instead, the container host uses the process and file system isolation features of the Linux kernel to expose to the container (and its application) only certain kernel features and its own isolated file system (at a minimum). From the point of view of an application running inside a container, the container appears to be a unique operating system instance. A contained application cannot see processes or any other resources outside of its container. 
 
 Because in this isolation and execution model the kernel of the Docker host computer is shared, and because the disk usage of the container now does not include an entire operating system, both the start-up time of the container and the required disk storage overhead are much, much smaller. 
 
 It's pretty cool.
 
-[Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) provide the same advantages as Linux containers for applications that run on Windows. Windows Server Containers support the docker image format and the docker remote API. As a result, an application using Windows Server Containers can be developed, published, retrieved, and deployed using the exact same commands as developers on Mac and Linux. 
+[Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) provide the same advantages as Linux containers for applications that run on Windows. Windows Server Containers support the docker image format and the docker remote API. As a result, an application using Windows Server Containers can be developed, published, retrieved, and deployed using the exact same commands as those on Mac and Linux. That's in addition to having [new docker API support in Microsoft Visual Studio](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0).
 
 That's pretty cool, too.
 
@@ -153,6 +153,10 @@ Some Linux container technologies:
 Windows Server Container links:
 
 - [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
+
+Visual Studio Docker links:
+
+- [Visual Studio 2015 RC Tools for Docker - Preview](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
 
 Docker tools:
 
