@@ -13,6 +13,7 @@ In the past few years, Linux container technology -- especially the [Docker](htt
 Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level -- in addition to the agility that Azure VMs already give you.
 
 **But that's old news.** The *new* news is that Azure offers you:
+
 - [Many](virtual-machines-docker-with-xplat-cli.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-docker-ubuntu-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation, including [built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
 - Azure Resource Manager templates to simplify deploying and updating complex distributed applications.
 - integration with a large array of both proprietary and open-source configuration management tools
