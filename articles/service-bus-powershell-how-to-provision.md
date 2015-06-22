@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="06/18/2015"
 	ms.author="sethm"/>
 
 # Manage Service Bus with PowerShell
@@ -37,13 +37,13 @@ information about obtaining a subscription, see [Purchase Options],
 ## Including a reference to the .NET assembly for Service Bus
 
 There are a limited number of PowerShell cmdlets available for managing Service Bus. To provision
-entities that are not exposed through the existing cmdlets, we will make use of the .NET client for
-Service Bus by using the [Service Bus NuGet package].
+entities that are not exposed through the existing cmdlets, you can use the .NET client for
+Service Bus in the [Service Bus NuGet package].
 
 First, make sure that the script can locate the **Microsoft.ServiceBus.dll** assembly, which is installed with the NuGet package. In order to be flexible, the script performs these steps:
 
-1. Determines the path where it was invoked.
-Traverses the path until it finds a folder named `packages`. This folder is created when you install NuGet packages.
+1. Determines the path at which it was invoked.
+2. Traverses the path until it finds a folder named `packages`. This folder is created when you install NuGet packages.
 3. Recursively searches the `packages` folder for an assembly named **Microsoft.ServiceBus.dll**.
 4. References the assembly so that the types are available for later use.
 
@@ -72,13 +72,13 @@ catch [System.Exception]
 
 ## Provision a Service Bus namespace
 
-When working with Service Bus namespaces, you can use two cmdlets instead of the .NET SDK. Specifically, you can use [Get-AzureSBNamespace] and [New-AzureSBNamespace].
+Two PowerShell cmdlets support Service Bus namespace operations. Instead of the .NET SDK APIs, you can use [Get-AzureSBNamespace] and [New-AzureSBNamespace].
 
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
 - `$Namespace` is the name the of the Service Bus namespace with which we want to work.
-- `$Location` identifies the data center in which will we provision the namespace.
-- `$CurrentNamespace` stores the reference namespace that we retrieve (or create).
+- `$Location` identifies the data center in which the script provisions the namespace.
+- `$CurrentNamespace` stores the reference namespace that the script retrieves (or creates).
 
 In an actual script, `$Namespace` and `$Location` can be passed as parameters.
 
@@ -105,14 +105,14 @@ This part of the script does the following:
 	{
 	    Write-Host "The [$Namespace] namespace does not exist."
 	    Write-Output "Creating the [$Namespace] namespace in the [$Location] region..."
-	    New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace false -NamespaceType Messaging
+	    New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace $false -NamespaceType Messaging
 	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
 
 	```
 
-To provision other Service Bus entities, create an instance of the `NamespaceManager` object from the SDK.
+To provision other Service Bus entities, create an instance of the `NamespaceManager` class from the SDK.
 You can use the [Get-AzureSBAuthorizationRule] cmdlet to retrieve an authorization rule that's used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` later in the script to provision other entities.
 
 ``` powershell
@@ -125,7 +125,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## Provisioning other Service Bus entities
 
-In order to provision other entities, such as queues, topics, and Event Hubs, use the [.NET API for Service Bus]. This article focuses only on Event Hubs, but the steps for other entities are similiar. In addition, more detailed examples, including other entities, are referenced at the end of this article.
+In order to provision other entities, such as queues, topics, and Event Hubs, use the [.NET API for Service Bus]. This article focuses only on Event Hubs, but the steps for other entities are similar. In addition, more detailed examples, including other entities, are referenced at the end of this article.
 
 This part of the script creates four more local variables. These variables are used to instantiate an `EventHubDescription` object. The script does the following:
 
@@ -141,7 +141,7 @@ This part of the script creates four more local variables. These variables are u
 	$UserMetadata = $null
 	$ConsumerGroupName = "MyConsumerGroup"
 		
-	# Check if the event hub already exists
+	# Check to see if the Event Hub already exists
 	if ($NamespaceManager.EventHubExists($Path))
 	{
 	    Write-Output "The [$Path] event hub already exists in the [$Namespace] namespace."  
@@ -168,14 +168,14 @@ This part of the script creates four more local variables. These variables are u
 
 ## Next steps
 
-This article provides you with a basic outline for provisioning Service Bus entities using PowerShell. Anything that you can do using the .NET client libraries, you can also do in a PowerShell script.
+This article provided a basic outline for provisioning Service Bus entities using PowerShell. Anything that you can do using the .NET client libraries, you can also do in a PowerShell script.
 
 There are more detailed examples available on these blogs posts:
 
 - [How to create Service Bus queues, topics and subscriptions using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Some ready-made script are also available for download:
+Some ready-made scripts are also available for download:
 - [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->

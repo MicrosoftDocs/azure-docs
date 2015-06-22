@@ -18,11 +18,6 @@
 
 # Create app passwords in the myapps 365 portal for Azure Multi-Factor Authentication
 
-[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
-[Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
-[Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
 
 
 If you do not use multi-factor authentication with Office 365 have an Azure subscription then you will want to create app passwords through myapps portal.
@@ -39,7 +34,7 @@ If you do not use multi-factor authentication with Office 365 have an Azure subs
 <li>On the proofup page, at the top, select app passwords</li>
 <li>Click **Create**</li>
 
-<center>![Cloud](./media/multi-factor-authentication-end-user-app-password-create-myapps/apppassword.png)</center>
+![Cloud](./media/multi-factor-authentication-end-user-app-password-create-myapps/apppassword.png)
 
 <li>Enter a name for the app password and click **Next**</li>
 <li>Copy the app password to the clipboard and paste it into your app.</li>

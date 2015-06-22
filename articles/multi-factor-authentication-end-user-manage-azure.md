@@ -18,13 +18,6 @@
 
 # Manage your Azure Multi-Factor Authentication settings in the Azure portal
 
-[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
-[Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
-[Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
-
-
 If you use multi-factor authentication with Azure you will want to manage your additional security verification settings through the Azure portal.
 
 ## To access additional security verification settings in the Azure portal

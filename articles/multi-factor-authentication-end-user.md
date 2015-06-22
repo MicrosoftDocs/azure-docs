@@ -18,13 +18,8 @@
 
 # What does Azure Multi-Factor Authentication mean for me?
 
-[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
-[Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
-[Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
+Additional security verification settings are used when an admin has configured your account to require that both your password and a response from your phone must be used to verify your identity. This means you have been enrolled to use multi-factor authentication.  This information will help you get started with setting it up, configuring it and provide information on where to go if you need to change things.
 
- Additional security verification settings are used when an admin has configured your account to require that both your password and a response from your phone must be used to verify your identity. This means you have been enrolled to use multi-factor authentication.  This document will help you get started with setting it up, configuring it and provide information on where to go if you need to change things.
 
 ## How to get going and use multi-factor authentication
 

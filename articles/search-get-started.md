@@ -14,23 +14,28 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+	ms.date="06/19/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search
 
-Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET SK or a REST API. To read more about why you would use Azure Search, see [Azure Search Scenarios and Capabilities](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
+Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET library or a REST API.
 
-As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. This article has the following sections:
+This article gets you started with the Azure Search REST API. 
+
+An alternative approach for .NET developers is to use the Azure Search.NET SDK. See [Get started with Azure Search in .NET](search-get-started-dotnet.md) or [How to use the Azure Search .NET SDK](search-howto-dotnet-sdk.md) for details.
+
 
 <a id="sub-1"></a>
 ## Start with the free service
+
+As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. 
 
 Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
 
 1. Sign in to [Azure portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Preview portal. Using the Preview portal is a requirement. 
 
-2. Click **New** at the bottom of the page.
+2. Click **New** at the top of the page.
  
   	![][6]
 

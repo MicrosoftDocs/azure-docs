@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
 
 This section provides an index for the policies in the [API Management policy reference][]. For information on adding and configuring policies, see [Policies in API Management][].
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][], [Policy expressions][], and the following video.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][]
 
 ## Policy reference index
 
@@ -56,6 +54,11 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Set query string parameter][] - Adds, replaces value of, or deletes request query string parameter.
 	-	[Rewrite URL][] - Converts a request URL from its public form to the form expected by the web service.
 
+## Next steps
+
+For more information on policy expressions, see the following video.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Access restriction policies]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Check HTTP header]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader

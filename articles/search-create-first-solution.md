@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="06/19/2015" 
 	ms.author="heidist"/>
 
 # Create your first search solution using Azure Search
@@ -76,7 +76,7 @@ Press **Enter** to close the application. At this point, you have successfully c
 
 To verify index creation and document upload, go to your Search service dashboard in the [Azure management portal](https://portal.azure.com). In Usage, the index count should be up by one, and you should have 294 documents, one for each product in the database.
 
-Click the **Indexes** tile to show the index list. The indexes list slides out to show the new index and document count.
+Click the **Indexes** tile to show the index list. The indexes list slides out to show the new index and document count. Note that you can have up to three indexes at the Free pricing tier. If you already had three indexes, you would need to delete one to free up space for any new ones.
 
    ![][9]
 

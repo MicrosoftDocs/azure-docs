@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,31 +12,48 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
 # Usage analysis for web applications with Application Insights
 
 Knowing how people use your application lets you focus your development work on the scenarios that are most important to them, and gain insights into the goals that they find easier or more difficult to achieve. 
 
-Visual Studio Application Insights can provide a clear view of your application's usage, helping you to improve your users' experience, and meet your business goals. 
+Visual Studio Application Insights provides two levels of usage tracking:
 
-You can plan usage analysis into your devOps lifecycle, so that whenever you design a new user story, you also plan what telemetry you will need to assess its success.
+* **User and session data** - provided out of the box.  
+* **Custom telemetry** - You [write code][api] to trace your users through your app's user experience. 
 
 ## Setting up
 
-Usage data from a web application can come from both the server and client ends. The best data is obtained by installing the Application Insights SDK at both ends, but you can use just one.
+Usage data from a web application comes from the client browser.
 
-Follow these links to set up server and client ends:
+#### Set up an Application Insights resource 
 
-* [Server-side SDK][greenbrown] provides user and session data. You can write custom telemetry to log business events such as a user placing an order. 
-* Client-side SDK in a [web page][client] or [device][windows] provides page view and platform data. You can also write custom telemetry to track more detailed user actions. 
+An Application Insights resource is a place in Microsoft Azure where telemetry data from your app is analyzed and displayed. You might already have set up one to display data from your app's server side in [ASP.NET][greenbrown] or [J2EE][java]. If not, you might want to do that now.
 
-Use the same application resource for both client and server data. You should have the same instrumentation key in the ApplicationInsights.config file and the script in the web pages. The data from the two sources will be integrated in the portal.
+It's usually best to display the usage data from the web client in the same resource as the data from the server. That way, you can easily correlate diagnostics and metrics from the two ends. So, if you already have a resource, skip to the next step.
+
+But if you want to use a separate resource for usage data, just sign in to the [Azure portal][portal] and create it:
+
+![](./media/app-insights-web-track-usage/01-create.png)
+
+#### Insert code in your web pages
+
+In your resource in the [Azure portal][portal] , open Quick Start get the code snippet to monitor web pages. 
+
+![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
+
+Put the code in a master page such as (in .NET) _Layout.cshtml, or in an include file, to make sure it is included in all your pages.
+
+The code snippet includes the instrumentation key (iKey) that identifies your resource. To send data to a different resource - for example during testing - you only have to replace the iKey.
+
+Publish your web pages or use them in debug mode, to generate some telemetry data.
+
 
 ## How popular is my web application?
 
-Sign in to the [Azure portal][portal], Browse to your application resource, and click Usage:
+Sign in to the [Azure portal][portal], browse to your application resource, and click Usage:
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
@@ -45,6 +62,7 @@ Sign in to the [Azure portal][portal], Browse to your application resource, and 
 * **Page views** Counts the number of calls to trackPageView(), typically called once in each web page.
 
 Click any of the charts to see more detail. Notice that you can change the time range of the charts.
+
 
 ### Which pages are read most?
 
@@ -89,6 +107,59 @@ Group (segment) data by a property such as Browser, Operating System, or City:
 
 ![Select a chart that shows a single metric, switch on Grouping, and choose a property](./media/app-insights-web-track-usage/03-browsers.png)
 
+
+## Sessions
+
+Session is a fundamental concept in Application Insights, which strives to associate every telemetry event - such as requests, page views, exceptions, or custom events that you code yourself - with a specific user session. 
+
+Rich context information is collected about each session, such as device characteristics, geo location, operating system, and so on.
+
+If you instrument both the client and server ([ASP.NET][greenbrown] or [J2EE][java]), the SDKs will propagate the session id between client and server, so that events on both sides can be correlated.
+
+When [diagnosing problems][diagnostic], you can find all the telemetry related to the session in which a problem occurred, including all requests, and any events, exceptions or traces that were logged.
+
+Sessions provide a good measure of the popularity of contexts such as device, operating system or location. By showing the count of sessions grouped by device, for example, you get a more accurate count of how often that device is used with your app, than by counting page views. This would be a useful input to triage of any device-specific issue.
+
+
+#### What's a session?
+
+A session represents a single encounter between the user and the app. In its simplest form, session starts with a user launching the app and finishes when user leaves the app. For web apps, by default, the session terminates after 30 minutes of inactivity, or after 24 hours of activity. 
+
+You can alter these defaults by editing the code snippet:
+
+    <script type="text/javascript">
+        var appInsights= ... { ... }({
+            instrumentationKey: "...",
+            sessionRenewalMs: 3600000,
+            sessionExpirationMs: 172800000
+        });
+
+* `sessionRenewalMs` : The time, in milliseconds, to expire the session due to user’s inactivity. Default: 30 minutes.
+* `sessionExpirationMs` : The maximum session length, in milliseconds. If the user remains active after this time, another session is counted. Default: 24 hours.
+
+**Session duration** is a [metric][metrics] that records the span of time between the first and last telemetry items of the session. (It doesn't include the timeout period.)
+
+**Session count** in a certain interval is defined as the number of unique sessions with some activity during this interval. When you look at a long time range such as daily session count for the past week, this is usually equivalent to the total number of sessions. 
+
+However, when you explore shorter time ranges such as hourly grain, a long session spanning multiple hours will be counted for each hour in which the session was active. 
+
+## Users and user counts
+
+Each user session is associated with a unique user id. 
+
+By default, the user is identified by placing a cookie. In this case, a user who uses multiple browsers or devices will be counted more than once.
+
+The **user count** metric in a certain interval is defined as the number of unique users with recorded activity during this interval. As a result, users with long sessions may be accounted multiple times, when you set a time range so that the grain is less than an hour or so.
+
+**New Users** counts the users whose first sessions with the app occurred during this interval. If the default method of counting by users by cookies is used, then this will also include users who have cleared their cookies, or who are using a new device or browser to access your app for the first time.
+
+## Synthetic traffic
+
+Synthetic traffic includes requests from availability and load tests, search engine crawlers and other agents. 
+
+Application Insights tries strives to automatically determine and classify synthetic traffic and mark it appropriately. In most cases, synthetic traffic does not invoke the JavaScript SDK, so that this activity is excluded from user and session counting. 
+
+However, for Application Insights [web tests][availability], the user id is automatically set based on POP location, and session id is set based on test run id. In default reports, synthetic traffic is filtered out by default, which will exclude these users and sessions. However, when synthetic traffic is included, it may cause a small increase in overall users and session counts.
  
 ## Page usage
 
@@ -295,8 +366,13 @@ And of course, when the feature is live, make sure you look at the analytics and
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
+[diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [windows]: app-insights-windows-get-started.md
 

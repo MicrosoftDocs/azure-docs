@@ -18,12 +18,6 @@
 
 # Signing in using an alternate method with Azure Multi-Factor Authentication
 
-[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
-[Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
-[Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
-
 
 The following section will show you how to sign in with an alternate method when your primary method may not be available.
 

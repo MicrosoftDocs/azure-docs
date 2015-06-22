@@ -105,6 +105,8 @@ Subsequent management (i.e. upgrades and eventual deletion) of the application i
 ## Scalability for actor services
 Cluster administrators can create one or more actor services of each service type in the cluster. Each of those actor services can have one or more partitions (similar to any other Service Fabric service). The ability to create multiple services of a service type (which maps to an actor type) and the ability to create multiple partitions for a service allow the actor application to scale. Please see the article on [scalability](service-fabric-concepts-scalability.md) for more information.
 
+> [AZURE.NOTE] Stateless actor services are required to have an [instance](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) count of 1. Having more than one instance of a stateless actor service in a partition is not supported. Therefore, stateless actor services do not have the option of increasing instance count to achieve scalability. They must use the scalability options that are described in the [scalability article](service-fabric-concepts-scalability.md).
+
 ## Service Fabric partition concepts for actors
 The actor ID of an actor is mapped to a partition of an actor service. The actor is created within the partition that its actor ID maps to. When an actor is created, the Actors runtime writes an [EventSource event](service-fabric-reliable-actors-diagnostics.md#eventsource-events) that indicates which partition the actor is created in. Below is an example of this event that indicates that an actor with ID `-5349766044453424161` was created within partition `0583c745-1bed-43b2-9545-29d7e3448156` of service `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, application `fabric:/VoicemailBoxAdvancedApplication`.
 
@@ -171,7 +173,8 @@ public void ActorMessage<TState>(Actor<TState> actor, string message, params obj
 ```
 
 ### Service Fabric partition concepts for stateless actors
-Stateless actors are created within a partition of a Service Fabric stateless service. The actor ID determines which partition the actor is created under. The actor is created inside one or more [instances](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) within that partition. When a client sends a request for a stateless actor with a particular actor ID, the request is serviced by one of the instances from the partition that the actor ID maps to. This instance is randomly chosen by the client. Therefore, if different clients communicating with the same actor ID choose different instances, then it is possible for multiple instances within a partition to each have an active actor with the same actor ID.
+Stateless actors are created within a partition of a Service Fabric stateless service. The actor ID determines which partition the actor is created under.
+The [instance](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) count for a stateless actor service must be 1. Changing the instance count to any other value is not supported. Thus, the actor is created inside the single service instance within the partition.
 
 > [AZURE.TIP] The Fabric Actors runtime emits some [events related to stateless actor instances](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). They are useful in diagnostics and performance monitoring.
 
@@ -194,26 +197,7 @@ When a stateless actor is created, the Actors runtime writes an [EventSource eve
       }
     }
 
-Continuing the above example, below is another event that shows an actor with the same actor ID getting created in a different instance `130745709600495976` of the same partition. This was caused by another client communicating with the same actor ID, but picking a different instance in the partition to communicate with.
-
-    {
-      "Timestamp": "2015-04-26T18:18:10.0888046-07:00",
-      "ProviderName": "Microsoft-ServiceFabric-Actors",
-      "Id": 5,
-      "Message": "Actor activated. Actor type: HelloWorld.HelloWorld, actor ID: abc, stateful: False, replica/instance ID: 130,745,709,600,495,976, partition ID: 8c828833-ccf1-4e21-b99d-03b14d4face3.",
-      "EventName": "ActorActivated",
-      "Payload": {
-        "actorType": "HelloWorld.HelloWorld",
-        "actorId": "abc",
-        "isStateful": "False",
-        "replicaOrInstanceId": "130745709600495976",
-        "partitionId": "8c828833-ccf1-4e21-b99d-03b14d4face3",
-        "serviceName": "fabric:/HelloWorldApplication/HelloWorldActorService",
-        "applicationName": "fabric:/HelloWorldApplication",
-      }
-    }
-
-*Note:* some fields of the above events are omitted for brevity.
+*Note:* some fields of the above event are omitted for brevity.
 
 ### Service Fabric partition concepts for stateful actors
 Stateful actors are created within a partition of the Service Fabric stateful service. The actor ID determines which partition the actor is created under. Each partition of the service can have one or more [replicas](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) that are placed on different nodes in the cluster. Having multiple replicas provides reliability for the actor state. The resource manager optimizes the placement based on the available fault and upgrade domains in the cluster. Two replicas of the same partition are never placed on the same node. The actors are always created in the primary replica of the partition to which their actor ID maps to.

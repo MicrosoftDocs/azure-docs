@@ -398,7 +398,7 @@ The following template deploys a web app and provisions it with code from a .zip
 
 ## Next Steps
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)
+- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
 - [Advanced Template Operations](./resource-group-advanced-template.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
 

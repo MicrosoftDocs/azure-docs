@@ -31,7 +31,7 @@ Start with any combination, in any order, of the entry points on the left of thi
 
 Application Insights works by adding an SDK into your app, which sends telemetry to the [Azure portal](http://portal.azure.com). There are different SDKs for the many combinations of platforms, languages and IDEs that are supported.
 
-You'll need an account in [Microsoft Azure](http://azure.com). You might already have access to a group account through your organization, or you might want to get a Pay-as-you-go account. (While Application Insights is in Preview, it's free.)
+You'll need an account in [Microsoft Azure](http://azure.com). You might already have access to a group account through your organization, or you might want to get a Pay-as-you-go account. Application Insights has a free tier, so you won't need to pay until your app is popular. Review the [pricing page](https://azure.microsoft.com/pricing/details/application-insights/).
 
 What you want | What to do | What you get
 ---|---|---
