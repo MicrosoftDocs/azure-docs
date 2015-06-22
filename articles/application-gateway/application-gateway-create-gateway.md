@@ -86,7 +86,7 @@ The values are:
 - **Listener:** Listener has a frontend port, protocol (http or https), and SSL certificate name (if configuring SSL offload). 
 - **Rule:** Rule binds listener and backend server pool, and defines which backend server pool traffic should be directed to when it hits a particular listener. 
 
-You can construct your configuration either programically by creating a configuration object, or by using a configuration XML file. 
+You can construct your configuration either by creating a configuration object, or by using a configuration XML file. 
 
 To construct your configuration by using a configuration XML file, use the sample below.
 

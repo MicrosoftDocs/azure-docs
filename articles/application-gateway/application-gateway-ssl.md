@@ -113,7 +113,7 @@ Application Gateway configuration has the following entities that can be combine
 
 For SSL certificates configuration, the protocol in `HttpListener` should change to Https (case sensitive). `SslCert` element needs to be added to `HttpListener` with the value set to the same name as used in upload of SSL certificates section above.
 
-Configuration can be constructed either programmatically by creating a configuration object or by using configuration XML file.
+Configuration can be constructed either by creating a configuration object, or by using configuration XML file.
 
 ### Configuration XML
 	<?xml version="1.0" encoding="utf-8"?>
@@ -162,7 +162,7 @@ Configuration can be constructed either programmatically by creating a configura
 
 ## Set the Application Gateway configuration
 
-The `Set-ApplicationGatewayConfig` cmdlet can be run either with configuration object or with configuration XML file. Here we will work with the configuration XML file.
+The `Set-ApplicationGatewayConfig` cmdlet can be run either with configuration object, or with configuration XML file. Here we will work with the configuration XML file.
 
 This sample shows the cmdlet on the first line followed by the output. Replace the values with your own.
 
