@@ -74,8 +74,8 @@ To view or download a bill:
 
  **OFFER TYPE** | **DESCRIPTION** | **DOWNLOAD** |
  :--------- |:-------- | :-------|
-Pay-As-You-Go | Pay for Microsoft Azure services in arears | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf)
-Commitment offer | Prepaid monetary commitment that is used like a debit card. Charges are deducted from your commitment each month. | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_invoice_Sample.pdf)
+Pay-As-You-Go | Pay in arears monthly | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf)
+Commitment offer | Spend deducted from your prepaid commitment | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_invoice_Sample.pdf)
 
 
 
@@ -184,10 +184,10 @@ Value | Value | Displays the result of multiplying the Billable column by the Ra
 ## Analyze Daily Usage Data
 Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click **Download Usage** and choose a comma-separated variable file (.csv) version to see your daily usage data for the appropriate billing period.  For your reference, you can download a sample .csv file for each version below.
 
-  Sample Files|
-  :----------:|
-  [Detailed Usage .csv Version 1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)|
-  [Detailed Usage .csv Version 2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)|
+  |Sample Files|
+  |:----------:|
+  |[Detailed Usage .csv Version 1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)|
+  |[Detailed Usage .csv Version 2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)|
 
 
 ![csv2screenshot](./media/billing-understand-your-bill/csv2screenshot.png)
