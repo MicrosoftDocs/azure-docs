@@ -67,15 +67,15 @@ This tutorial demonstrated the basics of enabling a Windows Store app to use Mob
 + [Send push notifications to authenticated users](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)
 	<br/>Learn how to use tags to send push notifications from your mobile service to only an authenticated user.
 
-+ [Send broadcast notifications to subscribers](notification-hubs-windows-store-dotnet-send-breaking-news.md)
++ [Send broadcast notifications to subscribers](notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md)
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Send platform-agnostic notifications to subscribers](notification-hubs-aspnet-cross-platform-notify-users.md)
++ [Send platform-agnostic notifications to subscribers](notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md)
 	<br/>Learn how to use templates to send push notifications from your mobile service, without having to craft platform-specific payloads in your back-end.
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Azure Notification Hubs - Diagnosis guidelines](notification-hubs-diagnosing.md)
+* [Azure Notification Hubs - Diagnosis guidelines](notification-hubs/notification-hubs-diagnosing.md)
 	<br/>Learn how to troubleshoot your push notification issues.
 
 * [Get started with authentication]
@@ -101,6 +101,6 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[What are Notification Hubs?]: notification-hubs-overview.md
+[What are Notification Hubs?]: notification-hubs/notification-hubs-overview.md
 
 [How to use a .NET client for Azure Mobile Services]: mobile-services-windows-dotnet-how-to-use-client-library.md
