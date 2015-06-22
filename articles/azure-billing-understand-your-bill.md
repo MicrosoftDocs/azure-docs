@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2015"
+   ms.date="06/23/2015"
    ms.author="kareni"/>
 
 
@@ -217,7 +217,6 @@ N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to
 Additional Info | Additional Info | Additional metadata related to the service.
 Service Info 1 | Service Info 1 | This column provides the project name that the service belongs to on your subscription.
 Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata.
-N/A | Order Number (3rd Party Software) | _**New column addition.**_  If you are using resources from Azure Marketplace that are published by partners, this show the order number for the partner resource that was purchased.
 
 Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanation of these columns. Note: some of these columns may be empty.
 
