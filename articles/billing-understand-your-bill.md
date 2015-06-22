@@ -236,7 +236,7 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 ![tags](./media/billing-understand-your-bill/tags.png)
 
 
-Please see these additional sources for more details on each service. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from **May 2015** onwards for .csv Version 1, and from **June 2015** onward for both csv versions. Below is the base file URL for the Service Download Fields:
+Please see these additional sources for more details on each service. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from **May 2015** onwards for .csv Version 1, and from **June 2015** onward for .csv Version 2. Below is the base file URL for the Service Download Fields:
 
 >>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx
 >>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v2_MMYYYY.xlsx
