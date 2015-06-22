@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/22/2015" 
+	ms.date="06/22/2015" 
 	ms.author="patshea123"/>
 
 # Getting Started with Mobile Services (Cordova Projects)
