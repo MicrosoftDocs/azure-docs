@@ -134,8 +134,10 @@ For these and many other providers you can also access secured resources by usin
 
 For API apps, The SDK for .NET provides authentication functionality:
 
-* [Microsoft.Azure.AppService](http://www.nuget.org/packages/Microsoft.Azure.AppService) - For use in an API app client.  Visual Studio can automatically generate code that works with the SDK to further simplify the code you write to call your API app.  See [Consume an API app in Azure App Service from a .NET client](../app-service-api/app-service-api-dotnet-consume.md).
+* [Microsoft.Azure.AppService](http://www.nuget.org/packages/Microsoft.Azure.AppService) - For use in an API app client.  
 * [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/) - For use in a Web API project that runs in an API app.
+ 
+In addition, Visual Studio can automatically generate code that works with the SDK for .NET to further simplify the code you write to call your API app.  For more information, see [Consume an API app in Azure App Service from a .NET client](../app-service-api/app-service-api-dotnet-consume.md).
 
 For Mobile Apps, SDKs are available for the following platforms:
 
