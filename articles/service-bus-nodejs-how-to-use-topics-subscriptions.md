@@ -436,7 +436,7 @@ links to learn more.
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
+  [Node.js Cloud Service]: cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
