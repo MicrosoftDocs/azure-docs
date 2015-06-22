@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/22/2015"
+   ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager Templates
 
@@ -400,5 +400,6 @@ The following template deploys a web app and provisions it with code from a .zip
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
 - [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
 - [Advanced Template Operations](./resource-group-advanced-template.md)
+- [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
 
