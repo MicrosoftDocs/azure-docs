@@ -21,6 +21,8 @@ Want to do some customised analysis on your telemetry? Or maybe you'd like an em
 
 Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
 
+(If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade.)
+
 ## <a name="setup"></a> Set up Continuous Export
 
 On your application's Overview blade in the Application Insights portal, open Continuous Export: 

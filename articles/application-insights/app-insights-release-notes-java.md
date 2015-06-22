@@ -24,6 +24,8 @@ See [Get started with the SDK for Java](app-insights-java-get-started.md).
 
 #### To upgrade to the latest SDK 
 
+After you upgrade, you'll need to merge back any customizations you made to ApplicationInsights.xml. Take a copy of it to compare with the new file.
+
 *If you're using Maven or Gradle*
 
 1. If you specified a particular version number in pom.xml or build.gradle, update it.
@@ -33,6 +35,7 @@ See [Get started with the SDK for Java](app-insights-java-get-started.md).
 
 * Download the latest version of [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones. 
  
+Compare the old and new ApplicationInsights.xml. Many of the changes you see are because we added and removed modules. Reinstate any customizations that you made.
 
 ## Version 0.9.6
 - Make the Java SDK compatible with servlet v2.5 and HttpClient pre-v4.3
