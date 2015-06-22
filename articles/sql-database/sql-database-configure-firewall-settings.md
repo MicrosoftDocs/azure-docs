@@ -3,7 +3,7 @@
 	description="configure the firewall for Azure SQL databases"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="BYHAM"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
 	ms.date="06/22/2015"
-	ms.author="sidneyh"/>
+	ms.author="rickbyh"/>
 
 
 # How to: Configure Firewall Settings (Azure SQL Database)
