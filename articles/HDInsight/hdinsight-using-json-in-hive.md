@@ -19,9 +19,7 @@
 
 # Process and analyze JSON documents using Hive in HDInsight
 
-Learn how to process and analyze JSON files using Hive in HDInsight. 
-
-In this tutorial, you will use the following JSON documents.
+Learn how to process and analyze JSON files using Hive in HDInsight. The following JSON document will be used in the tutorial
 
 	{
 	    "StudentId": "trgfg-5454-fdfdg-4346",
@@ -58,14 +56,13 @@ In this tutorial, you will use the following JSON documents.
 	    ]
 	}
 
-A copy of the file can be found at https://processjson@hditutorialdata.blob.core.windows.net/. For more information on using Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster if you want.
+The file can be found at wasb://processjson@hditutorialdata.blob.core.windows.net/. For more information on using Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster if you want.
 
 In this tutorial, you will use the Hive console.  For instructions of opening the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md).
 
 ##Flatten JSON documents
 
-All options listed in the next section require the JSON document in a single row. So you must flatten the JSON document to a string. If your JSON document is already flattened and the entire document is in one line then you can skip this step and go straight to the next section on Analyzing JSON data.
-
+The methods listed in the next section require the JSON document in a single row. So you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on Analyzing JSON data.
 
 	DROP TABLE IF EXISTS StudentsRaw;
 	CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
@@ -84,9 +81,9 @@ All options listed in the next section require the JSON document in a single row
 	
 	SELECT * FROM StudentsOneLine
 
-The raw JSON file is located at wasb://processjson@hditutorialdata.blob.core.windows.net/. The StudentsRaw Hive table points to the raw un-flattened JSON document.
+The raw JSON file is located at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. The *StudentsRaw* Hive table points to the raw un-flattened JSON document.
 
-The StudentsOneLine Hive table will store the data in the HDInsight default file system under the */json/students/* path.
+The *StudentsOneLine* Hive table will store the data in the HDInsight default file system under the */json/students/* path.
 
 The INSERT statement populate the StudentOneLine table with the flattened JSON data.
 
