@@ -151,7 +151,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
 1. Install [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight
 
-	>[AZURE.WARNING] JDK 1.8 doesn't work with this SerDe). 
+	>[AZURE.WARNING] JDK 1.8 doesn't work with this SerDe. 
 
 	After the installation is completed, add a new user environment variable:
 
@@ -246,11 +246,12 @@ If you want to skil malformed JSON, then as explained in the [wiki page](https:/
 ##Summary
 In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you only have one field to look up on – you can choose to use the Hive UDF get\_json\_object. If you have more than one keys to look up on then you can use json_tuple. If you have a nested document, then you should use the JSON SerDe.
 
-Microsoft is working towards making it even easier for you to use more formats in Hive.
+For other related articles, see
 
-## See also
-
-[Run a Hadoop job using DocumentDB and HDInsight](documentdb-run-hadoop-with-hdinsight.md)
+- [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md)
+- [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
+- [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
+- [Run a Hadoop job using DocumentDB and HDInsight](documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: hdinsight-python.md
 
