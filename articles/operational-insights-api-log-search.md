@@ -71,7 +71,7 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
 
   A successful Get call would output all workspaces tied to the subscription. For example:
 
-    ```
+    
     {
     "value": [
     {
@@ -86,7 +86,7 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
       "location": "East US"
        ]
     }
-    ```
+
 3. Create your search variable. For example:
 
     ```
@@ -106,7 +106,7 @@ The following examples show you how you can use the Search API.
 **Sample Url:**
 
 ```
-	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
+	armclient get /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
 ```
 
 **Request:**
@@ -123,6 +123,7 @@ The following examples show you how you can use the Search API.
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
+
 	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
 ```
 The following table describes the properties that are available.
@@ -237,6 +238,7 @@ The following table describes the properties that are available.
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
+
 	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
 ```
 
@@ -317,6 +319,7 @@ You may specify the start and end markers that will be used by search to wrap th
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
+
 	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
 ```
 
