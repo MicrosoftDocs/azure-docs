@@ -94,7 +94,7 @@ If it shows the version of the npm installed, you can go ahead and install Azure
 
 	npm install -g azure-cli
 
-Once the Azure CLI has been installed, you will be able to use the **azure** command from your command-line user interface (Bash, Terminal, cmd.exe, and so on) to access the Azure CLI commands. At the end of the installation, you should see something similar to the following:
+Once the Azure CLI has been installed, you will be able to use the **azure** command from your command-line user interface to access the Azure CLI commands. At the end of the installation, you should see something similar to the following:
 
 	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
@@ -116,14 +116,22 @@ Once the Azure CLI has been installed, you will be able to use the **azure** com
 
 >[AZURE.NOTE] For Linux systems, you can also install the Azure CLI by building it from the [source](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409). For more information on building from source, see the INSTALL file included in the archive.
 
-Now you are ready! Next you can [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md) and start using the **azure** commands.
-
 ## Using Docker Container
 
 In a Docker host, run:
 ```
 	docker run -it microsoft/azure-cli
 ```
+
+## Executing Azure CLI Commands
+
+Once the Azure CLI has been installed, you will be able to use the **azure** command from your command-line user interface (Bash, Terminal, cmd.exe, and so on) to access the Azure CLI commands.  For example to execute the help command in Windows launch a Command Prompt (cmd.exe) with Administrator privileges:
+```
+	c:\> azure help
+```
+
+Now you are ready! Next you can [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md) and start using the **azure** commands.
+
 
 <a id="additional-resources"></a>
 ## Additional resources
