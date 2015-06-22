@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="06/22/2015" 
 	ms.author="billmath"/>
 
 # Enabling your directory for hybrid management with Azure AD Connect
