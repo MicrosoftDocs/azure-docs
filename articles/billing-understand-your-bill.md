@@ -110,7 +110,7 @@ The account email address that the Microsoft Azure account is registered under.
 ## Understand the Invoice Summary
 The Invoice Summary section of the bill summarizes transactions since your last bill and your current usage charges.
 
-![invoice summary](./media/billing-understand-your-bill/invoicesummary.png)
+![invoice summary](./media/billing-understand-your-bill/InvoiceSummary.png)
 
 The Balances, Payments & Other Credits section of the bill summarizes transactions since your last bill.
 
