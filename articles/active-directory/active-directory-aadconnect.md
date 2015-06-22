@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use your on-premises identity infrastructure in the cloud." 
+	pageTitle="Enabling your directory for hybrid management with Azure AD Connect." 
 	description="This is the Azure AD Connect that describes what it is and why you would use it." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="06/22/2015" 
 	ms.author="billmath"/>
 
-# Use your on-premises identity infrastructure in the cloud
+# Enabling your directory for hybrid management with Azure AD Connect
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../active-directory-aadconnect/" title="What is It" class="current">What is It</a>
