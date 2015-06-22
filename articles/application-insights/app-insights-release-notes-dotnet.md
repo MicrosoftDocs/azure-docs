@@ -25,9 +25,12 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 
 #### To upgrade to the latest SDK 
 
+* After you upgrade, you'll need to merge back any customizations you made to ApplicationInsights.config. If you're unsure whether you customized it, create a new project, add Application Insights to it, and compare your .config file with the one in the new project. Make a note of any differences.
 * In Solution Explorer, right-click your project and choose **Manage NuGet packages**.
 * Set the filter to show installed packages. 
-* Select the installed Application Insights packages and choose Upgrade.
+* Select **Microsoft.ApplicationInsights.Web** and choose **Upgrade**. (This will also upgrade all the dependent packages.)
+* Compare ApplicationInsights.config with the old copy. Most of the changes you'll see are because we removed some modules and made others parameterizable. Reinstate any customizations you made to the old file.
+* Rebuild your solution.
 
 ## Version 0.17
 - Removed dependency to EventSource NuGet for the framework 4.5 applications.

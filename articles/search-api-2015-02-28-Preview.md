@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="05/21/2015"
+   ms.date="05/25/2015"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
@@ -326,16 +326,16 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>   
-  <tr>
-    <td>Armenian</td>
-    <td>hy.lucene</td>
-    <td>
-    <ul>
-      <li>Applies light algorithmic stemming</li>
-      <li>Filters out Armenian stop words</li>
-    </ul>
-    </td>
-  </tr>
+    <tr>
+    	<td>Armenian</td>
+    	<td>hy.lucene</td>	
+    	<td>
+    	<ul>
+      		<li>Applies light algorithmic stemming</li>
+    		<li>Filters out Armenian stop words</li>
+	    </ul>
+    	</td>
+  	</tr>
     <tr>
 		<td>Bangla</td>
 		<td>bg.microsoft</td>
@@ -345,26 +345,26 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
-  <tr>
-    <td>Basque</td>
-    <td>eu.lucene</td>
-    <td>
-    <ul>
-      <li>Applies light algorithmic stemming</li>
-      <li>Filters out Basque stop words</li>
-    </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Bulgarian</td>
-    <td>bn.lucene</td>
-    <td>
-    <ul>
-      <li>Applies light algorithmic stemming</li>
-      <li>Filters out Bulgarian stop words</li>
-    </ul>
-    </td>
-  </tr>
+  	<tr>
+    	<td>Basque</td>
+    	<td>eu.lucene</td>
+    	<td>
+    	<ul>
+      		<li>Applies light algorithmic stemming</li>
+    		<li>Filters out Basque stop words</li>
+	    </ul>
+    	</td>
+    </tr>
+  	<tr>
+ 	   <td>Bulgarian</td>
+    	<td>bg.lucene</td>
+    	<td>
+    	<ul>
+      		<li>Applies light algorithmic stemming</li>
+    		<li>Filters out Bulgarian stop words</li>
+	    </ul>
+    	</td>
+  	</tr>
     <tr>
 		<td>Bulgarian</td>
 		<td>bn.microsoft</td>
@@ -374,17 +374,17 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
-  <tr>
-    <td>Catalan</td>
-    <td>ca.lucene</td>
-    <td>
-    <ul>
-      <li>Applies light algorithmic stemming</li>
-      <li>Filters out Catalan stop words</li>      
-      <li>Removes ellisions</li>
-    </ul>
-    </td>
-  </tr>
+  	<tr>
+    	<td>Catalan</td>
+    	<td>ca.lucene</td>
+    	<td>
+    	<ul>
+      		<li>Applies light algorithmic stemming</li>
+      		<li>Filters out Catalan stop words</li>      
+      		<li>Removes ellisions</li>
+   		</ul>
+    	</td>
+  	</tr>
     <tr>
 		<td>Catalan</td>
 		<td>ca.microsoft</td>
@@ -580,16 +580,16 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
-  <tr>
-    <td>Galician</td>
-    <td>gl.lucene</td>
-    <td>
-    <ul>
-      <li>Applies light stemming</li>
-      <li>Filters out Galician stop words</li>      
-    </ul>
-    </td>
-  </tr>
+    <tr>
+    	<td>Galician</td>
+	    <td>gl.lucene</td>
+    	<td>
+    	<ul>
+    		<li>Applies light stemming</li>
+      		<li>Filters out Galician stop words</li>      
+    	</ul>
+    	</td>
+  	</tr>
     <tr>
 		<td>German</td>
 		<td>de.lucene</td>
@@ -722,15 +722,15 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
-      <tr>
-      <td>Irish</td>
-      <td>ga.lucene</td>
-      <td>
-      <ul>
-        <li>Applies light stemming</li>
-        <li>Filters out Irish stop words</li>
-      </ul>
-      </td>
+    <tr>
+    	<td>Irish</td>
+      	<td>ga.lucene</td>
+      	<td>
+      	<ul>
+        	<li>Applies light stemming</li>
+        	<li>Filters out Irish stop words</li>
+      	</ul>
+      	</td>
     </tr>
     <tr>
 		<td>Italian</td>
@@ -792,6 +792,15 @@ Below is the list of supported analyzers together with a short description of th
 		<ul>
 			<li>Indexes bigrams (overlapping groups of two adjacent Hangul characters)</li>
 			<li>Normalizes character width differences</li>
+		</ul>
+		</td>
+	</tr>
+  	<tr>
+		<td>Korean</td>
+		<td>ko.microsfot</td>
+		<td>
+		<ul>
+			<li>Reductive stemmer (lemmatization)</li>
 		</ul>
 		</td>
 	</tr>
@@ -872,17 +881,17 @@ Below is the list of supported analyzers together with a short description of th
 		</ul>
 		</td>
 	</tr>
-  <tr>
-    <td>Persian</td>
-    <td>fa.lucene</td>
-    <td>
-    <ul>
-      <li>Applies algorithmic stemming</li>
-      <li>Filters out Persian stop words</li>
-      <li>Implements Arabic and Persian orthographic normalization</li>
-    </ul>
-    </td>
-  </tr>
+  	<tr>
+    	<td>Persian</td>
+		<td>fa.lucene</td>
+    	<td>
+    	<ul>
+      		<li>Applies algorithmic stemming</li>
+      		<li>Filters out Persian stop words</li>
+      		<li>Implements Arabic and Persian orthographic normalization</li>
+    	</ul>
+    	</td>
+  	</tr>
     <tr>
 		<td>Polish</td>
 		<td>pl.lucene</td>
@@ -1778,6 +1787,10 @@ Also, URL encoding is only necessary when calling the REST API directly. Using t
 
 `scoringParameter=[string]` (zero or more) - Indicates the value for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format name:value. For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be &scoringParameter=mylocation:-122.2,44.8
 
+`minimumCoverage` (optional, defaults to 100) - a number between 0 and 100 indicating the percentage of the index that must be covered by a search query in order for the query to be reported as a success. By default, the entire index must be available or `Search` will return HTTP status code 503. If you set `minimumCoverage` and `Search` succeeds, it will return HTTP 200 and include a `@search.coverage` value in the response indicating the percentage of the index that was included in the query.
+
+> [AZURE.NOTE] Setting this parameter to a value lower than 100 can be useful for ensuring search availability even for services with only one replica. However, not all matching documents are guaranteed to be present in the search results. If search recall is more important to your application than availability, then it's best to leave `minimumCoverage` at its default value of 100.
+
 `api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 Note: For this operation, the `api-version` is specified as a query parameter.
@@ -1801,6 +1814,7 @@ Status Code: 200 OK is returned for a successful response.
 
     {
       "@odata.count": # (if $count=true was provided in the query),
+      "@search.coverage": # (if minimumCoverage was provided in the query),
       "@search.facets": { (if faceting was specified in the query)
         "facet_field": [
           {
@@ -2037,6 +2051,10 @@ Also, URL encoding is only necessary when calling the REST API directly. Using t
 
 `$select=[string]` (optional) - a list of comma-separated fields to retrieve. If unspecified, only the document key and suggestion text is returned.
 
+`minimumCoverage` (optional, defaults to 80) - a number between 0 and 100 indicating the percentage of the index that must be covered by a suggestions query in order for the query to be reported as a success. By default, at least 80% of the index must be available or `Suggest` will return HTTP status code 503. If you set `minimumCoverage` and `Suggest` succeeds, it will return HTTP 200 and include a `@search.coverage` value in the response indicating the percentage of the index that was included in the query.
+
+> [AZURE.NOTE] Setting this parameter to a value lower than 100 can be useful for ensuring search availability even for services with only one replica. However, not all matching suggestions are guaranteed to be present in the results. If recall is more important to your application than availability, then it's best not to lower `minimumCoverage` below its default value of 80.
+
 `api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 Note: For this operation, the `api-version` is specified as a query parameter.
@@ -2058,6 +2076,7 @@ None.
 Status Code: 200 OK is returned for a successful response.
 
     {
+      "@search.coverage": # (if minimumCoverage was provided in the query),
       "value": [
         {
           "@search.text": "...",
@@ -2070,6 +2089,7 @@ Status Code: 200 OK is returned for a successful response.
 If the projection option is used to retrieve fields they are included in each element of the array:
 
     {
+      "@search.coverage": # (if minimumCoverage was provided in the query),
       "value": [
         {
           "@search.text": "...",

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="06/19/2015" 
 	ms.author="heidist"/>
 
 #Transition from preview api-version=2014* to api-version=2015*#
@@ -25,9 +25,9 @@ As a preview customer, you might have used either one of these older preview ver
 - [2014-07-31-Preview](search-api-2014-07-31-preview.md)
 - [2014-10-20-Preview](search-api-2014-10-20-preview.md)
 
-Now that Azure Search is generally available, we encourage transitioning to newer releases: 2015-02-28 is the official API version of the generally available release of Azure Search. This version is documented on [MSDN](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx ).
+Now that Azure Search is generally available, we encourage transitioning to newer releases: 2015-02-28 is the official API version of the generally available release of Azure Search. This version is documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx ).
 
-We’re also rolling out the next preview version, [2015-02-28-Preview](search-api-2015-02-28-preview.md), introducing features that are still in development. We ask for your feedback on either the [Azure Search forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch ) or on our [feedback page](http://feedback.azure.com/forums/263029-azure-search ).
+We’re also rolling out the next preview version, [2015-02-28-Preview](search-api-2015-02-28-preview.md), introducing features that are still in development. You can provide feedback on the preview API through either the [Azure Search forums](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch ) or our [feedback page](http://feedback.azure.com/forums/263029-azure-search ).
 
 ###Checklist for migration###
 
@@ -41,9 +41,9 @@ We’re also rolling out the next preview version, [2015-02-28-Preview](search-a
 
 The initial release of the API included an auto-complete or type-ahead suggestions feature. Although useful, it was limited just prefix matching, searching on the first characters in the search term, with no support for matching elsewhere in the field. The implementation was a Boolean property called `suggestions` that you would set to `true` if you wanted to enable prefix matching on a particular field.
 
-This original implementation is now deprecated in favor of a new `Suggesters` construct defined in the [index](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx) feature that provides infix and fuzzy matching. As the names imply, infix and fuzzy matching provide a far broader range of matching capability. Infix matching encompasses prefix, in that it still matches on the beginning characters, but extends matching to include the rest of the string. 
+This original implementation is now deprecated in favor of a new `Suggesters` construct defined in the [index](https://msdn.microsoft.com/library/azure/dn798941.aspx) feature that provides infix and fuzzy matching. As the names imply, infix and fuzzy matching provide a far broader range of matching capability. Infix matching encompasses prefix, in that it still matches on the beginning characters, but extends matching to include the rest of the string. 
 
-We chose to discontinue the previous implementation (the Boolean property) meaning it is wholly unavailable in either of the 2015 versions with no backward compatibility, to avoid its inadvertent adoption by customers building newer solutions. If you use either `2015-02-28` or `2015-02-28-Preview` you will need to use the new `Suggesters` construct to enable type-ahead queries.
+We chose to discontinue the previous implementation (the Boolean property), meaning it is wholly unavailable in either of the 2015 versions with no backward compatibility, to avoid its inadvertent adoption by customers building newer solutions. If you use either `2015-02-28` or `2015-02-28-Preview` you will need to use the new `Suggesters` construct to enable type-ahead queries.
 
 ##Port existing code##
 
@@ -135,10 +135,10 @@ A migrated schema definition omits the `Suggestions` property and adds a `Sugges
 After you’ve ported your solution and verified it runs as expected, you can use these links to read about new features.
 
 - [Azure Search is generally available (blog post)](http://go.microsoft.com/fwlink/p/?LinkId=528211 )
-- [What’s new in the latest update to Azure Search](../search-latest-updates/ )
-- [Azure Search Overview]( https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx)
+- [What’s new in the latest update to Azure Search](search-latest-updates.md)
+- [Azure Search Overview]( https://msdn.microsoft.com/library/azure/dn798933.aspx)
 
 ##Get help##
 
-API version `2015-02-28` is under SLA. Use the support options and links on [this page]( http://azure.microsoft.com/en-us/support/options/) to file a support ticket.
+API version `2015-02-28` is under SLA. Use the support options and links on [this page](../support/options/) to file a support ticket.
 

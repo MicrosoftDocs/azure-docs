@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
@@ -38,7 +38,7 @@ You can monitor the following metrics to help determine if you need to scale.
 If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Scale a cache
-To scale your cache, [browse to the cache](https://msdn.microsoft.com/library/azure/dn793612.aspx#CacheSettings) in the [Azure portal](https://portal.azure.com) and click the **Standard tier** or **Basic tier** part in the **Redis Cache** blade.
+To scale your cache, [browse to the cache](https://msdn.microsoft.com/library/azure/dn793612.aspx#RedisCacheConfiguration) in the [Azure portal](https://portal.azure.com) and click the **Standard tier** or **Basic tier** part in the **Redis Cache** blade.
 
 ![Pricing tier][redis-cache-pricing-tier-part]
 
@@ -55,6 +55,30 @@ While the cache is scaling to the new pricing tier, a **Scaling** status is disp
 When scaling is complete, the status changes from **Scaling** to **Running**.
 
 >[AZURE.IMPORTANT] During scaling operations, Basic caches are offline and all data in the cache is lost. Once the scaling operation completes, the Basic cache will be back online, with no data. Standard caches remain online during a scaling operation, and no data is typically lost when scaling a Standard cache to a larger size. When scaling a Standard cache to a smaller size, some data may be lost if the new size is smaller than the amount of cached data. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss.
+
+## How to automate a scaling operation
+
+In addition to scaling your Azure Redis Cache instance in the Azure portal you can scale using the [Microsoft Azure Management Libraries (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). To scale your cache, call the `IRedisOperations.CreateOrUpdate` method and pass in the new size for the `RedisProperties.SKU.Capacity`.
+
+    static void Main(string[] args)
+    {
+        // For instructions on getting the access token, see
+        // https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx#bk_portal
+        string token = GetAuthorizationHeader();
+
+        TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
+
+        RedisManagementClient client = new RedisManagementClient(creds);
+        var redisProperties = new RedisProperties();
+
+        // To scale, set a new size for the redisSKUCapacity parameter.
+        redisProperties.Sku = new Sku(redisSKUName,redisSKUFamily,redisSKUCapacity);
+        redisProperties.RedisVersion = redisVersion;
+        var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
+        client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
+    }
+
+For more information, see the [Manage Redis Cache using MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) sample.
 
 ## Scaling FAQ
 
