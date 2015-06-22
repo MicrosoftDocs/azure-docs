@@ -302,4 +302,4 @@ The following are errors or problems commonly encountered when using Git to publ
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Continuous delivery to Azure using Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
+[Continuous delivery to Azure using Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md

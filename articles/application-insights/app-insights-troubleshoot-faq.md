@@ -21,6 +21,21 @@
 
 [See Platforms][platforms]
 
+## Is it free?
+
+* Yes, if you choose the free [pricing tier](app-insights-pricing.md). You get most features and a generous quota of data. 
+* You have to provide your credit card data to register with Microsoft Azure, but no charges will be made unless you use another paid-for Azure service, or you explicitly upgrade to a paying tier.
+* If your app sends more data than the monthly quota for the free tier, it stops being logged. If that happens, you can either choose to start paying, or wait until the quota is reset at the end of the month.
+* Basic usage and session data is not subject to a quota.
+* There is also a free 30-day trial, during which you get the Premium features free of charge.
+* Each application resource has a separate quota, and you set its pricing tier independently of any others.
+
+#### What do I get if I pay?
+
+* A larger [monthly quota of data](http://azure.microsoft.com/pricing/details/application-insights/).
+* Option to pay 'overage' to continue collecting data over the monthly quota. If your data goes over quota, you're charged per Mb.
+* [Continuous export](app-insights-export-telemetry.md).
+
 ## Adding the SDK
 
 #### <a name="q01"></a>I don't see any option to Add Application Insights to my project in Visual Studio
@@ -104,6 +119,11 @@ To do this:
 	  ```
 4. Save the file.
 5. Right-click on the project and choose Reload *yourProject.csproj*
+
+## How do I upgrade from older SDK versions?
+
+See the [release notes](app-insights-release-notes.md) for the SDK appropriate to your type of application. 
+
 
 ## No data
 
@@ -201,6 +221,9 @@ See [Data Retention and Privacy][data].
 
 If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
+## Automation
+
+You can [write a PowerShell script](app-insights-powershell-script-create-resource.md) to create an Application Insights resource.
 
 
 <!--Link references-->

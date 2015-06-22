@@ -18,14 +18,7 @@
 
 # Use mobile phone as your contact method with Azure Multi-Factor Authentication
 
-[What does multi-factor-authentication mean to me?](multi-factor-authenticatio-end-user.md)<br> 
-[Signing in for the first time](multi-factor-authentication-end-user-first-time.md)<br>
-[Sign in experience](multi-factor-authentication-end-user-signin.md)<br>
-[Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)<br>
-[Managing your settings](multi-factor-authentication-end-user-manage-settings.md)
-
-
-The following will walk you through setting up multi-factor authentication to use your mobile phone for either a call or text as your contact method.
+If you want to use your mobile phone as your primary contact method you can use this article.  It will walk you through setting up multi-factor authentication to use your mobile phone for either a call or text as your contact method.
 
 ## To use your mobile phone as your contact method
 <ol>

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -20,6 +20,8 @@
 Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
 Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
+
+(If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade.)
 
 ## <a name="setup"></a> Set up Continuous Export
 
@@ -138,7 +140,7 @@ The continuous export will restart.
 
 * *But all I want is a one-time download of a chart.*  
  
-    We're working on that one separately. 
+    Yes, you can do that. At the top of the blade, click [Export Data](app-insights-metrics-explorer.md#export-to-excel).
 
 * *I set up an export, but there's no data in my store.*
 
@@ -152,7 +154,7 @@ The continuous export will restart.
 
 * *Can I export straight to my own on-premises store?* 
 
-    No, sorry. Our export engine needs to rely on a big open throat to push the data into.  
+    No, sorry. Our export engine currently only works with Azure storage at this time.  
 
 * *Is there any limit to the amount of data you put in my store?* 
 

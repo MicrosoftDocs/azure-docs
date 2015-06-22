@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
 # Upgrade from the old Visual Studio Online version of Application Insights
@@ -33,10 +33,19 @@ Or look at your project in Visual Studio Solution Explorer, and under References
 2. Delete ApplicationInsights.config 
 3. Remove the Application Insights NuGet packages from the project. 
 To do this, right-click the project in Solution Explorer and choose Manage NuGet Packages.
+
+    ![](./media/app-insights-upgrade-vso-azure/nuget.png)
+4. Delete the folder AppInsightsAgent and the files it contains.
+
+    ![](./media/app-insights-upgrade-vso-azure/folder.png)
+
+5. Remove all Microsoft.AppInsights settings names and values from ServiceDefinition.csdef and ServiceConfiguration.csfg
+
+    ![](./media/app-insights-upgrade-vso-azure/csdef.png)
 4. SDK: Right-click the project and [choose Add Application Insights][greenbrown]. This adds the SDK to your project, and also creates a new Application Insights resource in Azure.
 5. Logging: If your code includes calls to the old API such as LogEvent(), you'll discover them when you try to build the solution. Update them to [use the new API][track].
 6. Web pages: If your project includes web pages, replace the scripts in the <head> sections. Typically there's just one copy in a master page such as Views\Shared\_Layout.cshtml. [Get the new script from the Quick Start blade in your Application Insights resource in Azure][usage]. 
-If your web pages include telemetry calls in the body such as logEvent or logPage, [update them to use the new API][track].
+If your web pages include telemetry calls in the body such as logEvent or logPage, [update them to use the new API][api].
 7. Server monitor: If your app is a service running on IIS, uninstall Microsoft Monitoring Agent from the server, and then [install Application Insights Status Monitor][redfield].
 8. Web tests: If you were using web availability tests, [recreate them on the new portal][availability], with their alerts.
 9. Alerts: Set up [alerts on metrics][alerts] in the Azure portal.
@@ -57,6 +66,7 @@ If your web pages include telemetry calls in the body such as logEvent or logPag
 <!--Link references-->
 
 [alerts]: app-insights-alerts.md
+[api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md

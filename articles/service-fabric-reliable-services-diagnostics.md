@@ -29,7 +29,7 @@ Service Fabric also offers the option of directing these events to [Application 
 the article on [Application Insights setup for Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
 
 Other examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), 
-[Microsoft Azure Diagnostics](cloud-services-dotnet-diagnostics.md) and the 
+[Microsoft Azure Diagnostics](cloud-services/cloud-services-dotnet-diagnostics.md) and the 
 [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
