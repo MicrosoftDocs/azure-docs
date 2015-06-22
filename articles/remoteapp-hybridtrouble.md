@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Troubleshoot hybrid collections - creation"
+    pageTitle="Troubleshoot creating RemoteApp hybrid collections"
     description="Learn how to troubleshoot RemoteApp hybrid collection creation failures" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
@@ -9,16 +9,16 @@
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
+    ms.date="05/28/2015" 
     ms.author="vikbucha" />
 
 
 
-# Troubleshoot hybrid collections - creation
+# Troubleshoot creating RemoteApp hybrid collections
 
 Before you can troubleshoot failures during hybrid collection creation, it helps to understand how hybrid collections are created. A hybrid collection requires that RemoteApp instances are domain joined – you do this during collection creation.  When the collection creation process starts, copies of the template images you uploaded are created in the VNET and are domain joined through the Site-to-Site VPN tunnel to the domain that is resolved by the DNS IP record specified during VNET creation.
 

@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="05/13/2015"
 	ms.author="krisragh"/>
 

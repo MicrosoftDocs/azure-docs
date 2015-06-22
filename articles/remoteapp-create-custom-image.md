@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create a custom template image for RemoteApp"
+	pageTitle="How to create a custom template image for Azure RemoteApp"
 	description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment."
 	services="remoteapp"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/27/2015" 
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# How to create a custom template image for RemoteApp
+# How to create a custom template image for Azure RemoteApp
 Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. The requirements for the image that can be uploaded for use with Azure RemoteApp are:
 
 
@@ -33,6 +33,7 @@ Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the pro
 - The image must be SYSPREPed using the parameters **/oobe /generalize /shutdown** (DO NOT use the **/mode:vm** parameter).
 - Uploading your VHD from a snapshot chain is not supported.
 
+> [AZURE.TIP] Did you know you can now create an image from an Azure VM? True story, and it cuts down on the amount of time it takes to import the image. Check out the steps [here](remoteapp-image-on-azurevm.md).
 
 **Before you begin**
 

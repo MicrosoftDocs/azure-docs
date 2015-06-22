@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="03/17/2015"
 	ms.author="sethm"/>
 
@@ -185,26 +185,6 @@ Note that you can also manage namespaces and Service Bus messaging entities usin
     ![][35]
 
 10.  Make a note of these credentials, or copy them to the clipboard.
-
-## Manage namespaces and messaging entities using the Visual Studio Server Explorer
-
-To manage a namespace and obtain connection information using Visual Studio instead of the Azure management portal, follow the procedure described [here](http://msdn.microsoft.com/library/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane.
-
-Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
-
-![][34]
-
-**Note** You can also use **Server Explorer** to manage a Service Bus namespace in another subscription using the following procedure:
-
-1. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Service Bus** node appears under **Azure** within the Server Explorer hierarchy, as in the following figure.
-
-	![][21]
-
-2. In Server Explorer, expand **Microsoft Azure**, then right-click **Service Bus**, and then click **Add New Connection**.
-
-3. In the **Add Connection** dialog, type the name of the service namespace, the issuer name, and the issuer key, or paste in the connection string for the namespace. The permissions associated with the issuer key determine the operations you can perform in this namespace. Then click **OK** to connect.
-
-	![][22]
 
 ## Create a web role
 
@@ -674,8 +654,6 @@ To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.
 
   [19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
   [20]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
-  [21]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorer.png
-  [22]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerAddConnect.png
   [23]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
   [24]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
   [25]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
@@ -686,7 +664,6 @@ To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.
   [31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
-  [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
   [35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  

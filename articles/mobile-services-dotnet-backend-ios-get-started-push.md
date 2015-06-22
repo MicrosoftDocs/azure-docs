@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/22/2015"
+	ms.date="05/28/2015"
 	ms.author="krisragh"/>
 
 
@@ -29,16 +29,9 @@ This topic shows you how to add push notifications to the [quickstart project](m
 
 [AZURE.INCLUDE [Configure Push Notifications in Azure Mobile Services](../includes/mobile-services-apns-configure-push.md)]
 
-##<a id="update-server"></a>Update Server to Send Push Notifications
+##<a id="update-server"></a>Update Backend Code to Send Push Notifications
 
-* In Visual Studio, expand the **Controllers** folder and open TodoItemController.cs. Add the following `using` statements if they're not there already:
-
-```
-		using System;
-		using System.Collections.Generic;
-```
-
-* Update the method `PostTodoItem` as follows. When a todo item is inserted, this code sends out a push notification with the item text. If there's an error, the code adds an error log entry that is viewable via the logs section of the portal.
+* Open Visual Studio project > **Controllers** folder > **TodoItemController.cs** > method `PostTodoItem`. Replace the method with the following. When a todo item is inserted, this code sends out a push notification with the item text. If there's an error, the code adds an error log entry that is viewable via the logs section of the portal.
 
 
 ```
@@ -46,7 +39,7 @@ This topic shows you how to add push notifications to the [quickstart project](m
         {
             TodoItem current = await InsertAsync(item);
 
-            ApplePushMessage message = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
+            ApplePushMessage message = new ApplePushMessage(item.Text, System.TimeSpan.FromHours(1));
 
             try
             {

@@ -54,9 +54,9 @@ The following diagram shows the flow of information from your company and how it
 For your organization to send data to the Operational Insights service, you must either configure Microsoft Monitoring agents when connecting directly to the web service or use a configuration wizard in the Operations console in Operations Manager. Users (which might be you, other individual users, or a group of people) must create one or more Operational Insights accounts and register either each directly-connected agent or their Operations Manager environment by using one of the following accounts:
 
 
-- [Organizational ID](sign-up-organization.md)
+- [Organizational ID](active-directory/sign-up-organization.md)
 
-- [Microsoft Account - Outlook, Office Live, MSN](sign-up-organization.md)
+- [Microsoft Account - Outlook, Office Live, MSN](active-directory/sign-up-organization.md)
 
 An Operational Insights account is where data is collected, aggregated, analyzed, and presented. An Operational Insights account is primarily used as a means to partition data, and each Operational Insights account is unique. For example, you might want to have your production data managed with one Operational Insights account and your test data managed with another account. Accounts also help an administrator control user access to the data. Each Operational Insights account can have multiple user accounts associated with it, and each user account can have multiple Operational Insights accounts.
 

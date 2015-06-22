@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2015" 
+	ms.date="06/08/2015" 
 	ms.author="juliako"/>
 
 
@@ -164,7 +164,7 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 [Content Protection Overview](media-services-content-protection-overview.md)
 
-If you want to encrypt an asset associate with a program with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
+If you want to encrypt an asset with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or PlayReady DRM, you need to create a content key.
 
 Use **.NET** or **REST API** to create keys.
 
@@ -175,28 +175,31 @@ Once you create the content key, you can configure key authorization policy usin
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
 
+Configure asset delivery policy using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
+
+
 ####Integrating with partners
 
 [Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
 
 ###Publishing and delivering assets
 
-**Overview**: 
+Dynamic Packaging Overview 
 
-- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
+> [AZURE.SELECTOR]
+- [Overview](media-services-dynamic-packaging-overview.md)
 
-Configure asset delivery policy using **.NET** or **REST API**.
 
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
-
-Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
-
-Deliver Content 
+Deliver content overview 
 
 > [AZURE.SELECTOR]
 - [Overview](media-services-deliver-content-overview.md)
+
+Publish assets (by creating Locators) using **Azure Management Portal**, **.NET**, or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
 ###Enabling Azure CDN
 

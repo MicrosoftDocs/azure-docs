@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Upload a custom image"
-    description="Learn how to upload a custom image for RemoteApp" 
+    pageTitle="Upload a custom image for Azure RemoteApp"
+    description="Learn how to upload a custom image for Azure RemoteApp" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
     authors="ericorman" 
@@ -13,19 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
+    ms.date="05/28/2015" 
     ms.author="ericor" />
 
 
 
-# Upload a custom image
+# Upload a custom image for Azure RemoteApp
 
 Now that you have created your custom template image or have updated it with changes, you need to upload that image to your Azure RemoteApp image library. Use these steps. 
 
 
 ## Before you start
 
-1.      Verify your custom image meets the [image requirements](..\remoteapp-imagereqs) and [application requirements](..\remoteapp-appreqs).
+1.      Verify your custom image meets the [image requirements](remoteapp-imagereqs.md) and [application requirements](remoteapp-appreqs.md).
 2.      Install the [Azure PowerShell module](install-configure-powershell.md).
 
 ## Step by step on how to upload custom image
@@ -43,7 +43,7 @@ Now that you have created your custom template image or have updated it with cha
 
 11.    If your upload does not succeed because of network interruption or things like that, you can always resume the upload process you began. To resume an upload, run the script again using the same command line.
 
-**Warning:**  Never modify the upload script. Specific checks have been implemented to ensure that the image meets the image requirements and application requirements. 
+> [AZURE.WARNING] Never modify the upload script. Specific checks have been implemented to ensure that the image meets the image requirements and application requirements. 
 
 ## Common problems
 

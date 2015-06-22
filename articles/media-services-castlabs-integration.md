@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/03/2015" 
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ The following diagram demonstrates a high-level Azure Media Services and castLab
 - Media content is stored in AMS.
 - Key IDs of content keys are stored in both castLabs and AMS.
 - castLabs and AMS both have token authentication built in. The following sections discuss authentication tokens. 
-- When a client requests to stream the video, the content is dynamically encrypted with **Common Encryption** (CENC) and dynamically packaged by AMS to any (or all) of the specified protocols: Smooth streaming, HLS or DASH. 
+- When a client requests to stream the video, the content is dynamically encrypted with **Common Encryption** (CENC) and dynamically packaged by AMS to Smooth Streaming and DASH. We also deliver PlayReady M2TS elementary stream encryption for HLS streaming protocol.
 - PlayReady license is retrieved from AMS license server and Widevine license is retrieved from castLabs license server. 
 - Media Player automatically decides which license to fetch based on the client platform capability. 
 
@@ -95,7 +95,7 @@ To use the Web Application (STS):
 
 ##Playing back a video
 
-To playback a video encrypted with common encryption (PlayReady and Widevine), you can use the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). When running the console app, the Content Key ID and the Manifest URL are echoed.
+To playback a video encrypted with common encryption (PlayReady), you can use the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). When running the console app, the Content Key ID and the Manifest URL are echoed.
 
 1.	Open a new tab and launch your STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Go to [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
@@ -106,7 +106,7 @@ To playback a video encrypted with common encryption (PlayReady and Widevine), y
 7.	Update the player.
 8.	The video should be playing.
 
-For playing back the protected video in HTML5 with Chrome with the castLabs player, please contact castLabs to get access to the player. When you have access, there are 2 things to be aware of:
+For playing back the protected video in HTML5 with Chrome with the castLabs player, please contact yanmf@microsoft.com to get access to the player. When you have access, there are 2 things to be aware of:
 
 1.	The castLabs player needs access to the MPEG-DASH manifest file, so append (format=mpd-time-csf) to your manifest file to get the MPEG-DASH manifest file, instead of the default Smooth Streaming one.
 

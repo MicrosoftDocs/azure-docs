@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2015" 
+	ms.date="06/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -54,7 +54,7 @@ Azure Media Services uses Azure Storage to store media content. When you create 
 
 In this example, an existing storage account is used. The [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) cmdlet gets storage accounts in the current subscription. Get the name (StorageAccountName) of the storage account you want to associate your Media Account with.
 
-	StorageAccountDescription :
+	StorageAccountDescription : 
 	AffinityGroup             :
 	Location                  : East US
 	GeoReplicationEnabled     : True

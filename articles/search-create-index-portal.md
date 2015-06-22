@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Create an Azure Search index in the portal" 
-	description="Add an index to Azure Search service by filling in field definitions in the management portal" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Create an Azure Search index in the portal"
+	description="Add an index to Azure Search service by filling in field definitions in the management portal"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""
     tags="azure-portal"/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="04/27/2015"
 	ms.author="heidist"/>
 
 # Create an Azure Search index in the portal
@@ -27,10 +27,10 @@ To complete this task, make sure you have an Azure Search service that's ready t
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
 	- In the Jumpbar, click **Home**. The home page has tiles for every service in your subscription. Click on the tile to open the service dashboard.
-	- In the Jumpbar, click **Browse** | **Filter by** | **Search services** to find your Search service in the list. 
+	- In the Jumpbar, click **Browse** | **Filter by** | **Search services** to find your Search service in the list.
 
-3. In the service dashboard, you will see a command bar at the top, including one for **Add Index**. 
-	
+3. In the service dashboard, you will see a command bar at the top, including one for **Add Index**.
+
 	Check the pricing tier. If you have the free version, you can have up to 3 indexes. You might need to delete one to free up space.
 
      ![][1]
@@ -39,11 +39,11 @@ To complete this task, make sure you have an Azure Search service that's ready t
 
      ![][2]
 
-5. To create a new index in the portal, click **Add Index** and give it name, such as *hotels*. 
+5. To create a new index in the portal, click **Add Index** and give it name, such as *hotels*.
 
 	It can take a minute to create the index, but when it's ready for you to work with, it will appear in the Indexes list.
 
-6. Click *hotels* to open the index definition blade. 
+6. Click *hotels* to open the index definition blade.
 
 	When you create an index in the portal, a required field (id) is created for you. This is the key field, used to uniquely identify each document. There is only one field per key (no composite keys), and it is always a string.
 
@@ -51,7 +51,7 @@ To complete this task, make sure you have an Azure Search service that's ready t
 
 	![][3]
 
-7. To edit the field name, click the right arrow in the fields list. 
+7. To edit the field name, click the right arrow in the fields list.
 
 8. Replace *id* with *hotelId*.
 
@@ -63,7 +63,7 @@ In Azure Search, index attributes such as searchable, facetable, and filterable 
 
 The portal is different. In the portal, search behaviors are off by default so that you can select all of the behaviors that apply, on a field by field basis.
 
-1. Click **Add/Edit fields** to add more fields. In this exercise, we'll recreate the *hotels* index mentioned in the article [How to use Fiddler with Azure Search](search-fiddler.md). 
+1. Click **Add/Edit fields** to add more fields. In this exercise, we'll recreate the *hotels* index mentioned in the article [How to use Fiddler with Azure Search](search-fiddler.md).
 
 	![][4]
 

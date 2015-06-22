@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/12/2015" 
+	ms.date="06/19/2015" 
 	ms.author="heidist"/>
       
 #Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)#
 
-> [AZURE.NOTE] This article describes scoring profiles in the 2014-10-20-Preview version of the REST API. The released version of this API can be found at [Add scoring profiles to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) on MSDN. For more information about the 2014-10-20-Preview version, see [Azure Search Service REST API: 2014-10-20-Preview](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/).
+> [AZURE.NOTE] This article describes scoring profiles in the 2014-10-20-Preview version of the REST API. The released version of this API can be found at [Add scoring profiles to a search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) on MSDN. For more information about the 2014-10-20-Preview version, see [Azure Search Service REST API: 2014-10-20-Preview](search-api-2014-10-20-preview.md).
 
 Scoring refers to the computation of a search score for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search score calculated for each item.
 
@@ -142,7 +142,7 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
 
 To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query. 
 
-Start with the [Template][#bkmk_template] provided in this topic.
+Start with the [Template](#bkmk_template) provided in this topic.
 
 Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow the naming conventions for fields (starts with a letter, avoids special characters and reserved words). See [Naming Rules](http://msdn.microsoft.com/library/azure/dn857353.aspx) for more information.
 
@@ -330,7 +330,7 @@ Interpolations allow you to define the slope for which the score boosting increa
 
 `boostingDuration` is an attribute of the freshness function. You use it to set an expiration period after which boosting will stop for a particular document. For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents.
 
-`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is: "P[nD][T[nH][nM][nS]]".
+`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is: "P(nD)(T(nH)(nM)(nS))".
 
 The following table provides several examples. 
 

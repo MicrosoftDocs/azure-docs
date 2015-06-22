@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/22/2015"
+	ms.date="05/28/2015"
 	ms.author="krisragh"/>
 
 # Add Push Notifications to iOS App and JavaScript Backend
@@ -31,7 +31,7 @@ This topic shows you how to add push notifications to the [quickstart project](m
 
 [AZURE.INCLUDE [Configure Push Notifications in Azure Mobile Services](../includes/mobile-services-apns-configure-push.md)]
 
-## <a id="update-scripts"></a>Update Insert Script
+## <a id="update-scripts"></a>Update Backend Script to Send Push Notifications
 
 * In the Management Portal, click the **Data** tab and then click **TodoItem**. In **TodoItem**, click the **Script** tab and select **Insert**. This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 

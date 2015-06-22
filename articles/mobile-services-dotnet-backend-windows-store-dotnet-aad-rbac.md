@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Role Based Access Control in Mobile Services and Azure Active Directory
@@ -62,7 +62,7 @@ In this section you will create a new custom authorization attribute that can be
 
 1. In Visual Studio, right click mobile service .NET backend project and click **Manage NuGet Packages**.
 
-2. In the NuGet Package Manager dialog, enter **ADAL** in the search criteria to find and install the **Active Directory Authentication Library** for your mobile service. This tutorial was most recently tested with the 3.0.110281957-alpha (Prerelease) version of the ADAL package.
+2. In the NuGet Package Manager dialog, enter **ADAL** in the search criteria to find and install the **Active Directory Authentication Library** for your mobile service. This tutorial was most recently tested with the 3.3.205061641-alpha (Prerelease) version of the ADAL package.
 
 3. In Visual Studio, right click your mobile service project and click **Add** then **New Folder**. Name the new folder **Utilities**.
 
@@ -178,7 +178,8 @@ In this section you will create a new custom authorization attribute that can be
 
     >[AZURE.NOTE] ADAL for .NET includes an in-memory token cache by default to help alleviate extra network traffic against your Active Directory. However, you can write your own cache implementation or disable caching entirely. For more information see [ADAL for .NET].
 
-        private string GetAADToken()
+        // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
+        private async Task<string> GetAADToken()
         {
             // Try to get the required AAD authentication app settings from the mobile service.  
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
@@ -192,8 +193,8 @@ In this section you will create a new custom authorization attribute that can be
             ClientCredential clientCred = new ClientCredential(clientid, clientkey);
             string authority = String.Format(CultureInfo.InvariantCulture, AadInstance, tenantdomain);
             AuthenticationContext authContext = new AuthenticationContext(authority);
-            AuthenticationResult result = authContext.AcquireTokenAsync(GraphResourceId, clientCred).Result;
 
+            AuthenticationResult result = await authContext.AcquireTokenAsync(GraphResourceId, clientCred);
             if (result != null)
                 token = result.AccessToken;
             else

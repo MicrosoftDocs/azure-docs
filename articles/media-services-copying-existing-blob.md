@@ -149,7 +149,6 @@ The code example below performs the following tasks:
 		    static public CloudBlobContainer UploadContentToStorageAccount(string localPath)
 		    {
 		        CloudBlobClient externalCloudBlobClient = _sourceStorageAccount.CreateCloudBlobClient();
-		
 		        CloudBlobContainer externalMediaBlobContainer = externalCloudBlobClient.GetContainerReference("streamingfiles");
 		
 		        externalMediaBlobContainer.CreateIfNotExists();
@@ -174,10 +173,9 @@ The code example below performs the following tasks:
 		    static public IAsset CreateAssetFromExistingBlobs(CloudBlobContainer mediaBlobContainer)
 		    {
 		        // Create a new asset. 
-		        IAsset asset = _context.Assets.Create("NewAsset_" + Guid.NewGuid(), AssetCreationOptions.None);
+		        IAsset asset = _context.Assets.Create("Burrito_" + Guid.NewGuid(), AssetCreationOptions.None);
 		
-		        IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy",
-		            TimeSpan.FromHours(24), AccessPermissions.Write);
+		        IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy", TimeSpan.FromHours(24), AccessPermissions.Write);
 		        ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
 		
 		        CloudBlobClient destBlobStorage = _destinationStorageAccount.CreateCloudBlobClient();
@@ -185,8 +183,7 @@ The code example below performs the following tasks:
 		        // Get the asset container URI and Blob copy from mediaContainer to assetContainer. 
 		        string destinationContainerName = (new Uri(destinationLocator.Path)).Segments[1];
 		
-		        CloudBlobContainer assetContainer =
-		            destBlobStorage.GetContainerReference(destinationContainerName);
+		        CloudBlobContainer assetContainer = destBlobStorage.GetContainerReference(destinationContainerName);
 		
 		        if (assetContainer.CreateIfNotExists())
 		        {
@@ -201,6 +198,8 @@ The code example below performs the following tasks:
 		        {
 		            var assetFile = asset.AssetFiles.Create((sourceBlob as ICloudBlob).Name);
 		            CopyBlob(sourceBlob as ICloudBlob, assetContainer);
+		            assetFile.ContentFileSize = (sourceBlob as ICloudBlob).Properties.Length;
+		            assetFile.Update();
 		        }
 		
 		        destinationLocator.Delete();
@@ -259,29 +258,8 @@ The code example below performs the following tasks:
 		        {
 		            try
 		            {
-		                // Display the size of the source blob.
-		                Console.WriteLine(sourceBlob.Properties.Length);
-		
 		                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
 		                destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
-		
-		                while (true)
-		                {
-		                    // The StartCopyFromBlob is an async operation, 
-		                    // so we want to check if the copy operation is completed before proceeding. 
-		                    // To do that, we call FetchAttributes on the blob and check the CopyStatus. 
-		                    destinationBlob.FetchAttributes();
-		                    if (destinationBlob.CopyState.Status != CopyStatus.Pending)
-		                    {
-		                        break;
-		                    }
-		                    //It's still not completed. So wait for some time.
-		                    System.Threading.Thread.Sleep(1000);
-		                }
-		
-		                // Display the size of the destination blob.
-		                Console.WriteLine(destinationBlob.Properties.Length);
-		
 		            }
 		            catch (Exception ex)
 		            {
@@ -289,6 +267,7 @@ The code example below performs the following tasks:
 		            }
 		        }
 		    }
+		
 		    /// <summary>
 		    /// Sets a file with the .ism extension as a primary file.
 		    /// </summary>
@@ -298,8 +277,9 @@ The code example below performs the following tasks:
 		        var ismAssetFiles = asset.AssetFiles.ToList().
 		            Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray();
 		
-		        // The following code assigns the first .ism file as the primary file in the asset.
-		        // An asset should have one .ism file.  
+		        if (ismAssetFiles.Count() != 1)
+		            throw new ArgumentException("The asset should have only one, .ism file");
+		
 		        ismAssetFiles.First().IsPrimary = true;
 		        ismAssetFiles.First().Update();
 		    }

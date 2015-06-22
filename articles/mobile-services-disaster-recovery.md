@@ -27,7 +27,7 @@ To make recovery easier in case of an availability problem, you can prepare for 
 + **Back up your data in the Azure mobile service SQL Database**
 	Your mobile service application data is stored in an Azure SQL Database. We recommend that you back it up as prescribed in the [SQL Database business continuity guidance].
 + **Back up your mobile service scripts**
-	We recommend that you store your mobile service scripts in a source-control system such as [Team Foundation Service] or [GitHub] and not rely only on the copies in the mobile service itself. You can download the scripts via the Azure portal, using the Mobile Services [source control feature], or [using the Azure command-line tool]. Pay close attention to features labeled as "preview" in the portal, as recovery for those scripts is not guaranteed and you might need to recover them from your own source control original.
+	We recommend that you store your mobile service scripts in a source-control system such as [Team Foundation Service] or [GitHub] and not rely only on the copies in the mobile service itself. You can download the scripts via the Azure portal, using the Mobile Services [source control feature], or [using the Azure CLI]. Pay close attention to features labeled as "preview" in the portal, as recovery for those scripts is not guaranteed and you might need to recover them from your own source control original.
 + **Reserve a secondary mobile service**
 	In the event of an availability problem with your mobile service, you may have to redeploy it to an alternate Azure region. To ensure capacity is available (for example under rare circumstances such as the loss of an entire region), we recommend that you create a secondary mobile service in your alternate region and set its mode the same as or higher than the mode of your primary service. (If your primary service is in Basic mode, you can make the secondary service either Basic or Standard. But if the primary is Standard, then the secondary must also be Standard.)
 
@@ -54,7 +54,7 @@ To recover your mobile service after an outage:
 
    If you haven't already reserved a secondary mobile service, create one now in another Azure region. Set its scale mode the same as the mode of your primary service.
 
-3. Configure the Azure command-line tools to work with your subscription, as described in [Automate mobile services with command-line tools].
+3. Configure the Azure Command-Line Interface (Azure CLI) to work with your subscription, as described in [Automate mobile services with the Azure CLI].
 
 4. Now you can use your secondary service to recover your primary one.
 
@@ -105,7 +105,7 @@ Now you should be in a state where your mobile service has been recovered to a n
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
 [source control feature]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
-[using the Azure command-line tool]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
+[using the Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Azure portal]: http://manage.windowsazure.com/
 [Azure Service Dashboard]: http://www.windowsazure.com/support/service-dashboard/
-[Automate mobile services with command-line tools]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
+[Automate mobile services with the Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/

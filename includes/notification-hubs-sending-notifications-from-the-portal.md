@@ -1,6 +1,6 @@
 
 
-Push notifications are normally sent in a back-end service like Mobile Services or an ASP.NET WebAPI back-end using a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end. 
+Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end. 
 
 Here is a list of some other tutorials you may want to review for sending notifications:
 

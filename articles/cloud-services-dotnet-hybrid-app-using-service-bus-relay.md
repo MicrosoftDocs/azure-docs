@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" 
-	description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor="mattshel"/>
+<properties
+	pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure"
+	description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="03/17/2015" 
+<tags
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article" 
+	ms.date="06/02/2015"
 	ms.author="sethm"/>
 
 
@@ -111,7 +111,7 @@ Before you can begin developing your Azure application, get the tools and set up
 
 ## Create a service namespace
 
-To begin using Service Bus features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application. 
+To begin using Service Bus features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
 You can manage namespaces and Service Bus messaging entities using either the [Azure Management Portal][] or the Visual Studio Server Explorer, but you can only create new namespaces from within the portal.
 
@@ -122,11 +122,11 @@ You can manage namespaces and Service Bus messaging entities using either the [A
 2.  In the left navigation pane of the management portal, click
     **Service Bus**.
 
-3.  In the lower pane of the management portal, click **Create**.   
+3.  In the lower pane of the management portal, click **Create**.
     ![][5]
 
 4.  In the **Add a new namespace** dialog, enter a namespace name.
-    The system immediately checks to see if the name is available.   
+    The system immediately checks to see if the name is available.
     ![][6]
 
 5.  After making sure the namespace name is available, choose the
@@ -147,31 +147,22 @@ The namespace you created will appear in the management portal, though it may ta
 
 In order to perform management operations on the new namespace, such as creating messaging entities, you must obtain credentials for the namespace.
 
-1.  In the main window, click the name of your service namespace.   
+1.  In the main window, click the name of your service namespace.
 
 	![][39]
-  
 
-2.  Click **Connection Information**.   
+
+2.  Click **Connection Information**.
 
 	![][40]
 
 
-3.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
+3.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.
 
 	![][45]
-    
+
 
 4.  Make a note of these credentials, or copy them to the clipboard.
-
-## Manage a service namespace using the Visual Studio Server Explorer
-
-To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/library/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
-
-![][44]
-
-Make a note of the **SharedAccessKey** value, or copy it to the clipboard.
-
 
 ## Create an on-premises server
 
@@ -291,22 +282,22 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
             // Implement the IProducts interface
             class ProductsService : IProducts
             {
-                
+
                 // Populate array of products for display on Website
-                ProductData[] products = 
+                ProductData[] products =
                     new []
                         {
-                            new ProductData{ Id = "1", Name = "Rock", 
+                            new ProductData{ Id = "1", Name = "Rock",
                                              Quantity = "1"},
-                            new ProductData{ Id = "2", Name = "Paper", 
+                            new ProductData{ Id = "2", Name = "Paper",
                                              Quantity = "3"},
-                            new ProductData{ Id = "3", Name = "Scissors", 
+                            new ProductData{ Id = "3", Name = "Scissors",
                                              Quantity = "5"},
-                            new ProductData{ Id = "4", Name = "Well", 
+                            new ProductData{ Id = "4", Name = "Well",
                                              Quantity = "2500"},
                         };
 
-                // Display a message in the service console application 
+                // Display a message in the service console application
                 // when the list of products is retrieved
                 public IList<ProductData> GetProducts()
                 {
@@ -429,7 +420,7 @@ In this section you will build a simple ASP.NET application that displays data r
                 // Return a view of the products inventory
                 public ActionResult Index(string Identifier, string ProductName)
                 {
-                    var products = new List<Product> 
+                    var products = new List<Product>
                         {new Product {Id = Identifier, Name = ProductName}};
                     return View(products);
                 }
@@ -455,7 +446,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
 8.  Double-click Index.cshtml to open it in the Visual Studio editor.
     Replace the entire contents of the file with the following code:
-	
+
 		@model IEnumerable<ProductsWeb.Models.Product>
 
 		@{
@@ -474,7 +465,7 @@ In this section you will build a simple ASP.NET application that displays data r
             		@Html.DisplayNameFor(model => model.Quantity)
         		</th>
     		</tr>
-	
+
 		@foreach (var item in Model) {
     		<tr>
         		<td>
@@ -483,7 +474,7 @@ In this section you will build a simple ASP.NET application that displays data r
         		<td>
             		@Html.DisplayFor(modelItem => item.Quantity)
         		</td>
-    		</tr>	
+    		</tr>
 		}
 
 		</table>
@@ -567,10 +558,10 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
 
                     static HomeController()
                     {
-                        // Create shared secret token credentials for authentication 
-                        channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(), 
+                        // Create shared secret token credentials for authentication
+                        channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(),
                             "sb://yourServiceNamespace.servicebus.windows.net/products");
-                        channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior { 
+                        channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior {
                             TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
                                 "RootManageSharedAccessKey", "yourKey") });
                     }
@@ -582,7 +573,7 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
                             // Return a view of the products inventory
                             return this.View(from prod in channel.GetProducts()
                                              select
-                                                 new Product { Id = prod.Id, Name = prod.Name, 
+                                                 new Product { Id = prod.Id, Name = prod.Name,
                                                      Quantity = prod.Quantity });
                         }
                     }
@@ -645,7 +636,7 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
 
 8.  Click **Next**. If your subscription doesn't already contain any hosted
         services, you will be asked to create one. The hosted service
-        acts as a container for your application within your 
+        acts as a container for your application within your
         Azure subscription. Enter a name that identifies your
         application and choose the region for which the application
         should be optimized. (You can expect faster loading times for
@@ -717,7 +708,7 @@ application.
 ## Next steps  
 
 To learn more about Service Bus, see the following resources:  
-  
+
 * [Azure Service Bus][sbmsdn]  
 * [Service Bus How To's][sbwacom]  
 * [How to Use Service Bus Queues][sbwacomqhowto]  
@@ -729,14 +720,14 @@ To learn more about Service Bus, see the following resources:
   [NuGet]: http://nuget.org
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
   [3]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
-  
-  
+
+
   [Azure Management Portal]: http://manage.windowsazure.com
   [5]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-  
-  
-  
+
+
+
   [Using the NuGet Service Bus Package]: http://go.microsoft.com/fwlink/?LinkId=234589
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
@@ -747,7 +738,7 @@ To learn more about Service Bus, see the following resources:
   [16]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
   [17]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.jpg
   [18]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-10.jpg
-  
+
   [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
   [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
@@ -756,8 +747,8 @@ To learn more about Service Bus, see the following resources:
   [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-13.png
   [26]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-14.png
   [27]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-33.png
-  
-  
+
+
   [30]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-36.png
   [31]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-37.png
   [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-38.png
@@ -772,7 +763,6 @@ To learn more about Service Bus, see the following resources:
   [41]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [42]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
   [43]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [45]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  

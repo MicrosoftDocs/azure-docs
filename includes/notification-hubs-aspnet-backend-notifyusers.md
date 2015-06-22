@@ -1,6 +1,6 @@
 ## Create the WebAPI Project
 
-The new ASP.NET WebAPI backend will be updated in the sections that follow and it will have three main purposes:
+A new ASP.NET WebAPI backend will be created in the sections that follow and it will have three main purposes:
 
 1. **Authenticating Clients**: A message handler will be added later to authenticate client requests and associate the user with the request.
 2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).

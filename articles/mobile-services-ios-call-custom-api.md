@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="06/04/2015"
 	ms.author="krisragh"/>
 
 # How to call a custom API from an iOS client (JavaScript backend)
@@ -30,6 +30,10 @@ This topic shows you how to call a custom API from an iOS app. A custom API lets
 [AZURE.INCLUDE [mobile-services-ios-call-custom-api](../includes/mobile-services-ios-call-custom-api.md)]
 
 ## Next steps
+
+This topic showed how to use the **invokeApi** method to call a fairly simple custom API from your iOS app. To learn more about using the **invokeApi** method, see the post [Custom API in Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).  
+
+Also, consider finding out more about the following Mobile Services topics:
 
 * [Mobile Services server script reference]
   <br/>Learn more about creating custom APIs.

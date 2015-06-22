@@ -10,10 +10,10 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="operational-insights"
-   ms.date="05/11/2015"
+   ms.date="06/09/2015"
    ms.author="banders"/>
 
 # Use Log Management
