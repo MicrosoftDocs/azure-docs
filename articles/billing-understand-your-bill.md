@@ -70,10 +70,10 @@ To view or download a bill:
 
 
 
-**Below are some sample statements for the different payment methods used on Microsoft Azure.**
+**Below are some sample statements for two different offers available on Microsoft Azure.**
 
  **OFFER TYPE** | **DESCRIPTION** | **DOWNLOAD** |
- :--------- |:-------- | :----------------: | :-------|
+ :--------- |:-------- | :-------|
 Pay-As-You-Go | Pay for Microsoft Azure services in arears | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf)
 Commitment offer | Prepaid monetary commitment that is used like a debit card. Charges are deducted from your commitment each month. | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_invoice_Sample.pdf)
 
