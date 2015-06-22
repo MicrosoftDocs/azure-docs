@@ -176,7 +176,7 @@ This sample shows the cmdlet on the first line followed by the output. Replace t
 
 ## Start the Application Gateway
 
-Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. This is the cmdlet that provisions the gateway. Once the cmdlet is run successfully, billing starts.
+Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. This is the cmdlet that provisions the gateway. Once the cmdlet is run successfully and the gateway is provisioned, billing will also begin.
 
 This sample shows the cmdlet on the first line followed by the output. Replace the values in the sample with your own.
 
