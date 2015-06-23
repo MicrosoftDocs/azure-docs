@@ -40,7 +40,7 @@
         <tr>
             <td width="623" colspan="3" valign="top">
                 <p>
-                    <strong>General</strong>
+                    <strong><H2>General</H2></strong>
                 </p>
             </td>
         </tr>
@@ -141,7 +141,7 @@
         <tr>
             <td width="623" colspan="3" valign="top">
                 <p>
-                    <strong>Authoring</strong>
+                    <strong><H2>Authoring</H2></strong>
                 </p>
             </td>
         </tr>
@@ -252,7 +252,7 @@
         <tr>
             <td width="623" colspan="3" valign="top">
                 <p>
-                    <strong>Input and Output</strong>
+                    <strong><H2>Input and Output</H2></strong>
                 </p>
             </td>
         </tr>
@@ -327,7 +327,7 @@
         <tr>
             <td width="623" colspan="3" valign="top">
                 <p>
-                    <strong>Management and operations</strong>
+                    <strong><H2>Management and operations</H2></strong>
                 </p>
             </td>
         </tr>
@@ -475,7 +475,7 @@
         <tr>
             <td width="623" colspan="3" valign="top">
                 <p>
-                    <strong>Advanced Features</strong>
+                    <strong><H2>Advanced Features</H2></strong>
                 </p>
             </td>
         </tr>
