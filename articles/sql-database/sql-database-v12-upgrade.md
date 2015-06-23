@@ -34,6 +34,7 @@
 | 4. Select the server you want to copy to a new server with  SQL Database Update enabled. | ![Shows a list of SQL Servers][4] |
 | 5. Click **Settings** or **Server version** to upgrade your server to V12.  | ![Latest preview feature][5] |
 | 6. Click **UPGRADE THIS SERVER**. | ![Upgrades the SQL Server to the preview][6] |
+| 7. Once you click **UPGRADE THIS SERVER**, the upgrade process will be initiated. Under **Server version**, the notification changes from **V2** to **Upgrade scheduled..**. If you click on the **Upgrade scheduled..** notification, a blade opens with the **Cancel Upgrade** button at the top. Click **Cancel Upgrade** in case you decide against upgrading the server for any reason. Please **note** that cancel operation will not work towards the end of the upgrade process and the upgrade will be completed.|![Cancel Upgrade][9] 
 
 
 > [AZURE.NOTE] Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database V12 features, and you will not be able to reverse that. To upgrade servers to SQL Database V12, you require a Basic, Standard or Premium service tier. For more information on the  service tiers,see [Upgrade SQL Database Web/Business Databases to New Service Tiers"](sql-database-upgrade-new-service-tiers.md).
@@ -90,4 +91,5 @@ The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, 
 [6]: ./media/sql-database-v12-upgrade/upgrade.png
 [7]: ./media/sql-database-v12-upgrade/typeservername.png
 [8]: ./media/sql-database-v12-upgrade/enabled.png
+[9]: ./media/sql-database-v12-upgrade/cancel.png
  
