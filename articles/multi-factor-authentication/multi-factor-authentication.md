@@ -43,7 +43,7 @@ Today, now more than ever, people are increasingly connected.  With smart phones
 
 Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solution that provides a second method of authentication so your users are always protected. 
 
-![Easy to Use](./media/multi-factor-authentication/mfa-simple.png)| ![Scalable](./media/multi-factor-authentication/mfa-scalable.png)| ![Always Protected](./media/multi-factor-authentication/mfa-secure.png)|![Reliable](./media/multi-factor-authentication/mfa-reliable.png)
+![Easy to Use](./media/multi-factor-authentication/simple.png)| ![Scalable](./media/multi-factor-authentication/scalable.png)| ![Always Protected](./media/multi-factor-authentication/protected.png)|![Reliable](./media/multi-factor-authentication/reliable.png)
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Easy to use**|**Scalable**|**Always Protected**|**Reliable**
 

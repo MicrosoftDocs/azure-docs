@@ -16,7 +16,7 @@
 	ms.date="06/16/2015" 
 	ms.author="anbacker"/>
 	
-# Monitoring and Troubleshooting Guide for VMM and Hyper-V Site Protection
+# Monitor and troubleshoot protection for VMM and Hyper-V sites
 
 This Monitoring and Troubleshooting Guide enables you to learn tracking the replication health and troubleshooting techniques for Azure Site Recovery.
 
@@ -31,7 +31,7 @@ operations triggered from Azure Portal gets translated to on-premises
 operations like enable protection, shutdown primary side virtual
 machines as part of failovers etc.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image1.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### VMM Site Deployment for replication between on-premises & Azure.
 
@@ -40,7 +40,7 @@ Recovery Provider needs to be downloaded and installed on the VMM server
 along with Azure Recovery Services Agent which needs to be installed on
 each Hyper-V host.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image2.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### Hyper-V Site Deployment for replication between on-premises & Azure
 
@@ -53,31 +53,31 @@ Every operation in ASR gets audited and is tracked under the “JOBS” tab.
 In case of any configuration, protection or recovery error navigate to
 the JOBS tab and see if there are any failures.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image3.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image3.png)
 
 Once you find failures under the JOBS view, select the JOB and click
 ERROR DETAILS for that job.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image4.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image4.png)
 
 The error details will help you identify possible cause and
 recommendation for the issue.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image5.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
 In the above case there seems to be another operation which is in
 progress because of which Protection configuration is failing. Ensure
 that you resolve the issue as per the recommendation – there-after click
 RESART to re-initiate the operation.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image6.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 
 Option to RESTART is not available for all operations – for those which
 doesn’t have the RESTART option navigate back to the object and redo the
 operation once again. Every JOB can be cancelled at any point of time
 while in-progress using the CANCEL button.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image7.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image7.png)
 
 ## Monitor replication health for virtual machine
 
@@ -87,13 +87,13 @@ there-after select VMM CLOUDS or PROTECTION GROUPS. VMM CLOUDS tab is
 only for VMM based deployments and all other scenarios have the
 protected entities under PROTECTION GROUPS tab.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image8.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image8.png)
 
 There-after select the protected entity under the respective cloud or
 the protection group. Once you select the protected entity all allowed
 operations are shown in the bottom pane.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image9.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image9.png)
 
 As shown above in-case the virtual machine HEALTH is critical – you can
 click the ERROR DETAILS button on the bottom to see the error. Based on
@@ -101,9 +101,9 @@ the “Possible causes” and “Recommendation” mentioned resolve the issue �
 here in this case the virtual machine needs to be re-synchronized which
 can be done from the portal itself by clicking the RESYNCHRONIZE button.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image10.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image10.png)
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image11.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image11.png)
 
 Note: If there are any active operations which are in-progress or failed
 then navigate to the JOBS view as mentioned earlier to view the JOB
@@ -114,12 +114,12 @@ specific error.
 Connect to the on-premises Hyper-V manager console, select the virtual
 machine and see the replication health.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image12.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image12.png)
 
 In this case *Replication Health* is being indicated as Critical – *View
 Replication Health* to see the details.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image13.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image13.png)
 
 #### Event Viewer
 
@@ -137,17 +137,17 @@ for Hyper-V-VMMS. To enable this log, first make the Analytic and Debug
 logs viewable in the Event Viewer. Open Event Viewer, then in the **View
 menu**, click **Show Analytic and Debug logs**.
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image14.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
 An Analytic log is visible under Hyper-V-VMMS
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image15.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image15.png)
 
 In the **Actions** pane, click on **Enable Log**. Once enabled, it
 appears in **Performance Monitor** as an Event Trace Session located
 under **Data Collector Sets.**
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image16.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image16.png)
 
 To view the information collected, first stop the tracing session by
 disabling the log, and then save the log and re-open it in Event Viewer
@@ -156,7 +156,7 @@ or use other tools to convert it as desired.
 
 ## Understanding the virtual machine life cycle
 
-![](media/site-recovery-monitoring-and-troubleshooting-for-vmm-and-hyperv-site/image17.png)
+![](media/site-recovery-monitoring-and-troubleshooting/image17.png)
 
 
 ## Reaching out for Microsoft Support
