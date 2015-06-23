@@ -18,6 +18,58 @@ Create additional Virtual Machines, which will be managed by the administration 
 
 -  When creating the Virtual Machines, do not create a new Virtual Network. Specifically, in the **Optional Configuration > Virtual Network** dialog, instead of the default **Create a new Virtual Network**, select the Virtual Network that was created for your administration server VM. For example, if during the creation of your administration server you created a Virtual Network named **EXAMPLE**, select **EXAMPLE** when you create the managed cluster VMs.
 
+##Create a domain
+
+1. Log in to the [Azure Portal](https://ms.portal.azure.com/).
+
+2. Click **Virtual Machines**.
+
+3. Click the name of the Virtual Machine that you created to be the cluster administration server (for example, **MYVM1-ADMIN**).
+
+4. Click **Connect**.
+
+5. Respond to the prompts as needed to connect to the Virtual Machine. When prompted for the administrator name and password, use the values that you provided when you created the Virtual Machine.
+
+6. Within **Page 1** of the **Fusion Middleware Configuration Wizard** dialog, click **Create a new domain** and then click **Next**. (If the **Fusion Middleware Configuration Wizard** dialog is not already opened, open it by clicking **Windows Start**, typing **Configuration Wizard**, and then clicking the **Configuration Wizard** icon.)
+
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image19.png)
+
+7. Within **Page 2** of the **Fusion Middleware Configuration Wizard** dialog, select the **Basic WebLogic Server Domain** template and then click **Next**.
+
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image20.png)
+
+8. Within **Page 3** of the **Fusion Middleware Configuration Wizard** dialog:
+
+	1. [Optional] Change the user name from **weblogic** to a value of your choosing.
+	
+	2. Specify and confirm a password for the WebLogic Server administrator.
+	
+	3. Click **Next**.
+
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image21.png)
+
+9. Within **Page 4** of the **Fusion Middleware Configuration Wizard** dialog, select **Production** for the domain mode, select the available JDK (or browse to a JDK if desired), and then click **Next**.
+
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image22.png)
+
+10.  Within **Page 5** of the **Fusion Middleware Configuration Wizard** dialog do not select any options, and then click **Next**.
+
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image23.png)
+
+11.  Within **Page 6** of the **Fusion Middleware Configuration Wizard** dialog, click **Create**.
+
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image24.png)
+
+12.  Within **Page 7** of the **Fusion Middleware Configuration Wizard** dialog, after the domain has been created, click **Next**.
+
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image25.png)
+
+13.  Within **Page 8** of the **Fusion Middleware Configuration Wizard** dialog, check Start Admin Server and then click **Finish**.
+
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image26.png)
+
+14.  A command prompt for **startWebLogic.cmd** is started. When prompted, provide your WebLogic user name and password.
+
 ##Set up the cluster
 
 1. Still logged into the administration Virtual Machine, run the **WebLogic Server Administration Console**, <http://localhost:7001/console>. When prompted, provide your WebLogic Server user name and password.
@@ -211,59 +263,6 @@ At this point, you could deploy your application using the following steps. Let�
 11.  Click **Deployments**, select **shoppingcart**, click **Start**, and then click **Service All Requests**. When prompted to confirm, click **Yes**.
 
 12.  To see the shopping cart application running on the Internet, open a browser to the URL in the form of `http://<<unique_domain_name>>/shoppingcart`. (You can determine the value for `<<unique_domain_name>>` within the [Azure Portal](https://ms.portal.azure.com/) by clicking Virtual Machines and then selecting the Virtual Machine that you are using to run Oracle WebLogic Server).
-
-##Create a domain
-
-
-1. Log in to the [Azure Portal](https://ms.portal.azure.com/).
-
-2. Click **Virtual Machines**.
-
-3. Click the name of the Virtual Machine that you created to be the cluster administration server (for example, **MYVM1-ADMIN**).
-
-4. Click **Connect**.
-
-5. Respond to the prompts as needed to connect to the Virtual Machine. When prompted for the administrator name and password, use the values that you provided when you created the Virtual Machine.
-
-6. Within **Page 1** of the **Fusion Middleware Configuration Wizard** dialog, click **Create a new domain** and then click **Next**. (If the **Fusion Middleware Configuration Wizard** dialog is not already opened, open it by clicking **Windows Start**, typing **Configuration Wizard**, and then clicking the **Configuration Wizard** icon.)
-
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image002.png)
-
-7. Within **Page 2** of the **Fusion Middleware Configuration Wizard** dialog, select the **Basic WebLogic Server Domain** template and then click **Next**.
-
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image20.png)
-
-8. Within **Page 3** of the **Fusion Middleware Configuration Wizard** dialog:
-
-	1. [Optional] Change the user name from **weblogic** to a value of your choosing.
-	
-	2. Specify and confirm a password for the WebLogic Server administrator.
-	
-	3. Click **Next**.
-
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image21.png)
-
-9. Within **Page 4** of the **Fusion Middleware Configuration Wizard** dialog, select **Production** for the domain mode, select the available JDK (or browse to a JDK if desired), and then click **Next**.
-
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image22.png)
-
-10.  Within **Page 5** of the **Fusion Middleware Configuration Wizard** dialog do not select any options, and then click **Next**.
-
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image23.png)
-
-11.  Within **Page 6** of the **Fusion Middleware Configuration Wizard** dialog, click **Create**.
-
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image24.png)
-
-12.  Within **Page 7** of the **Fusion Middleware Configuration Wizard** dialog, after the domain has been created, click **Next**.
-
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image25.png)
-
-13.  Within **Page 8** of the **Fusion Middleware Configuration Wizard** dialog, check Start Admin Server and then click **Finish**.
-
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image26.png)
-
-14.  A command prompt for **startWebLogic.cmd** is started. When prompted, provide your WebLogic user name and password.
 
 ## Next Steps
 
