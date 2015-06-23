@@ -101,17 +101,17 @@ Getting Started
 
 - [Azure Resource Manager Overview](./resource-group-overview.md)  
 - [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md)  
-- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)  
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](virtual-machines/xplat-cli-azure-resource-manager.md)  
+- [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md)  
   
 Creating and Deploying Applications  
   
 - [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)  
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)  
-- [Troubleshooting Resource Group Deployments in Azure](./resource-group-deploy-debug.md)  
+- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)  
+- [Troubleshooting Resource Group Deployments in Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)  
 - [Advanced Template Operations](./resource-group-advanced-template.md)  
-- [Deploy Azure Resources Using .NET Libraries and a Template](./arm-template-deployment.md)
+- [Deploy Azure Resources Using .NET Libraries and a Template](virtual-machines/arm-template-deployment.md)
   
 Organizing Resources  
   
@@ -119,7 +119,7 @@ Organizing Resources
   
 Managing and Auditing Access  
   
-- [Managing and Auditing Access to Resources](./resource-group-rbac.md)  
+- [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
 - [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
 
 <!-- Images. -->

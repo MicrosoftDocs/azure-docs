@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Azure Government Image Gallery" 
    description="This article provides an overview of the Azure Government Image Gallery and the images included" 
    services="Azure-Government" 
@@ -71,12 +71,12 @@ Disk Size
 <tr><td>Microsoft Open Technologies, Inc.</td><td>Oracle Database 11g R2 and WebLogic Server 11g Standard Edition on Windows Server 2008 R2</td><td>Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies. Oracle WebLo...</td><td>Windows</td><td>128 GB</td></tr>
 <tr><td>Microsoft Open Technologies, Inc.</td><td>Oracle Database 11g R2 and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</td><td>Oracle Database http://www.oracle.com/database 11g R2 Enterprise Edition (11.2.0.4.0) provides comprehensive features to easily manage the most demanding transaction processing, business inte...</td><td>Windows</td><td>128 GB</td></tr>
 <tr><td>Microsoft Open Technologies, Inc.</td><td>Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2</td><td>Oracle Database http://www.oracle.com/database 11g R2 Standard Edition (11.2.0.4.0) is an affordable, full-featured data management solution that is ideal for midsize companies. Minimum recom...</td><td>Windows</td><td>128 GB</td></tr>
-<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2014 RTM Enterprise on Windows Server 2012 R2</td><td>This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A3 or higher. This image has been pre-configured for Windows Azure, including enabling CEIP whic...</td><td>Windows</td><td>127 GB</td></tr>
+<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2014 RTM Enterprise on Windows Server 2012 R2</td><td>This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A3 or higher. This image has been pre-configured for Azure, including enabling CEIP whic...</td><td>Windows</td><td>127 GB</td></tr>
 <tr><td>Microsoft SQL Server Group</td><td>SQL Server 2012 SP2 Enterprise on Windows Server 2012</td><td>This image contains the full version of SQL Server. Some SQL Server components require additional setup and configuration before use. We recommend that you use a virtual machine size of A3 or higher. ...</td><td>Windows</td><td>127 GB</td></tr>
-<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2014 RTM Enterprise on Windows Server 2012 R2</td><td>This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A3 or higher. This image has been pre-configured for Windows Azure, including enabling CEIP whic...</td><td>Windows</td><td>127 GB</td></tr>
-<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2014 RTM Standard on Windows Server 2012 R2</td><td>This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Windows Azure, including enabling CEIP whic...</td><td>Windows</td><td>127 GB</td></tr>
-<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2012 SP2 Standard on Windows Server 2012</td><td>Some SQL Server components require additional setup and configuration before use. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Windows Azure...</td><td>Windows</td><td>127 GB</td></tr>
-<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2014 RTM Standard on Windows Server 2012 R2</td><td>This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Windows Azure, including enabling CEIP whic...</td><td>Windows</td><td>127 GB</td></tr>
+<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2014 RTM Enterprise on Windows Server 2012 R2</td><td>This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A3 or higher. This image has been pre-configured for Azure, including enabling CEIP whic...</td><td>Windows</td><td>127 GB</td></tr>
+<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2014 RTM Standard on Windows Server 2012 R2</td><td>This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Azure, including enabling CEIP whic...</td><td>Windows</td><td>127 GB</td></tr>
+<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2012 SP2 Standard on Windows Server 2012</td><td>Some SQL Server components require additional setup and configuration before use. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Azure...</td><td>Windows</td><td>127 GB</td></tr>
+<tr><td>Microsoft SQL Server Group</td><td>SQL Server 2014 RTM Standard on Windows Server 2012 R2</td><td>This image contains the full version of SQL Server. We recommend that you use a virtual machine size of A2 or higher. This image has been pre-configured for Azure, including enabling CEIP whic...</td><td>Windows</td><td>127 GB</td></tr>
 <tr><td>Microsoft Windows Server Group</td><td>Windows Server 2012 R2 Datacenter, June 2014</td><td>At the heart of the Microsoft Cloud OS vision, Windows Server 2012 R2 brings Microsoft's experience delivering global-scale cloud services into your infrastructure. It offers enterprise-class performa...</td><td>Windows</td><td>128 GB</td></tr>
 <tr><td>Microsoft Windows Server Group</td><td>Windows Server 2012 Datacenter, June 2014</td><td>Windows Server 2012 incorporates Microsoft's experience building and operating public clouds, resulting in a dynamic, highly available server platform. It offers a scalable, dynamic and multi-tenant-a...</td><td>Windows</td><td>128 GB</td></tr>
 <tr><td>Microsoft Windows Server Group</td><td>Windows Server 2008 R2 SP1, June 2014</td><td>Windows Server 2008 R2 is a multi-purpose server designed to increase the reliability and flexibility of your server or private cloud infrastructure, helping you to save time and reduce costs.  It pro...</td><td>Windows</td><td>128 GB</td></tr>
@@ -112,7 +112,7 @@ The below resources should provide more information on deploying from the image 
 
 ###Other Resources: 
 
-- <a href="virtual-machines-windows-tutorial.md">Deploying a Windows Virtual Machine</a>
+- <a href="virtual-machines/virtual-machines-windows-tutorial.md">Deploying a Windows Virtual Machine</a>
 
 - <a href="../virtual-machines-linux-tutorial/">Deploying a Linux Virtual Machine</a>
 
@@ -133,6 +133,6 @@ The below resources should provide more information on deploying from the image 
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

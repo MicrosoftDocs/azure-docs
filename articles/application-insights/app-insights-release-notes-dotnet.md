@@ -4,19 +4,33 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for .NET
 
-[Using the SDK for .NET](app-insights-start-monitoring-app-health-usage.md)
+The [Application Insights SDK for .NET](app-insights-start-monitoring-app-health-usage.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
+
+
+#### To install the SDK in your application
+
+See [Get started with Application Insights for .NET](app-insights-start-monitoring-app-health-usage.md).
+
+#### To upgrade to the latest SDK 
+
+* After you upgrade, you'll need to merge back any customizations you made to ApplicationInsights.config. If you're unsure whether you customized it, create a new project, add Application Insights to it, and compare your .config file with the one in the new project. Make a note of any differences.
+* In Solution Explorer, right-click your project and choose **Manage NuGet packages**.
+* Set the filter to show installed packages. 
+* Select **Microsoft.ApplicationInsights.Web** and choose **Upgrade**. (This will also upgrade all the dependent packages.)
+* Compare ApplicationInsights.config with the old copy. Most of the changes you'll see are because we removed some modules and made others parameterizable. Reinstate any customizations you made to the old file.
+* Rebuild your solution.
 
 ## Version 0.17
 - Removed dependency to EventSource NuGet for the framework 4.5 applications.

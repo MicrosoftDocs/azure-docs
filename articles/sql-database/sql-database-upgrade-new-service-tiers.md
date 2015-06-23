@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="jhubbard; sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -20,6 +20,8 @@
 # Upgrade SQL Database Web or Business Databases to New Service Tiers
 
 Azure SQL Web and Business databases are being deprecated and [retired September 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx) so it's time to start planning to upgrade existing Web or Business databases to the Basic,  Standard, or Premium service tiers.
+
+Download the [Web and Business Database Migration Guidance Cookbook](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
 
 > [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md) for Web and Business databases are now available.
 

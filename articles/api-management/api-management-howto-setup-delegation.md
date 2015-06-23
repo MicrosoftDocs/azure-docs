@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
 
 Delegation allows you to use your existing website for handling developer sign-in/sign-up and subscription to products as opposed to using the built-in functionality in the developer portal. This enables your website to own the user data and perform the validation of these steps in a custom way.
-
-For more information on delegation, see the following video.
-
-> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 ## <a name="delegate-signin-up"> </a>Delegating developer sign-in and sign-up
 
@@ -167,6 +163,12 @@ These code samples show how to take the *delegation validation key*, which is se
     // compare signature to sig query parameter
 	
 	var signature = digest.toString('base64');
+
+## Next steps
+
+For more information on delegation, see the following video.
+
+> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
