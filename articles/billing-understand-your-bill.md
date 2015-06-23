@@ -74,7 +74,7 @@ To view or download a bill:
 
  **OFFER TYPE** | **DESCRIPTION** | **DOWNLOAD** |
  :--------- |:-------- | :-------|
-Pay-As-You-Go | Pay in arears monthly | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf)
+Pay-As-You-Go | Pay in arrears monthly | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf)
 Commitment offer | Spend deducted from your prepaid commitment | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_invoice_Sample.pdf)
 
 
