@@ -1,10 +1,10 @@
 <properties
-   pageTitle="PolyBase in SQL Data Warehouse Tutorial | Microsoft Azure"
+   pageTitle="Use PolyBase to load data into SQL Data Warehouse | Microsoft Azure"
    description="Learn what PolyBase is and how to use it for data warehousing scenarios."
    services="SQL Data Warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="sahaj08"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2015"
-   ms.author="artinav;barbkess"/>
+   ms.date="06/23/2015"
+   ms.author="sahajs;barbkess"/>
 
 
-# PolyBase in SQL Data Warehouse Tutorial
+# Use PolyBase to load data into SQL Data Warehouse
 PolyBase is an integration technology that allows you to query and join data from multiple sources, all by using Transact-SQL commands.
 
 With PolyBase you can:
@@ -57,7 +57,7 @@ CREATE CREDENTIAL WASBSecret ON DATABASE WITH IDENTITY = 'joe', Secret = 'myazur
 The external data source is an object stored in SQL Data Warehouse that stores the location of the Azure blob storage data and your access information.
 
 ```
--- Creating external data source (Azure Blob Storage) 
+-- Create external data source (Azure blob storage) 
 CREATE EXTERNAL DATA SOURCE azure_storage 
 WITH (
 	TYPE = HADOOP, 
@@ -66,13 +66,13 @@ WITH (
 )
 ```
 
-Reference topic: [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][].
+Reference topic: [CREATE EXTERNAL DATA SOURCE][].
 
 ### Create an external file format
 The external file format is an object that the format of the external data. In this example, the data is a text file and the fields are separated with the pipe character ('|').
 
 ```
--- Creating external file format (delimited text file)
+-- Create external file format (delimited text file)
 CREATE EXTERNAL FILE FORMAT text_file_format 
 WITH (
 	FORMAT_TYPE = DELIMITEDTEXT, 
@@ -82,7 +82,7 @@ WITH (
 	)
 )
 ```
-Reference topic: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
+Reference topic: [CREATE EXTERNAL FILE FORMAT][].
 
 
 ### Create an external table
@@ -106,7 +106,7 @@ WITH (LOCATION='/Demo/car_sensordata.tbl',
 )
 ```
 
-Reference topic: [CREATE EXTERNAL TABLE (Transact-SQL)][].
+Reference topic: [CREATE EXTERNAL TABLE][].
 
 ### View the external objects
 
@@ -160,14 +160,31 @@ ON Insured_Customers.CustomerKey = SensorD.CustomerKey
 ORDER BY YearlyIncome
 
 ```
-See [CREATE TABLE AS SELECT (Transact-SQL)][].
-
-<!-- External Links -->
-[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
-[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/
+See [CREATE TABLE AS SELECT][].
 
 
 
+## Next steps
+For more development tips, see [SQL Data Warehouse development overview][].
+
+<!--Image references-->
+
+<!--Article references-->
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp/
+[Load with PolyBase]: ./sql-data-warehouse-load-with-polybase/
+[solution partners]: ./sql-data-warehouse-solution-partners/
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+
+<!--MSDN references-->
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
+[SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
+
+
+<!--Other Web references-->
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE]: https://msdn.microsoft.com/library/dn935021.aspx
+[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/library/mt204041.aspx
 
