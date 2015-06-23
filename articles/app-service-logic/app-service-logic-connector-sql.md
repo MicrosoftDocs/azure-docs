@@ -49,7 +49,7 @@ A connector can be created within a Logic App or be created directly from the Az
 --- | --- | ---
 Server Name | Yes | Enter the SQL Server name. For example, enter *SQLserver/sqlexpress* or *SQLserver.mydomain.com*.
 Port | No | Default is 1433.
-User Name | Yes | Enter a user name that can log into the SQL Server. If connecting to an on-premises SQL Server, enter domain\username. 
+User Name | Yes | Enter a user name that can log into the SQL Server. If connecting to an on-premises SQL Server, enter SQL Authentication credentials. 
 Password | Yes | Enter the user name password.
 Database Name | Yes | Enter the database you are connecting. For example, you can enter *Customers* or *dbo/orders*.
 On-Premises | Yes | Default is False. Enter False if connecting to an Azure SQL database. Enter True if connecting to an on-premises SQL Server. 
