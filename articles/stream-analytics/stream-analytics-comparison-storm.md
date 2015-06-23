@@ -18,6 +18,13 @@
 	ms.author="jeffstok"/>
 
 # Comparison of Apache Storm and Azure Stream Analytics #
+
+## Introduction ##
+
+This document illustrates the positioning of Azure Stream Analytics and Apache Storm as a managed service on HDInsight. The goal is to help customers understand the value proposition of both services, and make a decision on which is the right choice for their business use case.
+
+While both provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate these services. We believe that listing out the capabilities, as well as the limitations, of these services will help customers land on the solution they need to achieve their goals.
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
