@@ -67,6 +67,10 @@ At the end of the provisioning configuration wizard there is an option to subscr
 
 For most SaaS apps, provisioning is outbound-only, which means that users are written from the directory to the application, and changes from the application cannot be written back to the directory. For [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx), however, provisioning is inbound-only, which means that that users are imported into the directory from Workday, and likewise, changes in the directory do not get written back into Workday.
 
+**How can I submit feedback to the engineering team?**
+
+Please contact us through the [Azure Active Directory feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+
 ##How Does Automated Provisioning Work?
 
 Azure AD provisions users to SaaS apps by connecting to provisioning endpoints provided by each application vendor. These endpoints allow Azure AD to programmatically create, update, and remove users. Below is a brief overview of the different steps that Azure AD takes to automate provisioning.
