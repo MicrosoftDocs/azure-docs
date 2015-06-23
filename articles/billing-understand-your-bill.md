@@ -186,8 +186,8 @@ Depending on your usage, there can be thousands of rows of daily usage data. If 
 
  NAME | DOWNLOAD |
  :----------:| :-------: |
-  Detailed Usage .csv Version 1|  [Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv) |
-  Detailed Usage .csv Version 2 | [Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv) |
+  Detailed Usage .csv Version 1|  [Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
+  Detailed Usage .csv Version 2 | [Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
 
 
 
