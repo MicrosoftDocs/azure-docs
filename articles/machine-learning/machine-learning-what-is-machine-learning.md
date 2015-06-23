@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/02/2015"
+    ms.date="06/23/2015"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -24,7 +24,7 @@
 
 Machine learning uses computers to run predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.
 
-These forecasts or predictions from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps the bank do fraud detection. 
+These forecasts or predictions from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps the bank do fraud detection.
 
 ## What is Machine Learning on Microsoft Azure?
 
