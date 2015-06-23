@@ -1,4 +1,4 @@
-<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="Prepare an Oracle Linux Virtual Machine for Azure" description="Step through the configuration of an Oracle virtual machine running Linux in Microsoft Azure." services="virtual-machines" authors="bbenz"/>
+<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="Prepare an Oracle Linux Virtual Machine for Azure" description="Step through the configuration of an Oracle virtual machine running Linux in Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Prepare an Oracle Linux Virtual Machine for Azure
 -   [Prepare an Oracle Linux 6.4+ Virtual Machine for Azure](virtual-machines-linux-create-upload-vhd-oracle.md)

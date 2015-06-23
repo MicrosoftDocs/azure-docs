@@ -1,4 +1,4 @@
-<properties title="Configuring Oracle Data Guard for Azure" pageTitle="Configuring Oracle Data Guard for Azure" description="Step through a tutorial for setting up and implementing Oracle Data Guard on Azure Virtual Machines for high availability and disaster recovery." services="virtual-machines" authors="bbenz"/>
+<properties title="Configuring Oracle Data Guard for Azure" pageTitle="Configuring Oracle Data Guard for Azure" description="Step through a tutorial for setting up and implementing Oracle Data Guard on Azure Virtual Machines for high availability and disaster recovery." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Configuring Oracle Data Guard for Azure
 This tutorial demonstrates how to setup and implement Oracle Data Guard in Azure Virtual Machines environment for high availability and disaster recovery. The tutorial focuses on one way replication for non-RAC Oracle databases.
