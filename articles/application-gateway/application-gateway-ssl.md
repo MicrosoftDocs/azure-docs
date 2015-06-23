@@ -112,9 +112,9 @@ Application Gateway configuration has the following entities that can be combine
 
 Configuration can be constructed either by creating a configuration object, or by using configuration XML file.
 
-For SSL certificates configuration, the protocol in `HttpListener` should change to Https (case sensitive). `SslCert` element needs to be added to `HttpListener` with the value set to the same name as used in upload of SSL certificates section above. The frontend port should be updated to 443.
+For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCert** element needs to be added to **HttpListener** with the value set to the same name as used in upload of SSL certificates section above. The frontend port should be updated to 443.
 
-Note that Application Gateway can be configured to ensure that request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie which allows Application Gateway to direct traffic appropriately. To enable cookie based affinity, set `CookieBasedAffinity` to ‘Enabled’ in `BackendHttpSettings` element. 
+Note that Application Gateway can be configured to ensure that request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie which allows Application Gateway to direct traffic appropriately. To enable cookie based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element. 
 
 
 ### Configuration XML sample
