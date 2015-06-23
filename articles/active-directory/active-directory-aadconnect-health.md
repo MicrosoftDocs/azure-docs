@@ -20,19 +20,19 @@
 
 Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure. It offers you the ability to view alerts, performance, usage patterns, configuration settings, enables you to maintain a reliable connection to Office 365 and much more. This is accomplished using an agent that is installed on the targeted servers.  To learn more see [Azure AD Connect Health on MSDN.](https://msdn.microsoft.com/library/azure/dn906722.aspx)  
 
-<center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)</center>
+![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
 
 This information is all presented in the Azure AD Connect Health portal.  Using the Azure AD Connect Health portal you can view alerts, performance monitoring, and usage analytics.  This information is presented all in one easy to use place so that you do not have to waste time digging for the information you need.
 
-<center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/usage.png)</center>
+![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/usage.png)
 
 Future updates to Azure AD Connect Health will include additional monitoring and insight into other identity components and services such as Azure AD Connect Sync services. Thus providing you a single dash board through the lens of identity, enabling you to have an even more robust, healthy, and integrated environment that your users can take advantage of to increase their ability to get things done.
 
 To find out more see [Azure AD Connect Health on MSDN.](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 
 
-<center>![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center>
+![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)
 
 
 
