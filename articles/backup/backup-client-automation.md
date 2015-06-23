@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy and manage backup for Windows Server/Client using Windows PowerShell | Microsoft Azure"
-	description="Learn how to deploy and manage Azure Backup using Windows PowerShell"
+	pageTitle="Deploy and manage backup for Windows Server/Client using Azure PowerShell | Microsoft Azure"
+	description="Learn how to deploy and manage Azure Backup using Azure PowerShell"
 	services="backup"
 	documentationCenter=""
 	authors="aashishr"
@@ -17,16 +17,16 @@
 	ms.author="aashishr"/>
 
 
-# Deploy and manage back up to Azure for Windows Server/Windows Client using Windows PowerShell
-This article shows you how to use Windows PowerShell to set up Azure Backup on Windows Server or Windows Client, and to manage backup and recovery.
+# Deploy and manage back up to Azure for Windows Server/Windows Client using Azure PowerShell
+This article shows you how to use Azure PowerShell to set up Azure Backup on Windows Server or Windows Client, and to manage backup and recovery.
 
-## Setting up the Windows PowerShell environment
-Before you can use Windows PowerShell to manage Azure Backup, you will need to have the right Windows PowerShell version and environment variables setup.
+## Setting up the Azure PowerShell environment
+Before you can use Azure PowerShell to manage Azure Backup, you will need to have the right PowerShell version and environment variables setup.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Setup and Registration
-The following setup and registration tasks can be automated with Windows PowerShell:
+The following setup and registration tasks can be automated with Azure PowerShell:
 
 - Installing the Azure Backup agent
 - Registering with the Azure Backup service
@@ -35,7 +35,7 @@ The following setup and registration tasks can be automated with Windows PowerSh
 ### Installing the Azure Backup agent
 Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent). Save the installer to an easily accessible location like *C:\Downloads\*.
 
-To install the agent, run the following command in an elevated Windows PowerShell console:
+To install the agent, run the following command in an elevated Azure PowerShell console:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -417,7 +417,7 @@ Uninstalling the agent binaries from the machine has some consequences to consid
 However, the data stored in Azure remains and is retained as per the retention policy setup by you. Older points are automatically aged out.
 
 ## Remote management
-All the management around the Azure Backup agent, policies, and data sources can be done remotely through Windows PowerShell. The machine that will be managed remotely needs to be prepared correctly.
+All the management around the Azure Backup agent, policies, and data sources can be done remotely through Azure PowerShell. The machine that will be managed remotely needs to be prepared correctly.
 
 By default, the WinRM service is configured for manual startup. The startup type must be set to *Automatic* and the service should be started. To verify that the WinRM service is running, the value of the Status property should be *Running*.
 
@@ -429,7 +429,7 @@ Status   Name               DisplayName
 Running  winrm              Windows Remote Management (WS-Manag...
 ```
 
-Windows PowerShell should be configured for remoting.
+Azure PowerShell should be configured for remoting.
 
 ```
 PS C:\> Enable-PSRemoting -force
