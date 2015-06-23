@@ -113,7 +113,7 @@ Notice that both classes inherit from the **EntityData** class. Deriving from **
 
 The `PlayerRank` class has a [navigation property](http://msdn.microsoft.com/data/jj713564.aspx) that points to the related `Player` entity. The **[ForeignKey]** attribute tells EF that the `Player` property represents a foreign key.
 
-# Add Web API controllers
+## Add Web API controllers
 
 Next, you will add Web API controllers for `Player` and `PlayerRank`. Instead of plain Web API controllers, you will add a special kind of controller called a *table controller*, designed specifically for Azure Mobile Services.
 
