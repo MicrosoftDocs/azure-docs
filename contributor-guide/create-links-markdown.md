@@ -62,10 +62,10 @@ Since includes are located in another directory, you will need to use relative p
 If you have selectors embedded in an include, you would use this sort of linking:
 
     > [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
-    - [(Text1 | Example1 )](../articles/service-directory/example-azure-note.md)
-    - [(Text1 | Example2 )](../articles/service-directory/example-azure-selector-list.md)
-    - [(Text2 | Example3 )](../articles/service-directory/example-azure-selector-list2.md)
-    - [(Text2 | Example4 )](../articles/service-directory/example-code.md)
+    - [Text1 | Example1](../articles/service-directory/example-azure-note.md)
+    - [Text1 | Example2](../articles/service-directory/example-azure-selector-list.md)
+    - [Text2 | Example3](../articles/service-directory/example-azure-selector-list2.md)
+    - [Text2 | Example4](../articles/service-directory/example-code.md)
 
 To link to a page on ACOM (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale. The goal here is that links work in GitHub and on the rendered site:
 
