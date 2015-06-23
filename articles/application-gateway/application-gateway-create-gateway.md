@@ -44,7 +44,7 @@ If you want to delete an Application Gateway, go to [Delete an Application Gatew
 
 This sample shows the cmdlet on the first line followed by the output. 
     
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName kagavnet -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -54,24 +54,21 @@ This sample shows the cmdlet on the first line followed by the output.
 
 **To validate** that the gateway was created, you can use `Get-AzureApplicationGateway` cmdlet.
 
+Note that in the sample, `Description`, `InstanceCount`, and `GatewaySize` are optional parameters. The default value for `InstanceCount` is 2, with a maximum value of 10. The default value for `GatewaySize` is Medium. Small and Large are other available values. Vip` and `DnsName` are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
+The billing for Application Gateway does not start at this point. Billing begins when the gateway is created.
+
 This sample shows the cmdlet on the first line followed by the output. 
 
-Note that in the sample, `Description`, `InstanceCount` (default value: 2), and `GatewaySize` (default value: Medium) are optional parameters. `Vip` and `DnsName` are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
-
 	PS C:\> Get-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 4:39:39 PM - Begin Operation:
-	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
-	Operation: Get-AzureApplicationGateway
-	Name: AppGwTest	
-	Description: 
-	VnetName: kagavnet 
-	Subnets: {Subnet-1} 
-	InstanceCount: 2 
-	GatewaySize: Medium 
-	State: Stopped 
-	Vip: 
-	DnsName:
+	Name          : AppGwTest
+	Description   : 
+	VnetName      : testvnet1
+	Subnets       : {Subnet-1}
+	InstanceCount : 2
+	GatewaySize   : Medium
+	State         : Stopped
+	VirtualIPs    : {}
+	DnsName       :
 
 
 ## Configure the Application Gateway
@@ -83,8 +80,8 @@ The values are:
 - **Backend server pool:** List of IP address of backend servers. This IP should either belong to the VNET subnet or should be a public-IP/VIP. 
 - **Backend server pool settings:** Every pool has settings like port, protocol, and Cookie based affinity. These settings are tied to a pool, and are applied to all servers within the pool.
 - **Frontend Port:** This port is the public port opened on Application Gateway. Customer traffic hits this port, and then gets redirected to one of the backend servers.
-- **Listener:** Listener has a frontend port, protocol (http or https), and SSL certificate name (if configuring SSL offload). 
-- **Rule:** Rule binds listener and backend server pool, and defines which backend server pool traffic should be directed to when it hits a particular listener. 
+- **Listener:** Listener has a frontend port, protocol (Http or Https, these are case-sensitive), and SSL certificate name (if configuring SSL offload). 
+- **Rule:** Rule binds listener and backend server pool, and defines which backend server pool traffic should be directed to when it hits a particular listener. Currently, only the "basic" rule, which is round-robin load distribution, is supported. 
 
 You can construct your configuration either by creating a configuration object, or by using a configuration XML file. 
 
@@ -155,7 +152,7 @@ Once the gateway has been configured, issue the `Start-AzureApplicationGateway` 
 
 This sample shows the cmdlet on the first line followed by the output. Replace the values in the sample with your own values.
 
-**Note** `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes.
+**Note** `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes. Billing for Application Gateway only begins after the gateway is successfully started.
 
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
@@ -169,7 +166,7 @@ This sample shows the cmdlet on the first line followed by the output. Replace t
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, `State` should be "*Running*", and `Vip` and `DnsName` should have valid entries. 
 
-This sample shows the cmdlet on the first line followed by the output. This sample shows an Application Gateway that is up and running, and is ready to take traffic destined to `http://appgwtest.cloudapp.net`.
+This sample shows the cmdlet on the first line followed by the output. This sample shows an Application Gateway that is up and running, and is ready to take traffic destined to `http://<generated-dns-name>.cloudapp.net`.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
@@ -177,13 +174,13 @@ This sample shows the cmdlet on the first line followed by the output. This samp
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
 	Name          : AppGwTest 
 	Description   : 
-	VnetName      : kagavnet 
+	VnetName      : testvnet1 
 	Subnets       : {Subnet-1} 
 	InstanceCount : 2 
 	GatewaySize   : Medium 
 	State         : Running 
 	Vip           : 138.91.170.26 
-	DnsName       : appgwtest.cloudapp.net
+	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 
 
 ## Delete an Application Gateway
@@ -223,6 +220,7 @@ This sample has the cmdlet on the first line followed by the output. Replace the
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
+
 	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist. 
 	.....
 
