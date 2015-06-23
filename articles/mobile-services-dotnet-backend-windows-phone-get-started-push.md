@@ -198,8 +198,8 @@ Consider finding out more about the following Mobile Services and Notification H
 
 [Send push notifications to authenticated users]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
 
-[What are Notification Hubs?]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-windows-phone-send-breaking-news.md
+[What are Notification Hubs?]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-windows-phone-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-windows-phone-send-localized-breaking-news.md
 
 
