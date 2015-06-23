@@ -3,7 +3,7 @@
 	description="Learn how to send push notifications to all devices of a specific user."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
