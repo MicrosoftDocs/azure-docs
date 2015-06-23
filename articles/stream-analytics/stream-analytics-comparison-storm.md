@@ -52,12 +52,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    No. Microsoft proprietary offering
+                    No. Azure Stream Analytics is a Microsoft proprietary offering.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Yes. Apache licensed technology
+                    Yes. Apache Storm is an Apache licensed technology.
                 </p>
             </td>
         </tr>
@@ -86,12 +86,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    No hardware requirement. It’s an Azure Service
+                    No hardware requirement. Azure Stream Analytics is an Azure Service.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No hardware requirement. It’s an Azure Service
+                    No hardware requirement. Apache Storm is an Azure Service.
                 </p>
             </td>
         </tr>
@@ -103,13 +103,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    No. Azure Stream Analytics is a Job Service. Customers don’t maintain their clusters. Customers author and monitor job without the worry
-                    for cluster management
+                    Azure Stream Analytics is a Job Service. Customers don’t maintain their clusters. Customers author and monitor job without the worry of cluster management.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Storm on HDInsight is a managed PaaS service. Customers provision Storm Clusters that can run Streaming workload
+                    Apache Storm on HDInsight is a managed PaaS service. Customers provision Apache Storm Clusters that can run streaming workloads.
                 </p>
             </td>
         </tr>
@@ -124,16 +123,16 @@
                     Stream Analytics is priced by volume of data processed and the number of streaming units required to process it.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Link to the pricing page</a>
+                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Further pricing information can be found here.</a>
                     .
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    The Unit of purchase is cluster.
+                    The unit of purchase is cluster-based.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Link to the pricing page</a>
+                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Further pricing information can be found here.</a>
                     .
                 </p>
             </td>
@@ -153,12 +152,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    Yes. Easy to use SQL language support
+                    Yes. Easy to use SQL language support.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No. Customer write code in Java C# or use Trident APIs
+                    No. Customer write code in Java C# or use Trident APIs.
                 </p>
             </td>
         </tr>
@@ -175,7 +174,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    Temporal operators need to be implemented by customer.
+                    Temporal operators need to be implemented by the customer.
                 </p>
             </td>
         </tr>
@@ -193,7 +192,7 @@
             <td width="246" valign="top">
                 <p>
                     Development, debugging and monitoring experience through the Visual Studio experience for .NET users and for Java and other languages
-                    customers use IDE of their choice.
+                    customers use the IDE of their choice.
                 </p>
             </td>
         </tr>
@@ -205,13 +204,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    When things don’t work, using job status and then looking via Management services logs is the only option, no way to setup Logs to verbose
-                    mode
+                    When things don’t work, using job status and then looking via Management services logs is the only option, no way to setup Logs to verbose mode
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Detailed logs available for debugging purposes. Two ways to surface logs to user via visual studio or user can RDP into cluster to get access to logs.
+                    Detailed logs available for debugging purposes. Two ways to surface logs to user via visual studio or user can RDP into the cluster to access to logs.
                 </p>
             </td>
         </tr>
@@ -223,12 +221,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    Currently no support for UDFs
+                    Currently there is no support for UDFs.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Yes. Can be written in C#, Java or the language of your choice.
+                    UDFs can be written in C#, Java or the language of your choice.
                 </p>
             </td>
         </tr>
@@ -264,12 +262,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    A streaming job can have a set of inputs. Currently restricted to Event Hubs, Azure Blobs.
+                    A streaming job can have a set of inputs. Currently restricted to Event Hubs and Azure Blobs.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No restrictions. Connectors available for Event Hubs, Service Bus, Kafka etc. Unsupported ones can be implemented via custom code
+                    No restrictions. Connectors available for Event Hubs, Service Bus, Kafka, etc. Unsupported ones can be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -286,7 +284,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    No restrictions. Can be implemented via custom code
+                    No restrictions. Can be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -298,12 +296,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    A streaming job can have multiple outputs. Currently restricted to Event Hubs, Blob Storage, Azure Table, Azure SQL DB, and PowerBI.
+                    A streaming job can have multiple outputs. Currently these are restricted to Event Hubs, Blob Storage, Azure Tables, Azure SQL DB, and PowerBI.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Support for many outputs in a topology, each output can have custom logic for downstream processing. Out of the box it comes with connectors for PowerBI, Event Hubs, Azure Blob Store, DocumentDB, SQL and HBase. Unsupported ones can be implemented via custom code
+                    Support for many outputs in a topology, each output can have custom logic for downstream processing. Out of the box it comes with connectors for PowerBI, Event Hubs, Azure Blob Store, DocumentDB, SQL and HBase. Unsupported ones can be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -320,7 +318,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    No restrictions. Can be implemented via custom code
+                    No restrictions. Can be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -410,7 +408,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    Scale up or down cluster size to have more resources. There is no limit to data processed since Azure would allow to create cluster of any size
+                    Scale up or down cluster size to have more resources. There is no limit to data processed since Azure would allow to create cluster of any size.
                 </p>
             </td>
         </tr>
@@ -422,12 +420,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    Stop and resume from last place stopped
+                    Stop and resume from last place stopped.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Stop and resume from last place stopped based on the watermark
+                    Stop and resume from last place stopped based on the watermark.
                 </p>
             </td>
         </tr>
@@ -467,8 +465,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    SLA of 99.9% uptime of the Storm cluster. Apache Storm is a fault tolerant streaming platform however its Customer responsibility to ensure
-                    their streaming jobs run uninterrupted.
+                    SLA of 99.9% uptime of the Storm cluster. Apache Storm is a fault tolerant streaming platform however it is the customers' responsibility to ensure their streaming jobs run uninterrupted.
                 </p>
             </td>
         </tr>
@@ -492,7 +489,7 @@
             </td>
             <td width="246" valign="top">
                 <p>
-                    Customer needs to implement logic to handle.
+                    Customer needs to implement logic to handle this scenario.
                 </p>
             </td>
         </tr>
@@ -504,17 +501,15 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    Reference data available from Azure Blobs with max size of 100 MB of in-memory lookup cache. Refreshing of reference data is managed by the
-                    service.
+                    Reference data available from Azure Blobs with max size of 100 MB of in-memory lookup cache. Refreshing of reference data is managed by the service.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No limits on size or sources. Connectors available for HBase, DocumentDB, SQL Server /Azure. Unsupported ones can be implemented via custom
-                    code.
+                    No limits on size or sources. Connectors available for HBase, DocumentDB, SQL Server and Azure. Unsupported ones can be implemented via custom code.
                 </p>
                 <p>
-                    Refreshing of reference data need to be handled by custom code
+                    Refreshing of reference data needs to be handled by custom code.
                 </p>
             </td>
         </tr>
@@ -526,12 +521,12 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    Yes, by configuring published Azure Machine Learning models as functions during ASA job creation
+                    Yes, by configuring published Azure Machine Learning models as functions during ASA job creation.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Available through Storm Bolts
+                    Available through Storm Bolts.
                 </p>
             </td>
         </tr>
