@@ -3,7 +3,7 @@
    description="Learn the common scenarios for data loading in SQL Data Warehouse"
    services="SQL Data Warehouse"
    documentationCenter="NA"
-   authors="mausher"
+   authors="TwoUnder"
    manager="barbkess"
    editor=""/>
 
