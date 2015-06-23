@@ -78,6 +78,8 @@ The following example shows you how you can create a Virtual Machine based on a 
 	![](media/virtual-machines-creating-oracle-webLogic-server-11g-virtual-machine/image35.png)
 
 13.	In the **Configuration Summary** dialog, click **Create**.
+	
+	![](media/virtual-machines-creating-oracle-webLogic-server-11g-virtual-machine/image35.png)
 
 14.	In the **Creating Domain** dialog, check **Start Admin Server** and then click **Done**.
 
