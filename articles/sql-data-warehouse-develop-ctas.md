@@ -351,7 +351,7 @@ Please refer to MSDN for more information on using [CTAS]. It is one of the most
 For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
-[1]: ./media/sql-dw-migrate-migrate-code/ctas-results.png
+[1]: ./media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
 [SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
