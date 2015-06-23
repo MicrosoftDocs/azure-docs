@@ -3,7 +3,7 @@
    description="Tips for securing a database in Azure SQL Data Warehouse for developing solutions."
    services="SQL Data Warehouse"
    documentationCenter="NA"
-   authors="sahajs"
+   authors="sahaj08"
    manager="barbkess"
    editor=""/>
 
@@ -60,15 +60,6 @@ There are ways to further limit what a user can do with Azure SQL Database:
 
 Managing databases and logical servers from the Azure Management Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure preview portal][].
 
-
-## Encryption
-
-Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent data encryption][]. To encrypt your database, connect as a database owner and execute:
-
-```
--- Enable encryption on database
-ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-```
 
 ## Next steps
 For more development tips, see [SQL Data Warehouse development overview][].

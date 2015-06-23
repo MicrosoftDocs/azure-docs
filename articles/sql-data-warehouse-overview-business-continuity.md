@@ -51,7 +51,7 @@ Since SQL Data Warehouse separates compute and storage, all your data is directl
 
 ### Point In Time Restore
 
-Point-in-Time restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots every 4 hours and retains them for 7 days to provide you with a discrete set of restore points. Additionally, your database is backed up with an automatic snapshot everytime you pause or drop the database. These backups are stored on RA-GRS Azure Storage and are therefore geo-redundant by default. The automatic backup and point-in-time restore features come with no additional charges and provide a zero-cost and zero-admin way to protect databases from accidental corruption or deletion. To learn more about Point In Time Restore, refer to [Recover from user error][].
+Point-in-Time restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. These backups are stored on RA-GRS Azure Storage and are therefore geo-redundant by default. The automatic backup and point-in-time restore features come with no additional charges and provide a zero-cost and zero-admin way to protect databases from accidental corruption or deletion. To learn more about Point In Time Restore, refer to [Recover from user error][].
 
 ### Geo-Restore
 
