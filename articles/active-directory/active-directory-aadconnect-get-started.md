@@ -27,7 +27,7 @@
 </div>
 
 
-The following documentation will help you get started with Azure Active Directory Connect.  This documentation deals with using the express installation for Azure AD Connect.  For information on a Custom installation see [Custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+The following documentation will help you get started with Azure Active Directory Connect.  This documentation deals with using the express installation for Azure AD Connect.  For information on a Custom installation see [Custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md).  For information on upgrading from DirSync to Azure AD Connect see [Upgrading DirSync to Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 ## Download Azure AD Connect
 
