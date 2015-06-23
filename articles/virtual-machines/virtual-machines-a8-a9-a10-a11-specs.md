@@ -21,7 +21,7 @@ This article provides background information and considerations to use the Azure
 
 * **High performance hardware** - The Azure data center hardware running these instances is designed and optimized for compute and network intensive applications including high performance computing (HPC) cluster applications, modeling, and simulations.
 
-* **RDMA network connection** - The A8 and A9 instances can communicate over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost performance for parallel Message Passing Interface (MPI) applications. (RDMA network access is currently only supported for cloud services and Windowss Server-based VMs.)
+* **RDMA network connection** - The A8 and A9 instances can communicate over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost performance for parallel Message Passing Interface (MPI) applications. (RDMA network access is currently only supported for cloud services and Windows Server-based VMs.)
 
 >[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
