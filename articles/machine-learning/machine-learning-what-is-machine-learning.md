@@ -22,13 +22,13 @@
 
 ## What is machine learning?
 
-Machine learning uses predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.
+Machine learning uses computers to run predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.
 
-Predictions or forecasts from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products based on what you've purchased. When your credit card is swiped, machine learning helps the bank do fraud detection and notify you if the transaction seems suspicious.
+These forecasts or predictions from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps the bank do fraud detection. 
 
 ## What is Machine Learning on Microsoft Azure?
 
-Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy analytics solutions.
+Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
 
 Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to publish your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models. You do not need to buy any hardware nor manually manage virtual machines.
 
