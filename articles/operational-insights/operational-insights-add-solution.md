@@ -46,7 +46,9 @@ However, the following solutions are *not* supported with the Microsoft Monitori
 
 - [Capacity Management](operational-insights-capacity.md)
 
-- [Configuration Assessment](../operational-insights-configuration-assessment.md)
+- [Alert Management](operational-insights-alerts.md)
+
+- [Configuration Assessment](../operational-insights-solutions.md#configuration-assessment)
 
 IIS log collection is supported on computers with:
 
