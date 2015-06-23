@@ -3,7 +3,7 @@
    description="Learn the common scenarios for data loading in SQL Data Warehouse"
    services="SQL Data Warehouse"
    documentationCenter="NA"
-   authors="two_under"
+   authors="mausher"
    manager="barbkess"
    editor=""/>
 
@@ -17,7 +17,7 @@
    ms.author="mausher;barbkess"/>
 
 # Load data into SQL Data Warehouse
-SQL Data Warehouse presents numerours options for loading data for a variety of scenarios. For example, you might want to load:
+SQL Data Warehouse presents numerous options for loading data for a variety of scenarios. For example, you might want to load:
 - large batches once a day
 - smaller batches throughout the day
 - simple updates to smaller (dimension) tables
