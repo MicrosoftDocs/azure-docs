@@ -169,7 +169,7 @@ This sample shows the cmdlet on the first line followed by the output. Replace t
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, `State` should be "*Running*", and `Vip` and `DnsName` should have valid entries. 
 
-This sample shows the cmdlet on the first line followed by the output. This sample shows an Application Gateway that is up and running, and is ready to take traffic destined to *"http://appgwtest.cloudapp.net"*.
+This sample shows the cmdlet on the first line followed by the output. This sample shows an Application Gateway that is up and running, and is ready to take traffic destined to `http://appgwtest.cloudapp.net`.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
