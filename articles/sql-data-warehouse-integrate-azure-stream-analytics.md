@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Azure Machine Learning with SQL Data Warehouse | Microsoft Azure"
-   description="Tips for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions."
+   pageTitle="Use Azure Stream Analytics with SQL Data Warehouse | Microsoft Azure"
+   description="Tips for using Azure Stream Analytics with Azure SQL Data Warehouse for developing solutions."
    services="SQL Data Warehouse"
    documentationCenter="NA"
    authors="sahajs"
@@ -16,8 +16,8 @@
    ms.date="06/22/2015"
    ms.author="sahajs"/>
 
-# Use Azure Machine Learning with SQL Data Warehouse
-For information, see the [Azure Machine Learning documentation].
+# Use Azure Stream Analytics with SQL Data Warehouse
+For information, see the [Azure Stream Analytics documentation].
 
 ## Next steps
 For an overview of integration, see [SQL Data Warehouse integration overview][].
@@ -33,5 +33,5 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
+[Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 

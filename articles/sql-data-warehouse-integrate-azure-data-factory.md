@@ -51,4 +51,4 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory documentation]: https://azure.microsoft.com/en-us/documentation/services/data-factory/
+[Azure Data Factory documentation]: https://azure.microsoft.com/documentation/services/data-factory/
