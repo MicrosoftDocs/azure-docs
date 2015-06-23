@@ -354,7 +354,7 @@ Then, you need to start the standby instance. On the standby database server, en
 
 Note that the **Oradim** command creates an Oracle instance but does not start it. You can find it in the C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN directory.
 
-##2. Configure the listener and tnsnames to support the database on primary and standby machines
+##Configure the listener and tnsnames to support the database on primary and standby machines
 Before you create a standby database, you need to make sure that the primary and standby databases in your configuration can talk to each other. To do this, you need to configure both the listener and TNSNames either manually or by using the network configuration utility NETCA. This is a mandatory task when you use the Recovery Manager utility (RMAN).
 
 ### Configure listener.ora on both servers to hold entries for both databases
@@ -482,7 +482,7 @@ Open up a new Windows command prompt in both primary and standby Virtual Machine
 	OK (260 msec)
 
 
-##3. Startup the standby instance in nomount state
+##Startup the standby instance in nomount state
 You need to set up the environment to support the standby database on the standby Virtual Machine (MACHINE2).
 
 First, copy the password file from the primary machine (Machine1) to the standby machine (Machine2) manually. This is necessary as the **sys** password must be identical on both machines.
@@ -508,7 +508,7 @@ Start the database:
 	Redo Buffers                7036928 bytes
 
 
-##4. Use RMAN to clone the database and to create a standby database
+##Use RMAN to clone the database and to create a standby database
 You can use the Recovery Manager utility (RMAN) to take any backup copy of the primary database to create the physical standby database.
 
 Remote desktop to the standby Virtual Machine (MACHINE2) and run the RMAN utility by specifying a full connection string for both the TARGET (primary database, Machine1) and AUXILLARY (standby database, Machine2) instances.
@@ -523,7 +523,7 @@ Remote desktop to the standby Virtual Machine (MACHINE2) and run the RMAN utilit
 	  DORECOVER
 	    NOFILENAMECHECK;
 
-##5. Start the physical standby database in managed recovery mode
+##Start the physical standby database in managed recovery mode
 This tutorial demonstrates how to create a physical standby database. For information on creating a logical standby database, see the Oracle documentation.
 
 Open up SQL\*Plus command prompt and enable the Data Guard on the standby Virtual Machine or server (MACHINE2) as follows:
@@ -543,7 +543,7 @@ In general, we recommend that you keep the standby database in **MOUNT** mode to
 	ALTER DATABASE OPEN READ ONLY;
 
 
-##6. Verify the physical standby database
+##Verify the physical standby database
 This section demonstrates how to verify the high availability configuration as an administrator.
 
 Open up SQL\*Plus command prompt window and check archived redo log on the Standby Virtual Machine (Machine2):
