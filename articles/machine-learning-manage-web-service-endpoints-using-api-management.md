@@ -9,7 +9,7 @@
 	editor=""/>
 
 <tags
-	ms.service="machine-learning, api-management"
+	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
