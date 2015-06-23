@@ -415,41 +415,31 @@ Open the parameter file using the EDIT PARAMS command and then append the follow
 	DISCARDFILE C:\OracleGG\dirdat\discard.txt, append, megabytes 10
 	MAP scott.inventory, TARGET scott.inventory;
 
-### 5.7. Add trandata on Site A and Site B
+### Add trandata on Site A and Site B
 
 Enable supplemental logging at the table level by using the ADD TRANDATA command. Open up Oracle GoldenGate Command interpreter window, login to database, and then run the ADD TRANDATA command.
 
 Remote desktop to MachineGG1, open up Oracle GoldenGate command interpreter, and run:
 
-GGSCI (MachineGG1) 11\> dblogin userid ggate password ggate
-
-Successfully logged into database.
-
-GGSCI (MachineGG1) 12\> add trandata scott.inventory cols (prod\_category,qty\_in\_stock, last\_dml)
-
-GGSCI (MachineGG1) 13\> info trandata scott.inventory
-
-Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
-
-Columns supplementally logged for table SCOTT.INVENTORY: PROD\_ID, PROD\_CATEGORY, QTY\_IN\_STOCK, LAST\_DML.
-
+	GGSCI (MachineGG1) 11> dblogin userid ggate password ggate
+	 Successfully logged into database.
+	GGSCI (MachineGG1) 12> add trandata scott.inventory cols (prod_category,qty_in_stock, last_dml)
+	GGSCI (MachineGG1) 13> info trandata scott.inventory
+	Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
+	Columns supplementally logged for table SCOTT.INVENTORY: PROD_ID, PROD_CATEGORY, QTY_IN_STOCK, LAST_DML.
+		
 Remote desktop to MachineGG2, open up Oracle GoldenGate command interpreter, and run:
 
-GGSCI (MachineGG2) 18\> dblogin userid ggate password ggate
-
-Successfully logged into database.
-
-GGSCI (MachineGG2) 14\> add trandata scott.inventory cols (prod\_category,qty\_in\_stock, last\_dml)
-
-Logging of supplemental redo data enabled for table SCOTT.INVENTORY.
+	GGSCI (MachineGG2) 18> dblogin userid ggate password ggate
+	 Successfully logged into database.
+	GGSCI (MachineGG2) 14> add trandata scott.inventory cols (prod_category,qty_in_stock, last_dml)
+	Logging of supplemental redo data enabled for table SCOTT.INVENTORY.
 
 Display information about the state of table-level supplemental logging:
 
-GGSCI (MachineGG2) 15\> info trandata scott.inventory
-
-Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
-
-Columns supplementally logged for table SCOTT.INVENTORY: PROD\_ID, PROD\_CATEGORY, QTY\_IN\_STOCK, LAST\_DML.
+	GGSCI (MachineGG2) 15> info trandata scott.inventory
+	Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
+	Columns supplementally logged for table SCOTT.INVENTORY: PROD_ID, PROD_CATEGORY, QTY_IN_STOCK, LAST_DML.
 
 ###Add trandata on Site A and Site B
 
