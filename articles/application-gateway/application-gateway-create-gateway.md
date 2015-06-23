@@ -225,3 +225,12 @@ This sample has the cmdlet on the first line followed by the output. Replace the
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist. 
 	.....
+
+## Next Steps
+
+If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-SSL.md).
+
+If you want more information about load balancing options in general, see:
+
+- [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
