@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Provision an API app with an existing gateway
@@ -23,7 +23,9 @@ how to define parameters that are specified when the deployment is executed. You
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-For the complete template, see [API App with existing gateway  template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/existing-gateway-existing-plan-new-apiapp.json).
+For more information about deploying apps, see [Deploy a complex application predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+For the complete template, see [API App with existing gateway  template](../../templates/app-service-api-arm-existing-gateway-provision/).
 
 ## What you will deploy
 

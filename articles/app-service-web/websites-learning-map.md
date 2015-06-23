@@ -20,6 +20,6 @@
 # Learning Map for Azure App Service Web Apps
 Test drive Azure App Service Web Apps, quickly migrate your web assets to Azure App Service Web Apps, and create a rich and smooth experience for your customers globally. Follow the guidance on this page for an effective learning path through Web Apps content. 
 
-<object type="image/svg+xml" data="http://sidneyhcontent.blob.core.windows.net/documentation/websites-learning-map.svg" width="100%" height="100%">
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/websites-learning-map.svg" width="100%" height="100%">
 </object>
  
