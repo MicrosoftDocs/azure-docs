@@ -105,10 +105,10 @@ This sample shows the cmdlet on the first line, followed by the output.
 Application Gateway configuration has the following entities that can be combined to construct the configuration. 
  
 - **Backend server pool:** List of IP address of backend servers. This IP should either belong to the VNET subnet or should be a public-IP/VIP. 
-- **Backend server pool settings:** Every pool has setting like port, protocol, cookie-based affinity. Setting is tied to a pool and gets applied to all servers in a pool.
-- **Frontend Port:** This port is the public port opened on application gateway. Customer traffic would be hitting this port and then redirected to one of the backend server.
-- **Listener:** Listener has a frontend port, protocol (http or https) and SSL certificate name (if configuring SSL offload). 
-- **Rule:** Rule binds listener and backend server pool and defines which backend server pool traffic should be directed to when it hits a particular listener. 
+- **Backend server pool settings:** Every pool has settings like port, protocol, and Cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+- **Frontend Port:** This port is the public port opened on Application Gateway. Customer traffic hits this port, and then gets redirected to one of the backend servers.
+- **Listener:** Listener has a frontend port, protocol (Http or Https, these are case-sensitive), and SSL certificate name (if configuring SSL offload). 
+- **Rule:** Rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the "basic" rule, which is round-robin load distribution, is supported. 
 
 Configuration can be constructed either by creating a configuration object, or by using configuration XML file.
 
@@ -198,7 +198,7 @@ This sample shows the cmdlet on the first line, followed by the output. Replace 
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
 
-Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, *State* should be "*Running*", and *Vip* and *DnsName* should have valid entries. 
+Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, State should be "*Running*", and Vip and DnsName should have valid entries. 
 
 This sample shows the cmdlet on the first line, followed by the output. In this sample, the gateway is up and ready to take traffic.
 
