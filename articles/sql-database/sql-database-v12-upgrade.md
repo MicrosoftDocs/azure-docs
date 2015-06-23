@@ -91,5 +91,5 @@ The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, 
 [6]: ./media/sql-database-v12-upgrade/upgrade.png
 [7]: ./media/sql-database-v12-upgrade/typeservername.png
 [8]: ./media/sql-database-v12-upgrade/enabled.png
-[9]: ./media/sql-database-v12-upgrade/cancel.png
+[9]: ./media/sql-database-v12-upgrade/cancel.PNG
  
