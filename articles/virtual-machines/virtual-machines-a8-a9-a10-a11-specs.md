@@ -1,6 +1,6 @@
 <properties
  pageTitle="About the A8, A9, A10, and A11 instances | Microsoft Azure"
- description="This article provides background information and considerations to use the Azure A8, A9, A10, and A11 compute intensive instances."
+ description="Get background information and considerations to use the Azure A8, A9, A10, and A11 compute intensive instances."
  services="virtual-machines, cloud-services"
  documentationCenter=""
  authors="dlepow"
@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="06/09/2015"
+ ms.date="06/23/2015"
  ms.author="danlep"/>
 
 # About the A8, A9, A10, and A11 Compute Intensive Instances
@@ -21,7 +21,7 @@ This article provides background information and considerations to use the Azure
 
 * **High performance hardware** - The Azure data center hardware running these instances is designed and optimized for compute and network intensive applications including high performance computing (HPC) cluster applications, modeling, and simulations.
 
-* **RDMA network connection** - The A8 and A9 instances can communicate over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost performance for parallel Message Passing Interface (MPI) applications. (RDMA network access is currently only supported for cloud services and Windows Server-based VMs.)
+* **RDMA network connection** - The A8 and A9 instances can communicate over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost performance for parallel Message Passing Interface (MPI) applications. (RDMA network access is currently only supported for cloud services and Windowss Server-based VMs.)
 
 >[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
@@ -64,7 +64,7 @@ A10 and A11 instances have a single, 10 Gbps Ethernet network adapter that conne
 
 * **Cores quota** - You might need to increase the cores quota in your Azure subscription from the default of 20 cores, which is not enough for many scenarios with 8-core or 16-core instances. For initial tests you might consider requesting a quota increase to 100 cores. To do this, open a free support ticket as shown in [Understanding Azure Limits and Increases](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
->[AZURE.NOTE]Azure quotas are credit limits, not capacity gurantees. You are only charged for cores that you use.
+>[AZURE.NOTE]Azure quotas are credit limits, not capacity guarantees. You are only charged for cores that you use.
 
 * **Affinity group** - An Azure affinity group can help optimize performance by grouping services or VMs in the same Azure data center. To group the compute intensive instances, we recommend that you create a new affinity group in a region where you plan to deploy the instances. As a best practice, only use the affinity group for the compute intensive instances, not instances of other sizes.
 
@@ -88,7 +88,7 @@ See the following table for prerequisites for MPI applications to access the RDM
 
 Prerequisite | Virtual machines (IaaS) | Cloud services (PaaS)
 ---------- | ------------ | -------------
-Operating system | Windows Server 2012 R2 or Windows Server 2012 VMs | Windows Server 2012 R2 or Windows Server 2008 R2 Guest OS family
+Operating system | Windows Server 2012 R2 or Windows Server 2012 VMs | Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 Guest OS family
 MPI | MS-MPI 2012 R2 or later, either standalone or installed via HPC Pack 2012 R2 or later | MS-MPI 2012 R2 or later, installed via HPC Pack 2012 R2 or later
 
 
@@ -106,4 +106,3 @@ MPI | MS-MPI 2012 R2 or later, either standalone or installed via HPC Pack 2012 
 
 * For details about availability and pricing of the A8, A9, A10, and  A11 instances, see [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services Pricing](http://azure.microsoft.com/pricing/details/cloud-services/).
 * To get started deploying and using A8 and A9 instances with HPC Pack, see [A8 and A9 Compute Intensive Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) and [Run MPI Applications on A8 and A9 Instances](https://msdn.microsoft.com/library/azure/dn592104.aspx).
- 
