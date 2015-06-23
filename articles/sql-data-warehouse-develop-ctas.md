@@ -357,7 +357,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
 
 <!--MSDN references-->
-[CTAS]: (http://msdn.microsoft.com//BLAH)
+[CTAS]: https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204041.aspx
 
 <!--Other Web references-->
 
