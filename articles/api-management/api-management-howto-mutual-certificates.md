@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # How to secure back-end services using mutual certificate authentication in Azure API Management
 
 API Management provides the capability to secure access to the back-end service of an API using mutual certificates. This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.
-
-For more information, see the following video.
-
-> [AZURE.VIDEO last-mile-security]
 
 For information about managing certificates using the API Management REST API, see [Azure API Management REST API Certificate entity][].
 
@@ -98,7 +94,11 @@ Click **Save** to save the configuration change to the API.
 
 ![Certificate policy][api-management-certificate-policy]
 
+## Next steps
 
+For more information, see the following video.
+
+> [AZURE.VIDEO last-mile-security]
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png

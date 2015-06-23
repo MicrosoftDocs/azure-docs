@@ -1,7 +1,7 @@
 <properties 
    pageTitle="What is a Network Security Group (NSG)"
    description="Learn about Network Security Groups (NSG)"
-   services="traffic-manager"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carolz"

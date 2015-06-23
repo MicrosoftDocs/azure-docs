@@ -2,7 +2,7 @@
 
 The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. We recommend that you maintain your storage connection string in a configuration file, rather than hard-coding it into your application. You have two options for saving your connection string:
 
-- If your application runs in an Azure cloud service, save your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files). See [How to create and deploy a cloud service](cloud-services-how-to-create-deploy.md) for details about Azure cloud service configuration.
+- If your application runs in an Azure cloud service, save your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files). See [How to create and deploy a cloud service](../articles/cloud-services/cloud-services-how-to-create-deploy.md) for details about Azure cloud service configuration.
 - If your application runs on Azure virtual machines, or if you are building .NET applications that will run outside of Azure, save your connection string using the .NET configuration system (e.g. `web.config` or `app.config` file).
 
 Later on in this guide, we will show how to retrieve your connection string from your code.

@@ -379,5 +379,5 @@ Returns the value of variable. The specified variable name must be defined in th
 ## Next Steps
 - [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
 - [Advanced Template Operations](./resource-group-advanced-template.md)
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)
+- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
