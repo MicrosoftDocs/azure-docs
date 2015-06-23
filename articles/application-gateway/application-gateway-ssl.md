@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/22/2015"
+   ms.date="06/23/2015"
    ms.author="cherylmc"/>
 
 # Configure Application Gateway for SSL offload
@@ -40,7 +40,7 @@ To configure SSL offload on an Application Gateway, do the following steps in th
 
 This sample shows the cmdlet on the first line followed by the output. 
 
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName kagavnet -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -53,7 +53,9 @@ This sample shows the cmdlet on the first line followed by the output.
 This sample shows the cmdlet on the first line followed by the output. 
 
 
-Note that in the sample, `Description`, `InstanceCount` (default value: 2), `GatewaySize` (default value: Medium) are optional parameters. `Vip` and `DnsName` are shown as blank since the gateway is not started yet. These will be created once the gateway is in a running state.
+Note that in the sample, `Description`, `InstanceCount`, and `GatewaySize` are optional parameters. The default value for `InstanceCount` is 2, with a maximum value of 10. The default value for `GatewaySize` is Medium. Small and Large are other available values. Vip` and `DnsName` are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
+
+The billing for Application Gateway does not start at this point. Billing begins when the gateway is created.
 
 This sample shows the cmdlet on the first line followed by the output. 
 
@@ -64,12 +66,12 @@ This sample shows the cmdlet on the first line followed by the output.
 	Operation: Get-AzureApplicationGateway
 	Name: AppGwTest	
 	Description: 
-	VnetName: kagavnet 
+	VnetName: testvnet1 
 	Subnets: {Subnet-1} 
 	InstanceCount: 2 
 	GatewaySize: Medium 
 	State: Stopped 
-	Vip: 
+	VirtualIPs: 
 	DnsName:
 
 
@@ -79,7 +81,7 @@ Use `Add-AzureApplicationGatewaySslCertificate` to upload the server certificate
 
 This sample shows the cmdlet on the first line followed by the output. Replace the values in the sample with your own.
 
-	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName SslCert -Password <password> -CertificateFile <full path to pfx file> 
+	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
 	
 	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -99,6 +101,7 @@ This sample shows the cmdlet on the first line followed by the output.
 	SubjectName    : CN=gwcert.app.test.contoso.com 
 	Thumbprint     : AF5ADD77E160A01A6......EE48D1A 
 	ThumbprintAlgo : sha1RSA
+	State..........: Provisioned
 
 
 ## Configure the Application Gateway
@@ -107,21 +110,27 @@ Application Gateway configuration has the following entities that can be combine
  
 - **Backend server pool:** List of IP address of backend servers. This IP should either belong to the VNET subnet or should be a public-IP/VIP. 
 - **Backend server pool settings:** Every pool has setting like port, protocol, cookie-based affinity. Setting is tied to a pool and gets applied to all servers in a pool.
-- **Frontend Port:** This port is the public port opened on application gateway. Customer traffic would be hitting this port and then redirected t o one of the backend server.
+- **Frontend Port:** This port is the public port opened on application gateway. Customer traffic would be hitting this port and then redirected to one of the backend server.
 - **Listener:** Listener has a frontend port, protocol (http or https) and SSL certificate name (if configuring SSL offload). 
 - **Rule:** Rule binds listener and backend server pool and defines which backend server pool traffic should be directed to when it hits a particular listener. 
 
-For SSL certificates configuration, the protocol in `HttpListener` should change to Https (case sensitive). `SslCert` element needs to be added to `HttpListener` with the value set to the same name as used in upload of SSL certificates section above.
-
 Configuration can be constructed either by creating a configuration object, or by using configuration XML file.
 
-### Configuration XML
-	<?xml version="1.0" encoding="utf-8"?>
+For SSL certificates configuration, the protocol in `HttpListener` should change to Https (case sensitive). `SslCert` element needs to be added to `HttpListener` with the value set to the same name as used in upload of SSL certificates section above. The frontend port should be updated to 443.
+
+Note that Application Gateway can be configured to ensure that request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie which allows Application Gateway to direct traffic appropriately. To enable cookie based affinity, set `CookieBasedAffinity` to ‘Enabled’ in `BackendHttpSettings` element. 
+
+
+### Configuration XML sample
+
+
+	    <?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+	    <FrontendIPConfigurations />
 	    <FrontendPorts>
 	        <FrontendPort>
 	            <Name>FrontendPort1</Name>
-	            <Port>80</Port>
+	            <Port>443</Port>
 	        </FrontendPort>
 	    </FrontendPorts>
 	    <BackendAddressPools>
@@ -145,8 +154,8 @@ Configuration can be constructed either by creating a configuration object, or b
 	        <HttpListener>
 	            <Name>HTTPListener1</Name>
 	            <FrontendPort>FrontendPort1</FrontendPort>
-				<SslCert>GWCert</SslCert> 
 	            <Protocol>Https</Protocol>
+	            <SslCert>GWCert</SslCert>
 	        </HttpListener>
 	    </HttpListeners>
 	    <HttpLoadBalancingRules>
@@ -159,6 +168,7 @@ Configuration can be constructed either by creating a configuration object, or b
 	        </HttpLoadBalancingRule>
 	    </HttpLoadBalancingRules>
 	</ApplicationGatewayConfiguration>
+
 
 ## Set the Application Gateway configuration
 
@@ -197,17 +207,16 @@ This sample shows the cmdlet on the first line followed by the output. In this s
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
-	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
-	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-	Name          : AppGwTest 
+	Name          : AppGwTest2
 	Description   : 
-	VnetName      : kagavnet 
-	Subnets       : {Subnet-1} 
-	InstanceCount : 2 
-	GatewaySize   : Medium 
-	State         : Running 
-	Vip           : 138.91.170.26 
-	DnsName       : <dnsname>.cloudapp.net
+	VnetName      : testvnet1
+	Subnets       : {Subnet-1}
+	InstanceCount : 2
+	GatewaySize   : Medium
+	State         : Running
+	VirtualIPs    : {23.96.22.241}
+	DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
+
 
 ## Next Steps
 
