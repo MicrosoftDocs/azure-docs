@@ -54,10 +54,9 @@ This sample shows the cmdlet on the first line followed by the output.
 
 **To validate** that the gateway was created, you can use `Get-AzureApplicationGateway` cmdlet.
 
-Note that in the sample, `Description`, `InstanceCount`, and `GatewaySize` are optional parameters. The default value for `InstanceCount` is 2, with a maximum value of 10. The default value for `GatewaySize` is Medium. Small and Large are other available values. Vip` and `DnsName` are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
-The billing for Application Gateway does not start at this point. Billing begins when the gateway is created.
+Note that in the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. The billing for Application Gateway does not start at this point. Billing begins when the gateway is created.
 
-This sample shows the cmdlet on the first line followed by the output. 
+This sample shows the cmdlet on the first line, followed by the output. 
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
@@ -136,7 +135,7 @@ To construct your configuration by using a configuration XML file, use the sampl
 
 Use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration object or with a configuration XML file, replacing the values with your own. 
 
-This sample shows the cmdlet on the first line followed by the output. 
+This sample shows the cmdlet on the first line, followed by the output. 
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
@@ -150,9 +149,11 @@ This sample shows the cmdlet on the first line followed by the output.
 
 Once the gateway has been configured, issue the `Start-AzureApplicationGateway` cmdlet to start the gateway. This is the cmdlet that provisions the gateway. Once the cmdlet is run successfully and the gateway is provisioned, billing will also begin. 
 
-This sample shows the cmdlet on the first line followed by the output. Replace the values in the sample with your own values.
 
 **Note** `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes. Billing for Application Gateway only begins after the gateway is successfully started.
+
+This sample shows the cmdlet on the first line, followed by the output. Replace the values in the sample with your own values.
+
 
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
@@ -166,7 +167,7 @@ This sample shows the cmdlet on the first line followed by the output. Replace t
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, `State` should be "*Running*", and `Vip` and `DnsName` should have valid entries. 
 
-This sample shows the cmdlet on the first line followed by the output. This sample shows an Application Gateway that is up and running, and is ready to take traffic destined to `http://<generated-dns-name>.cloudapp.net`.
+This sample shows an Application Gateway that is up and running, and is ready to take traffic destined to `http://<generated-dns-name>.cloudapp.net`. The cmdlet is on the first line, followed by the output. 
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
@@ -191,7 +192,7 @@ To delete an Application Gateway, you'll need to do the following in order:
 2. Use the `Remove-AzureApplicationGateway` cmdlet to remove the gateway.
 3. Verify the gateway has been removed by using the `Get-AzureApplicationGateway` cmdlet.
 
-This sample shows the `Stop-AzureApplicationGateway` cmdlet on the first line followed by the output. Replace the values in the sample with your own values.
+This sample shows the `Stop-AzureApplicationGateway` cmdlet on the first line, followed by the output. Replace the values in the sample with your own values.
 
 	PS C:\> Stop-AzureApplicationGateway AppGwTest 
 
@@ -203,7 +204,7 @@ This sample shows the `Stop-AzureApplicationGateway` cmdlet on the first line fo
 
 Once the Application Gateway is in a stopped state, issue the `Remove-AzureApplicationGateway` cmdlet to remove the service.
 
-This sample has the cmdlet on the first line followed by the output. Replace the values in the sample with your own values.
+This sample shows the cmdlet on the first line, followed by the output. Replace the values in the sample with your own values.
 
 	PS C:\> Remove-AzureApplicationGateway AppGwTest 
 
@@ -215,7 +216,7 @@ This sample has the cmdlet on the first line followed by the output. Replace the
 
 To verify that the service has been removed, you can use the `Get-AzureApplicationGateway` cmdlet. This step is not required.
 
-This sample has the cmdlet on the first line followed by the output. Replace the values in the sample with your own values.
+This sample shows the cmdlet on the first line, followed by the output. Replace the values in the sample with your own values.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 

@@ -50,14 +50,10 @@ This sample shows the cmdlet on the first line followed by the output.
 
 **To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet.
 
-This sample shows the cmdlet on the first line followed by the output. 
 
+Note that in the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. The billing for Application Gateway does not start at this point. Billing begins when the gateway is created.
 
-Note that in the sample, `Description`, `InstanceCount`, and `GatewaySize` are optional parameters. The default value for `InstanceCount` is 2, with a maximum value of 10. The default value for `GatewaySize` is Medium. Small and Large are other available values. Vip` and `DnsName` are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
-
-The billing for Application Gateway does not start at this point. Billing begins when the gateway is created.
-
-This sample shows the cmdlet on the first line followed by the output. 
+This sample shows the cmdlet on the first line, followed by the output. 
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 
@@ -79,7 +75,7 @@ This sample shows the cmdlet on the first line followed by the output.
 
 Use `Add-AzureApplicationGatewaySslCertificate` to upload the server certificate in pfx format to the Application Gateway. The certificate name is a user-chosen name and must be unique within the Application Gateway. This certificate is referred to by this name in all certificate management operations on the Application Gateway.
 
-This sample shows the cmdlet on the first line followed by the output. Replace the values in the sample with your own.
+This sample shows the cmdlet on the first line, followed by the output. Replace the values in the sample with your own.
 
 	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
 	
@@ -91,7 +87,7 @@ This sample shows the cmdlet on the first line followed by the output. Replace t
 
 Use the `Get-AzureApplicationGatewayCertificate` cmdlet to validate certificate upload.
 
-This sample shows the cmdlet on the first line followed by the output. 
+This sample shows the cmdlet on the first line, followed by the output. 
 
 	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest 
 
@@ -172,9 +168,9 @@ Note that Application Gateway can be configured to ensure that request from a cl
 
 ## Set the Application Gateway configuration
 
-The `Set-ApplicationGatewayConfig` cmdlet can be run either with configuration object, or with configuration XML file. Here we will work with the configuration XML file.
+The `Set-ApplicationGatewayConfig` cmdlet can be run either with configuration object, or with configuration XML file. In the sample below, we will work with the configuration XML file.
 
-This sample shows the cmdlet on the first line followed by the output. Replace the values with your own.
+This sample shows the cmdlet on the first line, followed by the output. Replace the values with your own.
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
@@ -188,9 +184,10 @@ This sample shows the cmdlet on the first line followed by the output. Replace t
 
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. This is the cmdlet that provisions the gateway. Once the cmdlet is run successfully and the gateway is provisioned, billing will also begin.
 
-This sample shows the cmdlet on the first line followed by the output. Replace the values in the sample with your own.
 
-**Note** `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes.
+**Note** The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes.
+
+This sample shows the cmdlet on the first line, followed by the output. Replace the values in the sample with your own.
    
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
@@ -201,9 +198,9 @@ This sample shows the cmdlet on the first line followed by the output. Replace t
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
 
-Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, `State` should be "*Running*", and `Vip` and `DnsName` should have valid entries. 
+Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, *State* should be "*Running*", and *Vip* and *DnsName* should have valid entries. 
 
-This sample shows the cmdlet on the first line followed by the output. In this sample, the gateway is up and ready to take traffic.
+This sample shows the cmdlet on the first line, followed by the output. In this sample, the gateway is up and ready to take traffic.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
