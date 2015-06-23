@@ -21,7 +21,7 @@ Application Gateway can be configured to terminate the SSL session at the gatewa
 
 ## Before you begin
 
-1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest PowerShell cmdlets from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
+1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest PowerShell cmdlets from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
 2. Verify that you have a working virtual network with valid subnet.
 3. Verify that you have backend servers either in the virtual network or with a Public-IP/VIP assigned.
 
@@ -209,6 +209,12 @@ This sample shows the cmdlet on the first line followed by the output. In this s
 	Vip           : 138.91.170.26 
 	DnsName       : <dnsname>.cloudapp.net
 
+## Next Steps
 
+
+If you want more information about load balancing options in general, see:
+
+- [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 
