@@ -1,7 +1,7 @@
 <properties
     pageTitle="What is Machine Learning on Azure? | Microsoft Azure"
     description="Explains basic concepts of the fully-managed Machine Learning service, a cloud technology you can use to create, operationalize, and monetize solutions."
-	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"    
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -22,23 +22,23 @@
 
 ## What is machine learning?
 
-Machine learning is at work all around you. When you shop online, machine learning helps recommend other products based on what you've purchased. When your credit card is swiped, machine learning helps the bank do fraud detection and notify you if the transaction seems suspicious.
-
 Machine learning uses predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.
+
+Predictions or forecasts from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products based on what you've purchased. When your credit card is swiped, machine learning helps the bank do fraud detection and notify you if the transaction seems suspicious.
 
 ## What is Machine Learning on Microsoft Azure?
 
 Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy analytics solutions.
 
-Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to to publish your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models. You do not need to buy any hardware nor manually manage virtual machines.
+Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to publish your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models. You do not need to buy any hardware nor manually manage virtual machines.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## What is predictive analytics?
 
-Predictive analytics uses various statistical techniques - in this case, machine learning - to analyze collected or current data for patterns or trends in order to forecast future events. 
+Predictive analytics uses various statistical techniques - in this case, machine learning - to analyze collected or current data for patterns or trends in order to forecast future events.
 
-Azure Machine Learning is a particularly powerful way to do predictive analytics: You can work from a ready-to-use library of algorithms, create models on an internet-connected PC without purchasing additional equipment or infrastructure, and deploy your predictive solution quickly. You can also find ready-to-use examples and solutions in the [Mirosoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) or [Machine Learning Gallery](http://gallery.azureml.net/).
+Azure Machine Learning is a particularly powerful way to do predictive analytics: You can work from a ready-to-use library of algorithms, create models on an internet-connected PC without purchasing additional equipment or infrastructure, and deploy your predictive solution quickly. You can also find ready-to-use examples and solutions in the [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) or [Machine Learning Gallery](http://gallery.azureml.net/).
 
 ## Build complete machine learning solutions in the cloud
 
@@ -57,7 +57,7 @@ Create predictive models in [Machine Learning Studio](machine-learning-what-is-m
 
 ### Operationalize predictive analytics solutions: Purchase web services or publish your own
 
-* Purchase ready-to-consume web services from [Mirosoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), such as Recommendations, Text Analytics, and Anomaly Detection.
+* Purchase ready-to-consume web services from [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), such as Recommendations, Text Analytics, and Anomaly Detection.
 
 * Operationalize your predictive analytics models:
     * [Publish web services](machine-learning-publish-a-machine-learning-web-service.md)
@@ -115,4 +115,3 @@ You can learn the basics of predictive analytics and machine learning using a [s
 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
- 
