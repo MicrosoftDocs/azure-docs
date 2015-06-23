@@ -38,7 +38,7 @@ To configure SSL offload on an Application Gateway, do the following steps in th
 
 **To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own.
 
-This sample shows the cmdlet on the first line followed by the output. 
+This sample shows the cmdlet on the first line, followed by the output. 
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
