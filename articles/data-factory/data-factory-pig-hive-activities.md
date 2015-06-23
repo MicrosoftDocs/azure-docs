@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="06/19/2015" 
 	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
@@ -73,7 +73,7 @@ This walkthrough provides step-by-step instructions for using a HDInsight Activi
 
 
 ### Create a linked service for an HDInsight cluster
-The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. The on-demand HDInsight cluster is automatically created and managed by the Azure Data Factory service to process data. See [HDInishgt On-demand Linked Service](https://msdn.microsoft.com/library/dn893526.aspx) for details about the on-demand HDInsight linked service. For the purpose of the sample, let's use an on-demand cluster. Note that it takes 15+ minutes for the HDInsight cluster to be created on demand and you will be charged only for the time when the HDInsight cluster is up and running jobs. 
 
 #### To use an on-demand HDInsight cluster
 1. Click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.

@@ -95,8 +95,8 @@ It is also possible to set the instrumentation key in code. This will override t
 
 ```java
 
-    AppInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
-    AppInsights.start();
+    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
+    ApplicationInsights.start();
 ```
 
 
@@ -104,22 +104,22 @@ It is also possible to set the instrumentation key in code. This will override t
 
 Initialize the SDK and start tracking telemetry.
 
-Add the following import to your apps root activity 
+Add the following import to your app's root activity 
 
 ```java
 
-     import com.microsoft.applicationinsights.TelemetryClient;
+     import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
 And add the following to the activity's `onCreate` callback.
 
 ```java
 
-    AppInsights.setup(this);
-    AppInsights.start();
+    ApplicationInsights.setup(this.getApplicationContext(), this.getApplication());
+    ApplicationInsights.start();
 ```
 
-Once `AppInsights.start()` is called, the SDK will begin tracking android lifecycle activity and any unhandled exceptions. 
+Once `ApplicationInsights.start()` is called, the SDK will begin tracking android lifecycle activity and any unhandled exceptions. 
 
 > [AZURE.NOTE] Application lifecycle events are only collected in Android SDK version 15 and up (Ice Cream Sandwich+).
 
@@ -140,9 +140,9 @@ An example of initialization and manual telemetry collection follows.
       @Override
       protected void onCreate(Bundle savedInstanceState) {
         
-        AppInsights.setup(this);
+        ApplicationInsights.setup(this);
         //... other initialization code ...//
-        AppInsights.start();
+        ApplicationInsights.start();
         
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();

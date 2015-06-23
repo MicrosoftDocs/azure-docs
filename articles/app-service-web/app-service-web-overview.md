@@ -45,6 +45,7 @@ Azure App Service Web Apps is a fully managed platform that enables you to build
 - **Deployment Slots** - Implement [Staged Deployment] [Slots] to verify your code in a pre-production environment which is identical to your production web app in Azure App Service. When satisfied, release a new version of your App with zero downtime by performing a swap operation. 
 - **Testing in Production** - Take Staged Deployments to the next level and perform A/B testing to verify your new code with a configurable fraction of your live traffic. 
 - **Webjobs** - Run any program or script on Web Apps VMs. Run jobs continuously or on a schedule and scale to run on multiple VMs. Use the Azure [WebJobs SDK][Webjobs] to integrate with Azure Storage or Service Bus.
+- **Hybrid connections** - - Access on-premises data using [hybrid connections](../integration-hybrid-connection-overview.md) and [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
 
 ## Getting Started ##
 To get started with Web Apps, follow the [Create an ASP.NET web app] [create] tutorial.
