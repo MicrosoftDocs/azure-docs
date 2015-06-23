@@ -86,8 +86,9 @@ Create additional Virtual Machines, which will be managed by the administration 
 
 	2. Select **Unicast** for the **Messaging Mode**.
 
-	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image001.png)
+	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image001.png)  
 
+	
 	3. Click **OK**.
 
 6. In the **Domain Structure** pane, expand **Environment**, and then click **Servers**.
