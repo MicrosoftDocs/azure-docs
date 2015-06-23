@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/22/2015"
+   ms.date="06/23/2015"
    ms.author="cherylmc"/>
 
 # Create, start, or delete an Application Gateway
