@@ -42,13 +42,15 @@ At this time, servers that are connected directly to Microsoft Azure Operational
 
 - [SQL and Active Directory Assessment](operational-insights-assessment.md)
 
-However, the following solutions are *not* supported with the Microsoft Monitoring Agent
+However, the following solutions are *not* supported with the Microsoft Monitoring Agent and require System Center Operations Manager (SCOM).
 
 - [Capacity Management](operational-insights-capacity.md)
 
 - [Alert Management](operational-insights-alerts.md)
 
-- [Configuration Assessment](../operational-insights-solutions.md#configuration-assessment)
+- [Configuration Assessment](operational-insights-solutions.md#configuration-assessment) 
+
+Refer to [Operations Manager considerations with Operational Insights](operational-insights-operations-manager.md) for guidance on using these solutions with Operations Manager.
 
 IIS log collection is supported on computers with:
 
