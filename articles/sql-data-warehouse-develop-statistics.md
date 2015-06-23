@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Create and update statistics | Microsoft Azure"
-   description="Learn how to create statistics and update statistics for query optimization in order to improve query performance, and use system views and functions to view statistics information."
+   pageTitle="Statistics in SQL Data Warehouse | Microsoft Azure"
+   description="Tips for creating, updating, and using statistics in SQL Data Warehouse for developing solutions."
    services="SQL Data Warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2015"
+   ms.date="06/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# Create and update statistics #
+# Statistics in SQL Data Warehouse #
 
 Creating and updating statistics is important in order to achieve the query performance that SQL Data Warehouse is designed to provide. This guide gives an overview of statistics, and then shows how to:
 
@@ -413,21 +413,19 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## Next steps
-Load your data into the data warehouse.
+For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
+<!--Article references-->
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[temporary tables]:     ./sql-data-warehouse-develop-temporary-tables/
 
-<!--Link references--In actual articles, you only need a single period before the slash.
-[database design]:      ./sql-data-warehouse-develop-create-update-statistics/
-[query performance]:    ./sql-dw-develop-write-distributed-queries/
-[behavior differences]: ./sql-dw-develop-product-differences/
--->
+<!--MSDN references-->
+
+<!--Other Web references-->
 
 <!-- External Links -->
 [Cardinality Estimation]:https://msdn.microsoft.com/library/dn600374.aspx
@@ -443,3 +441,4 @@ Load your data into the data warehouse.
 [sys.tables (Transact-SQL)]:https://msdn.microsoft.com/library/ms187406.aspx
 [sys.table_types (Transact-SQL)]:https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS (Transact-SQL)]:https://msdn.microsoft.com/library/ms187348.aspx
+
