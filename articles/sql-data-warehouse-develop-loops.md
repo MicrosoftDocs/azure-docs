@@ -3,8 +3,8 @@
    description="Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions."
    services="SQL Data Warehouse"
    documentationCenter="NA"
-   authors="JRJ@BigBandData.co.uk"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags

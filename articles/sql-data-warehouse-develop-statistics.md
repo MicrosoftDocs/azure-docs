@@ -4,7 +4,7 @@
    services="SQL Data Warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
