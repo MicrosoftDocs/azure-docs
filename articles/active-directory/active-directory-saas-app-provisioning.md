@@ -22,14 +22,14 @@
 
 Azure Active Directory (Azure AD) allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and more.
 
-Below are some examples of what this feature allows you to do:
+**Below are some examples of what this feature allows you to do:**
 
 - Automatically create new accounts in the right SaaS apps for new people when they join your team.
 - Have accounts be automatically removed from SaaS apps when people inevitably leave the team.
 - Ensure that the identities in your SaaS apps are kept up to date based on changes in the directory.
 - Provision non-user objects, such as groups, to SaaS apps that support them.
 
-Automated user provisioning also includes the following functionality:
+**Automated user provisioning also includes the following functionality:**
 
 - The ability to match existing identities between Azure AD and SaaS apps.
 - Customization options to help Azure AD fit the current configurations of the SaaS apps that your organization is currently using.
