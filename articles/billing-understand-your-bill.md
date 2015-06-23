@@ -249,10 +249,15 @@ To find the most current version, enter in the Year and Month (looking for May 2
 
 ## More Resources
 Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, under [Manage your services](https://msdn.microsoft.com/library/azure/dn578292.aspx) for some very helpful links:
+
 - [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+
 - [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
+
 - [Add a new credit cared to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
+
 - [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
+
 - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
 
 
