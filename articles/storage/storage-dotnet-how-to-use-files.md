@@ -1,6 +1,6 @@
 <properties
 			pageTitle="How to use Azure File storage with PowerShell and .NET | Microsoft Azure"
-            description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#."
+            description="Learn how to use Azure File storage to create cloud file shares and manage file content. File storage enables enterprises to move applications reliant on SMB file shares to Azure. Samples are written in PowerShell and C#."
             services="storage"
             documentationCenter=".net"
             authors="tamram"
@@ -12,17 +12,17 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="06/15/2015"
+      ms.date="06/22/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with PowerShell and .NET
 
 ## Overview
 
-In this getting started guide, we demonstrate the basics of using Microsoft Azure File storage.
+This getting started guide demonstrates the basics of using Microsoft Azure File storage. In this tutorial, we will:
 
-- We will use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
-- We will also show how to mount the file share from an Azure virtual machine, just as you would any SMB share.
+- Use PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
+- Mount the file share from an Azure virtual machine, just as you would any SMB share.
 
 For users who may want to access files in a share from an on-premises application as well as from an Azure virtual machine or cloud service, we show how to use the Azure .NET Storage Client Library to work with the file share from a desktop application.
 
@@ -221,38 +221,15 @@ For a demonstration of how to mount an Azure File share on Linux, see [Shared st
 
 ## Next steps
 
-Now that you've learned the basics of File storage, follow these links
-for more detailed information.
+See these links for more information about Azure File storage.
 
-<ul>
-    <li>
-        View the File service reference documentation for complete details about available APIs:
-        <ul>
-            <li>
-                <a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
-            </li>
-            <li><a href="http://msdn.microsoft.com/library/azure/dn167006.aspx">File Service REST API reference</a></li>
-        </ul>
-    </li>
-    <li>
-        View the Azure Storage Team's blog posts relating to the File service:
-        <ul>
-            <li>
-                <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx">Introducing Microsoft Azure File Service</a>
-            </li>
-            <li><a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx">Persisting connections to Microsoft Azure Files</a></li>
-        </ul>
-    </li>
-    <li>
-        View more feature guides to learn about additional options for storing data in Azure.
-        <ul>
-            <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
-            <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
-            <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store messages reliably.</li>
-            <li>Use <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
-        </ul>
-    </li>
-</ul>
+### Reference
 
-[files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
+- [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+- [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+
+### Blog posts
+
+- [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
