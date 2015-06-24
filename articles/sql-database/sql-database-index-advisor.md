@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/23/2015"
+   ms.date="06/24/2015"
    ms.author="sstein"/>
 
 # SQL Database Index Advisor
@@ -122,7 +122,7 @@ Select any recommended index in the portal and then click **View Script**. Run t
 
 ### Canceling index creation
 
-Indexes that are in a **Pending** status can be cancelled. Indexes that are being created (**Executing** status) cannot be cancelled.
+Indexes that are in a **Pending** status can be canceled. Indexes that are being created (**Executing** status) cannot be canceled.
 
 1. Select any **Pending** index in the **Index operations** area to open the **Index details** blade.
 1. Click **Cancel** to abort the index creation process.
@@ -137,7 +137,7 @@ Creating an index does not happen instantaneously. The portal provides details r
 | Executing | The create index command is running and the index is currently being created. |
 | Success | The index has successfully been created. |
 | Failed | Index has not been created. This can be a transient issue, or possibly a schema change to the table and the script is no longer valid. |
-| Reverting | The index creation process has been cancelled or has been deemed non-performant and is being automatically reverted. |
+| Reverting | The index creation process has been canceled or has been deemed non-performant and is being automatically reverted. |
 
 
 
