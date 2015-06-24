@@ -1,7 +1,7 @@
 <properties
    pageTitle="Performance and scale overview | Microsoft Azure"
    description="Introduction to the performance and scale features of SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"

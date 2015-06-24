@@ -1,7 +1,7 @@
 <properties
    pageTitle="SQL Data Warehouse solution partners | Microsoft Azure"
    description="Lists of third-party partners with solutions that work with SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="joliang"
    manager="barbkess"
