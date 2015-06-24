@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2015"
+   ms.date="06/23/2015"
    ms.author="joliang"/>
 
 # SQL Data Warehouse solution partners #
@@ -49,31 +49,27 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 
 
 <!--Image references-->
-[5]:./media/markdown-template-for-new-articles/octocats.png
-[6]:./media/markdown-template-for-new-articles/pretty49.png
-[7]:./media/markdown-template-for-new-articles/channel-9.png
-[8]:./media/markdown-template-for-new-articles/copytemplate.png
-[attunity_logo]:./media/sql-data-warehouse-partners/attunity_logo.png
-[birst_logo]:./media/sql-data-warehouse-partners/birst_logo.png
-[bryte_systems_logo]:./media/sql-data-warehouse-partners/bryte_systems_logo.png
-[clearstory_data_logo]:./media/sql-data-warehouse-partners/clearstory_data_logo.png
-[coffing_data_warehousing_logo]:./media/sql-data-warehouse-partners/coffing_data_warehousing_logo.png
-[dell_statistica_logo]:./media/sql-data-warehouse-partners/dell_statistica_logo.png
-[dundas_software_logo]:./media/sql-data-warehouse-partners/dundas_software_logo.png
-[inbrein_logo]:./media/sql-data-warehouse-partners/inbrein_logo.png
-[infolibrarian_logo]:./media/sql-data-warehouse-partners/infolibrarian_logo.png
-[informatica_logo]:./media/sql-data-warehouse-partners/informatica_logo.png
-[jinfonet_logo]:./media/sql-data-warehouse-partners/jinfonet_logo.png
-[logianalytics_logo]:./media/sql-data-warehouse-partners/logianalytics_logo.png
-[looker_logo]:./media/sql-data-warehouse-partners/looker_logo.png
-[qlik_logo]:./media/sql-data-warehouse-partners/qlik_logo.png
-[redpoint_global_logo]:./media/sql-data-warehouse-partners/redpoint_global_logo.png
-[sisense_logo]:./media/sql-data-warehouse-partners/sisense_logo.png
-[snaplogic_logo]:./media/sql-data-warehouse-partners/snaplogic_logo.png
-[sql_sentry_logo]:./media/sql-data-warehouse-partners/sql_sentry_logo.png
-[tableau_logo]:./media/sql-data-warehouse-partners/tableau_logo.png
-[targit_logo]:./media/sql-data-warehouse-partners/targit_logo.png
-[yellowfin_logo]:./media/sql-data-warehouse-partners/yellowfin_logo.png
+[attunity_logo]:./media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
+[birst_logo]:./media/sql-data-warehouse-integrate-solution-partners/birst_logo.png
+[bryte_systems_logo]:./media/sql-data-warehouse-integrate-solution-partners/bryte_systems_logo.png
+[clearstory_data_logo]:./media/sql-data-warehouse-integrate-solution-partners/clearstory_data_logo.png
+[coffing_data_warehousing_logo]:./media/sql-data-warehouse-integrate-solution-partners/coffing_data_warehousing_logo.png
+[dell_statistica_logo]:./media/sql-data-warehouse-integrate-solution-partners/dell_statistica_logo.png
+[dundas_software_logo]:./media/sql-data-warehouse-integrate-solution-partners/dundas_software_logo.png
+[inbrein_logo]:./media/sql-data-warehouse-integrate-solution-partners/inbrein_logo.png
+[infolibrarian_logo]:./media/sql-data-warehouse-integrate-solution-partners/infolibrarian_logo.png
+[informatica_logo]:./media/sql-data-warehouse-integrate-solution-partners/informatica_logo.png
+[jinfonet_logo]:./media/sql-data-warehouse-integrate-solution-partners/jinfonet_logo.png
+[logianalytics_logo]:./media/sql-data-warehouse-integrate-solution-partners/logianalytics_logo.png
+[looker_logo]:./media/sql-data-warehouse-integrate-solution-partners/looker_logo.png
+[qlik_logo]:./media/sql-data-warehouse-integrate-solution-partners/qlik_logo.png
+[redpoint_global_logo]:./media/sql-data-warehouse-integrate-solution-partners/redpoint_global_logo.png
+[sisense_logo]:./media/sql-data-warehouse-integrate-solution-partners/sisense_logo.png
+[snaplogic_logo]:./media/sql-data-warehouse-integrate-solution-partners/snaplogic_logo.png
+[sql_sentry_logo]:./media/sql-data-warehouse-integrate-solution-partners/sql_sentry_logo.png
+[tableau_logo]:./media/sql-data-warehouse-integrate-solution-partners/tableau_logo.png
+[targit_logo]:./media/sql-data-warehouse-integrate-solution-partners/targit_logo.png
+[yellowfin_logo]:./media/sql-data-warehouse-integrate-solution-partners/yellowfin_logo.png
 
 <!--Article links-->
 [Build integrated solutions with SQL Data Warehouse]: ./sql-data-warehouse-overview-integrate/
@@ -85,21 +81,21 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [bryte_systems_more]:http://www.bryte.com.au/
 [clearstory_data_more]:http://www.clearstorydata.com/
 [coffing_data_warehousing_more]:http://www.coffingdw.com/
-[dell_statistica_more]:http://software.dell.com/MSFT_Stat_ref
+[dell_statistica_more]:http://software.dell.com/MSFT_Stat_ref/
 [dundas_software_more]:http://www.dundas.com/
 [inbrein_more]:http://microerd.com/
 [infolibrarian_more]:http://www.infolibcorp.com/
 [informatica_more]:https://www.informatica.com/
-[jinfonet_more]:http://www.jinfonet.com/product/download-jreport
+[jinfonet_more]:http://www.jinfonet.com/product/download-jreport/
 [logianalytics_more]:http://www.logianalytics.com/
-[looker_more]:http://www.looker.com/partners/microsoft-azure
+[looker_more]:http://www.looker.com/partners/microsoft-azure/
 [qlik_more]:http://www.qlik.com/
 [redpoint_global_more]:http://www.redpoint.com/
 [sisense_more]:http://www.sisense.com/
 [snaplogic_more]:http://www.snaplogic.com/
-[sql_sentry_more]:www.sqlsentry.com/solutions/business-analytics
+[sql_sentry_more]:www.sqlsentry.com/solutions/business-analytics/
 [tableau_more]:http://www.tableau.com/
-[targit_more]:http://www.targit.com/en
+[targit_more]:http://www.targit.com/en/
 [yellowfin_more]:http://www.yellowfinbi.com/
 
 <!-- External Links -->
