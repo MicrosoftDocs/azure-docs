@@ -18,17 +18,9 @@
 
 # System Views
 
-## External operations catalog views
-
-- sys.external_file formats
-- sys.external_tables
-- sys.external_data_sources
-- sys.dm_pdw_hadoop_operations
-- sys.dm_pdw_dms_external_work
-
 ## SQL Data Warehouse catalog views
 
-- sys.pdw_column_distribution_properties
+- [sys.pdw_column_distribution_properties](https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204022.aspx)
 - [sys.pdw_database_mappings](https://msdn.redmond.corp.microsoft.com/library/mt203891.aspx)
 - [sys.pdw_diag_event_properties](https://msdn.redmond.corp.microsoft.com/library/mt203921.aspx)
 - [sys.pdw_diag_events](https://msdn.redmond.corp.microsoft.com/library/mt203895.aspx)
@@ -72,8 +64,6 @@
 - [sys.dm_pdw_exec_connections](https://msdn.redmond.corp.microsoft.com/library/mt203882.aspx)
 - [sys.dm_pdw_exec_requests](https://msdn.redmond.corp.microsoft.com/library/mt203887.aspx)
 - [sys.dm_pdw_exec_sessions](https://msdn.redmond.corp.microsoft.com/library/mt203883.aspx)
-- sys.dm_pdw_hadoop_operations
-- sys.dm_pdw_dms_external_work
 - [sys.dm_pdw_network_credentials](https://msdn.redmond.corp.microsoft.com/library/mt203915.aspx)
 - [sys.dm_pdw_nodes](https://msdn.redmond.corp.microsoft.com/library/mt203907.aspx)
 - [sys.dm_pdw_nodes_database_encryption_keys](https://msdn.redmond.corp.microsoft.com/library/mt203922.aspx)
@@ -112,9 +102,9 @@
 - [sys.databases](https://msdn.microsoft.com/library/ms178534.aspx)
 - [sys.default_constraints](https://msdn.microsoft.com/library/ms173758.aspx)
 - [sys.extended_properties](https://msdn.microsoft.com/library/ms177541.aspx)
-- sys.external_file formats
-- sys.external_tables
-- sys.external_data_sources
+- [sys.external_file formats](https://msdn.microsoft.com/library/dn935025.aspx)
+- [sys.external_tables](https://msdn.microsoft.com/library/dn935029.aspx)
+- [sys.external_data_sources](https://msdn.microsoft.com/library/dn935019.aspx)
 - [sys.filegroups](https://msdn.microsoft.com/library/ms187782.aspx)
 - [sys.foreign_key_columns](https://msdn.microsoft.com/library/ms186306.aspx)
 - [sys.identity_columns](https://msdn.microsoft.com/library/ms187334.aspx)
@@ -151,15 +141,17 @@
 
 ## List of SQL Server DMVs available in SQL Data Warehouse
 
-SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Server PDW, are reporting the state of SQL Server running on the Compute Nodes. 
+SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Database running on the distributions. 
 
-Each SQL Server DMV has a PDW-specific column called pdw_node_id, which is the identifier for the Compute node.
+Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views.
 
->[AZURE.NOTE] To use SQL Server PDW DMVs in SQL Server PDW, insert ‘pdw_nodes_’ into the name, as shown in the following table. 
+This is why each of these DMV's has a specific column called pdw_node_id. This is the the identifier for the Compute node. In PDW the Compute node is a stronger concept for the architecture. In SQL Data Warehouse, the architecture relies more heavily on the distributions.
 
-| -----------------------------; | --------------------------------------------; |
+>[AZURE.NOTE] To use these view, insert ‘pdw_nodes_’ into the name, as shown in the following table. 
+
+
 | DMV name in SQL Data Warehouse | Link to SQL Server Transact-SQL topic on MSDN |
-| -----------------------------; | --------------------------------------------; |
+| :----------------------------- | :-------------------------------------------- |
 | sys.dm_pdw_nodes_db_file_space_usage | [sys.dm_db_file_space_usage (Transact-SQL)](https://msdn.microsoft.com/library/ms174412.aspx) |
 | sys.dm_pdw_nodes_db_index_usage_stats | [sys.dm_db_index_usage_stats (Transact-SQL)](https://msdn.microsoft.com/library/ms188755.aspx) |
 | sys.dm_pdw_nodes_db_partition_stats | [sys.dm_db_partition_stats (Transact-SQL)](https://msdn.microsoft.com/library/ms187737.aspx) |
@@ -220,12 +212,12 @@ Each SQL Server DMV has a PDW-specific column called pdw_node_id, which is the i
 
 ## SQL Server 2016 PolyBase dmvs available in SQL Data Warehouse
 
-- sys.dm_exec_compute_node_errors (Transact-SQL)
-- sys.dm_exec_compute_node_status (Transact-SQL)
+- [sys.dm_exec_compute_node_errors (Transact-SQL)](https://msdn.microsoft.com/library/mt146380.aspx)
+- [sys.dm_exec_compute_node_status (Transact-SQL)](https://msdn.microsoft.com/library/mt146382.aspx)
 - sys.dm_exec_compute_nodes (Transact-SQL)
 - sys.dm_exec_distributed_request_steps (Transact-SQL)
-- sys.dm_exec_distributed_requests (Transact-SQL)
-- sys.dm_exec_distributed_sql_requests (Transact-SQL)
+- [sys.dm_exec_distributed_requests (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt146385.aspx)
+- [sys.dm_exec_distributed_sql_requests (Transact-SQL)](https://msdn.microsoft.com/library/mt146390.aspx) 
 - sys.dm_exec_dms_services (Transact-SQL)
 - sys.dm_exec_dms_workers (Transact-SQL)
 - sys.dm_exec_external_operations (Transact-SQL)
@@ -271,7 +263,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-reference/
+[SQL Data Warehouse reference overview]:  ./sql-data-warehouse-overview-reference/
 
 <!--MSDN references-->
 
