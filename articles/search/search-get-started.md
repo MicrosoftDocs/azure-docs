@@ -26,6 +26,8 @@ This article gets you started with the Azure Search REST API.
 An alternative approach for .NET developers is to use the Azure Search.NET SDK. See [Get started with Azure Search in .NET](search-get-started-dotnet.md) or [How to use the Azure Search .NET SDK](search-howto-dotnet-sdk.md) for details.
 
 
+> [AZURE.NOTE] Completing this tutorial requires an [Azure subscription](../includes/free-trial-note.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](https://tryappservice.azure.com/) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
+ 
 <a id="sub-1"></a>
 ## Start with the free service
 
@@ -375,4 +377,3 @@ Ready for the next step? The following links take you to additional material tha
 [Azure Search development workflow]: search-workflow.md
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
- 

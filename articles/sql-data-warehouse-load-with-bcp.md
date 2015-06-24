@@ -1,7 +1,7 @@
 <properties
    pageTitle="Use bcp to load data into SQL Data Warehouse | Microsoft Azure"
    description="Learn what bcp is and how to use it for data warehousing scenarios."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Recover a database from user error in SQL Data Warehouse | Microsoft Azure"
    description="Steps for recovering a database from user error in SQL Data Warehouse. "
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"
