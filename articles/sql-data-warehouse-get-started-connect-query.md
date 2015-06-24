@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Stored procedures in SQL Data Warehouse | Microsoft Azure"
-   description="Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions."
+   pageTitle="Get started: Connect to SQL Data Warehouse | Microsoft Azure"
+   description="Get started with connecting to SQL Data Warehouse and running some queries."
    services="SQL Data Warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/23/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
    
-# Get Started: Connect and Query SQL Data Warehouse
+# Get Started: Connect to SQL Data Warehouse
 This quick start article introduces you to connecting to and querying a provisioned instance of SQL Data Warehouse (SQLDW) with two different tools:
 
 **Visual Studio** - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL DW, enabling you to easily connect to, query, and manage Azure SQL DW.  
