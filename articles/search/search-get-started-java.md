@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/30/2015"
+	ms.date="06/24/2015"
 	ms.author="heidist"/>
 
 #Get started with Azure Search in Java#
@@ -218,7 +218,7 @@ If you already have some background in Azure Search, you can use this sample as 
 New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
 
 <!--Image references-->
-[1]: ./media/search-get-started-java/create-search-portal-11.PNG
+[1]: ./media/search-get-started-java/create-search-portal-1.PNG
 [2]: ./media/search-get-started-java/create-search-portal-21.PNG
 [3]: ./media/search-get-started-java/create-search-portal-31.PNG
 [4]: ./media/search-get-started-java/AzSearch-Java-Import1.PNG

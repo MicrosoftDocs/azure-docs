@@ -1,7 +1,7 @@
 <properties
    pageTitle="Migrating your solution to SQL Data Warehouse | Microsoft Azure"
    description="Migration guidance for bringing your solution to the Azure SQL Data Warehouse platform."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"

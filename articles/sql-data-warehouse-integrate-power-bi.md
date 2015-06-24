@@ -1,7 +1,7 @@
 <properties
    pageTitle="Use Power BI with SQL Data Warehouse | Microsoft Azure"
    description="Tips for using Power BI with Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"

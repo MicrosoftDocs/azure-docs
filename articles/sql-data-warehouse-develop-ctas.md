@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create table as select (CTAS) in SQL Data Warehouse | Microsoft Azure"
    description="Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"

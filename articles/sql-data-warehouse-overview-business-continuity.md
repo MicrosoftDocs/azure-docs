@@ -1,7 +1,7 @@
 <properties
    pageTitle="Planning for business continuity in SQL Data Warehouse | Microsoft Azure"
    description="Overview of business continuity in SQL Data Warehouse. "
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Get started: provision a SQL Data Warehouse | Microsoft Azure"
    description="Provision a SQL Data Warehouse by following these steps and guidelines."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"

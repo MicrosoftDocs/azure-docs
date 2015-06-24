@@ -1,7 +1,7 @@
 <properties
    pageTitle="Loops in SQL Data Warehouse | Microsoft Azure"
    description="Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"

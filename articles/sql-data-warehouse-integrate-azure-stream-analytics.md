@@ -1,7 +1,7 @@
 <properties
    pageTitle="Use Azure Stream Analytics with SQL Data Warehouse | Microsoft Azure"
    description="Tips for using Azure Stream Analytics with Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"
