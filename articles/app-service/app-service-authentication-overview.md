@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="06/23/2015" 
 	ms.author="tdykstra"/>
 
 # Authentication for API apps and mobile apps in Azure App Service
@@ -94,7 +94,7 @@ In other scenarios the server flow may be a better choice:
 
 You can write code to make outgoing calls to Software-as-a-Service (SaaS) platforms on behalf of a logged-in user or you can use a [connector API app](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md). For example, to post a tweet from the user's Twitter account you can use [a Twitter SDK](https://dev.twitter.com/overview/api/twitter-libraries), or provision a [Twitter connector](../app-service-mobile/app-service-logic-connector-twitter.md) in your Azure subscription and call that. This section is about accessing a SaaS platform from code that runs in an API app or mobile app.   
 
-### Using the identity provider token 
+### <a id="obotoidprovider"></a> Using the identity provider token 
 
 The gateway maintains a *token store* in which it associates a Zumo token with one or more identity provider access tokens and refresh tokens. When an HTTP request with a valid Zumo token is received, the gateway knows which identity provider tokens pertain to that user.
   
@@ -104,7 +104,7 @@ When the code running in your API app or mobile app needs to make a call to a pr
 
 For example, suppose the identity provider is Azure Active Directory (AAD), and your API app wants to use the AAD access token to call the AAD Graph API or request access to a SharePoint site that the user has permissions for.  You can send a request to the gateway to retrieve the AAD token, then use the AAD token to call the Graph API or to get an access token for the SharePoint site. 
 
-### Getting user consent to access other resources
+### <a id="obotosaas"></a> Getting user consent to access other SaaS platforms
 
 The gateway also has built-in features for getting user consent when you want to access resources secured by a provider other than the original identity provider.  For example, for a user who signs in using Azure Active Directory, you might want to access files in the user's Dropbox account.
 
