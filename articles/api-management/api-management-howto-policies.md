@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,9 +25,7 @@ See the [Policy Reference][] for a full list of policy statements and their sett
 
 Policies are applied inside the proxy which sits between the API consumer and the managed API. The proxy receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][], [Policy expressions][], and watch the following video.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][].
 
 ## <a name="scopes"> </a>How to configure policies
 Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the Publisher Portal.
@@ -105,6 +103,12 @@ For example, if you have a policy at the global level and a policy configured fo
 In the example policy definition above, the cross-domain statement would execute before any higher policies which would in turn, be followed by the find-and-replace policy.
 
 Note: A global policy has no parent policy and using the `<base>` element in it has no effect. 
+
+## Next steps
+
+Check out following video on policy expressions.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Getting started with cmdlets in SQL Data Warehouse"
    description="Suspend and restart SQL Data Warehouse using PowerShell cmdlets"
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sidneyh"
    manager="jhubbard"

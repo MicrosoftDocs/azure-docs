@@ -1,7 +1,7 @@
 <properties
    pageTitle="Get started: Connect to SQL Data Warehouse | Microsoft Azure"
    description="Get started with connecting to SQL Data Warehouse and running some queries."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"

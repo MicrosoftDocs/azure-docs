@@ -1,7 +1,7 @@
 <properties
    pageTitle="Elastic performance and scale with SQL Data Warehouse | Microsoft Azure"
    description="Understand SQL Data Warehouse elasticity using Data Warehouse Units to scale compute resources up and down. Code examples provided."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
@@ -20,20 +20,7 @@
 To elastically increase or decrease your compute power all you need to do is adjust the number of Data Warehouse Units (DWU) allocated to your SQL Data Warehouse. Data Warehouse Units are a new concept delivered by SQL Data Warehouse to enable you to manage this simmply and effectively. This topic serves as an introduction to Data Warehouse units; explaining how you can use them to elastically scale your compute power. The article also provides some initial guidance on how to set a reasonable DWU value for your environment.
 
 ## What is a data warehouse unit?
-Behind the scenes Microsoft runs a number of performance benchmark tests to determine how much hardware and with what configuration will allow us to deliver a competitive offering to our customers.  Scaling compute up and down can be done in blocks of 100 DWUs, but not all multiples of 100 DWU are offered.  Initially for Public Preview, we will be offering the DWU blocks below and making more DWU offerings available until we make SQL Data Warehouse generally available to the public.
-
-| Blocks of DWU (Public Preview) | Expected Performance | 
-| :----------------------------- | :------------------- |
-| DWU100                         | 1x                   |
-| DWU200                         | 1.7x                 |
-| DWU300                         | 2.55x                |
-| DWU400                         | 3.4x                 |
-| DWU500                         | 4.25x                |
-| DWU600                         | 5.1x                 |
-| DWU1000                        | 8.5x                 |
-| DWU1200                        | 10.2x                |
-| DWU1500                        | 12.75x               |
-| DWU2000                        | 17x                  |
+Behind the scenes Microsoft runs a number of performance benchmark tests to determine how much hardware and with what configuration will allow us to deliver a competitive offering to our customers.  Scaling compute up and down can be done in blocks of 100 DWUs, but not all multiples of 100 DWU are offered.  
 
 ## How many DWUs should I use?
 There are many different solutions SQL Data Warehouse can unblock for customers.  As such, there is a large variety in the types of queries customers will run and how much data they operate over, as well as the architecture of the schema, how the data is distributed, how many users will access the data, how frequently, etc..  

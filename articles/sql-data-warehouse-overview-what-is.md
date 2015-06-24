@@ -1,7 +1,7 @@
 <properties
    pageTitle="What is SQL Data Warehouse | Microsoft Azure"
    description="Enterprise-class distributed database in the Azure Cloud capable of processing up to petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds. "
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="04/27/2015"
+	ms.date="06/21/2015"
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the portal
@@ -119,4 +119,3 @@ The following additional material shows you how to build and manage search appli
 [1]: ./media/search-create-service-portal/create-search-portal-1.PNG
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
- 
