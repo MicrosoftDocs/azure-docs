@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/16/2015" 
-	ms.author="chhavib;garye"/>
+	ms.author="chhavib;cgronlun;garye"/>
 
 
 # Share and discover machine learning experiments in Machine Learning Gallery
