@@ -74,7 +74,9 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
 #### To upgrade to future SDK versions
 
-To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again. Select the installed SDK and choose Action: Update.
+To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again and filter on installed packages. Select Microsoft.ApplicationInsights.Web and choose Upgrade.
+
+If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
 
 ## <a name="run"></a> 3. Run your project
