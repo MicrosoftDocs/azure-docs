@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Backup - Deploy and manage back up for DPM using Windows PowerShell | Microsoft Azure"
-	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using Windows PowerShell"
+	pageTitle="Azure Backup - Deploy and manage back up for DPM using Azure PowerShell | Microsoft Azure"
+	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using Azure PowerShell"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="06/23/2015"
 	ms.author="jimpark"/>
 
 
-# Deploy and manage back up to Azure for Data Protection Manager (DPM) servers using Windows PowerShell
-This article shows you how to use Windows PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
+# Deploy and manage back up to Azure for Data Protection Manager (DPM) servers using Azure PowerShell
+This article shows you how to use Azure PowerShell to setup Azure Backup on a DPM server, and to manage backup and recovery.
 
-## Setting up the Windows PowerShell environment
-Before you can use Windows PowerShell to manage backups from Data Protection Manager to Azure, you will need to have the right environment in Windows PowerShell. At the start of the Windows PowerShell session, ensure that you run the following command to import the right modules and allow you to correctly reference the DPM cmdlets:
+## Setting up the Azure PowerShell environment
+Before you can use Azure PowerShell to manage backups from Data Protection Manager to Azure, you will need to have the right environment in Azure PowerShell. At the start of the Azure PowerShell session, ensure that you run the following command to import the right modules and allow you to correctly reference the DPM cmdlets:
 
 ```
 PS C:> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
@@ -35,7 +35,7 @@ Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general h
 ### Installing the Azure Backup agent on a DPM Server
 Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent). Save the installer to an easily accessible location like *C:\Downloads\*.
 
-To install the agent, run the following command in an elevated Windows PowerShell console **on the DPM server**:
+To install the agent, run the following command in an elevated Azure PowerShell console **on the DPM server**:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -93,7 +93,7 @@ Once the DPM Server is registered with the Azure Backup vault, it will start wit
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-All modifications are made to this local Windows PowerShell object ```$setting```  and then the full object is committed to DPM and Azure Backup to save them using the [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet. You need to use the ```–Commit``` flag to ensure that the changes are persisted. The settings will not be applied and used by Azure Backup unless committed.
+All modifications are made to this local Azure PowerShell object ```$setting```  and then the full object is committed to DPM and Azure Backup to save them using the [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet. You need to use the ```–Commit``` flag to ensure that the changes are persisted. The settings will not be applied and used by Azure Backup unless committed.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -119,7 +119,7 @@ The Azure Backup agent running on the DPM server needs temporary storage for dat
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-In the example above, the staging area will be set to *C:\StagingArea* in the Windows PowerShell object ```$setting```. Ensure that the specified folder already exists, or else the final commit of the subscription settings will fail.
+In the example above, the staging area will be set to *C:\StagingArea* in the Azure PowerShell object ```$setting```. Ensure that the specified folder already exists, or else the final commit of the subscription settings will fail.
 
 
 ### Encryption settings
@@ -163,7 +163,7 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
 ### Adding group members to the Protection Group
-Each DPM Agent knows the list of datasources on the server that it is installed on. To add a datasource to the Protection Group, the DPM Agent needs to first send a list of the datasources back to the DPM server. One or more datasources are then selected and added to the Protection Group. The Windows PowerShell steps needed to get achieve this are:
+Each DPM Agent knows the list of datasources on the server that it is installed on. To add a datasource to the Protection Group, the DPM Agent needs to first send a list of the datasources back to the DPM server. One or more datasources are then selected and added to the Protection Group. The Azure PowerShell steps needed to get achieve this are:
 
 1. Fetch a list of all servers managed by DPM through the DPM Agent.
 2. Choose a specific server.
