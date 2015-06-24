@@ -90,7 +90,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [logianalytics_more]:http://www.logianalytics.com/
 [looker_more]:http://www.looker.com/partners/microsoft-azure/
 [qlik_more]:http://www.qlik.com/
-[redpoint_global_more]:http://www.redpoint.com/
+[redpoint_global_more]:http://www.redpoint.net/
 [sisense_more]:http://www.sisense.com/
 [snaplogic_more]:http://www.snaplogic.com/
 [sql_sentry_more]:www.sqlsentry.com/solutions/business-analytics/
