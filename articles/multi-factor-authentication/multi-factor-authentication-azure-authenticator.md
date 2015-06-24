@@ -33,13 +33,17 @@ With the release of the Azure Authenticator app, available for [Windows Phone](h
 
 First of all make sure, you have the QR code or code and URL for manual entry handy for the account you’d like to add to the app.
 
-> [AZURE.NOTE]  Not sure of how to get the QR code? Contact your administrator for assistance.<p> Unable to activate your account with the new app? Contact your administrator.
+> [AZURE.NOTE]Not sure of how to get the QR code? Contact your administrator for assistance.<p> Unable to activate your account with the new app? Contact your administrator.
 
-Once you have the QR code in front of you, launch the app. Click +. This will launch the camera to scan the QR code.  If you are unable to scan the QR code, you always have the manual entry option. 
+Once you have the QR code in front of you, launch the app. Click +. 
+
+
+![Cloud](./media/multi-factor-authentication-azure-authenticator-android/addaccount.png)
+
+This will launch the camera to scan the QR code.  If you are unable to scan the QR code, you always have the manual entry option. 
 
 To confirm that the account is successfully activated, verify that the new account shows up on the accounts pages. 
 
-![Cloud](./media/multi-factor-authentication-azure-authenticator-android/addaccount.png)
 
 Follow this step for all your accounts that you’d like to migrate to the new app.
 
@@ -50,7 +54,7 @@ Follow this step for all your accounts that you’d like to migrate to the new a
 Once you have added all the accounts to the new app uninstall the old app from your phone.
 
 Curious how to remove individual accounts from the old app?
-Tap on the account. You’ll get an option to “Remove multi-factor auth”. 
+Tap on the account. You’ll get an option to “Delete”. 
 
 ![Cloud](./media/multi-factor-authentication-azure-authenticator-android/remove.png)
 
