@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/24/2015"
+	ms.date="06/25/2015"
 	ms.author="cabailey"/>
 
 # Get Started with Azure Key Vault #
@@ -26,7 +26,7 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 
 >[AZURE.NOTE]  This tutorial does not include instructions how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
->Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions. 
+>Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions. Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli.md).
 
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
@@ -119,7 +119,7 @@ Then type the following to import the key from the .PFX file, which protects the
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. For example: **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**  
+You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version, and use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** to get this specific version.  
 
 To display the URI for this key, type:
 
@@ -133,7 +133,7 @@ Then, type the following:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-You can now reference this password that you added to Azure Key Vault, by using its URI. For example: **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
+You can now reference this password that you added to Azure Key Vault, by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** to get this specific version.
 
 To display the URI for this secret, type:
 
@@ -245,5 +245,5 @@ For a follow-on tutorial that uses Azure Key Vault in a web application, see [Us
 
 For a list of Windows PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-For programming references, see [Azure Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx) and [Azure Key Vault C# Client API Reference](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+For programming references, see [Key Vault](https://msdn.microsoft.com/library/azure/dn903625.aspx) in the Microsoft Azure documentation library on MSDN.
  
