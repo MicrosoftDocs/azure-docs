@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Getting started with Data Warehouse cmdlets"
-   description="Suspend and restart the Data Warehouse service using PowerShell cmdlets"
+   pageTitle="Getting started with cmdlets in SQL Data Warehouse"
+   description="Suspend and restart SQL Data Warehouse using PowerShell cmdlets"
    services="SQL Data Warehouse"
    documentationCenter=""
    authors="sidneyh"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="may be required"
    ms.workload="data-services"
    ms.date="06/24/2015"
-   ms.author="barbkess"/>
+   ms.author="sidneyh"/>
 
 # Getting started with Azure Data Warehouse cmdlets and REST APIs
 
@@ -96,10 +96,22 @@ This example retrieves a database named "Database02" from a server named "Server
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+## Next steps
+For more reference information, see [SQL Data Warehouse reference overview][].
+
 <!--Image references-->
 
+<!--Article references-->
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-reference/
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
+<!--MSDN references-->
+
+
+<!--Other Web references-->
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
+
+<!--Image references-->
+
+
