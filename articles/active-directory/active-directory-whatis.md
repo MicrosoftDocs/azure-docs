@@ -54,30 +54,23 @@ With Azure AD you can even provision accounts from your cloud applications to AD
 
 ## Where does Azure AD come from?
 
-Azure AD started as Microsoft’s central Identity and Access Management system for all of Microsoft's online services, such as Office 365, Azure, Intune, and Dynamics.
-It includes a directory service that was designed to address our customer’s need for having a single and common identity and access management system.
-The first launch of Microsoft Office 365 represents also the first release of Azure AD to general availability.
+Azure AD started as Microsoft’s central Identity and Access Management system. The organizational directory service was designed to address our customer’s need of having a single and common identity and access management system for all of Microsoft’s online and organizational services. It was first release to general availability with the launch of Microsoft Office 365. Azure AD is the organizational directory powering all of Microsoft's organizational services, including Office 365, Azure, Intune, and Dynamics.
 
-In addition, we have expanded Azure AD’s capabilities to extend beyond just Microsoft’s online services. With Azure AD, you can easily enable self-service and single-sign for thousands of SaaS apps, enhance your security and address enterprise mobility requirements. 
+In addition we have expanded Azure AD’s capabilities to extend beyond Microsoft Online’s services. Azure AD is is your single, comprehensive identity and access management system available as a stands alone IDaaS or extending your existing on-premises infrastructure. With Azure AD you can easily enable self-service and single-sign for thousands of SaaS apps, enhance your security and address enterprise mobility requirements. 
 
-Azure AD is now your single, comprehensive identity and access management system you can use as:
+What makes Azure AD’s organizational service unique is the fact that each customer’s instance (also known as “tenant”) is isolated from other customers' data, while at the same time scaled across multiple datacenters (triple redundancy) to ensure resiliency and performance, as well as enable high availability. 
 
--              Stand-alone IDaaS in the cloud 
--              Extension to your existing on-premises infrastructure to the cloud
-
-It scales across multiple datacenters (triple redundancy) to ensure resiliency and performance, as well as enable high availability. What makes Azure AD unique is the fact that, while implemented as a single system, each customer’s instance (also known as “tenant”) is isolated from other customers' data.
 
 
 ## What does this mean to me?
 
-The tenants for all of Microsoft’s online services are rooted in one instance of Azure AD. In other words, If you already have an, for example, Office 365 or an Intune tenant, you automatically also already have an Azure AD instance. <br>
-This instance of Azure AD contains a record of the applicable Office 365 or Intune subscriptions.<br>
-While created and managed for an individual user, Azure subscriptions are provisioned and linked with that user through an Azure AD instance they are a member of.
-Using this model, Azure subscriptions and resources can be easily managed by other users in the “tenant” (directory).
+All Microsoft Online Service’s tenants are rooted in an instance of Azure AD. Effectively, if you already have an Office 365 or Intune tenant, it is an Azure AD instance containing a record of the applicable Office 365 or Intune subscriptions.
+Similarly, Azure subscriptions, while created and managed for an individual user, are provisioned and linked with that user through an Azure AD instance they are a member of. Using this Azure subscriptions and resources can be easily managed by other users in the “tenant” (directory).
 
-In all cases, Azure AD provides authentication and authorization capabilities for these services ensuring consistent IAM, monitoring and reporting.
+In all cases Azure AD provides authentication and authorization capabilities for these services ensuring consistent IAM, monitoring and reporting.
 
-As a result of this, all aspects of identity and access management for Microsoft's services are performed in (or against) Azure AD.  You can access relevant aspects of Azure AD management through, for example, services like Office 365. In this example, all identity management tasks done in the office administration portal are executed directly on the Azure AD instance and apply to all other services using the same Azure AD instance. Comprehensive identity and access management experiences are delivered centrally through the Azure AD portal, PowerShell, and programmatic interfaces.
+As a result of this, all aspects of identity and access management for Microsoft's services are performed in (or against) Azure AD. Customers can access relevant aspects of Azure AD management through, for example, services like Office 365. In this example, all identity management tasks done in the office administration portal are executed directly on the Azure AD instance and apply to all other services using the same Azure AD instance. Comprehensive identity and access management experiences are delivered centrally through the Azure AD portal, PowerShell, and programmatic interfaces.
+
 
 
 
@@ -106,9 +99,6 @@ To learn more about Azure AD’s capabilities that support these E2E scenarios, 
 - [Self-service access management](https://msdn.microsoft.com/library/azure/dn641267.aspx) 
 - [Cloud app discovery](https://msdn.microsoft.com/library/azure/mt143581.aspx)
 - [Access control based on device health, user location, and identity](https://msdn.microsoft.com/library/azure/dn906873.aspx)
-- Reporting + analytics on-premises and in the cloud
-- Works with IOS, Android, MAC OS and Windows devices
-
 - [Utilize the cloud to enhance and monitor on-premises identity systems](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [Rich standard based platform for developers](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
