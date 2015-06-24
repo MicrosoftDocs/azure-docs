@@ -33,21 +33,24 @@ Elastic query also allows easy access to an entire collection of databases throu
 
 ![Elastic database query used on scaled-out data tier][1]
 
-## Elastic query topologies
+## Elastic query topology
 
-Elastic query works with two types of topologies.
-### Reporting over a sharded data tier (topology 1)
+Using elastic query to perform reporting tasks over a horizontally partitioned data tier requires an elastic scale shard map to represent the databases of the data tier. Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities serves as the entry point for reporting queries. Only this dedicated database needs to be configured with elastic database query objects, as described below. Figure 2 illustrates this topology and its configuration with the elastic query database and shard map.
 
-With this approach, the data tier is scaled out across many databases using a common schema. This approach is also known as horizontal partitioning or sharding. The partitioning can be performed and managed using (1) the [elastic database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) or (2) using an application-specific model for distributing data across multiple databases. With this topology, reports often have to span multiple databases. With elastic query, you can now connect to a single SQL Server database, and query results from the remote databases appear as if generated from a single virtual database.
+**Note** The dedicated elastic query database must be a SQL DB v12 database and initially only the Premium tier is supported. There are no restrictions on the shards themselves.
 
-### Reference data access (topology 2)
+**Figure 2**
 
-With this approach, reference data is stored and maintained in one dedicated database. Keeping this data in a single place simplifies reference data management while reference data can easily be accessed from and correlated with data in other databases.
+![Use Elastic Query for Reporting over Sharded Tiers][2]
 
-## Topology construction
-This explains the configuration and the building blocks for the two topologies in more detail.
+(A **shardlet** is all of the data associated with a single value of a sharding key on a shard. A **sharding key** is a column value that determines how data is distributed across shards. For example, data distributed by regions may have region names as the sharding key. For more defintions, see the [elastic scale glossary](sql-database-elastic-scale-glossary.md).)
 
-Elastic database query will cover both topologies. Both topologies require an elastic database tools [**shard map**](sql-database-elastic-scale-shard-map-management.md) to represent the remote databases to elastic query. With topology 1, you can rely on your existing shard map if you are already using the elastic database client library. Otherwise, you need to create a shard map using elastic database tools. With topology 2, you need to create a single shard map to represent the database that holds the reference data.
+The data tier is scaled out across many databases using a common schema. This approach is also known as horizontal partitioning or sharding. The partitioning can be performed and managed using (1) the [elastic database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) or (2) using an application-specific model for distributing data across multiple databases. With this topology, reports often have to span multiple databases. With elastic query, you can now connect to a single SQL Server database, and query results from the remote databases appear as if generated from a single virtual database.
+
+
+## Application fundamentals
+
+Creating an elastic query solution requires the elastic database tools [**shard map**](sql-database-elastic-scale-shard-map-management.md) to represent the remote databases to elastic query. If you are already using the elastic database client library, you can use your existing shard map. Otherwise, you need to create a shard map using elastic database tools. 
 
 The following example C# code shows how to create a shard map with a single remote database added as a shard.
 
@@ -65,23 +68,6 @@ For more details on shard maps, please refer to [Shardmap management](sql-databa
 
 Creating the shard map and registering your remote databases as shards is a one-time operation needed to setup elastic query. You only need to change your shard map when you add or remove remote databases—which are incremental operations on an existing shard map. The following sections explain how the shard map is being used for the different topologies.
 
-### Topology 1
-
-Using elastic query to perform reporting tasks over a horizontally partitioned data tier requires an elastic scale shard map to represent the databases of the data tier. Typically, only a single shard map is used in this scenario and a dedicated database with elastic query capabilities serves as the entry point for reporting queries. Only this dedicated database needs to be configured with elastic database query objects, as described below. Figure 2 illustrates this topology and its configuration with the elastic query database and shard map. Note that this dedicated elastic query database must be a SQL DB v12 database and initially only the Premium tier is supported. There are no restrictions on the shards themselves.
-
-**Figure 2**
-
-![Topology 1: use Elastic Query for Reporting over Sharded Tiers][2]
-
-(A **shardlet** is all of the data associated with a single value of a sharding key on a shard. A **sharding key** is a column value that determines how data is distributed across shards. For example, data distributed by regions may have region names as the sharding key. For more defintions, see the [elastic scale glossary](sql-database-elastic-scale-glossary.md).)
-
-### Topology 2
-
-Elastic query can also be used to make reference data located in a single database available to other databases. This would allow requests in one database to refer to tables with reference data (for example, zip codes) that are stored remotely in a database dedicated to reference data management. To implement remote access to the tables in the reference database, a shard map needs to be defined with the reference data database as its only shard. Once defined, other databases can be configured with elastic query database objects that reference the remote database defined in the shard map. In contrast to the previous scenarios, requests with access to reference tables can be performed from any of the databases with elastic query. Figure 3 illustrates this for two reference tables T1 and T2 on the reference database that can be accessed by four different databases with elastic query. In this case, all of the databases referencing the remote tables must be SQL DB v12 databases and in this stage of the preview we require them to be in the Premium tier.
-
-**Figure 3**
-
-![Topology 2][3]
 
 ## Creating elastic query database objects
 
@@ -267,5 +253,5 @@ To get started exploring elastic query, try our step-by-step tutorial to have a 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-overview/overview.png
 [2]: ./media/sql-database-elastic-query-overview/topology1.png
-[3]: ./media/sql-database-elastic-query-overview/topology2.png
+
 <!--anchors-->
