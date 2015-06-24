@@ -26,7 +26,11 @@ Fast forward read only cursors can be easily replaced with a looping construct. 
 
 Firstly, create a temporary table containing a unique row number used to identify the individual statements:  
 ```
-CREATE TABLE #tbl WITH (location=USER_DB,DISTRIBUTION = ROUND_ROBIN)
+CREATE TABLE #tbl 
+WITH 
+(   LOCATION     = USER_DB
+,   DISTRIBUTION = ROUND_ROBIN
+)
 AS
 SELECT  ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) ) AS Sequence
 ,       [name]

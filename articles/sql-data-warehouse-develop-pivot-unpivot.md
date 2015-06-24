@@ -63,7 +63,10 @@ Unpivoting is a little bit more complex. However, it is still very achievable us
 Firstly, create a temporary table containing four rows. We will use this to amplify the data:
 ```
 CREATE TABLE #Nmbr
-WITH (DISTRIBUTION = ROUND_ROBIN)
+WITH 
+(   DISTRIBUTION = ROUND_ROBIN
+,   LOCATION     = USER_DB
+)
 AS
 SELECT 1 AS 'Number'
 UNION ALL

@@ -50,6 +50,7 @@ END;
 
 CREATE TABLE #stats_ddl
 WITH    (   DISTRIBUTION = HASH([seq_nmbr])
+        ,   LOCATION     = USER_DB
         )
 WITH t1
 AS

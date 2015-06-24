@@ -167,10 +167,11 @@ Since there is a correlation between *product\_category* and *product\_sub\_cate
 One way to create statistics is to issues CREATE STATISTICS commands after creating the table.
 
 ```
-CREATE TABLE table1 (
-  col1 int,
-  col2 int,
-  col3
+CREATE TABLE dbo.table1 
+(
+   col1 int
+,  col2 int
+,  col3 int
 )
 WITH
   (
@@ -178,9 +179,9 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on table1;
-CREATE STATISTICS stats_col2 on table2;
-CREATE STATISTICS stats_col3 on table3;
+CREATE STATISTICS stats_col1 on dbo.table1;
+CREATE STATISTICS stats_col2 on dbo.table2;
+CREATE STATISTICS stats_col3 on dbo.table3;
 ```
 
 ### H. Use a stored procedure to create statistics on all columns in a database

@@ -61,15 +61,6 @@ Limitations of bcp are:
 - bcp has not been adapted to be robust when loading data over the internet. Any network instability may cause a load error.
 - bcp relies on the schema being present in the target database prior to the load
 
-Example export:
-```
-
-```
-Example load:
-```
-
-```
-
 For more information, see [Use bcp to load data into SQL Data Warehouse][].
 
 ## Optimizing data migration
@@ -196,6 +187,5 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 [production version]: http://aka.ms/downloadazcopy
 [preview version]: http://aka.ms/downloadazcopypr
-[SSIS documentation]: 
-[SSDT]:
+[SSIS documentation]: https://msdn.microsoft.com/en-us/library/ms141026.aspx
 

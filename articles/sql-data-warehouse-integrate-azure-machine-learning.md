@@ -68,6 +68,7 @@ Now you can use this dataset to:
 -	Create a Model: Process data and define features
 -	Train the model: Choose and apply a learning algorithm
 -	Score and test the model: Predict new bicycle price
+	
 ![][model]
 
 To learn more about how to create, train, score and test a machine learning model use the [Create experiment tutorial][].

@@ -86,7 +86,10 @@ The first step is to define the 'cube' that defines all the levels of aggregatio
 
 ```
 CREATE TABLE #Cube
-WITH (DISTRIBUTION = ROUND_ROBIN)
+WITH 
+(   DISTRIBUTION = ROUND_ROBIN
+,   LOCATION = USER_DB
+)
 AS
 WITH GrpCube AS
 (SELECT    CAST(ISNULL(Country,'NULL')+','+ISNULL(Region,'NULL') AS NVARCHAR(50)) as 'Cols'
@@ -129,7 +132,10 @@ CREATE TABLE #Results
 ,[SalesTerritoryRegion]  NVARCHAR(50)
 ,[TotalSalesAmount]      MONEY
 )
-WITH (DISTRIBUTION = ROUND_ROBIN)
+WITH
+(   DISTRIBUTION = ROUND_ROBIN
+,   LOCATION = USER_DB
+)
 ;
 ```
 
