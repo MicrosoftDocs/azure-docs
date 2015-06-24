@@ -98,7 +98,7 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 * [Batch Apps Blender sample](https://github.com/Azure/azure-batch-apps-blender) and [blog post](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
-## related Azure services
+## Related Azure services
 
 * [Data Factory](http://azure.microsoft.com/documentation/services/data-factory/)
 
