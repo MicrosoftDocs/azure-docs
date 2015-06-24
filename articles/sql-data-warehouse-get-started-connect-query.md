@@ -17,27 +17,27 @@
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
    
 # Get Started: Connect to SQL Data Warehouse
-This quick start article introduces you to connecting to and querying a provisioned instance of SQL Data Warehouse (SQLDW) with two different tools:
+This quick start article introduces you to connecting to and querying a provisioned instance of SQL Data Warehouse  with two different tools:
 
-**Visual Studio** - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL DW, enabling you to easily connect to, query, and manage Azure SQL DW.  
+**Visual Studio** - Visual Studio's integrated code editor and debugger, SQL Server Data Tools (SSDT), is fully compatible with SQL DW, enabling you to easily connect to, query, and manage SQL Data Warehouse.  
 
-**SQLCMD** - SQLCMD is a commandline tool that offers simple connection and querying abilities.  
+**sqlcmd** - sqlcmd is a commandline tool that offers simple connection and querying abilities.  
 
 After completing this article you will have:
 
 1. Installed and updated Visual Studio 2013
 2. Created a connection to SQL Data Warehouse in SSDT
-3. Executed queries against the SQLDW database
+3. Executed queries against the SQL Data Warehouse database
 
 >[AZURE.NOTE] It is assumed that you have either completed the provisioning guide or have a SQL Data Warehouse available. If you have not provisioned the SQL Data Warehouse then please refer back to the [provisioning quick start].
 
 ## Setting up Visual Studio for Development##
-For development, the SQL DW team recommends using Visual Studio 2013 or greater in combination with SQL Server Data Tools. The following will outline how to download and update Visual Studio 2013 if you do not already have a viable version of visual studio installed.
+For development, the SQL Data Warehouse team recommends using Visual Studio 2013 or greater in combination with SQL Server Data Tools. The following will outline how to download and update Visual Studio 2013 if you do not already have a viable version of visual studio installed.
 
 If you are looking for more information, general SSDT questions can be resolved using the [complete SSDT documentation](https://msdn.microsoft.com/library/azure/hh272686.aspx).
 
 ### Get Visual Studio 2013 ###
-Head over to the Visual Studio 2013 website to download and install a copy of Visual Studio. Remember, for SQLDW any of the free editions is more than adequate. Feel free to pick one that suits your needs
+Head over to the Visual Studio 2013 website to download and install a copy of Visual Studio. Remember, for SQL Data Warehouse any of the free editions is more than adequate. Feel free to pick one that suits your needs
 
 <a href="https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs#DownloadFamilies_5" target="blank">Get Visual Studio 2013</a>
 
@@ -46,124 +46,73 @@ Already have Visual Studio 2013 installed? Great! To make sure it is up to date 
 
 1. Open Visual Studio 2013
 2. Choose the "Tools" menu and select "Extensions and Updates..."
-
-    ![][010]
-
 3. Navigate through the tree control to "Updates" and "Product Updates"
-
-    ![][190]
-
 4. If there is no update available then you can safely close the "Extensions and Updates" window and proceed to the next task in this quick start.
 
-    However, if an update exists for Visual Studio itself click on the Update button.
+However, if an update exists for Visual Studio itself click on the Update button. This will initiate a download of the latest update for Visual Studio 2013.
 
-    ![][200]
-    This will initiate a download of the latest update for Visual Studio 2013.
-
-    ![][220]
-
-    Close the "Extensions and Updates" window and also close Visual Studio 2013 before proceeding.
-
-    ![][210]
+Close the "Extensions and Updates" window and also close Visual Studio 2013 before proceeding.
 
 5. Click on the "Run" button to install the latest update to Visual Studio 2013.
 
-    ![][230]
-
 6. Agree to the license terms and click on the Install button accepting any User Account Control (UAC) prompts
-
-    ![][240]
 
 7. Click the "Launch" button to complete the installation
 
-    ![][250]
-
 This completes the update of Visual Studio 2013.
 
-### Update SSDT ###
+### Update SSDT 
 You might find that you also need to update SSDT. This is quite normal. The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time. Again this is a very simple process. To check if you need to update SSDT perform the following steps:
 
-<!-- NOTE: We will need to identify the minimum build number that is necessary for SSDT to be fully functional-->
 
 1. Open Visual Studio 2013
 2. Choose the "Tools" menu and select "Extensions and Updates..."
-
-    ![][010]
-
 3. Navigate through the tree control to "Updates" and "Product Updates"
-
-    ![][020]
-
 4. If there is no update available then you can safely close the "Extensions and Updates" window and proceed to the next task in this quick start.
 
-    However, if an update exists called "Microsoft SQL Server Update for database tooling" click on the Update button.
+However, if an update exists called "Microsoft SQL Server Update for database tooling" click on the Update button.
 
-    ![][030]
-
-    This will initiate a download of the latest SSDT version. The image below shows the SSDTSetup.exe in Internet Explorer's Download Manager.
-
-    ![][040]
+This will initiate a download of the latest SSDT version. The image below shows the SSDTSetup.exe in Internet Explorer's Download Manager.
 
 5. Click on the "Run" button to install the latest version of SSDT.
 
-    ![][050]
-
 6. Agree to the license terms and click on the Install button
-
-    ![][060]
 
 7. Click the "Close" button to complete the SSDT update
 
-    ![][070]
-
 8. Close the "Extensions and Updates" window
-
-    ![][080]
 
 You now have an up to date version of Visual Studio 2013 on your desktop with an up to date SSDT extension.
 
-## Connect to SQLDW with Visual Studio 2013 ##
-If you are running the desired version of Visual Studios you will be able to connect to the SQL DW instance in two different ways:
+## Connect with Visual Studio 2013
+If you are running the desired version of Visual Studio you will be able to connect to the SQL Data Warehouse instance in two different ways:
 
-###From Visual Studio
+### From Visual Studio
 To make the connection all we need to is open the SQL Server Object Explorer and pass in the connection information
 
 1. Open Visual Studio
 2. Choose the "View" menu and select "SQL Server Object Explorer" from the drop down list
 
-    ![][090]
+> [AZURE.NOTE] Ensure you choose the SQL Server Object Explorer and ***not*** the Server Explorer. The names sound similar but they are very different controls. They are located next to one another so please be careful and make certain you have selected the right one!
 
-    > [AZURE.NOTE] Ensure you choose the SQL Server Object Explorer and ***not*** the Server Explorer. The names sound similar but they are very different controls. They are located next to one another so please be careful and make certain you have selected the right one!
+You can now see the SQL Server Object Explorer:
 
-    You can now see the SQL Server Object Explorer:
-
-    ![][100]
 
 3. Click on the "Add Server" button on the SQL Server Object Explorer. This has been highlighted in the image below:
 
-    ![][110]
-
 4. Populate the Connect to Server dialogue box
 
-    Use the values you chose when creating the logical server.
+Use the values you chose when creating the logical server.
 
-    ![][120]
+Feel free to check the "Remember Password" tick box if you wish. It's a nice time saver but remember that this does enable anyone with physical access to your profile to execute queries using this account.
 
-    Feel free to check the "Remember Password" tick box if you wish. It's a nice time saver but remember that this does enable anyone with physical access to your profile to execute queries using this account.
+> [AZURE.NOTE] Remember that the server name needs to be fully qualified. Therefore your Server name value should follow this convention: ***ServerName***.database.windows.net where ***ServerName*** is the name you gave to your logical server.
 
-    > [AZURE.NOTE] Remember that the server name needs to be fully qualified. Therefore your Server name value should follow this convention: ***ServerName***.database.windows.net where ***ServerName*** is the name you gave to your logical server.
+Click Connect once you have completely filled in the credentials
 
-5. Click Connect
-
-    Once you have completely filled in the credentials
-
-    ![][130]
-
-    You have now completed a connection and have registered your SQLDW Logical Server in the SQL Server Object Explorer.
-
-    ![][140]
+You have now completed a connection and have registered your SQLDW Logical Server in the SQL Server Object Explorer.
     
-###From the Azure Portal
+### From the Azure Portal
 Get to Visual Studio directly from the Azure Portal.
 
 1. Sign into the [Azure Management Portal](http://manage.windowsazure.com/).
@@ -176,7 +125,7 @@ Get to Visual Studio directly from the Azure Portal.
 6. Visual Studio will open and you will be prompted for your credentials 
 7. After entering your credentials and connecting, your server and DW instances will now appear in your SQL Server Object Explorer panel.  
 
-##Connect to SQL DW with sqlcmd
+## Connect to SQL Data Warehouse with sqlcmd
 
 You can also connect to SQL DW with the [sqlcmd](https://msdn.microsoft.com/en-us/library/azure/ms162773.aspx) command prompt utility that is included with SQL Server or the [Microsoft Command Line Utilities 11 for SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501). The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt.
 
@@ -190,14 +139,18 @@ To connect to a specific instance of SQL DW when using sqlcmd you will need to o
 
 Therefore to connect to a SQL DW instance, you would enter the following:
 
-		C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+```
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+```
 
 After connection, you can issue any supported Transact-SQL statements against the instance. For example, the below statement leverages the [CREATE TABLE](https://msdn.microsoft.com/en-us/library/azure/dn268335.aspx) statement to create a new table
 
-		C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
-		1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
-		2> GO
-		3> QUIT
+```
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
+2> GO
+3> QUIT
+```
 	
 For additional information on sqlcmd refer to the [sqlcmd documentation](https://msdn.microsoft.com/en-us/library/azure/ms162773.aspx).
 
@@ -209,67 +162,23 @@ Now that we have registered our server let's go ahead and write a query.
 
 1. Click on the user database in SSDT
 
-    ![][150]
-
 2. Click on the New Query Button
-
-    ![][160]
 
    A new window has now opened
 
-   ![][170]
-
 3. Write a query
 
-    Type the following code into the query window:
-```
-SELECT  COUNT(*)
-FROM    sys.tables;
-```
+	Type the following code into the query window:
+
+	```
+	SELECT  COUNT(*)
+	FROM    sys.tables;
+	```
 
 4. Execute the query
 
-    To execute the query click on the green arrow below or use the following shortcut `CTRL`+`SHIFT`+`F5`:
+	To execute the query click on the green arrow below or use the following shortcut `CTRL`+`SHIFT`+`F5`:
 
-    ![][180]
-
-### Other Queries to execute ###
-
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps ##
-[Database Design]: ./articles/sql-dw-get-started-provision/
-[Write distributed queries]: ./articles/sql-dw-get-started-provision/
-[Scaling with SQL DW]: ./articles/sql-dw-get-started-provision/
-[Generate Statistics]: ./articles/sql-dw-get-started-provision/
-
-
-
-
-<!--Image references-->
-[010]: /media/sql-dw-get-started-connect-query/Tools.Extensions.Updates.png
-[020]: /media/sql-dw-get-started-connect-query/Extensions.Updates.ProductUpdateFocus.png
-[030]: /media/sql-dw-get-started-connect-query/Extensions.Updates.UpdateButtonFocus.png
-[040]: /media/sql-dw-get-started-connect-query/SSDT.DownloadManager.png
-[050]: /media/sql-dw-get-started-connect-query/SSDT.DownloadManager.Run.png
-[060]: /media/sql-dw-get-started-connect-query/SSDT.LicenseTermsAgreement.png
-[070]: /media/sql-dw-get-started-connect-query/SSDT.Setup.Close.png
-[080]: /media/sql-dw-get-started-connect-query/Extensions.Updates.Close.png
-[090]: /media/sql-dw-get-started-connect-query/SSDT.SQLServerObjectExplorer.View.png
-[100]: /media/sql-dw-get-started-connect-query/SSDT.SQLServerObjectExplorer.Control.png
-[110]: /media/sql-dw-get-started-connect-query/SSDT.SQLServerObjectExplorer.Control.Add.png
-[120]: /media/sql-dw-get-started-connect-query/SSDT.Connect.png
-[130]: /media/sql-dw-get-started-connect-query/SSDT.Connect.Connect.png
-[140]: /media/sql-dw-get-started-connect-query/SSDT.SQLServerObjectExplorer.Control.SQLDW.png
-[150]: /media/sql-dw-get-started-connect-query/SSDT.SQLServerObjectExplorer.Control.SQLDW.Focus.png
-[160]: /media/sql-dw-get-started-connect-query/SSDT.SQLServerObjectExplorer.Control.NewQuery.png
-[170]: /media/sql-dw-get-started-connect-query/SSDT.SQLServerObjectExplorer.Control.SQLDW.Query.Window.png
-[180]: /media/sql-dw-get-started-connect-query/SSDT.SQLServerObjectExplorer.Control.SQLDW.Query.Window.Focus.png
-[190]: /media/sql-dw-get-started-connect-query/Extensions.Updates.VS2013.png
-[200]: /media/sql-dw-get-started-connect-query/Extensions.Updates.VS2013.Update.png
-[210]: /media/sql-dw-get-started-connect-query/Extensions.Updates.VS2013.Update.Close.png
-[220]: /media/sql-dw-get-started-connect-query/VS2013.DownloadManager.png
-[230]: /media/sql-dw-get-started-connect-query/VS2013.DownloadManager.Run.png
-[240]: /media/sql-dw-get-started-connect-query/VS2013.Update4.png
-[250]: /media/sql-dw-get-started-connect-query/VS2013.Update4.Launch.png
+[Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
