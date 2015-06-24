@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Overview"
-   description="Article description that will be displayed on landing pages and in some search results"
-   services="service-name"
-   documentationCenter="dev-center-name"
-   authors="happynicolle"
-   manager="manager-alias"
-   editor="lodipalm"/>
+   pageTitle="Elastic scale and performance for SQL Data Warehouse"
+   description="Learn about scaling with DWUs in SQL Data Warehouse"
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="mm/dd/yyyy"
-   ms.author="nicw@microsoft.com"/>
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/23/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Overview: Elastic Scale and Performance for SQL Data Warehouse
 This topic presents the unit of measurement for compute power used by SQL Data Warehouse, a practical approach to setting the right amount of compute power for your needs, and the ways to elastically scale your compute power.
@@ -52,13 +52,15 @@ There are many different solutions SQL Data Warehouse can unblock for customers.
 If you have an application with a fluctuating workload, you can move performance levels up or down to accommodate peaks and low points. For example, if a workload typically peaks at the end of the month, you could plan to add more DWUs during those peak days and then throttle it back down when the peak period is over.
 
 
-## Scaling Your Compute Power
-### Ways to Scale up and Down
+## Scaling your compute power
+To scale compute power, you can scale up or down or pause.
+
+### Ways to scale up and down
 Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This gives you the flexibility to tune your compute power to something that is optimal for your business.  
 
 Increasing your compute power can be done through the [Azure Portal](http://portal.azure.com/), via REST APIs or through Powershell.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.  For more details on how to scale up and down, see [How to Scale Compute in SQL Data Warehouse](./sql-dw-how-scale).
 
-### Ways to Pause
+### Ways to pause
 Unique to SQL Data Warehouse is the ability to pause and resume compute on demand.  If the team will not be using the Data Warehouse instance for a period of time, like nights, weekends, certain holidays or for any other reason, you can pause the Data Warehouse instance for that period of time and pick up where you left off when you return.  The pause action returns your compute resources back to the pool of available resources in the data center and the resume action acquires the necessary compute resources needed for the DWU you've set and assigns them to your Data Warehouse instance.  
 
 Pause and resume of your compute power can be done through the [Azure Portal](http://portal.azure.com/), via REST APIs or through Powershell.  Pausing cancels all running or queued activities and when you return you can resume your compute resources in seconds.  For more details on how to pause, see [How to Scale Compute in SQL Data Warehouse](./sql-dw-how-scale).
