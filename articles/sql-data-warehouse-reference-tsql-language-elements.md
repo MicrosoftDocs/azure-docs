@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2015"
+   ms.date="06/23/2015"
    ms.author="barbkess"/>
 
 # Language elements
@@ -44,7 +44,7 @@
 - [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
 - [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
 - [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
-- [WHILE](https://msdn.microsoft.com/en-us/library/ms178642.aspx)
+- [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## Operators
 - [+ (Add)](https://msdn.microsoft.com/library/ms178565.aspx)
@@ -278,3 +278,14 @@
 - [SET TEXTSIZE](https://msdn.microsoft.com/library/ms186238.aspx)
 - [SET TRANSACTION ISOLATION LEVEL](https://msdn.microsoft.com/library/ms173763.aspx)
 - [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
+
+
+## Next steps
+For more reference information, see [SQL Data Warehouse reference overview][].
+
+<!--Image references-->
+
+<!--Article references-->
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-reference/
+
+<!--MSDN references-->

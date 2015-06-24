@@ -112,6 +112,6 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!--Image references-->
+
 
 

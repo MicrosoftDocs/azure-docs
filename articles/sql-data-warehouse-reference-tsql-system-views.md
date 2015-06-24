@@ -265,4 +265,16 @@ These are links to the SQL Server Information Schema views available in SQL Serv
 - [VIEW TABLE USAGE (Transact-SQL)](https://msdn.microsoft.com/library/ms173869.aspx)
 - [VIEWS (Transact-SQL)](https://msdn.microsoft.com/library/ms181381.aspx)
 
+## Next steps
+For more reference information, see [SQL Data Warehouse reference overview][].
+
+<!--Image references-->
+
+<!--Article references-->
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-reference/
+
+<!--MSDN references-->
+
+
+<!--Other Web references-->
 

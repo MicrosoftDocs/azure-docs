@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2015"
+   ms.date="06/23/2015"
    ms.author="barbkess"/>
 
 #Transact-SQL topics
@@ -113,3 +113,17 @@
 - [DROP SERVER ROLE](https://msdn.microsoft.com/library/ee677643.aspx)
 - [DROP USER](https://msdn.microsoft.com/library/ms189438.aspx)
 - [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
+
+
+## Next steps
+For more reference information, see [SQL Data Warehouse reference overview][].
+
+<!--Image references-->
+
+<!--Article references-->
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-reference/
+
+<!--MSDN references-->
+
+
+<!--Other Web references-->
