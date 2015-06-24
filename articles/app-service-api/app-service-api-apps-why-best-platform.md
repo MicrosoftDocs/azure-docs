@@ -18,47 +18,29 @@
 
 # What are API Apps?
 
-API Apps are part of the [Azure App Service](../app-service/app-service-value-prop-what-is.md) suite that also includes web apps, mobile apps, and logic apps. 
+API Apps provides a rich platform and ecosystem for building, hosting, consuming, and distributing APIs in the cloud and on-premises. Deploy your API as an API app and benefit from enterprise grade security, simple access control, hybrid and SaaS connectivity. automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+
+API Apps is part of [Azure App Service](../app-service/app-service-value-prop-what-is.md), which also includes Web Apps, Mobile Apps, and Logic Apps. 
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-The API Apps part of this suite provides a rich platform and ecosystem for building, hosting, consuming, and distributing APIs in the cloud and on-premises.
-
->[AZURE.NOTE] [Azure API Management](/services/api-management/) is a separate service that offers features such as endpoint consolidation and throttling. You can use API Management with API Apps.
->
->API Apps is currently in public preview. It's built on top of [App Service Web Apps](../app-service-web/app-service-web-overview.md), which is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing web apps and leveraging features of API Apps.
-
 ## Why API Apps?
 
-An API app is an [App Service web app](../app-service-web/app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs. 
-
-### Web app features for web services
-
-You can use a web app to host a web service, and you get all the web hosting features of the Azure App Service platform:
-
-- Automatic OS patching
-- Enterprise grade security
-- High availability
-- Auto scaling and load balancing
-- [WebJobs](../app-service-web/websites-webjobs-resources.md) for background processing
-- Quick and easy deployment, and [many continuous delivery options](../app-service-web/web-sites-deploy.md)
-- Access on-premises data using [hybrid connections](../integration-hybrid-connection-overview.md) and [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
-
-### API Apps features available now in preview
-
-If you use API Apps instead of Web Apps to host your web services, App Service provides additional features: 
+API Apps provides capabilities for developing, deploying, publishing, consuming and managing RESTful web APIs. App Service provides the following features available today in public preview:
 
 - **Easy consumption** - Integrated [Swagger](http://swagger.io/) support makes your APIs easily consumable by a variety of clients.  The API Apps SDK can generate client code for your APIs in a variety of languages including C#, Java, and Javascript.
 
-- **Simple access control** - Built-in authentication services support Azure Active Directory or third-party services such as Facebook and Twitter. You can protect an API app fgrom unauthenticated access with no changes to your code. If you're familiar with the authentication services provided by [Azure Mobile Services](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication), API apps builds on that framework and extends it to web services hosted by API Apps.  The App Service SDK also enables you to use a simplified syntax for authorization code. For more information, see [Protect an API app](app-service-api-dotnet-add-authentication.md).
+- **Simple access control** - Built-in authentication services support Azure Active Directory or third-party services such as Facebook and Twitter. You can protect an API app fgrom unauthenticated access with no changes to your code. If you're familiar with the authentication services provided by [Azure Mobile Services](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication), API Apps builds on that framework and extends it to APIs hosted by API Apps.  The App Service SDK also enables you to use a simplified syntax for authorization code. For more information, see [Protect an API app](app-service-api-dotnet-add-authentication.md).
 
 - **Easy connection to SaaS platforms** - [Connector API apps](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) in the Azure Marketplace are provided by Microsoft and third parties to simplify the code you write for interacting with SalesForce, Office 365, Twitter, Facebook, Dropbox, and many others.
 
-- **Integration with logic apps** - API apps that you create can be consumed by [App Service logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).    
+- **Integration with Logic Apps** - API apps that you create can be consumed by [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).    
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of [creating](app-service-dotnet-create-api-app.md), [deploying](app-service-dotnet-deploy-api-app.md), [debugging](app-service-dotnet-remotely-debug-api-app), and managing API apps.
 
-You can bring your existing API as-is: you don't have to change any of the code in your existing APIs to take advantage of all these features, just deploy your code to an API app. You can use ASP.NET, Java, PHP, Node.js or Python for your APIs.
+You can bring your existing API as-is: you don't have to change any of the code in your existing APIs to take advantage of API App features, just deploy your code to an API app. You can use ASP.NET, Java, PHP, Node.js or Python for your APIs.
+
+API Apps additionally includes [features of App Service Web Apps](../app-service-web/app-service-web-overview.md).
 
 ### API Apps features available in the future
 
@@ -71,6 +53,10 @@ In the near future, the API Apps platform will also create a rich ecosystem of A
 - **Automatic updates** - When you update the code for one of your API app packages that you've shared, you'll be able to push the update out to everyone who has installed and is running your API app. This will work for non-breaking changes and users who have opted-in to receiving updates.
 
 Many of these features, such the public marketplace and automatic updates, are already available for API apps provided by Microsoft.
+
+>[AZURE.NOTE] [Azure API Management](/services/api-management/) is a separate service that offers features such as endpoint consolidation and throttling. You can use API Management with API Apps.
+>
+>API Apps is currently in public preview. It's built on top of [App Service Web Apps](../app-service-web/app-service-web-overview.md), which is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing web apps and leveraging features of API Apps.
 
 ## API Apps concepts ##
 

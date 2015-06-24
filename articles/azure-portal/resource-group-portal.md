@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -75,7 +75,8 @@ Getting Started
 Creating and Deploying Applications  
   
 - [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)  
-- [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md)  
+- [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md)
+- [Deploy a complex application predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Troubleshooting Resource Group Deployments in Azure](../resource-group-deploy-debug.md)  
 - [Azure Resource Manager Template Functions](../resource-group-template-functions.md)  
 - [Advanced Template Operations](../resource-group-advanced-template.md)  
