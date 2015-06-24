@@ -28,20 +28,19 @@
 - [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 - [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx)
 - [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-- CREATE EXTERNAL FILE FORMAT
-- CREATE EXTERNAL TABLE
-- CREATE EXTERNAL TABLE AS SELECT
-- CREATE FUNCTION
+- [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/en-us/library/dn935026.aspx)
+- [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/en-us/library/dn935021.aspx)
+- [CREATE FUNCTION](https://msdn.microsoft.com/library/mt203952.aspx)
 - [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 - [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx)
 - [CREATE SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
 - [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
 - [CREATE TABLE](https://msdn.microsoft.com/library/ms174979.aspx)
-- CREATE TABLE AS SELECT
+- [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 - [CREATE VIEW](https://msdn.microsoft.com/library/ms187956.aspx)
-- DROP EXTERNAL DATA SOURCE
-- DROP EXTERNAL FILE FORMAT
-- DROP EXTERNAL TABLE
+- [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
+- [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/en-us/library/mt146379.aspx)
+- [DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/mt130698.aspx)
 - [DROP INDEX](https://msdn.microsoft.com/library/ms176118.aspx)
 - [DROP PROCEDURE](https://msdn.microsoft.com/library/ms174969.aspx)
 - [DROP STATISTICS](https://msdn.microsoft.com/library/ms175075.aspx)
