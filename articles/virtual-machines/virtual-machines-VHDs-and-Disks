@@ -13,14 +13,14 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.date="06/23/2015"
+	ms.date="06/24/2015"
 	ms.author="kathydav"/>
 
 # About Disks and VHDs for Virtual Machines
 
 All virtual machines in Azure are configured with at least two disks when you create the virtual machine – one is an operating system disk and the other is a temporary local disk, sometimes called a resource disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have data disks, and those are also stored at VHDs.
 
->[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store temporary data such as page or swap files. To remap this disk for a Windows VM, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md).
+>[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk for a Windows VM, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md).
 
 ## About Disks
 
@@ -30,28 +30,15 @@ Just like any other computer, virtual machines in Azure use disks as a place to 
 - The **temporary disk** is automatically created for you. On Windows virtual machines, this disk is labeled as the D drive. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
 - A **data disk** is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose.  Each data disk has maximum capacity of 1 TB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks. For details, see Virtual Machine and Cloud Service Sizes for Azure.
 
-### Common Disk Tasks
+Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. (You can use an image from Azure or a partner, or one you provide.) Otherwise, you add data disks after you create the virtual machine.
 
-#### Create disks or use existing ones
-
-Azure creates the operating system disk for you when you create a virtual machine. If you use an image that includes data disks, then Azure also creates the data disks when it creates the virtual machine. (You can use an image from Azure or a partner, or one you provide. For more details, see About Virtual Machine Images in Azure.) Otherwise, you add data disks after you create the virtual machine.
-
-You can add data disks to a virtual machine at any time, by ‘attaching’ the disk to the virtual machine. You can use a VHD that you’ve uploaded or copied to your storage account, or you can have Azure create a VHD for you by attaching an empty disk. Attaching a data disk associates the VHD file from your storage account with the virtual machine, by placing a ‘lease’ on the VHD so it can’t be deleted from storage while it’s attached to a virtual machine.
-
-#### Find and delete disks
-
-There are a few ways you can find a disk. If you want to delete a disk, you'll need to find it first.
-
-To find a disk:
-
-1.	Log in to the Azure Portal or the Preview Portal.
-2.	Find the virtual machine.
+You can add data disks to a virtual machine at any time, by ‘attaching’ the disk to the virtual machine. You can use a VHD that you’ve uploaded or copied to your storage account, or one that Azure creates for you. Attaching a data disk associates the VHD file from your storage account with the virtual machine, by placing a ‘lease’ on the VHD so it can’t be deleted from storage while it’s attached to a virtual machine.
 
 ## About VHDs
 
 The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. (Premium storage is is available in certain regions.) For details about page blobs, see [Understanding Block Blobs and Page Blobs](https://msdn.microsoft.com/library/ee691964.aspx). For details about premium storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage-premium-storage-preview-portal.md).
 
-Outside of Azure, virtual hard disks can use either a VHD or a VHDX format. They can also be fixed, dynamically expanding, or differencing. Azure supports VHD format, fixed disks. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting Started with Virtual Hard Disks](https://technet.microsoft.com/library/dd979539(WS.10).aspx).
+Outside of Azure, virtual hard disks can use either a VHD or a VHDX format. They can also be fixed, dynamically expanding, or differencing. Azure supports VHD format, fixed disks. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting Started with Virtual Hard Disks](https://technet.microsoft.com/library/dd979539.aspx).
 
 All .vhd files in Azure that you want to use as a source to create disks or images are read only. When you create a disk or image, Azure makes copies of the .vhd files. These copies can be read only or read and write, depending on how you use the VHD.
 
