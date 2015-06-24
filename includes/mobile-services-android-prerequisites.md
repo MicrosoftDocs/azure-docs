@@ -11,5 +11,5 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 > [AZURE.IMPORTANT] If you completed the quickstart tutorial prior to the release of Azure Mobile Services Android SDK 2.0, you must re-do it, because the SDK is not backwards compatible. To verify the version, check the **dependencies** section of your project's `build.gradle` file.
 
 <!-- URLs. -->
-[Get started with Mobile Services]: ../articles/mobile-services-android-get-started.md
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
+[Get started with Mobile Services]: ../articles/mobile-services/mobile-services-android-get-started.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
