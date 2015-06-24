@@ -77,7 +77,7 @@ Application Gateway configuration consists of multiple values, which can be tied
 The values are:
 
 - **Backend server pool:** List of IP address of backend servers. This IP should either belong to the VNET subnet or should be a public-IP/VIP. 
-- **Backend server pool settings:** Every pool has settings like port, protocol, and Cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+- **Backend server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Frontend Port:** This port is the public port opened on Application Gateway. Customer traffic hits this port, and then gets redirected to one of the backend servers.
 - **Listener:** Listener has a frontend port, protocol (Http or Https, these are case-sensitive), and SSL certificate name (if configuring SSL offload). 
 - **Rule:** Rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the "basic" rule, which is round-robin load distribution, is supported.

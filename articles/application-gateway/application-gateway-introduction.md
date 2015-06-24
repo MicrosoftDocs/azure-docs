@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Introduction to Application Gateway | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway service for Layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie-based session affinity, and SSL offload."
+   description="This page provides an overview of the Application Gateway service for Layer 7 load balancing, including gateway sizes, HTTP load balancing, cookie based session affinity, and SSL offload."
    documentationCenter="na"
    services="application-gateway"
    authors="cherylmc"
@@ -23,7 +23,7 @@ Microsoft Azure Application Gateway is an Azure-managed service similar to the A
 Application Gateway currently supports the following Layer 7 application delivery functionalities:
 
 - HTTP load balancing
-- Cookie-based session affinity
+- Cookie based session affinity
 - SSL offload
 
 ![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
