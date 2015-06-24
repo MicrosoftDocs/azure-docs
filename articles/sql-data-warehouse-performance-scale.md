@@ -1,7 +1,7 @@
 <properties
    pageTitle="Elastic performance and scale with SQL Data Warehouse | Microsoft Azure"
    description="Understand SQL Data Warehouse elasticity using Data Warehouse Units to scale compute resources up and down. Code examples provided."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"

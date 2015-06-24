@@ -1,7 +1,7 @@
 <properties
    pageTitle="Develop solutions for SQL Data Warehouse | Microsoft Azure"
    description="Development techniques and best practices for building solutions with Azure SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"

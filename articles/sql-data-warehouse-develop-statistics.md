@@ -1,7 +1,7 @@
 <properties
    pageTitle="Manage statistics in SQL Data Warehouse | Microsoft Azure"
    description="Tips for managing statistics in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Use Azure Machine Learning with SQL Data Warehouse | Microsoft Azure"
    description="Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"

@@ -1,7 +1,7 @@
 <properties
    pageTitle="SQL Data Warehouse reference topics | Microsoft Azure"
    description="Reference content links for SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"

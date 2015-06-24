@@ -1,7 +1,7 @@
 <properties
    pageTitle="Build integrated solutions with SQL Data Warehouse | Microsoft Azure"
    description="Tools and partners with solutions that integrate with SQL Data Warehouse. "
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sahajs"
    manager="barbkess"

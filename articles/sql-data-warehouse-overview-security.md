@@ -1,7 +1,7 @@
 <properties
    pageTitle="Secure a database in SQL Data Warehouse | Microsoft Azure"
    description="Tips for securing a database in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sahaj08"
    manager="barbkess"
