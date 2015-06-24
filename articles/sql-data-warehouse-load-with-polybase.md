@@ -1,7 +1,7 @@
 <properties
    pageTitle="PolyBase in SQL Data Warehouse Tutorial | Microsoft Azure"
    description="Learn what PolyBase is and how to use it for data warehousing scenarios."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"

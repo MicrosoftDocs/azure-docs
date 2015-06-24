@@ -1,7 +1,7 @@
 <properties
    pageTitle="Temporary tables in SQL Data Warehouse | Microsoft Azure"
    description="Tips for using temporary tables in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"

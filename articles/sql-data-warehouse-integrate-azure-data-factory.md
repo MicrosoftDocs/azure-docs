@@ -1,7 +1,7 @@
 <properties
    pageTitle="Use Azure Data Factory with SQL Data Warehouse | Microsoft Azure"
    description="Tips for using Azure Data Factory (ADF) with Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"

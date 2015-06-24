@@ -1,7 +1,7 @@
 <properties
    pageTitle="Load data into SQL Data Warehouse | Microsoft Azure"
    description="Learn the common scenarios for data loading in SQL Data Warehouse"
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"

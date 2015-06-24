@@ -33,7 +33,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
 
         _updateTimer = RegisterTimer(
             MoveObject,                     // callback method
-            callback method
+            state,                          // state to pass to callback method
             TimeSpan.FromMilliseconds(15),  // amount of time to delay before callback is invoked
             TimeSpan.FromMilliseconds(15)); // time interval between invocation of the callback method
 
