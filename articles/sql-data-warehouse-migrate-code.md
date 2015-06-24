@@ -33,21 +33,51 @@ The following list summarizes the main features that are not supported in Azure 
 - [SELECT..INTO][]
 - INSERT..EXEC
 - Output clause
+- Inline user-defined functions
+- Multi-statement functions
 - Recursive common table expressions (CTE)
 - Updates through CTEs
 - CLR functions and procedures
 - $partition function
 - Table variables
 - Table value parameters
+- Distributed transactions
+- Commit / Rollback work
+- Save transaction
+- Execution contexts (EXECUTE AS)
 - [Group by clause with rollup / cube / grouping sets options][]
-- Triggers
 - [Nesting levels beyond 8][]
 - [Updating through views][]
 - [Use of Select for variable assignment][]
 - [No MAX data type for dynamic SQL strings][]
 
-Happily most of these limitations can be worked around. Explanations have been included in the relevant development articles that have been referenced above.
+Happily most of these limitations can be worked around. Explanations have been included in the relevant development articles referenced above.
 
+There are also some system functions that are not supported. Some of the main ones you might typically find used in data warehousing are:
+
+- NEWID()
+- NEWSEQUENTIALID()
+- @@NESTLEVEL()
+- @@IDENTITY()
+- @@ROWCOUNT()
+- ROWCOUNT_BIG
+- ERROR_LINE()
+
+Again many of these issues can be worked around. 
+
+For example the code below is an alternative solution for retrieving @@ROWCOUNT information:
+```
+SELECT  SUM(row_count) AS row_count 
+FROM    sys.dm_pdw_sql_requests 
+WHERE   row_count <> -1 
+AND     request_id IN 
+                    (   SELECT TOP 1    request_id 
+                        FROM            sys.dm_pdw_exec_requests 
+                        WHERE           session_id = SESSION_ID() 
+                        ORDER BY end_time DESC
+                    )
+;
+``` 
 
 ## Next steps
 For advice on developing your code please refer to the [SQL Data Warehouse development overview][].

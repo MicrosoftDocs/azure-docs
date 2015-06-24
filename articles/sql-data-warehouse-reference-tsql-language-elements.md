@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2015"
+   ms.date="06/23/2015"
    ms.author="barbkess"/>
 
 # Language elements
@@ -23,7 +23,7 @@
 - [syntax conventions](https://msdn.microsoft.com/library/ms177563.aspx)
 - object naming rules
 - [reserved keywords](https://msdn.microsoft.com/library/ms189822.aspx)
-- [collations](https://msdn.microsoft.com/library/ff848763.aspx)***
+- [collations](https://msdn.microsoft.com/library/ff848763.aspx)
 - [comments](https://msdn.microsoft.com/library/ms181627.aspx)
 - [constants](https://msdn.microsoft.com/library/ms179899.aspx)
 - [data types](https://msdn.microsoft.com/library/ms187752.aspx)
@@ -62,7 +62,7 @@
 - [>= (Great than or equal to)](https://msdn.microsoft.com/library/ms181567.aspx)
 - [<= (Less than or equal to)](https://msdn.microsoft.com/library/ms174978.aspx)
 - [<> (Not equal to)](https://msdn.microsoft.com/library/ms176020.aspx)
-- [!= (Not equal to)](https://msdn.microsoft.com/library/vstudio/bb399278(v=vs.100).aspx)***
+- [!= (Not equal to)](https://msdn.microsoft.com/library/vstudio/bb399278.aspx)
 - [AND](https://msdn.microsoft.com/library/ms188372.aspx)
 - [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
 - [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
@@ -278,3 +278,14 @@
 - [SET TEXTSIZE](https://msdn.microsoft.com/library/ms186238.aspx)
 - [SET TRANSACTION ISOLATION LEVEL](https://msdn.microsoft.com/library/ms173763.aspx)
 - [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
+
+
+## Next steps
+For more reference information, see [SQL Data Warehouse reference overview][].
+
+<!--Image references-->
+
+<!--Article references-->
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-reference/
+
+<!--MSDN references-->
