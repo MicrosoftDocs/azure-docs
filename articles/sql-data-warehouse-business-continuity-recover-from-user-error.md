@@ -3,7 +3,7 @@
    description="Steps for recovering a database from user error in SQL Data Warehouse. "
    services="SQL Data Warehouse"
    documentationCenter="NA"
-   authors="sahajs"
+   authors="sahaj08"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/23/2015"
    ms.author="sahajs"/>
 
 # Recover a database from user error in SQL Data Warehouse
@@ -24,7 +24,7 @@ SQL Data Warehouse offers two core capabilities for recovering from user error t
 Both of these capabilities restore to a new database on the same logical server.
 
 ## Recovery with point in time restore
-In the event of user error causing unintended data modification, Point In Time Restore can be used to restore the database to any of the restore points within your databases retention period. The database snapshots for a live database occur every 4 hours and are retained for 7 days to provide a set of 42 restore points.
+In the event of user error causing unintended data modification, Point In Time Restore can be used to restore the database to any of the restore points within your databases retention period. The database snapshots for a live database occur every 8 hours and are retained for 7 days.
 
 ### PowerShell
 Use PowerShell to programmatically perform database restore.
@@ -74,8 +74,6 @@ To learn about the business continuity features of other Azure SQL Database edit
 [Database operation status]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Get restorable dropped database]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [List restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-
-
 
 
 <!--Other Web references-->

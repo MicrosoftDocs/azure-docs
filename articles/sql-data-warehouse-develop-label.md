@@ -46,19 +46,14 @@ To search by label you can use the following query that uses the dynamic managem
 For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
-[1]: ./media/sql-dw-migrate-migrate-code/ctas-results.png
-[2]: ./media/sql-dw-migrate-migrate-code/label-portal.png
 
 
 <!--Article references-->
 [SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
-[migrate your schema]: ./sql-dw-migrate-schema/
 
 <!--MSDN references-->
-[CTAS]: (http://msdn.microsoft.com//BLAH)
-[GROUP BY ROLLUP]: (https://technet.microsoft.com/en-us/library/bb522495%28v=sql.105%29.aspx)
 
 <!--Other Web references-->
-[Azure Management Portal]: (http://portal.azure.com)
+
 
 
