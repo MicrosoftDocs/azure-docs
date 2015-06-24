@@ -12,18 +12,17 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/31/2015" 
+	ms.date="06/24/2015" 
 	ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2014-10-20-Preview #
 
-This document describes the **2014-10-20-Preview** version of the Azure Search Service REST API. This is a prototype version of the API, subject to change at any time. Do not take a dependency on this API in production code. 
-
-> [AZURE.NOTE] Since this is an experimental version, not all features described in this document are available in the Azure Portal user interface. Specifically, multi-language support through the `analyzer` option in fields, the new `tag` scoring function and the new `suggesters` capability are only exposed in the API for the time being. If you use the API to enable one of these capabilities, you'll be able to view index definitions in the portal but not to update them, and you won't see the new features visualized.
+This document describes the **2014-10-20-Preview** version of the Azure Search Service REST API. 
+This version is now obsolete. If you are using this API in production code, please migrate to the generally available version as soon as possible. For guidance, see [Transition from preview APIs in Azure Search](search-transition-from-preview.md).
 
 Other API content related to this version includes the following:
 
-- [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/)
+- [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md)
 
 Documentation for the released version of the Azure Search REST API can be found on MSDN. See [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) for more information.
 
@@ -182,7 +181,7 @@ HTTPS is required for all service requests. The **Create Index** request can be 
 
 The index name must be lower case, start with a letter or number, have no slashes or dots, and be less than 128 characters. After starting the index name with a letter or number, the rest of the name can include any letter, number and dashes, as long as the dashes are not consecutive.
 
-The `api-version` is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. The recommended version is `2014-07-31-Preview` for general use. Alternatively, use `2014-10-20-Preview` to evaluate experimental features, such as support for language analyzers expressed through the analyzer index attribute. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details about API versions. See [Language support](#LanguageSupport) for details about language analyzers.
+The `api-version` is required. Valid values include `2014-07-31-Preview` or `2014-10-20-Preview`. You can specify which one to use on each request to get version-specific behaviors, but as a best practice, use the same version throughout your code. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details about API versions. See [Language support](#LanguageSupport) for details about language analyzers.
 
 **Request Headers**
 
@@ -275,7 +274,7 @@ Note: Data type `Edm.Int64` is supported starting with API version 2014-10-20-Pr
     
 **Index Attributes**
 
-The following attributes can be set when creating an index. For details about scoring and scoring profiles, see [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/).
+The following attributes can be set when creating an index. For details about scoring and scoring profiles, see [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md).
 
 `name` - Sets the name of the field.
 
@@ -301,7 +300,7 @@ The following attributes can be set when creating an index. For details about sc
 
 `retrievable` - Sets whether the field can be returned in a search result.  This is useful when you want to use a field (for example, margin) as a filter, sorting, or scoring mechanism but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.
 
-`scoringProfiles` - Defines custom scoring behaviors that let you influence which items appear higher in search results. Scoring profiles are made up of weighted fields and functions. See [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/) for more information about the attributes used in a scoring profile.
+`scoringProfiles` - Defines custom scoring behaviors that let you influence which items appear higher in search results. Scoring profiles are made up of weighted fields and functions. See [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md) for more information about the attributes used in a scoring profile.
 
 `analyzer` - Sets the name of the text analyzer to use for the field. For the allowed set of values see [Language Support](#LanguageSupport). This option can be used only with `searchable` fields. Once the analyzer is chosen, it cannot be changed for the field. 
 
@@ -693,7 +692,7 @@ By default the response body will contain the JSON for the index definition that
 <a name="UpdateIndex"></a>
 ## Update Index ##
 
-You can update an existing index within Azure Search using an HTTP PUT request. In the Public Preview, updates can include adding new fields to the existing schema, modifying CORS options, and modifying scoring profiles (see [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/)). You specify the name of the index to update on the request URI:
+You can update an existing index within Azure Search using an HTTP PUT request. In the Public Preview, updates can include adding new fields to the existing schema, modifying CORS options, and modifying scoring profiles (see [Scoring Profiles (Azure Search Service REST API: 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md)). You specify the name of the index to update on the request URI:
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
     Content-Type: application/json
