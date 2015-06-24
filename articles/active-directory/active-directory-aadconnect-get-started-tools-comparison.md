@@ -78,11 +78,11 @@ PP = Public Preview</br>
 
 ## Filtering and Configuration
 
-| Feature  | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | |
-| :-------- |:--------:|:--------:|:--------:|:--------:
-| Filter on Domains and Organizational Units | ● | ● | ● | ● | |
-| Filter on objects’ attribute values | ● | ● | ● | ● | |
-| Allow minimal set of attributes to be synchronized (MinSync) | ● | ● |  |  | |
-| Allow different service templates to be applied for attribute flows |●  | ● |  |  | |
-| Allow removing attributes from flowing from AD to Azure AD | ● | ● |  |  | |
-| Allow advanced customization for attribute flows | ● | ● |  | ● | |
+Feature  | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM)  
+:-------- |:--------:|:--------:|:--------:|:--------:|
+Filter on Domains and Organizational Units | ● | ● | ● | ●  
+Filter on objects’ attribute values | ● | ● | ● | ● 
+Allow minimal set of attributes to be synchronized (MinSync) | ● | ● |  |   
+Allow different service templates to be applied for attribute flows |●  | ● |  |   
+Allow removing attributes from flowing from AD to Azure AD | ● | ● |  |  
+Allow advanced customization for attribute flows | ● | ● |  | ●  
