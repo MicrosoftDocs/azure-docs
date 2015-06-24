@@ -79,16 +79,16 @@ For example, the following statement defines a constant **x**:
 
     Const X = 28;  
 
-To define two or more constants simultaneously, enclose the identifier names and values in braces, and separate them by using semicolons, for example:  
+To define two or more constants simultaneously, enclose the identifier names and values in braces, and separate them by using semicolons. For example:  
 
     Const { X = 28; Y = 4; }  
 
-The right-hand side of each assignment expression can be an integer, a real number, a Boolean valuec(True or False), or a mathematical expression, for example:  
+The right-hand side of each assignment expression can be an integer, a real number, a Boolean value (True or False), or a mathematical expression. For example:  
 
 	Const { X = 17 * 2; Y = true; }  
 
 ##Layer declaration
-The layer declaration is required. It defines the size and source of the layer, including its connection bundles and attributes. The declaration statement starts with the name of the layer (input, hidden, or output), followed by the dimensions of the layer (a tuple of positive integers), for example:  
+The layer declaration is required. It defines the size and source of the layer, including its connection bundles and attributes. The declaration statement starts with the name of the layer (input, hidden, or output), followed by the dimensions of the layer (a tuple of positive integers). For example:  
 
 	input Data[784];
 	hidden Hidden[5,20] from Data all;
@@ -150,19 +150,19 @@ A filtered connection bundle specification includes a predicate, expressed synta
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	In the predicate for ByRow, **s** is a parameter representing an index into the rectangular array of nodes of the input layer, Pixels, and **d** is a parameter representing an index into the array of nodes of the hidden layer, ByRow. The type of both **s** and **d** is a tuple of integers of length two. Conceptually, **s** ranges over all pairs of integers with 0 <= s[0] < 10 and 0 <= s[1] < 20, and **d** ranges over all pairs of integers with 0 <= d[0] < 10 and 0 <= d[1] < 12. 
+-	In the predicate for ByRow, **s** is a parameter representing an index into the rectangular array of nodes of the input layer, Pixels, and **d** is a parameter representing an index into the array of nodes of the hidden layer, ByRow. The type of both **s** and **d** is a tuple of integers of length two. Conceptually, **s** ranges over all pairs of integers with _0 <= s[0] < 10_ and _0 <= s[1] < 20_, and **d** ranges over all pairs of integers, with _0 <= d[0] < 10_ and _0 <= d[1] < 12_. 
 -	On the right-hand side of the predicate expression, there is a condition. In this example, for every value of **s** and **d** such that the condition is True, there is an edge from the source layer node to the destination layer node. Thus, this filter expression indicates that the bundle includes a connection from the node defined by **s** to the node defined by **d** in all cases where s[0] is equal to d[0].  
 
 Optionally, you can specify a set of weights for a filtered bundle. The value for the **Weights** attribute must be a tuple of floating point values with a length that matches the number of connections defined by the bundle. By default, weights are randomly generated.  
 
-Weight values are grouped by the destination node index. That is, if the first destination node is connected to K source nodes, the first K elements of the **Weights** tuple are the weights for the first destination node, in source index order. The same applies for the remaining destination nodes.  
+Weight values are grouped by the destination node index. That is, if the first destination node is connected to K source nodes, the first _K_ elements of the **Weights** tuple are the weights for the first destination node, in source index order. The same applies for the remaining destination nodes.  
 
 ##Convolutional bundles
 When the training data has a homogeneous structure, convolutional connections are commonly used to learn high-level features of the data. For example, in image, audio, or video data, spatial or temporal dimensionality can be fairly uniform.  
 
 Convolutional bundles employ rectangular **kernels** that are slid through the dimensions. Essentially, each kernel defines a set of weights applied in local neighborhoods, referred to as **kernel applications**. Each kernel application corresponds to a node in the source layer, which is referred to as the **central node**. The weights of a kernel are shared among many connections. In a convolutional bundle, each kernel is rectangular and all kernel applications are the same size.  
 
-Convolutional bundles support the following the attributes:
+Convolutional bundles support the following attributes:
 
 **InputShape** defines the dimensionality of the source layer for the purposes of this convolutional bundle. The value must be a tuple of positive integers. The product of the integers must equal the number of nodes in the source layer, but otherwise, it does not need to match the dimensionality declared for the source layer. The length of this tuple becomes the **arity** value for the convolutional bundle. (Typically arity refers to the number of arguments or operands that a function can take.)  
 
@@ -170,14 +170,19 @@ To define the shape and locations of the kernels, use the attributes **KernelSha
 
 -	**KernelShape**: (required) Defines the dimensionality of each kernel for the convolutional bundle. The value must be a tuple of positive integers with a length that equals the arity of the bundle. Each component of this tuple must be no greater than the corresponding component of **InputShape**. 
 -	**Stride**: (optional) Defines the sliding step sizes of the convolution (one step size for each dimension), that is the distance between the central nodes. The value must be a tuple of positive integers with a length that is the arity of the bundle. Each component of this tuple must be no greater than the corresponding component of **KernelShape**. The default value is a tuple with all components equal to one. 
--	**Padding**: (optional) Determines whether the input should be padded by using a default padding scheme. The value can be a single Boolean value or a tuple of Boolean values with a length that is the arity of the bundle. A single Boolean value is extended to be a tuple of the correct length with all components equal to the specified value. If the value for a dimension is True, the source is logically padded in that dimension with zero-valued cells to support additional kernel applications, such that the central nodes of the first and last kernels in that dimension are the first and last nodes in that dimension in the source layer. Thus, the number of "dummy" nodes in each dimension is determined automatically, to fit exactly (InputShape[d] - 1) / Stride[d] + 1 kernels into the padded source layer. If the value for a dimension is False, the kernels are defined so that the number of nodes on each side that are left out is the same (up to a difference of 1). The default value of this attribute is a tuple with all components equal to False.
--	**UpperPad** and **LowerPad**: (optional) Provide control over the amount of padding to use. These attributes can be defined if and only if **Padding** is ***not*** defined. The values should be integer-valued tuples with lengths that are the arity of the bundle. When these attributes are specified, "dummy" nodes are added to the lower and upper ends of each dimension of the input layer. The number of nodes added to the lower and upper ends in each dimension is determined by **LowerPad**[i] and **UpperPad**[i] respectively. To ensure that kernels correspond only to "real" nodes and not to "dummy" nodes, the following conditions must be met:
-	-	Each component of **LowerPad** must be strictly less than KernelShape[d]/2. 
-	-	Each component of **UpperPad** must be no greater than KernelShape[d]/2. 
-	-	The default value of these attributes is a tuple with all components equal to 0. 
 -	**Sharing**: (optional) Defines the weight sharing for each dimension of the convolution. The value can be a single Boolean value or a tuple of Boolean values with a length that is the arity of the bundle. A single Boolean value is extended to be a tuple of the correct length with all components equal to the specified value. The default value is a tuple that consists of all True values. 
 -	**MapCount**: (optional) Defines the number of feature maps for the convolutional bundle. The value can be a single positive integer or a tuple of positive integers with a length that is the arity of the bundle. A single integer value is extended to be a tuple of the correct length with the first components equal to the specified value and all the remaining components equal to one. The default value is one. The total number of feature maps is the product of the components of the tuple. The factoring of this total number across the components determines how the feature map values are grouped in the destination nodes. 
 -	**Weights**: (optional) Defines the initial weights for the bundle. The value must be a tuple of floating point values with a length that is the number of kernels times the number of weights per kernel, as defined later in this article. The default weights are randomly generated.  
+
+There are two sets of properties that control padding, which are mutually exclusive:
+
+-	**Padding**: (optional) Determines whether the input should be padded by using a **default padding scheme**. The value can be a single Boolean value, or it can be a tuple of Boolean values with a length that is the arity of the bundle. A single Boolean value is extended to be a tuple of the correct length with all components equal to the specified value. If the value for a dimension is True, the source is logically padded in that dimension with zero-valued cells to support additional kernel applications, such that the central nodes of the first and last kernels in that dimension are the first and last nodes in that dimension in the source layer. Thus, the number of "dummy" nodes in each dimension is determined automatically, to fit exactly _(InputShape[d] - 1) / Stride[d] + 1_ kernels into the padded source layer. If the value for a dimension is False, the kernels are defined so that the number of nodes on each side that are left out is the same (up to a difference of 1). The default value of this attribute is a tuple with all components equal to False.
+-	**UpperPad** and **LowerPad**: (optional) Provide greater control over the amount of padding to use. **Important:** These attributes can be defined if and only if the **Padding** property above is ***not*** defined. The values should be integer-valued tuples with lengths that are the arity of the bundle. When these attributes are specified, "dummy" nodes are added to the lower and upper ends of each dimension of the input layer. The number of nodes added to the lower and upper ends in each dimension is determined by **LowerPad**[i] and **UpperPad**[i] respectively. To ensure that kernels correspond only to "real" nodes and not to "dummy" nodes, the following conditions must be met:
+	-	Each component of **LowerPad** must be strictly less than KernelShape[d]/2. 
+	-	Each component of **UpperPad** must be no greater than KernelShape[d]/2. 
+	-	The default value of these attributes is a tuple with all components equal to 0. 
+
+The setting **Padding** = true allows as much padding as is needed to keep the "center" of the kernel inside the "real" input. This changes the math a bit for computing the output size. Generally, the output size _D_ is computed as _D = (I - K) / S + 1_, where _I_ is the input size, _K_ is the kernel size, _S_ is the stride, and _/_ is integer division (round toward zero). If you set UpperPad = [1, 1], the input size _I_ is effectively 29, and thus _D = (29 - 5) / 2 + 1 = 13_. However, when **Padding** = true, essentially _I_ gets bumped up by _K - 1_; hence _D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14_. By specifying values for **UpperPad** and **LowerPad** you get much more control over the padding than if you just set **Padding** = true.
 
 For more information about convolutional networks and their applications, see these articles:  
 
@@ -200,9 +205,9 @@ The following example illustrates a pooling bundle:
 	  }  
 
 -	The arity of the bundle is 3 (the length of the tuples **InputShape**, **KernelShape**, and **Stride**). 
--	The number of nodes in the source layer is 5 * 24 * 24 = 2880. 
+-	The number of nodes in the source layer is _5 * 24 * 24 = 2880_. 
 -	This is a traditional local pooling layer because **KernelShape** and **Stride** are equal. 
--	The number of nodes in the destination layer is 5 * 12 * 12 = 1440.  
+-	The number of nodes in the destination layer is _5 * 12 * 12 = 1440_.  
 	
 For more information about pooling layers, see these articles:  
 
@@ -222,7 +227,7 @@ Response normalization bundles support all the convolutional attributes except *
 
 Because response normalization bundles apply a predefined function to source node values to determine the destination node value, they have no trainable state (weights or biases).   
 
-**Alert**: The nodes in the destination layer correspond to neurons that are the central nodes of the kernels. For example, if KernelShape[d] is odd, then KernelShape[d]/2 corresponds to the central kernel node. If KernelShape[d] is even, the central node is at KernelShape[d]/2 - 1. Therefore, if **Padding**[d] is False, the first and the last KernelShape[d]/2 nodes do not have corresponding nodes in the destination layer. To avoid this situation, define **Padding** as [true, true, …, true].  
+**Alert**: The nodes in the destination layer correspond to neurons that are the central nodes of the kernels. For example, if KernelShape[d] is odd, then _KernelShape[d]/2_ corresponds to the central kernel node. If _KernelShape[d]_ is even, the central node is at _KernelShape[d]/2 - 1_. Therefore, if **Padding**[d] is False, the first and the last _KernelShape[d]/2_ nodes do not have corresponding nodes in the destination layer. To avoid this situation, define **Padding** as [true, true, …, true].  
 
 In addition to the four attributes described earlier, response normalization bundles also support the following attributes:  
 
@@ -385,13 +390,13 @@ The definition of the following network is designed to recognize numbers, and it
 -	The net has a third hidden layer, Hid3, which is fully connected to the second hidden layer, Conv2.
 -	The output layer, Digit, is connected only to the third hidden layer, Hid3. The keyword **all** indicates that the output layer is fully connected to Hid3.
 -	The arity of the convolution is three (the length of the tuples **InputShape**, **KernelShape**, **Stride**, and **Sharing**). 
--	The number of weights per kernel is 1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Or 26 * 50 = 1300.
+-	The number of weights per kernel is _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Or 26 * 50 = 1300_.
 -	You can calculate the nodes in each hidden layer as follows:
 	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
 	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
--	The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5], as follows: **MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5
--	Because **Sharing**[d] is False only for d == 0, the number of kernels is **MapCount** * **NodeCount**\[0] = 10 * 5 = 50. 
+-	The total number of nodes can be calculated by using the declared dimensionality of the layer, [50, 5, 5], as follows: _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
+-	Because **Sharing**[d] is False only for _d == 0_, the number of kernels is _**MapCount** * **NodeCount**\[0] = 10 * 5 = 50_. 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
