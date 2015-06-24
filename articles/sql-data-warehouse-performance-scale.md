@@ -22,7 +22,7 @@ To elastically increase or decrease your compute power all you need to do is adj
 ## What is a data warehouse unit?
 Behind the scenes Microsoft runs a number of performance benchmark tests to determine how much hardware and with what configuration will allow us to deliver a competitive offering to our customers.  Scaling compute up and down can be done in blocks of 100 DWUs, but not all multiples of 100 DWU are offered.  Initially for Public Preview, we will be offering the DWU blocks below and making more DWU offerings available until we make SQL Data Warehouse generally available to the public.
 
-| Blocks of DWU (Public Preview) | Expected Performance | 
+| Blocks of DWU - Public Preview | Expected Performance |
 | :----------------------------- | :------------------- |
 | DWU100                         | 1x                   |
 | DWU200                         | 1.7x                 |

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2015"
+	ms.date="06/23/2015"
 	ms.author="csand"/>
 
 
@@ -41,4 +41,3 @@ RemoteApp can be managed in Azure Automation by using the PowerShell cmdlets tha
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure RemoteApp, follow these links to learn more about Azure Automation.
 
 * See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md)
- 
