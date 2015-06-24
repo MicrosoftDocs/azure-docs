@@ -28,7 +28,7 @@ Azure DNS is a hosting service for DNS domains.  In order for DNS queries for a 
 
 A domain is a unique name in the Domain Name System, for example ‘contoso.com’.  A domain registrar is a company who can provide Internet domain names.  They will verify if the Internet domain you want to use is available and allow you to purchase it.  Once the domain name is registered, you will be the legal owner for the domain name. If you already have an Internet domain, you will use the current domain registrar to delegate to Azure DNS.
 
->[AZURE.NOTE] To find out more information on who owns a given domain name, or for information on how to buy a domain, see [Internet domain management in Azure AD](https://msdn.microsoft.com/en-us/library/azure/hh969248.aspx). 
+>[AZURE.NOTE] To find out more information on who owns a given domain name, or for information on how to buy a domain, see [Internet domain management in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx). 
 
 A DNS zone is used to host the DNS records for a particular domain.  For example, the domain ‘contoso.com’ may contain a number of DNS records such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).
 
