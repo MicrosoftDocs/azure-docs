@@ -74,7 +74,7 @@ In this section you will create a new Android app that is connected to your mobi
 
 ## Run your Android app
 
-[AZURE.INCLUDE [mobile-services-run-your-app](mobile-services-android-get-started.md)]
+[AZURE.INCLUDE [mobile-services-run-your-app](../../includes/mobile-services-android-get-started.md)]
 
 ### Look at code (optional)
 
