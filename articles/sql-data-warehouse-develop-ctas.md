@@ -346,7 +346,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 
 You can see therefore that type consistency and maintaining nullability properties on a CTAS is a good engineering best practice. It helps to maintain integrity in your calculations and also ensures that partition switching is possible.
 
-Please refer to MSDN for more information on using [CTAS]. It is one of the most important statements in Azure SQL Data Warehouse. Make sure you thoroughly understand it.
+Please refer to MSDN for more information on using [CTAS][]. It is one of the most important statements in Azure SQL Data Warehouse. Make sure you thoroughly understand it.
 
 ## Next steps
 For more development tips, see [SQL Data Warehouse development overview][].
