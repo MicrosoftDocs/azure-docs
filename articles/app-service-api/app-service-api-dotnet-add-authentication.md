@@ -82,7 +82,7 @@ When you go to the resource group's blade in the [Azure preview portal], you can
 
 ![Resource group diagram](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
 
-### Configure the API app to require authentication
+### <a id="apiapp"></a>Configure the API app to require authentication
 
 To configure your API app to accept only authenticated requests, you'll set its accessibility to **Public (authenticated)** and you'll configure the gateway to require authentication from a provider such as Azure Active Directory, Google, or Facebook.
 
