@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) is Microsoft’s cloud based Identity as a Ser
 
 While offering a new approach, Azure AD enables you to preserve your investments in your existing identity eco system and your deployed infrastructure. For example, you can connect it to your on-premises Active Directory with only [four clicks](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx). On the cloud side, it supports you with the integration to [thousands of SaaS apps](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx). 
 
-With Azure AD, you can pick and choose the services you need for your business through a variety of scalable subscription offerings.  
+With Azure AD, you can pick and choose the services you need for your business through a variety of scalable subscription offerings. This ensures that you pay for only what you use.  
 
 
 The following list summarizes the driving factors for Azure AD’s design:
@@ -97,27 +97,27 @@ You can use the capabilities to implement, for example, the following collection
 
 To learn more about Azure AD’s capabilities that support these E2E scenarios, see:
 
-- [Enabling your directory for hybrid management with Azure AD Connect](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect)
-- [Additional security for an ever connected world](https://azure.microsoft.com/en-us/documentation/articles/multi-factor-authentication/)
-- [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-app-provisioning/?rnd=1)
-- [Deploying Password Management and training users to use it](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-best-practices/)
-- [Single-sign-on and access management to thousands of SaaS applications on any cloud](https://msdn.microsoft.com/en-us/library/azure/dn308590.aspx) 
+- [Enabling your directory for hybrid management with Azure AD Connect](active-directory-aadconnect.md)
+- [Additional security for an ever connected world](multi-factor-authentication.md)
+- [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
+- [Deploying Password Management and training users to use it](active-directory-passwords-best-practices.md)
+- [Single-sign-on and access management to thousands of SaaS applications on any cloud](https://msdn.microsoft.com/library/azure/dn308590.aspx) 
 - [Secure remote access to on-premises application](https://msdn.microsoft.com/en-us/library/azure/dn768219.aspx)
-- [Self-service access management](https://msdn.microsoft.com/en-us/library/azure/dn641267.aspx) 
-- [Cloud app discovery](https://msdn.microsoft.com/en-us/library/azure/mt143581.aspx)
-- [Access control based on device health, user location, and identity](https://msdn.microsoft.com/en-us/library/azure/dn906873.aspx)
+- [Self-service access management](https://msdn.microsoft.com/library/azure/dn641267.aspx) 
+- [Cloud app discovery](https://msdn.microsoft.com/library/azure/mt143581.aspx)
+- [Access control based on device health, user location, and identity](https://msdn.microsoft.com/library/azure/dn906873.aspx)
 - Reporting + analytics on-premises and in the cloud
 - Works with IOS, Android, MAC OS and Windows devices
 
 - [Utilize the cloud to enhance and monitor on-premises identity systems](https://msdn.microsoft.com/library/azure/dn906722.aspx)
-- [Rich standard based platform for developers](https://msdn.microsoft.com/en-us/library/azure/ff800682.aspx)
+- [Rich standard based platform for developers](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
 
 ## What can I do next?
 
 Here are some suggestions for you:
 
-- [Try it out](http://azure.microsoft.com/en-us/pricing/free-trial/) - you can sign up and deploy your first cloud solution in under 5 minutes using this link
+- [Try it out](http://azure.microsoft.com/pricing/free-trial/) - you can sign up and deploy your first cloud solution in under 5 minutes using this link
 - Tell us what you think or how we can help you by asking a question or starting a discussion on the [Microsoft Azure Active Directory  forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=WindowsAzureAD).
 - [Check out the Active Directory Team Blog](http://blogs.technet.com/b/ad/)
 
