@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2015"
+   ms.date="06/22/2015"
    ms.author="kareni"/>
 
 
@@ -78,8 +78,8 @@ To view or download a bill:
  :--------- |:-------- | :----------------: | :-------|
 Azure MSDN-Visual Studio Ultimate| Benefits Program | Yes* | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
 Pay-As-You-Go | Consumption | No| [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_PAYG_Sample.pdf)
-Detailed Usage - csv | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_Detailed_Usage_v1_csv.xlsx)
-
+Detailed Usage - .csv v1 | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
+Detailed Usage - .csv v2 | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
 
 ## Header - Customer Information
 
@@ -87,7 +87,7 @@ The customer information section identifies pertinent information in regards to 
     ![header](./media/azure-billing-understand-your-bill/Header.png)
 
 ### Invoice No.
-A unique invoice identifier for tracking purposes
+A unique invoice identifier for tracking purposes.
 
 ### Billing Cycle
 The time frame in which usage has taken place.
@@ -114,7 +114,7 @@ The Invoice Summary section of the bill summarizes transactions since your last 
 The Balances, Payments & Other Credits section of the bill summarizes transactions since your last bill.
 
 ### Previous Balance
-Previous balance is the total amount due on your last bill.
+Previous balance is the total amount due from your last bill.
 
 ### Payments
 Payments are your total payments applied to your last bill.
@@ -144,7 +144,7 @@ The additional information page gives you references to other resources to under
 ![additional information](./media/azure-billing-understand-your-bill/AdditionalInformation.png)
 
 ### Detailed Usage
-A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.
+A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.  There are now two versions available to download:  **.csv version 1** contains the old naming convention and usage fields and **.csv version 2** contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure.
 
 ### Additional Information and Useful Resources
 This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.
@@ -157,95 +157,74 @@ This section is the payment instructions of where to send checks, wire transfers
 
 ## Understand Detailed Usage Charges
 
-Usage charges are total monthly charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  When you view a list of usage charges in your invoice, the following columns display the details of what you are being billed for.  You can download a [sample file](https://understandingyourbill.blob.core.windows.net/appendices/UnderstandDetailedUsageCharges.xlsx) that shows the values for each column.
+As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.  The download link contains two versions of the usage file: **Version 1** uses the pre-existing format; **Version 2** includes additional information and updated column names in the Daily Usage section.  
 
-### Service Name
-Identifies the top-level service for which this usage belongs.
+Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file display the details on the services you are being billed for during the previous month's billing cycle.  The table below lists the names of the columns for each of the .csv version files.
 
-### Service Type
-Azure service may be further defined by type in this column, which can affect the rate.
-
-### Resource
-Identifies the unit of measure for the resource being consumed.
-
-### Region
-Regions which the usage applies and primarily relates to Cloud Services and Virtual Machines, and data transfers (excluding CDN), since these rates can vary by region. Region for CDN map to the data center location where the traffic was served.
-
-### Consumed
-Contains the amount of the resource that has been consumed during the billing period.
-
-### Included
-Identifies the amount that is included each month with your offer.
-
-### Billable
-If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For pay-as-you-go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
-
-### Rate
-Rate displays the rate you are charged per billable unit.
-
-### Value
-Displays the result of multiplying the Billable column by the Rate column. If the Consumed amount does not exceed the included amount, there will be no charge in this column.
+**Version 1** |  **Version 2**  |  **Description**|
+:---------------| :---------------- | --------|
+Billing Period | Billing Period | The billing period when the resource was consumed.
+Name | Meter Category | Identifies the top-level service for which this usage belongs.
+Type | Meter Sub-Category | Azure service may be further defined by type in this column, which can affect the rate.
+Resource | Meter Name | Identifies the unit of measure for the resource being consumed.
+Region | Meter Region | Identifies the location of the datacenter for certain services that are priced based on datacenter location.
+SKU | SKU | Identifies the unique system identifier for each Azure resource.
+Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s.
+Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed during the billing period.
+Included | Included Quantity | Contains the amount of the resource that is included at no charge in your current billing period.
+Billable | Overage Quantity | If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For Pay-As-You-Go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
+Within Commitment | Within Commitment | Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer. Note that your resource charges are decremented from your commitment amount in chronological order.
+Currency | Currency | Identifies the currency reflected in your current billing period.
+Overage | Overage | Contains the resource charges that exceed your commitment amount associated with your 6 or 12 month offer.
+Commitment Rate | Commitment Rate | Contains the commitment rate based on your total commitment amount associated with your 6 or 12 month offer.
+Rate | Rate | Rate displays the rate you are charged per billable unit.
+Value | Value | Displays the result of multiplying the Billable column by the Rate column. If the Consumed amount does not exceed the included amount, there will be no charge in this column.
 
 ## Analyze Daily Usage Data
-Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click Download Usage to export daily usage data for the current billing period to a comma-separated variable file (CSV), which can then be viewed in Microsoft Office Excel and other programs.  For your reference, you can download a sample CSV file.
+Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click **Download Usage** and choose a comma-separated variable file (.csv) version to see your daily usage data for the appropriate billing period.  For your reference, you can download a sample .csv file below.
+
+  Sample Files|
+  :----------:|
+  [Detailed Usage .csv Version 1](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)|
+  [Detailed Usage .csv Version 2 ](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)|
 
 
-![Summary PAYG](./media/azure-billing-understand-your-bill/AnalyzeDailyUsageData1.png)
+![csv2screenshot](./media/azure-billing-understand-your-bill/csv2screenshot.png)
 
-In the CSV file, the items are broken down to display a list of how much of each resource was consumed within the current billing period.
+
+
+In the .csv file, the items are broken down to display a list of how much of each resource was consumed within the current billing period.
 
 ![csv snapshot](./media/azure-billing-understand-your-bill/csvsnapshotportal.png)
 
 The following columns display details that affect the rates at the beginning of the billing period:
 
-**COLUMN NAME** |  **DESCRIPTION** |
-:---------------| :----------------|
-Billing Period | The billing period when the resource was consumed.
-Name |  Identifies the name of the service that was used.
-Type |  In some cases, an Azure service may be further defined by type in this column, which can affect the rate.
-Resource | Identifies the type of resource that has been consumed. For example, data transfer, compute hours, and storage transactions are resource types.
-Region | Identifies the location of the datacenter for certain services that are priced based on datacenter location (e.g., data transfers).
-SKU | Identifies the unique system identifier for each Azure resource.
-Unit | Identifies the Unit that the service is charged in.  For example, GB, hours, 10,000s
-Consumed | Contains the amount of the resource that has been consumed for that day.
-Included | Contains the amount of the resource that is included at no charge in your current billing period.
-Billable | Contains the amount of the resource that is billable in your current billing period.
-Within Commitment | Contains the resource charges that are decremented from your commitment amount associated with your 6 or 12 month offer. Note that your resource charges are decremented from your commitment amount in chronological order.
-Currency | Identifies the currency reflected in your current billing period.
-Overage | Contains the resource charges that exceed your commitment amount associated with your 6 or 12 month offer.
-Commitment Rate | Contains the commitment rate based on your total commitment amount associated with your 6 or 12 month offer.
-Rate | Contains the Pay-As-You-Go rate for the resource.
-Value | Multiplies the Rate by the Billable column to calculate the extended cost.
+**Version 1** |  **Version 2**  |  **Description** |
+:---------------| :----------------| -----|
+Usage Date | Usage Date | The date when the resource was emitted.
+Name | Meter Category | Identifies the top-level service for which this usage belongs.
+Resource GUID | Meter ID | The billed meter identifier.  This is used as the identifier used to price billing usage.
+Type | Meter Sub-Category | Azure service may be further defined by type in this column, which can affect the rate.
+Resource | Meter Name | Identifies the unit of measure for the resource being consumed.
+Region | Meter Region | Identifies the location of the datacenter for certain services that are priced based on datacenter location.
+Unit | Unit | Identifies the Unit that the service is charged in. For example, GB, hours, 10,000s.
+Consumed | Consumed Quantity | Contains the amount of the resource that has been consumed for that day.
+Sub Region | Resource Location | Identifies the datacenter where the resource is running.
+Service | Consumed Service | This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.
+N/A | Resource Group | _**New column addition.**_ The resource group in which the deployed resource is running in. Refer to http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/
+Component | Instance ID | The identifier for the running resource. The identifier contains the name you specify for the resource when it was created.
+N/A | Tags | _**New column addition.**_ New resource types in Azure allow you to tag resources. Refer to http://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/
+Additional Info | Additional Info | Additional metadata related to the service.
+Service Info 1 | Service Info 1 | This column provides the project name that the service belongs to on your subscription.
+Service Info 2 | Service Info 2 | This is a legacy field that captures optional service specific metadata.
 
-Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanations of these columns. The following columns contain additional information that may be helpful. Depending on the resource, some of these columns may be empty.
+Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanation of these columns. Note: some of these columns may be empty.
 
-### Usage Date
-The date the usage was emitted
-
-### ResourceGUID
-The billed meter GUID
-
-### Sub Region
-Identifies the specific location of the service being omitted (i.e. data center location).
-
-### Service
-This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.  
-
-### Component
-Where applicable, this column identifies further the resource that is being consumed. For hosted compute services for example, this column reports the size of the Virtual Machine, if it is not already stated in Resources.
-
-### Service Info 1
-This column provides the project name that the services belongs to on your subscription
-
-### Service Info 2
-This column captures 3rd party specific information.
-
-### Additional Info
-This column shows additional data for some of the services.
-
-Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from May 2015 onwards. Below is the base file URL for the Service Download Fields:
+Please see these additional sources for more details on each service. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from **May 2015** onwards. Below is the base file URL for the Service Download Fields:
 
 >>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx
+>>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v2_MMYYYY.xlsx
+
 
 
 To find the most current version, enter in the Year and Month (looking for May 2015 file, enter in **052015** into the section _**“MMYYYY”**_ in the above URL).  This spreadsheet provides a listing of all possible combinations of the service related fields in the **Usage Download Report**.
