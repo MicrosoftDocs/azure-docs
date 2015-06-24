@@ -1,7 +1,7 @@
 <properties
    pageTitle="Hash distribution and its effect on query performance in SQL Data Warehouse | Microsoft Azure"
    description="Learn about hash distributed tables and how they affect query performance in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"

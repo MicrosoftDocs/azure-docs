@@ -1,7 +1,7 @@
 <properties
    pageTitle="Management tools for SQL Data Warehouse | Microsoft Azure"
    description="Introduction to management tools for SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="HappyNicolle"
    manager="barbkess"

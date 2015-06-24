@@ -1,7 +1,7 @@
 <properties
    pageTitle="Create table as select (CTAS) in SQL Data Warehouse | Microsoft Azure"
    description="Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
@@ -262,8 +262,7 @@ CREATE TABLE ctas_r
 WITH (DISTRIBUTION = ROUND_ROBIN)
 AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
-
-	```
+```
 
 Note the following:
 - CAST or CONVERT could have been used
@@ -340,8 +339,7 @@ SELECT
 ,   [price]   
 ,   ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
 FROM [stg].[source]
-OPTION (LABEL = 'CTAS : Partition IN table : Create')
-;
+OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
 You can see therefore that type consistency and maintaining nullability properties on a CTAS is a good engineering best practice. It helps to maintain integrity in your calculations and also ensures that partition switching is possible.
@@ -361,6 +359,3 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [CTAS]: https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204041.aspx
 
 <!--Other Web references-->
-
-
-

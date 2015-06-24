@@ -28,9 +28,9 @@ There are many other ways to deploy API apps. An API app is a [web app](../app-s
 
 The fact that API apps are based on web apps also means that you can deploy code written for platforms other than ASP.NET to API apps. For an example that uses Git to deploy Node.js code to an API app, see [Create a Node.js API app in Azure App Service](app-service-api-nodejs-api-app.md).
  
-## Deploy the API app 
+## <a id="provision"></a>Create the API app in Azure 
 
-In this section, you'll see the steps required to deploy an API app to an Azure subscription. 
+In this section, you use the Visual Studio **Publish Web** wizard to create a new API app in Azure.
 
 1. In **Solution Explorer**, right-click the project (not the solution) and click **Publish...**. 
 
@@ -63,7 +63,11 @@ In this section, you'll see the steps required to deploy an API app to an Azure 
 
 	![Status notification via the Azure App Service Activity window](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
 
-7. Once the API App is provisioned, right-click the project in **Solution Explorer** and select **Publish** to re-open the publish dialog. The publish profile created in the previous step should be pre-selected. Click **Publish** to begin the deployment process. 
+## <a id="deploy"></a>Deploy your code to the new API app
+
+In this section, you use the same **Publish Web** wizard to deploy your code.
+
+7. Right-click the project in **Solution Explorer** and select **Publish** to re-open the publish dialog. The publish profile created in the previous step should be pre-selected. Click **Publish** to begin the deployment process. 
 
 	![Deploying the API App](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 

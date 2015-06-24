@@ -1,7 +1,7 @@
 <properties
    pageTitle="SQL Data Warehouse Transact-SQL reference | Microsoft Azure"
    description="Links to reference content for the Transact-SQL topics used by SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
@@ -28,8 +28,8 @@
 - [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 - [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx)
 - [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-- [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/en-us/library/dn935026.aspx)
-- [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/en-us/library/dn935021.aspx)
+- [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
+- [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 - [CREATE FUNCTION](https://msdn.microsoft.com/library/mt203952.aspx)
 - [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 - [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx)
@@ -39,7 +39,7 @@
 - [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 - [CREATE VIEW](https://msdn.microsoft.com/library/ms187956.aspx)
 - [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
-- [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/en-us/library/mt146379.aspx)
+- [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/mt146379.aspx)
 - [DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/mt130698.aspx)
 - [DROP INDEX](https://msdn.microsoft.com/library/ms176118.aspx)
 - [DROP PROCEDURE](https://msdn.microsoft.com/library/ms174969.aspx)
