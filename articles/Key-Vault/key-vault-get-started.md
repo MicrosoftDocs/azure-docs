@@ -34,7 +34,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 
 To complete this tutorial, you must have the following:
 
-- A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial]](../../../../pricing/free-trial).
+- A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../../pricing/free-trial).
 - Azure PowerShell version 0.9.1 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
@@ -241,7 +241,7 @@ Other commands that you might useful for managing Azure Key Vault:
 
 ## <a id="next"></a>Next steps ##
 
-For a follow-on tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md)
+For a follow-on tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).
 
 For a list of Windows PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
