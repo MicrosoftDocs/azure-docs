@@ -157,7 +157,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
+## StorSimple System Limits
 
+[AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
  
 ## See Also
 
