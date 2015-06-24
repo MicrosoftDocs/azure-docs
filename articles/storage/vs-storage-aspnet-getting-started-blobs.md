@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/24/2015" 
 	ms.author="patshea123"/>
 
 # Getting Started with Azure Storage (ASP.NET Projects)
@@ -327,7 +327,7 @@ to learn about more complex storage tasks.
 <ul>
 <li>View the Blob service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API reference</a></li>
   </ul>
@@ -352,7 +352,7 @@ to learn about more complex storage tasks.
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
