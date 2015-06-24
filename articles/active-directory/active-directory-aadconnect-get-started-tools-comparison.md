@@ -1,4 +1,22 @@
+<properties 
+	pageTitle="Directory integration tools comparison" 
+	description="This is page will provide you with comprehensive tables that compare the various directory integration tools." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="swadhwa" 
+	editor="curtand"/>
 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/24/2015" 
+	ms.author="billmath"/>
+
+# Directory integration tools comparison
 
 Over the years the directory integration tools have grown and evolved.  This document is to help provide a consolidated view of these tools and a comparison of the features that are available in each. 
 
@@ -6,9 +24,12 @@ Over the years the directory integration tools have grown and evolved.  This doc
 
 Use the following key for each of the tables.
 
+●  = Available Now</br>
+CS = Coming Soon</br>
+PP = Public Preview</br>
 
 
-**On-Premises to Cloud Synchronization**
+## On-Premises to Cloud Synchronization
 
 | Feature  | Azure Active Directory Connect  | Azure Active Directory Synchronization Services (AAD Sync) | Azure Active Directory Synchronization Tool (DirSync)| Forefront Identity Manager 2010 R2 (FIM) |
 | :-------- |:--------:|:--------:|:--------:|:--------:
@@ -21,7 +42,7 @@ Use the following key for each of the tables.
 | Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.) | CS |  |  | ● |
 | Synchronize customer defined attributes (directory extensions) | PP |  |  |  |
 
-**Cloud to On-Premises Synchronization**
+## Cloud to On-Premises Synchronization
 
 | Feature  | Azure Active Directory Connect  | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) |
 | :-------- |:--------:|:--------:|:--------:|:--------:
@@ -32,8 +53,7 @@ Use the following key for each of the tables.
 
 
 
-
-**Authentication Feature Support**
+## Authentication Feature Support
 
 | Feature  | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) |
 | :-------- |:--------:|:--------:|:--------:|:--------:
@@ -44,7 +64,7 @@ Use the following key for each of the tables.
 
 
 
-Set-up and Installation
+## Set-up and Installation
 
 | Feature  | Azure Active Directory Connect  | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) |
 | :-------- |:--------:|:--------:|:--------:|:--------:
@@ -56,7 +76,7 @@ Set-up and Installation
 | Support for Windows Server 2012 and Windows Server 2012 R2 | ● | ● | ● | Only 2012 |
 
 
-Filtering and Configuration
+## Filtering and Configuration
 
 | Feature  | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | |
 | :-------- |:--------:|:--------:|:--------:|:--------:
