@@ -1,57 +1,136 @@
-<properties
-	pageTitle="What is Azure Active Directory?"
-	description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or to develop Azure AD integrated applications."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="terrylan"
-	editor=""/>
+<properties 
+                pageTitle="What is Azure Active Directory?" 
+                description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications." 
+                services="active-directory" 
+                documentationCenter="" 
+                authors="markusvi" 
+                manager="terrylan" 
+                editor=""/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="curtand"/>
+<tags 
+                ms.service="active-directory" 
+                ms.workload="identity" 
+                ms.tgt_pltfrm="na" 
+                ms.devlang="na" 
+                ms.topic="hero-article" 
+                ms.date="06/19/2015" 
+                ms.author="curtand"/>
 
 
 # What is Azure Active Directory?
 
 
-###Other articles on this topic
-[What is Azure AD?](active-directory-whatis.md)<br>
-[How does it work?](active-directory-works.md)<br>
-[Get started](active-directory-get-started.md)<br>
-[Next steps](active-directory-next-steps.md)<br>
-[Learn more](active-directory-learn-map.md)
-
-Azure Active Directory (Azure AD) provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Your users can use one work or school account for single sign-on to any cloud and on-premises web application, using their favorite device, including iOS, Mac OS X, Android, and Windows devices. Your organization can protect sensitive data and applications both on-premises and in the cloud with integrated multi-factor authentication ensuring secure local and remote access. Or extend your on-premises directories so that information workers can use a single organizational account to securely and consistently access their corporate resources. Azure AD also offers comprehensive reports, analytics, and self-service capabilities to reduce costs and enhance security. And with Azure AD’s enterprise scale and SLA, your business will continue running at all times.
-
-![][1]
 
 
-> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](http://azure.microsoft.com/pricing/free-trial/).
+
+Azure Active Directory (Azure AD) is Microsoft’s cloud based Identity as a Service (IDaaS) solution that provides you with a comprehensive set of Identity (Who) and Access management capabilities (What). It represents a new approach to Identity management that helps you to become more productive, safer and user friendly.
+
+While offering a new approach, Azure AD enables you to preserve your investments in your existing identity eco system and your deployed infrastructure. For example, you can connect it to your on-premises Active Directory with only [four clicks](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx). On the cloud side, it supports you with the integration to [thousands of SaaS apps](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx). 
+
+With Azure AD, you can pick and choose the services you need for your business through a variety of scalable subscription offerings.  
+
+
+The following list summarizes the driving factors for Azure AD’s design:
+
+- **Ease of use** - Azure AD provides an easy way for your business to manage identity and access to your organizational applications and services in the cloud and on-premises. <br>
+It is pre-integrated with thousands of applications supporting an easy deployment. In addition to this, you can also easily integrate your own cloud and on-premises applications with support for single-sign on and identity access.
+The support includes your users, customers and partners.
+
+- **Empowering users** - Your users can use one work or personal account for single sign-on to any cloud and on-premises web application, using their favorite IOS, Android, Mac OS and Windows devices. Due to the various self-service capabilities, they can perform administrative tasks without the need to contact helpdesk.   
+- **Enhancing security**: Your organization can protect sensitive data and applications both on-premises and in the cloud ensuring secure local and remote access. You can monitor how your system is used and detect potential threads.
+- **Hybrid Identity** - – The ability to integrate your on-premises directories enables information workers to securely and consistently access your corporate resources by using just a single organizational account.<br> 
+You can use Azure AD to enhance your on-premises infrastructure through self-service, built in connectivity to applications, and security tools. 
+With Azure AD you can even provision accounts from your cloud applications to AD on premises.
+
+- **Reporting & Analytics** - Azure AD also offers comprehensive reports and analytics enhance security, monitor usage, and to provide you with a detailed overview of how your environment is performing. 
+- **High Availability** - With Azure AD’s enterprise scale and SLA, your business will continue running at all times.
+
+
+
+
+<center>![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
+</center>
+
+
+## Where does Azure AD come from?
+
+Azure AD started as Microsoft’s central Identity and Access Management system for all of Microsoft's online services, such as Office 365, Azure, Intune, and Dynamics.
+It includes a directory service that was designed to address our customer’s need for having a single and common identity and access management system.
+The first launch of Microsoft Office 365 represents also the first release of Azure AD to general availability.
+
+In addition, we have expanded Azure AD’s capabilities to extend beyond just Microsoft’s online services. With Azure AD, you can easily enable self-service and single-sign for thousands of SaaS apps, enhance your security and address enterprise mobility requirements. 
+
+Azure AD is now your single, comprehensive identity and access management system you can use as:
+
+-              Stand-alone IDaaS in the cloud 
+-              Extension to your existing on-premises infrastructure to the cloud
+
+It scales across multiple datacenters (triple redundancy) to ensure resiliency and performance, as well as enable high availability. What makes Azure AD unique is the fact that, while implemented as a single system, each customer’s instance (also known as “tenant”) is isolated from other customers' data.
+
+
+## What does this mean to me?
+
+The tenants for all of Microsoft’s online services are rooted in one instance of Azure AD. In other words, If you already have an, for example, Office 365 or an Intune tenant, you automatically also already have an Azure AD instance. <br>
+This instance of Azure AD contains a record of the applicable Office 365 or Intune subscriptions.<br>
+While created and managed for an individual user, Azure subscriptions are provisioned and linked with that user through an Azure AD instance they are a member of.
+Using this model, Azure subscriptions and resources can be easily managed by other users in the “tenant” (directory).
+
+In all cases, Azure AD provides authentication and authorization capabilities for these services ensuring consistent IAM, monitoring and reporting.
+
+As a result of this, all aspects of identity and access management for Microsoft's services are performed in (or against) Azure AD.  You can access relevant aspects of Azure AD management through, for example, services like Office 365. In this example, all identity management tasks done in the office administration portal are executed directly on the Azure AD instance and apply to all other services using the same Azure AD instance. Comprehensive identity and access management experiences are delivered centrally through the Azure AD portal, PowerShell, and programmatic interfaces.
+
+
 
 
 ## What can Azure Active Directory do for me?
-Follow the links for more information on Azure Active Directory capabilities.
+Azure AD provides a wealth of capabilities across its various offerings (Azure AD free, basic, premium and Enterprise Mobility Suite). <br>
+You can use the capabilities to implement, for example, the following collection of popular E2E scenarios:
+
+- Agile adoption of cloud services by providing an easy sign-on experience in form of single-sign on, backed up by access management and provisioning to the cloud services 
+-              Comprehensive and consistent access management, reporting and monitoring across cloud and on-premises applications
+-              Improving my application’s’ security by implementing  multifactor authentication and conditional access
+-              Empowering my users to be more productive and happy by providing an easy and controlled access to apps and services and self-services capabilities
+-              Protecting my business from advanced threads with security reporting and monitoring
+-              Enhancing security and monitoring for  my organization's shared social media accounts
+-              Secure mobile (remote) access to on-premises applications
 
 
-- [Single sign-on](https://msdn.microsoft.com/library/azure/dn510976.aspx)
-- [Reporting + analytics](active-directory-view-access-usage-reports.md)
-- [Self-service](http://aka.ms/ssproverview)
-- [On-premises applications](active-directory-application-proxy-configure.md)
-- [Service level agreement](https://msdn.microsoft.com/library/azure/dn532272.aspx)
-- [Identity management](fundamentals-identity.md)
-- [Access management](https://msdn.microsoft.com/library/azure/dn906873.aspx)
+To learn more about Azure AD’s capabilities that support these E2E scenarios, see:
+
+- [Enabling your directory for hybrid management with Azure AD Connect](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect)
+- [Additional security for an ever connected world](https://azure.microsoft.com/en-us/documentation/articles/multi-factor-authentication/)
+- [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-app-provisioning/?rnd=1)
+- [Deploying Password Management and training users to use it](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-best-practices/)
+- [Single-sign-on and access management to thousands of SaaS applications on any cloud](https://msdn.microsoft.com/en-us/library/azure/dn308590.aspx) 
+- [Secure remote access to on-premises application](https://msdn.microsoft.com/en-us/library/azure/dn768219.aspx)
+- [Self-service access management](https://msdn.microsoft.com/en-us/library/azure/dn641267.aspx) 
+- [Cloud app discovery](https://msdn.microsoft.com/en-us/library/azure/mt143581.aspx)
+- [Access control based on device health, user location, and identity](https://msdn.microsoft.com/en-us/library/azure/dn906873.aspx)
+- Reporting + analytics on-premises and in the cloud
+- Works with IOS, Android, MAC OS and Windows devices
+
+- [Utilize the cloud to enhance and monitor on-premises identity systems](https://msdn.microsoft.com/library/azure/dn906722.aspx)
+- [Rich standard based platform for developers](https://msdn.microsoft.com/en-us/library/azure/ff800682.aspx)
 
 
-## Additional Resources
+## What can I do next?
 
-* [Sign up for Azure as an organization](sign-up-organization.md)
+Here are some suggestions for you:
 
-<!--Image references-->
-[1]: ./media/active-directory-whatis/Azure_Active_Directory.png
- 
+- [Try it out](http://azure.microsoft.com/en-us/pricing/free-trial/) - you can sign up and deploy your first cloud solution in under 5 minutes using this link
+- Tell us what you think or how we can help you by asking a question or starting a discussion on the [Microsoft Azure Active Directory  forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=WindowsAzureAD).
+- [Check out the Active Directory Team Blog](http://blogs.technet.com/b/ad/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
