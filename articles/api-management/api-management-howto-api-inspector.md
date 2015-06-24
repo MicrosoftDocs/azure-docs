@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 # How to use the API Inspector to trace calls in Azure API Management
 
-API Management provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programatically from your applications, and can also be used directly from the developer portal. This guide provides a walk-through of using API Inspector.
+API Management provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programmatically from your applications and can also be used directly from the developer portal. This guide provides a walk-through of using API Inspector.
 
 >[AZURE.NOTE] In addition to tracing operations, API Inspector also traces [policy expression](https://msdn.microsoft.com/library/azure/dn910913.aspx) evaluations. For a demonstration, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 21:00.
 
@@ -58,7 +58,7 @@ In the response headers will be an **ocp-apim-trace-location** with a value simi
 
 	ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 
-The trace can be downloaded from the specified location and reviewed, as demonstrated in the next step.
+The trace can be downloaded from the specified location and reviewed as demonstrated in the next step.
 
 ## <a name="inspect-trace"> </a>Inspect the trace
 
@@ -227,6 +227,8 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 
 -	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 -	Watch a demo of tracing policy expressions in [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Fast-forward to 21:00 to see the demo.
+
+>[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
 [Use API Inspector to trace a call]: #trace-call
 [Inspect the trace]: #inspect-trace
