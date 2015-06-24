@@ -327,7 +327,7 @@ to learn about more complex storage tasks.
 <ul>
 <li>View the Blob service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API reference</a></li>
   </ul>
