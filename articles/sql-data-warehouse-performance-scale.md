@@ -1,0 +1,67 @@
+<properties
+   pageTitle="Overview"
+   description="Article description that will be displayed on landing pages and in some search results"
+   services="service-name"
+   documentationCenter="dev-center-name"
+   authors="happynicolle"
+   manager="manager-alias"
+   editor="lodipalm"/>
+
+<tags
+   ms.service="required"
+   ms.devlang="may be required"
+   ms.topic="article"
+   ms.tgt_pltfrm="may be required"
+   ms.workload="required"
+   ms.date="mm/dd/yyyy"
+   ms.author="nicw@microsoft.com"/>
+
+# Overview: Elastic Scale and Performance for SQL Data Warehouse
+This topic presents the unit of measurement for compute power used by SQL Data Warehouse, a practical approach to setting the right amount of compute power for your needs, and the ways to elastically scale your compute power.
+  
+## Performance and Choosing Compute Power
+
+### What is a Data Warehouse Unit (DWU)?
+By putting your Data Warehouse in the cloud, you no longer have to deal with low-level hardware issues.  Gone are the days where you need to research what type of processors, how much memory or what type of storage you need to have great performance in your data warehouse.  Instead, SQL Data Warehouse asks you this question: how fast do you want to process your data? 
+
+Behind the scenes Microsoft runs a number of performance benchmark tests to determine how much hardware and with what configuration will allow us to deliver a competitive offering to our customers.  Scaling compute up and down can be done in blocks of 100 DWUs, but not all multiples of 100 DWU are offered.  Initially for Public Preview, we will be offering the DWU blocks below and making more DWU offerings available until we make SQL Data Warehouse generally available to the public.
+
+| Blocks of DWU (Public Preview) | Expected Performance | 
+| :-- | :-- |
+| DWU100 | 1x |
+| DWU200 | 1.7x |
+| DWU300 | 2.55x |
+| DWU400 | 3.4x|
+| DWU500 | 4.25x |
+| DWU600 | 5.1x |
+| DWU1000 | 8.5x |
+| DWU1200 | 10.2x |
+| DWU1500 | 12.75x |
+| DWU2000 | 17x |
+
+### How many DWUs should I use?
+There are many different solutions SQL Data Warehouse can unblock for customers.  As such, there is a large variety in the types of queries customers will run and how much data they operate over, as well as the architecture of the schema, how the data is distributed, how many users will access the data, how frequently, etc..  Rather than provide prescriptive DWU starting points that may be great for a category of customers, let's approach this question with a practical approach.  Performance in SQL Data Warehouse scales linearly, and changing from one compute scale to another (say from 100 DWUs to 2000 DWUs) happens in seconds.  This gives you the freedom to try things out and determine what the best fit for your scenario is.    
+
+
+1. For a data warehouse in development, start with small number of DWUs.
+2. Monitor your application performance, so you can become familiar with DWUs versus the performance you observe.
+3. Determine how much faster or slower performance should be for you to reach the optimum performance level for your business requirements by assuming linear scale. 
+4. Change the amount of DWU you're using to a greater or lower amount depending on need.  The service will respond rapidly to adjust the compute resources to meet the DWU requirements.
+5. Make adjustments until you reach an optimum performance level for your business requirements.
+
+If you have an application with a fluctuating workload, you can move performance levels up or down to accommodate peaks and low points. For example, if a workload typically peaks at the end of the month, you could plan to add more DWUs during those peak days and then throttle it back down when the peak period is over.
+
+
+## Scaling Your Compute Power
+### Ways to Scale up and Down
+Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This gives you the flexibility to tune your compute power to something that is optimal for your business.  
+
+Increasing your compute power can be done through the [Azure Portal](http://portal.azure.com/), via REST APIs or through Powershell.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.  For more details on how to scale up and down, see [How to Scale Compute in SQL Data Warehouse](./sql-dw-how-scale).
+
+### Ways to Pause
+Unique to SQL Data Warehouse is the ability to pause and resume compute on demand.  If the team will not be using the Data Warehouse instance for a period of time, like nights, weekends, certain holidays or for any other reason, you can pause the Data Warehouse instance for that period of time and pick up where you left off when you return.  The pause action returns your compute resources back to the pool of available resources in the data center and the resume action acquires the necessary compute resources needed for the DWU you've set and assigns them to your Data Warehouse instance.  
+
+Pause and resume of your compute power can be done through the [Azure Portal](http://portal.azure.com/), via REST APIs or through Powershell.  Pausing cancels all running or queued activities and when you return you can resume your compute resources in seconds.  For more details on how to pause, see [How to Scale Compute in SQL Data Warehouse](./sql-dw-how-scale).
+
+> [Azure.Note] Since storage is separate from compute, your storage is unaffected by pause.
+

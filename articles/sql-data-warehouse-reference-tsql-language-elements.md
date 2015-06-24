@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2015"
+   ms.date="05/09/2015"
    ms.author="barbkess"/>
 
 # Language elements
@@ -23,7 +23,7 @@
 - [syntax conventions](https://msdn.microsoft.com/library/ms177563.aspx)
 - object naming rules
 - [reserved keywords](https://msdn.microsoft.com/library/ms189822.aspx)
-- [collations](https://msdn.microsoft.com/library/ff848763.aspx)***
+- [collations](https://msdn.microsoft.com/library/ff848763.aspx)
 - [comments](https://msdn.microsoft.com/library/ms181627.aspx)
 - [constants](https://msdn.microsoft.com/library/ms179899.aspx)
 - [data types](https://msdn.microsoft.com/library/ms187752.aspx)
@@ -44,7 +44,7 @@
 - [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
 - [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
 - [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
-- [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
+- [WHILE](https://msdn.microsoft.com/en-us/library/ms178642.aspx)
 
 ## Operators
 - [+ (Add)](https://msdn.microsoft.com/library/ms178565.aspx)
@@ -62,7 +62,7 @@
 - [>= (Great than or equal to)](https://msdn.microsoft.com/library/ms181567.aspx)
 - [<= (Less than or equal to)](https://msdn.microsoft.com/library/ms174978.aspx)
 - [<> (Not equal to)](https://msdn.microsoft.com/library/ms176020.aspx)
-- [!= (Not equal to)](https://msdn.microsoft.com/library/vstudio/bb399278(v=vs.100).aspx)***
+- [!= (Not equal to)](https://msdn.microsoft.com/library/vstudio/bb399278.aspx)
 - [AND](https://msdn.microsoft.com/library/ms188372.aspx)
 - [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
 - [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)

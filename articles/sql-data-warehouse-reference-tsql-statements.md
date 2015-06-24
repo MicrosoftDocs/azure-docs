@@ -31,6 +31,7 @@
 - CREATE EXTERNAL FILE FORMAT
 - CREATE EXTERNAL TABLE
 - CREATE EXTERNAL TABLE AS SELECT
+- CREATE FUNCTION
 - [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 - [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx)
 - [CREATE SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
