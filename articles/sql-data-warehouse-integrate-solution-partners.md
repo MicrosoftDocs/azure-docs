@@ -76,7 +76,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 
 
 <!--Link references--In actual articles, you only need a single period before the slash. -->
-[attunity_more]: http://www.attunity.com/
+[attunity_more]: http://www.attunity.com/azure
 [birst_more]:https://www.birst.com/
 [bryte_systems_more]:http://www.bryte.com.au/
 [clearstory_data_more]:http://www.clearstorydata.com/
