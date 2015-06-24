@@ -39,7 +39,7 @@ If you are looking for more information, general SSDT questions can be resolved 
 ### Get Visual Studio 2013 ###
 Head over to the Visual Studio 2013 website to download and install a copy of Visual Studio. Remember, for SQL Data Warehouse any of the free editions is more than adequate. Feel free to pick one that suits your needs
 
-<a href="https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs#DownloadFamilies_5" target="blank">Get Visual Studio 2013</a>
+<a href="https://www.visualstudio.com/downloads/download-visual-studio-vs#DownloadFamilies_5" target="blank">Get Visual Studio 2013</a>
 
 ### Update Visual Studio 2013 ###
 Already have Visual Studio 2013 installed? Great! To make sure it is up to date just perform the following steps. You can move on to the next step.
@@ -127,7 +127,7 @@ Get to Visual Studio directly from the Azure Portal.
 
 ## Connect to SQL Data Warehouse with sqlcmd
 
-You can also connect to SQL DW with the [sqlcmd](https://msdn.microsoft.com/en-us/library/azure/ms162773.aspx) command prompt utility that is included with SQL Server or the [Microsoft Command Line Utilities 11 for SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501). The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt.
+You can also connect to SQL DW with the [sqlcmd](https://msdn.microsoft.com/library/azure/ms162773.aspx) command prompt utility that is included with SQL Server or the [Microsoft Command Line Utilities 11 for SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501). The sqlcmd utility lets you enter Transact-SQL statements, system procedures, and script files at the command prompt.
 
 To connect to a specific instance of SQL DW when using sqlcmd you will need to open the command prompt and and enter *sqlcmd* followed by the connection string for your SQL DW database. The connection string will need to contain the following parameters:
 
@@ -143,7 +143,7 @@ Therefore to connect to a SQL DW instance, you would enter the following:
 C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
-After connection, you can issue any supported Transact-SQL statements against the instance. For example, the below statement leverages the [CREATE TABLE](https://msdn.microsoft.com/en-us/library/azure/dn268335.aspx) statement to create a new table
+After connection, you can issue any supported Transact-SQL statements against the instance. For example, the below statement leverages the [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) statement to create a new table
 
 ```
 C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
@@ -152,7 +152,7 @@ C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server
 3> QUIT
 ```
 	
-For additional information on sqlcmd refer to the [sqlcmd documentation](https://msdn.microsoft.com/en-us/library/azure/ms162773.aspx).
+For additional information on sqlcmd refer to the [sqlcmd documentation](https://msdn.microsoft.com/library/azure/ms162773.aspx).
 
 <!--NOTE: SQL DB does not support the -z/-Z parameters for changing users password with SQLCMD.  Do we support this? -->
 
