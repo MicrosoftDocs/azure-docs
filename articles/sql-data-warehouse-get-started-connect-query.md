@@ -1,20 +1,20 @@
 <properties
-   pageTitle="article-title"
-   description="Article description that will be displayed on landing pages and in some search results"
-   services="service-name"
-   documentationCenter="dev-center-name"
-   authors="GitHub-alias-of-author"
-   manager="manager-alias"
+   pageTitle="Stored procedures in SQL Data Warehouse | Microsoft Azure"
+   description="Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions."
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
-   ms.service="SQL Data Warehouse"
-   ms.devlang="may be required"
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="04/16/2015"
-   ms.author="JRJ@BigBangData.co.uk"/>
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/22/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
    
 # Get Started: Connect and Query SQL Data Warehouse
 This quick start article introduces you to connecting to and querying a provisioned instance of SQL Data Warehouse (SQLDW) with two different tools:

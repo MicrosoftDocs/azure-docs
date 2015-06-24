@@ -1,20 +1,20 @@
 <properties
-   pageTitle="get-started-provision"
-   description="Article description that will be displayed on landing pages and in some search results"
-   services="sql-data-warehouse"
-   documentationCenter="dev-center-name"
+   pageTitle="Get started by provisioning SQL Data Warehouse | Microsoft Azure"
+   description="Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions."
+   services="SQL Data Warehouse"
+   documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
-   editor="barbkess"/>
+   editor=""/>
 
 <tags
-   ms.service="required"
-   ms.devlang="may be required"
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
-   ms.workload="required"
-   ms.date="mm/dd/yyyy"
-   ms.author="JRJ@BigBangData.co.uk"/>
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/23/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Get Started: Provisioning a SQL Data Warehouse #
 
