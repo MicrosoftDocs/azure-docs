@@ -79,7 +79,7 @@ This tutorial uses a DropBox connector as an example and walks you through the f
 
 To enable API access to your Dropbox account, you have to create a Dropbox app on the Dropbox developer site. Then you copy the client ID and client secret values from that Dropbox app to your Dropbox connector, and you set the connector to accept only authenticated requests.
 
-### Create a Dropbox app
+### <a id="createdbapp"></a>Create a Dropbox app
 
 The following steps show the process for creating a Dropbox app using the Dropbox.com site. As the Dropbox.com site may change without notice, you might see differences in UI from what is shown.
 
@@ -103,7 +103,7 @@ The following steps show the process for creating a Dropbox app using the Dropbo
 
 	![Create Dropbox app](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings.png)
 
-### Copy the Dropbox app settings to the Azure Dropbox connector and vice versa 
+### <a id="copysettings"></a>Copy the Dropbox app settings to the Azure Dropbox connector and vice versa 
 
 4. In another browser window or tab, go to the [Azure preview portal].
 
