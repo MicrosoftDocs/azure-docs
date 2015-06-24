@@ -89,6 +89,19 @@ Pin the most important tags to your Startboard for quick access and you're ready
 
 ![Pin tags to the Startboard](./media/resource-group-using-tags/pin-tags.png)
 
+## Tagging and billing
+
+For supported services, you can use tags to group your billing data. For example, [Virtual Machines integrated with Azure Resource Manager](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) enable 
+you to define and apply tags to organize the billing usage for virtual machines. If you are running multiple VMs for different organizations, you can use the tags to group usage by cost center.  
+You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.
+
+You can retrieve information about tags through the [usage api](billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file that you can download from 
+the [Azure accounts portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com).
+
+When you download the usage CSV for services that support tags with billing, the tags will appear in the **Tags** column. For more details, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
+
+![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
+
 ## Next Steps
 Getting Started  
 
