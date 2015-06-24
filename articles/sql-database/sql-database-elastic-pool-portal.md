@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Create and manage a SQL Database elastic database pool (preview)"
-	description="Create a single pool of resources to share across a group of Azure SQL Databases."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+<properties 
+	pageTitle="Create and manage a SQL Database elastic database pool (preview)" 
+	description="Create a single pool of resources to share across a group of Azure SQL Databases." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
-<tags
+<tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/29/2015"
-	ms.author="sstein"
+	ms.date="06/24/2015" 
+	ms.author="sstein" 
 	ms.workload="data-management" 
-	ms.topic="get-started-article"
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -26,11 +26,11 @@
 This article shows you how to create an elastic pool with the [Azure portal](https://portal.azure.com).
 
 Elastic pools simplify the process of creating, maintaining, and managing both performance and cost for large numbers of databases.
-
+ 
 
 > [AZURE.NOTE] Elastic pools are currently in preview, and only available with SQL Database V12  Servers.
 
-
+ 
 
 
 ## Prerequisites
@@ -63,9 +63,9 @@ Configure the pool by setting the pricing tier, adding databases, and configurin
 
 ### Pricing tier
 
-An elastic pool's pricing tier is somewhat analogous to a SQL database's service tier. The pricing tier determines the features available to the elastic databases in the pool, and the maximum number of DTUs (DTU MAX), and storage (GBs) available to each database.
+An elastic pool's pricing tier is somewhat analogous to a SQL database's service tier. The pricing tier determines the features available to the elastic databases in the pool, and the maximum number of DTUs (DTU MAX), and storage (GBs) available to each database. 
 
-> [AZURE.NOTE] The preview is currently limited to the **Standard** pricing tier.
+> [AZURE.NOTE] The preview is currently limited to the **Standard** pricing tier. 
 
 | Pricing Tier | DTU MAX per Database |
 | :--- | :--- |
@@ -73,14 +73,14 @@ An elastic pool's pricing tier is somewhat analogous to a SQL database's service
 
 ### Add databases
 
-At any time, you can select the specific databases you want to be included in the pool.  When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. Azure evaluates the utilization history of databases and recommends an elastic pool when it is more cost effective than using performance levels for single databases. If an elastic pool is recommended, Azure provides recommended amount of pool DTUs, min/max DTU settings for each database in the pool, and a list of recommended databases. In order for database to be considered as a candidate for elastic pool it must exist for at least 14 days and it must not be in Premium pricing tier (public preview is limited to Standard only, therefore Premium DBs are not considered as viable). You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
+At any time, you can select the specific databases you want to be included in the pool.  When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
 
    ![Add databases][5]
 
 When you select a database to be added to a pool, the following conditions must be met:
 
 - The pool must have room for the database (cannot already contain the maximum number of databases). More specifically, the pool must have enough available DTUs to cover the DTU guarantee per database (for example, if the DTU guarantee for the group is 400, and the DTU guarantee for each database is 10, then the maximum number of databases that are allowed in the pool is 40 (400 DTUs/10 DTUs guaranteed per DB = 40 Max databases).
-- The current features used by the database must be available in the pool.
+- The current features used by the database must be available in the pool. 
 
 
 ### Configure performance
@@ -93,7 +93,7 @@ There are three parameters you can set that define the performance for the pool;
 
 | Performance Parameter | Description |
 | :--- | :--- |
-| **POOL DTU/GB** - DTU guarantee for the pool | The DTU guarantee for the pool is the guaranteed number of DTUs available and shared by all databases in the pool. <br> Currently, you can set this to 200, 400, 800, or 1200. <br> The specific size of the DTU guarantee for a group should be provisioned by considering the historical DTU utilization of the group.  Alternatively, this size can be set by the desired DTU guarantee per database and utilization of concurrently active databases. The DTU guarantee for the pool also correlates to the amount of storage available for the pool, for every DTU that you allocate to the pool, you get 1 GB of database storage (1 DTU = 1 GB of storage). <br> **What should I set the DTU guarantee of the pool to?** <br>At minimum, you should set the DTU guarantee of the pool to ([# of databases] x [average DTU utilization per database]) |
+| **POOL DTU/GB** - DTU guarantee for the pool | The DTU guarantee for the pool is the guaranteed number of DTUs available and shared by all databases in the pool. <br> Currently, you can set this to 100, 200, 400, 800, or 1200. <br> The specific size of the DTU guarantee for a group should be provisioned by considering the historical DTU utilization of the group.  Alternatively, this size can be set by the desired DTU guarantee per database and utilization of concurrently active databases. The DTU guarantee for the pool also correlates to the amount of storage available for the pool, for every DTU that you allocate to the pool, you get 1 GB of database storage (1 DTU = 1 GB of storage). <br> **What should I set the DTU guarantee of the pool to?** <br>At minimum, you should set the DTU guarantee of the pool to ([# of databases] x [average DTU utilization per database]) |
 | **DTU MIN** - DTU guarantee for each database | The DTU guarantee per database is the number of DTUs that a single database in the pool is guaranteed. Currently, you can set this guarantee to 0, 10, 20, or 50 DTUs, or you can choose not to provide a guarantee to databases in the group (DTU MIN=0). <br> **What should I set the DTU guarantee per database?** <br> At minimum, you should set the DTU guarantee per database (DTU MIN) to the ([average utilization per database]). The DTU guarantee per database is a global setting that sets the DTU guarantee for all databases in the pool. |
 | **DTU MAX** - DTU cap per database | The DTU MAX per database is the maximum number of DTUs that a single database in the Pool may use. Set the DTU cap per database high enough to handle  max bursts or spikes that your databases may experience. You can set this cap up to the system limit, which depends on the pricing tier of the pool (100 DTUs for Standard).  The specific size of this cap should accommodate peak utilization patterns of databases within the group.  Some degree of overcommitting the group is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking.<br> **What should I set the DTU cap per database to?** <br> Set the DTU MAX or DTU cap per database, to ([database peak utilization]). For example, suppose the peak utilization per database is 50 DTUs and only 20% of the 100 databases in the group simultaneously spike to the peak.  If the DTU cap per database is set to 50 DTUs, then it is reasonable to overcommit the group by 5x and set the DTU guarantee for the group to 1,000 DTUs. Also worth noting, is that the DTU cap is not a resource guarantee for a database, it is a DTU ceiling that can be hit if available. |
 
@@ -162,4 +162,3 @@ For more information, see [Elastic database jobs overview](sql-database-elastic-
 [6]: ./media/sql-database-elastic-pool-portal/metric.png
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
- 
