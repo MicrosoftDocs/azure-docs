@@ -56,10 +56,8 @@ Articles in the root directory are published to Azure.Microsoft.com in the path 
 
 * **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md).
 
-### \articles\service-folder
-
 Articles within their own service folder are published to Azure.Microsoft.com in the path
-* http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
+*http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
 
 * **Media subfolders:** The *\articles* folder contains the *\media* folder for root directory article media files, inside which are subfolders with the images for each article.  The service folders contain a separate media folder for the articles within each service folder. The article image folders are named identically to the article file, minus the *.md* file extension.
 

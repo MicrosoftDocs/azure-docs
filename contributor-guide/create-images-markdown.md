@@ -43,9 +43,10 @@ Use the following guidelines when creating and including art files:
 
 - .png files are highly preferred over other formats.
 
-- Use red squares of the default width provided in Paint (5 px) to call attention to particular elements in screenshots.
+- Use red squares of the default width provided in Paint (5 px) to call attention to particular elements in screenshots.  
 
-    Example: ![This is an example of a red square used as a callout.](./media/create-images-markdown/gs13noauth.png)
+    Example: 
+    ![This is an example of a red square used as a callout.](./media/create-images-markdown/gs13noauth.png)
 
 - If you crop a screenshot in a way that leaves white background at the edges, add a single pixel gray border around the image.  If using Paint, use the lighter gray in the default color pallete (0xC3C3C3). If using some other graphic app, the RGB color is R195, G195, 195. You can easily add a gray border around an image in Visio--to do this, select the image, select Line, and ensure the the correct color is set, and then change the line weight to 1 1/2 pt.  Screenshots should have a 1-pixel-wide gray border so that white areas of the screenshot do not blur into the web page.
 
