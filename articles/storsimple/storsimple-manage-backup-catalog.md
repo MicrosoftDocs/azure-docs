@@ -21,7 +21,7 @@
 
 The **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
-This tutorial explains how to list, select, and delete a backup set. To learn how to restore a volume from backup, go to [Restore a volume from a backup set](storsimple-restore-from-backup-set.md). To learn how to clone a volume, go to [Clone a StorSimple volume](storsimple-clone-volume.md).
+This tutorial explains how to list, select, and delete a backup set. To learn how to restore your device from backup, go to [Restore your device from a backup set](storsimple-restore-from-backup-set.md). To learn how to clone a volume, go to [Clone a StorSimple volume](storsimple-clone-volume.md).
 
 **Figure 1: Backup catalog**
 
@@ -116,4 +116,4 @@ Delete backup set
 
 ## Next steps
 
-Learn how to use the backup catalog to [restore a volume from a backup set](storsimple-restore-from-backup-set.md) or [clone a volume](storsimple-clone-volume.md).
+Learn how to use the backup catalog to [restore your device from a backup set](storsimple-restore-from-backup-set.md).
