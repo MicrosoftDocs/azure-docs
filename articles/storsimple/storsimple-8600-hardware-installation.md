@@ -4,8 +4,8 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -43,7 +43,7 @@ Next, complete the following steps to unpack your device.
 
 2. Open the two boxes and unpack the primary and EBOD enclosures. The following figure shows the unpacked view of your storage device.
  
-    **Figure 1 Unpacked view of your storage device**
+    **Figure 1: Unpacked view of your storage device**
 
     ![Unpack your storage device](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png) 
 
@@ -114,7 +114,7 @@ A set of mounting rails will be provided for use with the 19-inch rack cabinet. 
 
 2. Typically, these rails are installed at the factory. If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.
 
-    **Figure 2 Attaching rail slides to the sides of the enclosure**
+    **Figure 2: Attaching rail slides to the sides of the enclosure**
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
@@ -131,7 +131,7 @@ A set of mounting rails will be provided for use with the 19-inch rack cabinet. 
 
 6. Repeat these steps for the other rail assembly.
 
-    **Figure 3 Attaching rail assemblies to the rack**
+    **Figure 3: Attaching rail assemblies to the rack**
 
      ![Attaching rail slides to rack cabinet](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
 
@@ -153,7 +153,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
 2. Carefully insert the enclosure into the rails, and then push it completely into the rack cabinet.
 
-    **Figure 4 Mounting the enclosure in the rack**
+    **Figure 4: Mounting the enclosure in the rack**
 
     ![Inserting device in the rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
 
@@ -161,7 +161,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
 4. Install the flange caps by pressing them into position and snapping them into place.
 
-    **Figure 5 Installing the flange caps**
+    **Figure 5: Installing the flange caps**
 
      ![Installing flange caps](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
  
@@ -210,7 +210,7 @@ Next, identify the primary enclosure and the EBOD enclosure.
 
 1. Identify the primary and the EBOD enclosures. The two enclosures can be identified by looking at the respective backplanes. See the following figure for guidance.
 
-    **Figure 6 Back of the primary and EBOD enclosures**
+    **Figure 6: Back of the primary and EBOD enclosures**
 
     ![Primary and EBOD enclosure](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
 
@@ -222,7 +222,7 @@ Next, identify the primary enclosure and the EBOD enclosure.
 
 2. Locate the serial numbers on both the primary enclosure and the EBOD enclosure. The serial number sticker is affixed on the back ear of each enclosure. The serial numbers must be identical on both enclosures. Contact Microsoft Support immediately if the serial numbers do not match. See the following figure to help you locate the serial numbers.
 
-    **Figure 7 Rear view of enclosure showing location of serial number**
+    **Figure 7: Rear view of enclosure showing location of serial number**
 
     ![Location of serial number](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
@@ -237,7 +237,7 @@ Next, use the provided SAS cables to connect the EBOD enclosure to the primary e
 
 1. Identify the four Serial Attached SCSI (SAS) ports on the primary enclosure and EBOD enclosure. The SAS ports are labeled as EBOD on the primary enclosure and CTRL on the EBOD enclosure, as shown in Figure 8.
 
-    **Figure 8 Location of SAS ports on primary and EBOD enclosures**
+    **Figure 8: Location of SAS ports on primary and EBOD enclosures**
 
     ![Location of SAS ports](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
 
@@ -286,7 +286,7 @@ Perform the following steps to cable your device for power.
 
 > [AZURE.IMPORTANT] To ensure high availability of your system, you are advised to strictly adhere to the power cabling scheme shown in the following diagram.
 
-   **Figure 9 Power cabling for your device**
+   **Figure 9: Power cabling for your device**
 
    ![Power cabling diagram](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
 
@@ -313,7 +313,7 @@ To support this redundant controller failover, you need to cable your device net
 
 1. Your device has six network interfaces on each controller: four 1 Gbps and two 10 Gbps Ethernet ports. Refer to the following illustration to identify the data ports on the backplane of your device.
 
-    **Figure 10 Back of your device showing the data ports**
+    **Figure 10: Back of your device showing the data ports**
 
      ![Backplane of 8600 device](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
  
@@ -334,7 +334,7 @@ To support this redundant controller failover, you need to cable your device net
 
 At a minimum, configure one network interface for cloud access and one for iSCSI. For high availability and performance, configure two pairs of network interfaces on each controller. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. For high availability and performance, additional configuration required is shown by dotted lines.)
 
-**Figure 11 Network cabling for your device**
+**Figure 11: Network cabling for your device**
 
 ![Cable your 4U device for network](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
