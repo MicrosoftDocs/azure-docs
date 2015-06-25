@@ -172,7 +172,7 @@ You may follow this tutorial using the videos below.
 
 	![Type in your admin username or password][21]
 
-	> [AZURE.NOTE] If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step. These account must have the **System Administrator** profile assigned to it in Salesforce.
+	> [AZURE.NOTE] If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step. This account must have the **System Administrator** profile assigned to it in Salesforce.
 
 3. To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account. On the top right corner of the page, click on your name, and then click on **My Settings**.
 
