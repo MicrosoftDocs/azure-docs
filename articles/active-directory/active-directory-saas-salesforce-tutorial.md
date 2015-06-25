@@ -198,7 +198,7 @@ You may follow this tutorial using the videos below.
 
 ##Step 4: Assign Users to Salesforce
 
-1. To test your configuration, start creating a new test account in the directory.
+1. To test your configuration, start by creating a new test account in the directory.
 
 2. On the Salesforce Quick Start page, click on the **Assign Users** button.
 
