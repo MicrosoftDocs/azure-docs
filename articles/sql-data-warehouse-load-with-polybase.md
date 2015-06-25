@@ -195,7 +195,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189450.aspx
