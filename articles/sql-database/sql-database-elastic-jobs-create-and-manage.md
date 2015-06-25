@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/12/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh"/>
 
-# Creating and managing elastic database jobs
+# Creating and managing Elastic Database jobs
 
-**Elastic database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **elastic database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data.
+**Elastic Database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **Elastic Database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@
 ## Creating jobs
 
 1. In the elastic database job pool blade, click **Create job**.
-2. Type in the username and password of the database administrator (created at installation of Jobs) for the Jobs Control DB (metadata storage for jobs).
+2. Type in the username and password of the database administrator (created at installation of Jobs) for the jobs control database (metadata storage for jobs).
 
 	![Name the job, type or paste in code, and click Run][1]
 2. In the **Create Job** blade, type a name for the job.
