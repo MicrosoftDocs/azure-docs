@@ -18,7 +18,7 @@
 
 # Azure AD Reporting: How it works
 
-[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../includes/active-directory-reporting-content-journey-selector.md)]
+[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
 ## Reporting pipeline
 

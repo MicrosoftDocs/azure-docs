@@ -18,7 +18,7 @@
 
 # Azure AD Reporting: Learn more
 
-[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../includes/active-directory-reporting-content-journey-selector.md)]
+[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
 ## Audit events
 

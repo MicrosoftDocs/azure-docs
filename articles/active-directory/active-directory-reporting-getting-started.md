@@ -18,7 +18,7 @@
 
 # Azure AD Reporting: Getting started
 
-[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../includes/active-directory-reporting-content-journey-selector.md)]
+[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
 ## Sign into the Azure Management Portal
 

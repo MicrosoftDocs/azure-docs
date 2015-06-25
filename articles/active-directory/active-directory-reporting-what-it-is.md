@@ -18,7 +18,7 @@
 
 # Azure AD Reporting: What it is
 
-[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../includes/active-directory-reporting-content-journey-selector.md)]
+[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
 Azure Active Directory includes security, activity, and audit reports for your directory. Here's a list of the reports included:
 
