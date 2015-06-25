@@ -1453,7 +1453,7 @@ This commands removes all rows of data from the table.
 
 ###<a name="Mobile_Scripts"></a>Commands to manage scripts
 
-Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services-how-to-use-server-scripts.md).
+Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options] [servicename]**
 
@@ -1885,14 +1885,13 @@ This command supports the following additional options:
 + **-d** or **--description** &lt;description>:  The description storage account.
 + **-l** or **--location** &lt;name>: The geographic region in which to create the storage account.
 + **-a** or **--affinity-group** &lt;name>: The affinity group with which to associate the storage account.
-+ **--geoReplication**:  Indicates if geo-replication is enabled.
-+ **--disable-geoReplication**: Indicates if geo-replication is disabled.
++ **--type**:  Indicates the type of account to create: either Standard Storage with redundancy option (LRS/ZRS/GRS/RAGRS) or Premium Storage (PLRS).
 
 **storage account set [options] <name>**
 
 This command updates the specified storage account.
 
-	~$ azure storage account set mybasestorage --geoReplication
+	~$ azure storage account set mybasestorage --type GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1902,8 +1901,7 @@ This command supports the following additional options:
 + **-e** or **--label** &lt;label>: The label for the storage account.
 + **-d** or **--description** &lt;description>:  The description storage account.
 + **-l** or **--location** &lt;name>: The geographic region in which to create the storage account.
-+ **--geoReplication**:  Indicates if geo-replication is enabled.
-+ **--disable-geoReplication**: Indicates if geo-replication is disabled.
++ **--type**:  Indicates the new type of account: either Standard Storage with redundancy option (LRS/ZRS/GRS/RAGRS) or Premium Storage (PLRS).
 
 **storage account delete [options] <name>**
 

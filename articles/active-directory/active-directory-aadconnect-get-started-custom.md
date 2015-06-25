@@ -21,7 +21,7 @@
 
 The following documentation provides information on using the custom installation option for Azure AD Connect.  You can use this option if you have additional configuration options or need optional features that are not covered in the express installation.
 
-For information on an Express Installation see [Express Installation](active-directory-aadconnect-get-started/#express-installation-of-azure-ad-connect).
+For information on an Express Installation see [Express Installation](active-directory-aadconnect-get-started/#express-installation-of-azure-ad-connect).   For information on upgrading from DirSync to Azure AD Connect see [Upgrading DirSync to Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 
@@ -62,7 +62,7 @@ Be aware that this account is only used to create a service account in Azure AD 
 </center>
 
 ### Connect your directories
-To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions.  This account can be a regular user account because it only needs the default read permissions.  However, depending on your scenario, you may need additional permissions.  For more information see [Azure AD Connect Account Summary](active-directory-addconnect-account-summary)
+To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions.  This account can be a regular user account because it only needs the default read permissions.  However, depending on your scenario, you may need additional permissions.  For more information see [Azure AD Connect Account Summary](active-directory-addconnect-account-summary.md)
 
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 </center>
@@ -167,6 +167,12 @@ More information can be found [here](http://blogs.office.com/2014/09/25/deliveri
 
 ## Device writeback (preview)
 The device writeback feature will allow you take a device registered in the cloud, for example in Intune, and have it in AD DS for conditional access. To enable the feature, AD DS must be prepared. If you install AD FS and the device registration service (DRS), DRS provides PowerShell cmdlets to prepare AD for device writeback. If you do not have DRS installed, then you can run C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 as an enterprise admin.
+
+Before you can run the PowerShell cmdlet it must be imported first.
+
+	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+
+In order to do this you will need Active Directory and MSOnline PowerShell installed locally.
 
 
 

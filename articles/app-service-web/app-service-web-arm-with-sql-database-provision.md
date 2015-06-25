@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/25/2015" 
 	ms.author="tomfitz"/>
 
 # Provision a web app with a SQL Database
@@ -23,7 +23,9 @@ how to define parameters that are specified when the deployment is executed. You
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-For the complete template, see [Web App With SQL Database template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json).
+For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).
+
+For the complete template, see [Web App With SQL Database template](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/).
 
 ## What you will deploy
 
@@ -178,7 +180,7 @@ you must provide a login name and password for the database server administrator
       },
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
@@ -189,7 +191,7 @@ you must provide a login name and password for the database server administrator
           "properties": {
               "DefaultConnection":{
               "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 //SQL
+              "type": 2 
             },
           }
         }

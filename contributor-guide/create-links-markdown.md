@@ -14,7 +14,7 @@
 
 ### Markdown syntax for ACOM relative links
 
-To create an inline link from an ACOM technical article to another ACOM technical article, use this link format.   If you create any new links to or from articles in subdirectory folders, you’ll need to follow the new linking syntax.
+To create an inline link from an ACOM technical article to another ACOM technical article, use this link format.   If you create any new links to or from articles in the directories, you’ll need to follow the new linking syntax.
 
 Old link syntax to link from one ACOM tech doc to another:
 
@@ -26,13 +26,13 @@ Article links from a subdirectory to an article in the root directory:
 
     [link text](../article-name.md)
 
-Article in the root folder links to an article in a service subdirectory: 
+Article in the root directory links to an article in a service subdirectory: 
 
-    [link text](service-folder/article-name.md)
+    [link text](service-directory/article-name.md)
 
 Article in a service subdirectory links to an article that is in another service subdirectory:
 
-    [link text](../service-folder/article-name.md) 
+    [link text](../service-directory/article-name.md)
  
 Article in a directory links to another article in the same directory:
 
@@ -44,15 +44,15 @@ You do not have to create anchors anymore - they are automatically generated at 
     [link](#the-text-of-the-H2-section-separated-by-hyphens)
     [Create cache](#create-cache)
 
-To link to an anchor in another article in the same subfolder:
+To link to an anchor in another article in the same subdirectory:
 
     [link text](article-name.md#anchor-name)
     [Configure your profile](media-services-create-account.md#configure-your-profile)
 
-To link to an anchor in the same service subfolder:
+To link to an anchor in another service subdirectory:
 
-    [link text](service-folder/article-name.md#anchor-name)
-    [Configure your profile](service-folder/media-services-create-account.md#configure-your-profile)
+    [link text](service-directory/article-name.md#anchor-name)
+    [Configure your profile](service-directory/media-services-create-account.md#configure-your-profile)
 
 
 ## Custom markdown link syntax

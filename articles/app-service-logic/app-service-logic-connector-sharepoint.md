@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Using the SharePoint Connector in your logic app" 
-   description="Using the SharePoint Connector in your logic app" 
+   pageTitle="Create a SharePoint Connector to use in your logic app" 
+   description="Create a SharePoint Connector; Using the SharePoint Connector in your logic app" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="anuragdalmia" 
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/14/2015"
+   ms.date="06/22/2015"
    ms.author="vagarw"/>
 
 # Using the SharePoint Connector in your logic app
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. Microsoft SharePoint connector lets you connect to Microsoft SharePoint Server/SharePoint Online and manage documents and list items. You can perform various actions such as create, update, get and delete on documents and list items. In case of On-Premises SharePoint server, you can provide Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. Microsoft SharePoint connector lets you connect to Microsoft SharePoint Server or SharePoint Online and manage documents and list items. You can perform various actions such as create, update, get, and delete on documents and list items. When using on-premises SharePoint server, you enter the Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.
 
 The SharePoint Online Connector and SharePoint Server Connector gallery app provides you Trigger and Actions as mechanisms to interact with SharePoint.
 
-## Creating a SharePoint Online Connector for your Logic App
+## Create a SharePoint Online Connector
 
-To use the SharePoint Online Connector, you need to first create an instance of the SharePoint Online Connector API app. This can be done as follows:
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace: 
 
 1. In the Azure startboard, select **Marketplace**.
 2. Select **API Apps** and search for “SharePoint Online Connector”.
@@ -33,8 +33,8 @@ To use the SharePoint Online Connector, you need to first create an instance of 
 
 	Name | Required | Description
 --- | --- | ---
-Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter *https://microsoft.sharepoint.com/teams/wabstest*.
-Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter *Lists/Task, Shared Documents*.
+Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter: *https://microsoft.sharepoint.com/teams/wabstest*.
+Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
 
 5. When complete, the Package Settings look similar to the following: 
 <br/>
@@ -42,9 +42,9 @@ Document Library / List Relative URLs | Yes | Enter the document libraries/lists
 
 Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Online Connector.
 
-## Creating a SharePoint Server Connector for your Logic App
+## Creating a SharePoint Server Connector
 
-To use the SharePoint Server Connector, you need to first create an instance of the SharePoint Server Connector API app. This can be done as follows:
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace: 
 
 1. In the Azure startboard, select **Marketplace**.
 2. Select **API Apps** and search for “SharePoint Server Connector”.
@@ -53,11 +53,11 @@ To use the SharePoint Server Connector, you need to first create an instance of 
 
 	Name | Required | Description
 --- | --- | ---
-Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter *https://microsoft.sharepoint.com/teams/wabstest*.
+Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter: *https://microsoft.sharepoint.com/teams/wabstest*.
 Authentication Mode | Yes | Enter the authentication mode to connect to SharePoint Site. Options include:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>If you choose Default, the credentials running the SharePoint Connector are used; Username/Password are not required. Username and Password are required for other authentication types.<br/><br/>**Note** Anonymous authentication is not supported.
 User Name | No | Enter a valid user name to connect to SharePoint site, if Authentication mode is not Default.
 Password | No | Enter a valid password to connect to SharePoint site, if Authentication mode is not Default.
-Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter *Lists/Task, Shared Documents*.
+Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
 Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
 
 5. When complete, the Package Settings look similar to the following: 
@@ -71,870 +71,393 @@ Once that’s done, you can now create a logic App in the same resource group to
 
 Once your API app is created, you can now use the SharePoint Connector as a trigger or action for your Logic App. To do this, you need to:
 
-1. Create a new Logic App and choose the same resource group which has the SharePoint Connector.
+1. Create a new Logic App and choose the same resource group that has the SharePoint Connector.
 
-2. Open "Triggers and Actions" to open the Logic Apps Designer and configure your flow. The SharePoint Connector would appear in the “Recently Used” section in the gallery on the right hand side. Select that.
+2. Open **Triggers and Actions** to open the Logic Apps Designer and configure your workflow. The SharePoint Connector appears in the “Recently Used” section in the gallery on the right hand side. Select it.
 
-3. If SharePoint connector is selected at the start of the logic app it acts like trigger else actions could be taken on SharePoint account using the connector. 
+3. If SharePoint connector is selected at the start of the logic app, it acts like trigger. Otherwise, actions could be taken on SharePoint account using the connector. 
 
-4. You would have to authenticate and authorize logic apps to perform operations on your behalf if SharePoint Online Connector is used. To start the authorization click Authorize on SharePoint Connector. 
+4. When using the SharePoint Online Connector, you have to authenticate and authorize logic apps to perform operations on your behalf. To start the authorization, click **Authorize** on SharePoint Connector:
+<br/>
+![][3]
 
-	![][3]
+5. Clicking Authorize would open SharePoint’s authentication dialog. Enter the sign in details of the SharePoint account on which you want to perform the operations:
+<br/>
+![][4]
 
-5. Clicking Authorize would open SharePoint’s authentication dialog. Provide the login details of the SharePoint account on which you want to perform the operations. 
+6. Grant logic apps access to your account to perform operation on your behalf:
+<br/>
+![][5]
 
-	![][4]
-6. Grant logic apps access to your account to perform operation on your behalf. 
+7. If the SharePoint Connector is configured as Trigger, then the triggers are shown. Otherwise, a list of actions is displayed and you can choose appropriate operation that you want to perform:
+<br/>
+![][6]
+<br/>
+**Relative URL configured for document library**
+<br/>
+![][7]
+<br/>
+**Relative URL configured for document list**
 
-	![][5]
-
-7. If the SharePoint Connector is configured as Trigger than the triggers are shown else list of actions is displayed and you can choose appropriate operation that you want to perform.  
-
-	![][6]
-
-	<b>Relative URL configured for document bibrary</b><br><br>
-
-	![][7]
-
-	<b>Relative URL configured for document list</b>
-
-	<b>Note:</b> For the below triggers, it is assumed that the user specified 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
+> [AZURE.NOTE]For the following triggers, it is assumed that you entered 'Shared Documents, Lists/Task' in the Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
 
 ##  Triggers
-Use triggers if you want to initiate a logic app 
+Use triggers if you want to initiate a logic app.
 
-**NOTE**: Triggers will delete the files after reading them. To preserve these files, please provide a value for the archive location. 
+> [AZURE.NOTE] Triggers delete the files after reading them. To preserve these files, please enter a value for the archive location. 
 
 ### 1.	New Document In Shared Documents (JSON)
 This trigger is fired when a new document is available in 'Shared Documents'. 
 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>View Name</td>
-    <td>No</td>
-    <td>Specify a valid view used to filter documents to be picked. Example: 'Approved Orders'. To process all the existing documents, leave this field empty. </td>
-  </tr>
-  <tr>
-    <td>Archive Location</td>
-    <td>No</td>
-    <td>Specify a valid folder URL, relative to SharePoint site, where the processed documents are archived. </td>
-  </tr>
-  <tr>
-    <td>Overwrite in Archive</td>
-    <td>No</td>
-    <td>Check this option to overwrite a file in Archive path if it already exists. </td>
-  </tr>
-  <tr>
-    <td>Caml Query</td>
-    <td>No, Advanced</td>
-    <td>Specify a valid Caml query to filter documents. Example: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the existing documents, leave this field empty. 
+Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed documents are archived.
+Overwrite in Archive | No | Check this option to overwrite a file in Archive path if it already exists.
+Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
-**Outputs:**
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Name  </td>
-    <td>Name of the document.</td>
-  </tr>
-  <tr>
-    <td>Content</td>
-    <td>Content of the document.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Content Transfer Encoding of the Message. ("none"|”base64”)</
-  </tr>
-</table>
+#### Output
+
+Name | Description
+--- | --- 
+Name | Name of the document.
+Content | Content of the document.
+ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
+
+**Note** All the columns of the document item are shown in 'Advanced' output properties.
 
 
-Note: All the columns of the document item are shown in 'Advanced' output properties.
-
-
-###2. New Item In Tasks (JSON)
+### 2. New Item In Tasks (JSON)
 This trigger is fired when a new item is added in 'Tasks' list.
 
-**Inputs:**
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
- </tr>
-  <tr>
-    <td>View Name</td>
-    <td>No</td>
-    <td>Specify a valid view used to filter items in the list. Example: 'Approved Orders'. To process all the new items, leave this field empty. </td>
-  </tr>
-  <tr>
-    <td>Archive Location</td>
-    <td>No</td>
-    <td>Specify a valid folder URL, relative to SharePoint site, where the processed list items are archived. </td>
-  </tr>
-  <tr>
-    <td>Caml Query</td>
-    <td>No, Advanced</td>
-    <td>Specify a valid Caml query to filter the list items. Example: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+#### Input
+
+Name | Required | Description
+--- | --- | ---
+View Name | No | Enter a valid view used to filter items in the list. For example, enter: 'Approved Orders'. To process all the all the new items, leave this field empty. 
+Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.
+Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+
+#### Output
+
+Name | Description
+--- | --- 
+The columns in the list are dynamically populated and shown in the output parameters. | &nbsp;
 
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>The columns in the list are dynamically populated and shown in the output parameters.</td>
-    <td> </td>
-  </tr>
-
-</table>
-
-
-###3. New Document In Shared Documents (XML)
+### 3. New Document In Shared Documents (XML)
 
 This trigger is fired when a new document is available in 'Shared Documents'. The new document is returned as an XML message.
 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>View Name</td>
-    <td>No</td>
-    <td>Specify a valid view used to filter documents to be picked. Example: 'Approved Orders'. To process all the existing documents, leave this field empty. </td>
-  </tr>
-  <tr>
-    <td>Archive Location</td>
-    <td>No</td>
-    <td>Specify a valid folder URL, relative to SharePoint site, where the processed documents are archived. </td>
-  </tr>
-  <tr>
-    <td>Overwrite in Archive</td>
-    <td>No</td>
-    <td>Check this option to overwrite a file in Archive path if it already exists. </td>
-  </tr>
-  <tr>
-    <td>Caml Query</td>
-    <td>No, Advanced</td>
-    <td>Specify a valid Caml query to filter documents. Example: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the all the existing documents, leave this field empty. 
+Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list documents are archived.
+Overwrite in Archive | No | Check this option to overwrite a file in Archive path if it already exists.
+Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
-**Outputs:**
+#### Output
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Content</td>
-    <td>Content of the document.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Content Transfer Encoding of the Message. ("none"|”base64”)</td>
-  </tr>
-</table>
+Name | Description
+--- | --- 
+Content | Content of the document.
+ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
 
 
-###4. New Item In Tasks (XML)
+### 4. New Item In Tasks (XML)
 
 This trigger is fired when a new item is added in 'Tasks' list. The new list item is returned as an XML message.
 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>View Name</td>
-    <td>No</td>
-    <td>Specify a valid view used to filter items in the list. Example: 'Approved Orders'. To process all the new items, leave this field empty. </td>
-  </tr>
-  <tr>
-    <td>Archive Location</td>
-    <td>No</td>
-    <td>Specify a valid folder URL, relative to SharePoint site, where the processed list items are archived. </td>
-  </tr>
-  <tr>
-    <td>Caml Query</td>
-    <td>No, Advanced</td>
-    <td>Specify a valid Caml query to filter the list items. Example: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+View Name | No | Enter a valid view used to filter items in the list. Example: 'Approved Orders'. To process all the new items, leave this field empty. 
+Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.
+Caml Query | No, Advanced | Enter a valid Caml query to filter the list items. For example, enter: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
+#### Output
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Content</td>
-    <td>Content of the document.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Content Transfer Encoding of the Message. ("none"|”base64”)</td>
-  </tr>
-</table>
+Name | Description
+--- | --- 
+Content | Content of the document.
+ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
 
 
 ##  Actions
-For the below actions, it is assumed that the user specified 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
+For the following actions, it is assumed that you entered 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
 
-###1. Upload To Shared Documents (JSON)
+### 1. Upload To Shared Documents (JSON)
 
 This action uploads new document to 'Shared Documents'. The input is a strongly typed JSON object with all the column fields of the document library.
 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
- </tr>
-  <tr>
-    <td>Name</td>
-    <td>Yes</td>
-    <td>Name of the document.</td>
-  </tr>
-  <tr>
-    <td>Content</td>
-    <td>Yes</td>
-    <td>Content of the document.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Yes</td>
-    <td>Content Transfer Encoding of the Message. ("none"|”base64”)</td>
-  </tr>
-  <tr>
-    <td>Force Overwrite</td>
-    <td>Yes</td>
-    <td>If set to TRUE and a document exists with the given name, it will be overwritten.</td>
-  </tr>
-  <tr>
-    <td>ReqParam1*</td>
-    <td>Yes</td>
-    <td>This is one of the required parameters to add a document in the document library.</td>
-  </tr>
-  <tr>
-    <td>ReqParam2*</td>
-    <td>Yes</td>
-    <td>This is one of the required parameters to add a document in the document library.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam1*</td>
-    <td>No. Advanced</td>
-    <td>This is one of the optional parameters to add a document in the document library.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam2*</td>
-    <td>No. Advanced</td>
-    <td>This is one of the optional parameters to add a document in the document library.</td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+Name | Yes | Name of the document.
+Content | Yes | Content of the document.
+ContentTransferEncoding | Yes | Content Transfer Encoding of the Message. ("none"or ”base64”)
+Force Overwrite | Yes | If set to TRUE and a document exists with the given name, it will be overwritten.
+ReqParam1* | Yes | This is one of the required parameters to add a document in the document library.
+ReqParam2* | Yes | This is one of the required parameters to add a document in the document library.
+OptionalParam1* | No. Advanced | This is one of the optional parameters to add a document in the document library.
+OptionalParam2* | No. Advanced | This is one of the optional parameters to add a document in the document library.
 
-<b>Note:</b> All the parameters of the document library are dynamically populated. The mandatory parameters are visible, where the optional parameters are in advanced section.
+**Note** All the parameters of the document library are dynamically populated. The mandatory parameters are visible, where the optional parameters are in advanced section.
 
+#### Output
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>ItemId of the document added in Document library.</td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>A successful upload of document returns status code 200 (OK).</td>
-  </tr>
-</table>
+Name | Description
+--- | --- 
+ItemId | ItemId of the document added in Document library.
+Status | A successful upload of document returns status code 200 (OK).
 
 
  
 
-###2. Get From Shared Documents (JSON)
+### 2. Get From Shared Documents (JSON)
 This action gets the document from the document library given the relative URL (folder structure) of the document.
 
+#### Input
 
-**Inputs:**
+Name | Required | Description
+--- | --- | ---
+Document Relative URI | No | Enter the document URL, relative to 'Shared Documents'. For example, enter: *myspec1,myfolder/orders*.
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Document Relative URI</td>
-    <td>No</td>
-    <td>Specify the document URL, relative to 'Shared Documents'. Example: myspec1,myfolder/orders</td>
-  </tr>
-</table>
+#### Output
 
+Name | Description
+--- | --- 
+Content | Document Content 
+ContentTransferEncoding | Content Transfer Encoding of the Message. ("none" or ”base64”)
+Status | A successful action execution returns status code 200 (OK).
+Param1* | This is one of the parameters of a document in the document library.
+Param2* | This is one of the parameters of a document in the document library.
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Content</td>
-    <td>Document Content</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Content Transfer Encoding of the Message. ("none"|”base64”)</td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>A successful action execution returns status code 200 (OK).</td>
-  </tr>
-  <tr>
-    <td>Param1*</td>
-    <td>This is one of the parameters of a document in the document library.</td>
-  </tr>
-  <tr>
-    <td>Param2*</td>
-    <td>This is one of the parameters of a document in the document library.</td>
-  </tr>
-</table>
-
-<b>Note:</b> All the parameters of the document library are dynamically populated. And, they are in advanced section.
+**Note** All the parameters of the document library are dynamically populated. And, they are in advanced section.
 
  
 
-###3. Delete From Shared Documents
+### 3. Delete From Shared Documents
 
 This action deletes the document from the document library given the relative URL (folder structure) of the document.
 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Document Relative URI</td>
-    <td>No</td>
-    <td>Specify the document URL, relative to 'Shared Documents'. Example: myspec1,myfolder/orders</td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+Document Relative URI | No | Enter the document URL, relative to 'Shared Documents'. For example, enter: *myspec1,myfolder/orders*.
+
+#### Output
+
+Name | Description
+--- | --- 
+Status | A successful action execution returns status code 200 (OK).
 
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>A successful action execution returns status code 200 (OK).</td>
-  </tr>
-</table>
-
-
-###4. Insert Into Tasks (JSON)
+### 4. Insert Into Tasks (JSON)
 
 This action adds an item in the Item list.
 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ReqParam1*</td>
-    <td>Yes</td>
-    <td>This is one of the required parameters to add an item in the List.</td>
-  </tr>
-  <tr>
-    <td>ReqParam2*</td>
-    <td>Yes</td>
-    <td>This is one of the required parameters to add an item in the List.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam1*</td>
-    <td>No. Advanced</td>
-    <td>This is one of the required parameters to add an item in the List.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam2*</td>
-    <td>No. Advanced</td>
-    <td>This is one of the required parameters to add an item in the List.</td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+ReqParam1* | Yes | This is one of the required parameters to add an item in the List.
+ReqParam2* | Yes | This is one of the required parameters to add an item in the List.
+OptionalParam1* | No. Advanced | This is one of the required parameters to add an item in the List.
+OptionalParam2* | No. Advanced | This is one of the required parameters to add an item in the List.
+
+**Note** All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
+
+#### Output
+
+Name | Description
+--- | --- 
+ItemId | ItemId of the List item added.
+Status | A successful insertion of List item returns status code 200 (OK).
 
 
-<b>Note:</b> All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
-
- 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>ItemId of the List item added.</td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>A successful insertion of List item returns status code 200 (OK).</td>
-  </tr>
-</table>
-
-
-###5. Update Tasks (JSON)
+### 5. Update Tasks (JSON)
 
 This action updates an item in the Item list.
 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Yes</td>
-    <td>ItemId of the List item.</td>
-  </tr>
-  <tr>
-    <td>ReqParam1*</td>
-    <td>No</td>
-    <td>This is one of the required parameters to add an item in the List.</td>
-  </tr>
-  <tr>
-    <td>ReqParam2*</td>
-    <td>No</td>
-    <td>This is one of the required parameters to add an item in the List.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam1*</td>
-    <td>No. Advanced</td>
-    <td>This is one of the required parameters to add an item in the List.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam2*</td>
-    <td>No. Advanced</td>
-    <td>This is one of the required parameters to add an item in the List.</td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+ItemId | Yes | ItemId of the List item.
+ReqParam1* | No | This is one of the required parameters to add an item in the List.
+ReqParam2* | No | This is one of the required parameters to add an item in the List.
+OptionalParam1* | No. Advanced | This is one of the required parameters to add an item in the List.
+OptionalParam2* | No. Advanced | This is one of the required parameters to add an item in the List.
 
-<b>Note:</b> All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
+**Note**  All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
+
+#### Output
+
+Name | Description
+--- | --- 
+Status | A successful update of List item returns status code 200 (OK).
 
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Status  </td>
-    <td>A successful update of List item returns status code 200 (OK).</td>
-  </tr>
-</table>
-
-
-###6. Get Item From Tasks (JSON)
+### 6. Get Item From Tasks (JSON)
 
 This action gets an item from the Item list.
 
+#### Input
 
-**Inputs:**
+Name | Required | Description
+--- | --- | ---
+ItemId | Yes | ItemId of the List item.
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Yes</td>
-    <td>ItemId of the List item.</td>
-  </tr>
-</table>
+#### Output
 
+Name | Description
+--- | --- 
+Column1* | This is one of the parameters in the List.
+Column2* | This is one of the parameters in the List.
+Status | A successful execute of action returns status code 200 (OK).
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Column1*</td>
-    <td>This is one of the parameters in the List.</td>
-  </tr>
-  <tr>
-    <td>Column2*</td>
-    <td>This is one of the parameters in the List.</td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>A successful execute of action returns status code 200 (OK).</td>
-  </tr>
-</table>
-
-<b>Note:</b> The columns in the list are dynamically populated and shown in the output parameters.
+**Note** The columns in the list are dynamically populated and shown in the output parameters.
 
 
-###7. Delete Item From Tasks
+### 7. Delete Item From Tasks
 
 This action deletes an item from the Item list.
 
- 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Yes</td>
-    <td>ItemId of the List item.</td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+ItemId | Yes | ItemId of the List item.
+
+#### Output
+
+Name | Description
+--- | --- 
+Status | A successful delete of the list item returns status code 200 (OK).
 
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Status  </td>
-    <td>A successful delete of the list item returns status code 200 (OK).</td>
-  </tr>
-</table>
-
-
-###8. List Shared Documents (JSON)
+### 8. List Shared Documents (JSON)
 
 This action lists all the documents in a document library. You can use a View or a Caml query to filter the documents.  
 
- 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>View Name</td>
-    <td>No</td>
-    <td>Specify a valid view used to filter documents to be picked. Example: 'Approved Orders'. To process all the existing documents, leave this field empty. </td>
-  </tr>
-  <tr>
-    <td>Caml Query</td>
-    <td>No</td>
-    <td>Specify a valid Caml query to filter documents. Example: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the existing documents, leave this field empty. 
+Caml Query | No | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+
+#### Output
+
+Name | Description
+--- | --- 
+Documents | Array of all the documents. Each document has the following fields: <ul><li>Documents []</li><li>Name</li><li>Item Id</li><li>Item Full URL</li><li>Advanced</li><li>Item Edit URL</li><li>List Name</li><li>List Full URL</li></ul>
+Status | A successful insertion of List item returns status code 200 (OK).
 
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Documents</td>
-    <td>Array of all the documents. Each document has the below fields. <br><br>
-	Documents []<br>
-	Name<br>
-	Item Id<br>
-	Item Full URL<br>
-	Advanced<br>
-	Item Edit URL<br>
-	List Name<br>
-	List Full URL<br>
-	</td>
-  </tr>
-  <tr>
-    <td>Status  </td>
-    <td>A successful insertion of List item returns status code 200 (OK).</td>
-  </tr>
-</table>
-
-
-###9. Upload To Shared Documents (XML)
+### 9. Upload To Shared Documents (XML)
 
 This action uploads new document to 'Shared Documents'. The input document should be an XML payload. The response of the action will be an XML payload.
  
+#### Input
 
-**Inputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Name</td>
-    <td>Yes</td>
-    <td>Name of the document.</td>
-  </tr>
-  <tr>
-    <td>Content</td>
-    <td>Yes</td>
-    <td>Content of the document.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Yes</td>
-    <td>Content Transfer Encoding of the Message. ("none"|”base64”)</td>
-  </tr>
-  <tr>
-    <td>Force Overwrite</td>
-    <td>Yes</td>
-    <td>If set to TRUE and a document exists with the given name, it will be overwritten.</td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+Name | Yes | Name of the document.
+Content | Yes | Content of the document.
+ContentTransferEncoding | Yes | Content Transfer Encoding of the Message. ("none" or "base64”)
+Force Overwrite | Yes | If set to TRUE and a document exists with the given name, it is overwritten.
  
+#### Output
 
-**Outputs:**
+Name | Description
+--- | --- 
+Output XML | Response of the Upload action in XML format.
+Status | A successful upload of document returns status code 200 (OK).
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Output XML</td>
-    <td>Response of the Upload action in XML format.</td>
-  </tr>
-  <tr>
-    <td>Status  </td>
-    <td>A successful upload of document returns status code 200 (OK).</td>
-  </tr>
-</table>
-
-###10. Get From Shared Documents (XML)
+### 10. Get From Shared Documents (XML)
 
 This action gets the document from the document library given the relative URL (folder structure) of the document.
 
- 
-**Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Document Relative URI</td>
-    <td>No</td>
-    <td>Specify the document URL, relative to 'Shared Documents'. Example: myspec1,myfolder/orders</td>
-  </tr>
-  <tr>
-    <td>File Type</td>
-    <td>Yes</td>
-    <td>Specify whether the file is a binary file or a text file.</td>
-  </tr>
-</table>
+Name | Required | Description
+--- | --- | ---
+Document Relative URI | No | Enter the document URL, relative to 'Shared Documents'. For example, enter: *myspec1,myfolder/orders*.
+File Type | Yes | Enter whether the file is a binary file or a text file.
 
+#### Output
 
-**Outputs:**
+Name | Description
+--- | --- 
+Output XML | Document Content
+ContentTransferEncoding | Content Transfer Encoding of the Message. ("none" or ”base64”)
+Status | A successful action execution returns status code 200 (OK).
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Output XML</td>
-    <td>Document Content</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Content Transfer Encoding of the Message. ("none"|”base64”)</td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>A successful action execution returns status code 200 (OK).</td>
-  </tr>
-</table>
-
-###11. Insert Into Tasks (XML)
+### 11. Insert Into Tasks (XML)
 
 This action adds an item in the Item list. The input is expected to be an XML payload.
 
-** Inputs:**
+#### Input
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Input XML</td>
-    <td>Yes</td>
-    <td>The XML message which contains the values of the fields of the list item to be inserted. You can use Transform API App to generate the XML message.</td>
-  </tr>
-</table>
- 
-<b>Note:</b> All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
+Name | Required | Description
+--- | --- | ---
+Input XML | Yes | The XML message which contains the values of the fields of the list item to be inserted. You can use Transform API App to generate the XML message.
 
- 
-**Outputs:**
+**Note** All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>ItemId of the List item added.</td>
-  </tr>
-  <tr>
-    <td>Status  </td>
-    <td>A successful insertion of List item returns status code 200 (OK).</td>
-  </tr>
-</table>
+#### Output
+
+Name | Description
+--- | ---
+ItemId | ItemId of the List item added.
+Status | A successful insertion of List item returns status code 200 (OK).
 
 
-###12. Update Tasks (XML)
+### 12. Update Tasks (XML)
 
 This action updates an item in the Item list. The input is expected to be an XML payload.
 
+#### Input
 
-**Inputs:**
+Name | Required | Description
+--- | --- | ---
+ItemID | Yes | ItemId of the List item.
+Input XML | Yes | The XML message which contains the values of the fields of the list item to be inserted. You can use Transform API App to generate the XML message.
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Yes</td>
-    <td>ItemId of the List item.</td>
-  </tr>
-  <tr>
-    <td>Input XML</td>
-    <td>Yes</td>
-    <td>The XML message which contains the values of the fields of the list item to be inserted. You can use Transform API App to generate the XML message.</td>
-  </tr>
-</table>
+**Note** All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
 
-<b>Note:</b> All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
+#### Output
 
- 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Status  </td>
-    <td>A successful update of List item returns status code 200 (OK).</td>
-  </tr>
-</table>
+Name | Description
+--- | ---
+Status | A successful update of List item returns status code 200 (OK).
 
 
-###13. Get Item From Tasks (XML)
+### 13. Get Item From Tasks (XML)
 
 This action gets an item from the Item list.
 
+#### Input
 
-**Inputs:**
+Name | Required | Description
+--- | --- | ---
+ItemID | Yes | ItemId of the List item.
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Required</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Yes</td>
-    <td>ItemId of the List item.</td>
-  </tr>
-</table>
+#### Output
 
-**Outputs:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Description</b></td>
-  </tr>
-  <tr>
-    <td>Output XML</td>
-    <td>The XML message which contains the values of the fields of the list item selected. </td>
-  </tr>
-  <tr>
-    <td>Status  </td>
-    <td>A successful execute of action returns status code 200 (OK).</td>
-  </tr>
-</table>
+Name | Description
+--- | ---
+Output XML | The XML message which contains the values of the fields of the list item selected.
+Status | A successful execute of action returns status code 200 (OK).
 
 
 ## Hybrid Configuration (Optional)
@@ -944,6 +467,11 @@ This action gets an item from the Item list.
 App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SharePoint Server, the Hybrid Connection Manager is required. 
 
 See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
+
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](app-service-api-manage-in-portal.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh" />
 
-# Elastic database jobs overview
+# Elastic Database jobs overview
 
-**Elastic database jobs** (preview) enables you to run T-SQL scripts (jobs) against all of the databases in an [elastic database pool (preview)](sql-database-elastic-pool.md). For example, you can easily update the schema in every database to include a new table. Normally, you must connect to each database independently in order to run T-SQL statements or perform other administrative tasks. **Elastic database jobs** handles the task of logging in, and reliabily running the script for you, while logging the status of execution for each database. For instructions on installing the preview, go to [Installing the elastic database job components](sql-database-elastic-jobs-service-installation.md).
+**Elastic Database jobs** (preview) enables you to run T-SQL scripts (jobs) against all of the databases in an [elastic database pool (preview)](sql-database-elastic-pool.md). For example, you can easily update the schema in every database to include a new table. Normally, you must connect to each database independently in order to run T-SQL statements or perform other administrative tasks. An **elastic database job** handles the task of logging in, and reliabily running the script for you, while logging the status of execution for each database. For instructions on installing the preview, go to [Installing the Elastic Database job components](sql-database-elastic-jobs-service-installation.md).
 
 ![Elastic database job service][1]
 
@@ -36,7 +36,7 @@
 
 ## How the job works
 
-1.	Install the services used by elastic database jobs. See [Installing elastic database jobs](sql-database-elastic-jobs-service-installation.md). If the installation fails, see [how to uninstall](sql-database-elastic-jobs-uninstall.md).
+1.	Install the services used by elastic database jobs. See [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md). If the installation fails, see [how to uninstall](sql-database-elastic-jobs-uninstall.md).
 2.	Configure the elastic database pool for job execution by [adding a user to each database](sql-database-elastic-jobs-add-logins-to-dbs.md).
 3.	From the elastic database pool view, click  **Create job**.
 4.	Type the user name and password for the jobs control database (metadata storage for jobs). (You create the user name and password when installing elastic database jobs).

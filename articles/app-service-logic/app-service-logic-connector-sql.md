@@ -13,32 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/14/2015"
+   ms.date="06/22/2015"
    ms.author="sutalasi"/>
 
 
 # Microsoft SQL Connector
 
-Connect to an on-premises SQL Server or an Azure SQL Database to create and change your information or data. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "flow". When you use the SQL Connector in your flow, you can achieve a variety of scenarios. For example, you can: 
+Connect to an on-premises SQL Server or an Azure SQL Database to create and change your information or data. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the SQL Connector in your workflow, you can achieve a variety of scenarios. For example, you can: 
 
 - Expose a section of the data residing in your SQL database using a web or mobile application. 
 - Insert data into a SQL database table for storage. For example, you can enter employee records, update sales orders, and so on.
 - Get data from SQL and use it in a business process. For example, you can get customer records and put those customer records in SalesForce. 
 
 ## Triggers and Actions
-*Triggers* are events that happen, like when an order is updated or when a new customer is added. An *Action* is the result of the trigger. For example, when an order is updated, send an alert to the salesperson. Or, when a new customer is added, send a welcome email to the new customer. 
+*Triggers* are events that happen. For example, when an order is updated or when a new customer is added. An *Action* is the result of the trigger. For example, when an order is updated, send an alert to the salesperson. Or, when a new customer is added, send a welcome email to the new customer. 
 
-The SQL Connector can be used as a trigger or an action in a Logic App and supports data in JSON and XML formats. For every table included in your package settings (more on that later in this topic), there is a set of JSON actions and a set of XML actions. 
+The SQL Connector can be used as a trigger or an action in a logic app and supports data in JSON and XML formats. For every table included in your package settings (more on that later in this topic), there is a set of JSON actions and a set of XML actions. 
 
 The SQL Connector has the following Triggers and Actions available: 
 
-Trigger | Action
+Triggers | Actions
 --- | ---
 Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From Table</li><li>Delete From Table</li><li>Call Stored Procedure</li>
 
 ## Create the SQL Connector
 
-A connector can be created within a Logic App or be created directly from the Azure Marketplace.
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:  
 
 1. In the Azure startboard, select **Marketplace**.
 2. Select **API Apps** and search for “SQL Connector”.
@@ -100,7 +100,7 @@ To use the SQL connector as a trigger, enter the **Data Available Query** and **
 ![][7] 
 
 ## Use the Connector as an Action
-Using our simple logic app that polls data from a SQL table, adds the data in another table, and updates the data.
+Using our simple logic app scenario that polls data from a SQL table, adds the data in another table, and updates the data.
 
 To use the SQL Connector as an action, enter the name of the Tables and/or Stored Procedures you entered when you created the SQL Connector:
 
@@ -120,7 +120,7 @@ To use the SQL Connector as an action, enter the name of the Tables and/or Store
 <br/>
 ![][12] 
 
-You can test the Logic App by adding a new record in the table that is being polled.
+You can test the logic app by adding a new record in the table that is being polled.
 
 ## Hybrid Configuration (Optional)
 
@@ -132,21 +132,21 @@ See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-ma
 
 
 ## Do more with your Connector
-Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
 You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
 
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-sql/Create.jpg
-[5]: ./media/app-service-logic-connector-sql/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-sql/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-sql/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-sql/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-sql/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-sql/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-sql/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-sql/LogicApp8.jpg
+[1]: ./media/app-service-logic-connector-sql/Create.png
+[5]: ./media/app-service-logic-connector-sql/LogicApp1.png
+[6]: ./media/app-service-logic-connector-sql/LogicApp2.png
+[7]: ./media/app-service-logic-connector-sql/LogicApp3.png
+[8]: ./media/app-service-logic-connector-sql/LogicApp4.png
+[9]: ./media/app-service-logic-connector-sql/LogicApp5.png
+[10]: ./media/app-service-logic-connector-sql/LogicApp6.png
+[11]: ./media/app-service-logic-connector-sql/LogicApp7.png
+[12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
 
  

@@ -22,7 +22,7 @@
 | Maximum number of volumes | 255 | |
 | Maximum number of bandwidth templates | 25 | |
 | Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a volume | 64 TB | The recommended size for an NTFS volume is 64 TB. |
+| Maximum size of a volume | 64 TB |  |
 | Maximum number of iSCSI connections | 512 | |
 | Maximum number of iSCSI connections from initiators | 512 | |
 | Maximum number of access control records per device | 64 | |
@@ -38,4 +38,4 @@
 | Maximum client read/write throughput (when served from the HDD tier)* | 120/250 MB/s |
 | Maximum client read/write throughput (when served from the cloud tier)* | 11/41 MB/s | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
 
-* Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.

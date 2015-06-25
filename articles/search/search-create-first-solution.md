@@ -35,6 +35,7 @@ The demo gets you started with Azure Search by walking you through these exercis
 <a id="sub-1"></a>
 ## Prerequisites
 
++	An [Azure subscription](../includes/free-trial-note.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](https://tryappservice.azure.com/) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
 +	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
 +	An Azure Search service. You'll need the Search service name, plus the admin key. See [Get started with Azure Search](search-get-started.md) for details.
 +	[Adventure Works Azure Search Demo project on CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). On the Source tab, click **Download** to get a zip file of the solution. 
@@ -46,8 +47,6 @@ This solution contains two projects:
 
 +	**CatalogIndex** creates an Azure Search index and loads data from a SQL Server database included with the project.
 +	**AdventureWorksWeb** is an MVC4-based application that queries the Azure Search index. This tutorial assumes that you have a working knowledge of ASP.NET MVC.
-
-[AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
 ## Create an Azure Search index
@@ -208,4 +207,4 @@ You can also review the [Azure Search REST API](http://msdn.microsoft.com/librar
 [9]: ./media/search-create-first-solution/AzureSearch_Create1_DashboardIndexes.PNG
 [10]: ./media/search-create-first-solution/AzureSearch_Create1_WebAppEmpty.PNG
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
-[12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG 
+[12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
