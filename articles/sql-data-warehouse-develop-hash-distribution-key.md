@@ -3,8 +3,8 @@
    description="Learn about hash distributed tables and how they affect query performance in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
