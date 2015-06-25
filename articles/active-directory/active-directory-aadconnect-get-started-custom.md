@@ -62,7 +62,7 @@ Be aware that this account is only used to create a service account in Azure AD 
 </center>
 
 ### Connect your directories
-To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions.  This account can be a regular user account because it only needs the default read permissions.  However, depending on your scenario, you may need additional permissions.  For more information see [Azure AD Connect Account Summary](active-directory-addconnect-account-summary)
+To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions.  This account can be a regular user account because it only needs the default read permissions.  However, depending on your scenario, you may need additional permissions.  For more information see [Azure AD Connect Account Summary](active-directory-addconnect-account-summary.md)
 
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 </center>
