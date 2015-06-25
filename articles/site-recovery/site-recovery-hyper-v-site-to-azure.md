@@ -167,15 +167,15 @@ Install the Provider and agent. If you're installing on a Hyper-V cluster, perfo
 
 Note that if you want to install the Provider on Server Core for Windows Server 2012 R2 or standalone Hyper-V Server 2012 R2, do the following:
 
-1. Download the Provider installation file and the registration key.
+1. Download the Provider installation file and the registration key to a folder say C:\ASR .
 2. Extract the Provider installer by typing:
 
-	    C:\Windows\System32> CD C:\Program Files\Azure Site Recovery Provider
-	    C:\Program Files\Azure Site Recovery Provider>AzureSiteRecoveryProvider.exe /x:. /q
+	    C:\Windows\System32> CD C:\ASR
+	    C:\ASR>AzureSiteRecoveryProvider.exe /x:. /q
 
 3. Install the Provider by typing:
 
-	    C:\Program Files\Azure Site Recovery Provider> setupdr.exe /i
+	    C:\ASR> setupdr.exe /i
 
 4. Register the server by typing:
 
