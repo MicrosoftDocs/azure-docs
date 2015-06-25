@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="06/25/2015"
 	ms.author="bruceper"/>
 
 # Manage Key Vault using CLI #
@@ -131,7 +131,7 @@ If you want Azure Key Vault to create a software-protected key for you, use the 
 
 However, if you have an existing key in a .pem file saved as local file in a file named softkey.pem that you want to upload to Azure Key Vault, type the following to import the key from the .PEM file, which protects the key by software in the Key Vault service:
 
-    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' ñ-password 'PaSSWORD' --destination software
+    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' ‚Äì-password 'PaSSWORD' --destination software
 
 You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use  **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version, and use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** to get this specific version.
 
@@ -144,7 +144,7 @@ You can now reference this password that you added to Azure Key Vault, by using 
 Let's view the key or secret that you just created:
 
 - To view your key, type: `azure keyvault key list --vault-name 'ContosoKeyVault'`
-- To view your secret, type: `azure keyvault secret list -ñvault-name 'ContosoKeyVault'`
+- To view your secret, type: `azure keyvault secret list -‚Äìvault-name 'ContosoKeyVault'`
 
 
 ## Register an application with Azure Active Directory
@@ -184,12 +184,12 @@ To authorize the application to access the key or secret in the vault, use the `
 
 For example, if your vault name is ContosoKeyVault and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, then run the following:
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[ìdecryptî,îsignî]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[‚Äúdecrypt‚Äù,‚Äùsign‚Äù]'
 
 
 ## If you want to use a hardware security module (HSM) ##
 
-For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are certified to FIPS 140-2 Level 2 and Common Criteria EAL4+. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
+For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 
@@ -203,9 +203,9 @@ You can add software-protected keys (as shown earlier) and HSM-protected keys to
 
 You can use the following command to import a key from a .pem file on your computer. This command imports the key into HSMs in the Key Vault service:
 
-    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' ñ-password 'PaSSWORD'
+    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' ‚Äì-password 'PaSSWORD'
 
-The next command imports a ìbring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
+The next command imports a ‚Äúbring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
@@ -233,7 +233,7 @@ This command lists a tabular display of all keys and selected properties:
 
 This command displays a full list of properties for the specified key:
 
-    azure keyvault key show --vault-name 'ContosoKeyVault' ñ-key-name 'ContosoFirstKey'
+    azure keyvault key show --vault-name 'ContosoKeyVault' ‚Äì-key-name 'ContosoFirstKey'
 
 This command lists a tabular display of all secret names and selected properties:
 
