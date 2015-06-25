@@ -59,7 +59,7 @@ Since includes are located in another directory, you will need to use relative p
 
     [link text](../articles/file-name.md)
 
-If you have selectors embedded in an include, you would use this sort of linking:
+If you have selectors embedded in an include, you would use this sort of linking: 
 
     > [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
     - [(Text1 | Example1 )](../articles/service-folder/example-azure-note.md)
