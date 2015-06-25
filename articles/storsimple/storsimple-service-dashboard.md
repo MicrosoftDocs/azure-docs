@@ -5,14 +5,14 @@
    documentationCenter=""
    authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/17/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service dashboard
@@ -20,6 +20,8 @@
 ## Overview
 
 The StorSimple Manager service dashboard page provides a summary view of all the devices that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. This tutorial introduces the dashboard page, explains the dashboard content and function, and describes the tasks that you can perform from this page.
+
+**Figure 1: StorSimple Manager service dashboard**
 
 ![Service dashboard](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
 
@@ -65,7 +67,7 @@ Changing the service data encryption key is a 3-step process:
 
 The following steps describe the rollover process for the service data encryption key.
 
-[AZURE.INCLUDE [storsimple-change-data-encryption-key](../includes/storsimple-change-data-encryption-key.md)]
+[AZURE.INCLUDE [storsimple-change-data-encryption-key](../../includes/storsimple-change-data-encryption-key.md)]
 
 
 ## View the operations logs
@@ -74,4 +76,4 @@ You can view the operation logs by clicking the operation logs link available in
 
 ## Next steps
 
-Learn how to use the [StorSimple Manager service](storsimple-manager-service-administration.md) to operate and maintain your StorSimple solution.
+Learn how to [troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
