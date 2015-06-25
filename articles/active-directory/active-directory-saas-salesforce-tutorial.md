@@ -32,10 +32,15 @@ This tutorial will show you how to connect your Salesforce environment to your A
 
 ##Video Tutorials
 
-You can follow this tutorial using the following videos:
+You may follow this tutorial using the videos below:
 
--  [Integrating Salesforce with Azure AD: How to enable Single Sign-On (1/2)](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-enable-Single-Sign-On-12)
-- [Integrating Salesforce with Azure AD: How to automate User Provisioning (2/2)](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-automate-User-Provisioning-22) 
+###Part One: How to Enable Single Sign-On
+
+> [AZURE.VIDEO integrating-salesforce-with-azure-ad-how-to-enable-single-sign-on]
+
+###Part Two: How to Automate User Provisioning
+
+> [AZURE.VIDEO integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning]
 
 ##Step 1: Add Salesforce to your Directory
 
