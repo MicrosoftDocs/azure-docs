@@ -32,7 +32,7 @@ Article in the root folder links to an article in a service subdirectory:
 
 Article in a service subdirectory links to an article that is in another service subdirectory:
 
-    [link text](../service-folder/article-name.md)
+    [link text](../service-folder/article-name.md) 
  
 Article in a directory links to another article in the same directory:
 
