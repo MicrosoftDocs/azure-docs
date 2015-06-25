@@ -37,34 +37,34 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
 ## The samples ##
 
-**Location**: /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+**Location**: The samples are located on the HDInsight cluster at  **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**
 
 **Contents**: The following samples are contained in this archive:
 
-- aggregatewordcount: An Aggregate based map/reduce program that counts the words in the input files.
-- aggregatewordhist: An Aggregate based map/reduce program that computes the histogram of the words in the input files.
-- bbp: A map/reduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi.
-- dbcount: An example job that count the pageview counts from a database.
-- distbbp: A map/reduce program that uses a BBP-type formula to compute exact bits of Pi.
-- grep: A map/reduce program that counts the matches of a regex in the input.
-- join: A job that effects a join over sorted, equally partitioned datasets
-- multifilewc: A job that counts words from several files.
-- pentomino: A map/reduce tile laying program to find solutions to pentomino problems.
-- pi: A map/reduce program that estimates Pi using a quasi-Monte Carlo method.
-- randomtextwriter: A map/reduce program that writes 10GB of random textual data per node.
-- randomwriter: A map/reduce program that writes 10GB of random data per node.
-- secondarysort: An example defining a secondary sort to the reduce.
-- sort: A map/reduce program that sorts the data written by the random writer.
-- sudoku: A sudoku solver.
-- teragen: Generate data for the terasort
-- terasort: Run the terasort
-- teravalidate: Checking results of terasort
-- wordcount: A map/reduce program that counts the words in the input files.
-- wordmean: A map/reduce program that counts the average length of the words in the input files.
-- wordmedian: A map/reduce program that counts the median length of the words in the input files.
-- wordstandarddeviation: A map/reduce program that counts the standard deviation of the length of the words in the input files.
+- **aggregatewordcount**: An Aggregate based map/reduce program that counts the words in the input files
+- **aggregatewordhist**: An Aggregate based map/reduce program that computes the histogram of the words in the input files
+- **bbp**: A map/reduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi
+- **dbcount**: An example job that count the pageview counts from a database
+- **distbbp**: A map/reduce program that uses a BBP-type formula to compute exact bits of Pi
+- **grep**: A map/reduce program that counts the matches of a regex in the input
+- **join**: A job that effects a join over sorted, equally partitioned datasets
+- **multifilewc**: A job that counts words from several files
+- **pentomino**: A map/reduce tile laying program to find solutions to pentomino problems
+- **pi**: A map/reduce program that estimates Pi using a quasi-Monte Carlo method
+- **randomtextwriter**: A map/reduce program that writes 10GB of random textual data per node
+- **randomwriter**: A map/reduce program that writes 10GB of random data per node
+- **secondarysort**: An example defining a secondary sort to the reduce
+- **sort**: A map/reduce program that sorts the data written by the random writer
+- **sudoku**: A sudoku solver
+- **teragen**: Generate data for the terasort
+- **terasort**: Run the terasort
+- **teravalidate**: Checking results of terasort
+- **wordcount**: A map/reduce program that counts the words in the input files
+- **wordmean**: A map/reduce program that counts the average length of the words in the input files
+- **wordmedian**: A map/reduce program that counts the median length of the words in the input files
+- **wordstandarddeviation**: A map/reduce program that counts the standard deviation of the length of the words in the input files
 
-**Source code**: Source code for these samples is included on the HDInsight cluster at ``/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+**Source code**: Source code for these samples is included on the HDInsight cluster at **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
 > [AZURE.NOTE] The `2.2.4.9-1` in the path is the version of the Hortonworks Data Platform for the HDInsight cluster, and may change as HDInsight is updated.
 
@@ -94,11 +94,11 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
 
 4. Use the following to count all words in the Notebooks of Leonardo Da Vinci, which are provided as sample data with your cluster:
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+    	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    Input for this job is read from /example/data/gutenberg/davinci.txt.
+    Input for this job is read from **wasb:///example/data/gutenberg/davinci.txt**.
 
-    Output for this example will be stored in /example/data/davinciwordcount.
+    Output for this example will be stored in **wasb:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE] As noted in the help for the wordcount sample, you could also specify multiple input files. For example, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` would count words in both davinci.txt and ulysses.txt.
 
@@ -129,7 +129,7 @@ The Sudoku example has somewhat unhelpful usage instructions; "Include a puzzle 
 
 - Cells are separated by a space
 
-Now, there's a certain way to construct Sudoku puzzles in that you can't repeat a number in a column or row. Thankfully there's an example on the HDInsight cluster that is properly constructed. It is located at `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` and contains the following:
+Now, there's a certain way to construct Sudoku puzzles in that you can't repeat a number in a column or row. Thankfully there's an example on the HDInsight cluster that is properly constructed. It is located at **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** and contains the following:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -159,7 +159,7 @@ The results should appear similar to the following:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## Pi
+## Pi (π)
 
 The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
@@ -171,7 +171,7 @@ Use the following command to run this sample. This uses 16 maps with 10,000,000 
 
     hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 
-The value returned by this should be similar to `3.14159155000000000000`. For references, the first 10 decimal places of pi are 3.1415926535.
+The value returned by this should be similar to **3.14159155000000000000**. For references, the first 10 decimal places of pi are 3.1415926535.
 
 ##10GB Greysort
 
@@ -193,7 +193,7 @@ This sample uses three sets of MapReduce programs:
 
 Use the following steps to generate data, sort, and then validate the output:
 
-1. Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at `/example/data/10GB-sort-input`:
+1. Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at **wasb:///example/data/10GB-sort-input**:
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 

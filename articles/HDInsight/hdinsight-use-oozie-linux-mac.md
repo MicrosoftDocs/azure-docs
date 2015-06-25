@@ -36,7 +36,7 @@ Before you begin this tutorial, you must have the following:
 - **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
 - **An Azure SQL database**: This will be created using the steps in this document
--
+
 ##Example workflow
 
 The workflow you will implement by following the instructions in this document contains two actions. Actions are definitions for tasks, such as running Hive, Sqoop, MapReduce, or other process:
@@ -275,7 +275,7 @@ The job definition describes where to find the workflow.xml, as well as other fi
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Save the `wasb://mycontainer@mystorageaccount.blob.core.windows.net` value, as it will be used in the next steps.
+	Save the **wasb://mycontainer@mystorageaccount.blob.core.windows.net** value, as it will be used in the next steps.
 
 2. Use the following command to get the JobTracker address for the cluster. Actually this is the YARN ResourceManager address, but it serves the same purpose. This will be used in the configuration file in a moment:
 
@@ -286,7 +286,7 @@ The job definition describes where to find the workflow.xml, as well as other fi
 		<name>yarn.resourcemanager.address</name>
 		<value>headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050</value>
 
-	The `headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050` value is the address.
+	The **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050** value is the address.
 
 1. Use the following to create the Oozie job definition configuration:
 
@@ -384,7 +384,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 		<name>oozie.base.url</name>
 		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
 
-	The `http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie` portion is the URL to use with the Oozie command.
+	The **http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** portion is the URL to use with the Oozie command.
 
 2. Use the following to create an environment variable for the URL, so you don't have to type it for every command:
 
@@ -461,7 +461,7 @@ The Oozie REST API allow you to build your own tools that work with Oozie. The f
 
 		curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
 
-For more information on using the Oozie REST API, see [Oozie Web Services API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html
+For more information on using the Oozie REST API, see [Oozie Web Services API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 ##Oozie Web UI
 
@@ -475,7 +475,7 @@ To access the Oozie Web UI, use the following steps:
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
 
-2. Once a tunnel has been created, open the Ambari web UI in your web browser. The URI for the Ambari site is https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your Linux-based HDInsight cluster.
+2. Once a tunnel has been created, open the Ambari web UI in your web browser. The URI for the Ambari site is **https://CLUSTERNAME.azurehdinsight.net**. Replace **CLUSTERNAME** with the name of your Linux-based HDInsight cluster.
 
 3. From the left side of the page, select **Oozie**, then **Quick Links**, and finally **Oozie Web UI**.
 
@@ -602,10 +602,6 @@ To define a schedule for the workflow, use the following steps:
 
 	![Action info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
-##Managing Oozie jobs
-
-Oozie jobs can be managed by using the `oozie` command. You can suspend, resume, rerun, kill, etc. jobs submitted to oozie. For a list of all the commands available, see [Oozie Command Line Tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
-
 ##Troubleshooting
 
 When troubleshooting problems with Oozie jobs, the Oozie UI is very helpful as it allows you to easily view both Oozie logs, as well as links to JobTracker logs for MapReduce tasks such as Hive queries. In general, the pattern for troubleshooting should be:
@@ -687,9 +683,8 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
