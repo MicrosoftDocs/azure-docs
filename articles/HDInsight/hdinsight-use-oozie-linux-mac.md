@@ -19,6 +19,8 @@
 
 # Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight (Preview)
 
+[AZURE.INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
+
 Learn how to use Apache Oozie to define a workflow that uses Hive and Sqoop, and then run the workflow on a Linux-based HDInsight cluster.
 
 Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, like Java programs or shell scripts
