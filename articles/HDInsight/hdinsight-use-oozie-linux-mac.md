@@ -285,16 +285,15 @@ The job definition describes where to find the workflow.xml, as well as other fi
 
 	Save the **wasb://mycontainer@mystorageaccount.blob.core.windows.net** value, as it will be used in the next steps.
 
-2. Use the following command to get the JobTracker address for the cluster. Actually this is the YARN ResourceManager address, but it serves the same purpose. This will be used in the configuration file in a moment:
+2. Use the following command to get FQDN of the cluster headnode. This will be used for the JobTracker address for the cluster. This will be used in the configuration file in a moment:
 
-		sed -n '/<name>yarn.resourcemanager.address/,/<\/value>/p' /etc/hadoop/conf/yarn-site.xml
+		hostname -f
 
 	This will return information similar to the following:
 
-		<name>yarn.resourcemanager.address</name>
-		<value>headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050</value>
+		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
 
-	The **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050** value is the address.
+	The port used for the JobTracker is 8050, so the full address to use for the JobTracker will be **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**.
 
 1. Use the following to create the Oozie job definition configuration:
 
