@@ -33,7 +33,7 @@ With the release of the Azure Authenticator app, available for [Windows Phone](h
 
 First of all make sure, you have the QR code or code and URL for manual entry handy for the account you’d like to add to the app.
 
-> [AZURE.TIP] Not sure of how to get the QR code? Contact your administrator for assistance.
+> [AZURE.NOTE] Not sure of how to get the QR code? Contact your administrator for assistance.
 > 
 > Unable to activate your account with the new app? Contact your administrator.
 
