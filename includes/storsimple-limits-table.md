@@ -22,7 +22,7 @@
 | Maximum number of volumes | 255 | |
 | Maximum number of bandwidth templates | 25 | |
 | Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a volume | 64 TB | The recommended size for an NTFS volume is 64 TB. |
+| Maximum size of a volume | 64 TB | The maximum supported size for an NTFS volume is 64 TB. |
 | Maximum number of iSCSI connections | 512 | |
 | Maximum number of iSCSI connections from initiators | 512 | |
 | Maximum number of access control records per device | 64 | |
