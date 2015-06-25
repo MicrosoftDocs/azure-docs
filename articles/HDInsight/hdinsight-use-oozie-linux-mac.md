@@ -65,6 +65,12 @@ Oozie expects resources required for a job to be stored in the same directory. T
 
 > [AZURE.NOTE] The `-p` parameter caused all directories in the path to be created if they do not already exist. The **data** directory will be used to hold data used by the **useooziewf.hql** script.
 
+Also run the following command, which ensures that Oozie can impersonate your user account when running Hive and Sqoop jobs. Replace **USERNAME** with your login name:
+
+	sudo adduser USERNAME users
+
+If you receive an error that the user is already a member of users, you can just ignore it.
+
 ##Add a database driver
 
 Since this workflow uses Sqoop to export data to SQL Database, you must provide a copy of the JDBC driver used to talk to SQL Database. Use the following command to copy it to the working directory:
