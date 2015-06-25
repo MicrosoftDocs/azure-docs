@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mandia"/>
 
 
@@ -48,7 +48,7 @@ Azure WebJobs | Connects to WebJobs.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Using this connector, you can create, update, read, delete, and query different entities from Intuit QuickBooks like customers, items, invoices, and so on.
 [SFTP](app-service-logic-connector-sftp.md) (SSH File Transfer Protocol)| Connects to SFTP and can Upload File, Get File, Delete File, List Files, and use a trigger to retrieve files.
 [SMTP](app-service-logic-connector-smtp.md) (Simple Mail Transfer Protocol) | Connects to a SMTP server and can send email with attachments.
-[Slack](app-service-logic-connector-slack.md) | 
+[Slack](app-service-logic-connector-slack.md) | Connect to Slack and post messages to Slack channels.
 [Salesforce](app-service-logic-connector-salesforce.md) | The Salesforce connector manages different entities such as Accounts, Leads, Opportunities, Cases, and so on in your Salesforce account. You can also create, update, upsert, query, and delete various entities.
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | Connects to SugarCRM Online and can create, update, read, and delete different types of modules like accounts, contacts, products, and so on.
 [Twilio](app-service-logic-connector-twilio.md) | Connects to Twilio and can Send Messages, Get Messages, List Messages, List Usage, Get Available Toll Free Numbers, Get Available Mobile Numbers, Get Available Local Numbers, List Incoming Phone Numbers, Get Incoming Phone Number, and Add Incoming Phone Number.
@@ -61,7 +61,7 @@ The following table lists all the available Connectors and API Apps created by M
 
 Name  | Description
 ------------- | -------------
-AS2 Connector | The AS2 connector can receive and send messages using the AS2 transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet using digital certificates and encryption.
+[AS2 Connector](app-service-logic-connector-as2.md) | The AS2 connector can receive and send messages using the AS2 transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet using digital certificates and encryption.
 BizTalk EDIFACT | The EDIFACT API App receives and sends messages using the EDIFACT protocol in business-to-business communications.
 BizTalk X12 | The X12 API App receives and sends messages using the X12 protocol in business-to-business communications.
 BizTalk Trading Partner Management | The Trading Partner Management API App defines and persists business-to-business relationships using partners, agreements, and schemas and certificates used in agreements. These relationships are enforced using the AS2, EDIFACT, and X12 API Apps.
