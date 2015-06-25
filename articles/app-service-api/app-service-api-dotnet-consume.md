@@ -59,7 +59,7 @@ In this section you create a console application project and add code to it that
  
 2. In Visual Studio, create a console application project.
  
-### Add App Service SDK generated client code
+### <a id="addclient"></a>Add App Service SDK generated client code
 
 3. In **Solution Explorer**, right-click the project (not the solution) and select **Add > Azure API App Client**. 
 

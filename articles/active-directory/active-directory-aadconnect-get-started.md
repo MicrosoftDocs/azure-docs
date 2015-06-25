@@ -29,6 +29,7 @@
 
 The following documentation will help you get started with Azure Active Directory Connect.  This documentation deals with using the express installation for Azure AD Connect.  For information on a Custom installation see [Custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md).  For information on upgrading from DirSync to Azure AD Connect see [Upgrading DirSync to Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
+
 ## Download Azure AD Connect
 
 
@@ -96,5 +97,9 @@ After you have successfully installed Azure AD Connect you can verify that synch
 
 ## What to do next
 Now that you have Azure AD Connect installed you can use the link [here](active-directory-aadconnect-whats-next.md) to get going with post installation tasks such as  assigning your users Azure AD Premium or Enterprise Mobility licenses or configuring additional options.
+
+**Additional Resources**
+
+[Directory Integration Tools Comparison](active-directory-aadconnect-get-started-tools-comparison.md)
 
  
