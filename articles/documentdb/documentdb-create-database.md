@@ -22,9 +22,9 @@ To use Microsoft Azure DocumentDB, you must have DocumentDB account, a database,
 
 New to DocumentDB?  Watch [this](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four minute video to see how to complete the most common tasks in the portal.
 
-1.  In the [Azure Preview portal](https://portal.azure.com/), click **Browse**.
+1.  In the [Azure Preview portal](https://portal.azure.com/), click **Browse all**.
 
-2.  In the **Browse** blade, click **DocumentDB Accounts**.
+2.  In the **Browse all** blade, click **DocumentDB Accounts**.
 
 3.  In the **DocumentDB Accounts** blade, select the account in which to add a DocumentDB database. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
     

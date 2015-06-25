@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/25/2015" 
 	ms.author="josephd"/>
 
 # How to Reset a Password or the Remote Desktop Service for Windows Virtual Machines
 
 If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, use the Azure Preview Portal or the VMAccess extension to reset the local administrator password or reset the Remote Desktop service configuration.
+
+> [AZURE.NOTE] This article does not apply to Azure Resource Manager-based virtual machines.
 
 ## Azure Preview Portal
 
