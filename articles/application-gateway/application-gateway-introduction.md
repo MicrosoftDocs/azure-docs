@@ -20,7 +20,7 @@
 
 Microsoft Azure Application Gateway is an Azure-managed service similar to the Azure VPN Gateway. Application Gateway provides an Azure-managed HTTP load balancing solution based on IIS Application Request Routing (ARR). The application gateway service is highly available and metered. For the Service Level Agreement and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
-Application Gateway currently supports the following layer 7 application delivery functionalities:
+Application Gateway currently supports layer 7 application delivery for the following:
 
 - HTTP load balancing
 - Cookie based session affinity
