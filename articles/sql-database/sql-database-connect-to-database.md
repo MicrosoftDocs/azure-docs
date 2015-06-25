@@ -15,17 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh" />
 
-# How to connect to an Azure SQL database with SSMS
+# How to connect to an Azure SQL database with SQL Server Management Studio
 
-These are the steps to connect to a Microsoft Azure SQL Database using SQL Server Management Studio.
+These are the steps to connect to a Microsoft Azure SQL Database using SQL Server Management Studio (SSMS).
 
 ## Prerequisites
 * An Azure SQL Database provisioned and running. To create a new SQL Database, see [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
 * The administrator name and password for the SQL Database.
 * SQL Server Management Studio 2014. To get the tool, see [Download SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx).
+* Configure the firewall settings for the database. See [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
 ## To connect to an instance of SQL Database
 1. Log into the [Azure Management portal](https://portal.azure.com).

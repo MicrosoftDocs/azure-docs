@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
-# Installing the elastic database job components
+# Installing the Elastic Database job components
 
-The [elastic database pool (preview)](sql-database-elastic-pool-portal.md) provides a predictable model for deploying large numbers of databases. Once you have created an elastic database pool, you can use **elastic database jobs** to execute administrative tasks across each database in the elastic database pool. For example, you can deploy new schema such as setting an RLS policy on each database to restrict data only to the person with the right credentials to view sensitive data. Here's how to install **elastic database jobs**.
+The [Elastic Database pool (preview)](sql-database-elastic-pool-portal.md) provides a predictable model for deploying large numbers of databases. Once you have created an elastic database pool, you can use **Elastic Database jobs** to execute administrative tasks across each database in the elastic database pool. For example, you can deploy new schema such as setting an RLS policy on each database to restrict data only to the person with the right credentials to view sensitive data. Here's how to install **Elastic Database jobs**.
 
 **Estimated time to complete:** 10 minutes.
 
 ## Prerequisites
 * An Azure subscription. For a free trial, see [Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
-* An elastic database pool. See [Create an Azure SQL Database elastic pool (preview)](sql-database-elastic-pool-portal.md).
+* An elastic database pool. See [Create an Azure SQL Database elastic database pool (preview)](sql-database-elastic-pool-portal.md).
 
 ## Install the service components
 First go to the [Azure preview portal](https://ms.portal.azure.com/#).
