@@ -30,7 +30,7 @@ There are 3 key reasons to use BizTalk Business Rules in business process:
 - Allow Business Analysts to have more control over business logic management
 + Changes to business logic go to production faster
 
-#Rules Concepts
+##Rules Concepts
 
 ##Vocabulary
 
