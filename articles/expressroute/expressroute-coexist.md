@@ -129,7 +129,7 @@ There are two separate configuration procedures to choose from. The configuratio
 
 7. Create a local site VPN gateway entity. This command doesn’t configure your on-premises VPN gateway. Rather, it allows you to provide the local gateway settings, such as the public IP and the on-premises address space, so that the Azure VPN gateway can connect to it. 
 
-	>[AZURE.NOTE] The local site for the site-to-site VPN is not defined in the netcfg. Instead, you must use this cmdlet to specify the local site parameters. You cannot define it using the Management Portal or the netcf file.
+	>[AZURE.NOTE] The local site for the site-to-site VPN is not defined in the netcfg. Instead, you must use this cmdlet to specify the local site parameters. You cannot define it using the Management Portal or the netcfg file.
 
 	Use the following sample, replacing the values with your own:
 
