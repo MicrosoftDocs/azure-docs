@@ -25,7 +25,7 @@ For more information about creating templates, see [Authoring Azure Resource Man
 
 For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).
 
-For the complete template, see [Web App With SQL Database template](../../templates/201-web-app-sql-database/).
+For the complete template, see [Web App With SQL Database template](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/).
 
 ## What you will deploy
 
