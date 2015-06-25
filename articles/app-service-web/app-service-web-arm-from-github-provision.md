@@ -23,7 +23,7 @@ how to define parameters that are specified when the deployment is executed. You
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-For the complete template, see [Web App Linked to GitHub template](../../templates/201-web-app-github-deploy/).
+For the complete template, see [Web App Linked to GitHub template](https://azure.microsoft.com/documentation/templates/201-web-app-github-deploy/).
 
 ## What you will deploy
 
