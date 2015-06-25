@@ -293,7 +293,7 @@ Validate that the process server registered successfully in the vault > **Config
 
 Note that if you didn't disable signature verification for the Mobility service when you registered the process server you can do it later as follows:
 
-1. Log onto the process server as an administrator and open the file C:\pushinstallsvc\pushinstaller.conf for editing. Under the section **[PushInstaller.transport]** add this line: **SignatureVerificationChecks=”0”**. Save and close the file.
+1. Log onto the process server as an administrator and open the file C:\pushinstallsvc\pushinstaller.conf for editing. Under the section **[PushInstaller.transport]** add this line: **SignatureVerificationChecks=0**. Save and close the file.
 2. Restart the InMage PushInstall service.
 
 
