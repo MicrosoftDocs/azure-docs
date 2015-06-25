@@ -4,7 +4,8 @@
 	services="key-vault" 
 	documentationCenter="" 
 	authors="adamhurwitz" 
-	manager=""/>
+	manager=""
+	tags="azure-resource-manager"//>
 
 <tags 
 	ms.service="key-vault" 
@@ -12,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="06/24/2015" 
 	ms.author="adhurwit"/>
 
 # Use Azure Key Vault from a Web Application #
 
 ## Introduction  
-Use this tutorial to help you learn how to use Azure Key Vault—currently in preview—from a web application in Azure. It walks you through the process of accessing a secret from an Azure Key Vault so that it can be used in your web application.
+Use this tutorial to help you learn how to use Azure Key Vault from a web application in Azure. It walks you through the process of accessing a secret from an Azure Key Vault so that it can be used in your web application.
 
 **Estimated time to complete:** 15 minutes
 

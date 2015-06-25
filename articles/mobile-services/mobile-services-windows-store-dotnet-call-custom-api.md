@@ -30,7 +30,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api](mobile-services-windows-store-dotnet-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api](../../includes/mobile-services-windows-store-dotnet-call-custom-api.md)]
 
 
 ## Next steps

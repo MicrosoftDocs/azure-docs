@@ -30,7 +30,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="update-app"></a>Update the app to call the custom API
 
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api](mobile-services-windows-store-dotnet-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api](../../includes/mobile-services-windows-store-dotnet-call-custom-api.md)]
 
 
 ## Next steps

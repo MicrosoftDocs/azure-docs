@@ -39,7 +39,7 @@ You will add this functionality to the app that you created when you completed e
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
 
-[AZURE.INCLUDE [mobile-services-android-call-custom-api](mobile-services-android-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
 
 
 ## Next steps
