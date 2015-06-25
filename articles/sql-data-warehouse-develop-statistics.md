@@ -3,8 +3,8 @@
    description="Tips for managing statistics in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
