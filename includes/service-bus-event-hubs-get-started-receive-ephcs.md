@@ -8,17 +8,17 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
 2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
 
-  ![][11]
+    ![][11]
 
 3. Click the newly created storage account, and then click **Manage Access Keys**:
 
-  ![][12]
+    ![][12]
 
-	Copy the access key to use later in this tutorial.
+    Copy the access key to use later in this tutorial.
 
 4. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Receiver**.
 
-  ![][14]
+    ![][14]
 
 5. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages**.
 
@@ -26,7 +26,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
 6. Search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, click **Install**, and accept the terms of use.
 
-  ![][13]
+    ![][13]
 
 	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
 
