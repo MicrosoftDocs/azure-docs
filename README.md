@@ -50,11 +50,18 @@ The content in the azure-content repository follows the organization of document
 
 ### \articles
 
-The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. 
+
+Articles in the root directory are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
 * **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md).
 
-* **Media subfolders:** The *\articles* folder contains the *\media* folder, inside which are subfolders with the images for each article. The article image folders are named identically to the article file, minus the *.md* file extension.
+### \articles\service-folder
+
+Articles within their own service folder are published to Azure.Microsoft.com in the path
+* http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
+
+* **Media subfolders:** The *\articles* folder contains the *\media* folder for root directory article media files, inside which are subfolders with the images for each article.  The service folders contain a separate media folder for the articles within each service folder. The article image folders are named identically to the article file, minus the *.md* file extension.
 
 ### \includes
 
@@ -90,10 +97,7 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 
 - [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-
-
 If you are looking for a good markdown editor, try [Atom Editor](https://atom.io/).
-
 
 ## Article metadata
 
