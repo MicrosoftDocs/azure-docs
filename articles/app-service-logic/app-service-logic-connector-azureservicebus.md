@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/23/2015"
+   ms.date="06/24/2015"
    ms.author="adgoda"/>
 
 
@@ -87,7 +87,7 @@ More on logic apps at [What are Logic Apps?](app-service-logic-what-are-logic-ap
 
 Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](app-service-api-manage-in-portal.md).
+You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
 
 
 	<!--Image references-->
