@@ -77,5 +77,5 @@ At times, you may need to merge two templates together, or you may need to launc
 ## Next Steps
 - [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)
+- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)

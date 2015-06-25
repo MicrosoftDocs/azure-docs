@@ -1,4 +1,4 @@
-<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
+﻿<properties authors="KBDAzure" editor="tysonn" manager="timlt" /> 
 
 Virtual machines are always placed in a cloud service, which acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints to access the virtual machine over the Internet. The cloud service can optionally be in a virtual network. 
 
@@ -46,7 +46,7 @@ Here is an example using the Azure Management Portal for the existing cloud serv
 
 After you create a virtual machine, it's a good idea to add a data disk so your services and workloads have a location to store data. See one of the following:
 
-[How to Attach a Data Disk to a Linux Virtual Machine](../articles/virtual-machines-linux-how-to-attach-disk.md)
+[How to Attach a Data Disk to a Linux Virtual Machine](../articles/virtual-machines/virtual-machines-linux-how-to-attach-disk.md)
 
-[How to Attach a Data Disk to a Windows Virtual Machine](../articles/storage-windows-attach-disk.md)
+[How to Attach a Data Disk to a Windows Virtual Machine](../articles/virtual-machines/storage-windows-attach-disk.md)
 

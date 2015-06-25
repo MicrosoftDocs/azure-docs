@@ -20,7 +20,7 @@
 
 This topic describes how to use the Azure CLI in the **asm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
-> [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Command-Line Interface with the Resource Manager](virtual-machines/xplat-cli-azure-resource-manager.md).
 
 For installation instructions, see [Install and Configure the Azure Command-Line Interface](xplat-cli-install.md).
 
@@ -1453,7 +1453,7 @@ This commands removes all rows of data from the table.
 
 ###<a name="Mobile_Scripts"></a>Commands to manage scripts
 
-Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services-how-to-use-server-scripts.md).
+Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options] [servicename]**
 
@@ -1885,14 +1885,13 @@ This command supports the following additional options:
 + **-d** or **--description** &lt;description>:  The description storage account.
 + **-l** or **--location** &lt;name>: The geographic region in which to create the storage account.
 + **-a** or **--affinity-group** &lt;name>: The affinity group with which to associate the storage account.
-+ **--geoReplication**:  Indicates if geo-replication is enabled.
-+ **--disable-geoReplication**: Indicates if geo-replication is disabled.
++ **--type**:  Indicates the type of account to create: either Standard Storage with redundancy option (LRS/ZRS/GRS/RAGRS) or Premium Storage (PLRS).
 
 **storage account set [options] <name>**
 
 This command updates the specified storage account.
 
-	~$ azure storage account set mybasestorage --geoReplication
+	~$ azure storage account set mybasestorage --type GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1902,8 +1901,7 @@ This command supports the following additional options:
 + **-e** or **--label** &lt;label>: The label for the storage account.
 + **-d** or **--description** &lt;description>:  The description storage account.
 + **-l** or **--location** &lt;name>: The geographic region in which to create the storage account.
-+ **--geoReplication**:  Indicates if geo-replication is enabled.
-+ **--disable-geoReplication**: Indicates if geo-replication is disabled.
++ **--type**:  Indicates the new type of account: either Standard Storage with redundancy option (LRS/ZRS/GRS/RAGRS) or Premium Storage (PLRS).
 
 **storage account delete [options] <name>**
 
