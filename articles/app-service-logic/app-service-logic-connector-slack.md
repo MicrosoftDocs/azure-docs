@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
+	ms.date="06/24/2015"
 	ms.author="andalmia"/>
 
 # Using the Slack connector
@@ -95,4 +95,4 @@ Once your API app is created, you can now use the Slack connector as an action f
 
 <!-- Links -->
 [Create a new Logic App]: app-service-logic-create-a-logic-app.md
-[Slack API Definition]: http://msdn.microsoft.com/library/dn708020.aspx 
+[Slack API Definition]: https://msdn.microsoft.com/library/dn708020.aspx 
