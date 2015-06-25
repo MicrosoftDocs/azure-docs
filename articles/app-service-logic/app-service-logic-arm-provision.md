@@ -26,7 +26,7 @@ For examples of the definition itself, see [Author Logic App definitions](app-se
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-For the complete template, see [Logic App template](../../templates/101-logic-app-create/).
+For the complete template, see [Logic App template](https://azure.microsoft.com/documentation/templates/101-logic-app-create/).
 
 ## What you will deploy
 
