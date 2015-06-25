@@ -21,6 +21,8 @@
 
 #Run the Hadoop samples in HDInsight
 
+[AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
+
 Linux-based HDInsight clusters provide a set of MapReduce samples that can be used to familiarize yourself with running Hadoop MapReduce jobs. In this document, you will learn about the available samples and walk through running a few of them.
 
 ##Prerequisites
