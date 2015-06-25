@@ -44,7 +44,7 @@ You may follow this tutorial using the videos below.
 
 ##Step 1: Add Salesforce to your Directory
 
-1. In the (Azure Management Portal)[https://manage.windowsazure.com], on the left navigation pane, click **Active Directory**.
+1. In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
 
 	![Select Active Directory from the left navigation pane.][0]
 
