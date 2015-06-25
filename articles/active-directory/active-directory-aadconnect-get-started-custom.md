@@ -168,6 +168,12 @@ More information can be found [here](http://blogs.office.com/2014/09/25/deliveri
 ## Device writeback (preview)
 The device writeback feature will allow you take a device registered in the cloud, for example in Intune, and have it in AD DS for conditional access. To enable the feature, AD DS must be prepared. If you install AD FS and the device registration service (DRS), DRS provides PowerShell cmdlets to prepare AD for device writeback. If you do not have DRS installed, then you can run C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 as an enterprise admin.
 
+Before you can run the PowerShell cmdlet it must be imported first.
+
+	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+
+In order to do this you will need Active Directory and MSOnline PowerShell installed locally.
+
 
 
 ## Staging mode
