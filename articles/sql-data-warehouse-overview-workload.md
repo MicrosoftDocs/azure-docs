@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;micwa"/>
+   ms.author="barbkess;JRJ@BigBangData.co.uk"/>
 
 # Data warehouse workload
 A data warehouse workload refers to all of the operations that transpire against a data warehouse. The data warehouse workload encompasses the entire process of loading data into the warehouse, performing analysis and reporting on the data warehouse, managing data in the data warehouse, and exporting data from the data warehouse. The depth and breadth of these components are often commensurate with the maturity level of the data warehouse.
@@ -57,27 +57,15 @@ One way to make data available for reports and analysis is to send data from the
 - For generating reports, each night you could populate read-only reporting servers with a snapshot of the daily data. This gives higher bandwidth for customers while lowering the compute resource needs on the data warehouse. From a security aspect, data marts allow you to reduce the number of users who have access to the data warehouse.
 - For analytics, you can either build an analysis cube on the data warehouse and run analysis against the data warehouse, or pre-process data and export it to the analysis server for further analytics. 
 
+## Next steps
+To start developing your data warehouse, see [development overview][].
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
-<!--Link references--In actual articles, you only need a single period before the slash.>
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+<!--Article references-->
+[development overview]: sql-data-warehouse-overview-development.md
 
+<!--MSDN references-->
 
+<!--Other web references-->
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--Link references--In actual articles, you only need a single period before the slash.>
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/

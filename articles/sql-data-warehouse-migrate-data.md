@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/25/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrate Your Data
@@ -51,10 +51,12 @@ bcp is a command-line utility that is designed for flat file data import and exp
 > [AZURE.NOTE] It is often a good idea to encapsulate the transformations used during data export in a view on the source system. This ensures that the logic is retained and the process is repeatable.
 
 Advantages of bcp are:
-+ Simplicity. bcp commands are simple to build and execute
-+ Re-startable load process. Once exported the load can be executed any number of times
+
+- Simplicity. bcp commands are simple to build and execute
+- Re-startable load process. Once exported the load can be executed any number of times
 
 Limitations of bcp are:
+
 - bcp works with tabulated flat files only. It does not work with files such as xml or JSON
 - bcp does not support exporting to UTF-8. This may prevent using PolyBase on bcp exported data
 - Data transformation capabilities are limited to the export stage only and are simple in nature
@@ -94,7 +96,7 @@ You will have to define every column in the file as part of your external table 
 Please refer back to the [migrate your schema] article for detail on supported data types.
 
 ### Location of data files
-SQLDW uses PolyBase to load data from Azure Blob Storage exclusively. Consequently, the data must have been first transferred into blob storage.
+SQL Data Warehouse uses PolyBase to load data from Azure Blob Storage exclusively. Consequently, the data must have been first transferred into blob storage.
 
 ## Optimizing data transfer
 One of the slowest parts of data migration is the transfer of the data to Azure. Not only can network bandwidth be an issue but also network reliability can seriously hamper progress. By default migrating data to Azure is over the internet so the chances of transfer errors occurring are reasonably likely. However, these errors may require data to be re-sent either in whole or in part.
@@ -134,6 +136,7 @@ The [AZCopy][] utility is a great tool for getting your data transferred into Az
 To use AZCopy you will first need to download and install it. There is a [production version][] and a [preview version][] available.
 
 To upload a file from your file system you will need a command like the one below:
+
 ```
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
 ```
@@ -165,18 +168,20 @@ To learn more about loading data with PolyBase, see [Use PolyBase to load data i
 
 ## Next steps
 For more about migration, see [Migrate your solution to SQL Data Warehouse][].
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: ./storage-use-azcopy/
-[ADF Copy]: ./data-factory-copy-activity/
-[ADF Copy examples]: ./data-factory-copy-activity-examples/
-[Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate/
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
-[Use bcp to load data into SQL Data Warehouse]: ./sql-data-warehouse-load-with-bcp/
-[Use PolyBase to load data into SQL Data Warehouse]: ./sql-data-warehouse-load-with-polybase/
+[AZCopy]: storage/storage-use-azcopy.md
+[ADF Copy]: storage/data-factory-copy-activity.md
+[ADF Copy examples]: data-factory/data-factory-copy-activity-examples.md
+[development overview]: sql-data-warehouse-develop-overview.md
+[Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
+[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-polybase.md
+
 
 <!--MSDN references-->
 
@@ -185,7 +190,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [ExpressRoute documentation]: http://azure.microsoft.com/documentation/services/expressroute/
 
-[production version]: http://aka.ms/downloadazcopy
-[preview version]: http://aka.ms/downloadazcopypr
+[production version]: http://aka.ms/downloadazcopy/
+[preview version]: http://aka.ms/downloadazcopypr/
 [SSIS documentation]: https://msdn.microsoft.com/en-us/library/ms141026.aspx
 

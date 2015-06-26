@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2015"
+   ms.date="06/25/2015"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -40,19 +40,20 @@ Connectivity across geopolitical regions is not supported. You can work with you
 
 ## Exchange Provider (EXP) locations
 
-| **Service Provider**                                                                                                           | **Locations**                                                                                                                                        |
-|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **[Aryaka Networks]( http://www.aryaka.com/)**                                                                                                 | Silicon Valley, Singapore, Washington DC                                                                                                                              |
-| **[Colt Ethernet]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Amsterdam, London                                                                                                                                                    |
-| **Comcast**                                                                                                                    | Silicon Valley, Washington DC                                                                                                                                         |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)**                                     | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
-| **[InterCloud]( https://www.intercloud.com/)**                                                                                 | London, Singapore, Washington DC                                                                                                                                      |
-| **Interxion**                                                                                                                  | Amsterdam                                                                                                                                                             |
-| **[Level 3 Communications - Exchange]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)**              | Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC                                                                                                       |
-| **NEXTDC**                                                                                                                     | Melbourne, Sydney+                                                                                                                                                    |
-| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)**                 | Amsterdam, London                                                                                                                                                     |
-| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**      | Melbourne+, Sydney+                                                                                                                                                   |
-| **[Zayo Group]( http://www.zayo.com/)**                                                                                        | Washington DC                                                                                                                                                         |
+| **Service Provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
+|-----------------------|--------------------|----------------|---------------|
+| **[Aryaka Networks]( http://www.aryaka.com/)** | Supported | Not Supported | Silicon Valley, Singapore, Washington DC |
+| **[Colt Ethernet]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Supported | Not Supported | Amsterdam, London |
+| **Comcast** | Supported | Not Supported | Silicon Valley, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Coming Soon | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
+| **[InterCloud]( https://www.intercloud.com/)** | Supported | Not Supported | Amsterdam, London, Singapore, Washington DC |
+| **Internet Solutions - Cloud Connect** | Supported | Not Supported | Amsterdam, London |
+| **Interxion** | Supported | Not Supported | Amsterdam |
+| **[Level 3 Communications - Exchange]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Not Supported | Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
+| **NEXTDC** | Supported | Not Supported | Melbourne, Sydney+ |
+| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supported | Coming Soon | Amsterdam, London |
+| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Not Supported | Melbourne+, Sydney |
+| **[Zayo Group]( http://www.zayo.com/)** | Supported | Not Supported | Washington DC |
 
  **+** denotes coming soon
 
@@ -61,20 +62,19 @@ See [Configure your EXP connection](expressroute-configuring-exps.md) for steps 
 ## Network Service Provider (NSP) locations
 
 
-| **Service Provider**                                                                                                              | **Locations**                                                   |
-|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| **[AT&T]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)**                                            | Amsterdam+, London+, Dallas, Silicon Valley, Washington DC                          |
-| **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)**                 | Amsterdam, London, Silicon Valley+, Washington DC               |
-| **[Colt IPVPN]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**       | Amsterdam, London                                              |
-| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)**                        | Tokyo                                                           |
-| **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)**                    | Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
-| **[Orange]( http://www.orange-business.com/)**                                                                                    | Amsterdam, London, Silicon Valley, Washington DC                |
-| **PCCW Global Limited**                                                                                                           | Hong Kong                                                       |
-| **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Singapore                                                       |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)**                                        | Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore      |
-| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**         | Melbourne+, Sydney                                              |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |       London, Hong Kong, Silicon Valley, Washington DC          |
-
+| **Service Provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
+|-----------------------|--------------------|----------------|---------------|
+| **[AT&T]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Coming Soon | Amsterdam+, London+, Dallas, Silicon Valley, Washington DC |
+| **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Coming Soon | Amsterdam, London, Silicon Valley+, Washington DC |
+| **[Colt IPVPN]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Not Supported | Amsterdam, London |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** |  Supported | Not Supported | Tokyo |
+| **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Not Supported | Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
+| **[Orange]( http://www.orange-business.com/)** | Supported | Not Supported | Amsterdam, London, Silicon Valley, Washington DC |
+| **PCCW Global Limited** | Supported | Not Supported | Hong Kong |
+| **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supported | Coming Soon | Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore |
+| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Not Supported | Melbourne+, Sydney |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | London, Hong Kong, Silicon Valley, Washington DC |
 
  **+** denotes coming soon
 
@@ -96,38 +96,6 @@ If your connectivity provider is not in the list above sections, you can still c
 |**Connectivity Provider**|**Exchange Providers**|**Peering Locations**|
 |---|---|---|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
-
-
-## ExpressRoute and Microsoft cloud services
-The tables below provide details on connectivity providers and the list of Microsoft cloud services they support. Contact your service provider.
-
-### Exchange Providers (EXPs)
-
-|**Service Provider**|**Microsoft Azure Services**|**Office 365 Services**|
-|---|---|---|
-|**Aryaka**|Supported||
-|**Colt Ethernet**|Supported||
-|**Equinix**|Supported|Coming Soon|
-|**InterCloud**|Supported||
-|**Level 3 EVPL Service**|Supported||
-|**TeleCity Group**|Supported||
-|**Zayo Group**|Supported||
-
-### Network Service Providers (NSPs)
-
-|**Service Provider**|**Microsoft Azure Services**|**Office 365 Services**|
-|---|---|---|
-|**AT&T**|Supported|Coming Soon|
-|**British Telecom**|Supported|Coming Soon|
-|**Colt IPVPN**|Supported||
-|**Internet Initiative Japan Inc. - IIJ**|Supported||
-|**Level3 IPVPN**|Supported||
-|**Orange**|Supported|| 
-|**SingTel**|Supported||
-|**Tata Communications**|Supported||
-|**Telstra Corporation**|Supported||
-|**Verizon**|Supported|| 
-
 
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
