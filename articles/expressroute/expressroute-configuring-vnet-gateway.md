@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/21/2015"
+   ms.date="06/25/2015"
    ms.author="cherylmc"/>
 
 #  Configure a Virtual Network for ExpressRoute
@@ -39,6 +39,8 @@
 	- **Name** - The name you want to call your local (on-premises) network site.
 	- **Address space** - including Starting IP and CIDR (Address Count). You can specify any address range as long as it doesn't overlap with the address range for your virtual network.
 	- **Add address space** - This setting is not relevant for ExpressRoute.
+	- 
+**Note:** You are required to create a local network site for ExpressRoute. THe address prefixes specified for the local network site will be ignored. Adress prefixes advertised to Microsoft through the ExpressRoute circuit will be used for routing purposes.
 
 6. On the **Virtual Network Address Spaces** page, enter the following information and then click the checkmark on the lower right to configure your network. There are quite a few rules regarding virtual network address space, so you may want to see the 
 [Virtual Network Address Spaces page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) for more information.

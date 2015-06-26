@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/04/2015"
+   ms.date="06/26/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -141,8 +141,8 @@ Yes. You can advertise default routes (0.0.0.0/0) to block all internet connecti
 ### Can virtual networks linked to the same ExpressRoute circuit talk to each other?
 Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other.
 
-### Can I use site-to-site and point-to-site connectivity for virtual networks in conjunction with ExpressRoute?
-Yes. ExpressRoute can coexist with site-to-site and point-to-site VPNs.
+### Can I use site-to-site connectivity for virtual networks in conjunction with ExpressRoute?
+Yes. ExpressRoute can coexist with site-to-site VPNs.
 
 ### Can I move a virtual network from site-to-site / point-to-site configuration to use ExpressRoute?
 Yes. You will have to create an ExpressRoute gateway within your virtual network. There will be a small downtime associated with the process.

@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # Install your StorSimple 8100 device
@@ -46,7 +46,7 @@ Next, complete the following steps to unpack your device.
 
 2. Unpack the box. The following image shows the unpacked view of your Azure StorSimple device.
 
-    **Figure 1 Unpacked view of your storage device**
+    **Figure 1: Unpacked view of your storage device**
 
      ![Unpack your storage device](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png) 
 
@@ -115,7 +115,7 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
 2. Typically, the rails are installed at the factory. If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.<br/>
 
-    **Figure 2 Attaching rail slides to the sides of the enclosure**
+    **Figure 2: Attaching rail slides to the sides of the enclosure**
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
@@ -132,7 +132,7 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
 6. Repeat these steps for the other rail assembly.<br/>
 
-    **Figure 3 Attaching rail assemblies to the rack**
+    **Figure 3: Attaching rail assemblies to the rack**
 
      ![Attaching rail slides to rack cabinet](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
 
@@ -154,7 +154,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
 2. Carefully insert the device into the rails, and then push the device completely into the rack cabinet.<br/>
 
-    **Figure 4 Mounting the device in the rack**
+    **Figure 4: Mounting the device in the rack**
 
     ![Inserting device in the rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
@@ -162,7 +162,7 @@ Using the rack rails that were just installed, perform the following steps to mo
 
 4. Install the flange caps by pressing them into position and snapping them in place.<br/>
 
-    **Figure 5 Installing the flange caps**
+    **Figure 5: Installing the flange caps**
 
      ![Installing flange caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
@@ -216,7 +216,7 @@ Perform the following steps to cable your device for power.
     >[AZURE.NOTE] To ensure high availability of your system, you should strictly adhere to the power cabling scheme shown in the following diagram.
 
 
-    **Figure 6 Power cabling for your device**
+    **Figure 6: Power cabling for your device**
 
      ![Cable your 2U device for power](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
@@ -238,7 +238,7 @@ To support this redundant controller failover, you need to cable your device net
 
 1. Your device has six network interfaces on each controller: four 1 Gbps, and two 10 Gbps Ethernet ports. Identify the various data ports on the backplane of your device.
 
-    **Figure 7 Back of the device showing data ports**
+    **Figure 7: Back of the device showing data ports**
 
     ![Backplane of 8100 device](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
  
@@ -259,7 +259,7 @@ To support this redundant controller failover, you need to cable your device net
 
    At a minimum, configure one network interface for cloud access and one for iSCSI. For high availability and performance, configure two pairs of network interfaces on each controller. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. For high availability and performance, additional configuration required is shown by dotted lines.)
 
-   **Figure 8 Network cabling for your device**
+   **Figure 8: Network cabling for your device**
 
    ![Cable your 2U device for network](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
