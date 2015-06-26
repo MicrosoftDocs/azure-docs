@@ -1,10 +1,10 @@
 <properties
    pageTitle="Temporary tables in SQL Data Warehouse | Microsoft Azure"
    description="Tips for using temporary tables in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -130,17 +130,18 @@ In some cases inline and multi-statement functions can also be replaced using th
 SQL Data Warehouse does impose a couple of limitations when implementing temporary tables.
 
 The main limitations are:
+
 - Global Temporary Tables are not supported
 - Views cannot be created on temporary tables
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

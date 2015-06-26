@@ -1,10 +1,10 @@
 <properties
    pageTitle="Connect to SQL Data Warehouse | Microsoft Azure"
    description="Tips for connecting to SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Connect to SQL Data Warehouse 
@@ -40,9 +40,9 @@ It is important to note that users must authenticate using SQL authentication. T
 By default your connection will connect to the master database and not your user database. To connect to your user database you can choose to do one of two things:
 
 1. Specify the default database when registering your server with the SQL Server Object Explorer in SSDT or in your application connection string. For example by including the InitialCatalog parameter for an ODBC connection.
-2. First highlight the user database prior to creating a session in SSDT
+2. First highlight the user database prior to creating a session in SSDT.
 
-> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT please refer back to the [connect and query] getting started article. 
+> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT please refer back to the [connect and query][] getting started article. 
 
 It is again important to note that the Transact-SQL statement **USE <your DB>** is not supported for changing the database for a connection 
 
@@ -55,21 +55,29 @@ You can connect to SQL Data Warehouse using any of the following protocols:
 - JDBC
 
 ### Sample ADO.NET connection string
+
 ```
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
+
 ### Sample ODBC connection string
+
 ```
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
+
 ### Sample PHP connection string
+
 ```
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
+
 ### Sample JDBC connection string
+
 ```
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
+
 ## Connection settings
 SQL Data Warehouse standardizes a few settings during connection and object creation. These cannot be overridden.
 
@@ -143,10 +151,9 @@ Once connected you can begin designing your tables. Please refer to the [table d
 <!--Image references-->
 
 <!--Azure.com references-->
-[connect and query]: ./sql-data-warehouse-connect-query/
-[table design]: ./sql-data-warehouse-develop-table-design/
+[connect and query]: sql-data-warehouse-connect-query.md
+[table design]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 
 <!--Other references-->
-[Azure Portal]: http://portal.azure.com

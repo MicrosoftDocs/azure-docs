@@ -1,7 +1,7 @@
 <properties
    pageTitle="SQL Data Warehouse system views | Microsoft Azure"
    description="Links to system views content for SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
@@ -20,7 +20,7 @@
 
 ## SQL Data Warehouse catalog views
 
-- [sys.pdw_column_distribution_properties](https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204022.aspx)
+- [sys.pdw_column_distribution_properties](https://msdnstage.redmond.corp.microsoft.com/library/mt204022.aspx)
 - [sys.pdw_database_mappings](https://msdn.redmond.corp.microsoft.com/library/mt203891.aspx)
 - [sys.pdw_diag_event_properties](https://msdn.redmond.corp.microsoft.com/library/mt203921.aspx)
 - [sys.pdw_diag_events](https://msdn.redmond.corp.microsoft.com/library/mt203895.aspx)
@@ -216,7 +216,7 @@ This is why each of these DMV's has a specific column called pdw_node_id. This i
 - [sys.dm_exec_compute_node_status (Transact-SQL)](https://msdn.microsoft.com/library/mt146382.aspx)
 - sys.dm_exec_compute_nodes (Transact-SQL)
 - sys.dm_exec_distributed_request_steps (Transact-SQL)
-- [sys.dm_exec_distributed_requests (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt146385.aspx)
+- [sys.dm_exec_distributed_requests (Transact-SQL)](https://msdn.microsoft.com/library/mt146385.aspx)
 - [sys.dm_exec_distributed_sql_requests (Transact-SQL)](https://msdn.microsoft.com/library/mt146390.aspx) 
 - sys.dm_exec_dms_services (Transact-SQL)
 - sys.dm_exec_dms_workers (Transact-SQL)
@@ -263,7 +263,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]:  ./sql-data-warehouse-overview-reference/
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 

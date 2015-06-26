@@ -1,10 +1,10 @@
 <properties
    pageTitle="Loops in SQL Data Warehouse | Microsoft Azure"
    description="Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Loops in SQL Data Warehouse
-SQL Data Warehouse supports the [WHILE] loop for repeatedly executing statement blocks. This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the `BREAK` keyword. Loops are particularly useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety. Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.
+SQL Data Warehouse supports the [WHILE][] loop for repeatedly executing statement blocks. This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the `BREAK` keyword. Loops are particularly useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety. Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.
 
 ## Leveraging loops and replacing cursors in SQL Data Warehouse
 However, before diving in head first you should ask yourself the following question: "Could this cursor be re-written to use set based operations?". In many cases the answer will be yes. More often than not the best approach is to do just that. A set based operation will often perform significantly faster than an iterative row by row approach.
 
 Fast forward read only cursors can be easily replaced with a looping construct. Below is a simple example to convey the approach. The code example updates the statistics for every table in the database. By iterating over the tables in the loop we are able to execute each command in sequence.
 
-Firstly, create a temporary table containing a unique row number used to identify the individual statements:  
+Firstly, create a temporary table containing a unique row number used to identify the individual statements:
+  
 ```
 CREATE TABLE #tbl 
 WITH 
@@ -40,6 +41,7 @@ FROM    sys.tables
 ```
 
 Secondly, initialize the variables required to perform the loop:
+
 ```
 DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
 ,       @i INT = 1
@@ -67,17 +69,17 @@ DROP TABLE #tbl;
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [WHILE]: https://msdn.microsoft.com/library/ms178642.aspx
 
 
 <!--Other Web references-->
-[Azure Management Portal]: (http://portal.azure.com)
+
 

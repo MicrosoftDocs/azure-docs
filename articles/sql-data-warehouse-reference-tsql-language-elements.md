@@ -1,7 +1,7 @@
 <properties
    pageTitle="SQL Data Warehouse Transact-SQL language elements | Microsoft Azure"
    description="List of links to reference content for the Transact-SQL language elements used for SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
    manager="jhubbard"
@@ -286,6 +286,6 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-reference/
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->

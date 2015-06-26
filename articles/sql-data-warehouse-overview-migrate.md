@@ -1,7 +1,7 @@
 <properties
-   pageTitle="Migrating your solution to SQL Data Warehouse | Microsoft Azure"
-   description="Migration guidance for bringing your solution to the Azure SQL Data Warehouse platform."
-   services="SQL Data Warehouse"
+   pageTitle="Migrate your solution to SQL Data Warehouse | Microsoft Azure"
+   description="Migration guidance for bringing your solution to Azure SQL Data Warehouse platform."
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
@@ -16,7 +16,7 @@
    ms.date="06/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# Migrating your solution to SQL Data Warehouse
+# Migrate your solution to SQL Data Warehouse
 
 SQL Data Warehouse is a distributed database system that elastically scales to meet your needs. To maintain both performance and scale not all features within SQL Server are implemented inside SQL Data Warehouse. The following migration topics touch on some of the key factors for migrating your solution to SQL Data Warehouse. Designing data warehouses for scale introduces different design patterns and so traditional approaches aren't always the best. You will probably find that you will want to adapt your solution to ensure you take full advantage of the distributed platform provided by SQL Data Warehouse.
 
@@ -25,27 +25,27 @@ It is also important to remember that SQL Data Warehouse is a platform based in 
 ## Migration guidance
 Before embarking on your migration make sure you have read through these articles to ensure you understand some of the product differences and fundamental concepts.
 
-- [Migrate your schema]
-- [Migrate your data]
-- [Migrate your code]
+- [Migrate your schema][]
+- [Migrate your data][]
+- [Migrate your code][]
  
 ## Next steps
-For additional development tips, see [SQL Data Warehouse development overview][].
+For additional development tips, see the [development overview][].
 
-You can also view the [T-SQL reference][] for even more information.
+You can also view the [Transact-SQL reference][] for even more information.
 
-Finally, check out the [Loading overview][] that discusses various data loading options as well as providing step by step guidance.
+Finally, check out the [loading overview][] that discusses various data loading options as well as providing step by step guidance.
 
 <!--Image references-->
 
 <!--Article references-->
-[Migrate your schema]: ./sql-data-warehouse-migrate-schema/
-[Migrate your data]: ./sql-data-warehouse-migrate-data/
-[Migrate your code]: ./sql-data-warehouse-migrate-code/
+[Migrate your schema]: sql-data-warehouse-migrate-schema.md
+[Migrate your data]: sql-data-warehouse-migrate-data.md
+[Migrate your code]: sql-data-warehouse-migrate-code.md
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Loading overview]: ./sql-data-warehouse-overview-load/
-[T-SQL reference]: ./sql-data-warehouse-overview-migrate/
+[development overview]: sql-data-warehouse-overview-develop.md
+[loading overview]: sql-data-warehouse-overview-load.md
+[Transact-SQL reference]: sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
 

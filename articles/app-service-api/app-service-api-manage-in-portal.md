@@ -82,7 +82,7 @@ The gateway and gateway host blades share UI the same as the API app and API app
 
 You use the **Gateway Host** blade for all of the tasks that you would do for any web app. For more information, see [Manage web apps in the portal](web-sites-manage.md).  
 
-## How to navigate to API app and gateway blades 
+## <a id="navigate"></a>How to navigate to API app and gateway blades 
 
 One way to get to the **API App** blade is through the Azure portal's browse feature.  In the portal home page, click **Browse > API Apps** to see all the API apps that you can manage. 
 

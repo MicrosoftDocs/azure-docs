@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
-# How to uninstall the elastic database job components
+# How to uninstall the Elastic Database job components
 
-If a failure occurs when attempting to install the elastic database job service, delete the resource group for the service.
+If a failure occurs when attempting to install the Elastic Database job service, delete the resource group for the service.
 
 ## To uninstall the service components
 
@@ -50,9 +50,9 @@ Alternatively, use this PowerShell script:
 
 ## Next steps
 
-To reinstall the elastic database jobs, see [Installing the elastic database job service](sql-database-elastic-jobs-service-installation.md)
+To reinstall the Elastic Database jobs, see [Installing the Elastic Database job service](sql-database-elastic-jobs-service-installation.md)
 
-For an overview of the elastic job service, see [Elastic jobs overview](sql-database-elastic-jobs-overview.md).
+For an overview of the Elastic Database job service, see [Elastic jobs overview](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/

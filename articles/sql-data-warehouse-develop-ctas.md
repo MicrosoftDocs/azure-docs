@@ -1,10 +1,10 @@
 <properties
    pageTitle="Create table as select (CTAS) in SQL Data Warehouse | Microsoft Azure"
    description="Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# Create table as select (CTAS) in SQL Data Warehouse
+# Create Table As Select (CTAS) in SQL Data Warehouse
 Create table as select or CTAS is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a Select statement. You can consider it to be a supercharged version of SELECT..INTO if you would like.
 
 CTAS can also be used to work around a number of the unsupported features listed above. This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse. This is as a result of its fully parallelized design.
@@ -32,16 +32,19 @@ Scenarios that can be worked around with CTAS include:
 
 This document also includes some best practices for when coding with CTAS.
 
-## Select...into
+## SELECT..INTO
 You may find SELECT..INTO appears in a number of places in your solution. 
 
 An SELECT..INTO example is below:
+
 ```
 SELECT *
 INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
+
 To convert this to CTAS is quite straight-forward:
+
 ```
 CREATE TABLE #tmp_fct
 WITH
@@ -54,9 +57,10 @@ SELECT  *
 FROM    [dbo].[FactInternetSales]
 ;
 ```
+
 Using CTAS means you can also specify a data distribution preference and optional index the table as well.
 
-## Ansi join replacement for update statements
+## ANSI join replacement for update statements
 
 You may find you have a complex update that joins more than two tables together using ANSI joining syntax to perform the UPDATE or DELETE.
 
@@ -136,7 +140,7 @@ DROP TABLE CTAS_acs
 ;
 ```
 
-## Ansi join replacement for delete statements
+## ANSI join replacement for delete statements
 Sometimes the best approach for deleting data is to use CTAS. Rather than deleting the data simply select the data you want to keep. This especially true for DELETE statements that use ansi joining syntax as this is not supported on SQL Data Warehouse.
 
 An example of a converted DELETE statement is available below:
@@ -161,7 +165,7 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## Replace merge statements
-Merge statements can be replaced, at least in part, by using the CTAS Statement. You can consolidate the `INSERT` and the `UPDATE` into a single statement. Any deleted records would need to be closed off in a second statement.
+Merge statements can be replaced, at least in part, by using CTAS. You can consolidate the `INSERT` and the `UPDATE` into a single statement. Any deleted records would need to be closed off in a second statement.
 
 An example of an `UPSERT` is available below:
 
@@ -244,6 +248,7 @@ from ctas_r
 ```
 
 The value stored for result is different. As the persisted value in the result column is used in other expressions the error becomes even more significant.
+
 ![][1]
 
 This is particularly important for data migrations. Even though the second query is arguably more accurate there is a problem. The data would be different compared to the source system and that leads to questions of integrity in the migration. This is one of those rare cases where the "wrong" answer is actually the right one!
@@ -262,8 +267,7 @@ CREATE TABLE ctas_r
 WITH (DISTRIBUTION = ROUND_ROBIN)
 AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
-
-	```
+```
 
 Note the following:
 - CAST or CONVERT could have been used
@@ -271,7 +275,7 @@ Note the following:
 - ISNULL is the outermost function
 - The second part of the ISNULL is a constant i.e. 0
 
-> [AZURE.NOTE] For the nullability to be correctly set it is vital that ISNULL is used and not COALESCE. COALESCE is not a deterministic function and so the result of the expression will always be NULLable. ISNULL is different. It is deterministic. Therefore when the second part of the ISNULL function is a constant or a literal then the resulting value will be NOT NULL. 
+> [AZURE.NOTE] For the nullability to be correctly set it is vital to use ISNULL and not COALESCE. COALESCE is not a deterministic function and so the result of the expression will always be NULLable. ISNULL is different. It is deterministic. Therefore when the second part of the ISNULL function is a constant or a literal then the resulting value will be NOT NULL. 
 
 This tip is not just useful for ensuring the integrity of your calculations. It is also important for table partition switching. Imagine you have this table defined as your fact:
 
@@ -295,6 +299,7 @@ WITH
 ) 
 ;
 ```
+
 However, the value field is a calculated expression it is not part of the source data.
 
 To create your partitioned dataset you might want to do this:
@@ -320,6 +325,7 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
+
 The query would run perfectly fine. The problem comes when you try to perform the partition switch. The table definitions do not match. To make the table definitions match the CTAS needs to be modified.
 
 ```
@@ -340,8 +346,7 @@ SELECT
 ,   [price]   
 ,   ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
 FROM [stg].[source]
-OPTION (LABEL = 'CTAS : Partition IN table : Create')
-;
+OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
 You can see therefore that type consistency and maintaining nullability properties on a CTAS is a good engineering best practice. It helps to maintain integrity in your calculations and also ensures that partition switching is possible.
@@ -349,18 +354,15 @@ You can see therefore that type consistency and maintaining nullability properti
 Please refer to MSDN for more information on using [CTAS][]. It is one of the most important statements in Azure SQL Data Warehouse. Make sure you thoroughly understand it.
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-develop-ctas/ctas-results.png
+[1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CTAS]: https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204041.aspx
 
 <!--Other Web references-->
-
-
-

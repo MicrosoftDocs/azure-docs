@@ -254,7 +254,7 @@ Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, un
 
 - [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
 
-- [Add a new credit cared to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
+- [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
 
 - [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 

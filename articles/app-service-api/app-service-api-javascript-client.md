@@ -365,7 +365,8 @@ In this section you'll deploy the HTML/JavaScript client as an App Service Web A
 
 	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
 
-## Summary 
+## Next steps 
+
 This example demonstrated how you can use AngularJS as your JavaScript platform for accessing API App back ends. You can change the REST access functionality to use any other JavaScript framework. 
 
- 
+This example shows unauthenticated access to an API app. For information about authentication in App Service, see [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md).

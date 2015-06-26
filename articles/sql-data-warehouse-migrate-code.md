@@ -1,7 +1,7 @@
 <properties
    pageTitle="Migrate your SQL code to SQL Data Warehouse | Microsoft Azure"
    description="Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/25/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrate your SQL code to SQL Data Warehouse
@@ -26,30 +26,30 @@ The following list summarizes the main features that are not supported in Azure 
 
 - ANSI joins on updates
 - ANSI joins on deletes
-- Merge statement
-- Cross database joins
-- [Pivot and unpivot statements][]
-- [Cursors][]
+- merge statement
+- cross-database joins
+- [pivot and unpivot statements][]
+- [cursors][]
 - [SELECT..INTO][]
 - INSERT..EXEC
-- Output clause
-- Inline user-defined functions
-- Multi-statement functions
-- Recursive common table expressions (CTE)
-- Updates through CTEs
+- output clause
+- inline user-defined functions
+- multi-statement functions
+- recursive common table expressions (CTE)
+- updates through CTEs
 - CLR functions and procedures
 - $partition function
-- Table variables
-- Table value parameters
-- Distributed transactions
-- Commit / Rollback work
-- Save transaction
-- Execution contexts (EXECUTE AS)
-- [Group by clause with rollup / cube / grouping sets options][]
-- [Nesting levels beyond 8][]
-- [Updating through views][]
-- [Use of Select for variable assignment][]
-- [No MAX data type for dynamic SQL strings][]
+- table variables
+- table value parameters
+- distributed transactions
+- commit / rollback work
+- save transaction
+- execution contexts (EXECUTE AS)
+- [group by clause with rollup / cube / grouping sets options][]
+- [nesting levels beyond 8][]
+- [updating through views][]
+- [use of select for variable assignment][]
+- [no MAX data type for dynamic SQL strings][]
 
 Happily most of these limitations can be worked around. Explanations have been included in the relevant development articles referenced above.
 
@@ -66,6 +66,7 @@ There are also some system functions that are not supported. Some of the main on
 Again many of these issues can be worked around. 
 
 For example the code below is an alternative solution for retrieving @@ROWCOUNT information:
+
 ```
 SELECT  SUM(row_count) AS row_count 
 FROM    sys.dm_pdw_sql_requests 
@@ -80,22 +81,20 @@ AND     request_id IN
 ``` 
 
 ## Next steps
-For advice on developing your code please refer to the [SQL Data Warehouse development overview][].
+For advice on developing your code please refer to the [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Pivot and unpivot statements]: ./sql-data-warehouse-develop-pivot-unpivot/
-[Cursors]: ./sql-data-warehouse-develop-loops/
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas/
-[Group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options/
-[Nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions/
-[Updating through views]: ./sql-data-warehouse-develop-views/
-[Use of Select for variable assignment]: ./sql-data-warehouse-develop-variable-assignment/
-[No MAX data type for dynamic SQL strings]: ./sql-data-warehouse-develop-dynamic-sql/
-
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
-
+[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
+[cursors]: sql-data-warehouse-develop-loops.md
+[SELECT..INTO]: sql-data-warehouse-develop-ctas.md
+[group by clause with rollup / cube / grouping sets options]: sql-data-warehouse-develop-group-by-options.md
+[nesting levels beyond 8]: sql-data-warehouse-develop-transactions.md
+[updating through views]: sql-data-warehouse-develop-views.md
+[use of select for variable assignment]: sql-data-warehouse-develop-variable-assignment.md
+[no MAX data type for dynamic SQL strings]: sql-data-warehouse-develop-dynamic-sql.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Load data into SQL Data Warehouse | Microsoft Azure"
    description="Learn the common scenarios for data loading in SQL Data Warehouse"
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
@@ -18,8 +18,9 @@
 
 # Load data into SQL Data Warehouse
 SQL Data Warehouse presents numerous options for loading data for a variety of scenarios. For example, you might want to load:
-- large batches once a day
-- smaller batches throughout the day
+
+- large batches once a day,
+- smaller batches throughout the day, or
 - simple updates to smaller (dimension) tables
 
 The needs of each scenario are as varied as the types of data that you want to load in SQL Data Warehouse. In this article, we will list out some of the choices you have for loading data. 
@@ -49,15 +50,15 @@ PolyBase is a Microsoft technology that simplifies data analysis by providing a 
 SQL Data Warehouse supports leading industry solutions for data loading. For more details, see our list of [solution partners][].
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see the [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp/
-[Load with PolyBase]: ./sql-data-warehouse-load-with-polybase/
-[solution partners]: ./sql-data-warehouse-solution-partners/
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
+[Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
+[solution partners]: sql-data-warehouse-solution-partners.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx

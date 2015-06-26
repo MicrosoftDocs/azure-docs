@@ -1,10 +1,10 @@
 <properties
    pageTitle="Assign variables in SQL Data Warehouse | Microsoft Azure"
    description="Tips for assigning Transact-SQL variables in Azure SQL Data Warehouse for developing solutions."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Assign variables in SQL Data Warehouse
@@ -23,13 +23,15 @@ All of the following are perfectly valid ways to set a variable value:
 
 ## Setting variables with DECLARE
 
-Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL Data Warehouse
+Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL Data Warehouse.
+
 ```
 DECLARE @v  int = 0
 ;
 ```
 
 You can also use DECLARE to set more than one variable at a time. You cannot use `SELECT` or `UPDATE` to do this:
+
 ```
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
 ,       @v1 INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Jones')
@@ -48,6 +50,7 @@ DECLARE @p1 int = 0
 Set is a very common method for setting a single variable.
 
 All of the examples below are valid ways of setting a variable with SET:
+
 ```
 SET     @v = (Select max(database_id) from sys.databases);
 SET     @v = 1;
@@ -62,12 +65,12 @@ You cannot use SELECT or UPDATE for variable assignment.
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

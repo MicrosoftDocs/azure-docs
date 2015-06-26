@@ -1,7 +1,7 @@
 <properties
    pageTitle="SQL Data Warehouse solution partners | Microsoft Azure"
    description="Lists of third-party partners with solutions that work with SQL Data Warehouse."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="joliang"
    manager="barbkess"
@@ -76,7 +76,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 
 
 <!--Link references--In actual articles, you only need a single period before the slash. -->
-[attunity_more]: http://www.attunity.com/
+[attunity_more]: http://www.attunity.com/azure/
 [birst_more]:https://www.birst.com/
 [bryte_systems_more]:http://www.bryte.com.au/
 [clearstory_data_more]:http://www.clearstorydata.com/
@@ -90,7 +90,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [logianalytics_more]:http://www.logianalytics.com/
 [looker_more]:http://www.looker.com/partners/microsoft-azure/
 [qlik_more]:http://www.qlik.com/
-[redpoint_global_more]:http://www.redpoint.com/
+[redpoint_global_more]:http://www.redpoint.net/
 [sisense_more]:http://www.sisense.com/
 [snaplogic_more]:http://www.snaplogic.com/
 [sql_sentry_more]:www.sqlsentry.com/solutions/business-analytics/

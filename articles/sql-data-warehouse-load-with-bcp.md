@@ -1,7 +1,7 @@
 <properties
    pageTitle="Use bcp to load data into SQL Data Warehouse | Microsoft Azure"
    description="Learn what bcp is and how to use it for data warehousing scenarios."
-   services="SQL Data Warehouse"
+   services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
@@ -111,7 +111,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-## Export data into SQL Data Warehouse
+## Export data from SQL Data Warehouse
 In this tutorial, you will create a data file from a table in SQL Data Warehouse. We will export the data we created above to a new data file called DimDate2_export.txt. 
 
 ### Step 1: Export the data
