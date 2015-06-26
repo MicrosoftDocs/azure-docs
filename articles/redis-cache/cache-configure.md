@@ -120,16 +120,16 @@ New Azure Redis Cache instances are configured with the following default Redis 
 |lua-event-limit|500|This is the max size of script event queue.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
-Additionally, the following commands are disabled on the Redis instance hosted on Azure Redis Cache.
-
--	BGREWRITEAOF
--	BGSAVE
--	CONFIG
--	DEBUG
--	MIGRATE
--	SAVE
--	SHUTDOWN
--	SLAVEOF
+>[AZURE.IMPORTANT] The following commands are disabled on the Redis instance hosted on Azure Redis Cache.
+>
+>-	BGREWRITEAOF
+>-	BGSAVE
+>-	CONFIG
+>-	DEBUG
+>-	MIGRATE
+>-	SAVE
+>-	SHUTDOWN
+>-	SLAVEOF
 
 For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 
