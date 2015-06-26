@@ -396,7 +396,12 @@ Additional notes:
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	For the values to use for other providers, see the login URL instructions in [Protect an API app](app-service-api-dotnet-add-authentication.md#loginurl).
+	Here are the values to use for the other providers:
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * The second parameter for the `GetConsentLinkAsync()` method is the callback URL that the consent server redirects to after the user logs in to Dropbox and gives consent to access the user's account. 
 
