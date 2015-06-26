@@ -184,11 +184,11 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 4. Add id_rsa.pub, or the public key of your choice, to GitHub. You can do this by using the Add SSH key button in your SSH keys configuration screen:
 
   ![Github key](media/virtual-machines-deis-cluster/github-key.png)
-
+<p />
 5. Register a new user:
 
         deis register http://deis.[your domain]
-        
+
 6. Add the SSH key:
 
         deis keys:add [path to your SSH public key]
@@ -200,7 +200,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
         deis create
         git push deis master
 
-8. The git push will trigger Docker images to be built and deployed, which will take a few minutes. From my experience, occasionally, Step 10 (Pushing image to private repository) may hang. When this happens, you can stop the process, remove the application using deis apps:destroy –a [application name] to remove the application and try again. You can use deis apps:list to find out the name of your application. If everything works out, you should see something like the following at the end of command outputs:
+8. The git push will trigger Docker images to be built and deployed, which will take a few minutes. From my experience, occasionally, Step 10 (Pushing image to private repository) may hang. When this happens, you can stop the process, remove the application using `deis apps:destroy –a <application name>` to remove the application and try again. You can use `deis apps:list` to find out the name of your application. If everything works out, you should see something like the following at the end of command outputs:
 
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
