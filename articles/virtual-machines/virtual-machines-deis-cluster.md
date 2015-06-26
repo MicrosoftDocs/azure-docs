@@ -78,9 +78,12 @@ Each CoreOS cluster needs to have a unique token from this free service. Please 
 9. Modify the **publicDomainName** parameter. This will become part of the DNS name associated with the load balancer public IP. The final FQDN will have the format of _[value of this parameter]_._[region]_.cloudapp.azure.com. For example, if you specify the name as deishbai32, and the resource group is deployed to the West US region, then the final FQDN to your load balancer will be deishbai32.westus.cloudapp.azure.com.
 
 10. Save the parameter file. And then you can provision the cluster using Azure PowerShell:
+
         .\deploy-deis.ps1 -ResourceGroupName [resource group name] -ResourceGroupLocation "West US" -TemplateFile
         .\azuredeploy.json -ParametersFile .\azuredeploy-parameters.json -CloudInitFile .\cloud-config.yaml
+
   or Azure CLI:
+
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
@@ -122,7 +125,7 @@ Now you can use deisctl to install and start the Deis platform:
     deisctl install platform
     deisctl start platform
 
-> [Azure.NOTE] Starting the platform takes a while (as much as 10 minutes). Especially, starting the builder service can take a long time. And sometimes it takes a few tries to succeed: If the operation seems to hang, try typing `ctrl+c` to break execution of the command and retry.
+> [AZURE.NOTE] Starting the platform takes a while (as much as 10 minutes). Especially, starting the builder service can take a long time. And sometimes it takes a few tries to succeed: If the operation seems to hang, try typing `ctrl+c` to break execution of the command and retry.
 
 You can use `deisctl list` to verify if all services are running:
 
@@ -164,15 +167,15 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 
 1. For the routing mesh to work properly, you’ll need to have a wildcard A record for your domain pointing to the public IP of the load balancer. The following screenshot shows the A record for a sample domain registration on GoDaddy:
 
-  ![Godaddy A record](media/virtual-machines-deis-cluster/go-daddy.png)
-
+    ![Godaddy A record](media/virtual-machines-deis-cluster/go-daddy.png)
+<p />
 2. Install deis:
 
         mkdir deis
         cd deis
         curl -sSL http://deis.io/deis-cli/install.sh | sh
         ln -fs $PWD/deis /usr/local/bin/deis
-
+        
 3. Create a new SSH key, and then add the public key to GitHub (of course, you can also reuse your existing keys). To create a new SSH key pair, use:
 
         cd ~/.ssh
@@ -181,23 +184,23 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 4. Add id_rsa.pub, or the public key of your choice, to GitHub. You can do this by using the Add SSH key button in your SSH keys configuration screen:
 
   ![Github key](media/virtual-machines-deis-cluster/github-key.png)
-
+<p />
 5. Register a new user:
 
         deis register http://deis.[your domain]
-
+<p />
 6. Add the SSH key:
 
         deis keys:add [path to your SSH public key]
-
+  <p />      
 7. Create an application.
 
         git clone https://github.com/deis/helloworld.git
         cd helloworld
         deis create
         git push deis master
-
-8. The git push will trigger Docker images to be built and deployed, which will take a few minutes. From my experience, occasionally, Step 10 (Pushing image to private repository) may hang. When this happens, you can stop the process, remove the application using deis apps:destroy –a [application name] to remove the application and try again. You can use deis apps:list to find out the name of your application. If everything works out, you should see something like the following at the end of command outputs:
+<p />
+8. The git push will trigger Docker images to be built and deployed, which will take a few minutes. From my experience, occasionally, Step 10 (Pushing image to private repository) may hang. When this happens, you can stop the process, remove the application using `deis apps:destroy –a <application name>` to remove the application and try again. You can use `deis apps:list` to find out the name of your application. If everything works out, you should see something like the following at the end of command outputs:
 
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
@@ -205,21 +208,20 @@ The following steps show how to deploy a "Hello World" Go application to the clu
                To learn more, use `deis help` or visit http://deis.io
         To ssh://git@deis.artitrack.com:2222/lambda-underdog.git
          * [new branch]      master -> master
-
+<p />
 9. Verify if the application is working:
 
         curl -S http://[your application name].[your domain]
-
   You should see:
 
         Welcome to Deis!
         See the documentation at http://docs.deis.io/ for more information.
         (you can use geis apps:list to get the name of your application).
-
+<p />
 10. Scale the application to 3 instances:
 
         deis scale cmd=3
-
+<p />
 11. Optionally, you can use deis info to examine details of your application. The following outputs are from my application deployment:
 
         deis info
