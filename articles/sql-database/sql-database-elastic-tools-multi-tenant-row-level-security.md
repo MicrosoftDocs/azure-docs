@@ -68,26 +68,38 @@ For applications using Entity Framework, the easiest approach is to set CONTEXT_
 // if migrations need to be done and SQL credentials are used. This is the reason for the  
 // separation of c'tors into the DDR case (this c'tor) and the internal c'tor for new shards. 
 public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
-	: base(CreateDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */) 
+    : base(OpenDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */)
 {
-} 
+}
 
-// Only static methods are allowed in calls into base class c'tors  
-private static DbConnection CreateDDRConnection(ShardMap shardMap, T shardingKey, string connectionStr)  
-{  
-	// No initialization  
-	Database.SetInitializer<ElasticScaleContext<T>>(null);    
-	
-	// Ask shard map to broker a validated connection for the given key    
-	SqlConnection conn = shardMap.OpenConnectionForKey<T>(shardingKey, connectionStr, ConnectionOptions.Validate);
-	
-	// Set CONTEXT_INFO to shardingKey to enable RLS filtering   
-	SqlCommand cmd = conn.CreateCommand();   
-	cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";   
-	cmd.Parameters.AddWithValue("@shardingKey", shardingKey);   
-	cmd.ExecuteNonQuery();  
-	
-	return conn;  
+public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, string connectionStr)
+{
+    // No initialization
+    Database.SetInitializer<ElasticScaleContext<T>>(null);
+
+    // Ask shard map to broker a validated connection for the given key
+    SqlConnection conn = null;
+    try
+    {
+        conn = shardMap.OpenConnectionForKey(shardingKey, connectionStr, ConnectionOptions.Validate);
+
+        // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
+        SqlCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
+        cmd.Parameters.AddWithValue("@shardingKey", shardingKey);
+        cmd.ExecuteNonQuery();
+
+        return conn;
+    }
+    catch (Exception)
+    {
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
+
+        throw;
+    }
 } 
 // ... 
 ```
@@ -126,16 +138,29 @@ For applications using ADO.NET SqlClient, the recommended approach is to create 
 // method to ensure that CONTEXT_INFO is always set before executing a query.
 public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenantId, string connectionStr)
 {
-    // Ask shard map to broker a validated connection for the given key
-    SqlConnection conn = shardMap.OpenConnectionForKey(tenantId, connectionStr, ConnectionOptions.Validate);
+    SqlConnection conn = null;
+    try
+    {
+        // Ask shard map to broker a validated connection for the given key
+        conn = shardMap.OpenConnectionForKey(tenantId, connectionStr, ConnectionOptions.Validate);
 
-    // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
-    SqlCommand cmd = conn.CreateCommand();
-    cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
-    cmd.Parameters.AddWithValue("@shardingKey", tenantId);
-    cmd.ExecuteNonQuery();
+        // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
+        SqlCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
+        cmd.Parameters.AddWithValue("@shardingKey", tenantId);
+        cmd.ExecuteNonQuery();
 
-    return conn;
+        return conn;
+    }
+    catch (Exception)
+    {
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
+
+        throw;
+    }
 }
 
 // ...
