@@ -24,7 +24,7 @@ This article walks you through the steps to create and configure, start, and del
 
 1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
 2. Verify that you have a working virtual network with valid subnet.
-3. Verify that you have backend servers either in the virtual network, or with a Public-IP/VIP assigned.
+3. Verify that you have backend servers either in the virtual network, or with a public IP/VIP assigned.
 
 
 To create a new application gateway, perform the following steps in the order listed. 
@@ -72,15 +72,15 @@ In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional pa
 
 ## Configure the application gateway
 
-An application gateway configuration consists of multiple values, which can be tied together to construct the configuration.
+An application gateway configuration consists of multiple values which can be tied together to construct the configuration.
 
 The values are:
 
 - **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the VNet subnet, or should be a public IP/VIP. 
 - **Backend server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-- **Frontend Port:** This port is the public port opened on the application gateway. Customer traffic hits this port, and then gets redirected to one of the backend servers.
+- **Frontend Port:** This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the backend servers.
 - **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
-- **Rule:** The rule binds the listener and the backend server pool and defines which backend server pool traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
+- **Rule:** The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 You can construct your configuration either by creating a configuration object, or by using a configuration XML file. 
 To construct your configuration by using a configuration XML file, use the sample below.
@@ -145,10 +145,10 @@ Next, you'll set the application gateway. You can use the `Set-AzureApplicationG
 
 ## Start the application gateway
 
-Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. This is the cmdlet that provisions the gateway. Once the cmdlet is run successfully and the gateway is provisioned, billing will also begin. 
+Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
 
 
-**Note:** The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to complete. Billing for an application gateway begins after the gateway has been successfully started.
+**Note:** The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
 
 
 
