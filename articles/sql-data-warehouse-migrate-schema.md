@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/25/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrate your schema to SQL Data Warehouse#
@@ -39,6 +39,7 @@ SQL Data Warehouse does not use or support these features:
 
 ### Data type differences
 SQL Data Warehouse supports the common business data types:
+
 - bigint
 - binary
 - bit
@@ -126,17 +127,18 @@ Partial support:
 
 ## Next steps
 Once you have successfully migrated your database schema to SQLDW you can proceed to one of the following articles:
+
 - [Migrate your data][]
 - [Migrate your code][]
 
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see the [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Migrate your code]: ./sql-data-warehouse-migrate-code/
-[Migrate your data]: ./sql-data-warehouse-migrate-data/
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[Migrate your code]: sql-data-warehouse-migrate-code.md
+[Migrate your data]: sql-data-warehouse-migrate-data.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

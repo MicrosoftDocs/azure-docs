@@ -167,15 +167,15 @@ Install the Provider and agent. If you're installing on a Hyper-V cluster, perfo
 
 Note that if you want to install the Provider on Server Core for Windows Server 2012 R2 or standalone Hyper-V Server 2012 R2, do the following:
 
-1. Download the Provider installation file and the registration key.
+1. Download the Provider installation file and the registration key to a folder say C:\ASR .
 2. Extract the Provider installer by typing:
 
-	    C:\Windows\System32> CD C:\Program Files\Azure Site Recovery Provider
-	    C:\Program Files\Azure Site Recovery Provider>AzureSiteRecoveryProvider.exe /x:. /q
+	    C:\Windows\System32> CD C:\ASR
+	    C:\ASR>AzureSiteRecoveryProvider.exe /x:. /q
 
 3. Install the Provider by typing:
 
-	    C:\Program Files\Azure Site Recovery Provider> setupdr.exe /i
+	    C:\ASR> setupdr.exe /i
 
 4. Register the server by typing:
 
@@ -189,12 +189,14 @@ Note that if you want to install the Provider on Server Core for Windows Server 
 		- /proxyUsername <username>: Credentials if proxy requires authentication.
 		- proxyPassword <password>
 
+>[AZURE.NOTE]You can configure each of the individual Hyper-V host to use different network bandwidth settings to replicate virtual machines to Azure. Learn more about [How to Manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/en-us/kb/3056159)  
+
+
 ## Step 4: Create Azure resources
 
 1. In **Prepare resources** select **Create Storage Account**  to create an Azure storage account if you don't have one. The account should have geo-replication enabled. It should be in the same region as the Azure Site Recovery vault, and be associated with the same subscription.
 
 	![Create storage account](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
-
 
 ## Step 5: Create and configure protection groups
 
@@ -215,6 +217,7 @@ Protection groups are logical groupings of virtual machines that you want to pro
 
 
 ## Step 6: Enable virtual machine protection
+
 
 Add virtual machines to a protection group to enable protection for them. 
 
@@ -253,7 +256,7 @@ Add virtual machines to a protection group to enable protection for them.
 		- **Target IP address**: If the network adapter of source virtual machine is configured to use static a IP address then you can specify the IP address for the ttarget virtual machine to ensure that the machine has the same IP address after failover.  If you don't specify an IP address then any available address will be assigned at the time of failover. If you specify an address that's in use then failover wll fail.
 		 
 		![Configure virtual machine properties](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
-	
+
 ## Step 7: Create a recovery plan
 
 In order to test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines. To create a recovery plan [follow these instructions](site-recovery-create-recovery-plans.md)

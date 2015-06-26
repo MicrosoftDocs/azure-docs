@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/25/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Logic App using a template
@@ -26,7 +26,7 @@ For examples of the definition itself, see [Author Logic App definitions](app-se
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-For the complete template, see [Logic App template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/LogicApp.json).
+For the complete template, see [Logic App template](https://azure.microsoft.com/documentation/templates/101-logic-app-create/).
 
 ## What you will deploy
 

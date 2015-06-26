@@ -40,7 +40,7 @@ In this case the user will be prompted for a password. After entering the passwo
 You can also enable passwordless sudo by editing the `/etc/sudoers.d/waagent` file, for example:
 
 	#/etc/sudoers.d/waagent
-	azureuser (ALL) = (ALL) NOPASSWD: ALL
+	azureuser ALL = (ALL) NOPASSWD: ALL
 
 This change will allow for passwordless sudo by the azureuser user.
 

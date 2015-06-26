@@ -21,7 +21,7 @@
 In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Redis Cache. You will learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
 For the complete template, see [Redis Cache template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/RedisCache.json).
 
@@ -37,7 +37,7 @@ environment you are deploying to. Do not define parameters for values that will 
 
 We will describe each parameter in the template.
 
-[AZURE.INCLUDE [app-service-web-deploy-redis-parameters](../includes/cache-deploy-parameters.md)]
+[AZURE.INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 
 ### redisCacheLocation
 
@@ -75,7 +75,7 @@ Creates the Azure Redis Cache.
 
 ## Commands to run deployment
 
-[AZURE.INCLUDE [app-service-deploy-commands](../includes/app-service-deploy-commands.md)] 
+[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)] 
 
 ### PowerShell
 

@@ -3,8 +3,8 @@
    description="Tips for using Transact-SQL views in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -66,7 +66,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
