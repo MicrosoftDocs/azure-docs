@@ -219,7 +219,7 @@ Note that the same credentials are used to connect to the shard map database and
 
 **Example**:
 
-    sp_execute_fanout ’myserver.database.windows.net', N'ShardMapDb', N'myuser', N'MyPwd', N'ShardMap', N'select count(w_id) as foo from warehouse'
+    sp_execute_fanout 'myserver.database.windows.net', N'ShardMapDb', N'myuser', N'MyPwd', N'ShardMap', N'select count(w_id) as foo from warehouse'
 
 ## Connectivity for tools
 You can use familiar SQL DB connection strings to your elastic query database to connect your BI and data integration tools. Make sure that SQL Server is supported as a data source for your tool. Then use external objects in the elastic query database just like with any other SQL Server database that you would connect to with your tool.
