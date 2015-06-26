@@ -35,7 +35,7 @@ So the first thing you are going to need to do is complete the enrollment proces
 Now that you have decided on your verification method, it's time to enroll.  Use the [Setup Experience](multi-factor-authentication-end-user-first-time.md) link to get started with a walk through on the enrollment process.
 
 
-## How to get going and use multi-factor authentication
+## How to get going with multi-factor authentication
 
 Select one of the topics below to get started.
 
