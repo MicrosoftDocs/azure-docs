@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="06/23/2015"
+	ms.date="06/26/2015"
 	ms.author="jeffstok"/>
 
 # Comparison of Apache Storm and Azure Stream Analytics #
