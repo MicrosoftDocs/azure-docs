@@ -71,7 +71,7 @@ Each CoreOS cluster needs to have a unique token from this free service. Please 
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
 
-7. Modify the **azuredeploy-parameters.json** file: Open the certificate you created in step 4 in a text editor. Copy all text between  ----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- into the **sshKeyData** parameter (you'll need to remove all newline characters).
+7. Modify the **azuredeploy-parameters.json** file: Open the certificate you created in step 4 in a text editor. Copy all text between `----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` into the **sshKeyData** parameter (you'll need to remove all newline characters).
 
 8. Modify the **newStorageAccountName** parameter. This is the storage account for VM OS disks. This account name has to be globally unique.
 
