@@ -1,6 +1,6 @@
 <properties
    pageTitle="Tutorial: Integrating Google Apps with Azure Active Directory | Microsoft Azure"
-   description="TODO"
+   description="Learn how to use Google Apps with Azure Active Directory to enable single sign-on, automated provisioning, and more!"
    services="active-directory"
    documentationCenter=""
    authors="liviodlc"
