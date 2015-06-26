@@ -25,6 +25,7 @@ This document illustrates the positioning of Azure Stream Analytics and Apache S
 
 While both provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate these services. We believe that listing out the capabilities, as well as the limitations, of these services will help customers land on the solution they need to achieve their goals.
 
+<H2>General</H2>
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -41,13 +42,6 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             <td width="246" valign="top">
                 <p>
                     <strong>Apache Storm on HDInsight</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="623" colspan="3" valign="top">
-                <p>
-                    <strong><H2>General</H2></strong>
                 </p>
             </td>
         </tr>
@@ -105,17 +99,17 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Cluster concept </strong>
+                    <strong>Top Level Unit</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Azure Stream Analytics is a Job Service. Customers don’t maintain their clusters. Customers author and monitor job without the worry of cluster management.
+                    With Azure Stream Analytics customers deploy and monitor streaming jobs.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Apache Storm on HDInsight is a managed PaaS service. Customers provision Apache Storm Clusters that can run streaming workloads.
+                    With Apache Storm on HDInsight customers deploy and monitor a whole cluster, which can host multiple Storm jobs as well as other  workloads (incl. batch).
                 </p>
             </td>
         </tr>
@@ -127,27 +121,40 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Stream Analytics is priced by volume of data processed and the number of streaming units required to process it.
+                    Stream Analytics is priced by volume of data processed and the number of streaming units (per hour the job is running) required.
                 </p>
                 <p>
                     <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Further pricing information can be found here.</a>
-                    .
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    The unit of purchase is cluster-based.
+                    For Apache Storm on HDInsight, the unit of purchase is cluster-based, and is charged based on the time the cluster is running, independent of jobs deployed.
                 </p>
                 <p>
                     <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Further pricing information can be found here.</a>
-                    .
                 </p>
             </td>
         </tr>
+    </tbody>
+</table>
+<H2>Authoring</H2>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
         <tr>
-            <td width="623" colspan="3" valign="top">
+            <td width="174" valign="top">
                 <p>
-                    <strong><H2>Authoring</H2></strong>
+                    <strong> </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    <strong>Azure Stream Analytics</strong>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    <strong>Apache Storm on HDInsight</strong>
                 </p>
             </td>
         </tr>
@@ -164,7 +171,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    No. Customer write code in Java C# or use Trident APIs.
+                    No. Users must write code in Java C# or use Trident APIs.
                 </p>
             </td>
         </tr>
@@ -181,7 +188,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    Temporal operators need to be implemented by the customer.
+                    Temporal operators must to be implemented by the user.
                 </p>
             </td>
         </tr>
@@ -193,13 +200,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Interactive authoring and debugging experience through Azure Portal on sampled data.
+                    Interactive authoring and debugging experience through Azure Portal on sample data.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Development, debugging and monitoring experience through the Visual Studio experience for .NET users and for Java and other languages
-                    customers use the IDE of their choice.
+                    Development, debugging and monitoring experience is provided through the Visual Studio experience for .NET users, while for Java and other languages developers may use the IDE of their choice.
                 </p>
             </td>
         </tr>
@@ -211,12 +217,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    When things don’t work, using job status and then looking via Management services logs is the only option, no way to setup Logs to verbose mode
+                    Stream Analytics offers basic job status and Operations logs as a way of debugging, but currently does not offer flexibility in what/how much is included in the logs ie: verbose mode.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Detailed logs available for debugging purposes. Two ways to surface logs to user via visual studio or user can RDP into the cluster to access to logs.
+                    Detailed logs are available for debugging purposes. There are two ways to surface logs to user, via visual studio or user can RDP into the cluster to access logs.
                 </p>
             </td>
         </tr>
@@ -250,31 +256,47 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    Yes. Ability to write custom code. Can be done in C#, Java or other supported languages on Storm.
+                    Yes. Ability to write custom code in C#, Java or other supported languages on Storm.
                 </p>
             </td>
         </tr>
-        <tr>
-            <td width="623" colspan="3" valign="top">
-                <p>
-                    <strong><H2>Input and Output</H2></strong>
-                </p>
-            </td>
-        </tr>
+    </tbody>
+</table>
+
+<H2>Input and Output</H2></strong>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Input data sources</strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    A streaming job can have a set of inputs. Currently restricted to Event Hubs and Azure Blobs.
+                    <strong>Azure Stream Analytics</strong>
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No restrictions. Connectors available for Event Hubs, Service Bus, Kafka, etc. Unsupported ones can be implemented via custom code.
+                    <strong>Apache Storm on HDInsight</strong>
+                </p>
+            </td>
+        </tr>
+		<tr>
+            <td width="174" valign="top">
+				<p>
+				 <strong>Input Data Sources</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Supported input sources: Azure Event Hubs, Azure Blobs.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Connectors available for Event Hubs, Service Bus, Kafka, etc. Unsupported connectors may be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -291,7 +313,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    No restrictions. Can be implemented via custom code.
+                    Any format may be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -303,12 +325,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    A streaming job can have multiple outputs. Currently these are restricted to Event Hubs, Blob Storage, Azure Tables, Azure SQL DB, and PowerBI.
+                    A streaming job may have multiple outputs. Supported Outputs: Azure Event Hubs, Azure Blob Storage, Azure Tables, Azure SQL DB, and PowerBI.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Support for many outputs in a topology, each output can have custom logic for downstream processing. Out of the box it comes with connectors for PowerBI, Event Hubs, Azure Blob Store, DocumentDB, SQL and HBase. Unsupported ones can be implemented via custom code.
+                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL and HBase. Unsupported connectors may be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -325,14 +347,29 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    No restrictions. Can be implemented via custom code.
+                    Any data encoding format may be implemented via custom code.
                 </p>
             </td>
         </tr>
+    </tbody>
+</table>
+<H2>Management and operations</H2>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
         <tr>
-            <td width="623" colspan="3" valign="top">
+            <td width="174" valign="top">
                 <p>
-                    <strong><H2>Management and operations</H2></strong>
+                    <strong> </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    <strong>Azure Stream Analytics</strong>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    <strong>Apache Storm on HDInsight</strong>
                 </p>
             </td>
         </tr>
@@ -342,7 +379,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
                     <strong>Job Deployment model</strong>
                 </p>
                 <p>
-                    - <strong>Portal</strong>
+                    - <strong>Azure Portal</strong>
                 </p>
                 <p>
                     - <strong>Visual Studio</strong>
@@ -353,12 +390,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Via portal, PowerShell and REST APIs
+                    Via Azure Portal, PowerShell and REST APIs
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Via portal, PowerShell, Visual studio and REST APIs
+                    Via Azure Portal, PowerShell, Visual Studio and REST APIs
                 </p>
             </td>
         </tr>
@@ -373,7 +410,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
                     Via Azure Portal and REST APIs
                 </p>
                 <p>
-                    User can configure Azure alerts.
+                    User may configure Azure alerts.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -395,34 +432,34 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    Number of nodes in the HDI Storm cluster. No limit on number of nodes (top limit defined by your Azure quota).
+                    Number of nodes in the HDI Storm cluster. No limit on number of nodes (Top limit defined by your Azure quota). Call to increase limit.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Data process limits</strong>
+                    <strong>Data processing limits</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-                    Scale up or down number of Streaming Units to optimize for costs.
+                    Scale up or down number of Streaming Units to increase data processing or optimize costs. 
                 </p>
                 <p>
-                    Goal to scale up to 1 GB/s
+                    Scale up to 1 GB/s
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Scale up or down cluster size to have more resources. There is no limit to data processed since Azure would allow to create cluster of any size.
+                    Scale up or down cluster size to meet needs.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Job update by user</strong>
+                    <strong>Stop/Resume</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -444,7 +481,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Automatic update for bug fix and security update without job downtime.
+                    Automatic patching with no downtime.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -476,10 +513,25 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
                 </p>
             </td>
         </tr>
+    </tbody>
+</table>
+<H2>Advanced Features</H2>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
         <tr>
-            <td width="623" colspan="3" valign="top">
+            <td width="174" valign="top">
                 <p>
-                    <strong><H2>Advanced Features</H2></strong>
+                    <strong> </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    <strong>Azure Stream Analytics</strong>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    <strong>Apache Storm on HDInsight</strong>
                 </p>
             </td>
         </tr>
@@ -496,7 +548,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    Customer needs to implement logic to handle this scenario.
+                    User must implement logic to handle this scenario.
                 </p>
             </td>
         </tr>
@@ -513,10 +565,10 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    No limits on size or sources. Connectors available for HBase, DocumentDB, SQL Server and Azure. Unsupported ones can be implemented via custom code.
+                    No limits on data size. Connectors available for HBase, DocumentDB, SQL Server and Azure. Unsupported connectors may be implemented via custom code. 
                 </p>
                 <p>
-                    Refreshing of reference data needs to be handled by custom code.
+                    Refreshing of reference data must be handled by custom code.
                 </p>
             </td>
         </tr>
