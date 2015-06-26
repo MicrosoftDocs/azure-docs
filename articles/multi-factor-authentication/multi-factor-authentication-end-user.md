@@ -30,7 +30,7 @@ So the first thing you are going to need to do is complete the enrollment proces
 - **Mobile phone call, text or mobile app** - If using a mobile phone, choose between receiving a call, a text, or using the mobile app.
 - **Mobile app with a notification or verification code** - If using the mobile app, choose between receiving a notification that you respond to or a verification code.
 
-> [AZURE.NOTE]  Be aware that your IT department may disable one or more of the options above.  If this is the case, these options will not be available during the enrollment process.
+> [AZURE.NOTE]  Be aware that your IT department may disable one or more of the options above.  If this is the case, those options will not be available during the enrollment process.
 
 Now that you have decided on your verification method, it's time to enroll.  Use the [Setup Experience](multi-factor-authentication-end-user-first-time.md) link to get started with a walk through on the enrollment process.
 
