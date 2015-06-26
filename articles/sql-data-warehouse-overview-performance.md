@@ -21,7 +21,7 @@ By putting your Data Warehouse in the cloud, you no longer have to deal with low
 
 SQL Data Warehouse is a cloud based, distributed database platform that's designed to deliver great performance at scale where you are in full control of the resources used to resolve your queries. By simply adjusting the number of data warehouse units allocated to your data warehouse you can elastically scale the size of your warehouse resources in seconds. As a distributed, scale out platform, SQL Data Warehouse enables your data warehouse to process significant data volumes efficiently and effectively whilst leaving you in complete control of the cost of the solution.
 
-*The following information applies to the Azure SQL Data Warehouse as released at review. This information will be continuously updated during the preview as the service is enhanced towards GA.*
+*The following information applies to the Azure SQL Data Warehouse as released at preview. This information will be continuously updated during the preview as the service is enhanced towards GA.*
 
 Our goals for Azure SQL Data Warehouse are:
 -	Predictable performance and linear scalability to petabytes of data
