@@ -49,9 +49,9 @@ Let us take a look at how SQL Data Warehouse enhances the reliability of your da
 
 Since SQL Data Warehouse separates compute and storage, all your data is directly written to geo-redundant Azure Storage (RA-GRS). Geo-redundant storage replicates your data to a secondary region that is hundreds of miles away from the primary region. In both primary and secondary regions, your data is replicated three times each, across separate fault domains and upgrade domains. This ensures that your data is durable even in the case of a complete regional outage or disaster that renders one of the regions unavailable. To learn more about Read-Access Geo-Redundant Storage, read [Azure storage redundancy options][].
 
-### Point In Time Restore
+### Database Restore
 
-Point-in-Time restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. These backups are stored on RA-GRS Azure Storage and are therefore geo-redundant by default. The automatic backup and point-in-time restore features come with no additional charges and provide a zero-cost and zero-admin way to protect databases from accidental corruption or deletion. To learn more about Point In Time Restore, refer to [Recover from user error][].
+Database restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. These backups are stored on RA-GRS Azure Storage and are therefore geo-redundant by default. The automatic backup and restore features come with no additional charges and provide a zero-cost and zero-admin way to protect databases from accidental corruption or deletion. To learn more about database restore, refer to [Recover from user error][].
 
 ### Geo-Restore
 
