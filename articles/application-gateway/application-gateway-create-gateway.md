@@ -54,7 +54,7 @@ This sample shows the cmdlet on the first line followed by the output.
 
 **To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet.
 
-Note that in the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. The billing for the application gateway does not start at this point. Billing begins when the gateway is created.
+Note that in the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. Note that billing for the application gateway does not start at this point. Billing begins when the gateway is created.
 
 This sample shows the cmdlet on the first line, followed by the output. 
 
@@ -76,13 +76,13 @@ An application gateway configuration consists of multiple values, which can be t
 
 The values are:
 
-- **Backend server pool:** List of IP address of backend servers. This IP should either belong to the VNET subnet or should be a public-IP/VIP. 
+- **Backend server pool:** The list of IP addresses of backend servers. The IP addresses listed should either belong to the VNET subnet, or should be a public-IP/VIP. 
 - **Backend server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Frontend Port:** This port is the public port opened on the application gateway. Customer traffic hits this port, and then gets redirected to one of the backend servers.
-- **Listener:** "Listener" has a frontend port, protocol (Http or Https, these are case-sensitive), and SSL certificate name (if configuring SSL offload). 
-- **Rule:** "Rule" binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule, which is round-robin load distribution, is supported.
-You can construct your configuration either by creating a configuration object, or by using a configuration XML file. 
+- **Listener:** "Listener" has a frontend port, protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
+- **Rule:** "Rule" binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
+You can construct your configuration either by creating a configuration object, or by using a configuration XML file. 
 To construct your configuration by using a configuration XML file, use the sample below.
 
 ### Configuration XML sample
@@ -164,7 +164,7 @@ This sample shows the cmdlet on the first line, followed by the output. Replace 
 
 ## Verify the application gateway status
 
-Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded, the State should be *Running*, and the Vip and DnsName should have valid entries. 
+Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. 
 
 This sample shows an application gateway that is up, running, and is ready to take traffic destined to `http://<generated-dns-name>.cloudapp.net`. The cmdlet is on the first line, followed by the output. 
 
