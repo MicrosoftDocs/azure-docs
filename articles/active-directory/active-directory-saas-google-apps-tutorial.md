@@ -126,7 +126,7 @@ This tutorial will show you how to connect your Google Apps environment to your 
 
 	![Click API Reference.][16]
 
-	> [AZURE.IMPORTANT] For every user that you intend to provision to Google Apps, their username *must* be tied to a custom domain. For example, usernames that look like bob@contoso.onmicrosoft.com will not be accepted by Google Apps, whereas bob@contoso.com will be accepted. You can change an existing user's domain by editing their properties.
+	> [AZURE.IMPORTANT] For every user that you intend to provision to Google Apps, their username in Azure Active Directory *must* be tied to a custom domain. For example, usernames that look like bob@contoso.onmicrosoft.com will not be accepted by Google Apps, whereas bob@contoso.com will be accepted (as long as you have verified the contoso.com domain with both Azure Active Directory and Google Apps). You can change an existing user's domain by editing their properties in Azure AD.
 
 4. If you haven't added a custom domain name to your Azure Active Directory yet, then follow the steps below:
 
