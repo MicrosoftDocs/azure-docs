@@ -20,7 +20,7 @@
 
 # What does Azure Multi-Factor Authentication mean for me?
 
-So, you have gotten an email from someone in IT or perhaps even your boss saying that they have added additional security verification to your account.  So, what does that mean?
+So, you have gotten an email from someone in IT or perhaps even your boss saying that they have added additional security verification to your account.  So what does this mean?
 
 Not to worry.  That simply means that your organization wants to take some extra steps to ensure that you are who you say you are when signing in to things such as Office 365.  This is done by using a combination of your user name and password and a phone.  Either your office phone or a smart phone. 
 
