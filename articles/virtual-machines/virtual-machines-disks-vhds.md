@@ -43,6 +43,12 @@ Outside of Azure, virtual hard disks can use either a VHD or a VHDX format. They
 
 All .vhd files in Azure that you want to use as a source to create disks or images are read only. When you create a disk or image, Azure makes copies of the .vhd files. These copies can be read only or read and write, depending on how you use the VHD.
 
+ When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file. To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.
+
+Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image. To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks. However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order -- detach the disk from the virtual machine, delete the disk, and then delete the .vhd file.
+
+>[Azure.Note] If you delete a source .vhd from storage, or delete your storage account, Microsoft can't recover that data for you.
+
 ## Next Steps
 
 Linux VMs:
