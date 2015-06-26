@@ -188,7 +188,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 5. Register a new user:
 
         deis register http://deis.[your domain]
-addingsomethinghere
+<p />
 6. Add the SSH key:
 
         deis keys:add [path to your SSH public key]
