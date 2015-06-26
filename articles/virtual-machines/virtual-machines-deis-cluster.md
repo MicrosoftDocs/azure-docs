@@ -192,14 +192,14 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 6. Add the SSH key:
 
         deis keys:add [path to your SSH public key]
-        
+  <p />      
 7. Create an application.
 
         git clone https://github.com/deis/helloworld.git
         cd helloworld
         deis create
         git push deis master
-
+<p />
 8. The git push will trigger Docker images to be built and deployed, which will take a few minutes. From my experience, occasionally, Step 10 (Pushing image to private repository) may hang. When this happens, you can stop the process, remove the application using `deis apps:destroy –a <application name>` to remove the application and try again. You can use `deis apps:list` to find out the name of your application. If everything works out, you should see something like the following at the end of command outputs:
 
         -----> Launching...
@@ -208,7 +208,7 @@ The following steps show how to deploy a "Hello World" Go application to the clu
                To learn more, use `deis help` or visit http://deis.io
         To ssh://git@deis.artitrack.com:2222/lambda-underdog.git
          * [new branch]      master -> master
-
+<p />
 9. Verify if the application is working:
 
         curl -S http://[your application name].[your domain]
@@ -217,10 +217,11 @@ The following steps show how to deploy a "Hello World" Go application to the clu
         Welcome to Deis!
         See the documentation at http://docs.deis.io/ for more information.
         (you can use geis apps:list to get the name of your application).
-
+<p />
 10. Scale the application to 3 instances:
 
         deis scale cmd=3
+<p />
 11. Optionally, you can use deis info to examine details of your application. The following outputs are from my application deployment:
 
         deis info
