@@ -17,14 +17,14 @@
 	ms.date="06/23/2015"
 	ms.author="sidneyh" />
 
-# Getting started with elastic database query
+# Getting started with Elastic Database query
 
-Elastic database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. For more information about the elastic database query feature, please check the [feature overview page](sql-database-elastic-query-overview.md).
+Elastic Database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. For more information about the Elastic Database query feature, please see the [feature overview page](sql-database-elastic-query-overview.md).
 
-This topic extends the sample found in [Getting started with elastic database tools](sql-database-elastic-scale-get-started.md). When completed, you will: learn how to configure and use an Azure SQL Database to perform queries that span many related databases.
+This topic extends the sample found in [Getting started with Elastic Database tools](sql-database-elastic-scale-get-started.md). When completed, you will: learn how to configure and use an Azure SQL Database to perform queries that span many related databases.
 ## Prerequisites
 
-Download and run the [Getting started with elastic database tools sample](sql-database-elastic-scale-get-started.md).
+Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
 
 ## Create a shard map manager using the sample app
 
@@ -39,14 +39,14 @@ Here you will create a shard map manager along with several shards, followed by 
 
 	![Visual Studio confirmation][2]
 
-	At this point, cross-database queries are supported through the elastic database client libraries. For example, use option 4 in the command window. The results from a multi-shard query are always a **UNION ALL** of the results from all shards.
+	At this point, cross-database queries are supported through the Elastic Database client libraries. For example, use option 4 in the command window. The results from a multi-shard query are always a **UNION ALL** of the results from all shards.
 
 	In the next section, we create a sample database endpoint that supports richer querying of the data across shards.
 
 ## Create an elastic query database
 
 1. Open the [Azure preview portal](https://portal.azure.com) and log in.
-2. Create a new Azure SQL Database in the same server as your shard setup. Name the database "ElasticDBQuery." For a pricing tier, you must select one of the premium offers. The elastic database query is currently available only on the premium tier.
+2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery." For a pricing tier, you must select one of the premium offers. The Elastic Database query is currently available only on the premium tier.
 
 	![Azure portal and pricing tier][3]
 
@@ -130,7 +130,7 @@ All the rows from **Customers** table, stored in different shards populate the E
 You can now use Excel’s powerful data functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
-Currently, the elastic database query feature is free of charge. At this time, the feature is available only on premium databases as an end point, but the shards can be of any service tier.
+Currently, the Elastic Database query feature is free of charge. At this time, the feature is available only on premium databases as an end point, but the shards can be of any service tier.
 
 For pricing information see [SQL Database Pricing Details](http://azure.microsoft.com/pricing/details/sql-database/).
 
