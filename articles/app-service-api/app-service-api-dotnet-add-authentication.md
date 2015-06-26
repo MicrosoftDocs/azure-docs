@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # Protect an API app: Add Azure Active Directory or social provider authentication
@@ -310,10 +310,7 @@ In this section you change the code in the ContactsList API app so that it retri
 
 ## Next steps
 
-You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md). 
+You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md). 
 
 [Azure portal]: https://manage.windowsazure.com/
 [Azure preview portal]: https://portal.azure.com/
-
-
- 
