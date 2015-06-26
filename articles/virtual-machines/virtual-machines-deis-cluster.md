@@ -186,8 +186,9 @@ The following steps show how to deploy a "Hello World" Go application to the clu
   ![Github key](media/virtual-machines-deis-cluster/github-key.png)
 <p />
 5. Register a new user:
-        deis register http://deis.[your domain]
 
+        deis register http://deis.[your domain]
+addingsomethinghere
 6. Add the SSH key:
 
         deis keys:add [path to your SSH public key]
