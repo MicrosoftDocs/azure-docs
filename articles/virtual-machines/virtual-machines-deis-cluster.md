@@ -55,10 +55,8 @@ In this section, you'll use an [Azure Resource Manager](../resource-group-overvi
         openssl req -x509 -days 365 -new -key [your private key file] -out [cert file to be generated]
 
 5. Go to [https://discovery.etcd.io/new](https://discovery.etcd.io/new) to generate a new cluster token, which looks something like:
-
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-
-  Each CoreOS cluster needs to have a unique token from this free service. Please see [CoreOS documentation](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) for more details.
+Each CoreOS cluster needs to have a unique token from this free service. Please see [CoreOS documentation](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) for more details.
 
 6. Modify the **cloud-config.yaml** file to replace the existing  **discovery** token with the new token:
 
@@ -78,7 +76,6 @@ In this section, you'll use an [Azure Resource Manager](../resource-group-overvi
 9. Modify the **publicDomainName** parameter. This will become part of the DNS name associated with the load balancer public IP. The final FQDN will have the format of _[value of this parameter]_._[region]_.cloudapp.azure.com. For example, if you specify the name as deishbai32, and the resource group is deployed to the West US region, then the final FQDN to your load balancer will be deishbai32.westus.cloudapp.azure.com.
 
 10. Save the parameter file. And then you can provision the cluster using Azure PowerShell:
-
         .\deploy-deis.ps1 -ResourceGroupName [resource group name] -ResourceGroupLocation "West US" -TemplateFile
         .\azuredeploy.json -ParametersFile .\azuredeploy-parameters.json -CloudInitFile .\cloud-config.yaml
   or Azure CLI:
