@@ -108,7 +108,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 
 >[AZURE.NOTE] The settings in this section cannot be changed using the `StackExchange.Redis.IServer.ConfigSet` method. If this method is called with one of the commands in this section, an exception similar to the following is thrown:  
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`  
->Any values that are configurable, such as **max-memory-policy**, are configurable through the portal.|
+>Any values that are configurable, such as **max-memory-policy**, are configurable through the portal.
 
 |Setting|Default value|Description|
 |---|---|---|
@@ -120,7 +120,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 |lua-event-limit|500|This is the max size of script event queue.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
->[AZURE.IMPORTANT] The following commands are disabled on the Redis instance hosted on Azure Redis Cache.
+>[AZURE.IMPORTANT] Because configuration of Azure Redis Cache instances is done through the portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `(error) ERR unknown command`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -134,4 +134,4 @@ New Azure Redis Cache instances are configured with the following default Redis 
 For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 
 ## Next steps
--	For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands?).
+-	For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands).
