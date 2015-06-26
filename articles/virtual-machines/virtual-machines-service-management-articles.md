@@ -5,9 +5,10 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
-<tagsvi
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
