@@ -25,7 +25,7 @@ This document illustrates the positioning of Azure Stream Analytics and Apache S
 
 While both provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate these services. We believe that listing out the capabilities, as well as the limitations, of these services will help customers land on the solution they need to achieve their goals.
 
-<H2>General</H2>
+## General ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -138,7 +138,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
         </tr>
     </tbody>
 </table>
-<H2>Authoring</H2>
+## Authoring ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -262,8 +262,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
         </tr>
     </tbody>
 </table>
-
-<H2>Input and Output</H2></strong>
+## Input and Output ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -353,7 +352,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
         </tr>
     </tbody>
 </table>
-<H2>Management and operations</H2>
+## Management and operations ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -515,7 +514,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
         </tr>
     </tbody>
 </table>
-<H2>Advanced Features</H2>
+## Advanced Features ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
