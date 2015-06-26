@@ -125,7 +125,7 @@ Now you can use deisctl to install and start the Deis platform:
     deisctl install platform
     deisctl start platform
 
-> [Azure.NOTE] Starting the platform takes a while (as much as 10 minutes). Especially, starting the builder service can take a long time. And sometimes it takes a few tries to succeed: If the operation seems to hang, try typing `ctrl+c` to break execution of the command and retry.
+> [AZURE.NOTE] Starting the platform takes a while (as much as 10 minutes). Especially, starting the builder service can take a long time. And sometimes it takes a few tries to succeed: If the operation seems to hang, try typing `ctrl+c` to break execution of the command and retry.
 
 You can use `deisctl list` to verify if all services are running:
 
