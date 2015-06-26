@@ -182,11 +182,12 @@ The following steps show how to deploy a "Hello World" Go application to the clu
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 
 4. Add id_rsa.pub, or the public key of your choice, to GitHub. You can do this by using the Add SSH key button in your SSH keys configuration screen:
+
   ![Github key](media/virtual-machines-deis-cluster/github-key.png)
 <p />
 5. Register a new user:
         deis register http://deis.[your domain]
-trying someting new
+
 6. Add the SSH key:
 
         deis keys:add [path to your SSH public key]
