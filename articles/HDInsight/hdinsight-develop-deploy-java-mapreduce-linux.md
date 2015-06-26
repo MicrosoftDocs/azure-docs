@@ -66,25 +66,30 @@ The following environment variables may be set when you install Java and the JDK
 
 ##Add dependencies
 
-Edit the __pom.xml__ file and add the following inside the `<dependencies>` section:
+1. Edit the __pom.xml__ file and add the following inside the `<dependencies>` section:
 
-	<dependency>
-	  <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-mapreduce-examples</artifactId>
-      <version>2.5.1</version>
-    </dependency>
-	<dependency>
-  	  <groupId>org.apache.hadoop</groupId>
-  	  <artifactId>hadoop-mapreduce-client-common</artifactId>
-  	  <version>2.5.1</version>
-	</dependency>
-	<dependency>
-  	  <groupId>org.apache.hadoop</groupId>
-  	  <artifactId>hadoop-common</artifactId>
-  	  <version>2.5.1</version>
-	</dependency>
+		<dependency>
+		  <groupId>org.apache.hadoop</groupId>
+	      <artifactId>hadoop-mapreduce-examples</artifactId>
+	      <version>2.5.1</version>
+		  <scope>provided</scope>
+	    </dependency>
+		<dependency>
+	  	  <groupId>org.apache.hadoop</groupId>
+	  	  <artifactId>hadoop-mapreduce-client-common</artifactId>
+	  	  <version>2.5.1</version>
+		  <scope>provided</scope>
+		</dependency>
+		<dependency>
+	  	  <groupId>org.apache.hadoop</groupId>
+	  	  <artifactId>hadoop-common</artifactId>
+	  	  <version>2.5.1</version>
+		  <scope>provided</scope>
+		</dependency>
 
-This tells Maven that the project requires the libraries (listed within <artifactId\>) with a specific version (listed within <version\>). At compile time, this will be downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
+	This tells Maven that the project requires the libraries (listed within <artifactId\>) with a specific version (listed within <version\>). At compile time, this will be downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
+
+	The `<scope>provided</scope>` tells Maven that these dependencies should not be packaged with the application, as they will be provided by the HDInsight cluster at run-time.
 
 2. Add the following to the __pom.xml__ file. This must be inside the `<project>...</project>` tags in the file; for example, between `</dependencies>` and `</project>`.
 
@@ -120,7 +125,7 @@ This tells Maven that the project requires the libraries (listed within <artifac
   		  </plugins>
 	    </build>
 
-	The first plugin configures the [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/), which is used to build an uberjar (sometimes called a fatjar), which contains all the dependencies required by the application. It also prevents duplication of licenses within the jar package, which can cause problems on some systems.
+	The first plugin configures the [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/), which is used to build an uberjar (sometimes called a fatjar), which contains dependencies required by the application. It also prevents duplication of licenses within the jar package, which can cause problems on some systems.
 
 	The second plugin configures the Maven compiler, which is used to set the version of Java required by this application to the version used on the HDInsight cluster.
 
