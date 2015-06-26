@@ -26,7 +26,7 @@ As an alternative to writing code that calls a SaaS API directly from a custom A
 
 The tutorial walks you through the following steps:
 
-* Create a API app project in Visual Studio. 
+* Create an API app project in Visual Studio. 
 * Configure the *apiapp.json* file to enable the API app to connect to the Dropbox service.
 * Add code that calls Dropbox and returns the results.
 * Create a new API app in Azure.
@@ -50,7 +50,7 @@ The tutorial makes these assumptions:
  
 * In Visual Studio, create an API app project named *SimpleDropbox*. 
 
-	For detailed instructions see [Create an API app project](app-service-dotnet-create-api-app.md#create-an-api-app-project).
+	For detailed instructions, see [Create an API app project](app-service-dotnet-create-api-app.md#create-an-api-app-project).
 
 	The new-project dialog boxes will resemble these examples:
 
@@ -366,7 +366,7 @@ In this section you create a console app project that uses client code generated
 
 		private const string GATEWAY_URL = @"https://sd1aeb4ae60b7cb4f3d966dfa43b660.azurewebsites.net";
 
-	> **Important**: Make sure the gateway url begins with `https://`, not `http://`. **If you copy http:// from the portal, you have to change it to https:// when you paste it in the code.**
+	> **Important**: Make sure the gateway URL begins with `https://`, not `http://`. **If you copy http:// from the portal, you have to change it to https:// when you paste it in the code.**
 
 ### Explanation of the code
 
@@ -398,13 +398,13 @@ Additional notes:
 
 	For the values to use for other providers, see the login URL instructions in [Protect an API app](app-service-api-dotnet-add-authentication.md#loginurl).
 
-* The second parameter for the `GetConsentLinkAsync()` method is is the callback URL that the consent server redirects to after the user logs in to Dropbox and gives consent to access the user's account. 
+* The second parameter for the `GetConsentLinkAsync()` method is the callback URL that the consent server redirects to after the user logs in to Dropbox and gives consent to access the user's account. 
 
 		var gatewayConsentLink = appServiceClient.GetConsentLinkAsync("SimpleDropbox", GATEWAY_URL).Result;
 
 	For this parameter you would normally specify the next web page that the user should go to in the client application. Since this demo code is in a console app, there is no application page to go to, and the code specifies the gateway URL just as a convenient landing page. 
 
-	The client application should verify that it gets redirected to this URL and that there is no error message. If the login/consent process fails, the redirect URL may contain an error message in the fragment. For more information, see the [Troubleshooting](#troubleshooting) section. 
+	The client application should verify that it gets redirected to this URL and that there is no error message. If the login/consent process fails, the redirect URL may contain an error message in the querystring. For more information, see the [Troubleshooting](#troubleshooting) section. 
 
 ## Test
 
@@ -448,7 +448,7 @@ Make sure that you have the correct **client ID** in the API app's **Authenticat
 
 ### <a id="403"></a> HTTP Error 403 when calling the API app
 
-* Make sure that you have the Access Level of the API app set to **Public (authenticated)**, not **Internal**.
+* Make sure that the **Access Level** of the API app is set to **Public (authenticated)**, not **Internal**.
 
 * Make sure that you have the correct **client secret** in the API app's **Authentication** blade, and make sure there are no leading or trailing spaces.
 
@@ -462,7 +462,7 @@ If you remove the %3d%3d from the end of the `error` querystring value, this is 
 
 ## Next steps
 
-You've seen how to code and configure an API app that connects to a SaaS platform.  For links to other tutorials about how to handle authentication in APi apps, see [Authentication for API apps and mobile apps - Next steps](../app-service/app-service-authentication-overview.md#next-steps). 
+You've seen how to code and configure an API app that connects to a SaaS platform.  For links to other tutorials about how to handle authentication in API apps, see [Authentication for API apps and mobile apps - Next steps](../app-service/app-service-authentication-overview.md#next-steps). 
 
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
