@@ -39,7 +39,7 @@ If you want to delete an application gateway, go to [Delete an application gatew
 
 ## Create a new application gateway
 
-**To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own.
+**To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
 This sample shows the cmdlet on the first line followed by the output. 
     
@@ -51,9 +51,11 @@ This sample shows the cmdlet on the first line followed by the output.
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
-**To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet.
+**To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet. 
 
-Note that in the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. Note that billing for the application gateway does not start at this point. Billing begins when the gateway is created.
+In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. 
+
+
 
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
@@ -74,7 +76,7 @@ An application gateway configuration consists of multiple values, which can be t
 
 The values are:
 
-- **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the VNet subnet, or should be a public-IP/VIP. 
+- **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the VNet subnet, or should be a public IP/VIP. 
 - **Backend server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Frontend Port:** This port is the public port opened on the application gateway. Customer traffic hits this port, and then gets redirected to one of the backend servers.
 - **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
