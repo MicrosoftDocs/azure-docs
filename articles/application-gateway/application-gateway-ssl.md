@@ -17,12 +17,12 @@
 
 # Configure Application Gateway for SSL offload
 
-Application Gateway can be configured to terminate the SSL session at the gateway, whach can avoid costly SSL decryption on the web farm. SSL offload also simplifies the frontend server setup and management of the application.
+Application Gateway can be configured to terminate the SSL session at the gateway, which can avoid costly SSL decryption on the web farm. SSL offload also simplifies the frontend server setup and management of the application.
 
 ## Before you begin
 
 1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
-2. Verify that you have a working virtual network with valid subnet.
+2. Verify that you have a working virtual network with a valid subnet.
 3. Verify that you have backend servers either in the virtual network, or with a public IP/VIP assigned.
 
 To configure SSL offload on an Application Gateway, do the following steps in the order listed.
@@ -32,9 +32,10 @@ To configure SSL offload on an Application Gateway, do the following steps in th
 3. [Configure the gateway](#configure-the-gateway)
 4. [Set the gateway configuration](#set-the-gateway-configuration)
 5. [Start the gateway](#start-the-gateway)
+6. [Verify the gateway status](#verify-the-gateway-status)
 
 
-## Create a new application gateway:
+## Create a new application gateway
 
 **To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
@@ -173,7 +174,7 @@ To construct your configuration by using a configuration XML file, use the sampl
 
 ## Set the gateway configuration
 
-Next, you'll set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration object, or with a configuration XML file.
+Next, you'll set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with either a configuration object, or with a configuration XML file.
 
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
@@ -200,6 +201,8 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 	----       ----------------     ------------                             ----
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
+
+## Verify the gateway status
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. 
 
