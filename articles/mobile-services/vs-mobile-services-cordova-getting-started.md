@@ -34,7 +34,7 @@ The first step you need to do in order to follow the code in these examples depe
 
 The following code gets a reference to a table that contains data for a TodoItem, which you can use in subsequent operations to read and update the data table. The TodoItem table is created automatically when you create a mobile service.
 
-var todoTable = mobileServiceClient.getTable('TodoItem');
+    var todoTable = mobileServiceClient.getTable('TodoItem');
 
 For these examples to work, permissions on the table must be set to **Anybody with an Application Key**. Later, you can set up authentication. See [Get started with authentication](mobile-services-html-get-started-users.md).
 
