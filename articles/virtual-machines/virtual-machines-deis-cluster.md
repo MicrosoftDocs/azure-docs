@@ -167,20 +167,24 @@ The following steps show how to deploy a "Hello World" Go application to the clu
 
 1. For the routing mesh to work properly, you’ll need to have a wildcard A record for your domain pointing to the public IP of the load balancer. The following screenshot shows the A record for a sample domain registration on GoDaddy:
 
-  ![Godaddy A record](media/virtual-machines-deis-cluster/go-daddy.png)
+    ![Godaddy A record](media/virtual-machines-deis-cluster/go-daddy.png)
+<p />
 2. Install deis:
 
         mkdir deis
         cd deis
         curl -sSL http://deis.io/deis-cli/install.sh | sh
         ln -fs $PWD/deis /usr/local/bin/deis
+        
 3. Create a new SSH key, and then add the public key to GitHub (of course, you can also reuse your existing keys). To create a new SSH key pair, use:
 
         cd ~/.ssh
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
+
 4. Add id_rsa.pub, or the public key of your choice, to GitHub. You can do this by using the Add SSH key button in your SSH keys configuration screen:
 
   ![Github key](media/virtual-machines-deis-cluster/github-key.png)
+
 5. Register a new user:
 
         deis register http://deis.[your domain]
