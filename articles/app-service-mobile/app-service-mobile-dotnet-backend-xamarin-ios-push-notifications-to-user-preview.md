@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/25/2015"
 	ms.author="yuaxu"/>
 
 # Send cross-platform notifications to a specific user
