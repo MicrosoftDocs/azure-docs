@@ -31,6 +31,8 @@ You'll perform the following steps:
 - Call the API app again to verify that authenticated access works.
 - Write and test code that retrieves claims for the logged-on user.
 
+For more information about authentication in Azure App Service, see [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md).
+
 ## Prerequisites
 
 This tutorial works with the API app that you created in [Create an API app](app-service-dotnet-create-api-app.md) and deployed in [Deploy an API app](app-service-dotnet-deploy-api-app.md).
@@ -308,7 +310,7 @@ In this section you change the code in the ContactsList API app so that it retri
 
 ## Next steps
 
-You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md). 
+You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md). 
 
 [Azure portal]: https://manage.windowsazure.com/
 [Azure preview portal]: https://portal.azure.com/

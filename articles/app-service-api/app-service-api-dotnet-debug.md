@@ -121,5 +121,5 @@ Remote debugging for API Apps makes it easier to see how your code is running in
 
 App Service API apps are App Service web apps that have additional features for hosting web services, so you can use the same debugging and troubleshooting tools for API apps that you use for web apps.  For more information, see [Troubleshoot a web app in Azure App Service using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). 
 
-The API app you created in this series is publicly available for anyone to call. For information about how to protect the API app so that only authenticated users can call it, see [Protect an API app: Add Azure Active Directory or social provider authentication](app-service-api-dotnet-add-authentication.md).
+The API app you created in this series is publicly available for anyone to call. For information about how to protect API apps so that only authenticated users can call them, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md).
  
