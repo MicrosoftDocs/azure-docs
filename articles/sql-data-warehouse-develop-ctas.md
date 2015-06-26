@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Create Table As Select (CTAS) in SQL Data Warehouse
@@ -354,13 +354,13 @@ You can see therefore that type consistency and maintaining nullability properti
 Please refer to MSDN for more information on using [CTAS][]. It is one of the most important statements in Azure SQL Data Warehouse. Make sure you thoroughly understand it.
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-develop-ctas/ctas-results.png
+[1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CTAS]: https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204041.aspx

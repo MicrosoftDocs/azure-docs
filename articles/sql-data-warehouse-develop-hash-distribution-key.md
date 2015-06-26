@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Hash distribution and its effect on query performance in SQL Data Warehouse
@@ -21,6 +21,7 @@
 Making smart hash distribution decisions is one of the most important ways to improve query performance.  
 
 There are in fact three major factors:
+
 1. Minimize Data Movement
 2. Avoid Data Skew
 3. Provide Balanced Execution
@@ -51,7 +52,7 @@ Each distinct value will be allocated to a distribution. Consequently, the data 
 
 Similarly, if all of the rows for the hashed column contained the same value then the data is said to be **skewed**. In this extreme case only one hash value would have been created resulting in all rows ending up inside a single distribution. Ideally, each distinct value in the hashed column would have the same number of rows.
 
-> [AZURE.NOTE] Round-Robin tables do not exhibit signs of skew. This is because the data is stored evenly across the distributions.
+> [AZURE.NOTE] Round-robin tables do not exhibit signs of skew. This is because the data is stored evenly across the distributions.
 
 ## Provide balanced execution
 Balanced execution is achieved when each distribution has the same amount of work to perform. Massively Parallel Processing (MPP) is a team game; everyone has to cross the line before anyone can be declared the winner. If every distribution has the same amount of work (i.e. data to process) then all of the queries will finish at about the same time. This is known as balanced execution.
@@ -62,12 +63,13 @@ As has been seen, data skew can affect balanced execution. However, so can the c
 
 A good example of a column that appears in the `WHERE` clause would be a date field.  Date fields are a classic examples of great partitioning columns but often poor hash distribution columns. Typically, data warehouse queries are over a specified time period such as day, week or month. Hash distributing by date may have actually limited our scalablity and hurt our performance. If for example the date range specified was for a week i.e. 7 days then the maximum number of hashes would be 7 - one for each day. This means that only 7 of our distributions would contain data. The remaining distributions would not have any data. This would result in an unbalanced query execution as only 7 distributions are processing data.
 
-> [AZURE.NOTE] Round-Robin tables typically provide balanced execution. This is because the data is stored evenly across the distributions.
+> [AZURE.NOTE] Round-robin tables typically provide balanced execution. This is because the data is stored evenly across the distributions.
 
 ## Recommendations
 To maximize your performance and overall query throughput try and ensure that your hash distributed tables follow this pattern as much as possible:
 
 Hash distribution key:
+
 1. Is used in `JOIN`, `GROUP BY`, `DISTINCT`, or `HAVING` clauses in your queries.
 2. Is not used in `WHERE` clauses
 3. Has lots of different values, at least 1000.
@@ -85,16 +87,16 @@ Hash distribution can be summarized as follows:
 - Hash distributed tables generally require less data movement when resolving queries, and therefore improve query performance for large fact tables.
 - Observe the recommendations for hash distributed column selection to enhance query throughput.
 
-> [AZURE.NOTE] In SQLDW data type consistency matters! Make sure that the existing schema is consistently using the same type for a column. This is especially important for the distribution key. If the distribution key data types are not synchronized and the tables are joined then needless data movement will occur. This could be costly if the tables are large and would result in reduced throughput  and performance.
+> [AZURE.NOTE] In SQL Data Warehouse data type consistency matters! Make sure that the existing schema is consistently using the same type for a column. This is especially important for the distribution key. If the distribution key data types are not synchronized and the tables are joined then needless data movement will occur. This could be costly if the tables are large and would result in reduced throughput  and performance.
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
