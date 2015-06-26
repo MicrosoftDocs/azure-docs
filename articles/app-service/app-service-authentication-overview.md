@@ -104,7 +104,7 @@ When the code running in your API app or mobile app needs to make a call to a pr
 
 For example, suppose the identity provider is Azure Active Directory (AAD), and your API app wants to use the AAD access token to call the AAD Graph API or request access to a SharePoint site that the user has permissions for.  You can send a request to the gateway to retrieve the AAD token, then use the AAD token to call the Graph API or to get an access token for the SharePoint site. 
 
-### <a id="consent"></a>Getting user consent to access other resources
+### <a id="obotosaas"></a>Getting user consent to access other resources
 
 The gateway also has built-in features for getting user consent when you want to access resources secured by a provider other than the original identity provider.  For example, for a user who signs in using Azure Active Directory, you might want to access files in the user's Dropbox account.
 
