@@ -20,7 +20,7 @@
 
 # What does Azure Multi-Factor Authentication mean for me?
 
-So, you have gotten an email from someone in IT or perhaps even your boss saying that they have added additional security verification to your account.  But your like, what does that mean?
+So, you have gotten an email from someone in IT or perhaps even your boss saying that they have added additional security verification to your account.  So, what does that mean?
 
 Not to worry.  That simply means that your organization wants to take some extra steps to ensure that you are who you say you are when signing in to things such as Office 365.  This is done by using a combination of your user name and password and a phone.  Either your office phone or a smart phone. 
 
@@ -29,6 +29,8 @@ So the first thing you are going to need to do is complete the enrollment proces
 - **Office phone or mobile phone** - Choose between using your office phone or your mobile phone.
 - **Mobile phone call, text or mobile app** - If using a mobile phone, choose between receiving a call, a text, or using the mobile app.
 - **Mobile app with a notification or verification code** - If using the mobile app, choose between receiving a notification that you respond to or a verification code.
+
+> [AZURE.NOTE]  Be aware that your IT department may disable one or more of the options above.  If this is the case, these options will not be available during the enrollment process.
 
 Now that you have decided on your verification method, it's time to enroll.  Use the [Setup Experience](multi-factor-authentication-end-user-first-time.md) link to get started with a walk through on the enrollment process.
 
