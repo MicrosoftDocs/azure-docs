@@ -112,7 +112,7 @@ This tutorial will show you how to connect your Google Apps environment to your 
 
 ##Step 3: Enable Automated User Provisioning
 
-> [AZURE.NOTE] Another viable option for automating user provisioning to Google Apps is to use [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en) which connects your on-premises Active Directory identities to Google Apps. In contrast, the solution in this tutorial connects your Azure Active Directory (cloud) identities to Google Apps. 
+> [AZURE.NOTE] Another viable option for automating user provisioning to Google Apps is to use [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en) which provisions your on-premises Active Directory identities to Google Apps. In contrast, the solution in this tutorial provisions your Azure Active Directory (cloud) users and mail-enabled groups to Google Apps.
 
 1. Sign into the [Google Apps Admin Console](http://admin.google.com/) using your administrator account, and click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
 
@@ -126,7 +126,7 @@ This tutorial will show you how to connect your Google Apps environment to your 
 
 	![Click API Reference.][16]
 
-	> [AZURE.IMPORTANT] For every user that you intend to provision to Google Apps, their username in Azure Active Directory *must* be tied to a custom domain. For example, usernames that look like bob@contoso.onmicrosoft.com will not be accepted by Google Apps, whereas bob@contoso.com will be accepted (as long as you have verified the contoso.com domain with both Azure Active Directory and Google Apps). You can change an existing user's domain by editing their properties in Azure AD.
+	> [AZURE.IMPORTANT] For every user that you intend to provision to Google Apps, their username in Azure Active Directory *must* be tied to a custom domain. For example, usernames that look like bob@contoso.onmicrosoft.com will not be accepted by Google Apps, whereas bob@contoso.com will be accepted. You can change an existing user's domain by editing their properties in Azure AD. Instructions for how to set a custom domain for both Azure Active Directory and Google Apps are included below.
 
 4. If you haven't added a custom domain name to your Azure Active Directory yet, then follow the steps below:
 
