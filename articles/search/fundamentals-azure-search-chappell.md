@@ -8,12 +8,12 @@
 	authors="HeidiSteen"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
+	ms.service="search" 
+	ms.workload="search" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="06/24/2015" 
 	ms.author="heidist"/>
 
 # Introduction to Azure search #

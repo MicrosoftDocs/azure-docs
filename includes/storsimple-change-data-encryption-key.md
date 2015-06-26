@@ -48,7 +48,7 @@ Perform the following steps to select and authorize a device to initiate the ser
 
 2. In the **Change service data encryption key** dialog box, select and authorize a device to initiate the service data encryption key change. The drop-down list has all the eligible devices that can be authorized.
 
-3. Click the check icon. ![check icon](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+3. Click the check icon ![check icon](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
 ### Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change
 
@@ -88,7 +88,7 @@ Perform the following steps to update the service data encryption on your device
 
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 
-3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](#step-2:-use-windows-powershell-to-initiate-the-service-data-encryption-key-change).
+3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](##to-initiate-the-service-data-encryption-key-change).
 
 
 

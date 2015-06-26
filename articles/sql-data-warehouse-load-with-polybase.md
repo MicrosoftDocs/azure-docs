@@ -20,7 +20,9 @@
 # Load data with PolyBase
 PolyBase technology allows you to query and join data from multiple sources, all by using Transact-SQL commands. 
 
-Using PolyBase, you can query data stored in Azure blob storage and load it into SQL Data Warehouse database with the following steps:
+Using PolyBase, you can query data stored in Azure blob storage and load it into SQL Data 
+Warehouse database with the following steps:
+
 - Create database master key and credential.
 - Create PolyBase objects: external data source, external file format, and external table. 
 - Query data stored in Azure blob storage.
@@ -29,9 +31,9 @@ Using PolyBase, you can query data stored in Azure blob storage and load it into
 
 ## Prerequisites
 To step through this tutorial, you need:
+
 - Azure storage account
 - Your data stored in Azure blob storage as delimited text files
-
 
 First, you will create the objects that PolyBase requires for connecting to and querying data in Azure blob storage.
 
@@ -120,6 +122,7 @@ WITH (LOCATION='/Demo/',
       FILE_FORMAT = text_file_format,      
 );
 ```
+
 > [AZURE.NOTE] Please note that you cannot create statistics on an external table at this time.
 
 All the files for the same table need to be under the same logical folder in Azure BLOB. As a best practice, break your Azure Storage data into no more than 1GB files when possible for parallel processing with SQL Data Warehouse.
@@ -174,15 +177,15 @@ See [CREATE TABLE AS SELECT (Transact-SQL)][].
 Loading with PolyBase only supports UTF-8 encoding style. For other encoding styles, say UTF-16, consider using bcp utility, SSIS or Azure Data Factory to load data into SQL Data Warehouse database.
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp/
-[Load with PolyBase]: ./sql-data-warehouse-load-with-polybase/
-[solution partners]: ./sql-data-warehouse-solution-partners/
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
+[Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
+[solution partners]: sql-data-warehouse-solution-partners.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -195,7 +198,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189450.aspx

@@ -27,19 +27,18 @@ SQL Data Warehouse integrates with a wide variety of tools and partner solutions
 - [Partners][] with solutions that work with SQL Data Warehouse
 
 ## Next steps
-For development tips, see [SQL Data Warehouse development overview][].
+For development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
-[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integration/
+[development overview]: sql-data-warehouse-overview-develop/
 
-[Azure Data Factory]: ./sql-data-warehouse-integrate-azure-data-factory/
-[Azure Machine Learning]: ./sql-data-warehouse-integrate-azure-machine-learning/
-[Azure Stream Analytics]: ./sql-data-warehouse-integrate-azure-stream-analytics/
-[Power BI]: ./sql-data-warehouse-integrate-power-bi/
-[Partners]: ./sql-data-warehouse-integrate-solution-partners/
+[Azure Data Factory]: sql-data-warehouse-integrate-azure-data-factory.md
+[Azure Machine Learning]: sql-data-warehouse-integrate-azure-machine-learning.md
+[Azure Stream Analytics]: sql-data-warehouse-integrate-azure-stream-analytics.md
+[Power BI]: sql-data-warehouse-integrate-power-bi.md
+[Partners]: sql-data-warehouse-integrate-solution-partners.md
 
 <!--MSDN references-->
 

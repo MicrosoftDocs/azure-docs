@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="SQL Data Warehouse system views | Microsoft Azure"
    description="Links to system views content for SQL Data Warehouse."
    services="sql-data-warehouse"
@@ -263,7 +263,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]:  ./sql-data-warehouse-overview-reference/
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 

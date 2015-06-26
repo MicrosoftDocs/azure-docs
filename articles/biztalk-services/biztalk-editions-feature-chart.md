@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/03/2015"
+	ms.date="06/23/2015"
 	ms.author="mandia"/>
 
 
@@ -230,7 +230,7 @@ The Hybrid Connection cost per unit depends on the BizTalk Services edition. Sim
 
 #### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one?
 
-Each agreement comprises of two different bridges, a send side communication bridge and a receive side communication bridge.
+Each agreement comprises of two different bridges: a send side communication bridge and a receive side communication bridge.
 
 ####  What happens when I hit the quota limit on number of bridges or agreements?
 
@@ -238,7 +238,7 @@ You are not able to deploy any new bridges or create any new agreements. To depl
 
 #### How do I migrate from one tier of BizTalk Services to another?
 
-Use the backup and restore flow for migrating from one tier to another. Only some migration paths are supported. Refer to [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873) for more details on the migration paths supported.
+Use the backup and restore flow for migrating from one tier to another. Only some migration paths are supported. Refer to [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) for more details on the migration paths supported.
 
 #### Is the BizTalk Adapter Service included in the service? How do I receive the software?
 
@@ -246,14 +246,14 @@ Yes, the BizTalk Adapter Service with the BizTalk Adapter Pack are included with
 
 ## Next
 
-To create Azure BizTalk Services in the Azure Management Portal, go to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+To create Azure BizTalk Services in the Azure Management Portal, go to [BizTalk Services: Provisioning Using Azure Management Portal](biztalk-provision-services.md). To start creating applications, go to [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## See Also
-- [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+- [BizTalk Services: Provisioning Using Azure Management Portal](biztalk-provision-services.md)<br/>
+- [BizTalk Services: Provisioning Status Chart](biztalk-service-state-chart.md)<br/>
+- [BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+- [BizTalk Services: Backup and Restore](biztalk-backup-restore.md)<br/>
+- [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)<br/>
+- [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)<br/>
 - [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
