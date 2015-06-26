@@ -78,7 +78,7 @@ Click **Maxmemory policy** to configure the memory policies for the cache. The *
 -	volatile-ttl
 -	noeviction
 
-For more information about maxmemory policies, see [http://redis.io/topics/lru-cache](http://redis.io/topics/lru-cache).
+For more information about maxmemory policies, see [Eviction policies](http://redis.io/topics/lru-cache#eviction-policies).
 
 The **maxmemory-reserved** setting configures the amount of memory in MB that is reserved for non-cache operations such as replication during failover. It can also be used when you have a high fragmentation ratio. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads which are write heavy. When memory is reserved for such operations it is unavailable for storage of cached data.
 
@@ -120,7 +120,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 |lua-event-limit|500|This is the max size of script event queue.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
->[AZURE.IMPORTANT] Because configuration of Azure Redis Cache instances is done through the portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `(error) ERR unknown command`.
+>[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is done using the Azure portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `(error) ERR unknown command`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
