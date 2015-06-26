@@ -55,7 +55,9 @@ In this section, you'll use an [Azure Resource Manager](../resource-group-overvi
         openssl req -x509 -days 365 -new -key [your private key file] -out [cert file to be generated]
 
 5. Go to [https://discovery.etcd.io/new](https://discovery.etcd.io/new) to generate a new cluster token, which looks something like:
+
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
+<br />
 Each CoreOS cluster needs to have a unique token from this free service. Please see [CoreOS documentation](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) for more details.
 
 6. Modify the **cloud-config.yaml** file to replace the existing  **discovery** token with the new token:
