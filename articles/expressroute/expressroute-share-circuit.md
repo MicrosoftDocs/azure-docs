@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/26/2015"
+   ms.date="06/25/2015"
    ms.author="cherylmc" />
 
 # Sharing an ExpressRoute circuit across multiple subscriptions
