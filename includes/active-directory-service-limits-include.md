@@ -41,8 +41,8 @@ There is a limit for the number of objects you can synchronize from your On Prem
 
 ## Access Panel
 
-- There is no limit to the number of applications that can be seen in the Access Panel per end user for subscribers to Azure AD Premium or Azure AD Basic or the Enterprise Mobility Suite.
-- A maximum of 10 preintegrated SaaS apps (examples: Box, Salesforce, or Dropbox) can be seen in the Access Panel for each end user with the Free edition of Azure Active Directory. End users might see more than 10 apps if your organization developed apps that were integrated afterward with Azure Active Directory. This limit does not apply to Administrator accounts.
+- There is no limit to the number of applications that can be seen in the Access Panel per end user for subscribers to Azure AD Premium or the Enterprise Mobility Suite.
+- A maximum of 10 preintegrated SaaS apps (examples: Box, Salesforce, or Dropbox) can be seen in the Access Panel for each end user with the Free or Azure AD Basic editions of Azure Active Directory. End users might see more than 10 apps if your organization developed apps that were integrated afterward with Azure Active Directory. This limit does not apply to Administrator accounts.
 
 ## Reports
 
