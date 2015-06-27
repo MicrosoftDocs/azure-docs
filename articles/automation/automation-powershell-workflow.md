@@ -21,6 +21,15 @@ A Windows PowerShell Workflow is similar to a PowerShell script but has some sig
 
 For complete details on the topics in this article, see [Getting Started with Windows PowerShell Workflow](http://technet.microsoft.com/library/jj134242.aspx).
 
+## Advantages of workflow
+
+The first question you may have is why you would want to bother with PowerShell workflows in the first place since they perform the same basic functionality as PowerShell scripts but with additional complexity.  There are significant advantages though that can increase the reliability and performance of the process that PowerShell is automating.
+
+- Workflows are more resilient than scripts since they can resume from a specific [checkpoint](#checkpoints) after a failure and can even be suspended to wait for manual intervention.  
+
+- Workflows can improve performance by performing multiple processes in [parallel](#parallel-processing). 
+
+
 ## Basic structure of a workflow
 
 The first step to converting a PowerShell script to a PowerShell workflow is enclosing it with the **Workflow** keyword.  A workflow starts with the **Workflow** keyword followed by the body of the script enclosed in braces. The name of the workflow follows the **Workflow** keyword as shown in the following syntax. 
@@ -127,7 +136,7 @@ For further details on using InlineScript, see [Running Windows PowerShell Comma
 
 
 
-## Parallel execution
+## Parallel processing
 
 One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script. 
 
