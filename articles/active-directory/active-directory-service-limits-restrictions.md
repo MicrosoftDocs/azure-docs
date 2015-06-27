@@ -19,4 +19,4 @@
 
 # Azure AD service limits and restrictions
 
-[AZURE.INCLUDE [AAD-service-limits](./includes/active-directory-service-limits-include.md)]
+[AZURE.INCLUDE [AAD-service-limits](././includes/active-directory-service-limits-include.md)]
