@@ -19,6 +19,41 @@
 
 # Release notes for Hadoop components on Azure HDInsight
 
+
+## Notes for 06/26/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.601.1610731	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.601.1610731	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.4.601.1610731	(HDP 2.1.15.0-2334 - unchanged)
+* HDInsight		3.2.4.601.1610731	(HDP 2.2.6.1-0011)
+* SDK			1.5.8
+
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Updated HDP versions for HDInsight 3.2 clusters</td>
+<td>With this release, HDInsight 3.2 deploys HDP 2.2.6.1</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+</table>
+
 ## Notes for 06/18/2015 release of HDInsight ##
 
 The full version numbers for HDInsight clusters deployed with this release:
