@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/04/2015"
+	ms.date="06/24/2015"
 	ms.author="bwren"/>
 
 # What is Azure Automation?
 
 Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment.  This article provides brief answers to common questions about Azure Automation.  You can refer to other articles in this library for more detailed information on the different topics.
 
+## What value does Azure Automation provide?
+
+Azure Automation saves time and increases the reliability of the regular administrative tasks that you perform in cloud and enterprise environments.  You can implement these processes as runbooks which can perform multiple tasks with no human intervention and even schedule them to be automatically performed at regular intervals.   
 
 ## What is a runbook?
 
@@ -30,7 +33,7 @@ For example, you might have an existing manual process for provisioning a new vi
 
 ## What can runbooks automate?
 
-Runbooks in Azure Automation are based on PowerShell Workflow, so they do anything that PowerShell can do.  As long as you have a module with cmdlets to manage a particular application or service, then you can create a runbook for it.  Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.  Using [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), runbooks can run in your local data center to manage local resources.
+Runbooks in Azure Automation are based on PowerShell Workflow, so they do anything that PowerShell can do.  If an application or service has an API, then a runbook can work with it.  If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.  Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.  Using [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), runbooks can run in your local data center to manage local resources.
 
 
 ## Where do I get runbooks?
