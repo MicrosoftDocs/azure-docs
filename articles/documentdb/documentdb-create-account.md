@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create a DocumentDB account | Azure" 
-	description="Learn how to create a DocumentDB NoSQL document database account and choose account settings in the Azure Preview portal." 
+	pageTitle="Create a database account - Free Trial | Microsoft Azure" 
+	description="Learn how to create database accounts using the online service portal for Azure DocumentDB, a managed NoSQL document database for JSON. Get a free trial today."
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,9 +16,9 @@
 	ms.date="06/26/2015" 
 	ms.author="mimig"/>
 
-#Create a DocumentDB account
+# Create a DocumentDB database account using the Azure Preview portal
 
-To use Microsoft Azure DocumentDB, you must create a DocumentDB database account.  This topic describes how to create a DocumentDB account in the Microsoft Azure Preview portal.  
+To use Microsoft Azure DocumentDB, you must create a DocumentDB database account in the Microsoft Azure Preview portal.  
 
 New to DocumentDB? Watch [this](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four minute video to see how to complete the most common tasks in the portal.
 
@@ -28,9 +28,9 @@ New to DocumentDB? Watch [this](http://azure.microsoft.com/documentation/videos/
 
 Now that you have a DocumentDB account, the next step is to [create a DocumentDB database](documentdb-create-database.md). You can create a database by:
 
-- Using the .NET samples in our [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub repository.
+- Using the C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub repository.
 - Using the Preview portal, as described in [Create a DocumentDB database using the Azure Preview portal](documentdb-create-database.md).
-- Using one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+- Using one of the other [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. 
 
 
 After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](../documentdb-view-json-document-explorer.md) to the collections. After you have documents in a collection, you can [query your documents](documentdb-query-collections-query-explorer.md) by using the Query Explorer in the Preview portal, or you can query documents by using [DocumentDB SQL](documentdb-sql-query.md).

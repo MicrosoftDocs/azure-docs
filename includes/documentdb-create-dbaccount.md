@@ -1,11 +1,11 @@
-1.	Sign in to the [Microsoft Azure Preview portal](https://portal.azure.com/).
-2.	In the Jumpbar, click **New**, then select **Data + Storage**, and then click **Azure DocumentDB**. 
+1.	Sign in to the online [Microsoft Azure Preview portal](https://portal.azure.com/).
+2.	In the Jumpbar, click **New**, then click **Data + Storage**, and then click **Azure DocumentDB**. 
 
 	![Screen shot of the Azure Preview portal, highlighting the New button, Data + storage in the Create blade, and Azure DocumentDB in the Data + Storage blade][1]   
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
-	<!-- ![Screen shot of the Azure Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]    -->
+	<!-- ![Screen shot of the Azure Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
    
 
 3. In the **New DocumentDB account** blade, specify the desired configuration for the DocumentDB account. 
@@ -24,15 +24,15 @@
 	- Use **Location** to specify the geographic location in which to host your DocumentDB account.   
 
 4.	Once the new DocumentDB account options are configured, click **Create**.  It can take a few minutes for the DocumentDB account to be created.  To check the status, you can monitor the progress on the Startboard.  
-	![Screen shot of the Creating tile on the Startboard][4]  
+	![Screen shot of the Creating tile on the Startboard - Online database creator][4]  
   
 	Or, you can monitor your progress from the Notifications hub.  
 
-	![Screen shot of the Notifications hub, showing that the DocumentDB account is being created][5]  
+	![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created - Online database creator notification][5]  
 
 	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group][6]
 
-5.	After the DocumentDB account is created, it is ready for use with the default settings. Note that the default consistency of the DocumentDB account is set to Session.  You can adjust the default consistency setting by clicking the **Default Consistency** tile on the **DocumentDB account** blade.
+5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to Session.  You can adjust the default consistency setting by clicking the **Default Consistency** tile on the **DocumentDB account** blade.
 
     ![Screen shot of the Resource Group blade][7]  
 
