@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/21/2015" 
+	ms.date="06/26/2015" 
 	ms.author="mimig"/>
 
 # Create a DocumentDB collection using the Azure Preview portal
 
-To use Microsoft Azure DocumentDB, you must have DocumentDB account, a database, a collection, and documents. This topic describes how to create a DocumentDB collection in the Microsoft Azure Preview portal. Collections do not have to be created from the Preview portal, you can also create them using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+To use Microsoft Azure DocumentDB, you must have DocumentDB account, a database, a collection, and documents. This topic describes how to create a DocumentDB collection in the Microsoft Azure Preview portal. 
+
+Collections do not have to be created from the Preview portal, you can also create them using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). For a code sample showing how to create a collection using the DocumentDB .NET SDK, see the [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) file in the CollectionManagement project, available in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) repository on [GitHub.com](https://github.com).
 
 New to DocumentDB?  Watch [this](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four minute video to see how to complete the most common tasks in the portal.
 
@@ -50,6 +52,6 @@ Now that you have a collection, the next step is to add documents or import docu
 
 - You can [add documents](../documentdb-view-json-document-explorer.md) by using the Document Explorer tile in the Preview portal.
 - You can [import documents and data](documentdb-import-data.md) by using the DocumentDB Data Migration Tool, which enables you to import JSON and CSV files, as well as data from SQL Server, MongoDB, Azure Table storage, and other DocumentDB collections. 
-- Or you can add documents by using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+- Or you can add documents by using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) file in the DocumentManagement project, available in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) repository on [GitHub.com](https://github.com), demonstrates CRUD operations on documents by using the DocumentDB .NET SDK.
 
 Once you have documents in your collection, you can [query your documents](documentdb-query-collections-query-explorer.md) by using the Query Explorer in the Preview portal, or you can query documents by using [DocumentDB SQL](documentdb-sql-query.md). 

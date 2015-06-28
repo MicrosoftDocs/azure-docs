@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/21/2015" 
+	ms.date="06/26/2015" 
 	ms.author="mimig"/>
 
 # Create a DocumentDB database using the Azure Preview portal
 
-To use Microsoft Azure DocumentDB, you must have DocumentDB account, a database, a collection, and documents.  This topic describes how to create a DocumentDB database in the Microsoft Azure Preview portal. Databases do not have to be created from the Preview portal, you can also create them using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+To use Microsoft Azure DocumentDB, you must have DocumentDB account, a database, a collection, and documents.  This topic describes how to create a DocumentDB database in the Microsoft Azure Preview portal. 
+
+Databases do not have to be created from the Preview portal, you can also create them using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). For a code sample showing how to create a database using the DocumentDB .NET SDK, see the [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DatabaseManagement/Program.cs) file in the DatabaseManagement project, available in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) repository on [GitHub.com](https://github.com). 
 
 New to DocumentDB?  Watch [this](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four minute video to see how to complete the most common tasks in the portal.
 
@@ -46,6 +48,6 @@ New to DocumentDB?  Watch [this](http://azure.microsoft.com/documentation/videos
 
 Now that you have a DocumentDB database, the next step is to [create a collection](documentdb-create-collection.md).
 
-Once your collection is created, you can [add documents](../documentdb-view-json-document-explorer.md) by using the Document Explorer in the Preview portal or [import documents](documentdb-import-data.md) into the collection by using the DocumentDB Data Migration Tool. 
+Once your collection is created, you can [add documents](../documentdb-view-json-document-explorer.md) by using the Document Explorer in the Preview portal, [import documents](documentdb-import-data.md) into the collection by using the DocumentDB Data Migration Tool, or use one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) to perform CRUD operations. 
 
 After you have documents in your collection, you can [query your documents](documentdb-query-collections-query-explorer.md) by using the Query Explorer in the Preview portal, or you can query documents by using [DocumentDB SQL](documentdb-sql-query.md). 
