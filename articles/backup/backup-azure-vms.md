@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/26/2015"
+	ms.date="06/26/2015"
 	ms.author="aashishr"/>
 
 
 # Back up Azure virtual machines
-
 This article is the essential guide to backing up Azure virtual machines. Before you proceed, ensure that all the [prerequisites](backup-azure-vms-introduction.md#prerequisites) have been met.
 
 Backing up Azure virtual machines involves three key steps:
@@ -30,7 +29,7 @@ The discovery process queries Azure for the list of virtual machines in the subs
 
 > [AZURE.NOTE] The discovery process should always be run as the first step. This is to ensure that any new virtual machines added to the subscription are identified.
 
-To trigger the discovery process, do the following steps:
+### To trigger the discovery process
 
 1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click on the **Registered Items** tab.
 
@@ -45,7 +44,6 @@ To trigger the discovery process, do the following steps:
 
 5. Once the discovery process is complete, a toast notification appears.
   ![discover-done](./media/backup-azure-vms/discovery-complete.png)
-
 
 ## Register Azure virtual machines
 Before a virtual machine can be protected it needs to be registered with the Azure Backup service. The Registration process has two primary goals:
@@ -84,6 +82,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 ## Back up Azure virtual machines
 This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps:
 
+### To back up Azure virtual machines
 1. Navigate to the backup vault, which can be found under **Recovery Services** in the Azure portal, and click on the **Registered Items** tab.
 2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click on the **Select** button.
   ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
@@ -157,10 +156,8 @@ Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http:
 #### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:
 
-- Login into the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*.
-- You should find the WaAppAgent.exe file present.
-- Right-click on the file, go to **Properties**, and then select the **Details** tab.
-- The Product Version field should be 2.6.1198.718 or higher
+1. Log on to the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*. You should find the WaAppAgent.exe file present.
+2. Right-click on the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
 
 ### Troubleshooting networking issues
 Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of of ways:
@@ -191,11 +188,10 @@ The table below explains the types of consistency that are encountered during Az
 |-------------|-----------|---------|
 | Application consistency | Yes | This is the ideal place to be for Microsoft workloads as it ensures:<ol><li> that the VM *boots up* <li>there is *no corruption*, <li>there is no *data loss*, and<li> the data is consistent to the application that uses the data, by involving the application at the time of backup -  using VSS.</ol> The Volume Snapshot Service (VSS) ensures that data is written correctly to the storage. Most Microsoft workloads have VSS writers that do workload-specific actions related to data consistency. For example, Microsoft SQL Server has a VSS writer that ensures the writes to the transaction log file and the database are done correctly.<br><br> For Azure VM backup, getting an application consistent recovery point means that the backup extension was able to invoke the VSS workflow and complete *correctly* before the VM snapshot was taken. Naturally, this means that the VSS writers of all the applications in the Azure VM have been invoked as well.<br><br>Learn the [basics of VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) dive deep into the details of [how it works](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
 | File system consistency | Yes - for Windows machines | There are two scenarios where the recovery point can be file-system consistent:<ul><li>Backup of Linux VMs in Azure, since Linux does not have an equivalent platform to VSS.<li>VSS failure during backup for Windows VMs in Azure.</li></ul> In both these cases, the best that can be done is to ensure that: <ol><li> that the VM *boots up* <li>there is *no corruption*, and <li>there is no *data loss*.</ol> Applications need to implement their own "fix-up" mechanism on the restored data.|
-| Crash consistency | No | This situation is equivalent to a machine experiencing a "crash" (through either a soft or hard reset). There is no guarantee around the consistency of the data on the storage medium. Only data that already exists on the disk at the time of backup is what gets captured and backed up. <ol><li>While there are no guarantees, in most cases the OS will boot.<li>This is typically followed by a disk checking procedure like chkdsk to fix any corruption errors.<li> Any in-memory data or writes that have not been completely flushed to the disk will be lost.<li> The application typically follows with its own verification mechanism in case data rollback needs to be done. </ol>For Azure VM backup, getting a crash consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage - either from the OS perspective or the application's perspective. This typically happens when the Azure VM is shutdown at the time of backup.<br><br>As an example, if the transaction log has entries that are not present in the database then the database software does a rollback till the data is consistent. When dealing with data spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data.|
+| Crash consistency | No | This situation is equivalent to a machine experiencing a "crash" (through either a soft or hard reset). This typically happens when the Azure virtual machine is shut down at the time of backup. For Azure virtual machine backup, getting a crash-consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage medium - either from the perspective of the operating system or from the perspective of the application. Only data that already exists on the disk at the time of backup is what gets captured and backed up. <br/> <br/> While there are no guarantees, in most cases the OS will boot. This is typically followed by a disk checking procedure like chkdsk to fix any corruption errors. Any in-memory data or writes that have not been completely flushed to the disk will be lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. For Azure VM backup, getting a crash consistent recovery point means that Azure Backup gives no guarantees around the consistency of the data on the storage - either from the OS perspective or the application's perspective. This typically happens when the Azure VM is shutdown at the time of backup.<br><br>As an example, if the transaction log has entries that are not present in the database then the database software does a rollback till the data is consistent. When dealing with data spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data.|
 
 ## Next steps
 To learn more about getting started with Azure Backup, see:
 
 - [Restore virtual machines](backup-azure-restore-vms.md)
 - [Manage virtual machines](backup-azure-manage-vms)
- 

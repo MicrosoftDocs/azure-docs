@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # Run Background tasks with WebJobs
@@ -166,7 +166,7 @@ Scheduled jobs can be further configured in the Azure Scheduler pages of the [ol
 
 ## <a name="WHPNotes"></a>Notes
 	
-- As of March 2014, web apps in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web app's portal is not open in Azure. Requests to the actual site will not reset this.
+- Web apps in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web app's portal is not open in Azure. Requests to the actual site will not reset this.
 - Code for a continuous job needs to be written to run in an endless loop.
 - Continuous jobs run continuously only when the web app is up.
 - Basic and Standard modes offer the Always On feature which, when enabled, prevents web apps from becoming idle.
