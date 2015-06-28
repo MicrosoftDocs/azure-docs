@@ -21,7 +21,7 @@
 
 Web service endpoints in Azure Machine Learning have selectable throttle levels to match the rate at which the endpoint will be consumed.
 
-There are two factors which control the amount of throttling done on an endpoint
+There are two factors which control the amount of throttling done on an endpoint:
 - Throttle Level: Low or High. Only paying customers are allowed to set throttle level to High
 - Max Concurrent Calls : 4 for throttle level Low; 20-200 for throttle level High
 
@@ -32,7 +32,7 @@ If you plan to call the API with a higher load than what Max Concurrent Calls of
 
 Keep in mind that using a very high concurrency count can be detrimental if you're not hitting the API with a correspondingly high rate. You might see sporadic timeouts and/or spikes in the latency if you put a relatively low load on an API configured for high load.
 
-Note that tweaking throttle settings only influences the behavior of the Synchronous API. You should tweak these settings if you see frequent 503 Service Unavailable responses on the Synchronous API.
+Note that tweaking throttle settings only influences the behavior of the Synchronous API (RRS). You should tweak these settings if you see frequent 503 Service Unavailable responses on the Synchronous API.
 
 The management UI allows toggling the throttle level. To have a custom concurrency number to go with Throttle Level High, please use the Patch Endpoint API.
 
