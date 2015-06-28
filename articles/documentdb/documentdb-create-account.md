@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/21/2015" 
+	ms.date="06/26/2015" 
 	ms.author="mimig"/>
 
 #Create a DocumentDB account
@@ -26,7 +26,12 @@ New to DocumentDB? Watch [this](http://azure.microsoft.com/documentation/videos/
 
 ## Next steps
 
-Now that you have a DocumentDB account, the next step is to [create a DocumentDB database](documentdb-create-database.md). You can create a database by using the Preview portal, or you can create a database by using one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Now that you have a DocumentDB account, the next step is to [create a DocumentDB database](documentdb-create-database.md). You can create a database by:
+
+- Using the .NET samples in our [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub repository.
+- Using the Preview portal, as described in [Create a DocumentDB database using the Azure Preview portal](documentdb-create-database.md).
+- Using one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+
 
 After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](../documentdb-view-json-document-explorer.md) to the collections. After you have documents in a collection, you can [query your documents](documentdb-query-collections-query-explorer.md) by using the Query Explorer in the Preview portal, or you can query documents by using [DocumentDB SQL](documentdb-sql-query.md).
 
