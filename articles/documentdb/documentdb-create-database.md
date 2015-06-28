@@ -18,15 +18,13 @@
 
 # Create a DocumentDB database using the Azure Preview portal
 
-To use Microsoft Azure DocumentDB, you must have DocumentDB account, a database, a collection, and documents.  This topic describes how to create a DocumentDB database in the Microsoft Azure Preview portal. 
+To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents.  This topic describes how to create a DocumentDB database in the Microsoft Azure Preview portal. 
 
-Databases do not have to be created using the Preview portal, you can also create them using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). For a code sample showing how to create a database using the DocumentDB .NET SDK, see the [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DatabaseManagement/Program.cs) file in the DatabaseManagement project, available in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) repository on [GitHub.com](https://github.com). 
-
-New to DocumentDB?  Watch [this](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four minute video to see how to complete the most common tasks in the portal.
+Databases do not have to be created using the Preview portal, you can also create them using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). For a C# code sample showing how to create a database using the DocumentDB .NET SDK, see the [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DatabaseManagement/Program.cs) file in the DatabaseManagement project, available in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) repository on [GitHub.com](https://github.com). 
 
 1.  In the [Azure Preview portal](https://portal.azure.com/), click **Browse all**.
 
-2.  In the **Browse all** blade, click **DocumentDB Accounts**.
+2.  In the **Browse** blade, click **DocumentDB Accounts**.
 
 3.  In the **DocumentDB Accounts** blade, select the account in which to add a DocumentDB database. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
     

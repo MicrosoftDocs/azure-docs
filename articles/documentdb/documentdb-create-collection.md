@@ -18,13 +18,11 @@
 
 # Create a DocumentDB collection using the Azure Preview portal
 
-To use Microsoft Azure DocumentDB, you must have DocumentDB account, a database, a collection, and documents. This topic describes how to create a DocumentDB collection in the Microsoft Azure Preview portal. 
+To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a [database](documentdb-create-database.md), a collection, and documents. This topic describes how to create a DocumentDB collection in the Microsoft Azure Preview portal. 
 
-Collections do not have to be created using the Preview portal, you can also create them using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). For a code sample showing how to create a collection using the DocumentDB .NET SDK, see the [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) file in the CollectionManagement project, available in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) repository on [GitHub.com](https://github.com).
+Collections do not have to be created using the Preview portal, you can also create them using the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). For a C# code sample showing how to create a collection using the DocumentDB .NET SDK, see the [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) file in the CollectionManagement project, available in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) repository on [GitHub.com](https://github.com).
 
-New to DocumentDB?  Watch [this](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four minute video to see how to complete the most common tasks in the portal.
-
-1.  In the [Azure Preview portal](https://portal.azure.com/), click **Browse**.
+1.  In the [Azure Preview portal](https://portal.azure.com/), click **Browse all**.
 
 2.  In the **Browse** blade, click **DocumentDB Accounts**.
 
@@ -34,7 +32,7 @@ New to DocumentDB?  Watch [this](http://azure.microsoft.com/documentation/videos
 
 4. In the **Database** blade, click **Add collections**.
 
-5. In the **Add Database** blade, enter the ID for your new database. When the name is validated, a green check mark appears in the ID box.
+5. In the **Add Collection** blade, enter the ID for your new collection. When the name is validated, a green check mark appears in the ID box.
 
 6. Select a pricing tier for the new collection. Each collection you create is a billable entity. For more information about the performance levels available, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
 
