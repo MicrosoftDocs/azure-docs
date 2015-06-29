@@ -244,7 +244,7 @@ The information in the event is interpreted as follows:
 First, here's some sample Azure PowerShell code to map a PrincipalId to a name and type:
 
 ```
-\# Sample - how to resolve a principal
+# Sample - how to resolve a principal
 function Get-PrincipalDetails($principalId)
 {
     $principalDetails = "" | select Name, Type
@@ -273,7 +273,7 @@ function Get-PrincipalDetails($principalId)
 Next, here's some sample Azure PowerShell code to map a Scope to a resource name and type:
 
 ```
-\# Sample - how to resolve a resource
+# Sample - how to resolve a resource
 function Get-ResourceDetails($resourceId)
 {
     $resourceDetails = "" | select Name, Type
@@ -299,7 +299,7 @@ function Get-ResourceDetails($resourceId)
 Putting it all together, here is an sample script that retrieves role assignment events for a given date range, and outputs them as a table:
 
 ```
-\# Sample - how to resolve a principal
+# Sample - how to resolve a principal
 function Get-PrincipalDetails($principalId)
 {
     $principalDetails = "" | select Name, Type
@@ -323,7 +323,7 @@ function Get-PrincipalDetails($principalId)
 
     $principalDetails
 }
-\# Sample - how to resolve a resource
+# Sample - how to resolve a resource
 function Get-ResourceDetails($resourceId)
 {
     $resourceDetails = "" | select Name, Type
@@ -342,7 +342,7 @@ function Get-ResourceDetails($resourceId)
     }
     $resourceDetails
 }
-\# Sample - output the list of role assignment events
+# Sample - output the list of role assignment events
 function Get-AzureRBACAuditLog($startDateTime, $endDateTime)
 {
     $log = Get-AzureSubscriptionIdLog -DetailedOutput -StartTime $startDateTime -EndTime $endDateTime
