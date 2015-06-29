@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Provision a web app with a SQL Database
@@ -25,7 +25,7 @@ For more information about creating templates, see [Authoring Azure Resource Man
 
 For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).
 
-For the complete template, see [Web App With SQL Database template](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/).
+For the complete template, see [Web App With SQL Database template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 ## What you will deploy
 
@@ -37,6 +37,10 @@ In this template, you will deploy:
 - AutoScale settings
 - Alert rules
 - App Insights
+
+To run the deployment automatically, click the following button:
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parameters to specify
 
@@ -102,12 +106,16 @@ The type of database to create.
 
 ### maxSizeBytes
 
+The maximum size, in bytes, for the database.
+
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
 ### requestedServiceObjectiveId
+
+The GUID corresponding to the performance level for edition. For a list of avaiable values, see [Create database](https://msdn.microsoft.com/en-us/library/azure/dn505701.aspx). The default value corresponds to the Web performance level.
 
     "requestedServiceObjectiveId": {
         "type": "string",
@@ -428,11 +436,11 @@ you must provide a login name and password for the database server administrator
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
