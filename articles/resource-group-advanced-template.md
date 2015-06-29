@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/29/2015"
+   ms.author="tomfitz"/>
 
 # Advanced Template Operations
 
@@ -22,9 +22,14 @@ This topic describes the copy operation and nested templates which you can use t
 
 ## copy
 
-Enables you to use iterate through an array and use each element when deploying a resource.
+Enables you to iterate a specified number of times when deploying a resource.
    
-The following example deploys three web sites named examplecopy-Contoso, examplecopy-Fabrikam, examplecopy-Coho.
+The copy operation is particularly helpful when working with arrays because you can iterate through each element in the array. The **copyIndex()** function returns the current value for the iteration. The following example deploys three web sites named:
+
+- examplecopy-Contoso
+- examplecopy-Fabrikam
+- examplecopy-Coho
+
 
     "parameters": { 
       "org": { 
@@ -54,11 +59,43 @@ The following example deploys three web sites named examplecopy-Contoso, example
       } 
     ]
 
+You can also use the copy operation without an array. For example, you might want to add an incrementing number to the end of each resource name that is deployed. The following example deploys three web sites named:
+
+- examplecopy-0
+- examplecopy-1
+- examplecopy-2.
+
+
+    "parameters": { 
+      "count": { 
+        "type": "int", 
+        "defaultValue": 3 
+      } 
+    }, 
+    "resources": [ 
+      { 
+          "name": "[concat('examplecopy-', copyIndex())]", 
+          "type": "Microsoft.Web/sites", 
+          "location": "East US", 
+          "apiVersion": "2014-06-01",
+          "copy": { 
+             "name": "websitescopy", 
+             "count": "[parameters('count')]" 
+          }, 
+          "properties": {} 
+      } 
+    ]
+
+You'll notice in the previous example that the index value goes from zero to 2. To offset the index value, you can pass a value in the **copyIndex()** function, such as **copyIndex(1)**. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, using the same template as the previous example, but specifying **copyIndex(1)** would deploy three web sites named:
+
+- examplecopy-1
+- examplecopy-2
+- examplecopy-3
+
 ## Nested template
 
-At times, you may need to merge two templates together, or you may need to launch a child template from a parent. You can accomplish this through the use of a deployment resource within the master template to deploy a child template. You provide the URI of the nested template, as shown below.
+You may need to merge two templates together, or launch a child template from a parent. You can accomplish this through the use of a deployment resource within the master template that points to the nested template. You set the **templateLink** property to the URI of the nested template. You can provide parameter values for the nested template either by specifying the values directly in your template or by linking to a parameter file. The first example uses the **parameters** property to specify a paramter value directly.
 
-    "variables": {"templatelink":"https://www.contoso.com/ArmTemplates/newStorageAccount.json"}, 
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
@@ -66,9 +103,33 @@ At times, you may need to merge two templates together, or you may need to launc
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
-           "templateLink": {"uri":"[variables('templatelink')]","contentVersion":"1.0.0.0"}, 
+           "templateLink": {
+              "uri": "https://www.contoso.com/ArmTemplates/newStorageAccount.json",
+              "contentVersion": "1.0.0.0"
+           }, 
            "parameters": { 
-              "StorageAccountName":{"value":"[parameters('StorageAccountName')]"} 
+              "StorageAccountName":{"value": "[parameters('StorageAccountName')]"} 
+           } 
+         } 
+      } 
+    ] 
+
+The next example uses the **parametersLink** property to link to a parameter file.
+
+    "resources": [ 
+      { 
+         "apiVersion": "2015-01-01", 
+         "name": "nestedTemplate", 
+         "type": "Microsoft.Resources/deployments", 
+         "properties": { 
+           "mode": "incremental", 
+           "templateLink": {
+              "uri":"https://www.contoso.com/ArmTemplates/newStorageAccount.json",
+              "contentVersion":"1.0.0.0"
+           }, 
+           "parametersLink": { 
+              "uri":"https://www.contoso.com/ArmTemplates/parameters.json",
+              "contentVersion":"1.0.0.0"
            } 
          } 
       } 
