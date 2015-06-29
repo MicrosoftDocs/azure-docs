@@ -24,12 +24,13 @@ This topic describes the copy operation and nested templates which you can use t
 
 Enables you to iterate a specified number of times when deploying a resource.
    
-The copy operation is particularly helpful when working with arrays because you can iterate through each element in the array. The **copyIndex()** function returns the current value for the iteration. The following example deploys three web sites named:
+The copy operation is particularly helpful when working with arrays because you can iterate through each element in the array. The **copyIndex()** function returns the current value for the iteration. You can deploy three web sites named:
 
 - examplecopy-Contoso
 - examplecopy-Fabrikam
 - examplecopy-Coho
 
+with the following template.
 
     "parameters": { 
       "org": { 
@@ -59,12 +60,13 @@ The copy operation is particularly helpful when working with arrays because you 
       } 
     ]
 
-You can also use the copy operation without an array. For example, you might want to add an incrementing number to the end of each resource name that is deployed. The following example deploys three web sites named:
+You can also use the copy operation without an array. For example, you might want to add an incrementing number to the end of each resource name that is deployed. You can deploys three web sites named:
 
 - examplecopy-0
 - examplecopy-1
 - examplecopy-2.
 
+with the following template.
 
     "parameters": { 
       "count": { 
