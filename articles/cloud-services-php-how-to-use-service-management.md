@@ -528,7 +528,7 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [win-azure-account]: /pricing/free-trial/
-[storage-account]: storage-create-storage-account.md
+[storage-account]: storage/storage-create-storage-account.md
 
 [download-SDK-PHP]: php-download-sdk.md
 [Azure CLI]: virtual-machines-command-line-tools.md
@@ -547,9 +547,9 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 
 [Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
 [storage service]: storage-whatis-account.md
-[azure-blobs]: storage-php-how-to-use-blobs.md
-[azure-tables]: storage-php-how-to-use-table-storage.md
-[azure-queues]: storage-php-how-to-use-queues.md
+[azure-blobs]: storage/storage-php-how-to-use-blobs.md
+[azure-tables]: storage/storage-php-how-to-use-table-storage.md
+[azure-queues]: storage/storage-php-how-to-use-queues.md
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 

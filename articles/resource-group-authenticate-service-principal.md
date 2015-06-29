@@ -22,7 +22,7 @@ This topic shows you how to permit a service principal (such as an automated pro
 
 
 ## Concepts
-1. Azure Active Directory (AAD) - an identity and access management service for the cloud. For more information, see [What is Azure active Directory](./active-directory-whatis.md)
+1. Azure Active Directory (AAD) - an identity and access management service for the cloud. For more information, see [What is Azure active Directory](active-directory/active-directory-whatis.md)
 2. Service Principal - An instance of an application in a directory that needs to access other resources.
 3. AD Application - Directory record that identifies an application to AAD. For more information, see [Basics of Authentication in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
@@ -72,7 +72,7 @@ You will start by creating a service principal. To do this we must use create an
 
      You have now created a service principal in the directory, but the service does not have any permissions or scope assigned. You will need to explicitly grant the service principal permissions to perform operations at some scope.
 
-3. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](./resource-group-rbac.md)
+3. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)
 
         PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -134,7 +134,7 @@ If you do not have Azure CLI for Mac, Linux and Windows installed, see [Install 
 
     You have now created a service principal in the directory, but the service does not have any permissions or scope assigned. You will need to explicitly grant the service principal permissions to perform operations at some scope.
 
-3. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](./resource-group-rbac.md)
+3. Grant the service principal permissions on your subscription. In this sample you will grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provie either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
@@ -153,18 +153,18 @@ Getting Started
 
 - [Azure Resource Manager Overview](./resource-group-overview.md)  
 - [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md)  
-- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](virtual-machines/xplat-cli-azure-resource-manager.md)  
+- [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md)
 
   
 Creating and Deploying Applications  
   
 - [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)  
-- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)  
-- [Troubleshooting Resource Group Deployments in Azure](./resource-group-deploy-debug.md)  
+- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)  
+- [Troubleshooting Resource Group Deployments in Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)  
 - [Advanced Template Operations](./resource-group-advanced-template.md)  
-- [Deploy Azure Resources Using .NET Libraries and a Template](./arm-template-deployment.md)
+- [Deploy Azure Resources Using .NET Libraries and a Template](virtual-machines/arm-template-deployment.md)
   
 Organizing Resources  
   
@@ -172,7 +172,7 @@ Organizing Resources
   
 Managing and Auditing Access  
   
-- [Managing and Auditing Access to Resources](./resource-group-rbac.md)  
+- [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
 - [Create a new Azure Service Principal using the Azure portal](./resource-group-create-service-principal-portal.md)  
   
 
