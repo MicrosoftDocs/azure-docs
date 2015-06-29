@@ -357,7 +357,8 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
     public class PageViewPerformance
     {
-    	public int Id { get; set; }
+    	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
 
         public string url { get; set; }
 

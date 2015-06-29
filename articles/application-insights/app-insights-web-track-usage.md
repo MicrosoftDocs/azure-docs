@@ -21,7 +21,7 @@ Knowing how people use your application lets you focus your development work on 
 
 Visual Studio Application Insights provides two levels of usage tracking:
 
-* **User and session data** - provided out of the box.  
+* **User, session and page view data** - provided out of the box.  
 * **Custom telemetry** - You [write code][api] to trace your users through your app's user experience. 
 
 ## Setting up
@@ -33,10 +33,6 @@ Usage data from a web application comes from the client browser.
 An Application Insights resource is a place in Microsoft Azure where telemetry data from your app is analyzed and displayed. You might already have set up one to display data from your app's server side in [ASP.NET][greenbrown] or [J2EE][java]. If not, you might want to do that now.
 
 It's usually best to display the usage data from the web client in the same resource as the data from the server. That way, you can easily correlate diagnostics and metrics from the two ends. So, if you already have a resource, skip to the next step.
-
-But if you want to use a separate resource for usage data, just sign in to the [Azure portal][portal] and create it:
-
-![](./media/app-insights-web-track-usage/01-create.png)
 
 #### Insert code in your web pages
 
@@ -57,50 +53,18 @@ Sign in to the [Azure portal][portal], browse to your application resource, and 
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **Users:** The count of distinct users over the time range of the chart. (Cookies are used to identify returning users.)
-* **Sessions:** A session is counted when a user has not made any requests for 30 minutes.
+* **Users:** The count of distinct active users over the time range of the chart. 
+* **Sessions:** The count of active sessions
 * **Page views** Counts the number of calls to trackPageView(), typically called once in each web page.
 
 Click any of the charts to see more detail. Notice that you can change the time range of the charts.
-
-
-### Which pages are read most?
-
-Click the page views chart to see more detail.
-
-![](./media/app-insights-web-track-usage/appinsights-49usage.png)
-
-
-Click a chart to see other metrics that you can display, or add a new chart and select the metrics it displays.
-
-![](./media/app-insights-web-track-usage/appinsights-63usermetrics.png)
-
-> [AZURE.NOTE] Metrics can only be displayed in some combinations. When you select a metric, the incompatible ones are disabled.
-
-
 
 ### Where do my users live?
 
 From the usage blade, click the Users chart to see more detail:
 
-![On the overview blade, click the Sessions chart](./media/app-insights-web-track-usage/02-sessions.png)
+![On the Usage blade, click the Users chart](./media/app-insights-web-track-usage/02-sessions.png)
  
-(This example is from a website, but the charts look similar for apps that run on devices.)
-
-### Is this the same as last week?
-
-Compare with the previous week to see if things are changing:
-
-![Select a chart that shows a single metric, switch on Prior Week](./media/app-insights-web-track-usage/021-prior.png)
-
-
-### What proportion of my users are new?
-
-Compare two metrics, for example users and new users:
-
-![Select a chart, search for and check or uncheck metrics.](./media/app-insights-web-track-usage/031-dual.png)
-
-
 ### What browsers or operating systems do they use?
 
 Group (segment) data by a property such as Browser, Operating System, or City:
@@ -152,6 +116,7 @@ By default, the user is identified by placing a cookie. In this case, a user who
 The **user count** metric in a certain interval is defined as the number of unique users with recorded activity during this interval. As a result, users with long sessions may be accounted multiple times, when you set a time range so that the grain is less than an hour or so.
 
 **New Users** counts the users whose first sessions with the app occurred during this interval. If the default method of counting by users by cookies is used, then this will also include users who have cleared their cookies, or who are using a new device or browser to access your app for the first time.
+![From the usage blade, click on Users chart to examine New Users.](./media/app-insights-web-track-usage/031-dual.png)
 
 ## Synthetic traffic
 
