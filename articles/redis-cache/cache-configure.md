@@ -107,7 +107,9 @@ The **Tags** section helps you organize your resources. For more information, se
 New Azure Redis Cache instances are configured with the following default Redis configuration values.
 
 >[AZURE.NOTE] The settings in this section cannot be changed using the `StackExchange.Redis.IServer.ConfigSet` method. If this method is called with one of the commands in this section, an exception similar to the following is thrown:  
->`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`  
+>
+>`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
+>  
 >Any values that are configurable, such as **max-memory-policy**, are configurable through the portal.
 
 |Setting|Default value|Description|
@@ -120,7 +122,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 |lua-event-limit|500|This is the max size of script event queue.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
->[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is done using the Azure portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `(error) ERR unknown command`.
+>[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is done using the Azure portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
