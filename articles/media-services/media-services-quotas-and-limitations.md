@@ -23,7 +23,7 @@ This topic describes quotas and limitations associated with Microsoft Azure Medi
 
 ## Quotas and limitations
 
-[AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
+[AZURE.INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
 ##Other limitations
 
