@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/26/2015"
+    ms.date="06/29/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 1 release notes  
