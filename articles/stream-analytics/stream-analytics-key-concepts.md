@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/16/2015" 
+	ms.date="06/26/2015" 
 	ms.author="jeffstok" />
 
 
@@ -145,7 +145,11 @@ The output target is where the results of the Stream Analytics job will be writt
 
 ## Scale jobs
 
-A Stream Analytics job can be scaled through configuring streaming units, which define the amount of data processing power a job receives. Each streaming unit corresponds to roughly 1MB/second of throughput. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
+As part of providing a more predictable performance experience for customers, Azure Stream Analytics uses the Streaming Units (SUs) to represent the resources and power to execute a query.  SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput. Doubling the number of SUs equates to doubling the event processing capacity. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
+
+The SU % Utilization metric is an indicator of the relative event processing capacity for one or more of the query steps.  Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress.  This may be a result of large window in a query, large events in input, large out of order tolerance window, or a combination of the above.  Partitioning the query, or breaking down the query into more steps, and adding more SUs from the Scale tab are strategies to avoid such condition.
+
+You may observe a baseline resource utilization even without input events, because the system consumes certain amount of resource. The amount of resource consumed by the system may also fluctuates over time.
 
 For details, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md).
 
