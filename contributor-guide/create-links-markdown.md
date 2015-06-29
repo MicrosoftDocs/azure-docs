@@ -55,17 +55,21 @@ To link to an anchor in another service subdirectory:
     [Configure your profile](service-directory/media-services-create-account.md#configure-your-profile)
 
 
-Since includes are located in another directory, you will need to use relative paths as below. For a link to a single article, use this format:
+## Custom markdown link syntax
 
-    [link text](](../../includes/file-name.md)
+Since includes files are located in another directory, you will need to use relative paths as below. For a link to a single article from an includes file, use this format:
 
-If you have selectors embedded in an include, you would use this sort of linking:
+    [link text](../articles/service-folder/article-name.md)
+    
+Learn more about how to use an includes file in the [Custom markdown extensions guidelines](custom-markdown-extensions.md#includes).
+
+If you have selectors embedded in an include, you would use this sort of linking: 
 
     > [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
-    - [Text1 | Example1](../articles/service-directory/example-azure-note.md)
-    - [Text1 | Example2](../articles/service-directory/example-azure-selector-list.md)
-    - [Text2 | Example3](../articles/service-directory/example-azure-selector-list2.md)
-    - [Text2 | Example4](../articles/service-directory/example-code.md)
+    - [(Text1 | Example1 )](../articles/service-folder/article-name1.md)
+    - [(Text1 | Example2 )](../articles/service-folder/article-name2.md)
+    - [(Text2 | Example3 )](../articles/service-folder/article-name3.md)
+    - [(Text2 | Example4 )](../articles/service-folder/article-name4.md)
 
 To link to a page on ACOM (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale. The goal here is that links work in GitHub and on the rendered site:
 

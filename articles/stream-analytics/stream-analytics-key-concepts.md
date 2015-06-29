@@ -164,8 +164,7 @@ To enable job monitoring, Stream Analytics requires you to designate an Azure St
 The following metrics are available for monitoring the usage and performance of Stream Analytics jobs:
 
 - Errors - Number of error messages incurred by a Stream Analytics job.
-- Input events - Amount of data received by the Stream Analytics job, in terms of 
-- event count.
+- Input events - Amount of data received by the Stream Analytics job, in terms of event count.
 - Output events - Amount of data sent by the Stream Analytics job to the output target, in terms of event count.
 - Out-of-order events - Number of events received out of order that were either dropped or given an adjusted timestamp, based on the out-of-order policy.
 - Data conversion errors - Number of data conversion errors incurred by a Stream Analytics job.
