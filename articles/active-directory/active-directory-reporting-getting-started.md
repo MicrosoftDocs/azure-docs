@@ -70,11 +70,9 @@ Due to the large volume of authentications and sign ins processed by the Azure A
 
 You can find the most recent processed sign in by examining the help text at the top of each report.
 
-![Help text at the top of each report][001]
+![Help text at the top of each report](./media/active-directory-reporting-how-it-works/reportingWatermark.PNG)
 
 > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
-
-[001]: ./media/active-directory-reporting-how-it-works/reportingWatermark.PNG
 
 
 
@@ -91,13 +89,13 @@ To view Reports, navigate to the Reports tab at the top of your directory.
 
 If this is your first time viewing the reports, you'll need to agree to a dialog box before you can view the reports. This is to ensure that it's acceptable for admins in your organization to view this data, which may be considered private information in some countries.
 
-![Dialog box][002]
+![Dialog box](./media/active-directory-reporting-getting-started/dialogBox.png)
 
 ### Explore each report
 
 Navigate into each report to see the data being collected and the sign ins processed. You can find a [list of all the reports here](active-directory-reporting-what-it-is.md).
 
-![All reports][003]
+![All reports](./media/active-directory-reporting-getting-started/reportsMain.png)
 
 ### Download the reports as CSV
 
@@ -105,17 +103,15 @@ Each report can be downloaded as a CSV (comma separated value) file. You can use
 
 To download any report as a CSV, navigate to the report and click "Download" at the bottom.
 
-![Download button][001]
+![Download button](./media/active-directory-reporting-getting-started/downloadButton.png)
 
 > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
-[001]: ./media/active-directory-reporting-getting-started/downloadButton.png
-[002]: ./media/active-directory-reporting-getting-started/dialogBox.png
-[003]: ./media/active-directory-reporting-getting-started/reportsMain.png
+
+
 
 
 ## Next steps
-
 
 ### Customize alerts for anomalous sign in activity
 
@@ -125,7 +121,7 @@ Scroll to the "Notifications" section.
 
 Enable or disable the "Email Notifications of Anomalous sign ins" section.
 
-![The Notifications section][002]
+![The Notifications section](./media/active-directory-reporting-next-steps/notificationsSection.png)
 
 ### Integrate with the Azure AD Reporting API
 
@@ -137,15 +133,9 @@ Select a user in a report.
 
 Click the "Enable MFA" button at the bottom of the screen.
 
-![The Multi-Factor Authentication button at the bottom of the screen][001]
+![The Multi-Factor Authentication button at the bottom of the screen](./media/active-directory-reporting-next-steps/mfaButton.png)
 
 > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
-
-[001]: ./media/active-directory-reporting-next-steps/mfaButton.png
-[002]: ./media/active-directory-reporting-next-steps/notificationsSection.png
-
-
-
 
 
 
