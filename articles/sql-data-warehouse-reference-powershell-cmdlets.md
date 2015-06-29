@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
-   ms.author="sidneyh"/>
+   ms.date="06/29/2015"
+   ms.author="sidneyh;barbkess"/>
 
 # Getting started with Azure Data Warehouse cmdlets and REST APIs
 
@@ -28,6 +28,9 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For more information, see [How to install and configure Azure PowerShell](powershell-install-configure/)
 2. To run the module, at the start window type **Microsoft Azure PowerShell**.
+3. Switch the mode with this cmdlet:
+
+		Switch-AzureMode AzureResourceManager
 
 ## Suspend-AzureSqlDatabase
 ### Example 1: Pause a database by name on a server
