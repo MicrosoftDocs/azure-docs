@@ -26,7 +26,6 @@ The family for the sku.
 
     "redisCacheFamily": {
       "type": "string",
-      "allowedValues": [ "C" ],
       "defaultValue": "C"
     }
 
@@ -49,6 +48,5 @@ The Redis server version of the new cache.
 
     "redisCacheVersion": {
       "type": "string",
-      "allowedValues": [ "2.8" ],
       "defaultValue": "2.8"
     }
