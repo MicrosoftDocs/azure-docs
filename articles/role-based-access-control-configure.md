@@ -143,7 +143,7 @@ You can also remove a guest from any role, just as you would remove any user. Re
 
 ## How to track changes to role assignments
 
-Changes to role assignments are logged in the [Audit logs](http://azure.microsoft.com/en-us/updates/audit-logs-in-azure-preview-portal/), similar to other events.  The log of role assignment changes can be retrieved using [Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx) or the [Azure Resource Manager REST API](https://msdn.microsoft.com/en-us/library/azure/dn931927.aspx).
+Changes to role assignments are logged in the [Audit logs](http://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/), similar to other events.  The log of role assignment changes can be retrieved using [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx) or the [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx).
 
 For example, to retrieve the list of role assignment changes for an entire subscription, run the following two cmdlets with Azure PowerShell. The first one switches to Azure Resource Manager mode.
 
