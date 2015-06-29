@@ -1,4 +1,4 @@
-<iproperties
+<properties
    pageTitle="Gettting started with Internal load balancer | Microsoft Azure "
    description="Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments"
    services="load-balancer"

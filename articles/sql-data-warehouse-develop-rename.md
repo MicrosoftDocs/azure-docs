@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Rename in SQL Data Warehouse
@@ -38,12 +38,12 @@ Database renaming is very similar to that of object.
 RENAME DATABASE AdventureWorks TO Contoso;
 ```
 
-It is important to remember that you cannot rename an object or a database if other users are connected to it or are using it. You may need to terminate open sessions first. To terminate a session you need to use the [KILL] command. Please be careful when using KILL. Once executed the targeted session will be terminated and any uncommitted work will be rolled back.
+It is important to remember that you cannot rename an object or a database if other users are connected to it or are using it. You may need to terminate open sessions first. To terminate a session you need to use the [KILL][] command. Please be careful when using KILL. Once executed the targeted session will be terminated and any uncommitted work will be rolled back.
 
 > [AZURE.NOTE] Sessions in SQL Data Warehouse are prefixed by 'SID' you will need to include this and the the session number when invoking the KILL command. For example KILL 'SID1234' would kill session 1234 - assuming you have the right permissions to execute it.
 
 ## Killing sessions
-In order to rename a database you may need to kill sessions connected to your SQL Data Warehouse. The following query will generate a distinct list of KILL commande to clear the connections (save for the current session).
+In order to rename a database you may need to kill sessions connected to your SQL Data Warehouse. The following query will generate a distinct list of KILL commands to clear the connections (save for the current session).
 
 ```
 SELECT 'KILL '''+session_id+''''
@@ -67,17 +67,17 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [KILL]: https://msdn.microsoft.com/en-us/library/ms173730.aspx
 
 <!--Other Web references-->
-[Azure Management Portal]: (http://portal.azure.com)
+[Azure management portal]: http://portal.azure.com/
 
 

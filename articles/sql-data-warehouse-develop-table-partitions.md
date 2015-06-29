@@ -19,13 +19,14 @@
 # Table partitions in SQL Data Warehouse
 
 To migrate SQL Server partition definitions to SQL Data Warehouse:
+
 - Remove SQL Server partition functions and schemes since this is managed for you when you create the table.
 - Define the partitions when you create the table. Simply specify partition boundary points and whether you want the boundary point to be effective `RANGE RIGHT` or `RANGE LEFT`.
 
 ### Partition sizing
-Partition sizing is an important consideration for SQL DW. Typically data management operations and data loading routines target individual partitions rather than tackling the whole table all at once. This is particularly relevant to clustered columnstores (CCI). CCI's can consume significant amounts of memory. Therefore, whilst we may want to revise the granularity of the partitioning plan we do not want to size the partitions to such a size that we run into memory pressure when trying to perform management tasks.
+Partition sizing is an important consideration for SQL Data Warehouse. Typically data management operations and data loading routines target individual partitions rather than tackling the whole table all at once. This is particularly relevant to clustered columnstores (CCI). CCI's can consume significant amounts of memory. Therefore, whilst we may want to revise the granularity of the partitioning plan we do not want to size the partitions to such a size that we run into memory pressure when trying to perform management tasks.
 
-When deciding the granularity of the partitions it is important to remember that SQL DW will automatically distribute the data into distributions. Consequently, data that would have normally existed in one table in one partition in an SQL Server database now exists in one partition across many tables in a SQL DW data warehouse. To maintain a meaningful number of rows in each partition one typically changes the partition boundary size. For example, if you have used day level partitioning for your data warehouse you may want to consider something less granular such as month or quarter.
+When deciding the granularity of the partitions it is important to remember that SQL Data Warehouse will automatically distribute the data into distributions. Consequently, data that would have normally existed in one table in one partition in an SQL Server database now exists in one partition across many tables in a SQL Data Warehouse database. To maintain a meaningful number of rows in each partition one typically changes the partition boundary size. For example, if you have used day level partitioning for your data warehouse you may want to consider something less granular such as month or quarter.
 
 To size your current database at the partition level use a query like the one below:
 
@@ -70,7 +71,7 @@ Use the following calculation to guide you when determining your partition size:
 
 MPP Partition Size = SMP Partition Size / Number of Distributions
 
-You can find out how many distributions your SQL DW database has using the following query:
+You can find out how many distributions your SQL Data Warehouse database has using the following query:
 
 ```
 SELECT  COUNT(*)
@@ -80,8 +81,8 @@ FROM    sys.pdw_distributions
 
 Now you know how big each partition is in the source system and what size you are anticipating for SQLDW you can decide on your partition boundary.
 
-### Workload manangement ###
-One final piece of information you need to factor in to the table partition decision is workload management. In SQLDW the maximum memory allocated to each distribution during query execution is governed by this feature. Please refer to the following article for more details on [workload management]. Ideally your partition will be sized with inmemory operations such as columnstore index rebuilds in mind. An index rebuild is a memory intensive operation. Therefore you will want to ensure that the partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.
+### Workload manangement
+One final piece of information you need to factor in to the table partition decision is workload management. In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed by this feature. Please refer to the following article for more details on [workload management]. Ideally your partition will be sized with inmemory operations such as columnstore index rebuilds in mind. An index rebuild is a memory intensive operation. Therefore you will want to ensure that the partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.
 
 Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views. In reality your memory grant will be less than the figures below. However, this provides a level of guidance that you can use when sizing your partitions for data management operations.
 
@@ -102,10 +103,10 @@ AND     rp.[name]    = 'SloDWPool'
 
 > [AZURE.NOTE] Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure you run the risk of memory pressure which in turn leads to less optimal compression.
 
-## Partition switching ##
+## Partition switching
 To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table. If this is not the case then the parition switch will fail as the partition metadata will not be synchronised.
 
-### How to split a partition that contains data ###
+### How to split a partition that contains data
 The most efficient method to split a partition that already contains data is to use a `CTAS` statement. If the partitioned table is a clustered columnstore then the table partition must be empty before it can be split.
 
 Below is a sample partitioned columnstore table containing one row in the final partition:
@@ -138,7 +139,7 @@ VALUES (1,20010101,1,1,1,1,1,1)
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey)
 ```
 
-> [AZURE.NOTE] By Creating the statistic object we ensure that SQLDW table metadata is more accurate. If we omit creating statistics then SQLDW will use default values. For details on statistics please review this article [MOREINFO]
+> [AZURE.NOTE] By Creating the statistic object we ensure that table metadata is more accurate. If we omit creating statistics then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
 
 We can then query for the row count leveraging the `sys.partitions` catalog view:
 
@@ -216,7 +217,7 @@ Once you have completed the movement of the data it is a good idea to refresh th
 UPDATE STATISTICS [dbo].[FactInternetSales]
 ```
 
-### Table partitioning source control ###
+### Table partitioning source control
 To avoid your table definition from **rusting** in your source control system you may want to consider the following approach:
 
 1. Create the table as a partitioned table but with no partition values
@@ -298,23 +299,24 @@ DROP TABLE #partitions;
 
 With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the warehouse over time.
 
->[AZURE.NOTE] Partition switching has a few differences in comparison to SQL Server. Be sure to read [Migrate Your Code] to learn more about this subject.
+>[AZURE.NOTE] Partition switching has a few differences in comparison to SQL Server. Be sure to read [Migrate your code][] to learn more about this subject.
 
 
 ## Next steps
-Once you have successfully migrated your database schema to SQLDW you can proceed to one of the following articles:
-- [migrate your data]
-- [migrate your code]
+Once you have successfully migrated your database schema to SQL Data Warehouse you can proceed to one of the following articles:
+
+- [Migrate your data][]
+- [Migrate your code][]
 
 <!--Image references-->
 
-<!-- GitHub Articles -->
-[migrate your code]: ./sql-dw-migrate-code/
-[migrate your data]: ./sql-dw-migrate-data/
-[database design]: ./sql-dw-develop-database-design/
-[generate statistics]: ./sql-dw-develop-generate-statistics/
-[limitations and restrictions]: ./sql-dw-develop-limitations-restictions/
-[product differences]: ./sql-dw-develop-product-differences/
+<!-- Article references -->
+[Migrate your code]: sql-data-warehouse-migrate-code.md
+[Migrate your data]: sql-data-warehouse-migrate-data.md
+[statistics]: sql-data-warehouse-develop-statistics.md
+[workload management]: sql-data-warehouse-develop-concurrency.md
 
 <!-- MSDN Articles -->
-[workload management]: (http://msdn.microsoft.com/BLAH)
+
+<!-- Other web references -->
+
