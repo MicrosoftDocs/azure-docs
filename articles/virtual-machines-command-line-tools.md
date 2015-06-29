@@ -19,7 +19,7 @@
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management
 
-This topic describes how to use the Azure CLI in the **asm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. This functionality is similar to that provided by the Windows PowerShell service maangement cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+This topic describes how to use the Azure CLI in the **asm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. This functionality is similar to that provided by the Windows PowerShell Service Management cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
 > [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Command-Line Interface with the Resource Manager](virtual-machines/xplat-cli-azure-resource-manager.md).
 
