@@ -122,6 +122,7 @@ The app service gateway includes built-in support for getting the user's consent
 * Twitter
 * Yammer
 * Azure Active Directory
+* Microsoft Account
 
 For these providers, the gateway maintains access tokens and associates them with the Zumo token, as it does for the identity provider access token. The process of getting user consent and calling a SaaS platform is illustrated in the following diagram.
 
