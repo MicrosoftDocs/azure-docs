@@ -70,7 +70,7 @@ Due to the large volume of authentications and sign ins processed by the Azure A
 
 You can find the most recent processed sign in by examining the help text at the top of each report.
 
-![Help text at the top of each report](./media/active-directory-reporting-how-it-works/reportingWatermark.PNG)
+![Help text at the top of each report](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
 > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
@@ -121,7 +121,7 @@ Scroll to the "Notifications" section.
 
 Enable or disable the "Email Notifications of Anomalous sign ins" section.
 
-![The Notifications section](./media/active-directory-reporting-next-steps/notificationsSection.png)
+![The Notifications section](./media/active-directory-reporting-getting-started/notificationsSection.png)
 
 ### Integrate with the Azure AD Reporting API
 
@@ -133,7 +133,7 @@ Select a user in a report.
 
 Click the "Enable MFA" button at the bottom of the screen.
 
-![The Multi-Factor Authentication button at the bottom of the screen](./media/active-directory-reporting-next-steps/mfaButton.png)
+![The Multi-Factor Authentication button at the bottom of the screen](./media/active-directory-reporting-getting-started/mfaButton.png)
 
 > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
