@@ -133,11 +133,11 @@ This particular definition will run once an hour, and ping the location specifie
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
  
