@@ -21,11 +21,9 @@
 
 The StorSimple Manager service dashboard page provides a summary view of all the devices that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. This tutorial introduces the dashboard page, explains the dashboard content and function, and describes the tasks that you can perform from this page.
 
-**Figure 1: StorSimple Manager service dashboard**
-
 ![Service dashboard](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
 
-**Dashboard page**
+**Figure 1: StorSimple Manager service dashboard**
 
 The StorSimple Manager service dashboard displays the following information:
 
