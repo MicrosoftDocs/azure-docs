@@ -1152,7 +1152,7 @@ The following options apply to most Mobile Services commands:
 + **-v** or **--verbose**: Write verbose output.
 + **--json**: Write JSON output.
 
-### Commands to manage mobile service instances
+### <a name="Mobile_Services"></a>Commands to manage mobile service instances
 
 **mobile locations [options]**
 
@@ -1304,7 +1304,7 @@ Key types are `master` and `application`.
 This command sets the mobile service key to a specific value.
 
 
-### Commands to manage mobile service configuration
+### <a name="Mobile_Configuration"></a>Commands to manage mobile service configuration
 
 **mobile config list [options] [servicename]**
 
@@ -1346,7 +1346,7 @@ This command sets a specific configuration option for a mobile service, in this 
 	info:    mobile config set command OK
 
 
-### Commands to manage mobile service tables
+### <a name="Mobile_Tables"></a>Commands to manage mobile service tables
 
 **mobile table list [options] [servicename]**
 
@@ -1459,7 +1459,7 @@ This commands removes all rows of data from the table.
 	info:    mobile data truncate command OK
 
 
-### Commands to manage scripts
+### <a name="Mobile_Scripts"></a>Commands to manage scripts
 
 Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
@@ -1518,7 +1518,7 @@ This command removes the existing insert script from the TodoItem table.
 	info:    Executing command mobile script delete
 	info:    mobile script delete command OK
 
-### Commands to manage scheduled jobs
+### <a name="Mobile_Jobs"></a>Commands to manage scheduled jobs
 
 Commands in this section are used to manage scheduled jobs that belong to a mobile service. For more information, see [Schedule jobs](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
@@ -1588,7 +1588,7 @@ This command removes the getUpdates scheduled job from the TodoList server.
 
 > [AZURE.NOTE] Deleting a job also deletes the uploaded script.
 
-### Commands to scale a mobile service
+### <a name="Mobile_Scale"></a>Commands to scale a mobile service
 
 Commands in this section are used to scale a mobile service. For more information, see [Scaling a mobile service](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
