@@ -51,7 +51,7 @@
 <tr>
    <td valign="middle"><p>Memory (1 hour)<sup>7</sup></p></td>
    <td valign="middle"><p>1024 MB<sup>7</sup></p></td>
-   <td valign="middle"><p>1024 MB</p></td>
+   <td valign="middle"><p>512 MB</p></td>
    <td valign="middle"><p>N/A</p></td>
    <td valign="middle"><p>N/A</p></td>
 </tr>
