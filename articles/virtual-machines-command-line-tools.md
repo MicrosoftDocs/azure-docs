@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management | Microsoft Azure"
 	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure using the Azure CLI asm mode."
-	services="web-sites, virtual-machines, mobile-services, cloud-services"
+	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="multiple"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
+	ms.date="06/29/2015"
 	ms.author="danlep"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management
 
-This topic describes how to use the Azure CLI in the **asm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+This topic describes how to use the Azure CLI in the **asm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. This functionality is similar to that provided by the Windows PowerShell service maangement cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
 > [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Command-Line Interface with the Resource Manager](virtual-machines/xplat-cli-azure-resource-manager.md).
 
@@ -28,7 +29,15 @@ Optional parameters are shown in square brackets (for example, [parameter]). All
 
 In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The -v parameter provides verbose output, and the -vv parameter provides even more detailed verbose output. The --json option will output the result in raw json format.
 
-##<a name="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
+## Setting the **asm** mode
+
+Currently the Service Management mode is enabled by default when you first install the CLI. If you need to, use the following command to enable Azure CLI Service Management commands.
+
+	azure config mode asm
+
+>[AZURE.NOTE] The Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+
+## Manage your account information and publish settings
 Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
@@ -175,7 +184,7 @@ This command sets the account environment
 
 This command deletes the specified environment from the account
 
-##<a name="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Azure virtual machines
+## Commands to manage your Azure virtual machines
 The following diagram shows how Azure virtual machines are hosted in the production deployment environment of an Azure cloud service.
 
 ![Azure Technical Diagram](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
@@ -336,7 +345,7 @@ This command exports an Azure virtual machine image to a file
 	+ Exporting the VM
 	info:   vm export command OK
 
-##<a name="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Azure virtual machine endpoints
+##  Commands to manage your Azure virtual machine endpoints
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
 ![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
@@ -415,7 +424,7 @@ This command shows the details of the endpoints on a vm
 	data:    Network Endpoints 2 Vip "168.61.9.97"
 	info:    vm endpoint show command OK
 
-##<a name="Commands_to_manage_your_Azure_virtual_machine_images"></a>Commands to manage your Azure virtual machine images
+## Commands to manage your Azure virtual machine images
 
 Virtual machine images are captures of already configured virtual machines that can be replicated as required.
 
@@ -482,7 +491,7 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 	info:   http://myaccount.blob.core.azure.com/vm-images/Sample.vhd is uploaded successfully
 	info:   vm image create command OK
 
-##<a name="Commands_to_manage_your_Azure_virtual_machine_data_disks"></a>Commands to manage your Azure virtual machine data disks
+## Commands to manage your Azure virtual machine data disks
 
 Data disks are .vhd files in blob storage that can be used by a virtual machine. For more information about how data disks are deployed to blob storage, see the Azure technical diagram shown earlier.
 
@@ -587,7 +596,7 @@ This command detaches a data disk attached to an Azure virtual machine. &lt;lun>
 	info:   Executing command vm disk detach
 	info:   vm disk detach command OK
 
-##<a name="Commands_to_manage_your_Azure_cloud_services"></a>Commands to manage your Azure cloud services
+## Commands to manage your Azure cloud services
 
 Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Azure cloud services.
 
@@ -649,7 +658,7 @@ This command deletes an Azure cloud service.
 To force the deletion, use the `-q` parameter.
 
 
-##<a name="Commands_to_manage_your_Azure_certificates"></a>Commands to manage your Azure certificates
+## Commands to manage your Azure certificates
 
 Azure service certificates are SSL certificates connected to your Azure account. For more information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/library/azure/gg981929.aspx).
 
@@ -686,8 +695,7 @@ This command deletes a certificate.
 	info:   nghinazz : cert deleted
 	info:   service cert delete command OK
 
-
-##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your web apps
+## Commands to manage your web apps
 
 An Azure web app is a web configuration accessible by URI. Web apps are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Azure.
 
@@ -1126,7 +1134,7 @@ This command configures the diagnostic options for your web app.
 **site scale instances [options] &lt;instances> [name]**
 
 
-##<a name="Commands_to_manage_mobile_services"></a>Commands to manage Azure Mobile Services
+## Commands to manage Azure Mobile Services
 
 Azure Mobile Services brings together a set of Azure services that enable backend capabilities for your apps. Mobile Services commands are divided into the following categories:
 
@@ -1144,7 +1152,7 @@ The following options apply to most Mobile Services commands:
 + **-v** or **--verbose**: Write verbose output.
 + **--json**: Write JSON output.
 
-###<a name="Mobile_Services"></a>Commands to manage mobile service instances
+### Commands to manage mobile service instances
 
 **mobile locations [options]**
 
@@ -1296,7 +1304,7 @@ Key types are `master` and `application`.
 This command sets the mobile service key to a specific value.
 
 
-###<a name="Mobile_Configuration"></a>Commands to manage mobile service configuration
+### Commands to manage mobile service configuration
 
 **mobile config list [options] [servicename]**
 
@@ -1338,7 +1346,7 @@ This command sets a specific configuration option for a mobile service, in this 
 	info:    mobile config set command OK
 
 
-###<a name="Mobile_Tables"></a>Commands to manage mobile service tables
+### Commands to manage mobile service tables
 
 **mobile table list [options] [servicename]**
 
@@ -1451,7 +1459,7 @@ This commands removes all rows of data from the table.
 	info:    mobile data truncate command OK
 
 
-###<a name="Mobile_Scripts"></a>Commands to manage scripts
+### Commands to manage scripts
 
 Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
@@ -1510,7 +1518,7 @@ This command removes the existing insert script from the TodoItem table.
 	info:    Executing command mobile script delete
 	info:    mobile script delete command OK
 
-###<a name="Mobile_Jobs"></a>Commands to manage scheduled jobs
+### Commands to manage scheduled jobs
 
 Commands in this section are used to manage scheduled jobs that belong to a mobile service. For more information, see [Schedule jobs](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
@@ -1580,7 +1588,7 @@ This command removes the getUpdates scheduled job from the TodoList server.
 
 > [AZURE.NOTE] Deleting a job also deletes the uploaded script.
 
-###<a name="Mobile_Scale"></a>Commands to scale a mobile service
+### Commands to scale a mobile service
 
 Commands in this section are used to scale a mobile service. For more information, see [Scaling a mobile service](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
@@ -1726,7 +1734,7 @@ This command removes the specified application setting for your mobile service.
 	info:    enablebetacontent: true
 	info:    mobile appsetting show command OK
 
-##<a name="Manage_tool_local_settings"></a>Manage tool local settings
+## Manage tool local settings
 
 Local settings are your subscription ID and Default Storage Account Name.
 
@@ -1749,7 +1757,7 @@ This command changes a config setting.
 	info:   Setting 'defaultStorageAccount' to value 'myname'
 	info:   Changes saved.
 
-##<a name ="Commands_to_manage_service_bus"></a>Commands to manage Service Bus
+## Commands to manage Service Bus
 
 Use these commands to manage your Service Bus account
 
@@ -1850,7 +1858,7 @@ Display details about a specific namespace.
 
 Check whether the namespace is available.
 
-##<a name="Commands_to_manage_your_Storage_objects"></a>Commands to manage your Storage objects
+## Commands to manage your Storage objects
 
 ###Commands to manage your Storage accounts
 
@@ -2048,7 +2056,7 @@ This command supports the following additional options:
 + **-c** or **--connection-string** &lt;connectionString>: The storage connection string.
 + **--debug**: Runs the storage command in debug.
 
-##<a name ="Commands_to_manage_sql"></a>Commands to manage SQL Databases
+## Commands to manage SQL Databases
 
 Use these commands to manage your Azure SQL Databases
 
@@ -2246,7 +2254,7 @@ This command will delete a firewall rule.
 	+ Removing firewall rule
 	info:    sql firewallrule delete command OK
 
-##<a name ="Commands_to_manage_vnet"></a>Commands to manage your Virtual Networks
+## Commands to manage your Virtual Networks
 
 Use these commands to manage your Virtual Networks
 
