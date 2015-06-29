@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manipulate encoding tasks by customizing task preset files" 
+	pageTitle="Manipulate encoding tasks by customizing task presets" 
 	description="The Azure Media Services Encoder allows you to pass custom preset files to Azure Media Encoder. This topic shows how to customize preset files in order to achieve the following tasks: overlay an image onto an existing video, control the output file names that the encoder produces, stitch videos. " 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
-#Manipulate encoding tasks by customizing task preset files
+#Manipulate encoding tasks by customizing task presets
 
 The Azure Media Services Encoder allows you to pass custom preset files to Azure Media Encoder. This topic shows how to customize preset files in order to achieve the following tasks: overlay an image onto an existing video, control the output file names that the encoder produces, stitch videos. 
 
