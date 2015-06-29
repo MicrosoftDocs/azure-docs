@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
 	ms.workload="infrastructure-services"
-	ms.date="05/05/2015"
+	ms.date="06/29/2015"
 	ms.author="justinha"/>
 
 # Role-based access control in the Microsoft Azure portal
