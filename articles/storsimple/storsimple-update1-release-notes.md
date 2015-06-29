@@ -95,8 +95,6 @@ The following table provides a summary of known issues in this release.
 
 When these updates are applied to a physical device, the software version will change to 6.3.9600.17521. 
 
->[AZURE.IMPORTANT] If you applied Update 1 prior to June 23rd and are currently on software version 6.3.9600.17491, ensure that you apply the critical patch release, Update 1.1, which addresses an issue related to backups. When Update 1.1. is  applied to a physical device, the software version will change to  6.3.9600.17521.  
-
 ## Serial-attached SCSI (SAS) controller and firmware updates in Update 1
 
 This release updates the driver and the firmware on the SAS controller of your physical device. It also updates the disk firmware on your device.
