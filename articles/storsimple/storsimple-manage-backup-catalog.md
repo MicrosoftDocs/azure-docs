@@ -23,9 +23,9 @@ The **Backup Catalog** page displays all the backup sets that are created when m
 
 This tutorial explains how to list, select, and delete a backup set. To learn how to restore your device from backup, go to [Restore your device from a backup set](storsimple-restore-from-backup-set.md). To learn how to clone a volume, go to [Clone a StorSimple volume](storsimple-clone-volume.md).
 
-**Figure 1: Backup catalog**
-
 ![Backup catalog](./media/storsimple-manage-backup-catalog/HCS_BackupCatalog.png) 
+
+**Figure 1: Backup catalog**
 
 The **Backup Catalog** page provides a query to narrow your backup set selection. You can filter the backup sets that are retrieved, based on the following parameters:
 
