@@ -16,6 +16,75 @@
    ms.date="06/03/2015"
    ms.author="kenhoff"/>
 
+   # Azure AD Reporting: What it is
+
+   [AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
+
+   Azure Active Directory includes security, activity, and audit reports for your directory. Here's a list of the reports included:
+
+   ## Security reports
+
+    - Sign ins from unknown sources
+    - Sign ins after multiple failures
+    - Sign ins from multiple geographies
+    - Sign ins from IP addresses with suspicious activity
+    - Irregular sign in activity
+    - Sign ins from possibly infected devices
+    - Users with anomalous sign in activity
+
+   ## Activity reports
+
+    - Application usage: summary
+    - Application usage: detailed
+    - Application dashboard
+    - Account provisioning errors
+    - Individual user devices
+    - Individual user Activity
+    - Groups activity report
+    - Password Reset Registration Activity Report
+    - Password reset activity
+
+   ## Audit reports
+
+    - Directory audit report
+
+    > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
+
+
+
+    # Azure AD Reporting: How it works
+
+    [AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
+
+    ## Reporting pipeline
+
+    The reporting pipeline consists of three main steps. Every time a user signs in, or an authentication is made, the following happens:
+
+    - First, the user is authenticated (successfully or unsuccessfully), and the result is stored in the Azure Active Directory service databases.
+    - At regular intervals, all recent sign ins are processed. At this point, our security and anomalous activity algorithms are searching all recent sign ins for suspicious activity.
+    - After processing, the reports are written, cached, and served in the Azure Management Portal.
+
+    ## Report generation times
+
+    Due to the large volume of authentications and sign ins processed by the Azure AD platform, the most recent sign ins processed are, on average, one hour old. In rare cases, it may take up to 8 hours to process the most recent sign ins.
+
+    You can find the most recent processed sign in by examining the help text at the top of each report.
+
+    ![Help text at the top of each report][001]
+
+    > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
+
+    [001]: ./media/active-directory-reporting-how-it-works/reportingWatermark.PNG
+
+
+
+
+
+
+
+
+
+
 # Azure AD Reporting: Getting started
 
 [AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
@@ -51,3 +120,63 @@ To download any report as a CSV, navigate to the report and click "Download" at 
 [001]: ./media/active-directory-reporting-getting-started/downloadButton.png
 [002]: ./media/active-directory-reporting-getting-started/dialogBox.png
 [003]: ./media/active-directory-reporting-getting-started/reportsMain.png
+
+
+
+
+
+
+# Azure AD Reporting: Next steps
+
+[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
+
+## Customize alerts for anomalous sign in activity
+
+Navigate to the "Configure" tab of your directory.
+
+Scroll to the "Notifications" section.
+
+Enable or disable the "Email Notifications of Anomalous sign ins" section.
+
+![The Notifications section][002]
+
+## Integrate with the Azure AD Reporting API
+
+See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md).
+
+## Engage Multi-Factor Authentication on users
+
+Select a user in a report.
+
+Click the "Enable MFA" button at the bottom of the screen.
+
+![The Multi-Factor Authentication button at the bottom of the screen][001]
+
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
+
+[001]: ./media/active-directory-reporting-next-steps/mfaButton.png
+[002]: ./media/active-directory-reporting-next-steps/notificationsSection.png
+
+
+
+
+
+
+
+# Azure AD Reporting: Learn more
+
+[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
+
+## Audit events
+
+Learn about what events are audited in the directory in [Azure Active Directory Reporting Audit Events](active-directory-reporting-audit-events.md).
+
+## API Integration
+
+See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md) and the [API reference documentation](https://msdn.microsoft.com/library/azure/mt126081.aspx).
+
+## Get in touch
+
+Email [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) for feedback, help, or any questions you might have!
+
+> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
