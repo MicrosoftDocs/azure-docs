@@ -351,25 +351,27 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
 	            // All of these properties of a BatchJobRequest shown below can be optional, depending on
 	            // your service, so it is not required to specify all with any request.  If you do not want to
 	            // use any of the parameters, a null value should be passed in its place.
-	
-	            // Define the reference to the blob containing your input data. 
-	            // This reference can be defined either based on a SAS uri as show below, or the
-	            // connection string / container / blob name values.
-	            BlobReference inputBlob = BlobReference.CreateFromSasBlobUri(new Uri("YOUR_CUSTOM_OUTPUT_BLOB_SAS_URI", UriKind.Absolute));
-	              
-	            // If desired, one can override the location where the job outputs are to be stored. We can also build
-	            // a BlobReference by passing in the storage account details and name of the blob where we want the output
-	            // to be redirected to.
-	            var outputLocations = new Dictionary<string, BlobReference>
-	            {
-	                {
-	                    "YOUR_OUTPUT_NODE_NAME", 
-	                    BlobReference.CreateFromConnectionStringData(
-	                      connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
-	                      containerName: "YOUR_CONTAINER_NAME",
-	                      blobName: "YOUR_BLOB.csv");
-	                }
-	            };
+	            
+	            // Define the reference to the blob containing your input data. You can refer to this blob by its
+                    // connection string / container / blob name values; alternatively, we also support references 
+                    // based on a blob SAS URI
+                    
+                    BlobReference inputBlob = BlobReference.CreateFromConnectionStringData(connectionString:                                         "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
+                        containerName: "YOUR_CONTAINER_NAME",
+                        blobName: "YOUR_INPUT_BLOB_NAME");
+                              
+                    // If desired, one can override the location where the job outputs are to be stored, by passing in
+                    // the storage account details and name of the blob where we want the output to be redirected to.
+                    
+                    var outputLocations = new Dictionary<string, BlobReference>
+                        {
+                          {
+                           "YOUR_OUTPUT_NODE_NAME", 
+                           BlobReference.CreateFromConnectionStringData(                                     connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
+                                containerName: "YOUR_CONTAINER_NAME",
+                                blobName: "YOUR_DESIRED_OUTPUT_BLOB_NAME")
+                           }
+                        };
 	            
 	            // If applicable, you can also set the global parameters for your service
 	            var globalParameters = new Dictionary<string, string>
