@@ -17,26 +17,26 @@
    ms.author="rajram"/>
 
 #Wait Connector
-Wait connector enables app to delay its execution for a specified duration or until occurrence of specified time. When used in a flow, it can be used to delay execution.
+Wait connector enables an app to delay its execution for a specified duration or until the occurrence of a specified time. When used in a flow, it can be used to delay execution.
 
 ##Using Wait Connector
 To use the Wait connector, you need to first create an instance of the Wait Connector API app. This can be done either inline while creating a logic app or by selecting the Wait Connector API app from the Azure Marketplace.
 
-##Using Wait Connector in Logic Apps designer surface
+##Using Wait Connector in the Logic Apps designer surface
 Wait Connector can be used as an action. It does not have any triggers.
 
 ###Action
-- Click on Wait Connector from the right pane
+- Click on Wait Connector from the right pane.
 
 	![List of Actions][1]
-- Wait Connector supports two action. 
+- Wait Connector supports two actions: 
 	- Delay
 	- Delay Until
 	 
-- Select *Delay* action
+- Select *Delay*.
 
 	![Delay input][2]
-- Provide the inputs for the action and configure it
+- Provide the inputs for the action and configure it.
 
 	![Action configured][3]
 
