@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="06/24/2015"
 	ms.author="tomfitz"/>
 
 #Configure PHP in Azure App Service Web Apps
@@ -54,7 +54,7 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 
 ### Azure Command-Line Interface (Linux, Mac, Windows)
 
->[Azure.Note] The Azure Command-Line Interface requires **Node.js** to be installed on your computer for use.
+To use the Azure Command-Line Interface, you must have **Node.js** installed on your computer.
 
 1. Open Terminal.
 2. Type `azure site set --php-version [5.4 | 5.5] [site-name]` then press enter.

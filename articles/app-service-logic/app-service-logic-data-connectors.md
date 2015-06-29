@@ -48,17 +48,6 @@ Here's a brief overview of each of the App and Data Services connectors that are
 <td>New messages
 <td>Send message
 </tr>
-<tr>
-<td>Azure Storage Table
-<td>Azure Storage Table Connector lets you connect to Azure Storage Table and perform various actions such as Get Entity, Query Entities, Insert Entity, Update Entity, Delete Entity and a trigger to retrieve data.
-<td>New entity
-<td><li>Get Entity
-	<li>Insert entity
-	<li>Delete entity
-	<li>Update entity
-	<li>Query
-
-</tr>
 
 <tr>
 <td>Box
@@ -126,17 +115,6 @@ Here's a brief overview of each of the App and Data Services connectors that are
 	<li>Select From Table
 	<li>Delete From Table
 	<li>Call Stored Procedure
-</tr>
-
-<tr>
-<td>MongoDB
-<td>A MongoDB connector lets you create, update, delete, and get documents from a MongoDB collection.
-<td>New document
-<td>	<li>Add Document
-		<li>Update Document
-		<li>Get Documents
-		<li>Upsert Document
-		<li>Delete Document
 </tr>
 
 

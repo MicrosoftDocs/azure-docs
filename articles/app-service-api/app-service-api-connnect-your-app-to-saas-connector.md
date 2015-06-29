@@ -33,6 +33,8 @@ This tutorial uses a DropBox connector as an example and walks you through the f
 * Configure the resource group so that only authenticated users can access API apps that are included in the resource group.
 * Test to verify that both user authentication and Dropbox authentication work.
 
+For more information about authentication in App Service, see [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md). 
+
 ## Install the Dropbox connector
 
 1. Go to the [Azure preview portal] home page and click **Marketplace**.
@@ -79,7 +81,7 @@ This tutorial uses a DropBox connector as an example and walks you through the f
 
 To enable API access to your Dropbox account, you have to create a Dropbox app on the Dropbox developer site. Then you copy the client ID and client secret values from that Dropbox app to your Dropbox connector, and you set the connector to accept only authenticated requests.
 
-### Create a Dropbox app
+### <a id="createdbapp"></a>Create a Dropbox app
 
 The following steps show the process for creating a Dropbox app using the Dropbox.com site. As the Dropbox.com site may change without notice, you might see differences in UI from what is shown.
 
@@ -103,7 +105,7 @@ The following steps show the process for creating a Dropbox app using the Dropbo
 
 	![Create Dropbox app](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings.png)
 
-### Copy the Dropbox app settings to the Azure Dropbox connector and vice versa 
+### <a id="copysettings"></a>Copy the Dropbox app settings to the Azure Dropbox connector and vice versa 
 
 4. In another browser window or tab, go to the [Azure preview portal].
 
@@ -271,7 +273,10 @@ In the following steps you make a Get request to the Dropbox connector to look a
 
 ## Next steps
 
-You've seen how to install, configure, and test a SaaS connector. For more information, see [Using connectors](../app-service-logic/app-service-logic-use-biztalk-connectors.md). 
+You've seen how to install, configure, and test a SaaS connector. For more information, see these resources:
+
+* [Using connectors](../app-service-logic/app-service-logic-use-biztalk-connectors.md)
+* [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md)  
 
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/

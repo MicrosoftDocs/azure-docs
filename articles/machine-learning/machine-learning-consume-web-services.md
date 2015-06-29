@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="02/20/2015" 
+	ms.date="06/29/2015" 
 	ms.author="bradsev" />
 
 
@@ -294,7 +294,15 @@ The *Results* property is populated only if the job has completed successfully (
 
 A running batch job can be cancelled at any time by calling the designated CancelJob API and passing in the job's id. This would be done for various reasons such as that the job is taking too long to complete. 
 
-The code sample below demonstrates how one can submit and monitor a batch job against an Azure Machine Learning service endpoint:
+
+
+#### Using the [BES SDK](machine-learning-consume-web-services.md#batch-execution-service-sdk)
+
+The [BES SDK Nugget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) provides functions that simplify calling BES to score in batch mode. To install the Nuget package, in Visual Studio, go to Tools, then select Nuget Package Manager, and click Package Manager Console. 
+
+AzureML experiments that are published as web services can include web service input modules which means they expect the input to be provided through the web service call in the form of a reference to a blob location. There is also the option of not using a web service input module and using a Reader module instead. In this case, the Reader typically would read from a SQL DB using a query at run time to get the data. Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.
+
+The code sample below demonstrates how you can submit and monitor a batch job against an Azure Machine Learning service endpoint using the BES SDK. Note the comments for details on the settings and calls.
 
 #### **Sample Code**
 

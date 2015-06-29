@@ -3,7 +3,7 @@
 	description="An introduction to backing up DPM servers using the Azure Backup service"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="Jim-Parker", "sammehta"
 	manager="jwhit"
 	editor=""/>
 
@@ -70,9 +70,6 @@ To start backing up your Azure virtual machines, you need to first create a back
     A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as **Active**.
 
     ![List of backup vaults](./media/backup-azure-dpm-introduction/backup_vaultslist.png)
-
-7. Click on the backup vault to go to the **Quick Start** page, where the instructions for backup of DPM servers are shown.
-    ![Virtual machine backup instructions in the Dashboard page](./media/backup-azure-dpm-introduction/vmbackup-instructions.png)
 
     > [AZURE.NOTE] Ensure that the appropriate storage redundancy option is chosen right after the vault has been created. Read more about [setting the storage redundancy option in the backup vault](http://azure.microsoft.com/documentation/articles/backup-azure-backup-create-vault/#azure-backup---storage-redundancy-options).
 

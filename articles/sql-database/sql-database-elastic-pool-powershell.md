@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="04/29/2015"
+   ms.date="06/24/2015"
    ms.author="adamkr; sstein"/>
 
 # Create and manage a SQL Database elastic pool with PowerShell (preview)
@@ -39,13 +39,13 @@ This article will show you how to create everything you need to create and confi
 
 To create an elastic pool with PowerShell, you need to have Azure PowerShell installed and running, and switch it into resource manager mode to access the Azure Resource Manager PowerShell Cmdlets. 
 
-You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 The cmdlets for creating and managing Azure SQL Databases and elastic pools are located in the Azure Resource Manager module. When you start Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet.
 
 	PS C:\>Switch-AzureMode -Name AzureResourceManager
 
-For detailed information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+For detailed information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
 
 ## Configure your credentials and select your subscription
@@ -59,7 +59,7 @@ After successfully signing in you should see some information on screen that inc
 
 ### Select your Azure subscription
 
-To select the subscription you need your subscription Id or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-Subscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
+To select the subscription you need your subscription Id or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
 
 	PS C:\>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -74,7 +74,7 @@ If you already have a resource group you can go to the next step, or you can run
 
 ### Create a server 
 
-Elastic pools are created inside Azure SQL Servers. If you already have a server you can go to the next step, or you can run the following command to create a new V12 server. Replace the ServerName with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use whatever valid location you choose.
+Elastic pools are created inside Azure SQL Database servers. If you already have a server you can go to the next step, or you can run the following command to create a new V12 server. Replace the ServerName with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use whatever valid location you choose.
 
 	PS C:\>New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
@@ -94,7 +94,7 @@ For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.c
 
 ## Create an elastic pool, and elastic databases
 
-Now you have a resource group, a server, and a firewall rule configured so you can access the server the following command will create the elastic pool. This command creates a pool that shares a total of 400 DTUs. Each database in the pool is guaranteed to always have 10 DTUs available (DatabaseDtuMin). Individual databases in the pool can consume a maximum of 100 DTUs (DatabaseDtuMax). For detailed parameter explanations, see [Azure SQL Database elastic pools](sql-database-elastic-pool.md). 
+Now you have a resource group, a server, and a firewall rule configured so you can access the server. The following command will create the elastic pool. This command creates a pool that shares a total of 400 DTUs. Each database in the pool is guaranteed to always have 10 DTUs available (DatabaseDtuMin). Individual databases in the pool can consume a maximum of 100 DTUs (DatabaseDtuMax). For detailed parameter explanations, see [Azure SQL Database elastic pools](sql-database-elastic-pool.md). 
 
 
 	PS C:\>New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
@@ -233,4 +233,4 @@ For more information, see [Elastic database jobs overview](sql-database-elastic-
 
 ## Elastic database reference
 
-For more information about elastic databases and elastic database pools, including API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md). 
+For more information about elastic databases and elastic database pools, including API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
