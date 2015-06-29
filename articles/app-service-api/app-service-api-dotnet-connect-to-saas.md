@@ -106,14 +106,16 @@ The `authentication` property is an array, but this preview release doesn't supp
 
 For a list of the supported platforms, see [Getting user consent to access other SaaS platforms](../app-service/app-service-authentication-overview.md#obotosaas).
 
-You can also specify scopes:
+You can also specify scopes, as in this example:
 
 		"authentication": [
 		  {
-		    "type": "dropbox",
-		    "scopes": ["scope1", "scope2"]
+		    "type": "google",
+		    "scopes": ["https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile"]
 		  }
 		]
+
+Available scopes are defined by each SaaS provider and can be found in the provider's developer portal.
 
 ## Add Code that calls Dropbox
 
@@ -317,8 +319,8 @@ In this section you create a console app project that uses client code generated
 		
 		            // Call gateway API to get consent link URL for target SaaS platform.
 		            // SaaS platform for this example is Dropbox.
-		            // See tutorial comments for an explanation 
-		            // of the redirectURL parameter for GetConsentLinkAsync
+		            // See the tutorial for an explanation of
+		            // the redirectURL parameter for GetConsentLinkAsync
 		            var gatewayConsentLink = appServiceClient.GetConsentLinkAsync("SimpleDropbox", GATEWAY_URL).Result;
 		            Console.WriteLine("\nGot gateway consent link, URL=" + gatewayConsentLink);
 		
