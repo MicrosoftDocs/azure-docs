@@ -18,7 +18,6 @@
 
    # Azure AD Reporting: What it is
 
-   [AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
    Azure Active Directory includes security, activity, and audit reports for your directory. Here's a list of the reports included:
 
@@ -54,7 +53,6 @@
 
     # Azure AD Reporting: How it works
 
-    [AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
     ## Reporting pipeline
 
@@ -87,7 +85,6 @@
 
 # Azure AD Reporting: Getting started
 
-[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
 ## Sign into the Azure Management Portal
 
@@ -128,7 +125,6 @@ To download any report as a CSV, navigate to the report and click "Download" at 
 
 # Azure AD Reporting: Next steps
 
-[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
 ## Customize alerts for anomalous sign in activity
 
@@ -165,7 +161,6 @@ Click the "Enable MFA" button at the bottom of the screen.
 
 # Azure AD Reporting: Learn more
 
-[AZURE.INCLUDE [active-directory-reporting-content-journey-selector](../../includes/active-directory-reporting-content-journey-selector.md)]
 
 ## Audit events
 
