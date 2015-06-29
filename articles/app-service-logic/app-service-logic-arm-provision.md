@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Logic App using a template
@@ -26,11 +26,15 @@ For examples of the definition itself, see [Author Logic App definitions](app-se
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-For the complete template, see [Logic App template](https://azure.microsoft.com/documentation/templates/101-logic-app-create/).
+For the complete template, see [Logic App template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
 ## What you will deploy
 
 With this template, you will deploy a logic app.
+
+To run the deployment automatically, click the following button:
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 ## Parameters
 
