@@ -1,30 +1,30 @@
 <properties
-	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure" 
-	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning." 
-	services="data-science-process" 
-	solutions="" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
+	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure"
+	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning."
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
 	editor="" />
 
-<tags 
-	ms.service="data-science-process" 
-	ms.workload="data-services" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="msolhab;bradsev" /> 
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/29/2015"
+	ms.author="msolhab;bradsev" />
 
 
 # Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled with the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure. 
+This article outlines the variety of sample data sources and target scenarios that can be handled with the Advanced Analytics Process and Technology (ADAPT) in Azure Machine Learning. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
->[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+>[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
 
 Each of the following sections presents a sample scenario. For each scenario, a possible data science or advanced analytics flow and supporting Azure resources are listed.
 
@@ -240,7 +240,7 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
 1. Detach the database at the source location. For more information, see [Detach a database](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx).
 2. In Windows Explorer or Windows Command Prompt window, copy the detached database file or files and log file or files to the target location on the SQL Server VM in Azure.
-3. Attach the copied files to the target SQL Server instance. For more information, see [Attach a Database](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx). 
+3. Attach the copied files to the target SQL Server instance. For more information, see [Attach a Database](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx).
 
 [Move a Database Using Detach and Attach (Transact-SQL)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
 
@@ -287,7 +287,7 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
 	d.  Run the Hive queries in Hadoop Command Line on the head node of the Hadoop cluster to explore the data and create features as needed.
 
-7.  If needed and/or desired, sample the data to fit in Azure Machine Learning Studio. 
+7.  If needed and/or desired, sample the data to fit in Azure Machine Learning Studio.
 
 8.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
@@ -304,7 +304,7 @@ The following diagram summarizes the scenarios described above and the Advanced 
 
 ### Advanced Analytics in action Examples
 
-For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see: 
+For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
 
 * [Advanced Analytics Process and Technology in Action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
