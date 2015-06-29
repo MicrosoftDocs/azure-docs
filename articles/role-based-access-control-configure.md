@@ -386,9 +386,11 @@ function Get-AzureRBACAuditLog($startDateTime, $endDateTime)
 }
 ```
 
-And here are the commands to run the script:
+And here are the commands to run the script
+
 ```
 $log = Get-AzureRBACAuditLog '2015-06-26' '2015-06-27'
+
 $log | Format-Table
 ```
 
