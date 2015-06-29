@@ -26,7 +26,7 @@ adjusting the configuration file, you can enable or disable telemetry modules an
 some of them.
 
 The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your
-application. It is automatically added to your project when you [install the SDK][start]. It is also added to a web app 
+application. It is automatically added to your project when you [install some versions of the SDK][start]. It is also added to a web app 
 by [Status Monitor on an IIS server][redfield], or when you select the Appplication Insights 
 [extension for an Azure website or VM][azure].
 
