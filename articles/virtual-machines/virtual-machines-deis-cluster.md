@@ -113,7 +113,7 @@ The template defines inbound NAT rules that map 2223 to instance 1, 2224 to inst
 
 > [AZURE.NOTE] Currently the template only supports 3-node clusters. This is because of a limitation in Azure Resource Manager template NAT rule definition, which doesn’t support loop syntax.
 
-## Install and start Deis platform
+## Install and start the Deis platform
 
 Now you can use deisctl to install and start the Deis platform:
 
