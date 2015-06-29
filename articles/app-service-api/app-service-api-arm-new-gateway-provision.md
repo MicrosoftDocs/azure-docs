@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Provision an API app with a new gateway
@@ -25,7 +25,7 @@ For more information about creating templates, see [Authoring Azure Resource Man
 
 For more information about deploying apps, see [Deploy a complex application predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-For the complete template, see [API app with new gateway template](../../templates/app-service-api-arm-new-gateway-provision/).
+For the complete template, see [API app with new gateway template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json).
 
 ## What you will deploy
 
@@ -34,6 +34,10 @@ In this template, you will deploy:
 - API app
 - new gateway
 - new App Service hosting plan
+
+To run the deployment automatically, click the following button:
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
 
 ## Parameters
 
@@ -275,11 +279,11 @@ Notice that the names of the hosting web app and gateway are defined as properti
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
  

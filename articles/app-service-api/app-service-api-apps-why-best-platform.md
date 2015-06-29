@@ -56,7 +56,7 @@ Many of these features, such the public marketplace and automatic updates, are a
 
 >[AZURE.NOTE] [Azure API Management](/services/api-management/) is a separate service that offers features such as endpoint consolidation and throttling. You can use API Management with API Apps.
 >
->API Apps is currently in public preview. It's built on top of [App Service Web Apps](../app-service-web/app-service-web-overview.md), which is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing web apps and leveraging features of API Apps.
+>API Apps is currently in public preview. [App Service Web Apps](../app-service-web/app-service-web-overview.md) is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing web apps and leveraging the additional features of API Apps.
 
 ## API Apps concepts ##
 

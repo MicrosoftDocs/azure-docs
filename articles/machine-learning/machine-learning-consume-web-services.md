@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="02/20/2015" 
+	ms.date="06/29/2015" 
 	ms.author="bradsev" />
 
 
@@ -296,7 +296,7 @@ A running batch job can be cancelled at any time by calling the designated Cance
 
 
 
-#### Using the BES SDK
+#### Using the [BES SDK](machine-learning-consume-web-services.md#batch-execution-service-sdk)
 
 The [BES SDK Nugget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) provides functions that simplify calling BES to score in batch mode. To install the Nuget package, in Visual Studio, go to Tools, then select Nuget Package Manager, and click Package Manager Console. 
 
