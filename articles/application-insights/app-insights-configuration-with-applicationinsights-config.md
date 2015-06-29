@@ -193,13 +193,16 @@ The number of telemetry items that can be stored in the SDK's in-memory storage.
 -	Max: 1000
 -	Default: 500
 
-    <ApplicationInsights>
+```
+
+  <ApplicationInsights>
       ...
       <Channel>
        <MaxTelemetryBufferCapacity>100</MaxTelemetryBufferCapacity>
       </Channel>
       ...
-    </ApplicationInsights>
+  </ApplicationInsights>
+```
 
 #### FlushIntervalInSeconds 
 
@@ -209,6 +212,8 @@ Determines how often the data that is stored in the in-memory storage should be 
 -	Max: 300
 -	Default: 5
 
+```
+
     <ApplicationInsights>
       ...
       <Channel>
@@ -216,6 +221,7 @@ Determines how often the data that is stored in the in-memory storage should be 
       </Channel>
       ...
     </ApplicationInsights>
+```
 
 #### MaxTransmissionStorageCapacityInMB
 
@@ -225,14 +231,16 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
 -	Max: 100
 -	Default: 10
 
-    <ApplicationInsights>
+```
+
+   <ApplicationInsights>
       ...
       <Channel>
         <MaxTransmissionStorageCapacityInMB>50</MaxTransmissionStorageCapacityInMB>
       </Channel>
       ...
-    </ApplicationInsights>
-
+   </ApplicationInsights>
+```
 
 ## Custom Initializers
 
