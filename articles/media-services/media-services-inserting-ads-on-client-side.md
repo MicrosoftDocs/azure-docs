@@ -21,7 +21,7 @@
 
 This topic contains information on how to insert various types of ads on the client side.
 
-For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](https://msdn.microsoft.com/en-us/library/azure/dn783466.aspx#caption_ad).
+For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](https://msdn.microsoft.com/library/azure/dn783466.aspx#caption_ad).
 
  
 ##<a id="insert_ads_into_media"></a>Inserting Ads into your Media
@@ -813,4 +813,4 @@ The following sample shows how to schedule a mid-roll overlay ad.
 ##See Also
 
 [Develop video player applications](media-services-develop-video-players.md)
-[Introduction to the Windows Azure Media Player Framework for iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
+[Introduction to the Azure Media Player Framework for iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
