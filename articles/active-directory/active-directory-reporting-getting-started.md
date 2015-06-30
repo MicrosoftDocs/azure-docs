@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/03/2015"
+   ms.date="06/30/2015"
    ms.author="kenhoff"/>
 
 # Getting started with Azure AD Reporting
 
 ## What it is
-
 
 Azure Active Directory includes security, activity, and audit reports for your directory. Here's a list of the reports included:
 
