@@ -65,6 +65,7 @@ In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional pa
 
 
 ## Configure the gateway
+
 An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration.
  
 The values are:
