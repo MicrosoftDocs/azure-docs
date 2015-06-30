@@ -150,7 +150,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 ## Active Directory Limits
 
-[AZURE.INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
+[AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
 ## RemoteApp Limits
