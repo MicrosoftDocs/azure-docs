@@ -149,7 +149,7 @@ For example, to retrieve the list of role assignment changes for an entire subsc
 
 `Switch-AzureMode -name AzureResourceManager`
 
-`Get-AzureSubscriptionIdLog –DetailedOutput`
+`Get-AzureSubscriptionIdLog –DetailedOutput -StartTime '06-15-15' -EndTime '06-29-15'`
 
 Role assignment changes are captured in events where the ResourceProviderName is `Microsoft.Authorization`.  The actual detail of the assignment is captured in the event detail: what principal was assigned, to what role, for what scope.  Role assignment changes are visible when browsing audit logs in the portal, but the portal does not show the event detail. To view event detail, you must use Azure PowerShell.
 
@@ -182,7 +182,7 @@ Claims               :
                        MJwntjqWaULfl30NJMiDRVSVCWMX5GzmMNU4oqitDXs
                        http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname: William
                        http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname: Hennum
-                       name           : Adrian Drumea
+                       name           : William Hennum
                        http://schemas.microsoft.com/claims/authnmethodsreferences: rsa,wia,mfa
                        _claim_names   : {"groups":"src1"}
                        _claim_sources : {"src1":{"endpoint":"https://graph.windows.net/72f988bf-86f1-41af-91ab-2d7cd011
