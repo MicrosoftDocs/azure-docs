@@ -9,7 +9,7 @@ Follow the steps in this article to create a local working branch on your comput
 
 1. Start Git Bash (or the command-line tool you use for Git).
 
- [AZURE.TIP] If you are working in the public repository, change azure-content-pr to azure-content in all the commands.
+ **Note:** If you are working in the public repository, change azure-content-pr to azure-content in all the commands.
 
 2. Change to azure-content-pr:
 
