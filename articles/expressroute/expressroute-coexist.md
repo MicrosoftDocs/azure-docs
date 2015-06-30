@@ -187,11 +187,7 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. At this point, you are ready to begin configuring your gateways. If you already have an ExpressRoute circuit that is configured, you can go directly to **Step 3** in the article, [Create a new virtual network and gateways for ExpressRoute and Site-to-Site coexisting connections](#create-a-new-virtual-network-and-gateways-for-expressroute-and-site-to-site-coexisting-connections). 
-
-If you don't have an ExpressRoute circuit configured, see the following articles to configure your circuit before configuring your gateways. Be sure not to configure your gateways using the articles below. 
-
-
+5. At this point, your configuration is ready to proceed with **Step 3** in the article, [Create a new virtual network and gateways for ExpressRoute and Site-to-Site coexisting connections](#create-a-new-virtual-network-and-gateways-for-expressroute-and-site-to-site-coexisting-connections).
 
 
 ## Next Steps
@@ -199,7 +195,6 @@ If you don't have an ExpressRoute circuit configured, see the following articles
 Learn more about ExpressRoute. See the [ExpressRoute Overview](../expressroute/expressroute-introduction.md).
 
 Learn more about VPN Gateways. See [About VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-
 
 
 
