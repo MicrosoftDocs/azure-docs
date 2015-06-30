@@ -3,7 +3,7 @@
    description="Azure AD Reporting: Getting started"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="curtand"
    manager="mbaldwin"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="06/30/2015"
-   ms.author="kenhoff"/>
+   ms.author="curtand;kenhoff"/>
 
 # Getting started with Azure AD Reporting
 
