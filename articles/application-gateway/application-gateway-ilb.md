@@ -183,7 +183,9 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 
 ## Verify the gateway status
 
-Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. This sample shows an application gateway that is up, running, and is ready to take traffic destined to `http://<generated-dns-name>.cloudapp.net`.
+Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. This sample shows the cmdlet on the first line, followed by the output. In this sample, the gatway is running, and is ready to take traffic. 
+
+**Note:** The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
