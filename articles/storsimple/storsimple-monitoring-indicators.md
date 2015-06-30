@@ -34,6 +34,8 @@ The remainder of this article describes the various monitoring indicator LEDs, t
 The front panel, also known as the *operations panel* or *ops panel*, displays the aggregate status of all the modules in the system. The front panel is identical on the StorSimple device and the EBOD enclosure, and is illustrated below.  
 
    ![][1]
+
+**Figure 1: Device front panel**
  
 The front panel contains the following indicators:  
 
@@ -67,11 +69,14 @@ Power cooling module (PCM) indicator LEDs can be found on the back of the primar
 - PCM LEDs for the EBOD enclosure
 
 ## PCM LEDs for the primary enclosure  
+
 The StorSimple device has a 764W PCM module with an additional battery. The following illustration shows the LED panel for the device.  
 
    ![][2]
+
+**Figure 2: PCM LEDs on the primary enclosure**
  
-**LED legend**   
+LED legend:
 
 1. AC power failure
 2. Fan failure
@@ -110,6 +115,8 @@ The status of the PCM is indicated on the LED panel. The device PCM LED panel ha
 The EBOD enclosure has a 580W PCM and no additional battery. The PCM panel for the EBOD enclosure has indicator LEDs only for the power supplies and the fan. The following illustration shows these LEDs.
 
    ![][3] 
+
+**Figure 3: PCM LEDs on the EBOD enclosure**
  
 You can use the following table to determine the status of the PCM.  
 
@@ -133,6 +140,8 @@ The following illustration helps you identify the LEDs on the primary controller
 
    ![][4]
  
+**Figure 4: Monitoring LEDs - primary controller**
+
 Use the following table to determine whether the controller module is operating correctly.  
 
 ### Controller indicator LEDs  
@@ -150,15 +159,17 @@ Use the following table to determine whether the controller module is operating 
 If the fault LED is lit, there is a problem with the controller module that might be resolved by restarting the controller. Please contact Microsoft Support if restarting the controller does not resolve this issue.  
 
 
-###Monitoring LEDs for the EBOD (EBOD enclosure)  
+### Monitoring LEDs for the EBOD (EBOD enclosure)  
 
 Each of the 6 Gb/s SAS EBOD controllers has LEDs that indicate its status as shown in the following illustration.  
 
   ![][5]
+
+**Figure 5: Monitoring LEDs - EBOD enclosure**
  
 Use the following table to determine whether the EBOD controller module is operating normally.  
 
-###EBOD controller module indicator LEDs  
+### EBOD controller module indicator LEDs  
 
 |Status | I/O module OK (green) | I/O module fault (amber) | Host port activity (green) |
 |-------|----------------------|-------------------------------|----------------------------|
@@ -176,6 +187,8 @@ The StorSimple device has disk drives located in both the primary enclosure and 
 For the disk drives, the drive status is indicated by a green LED and a red-amber LED mounted on the front of each drive carrier module. The following illustration shows these LEDs.
 
   ![][6]
+
+**Figure 6: Disk drive LEDs**
  
 Use the following table to determine the state of each disk drive, which in turn affects the overall front panel LED status.  
 

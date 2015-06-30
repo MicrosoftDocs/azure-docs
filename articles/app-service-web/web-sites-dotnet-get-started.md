@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="03/24/2015"
+	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET web app in Azure App Service
@@ -295,7 +295,7 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 * How to avoid wake-up wait time after idle time-outs
 
-	By default, web apps are unloaded if they have been idle for some period of time. The first request after that has to wait for the web app to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to configure web app](web-sites-configure.md).
+	By default, web apps are unloaded if they have been idle for some period of time. The first request after that has to wait for the web app to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to configure web apps](web-sites-configure.md).
 
 * How to add real-time features such as chat
 

@@ -59,7 +59,7 @@ In this section you create a console application project and add code to it that
  
 2. In Visual Studio, create a console application project.
  
-### Add App Service SDK generated client code
+### <a id="addclient"></a>Add App Service SDK generated client code
 
 3. In **Solution Explorer**, right-click the project (not the solution) and select **Add > Azure API App Client**. 
 
@@ -203,4 +203,6 @@ Azure API apps also support the client authentication flow.  A client flow authe
 This article has shown how to consume an API app from a .NET client, for API apps set to **Public (authenticated)** and **Public (anonymous)** access levels. 
 
 For additional examples of code that calls an API app from .NET clients, download the [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) sample application.
+
+For information about how to use authentication in API apps, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md).
  

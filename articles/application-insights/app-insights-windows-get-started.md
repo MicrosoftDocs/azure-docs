@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
 # Application Insights for Windows Phone and Store apps
@@ -60,17 +60,33 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
     ![](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Select **Online**, **Include prerelease**, and search for "Application Insights".
+2. Search for "Application Insights".
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Pick **Application Insights for Windows applications**
+3. Pick **Application Insights for .NET Windows applications**
 
-4. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
-    `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
+4. Insert code to initialize the SDK in the app.xaml.cs constructor:
+
+    ```
+
+    public App()
+    {
+       // Substitute your instrumentation key:
+
+       WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
+            
+       this.InitializeComponent();
+       this.Suspending += OnSuspending;
+    }
+
+    ```
+
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store projecct.
+
+
 
 ## <a name="network"></a>3. Enable network access for your app
 
@@ -85,6 +101,7 @@ In Visual Studio, you'll see a count of the events that have been received.
 ![](./media/app-insights-windows-get-started/appinsights-09eventcount.png)
 
 In debug mode, telemetry is sent as soon as it's generated. In release mode, telemetry is stored on the device and sent only when the app resumes.
+
 
 ## <a name="monitor"></a>5. See monitor data
 
@@ -105,6 +122,44 @@ Click any chart to see more detail.
 ## <a name="deploy"></a>5. Publish your application to Store
 
 [Publish your application](http://dev.windows.com/publish) and watch the data accumulate as users download and use it.
+
+## Customize your telemetry
+
+#### Choosing the collectors
+
+Application Insights SDK Includes several collectors, which collect different types of data from your app automatically. By default, they are all active. But you can choose which collectors to initialize in the app constructor:
+
+    WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
+       WindowsCollectors.Metadata
+       | WindowsCollectors.PageView
+       | WindowsCollectors.Session 
+       | WindowsCollectors.UnhandledException);
+
+#### Send your own telemetry data
+
+Use the [API][api] to send events, metrics and diagnostic data to Application Insights. In summary:
+
+```C#
+
+ var tc = new TelemetryClient(); // Call once per thread
+
+ // Send a user action or goal:
+ tc.TrackEvent("Win Game");
+
+ // Send a metric:
+ tc.TrackMetric("Queue Length", q.Length);
+
+ // Provide properties by which you can filter events:
+ var properties = new Dictionary{"game", game.Name};
+
+ // Provide metrics associated with an event:
+ var measurements = new Dictionary{"score", game.score};
+
+ tc.TrackEvent("Win Game", properties, measurements);
+
+```
+
+For more detail, see [Custom Events and Metrics][api].
 
 ## What's next?
 
@@ -132,6 +187,12 @@ Add Application Insights from Solution Explorer.
 
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
+
+## To upgrade to a new release of the SDK
+
+When a [new SDK version is released](app-insights-release-notes-windows.md):
+* Right-click your project and choose Manage NuGet Packages. 
+* Select the installed Application Insights packages and choose Action: Upgrade.
 
 
 ## <a name="usage"></a>Next Steps

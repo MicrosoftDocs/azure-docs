@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 
 
 
 #Run the Hadoop samples in HDInsight
+
+[AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight. These samples are made available on each of the HDInsight managed clusters that you create. Running these samples will familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.
 
@@ -86,4 +88,3 @@ From this article and the articles in each of the samples, you learned how to ru
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 

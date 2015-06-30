@@ -28,7 +28,7 @@ Azure DNS is a hosting service for DNS domains.  In order for DNS queries for a 
 
 A domain is a unique name in the Domain Name System, for example ‘contoso.com’.  A domain registrar is a company who can provide Internet domain names.  They will verify if the Internet domain you want to use is available and allow you to purchase it.  Once the domain name is registered, you will be the legal owner for the domain name. If you already have an Internet domain, you will use the current domain registrar to delegate to Azure DNS.
 
->[AZURE.NOTE] To find out more information on who owns a given domain name or to buy a domain, see domain registrars, locating and buying your domain.
+>[AZURE.NOTE] To find out more information on who owns a given domain name, or for information on how to buy a domain, see [Internet domain management in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx). 
 
 A DNS zone is used to host the DNS records for a particular domain.  For example, the domain ‘contoso.com’ may contain a number of DNS records such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).
 
@@ -107,6 +107,46 @@ Note that you do not have to specify the Azure DNS name servers, since the norma
 	expire = 604800 (7 days)
 	default TTL = 300 (5 mins)
 
+## Delegating sub-domains in Azure DNS
+
+Having set up and delegated ‘contoso.com’ in Azure DNS, suppose you would like to set up a separate child zone, ‘partners.contoso.com’.  This follows a similar process to a normal delegation:
+
+1. Create the child zone ‘partners.contoso.com’ in Azure DNS.
+2. Look up the authoritative NS records in the child zone to obtain the name servers hosting the child zone in Azure DNS.
+3. Delegate the child zone by configuring NS records in the parent zone pointing to the child zone.
+
+The only difference is that in step 3 the NS records must be created in the parent zone ‘contoso.com’ in Azure DNS, rather than being set up via a domain registrar.
+
+The following PowerShell example demonstrates. First, we create the parent and child zones—these can be in same resource group or different resource groups:
+
+	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+
+Next, we retrieve the authoritative NS records from child zone:
+
+	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+
+Finally, we create corresponding NS record set in the parent zone to complete the delegation (note that the record set name in the parent zone matches the child zone name, in this case "partners"):
+
+	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+
+As when delegating using a registrar, we can verify that everything is set up correctly by looking up the SOA record of the child zone:
+
+	PS C:\> nslookup –type=SOA partners.contoso.com
+	
+	Server: ns1-08.azure-dns.com
+	Address: 208.76.47.8
+	
+	partners.contoso.com
+		primary name server = ns1-08.azure-dns.com
+		responsible mail addr = msnhst.microsoft.com
+		serial = 1
+		refresh = 900 (15 mins)
+		retry = 300 (5 mins)
+		expire = 604800 (7 days)
+		default TTL = 300 (5 mins)
 
 ## Next Steps
 

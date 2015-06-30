@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/05/2015"
+    ms.date="06/29/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 1 release notes  
@@ -27,6 +27,7 @@ Please review the information contained in the release notes before you deploy t
 
 >[AZURE.IMPORTANT]
 > 
+- A critical patch, Update 1.1, was released on June 23. This patch addresses an issue in the backup engine. If you applied Update 1 before June 23rd and are currently using software version **6.3.9600.17491**, make sure that you apply this critical update to avoid any issues with backups. After you install the update, the software version will change to **6.3.9600.17521**.
 - Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install Update 1.
 - This release also contains disk firmware updates that can only be applied when the device is in Maintenance mode. These are disruptive updates that will result in down time for your device. You can apply these updates during planned maintenance.
 - It takes approximately 5-10 hours to install this update (including the Windows Updates). 
@@ -55,7 +56,6 @@ This update contains the following new features and improvements:
 
 ## Issues fixed in Update 1
 
-
 The following table provides a summary of issues that were fixed in this update.  
 
 | No. | Feature | Issue | Applies to physical device | Applies to virtual device |
@@ -68,6 +68,7 @@ The following table provides a summary of issues that were fixed in this update.
 | 6 | Disaster recovery | A disaster recovery (DR) bug was fixed wherein DR would fail during the discovery of backups on the target device. | Yes | Yes |
 | 7 | Monitoring LEDs | In certain instances, monitoring LEDs at the back of appliance did not indicate correct status. The blue LED was turned off. DATA 0 and DATA 1 LEDs were flashing even when these interfaces were not configured. The issue has been fixed and monitoring LEDs now indicate the correct status.  | Yes | No |
 | 8 | Network interfaces | In previous versions, a StorSimple device configured with a non-routable gateway could go offline. In this release, the routing metric for Data 0 has been made the lowest; therefore, even if other network interfaces are cloud-enabled, all the cloud traffic from the device will be routed via Data 0. | Yes | Yes | 
+| 9 | Backups | A bug in Update 1 (software version 6.3.9600.17491) which caused backups to fail after 24 days has been fixed in the patch release Update 1.1 (software version 6.3.9600.17521). | Yes | Yes |
 
 ## Known issues in Update 1
 
@@ -92,7 +93,7 @@ The following table provides a summary of known issues in this release.
 
 ## Physical device updates in Update 1
 
-When these updates are applied to a physical device, the software version will change to 6.3.9600.17491. 
+When these updates are applied to a physical device, the software version will change to 6.3.9600.17521. 
 
 ## Serial-attached SCSI (SAS) controller and firmware updates in Update 1
 

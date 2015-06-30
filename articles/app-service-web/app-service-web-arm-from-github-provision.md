@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/25/2015" 
 	ms.author="tomfitz"/>
 
 # Deploy a web app linked to a GitHub repository
@@ -23,7 +23,7 @@ how to define parameters that are specified when the deployment is executed. You
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-For the complete template, see [Web App Linked to GitHub template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/WebAppLinkedToGithub.json).
+For the complete template, see [Web App Linked to GitHub template](https://azure.microsoft.com/documentation/templates/201-web-app-github-deploy/).
 
 ## What you will deploy
 

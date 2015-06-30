@@ -202,6 +202,10 @@ SDK diagnostics | Trace message or Exception
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 
+## Credits
+
+This product includes GeoLite2 data created by MaxMind, available from [http://www.maxmind.com](http://www.maxmind.com).
+
 ## <a name="video"></a>Videos
 
 #### Introduction

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2015"
+	ms.date="06/25/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -157,7 +157,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
+## StorSimple System Limits
 
+[AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
  
 ## See Also
 

@@ -1,6 +1,22 @@
-<properties title="required" pageTitle="Custom markdown extensions used in our technical articles" description="Lists the custom markdown extensions that enable embedded videos, notes and tips, reusable content, and other item in azure.microsoft.com technical articles." metaKeywords="" services="" solutions="" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="required" />
+<properties 
+    title="required" 
+    pageTitle="Custom markdown extensions used in our technical articles" 
+    description="Lists the custom markdown extensions that enable embedded videos, notes and tips, reusable content, and other item in azure.microsoft.com technical articles." 
+    services="" 
+    solutions="" 
+    documentationCenter="" 
+    authors="tysonn" 
+    manager="carolz" 
+    editor=""/>/>
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/22/2015" ms.author="tysonn" />
+<tags 
+    ms.service="contributor-guide" 
+    ms.devlang="" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="" 
+    ms.workload="" 
+    ms.date="01/22/2015" 
+    ms.author="tysonn" />
 
 ## Markdown for Azure.microsoft.com
 

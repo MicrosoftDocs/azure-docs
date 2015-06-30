@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/29/2015"
+   ms.date="06/22/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview
@@ -68,7 +68,7 @@ Finally, the template becomes part of the source code for your app. You can chec
 
 For more information about defining the template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
 
-For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](./resource-group-template-deploy.md).
+For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md) and [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
 ## Tags
 
@@ -96,7 +96,7 @@ You can also explicitly lock critical resources to prevent users from deleting o
 
 For more information about role-based access control, see [Role-based access control in the Microsoft Azure preview portal](./role-based-access-control-configure.md).
 
-For examples of setting access policies, see [Managing and Auditing Access to Resources](./resource-group-rbac.md).
+For examples of setting access policies, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md).
 
 ## Consistent Management Layer
 
@@ -113,13 +113,14 @@ Getting Started
 
 - [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md)
 - [Using the Azure CLI with Resource Manager](./virtual-machines/xplat-cli-azure-resource-manager.md)
-- [Using the Azure Portal to manage resources](./resource-group-portal.md)
+- [Using the Azure Portal to manage resources](azure-portal/resource-group-portal.md)
 
 Creating and Deploying Applications
 
 - [Authoring templates](./resource-group-authoring-templates.md)
-- [Deploying templates](./resource-group-template-deploy.md)
+- [Deploying templates](azure-portal/resource-group-template-deploy.md)
 - [Troubleshooting deployments](virtual-machines/resource-group-deploy-debug.md)
+- [Deploy a complex application predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Deploy using .NET libraries and template](virtual-machines/arm-template-deployment.md)
 - [Template functions](./resource-group-template-functions.md)
 - [Advance template operations](./resource-group-advanced-template.md)
@@ -130,7 +131,7 @@ Organizing Resources
 
 Managing and Auditing Access
 
-- [Managing and auditing access to resources](./resource-group-rbac.md)
+- [Managing and auditing access to resources](azure-portal/resource-group-rbac.md)
 - [Role-based access control in the preview portal](./role-based-access-control-configure.md)
 - [Authenticating a service principal](./resource-group-authenticate-service-principal.md)
 - [Create a new service principal using the Azure portal](./resource-group-create-service-principal-portal.md)

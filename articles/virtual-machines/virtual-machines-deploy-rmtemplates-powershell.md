@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/19/2015" 
 	ms.author="josephd"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell
@@ -23,6 +23,7 @@ This article shows you how to use Azure Resource Manager templates and PowerShel
 - [Deploy a Windows VM](#windowsvm)
 - [Create a custom VM image](#customvm)
 - [Deploy a multi-VM application that uses a virtual network and an external load balancer](#multivm)
+- [Update a virtual machine deployed with a Resource Manager template](#updatevm)
 - [Remove a resource group](#removerg)
 - [Log on to a virtual machine](#logon)
 - [Display information about a virtual machine](#displayvm)
@@ -782,6 +783,171 @@ You would see something like this.
 	vmNamePrefix: WEBFARM
 	...
 
+## <a id="updatevm"></a>TASK: Update a virtual machine deployed with a Resource Manager template
+
+Here is an example of modifying a JSON template file to update the configuration of a virtual machine deployed with a Resource Manager template. In this example, you create a Windows virtual machine and then update it to install the Symantec Endpoint Protection extension.
+
+### Step 1: Create the virtual machine with a template
+
+If needed, create a folder on your computer to store the template files. Fill in the folder name and run these Azure PowerShell commands.
+
+	$myFolder="<your folder path, such as C:\azure\templates\CreateVM>"
+	$webClient=New-Object System.Net.WebClient
+	$url="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	$filePath=$myFolder + "\azuredeploy.json"
+	$webclient.DownloadFile($url,$filePath)
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.parameters.json"
+	$filePath = $myFolder + "\azuredeploy.parameters.json"
+	$webclient.DownloadFile($url,$filePath)
+
+In your folder, open the azuredeploy.parameters.json file in a text editor, specify values for the four parameters, and then save the file.
+
+Fill in a new deployment name, a new resource group name, and an Azure location, and then run these commands.
+
+	$deployName="<name for the new deployment>"
+	$RGName="<name for the new Resource Group>"
+	$locName="<an Azure location, such as West US>"
+	cd $myFolder
+	Switch-AzureMode AzureResourceManager
+	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+
+You should see something like this.
+
+	PS C:\azure\templates\windowsvm> $deployName="winvmexttest"
+	PS C:\azure\templates\windowsvm> $RGName="winvmexttest"
+	PS C:\azure\templates\windowsvm> $locname="West US"
+	PS C:\azure\templates\windowsvm> New-AzureResourceGroup -Name $RGName -Location $locName
+	VERBOSE: 11:22:02 AM - Created resource group 'winvmexttest' in location 'westus'
+	
+	
+	ResourceGroupName : winvmexttest
+	Location          : westus
+	ProvisioningState : Succeeded
+	Tags              :
+	Permissions       :
+	                    Actions  NotActions
+	                    =======  ==========
+	                    *
+	
+	ResourceId        : /subscriptions/a58ce54a-c262-460f-b8ef-fe36e6d5f5ec/resourceGroups/winvmexttest
+
+	PS C:\azure\templates\windowsvm> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -Template
+	File azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+	VERBOSE: 11:22:05 AM - Template is valid.
+	VERBOSE: 11:22:05 AM - Create template deployment 'winvmexttest'.
+	VERBOSE: 11:22:14 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is running
+	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
+	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is running
+	VERBOSE: 11:22:37 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+	VERBOSE: 11:22:39 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+	VERBOSE: 11:22:41 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
+	VERBOSE: 11:22:43 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+	VERBOSE: 11:22:52 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+	VERBOSE: 11:26:36 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+	
+	DeploymentName    : winvmexttest
+	ResourceGroupName : winvmexttest
+	ProvisioningState : Succeeded
+	Timestamp         : 6/3/2015 6:26:38 PM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+	                    Name             Type                       Value
+	                    ===============  =========================  ==========
+	                    newStorageAccountName  String                     contososa
+	                    adminUsername    String                     admin0987
+	                    adminPassword    SecureString
+	                    dnsNameForPublicIP  String                     contosovm
+	                    windowsOSVersion  String                     2012-R2-Datacenter
+	
+	Outputs           :
+
+Next, connect to the virtual machine from the Azure Preview Portal (**Browse > Virtual Machines (v2) >** *VM name* **> Connect**).
+
+From the Start screen, type **Symantec**. Notice that the Symantec Endpoint Protection components are not installed (there are no search results with the "Symantec" in the title).
+
+Close the remote desktop connection.
+
+### Step 2: Modify the azuredeploy.json file to add the Symantec Endpoint Protection extension
+
+In your folder, open the azuredeploy.json file with a text editor of your choice. In the **variables** section, add the following line just after the line that defines the publicIPAddressType variable:
+
+	"vmExtensionName" : "SymantecExtension",
+
+In the **resources** section, add the following new section just before the line with the last left bracket "]":
+
+	       {
+	         "type": "Microsoft.Compute/virtualMachines/extensions",
+	        "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
+	        "apiVersion": "2014-12-01-preview",
+	        "location": "[variables('location')]",
+	        "dependsOn": [
+	            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	        ],
+	        "properties": {
+	            "publisher": "Symantec",
+	            "type": "SymantecEndpointProtection",
+	            "typeHandlerVersion": "12.1",
+	            "settings": null,
+	            "protectedSettings": null
+	        }
+	    }
+
+Save the azuredeploy.json file with these new changes. Verify that the changes were made properly, use this command.
+
+	Test-AzureResourceGroupTemplate -ResourceGroupName $RGName -TemplateFile azuredeploy.json
+
+If you have made the changes properly, you should see this.
+
+	Template is valid.
+
+If you do not see this message, analyze the error message to locate the source of the error.
+
+### Step 3: Execute the modified template to add the Symantec Endpoint Protection extension
+
+Run this command at the Azure PowerShell prompt.
+
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+
+You should see something like this.
+
+	PS C:\azure\templates\winvmext> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateF	ile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+	VERBOSE: 12:49:42 PM - Template is valid.
+	VERBOSE: 12:49:42 PM - Create template deployment 'winvmexttest'.
+	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+	VERBOSE: 12:49:47 PM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
+	VERBOSE: 12:49:49 PM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+	VERBOSE: 12:49:51 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+	VERBOSE: 12:50:08 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+	VERBOSE: 12:50:15 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension'	provisioning status is running
+	VERBOSE: 12:53:07 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension' provisioning status is succeeded
+	
+	
+	DeploymentName    : winvmexttest
+	ResourceGroupName : winvmexttest
+	ProvisioningState : Succeeded
+	Timestamp         : 6/3/2015 7:53:07 PM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+	                    Name             Type                       Value
+	                    ===============  =========================  ==========
+	                    newStorageAccountName  String                     contososa
+	                    adminUsername    String                     admin0987
+	                    adminPassword    SecureString
+	                    dnsNameForPublicIP  String                     contosovm
+	                    windowsOSVersion  String                     2012-R2-Datacenter
+	
+	Outputs           :
+
+Connect to the virtual machine from the Azure Preview Portal (**Browse > Virtual Machines (v2) >** *VM name* **> Connect**).
+
+From the Start screen, type **Symantec**. You should see something like this, indicating that the Symantec Endpoint Protection extension is now installed.
+
+![](./media/virtual-machines-deploy-rmtemplates-powershell/SymantecExt.png) 
+
 ## <a id="removerg"></a>TASK: Remove a resource group
 
 You can remove any resource group you have created with the **Remove-AzureResourceGroup** command.  Replace everything within the quotes, including the < and > characters, with the correct name.
@@ -796,7 +962,11 @@ You will see information like this:
 
 ## <a id="logon"></a>TASK: Log on to a Windows virtual machine
 
-For the detailed steps, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
+From the [Azure Preview Portal](https://portal.azure.com/), click **Browse all > Virtual Machines (v2) >** *VM name* **> Connect**.
+
+When prompted to open or save an RDP file, click **Open**, and then click **Connect**. Type the credentials of a valid account, and then click **OK**.
+
+When prompted to connect despite the certificate errors, click **Yes**.
 
 ## <a id="displayvm"></a>TASK: Display information about a virtual machine
 
@@ -956,4 +1126,3 @@ You will see information like this:
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
- 

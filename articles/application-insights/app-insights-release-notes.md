@@ -18,7 +18,7 @@
 # SDK Release Notes - Application Insights
 
 
-Here are detailed release notes for our SDKs:
+Here are detailed release notes and update instructions for our SDKs:
 
 * [.NET](app-insights-release-notes-dotnet.md)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android)
