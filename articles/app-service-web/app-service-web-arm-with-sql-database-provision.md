@@ -115,7 +115,7 @@ The maximum size, in bytes, for the database.
 
 ### requestedServiceObjectiveId
 
-The GUID corresponding to the performance level for edition. For a list of avaiable values, see [Create database](https://msdn.microsoft.com/en-us/library/azure/dn505701.aspx). The default value corresponds to the Web performance level.
+The GUID corresponding to the performance level for edition. For a list of avaiable values, see [Create database](https://msdn.microsoft.com/library/azure/dn505701.aspx). The default value corresponds to the Web performance level.
 
     "requestedServiceObjectiveId": {
         "type": "string",
