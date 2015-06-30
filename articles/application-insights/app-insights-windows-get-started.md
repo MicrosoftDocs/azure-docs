@@ -73,8 +73,7 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
     public App()
     {
-       // Substitute your instrumentation key:
-
+       // Initialize Application Insights - substitute your own iKey:
        WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
             
        this.InitializeComponent();
@@ -84,7 +83,7 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
     ```
 
 
-**Windows Universal apps**: Repeat the steps for both the Phone and the Store projecct.
+**Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 
 
