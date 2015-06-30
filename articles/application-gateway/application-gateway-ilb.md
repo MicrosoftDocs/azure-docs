@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Setting up Application Gateway with Internal Load Balancer (ILB) in a Virtual Network | Microsoft Azure"
+   pageTitle="Create and Configure an Application Gateway with Internal Load Balancer (ILB) in a Virtual Network | Microsoft Azure"
    description="This page provides instructions to configure an Azure Application Gateway with an Internal Load Balanced endpoint"
    documentationCenter="na"
    services="application-gateway"
@@ -82,7 +82,7 @@ To construct your configuration by using a configuration XML file, use the sampl
 
  **Configuration XML sample**
 
-The FrontendIPConfigurations element describes the ILB details relevant for configuring an application gateway behind an ILB. 
+The *FrontendIPConfigurations* element describes the ILB details relevant for configuring an application gateway behind an ILB. 
 
 
 	<?xml version="1.0" encoding="utf-8"?>
