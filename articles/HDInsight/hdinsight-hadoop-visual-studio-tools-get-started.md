@@ -30,8 +30,8 @@ To complete this tutorial and use the Hadoop tools in Visual Studio, you'll need
 
 - An Azure HDInsight cluster: Either a Linux-based or Windows-based cluster will work with the steps in this document. See one of the following for information on creating a cluster:
 
-		- [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
-		- [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)
+	- [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+	- [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)
 
 - A workstation with the following software:
 
