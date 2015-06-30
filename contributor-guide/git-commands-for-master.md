@@ -72,7 +72,7 @@ Follow the steps in this article to create a local working branch on your comput
 
 When you are working with a release branch, the best way to create a local working branch from the release branch is to use this command syntax:
 
-    git checkout upstream/<upstream branch name> -b <working branch name>
+    git checkout upstream/<upstream branch name> -b <local working branch name>
 
 This creates the local branch directly from the upstream branch, avoiding any local merging.
 
