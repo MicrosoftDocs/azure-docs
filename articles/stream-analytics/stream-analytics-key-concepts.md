@@ -144,7 +144,7 @@ The output target is where the results of the Stream Analytics job will be writt
 
 ## Streaming Units ##
 As part of providing a more predictable performance experience for customers, Azure Stream Analytics uses Streaming Units (SUs) to represent the resources and power to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput.  
-Each Azure Stream Analytics job needs a minimum of one streaming unit, which is the default for all jobs. To learn more about selecting the right number of SU’s for a job, see [Scale Azure Stream Analytics jobs](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/stream-analytics-scale-jobs/ "Stream Analytics Scale Jobs").
+Each Azure Stream Analytics job needs a minimum of one streaming unit, which is the default for all jobs. To learn more about selecting the right number of SU’s for a job, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 
 ## Scale jobs
 
