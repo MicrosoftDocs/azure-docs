@@ -30,25 +30,25 @@ Not all reports are included in search results yet. This table indicates which r
 
 |	Report											  	|	Included			|
 |	------												|	--------			|
-|	Sign ins from unknown sources						|	No (Coming soon!)	|
-|	Sign ins after multiple failures					|	No (Coming soon!)	|
-|	Sign ins from multiple geographies					|	No (Coming soon!)	|
-|	Sign ins from IP addresses with suspicious activity	|	No (Coming soon!)	|
-|	Sign ins from possibly infected devices				|	No (Coming soon!)	|
-|	Irregular sign in activity							|	No (Coming soon!)	|
-|	Users with anomalous sign in activity				|	No (Coming soon!)	|
-|	Users with leaked credentials						|	No (Coming soon!)	|
+|	Sign ins from unknown sources						|	No 					|
+|	Sign ins after multiple failures					|	No 					|
+|	Sign ins from multiple geographies					|	No 					|
+|	Sign ins from IP addresses with suspicious activity	|	No 					|
+|	Sign ins from possibly infected devices				|	No 					|
+|	Irregular sign in activity							|	No 					|
+|	Users with anomalous sign in activity				|	No 					|
+|	Users with leaked credentials						|	No 					|
 |	Audit report										|	Yes					|
 |	Password reset activity								|	Yes					|
 |	Password reset registration activity				|	Yes					|
 |	Self service groups activity						|	Yes					|
-|	Application usage									|	No (Coming soon!)	|
+|	Application usage									|	No 					|
 |	Account provisioning activity						|	Yes					|
-|	Password rollover status							|	No (Coming soon!)	|
-|	Account provisioning errors							|	No (Coming soon!)	|
-|	RMS usage											|	No (Coming soon!)	|
-|	Most active RMS users								|	No (Coming soon!)	|
-|	RMS device usage									|	No (Coming soon!)	|
+|	Password rollover status							|	No 					|
+|	Account provisioning errors							|	No 					|
+|	RMS usage											|	No 					|
+|	Most active RMS users								|	No 					|
+|	RMS device usage									|	No 					|
 
 ## Learn more
 
