@@ -35,7 +35,8 @@ A maximum of 10 users can be owners of a single application.
 
 > [AZURE.NOTE]
 >
-> There is a limit for the number of objects you can synchronize from your On Premises Active Directory to Azure Active Directory.
+> There is a limit for the number of objects you can synchronize from your on-premises Active Directory to Azure Active Directory.
+>
 > - If you’re using DirSync the limit is 15K users.
 > - If you’re using Azure AD Connect, the limit is 50K users.
 
