@@ -6,33 +6,29 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Virtual Machines and Containers in Azure
 
-Azure offers you a great range of technologies built on virtual machines -- based on the emulation of physical computer hardware -- to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. 
+Azure offers you great cloud solutions, built on virtual machines -- based on the emulation of physical computer hardware -- to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. In the past few years, largely thanks to  the [Docker](https://www.docker.com) approach to containers and the docker ecosystem, Linux container technology has dramatically expanded the ways you can develop and manage distributed software. Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level -- in addition to the agility that Azure VMs already give you.
 
-In the past few years, Linux container technology -- especially the [Docker](https://www.docker.com) approach to containers and the docker ecosystem -- has dramatically expanded the ways you can develop and manage distributed software, especially in public cloud systems like Microsoft Azure. 
+**But that's old news.** The *new* news is that Azure offers you even more Docker goodness:
 
-Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level -- in addition to the agility that Azure VMs already give you.
-
-**But that's old news.** The *new* news is that Azure offers you:
-
-- [Many](virtual-machines-docker-with-xplat-cli.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-docker-ubuntu-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation, including [built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
-- Azure Resource Manager templates to simplify deploying and updating complex distributed applications.
+- [Many](virtual-machines-docker-with-xplat-cli.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-docker-ubuntu-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation
+- [Azure Resource Manager](resource-group-overview.md) and [resource group templates](resource-group-authoring-templates.md) to simplify deploying and updating complex distributed applications
 - integration with a large array of both proprietary and open-source configuration management tools
 
-And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create  groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and soon [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) to move your businesses forward and make your users happier. 
+And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and soon [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). 
 
 This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're [right here](#tools-for-working-with-containers).
 
 ## The difference between virtual machines and containers
 
-Virtual machines run inside an isolated hardware emulation environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, the [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) service handles all that for you: You just create Virtual Machines by choosing the operating system and configuring it to run the way you want -- or by uploading your own custom VM image. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage  operating systems and to configure applications you install and run. 
+Virtual machines run inside an isolated hardware virtualization environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, the [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) service handles all that for you: You just create Virtual Machines by choosing the operating system and configuring it to run the way you want -- or by uploading your own custom VM image. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage operating systems and to configure the applications you install and run. Anything running in a virtual machine is hidden from the host operating system and, from the point of view of an application or user running inside a virtual machine, the virtual machine appears to be an autonomous physical computer.
 
 [Linux containers](http://en.wikipedia.org/wiki/LXC) -- which includes those created and hosted using docker tools, and there are other approaches -- do not require or use a hypervisor to provide isolation. Instead, the container host uses the process and file system isolation features of the Linux kernel to expose to the container (and its application) only certain kernel features and its own isolated file system (at a minimum). From the point of view of an application running inside a container, the container appears to be a unique operating system instance. A contained application cannot see processes or any other resources outside of its container. 
 
-Because in this isolation and execution model the kernel of the Docker host computer is shared, and because the disk usage of the container now does not include an entire operating system, both the start-up time of the container and the required disk storage overhead are much, much smaller. 
+Because in this isolation and execution model the kernel of the Docker host computer is shared, and because the disk requirements of the container now do not include an entire operating system, both the start-up time of the container and the required disk storage overhead are much, much smaller. 
 
 It's pretty cool.
 
-[Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) provide the same advantages as Linux containers for applications that run on Windows. Windows Server Containers support the docker image format and the docker remote API. As a result, an application using Windows Server Containers can be developed, published, retrieved, and deployed using the exact same commands as those on Mac and Linux. That's in addition to having [new docker API support in Microsoft Visual Studio](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0).
+[Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) provide the same advantages as Linux containers for applications that run on Windows. Windows Server Containers support the docker image format and the docker API. As a result, an application using Windows Server Containers can be developed, published, retrieved, and deployed using similar commands to those on Mac and Linux. That's in addition to having [new docker support in Microsoft Visual Studio](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0). The larger [container ecosystem](https://msdn.microsoft.com/virtualization/windowscontainers/about/container_ecosystem) will give everyone tools to do the work they need to do with containers.
 
 That's pretty cool, too.
 
@@ -106,7 +102,7 @@ The following table describes at a very high level the kind of feature differenc
 
 ## Creating and managing groups of VMs and containers
 
-At this point, any architect, developer, or IT operations ninja will be thinking, "I can automate ALL of this; this really IS Data-Center-As-A-Service!". 
+At this point, any architect, developer, or IT operations specialist might be thinking, "I can automate ALL of this; this really IS Data-Center-As-A-Service!". 
 
 You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage groups of Azure VMs and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can -- and perhaps already have -- automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli.md). 
 
@@ -125,7 +121,7 @@ More recently, Azure released the [Azure resource management](virtual-machines-a
 
 There are several popular systems that can deploy entire groups of VMs and install Docker (or other Linux container host systems) on them as an automatable group. For direct links, see the [containers and tools](#containers-and-vm-technologies) section, below. There are several systems that do this to a greater or lesser extent, and this list is not exhaustive. Depending upon your skill set and scenarios, they may or may not be useful. 
 
-Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](virtual-machines-docker-swarm.md)). In addition, the Azure Docker VM Extension comes with default support for [`compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
+Docker has its own set of VM-creation tools ([docker-machine](virtual-machines-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](virtual-machines-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
 
 In addition, you can try out [mesosphere's Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS is based on the open-source [mesos](http://mesos.apache.org/) "distributed systems kernel" that enables you to treat your datacenter as one addressable service. Mesos was derived from lessons learned at Twitter and other web-scale businesses.
 
@@ -133,7 +129,7 @@ Also, [kubernetes](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kub
 
 [CoreOS]([CoreOS](virtual-machines-linux-coreos-how-to.md)), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](virtual-machines-linux-coreos-fleet-get-started.md). 
 
-Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports Linux (LXC-style) clusters, as well as having their own Linux container and application management. 
+Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports [Linux (LXC-style) clusters](https://help.ubuntu.com/lts/serverguide/lxc.html). 
 
 ## Tools for working with Azure VMs and containers
 
@@ -147,8 +143,8 @@ Some Linux container technologies:
 
 - [Docker](https://www.docker.com)
 - [LXC](https://linuxcontainers.org/)
-- [Ubuntu Core Snappy](http://developer.ubuntu.com/en/snappy/)
 - [CoreOS and rkt](https://github.com/coreos/rkt)
+- [Open Container Project](http://opencontainers.org/)
 
 Windows Server Container links:
 
@@ -161,14 +157,15 @@ Visual Studio Docker links:
 Docker tools:
 
 - [Docker daemon](https://docs.docker.com/installation/#installation)
-- [Docker client master binariess](https://master.dockerproject.org/)
+- Docker clients
 	- [Windows Docker Client on Chocolatey](https://chocolatey.org/packages/docker)
 	- [Docker installation instructions](https://docs.docker.com/installation/#installation)
-- [Docker private registry on Azure](http://azure.microsoft.com/blog/2014/11/11/deploying-your-own-private-docker-registry-on-azure/)
+
 
 Docker on Microsoft Azure:
 
 - [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
+- [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli.md)
 - [Using the Docker VM Extension from the Azure Preview Portal](virtual-machines-docker-with-portal.md)
 - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
@@ -177,6 +174,7 @@ Docker on Microsoft Azure:
 - [Get Started with Docker and Compose on Azure](virtual-machines-docker-compose-quickstart.md)
 - [Using an Azure resource group template to create a Docker host on Azure quickly](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 - [The built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
+- [Implement a Docker private registry on Azure](virtual-machines-docker-registry-on-azure-blob-storage.md)
 
 Linux distributions and Azure examples:
 
