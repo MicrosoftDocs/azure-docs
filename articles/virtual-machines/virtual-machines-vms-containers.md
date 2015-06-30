@@ -127,7 +127,7 @@ In addition, you can try out [mesosphere's Data Center Operating System (DCOS)](
 
 Also, [kubernetes](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure) is an open-source system for VM and container group management derived from lessons learned at Google. You can even use [kubernetes with weave to provide networking support](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[CoreOS]([CoreOS](virtual-machines-linux-coreos-how-to.md)), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](virtual-machines-linux-coreos-fleet-get-started.md). 
+[CoreOS]([CoreOS](virtual-machines-linux-coreos-how-to.md), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](virtual-machines-linux-coreos-fleet-get-started.md). 
 
 Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports [Linux (LXC-style) clusters](https://help.ubuntu.com/lts/serverguide/lxc.html). 
 
@@ -145,6 +145,7 @@ Some Linux container technologies:
 - [LXC](https://linuxcontainers.org/)
 - [CoreOS and rkt](https://github.com/coreos/rkt)
 - [Open Container Project](http://opencontainers.org/)
+- [RancherOS](http://rancher.com/rancher-os/)
 
 Windows Server Container links:
 
