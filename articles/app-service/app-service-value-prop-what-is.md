@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/30/2015" 
 	ms.author="omark"/>
 
 # What is Azure App Service?
-Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device. Built for developers, App Service is a fully managed platform as a service (PaaS) with powerful capabilities such as built-in DevOps, continuous integration with Visual Studio Online and GitHub, staging and production support, and automatic patching.
+Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device. Built for developers, App Service makes building web, mobile, and integration scenarios easier and faster than ever before. As a fully managed platform, App Service frees you from worries about updates and security patches, and even takes care of scale with built-in auto-scaling.
 
-Azure App Service is a single service that includes all of the existing capabilities from Azure Websites, Azure Mobile Services, and Azure Biztalk Services, while adding new capabilities.  [Learn more](http://azure.microsoft.com/documentation/services/app-service/) about how App Service relates to these existing services.
+App Service is a single service that includes all of the existing capabilities from Azure Websites, Azure Mobile Services, and Azure Biztalk Services, while adding new capabilities.  [Learn more](http://azure.microsoft.com/documentation/services/app-service/) about how App Service relates to these existing services.
 
 ## Why App Service?
-Focused on rapid development of web and mobile apps, as well as automating business processes, Azure App Service provides an integrated set of enterprise capabilities through a single development and management experience offering you the following benefits:
+Focused on rapid development of web and mobile apps, as well as automating business processes, App Service provides an integrated set of enterprise capabilities through a single development and management experience offering you the following benefits:
 
-- **Build Web and Mobile Apps Fast** - Rapidly build, deploy and manage web and mobile apps for employees or customers using a single back-end. Use your existing languages skills -- .NET, Java, NodeJS, PHP or Python. Accelerate development with access to a rich gallery of APIs, connectors, and logic available in the Azure Marketplace.
+- **Build Web and Mobile Apps Fast** - Rapidly build, deploy, and manage web and mobile apps for employees or customers using a single back-end. Use your existing languages skills -- .NET, Java, NodeJS, PHP, or Python. Accelerate development with access to a rich gallery of APIs, connectors, and logic available in the Azure Marketplace.
 
 - **Connect to any service and unlock your data** - Connect your web or mobile app to enterprise systems or SaaS in minutes with built-in connectors. Choose from more than 50 connectors for enterprise systems such as SAP, Siebel, and Oracle to popular enterprise SaaS services like Salesforce and Office 365 to popular internet services such as Facebook, Twitter and Dropbox.
 
@@ -54,7 +54,7 @@ App Service Plans represent a set of features and capacity that you can share ac
 ##Get Started with App Service
 Want a taste? Get going in seconds.
 
-With Azure App Service, this is as easy as selecting a language! 
+With App Service, this is as easy as selecting a language! 
 
 [Create a new web app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free. No credit card required, no commitments, no hassles.
  
