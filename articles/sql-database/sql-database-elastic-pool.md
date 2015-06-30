@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/29/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -29,9 +29,7 @@ Microsoft created elastic database pools specifically to help you solve this pro
 
 An elastic database pool is a collection of available resources shared by the elastic databases in the pool. You can add databases to the pool or remove them at any time. The databases in the pool share the resources (expressed as elastic database throughput units, or eDTUs) and storage capacity of the pool, but each database uses only the resources it needs when it needs them, leaving resources free for other databases when they need them. Instead of over-provisioning individual databases and paying for resources that sit idle, you allocate and pay a predictable price for resources of the pool in aggregate. This spreads the cost so you can achieve a competitive business model, and each database gains performance adaptability.
 
-Databases that are great candidates for elastic database pools are typically active less than 50% of the time.  A typical pattern of activity is that databases spend some time inactive, active with little resource demands, and active with high resource demands.  
-
-Not all databases fit this pattern.  There are databases that have a more constant resource demand and these databases are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
+Databases that are great candidates for elastic database pools are typically active less than 50% of the time.  A typical pattern of activity is that databases spend some time inactive, active with little resource demands, and active with high resource demands. Not all databases fit this pattern. There are databases that have a more constant resource demand and these databases are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md). 
 
 You can create an elastic database pool in minutes using the Microsoft Azure portal or PowerShell. For details, see [Create and manage an elastic pool](sql-database-elastic-pool-portal.md). For detailed information about elastic database pools, including API and error details, see the [Elastic database reference](sql-database-elastic-pool-reference.md).
 
