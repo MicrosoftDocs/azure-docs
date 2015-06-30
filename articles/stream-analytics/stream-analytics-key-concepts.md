@@ -33,9 +33,9 @@ With Stream Analytics, you can:
 For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md). 
 
 A Stream Analytics job includes all of the following:
-* One or more input sources
-* A query over an incoming data stream
-* An output target.    
+- One or more input sources
+- A query over an incoming data stream
+- An output target.    
 
 
 ## Inputs
