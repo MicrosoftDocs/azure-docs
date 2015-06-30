@@ -1,4 +1,4 @@
-Here are the usage constraints and other service limits for the Azure Active Directory service. If you’re looking for the full set of Microsoft Azure service limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
+Here are the usage constraints and other service limits for the Azure Active Directory service.
 
 ### Directories
 
@@ -35,9 +35,9 @@ A maximum of 10 users can be owners of a single application.
 
 > [AZURE.NOTE]
 >
-There is a limit for the number of objects you can synchronize from your On Premises Active Directory to Azure Active Directory.
-- If you’re using DirSync the limit is 15K users.
-- If you’re using Azure AD Connect, the limit is 50K users.
+> There is a limit for the number of objects you can synchronize from your On Premises Active Directory to Azure Active Directory.
+> - If you’re using DirSync the limit is 15K users.
+> - If you’re using Azure AD Connect, the limit is 50K users.
 
 ### Access Panel
 
@@ -47,8 +47,3 @@ There is a limit for the number of objects you can synchronize from your On Prem
 ### Reports
 
 A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated.
-
-### What's next
-- [Sign up for Azure as an organization](sign-up-organization.md)
-- [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)
-- [Azure AD terminology](active-directory-terminology.md)
