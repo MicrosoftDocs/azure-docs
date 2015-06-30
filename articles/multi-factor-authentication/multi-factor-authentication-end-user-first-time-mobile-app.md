@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/30/2015" 
 	ms.author="billmath"/>
 
 # Use mobile app as your contact method with Azure Multi-Factor Authentication
