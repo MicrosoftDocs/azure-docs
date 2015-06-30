@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/24/2015"
+   ms.date="06/30/2015"
    ms.author="sstein"/>
 
 # SQL Database Index Advisor
