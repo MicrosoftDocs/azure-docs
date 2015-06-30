@@ -30,7 +30,7 @@ The focus of this article is to show Cassandra deployment on Ubuntu as a single 
 This article takes a fundamental approach to show what is involved in building the Cassandra cluster compared Docker, Chef or Puppet which can make the infrastructure deployment a lot easier.  
 
 ## The Deployment Models 
-Windows Azure networking allows the deployment of isolated private clusters, the access of which can be restricted to attain fine grained network security.  Since this article is about showing the Cassandra deployment at a fundamental level, we will not focus on the consistency level and the optimal storage design for throughput. Here is the list of networking requirements for our hypothetical cluster:
+Microsoft Azure networking allows the deployment of isolated private clusters, the access of which can be restricted to attain fine grained network security.  Since this article is about showing the Cassandra deployment at a fundamental level, we will not focus on the consistency level and the optimal storage design for throughput. Here is the list of networking requirements for our hypothetical cluster:
 
 - External systems can’t access Cassandra database from within or outside Azure
 - Cassandra cluster has to be behind a load balancer for thrift traffic
@@ -65,17 +65,15 @@ The 8-node cluster shown above, with a replication factor of 3 and QUORUM (2 nod
 
 Single region Cassandra cluster configuration:
 
-<table>
-<tr>
+| Cluster Parameter | Value | Remarks |
+| ----------------- | ----- | ------- |
+| Number of Nodes (N) | 8   | Total number of nodes in the cluster |
+| Replication Factor (RF) | 3 |	Number of replicas of a given row |
+| Consistency Level (Write) | QUORUM[(RF/2) +1) = 2] The result of the formula is rounded down | Writes at the most 2 replicas before the response is sent to the caller; 3rd replica is written in an eventually consistent manner. |
+| Consistency Level (Read) | QUORUM [(RF/2) +1= 2] The result of the formula is rounded down | Reads 2 replicas before sending response to the caller. |
+| Replication Strategy | NetworkTopologyStrategy see [Data Replication](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra documentation for more information | Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack |
+| Snitch | GossipingPropertyFileSnitch see [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra documentation for more information | NetworkTopologyStrategy uses a concept of snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to data center and rack. The cluster then uses gossip to propagate this information. This is much simpler in dynamic IP setting relative to PropertyFileSnitch |
 
-<th>Cluster Parameter</th><th>Value</th><th>Remarks</th></tr>
-<tr><td>Number of Nodes (N) </td><td>8</td><td>Total number of nodes in the cluster</td></tr>
-<tr><td>Replication Factor (RF)</td><td>	3 </td><td>	Number of replicas of a given row </td></tr>
-<tr><td>Consistency Level (Write)</td><td>	QUORUM[(RF/2) +1) = 2] [The result of the formula is rounded down] </td><td> Writes at the most 2 replicas before the response is sent to the caller; 3rd replica is written in an eventually consistent manner. </td></tr>
-<tr><td>Consistency Level (Read)	</td><td>QUORUM [(RF/2) +1= 2] [The result of the formula is rounded down]</td><td>	Reads 2 replicas before sending response to the caller.</td></tr>
-<tr><td>Replication Strategy </td><td>	NetworkTopologyStrategy [see [Data Replication](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra documentation for more information]</td><td>	Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack</td></tr>
-<tr><td>Snitch	</td><td>GossipingPropertyFileSnitch [see [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra documentation for more information]</td><td>	NetworkTopologyStrategy uses a concept of snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to data center and rack. The cluster then uses gossip to propagate this information. This is much simpler in dynamic IP setting relative to PropertyFileSnitch </td></tr>
-</TABLE>
 
 **Azure Considerations for Cassandra Cluster:** Microsoft Azure Virtual Machines capability uses Azure Blob storage for disk persistence; Azure Storage saves 3 replicas of each disk for high durability. That means each row of data inserted into a Cassandra table is already stored in 3 replicas and hence data consistency is already taken care of even if the Replication Factor (RF) is 1. The main problem with Replication Factor being 1 is that the application will experience downtime even if a single Cassandra node fails. However, if a node is down for the problems (e.g. hardware, system software failures) recognized by Azure Fabric Controller, it will provision a new node in its place using the same storage drives. Provisioning a new node to replace the old one may take a few minutes.  Similarly for planned maintenance activities like guest OS changes, Cassandra upgrades and application changes Azure Fabric Controller performs rolling upgrades of the nodes in the cluster.  Rolling upgrades also may take down a few nodes at a time and hence the cluster may experience brief downtime for a few partitions. However, the data will not be lost due to the built-in Azure Storage redundancy.  
 
@@ -103,15 +101,16 @@ For a system that needs high consistency, a LOCAL_QUORUM for consistency level (
 
 **Two-region Cassandra cluster configuration**
 
-<table>
-<tr><th>Cluster Parameter </th><th>Value	</th><th>Remarks </th></tr>
-<tr><td>Number of Nodes (N) </td><td>	8 + 8	</td><td> Total number of nodes in the cluster </td></tr>
-<tr><td>Replication Factor (RF)</td><td>	3 	</td><td>umber of replicas of a given row </td></tr>
-<tr><td>Consistency Level (Write)	</td><td>LOCAL_QUORUM [(sum(RF)/2) +1) = 4] [The result of the formula is rounded down]	</td><td>2 nodes will be written to the first data center synchronously; the additional 2 nodes needed for quorum will be written asynchronously to the 2nd data center. </td></tr>
-<tr><td>Consistency Level (Read)</td><td>	LOCAL_QUORUM [((RF/2) +1) = 2] [The result of the formula is rounded down]	</td><td>Read requests are satisfied from only one region; 2 nodes are read before the response is sent back to the client.  </td></tr>
-<tr><td>Replication Strategy </td><td>	NetworkTopologyStrategy[see [Data Replication](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra documentation for more information] </td><td>	Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack  </td></tr>
-<tr><td>Snitch</td><td> GossipingPropertyFileSnitch [see [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra documentation for more information] </td><td>NetworkTopologyStrategy uses a concept of snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to data center and rack. The cluster then uses gossip to propagate this information. This is much simpler in dynamic IP setting relative to PropertyFileSnitch </td></tr> 
-</table> 
+
+| Cluster Parameter | Value | Remarks |
+| ----------------- | ----- | ------- |
+| Number of Nodes (N) | 8 + 8 | Total number of nodes in the cluster |
+| Replication Factor (RF) | 3 | Number of replicas of a given row |
+| Consistency Level (Write) | LOCAL_QUORUM [(sum(RF)/2) +1) = 4] The result of the formula is rounded down | 2 nodes will be written to the first data center synchronously; the additional 2 nodes needed for quorum will be written asynchronously to the 2nd data center. |
+| Consistency Level (Read) | LOCAL_QUORUM ((RF/2) +1) = 2 The result of the formula is rounded down | Read requests are satisfied from only one region; 2 nodes are read before the response is sent back to the client. |
+| Replication Strategy | NetworkTopologyStrategy see [Data Replication](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra documentation for more information | Understands the deployment topology and places replicas on nodes so that all the replicas don’t end up on the same rack |
+| Snitch | GossipingPropertyFileSnitch see [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra documentation for more information | NetworkTopologyStrategy uses a concept of snitch to understand the topology. GossipingPropertyFileSnitch gives better control in mapping each node to data center and rack. The cluster then uses gossip to propagate this information. This is much simpler in dynamic IP setting relative to PropertyFileSnitch | 
+ 
 
 ##THE SOFTWARE CONFIGURATION
 The following software versions are used during the deployment:
