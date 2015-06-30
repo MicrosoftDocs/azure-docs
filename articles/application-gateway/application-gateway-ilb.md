@@ -1,24 +1,23 @@
 <properties 
-   pageTitle="Create, start, or delete an Application Gateway | Microsoft Azure"
-   description="This page provides instructions to create, configure, start, and delete an Azure Application Gateway"
+   pageTitle="Setting up Application Gateway with Internal Load Balancer (ILB) in a Virtual Network | Microsoft Azure"
+   description="This page provides instructions to configure an Azure Application Gateway with an Internal Load Balanced endpoint"
    documentationCenter="na"
    services="application-gateway"
    authors="cherylmc"
-   manager="jdial"
+   manager="adinah"
    editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="hero-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="06/30/2015"
    ms.author="cherylmc"/>
 
-# Create, start, or delete an Application Gateway
+# Create an Application Gateway with an Internal Load Balancer (ILB)
 
-In this release, you can create an Application Gateway by using PowerShell or REST API calls. Portal and CLI support will be provided in an upcoming release.
-This article walks you through the steps to create and configure, start, and delete an application gateway.
+Application Gateway can be configured to work behind an internet facing endpoint, or an internal endpoint not exposed to the internet. This article will walk you through the steps to configure an application gateway with an internal load balancer (ILB).
 
 ## Before you begin
 
@@ -33,16 +32,14 @@ To create a new application gateway, perform the following steps in the order li
 2. [Configure the gateway](#configure-the-gateway)
 3. [Set the gateway configuration](#set-the-gateway-configuration)
 4. [Start the gateway](#start-the-gateway)
-4. [Verify the gateway status](#verify-the-gateway-status)
+4. [Verify the gateway](#verify-the-gateway-status)
 
-If you want to delete an application gateway, go to [Delete an application gateway](#delete-an-application-gateway).
 
-## Create a new application gateway
+
+## Create a new application gateway:
 
 **To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
-This sample shows the cmdlet on the first line followed by the output. 
-    
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
@@ -54,9 +51,6 @@ This sample shows the cmdlet on the first line followed by the output.
 **To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet. 
 
 In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. 
-
-
-
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
@@ -71,9 +65,8 @@ In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional pa
 
 
 ## Configure the gateway
-
-An application gateway configuration consists of multiple values which can be tied together to construct the configuration.
-
+An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration.
+ 
 The values are:
 
 - **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the VNet subnet, or should be a public IP/VIP. 
@@ -85,10 +78,21 @@ The values are:
 You can construct your configuration either by creating a configuration object, or by using a configuration XML file. 
 To construct your configuration by using a configuration XML file, use the sample below.
 
+
  **Configuration XML sample**
+
+The FrontendIPConfigurations element describes the ILB details relevant for configuring an application gateway behind an ILB. 
+
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+		<FrontendIPConfigurations>
+			<FrontendIPConfiguration>
+				<Name>fip1</Name> 
+				<Type>Private</Type> 
+				<StaticIPAddress>10.0.0.10</StaticIPAddress> 
+			</FrontendIPConfiguration>
+		</FrontendIPConfigurations>
 	    <FrontendPorts>
 	        <FrontendPort>
 	            <Name>FrontendPort1</Name>
@@ -130,13 +134,12 @@ To construct your configuration by using a configuration XML file, use the sampl
 	    </HttpLoadBalancingRules>
 	</ApplicationGatewayConfiguration>
 
+
 ## Set the gateway configuration
 
 Next, you'll set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration object, or with a configuration XML file. 
 
-
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
-
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
 	Name       HTTP Status Code     Operation ID                             Error 
@@ -149,22 +152,18 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 
 
 **Note:** The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
-
-
-
+   
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
-
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
 	Name       HTTP Status Code     Operation ID                             Error 
 	----       ----------------     ------------                             ----
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
+
 ## Verify the gateway status
 
-Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. 
-
-This sample shows an application gateway that is up, running, and is ready to take traffic destined to `http://<generated-dns-name>.cloudapp.net`. 
+Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. This sample shows an application gateway that is up, running, and is ready to take traffic destined to `http://<generated-dns-name>.cloudapp.net`.
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
@@ -180,49 +179,8 @@ This sample shows an application gateway that is up, running, and is ready to ta
 	Vip           : 138.91.170.26 
 	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 
-
-## Delete an application gateway
-
-To delete an application gateway, you'll need to do the following in order:
-
-1. Use the `Stop-AzureApplicationGateway` cmdlet to stop the gateway. 
-2. Use the `Remove-AzureApplicationGateway` cmdlet to remove the gateway.
-3. Verify the gateway has been removed by using the `Get-AzureApplicationGateway` cmdlet.
-
-This sample shows the `Stop-AzureApplicationGateway` cmdlet on the first line, followed by the output. 
-
-	PS C:\> Stop-AzureApplicationGateway AppGwTest 
-
-	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
-	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
-
-Once the application gateway is in a Stopped state, use the `Remove-AzureApplicationGateway` cmdlet to remove the service.
-
-
-	PS C:\> Remove-AzureApplicationGateway AppGwTest 
-
-	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
-	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
-
-To verify that the service has been removed, you can use the `Get-AzureApplicationGateway` cmdlet. This step is not required.
-
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
-
-	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
-
-	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist. 
-	.....
-
 ## Next Steps
 
-If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-SSL.md).
 
 If you want more information about load balancing options in general, see:
 
