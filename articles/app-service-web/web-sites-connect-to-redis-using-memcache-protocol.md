@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="windows"
    ms.workload="web"
-   ms.date="03/31/2015"
+   ms.date="06/30/2015"
    ms.author="cfowler"/>
 
 # Connect a web app in Azure App Service to Redis Cache via the Memcache protocol
@@ -93,6 +93,8 @@ After downloading the file, unzip and upload the **php\_memcache.dll** into the 
 Once finished, click **Save**.
 
 ## Install Memcache WordPress plugin
+
+> You can also download the [Memcached Object Cache Plugin](https://wordpress.org/plugins/memcached/) from WordPress.org.
 
 On the WordPress plugins page, click the **Add New** button.
 
