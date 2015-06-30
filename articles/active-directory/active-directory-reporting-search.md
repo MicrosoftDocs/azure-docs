@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="06/16/2015"
+	ms.date="06/30/2015"
 	ms.author="kenhoff"/>
 
 # Azure Active Directory Reporting Search
