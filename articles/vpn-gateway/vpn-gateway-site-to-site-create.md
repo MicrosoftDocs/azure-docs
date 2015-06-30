@@ -18,7 +18,7 @@
 
 # Configure a virtual network with a site-to-site VPN connection
 
-You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and creating a site-to-site VPN connection between your newly created VNet and your on-premises location. You can use this procedure for creating cross-premises and hybrid virtual network configurations.
+You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and creating a site-to-site VPN connection between your newly created VNet and your on-premises location.
 
 
 ## Before beginning
