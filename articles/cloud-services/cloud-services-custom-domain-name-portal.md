@@ -22,7 +22,6 @@
 - [Azure Portal](cloud-services-custom-domain-name.md)
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
-an
 When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.net**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://*contoso*.cloudapp.net. Azure also assigns a virtual IP address.
 
 However, you can also expose your application on your own domain name, such as **contoso.com**. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
@@ -138,6 +137,9 @@ For example, the following A record forwards all traffic from **contoso.com** to
 
 
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
+
+>[AZURE.WARNING]
+>IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](..\virtual-network\virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
 
 ## Next steps
 
