@@ -23,6 +23,8 @@ The **Backup Catalog** page displays all the backup sets that are created when m
 
   ![backup-catalog](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
 
+**Figure 1: Backup catalog**
+
 This tutorial describes how you can use a backup set to clone an individual volume. It also explains the difference between *transient* and *permanent* clones. 
 
 ## Create a clone of a volume
