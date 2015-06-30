@@ -152,5 +152,5 @@ Now you are ready! Next you can [connect to your Azure subscription from the Azu
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
