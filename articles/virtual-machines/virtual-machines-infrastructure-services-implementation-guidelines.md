@@ -217,6 +217,8 @@ Microsoft Azure exposes the cloud service names, since they are associated to th
 
 In addition, the naming convention used for cloud services might need to tolerate exceptions because the cloud service names must be unique among all other Microsoft Azure cloud services, regardless of the Microsoft Azure tenant.
 
+One important limitation of cloud services to consider is that only one virtual machine management operation can be performed at a time for all the virtual machines in the cloud service. When you perform a virtual machine management operation on one virtual machine in the cloud service, you must wait until it is complete before you can perform a new management operation on another virtual machine. Therefore, you should keep the number of virtual machines in a cloud service low. 
+
 Azure subscriptions can support a maximum of 200 cloud services.
 
 ### Implementation guidelines recap for cloud services
