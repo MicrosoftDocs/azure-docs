@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/22/2015"
+   ms.date="06/29/2015"
    ms.author="sutalasi"/>
 
 
@@ -34,7 +34,7 @@ The SQL Connector has the following Triggers and Actions available:
 
 Triggers | Actions
 --- | ---
-Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From Table</li><li>Delete From Table</li><li>Call Stored Procedure</li>
+Poll Data | <ul><li>Insert Into Table</li><li>Update Table</li><li>Select From Table</li><li>Delete From Table</li><li>Call Stored Procedure</li></ul>
 
 ## Create the SQL Connector
 
@@ -49,7 +49,7 @@ A connector can be created within a logic app or be created directly from the Az
 --- | --- | ---
 Server Name | Yes | Enter the SQL Server name. For example, enter *SQLserver/sqlexpress* or *SQLserver.mydomain.com*.
 Port | No | Default is 1433.
-User Name | Yes | Enter a user name that can log into the SQL Server. If connecting to an on-premises SQL Server, enter domain\username. 
+User Name | Yes | Enter a user name that can log into the SQL Server. If connecting to an on-premises SQL Server, enter SQL Authentication credentials. 
 Password | Yes | Enter the user name password.
 Database Name | Yes | Enter the database you are connecting. For example, you can enter *Customers* or *dbo/orders*.
 On-Premises | Yes | Default is False. Enter False if connecting to an Azure SQL database. Enter True if connecting to an on-premises SQL Server. 
@@ -122,6 +122,20 @@ To use the SQL Connector as an action, enter the name of the Tables and/or Store
 
 You can test the logic app by adding a new record in the table that is being polled.
 
+## What you can and cannot do
+
+SQL Query | Supported | Not Supported
+--- | --- | ---
+Where clause | <ul><li>Operators: AND, OR, =, <>, <, <=, >, >= and LIKE</li><li>Multiple sub conditions can be combined by ‘(‘ and ‘)’</li><li>String literals, Datetime (enclosed in single quotes), numbers (should only contain numeric characters)</li><li>Should strictly be in a binary expression format, like ((operand operator operand) AND/OR (operand operator operand))*</li></ul> | <ul><li>Operators: Between, IN</li><li>All built-in functions like ADD(), MAX() NOW(), POWER(), and so on</li><li>Math operators like *, -, +, and so on</li><li>String concatenations using +.</li><li>All Joins</li><li>IS NULL and IS NOT Null</li><li>Any numbers with non-numeric characters, like hexadecimal numbers</li></ul>
+Fields (in Select query) | <ul><li>Valid column names separated by commas. No table name prefixes allowed (the connector works on one table at a time).</li><li>Names can be escaped with ‘[‘ and ‘]’</li></ul> | <ul><li>No keywords like TOP, DISTINCT, and so on</li><li>No aliasing, like Street + City + Zip AS Address</li><li>All built-in functions, like ADD(), MAX() NOW(), POWER(), and so on</li><li>Math operators, like *, -, +, and so on</li><li>String concatenations using +</li></ul>
+Table name | Must only be the table name which may or may not be prefixed with the schema information. | Nothing is allowed, except the table name.
+
+#### Tips
+
+- For advanced queries, we suggest creating a stored procedure and execute using the execute stored procedure API.
+- Inner queries and any other operations are not supported.
+- For joining multiple conditions, you can use the 'AND' and 'OR' operators.
+
 ## Hybrid Configuration (Optional)
 
 > [AZURE.NOTE] This step is required only if you are using SQL Server on-premises behind your firewall.
@@ -134,7 +148,9 @@ See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-ma
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->

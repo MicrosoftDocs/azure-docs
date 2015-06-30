@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # What is the Azure WebJobs SDK
@@ -22,7 +22,7 @@
 
 This article explains what the WebJobs SDK is, reviews some common scenarios it is useful for, and gives an overview of how you use it in your code.
 
-[WebJobs](web-sites-create-web-jobs.md) is a feature of Azure App Service that enables you to run a program or script in the same context as a web app. The purpose of the WebJobs SDK is to simplify the task of writing code that runs as a WebJob and works with Azure Storage queues, blobs, and tables, and Service Bus queues.
+[WebJobs](websites-webjobs-resources.md) is a feature of Azure App Service that enables you to run a program or script in the same context as a web app. The purpose of the WebJobs SDK is to simplify the task of writing code that runs as a WebJob and works with Azure Storage queues, blobs, and tables, and Service Bus queues.
 
 The WebJobs SDK includes the following components:
 

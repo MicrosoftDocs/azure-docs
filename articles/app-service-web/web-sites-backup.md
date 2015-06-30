@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/25/2015" 
 	ms.author="cephalin"/>
 
 # Back up a web app in Azure App Service
@@ -108,54 +108,38 @@ You can make a manual backup at any time.
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 <a name="partialbackups"></a>
-## Backup just part of your site
+## Backup just part of your web app
 
-Sometimes you don't want to backup everything on your site, especially if you backup your site regularly, or if your site has over 10GB of content (that's the max amount you can backup at a time).
+Sometimes you don't want to backup everything on your web app. Here are a few examples:
 
-For example, you probably don't want to back up the log files. Or if you [setup weekly backups](https://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/#configure-automated-backups) you won't want to fill up your storage account with static content that never changes like old blog posts or images.
+-	You [setup weekly backups](web-sites-backup.md#configure-automated-backups) of your web app that contains static content that never changes, such as old blog posts or images.
+-	Your web app has over 10GB of content (that's the max amount you can backup at a time).
+-	You don't want to back up the log files.
 
 Partial backups will let you choose exactly which files you want to back up.
 
-###Specify the files you don't want to backup
-You can create a list of files and folders to exclude from the backup.  
+### Exclude files from your backup
 
-You save the list as a text file called _backup.filter in the wwwroot folder of your site. An easy way to access this is through the [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console) at `http://{yoursite}.scm.azurewebsites.net/DebugConsole`.  
+To exclude files and folders from your backups, create a `_backup.filter` file in the wwwroot folder of your web app and specify the list of files and folders you want to exclude in there. An easy way to access this is through the [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console). 
 
-The instructions below will be using the Kudu Console to create the _backup.filter file, but you can use your favorite deployment method to put the file there.
-
-###What to do
-I've got a site that contains log files and static images from past years that are never going to change.
-
-I already have a full backup of the site which includes the old images. Now I want to backup the site every day, but I don't want to pay for storing log files or the static image files that never change.
+Suppose you have a web app that contains log files and static images from past years that are never going to change. You already have a full backup of the web app that includes the old images. Now you want to backup the web app every day, but you don't want to pay for storing log files or the static image files that never change.
 
 ![Logs Folder][LogsFolder]
 ![Images Folder][ImagesFolder]
 	
-The below steps show how I'd exclude those files from the backup.
+The below steps show how you would exclude these files from the backup.
 
-####Identify the files and folders you don't want to backup
-This is easy. I already know I don't want to backup any log files, so I want to exclude `D:\home\site\wwwroot\Logs`.  
+1. Go to `http://{yourapp}.scm.azurewebsites.net/DebugConsole` and identify the folders that you want to exclude from your backups. In this example, you would want to exclude the following files and folders shown in that UI:
 
-There's another log file folder that all Azure Web Apps have at `D:\home\LogFiles`. Let's exclude that too.
+		D:\home\site\wwwroot\Logs
+		D:\home\LogFiles
+		D:\home\site\wwwroot\Images\2013
+		D:\home\site\wwwroot\Images\2014
+		D:\home\site\wwwroot\Images\brand.png
 
-I also don't want to backup the images from previous years over and over again. So lets add `D:\home\site\wwwroot\Images\2013` and `D:\home\site\wwwroot\Images\2014` to the list as well.
+	[AZURE.NOTE] The last line illustrates that you can exclude individuals files as well as folders.
 
-Finally, let's not backup the brand.png file in the Images folder either, just to show we can blacklist individual files as well. It's located at `D:\home\site\wwwroot\Images\brand.png` 
-
-This gives us the following folders that we don't want to backup:
-
-* D:\home\site\wwwroot\Logs
-* D:\home\LogFiles
-* D:\home\site\wwwroot\Images\2013
-* D:\home\site\wwwroot\Images\2014
-* D:\home\site\wwwroot\Images\brand.png
-
-#### Create the exclusion list
-You save the blacklist of files and folders that you don't want to backup in  a special file called _backup.filter.  Create the file and place it at `D:\home\site\wwwroot\_backup.filter`.
-
-List all the files and folders you don't want to backup in the _backup.filter file. You add the full path relative to D:\home of the folder or file that you want to exclude from the backup, one path per line.
-
-So for my site, `D:\home\site\wwwroot\Logs` becomes `\site\wwwroot\Logs`, `D:\home\LogFiles` becomes `\LogFiles`, so on and so forth, resulting in the following contents for my _backup.filter:
+2. Create a file called `_backup.filter` and put the list above in the file, but remove `D:\home`. List one directory or file per line. So the content of the file should be:
 
     \site\wwwroot\Logs
     \LogFiles
@@ -163,77 +147,49 @@ So for my site, `D:\home\site\wwwroot\Logs` becomes `\site\wwwroot\Logs`, `D:\ho
     \site\wwwroot\Images\2014
     \site\wwwroot\Images\brand.png
 
-Note the starting `\` at the beginning of each line. That's important.
+3. Upload this file to the `D:\home\site\wwwroot\` directory of your site using [ftp](web-sites-deploy.md#ftp) or any other method. If you wish, you can create the file directly in `http://{yourapp}.scm.azurewebsites.net/DebugConsole` and insert the content there.
 
-###Run a backup
-Now you can run backups the same way you would normally do it. [Manually](https://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/#create-a-manual-backup), [automatically](https://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/#configure-automated-backups), either way is fine.
+4. Run backups the same way you would normally do it, [manually](#create-a-manual-backup) or [automatically](#configure-automated-backups).
 
-Any files and folders that fall under the filters listed in the _backup.filter will be excluded from the backup. This means now the log files and the 2013 and 2014 image files will no longer be backed up.
+Now, any files and folders that are specified in `_backup.filter` will be excluded from the backup. In this example, the log files and the 2013 and 2014 image files will no longer be backed up, as well as brand.png.
 
-###Restoring your backed up site
-You restore partial backups of your site the same way you would [restore a regular backup](https://azure.microsoft.com/en-us/documentation/articles/web-sites-restore/). It'll do the right thing.
-
-####The technical details
-With full (non-partial) backups normally all content on the site is replaced with whatever is in the backup.  If a file is on the site but not in the backup it gets deleted.
-
-But when restoring partial backups though any content that is located in one of the blacklisted folders (like `D:\home\site\wwwroot\images\2014` for my site) will be left as is. And if individual files were black listed then they'll also be left alone during the restore.
+>[AZURE.NOTE] You restore partial backups of your site the same way you would [restore a regular backup](web-sites-restore.md). The restore process will do the right thing.
+>
+>When a full backup is restored, all content on the site is replaced with whatever is in the backup. If a file is on the site but not in the backup it gets deleted. But when a partial backup is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
 
 <a name="aboutbackups"></a>
+
 ## How backups are stored
 
-After you have made one or more backups, the backups will be visible on the **Containers** blade of your **Storage Account**, as well as your web app. From the **Storage Account**, each backup consists of a .zip file that contains the backed up data and an .xml file that contains a manifest of the .zip file contents. 
+After you have made one or more backups for your web app, the backups will be visible on the **Containers** blade of your storage account, as well as your web app. In the storage account, each backup consists of a .zip file that contains the backup data and an .xml file that contains a manifest of the .zip file contents. You can unzip and browse these files if you want to access your backups without actually performing a web app restore.
 
-The .zip and .xml backup file names consist of your web app name followed by an underscore and a time stamp of when the backup was taken. The time stamp contains the date in the format YYYYMMDD (in digits with no spaces) plus the 24-hour time in UTC format (for example, fabrikam_201402152300.zip). The content of these files can be unzipped and browsed in case you want to access your backups without actually performing a web app restore.
+The database backup for the web app is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a new SQL database based on the BACPAC export, see [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
 
-The XML file that is stored with the zip file indicates the database file name under *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
-
-The database backup file itself is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a new SQL database based on the BACPAC export, you can follow the steps in the article [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
-
-For information on restoring a web app (including databases) by using the Azure Portal, see [Restore a web app in Azure App Service](web-sites-restore.md).
-
-> [AZURE.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
+> [AZURE.WARNING] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 
 <a name="bestpractices"></a>
 ##Best Practices
-What do you do when disaster strikes and you have to restore your site?  Make sure you're prepared beforehand.
 
-Yeah, you can have partial backups, but take at least one full backup of the site first so that you have all your site's contents backed up (this is worst case scenario planning).  Then when you're restoring your backups you can first restore the full backup of the site, and then restore the latest partial backup on top of it.
+In the event of a failure or natural disaster, you want to make sure sure you're prepared beforehand by having an existing backup and restore strategy.
 
-Here's why: it lets you use [Deployment Slots](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/) to test your restored site. You can even test the restore process without ever touching your production site. And testing your restore process is a [Very Good Thing](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/).  You never know when you might run into some subtle gotcha like I did when I tried restoring my blog and end up losing half your content.
+Your backup strategy should be similar to the following:
 
-###A horror story
+-	Take at least one full backup of your web app.
+-	Take partial backups of your web app after you have a full backup.
 
-My blog is powered by the [Ghost](https://ghost.org/) blogging platform.  Like a responsible dev I created a backup of my site and everything was great. Then one day I got a message saying that there was a new version of Ghost available and I could upgrade my blog to it. Great!
+Your restore strategy should be similar to the following:
+ 
+-	Create a [staging slot](web-sites-staged-publishing.md) for your web app.
+-	Restore the full backup of the web app on the staging slot.
+-	Restore the latest partial backup on top of the full backup restore, also on the staging slot.
+-	Test the restore to see that the staging app works properly.
+-	[Swap](web-sites-staged-publishing.md#Swap) the staged web app into the production slot.
 
-I created one more backup of my site to backup the latest blog posts, and proceeded to upgrade Ghost. 
-
-On my production site. 
-
-Bad mistake.  
-
-Something went wrong with the upgrade, my home screen just showed a blank screen.  "No problem" I thought, "I'll simply restore the backup I just took."
-
-I restored the upgrade, saw everything come back...except the blog posts.
-
-WHAT???
-
-Turns out, in the [Ghost upgrade notes](http://support.ghost.org/how-to-upgrade/) there's this warning:
-
-![You can take a copy of your database from content/data but you  should not do this while Ghost is runing. Please stop it first][GhostUpgradeWarning]
-
-If you try to backup the data while Ghost is running...the data doesn't actually get backed up.
-
-Bummer.
-
-If I had tried the restore on a test slot first I would have seen this issue and not lost all my posts.
-
-Such is life. It can happen to [the best of us](http://blog.codinghorror.com/international-backup-awareness-day/). 
-
-Test your backups.
+>[AZURE.NOTE] Always test your restore process. For more information, see [Very Good Thing](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/). For example, certain blogging platforms, such as [Ghost](https://ghost.org/), have explicit caveats on how they behave during a backup. By testing your restore process, you can catch these caveats when you're not yet struck by a failure or disaster.
 
 <a name="nextsteps"></a>
 ## Next Steps
-For information on restoring an Azure web app from backup, see [Restore a web app in Azure App Service](web-sites-restore.md).
+For information on restoring web app from backup, see [Restore a web app in Azure App Service](web-sites-restore.md).
 
 To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 

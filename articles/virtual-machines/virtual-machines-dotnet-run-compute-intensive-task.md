@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2015"
+	ms.date="06/25/2015"
 	ms.author="wpickett"/>
 
 # How to run a compute-intensive task in .NET on an Azure virtual machine

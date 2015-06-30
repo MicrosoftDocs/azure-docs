@@ -62,12 +62,12 @@ Managing databases and logical servers from the Azure Management Portal or using
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 
 <!--MSDN references-->
@@ -79,4 +79,4 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
 
 <!--Other Web references-->
-[Role-based access control in Azure preview portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure/
+[Role-based access control in Azure preview portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx

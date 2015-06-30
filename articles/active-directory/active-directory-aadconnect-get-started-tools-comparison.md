@@ -21,6 +21,9 @@
 Over the years the directory integration tools have grown and evolved.  This document is to help provide a consolidated view of these tools and a comparison of the features that are available in each. 
 
 >[AZURE.NOTE] Azure AD Connect incorporates the components and functionality previously released as Dirsync and AAD Sync. These tools are no longer being released individually, and all future improvements will be included in updates to Azure AD Connect, so that you always know where to get the most current functionality. 
+>
+>Currently Dirsync is still supported, however at some point in the future it will be deprecated. Once it is deprecated, it will only be supported for a period of time.  After this period of time support for Dirsync will end.
+
 
 Use the following key for each of the tables.
 

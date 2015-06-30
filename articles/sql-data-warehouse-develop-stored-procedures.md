@@ -18,14 +18,14 @@
 
 # Stored procedures in SQL Data Warehouse 
 
-SQL Data Warehouse supports many of the T-SQL features found in SQL Server. More importantly there are scale out specific features that we will want to leverage to maximize the performance of your solution.
+SQL Data Warehouse supports many of the Transact-SQL features found in SQL Server. More importantly there are scale out specific features that we will want to leverage to maximize the performance of your solution.
 
-However, to maintain the scale and performance of SQL Data Warehouse there are also some features and functionality that have behavioural differences and others that are not supported.
+However, to maintain the scale and performance of SQL Data Warehouse there are also some features and functionality that have behavioral differences and others that are not supported.
 
 This article explains how to implement stored procedures within SQL Data Warehouse.
 
 ## Introducing stored procedures
-Stored procedures are great way for encapsulating your SQL code; storing it close to your data in the data warehouse. By encapsulating the code into manageable units stored procedures help developers modularize their solutions; facilitating greater re-usability of code. Each stored procedure can also accept parameters to make them even more flexible.
+Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse. By encapsulating the code into manageable units stored procedures help developers modularize their solutions; facilitating greater re-usability of code. Each stored procedure can also accept parameters to make them even more flexible.
 
 SQL Data Warehouse provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses we are generally less concerned with the compilation time. It is more important that the stored procedure code is correctly optimised when operating against large data volumes. The goal is to save hours, minutes and seconds not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.     
  
@@ -37,6 +37,7 @@ When stored procedures call other stored procedures or execute dynamic sql then 
 SQL Data Warehouse support a maximum of 8 nesting levels. This is slightly different to SQL Server. The nest level in SQL Server is 32.
 
 The top level stored procedure call equates to nest level 1
+
 ```
 EXEC prc_nesting
 ``` 
@@ -70,26 +71,26 @@ There are some aspects of Transact-SQL stored procedures that are not implemente
 
 They are:
 
-- Temporary stored procedures
-- Numbered stored procedures
-- Extended stored procedures
+- temporary stored procedures
+- numbered stored procedures
+- extended stored procedures
 - CLR stored procedures
-- Encryption option
-- Replication option
-- Table valued parameters
-- Read only parameters
-- Default parameters
-- Execution contexts
-- Return statement
+- encryption option
+- replication option
+- table-valued parameters
+- read-only parameters
+- default parameters
+- execution contexts
+- return statement
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[temporary tables]: ./sql-data-warehouse-develop-temporary-tables/
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[temporary tables]: sql-data-warehouse-develop-temporary-tables.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [nest level]: https://msdn.microsoft.com/en-us/library/ms187371.aspx

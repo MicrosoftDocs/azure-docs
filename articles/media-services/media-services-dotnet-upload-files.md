@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 
@@ -47,10 +47,8 @@ If you specify for your asset to be encrypted with a **StorageEncrypted** option
 
 This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
 
-## Upload files using Media Services .NET SDK  
-
  
-### Upload a single file
+## Upload a single file with Media Services .NET SDK 
 
 The sample code below uses .NET SDK to perform the following tasks: 
 
@@ -94,7 +92,7 @@ The sample code below uses .NET SDK to perform the following tasks:
             return inputAsset;
 		}
 
-###Upload multiple files
+##Upload multiple files with Media Services .NET SDK 
 
 The following code shows how to create an asset and upload multiple files.
 
@@ -181,7 +179,7 @@ When uploading a large number of assets, consider the following.
  
 - Keep ParallelTransferThreadCount at the default value of 10.
  
-###Ingesting Assets in Bulk 
+##<a id="ingest_in_bulk"></a>Ingesting Assets in Bulk using Media Services .NET SDK 
 
 Uploading large asset files can be a bottleneck during asset creation. Ingesting Assets in Bulk or “Bulk Ingesting”, involves decoupling asset creation from the upload process. To use a bulk ingesting approach, create a manifest (IngestManifest) that describes the asset and its associated files. Then use the upload method of your choice to upload the associated files to the manifest’s blob container. Microsoft Azure Media Services watches the blob container associated with the manifest. Once a file is uploaded to the blob container, Microsoft Azure Media Services completes the asset creation based on the configuration of the asset in the manifest (IngestManifestAsset).
 

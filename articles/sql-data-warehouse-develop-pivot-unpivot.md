@@ -13,15 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Pivot and unpivot data in SQL Data Warehouse
 
 You can pivot data in SQL Data Warehouse by using a CASE statement. 
 
-
-This article contains two simple examples on how to both pivot and unpivot a table without using the PIVOT and UNPIVOT syntax found in SQL Server.
+This article contains two simple examples on how to both pivot and unpivot a table without using the pivot and unpivot syntax found in SQL Server.
 
 ## Pivot
 
@@ -56,11 +55,13 @@ GROUP BY
         [EnglishProductCategoryName]
 ;
 ```
+
 ## Unpivot
 
 Unpivoting is a little bit more complex. However, it is still very achievable using `CASE`. For this you will also need to first determine how many columns you are going to unpivot. In the previous example we pivoted four columns. Let's stick with that. To perform the Unpivot we will need to amplify the dataset temporarily by a factor of 4. This results in a two step process:
 
 Firstly, create a temporary table containing four rows. We will use this to amplify the data:
+
 ```
 CREATE TABLE #Nmbr
 WITH 
@@ -80,6 +81,7 @@ OPTION (LABEL = 'CTAS : #Nmbr : CREATE')
 ```
 
 The second step is to use CASE to conditionally unpivot the data back converting the set back into rows. To achieve this we will need to create a cartesian product of by joining to the temporary taable #Nmbr created in the first step: 
+
 ```
 SELECT  [EnglishProductCategoryName]
 ,       CASE    c.[Number]
@@ -99,22 +101,22 @@ WHERE   CASE    c.[Number]
 OPTION (LABEL = 'Unpivot :  : SELECT')
 ;
 ```
+
 Finally don't forget to clean up by dropping the temporary table.
+
 ```
 DROP TABLE #Nmbr
 ;
 ```
 
-
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Management Portal]: (http://portal.azure.com)

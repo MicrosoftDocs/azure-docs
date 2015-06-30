@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/22/2015" 
+	ms.date="06/22/2015" 
 	ms.author="patshea123"/>
 
 # Getting Started with Mobile Services (Cordova Projects)
@@ -34,7 +34,7 @@ The first step you need to do in order to follow the code in these examples depe
 
 The following code gets a reference to a table that contains data for a TodoItem, which you can use in subsequent operations to read and update the data table. The TodoItem table is created automatically when you create a mobile service.
 
-var todoTable = mobileServiceClient.getTable('TodoItem');
+    var todoTable = mobileServiceClient.getTable('TodoItem');
 
 For these examples to work, permissions on the table must be set to **Anybody with an Application Key**. Later, you can set up authentication. See [Get started with authentication](mobile-services-html-get-started-users.md).
 
@@ -42,35 +42,35 @@ For these examples to work, permissions on the table must be set to **Anybody wi
 
 Insert a new item into a data table. An id (a GUID of type string) is automatically created as the primary key for the new row. Call the `done()` method on the returned [Promise](https://msdn.microsoft.com/library/dn802826.aspx) object to get a copy of the inserted object and handle any errors.
 
-function TodoItem(text) {
-this.text = text;
-this.complete = false;
-}
-
-var items = new Array();
-todoTable.insert(todoItem).done(function (item) {
-items.push(item)
-});
-};
+    function TodoItem(text) {
+        this.text = text;
+        this.complete = false;
+    }
+    
+    var items = new Array();
+    var insertTodoItem = function (todoItem) {
+        todoTable.insert(todoItem).done(function (item) {
+            items.push(item)
+        });
+    };
 
 #####Read or query a table
 
 The following code queries a table for all items, sorted by the text field. You can add code to process the query results in the success handler. In this case, a local array of the items is updated.
 
-todoTable.orderBy('text')
-.read().done(function (results) {
-items = results.slice();
-});
-});
+    todoTable.orderBy('text')
+        .read().done(function (results) {
+            items = results.slice();
+        });
 
 You can use the where method to modify the query. Here's an example that filters out completed items.
 
-todoTable.where(function () {
-return (this.complete === false);
-})
-.read().done(function (results) {
-items = results.slice();
-});
+    todoTable.where(function () {
+            return (this.complete === false);
+        })
+        .read().done(function (results) {
+            items = results.slice();
+        });
 
 For more examples of queries you can use, see [query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)) object.
 
@@ -78,17 +78,17 @@ For more examples of queries you can use, see [query]((http://msdn.microsoft.com
 
 Update a row in a data table. In this code, when the mobile service responds, the item is removed from the list. Call the `done()` method on the returned [Promise](https://msdn.microsoft.com/library/dn802826.aspx) object to get a copy of the inserted object and handle any errors.
 
-todoTable.update(todoItem).done(function (item) {
-// Update a local collection of items.
-items.splice(items.indexOf(todoItem), 1, item);
-});
+    todoTable.update(todoItem).done(function (item) {
+        // Update a local collection of items.
+        items.splice(items.indexOf(todoItem), 1, item);
+    });
 
 #####Delete a table item
 
 Delete a row in a data table using the **del** method. Call the `done()` method on the returned [Promise](https://msdn.microsoft.com/library/dn802826.aspx) object to get a copy of the inserted object and handle any errors.
 
-todoTable.del(todoItem).done(function (item) {
-items.splice(items.indexOf(todoItem), 1);
-});
+    todoTable.del(todoItem).done(function (item) {
+        items.splice(items.indexOf(todoItem), 1);
+    });
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/) 
+[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)

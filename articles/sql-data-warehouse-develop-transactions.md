@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Transactions in SQL Data Warehouse
@@ -95,17 +95,18 @@ THROW is the more modern implementation for raising exceptions in SQL Data Wareh
 SQL Data Warehouse does have a few other restrictions that relate to transactions.
 
 They are as follows:
+
 - No distributed transactions
 - No nested transactions permitted
 - No save points allowed
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

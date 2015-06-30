@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/23/2015"
+    ms.date="06/29/2015"
     ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 1 release notes  
@@ -56,7 +56,6 @@ This update contains the following new features and improvements:
 
 ## Issues fixed in Update 1
 
-
 The following table provides a summary of issues that were fixed in this update.  
 
 | No. | Feature | Issue | Applies to physical device | Applies to virtual device |
@@ -94,7 +93,7 @@ The following table provides a summary of known issues in this release.
 
 ## Physical device updates in Update 1
 
-When these updates are applied to a physical device, the software version will change to 6.3.9600.17491. 
+When these updates are applied to a physical device, the software version will change to 6.3.9600.17521. 
 
 ## Serial-attached SCSI (SAS) controller and firmware updates in Update 1
 

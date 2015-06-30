@@ -31,7 +31,8 @@ This topic presents a code sample written in Python. The sample runs on a Mac co
 
 
 - [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
-
+- [FreeTDS](https://github.com/brianb/FreeTDS)
+- [Pymssql](https://github.com/pymssql/pymssql)
 
 ### Install the required modules
 

@@ -38,6 +38,8 @@
 
 - [Create tables in markdown](./create-tables-markdown.md)
 
+- [Create images in markdown](./create-images-markdown.md)
+
 - [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)
 
 - [Markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md)

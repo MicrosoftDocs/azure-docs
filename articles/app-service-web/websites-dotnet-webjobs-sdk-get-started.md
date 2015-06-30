@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob in Azure App Service
@@ -320,7 +320,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 	
 9. Click **Save**.
 
-	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+	![Connection strings in Azure portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
 10. In **Server Explorer**, right-click the web app, and then click **Stop web app**. 
 
@@ -343,7 +343,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 ### View the WebJobs SDK dashboard
 
-1. In the Azure Portal, select your web app.
+1. In the [Azure Portal](https://manage.windowsazure.com), select your web app.
 
 2. Click the **WebJobs** tab.
 
@@ -361,7 +361,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 	The **Replay Function** button on this page causes the WebJobs SDK framework to call the function again, and it gives you a chance to change the data passed to the function first.
 
->[AZURE.NOTE] When you're finished testing, delete the web app and the SQL Database instance. The web app is free, but the SQL Database instance and storage account accrue charges (minimal due to small size). Also, if you leave the web app running, anyone who finds your URL can create and view ads. In the Azure management portal, go to the **Dashboard** tab for your web app, and then click the **Delete** button at the bottom of the page. You can then select a check box to delete the SQL Database instance at the same time. If you just want to temporarily prevent others from accessing the web app, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
+>[AZURE.NOTE] When you're finished testing, delete the web app and the SQL Database instance. The web app is free, but the SQL Database instance and storage account accrue charges (minimal due to small size). Also, if you leave the web app running, anyone who finds your URL can create and view ads. In the Azure portal, go to the **Dashboard** tab for your web app, and then click the **Delete** button at the bottom of the page. You can then select a check box to delete the SQL Database instance at the same time. If you just want to temporarily prevent others from accessing the web app, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
 
 ### Enable AlwaysOn for long-running processes
 
@@ -495,7 +495,9 @@ You can now build, run, and deploy the application as instructed earlier in the 
 
 ## <a id="code"></a>Review the application code
 
-The following sections explain the code related to working with the WebJobs SDK and Azure Storage blobs and queues. For the code specific to the WebJobs SDK, see the [Program.cs section](#programcs).
+The following sections explain the code related to working with the WebJobs SDK and Azure Storage blobs and queues. 
+
+> **Note:**  For the code specific to the WebJobs SDK, see [Program.cs and Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -800,7 +802,7 @@ In the Cloud Service version of the application, the record ID is the only infor
 
 ### Using the WebJobs SDK outside of WebJobs
 
-A program that uses the WebJobs SDK doesn't have to run in Azure in a WebJob. It can run locally, and it can also run in other environments such as a Cloud Service worker role or a Windows service. However, you can only access the WebJobs SDK dashboard through an Azure web app. To use the dashboard you have to connect the web app to the storage account you're using by setting the AzureWebJobsDashboard connection string on the **Configure** tab of the management portal. Then you can get to the Dashboard by using the following URL:
+A program that uses the WebJobs SDK doesn't have to run in Azure in a WebJob. It can run locally, and it can also run in other environments such as a Cloud Service worker role or a Windows service. However, you can only access the WebJobs SDK dashboard through an Azure web app. To use the dashboard you have to connect the web app to the storage account you're using by setting the AzureWebJobsDashboard connection string on the **Configure** tab of the Azure portal. Then you can get to the Dashboard by using the following URL:
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -814,5 +816,4 @@ For more information, see [Azure Web Jobs Recommended Resources](http://go.micro
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
+* For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

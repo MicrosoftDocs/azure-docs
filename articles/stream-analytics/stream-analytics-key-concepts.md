@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/16/2015" 
+	ms.date="06/30/2015" 
 	ms.author="jeffstok" />
 
 
@@ -145,7 +145,11 @@ The output target is where the results of the Stream Analytics job will be writt
 
 ## Scale jobs
 
-A Stream Analytics job can be scaled through configuring streaming units, which define the amount of data processing power a job receives. Each streaming unit corresponds to roughly 1MB/second of throughput. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
+As part of providing a more predictable performance experience for customers, Azure Stream Analytics uses the Streaming Units (SUs) to represent the resources and power to execute a query.  SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput. Doubling the number of SUs equates to doubling the event processing capacity. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
+
+High SU % Utilization may be a result of large window in a query, large events in input, large out of order tolerance window, or a combination of the above.  Partitioning the query, or breaking down the query into more steps, and adding more SUs from the Scale tab are both strategies to avoid such a condition.
+
+You may observe a baseline resource utilization even without input events, because the system consumes certain amount of resource. The amount of resource consumed by the system may also fluctuates over time.
 
 For details, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md).
 
@@ -159,9 +163,9 @@ To enable job monitoring, Stream Analytics requires you to designate an Azure St
 ### Metrics
 The following metrics are available for monitoring the usage and performance of Stream Analytics jobs:
 
+- SU % Utilizaiton - An indicator of the relative event processing capacity for one or more of the query steps.  Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress.
 - Errors - Number of error messages incurred by a Stream Analytics job.
-- Input events - Amount of data received by the Stream Analytics job, in terms of 
-- event count.
+- Input events - Amount of data received by the Stream Analytics job, in terms of event count.
 - Output events - Amount of data sent by the Stream Analytics job to the output target, in terms of event count.
 - Out-of-order events - Number of events received out of order that were either dropped or given an adjusted timestamp, based on the out-of-order policy.
 - Data conversion errors - Number of data conversion errors incurred by a Stream Analytics job.

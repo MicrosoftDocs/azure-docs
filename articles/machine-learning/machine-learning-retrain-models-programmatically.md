@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="06/29/2015"
 	ms.author="raymondl;garye"/>
 
 
@@ -63,10 +63,11 @@ Click on the Experiments icon in the left pane, then click on the experiment cal
  
 	![][4]
 
-	We next click on the Publish Web Service button, then click Yes. This will publish the Training Experiment as a Web Service that produces trained models and model evaluation results. The Web Service Dashboard will be displayed with the API Key and the API help page for Batch Execution. Note that only the Batch Execution method can be used for creating Trained Models.  
+	We next click on the Publish Web Service button, then click Yes. This will publish the Training Experiment as a Web Service that produces a trained model and model evaluation results. The Web Service Dashboard will be displayed with the API Key and the API help page for Batch Execution. Note that only the Batch Execution method can be used for creating Trained Models.  
 4. *Add a new Endpoint*  
-	The Scoring Web Service we published in Step 2 above was created with a default endpoint. The default endpoints are kept in sync with the originating experiment, and therefore a default endpoint's trained model cannot be replaced.
+	The Scoring Web Service we published in Step 2 above was created with a default endpoint. The default endpoints are kept in sync with the original training and scoring experiments, and therefore a default endpoint's trained model cannot be replaced.
 To create an updatable endpoint visit the Azure Portal and click on Add Endpoint (more details [here](machine-learning-create-endpoint.md)).	
+
 5. *Retrain the model with new data and BES*  
 	To call the Retraining APIs, we create a new C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).  
 
@@ -87,7 +88,7 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
 6. *Evaluate the Retraining Results*  
 	Using the combination of the BaseLocation, RelativeLocaiton and SasBlobToken from the above output results for “output2” we can see the performance results of the retrained model by pasting the complete URL in the browser address bar.  
 
-	This will tell us if the newly trained model performs well enough to replace the existing one.  
+	This will tell us if the newly trained model performs well enough to replace the existing one. 
 
 7. *Update the added endpoint’s Trained Model*  
 	To complete the process, we need to update the trained model of the scoring endpoint we created in Step 4 above.  

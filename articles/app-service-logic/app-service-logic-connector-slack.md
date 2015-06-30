@@ -13,74 +13,85 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="06/29/2015"
 	ms.author="andalmia"/>
 
-# Using the Slack connector
+# Slack Connector
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. 
+Connect to Slack channels and post messages to your team. Connectors can be used in Logic Apps as a part of a "workflow" to do different tasks. When you use the Slack Connector in your workflow, you can achieve a variety of scenarios using other connectors. For example, you can use the [Facebook Connector](app-service-logic-connector-facebook.md) in your workflow to post a message to your Slack channel. 
 
-Slack Connector lets you post messages to Slack channels.
+## Triggers and Actions
+*Triggers* are events that happen. For example, when an order is updated or when a new customer is added. An *Action* is the result of the trigger. For example, when an order is updated, send an alert to the salesperson. Or, when a new customer is added, send a welcome email to the new customer. 
+
+The Slack Connector can be used as an action in a logic app and supports data in JSON and XML formats. Currently, there are no triggers available for the Slack Connector. 
+
+The Slack Connector has the following Triggers and Actions available: 
+
+Triggers | Actions
+--- | ---
+None | Post Message
 
 ## Create the Slack connector
-To use the Slack connector, you need to first create an instance of the Slack connector API app. This can be done as follows:
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace: 
 
-1.	Open the Azure Marketplace using the "+ NEW" option at the bottom left of the Azure Portal.
-2.	Browse to “Web and Mobile > Azure Marketplace” and search for “Slack connector”.
-3.	Configure the Slack connector as follows:
- 
-	![][1] 
-	- **Name** - give a name for your Slack Connector
-	- **App Service plan** - select or create a App Service plan
-	- **Pricing tier** - choose a pricing tier for the connector
-	- **Resource group** - select or create a resource group where the connector should reside
-	- **Subscription** - choose a subscription you want this connector to be created in
-	- **Location** - choose the geographic location where you would like the connector to be deployed
+1. In the Azure startboard, select **Marketplace**.
+2. Select **API Apps** and search for “Slack Connector”.
+3. Enter the Name, App Service Plan, and other properties:
+<br/>
+![][1] 
 
-4. Click on Create. A new Slack Connector will be created.
-5. Once the API app instance is created, you can create a logic App in the same resource group to use the Slack connector.
+4. Click **Create**. 
 
-## Using the Slack Connector in your Logic App
-Once your API app is created, you can now use the Slack connector as an action for your Logic App. To do this, you need to:
+## Using the Connector as an Action in your Logic App
 
-1.	Create a new Logic App and choose the same resource group which has the Slack connector. Follow instructions to [Create a new Logic App].  	
+> [AZURE.IMPORTANT] The connectors and Logic apps should always be created in the same resource group. 
+
+Once the Slack connector is created, you can add it as an action to your Logic App: 
+
+1.	Within your Logic app, open **Triggers and Actions**.  
+	[Create a new Logic App](app-service-logic-create-a-logic-app.md)
+
+2.	The Slack connector is listed in the gallery on the right hand side:
+<br/>
+![][2]
+
+3.	Select the Slack Connector you created to automatically add it to your logic app. 
+4.	Select **Authorize**. Sign-in to your Slack account. Towards the end, you are asked to give permission to your connector to access your Slack account. Select **Authorizify**:
+<br/>
+![][3]
+![][4]
+![][5]
+![][6]
 	
-2.	Open “Triggers and Actions” within the created Logic App to open the Logic Apps Designer and configure your flow.  	
-	
-3.	The Slack connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
+5.	You can now use the Slack connector in the flow. The Post Message action is available: 
+<br/>
+![][7]
+
+
+Lets walk through the "Post Message" experience. You can use this action to post a message to any Slack Channel:
  
-	![][2]
-4.	You can drop the Slack Connector API app into the editor by clicking on the “Slack Connector”. Click on the Authorize button. Provide your Microsoft credentials (if not automatically signed in). Sign-in to your slack account by following the steps. Towards the end, you will be asked to give permission to your connector to access your slack account. Please click "Authorizify"
- 
-	![][3]
-	![][4]
-	![][5]
-	![][6]
-	
-5.	You can now use the Slack connector in the flow. Currently, triggers are not available within the Slack connector. The Actions available are - Post Message
- 
-	![][7]
+![][8]
 
-6.	Lets walk through the "Post Message" experience. You can use this action to post a message to any Slack Channel.
- 
-	![][8]
+Configure the input properties for "Post Message" action:
 
-	Configure the input properties for "Post Message" action as follows:
+Property | Description
+--- | ---
+Text | Enter the text of the message to be posted.
+Channel Name | Enter the Slack Channel where this message is posted. If the channel is not entered, then the message is posted to #general.
+Advanced Properties | <ul><li><strong>Bot User name</strong>: Name of the bot to use for this message. The message is posted as "Bot" if this is not entered.</li><li><strong>Icon URL</strong>: The image URL to use as the icon for this message.</li><li><strong>Icon Emoji</strong>: Emoji to use as the icon for this message. This property overrides the Icon URL property.</li></ul>
 
- - **Text** - Specify the text of the message to be posted
- - **Channel Name** - Specify the Slack Channel to which this message is to be uploaded. If this is not provided, then message will be posted in #general
+The Slack connector has REST APIs available so you can use the connector outside of a Logic App. Open your Slack Connector and select **API definition**:
 
- 	**Advanced Properties**
- 	- **Bot User name** - Name of the bot to use for this message. Message will be posted as "Bot" if this is not specified.
- 	- **Icon URL** - URL to an image to use as the icon for this message
- 	- **Icon Emoji** - Emoji to use as the icon for this message. Overrides Icon URL
- 
+![][9]
 
-7. To use the connector outside of a logic App, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->Slack Connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector.
 
-	![][9]
+## Do more with your Connector
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-8. Details of the APIs can also be found at [Slack API Definition].
+Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
+
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-slack/img1.PNG
@@ -93,6 +104,3 @@ Once your API app is created, you can now use the Slack connector as an action f
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!-- Links -->
-[Create a new Logic App]: app-service-logic-create-a-logic-app.md
-[Slack API Definition]: https://msdn.microsoft.com/library/dn708020.aspx 
