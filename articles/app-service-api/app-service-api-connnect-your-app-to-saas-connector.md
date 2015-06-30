@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # Deploy and configure a SaaS connector API app in Azure App Service
 
 ## Overview
 
-This tutorial shows how to install, configure, and test a [Software-as-a-Service (SaaS) connector](../app-service-logic-what-are-bizTalk-api-apps.md) in [Azure App Service](/documentation/services/app-service/) for calling it programmatically, such as from a mobile app. A SaaS connector is an [API app](app-service-api-apps-why-best-platform.md) that simplifies interaction with a SaaS platform such as Office 365, Salesforce, Facebook, and Dropbox. 
+This tutorial shows how to install, configure, and test a [Software-as-a-Service (SaaS) connector](../app-service-logic-what-are-bizTalk-api-apps.md) in [Azure App Service](/documentation/services/app-service/) for calling it programmatically, such as from a mobile app. A SaaS connector is an [API app](app-service-api-apps-why-best-platform.md) that simplifies interaction with a SaaS platform such as Office 365, Salesforce, Facebook, and Dropbox. If instead of using a prepackaged connector you want to create a custom .NET API app, see [Connect to a SaaS platform from an ASP.NET API app](app-service-api-dotnet-connect-to-saas.md). 
 
 For example, if you want to code HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated. A Dropbox connector takes care of the complexity of authentication so that you can focus on writing your business-specific code.
 
@@ -159,7 +159,7 @@ After you have configured the gateway in your DropboxRG resource group to use an
 
 Most of the time you'll use a connector by calling it from code, and we're also writing tutorials that will show how to do that. But sometimes you'll want to validate that the connector is working before wiring up other parts of an app. This tutorial shows how to use a browser and a simple REST client tool to verify that you can interact with the Dropbox service through the Dropbox connector that you just installed and configured.
 
-The following instructions show how to do these steps by using the Chrome browser developer tools and Postman REST client tool. This is just an example, and you can do the same procedures with other browsers and tools.
+The following instructions show how to do these steps by using the Chrome browser developer tools and Postman REST client tool. This is just an example, and you can do the same procedures with other browsers and tools. "Advanced REST Client" is another Chrome add-in you can use.
 
 ### Log in as an end user
 
@@ -189,7 +189,7 @@ Do the following steps in a new browser window. Depending on what authentication
 
 ### Provide the user's identity to Dropbox
 
-To get Dropbox authorization to use the Dropbox API, you have to provide the user's credentials to Dropbox.  Azure will do that for you, but to trigger that process you have to go to a special URL in the browser.  To get that URL you make an HTTP Post request to the gateway.
+To get Dropbox authorization to use the Dropbox API, you have to provide the user's credentials to Dropbox.  Azure will initiate that process for you, but to trigger that process you have to go to a special gateway URL in the browser.  To get that URL you make an HTTP Post request to the gateway.
 
 The HTTP Post request to the gateway has to include the authentication token that Azure provided when you logged in. For browser requests, including the token is automatic because the token is stored in a cookie, but for an HTTP Post request using a REST client tool you have to get the token from the cookie and put it in the request header of the HTTP Post request.
 
@@ -225,15 +225,15 @@ The HTTP Post request to the gateway has to include the authentication token tha
 
 	![Send for consent URL](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	The response includes a URL to use in order to authenticate the user with Dropbox. (If you get an error response that indicates the Get method is not supported although you have the method dropdown set to **Post**, you might have to use a different REST client tool.  "Advanced REST Client" is another Chrome add-in you can use.)
+	The response includes a URL to use in order to initiate the process of logging in the user with Dropbox. (If you get an error response that indicates the Get method is not supported although you have the method dropdown set to **Post**, make sure that your gateway URL is HTTPS, not HTTP.)
 
 	![Consent URL](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
 2. Go to the URL that you received in response to the HTTP Post request.
 
-	Dropbox associates your user identity with your Dropbox API app, and then redirects the browser to the redirect URL that you specified (e.g., the Azure preview portal if you followed the example and used https://portal.azure.com).
-
-	Because your Dropbox app is in developer mode, you may get a login page from Dropbox before the browser goes to the redirect URL.  After you log in using your Dropbox credentials, the user identity you used to log in to the gateway is associated with your Dropbox app, and in the future this Dropbox login step is no longer required for that user identity. 
+	The response to this URL redirects the browser to the Dropbox site, where the user logs in and grants consent for the app to access the user's account.
+	
+	When the login and consent process is done, Dropbox redirects the browser to the redirect URL that you specified (e.g., the Azure preview portal if you followed the example and used https://portal.azure.com). If you were calling from a web app, this would be the next page to be displayed in the web app.  The app should check the URL, because if there was an error in the login or consent process, the redirect URL could include an `error` querystring variable.
 
 3. Keep this browser window open, as you'll use it in the following section.
 
