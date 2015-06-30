@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/26/2015"
+   ms.date="06/30/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: How to integrate NetSuite with Azure Active Directory
 
-This tutorial will show you how to connect your NetSuite environment to your Azure Active Directory (Azure AD). You will learn how to configure single sign-on to Google Apps, how to enable automated user provisioning, and how to assign users to have access to Google Apps. 
+This tutorial will show you how to connect your NetSuite environment to your Azure Active Directory (Azure AD). You will learn how to configure single sign-on to NetSuite, how to enable automated user provisioning, and how to assign users to have access to NetSuite. 
 
 ##Prerequisites
 
@@ -32,7 +32,7 @@ This tutorial will show you how to connect your NetSuite environment to your Azu
 
 	![Select Active Directory from the left navigation pane.][0]
 
-2. From the **Directory** list, select the directory that you would like to add Google Apps to.
+2. From the **Directory** list, select the directory that you would like to add NetSuite to.
 
 3. Click on **Applications** in the top menu.
 
