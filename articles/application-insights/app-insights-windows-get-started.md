@@ -64,29 +64,28 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Pick **Application Insights for .NET Windows applications**
+3. Pick **Application Insights for Windows Applications**
 
-
-4. Insert code to initialize the SDK in the app.xaml.cs constructor:
-
-    ```
-
-    public App()
-    {
-       // Substitute your instrumentation key:
-
-       WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
-            
-       this.InitializeComponent();
-       this.Suspending += OnSuspending;
-    }
-
-    ```
+4. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
+	- Example 1:  
+		``` C#
+		WindowsAppInitializer.InitializeAsync("PLACE YOUR COPIED IKEY HERE");
+		```
+	- Example 2:
+	    ```
+	    public App()
+	    {
+	       // Substitute your instrumentation key:
+		
+	       WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
+	            
+	       this.InitializeComponent();
+	       this.Suspending += OnSuspending;
+	    }
+	    ```
 
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store projecct.
-
-
 
 ## <a name="network"></a>3. Enable network access for your app
 

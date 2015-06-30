@@ -72,25 +72,25 @@ In the form fields, enter the base64-encoded versions of your CA Certificate, yo
 
 ![](./media/virtual-machines-docker-with-portal/AddExtensionFormFilled.png)
 
-> [AZURE.NOTE] Note that (as in the preceding image) the 4243 is filled in by default. You can enter any endpoint here, but the next step will be to open up the matching endpoint. If you change the default, make sure to open up the matching endpoint in the next step.
+> [AZURE.NOTE] Note that (as in the preceding image) the 2376 is filled in by default. You can enter any endpoint here, but the next step will be to open up the matching endpoint. If you change the default, make sure to open up the matching endpoint in the next step.
 
 ## Add the Docker Communication Endpoint
 When viewing your VM in the resource group you've created, scroll down to click **Endpoints** to view the endpoints on the VM as shown here.
 
 ![](./media/virtual-machines-docker-with-portal/AddingEndpoint.png)
 
-Click **+ Add** to add another endpoint, and in the default case, enter a name for the endpoint (in this example, **docker**), and 4243 for both private and public ports. Leave the protocol value showing **TCP**, and Click **OK** to create the endpoint.
+Click **+ Add** to add another endpoint, and in the default case, enter a name for the endpoint (in this example, **docker**), and 2376 for both private and public ports. Leave the protocol value showing **TCP**, and Click **OK** to create the endpoint.
 
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
 ## Test your Docker Client and Azure Docker Host
-Locate and copy the name of your VM's domain, and at the command line of your client computer, type `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (where *dockerextension* is replaced by the subdomain for your VM).
+Locate and copy the name of your VM's domain, and at the command line of your client computer, type `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (where *dockerextension* is replaced by the subdomain for your VM).
 
 The result should appear similar to this:
 
 ```
-$ docker --tls -H tcp://dockerextension.cloudapp.net:4243 info
+$ docker --tls -H tcp://dockerextension.cloudapp.net:2376 info
 Containers: 0
 Images: 0
 Storage Driver: devicemapper
