@@ -222,7 +222,9 @@ To verify that the service has been removed, you can use the `Get-AzureApplicati
 
 ## Next Steps
 
-If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-SSL.md).
+If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-ssl.md).
+
+If you want to configure an application gateway to use with ILB, see [Create an Application Gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md)
 
 If you want more information about load balancing options in general, see:
 
