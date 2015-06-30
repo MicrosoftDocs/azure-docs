@@ -40,6 +40,7 @@ A maximum of 10 users can be owners of a single application.
 > - If you’re using DirSync the limit is 15K users.
 > - If you’re using Azure AD Connect, the limit is 50K users.
 
+<br/>
 ### Access Panel
 
 - There is no limit to the number of applications that can be seen in the Access Panel per end user for subscribers to Azure AD Premium or the Enterprise Mobility Suite.
