@@ -4,7 +4,7 @@
     description="Learn how to troubleshoot RemoteApp hybrid collection creation failures" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
-    authors="vkbucha, elizapo" 
+    authors="vkbucha" 
     manager="mbaldwin" />
 
 <tags 
@@ -71,7 +71,7 @@ For example:
 
 ![Define your DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-For more information, see [Name resolution using your own DNS server](https://msdn.microsoft.com/en-us/library/azure/jj156088.aspx#bkmk_BYODNS).
+For more information, see [Name resolution using your own DNS server](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
 
 ## Are you using an Active Directory domain controller in your collection? ##
 Currently only one Active Directory domain can be associated with Azure RemoteApp. The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. 
@@ -82,4 +82,4 @@ Make sure the domain details provided are valid and the domain controller is rea
 
 ## What domain name did you specify when you created your collection? ##
 
-The domain name you created or added must be an internal domain name (not your Azure AD domain name) and must be in resolvable DNS format (contoso.local). For example, you have an Active Directory internal name (contoso.local) and an Active Directory UPN (contoso.com) - you have to use the internal name when you are create your collection.
+The domain name you created or added must be an internal domain name (not your Azure AD domain name) and must be in resolvable DNS format (contoso.local). For example, you have an Active Directory internal name (contoso.local) and an Active Directory UPN (contoso.com) - you have to use the internal name when you create your collection.
