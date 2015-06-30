@@ -70,7 +70,7 @@ For other inputs/outputs, proceed with Part 2.
 
 ###SQL Database
 
-[AZURE.NOTE] Note: you will need to connect to the SQL Databse Service. We are going to show how to do this using the management experience on the Azure Management Portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
+>[AZURE.NOTE] Note: you will need to connect to the SQL Databse Service. We are going to show how to do this using the management experience on the Azure Management Portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
 
 1.  Go to the SQL Databases extension on the Azure Management Portal:  
 ![graphic14][graphic14]
