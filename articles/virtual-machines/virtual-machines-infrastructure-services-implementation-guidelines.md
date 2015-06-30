@@ -22,7 +22,7 @@ Azure is an excellent platform to implement dev/test or proof-of-concept configu
 
 This guidance identifies many areas for which planning are vital to the success of an IT workload in Azure. In addition, provides an order to the creation of the necessary resources. Although there is some flexibility, Microsoft recommends that you apply the order in this article to your planning and decision-making.
 
-This article was adapted from the content in the [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft), Hugo Salcedo (Application Development Manager for Microsoft), and Greg Hinkel (former Application Development Manager for Microsoft) for their original material.
+This article was adapted from the content in the [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft) and Hugo Salcedo (Application Development Manager for Microsoft) for their original material.
 
 > [AZURE.NOTE] Affinity groups have been deprecated and their use is not described here. For more information, see [About Regional VNets and Affinity Groups](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
@@ -43,10 +43,10 @@ Therefore, it is beneficial to identify types of resources that need an affix to
 - The beginning of the name (prefix)
 - The end of the name (suffix)
 
-For instance, here are two possible names for a cloud service the hosts a calculation engine:
+For instance, here are two possible names for a resource group that hosts a calculation engine:
 
-- Svc-CalculationEngine (prefix)
-- CalculationEngine-Svc (suffix)
+- Rg-CalculationEngine (prefix)
+- CalculationEngine-Rg (suffix)
 
 Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
 
@@ -54,7 +54,7 @@ Aspect | Examples | Notes
 --- | --- | ---
 Environment | dev, stg, prod | Depending on the purpose and name of each environment.
 Location | usw (West US), use (East US 2) | Depending on the region of the datacenter or the region of the organization.
-Azure component, service, or product | Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
+Azure component, service, or product | Rg for resource group, Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
 Role | sql, ora, sp, iis | Depending on the role of the VM.
 Instance | 01, 02, 03, etc. | For resources that have more than one instance. For example, load balanced web servers in a cloud service.
 		
@@ -73,6 +73,7 @@ You should define each type of resource in the naming convention, which should h
 - Virtual networks
 - Subnets
 - Availability Sets
+- Resource groups
 - Cloud Services
 - Virtual Machines
 - Endpoints
@@ -83,7 +84,7 @@ Names should be as descriptive as possible, to ensure that the name can provide 
 
 ### Computer Names
 
-When administrators create a virtual machine, Microsoft Azure will require them to provide a virtual machine name. Microsoft Azure will use the virtual machine name as the Azure virtual machine resource name. Azure will use the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same. 
+When administrators create a virtual machine, Microsoft Azure will require them to provide a virtual machine name of up to 15 characters. Microsoft Azure will use the virtual machine name as the Azure virtual machine resource name. Azure will use the same name as the computer name for the operating system installed in the virtual machine. However, these names might not always be the same. 
 
 In cases in which a virtual machine is created from a .VHD file that already contains an operating system, the virtual machine name in Microsoft Azure might differ from the virtual machine’s OS computer name. This situation might add a degree of difficulty to virtual machine management and we discourage it. Always ensure that the Azure virtual machine resource name is the same name as the computer name as assigned to the operating system of that virtual machine.
 
@@ -204,10 +205,11 @@ Task:
 
 ## 4. Cloud Services
 
-Cloud services are a fundamental building block in Azure, both for PaaS and IaaS services.
-For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
+Cloud services are a fundamental building block in Azure Service Management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
 
 In the case of IaaS, cloud services offer similar functionality, although in most cases, the load balancer functionality is used to forward traffic to specific TCP or UDP ports from the Internet to the many virtual machines within that cloud service.
+
+> [AZURE.NOTE] Cloud services do not exist in Azure Resource Manager. For an introduction to the advantages of Resource Manager, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Cloud service names are especially important in IaaS because Azure uses them as part of the default naming convention for disks. The cloud service name can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.
 
@@ -367,7 +369,7 @@ Contoso determined that they needed two storage accounts:
 - **contosoazfaeusesawebapp** for the standard storage of the Web servers, application servers, and domain controlles and their extra data disks
 - **contosoazfaeusesasqlclust** for the premium storage of the SQL Server cluster servers and their extra data disks
 
-Contoso created the two storage accounts with these PowerShell commands:
+Contoso created the two storage accounts with these commands in the Service Management mode of Azure PowerShell:
 
 	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesawebapp" -Location "East US 2"
 	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesasqlclust" -Location "East US 2" -Type Premium_LRS
@@ -395,7 +397,7 @@ Contoso decided on two cloud services:
 - **contoso-azfae-use-cs-frontend** for the front-end Web servers
 - **contoso-azfae-use-cs-backend** for the back-end application servers, SQL server cluster servers, and domain controllers
 
-Contoso created the cloud services with these PowerShell commands:
+Contoso created the cloud services with these commands in the Service Management mode of Azure PowerShell:
 
 	New-AzureService -Service "contoso-azfae-use-cs-frontend" -Location "East US 2"
 	New-AzureService -Service "contoso-azfae-use-cs-backend" -Location "East US 2"
@@ -439,7 +441,7 @@ This configuration incorporates:
 - An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 - An internal load balanced set for unencrypted web traffic from the web servers to the application servers
 
-These Azure PowerShell commands create the virtual machines in this configuration for the previously created storage accounts, cloud services, and virtual network.
+These commands in the Service Management mode of Azure PowerShell create the virtual machines in this configuration for the previously created storage accounts, cloud services, and virtual network.
 
 	#Specify the storage account for the web and application servers
 	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesawebapp"
@@ -547,4 +549,5 @@ These Azure PowerShell commands create the virtual machines in this configuratio
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
+[Azure Compute, Network & Storage Providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
