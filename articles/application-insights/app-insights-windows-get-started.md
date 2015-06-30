@@ -71,7 +71,7 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 		``` C#
 		WindowsAppInitializer.InitializeAsync("PLACE YOUR COPIED IKEY HERE");
 		```
-	- Example 2:
+	- Example 2:  
 	    ```
 	    public App()
 	    {
