@@ -247,7 +247,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 ****
 
-**Symptom**: Error - Changes commited to remote repository but your web app not updated.
+**Symptom**: Error - Changes committed to remote repository but your web app not updated.
 
 **Cause**: This error can occur if you are deploying a Node.js application containing a package.json file that specifies additional required modules.
 
@@ -302,4 +302,4 @@ The following are errors or problems commonly encountered when using Git to publ
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Continuous delivery to Azure using Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
+[Continuous delivery to Azure using Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md

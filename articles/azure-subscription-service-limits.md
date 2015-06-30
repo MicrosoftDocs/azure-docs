@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2015"
+	ms.date="06/25/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -75,9 +75,30 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
 
 
-## Storage Limits
+## Standard Storage Limits
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+## Premium Storage Limits
+
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="middle">Resource</th>
+   <th align="left" valign="middle">Default Limit</th>
+</tr>
+<tr>
+   <td valign="middle"><p>Total Disk capacity per account</p></td>
+   <td valign="middle"><p>35 TB</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Total Snapshot capacity per account</p></td>
+   <td valign="middle"><p>10 TB</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Max bandwidth per account (ingress + egress)</p></td>
+   <td valign="middle"><p>50 Gbps</p></td>
+</tr>
+</table>
 
 
 ## Storage Limits - Azure Resource Manager
@@ -136,7 +157,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
+## StorSimple System Limits
 
+[AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
  
 ## See Also
 

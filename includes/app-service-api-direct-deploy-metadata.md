@@ -26,7 +26,7 @@ If the API app can return a dynamic [Swagger](http://swagger.io/) API definition
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
-> **Note:** If you are using Swashbuckle to generate a Swagger API definition, HTTP method overloads in your Web API controllers result in duplicate operation ids. For more information, see [Customize Swashbuckle-generated operation identifiers](app-service-api-dotnet-swashbuckle-customize.md).
+> **Note:** If you are using Swashbuckle to generate a Swagger API definition, HTTP method overloads in your Web API controllers result in duplicate operation ids. For more information, see [Customize Swashbuckle-generated operation identifiers](../article/app-service-api/app-service-api-dotnet-swashbuckle-customize.md).
   
 ### Static Swagger API definition
 
