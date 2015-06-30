@@ -46,7 +46,7 @@ When you're done you should be able to use **azure vm list** to see your Azure V
 
 This topic uses the [container model of installation from the docker swarm documentation](https://github.com/docker/swarm#1---docker-image) -- but you could also SSH to the **swarm-master**. In this model, **swarm** is downloaded as a docker container running swarm. Below, we perform this step *remotely from our laptop by using docker* to connect to the **swarm-master** VM and tell it to use the cluster id creation command, **swarm create**. The cluster id is how **swarm** discovers the members of the swarm group. (You can also clone the repository and build it yourself, which will give you full control and enable debugging.)
 
-    $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run --rm swarm create
+    $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm create
     Unable to find image 'swarm:latest' locally
     511136ea3c5a: Pull complete
     a8bbe4db330c: Pull complete
@@ -67,10 +67,10 @@ That last line is the cluster id; copy it somewhere because you will use it agai
 > To confirm this, run `docker -H tcp://`*&lt;hostname&gt;* ` images` to list the container processes on the **swarm-master** machine and on another node for comparison (because we ran the previous swarm command with the **--rm** switch, the container was removed after it finished, so using **docker ps -a** won't return anything).:
 
 
-        $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 images
+        $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 images
         REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
         swarm               latest              92d78d321ff2        11 days ago         7.19 MB
-        $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 images
+        $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 images
         REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
         $
 <P />
@@ -85,14 +85,14 @@ For each node, list the endpoint information using the Azure CLI. Below we do th
     + Getting virtual machines
     data:    Name    Protocol  Public Port  Private Port  Virtual IP      EnableDirectServerReturn  Load Balanced
     data:    ------  --------  -----------  ------------  --------------  ------------------------  -------------
-    data:    docker  tcp       4243         4243          138.91.112.194  false                     No
+    data:    docker  tcp       2376         2376          138.91.112.194  false                     No
     data:    ssh     tcp       22           22            138.91.112.194  false                     No
     info:    vm endpoint list command OK
 
 
 Using **docker** and the `-H` option to point the docker client at your node VM, join that node to the swarm you are creating by passing the cluster id and the node's docker port (the latter using **--addr**):
 
-    $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 run -d swarm join --addr=138.91.112.194:4243 token://36731c17189fd8f450c395db8437befd
+    $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 run -d swarm join --addr=138.91.112.194:2376 token://36731c17189fd8f450c395db8437befd
     Unable to find image 'swarm:latest' locally
     511136ea3c5a: Pull complete
     a8bbe4db330c: Pull complete
@@ -108,7 +108,7 @@ Using **docker** and the `-H` option to point the docker client at your node VM,
 
 That looks good. To confirm that **swarm** is running on **swarm-node-1** we type:
 
-    $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 ps -a
+    $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 ps -a
         CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
         bbf88f61300b        swarm:latest        "/swarm join --addr=   13 seconds ago      Up 12 seconds       2375/tcp            angry_mclean
 
@@ -116,12 +116,12 @@ Repeat for all the other nodes in the cluster. In our case, we do that for **swa
 
 ## Begin managing the swarm cluster
 
-    $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run -d -p 2375:2375 swarm manage token://36731c17189fd8f450c395db8437befd
+    $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run -d -p 2375:2375 swarm manage token://36731c17189fd8f450c395db8437befd
     d7e87c2c147ade438cb4b663bda0ee20981d4818770958f5d317d6aebdcaedd5
 
 and then you can list out your nodes in your cluster:
 
-    ralph@local:~$ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run --rm swarm list token://73f8bc512e94195210fad6e9cd58986f
+    ralph@local:~$ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm list token://73f8bc512e94195210fad6e9cd58986f
     54.149.104.203:2375
     54.187.164.89:2375
     92.222.76.190:2375
