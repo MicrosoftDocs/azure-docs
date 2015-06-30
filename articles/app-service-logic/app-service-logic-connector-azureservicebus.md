@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/24/2015"
+   ms.date="06/29/2015"
    ms.author="adgoda"/>
 
 
@@ -51,16 +51,16 @@ Subscription Name | Enter the name of the Subscription to receive messages from.
 
 5. Click **Create**. 
 
-Once the API app instance is created, you can create a logic App in the same resource group to use the Azure Service Bus connector. 
+Once the connector is created, you can add it to a logic App in the same resource group. 
 
 ## Using the Service Bus Connector in your Logic App
-Once your API app is created, you can now use the Azure Service Bus connector as a trigger or action for your Logic App. To do this:
+Once your connector is created, you can now use the Azure Service Bus connector as a trigger or action for your Logic App. To do this:
 
 1.	Create a new Logic App and choose the same resource group that has the Azure Service Bus Connector:
 <br/>
 ![][2]
 
-2.	Open “Triggers and Actions” to open the Logic Apps Designer and configure your workflow:
+2.	Open “Triggers and Actions” to open the Logic Apps designer and configure your workflow:
 <br/>
 ![][3]
 
@@ -68,7 +68,7 @@ Once your API app is created, you can now use the Azure Service Bus connector as
 <br/>
 ![][4]
 
-4. You can drop the Azure Service Bus Connector API app into the editor by clicking on the “Azure Service Bus Connector”.
+4. You can drop the Azure Service Bus Connector into the editor by clicking on the “Azure Service Bus Connector”.
  
 5.	You can now use Azure Service Bus connector in the workflow. You can use the message retrieved from the Azure Service Bus trigger ("Message Available") in other actions in the flow:
 <br/>
@@ -76,18 +76,18 @@ Once your API app is created, you can now use the Azure Service Bus connector as
 <br/>
 ![][6] 
 
-In the similar way, you can use the Azure Service Bus action "Send Message":
+You can also use the Azure Service Bus "Send Message" action:
 <br/>
 ![][7]
 <br/>
 ![][8]
 
 ## Do more with your Connector
-More on logic apps at [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
 Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 
 	<!--Image references-->
