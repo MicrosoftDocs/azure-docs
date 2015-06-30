@@ -44,7 +44,7 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 ## Plan
 
-[Azure Infrastructure Services Implementation Guidelines]( virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 [About VM Configuration Settings](https://msdn.microsoft.com/library/azure/dn763935.aspx)
 
@@ -118,7 +118,7 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-[Troubleshoot Secure Shell (SSH) Connections to a Linux-based Azure Virtual Machine]( virtual-machines-troubleshoot-ssh-connections.md)
+[Troubleshoot Secure Shell (SSH) Connections to a Linux-based Azure Virtual Machine](virtual-machines-troubleshoot-ssh-connections.md)
 
 ## Reference
 
@@ -126,4 +126,4 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [Service Management REST APIs](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-[Azure CLI Commands for Service Management](../virtual-machines-command-line-tools.md)
+[Azure CLI Commands for Service Management](virtual-machines-command-line-tools.md)
