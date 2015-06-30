@@ -163,7 +163,7 @@ To enable job monitoring, Stream Analytics requires you to designate an Azure St
 ### Metrics
 The following metrics are available for monitoring the usage and performance of Stream Analytics jobs:
 
-- SU % Utilizaiton - an indicator of the relative event processing capacity for one or more of the query steps.  Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress.
+- SU % Utilizaiton - An indicator of the relative event processing capacity for one or more of the query steps.  Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress.
 - Errors - Number of error messages incurred by a Stream Analytics job.
 - Input events - Amount of data received by the Stream Analytics job, in terms of event count.
 - Output events - Amount of data sent by the Stream Analytics job to the output target, in terms of event count.
