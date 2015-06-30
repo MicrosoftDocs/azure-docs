@@ -118,7 +118,7 @@ Associating an NSG to a Subnet - When an NSG is associated to a subnet, the Netw
 
 Associating an NSG to a Subnet and a VM - It is possible that you can associate an NSG to a VM and a different NSG to the subnet where the VM resides. This is supported and in this case the VM gets two layers of protection. On the Inbound traffic the packet goes through the access rules specified in the subnet followed by rules in the VM and in the Outbound case it goes through the rules specified in the VM first before going through the rules specified in the subnet, as illustrated in the diagram below.
 
-![NSG ACLs](./media/virtual-networks-nsg/IC757774.png)
+![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
 
 When an NSG is associated with a VM or subnet, the network access control rules becomes very explicit. The platform will not insert any implicit rule to allow traffic to a particular port. In this case, if you create an endpoint in the VM, you also have to create a rule to allow traffic from the Internet. If you don’t do this, the VIP:<Port> will not be accessible from outside.
 
@@ -127,6 +127,27 @@ For example: You create a new VM and also create a new NSG. You associate the NS
 | Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
 | WEB  | 100      | INTERNET  | *           | *              | 80               | TCP      | ALLOW  |
+
+## Design considerations
+
+You must understand how VMs communicate with infrastructure services, and PaaS service hosted hosted by Azure when designing your NSGs. Most Azure PaaS services, such as SQL databases and storage, can only be accessed through a public facing Internet address. The same is true for load balancing probes.
+
+A common scenario in Azure is the segregation of VMs and PaaS roles in subnets based on whether these objects required access to the internet or not. In such scenario, you might have a subnet with VMs or role instances that require access to Azure Paas services, such as SQL databases and storage, but that do not require any inbound or outbound communication to the public Internet. 
+
+Imagine the following NSG rule for such a scenario:
+
+| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|NO INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|DENY| 
+
+Since the rule is denying all access from the virtual network to the Internet, VMs will not be able to access any Azure PaaS service that requires a public Internet endpoint, such as SQL databases. 
+
+Instead of using a deny rule, consider using a rule to allow access from the virtual network to the Internet, but deny access from the Internet to the virtual network, as shown below:
+
+| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|TO INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|ALLOW|
+|FROM INTERNET|110| INTERNET|&#42;|VIRTUAL_NETWORK|&#42;|TCP|DENY| 
 
 
 ## Planning - network security group workflow
@@ -187,6 +208,11 @@ At this time, NSGs can be configured and modified by using PowerShell cmdlets an
 	| Set-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
 	| Update-AzureVM
 
+**View NSGs associated to a VM**
+
+	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
+	| Get-AzureNetworkSecurityGroupAssociation
+
 **Remove an NSG from a VM**
 
 	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
@@ -198,6 +224,11 @@ At this time, NSGs can be configured and modified by using PowerShell cmdlets an
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
 	| Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'VNetUSWest' `
 		-SubnetName 'FrontEndSubnet'
+
+**View NSGs associated to a subnet**
+
+	Get-AzureNetworkSecurityGroupForSubnet -SubnetName 'FrontEndSubnet' `
+		-VirtualNetworkName 'VNetUSWest' 
 
 **Remove an NSG from the subnet**
 
@@ -213,3 +244,6 @@ At this time, NSGs can be configured and modified by using PowerShell cmdlets an
 
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" -Detailed
  
+**View all Azure PowerShell cmdlets realted to NSGs**
+
+	Get-Command *azurenetworksecuritygroup*
