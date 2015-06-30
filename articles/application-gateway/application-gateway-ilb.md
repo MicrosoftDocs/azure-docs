@@ -85,7 +85,6 @@ You can construct your configuration either by creating a configuration object, 
 To construct your configuration by using a configuration XML file, use the sample below.
 
 
- **Configuration XML sample**
 
 Note the following:
 
@@ -97,6 +96,8 @@ Note the following:
 - The *StaticIPAddress* should be set to the desired internal IP on which the gateway will receive traffic. Note that the  *StaticIPAddress* element is optional. If not set, an available internal IP from the deployed subnet is chosen. 
 
 - The value of the *Name* element specified in *FrontendIPConfiguration* should be used in the  HTTPListener's *FrontendIP* element to refer to the *FrontendIPConfiguration*.
+
+ **Configuration XML sample**
 
  
 
