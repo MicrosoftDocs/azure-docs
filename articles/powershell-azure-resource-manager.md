@@ -339,7 +339,7 @@ The first example shows how to move one resource to a new resource group.
 The second example shows how to move multiple resources to a new resource group.
 
     PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName tfplan5 -ResourceType Microsoft.Web/serverFarms
+    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
     PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
