@@ -33,13 +33,13 @@ In the Azure Management Portal, reports are categorized in the following ways:
 - Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory Premium](active-directory-get-started-premium.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
 - Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-## Report descriptions
+## Reports
 
 |	Report												|	Description																					|
 |	------												|	-----																						|
 |	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
 |	Sign ins after multiple failures					|	May indicate a successful brute force attack.												|
-|	Sign ins from multiple geographies					|	May indicate that multiple users are signing in with the same account.						|
+|	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)					|	May indicate that multiple users are signing in with the same account.						|
 |	Sign ins from IP addresses with suspicious activity	|	May indicate a successful sign in after a sustained intrusion attempt.						|
 |	Sign ins from possibly infected devices				|	May indicate an attempt to sign in from possibly infected devices.							|
 |	Irregular sign in activity							|	May indicate events anomalous to users’ sign in patterns.									|
@@ -92,16 +92,6 @@ In the Azure Management Portal, reports are categorized in the following ways:
 | This report indicates users who have successfully signed in after multiple consecutive failed sign in attempts. Possible causes include: <ul><li>User had forgotten their password</li><li>User is the victim of a successful password guessing brute force attack</li></ul><p>Results from this report will show you the number of consecutive failed sign in attempts made prior to the successful sign in and a timestamp associated with the first successful sign in.</p><p><b>Report Settings</b>: You can configure the minimum number of consecutive failed sign in attempts that must occur before it can be displayed in the report. When you make changes to this setting it is important to note that these changes will not be applied to any existing failed sign ins that currently show up in your existing report. However, they will be applied to all future sign ins. Changes to this report can only be made by licensed admins. | Directory > Reports tab |
 
 ![Sign ins after multiple failures](./media/active-directory-view-access-usage-reports/signInsAfterMultipleFailures.PNG)]
-
-
-### Sign ins from multiple geographies
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>This report includes successful sign in activities from a user where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions. Possible causes include:</p><ul><li>User is sharing their password</li><li>User is using a remote desktop to launch a web browser for sign in</li><li>A hacker has signed in to the account of a user from a different country.</li></ul><p>Results from this report will show you the successful sign in events, together with the time between the sign ins, the regions where the sign ins appeared to originate from and the estimated travel time between those regions.</p><p>The travel time shown is only an estimate and may be different from the actual travel time between the locations. Also, no events are generated for sign ins between neighboring regions.</p> | Directory > Reports tab |
-
-![Sign ins from multiple geographies](./media/active-directory-view-access-usage-reports/signInsFromMultipleGeographies.PNG)]
-
 
 ### Sign ins from IP addresses with suspicious activity
 
