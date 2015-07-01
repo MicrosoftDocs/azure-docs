@@ -17,13 +17,13 @@
 	ms.author="sidneyh"/>
 
 
-# How to Deploy a SQL Server database to Azure SQL
+# How to Deploy a SQL Server database to Azure SQL Database
 
-In this article, you'll use the **Deploy Database to Azure SQL Database wizard** to upload a sample database. You must download **SQL Server 2016 Management Studio (CTP 2.1)** for this tutorial.
+In this article, you'll use the **Deploy Database to Azure SQL Database wizard** to upload a sample database to Azure SQL Database. You must download **SQL Server 2016 Management Studio (CTP 2.1)** for this tutorial.
 
 Estimated time to completion: 15 minutes (includes download time)
 
-The "school" sample database is purposefully simple; all of its objects are compatible with Azure SQL Database, eliminating the need to modify or prepare the database for migration. If you are migrating an existing database, download the [SQL Database Migration Wizard](http://sqlazuremw.codeplex.com/). 
+> [AZURE.NOTE] This tutorial uses a "school" sample database that is purposefully simple; all of its objects are compatible with Azure SQL Database, eliminating the need to modify or prepare the database for migration. If you are migrating a more complex existing database, you could also consider using the [SQL Database Migration Wizard](http://sqlazuremw.codeplex.com/). 
 
 ## Prerequisites
 
@@ -33,13 +33,14 @@ Download [**SQL Server Management Studio**](https://msdn.microsoft.com/library/m
 
 ## Create the school database on an on-premises server
 
-Run these scripts in Management Studio to create an on-premises version of the "school" database.
+Run these scripts in SQL Server Management Studio (SSMS) to create an on-premises version of the "school" database.
 
-1. In Management Studio, connect to an on-premises server. Right-click **Databases**, click **New Database**, and enter *school*.
+1. In SSMS, connect to an on-premises server. Right-click **Databases**, click **New Database**, and enter *school*.
 
 2. Right-click on *school*, click **New Query**. 
 
 3. Copy and execute this script: 
+
 <div style="width:auto; height:300px; overflow:auto"><pre>
 	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
@@ -533,40 +534,33 @@ Next, copy and execute the Insert Data script.
 </pre></div>
 	
 You now have an on-premises database that you can export to Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Azure, and imports it into SQL Database.
-	
+
 	
 ## Deploy the database to Azure SQL 
 	
-2. In Management Studio, right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to Microsoft Azure SQL Database**.
+1. In Management Studio, right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to Microsoft Azure SQL Database**.
+2. In **Deployment Settings**, enter a name for the database, such as *school*.
+5. Click **Connect**.
+6. In **Server name**, enter the 10-character server name, followed by **.database.windows.net**
+7. In **Authentication**, choose **SQL Server Authentication**.
+8. Enter the administrator login name and password that you created when provisioning the SQL Database logical server.
+9. Click **Options**.
+10. In Connection Properties, in **Connect to database**, type **master**.
+11. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
+12. Click **Next** and click **Finish** to run the wizard.
 
-3. In **Deployment Settings**, enter a name for the database, such as *school*. 
-
-4. Click **Connect**.
-
-5. In **Server name**, enter the 10-character server name, followed by **.database.windows.net**
-
-6. In **Authentication**, choose **SQL Server Authentication**.
-
-7. Enter the administrator login name and password that you provisioned when creating the SQL Database logical server.
-
-8. Click **Options**.
-
-9. In Connection Properties, in **Connect to database**, type **master**.
-
-10. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
-
-
-11. Click **Next** and click **Finish** to run the wizard.
-	
 	
 ## How to: Verify database deployment
 	
-1. In Management Studio, in Object Explorer refresh the databases to view the new one you just created.
-
+1. In Management Studio, under **Object Explorer**, click the **Connect** icon.
+2. In the **Server** name box, type the name of the Azure SQL server, followed by **database.windows.net**
+3. In **Authentication**, select **SQL Server Authenication**.
+4. Enter the administrator login name and password you created when provisioning the server. 
+5. Click the **Options** button.
+6. Click the **Connect to database** dropdown, and click **Browse server**. In the following dialog box, click **Yes** to allow browsing of the server.
+7. Click the **school** database to select it, then click **OK**. Then click **Connect**.
 2. Expand the **Databases** folder. You should see the **school** database in the list.
-
-3. Right-click on the school database and click **New Query**.
-
+3. Right-click **school** and click **New Query**.
 4. Execute the following query to verify that data is accessible.
 
 		SELECT
