@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transform XML documents" 
+	pageTitle="BizTalk Transform" 
 	description="Learn how to transform XML documents from one schema to another." 
 	authors="anuragdalmia" 
 	manager="dwrede" 
@@ -16,10 +16,10 @@
 	ms.date="06/30/2015"
 	ms.author="anuragdalmia"/>
 
-#Transform XML documents
+#BizTalk Transform
 
 
-## BizTalk Transform API App Overview
+## Overview
 Put simply, the BizTalk Transform API App converts data from one format to another format. For example, you might take shipping and billing addresses from a purchase order and insert them into an invoice document. Or you may have an incoming message that contains the current date in the *YearMonthDay* format. You want to reformat the date to be in the *MonthDayYear* format. 
 
 You can do this using the Transform API App in Microsoft Azure App Service. A Transform or a Map consists of a Source XML schema (the input) and a Target XML schema (the output). You can use different built-in functions to help manipulate or control the data, including string manipulations, conditional assignments, arithmetic expressions, date time formatters, and even looping constructs. 
@@ -38,43 +38,8 @@ Additional features include:
 - Includes support for the XML format.
 
 
-## Create a new BizTalk Transform API App
-
-1.	Sign in to Azure Portal and go to the Startboard (the homepage).
-
-2.	Select **New** > **Web + mobile** > **Azure Marketplace** > **API Apps**:
-
-	   ![][1]
- 
-	Or, you can select **Marketplace** on the Startboard and select **API Apps** from the available list:
-
-	   ![][2]
- 
-3.	Browse for the BizTalk Transform by typing **Transform** and selecting **BizTalk Transform Service**:
-
-	   ![][4] 
- 
-4.	In the **BizTalk Transform Service** blade, select **Create**:
-
-       ![][5]
- 
-5.	In the **New API App** blade, enter the following information and select **Create**:
-
-	- Name – Give a name for your Transform API App 
-	- App Service Plan – Select or create a new app service plan 
-	- Pricing Tier – Choose the pricing tier you want this App to reside in 
-	- Resource Group – Select or create the resource group where the App should reside in 
-	- Location – Choose the geographic location where you would like the App to be deployed
-	
-	   ![][6]
-
-6.	Select **Create**. Within a few minutes, your BizTalk Transform API App is created. 
-
-
 ## Download Schemas from Connector API Apps
 You can download the XML schemas for connectors such as SQL, SAP and SharePoint from the API App summary page. For example, if you want to download XML schemas for a specific SAP Connector API App, browse for the API App and open the summary page. Select **Download Schemas** and a zip file with all the schemas corresponding to the SAP actions is downloaded to your computer. You can use the schemas to author a map (.trfm) in Visual Studio.
-
-   ![][14]
 
 
 ## Create and Add the Map
@@ -110,7 +75,7 @@ If the map changes or is modified after it is uploaded, you can upload the updat
 
 
 ## Use a BizTalk Transform API App in a Logic App
-Once the map has been authored and tested, it is now ready for consumption. Users can create a new Logic App (**New** > **Logic Apps**).
+Once the map has been authored and tested, it is now ready for consumption.
 
 1. Within the Logic App, BizTalk Transform is available in the gallery to the right. Select  **BizTalk Transform Service** from the gallery. The Transform is added to the flow:
 
