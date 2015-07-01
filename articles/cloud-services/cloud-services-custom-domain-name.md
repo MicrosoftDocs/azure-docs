@@ -13,17 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2015"
+	ms.date="06/29/2015"
 	ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service
 
-> [AZURE.NOTE]
-> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-custom-domain-name.md)
+- [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
+
 
 When you create a Cloud Service, Azure assigns it to a subdomain of cloudapp.net. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://&lt;*contoso*>.cloudapp.net. Azure also assigns a virtual IP address.
 
 However, you can also expose your application on your own domain name, such as contoso.com. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
+
+Do you already undestand what CNAME and A records are? [Jump past the explaination](#add-a-cname-record-for-your-custom-domain).
+
+> [AZURE.NOTE]
+> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+
+<p/>
 
 > [AZURE.NOTE]
 > The procedures in this task apply to Azure Cloud Services. For Websites, see [Configuring a Custom Domain Name for an Azure App Service Web App](../web-sites-custom-domain-name.md). For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](../storage-custom-domain-name.md).
@@ -35,10 +44,10 @@ CNAME (or alias records) and A records both allow you to associate a domain name
 
 ### CNAME or Alias record
 
-A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the **&lt;myapp>.cloudapp.net** domain name of your Azure hosted application. Once created, the CNAME creates an alias for the **&lt;myapp>.cloudapp.net**. The CNAME entry will resolve to the IP address of your **&lt;myapp>.cloudapp.net** service automatically, so if the IP address of the cloud service changes, you do not have to take any action.
+A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the **[myapp].cloudapp.net** domain name of your Azure hosted application. Once created, the CNAME creates an alias for the **[myapp].cloudapp.net**. The CNAME entry will resolve to the IP address of your **[myapp].cloudapp.net** service automatically, so if the IP address of the cloud service changes, you do not have to take any action.
 
 > [AZURE.NOTE]
-> Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+> Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, [the Wikipedia entry on CNAME record](http://en.wikipedia.org/wiki/CNAME_record), or the [IETF Domain Names - Implementation and Specification](http://tools.ietf.org/html/rfc1035) document.
 
 ### A record
 
@@ -56,15 +65,19 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
 1. Use one of these methods to find the **.cloudapp.net** domain name assigned to your cloud service.
 
-  * Login to the [Azure Management Portal], select your cloud service, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
-
-  		  ![quick glance section showing the site URL][csurl]
-
-  * Install and configure [Azure Powershell](../install-configure-powershell.md), and then use the following command:
-
-    Get-AzureDeployment -ServiceName yourservicename | Select Url
-
-  Save the domain name used in the URL returned by either method, as you will need it when creating a CNAME record.
+    * Login to the [Azure Management Portal], select your cloud service, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
+    
+        ![quick glance section showing the site URL][csurl]
+    
+        **OR**  
+    
+    * Install and configure [Azure Powershell](../install-configure-powershell.md), and then use the following command:
+        
+        ```powershell
+        Get-AzureDeployment -ServiceName yourservicename | Select Url
+        ```
+    
+    Save the domain name used in the URL returned by either method, as you will need it when creating a CNAME record.
 
 1.  Log on to your DNS registrar's website and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 
@@ -85,7 +98,7 @@ A visitor of **www.contoso.com** will never see the true host
 end user.
 
 > [AZURE.NOTE]
-> The example above only applies to traffic at the <strong>www</strong> subdomain. Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain. If you want to direct  traffic from subdomains, such as *.contoso.com, to your cloudapp.net address, you can configure a <strong>URL Redirect</strong> or <strong>URL Forward</strong> entry in your DNS settings, or create an A record.
+> The example above only applies to traffic at the **www** subdomain. Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain. If you want to direct  traffic from subdomains, such as \*.contoso.com, to your cloudapp.net address, you can configure a **URL Redirect** or **URL Forward** entry in your DNS settings, or create an A record.
 
 
 ## Add an A record for your custom domain
@@ -93,18 +106,22 @@ end user.
 To create an A record, you must first find the virtual IP address of your cloud service. Then add a new entry in the DNS table for your custom domain by using the tools provided by your registrar. Each registrar has a similar but slightly different method of specifying an A record, but the concepts are the same.
 
 1. Use one of the following methods to get the IP address of your cloud service.
-
-  * login to the [Azure Management Portal], select your cloud service, select **Dashboard**, and then find the **Public Virtual IP (VIP) address** entry in the **quick glance** section.
-
-   		 ![quick glance section showing the VIP][vip]
-
-  * Install and configure [Azure Powershell](../install-configure-powershell.md), and then use the following command:
-
-      get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
-
+    
+    * login to the [Azure Management Portal], select your cloud service, select **Dashboard**, and then find the **Public Virtual IP (VIP) address** entry in the **quick glance** section.
+    
+        ![quick glance section showing the VIP][vip]
+    
+        **OR**  
+    
+    * Install and configure [Azure Powershell](../install-configure-powershell.md), and then use the following command:
+    
+        ```powershell
+        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
+        ```
+    
     If you have multiple endpoints associated with your cloud service, you will receive multiple lines containing the IP address, but all should display the same address.
-
-  Save the IP address, as you will need it when creating an A record.
+    
+    Save the IP address, as you will need it when creating an A record.
 
 1.  Log on to your DNS registrar's website and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 
@@ -112,7 +129,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
 3. Select or enter the domain or subdomain that will use this A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '__*__'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
 
-  If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
+    If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
 
 4. Enter the IP address of your cloud service in the provided field. This associates the domain entry used in the A record with the IP address of your cloud service deployment.
 
@@ -125,19 +142,21 @@ For example, the following A record forwards all traffic from **contoso.com** to
 
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
 
+>[AZURE.WARNING]
+>IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](..\virtual-network\virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
+
 ## Next steps
 
 -   [How to Manage Cloud Services](cloud-services-how-to-manage.md)
--   [How to Map CDN Content to a Custom Domain][]
+-   [How to Map CDN Content to a Custom Domain](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
 
-  [Expose Your Application on a Custom Domain]: #access-app
-  [Add a CNAME Record for Your Custom Domain]: #add-cname
-  [Expose Your Data on a Custom Domain]: #access-data
-  [VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
-  [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-  [Azure Management Portal]: https://manage.windowsazure.com
-  [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
-  [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
-  [vip]: ./media/cloud-services-custom-domain-name/csvip.png
-  [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
+[Expose Your Application on a Custom Domain]: #access-app
+[Add a CNAME Record for Your Custom Domain]: #add-cname
+[Expose Your Data on a Custom Domain]: #access-data
+[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[Create a CNAME record that associates the subdomain with the storage account]: #create-cname
+[Azure Management Portal]: https://manage.windowsazure.com
+[Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
+[vip]: ./media/cloud-services-custom-domain-name/csvip.png
+[csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  

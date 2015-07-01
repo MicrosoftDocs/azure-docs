@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tamram"/>
 
 # Introduction to Microsoft Azure Storage

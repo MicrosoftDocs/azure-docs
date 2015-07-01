@@ -196,7 +196,7 @@ In this section you create a Windows desktop application project and add code to
 
 	![](./media/app-service-api-dotnet-consume/formaftercall.png)
 
-### Server flow vs. client flow
+### <a id="client-flow"></a>Server flow vs. client flow
 
 The sample application illustrates [server flow](../app-service/app-service-authentication-overview.md#server-flow), which means the gateway gets the identity provider's access token. For [client flow](../app-service/app-service-authentication-overview.md#client-flow), in which your client application gets the access token directly from the identity provider and sends it to the gateway, you call `LoginAsync` rather than `SetCurrentUser`. 
 
