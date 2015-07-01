@@ -24,7 +24,7 @@ This article contains links to tutorials that show you how to configure Azure Ac
 
 Logo | App Name
 ---: | :---
-![15Five](./media/active-directory-saas-tutorial-list/15five.jpg) | [15Five](https://go.microsoft.com/fwLink/?LinkID=510255&clcid=0x409)
+![15Five](./media/active-directory-saas-tutorial-list/SaaSApp_15five.jpg) | [15Five](https://go.microsoft.com/fwLink/?LinkID=510255&clcid=0x409)
 ![2] | [ABa Sainsburys Connect](https://go.microsoft.com/fwLink/?LinkID=530227&clcid=0x409)
 ![3] | [Abintegro](https://go.microsoft.com/fwLink/?LinkID=512738&clcid=0x409)
 ![4] | [Adaptive Suite](https://go.microsoft.com/fwLink/?LinkID=512738&clcid=0x409)
@@ -151,9 +151,9 @@ Logo | App Name
 
 ##See Also
 
-[Applicaiton Access](https://msdn.microsoft.com/library/azure/dn308590.aspx)
+- [Applicaiton Access](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 
-[1]: ./media/active-directory-saas-tutorial-list/15five.jpg
+[0]: ./media/active-directory-saas-tutorial-list/SaaSApp_15five.jpg
 [2]: ./media/active-directory-saas-tutorial-list/SaaSApp_AbaSainsbury.jpg
 [3]: ./media/active-directory-saas-tutorial-list/SaaSApp_Abintegro.jpg
 [4]: ./media/active-directory-saas-tutorial-list/SaaSApp_AdaptiveSuite.jpg
