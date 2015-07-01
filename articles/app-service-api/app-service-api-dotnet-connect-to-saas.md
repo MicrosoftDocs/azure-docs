@@ -241,11 +241,9 @@ In this section you create a console app project that uses client code generated
 
 1. Add App Service SDK generated client code for the SimpleDropbox API app.
 
-	In **Solution Explorer**, right-click the new project, and then click **Add  > Azure API App Client**.
 
-	![](./media/app-service-api-dotnet-connect-to-saas/addclient.png)
+[AZURE.INCLUDE [app-service-api-dotnet-add-generated-client](../../includes/app-service-api-dotnet-add-generated-client.md)]
 
-	For detailed instructions, see [Add App Service SDK generated client code](app-service-api-dotnet-consume.md#addclient)
 
 2. Set a reference to System.Windows.Forms.
  
