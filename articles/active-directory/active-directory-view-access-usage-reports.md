@@ -38,7 +38,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Report												|	Description																					|
 |	------												|	-----																						|
 |	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
-|	Sign ins after multiple failures					|	May indicate a successful brute force attack.												|
+|	[Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md)					|	May indicate a successful brute force attack.												|
 |	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)					|	May indicate that multiple users are signing in with the same account.						|
 |	Sign ins from IP addresses with suspicious activity	|	May indicate a successful sign in after a sustained intrusion attempt.						|
 |	Sign ins from possibly infected devices				|	May indicate an attempt to sign in from possibly infected devices.							|
@@ -84,14 +84,6 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	RMS enabled application usage						|			|		|	RMS Only	|
 
 ## Report details
-
-### Sign ins after multiple failures
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| This report indicates users who have successfully signed in after multiple consecutive failed sign in attempts. Possible causes include: <ul><li>User had forgotten their password</li><li>User is the victim of a successful password guessing brute force attack</li></ul><p>Results from this report will show you the number of consecutive failed sign in attempts made prior to the successful sign in and a timestamp associated with the first successful sign in.</p><p><b>Report Settings</b>: You can configure the minimum number of consecutive failed sign in attempts that must occur before it can be displayed in the report. When you make changes to this setting it is important to note that these changes will not be applied to any existing failed sign ins that currently show up in your existing report. However, they will be applied to all future sign ins. Changes to this report can only be made by licensed admins. | Directory > Reports tab |
-
-![Sign ins after multiple failures](./media/active-directory-view-access-usage-reports/signInsAfterMultipleFailures.PNG)]
 
 ### Sign ins from IP addresses with suspicious activity
 
