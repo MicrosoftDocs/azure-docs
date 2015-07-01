@@ -25,7 +25,7 @@ This article contains links to tutorials that show you how to configure Azure Ac
 Logo | App Name
 ---: | :---
 ![15Five](./media/active-directory-saas-tutorial-list/SaaSApp_15five.jpg) | [15Five](https://go.microsoft.com/fwLink/?LinkID=510255&clcid=0x409)
-![][2] | [ABa Sainsburys Connect](https://go.microsoft.com/fwLink/?LinkID=530227&clcid=0x409)
+![logo][2] | [ABa Sainsburys Connect](https://go.microsoft.com/fwLink/?LinkID=530227&clcid=0x409)
 ![3] | [Abintegro](https://go.microsoft.com/fwLink/?LinkID=512738&clcid=0x409)
 ![4] | [Adaptive Suite](https://go.microsoft.com/fwLink/?LinkID=512738&clcid=0x409)
 ![5] | [Adobe EchoSign](https://go.microsoft.com/fwLink/?LinkID=403262&clcid=0x409)
