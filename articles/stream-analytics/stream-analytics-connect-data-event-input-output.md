@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/30/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Connect to inputs and outputs
