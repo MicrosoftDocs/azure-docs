@@ -108,7 +108,7 @@ Resource groups are containers; designed to help you manage a collection of Azur
 
 For this quick start it is ok to leave Resource Group configured on its default values.
 
-Learn more about [resource groups](resource-group-portal.md).
+Learn more about [resource groups](../resource-group-portal.md).
 
 ### Subscription
 A single user could have one or more Azure subscriptions. If you have more than one subscription associated with your login then you can choose which subscription to use.
