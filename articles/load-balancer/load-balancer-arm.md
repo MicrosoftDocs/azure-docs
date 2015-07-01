@@ -20,9 +20,7 @@
 
 Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups.md).
 
->[AZURE.NOTE] ARM support for Load Balancer is currently in Preview, including REST API, Azure PowerShell, Azure CLI and .NET SDK.
-
-##Concepts
+## Concepts
 
 With ARM, Azure Load Balancer contains the following child resources:
 
@@ -41,7 +39,7 @@ With ARM, Azure Load Balancer contains the following child resources:
 
 
 
-##Quickstart templates
+## Quickstart templates
 Azure Resource Manager allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle
 
 Templates include Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs. With templates you can create everything you need for a complex application using a simple file that you can check-in and collaborate on.
