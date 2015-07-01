@@ -28,14 +28,14 @@ Download and run the [Getting started with Elastic Database tools sample](sql-da
 
 ## Create a shard map manager using the sample app
 
-Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you happen to already have shards setup with sharded data in those shards, you can skip the following steps and move to the next section.
+Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you happen to already have shards setup with sharded data in them, you can skip the following steps and move to the next section.
 
-1. Build and run the **Getting started** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). At the end of Step 7, you will see the following command prompt:
+1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). At the end of Step 7, you will see the following command prompt:
 
 	![command prompt][1]
 
-2.  Type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
-3.  The [Azure preview portal](https://portal.azure.com) shows three new databases in your v12 server:
+2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
+3.  The [Azure preview portal](https://portal.azure.com) should show three new databases in your v12 server:
 
 	![Visual Studio confirmation][2]
 
@@ -60,7 +60,7 @@ Here you will create a shard map manager along with several shards, followed by 
 These are used to connect to the shard map manager and the shards:
 
 1. Open SQL Server Management Studio or SQL Server Data Tools in Visual Studio.
-2. Connect to the elastic query database and execute the following T-SQL commands:
+2. Connect to ElasticDBQuery database and execute the following T-SQL commands:
 
 		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
@@ -110,7 +110,7 @@ You will notice that the query aggregates results from all the shards and gives 
 
 ![Output details][4]
 
-## Import sample elastic database query results to Excel
+## Import elastic database query results to Excel
 
  You can import the results from of a query to an Excel file.
 
@@ -120,7 +120,7 @@ You will notice that the query aggregates results from all the shards and gives 
 
 	![Excel import from other sources][5]
 4. 	In the **Data Connection Wizard** type the server name and login credentials. Then click **Next**.
-5. 	In the dialog box **Select the database that contains the data you want**, select the ElasticDBQuery database.
+5. 	In the dialog box **Select the database that contains the data you want**, select the **ElasticDBQuery** database.
 6. 	Select the **Customers** table in the list view and click **Next**. Then click **Finish**.
 7. 	In the **Import Data** form, under **Select how you want to view this data in your workbook**, select **Table** and click **OK**.
 
