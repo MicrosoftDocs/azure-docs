@@ -18,7 +18,9 @@ When you create a storage account, you must select one of the following replicat
 
 - **Read access geo-redundant storage (RA-GRS)**. Read access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
 
-	> [AZURE.IMPORTANT] You can change how your data is replicated after your storage account has been created, but note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS. If you choose GRS when you create your account, then you cannot subsequently switch to any other type of replication, or vice versa.
+	> [AZURE.IMPORTANT] You can change how your data is replicated after your storage account has been created, but note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.]
+	> 
+	> If you choose ZRS when you create your account, then you cannot subsequently switch to any other type of replication. Nor can you switch to ZRS from LRS, GRS, or RA-GRS after your account has been created.
  
 See [Azure Storage Replication](../articles/storage/storage-redundancy.md) for additional details about storage replication options.
 
