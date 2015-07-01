@@ -16,7 +16,7 @@
 	ms.date="07/01/2015"
 	ms.author="kenhoff"/>
 
-### Sign ins from multiple geographies
+# Sign ins from multiple geographies
 
 | Description        | Report location |
 | :-------------     | :-------        |
