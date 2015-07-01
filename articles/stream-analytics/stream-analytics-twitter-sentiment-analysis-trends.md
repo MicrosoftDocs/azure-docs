@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2015"
+	ms.date="07/02/2015"
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +30,7 @@ A news media website is interested in getting an edge over its competitors by fe
 
 ## Prerequisites
 1.	A Twitter account is required for this tutorial.  
-2.	This walkthough uses an event generator located on GitHub.  Download it [here](https://github.com/streamanalytics/samples/tree/master/TwitterClient) and follow the steps below to set up your solution.
+2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/streamanalytics/samples/tree/master/TwitterClient) and follow the steps below to set up your solution.
 
 ## Create an Event Hub input and a Consumer Group
 
@@ -38,7 +38,7 @@ The sample application will generate events and push them to an Event Hubs insta
 
 Follow the steps below to create an Event Hub.
 
-1.	In the Azure portal click **NEW** > **APP SERVICES** > **SERVICE BUS** > **EVENT HUB** > **QUICK CREATE** and provide a name, region, and new or existing namespace to create a new Event Hub.  
+1.	In the Azure Portal click **NEW** > **APP SERVICES** > **SERVICE BUS** > **EVENT HUB** > **QUICK CREATE** and provide a name, region, and new or existing namespace to create a new Event Hub.  
 2.	As a best practice, each Stream Analytics job should read from a single Event Hubs Consumer Group. We will walk you through the process of creating a Consumer Group below and you can learn more about them here.  To create a Consumer Group, navigate to the newly created Event Hub and click the **CONSUMER GROUPS** tab, then click **CREATE** on the bottom of the page and provide a name for your Consumer Group.
 3.	To grant access to the Event Hub, we will need to create a shared access policy.  Click the **CONFIGURE** tab of your Event Hub.
 4.	Under **SHARED ACCESS POLICIES**, create a new policy with **MANAGE** permissions.
@@ -49,9 +49,9 @@ Follow the steps below to create an Event Hub.
 5.	Click **SAVE** at the bottom of the page.
 6.	Navigate to the **DASHBOARD** and click **CONNECTION INFORMATION** at the bottom of the page and copy and save the connection information. (Use the copy icon that appears under the search icon.)
 
-## Configure and start event-generator application
+## Configure and start the Twitter client application
 
-We have provided a client application that will tap into Twitter data via [Twitter's REST APIs](https://dev.twitter.com/rest/public) to collect Tweet events about a parameterized set of topics. The 3rd party open source tool [Sentiment140](http://help.sentiment140.com/) is used to assign a sentiment value to each tweet (0: negative, 2: neutral, 4: positive) and then Tweet events are pushed to Event Hub.  
+We have provided a client application that will tap into Twitter data via [Twitter's Streaming APIs](https://dev.twitter.com/streaming/overview) to collect Tweet events about a parameterized set of topics. The 3rd party open source tool [Sentiment140](http://help.sentiment140.com/) is used to assign a sentiment value to each tweet (0: negative, 2: neutral, 4: positive) and then Tweet events are pushed to Event Hub.  
 
 Follow these steps to set up the application:
 
@@ -74,7 +74,7 @@ Now that we have Tweet events streaming in real-time from Twitter, we can set up
 
 ### Provision a Stream Analytics job
 
-1.	In the [Azure portal](https://manage.windowsazure.com/), click **NEW** > **DATA SERVICES** > **STREAM ANALYTICS** > **QUICK CREATE**.
+1.	In the [Azure Portal](https://manage.windowsazure.com/), click **NEW** > **DATA SERVICES** > **STREAM ANALYTICS** > **QUICK CREATE**.
 2.	Specify the following values, and then click **CREATE STREAM ANALYTICS JOB**:
 
 	* **JOB NAME**: Enter a job name.
@@ -185,7 +185,7 @@ The final query we will test uses a TumblingWindow to obtain the number of menti
 
 ## Create output sink
 
-Now that we have defined an event stream, an Event Hub input to ingest events, and a query to perform a transformation over the stream, the last step is to define an output sink for the job.  We'll write the aggregated tweet events from our job query to an Azure Blob.  You could also push your results to SQL Database, Table Store or Event Hub, depending on your application needs.
+Now that we have defined an event stream, an Event Hub input to ingest events, and a query to perform a transformation over the stream, the last step is to define an output sink for the job.  We'll write the aggregated tweet events from our job query to an Azure Blob.  You could also push your results to SQL Database, Table Store or Event Hub, depending on your specific application needs.
 
 Follow the steps below to create a container for Blob storage, if you don't already have one:
 
