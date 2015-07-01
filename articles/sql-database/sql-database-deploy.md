@@ -31,7 +31,7 @@ A **Microsoft Azure account**. For a free trial, see this [offer](http://azure.m
 
 Download [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx).  (For more information about the tool, see [SQL Server Management Studio - June 2015 Release Notes](https://msdn.microsoft.com/library/mt238486.aspx).)
 
-An existing server on Azure SQL Database. For instructions on creating a new server, see [Create your first Azure SQL Database](sql-database-get-started.md)
+An existing server on Azure SQL Database. For instructions on creating a new database (on a new server), see [Create your first Azure SQL Database](sql-database-get-started.md).
 
 ## Create the school database on an on-premises server
 
