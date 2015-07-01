@@ -109,14 +109,14 @@ The last item is important, because a contained application still requires a spe
 
 The following table describes at a very high level the kind of feature differences that -- without much extra work -- exist between VMs and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs, and that as with all software, extra work provides increased feature support, especially in the area of security.
 
-|   Feature      | VMs | Containers  | 
-| :------------- |-------------| ----------- | 
-| Memory on disk required | Complete OS image plus apps | App requirements only |
-| Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  | 
-| Image Automation | Varies widely depending on OS and apps | [Docker registry](https://registry.hub.docker.com/); others | 
-| Portability | Portable With Proper Preparation | Portable within image format; typically smaller | 
-| Fixed app image | can be | typically is | 
-| "Default" security support | to a greater degree | to a slightly lesser degree 
+|   Feature      | VMs | Containers  |   
+| :------------- |-------------| ----------- |   
+| Memory on disk required | Complete OS image plus apps | App requirements only |  
+| Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  |   
+| Image Automation | Varies widely depending on OS and apps | [Docker registry](https://registry.hub.docker.com/); others |   
+| Portability | Portable With Proper Preparation | Portable within image format; typically smaller |   
+| Fixed app image | can be | typically is |   
+| "Default" security support | to a greater degree | to a slightly lesser degree   
 
 
 ## Creating and managing groups of VMs and containers
