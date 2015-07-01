@@ -31,6 +31,8 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 
 This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
 
+Read [this](cloud-services-how-to-create-deploy-portal.md) first if you have not yet created a cloud service.
+
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## Step 1: Get an SSL certificate
@@ -48,6 +50,7 @@ For test purposes, you can create and use a self-signed certificate. A self-sign
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 
+<a name="modify"> </a>
 ## Step 2: Modify the service definition and configuration files
 
 Your application must be configured to use the certificate, and an HTTPS endpoint must be added. As a result, the service definition and service configuration files need to be updated.
@@ -123,50 +126,43 @@ you are using **cspack**, ensure that you don't use the
 **/generateConfigurationFile** flag, as that will overwrite the
 certificate information you just inserted.
 
-## Step 3: Upload the deployment package and certificate
+## Step 3: Upload a certificate
 
-Your deployment package has been updated to use the certificate, and an
-HTTPS endpoint has been added. Now you can upload the package and
-certificate to Azure with the Preview Portal.
+Connect to the portal and...
 
-1. Log into the [Azure Preview Portal][]. 
-2. Click **New**, click **Compute**, and then scroll down to and click **Cloud Service**.
+1. Select your cloud service by either:
+    - In the Portal, select your **Cloud Service**. (Which will be in the **Browse All/Recent area**.)
+    
+        ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
+    
+        **OR**
+        
+    - Under **Browse All** select **Cloud Services** under **Filter By** and select the cloud service instance you want. 
 
-    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/create-cloud-service.png)
+3. Open the **settings** for the cloud service.
 
-3. In the new **Cloud Service** blade, enter a value for the **DNS name**
-4. Create a new **Resource Group** or select an existing one.
-5. Select a **Location**.
-6. Select **Package**, and on the **Upload a package** blade, fill in the required fields.  
-      
-     If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is checked.
+    ![Open settings](media/cloud-services-configure-ssl-certificate-portal/all-settings.png)
 
-7. Make sure that **Start deployment** is *checked*.
-8. Click **OK**. 
+4. Click on **Certificates**.
 
-    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/select-package.png)
+    ![Click the certificates icon](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-9. Select **Certificates**, and on the **Add certificates** blade, select the SSL certificate .pfx file, and provide the **Password** for the certificate, 
-10. Click **Attach certificate**, and click **OK** on the **Add certificates** blade.
-11. Click **Create** on the **Cloud Service** blade. When the deployment has reached the **Ready** status, you can proceed to the next steps.
+4. Provide the **File**, **Password**, then click **Upload**.
 
-    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/attach-cert.png)
-
-## Step 4: Connect to the role instance by using HTTPS
+## Step 3: Connect to the role instance by using HTTPS
 
 Now that your deployment is up and running in Azure, you can
 connect to it using HTTPS.
+    
+1.  Click on the **Site URL** to open up the web browser.
 
-1.  In the Portal, select your **Cloud Service**. (Which will be in the **Browse All/Recent area**.)
-    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
-2.  Click on the **Site URL** to open up the web browser.
-    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
+    ![Click on Site URL](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
 2.  In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
 
     >[AZURE.NOTE] If you are using a self-signed certificate, when you browse to an HTTPS endpoint that's associated with the self-signed certificate you will see a certificate error in the browser. Using a certificate signed by a trusted certification authority will eliminate this problem; in the meantime, you can ignore the error. (Another option is to add the self-signed certificate to the user's trusted certificate authority certificate store.)
 
-    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
+    ![Site preview](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
     >[AZURE.TIP] If you want to use SSL for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Once your cloud service has been deployed, the URL to the staging envorionment is determined by the **Deployment ID** GUID in this format: `https://deployment-id.cloudapp.net/`  
       

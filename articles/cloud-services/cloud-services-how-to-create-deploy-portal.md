@@ -65,84 +65,45 @@ Three cloud service features require special configurations before you export a 
 - If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Management Portal, on the **Affinity Groups** page. For more information, see [Create an Affinity Group in the Management Portal](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
-## How to: Create a cloud service using Quick Create
+## Step 3: Create a cloud service and upload the deployment package
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **New**>**Compute**>**Cloud Service**>**Quick Create**.
+1. Log into the [Azure Preview Portal][]. 
+2. Click **New**, click **Compute**, and then scroll down to and click **Cloud Service**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
-2. In **URL**, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments. The URL format for production deployments is: http://*myURL*.cloudapp.net.
+3. In the new **Cloud Service** blade, enter a value for the **DNS name**
+4. Create a new **Resource Group** or select an existing one.
+5. Select a **Location**.
+6. Select **Package**, and on the **Upload a package** blade, fill in the required fields.  
+      
+     If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is checked.
 
-3. In **Region or Affinity Group**, select the geographic region or affinity group to deploy the cloud service to. Select an affinity group if you want to deploy your cloud service to the same location as other Azure services within a region.
+7. Make sure that **Start deployment** is *checked*.
+8. Click **OK**. 
 
-4. Click **Create Cloud Service**.
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+## Upload a certificate
 
-	You can monitor the status of the process in the message area at the bottom of the window.
+If your deployment package was [configured to use certificates](cloud-services-configure-ssl-certificate-portal.md#modify), you can upload the certificate now.
 
-	The **Cloud Services** area opens, with the new cloud service displayed. When the status changes to Created, cloud service creation has completed successfully.
+9. Select **Certificates**, and on the **Add certificates** blade, select the SSL certificate .pfx file, and provide the **Password** for the certificate, 
+10. Click **Attach certificate**, and click **OK** on the **Add certificates** blade.
+11. Click **Create** on the **Cloud Service** blade. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
-
-## How to: Upload a certificate for a cloud service
-
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Certificates**.
-
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
-
-
-2. Click either **Upload a certificate** or **Upload**.
-
-3. In **File**, use **Browse** to select the certificate (.pfx file).
-
-4. In **Password**, enter the private key for the certificate.
-
-5. Click **OK** (checkmark).
-
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
-
-	You can watch the progress of the upload in the message area, shown below. When the upload completes, the certificate is added to the table. In the message area, click OK to close the message.
-
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
-
-## How to: Deploy a cloud service
-
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Dashboard**.
-
-	The dashboard opens in the Production environment, you could at this point select Staging to deploy your application in the staging environment. For more information, see [Manage Deployments in Azure](http://msdn.microsoft.com/library/gg433027.aspx).
-
-
-2. Click either **Upload a new production deployment** or **Upload**.
-
-3. In **Deployment label**, enter a name for the new deployment - for example, MyCloudServicev4.
-
-3. In **Package**, use **Browse** to select the service package file (.cspkg) to use.
-
-4. In **Configuration**, use **Browse** to select the service configure file (.cscfg) to use.
-
-5. If the cloud service will include any roles with only one instance, select the **Deploy even if one or more roles contain a single instance** check box to enable the deployment to proceed.
-
-    Azure can only guarantee 99.95 percent access to the cloud service during maintenance and service updates if every role has at least two instances. If needed, you can add additional role instances on the **Scale** page after you deploy the cloud service. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
-
-6. Click **OK** (checkmark) to begin the cloud service deployment.
-
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
-
-	You can monitor the status of the deployment in the message area. Click OK to hide the message.
-
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## Verify your deployment completed successfully
 
-1. Click **Dashboard**.
+1. Click on the cloud service instance.
 
 	The status should show that the service is **Running**.
 
-2. Under **quick glance**, click the site URL to open your cloud service in a web browser.
+2. Under **Essentials**, click the **Site URL** to open your cloud service in a web browser.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
