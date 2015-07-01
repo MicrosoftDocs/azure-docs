@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="06/30/2015" 
 	ms.author="elizapo"/>
 
 # What is Azure RemoteApp?
@@ -30,7 +30,7 @@ Azure RemoteApp is part of the [Microsoft Virtual Desktop Infrastructure](http:/
 
 **New!** Want to learn more about Azure RemoteApp? Or ready to validate RemoteApp at scale? Join our weekly [ask the experts webinar](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
 
-## RemoteApp deployment options
+## RemoteApp collections
 There are two kinds of RemoteApp collections:
 
 
@@ -47,9 +47,10 @@ An additional advantage of using the cloud collection with the Office apps is th
 
 You can also create a cloud collection to share a custom application or set of applications for your users. To do this, you need to [create a custom image](remoteapp-imageoptions.md) (which is how we publish apps to RemoteApp) and simply choose that image (instead of the Office 2013 image) when you create your collection. 
 
-####When to choose Cloud
+#### When to choose cloud
 
-A Cloud Collection is appropriate when the application will not require connectivity to any resources on your company's private network through a VPN device. If your application just uses resources on the Internet, OneDrive or Azure this will work for you and it's the simplest to setup.
+Choose a cloud collection when the application you want to share does not require a connection to any resource your company's private network (for example, through a VPN device). If the application uses resources on the Internet, OneDrive, or Azure, a cloud collection will work for you. It's also the quickest to create.
+
 
 ### Hybrid collection
 The [hybrid RemoteApp collection](remoteapp-create-hybrid-deployment.md) lets you provide both a custom set of applications to your users and access to the data and resources in your local network. Unlike a custom image used with the cloud collection, the image you create for a hybrid collection runs apps in a domain-joined environment, granting full access to your local network and data.
@@ -58,16 +59,15 @@ By integrating Active Directory with Azure Active Directory (using DirSync), you
 
 As long as you build your template image on Windows Server 2012 R2 with the RD Session Host role service, there are few limits on the apps you can publish for your users. If the apps function properly in that template image environment, your end users can access them through RemoteApp. 
 
-####When to choose Hybrid
+#### When to choose hybrid
 
-Hybrid is more appropriate if you require connectivity back to your private network. Some good examples are:
+Choose a hybrid collection if you require a connection to resources on your company's private network. For example, if the application needs access to one of the following:
 
-- Private file servers
+- File servers located on your intranet
 - Quicken
-- Private databases
-- etc..
+- Databases behind a firewall
 
-This is generally more useful for large companies with lots of resources on their private networks that can't be moved to the Cloud.
+This is generally more useful for large companies with lots of resources on their private networks that can't be moved to the cloud.
 
 ### Updating your collection
 One of the key differences between the hybrid and cloud collections is how software updates are handled. With a cloud collection that uses the preinstalled Office 365 ProPlus or Office 2013 image, you do not have to worry about any updates. The service maintains itself and rolls out updates on an ongoing basis, to both apps and the operating system.
@@ -76,8 +76,12 @@ For hybrid collections, as well as cloud collections that use a custom template 
 
 After you update your custom template image, you upload the new image to the Azure cloud and then update the collection to use the new image. (You can do this from the RemoteApp **Quick Start** page or the Dashboard.)
 
+See [Update your collection](remoteapp-update.md) for more information.
+
 ## Supported RemoteApp clients
 Azure RemoteApp is supported on the RemoteApp client apps for Windows and Windows RT, as well as the Microsoft Remote Desktop apps for Mac, iOS and Android. Your users can use these apps on their mobile or compute devices to access the new RemoteApp programs.
+
+See [Accessing your apps in Azure RemoteApp](remoteapp-clients.md) for more information about the clients.
 
 ## Next steps
 Go! Try it out! These articles help get you started with RemoteApp:

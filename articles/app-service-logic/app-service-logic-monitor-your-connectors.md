@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="06/30/2015" 
 	ms.author="mandia"/>
 
 # Manage and Monitor your built-in API Apps and Connectors
@@ -43,6 +43,26 @@ You can:
 - When product updates are made to the underlying files used by your API App, you can click **Update** to get the latest versions. For example, if there is a fix or a security update released by Microsoft, clicking **Update** automatically updates your API App to include this fix. 
 - Select **Change Plan** to upgrade or downgrade based on the data usage of the API App. You can also use this feature to see your data usage.
 - When you create a connector that has tables, like the SQL connector, you can optionally enter a table name to connect to. A schema based on the table is automatically created and available when you click **Download Schemas**. You can then use this downloaded schema to create a transform or a map. 
+
+## Change your connector or API configuration values you entered
+
+After you configured or created your built-connector, you can change the values you entered. For example, if you configured the SQL Connector and you want to change the SQL Server name or table name, you can do this in the API App blade for your connector. 
+
+Steps include:
+
+1. Open your connector or API App. When you do, the API App blade opens.
+2. In Essentials, click the hyperlink under the Host property. The hyperlink is named something like *slackconnector* or *microsoftsqlconnector123*:
+
+	![][apiapphost]
+
+3. In the API App Host blade, select **Settings**.
+4. In the Settings blade, select **Application Settings**.
+5. Your configuration values are listed under **App Settings**: 
+	
+	![][hostsettings]
+
+6. Click the setting you want to change, enter the new value, and **Save** your changes. 
+
 
 ## Install the Hybrid Connection Manager
 
@@ -90,7 +110,11 @@ You can easily add users and assign them specific roles to your API App. The por
 - Select **API definition** to open the automatically-created Swagger file for your specific API app.
 - Select **Dependencies** to view the files required by your API App. For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager. These dependencies are shows in your API app blade. 
 
-> [AZURE.IMPORTANT] When you open your API app properties and look under **Essentials**, there are **Host** and **Gateway** links that open new blades. These properties are specific to the website that hosts your API App. When using a built-in API App or connector, these properties don't really apply and we recommend that you don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. [Manage API apps](../app-service-api/app-service-api-manage-in-portal.md) provides more information on what you can do in these blades with your custom-created API app. 
+> [AZURE.IMPORTANT] When you open your API app properties and look under **Essentials**, there are **Host** and **Gateway** links that open new blades:
+> 
+> ![][host]
+> 
+> These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. [Manage API apps](../app-service-api/app-service-api-manage-in-portal.md) provides more information on what you can do in these blades with your custom-created API app. 
 
 ## Read More
 
@@ -107,3 +131,5 @@ You can easily add users and assign them specific roles to your API App. The por
 [monitoring]: ./media/app-service-logic-monitor-your-connectors/monitoring.png
 [access]: ./media/app-service-logic-monitor-your-connectors/access.png
 [host]: ./media/app-service-logic-monitor-your-connectors/host.png
+[hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
+[apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png

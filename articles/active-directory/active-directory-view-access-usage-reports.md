@@ -262,7 +262,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 1. In the Azure Management Portal, click **Active Directory**, click the name of your organization’s directory, and then click **Reports**.
 2. On the Reports page, click the report you want to view and/or download.
-    >
+
     > [AZURE.NOTE] If this is the first time you have used the reporting feature of Azure Active Directory, you will see a message to Opt In. If you agree, click the check mark icon to continue.
 
 3. Click the drop-down menu next to Interval, and then select one of the following time ranges that should be used when generating this report:

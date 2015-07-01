@@ -12,12 +12,12 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/24/2015"
+   ms.date="06/30/2015"
    ms.author="cherylmc"/>
 
-# Configure ExpressRoute and Site-to-Site VPN connections to coexist
+# Configure ExpressRoute and Site-to-Site VPN connections that coexist
 
-You can now connect ExpressRoute and Site-to-Site VPN to the same virtual network. This means that, by configuring both connectivity types, you can create a high availability solution or extend your network connectivity. There are two different scenarios and two different configuration procedures to choose from. 
+You can now connect ExpressRoute and Site-to-Site VPN to the same virtual network. There are two different scenarios and two different configuration procedures to choose from. 
 
 ### Scenarios
 
@@ -25,7 +25,7 @@ There are two different scenarios. The figure below shows both scenarios.
 
 - **Scenario 1**- If you have one local network, ExpressRoute will be the active link, and your Site-to-Site VPN would be the backup. If the ExpressRoute connection fails, the Site-to-Site VPN connection becomes active. This scenario is most appropriate for high availability.
 
-- **Scenario 2**- If you have two local networks, you can connect one to Azure via ExpressRoute, and the other via Site-to-Site VPN. In this case, both connections are active at the same time. This would be an example of extending connectivity.
+- **Scenario 2**- If you have two local networks, you can connect one to Azure via ExpressRoute, and the other via Site-to-Site VPN. In this case, both connections are active at the same time. 
 
 
 ![Coexist](media/expressroute-coexist/coexist1.jpg)
@@ -36,13 +36,15 @@ There are two different scenarios. The figure below shows both scenarios.
 There are two separate configuration procedures to choose from. The configuration procedure you select will depend on whether you already have an existing virtual network that you want to connect to, or if you want to create a new virtual network.
 
 
-- [Create a new virtual network and gateways for ExpressRoute and Site-to-Site coexisting connections](#create-a-new-virtual-network-and-gateways-for-expressroute-and-site-to-site-coexisting-connections): 
-	If you don’t already have a virtual network, this procedure will walk you through creating a new virtual network and creating new ExpressRoute and Site-to-Site VPN connections.
+- [Create a new VNet with coexisting connections](#create-a-new-vnet-with-coexisting-connections): 
+	If you don’t already have a virtual network, this procedure will walk you through creating a new virtual network and creating new ExpressRoute and Site-to-Site VPN connections.  
 
 
-- [Configure your existing virtual network for ExpressRoute and Site-to-Site VPN coexisting connections](#configure-your-existing-virtual-network-for-expressroute-and-site-to-site-coexisting-connections): 
-	You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. Creating a coexist connection will require you to delete your gateway, and then reconfigure it. 
-	This means you will have downtime for your internal connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so. This procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections.
+- [Configure your existing VNet for coexisting connections](#configure-your-existing-vnet-for-coexisting-connections): 
+	You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. Creating a coexist connection will require you to delete your gateway, and then configure new gateways that can coexist. 
+	This means you will have downtime for your cross-premises connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so. 
+
+	This procedure will walk you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections. Note that when creating the new connections, the steps must be completed in a very specific order. Don't use the instructions in other articles to create your gateways and connections.
 
 ### Notes and limitations
 
@@ -50,9 +52,13 @@ There are two separate configuration procedures to choose from. The configuratio
 - If your local network is connected to both ExpressRoute and a Site-to-Site VPN (Scenario 1), you should have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet. 
 - You must create the ExpressRoute gateway first, before you add the Site-to-Site VPN gateway.
 - You won’t be able to route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
+- Both procedures assume that you already have an ExpressRoute circuit configured. If you do not, please see the following articles: 
+
+	- [Configure an ExpressRoute connection through a network service provider (NSP)](expressroute-configuring-nsps.md) 
+	- [Configure an ExpressRoute connection through an exchange provider (EXP)](expressroute-configuring-exps.md)
 
 
-## Create a new virtual network and gateways for ExpressRoute and Site-to-Site coexisting connections
+## Create a new VNet with coexisting connections
 
 1. Verify that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
 2. Create a schema for your virtual network. For more information about working with the network configuration file, see [Configure a virtual network using a network configuration file](../virtual-network/virtual-networks-using-network-configuration-file.md). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
@@ -85,7 +91,7 @@ There are two separate configuration procedures to choose from. The configuratio
 
 
 
-3. After creating and configuring your xml schema file, you'll upload the file. This will create your virtual network.
+3. After creating and configuring your xml schema file, upload the file. This will create your virtual network.
 
 	Use the following cmdlet to upload your file, replacing the value with your own.
 
@@ -147,7 +153,11 @@ There are two separate configuration procedures to choose from. The configuratio
 		OperationId          : ddc4bfae-502c-adc7-bd7d-1efbc00b3fe5
 		OperationStatus      : Succeeded
 
-8. Link the Site-to-Site VPN gateway on Azure to the local gateway. 
+	
+8. Configure your local VPN device to connect to the new gateway. Use the information that you retrieved in step 6 when configuring your VPN device. For more information about VPN device configuration, see [VPN Device Configuration](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration).
+	
+
+9. Link the Site-to-Site VPN gateway on Azure to the local gateway. 
 
 	In this example, connectedEntityId is the local gateway ID, which you can find by running `Get-AzureLocalNetworkGateway`. You can find virtualNetworkGatewayId by using the `Get-AzureVirtualNetworkGateway` cmdlet. After this step, the connection between your local network and Azure via the Site-to-Site VPN connection is established.
 
@@ -155,25 +165,24 @@ There are two separate configuration procedures to choose from. The configuratio
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
 
 
-## Configure your existing virtual network for ExpressRoute and Site-to-Site coexisting connections
+## Configure your existing VNet for coexisting connections
 
-If you have an existing virtual network connected via either ExpressRoute or Site-to-Site VPN connection, to enable both connections to connect to the existing virtual network, you must first delete the existing gateway. This means your local premises will lose the connection to your virtual network over the gateway while you are working on this configuration. 
+If you have an existing virtual network connected via either ExpressRoute or Site-to-Site VPN connection, in order to enable both connections to connect to the existing virtual network, you must first delete the existing gateway. This means your local premises will lose the connection to your virtual network over the gateway while you are working on this configuration. 
 
 **Before you begin configuration:** Verify that you have enough IP addresses left in your virtual network so that you can increase the gateway subnet size.
 
 
 1. Make sure that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
  
-2. Delete the existing Site-to-Site gateway. Use the following cmdlet, replacing the values with your own.
+2. Delete the existing Site-to-Site VPN gateway. Use the following cmdlet, replacing the values with your own.
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
 
 2. Export the virtual network schema. Use the following PowerShell cmdlet, replacing the values with your own.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Edit the network configuration file schema so that the gateway subnet is /27 (or a shorter prefix). For more information about working with the network configuration file, see [Configure a Virtual Network using a network configuration file](../virtual-network/virtual-networks-using-network-configuration-file.md). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Edit the network configuration file schema so that the gateway subnet is /27 (or a shorter prefix). See the example below. For more information about working with the network configuration file, see [Configure a Virtual Network using a network configuration file](../virtual-network/virtual-networks-using-network-configuration-file.md). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-	**Example:**
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -187,14 +196,16 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. At this point, your configuration is ready to proceed with **Step 3** in the article, [Create a new virtual network and gateways for ExpressRoute and Site-to-Site coexisting connections](#create-a-new-virtual-network-and-gateways-for-expressroute-and-site-to-site-coexisting-connections).
+5. At this point, you'll have a VNet with no gateways. You can proceed with **Step 3** in the article, [Create a new VNet with coexisting connections](#create-a-new-vnet-with-coexisting-connections) in order to create new gateways and complete your connections.
+
 
 
 ## Next Steps
 	
-Learn more about ExpressRoute. See the [ExpressRoute Overview](../expressroute/expressroute-introduction.md).
+Learn more about ExpressRoute. See the [ExpressRoute Overview](expressroute-introduction.md).
 
 Learn more about VPN Gateways. See [About VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+
 
 
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="06/30/2015"
    ms.author="rajram"/>
    
 # Azure Storage Blob Connector
@@ -28,7 +28,8 @@ The Storage Blob Connector has the following Triggers and Actions available:
 
 Triggers | Actions
 --- | ---
-None | <ul><li>Get Blob</li><li>Upload Blob</li><li>Delete Blob</li><li>List Blobs</li><li>Snapshot Blob</li><li>Copy Blob</li></ul>
+None | <ul><li>Get Blob: Get a specific Blob from the container</li><li>Upload Blob: Upload a new Blob or update an existing Blob</li><li>Delete Blob: Delete a specific Blob from a Container</li><li>List Blobs: List all blobs in a directory</li><li>Snapshot Blob: Create a read-only snapshot of a Specific Blob</li><li>Copy Blob: Create a new Blob by copying from another Blob.  The source Blob may be in the same account or in another account.</li></ul>
+
 
 ## Create the Azure Storage Blob Connector
 
@@ -39,52 +40,41 @@ A connector can be created within a logic app or be created directly from the Az
 <br/>
 ![Select Azure Storage Blob Connector][2]
 
-3. Enter the Name, App Service Plan, and other properties.
-4. Enter the following package settings:
+3. **Create** the connector.
+4. Enter the Name, App Service Plan, and other properties.
+5. Enter the following package settings:
 
 	Name | Required |  Description
 --- | --- | ---
 Container/SAS URI | Yes | Enter the URI of the Blob Container. The URI may also include the SAS token. For example, enter http://*storageaccountname*.blob.core.windows.net/containername or http://*storageaccountname*.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah
 Access Key | No | Enter a valid primary or secondary storage account access key. If you are using the SAS token for authentication, leave this field empty.
 
-![Create Azure Storage Blob Connector][3]
+	![Create Azure Storage Blob Connector][3]
 
-5. Click **Create**.
+6. Click **Create**.
 
 ## Use Azure Storage Blob Connector in Logic App
 Once the Azure Storage Blob connector has been created, it can now be added to your workflow.
 
-Create a new flow through +New -> Web+Mobile -> LogicApp. Provide the metadata for the flow including resource group
+1. Create a new Logic App: New -> Web+Mobile -> LogicApp. Enter the properties for your Logic App:
 
-![Create Logic App][4]
+	![Create Logic App][4]
 
-Click on *triggers and actions*. The flow designer opens:
+2. Click **Triggers and actions**. The workfow designer opens:
 
-![Logic App empty flow designer][5]
+	![Logic App empty flow designer][5]
 
-Azure Storage Blob Connector can be used as as an action. 
+3. Select your Azure Storage Blob Connector from the right pane. The connector lists the actions available:
 
-### Actions
-Click on Azure Storage Blob Connector from the right pane. The connector lists down the actions supported:
+	![List of Azure Storage Blob Actions][10]
 
-![List of Azure Storage Blob Actions][10]
+4. In this scenario, let's use the **Upload Blob** action:
 
-Azure Storage Blob Connector supports the following actions:
+	![Inputs of Upload Blob action][11]
 
-- **Get Blob** - Get a specific Blob from the container
-- **Upload Blob** - Upload a new Blob or update an existing Blob
-- **Delete Blob** - Delete a specific Blob from a Container
-- **List Blobs** - List all blobs in a directory
-- **Snapshot Blob** - Create a read-only snapshot of a Specific Blob
-- **Copy Blob** - Create a new Blob by copying from another Blob.  The source Blob may be in the same account or in another account.
+5. Enter the input values and select the check mark to complete the configuration:
 
-Lets take one example - Upload Blob. Select **Upload Blob**:
-
-![Inputs of Upload Blob action][11]
-
-Enter the input values and select the check mark to complete the configuration:
-
-Input | Description
+	Input | Description
 --- | ---
 Blob Path | Determines the path of the Blob to be uploaded. The path is interpreted relative to the configured Container path.
 Blob Write Content | Enter the Content and the properties of the Blob to be uploaded.
@@ -94,12 +84,11 @@ Overwrite | When set to true, the existing Blob is overwritten. When set to fals
 Note that the configured Azure Storage Blob Upload Blob action shows both input parameters as well as output parameters.
 
 #### Using the outputs of previous actions as input to Azure Storage Blob actions
-Note that in the configured screenshot, Content is value is set to an expression.
+In the previous screenshot, the **Content** value can be an expression:
 
 	@triggers().outputs.body.Content
 
-
-You can set it to any value that you want. This is just an example. The expression takes the output of the logic app trigger and uses it as the content of the file to be uploaded. Lets say you want to use the output of a previous action, say transform. In that case, the expression would be
+You can set it to any value that you want. The expression takes the output of the logic app trigger and uses it as the content of the file to be uploaded. For example, you want to use the output of a transform. In that scenario, the expression would be:
 
 	@actions('transformservice').outputs.body.OutputXML
 

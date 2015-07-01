@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="06/30/2015"
    ms.author="sutalasi"/>
 
 
@@ -127,13 +127,12 @@ You can test the logic app by adding a new record in the table that is being pol
 SQL Query | Supported | Not Supported
 --- | --- | ---
 Where clause | <ul><li>Operators: AND, OR, =, <>, <, <=, >, >= and LIKE</li><li>Multiple sub conditions can be combined by ‘(‘ and ‘)’</li><li>String literals, Datetime (enclosed in single quotes), numbers (should only contain numeric characters)</li><li>Should strictly be in a binary expression format, like ((operand operator operand) AND/OR (operand operator operand))*</li></ul> | <ul><li>Operators: Between, IN</li><li>All built-in functions like ADD(), MAX() NOW(), POWER(), and so on</li><li>Math operators like *, -, +, and so on</li><li>String concatenations using +.</li><li>All Joins</li><li>IS NULL and IS NOT Null</li><li>Any numbers with non-numeric characters, like hexadecimal numbers</li></ul>
-Fields (in Select query) | <ul><li>Valid column names separated by commas. No table name prefixes allowed (the connector works on one table at a time).</li><li>Names can be escaped with ‘[‘ and ‘]’</li></ul> | <ul><li>No keywords like TOP, DISTINCT, and so on</li><li>No aliasing, like Street + City + Zip AS Address</li><li>All built-in functions, like ADD(), MAX() NOW(), POWER(), and so on</li><li>Math operators, like *, -, +, and so on</li><li>String concatenations using +</li></ul>
-Table name | Must only be the table name which may or may not be prefixed with the schema information. | Nothing is allowed, except the table name.
+Fields (in Select query) | <ul><li>Valid column names separated by commas. No table name prefixes allowed (the connector works on one table at a time).</li><li>Names can be escaped with ‘[‘ and ‘]’</li></ul> | <ul><li>Keywords like TOP, DISTINCT, and so on</li><li>Aliasing, like Street + City + Zip AS Address</li><li>All built-in functions, like ADD(), MAX() NOW(), POWER(), and so on</li><li>Math operators, like *, -, +, and so on</li><li>String concatenations using +</li></ul>
 
 #### Tips
 
 - For advanced queries, we suggest creating a stored procedure and execute using the execute stored procedure API.
-- Inner queries and any other operations are not supported.
+- When using inner queries, use them within stored procedures.
 - For joining multiple conditions, you can use the 'AND' and 'OR' operators.
 
 ## Hybrid Configuration (Optional)
