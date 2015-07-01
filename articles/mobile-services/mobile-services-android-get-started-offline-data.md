@@ -22,13 +22,11 @@
 
 ## Summary
 
-Mobile apps can lose network connectivity when moving to an area without service, or due to network issues. For example, a construction industry app to be used at a remote construction site might need to enter scheduling data that is synced up to Azure later. With Azure Mobile Services offline sync, you can keep working when network connectivity is lost, which is essential to many mobile apps. With offline sync, you work with a local copy of your Azure back end SQL Server table, and periodically re-sync the two. 
+Mobile apps can lose network connectivity when moving to an area without service, or due to network issues. For example, a construction industry app used at a remote construction site might need to enter scheduling data that is synced up to Azure later. With Azure Mobile Services offline sync, you can keep working when network connectivity is lost, which is essential to many mobile apps. With offline sync, you work with a local copy of your Azure SQL Server table, and periodically re-sync the two. 
 
 In this tutorial, you'll update the app from the [Mobile Services Quick Start tutorial] to enable offline sync, and then test the app by adding data offline,  syncing those items to the online database, and verifying the changes in the Azure Management Portal.
 
 Whether you are offline or connected, conflicts can arise any time multiple changes are made to data.  A future tutorial will explore handling sync conflicts, where you choose which version of the changes to accept. In this tutorial, we assume no sync conflicts and any changes you make to existing data will be applied directly to the Azure SQL Server.
-
-TBD: confusion around new terminology/.... check w prod team
 
 
 ## What you need to get started
@@ -36,9 +34,9 @@ TBD: confusion around new terminology/.... check w prod team
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
 
-## Update the app to support offline features
+## Update the app to support offline sync
 
-To enable offline sync, you read to and write from a *sync table* (using the *IMobileServiceSyncTable* interface), which is part of a **SQL Light** database on your device.
+With offline sync you read to and write from a *sync table* (using the *IMobileServiceSyncTable* interface), which is part of a **SQL Light** database on your device.
 
 To push and pull changes between the device and Azure Mobile Services, you use a *synchronization context* (*MobileServiceClient.SyncContext*), which you initialize with the local database that you use to store data locally. 
 
@@ -65,7 +63,7 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 
 	This is where you define the sync table.
 
-4. To handle the initialization of the local store, in the `onCreate` method, add the following lines after creating the `MobileServiceClient` instance:
+4. To handle initialization of the local store, in the `onCreate` method, add the following lines after creating the `MobileServiceClient` instance:
 
 			// Saves the query which will be used for pulling data
 			mPullQuery = mClient.getTable(ToDoItem.class).where().field("complete").eq(false);
@@ -86,7 +84,7 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 			// Get the Mobile Service Table instance to use
 			mToDoTable = mClient.getSyncTable(ToDoItem.class);
 
-5. Following the preceding code, add an additional `catch` block following the `MalformedURLException` one:
+5. Following the preceding code, which is inside a `try` block, add an additional `catch` block following the `MalformedURLException` one:
 
 		} catch (Exception e) {
 			Throwable t = e;
@@ -96,7 +94,7 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 			createAndShowDialog(new Exception("Unknown error: " + t.getMessage()), "Error");
 		}
 
-6. Add logic to verify network connectivity with this method:
+6. Add this method to verify network connectivity:
 
 		private boolean isNetworkAvailable() {
 			ConnectivityManager connectivityManager
@@ -106,7 +104,7 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 		}
 
 
-7. Implement this method to sync between the local SQL Light store, and the Azure SQL Server with the following code:
+7. Add this method to sync between the local *SQL Light* store and the Azure SQL Server:
 
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
@@ -131,15 +129,15 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 		}
 
 
-8. In the `onCreate` method, add this code as the next-to-the-last line, right before the call to `refreshItemsFromTable:
+8. In the `onCreate` method, add this code as the next-to-the-last line, right before the call to `refreshItemsFromTable`:
 
 			syncAsync();
 
-	This causes the device on startup to sync with the Azure table. Otherwise you would display the contents of the local store.
+	This causes the device on startup to sync with the Azure table. Otherwise you would display the last offline contents of the local store.
 
 
  
-9. Update the code in the `refreshItemsFromTable` method to use this query (first line of code inside the **try** block):
+9. Update the code in the `refreshItemsFromTable` method to use this query (first line of code inside the `try` block):
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
 
@@ -164,9 +162,10 @@ When you press that button, a new background task starts, and first pushes all t
 
 Lets test the following scenarios.
 
-1. Add some new items on your device, verify they don't show in the portal; next press **Refresh** and verify that they then show up.
-
-2. Change or add an item in the portal, then press **Refresh** and verify that the changes show up on your device.
+1. Add some new items on your device; 
+2. Verify the items don't show in the portal; 
+3. next press **Refresh** and verify that they then show up.
+4. Change or add an item in the portal, then press **Refresh** and verify that the changes show up on your device.
 
 ### Offline testing
 
