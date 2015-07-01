@@ -75,4 +75,4 @@ You can roughly calculate the number of highly utilized disks supported by a sin
 
 <sup>2</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
 
-<sup>3</sup>GRS refers to geo-redundant storage, while LRS refers to locally redundant storage. For more information on replication options for storage, see [Azure Storage Replication](../articles/storage/storage-redundancy.md).
+<sup>3</sup>GRS refers to geo-redundant storage, while LRS refers to locally redundant storage. 

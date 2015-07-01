@@ -64,7 +64,12 @@ Partitions affect load balancing and scalability for each of the storage service
 ## See Also
 
 - [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/)
-- [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal/)
+- [Azure Storage Replication](storage-redundancy.md)
+- [Microsoft Azure Storage Performance and Scalability Checklist](https://azure.microsoft.com/en-us/documentation/articles/storage-performance-checklist/)
+- [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+
+
 
  
