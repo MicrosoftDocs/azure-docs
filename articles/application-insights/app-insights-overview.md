@@ -42,33 +42,28 @@ For ASP.NET servers and Azure web apps, you can also install [Status Monitor][re
 * Monitor a web app without re-building or re-installing it.
 * Track calls to dependent modules.
 
-## What kinds of apps can it work with?
+## What platforms and languages can it work with?
 
 There are currently SDKs for:
 
-* Web apps
- * [ASP.NET][greenbrown] on Azure or your IIS server
- * [Java][java] on JRE 
+ * [ASP.NET servers][greenbrown] on Azure or your IIS server
+ * [J2EE servers][java]
  * [Web pages][client]: HTML+JavaScript
-* Device apps
- * [Windows][windows]
+ * [Windows Phone, Windows Store and Desktop apps][windows]
  * [iOS][ios]
  * [Android][android]
- * Cordova
  * [Other platforms][platforms]
+
+If your app has client, server and other components, you can instrument them all. The data will be integrated in the Application Insights portal so that, for example, you can correlate events at the client with events at the server.
 
 
 ## How would I use it?
 
+Both to make sure your app is performing well, and to find out what users are doing with it. Read more:
+
 * [Detect, triage, and diagnose problems][detect]
 * [Analyse the usage of your app][knowUsers]
 
-
-## What do I need, to use it?
-
-* An subscription to Microsoft Azure. Application Insights is one of the many cloud services of Azure, which also include web sites, databases, VMs and more. (But you can use Application Insights to monitor any application - your app doesn't have to run in Azure.) 
-
- * Your organization might have an account.
 
 
 ## How do I get started?
