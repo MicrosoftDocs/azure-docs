@@ -23,13 +23,15 @@ In this article, you'll use the **Deploy Database to Azure SQL Database wizard**
 
 Estimated time to completion: 15 minutes (includes download time)
 
-> [AZURE.NOTE] This tutorial uses a "school" sample database that is purposefully simple; all of its objects are compatible with Azure SQL Database, eliminating the need to modify or prepare the database for migration. If you are migrating a more complex existing database, you could also consider using the [SQL Database Migration Wizard](http://sqlazuremw.codeplex.com/). 
+> [AZURE.NOTE] This tutorial uses a "school" sample database that is purposefully simple; all of its objects are compatible with Azure SQL Database, eliminating the need to modify or prepare the database for migration. If you are migrating a more complex existing database, you could also consider using the [SQL Database Migration Wizard](http://sqlazuremw.codeplex.com/) and see this [overview](sql-database-cloud-migrate.md).
 
 ## Prerequisites
 
 A **Microsoft Azure account**. For a free trial, see this [offer](http://azure.microsoft.com/pricing/free-trial/).
 
 Download [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx).  (For more information about the tool, see [SQL Server Management Studio - June 2015 Release Notes](https://msdn.microsoft.com/library/mt238486.aspx).)
+
+An existing server on Azure SQL Database. For instructions on creating a new server, see [Create your first Azure SQL Database](sql-database-get-started.md)
 
 ## Create the school database on an on-premises server
 
@@ -540,12 +542,14 @@ You now have an on-premises database that you can export to Azure. Next, you'll 
 	
 1. In Management Studio, right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to Microsoft Azure SQL Database**.
 2. In **Deployment Settings**, enter a name for the database, such as *school*.
-5. Click **Connect**.
+5. Click **Connect**. To solve problems with connectivity, try this [troubleshooter](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 6. In **Server name**, enter the 10-character server name, followed by **.database.windows.net**
 7. In **Authentication**, choose **SQL Server Authentication**.
 8. Enter the administrator login name and password that you created when provisioning the SQL Database logical server.
 9. Click **Options**.
 10. In Connection Properties, in **Connect to database**, type **master**.
+
+	**Note** You must connect to the **master** database whenever you want to create a database on the Azure SQL Database server. 
 11. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
 12. Click **Next** and click **Finish** to run the wizard.
 
@@ -558,8 +562,11 @@ You now have an on-premises database that you can export to Azure. Next, you'll 
 4. Enter the administrator login name and password you created when provisioning the server. 
 5. Click the **Options** button.
 6. Click the **Connect to database** dropdown, and click **Browse server**. In the following dialog box, click **Yes** to allow browsing of the server.
-7. Click the **school** database to select it, then click **OK**. Then click **Connect**.
+7. Click the **school** database to select it, then click **OK**. 
+8. Then click **Connect**. To solve problems with connectivity, try this [troubleshooter](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 2. Expand the **Databases** folder. You should see the **school** database in the list.
+
+	**Note** You must connect to the database you want to query. 
 3. Right-click **school** and click **New Query**.
 4. Execute the following query to verify that data is accessible.
 
@@ -583,6 +590,6 @@ You now have an on-premises database that you can export to Azure. Next, you'll 
 		
 ## Next steps
 
-For a tutorial on creating a new Azure SQL database, see [Getting Started with SQL Database Administration](sql-database-get-started.md). For the basics of connecting to a SQL Azure database from a C# app, see [Connect to and query your SQL Database with C#](sql-database-connect-query.md). 
+For a tutorial on creating a new Azure SQL database, see [Getting Started with SQL Database Administration](sql-database-get-started.md). For the basics of connecting to an Azure SQL database from a C# app, see [Connect to and query your SQL Database with C#](sql-database-connect-query.md). For more tutorials on connection from various platforms (such as PHP) see [Azure SQL Database Development: How-to Topics](https://msdn.microsoft.com/library/azure/ee621787.aspx).
 
  
