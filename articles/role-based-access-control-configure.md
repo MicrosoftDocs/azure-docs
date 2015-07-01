@@ -293,6 +293,26 @@ function Get-ResourceDetails($resourceId)
     $resourceDetails
 }
 ```
+Next, here’s some sample Azure PowerShell code to map a RoleDefinitionId to a role’s display name:
+
+```
+
+# Get the name of a role
+function Get-AzureRoleDefinitionName($roleDefinitionId)
+{
+    if (!$Global:_azureRoleDefinitionCache) {
+        $Global:_azureRoleDefinitionCache = @{}
+        Get-AzureRoleDefinition | % { $Global:_azureRoleDefinitionCache[$_.Id] = $_; }
+    }
+
+    if ($Global:_azureRoleDefinitionCache[$roleDefinitionId]) {
+        return $Global:_azureRoleDefinitionCache[$roleDefinitionId].Name
+    } else {
+        return ""
+    }
+}
+
+```
 
 ###Sample Azure PowerShell script
 
@@ -342,6 +362,20 @@ function Get-ResourceDetails($resourceId)
     }
     $resourceDetails
 }
+# Get the name of a role
+function Get-AzureRoleDefinitionName($roleDefinitionId)
+{
+    if (!$Global:_azureRoleDefinitionCache) {
+        $Global:_azureRoleDefinitionCache = @{}
+        Get-AzureRoleDefinition | % { $Global:_azureRoleDefinitionCache[$_.Id] = $_; }
+    }
+
+    if ($Global:_azureRoleDefinitionCache[$roleDefinitionId]) {
+        return $Global:_azureRoleDefinitionCache[$roleDefinitionId].Name
+    } else {
+        return ""
+    }
+}
 # Sample - output the list of role assignment events
 function Get-AzureRBACAuditLog($startDateTime, $endDateTime)
 {
@@ -353,7 +387,7 @@ function Get-AzureRBACAuditLog($startDateTime, $endDateTime)
 
     $startEvents | ? { $endEvents.ContainsKey($_.OperationId) } | % {
         $endEvent = $endEvents[$_.OperationId];
-        $out = "" | select Timestamp, Caller, Action, PrincipalId, PrincipalName, PrincipalType, Scope, ScopeName, ScopeType, RoleDefinitionId
+        $out = "" | select Timestamp, Caller, Action, PrincipalId, PrincipalName, PrincipalType, RoleName, Scope, ScopeName, ScopeType, RoleDefinitionId
         $out.Timestamp = $endEvent.EventTimestamp
         $out.Caller = $_.Caller
         if ($_.HttpRequest.Method -ieq "PUT") {
@@ -374,6 +408,7 @@ function Get-AzureRBACAuditLog($startDateTime, $endDateTime)
             $pd = Get-PrincipalDetails $out.PrincipalId
             $out.PrincipalName = $pd.Name
             $out.PrincipalType = $pd.Type
+            $out.RoleName = (Get-AzureRoleDefinitionName $messageBody.properties.roleDefinitionId)
             $out.Scope = $messageBody.properties.Scope
             $rd = Get-ResourceDetails $out.Scope
             $out.ScopeName = $rd.Name
@@ -384,6 +419,7 @@ function Get-AzureRBACAuditLog($startDateTime, $endDateTime)
         $out
     }
 }
+
 ```
 
 And here are the commands to run the script

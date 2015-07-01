@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="06/29/2015"
    ms.author="cherylmc"/>
 
 #  Configure an ExpressRoute Connection through a Network Service Provider
@@ -89,7 +89,7 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 		Verizon              Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
 		
 
-3. **Make a request for a service key and pass it to your exchange provider.** 
+3. **Make a request for a service key and pass it to your network service provider.** 
 
 	You will use a PowerShell cmdlet to make this request. For this example we’ll use AT&T Netbond as the service provider and will specify a 50 Mbps ExpressRoute circuit in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
 
