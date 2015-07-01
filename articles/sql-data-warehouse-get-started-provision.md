@@ -108,7 +108,7 @@ Resource groups are containers; designed to help you manage a collection of Azur
 
 For this quick start it is ok to leave Resource Group configured on its default values.
 
-Learn more about [resource groups]
+Learn more about [resource groups](resource-group-portal.md).
 
 ### Subscription
 A single user could have one or more Azure subscriptions. If you have more than one subscription associated with your login then you can choose which subscription to use.
@@ -161,7 +161,7 @@ Now that you have configured the firewall you will be able to make connections f
 Now the SQLDW Service has been successfully provisioned we can move on to learn how to use it.
 
 The next steps are therefore to learn how to:
-1. [Connect and query] the SQLDW database
+1. [Connect and query](sql-data-warehouse-get-started-connect-query.md) the SQLDW database
 2. Export data from the SQLDW database to Azure Blob Storage
 3. Load more data into the SQLDW database
 
@@ -170,8 +170,7 @@ The next steps are therefore to learn how to:
 
 
 <!-- Articles -->
-[connect and query]: ./sql-data-warehouse-get-started-connect-query/
-[resource groups]: ./azure-preview-portal-using-resource-groups/
+
 
 <!--External links-->
 [free trial]: https://azure.microsoft.com/en-us/pricing/free-trial/
