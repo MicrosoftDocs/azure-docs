@@ -20,6 +20,7 @@
 This article covers the steps required to back up from a Windows server or a Windows client machine. It also covers the steps required to restore the backed up files on the same machine and the steps required to restore the backed up files on any other machine.
 
 ## Backup files
+
 1. Once the machine is registered, open the Microsoft Azure Backup mmc snap-in.
 
     ![Search result](./media/backup-azure-backup-and-recover/result.png)
