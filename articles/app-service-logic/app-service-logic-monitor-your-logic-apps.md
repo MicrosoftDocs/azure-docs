@@ -37,7 +37,7 @@ The details blade shows a graph with the execution time and sequence of all of t
 
 ![Run and Actions](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
-Finally, on a particular action, you can get all of the data that was passed to the action, and that was received from the action in the **Inputs** and **Outputs** sections.
+Finally, on a particular action, you can get all of the data that was passed to the action, and that was received from the action in the **Inputs** and **Outputs** sections. Click on the links to see the full content (you can also copy the links to download the content). 
 
 Another important piece of information is the **Tracking ID**. This identifier is passed in the headers of all action calls. If you have logging inside of your own service, we recommend logging the Tracking ID, and then you can cross-reference your own logs with this identifier.
 
