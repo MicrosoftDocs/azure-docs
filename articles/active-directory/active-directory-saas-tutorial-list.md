@@ -149,6 +149,9 @@ Logo | App Name
 ![120] | [Zscaler One](https://go.microsoft.com/fwLink/?LinkID=512737&clcid=0x409)
 ![120] | [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)
 
+##See Also
+
+[Applicaiton Access](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 
 [1]: ./media/active-directory-saas-tutorial-list/15five.jpg
 [2]: ./media/active-directory-saas-tutorial-list/SaaSApp_AbaSainsbury.jpg
@@ -266,7 +269,3 @@ Logo | App Name
 [118]: ./media/active-directory-saas-tutorial-list/SaaSApp_ZohoMail.jpg
 [119]: ./media/active-directory-saas-tutorial-list/SaaSApp_Zoom.jpg
 [120]: ./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg
-
-##See Also
-
-[Applicaiton Access](https://msdn.microsoft.com/library/azure/dn308590.aspx)
