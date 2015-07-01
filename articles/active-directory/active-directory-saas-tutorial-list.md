@@ -18,7 +18,9 @@
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
 
-These tutorials show you how to configure Azure Active Directory single sign-on for third party SaaS applications.
+This article contains links to tutorials that show you how to configure Azure Active Directory single sign-on for third party SaaS applications.
+
+##List of Tutorials
 
 Logo | App Name
 ---: | :---
