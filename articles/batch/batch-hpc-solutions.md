@@ -219,7 +219,7 @@ See the following figure for a typical workflow a developer can create with Batc
 [parallel]: ./media/batch-hpc-solutions/parallel.png
 [coupled]: ./media/batch-hpc-solutions/coupled.png
 [cloud]: ./media/batch-hpc-solutions/cloud.png
-[vms]: ./media/batch-hpc-solutions/vm.png
+[vms]: ./media/batch-hpc-solutions/vm_ico.png
 [batch]: ./media/batch-hpc-solutions/batch.png
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
