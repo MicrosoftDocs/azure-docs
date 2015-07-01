@@ -54,8 +54,8 @@ There are two separate configuration procedures to choose from. The configuratio
 - You won’t be able to route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
 - Both procedures assume that you already have an ExpressRoute circuit configured. If you do not, please see the following articles: 
 
-	- [Configure an ExpressRoute connection through a NSP](expressroute-configuring-nsps.md) 
-	- [Configure an ExpressRoute connection through an EXP](expressroute-configuring-exps.md)
+	- [Configure an ExpressRoute connection through a network service provider (NSP)](expressroute-configuring-nsps.md) 
+	- [Configure an ExpressRoute connection through an exchange provider (EXP)](expressroute-configuring-exps.md)
 
 
 ## Create a new VNet with coexisting connections
@@ -154,7 +154,7 @@ There are two separate configuration procedures to choose from. The configuratio
 		OperationStatus      : Succeeded
 
 	
-8. Configure your local VPN device to connect to the new gateway. Use the information that you retrieved in step 6 when configuring your VPN device. For more information about VPN device configuration, see [VPN device configuration](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration).
+8. Configure your local VPN device to connect to the new gateway. Use the information that you retrieved in step 6 when configuring your VPN device. For more information about VPN device configuration, see [VPN Device Configuration](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration).
 	
 
 9. Link the Site-to-Site VPN gateway on Azure to the local gateway. 
@@ -181,9 +181,8 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 2. Export the virtual network schema. Use the following PowerShell cmdlet, replacing the values with your own.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Edit the network configuration file schema so that the gateway subnet is /27 (or a shorter prefix). For more information about working with the network configuration file, see [Configure a Virtual Network using a network configuration file](../virtual-network/virtual-networks-using-network-configuration-file.md). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Edit the network configuration file schema so that the gateway subnet is /27 (or a shorter prefix). See the example below. For more information about working with the network configuration file, see [Configure a Virtual Network using a network configuration file](../virtual-network/virtual-networks-using-network-configuration-file.md). For more information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
-	**Example:**
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
