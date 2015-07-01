@@ -36,7 +36,7 @@ There are two different scenarios. The figure below shows both scenarios.
 There are two separate configuration procedures to choose from. The configuration procedure you select will depend on whether you already have an existing virtual network that you want to connect to, or if you want to create a new virtual network.
 
 
-- [Create a new VNet with coexisting connections](#create-a new-vnet-with-coexisting-connections): 
+- [Create a new VNet with coexisting connections](#create-a-new-vnet-with-coexisting-connections): 
 	If you don’t already have a virtual network, this procedure will walk you through creating a new virtual network and creating new ExpressRoute and Site-to-Site VPN connections.  
 
 
