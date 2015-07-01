@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # Consume an API app in Azure App Service from a .NET client 
@@ -116,9 +116,7 @@ To call the API app, all you have to do is create a client object and call metho
 
 ## Authenticated call from a Windows desktop application
 
-In this section you create a Windows desktop application project and add code to it that calls an API app that requires authentication. This code implements the Oauth 2 *server authentication flow*, which means that the API app gateway, rather than the client application, procures the token from the authentication provider. 
-
-Azure API apps also support the client authentication flow.  A client flow authentication scenario will be added to this tutorial in the future.
+In this section you create a Windows desktop application project and add code to it that calls an API app that requires authentication. 
 
 ### Set up the API app and create the project
 
@@ -198,9 +196,29 @@ Azure API apps also support the client authentication flow.  A client flow authe
 
 	![](./media/app-service-api-dotnet-consume/formaftercall.png)
 
+### <a id="client-flow"></a>Server flow vs. client flow
+
+The sample application illustrates [server flow](../app-service/app-service-authentication-overview.md#server-flow), which means the gateway gets the identity provider's access token. For [client flow](../app-service/app-service-authentication-overview.md#client-flow), in which your client application gets the access token directly from the identity provider and sends it to the gateway, you call `LoginAsync` rather than `SetCurrentUser`. 
+
+The following code example assumes that you have the identity provider's access token in a string variable named `providerAccessToken` and the identity provider indicator ("aad", "microsoftaccount", "google", "twitter", or "facebook") in a string variable named `idProvider`:
+
+		var appServiceClient = new AppServiceClient(GATEWAY_URL);
+		var providerAccessTokenJSON = new JObject();
+		providerAccessTokenJSON["access_token"] = providerAccessToken;
+		var appServiceUser = await appServiceClient.LoginAsync(idProvider, providerAccessTokenJSON);
+
+		var contactsListClient = appServiceClient.CreateContactsList();
+		var contacts = contactsListClient.Contacts.Get();
+		foreach (Contact contact in contacts)
+		{
+		    textBox1.Text += contact.Name + " " + contact.EmailAddress + System.Environment.NewLine;
+		}
+
 ## Next steps
 
 This article has shown how to consume an API app from a .NET client, for API apps set to **Public (authenticated)** and **Public (anonymous)** access levels. 
 
 For additional examples of code that calls an API app from .NET clients, download the [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) sample application.
+
+For information about how to use authentication in API apps, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md).
  

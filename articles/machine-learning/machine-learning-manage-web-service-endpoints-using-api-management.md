@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Machine learning algorithm cheat sheet | Microsoft Azure"
-	description="A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
+	pageTitle="Learn how to manage AzureML web services using API Management | Microsoft Azure"
+	description="A guide showing how to manage AzureML web services using API Management."
+	keywords="machine learning,api management"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"

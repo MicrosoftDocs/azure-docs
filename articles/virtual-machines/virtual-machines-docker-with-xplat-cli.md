@@ -87,7 +87,7 @@ If the command was successful, you should see something like the following, depe
 
 To test the Docker VM you have created in Azure, type
 
-`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:4243 info`
+`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
 where *<vm-name-you-used>* is the name of the virtual machine that you used in your call to `azure vm docker create`. You should see something similar to the following, which indicates that your Docker Host VM is up and running in Azure and waiting for your commands.
 
@@ -96,10 +96,10 @@ where *<vm-name-you-used>* is the name of the virtual machine that you used in y
 ### Docker Host VM Authentication
 In addition to creating the Docker VM, the `azure vm docker create` command also automatically creates the necessary certificates to allow your Docker client computer to connect to the Azure container host using HTTPS, and the certificates are stored on both the client and host machines, as appropriate. On subsequent runs, the existing certificates are reused and shared with the new host.
 
-By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **4243**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
+By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **2376**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
 
 ```
--dp, --docker-port [port]              Port to use for docker [4243]
+-dp, --docker-port [port]              Port to use for docker [2376]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 #Media Encoder Premium Workflow Formats and Codecs
@@ -80,6 +80,7 @@ The following section lists the codecs and file formats that are supported as ou
 - Windows Media/ASF
 - AVI (Uncompressed 8bit/10bit)
 - Smooth Streaming File Format (PIFF 1.3)
+- MPEG-TS 
 
 
 ###Output Video Codecs

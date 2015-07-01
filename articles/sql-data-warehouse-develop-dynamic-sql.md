@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Dynamic SQL in SQL Data Warehouse
@@ -31,16 +31,16 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-If the string is not particularly long then you can use [sp_executesql] as normal.
+If the string is not particularly long then you can use [sp_executesql][] as normal.
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [sp_executesql]: https://msdn.microsoft.com/en-us/library/ms188001.aspx

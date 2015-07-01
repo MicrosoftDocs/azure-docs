@@ -35,6 +35,7 @@ These are recommendations for consolidating workloads, security, domain and func
 If user-defined schemas have not been used previously then you have a clean slate. Simply use the old database name as the basis for your user-defined schemas in the SQL Data Warehouse database.
 
 If schemas have already been used then you have a few options:
+
 1. Remove the legacy schema names and start fresh
 2. Retain the legacy schema names by pre-pending the legacy schema name to the table name
 3. Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
@@ -110,12 +111,12 @@ FROM	[edw].customer
 > [AZURE.NOTE] Any change in schema strategy needs a review of the security model for the database. In many cases you might be able to simplify the security model by assigning permissions at the schema level. If more granular permissions are required then you can use database roles.
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

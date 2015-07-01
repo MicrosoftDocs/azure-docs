@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="03/24/2015"
+	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET web app in Azure App Service
@@ -59,6 +59,8 @@ Your first step is to create a web application project. Visual Studio will autom
 3. Make sure that **.NET Framework 4.5** is selected as the target framework.
 
 4. Clear the **Add Application Insights to Project** check box.
+ 
+	Application Insights monitors your web app for availability, performance, and usage. Check the box if you’d like to try Application Insights. For more information, see [Application Insights – Overview](app-insights-overview.md)
 
 4. Name the application **MyExample** and click **OK**.
 
@@ -295,7 +297,7 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 * How to avoid wake-up wait time after idle time-outs
 
-	By default, web apps are unloaded if they have been idle for some period of time. The first request after that has to wait for the web app to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to configure web app](web-sites-configure.md).
+	By default, web apps are unloaded if they have been idle for some period of time. The first request after that has to wait for the web app to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to configure web apps](web-sites-configure.md).
 
 * How to add real-time features such as chat
 

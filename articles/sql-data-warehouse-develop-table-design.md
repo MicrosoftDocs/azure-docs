@@ -13,15 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Table design in SQL Data Warehouse #
-SQL Data Warehouse is a massively parallel processing distributed database system. Consequently, SQL Data Warehouse stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By spreading the data and processing capability across multiple nodes SQL Data Warehouse is able to offer huge scalability - far beyond any single system.
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. Consequently, it stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By spreading the data and processing capability across multiple nodes SQL Data Warehouse is able to offer huge scalability - far beyond any single system.
 
-When a table is created in SQLDW it actually spread across all of the the distributions.
+When a table is created in SQL Data Warehouse, it is actually spread across all of the the distributions.
 
 This article will cover the following topics:
+
 - Supported data types
 - Principles of data distribution
 - Round Robin Distribution
@@ -32,6 +33,7 @@ This article will cover the following topics:
 
 ## Supported data types
 SQL Data Warehouse supports the common business data types:
+
 - **bigint**
 - **binary**
 - **bit**
@@ -117,19 +119,20 @@ Partial support:
 
 > [AZURE.NOTE] Define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, you will not be be able to insert data into the table. Also, try to limit the size of your variable length columns for even better throughput for running queries.
 
-## Principles of data distribution ##
+## Principles of data distribution
 
-There are two choices for distributing data in SQLDW:
+There are two choices for distributing data in SQL Data Warehouse:
+
 1. Distribute data based on hashing values from a single column
 2. Distribute data evenly but randomly  
 
-In SQLDW data distribution is decided at the table level. All tables are distributed so you will have the opportunity to make this decision for each table in your SQLDW database.
+Data distribution is decided at the table level. All tables are distributed so you will have the opportunity to make this decision for each table in your SQL Data Warehouse database.
 
-The first option is known as **Round-Robin** distribution - sometimes known as the random hash. You can think of this as the default or fail safe option.
+The first option is known as **round-robin** distribution - sometimes known as the random hash. You can think of this as the default or fail safe option.
 
-The second option is known as the **Hash** distribution. You can consider it an optimized form of data distribution. It is preferred where clusters of tables share common joining and/or aggregation criteria.
+The second option is known as the **hash** distribution. You can consider it an optimized form of data distribution. It is preferred where clusters of tables share common joining and/or aggregation criteria.
 
-## Round-robin distribution ##
+## Round-robin distribution
 
 Round-Robin distribution is a method of spreading data as evenly as possible across all distributions. Buffers containing rows of data are allocated in turn (hence the name round robin) to each distribution. The process is repeated until all data buffers have been allocated. At no stage is the data sorted or ordered in a round robin distributed table. A round robin distribution is sometimes called a random hash for this reason. The data is simply spread as evenly as possible across the distributions.
 
@@ -183,6 +186,7 @@ Loading data into a round robin distributed table tends to be faster than loadin
 ### Recommendations
 
 Consider using Round Robin distribution for your table in the following scenarios:
+
 - When there is no obvious joining key
 - If a candidate hash distribution key is not known
 - If the table does not share a common joining key with other tables
@@ -254,50 +258,50 @@ Notice that there is no partitioning function or scheme in the definition. All t
 
 ## Statistics
 
-SQL Data Warehouse uses a distributed query optimizer to create the appropriate query plan when users query tables. Once created, the query plan provides the strategy and method used by the database to access the data and fulfill the user request. SQL Data Warehouse's query optimizer is based on cost. In other words it compares various options (plans) based on their relative cost and chooses the most efficient plan available to it. Consequently, SQLDW needs a lot of information to make informed, cost based decisions. The information SQLDW uses is held against the table (for table size) and in database objects known as `STATISTICS`.
+SQL Data Warehouse uses a distributed query optimizer to create the appropriate query plan when users query tables. Once created, the query plan provides the strategy and method used by the database to access the data and fulfill the user request. SQL Data Warehouse's query optimizer is based on cost. In other words it compares various options (plans) based on their relative cost and chooses the most efficient plan available to it. Consequently, SQL Data Warehouse needs a lot of information to make informed, cost based decisions. It holds statistics information about the table (for table size) and in database objects known as `STATISTICS`.
 
-Statistics are held against single or multiple columns of indexes or tables. They provide the cost based optimizer with important information concerning cardinality and selectivity of values. This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query. It is therefore very important that the information contained in these statistics objects *accurately* reflects the current state of the table. It is vital to understand that it is the accuracy of the cost that is important. If the statistics accurately reflect the state of the table then plans can be compared for lowest cost. If they aren't accurate then SQLDW may choose the wrong plan.
+Statistics are held against single or multiple columns of indexes or tables. They provide the cost-based optimizer with important information concerning cardinality and selectivity of values. This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query. It is therefore very important that the information contained in these statistics objects *accurately* reflects the current state of the table. It is vital to understand that it is the accuracy of the cost that is important. If the statistics accurately reflect the state of the table then plans can be compared for lowest cost. If they aren't accurate then SQL Data Warehouse may choose the wrong plan.
 
-Column level Statistics in SQL Data Warehouse are user-defined.
+Column-level statistics in SQL Data Warehouse are user-defined.
 
-In other words we have to create them ourselves. As we have just learned, this is not something to overlook. This is an important difference between SQL Server and SQLDW. SQL Server will automatically create statistics when columns are queried. By default, SQL Server will also automatically update those statistics. However, in SQLDW statistics need to be created manually and managed manually.
+In other words we have to create them ourselves. As we have just learned, this is not something to overlook. This is an important difference between SQL Server and SQL Data Warehouse. SQL Server will automatically create statistics when columns are queried. By default, SQL Server will also automatically update those statistics. However, in SQL Data Warehouse statistics need to be created manually and managed manually.
 
 ### Recommendations
 
-Apply the following recommendations for generating statistics
+Apply the following recommendations for generating statistics:
+
 1. Create Single column statistics on columns used in `WHERE`, `JOIN`, `GROUP BY`, `ORDER BY` and `DISTINCT` clauses
 2. Generate multi-column statistics on composite clauses
 3. Update statistics periodically. Remember that this is not done automatically!
 
->[AZURE.NOTE] It is common for SQL Server data warehouses to rely solely on `AUTOSTATS` to keep the column statistics up to date. This is not a best practice even for SQL Server data warehouses. `AUTOSTATS` are triggered by a 20% rate of change which for large fact tables containing millions or billions of rows may not be sufficient. It is therefore always a good idea to keep on top of statistics updates to ensure that the statistics accurately reflect the cardinality of the table.
+>[AZURE.NOTE] It is common for SQL Server Data Warehouse to rely solely on `AUTOSTATS` to keep the column statistics up to date. This is not a best practice even for SQL Server data warehouses. `AUTOSTATS` are triggered by a 20% rate of change which for large fact tables containing millions or billions of rows may not be sufficient. It is therefore always a good idea to keep on top of statistics updates to ensure that the statistics accurately reflect the cardinality of the table.
 
 ## Unsupported features
 SQL Data Warehouse does not use or support these features:
 
-- Primary Keys
-- Foreign Keys
-- Check Constraints
-- Unique constraints
-- Unique indexes
-- Computed columns
-- Sparse columns
-- User defined types
-- Indexed views
-- Identities
-- Sequences
-- Triggers
-- Synonyms
+- primary keys
+- foreign keys
+- check constraints
+- unique constraints
+- unique indexes
+- computed columns
+- sparse columns
+- user-defined types
+- indexed views
+- identities
+- sequences
+- triggers
+- synonyms
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-s

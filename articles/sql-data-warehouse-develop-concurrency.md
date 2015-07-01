@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="06/26/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Concurrency and workload management in SQL Data Warehouse
@@ -32,8 +32,8 @@ SQL Data Warehouse has to live within both thresholds. If there are more than 32
 
 Each concurrently executing query consumes one or more concurrency slots. The exact number of slots depends on two factors:
 
-1) The DWU setting for the SQL Data Warehouse
-2) The **resource class** that the user belongs to 
+1. The DWU setting for the SQL Data Warehouse
+2. The **resource class** that the user belongs to 
 
 <!--
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
@@ -42,7 +42,7 @@ Each concurrently executing query consumes one or more concurrency slots. The ex
 | Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
 -->
 
-| Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | 
+| Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 
 | Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 
@@ -54,6 +54,7 @@ Resource classes are an essential part of SQL Data Warehouse workload management
 SQL Data Warehouse exposes four different resource classes in the form of **database roles** as part of its workload management implementation.  
 
 The roles are:
+
 - smallrc
 - mediumrc
 - largerc
@@ -123,6 +124,7 @@ It is important to remember that the active query workload must fit inside both 
 
 ## Queued query detection
 To identify queries that are held in a concurrency queue you can always refer to the `sys.dm_pdw_exec_requests` DMV.
+
 ```
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
@@ -152,6 +154,7 @@ The BackupConcurrencyResourceType can be seen when a database is being backed up
 
 
 To perform analysis of currently queued queries to find out what resources a request is waiting for please refer to the `sys.dm_pdw_waits` DMV.
+
 ```
 SELECT  w.[wait_id]
 ,       w.[session_id]
@@ -186,7 +189,9 @@ JOIN    sys.dm_pdw_exec_requests r  ON w.[request_id] = r.[request_id]
 WHERE	w.[session_id] <> SESSION_ID()
 ;
 ```
+
 To view just the resource waits consumed by a given query you can refer to the `sys.dm_pdw_resource_waits` DMV. Resource wait time only measures the time waiting for resources to be provided as opposed to signal wait time which is the time it takes for the underlying SQL Server's to schedule the query onto the CPU. 
+
 ```
 SELECT  [session_id]
 ,       [type]
@@ -203,7 +208,9 @@ FROM    sys.dm_pdw_resource_waits
 WHERE	[session_id] <> SESSION_ID()
 ;
 ```
+
 Finally, for historic trend analysis of waits then SQL Datawarehouse provides the `sys.dm_pdw_wait_stats` DMV.
+
 ```
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
@@ -217,16 +224,16 @@ FROM	sys.dm_pdw_wait_stats w
 ```
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [development overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-[Azure Management Portal]: http://portal.azure.com
+
 

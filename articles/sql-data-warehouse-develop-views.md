@@ -66,7 +66,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 

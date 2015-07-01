@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Quickstart tutorial for R language for Machine Learning | Microsoft Azure" 
-	description="Use this R programming tutorial to get started quickly using the R language with Azure Machine Learning Studio to create a forecasting solution." 
+<properties
+	pageTitle="Quickstart tutorial for R language for Machine Learning | Microsoft Azure"
+	description="Use this R programming tutorial to get started quickly using the R language with Azure Machine Learning Studio to create a forecasting solution."
 	keywords="quickstart,r language,r programming language,r programming tutorial"
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+	services="machine-learning"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/22/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/26/2015"
 	ms.author="larryfr"/>
 
 # Quickstart tutorial for the R programming language for Azure Machine Learning
@@ -164,25 +164,25 @@ We will start by loading the **csdairydata.csv** file into Azure Machine Learnin
 
 - Click on the + at the lower left of your screen and select **Dataset**.
 
-- Select the file with **Browse**.
+- Select **From Local File**, and then **Browse** to select the file.
 
-- Make sure you have selected **Generic CSV file with header (.csv)**.
+- Make sure you have selected **Generic CSV file with header (.csv)** as the type for the dataset.
 
 - Click the check mark.
 
-- You should see the new datasets by clicking on the **Datasets** tab.  
+- After the dataset has been uploaded, you should see the new dataset by clicking on the **Datasets** tab.  
 
 ####Create an experiment
 
 Now that we have some data in Machine Learning Studio, we need to create an experiment to do the analysis.  
 
-- Click on the + at the lower left and select **Experiment**.
+- Click on the + at the lower left and select **Experiment**, then **Blank Experiment**.
 
-- Give your experiment a title. I will call my experiment **CA Dairy Analysis**.
+- You can name your experiment by selecting, and modifying, the **Experiment created on ...** title at the top of the page. For example, changing it to **CA Dairy Analysis**.
 
-- Search for the dataset you just uploaded.
+- On the left of the experiment page, expand **Saved Datasets**, and then **My Datasets**. You should see the **cadairydata.csv** that you uploaded earlier.
 
-- Drag and drop the **csdairydata.csv dataset** onto the experiment.  
+- Drag and drop the **csdairydata.csv dataset** onto the experiment.
 
 - In the **Search experiment items** box on the top of the left pane, type [Execute R Script][execute-r-script]. You will see the module appear in the search list.
 
@@ -200,7 +200,7 @@ At this point your experiment should look something like Figure 3.
 
 ####Check on the data
 
-Let's have a look at the data we have loaded into our experiment. In the experiment, double-click on the output of the **cadairydata.csv dataset** and select **visualize**. You should see something like Figure 4.  
+Let's have a look at the data we have loaded into our experiment. In the experiment, click on the output of the **cadairydata.csv dataset** and select **visualize**. You should see something like Figure 4.  
 
 ![Summary of the cadairydata.csv dataset][4]
 
@@ -432,7 +432,7 @@ To help organize the code we will create our first simple function, `num.month()
 	num.month <- function(Year, Month) {
 	  ## Find the starting year
 	  min.year  <- min(Year)
-	
+
 	  ## Compute the number of months from the start of the time series
 	  12 * (Year - min.year) + Month - 1
 	}
@@ -461,31 +461,31 @@ In the following code, I define a new function, `log.transform()`, and apply it 
 	log.transform <- function(invec, multiplier = 1) {
 	  ## Function for the transformation, which is the log
 	  ## of the input value times a multiplier
-	
+
 	  warningmessages <- c("ERROR: Non-numeric argument encountered in function log.transform",
 	                       "ERROR: Arguments to function log.transform must be greate than zero",
 	                       "ERROR: Aggurment multiplier to funcition log.transform must be a scaler",
 	                       "ERROR: Invalid time seies value encountered in function log.transform"
 	                       )
-	
+
 	  ## Check the input arguments
 	  if(!is.numeric(invec) | !is.numeric(multiplier)) {warning(warningmessages[1]); return(NA)}  
 	  if(any(invec < 0.0) | any(multiplier < 0.0)) {warning(warningmessages[2]); return(NA)}
 	  if(length(multiplier) != 1) {{warning(warningmessages[3]); return(NA)}}
-	
+
 	  ## Wrap the multiplication in tryCatch
 	  ## If there is an exception, print the warningmessage to
 	  ## standard error and return NA
 	  tryCatch(log(multiplier * invec),
 	           error = function(e){warning(warningmessages[4]); NA})
 	}
-	
-	
+
+
 	## Apply the transformation function to the 4 columns
 	## of the dataframe with production data
 	multipliers  <- list(1.0, 6.5, 1000.0, 1000.0)
 	cadairydata[, 4:7] <- Map(log.transform, cadairydata[, 4:7], multipliers)
-	
+
 	## Get rid of any rows with NA values
 	cadairydata <- na.omit(cadairydata)  
 
@@ -554,11 +554,11 @@ We need to add a time series object to our dataframe. Replace the current code w
 
 	# Comment the following if using RStudio
 	cadairydata <- maml.mapInputPort(1)
-	
+
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-	
+
 	str(cadairydata) # Check the results
 
 Now, check the R Device output. It should look like Figure 15.
@@ -591,7 +591,7 @@ The `ts.detrend()` function shown below performs both of these operations. The f
 
 	ts.detrend <- function(ts, Time, min.length = 3){
 	  ## Function to de-trend and standardize a time series
-	
+
 	  ## Define some messages if they are NULL  
 	  messages <- c('ERROR: ts.detrend requires arguments ts and Time to have the same length',
 	                'ERROR: ts.detrend requires argument ts to be of type numeric',
@@ -602,33 +602,33 @@ The `ts.detrend()` function shown below performs both of these operations. The f
   	)
 	  # Create a vector of zeros to return as a default in some cases
 	  zerovec  <- rep(length(ts), 0.0)
-	
+
 	  # The input arguments are not of the same length, return ts and quit
 	  if(length(Time) != length(ts)) {warning(messages[1]); return(ts)}
-	
+
 	  # If the ts is not numeric, just return a zero vector and quit
 	  if(!is.numeric(ts)) {warning(messages[2]); return(zerovec)}
-	
+
 	  # If the ts is too short, just return it and quit
 	  if((ts.length <- length(ts)) < min.length) {warning(messages[3]); return(ts)}
-	
+
 	  ## Check that the Time variable is of class POSIXct
 	  if(class(cadairydata$Time)[[1]] != "POSIXct") {warning(messages[4]); return(ts)}
-	
+
 	  ## De-trend the time series by using a linear model
 	  ts.frame  <- data.frame(ts = ts, Time = Time)
 	  tryCatch({ts <- ts - fitted(lm(ts ~ Time, data = ts.frame))},
 	           error = function(e){warning(messages[5]); zerovec})
-	
+
 	  tryCatch( {stdev <- sqrt(sum((ts - mean(ts))^2))/(ts.length - 1)
 	             ts <- ts/stdev},
 	            error = function(e){warning(messages[6]); zerovec})
-	
+
 	  ts
 	}  
 	## Apply the detrend.ts function to the variables of interest
 	df.detrend <- data.frame(lapply(cadairydata[, 4:7], ts.detrend, cadairydata$Time))
-	
+
 	## Plot the results to look at the relationships
 	pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = df.detrend, main = "Pairwise Scatterplots of detrended standardized time series")
 
@@ -655,13 +655,13 @@ The code to compute the correlations as R ccf objects is as follows.
 	pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
 	  ccf(ts.list[[pair.ind[1]]], ts.list[[pair.ind[2]]], lag.max = lag.max, plot = plot)
 	}
-	
+
 	## A list of the pairwise indices
 	corpairs <- list(c(1,2), c(1,3), c(1,4), c(2,3), c(2,4), c(3,4))
-	
+
 	## Compute the list of ccf objects
 	cadairycorrelations <- lapply(corpairs, pair.cor, df.detrend)  
-	
+
 	cadairycorrelations
 
 Running this code produces the output shown in Figure 18.
@@ -679,7 +679,7 @@ We have computed the pairwise correlations as a list of R ccf objects. This pres
 The following code extracts the lag values from the list of ccf objects, which are themselves lists.
 
 	df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
-	
+
 	c.names <- c("-1 lag", "0 lag", "+1 lag")
 	r.names  <- c("Corr Cot Cheese - Ice Cream",
 	              "Corr Cot Cheese - Milk Prod",
@@ -687,14 +687,14 @@ The following code extracts the lag values from the list of ccf objects, which a
 	              "Corr Ice Cream - Mik Prod",
 	              "Corr Ice Cream - Fat Price",
 	              "Corr Milk Prod - Fat Price")
-	
+
 	## Build a dataframe with the row names column and the
 	## correlation data frame and assign the column names
 	outframe <- cbind(r.names, df.correlations)
 	colnames(outframe) <- c.names
 	outframe
-	
-	
+
+
 	## WARNING!
 	## The following line works only in Azure Machine Learning
 	## When running in RStudio, this code will result in an error
@@ -736,11 +736,11 @@ As with the correlation analysis we just completed, we need to add a column with
 
 	# If running in Machine Learning Studio, uncomment the first line with maml.mapInputPort()
 	cadairydata <- maml.mapInputPort(1)
-	
+
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-	
+
 	str(cadairydata)
 
 Run this code and look at the R Device output port. The result should look like Figure 21.
@@ -756,12 +756,12 @@ With this result, we are ready to start our analysis.
 With the dataframe constructed we need to create a training dataset. This data will include all of the observations except the last 12, of the year 2013, which is our test dataset. The following code subsets the dataframe and creates plots of the dairy production and price variables. I then create plots of the four production and price variables. An anonymous function is used to define some augments for plot, and then iterate over the list of the other two arguments with `Map()`. If you are thinking that a for loop would have worked fine here, you are correct. But, since R is a functional language I am showing you a functional approach.
 
 	cadairytrain <- cadairydata[1:216, ]
-	
+
 	Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
 	               "Log CA Ice Cream Production, 1000s lb",
 	               "Log CA Milk Production 1000s lb",
 	               "Log North CA Milk Milk Fat Price per 1000 lb")
-	
+
 	Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 
 Running the code produces the series of time series plots from the R Device output shown in Figure 22. Note that the time axis is in units of dates, a nice benefit of the time series plot method.
@@ -843,7 +843,7 @@ This looks better. All of the terms are significant. However, the 2e-16 value is
 As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. I have added the following code in the Azure Machine Learning [Execute R Script][execute-r-script] model (not RStudio) to create the model and make a plot. The result is shown in Figure 23.
 
 	milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
-	
+
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm, cadairytrain), lty = 2, col = 2)
 
@@ -901,7 +901,7 @@ We see that the model no longer has an intercept term and has 12 significant mon
 Let's make another time series plot of the California dairy production data to see how well the seasonal model is working. I have added the following code in the Azure Machine Learning [Execute R Script][execute-r-script] to create the model and make a plot.
 
 	milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
-	
+
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
@@ -918,7 +918,7 @@ As another check on our model, let's have a look at the residuals. The following
 	## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-	
+
 	## Compute and plot the residuals
 	residuals <- cadairydata$Milk.Prod - predict2
 	plot(cadairytrain$Time, residuals[1:216], xlab = "Time", ylab ="Residuals of Seasonal Model")
@@ -961,21 +961,21 @@ A number of metrics are used to measure the performance of time series models. I
 	RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
 	  ## Function to compute the RMS error or difference between two
 	  ## series or vectors
-	
+
 	  messages <- c("ERROR: Input arguments to function RMS.error of wrong type encountered",
 	                "ERROR: Input vector to function RMS.error is too short",
 	                "ERROR: Input vectors to function RMS.error must be of same length",
 	                "WARNING: Funtion rms.error has received invald input time series.")
-	
+
 	  ## Check the arguments
 	  if(!is.numeric(series1) | !is.numeric(series2) | !is.logical(is.log) | !is.numeric(min.length)) {
     	warning(messages[1])
 	    return(NA)}
-	
+
 	  if(length(series1) < min.length) {
     	warning(messages[2])
 	    return(NA)}
-	
+
 	  if((length(series1) != length(series2))) {
 	   	warning(messages[3])
 	    return(NA)}
@@ -995,7 +995,7 @@ A number of metrics are used to measure the performance of time series models. I
 	 ## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-	
+
 	## Compute the RMS error in a dataframe
 	  tryCatch( {
 	    sqrt(sum((temp1 - temp2)^2) / length(temp1))},
@@ -1019,7 +1019,7 @@ Equipped with a function to measure the RMS error, let's build and output a data
 	    RMS.error(predict2[217:228], cadairydata$Milk.Prod[217:228]))
 	)
 	RMS.df
-	
+
 	## The following line should be executed only when running in
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('RMS.df')
@@ -1082,7 +1082,7 @@ Some great internet resources:
 
 - A quick R tutorial by Kelly Black from Clarkson University http://www.cyclismo.org/tutorial/R/
 
-- 60+ R resources listed at http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html 
+- 60+ R resources listed at http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png
@@ -1117,4 +1117,3 @@ Some great internet resources:
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
- 

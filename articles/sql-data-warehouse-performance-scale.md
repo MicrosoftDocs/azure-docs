@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2015"
+   ms.date="06/25/2015"
    ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # Elastic performance and scale with SQL Data Warehouse
@@ -63,11 +63,14 @@ The pause action returns your compute resources back to the pool of available re
 Pause and resume of your compute power can be done through the [Azure Portal][], via REST APIs or through Powershell.  Pausing cancels all running or queued activities and when you return you can resume your compute resources in seconds. 
 
 The code below shows how to perform a pause using PowerShell:
+
 ```
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
+
 Resuming the service is also very straightforward with PowerShell:
+
 ```
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
@@ -77,10 +80,17 @@ For more details on how to use PowerShell please refer to the [Introduction to P
 > [Azure.Note] Since storage is separate from compute, your storage is unaffected by pause.
 
 ## Next steps
+For the performance overview, see [performance overview][].
+
+<!--Image references-->
+
+<!--Article references-->
+[performance overview]: sql-data-warehouse-overview-performance.md
+[Introduction to PowerShell cmdlets]: sql-data-warehouse-get-started-powershell-cmdlets.md
+
+<!--MSDN references-->
 
 
-<!-- Article References -->
-[Introduction to PowerShell cmdlets]: ./sql-data-warehouse-get-started-powershell-cmdlets/
+<!--Other Web references-->
 
-<!-- Web references -->
 [Azure Portal]: http://portal.azure.com/

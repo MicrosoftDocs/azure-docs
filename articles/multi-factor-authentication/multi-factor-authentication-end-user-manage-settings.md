@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/30/2015" 
 	ms.author="billmath"/>
 
-# Managing your settings with Azure Multi-Factor Authentication
+# Changing your settings with Azure Multi-Factor Authentication
 The following information is provided to help you manage your multi-factor authentication settings.
 
 ## Changing your settings depends on how you use multi-factor authentication

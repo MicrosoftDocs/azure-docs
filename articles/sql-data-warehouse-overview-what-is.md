@@ -62,13 +62,14 @@ Polybase enables you to query non-relational data held in Azure blob storage or 
 SQL Data Warehouse easily deploys in seconds. This service is a fully managed offering which removes the hassle of spend time on software patching and maintenance. SQL Data Warehouse has built-in backups to support self-service restore; the service automatically backs up your data to Azure Storage as it snapshots database restore points.
 
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
+## Next steps
+Learn about the [data warehouse workload].
 
-<!--Link references--In actual articles, you only need a single period before the slash.-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+<!--Image references-->
+
+<!--Article references-->
+[data warehouse workload] sql-data-warehouse-overview-workload.md
+
+<!--MSDN references-->
+
+<!--Other Web references-->

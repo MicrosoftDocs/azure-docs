@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/16/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok" />
 
 
@@ -33,9 +33,9 @@ With Stream Analytics, you can:
 For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md). 
 
 A Stream Analytics job includes all of the following:
-* One or more input sources
-* A query over an incoming data stream
-* An output target.    
+- One or more input sources
+- A query over an incoming data stream
+- An output target.    
 
 
 ## Inputs
@@ -142,10 +142,15 @@ The output target is where the results of the Stream Analytics job will be writt
 - Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](../storage/storage-introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Azure SQL Database - This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
+## Streaming Units ##
+As part of providing a more predictable performance experience for customers, Azure Stream Analytics uses Streaming Units (SUs) to represent the resources and power to execute a job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput.  
+Each Azure Stream Analytics job needs a minimum of one streaming unit, which is the default for all jobs. To learn more about selecting the right number of SU’s for a job, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 
 ## Scale jobs
 
-A Stream Analytics job can be scaled through configuring streaming units, which define the amount of data processing power a job receives. Each streaming unit corresponds to roughly 1MB/second of throughput. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
+The SU % Utilization metric defined below, is an indicator for the need to scale an Azure Stream Analytics job.  High SU % Utilization may be a result of large window in a query, large events in input, large out of order tolerance window, or a combination of the above. Partitioning the query, or breaking down the query into more steps, and adding more SUs from the Scale tab are both strategies to avoid such a condition.
+
+You may observe a baseline resource utilization even without input events, because the system consumes certain amount of resource. The amount of resource consumed by the system may also fluctuate over time.
 
 For details, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md).
 
@@ -159,9 +164,9 @@ To enable job monitoring, Stream Analytics requires you to designate an Azure St
 ### Metrics
 The following metrics are available for monitoring the usage and performance of Stream Analytics jobs:
 
+- SU % Utilizaiton - An indicator of the relative event processing capacity for one or more of the query steps.  Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress.
 - Errors - Number of error messages incurred by a Stream Analytics job.
-- Input events - Amount of data received by the Stream Analytics job, in terms of 
-- event count.
+- Input events - Amount of data received by the Stream Analytics job, in terms of event count.
 - Output events - Amount of data sent by the Stream Analytics job to the output target, in terms of event count.
 - Out-of-order events - Number of events received out of order that were either dropped or given an adjusted timestamp, based on the out-of-order policy.
 - Data conversion errors - Number of data conversion errors incurred by a Stream Analytics job.

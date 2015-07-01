@@ -48,13 +48,13 @@ Build and run the application. This will bootstrap the elastic database tools’
 
 Notice that because RLS has not yet been enabled in the shard databases, each of these tests reveals a problem: tenants are able to see blogs that do not belong to them, and the application is not prevented from inserting a blog for the wrong tenant. The remainder of this article describes how to resolve these problems by enforcing tenant isolation with RLS. There are two steps: 
 
-1. **Application tier**: Modify the application code to set CONTEXT_INFO to the current TenantId after opening a connection. The sample project has already done this. 
+1. **Application tier**: Modify the application code to always set CONTEXT_INFO to the current TenantId after opening a connection. The sample project has already done this. 
 2. **Data tier**: Create an RLS security policy in each shard database to filter rows based on the value of CONTEXT_INFO. You will need to do this for each of your shard databases, otherwise rows in multi-tenant shards will not be filtered. 
 
 
 ## Step 1) Application tier: Set CONTEXT_INFO to TenantId
 
-After connecting to a shard database using the elastic database client library’s data dependent routing APIs, the application still needs to tell the database which TenantId is using that connection so that an RLS security policy can filter out rows belonging to other tenants. The recommended way to pass this information is to set [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125) to the current TenantId for that connection. 
+After connecting to a shard database using the elastic database client library’s data dependent routing APIs, the application still needs to tell the database which TenantId is using that connection so that an RLS security policy can filter out rows belonging to other tenants. The recommended way to pass this information is to set [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125) to the current TenantId for that connection. Note that on Azure SQL Database, CONTEXT_INFO is pre-populated with a session-specific GUID, so you *must* set CONTEXT_INFO to the correct TenantId before executing any queries on a new connection to ensure that no rows are inadvertently leaked.
 
 ### Entity Framework
 
@@ -68,26 +68,38 @@ For applications using Entity Framework, the easiest approach is to set CONTEXT_
 // if migrations need to be done and SQL credentials are used. This is the reason for the  
 // separation of c'tors into the DDR case (this c'tor) and the internal c'tor for new shards. 
 public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
-	: base(CreateDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */) 
+    : base(OpenDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */)
 {
-} 
+}
 
-// Only static methods are allowed in calls into base class c'tors  
-private static DbConnection CreateDDRConnection(ShardMap shardMap, T shardingKey, string connectionStr)  
-{  
-	// No initialization  
-	Database.SetInitializer<ElasticScaleContext<T>>(null);    
-	
-	// Ask shard map to broker a validated connection for the given key    
-	SqlConnection conn = shardMap.OpenConnectionForKey<T>(shardingKey, connectionStr, ConnectionOptions.Validate);
-	
-	// Set CONTEXT_INFO to shardingKey to enable RLS filtering   
-	SqlCommand cmd = conn.CreateCommand();   
-	cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";   
-	cmd.Parameters.AddWithValue("@shardingKey", shardingKey);   
-	cmd.ExecuteNonQuery();  
-	
-	return conn;  
+public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, string connectionStr)
+{
+    // No initialization
+    Database.SetInitializer<ElasticScaleContext<T>>(null);
+
+    // Ask shard map to broker a validated connection for the given key
+    SqlConnection conn = null;
+    try
+    {
+        conn = shardMap.OpenConnectionForKey(shardingKey, connectionStr, ConnectionOptions.Validate);
+
+        // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
+        SqlCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
+        cmd.Parameters.AddWithValue("@shardingKey", shardingKey);
+        cmd.ExecuteNonQuery();
+
+        return conn;
+    }
+    catch (Exception)
+    {
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
+
+        throw;
+    }
 } 
 // ... 
 ```
@@ -115,30 +127,62 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### ADO.NET SqlClient 
 
-For applications using ADO.NET SqlClient, the easiest way to set CONTEXT_INFO is to prepend “SET CONTEXT_INFO @TenantId;” to every query. This approach has the added benefit of avoiding an extra round-trip query to set CONTEXT_INFO each time a new connection is opened.  
-
-Note that CONTEXT_INFO is connection-scoped, so it only needs to be set once if you execute multiple queries on the same connection. 
+For applications using ADO.NET SqlClient, the recommended approach is to create a wrapper function around ShardMap.OpenConnectionForKey() that automatically sets CONTEXT_INFO to the correct TenantId before returning a connection. To ensure that CONTEXT_INFO is always set properly, you should only open connections using this wrapper function. 
 
 ```
-// Program.cs 
-SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
-{   
-	using (SqlConnection conn = sharding.ShardMap.OpenConnectionForKey(tenantId4, connStrBldr.ConnectionString))   
-	{     
-		// Must explicitly set CONTEXT_INFO to the TenantId because the override in ElasticScaleContext.cs is not used     
-		SqlCommand cmd = conn.CreateCommand();     
-		cmd.CommandText = @"SET CONTEXT_INFO @TenantId;                         
-							SELECT * FROM Blogs";     
-		cmd.Parameters.AddWithValue("@TenantId", tenantId4); 
-		
-		Console.WriteLine("ADO.NET SqlClient: All blogs for TenantId {0}:", tenantId4);
-		SqlDataReader reader = cmd.ExecuteReader();     
-		while (reader.Read())     
-		{       
-			Console.WriteLine(String.Format("{0}", reader[1]));     
-		}   
-	} 
+// Program.cs
+// ...
+
+// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets CONTEXT_INFO to the correct
+// tenantId before returning a connection. As a best practice, you should only open connections using this 
+// method to ensure that CONTEXT_INFO is always set before executing a query.
+public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenantId, string connectionStr)
+{
+    SqlConnection conn = null;
+    try
+    {
+        // Ask shard map to broker a validated connection for the given key
+        conn = shardMap.OpenConnectionForKey(tenantId, connectionStr, ConnectionOptions.Validate);
+
+        // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
+        SqlCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
+        cmd.Parameters.AddWithValue("@shardingKey", tenantId);
+        cmd.ExecuteNonQuery();
+
+        return conn;
+    }
+    catch (Exception)
+    {
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
+
+        throw;
+    }
+}
+
+// ...
+
+// Example query via ADO.NET SqlClient
+// If row-level security is enabled, only Tenant 4's blogs will be listed
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
+{
+    using (SqlConnection conn = OpenConnectionForTenant(sharding.ShardMap, tenantId4, connStrBldr.ConnectionString))
+    {
+        SqlCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"SELECT * FROM Blogs";
+
+        Console.WriteLine("--\nAll blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
+        SqlDataReader reader = cmd.ExecuteReader();
+        while (reader.Read())
+        {
+            Console.WriteLine("{0}", reader["Name"]);
+        }
+    }
 });
+
 ```
 
 ## Step 2) Data tier: Create row-level security policy and constraints 
@@ -249,6 +293,35 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [AZURE.NOTE] If you use default constraints for an Entity Framework project, it is recommended that you do NOT include the TenantId column in your EF data model. This is because Entity Framework queries automatically supply default values that will override the default constraints created in T-SQL that use CONTEXT_INFO. To use default constraints in the sample project, for instance, you should remove TenantId from DataClasses.cs (and run Add-Migration in the Package Manager Console) and use T-SQL to ensure that the field only exists in the database tables. This way, EF will not automatically supply incorrect default values when inserting data. 
+
+### (Optional) Enable a "superuser" to access all rows
+Some applications may want to create a "superuser" who can access all rows, for instance, in order to enable reporting across all tenants on all shards, or to perform Split/Merge operations on shards that involve moving tenant rows between databases. To enable this, you should create a new SQL user ("superuser" in this example) in each shard database. Then alter the security policy with a new predicate function that allows this user to access all rows:
+
+```
+-- New predicate function that adds superuser logic
+CREATE FUNCTION rls.fn_tenantAccessPredicateWithSuperUser(@TenantId int)
+    RETURNS TABLE
+    WITH SCHEMABINDING
+AS
+    RETURN SELECT 1 AS fn_accessResult 
+        WHERE 
+        (
+            DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- note, should not be dbo!
+            AND CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) = @TenantId
+        ) 
+        OR
+        (
+            DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('superuser')
+        )
+GO
+
+-- Atomically swap in the new predicate function on each table
+ALTER SECURITY POLICY rls.tenantAccessPolicy
+    ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
+    ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts
+GO
+```
+
 
 ### Maintenance 
 

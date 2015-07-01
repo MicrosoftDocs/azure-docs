@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="06/26/2015"
    ms.author="sahajs"/>
 
 # Recover a database from user error in SQL Data Warehouse
 
-SQL Data Warehouse offers two core capabilities for recovering from user error that causes unintentional data corruption or deletion
+SQL Data Warehouse offers two core capabilities for recovering from user error that causes unintentional data corruption or deletion:
+
 - Restore a live database
 - Restore a deleted database
 
@@ -28,6 +29,7 @@ Both of these capabilities restore to a new database on the same server.
 In the event of user error causing unintended data modification, you can restore the database to any of the restore points within the retention period. The database snapshots for a live database occur every 8 hours and are retained for 7 days. 
 
 ### PowerShell
+
 Use PowerShell to programmatically perform database restore. To restore a database, use the [Start-AzureSqlDatabaseRestore][] cmdlet.
 
 1. Select the subscription under your account that contains the database to be restored.
@@ -57,15 +59,14 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-
 ### REST API
 Use REST to programmatically perform database restore.
 
 1. Get the list of database restore points using the Get Database Restore Points operation.
 2. Begin your restore by using the [Create database restore request][] operation.
-3. Track the status of your restore by using the [Database Operation Status][] operation.
+3. Track the status of your restore by using the [Database operation status][] operation.
 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database][] guide.
+After the restore has completed, you can configure your recovered database to be used by following the [Finalize a recovered database][] guide.
 
 ## Recover a deleted database
 In the event a database is deleted, you can restore the deleted database to the time of deletion. Azure SQL Data Warehouse takes a database snapshot before the database is dropped and retains it for 7 days.
@@ -80,6 +81,7 @@ Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
 2. Get the specific deleted database and start the restore.
+
 ```
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
 
@@ -87,7 +89,6 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase
 
 Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
-
 
 ### REST API
 Use REST to programmatically perform database restore.
@@ -107,16 +108,14 @@ To learn about the business continuity features of other Azure SQL Database edit
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database business continuity overview]: ./sql-database-business-continuity/
-[Finalize a recovered database]: ./sql-database-recovered-finalize/
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/en-us/library/dn720218.aspx
-
+[Azure SQL Database business continuity overview]: sql-database/sql-database-business-continuity/,d
+[Finalize a recovered database]: sql-database/sql-database-recovered-finalize/
 
 <!--MSDN references-->
 [Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx
 [Database operation status]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Get restorable dropped database]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [List restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/en-us/library/dn720218.aspx
 
 <!--Other Web references-->
