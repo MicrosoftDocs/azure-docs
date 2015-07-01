@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/01/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -330,9 +330,16 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 
 ## Move a resource
 
-- To move an existing resource to the resource group, use the **Move-AzureResource** command.
+To move an existing resource from one resource group to another resource group, use the **Move-AzureResource** command.
 
-		PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+
+There are some important considerations when moving a resource:
+
+1. You cannot change the location of the resource. The **Move-AzureResource** command only moves the resource to a new resource group. The new resource group may have a different location, but that does not change the location of the resource.
+2. If you are moving a web app, you must also move the app service plan for the web app. It is not possible to have your web app connected to an app service plan that is in a different resource group.
+3. Make sure you are using the latest version of Azure PowerShell. The **Move-AzureResource** command is updated frequently. To update your version, run the Microsoft Web Platform Installer and check if a new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+4. If you encounter an error, check the audit log for more information about why the resource was not moved. 
 
 ## Delete a resource group
 
