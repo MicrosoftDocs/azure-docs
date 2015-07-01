@@ -351,7 +351,7 @@ And of course, when the feature is live, make sure you look at the analytics and
 
 ## Video
 
-> [Azure.VIDEO usage-monitoring-application-insights]
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
