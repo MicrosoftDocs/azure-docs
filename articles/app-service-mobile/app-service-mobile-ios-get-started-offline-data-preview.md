@@ -214,7 +214,7 @@ In this section, you will turn of Wi-Fi in the simulator to create an offline sc
 
 In order to support the offline sync feature, we used the `MSSyncTable` interface and initialized `MSClient.syncContext` with a local store. In this case the local store was a Core Data-based database.
 
-When using a Core Data local store, you must define several tables with the [correct system properties][Review the Core Data model].
+When using a Core Data local store, you must define several tables with the [correct system properties](#review-core-data).
 
 The normal CRUD operations for Mobile Apps work as if the app is still connected but, all the operations occur against the local store.
 
