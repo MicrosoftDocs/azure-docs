@@ -188,7 +188,7 @@ Configuration, cluster management, and container orchestration:
 - [Fleet on CoreOS](virtual-machines-linux-coreos-fleet-get-started.md)
 
 -	Deis
-	- [GitHub repo: Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)
+	- [Create a 3-Node Azure VM group, install Deis, and start a Hello World Go application](virtual-machines-deis-cluster.md)
 	
 -	Kubernetes
 	- [Complete guide to automated Kubernetes cluster deployment with CoreOS and Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
