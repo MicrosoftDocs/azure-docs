@@ -104,9 +104,9 @@ Create a public IP address to be used by frontend IP pool:
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
 
-## Create Front end IP pool and  Backend pool
+## Create Front end IP pool and backend address pool
 
-Setting up a front end IP pool for the incoming load balancer network traffic and backend pool to receive the load balanced traffic.
+Setting up a front end IP pool for the incoming load balancer network traffic and backend address pool to receive the load balanced traffic.
 
 ### Step 1 
 
@@ -117,14 +117,14 @@ Using public IP variable ($publicIP), create the front end IP pool.
 
 ### step 2 
 
-Set up a back end pool used to receive incoming traffic from front end IP pool:
+Set up a back end address pool used to receive incoming traffic from front end IP pool:
 
 	$beaddresspool= New-AzureLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 
 
 ## Create LB rules, NAT rules, probe and load balancer
 
-After creating the front end IP pool and the backend pool, you will need to create the rules which will belong to the load balancer resource:
+After creating the front end IP pool and the backend address pool, you will need to create the rules which will belong to the load balancer resource:
 
 ### Step 1
 
@@ -141,7 +141,7 @@ The example above is creating the following items:
 
 - NAT rule which all incoming traffic to port 3441 will go to port 3389.
 - a second NAT rule which all incoming traffic to port 3442 will go to port 3389.
-- a load balancer rule which will load balance all incoming traffic on public port 80 to local port 80 in the backend pool.
+- a load balancer rule which will load balance all incoming traffic on public port 80 to local port 80 in the back end address pool.
 - a probe rule which will check the health status for path "HealthProbe.aspx"
 
 
