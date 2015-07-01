@@ -16,9 +16,6 @@
 	ms.date="06/30/2015"  
 	ms.author="robb"/>
 
-
-
-
 # Introducing Microsoft Azure
 
 Microsoft Azure is Microsoft's application platform for the public cloud.  The goal of this article is to give you a foundation for understanding the fundamentals of Azure, even if you don't know anything about cloud computing.
@@ -32,33 +29,9 @@ Azure is growing all the time so it's easy to get overloaded.  The basic service
 Your feedback is important. This article should give you an effective overview of Azure. If it does not, tell us in the comments section at the bottom of the page. Give some detail on what you expected to see and how to improve the article.  
    
 
-## Table of Contents
-
-**Basic Services**
--   [The Components of Azure](#components)
--   [Management Portal](#management-portal)
--   [Compute](#compute)
--   [Data Management](#data-management)
--   [Networking](#networking)
--   [Developer Services](#developer-services)
-
-**Additional Services**
--   [Identity and Access](#identity)
--   [Mobile](#mobile)
--   [Backup](#backup)
--   [Messaging and Integration](#messaging-and-integration)
--   [Compute Assistance](#compute-assistance)
--   [Performance](#Performance)
--   [Big Compute and Data](#BigStuff)
--   [Media](#media)
--   [Commerce](#commerce)
-
-[Getting Started](#start)
-
- 
 ## The Components of Azure
 
-Azure groups services into categories in the Management Portal and on various visual aids like the [What Is Windows Azure Infographic](http://azure.microsoft.com/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). The Management Portal is what you use to manage most (but not all) services in Azure. 
+Azure groups services into categories in the Management Portal and on various visual aids like the [What Is Azure Infographic](http://azure.microsoft.com/documentation/infographics/azure/) . The Management Portal is what you use to manage most (but not all) services in Azure. 
 
 This paper will use a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
 
