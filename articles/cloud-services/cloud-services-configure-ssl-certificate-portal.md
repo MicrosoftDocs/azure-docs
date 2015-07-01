@@ -149,7 +149,7 @@ Connect to the portal and...
 
 4. Provide the **File**, **Password**, then click **Upload**.
 
-## Step 3: Connect to the role instance by using HTTPS
+## Step 4: Connect to the role instance by using HTTPS
 
 Now that your deployment is up and running in Azure, you can
 connect to it using HTTPS.
