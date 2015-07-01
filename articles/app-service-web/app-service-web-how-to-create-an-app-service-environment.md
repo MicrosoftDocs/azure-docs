@@ -26,6 +26,7 @@ The ASE feature essentially deploys the Azure App Service into a customer’s VN
 
 - A Regional VNET is required with more than 512 (/23) or more addresses
 - A Subnet in this VNET is required with 256 (/24) or more addresses
+- The subnet **must not contain any other compute resources**.  Only one App Service Environment can be deployed into a subnet.  The creation attempt will fail if there are any other compute resources already residing in the subnet.
 
 If you do not already have a VNET you wish to use to host your App Service Environment you can create one during App Service Environment creation.
 
