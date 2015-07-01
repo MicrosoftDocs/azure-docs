@@ -1,6 +1,6 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Resource<sup>1</sup></th>
+   <th align="left" valign="middle">Resource</th>
    <th align="left" valign="middle">Default Limit</th>
 </tr>
 <tr>
