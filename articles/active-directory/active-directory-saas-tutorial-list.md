@@ -136,7 +136,7 @@ Logo | App Name
 ![112] | [Wikispaces](https://go.microsoft.com/fwLink/?LinkID=403223&clcid=0x409)
 ![113] | [Work.com](https://go.microsoft.com/fwLink/?LinkID=510259&clcid=0x409)
 ![114] | [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)
-![114] | [Workday Inbound Synchronization](https://msdn.microsoft.com/en-us/library/azure/dn762434.aspx)
+![114] | [Workday Inbound Synchronization](https://msdn.microsoft.com/library/azure/dn762434.aspx)
 ![116] | [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)
 ![117] | [Zendesk](https://go.microsoft.com/fwLink/?LinkID=403255&clcid=0x409)
 ![118] | [Zoho Mail](https://go.microsoft.com/fwLink/?LinkID=403220&clcid=0x409)
