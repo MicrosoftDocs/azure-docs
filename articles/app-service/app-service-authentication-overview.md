@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # Authentication for API apps and mobile apps in Azure App Service
@@ -121,6 +121,8 @@ The app service gateway includes built-in support for getting the user's consent
 * SharePointOnline
 * Twitter
 * Yammer
+* Azure Active Directory
+* Microsoft Account
 
 For these providers, the gateway maintains access tokens and associates them with the Zumo token, as it does for the identity provider access token. The process of getting user consent and calling a SaaS platform is illustrated in the following diagram.
 
@@ -210,5 +212,3 @@ This article has explained the authentication services provided by Azure App Ser
 ### <a id="maobo"></a>Mobile Apps on-behalf-of calls to secured resources
 
 * [Obtain an access token and call the SharePoint API in a mobile app](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
-
-

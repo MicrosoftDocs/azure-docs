@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="riande"/>
 
 
@@ -24,10 +24,10 @@ This topic explains how to use the Azure Redis Cache Service for session state.
 
 If your ASP.NET web app uses session state, you will need to configure an external session state provider (either the Redis Cache Service or a SQL Server session state provider). If you use session state, and don't use an external provider, you will be limited to one instance of your web app. The Redis Cache Service is the fastest and simplest to enable.
 
-<h2><a id="createcache"></a>Create the Cache</h2>
+##<a id="createcache"></a>Create the Cache
 Follow [these directions](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) to create the cache.
 
-<h2><a id="configureproject"></a>Add the RedisSessionStateProvider NuGet package to your web app</h2>
+##<a id="configureproject"></a>Add the RedisSessionStateProvider NuGet package to your web app
 Install the NuGet `RedisSessionStateProvider` package.  Use the following command to install from the package manager console (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -36,7 +36,7 @@ To install from **Tools** > **NuGet Package Manager** > **Manage NugGet Packages
 
 For more information see the [NuGet RedisSessionStateProvider page](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) and [Configure the cache client](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-<h2><a id="configurewebconfig"></a>Modify the Web.Config File</h2>
+##<a id="configurewebconfig"></a>Modify the Web.Config File
 In addition to making assembly references for Cache, the NuGet package adds stub entries in the *web.config* file. 
 
 1. Open the *web.config* and find the the **sessionState** element.
@@ -74,7 +74,7 @@ In addition to making assembly references for Cache, the NuGet package adds stub
   &lt;/system.web&gt;</pre>
 
 
-<h2><a id="usesessionobject"></a>Use the Session Object in Code</h2>
+<a id="usesessionobject"></a>Use the Session Object in Code
 The final step is to begin using the Session object in your ASP.NET code. You add objects to session state by using the **Session.Add** method. This method uses key-value pairs to store items in the session state cache.
 
     string strValue = "yourvalue";

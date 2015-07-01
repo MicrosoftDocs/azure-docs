@@ -64,11 +64,26 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Pick **Application Insights for .NET Windows applications**
+3. Pick **Application Insights for Windows Applications**
 
-4. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
+4. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
 
-    `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
+Example 1:  
+
+	C#
+	WindowsAppInitializer.InitializeAsync("PLACE YOUR COPIED IKEY HERE");
+
+Example 2:
+
+	public App()
+	{
+	   // Substitute your instrumentation key:
+	
+	   WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
+	
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store projecct.
 
@@ -85,6 +100,7 @@ In Visual Studio, you'll see a count of the events that have been received.
 ![](./media/app-insights-windows-get-started/appinsights-09eventcount.png)
 
 In debug mode, telemetry is sent as soon as it's generated. In release mode, telemetry is stored on the device and sent only when the app resumes.
+
 
 ## <a name="monitor"></a>5. See monitor data
 
@@ -105,6 +121,44 @@ Click any chart to see more detail.
 ## <a name="deploy"></a>5. Publish your application to Store
 
 [Publish your application](http://dev.windows.com/publish) and watch the data accumulate as users download and use it.
+
+## Customize your telemetry
+
+#### Choosing the collectors
+
+Application Insights SDK Includes several collectors, which collect different types of data from your app automatically. By default, they are all active. But you can choose which collectors to initialize in the app constructor:
+
+    WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
+       WindowsCollectors.Metadata
+       | WindowsCollectors.PageView
+       | WindowsCollectors.Session 
+       | WindowsCollectors.UnhandledException);
+
+#### Send your own telemetry data
+
+Use the [API][api] to send events, metrics and diagnostic data to Application Insights. In summary:
+
+```C#
+
+ var tc = new TelemetryClient(); // Call once per thread
+
+ // Send a user action or goal:
+ tc.TrackEvent("Win Game");
+
+ // Send a metric:
+ tc.TrackMetric("Queue Length", q.Length);
+
+ // Provide properties by which you can filter events:
+ var properties = new Dictionary{"game", game.Name};
+
+ // Provide metrics associated with an event:
+ var measurements = new Dictionary{"score", game.score};
+
+ tc.TrackEvent("Win Game", properties, measurements);
+
+```
+
+For more detail, see [Custom Events and Metrics][api].
 
 ## What's next?
 

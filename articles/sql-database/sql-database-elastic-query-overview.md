@@ -83,49 +83,6 @@ Elastic query relies on the following four DDL statements for its setup. Typical
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
-### External tables
-
-With elastic query, we extend the existing external table syntax to refer to tables that are partitioned across (several) remote database(s) in Azure SQL DB. Using the external data source concept from above, the syntax to create and drop external tables is defined as follows:
-
-    CREATE EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name
-        ( { <column_definition> } [ ,...n ])
-        { WITH ( <sharded_external_table_options> ) }
-    )[;]
-
-    <sharded_external_table_options> ::=
-          DATA_SOURCE = <External_Data_Source>,
-          DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED | ROUND_ROBIN
-
-The sharding policy controls whether a table is treated as a sharded table or as a replicated table. With a sharded table, the data from different shards does not overlap. Replicated tables in turn have the same data on every shard. The query processor relies on this information for correct and more efficient query processing. The round robin distribution indicates that an application specific method for distributing the data of that table is used.
-
-    DROP EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name[;]
-
-Permissions for **CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed which is also needed to refer to the underlying data source.
-
-**Example**: The following example illustrates how to create an external table:
-
-    CREATE EXTERNAL TABLE [dbo].[order_line](
-        [ol_o_id] [int] NOT NULL,
-        [ol_d_id] [tinyint] NOT NULL,
-        [ol_w_id] [int] NOT NULL,
-        [ol_number] [tinyint] NOT NULL,
-        [ol_i_id] [int] NOT NULL,
-        [ol_delivery_d] [datetime] NOT NULL,
-        [ol_amount] [smallmoney] NOT NULL,
-        [ol_supply_w_id] [int] NOT NULL,
-        [ol_quantity] [smallint] NOT NULL,
-        [ol_dist_info] [char](24) NOT NULL
-    )
-    WITH
-    (
-        DATA_SOURCE = MyExtSrc,
-        DISTRIBUTION=SHARDED(ol_w_id)
-    );
-
-The following example shows how to retrieve the list of external tables from the current database:
-
-    select * from sys.external_tables;
-
 ### Database-scoped master key and credentials
 
 A credential represents the user ID and password that elastic query will use to connect to your elastic scale shard map and your remote databases in Azure SQL DB. You can create the required master key and credential using the following syntax:
@@ -179,6 +136,50 @@ You can retrieve the list of current external data sources from the following ca
     select * from sys.external_data_sources;
 
 Note that the same credentials are used to read the shard map and to access the data on the remote databases during the processing of the query.
+
+
+### External tables
+
+With elastic query, we extend the existing external table syntax to refer to tables that are partitioned across (several) remote database(s) in Azure SQL DB. Using the external data source concept from above, the syntax to create and drop external tables is defined as follows:
+
+    CREATE EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name
+        ( { <column_definition> } [ ,...n ])
+        { WITH ( <sharded_external_table_options> ) }
+    )[;]
+
+    <sharded_external_table_options> ::=
+          DATA_SOURCE = <External_Data_Source>,
+          DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED | ROUND_ROBIN
+
+The sharding policy controls whether a table is treated as a sharded table or as a replicated table. With a sharded table, the data from different shards does not overlap. Replicated tables in turn have the same data on every shard. The query processor relies on this information for correct and more efficient query processing. The round robin distribution indicates that an application specific method for distributing the data of that table is used.
+
+    DROP EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name[;]
+
+Permissions for **CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed which is also needed to refer to the underlying data source.
+
+**Example**: The following example illustrates how to create an external table:
+
+    CREATE EXTERNAL TABLE [dbo].[order_line](
+        [ol_o_id] [int] NOT NULL,
+        [ol_d_id] [tinyint] NOT NULL,
+        [ol_w_id] [int] NOT NULL,
+        [ol_number] [tinyint] NOT NULL,
+        [ol_i_id] [int] NOT NULL,
+        [ol_delivery_d] [datetime] NOT NULL,
+        [ol_amount] [smallmoney] NOT NULL,
+        [ol_supply_w_id] [int] NOT NULL,
+        [ol_quantity] [smallint] NOT NULL,
+        [ol_dist_info] [char](24) NOT NULL
+    )
+    WITH
+    (
+        DATA_SOURCE = MyExtSrc,
+        DISTRIBUTION=SHARDED(ol_w_id)
+    );
+
+The following example shows how to retrieve the list of external tables from the current database:
+
+    select * from sys.external_tables;
 
 
 ## Reporting and querying

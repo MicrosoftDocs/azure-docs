@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manipulate encoding tasks by customizing task preset files" 
+	pageTitle="Manipulate encoding tasks by customizing task presets" 
 	description="The Azure Media Services Encoder allows you to pass custom preset files to Azure Media Encoder. This topic shows how to customize preset files in order to achieve the following tasks: overlay an image onto an existing video, control the output file names that the encoder produces, stitch videos. " 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,9 +16,14 @@
 	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
-#Manipulate encoding tasks by customizing task preset files
+#Manipulate encoding tasks by customizing task presets 
 
-The Azure Media Services Encoder allows you to pass custom preset files to Azure Media Encoder. This topic shows how to customize preset files in order to achieve the following tasks: overlay an image onto an existing video, control the output file names that the encoder produces, stitch videos. 
+The Azure Media Services Encoder allows you to pass custom preset files to Azure Media Encoder. This topic shows how to customize preset files in order to achieve the following tasks: 
+
+- overlay an image onto an existing video, 
+- control the output file names that the encoder produces, 
+- stitch videos,
+- encode presentations with mostly speech.
 
 ##Controlling Azure Media Encoder Output File Names 
 
@@ -417,7 +422,7 @@ When stitching videos within a single asset, each video must have a unique name.
 This preset stitches parts of video1.mp4, video2.wmv, and video3.wmv into the output asset.
 The creation of the job and tasks is the same as stitching videos from multiple assets, you only need to upload a single asset as shown in the following code:
 
-	// Creates a stitching job that uses a single asset
+	// Creates a stitching job that uses a single asset 
     static public void StitchWithASingleAsset()
     {
         string presetFileName = "StitchingWithASingleAsset.xml";
@@ -434,3 +439,57 @@ The creation of the job and tasks is the same as stitching videos from multiple 
 
         job.Submit();
     }
+
+##Encoding Presentations or Audio Streams With Mostly Speech
+ 
+When encoding video whose audio track contains mostly speech, the default encoder presets may cause background noise to be amplified in the encoded asset. This behavior is caused by the NormalizeAudio attribute being set to true.
+
+###Encoding Presentations with Mostly Speech
+
+To prevent the amplification of background noise, do the following:
+
+1. Copy the contents of the encoder preset you are using into an XML file. The encoder presets can be found at: Azure Media Encoder Schemas
+1. Delete the NormalizeAudio attribute, it can be found near the top of the preset file under the <MediaFile> element:
+	
+	<MediaFile
+	     DeinterlaceMode="AutoPixelAdaptive"
+	     ResizeQuality="Super"
+	     NormalizeAudio="True"
+	     AudioGainLevel="1"
+	     VideoResizeMode="Stretch">
+
+1. Save the modified preset file to your local hard drive, and use code such as the following to encode with the custom preset:
+	
+	// Upload file and create asset
+	IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
+	 
+	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml";
+	string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	 
+	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " +  presetName);
+	
+	Console.WriteLine("Encode Job for " + asset.Name + ", encoded using " + presetName);
+	
+	// Get a media processor reference, and pass to it the name of the processor to use for the specific task.
+	IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+	Console.WriteLine("Got MP " + processor.Name + ", ID : " + processor.Id + ", version: " + processor.Version);
+	 
+	// Read the configuration data into a string. 
+	string configuration = File.ReadAllText(inputPresetFile);
+	 
+	// Create a task with the encoding details, using a string preset.
+	ITask task = job.Tasks.AddNew("Encode Task for " + asset.Name + ", encoded using " + presetName, processor, configuration,
+	                Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
+	 
+	// Specify the input asset to be encoded.
+	task.InputAssets.Add(asset);
+	 
+	// Add an output asset to contain the results of the job.
+	task.OutputAssets.AddNew("Output asset for " + asset.Name + ", encoded using " + presetName, AssetCreationOptions.None);
+	 
+	// Launch the job. 
+	job.Submit();
+
+##See Also
+
+[Azure Media Encoder XML Schema](https://msdn.microsoft.com/library/azure/dn584702.aspx)
