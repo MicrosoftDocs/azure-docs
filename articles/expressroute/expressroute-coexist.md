@@ -36,11 +36,11 @@ There are two different scenarios. The figure below shows both scenarios.
 There are two separate configuration procedures to choose from. The configuration procedure you select will depend on whether you already have an existing virtual network that you want to connect to, or if you want to create a new virtual network.
 
 
-- [Create a new VNet with coexisting connections](#create-a-new-vnet-with-coexisting-connections): 
+- [Create a new VNet with coexisting connections](#create-a new-vnet-with-coexisting-connections): 
 	If you don’t already have a virtual network, this procedure will walk you through creating a new virtual network and creating new ExpressRoute and Site-to-Site VPN connections.  
 
 
-- [Configure your existing VNet for coexisting connections](#configure-your-existing-VNet-for-coexisting-connections): 
+- [Configure your existing VNet for coexisting connections](#configure-your-existing-vnet-for-coexisting-connections): 
 	You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. Creating a coexist connection will require you to delete your gateway, and then configure new gateways that can coexist. 
 	This means you will have downtime for your cross-premises connections while you delete and recreate your gateway and connections, but you will not need to migrate any of your VMs or services to a new virtual network. Your VMs and services would still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so. 
 
