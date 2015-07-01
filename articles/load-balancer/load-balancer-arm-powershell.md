@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a load balancer using Azure Resource Manager | Microsoft Azure "
-   description="Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments"
+   description="how to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create a load balancer resource."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="06/30/2015"
    ms.author="joaoma" />
 
 # How to create a load balancer using Azure Resource Manager
