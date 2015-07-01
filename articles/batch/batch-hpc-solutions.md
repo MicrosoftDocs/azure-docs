@@ -98,9 +98,9 @@ Azure has a range of compute, data, networking and related services you can use 
 
 ### Compute services
 
-Compute services in Azure are at the core of a Big Compute solution. The compute services in the following table are used frequently and offer advantages for different scenarios. At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology. Depending on the service, these instances can run a variety of standard and custom Linux and Windows operating systems and tools. Azure provides a [range of instance sizes](virtual-machines-sizes-specs.md) with different configurations of CPU cores, memory, disk capacity, and other characteristics. Depending on your needs you can scale the instances to thousands of cores and then scale down when you need fewer resources.
+Compute services in Azure are at the core of a Big Compute solution. The compute services in the following table are used frequently and offer advantages for different scenarios. At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology. Depending on the service, these instances can run a variety of standard and custom Linux and Windows operating systems and tools. Azure provides a [range of instance sizes](../virtual-machines/virtual-machines-sizes-specs.md) with different configurations of CPU cores, memory, disk capacity, and other characteristics. Depending on your needs you can scale the instances to thousands of cores and then scale down when you need fewer resources.
 
->[AZURE.NOTE] You can take advantage of the A8-A11 instances to improve the performance of some compute-intensive workloads, including parallel MPI applications that require a low latency and high throughput application network. See [About the A8, A9, A10, and A11 Compute Intensive Instances](virtual-machines-a8-a9-a10-a11-specs.md).  
+>[AZURE.NOTE] You can take advantage of the A8-A11 instances to improve the performance of some compute-intensive workloads, including parallel MPI applications that require a low latency and high throughput application network. See [About the A8, A9, A10, and A11 Compute Intensive Instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).  
 
 Service | Description
 ------------- | -----------
@@ -112,7 +112,7 @@ Service | Description
 
 A Big Compute solution typically operates on a set of input data, and generates data for its results. Some of the Azure storage services used in many Big Compute solutions include:
 
-*   [Blob, table, and queue storage](http://azure.microsoft.com/documentation/services/storage) - Manage large amounts of unstructured data, NoSQL data, and messages for workflow and communication, respectively. For example, you might use blob storage for large technical data sets, or the input images or media files your application processes. You might use queues for asynchronous communication in a solution. See [introducton to Microsoft Azure Storage](storage-introduction.md) for more about these storage solutions.
+*   [Blob, table, and queue storage](http://azure.microsoft.com/documentation/services/storage) - Manage large amounts of unstructured data, NoSQL data, and messages for workflow and communication, respectively. For example, you might use blob storage for large technical data sets, or the input images or media files your application processes. You might use queues for asynchronous communication in a solution. See [introducton to Microsoft Azure Storage](../storage/storage-introduction.md) for more about these storage solutions.
 
 * [Azure File Storage](http://azure.microsoft.com/services/storage/files/) - Shares common files and data in Azure using the standard SMB protocol, which is needed for some HPC cluster solutions.
 
@@ -152,7 +152,7 @@ For example, if your existing on-premises HPC cluster is built with [Microsoft H
 
 ![Cluster burst][burst_cluster]
 
->[AZURE.NOTE]If you want to minimize the footprint of the HPC Pack cluster, you could reduce the on-premises cluster to just the HPC Pack head node. Then, add all compute resources on-demand in Azure. For a tutorial that steps through this scenario, see [Set up a hybrid compute cluster with Microsoft HPC Pack](cloud-services-setup-hybrid-hpcpack-cluster.md).
+>[AZURE.NOTE]If you want to minimize the footprint of the HPC Pack cluster, you could reduce the on-premises cluster to just the HPC Pack head node. Then, add all compute resources on-demand in Azure. For a tutorial that steps through this scenario, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md).
 
 This hybrid solution leverages an existing investment in an on-premises cluster, but allows you to scale the fixed on-premises infrastructure for typical (non-peak) workloads. If you need to access an on-premises license server or data store, you can set up an Azure virtual network to connect the on-premises cluster to Azure.
 
@@ -168,7 +168,7 @@ For example, you can create a Windows Server based HPC cluster with [Microsoft H
 
 ![Cluster in IaaS][iaas_cluster]
 
-**Automated deployment** - To deploy a large number of Windows Server or Linux VMs you can use standard or custom VM images and Azure automation tools such as the [Azure Command-line Interface](xplat-cli.md) or [Azure PowerShell](powershell-install-configure.md). Examples include:
+**Automated deployment** - To deploy a large number of Windows Server or Linux VMs you can use standard or custom VM images and Azure automation tools such as the [Azure Command-line Interface](../xplat-cli.md) or [Azure PowerShell](../powershell-install-configure.md). Examples include:
 
 * To deploy an HPC Pack cluster in Azure infrastructure services, you can run a flexible [Azure PowerShell script](https://msdn.microsoft.com/library/azure/dn864734.aspx) from a client computer; the script uses a Windows Server VM image with HPC Pack preinstalled. You can also use an Azure [quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) with either Azure PowerShell or the Azure CLI to deploy an HPC Pack cluster.
 
