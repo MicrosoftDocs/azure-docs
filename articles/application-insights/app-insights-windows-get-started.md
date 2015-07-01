@@ -64,12 +64,11 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Pick **Application Insights for .NET Windows applications**
+3. Pick **Application Insights for Windows Applications**
 
+4. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
 
-4. Insert code to initialize the SDK in the app.xaml.cs constructor:
-
-    ```
+```C#
 
     public App()
     {
@@ -80,12 +79,10 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
        this.Suspending += OnSuspending;
     }
 
-    ```
-
+```
+  
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
-
-
 
 ## <a name="network"></a>3. Enable network access for your app
 
