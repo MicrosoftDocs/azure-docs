@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/12/2015"
+   ms.date="07/01/2015"
    ms.author="larryfr"/>
 
 #Manage HDInsight clusters by using Ambari (preview)
@@ -24,15 +24,15 @@ Learn how to use Ambari to manage and monitor Linux-based Azure HDInsight cluste
 
 ##<a id="whatis"></a>What is Ambari?
 
-<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> makes Hadoop management simpler by providing an easy-to-use web UI that can be used to provision, manage, and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST APIs</a>. 
+<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> makes Hadoop management simpler by providing an easy-to-use web UI that can be used to provision, manage, and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST APIs</a>.
 
 Ambari is provided by default with Linux-based HDInsight clusters. Windows-based HDInsight clusters provide monitoring functionality through the Ambari REST APIs.
 
 ##SSH proxy
 
-> [AZURE.NOTE] While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive "server not found" errors when trying to access some features over the Internet.
+> [AZURE.NOTE] While Ambari for your cluster is accessible directly over the Internet, some links from the Ambari Web UI (such as to the JobTracker,) are not exposed on the internet. So you will receive "server not found" errors when trying to access these features unless you use a Secure Shell (SSH) tunnel to proxy web traffic to the cluster head node.
 
-To work around this problem, use a Secure Shell (SSH) tunnel to proxy web traffic to the cluster head node, which can successfully resolve the internal domain names. Use the following articles to create an SSH tunnel from a port on your local machine to the cluster:
+Use the following articles to create an SSH tunnel from a port on your local machine to the cluster:
 
 * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - Steps on creating an SSH tunnel by using the `ssh` command.
 
@@ -74,9 +74,9 @@ When the page opens, note the bar at the top. This contains the following inform
 
 * **Admin button** - Ambari management, user settings, and logout.
 
-###Monitoring
+##Monitoring
 
-####Alerts
+###Alerts
 
 Ambari provides many alerts, which will have one of the following as the status:
 
@@ -90,7 +90,7 @@ Ambari provides many alerts, which will have one of the following as the status:
 
 Alerts other than **OK** will cause the **# alerts** entry at the top of the page to display the number of alerts. Selecting this entry will display the alerts and their status.
 
-Alerts are organized into several default groups, which can be viewed from the **Alerts** page. 
+Alerts are organized into several default groups, which can be viewed from the **Alerts** page.
 
 ![alerts page](./media/hdinsight-hadoop-manage-ambari/alerts.png)
 
@@ -102,7 +102,7 @@ You can also create alert notifications from the **Actions** menu. This allows y
 
 ![Create alert dialog](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-####Cluster
+###Cluster
 
 The **Metrics** tab of the dashboard contains a series of widgets that make it easy to monitor the status of your cluster at a glance. Several widgets, such as **CPU Usage**, provide additional information when clicked.
 
@@ -116,7 +116,7 @@ For more detailed information on the nodes within the cluster, select **Hosts**,
 
 ![host details](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-####Services
+###Services
 
 The **Services** sidebar on the dashboard provides quick insight into the status of the services running on the cluster. Various icons are used to indicate status or actions that should be taken, such as a yellow recycle symbol if a service needs to be recycled.
 
@@ -126,7 +126,7 @@ Selecting a service will display more detailed information on the service.
 
 ![service summary information](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
-#####Quick links
+####Quick links
 
 Some services display a **Quick Links** link at the top of the page. This can be used to access service-specific web UIs, such as:
 
@@ -140,21 +140,21 @@ Some services display a **Quick Links** link at the top of the page. This can be
 
 Selecting any of these links will open a new tab in your browser, which will display the selected page.
 
-> [AZURE.NOTE] Selecting a **Quick Links** link for any service will result in a "server not found" error unless you are using a Secure Sockets Layer (SSL) tunnel to proxy web traffic to the cluster. This is because Ambari uses the internal domain name for these links.
-> 
+> [AZURE.NOTE] Selecting a **Quick Links** link for any service will result in a "server not found" error unless you are using a Secure Sockets Layer (SSL) tunnel to proxy web traffic to the cluster. This is because the web applications used to display this information are not exposed on the internet.
+>
 > For information on using an SSL tunnel with HDInsight, see one of the following:
-> 
+>
 > * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - Steps on creating an SSH tunnel by using the `ssh` command.
 >
 >* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a> - Steps on using PuTTY to create an SSH tunnel.
 
-###Management
+##Management
 
-####Ambari users, groups, and permissions
+###Ambari users, groups, and permissions
 
 Managing users, groups, and permissions should not be used during the Linux-based HDInsight preview.
 
-####Hosts
+###Hosts
 
 The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these steps.
 
@@ -190,7 +190,7 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 		> [AZURE.NOTE] Do not use this action on HDInsight clusters.
 
-####<a id="service"></a>Services
+###<a id="service"></a>Services
 
 From the **Dashboard** or **Services** page, use the **Actions** button at the bottom of the list of services to add new services, or to stop and start all services.
 
@@ -251,5 +251,3 @@ Ambari Web relies on an underlying REST API, which you can leverage to create yo
 * **Some functionality is not enabled** - Some Ambari functionality is disabled, as it is managed by the HDInsight cloud service; for example, adding or removing hosts from the cluster. Other functionality may not be fully implemented during the preview of Linux-based HDInsight.
 
 For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
-
- 
