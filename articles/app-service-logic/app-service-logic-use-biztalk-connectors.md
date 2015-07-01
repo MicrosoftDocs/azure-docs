@@ -114,7 +114,7 @@ Connectors can also be used as actions as a part of your Logic App. Actions are 
 [BizTalk XML Validator]: app-service-logic-xml-validator.md
 [BizTalk Rules]: app-service-logic-use-biztalk-rules.md
 [AS2 Connector]: app-service-logic-connector-as2.md
-[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk EDIFACT]: app-service-logic-connector-edifact.md
 [BizTalk X12]: app-service-logic-connector-x12.md
 [JSON Encoder]: app-service-logic-json-encoder.md
 [BizTalk Transform Service]: app-service-logic-transform-xml-documents.md
