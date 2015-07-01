@@ -105,7 +105,7 @@ Compute services in Azure are at the core of a Big Compute solution. The compute
 Service | Description
 ------------- | -----------
 **[Cloud services](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/>![Cloud service][cloud] |• Can run Big Compute applications in worker role instances, which are virtual machines running a version of Windows Server and are managed entirely by Azure<br/><br/>• Enable scalable, reliable applications with low administrative overhead, running in a platform as a service (PaaS) model<br/><br/>• May require additional tools or development to integrate with on-premises HPC cluster solutions
-**[Virtual machines](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/>![Virtual machine](./media/batch-hpc-solutions/vm.png) |• Provide compute infrastructure as a service (IaaS) using Microsoft Hyper-V technology<br/><br/>• Enable you to flexibly provision and manage persistent cloud computers from standard Windows Server or Linux images, or images and data disks you supply or from the [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/)<br/><br/>• Run on-premises compute cluster tools and applications entirely in the cloud
+**[Virtual machines](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/>![Virtual machine][vms] |• Provide compute infrastructure as a service (IaaS) using Microsoft Hyper-V technology<br/><br/>• Enable you to flexibly provision and manage persistent cloud computers from standard Windows Server or Linux images, or images and data disks you supply or from the [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Run on-premises compute cluster tools and applications entirely in the cloud
 **[Batch](http://azure.microsoft.com/documentation/services/batch)**<br/><br/>![Batch][batch] |• Runs large-scale parallel and batch workloads such as image rendering and media encoding and transcoding in a fully managed service<br/><br/>• Provides job scheduling and autoscaling of a managed pool of virtual machines<br/><br/>• Allows developers to build and run applications as a service or cloud-enable existing applications<br/>
 
 ### Storage services
@@ -219,7 +219,7 @@ See the following figure for a typical workflow a developer can create with Batc
 [parallel]: ./media/batch-hpc-solutions/parallel.png
 [coupled]: ./media/batch-hpc-solutions/coupled.png
 [cloud]: ./media/batch-hpc-solutions/cloud.png
-[vm]: ./media/batch-hpc-solutions/vm.png
+[vms]: ./media/batch-hpc-solutions/vm.png
 [batch]: ./media/batch-hpc-solutions/batch.png
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
