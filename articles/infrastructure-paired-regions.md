@@ -41,7 +41,7 @@ Figure 1 – Azure regional pair diagram
 | China         | East China       | North China      |
 | Japan         | Japan East       | Japan West       |
 | Brazil        | Brazil South (1) | South Central US |
-| Australia     | Australia East   | Australia Southeast |
+| Australia     | Australia East   | Australia Southeast|
 | US Government | US Gov Iowa      | US Gov Virginia  |
 
 Table 1 - Mapping of azure regional pairs
