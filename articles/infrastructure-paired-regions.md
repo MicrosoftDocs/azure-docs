@@ -3,7 +3,7 @@
 	description="Use Regional pairs to keep applications resilient during data center failures."
 	services="multiple"
 	documentationCenter=""
-	authors="robb"
+	authors="rboucher"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="06/30/2015"
-    ms.author="rboucher"/>
+    ms.author="robb"/>
 
 # Improve Business Continuity using Azure Regional Pairs
 
