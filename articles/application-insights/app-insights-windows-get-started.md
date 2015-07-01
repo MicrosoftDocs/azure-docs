@@ -66,20 +66,19 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 3. Pick **Application Insights for Windows Applications**
 
-4. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
+4. Add an ApplicationInsights.config file to the root of your solution and insert the instrumentation key copied from above. A sample xml for this config file is shown below. **Make sure to mark the ApplicationInsights.config file BuildAction to "content"**.
 
-Example 1:  
+	<?xml version="1.0" encoding="utf-8" ?>
+	<ApplicationInsights>
+		<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+	</ApplicationInsights>
 
-	C#
-	WindowsAppInitializer.InitializeAsync("PLACE YOUR COPIED IKEY HERE");
-
-Example 2:
+5. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
 
 	public App()
 	{
-	   // Substitute your instrumentation key:
-	
-	   WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
+	   // Add this initilization line. 
+	   WindowsAppInitializer.InitializeAsync();
 	
 	   this.InitializeComponent();
 	   this.Suspending += OnSuspending;
