@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tomfitz"/>
 
 # Provision an API app with a new gateway
@@ -25,7 +25,7 @@ For more information about creating templates, see [Authoring Azure Resource Man
 
 For more information about deploying apps, see [Deploy a complex application predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-For the complete template, see [API app with new gateway template](../../templates/app-service-api-arm-new-gateway-provision/).
+For the complete template, see [API app with new gateway template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json).
 
 ## What you will deploy
 
@@ -34,6 +34,10 @@ In this template, you will deploy:
 - API app
 - new gateway
 - new App Service hosting plan
+
+To run the deployment automatically, click the following button:
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
 
 ## Parameters
 
@@ -73,8 +77,8 @@ Creates the service hosting plan for the API app.
 
 Creates a web app that hosts the gateway. 
 
-Notice that **kind** is set to **gateway** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. 
-A link is defined between the hosting app and the gateway. The app settings section includes necessary values for hosting the API app.
+Notice that **kind** is set to **gateway** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web apps blade. 
+A link is defined between the hosting web app and the gateway. The app settings section includes necessary values for hosting the API app.
 
 
     {
@@ -161,7 +165,7 @@ The hosting web app is defined as a property of the gateway.
 
 Creates a web app that hosts the API app. 
 
-Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. The app includes an extension 
+Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting an API app. The portal will hide the web app from the browse web apps blade. The app includes an extension 
 to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app.
 
     {
@@ -275,11 +279,11 @@ Notice that the names of the hosting web app and gateway are defined as properti
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
  
