@@ -23,12 +23,12 @@ Resources for building applications that use Microsoft Azure.
 Microsoft publishes series of architectural design patterns to help you compose your own custom designs. The patterns are intended to be concise architectural guides which can be composed together in order provide guidance on how to best leverage the Microsoft Azure platform to solve your organization’s business needs.
 
 
-[Overview](http://azure.microsoft.com/documentation/articles/azure-architectures-cpif-overview/) - 
-[Hybrid networking](http://azure.microsoft.com/documentation/articles/azure-architectures-cpif-infrastructure-hybrid-networking/) - 
-[Offsite batch processing](http://azure.microsoft.com/documentation/articles/azure-architectures-cpif-foundation-offsite-batch-processing-tier/) -
-[Multi-site data tier](http://azure.microsoft.com/documentation/articles/azure-architectures-cpif-foundation-multi-site-data-tier/) -
-[Global load balanced web tier](http://azure.microsoft.com/documentation/articles/azure-architectures-cpif-foundation-global-load-balanced-web-tier/) -
-[Azure search tier](http://azure.microsoft.com/documentation/articles/azure-architectures-cpif-foundation-azure-search-tier/)
+[Overview](./azure-architectures-cpif-overview/) - 
+[Hybrid networking](./azure-architectures-cpif-infrastructure-hybrid-networking/) - 
+[Offsite batch processing](./azure-architectures-cpif-foundation-offsite-batch-processing-tier/) -
+[Multi-site data tier](./azure-architectures-cpif-foundation-multi-site-data-tier/) -
+[Global load balanced web tier](./azure-architectures-cpif-foundation-global-load-balanced-web-tier/) -
+[Azure search tier](./azure-architectures-cpif-foundation-azure-search-tier/)
  
 Each  pattern contains
  
