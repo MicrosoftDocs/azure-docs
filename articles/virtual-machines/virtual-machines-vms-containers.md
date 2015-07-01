@@ -97,7 +97,7 @@ The following table describes at a very high level the kind of feature differenc
 | Image Automation | Varies widely depending on OS and apps | [Docker registry](https://registry.hub.docker.com/); others | 
 | Portability | Portable With Proper Preparation | Portable within image format; typically smaller | 
 | Fixed app image | can be | typically is | 
-| "Default" security support | to a greater degree | to a slightly lesser degree | 
+| "Default" security support | to a greater degree | to a slightly lesser degree 
 
 
 ## Creating and managing groups of VMs and containers
