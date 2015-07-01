@@ -22,11 +22,11 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 2. Click **Recovery Services**, then select the backup vault that you want to register with a server. The Quick Start page for that backup vault appears.
 
-  ![Quick start](./media/backup-azure-backup-download-register/quickstart.png)
+    ![Quick start](./media/backup-azure-backup-download-register/quickstart.png)
 
 3. On the Quick Start page, click **For Windows Server or System Center Data Protection Manager or Windows client** under **Download Agent** option. Click **Save** to copy it to the local machine.
 
-  ![Save agent](./media/backup-azure-backup-download-register/agent.png)
+    ![Save agent](./media/backup-azure-backup-download-register/agent.png)
 
 4. Once the agent is installed, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent.
 
@@ -38,27 +38,27 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 8.	Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
 
-  ![Register](./media/backup-azure-backup-download-register/register.png)
+    ![Register](./media/backup-azure-backup-download-register/register.png)
 
 9. In the vault credentials screen, browse to and select the vault credentials file which was previously downloaded.
 
-  ![Vault credentials](./media/backup-azure-backup-download-register/vc.png)
+    ![Vault credentials](./media/backup-azure-backup-download-register/vc.png)
 
-  > [AZURE.NOTE] The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal). If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.
+    > [AZURE.NOTE] The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal). If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.
 
-  Ensure that the vault credentials file is available in a location which can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.
+    Ensure that the vault credentials file is available in a location which can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.
 
-  If you encounter an invalid vault credential error (e.g “Invalid vault credentials provided". The file is either corrupted or does not have the latest credentials associated with the recovery service”, retry the operation after downloading a new vault credential file from the portal. This error is typically seen if the user clicks on the Download vault credential option in the Azure portal, in quick succession. In this case, only the second vault credential file is valid.
+    If you encounter an invalid vault credential error (e.g “Invalid vault credentials provided". The file is either corrupted or does not have the latest credentials associated with the recovery service”, retry the operation after downloading a new vault credential file from the portal. This error is typically seen if the user clicks on the Download vault credential option in the Azure portal, in quick succession. In this case, only the second vault credential file is valid.
 
 10. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters) and remember to save the passphrase in a secure location.
 
-  ![Encryption](./media/backup-azure-backup-download-register/encryption.png)
+    ![Encryption](./media/backup-azure-backup-download-register/encryption.png)
 
-  > [AZURE.WARNING] If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have any visibility into the passphrase which is used by the end user. Please save the file in a secure location as it would be required during a recovery operation.
+    > [AZURE.WARNING] If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have any visibility into the passphrase which is used by the end user. Please save the file in a secure location as it would be required during a recovery operation.
 
 11. Once you click the **Finish** button, the machine is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure. You can modify the settings specified during the registration workflow by clicking the **Change Properties** option in the Azure Backup mmc snap in.
 
-  ![Change Properties](./media/backup-azure-backup-download-register/change.png)
+    ![Change Properties](./media/backup-azure-backup-download-register/change.png)
 
 ## Next Steps
 - See [Schedule backups](backup-azure-backup-and-recover.md) for information about backing up data and applications to Azure.

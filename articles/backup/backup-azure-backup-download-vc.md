@@ -30,11 +30,11 @@ The vault credential file is downloaded through a secure channel from the Azure 
 2.  Click **Recovery Services** in the left navigation pane and select the backup vault which you have created.
 3. Click the cloud icon to get to the Quick Start view of the backup vault.
 
-  ![Quick view](./media/backup-azure-backup-download-vc/quickview.png)
+    ![Quick view](./media/backup-azure-backup-download-vc/quickview.png)
 
 4.  On the Quick Start page, click **Download vault credentials**. The  portal generates the vault credential file which is made available for download.
 
-  ![Download](./media/backup-azure-backup-download-vc/downloadvc.png)
+    ![Download](./media/backup-azure-backup-download-vc/downloadvc.png)
 
 5.  The portal will generate a vault credential using a combination of the vault name and the current date. Click **Save** to download the vault credentials to the local account's downloads folder, or select Save As from the Save menu to specify a location for the vault credentials.
 

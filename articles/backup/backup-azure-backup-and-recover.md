@@ -22,7 +22,7 @@ This article covers the steps required to back up from a Windows server or a Win
 ## Backup files
 1. Once the machine is registered, open the Microsoft Azure Backup mmc snap-in.
 
-  ![Search result](./media/backup-azure-backup-and-recover/result.png)
+    ![Search result](./media/backup-azure-backup-and-recover/result.png)
 
 2. Click on **Schedule Backup**
 
