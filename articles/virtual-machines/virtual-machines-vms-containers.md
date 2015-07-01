@@ -1,7 +1,26 @@
-<properties title="Virtual Machines and Containers in Azure" pageTitle="Virtual Machines and Containers in Azure" description="Describes Virtual Machines, Docker and Linux ontainers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." services="virtual-machines" solutions="infrastructure" documentationCenter="virtual-machines" authors="squillace" videoId="" scriptId="" manager="timlt" />
+<properties 
+	title="Virtual Machines and Containers in Azure" 
+	pageTitle="Virtual Machines and Containers in Azure" 
+	description="Describes Virtual Machines, Docker and Linux ontainers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." 
+	services="virtual-machines" 
+	solutions="infrastructure" 
+	documentationCenter="virtual-machines" 
+	authors="squillace" 
+	videoId="" 
+	scriptId="" 
+	manager="timlt" 
+/>
 	
 
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="infrastructure" ms.workload="infrastructure" ms.date="06/29/2015" ms.author="rasquill" />
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="infrastructure" 
+	ms.workload="infrastructure" 
+	ms.date="06/29/2015" 
+	ms.author="rasquill" 
+/>
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Virtual Machines and Containers in Azure
