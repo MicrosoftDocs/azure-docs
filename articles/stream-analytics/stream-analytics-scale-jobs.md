@@ -14,20 +14,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/17/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
-# Scale Azure Stream Analytics jobs to increase throughput
+# Scale Azure Stream Analytics jobs to increase throughput #
 
 Learn how to calculate *streaming units* for Stream Analytics jobs, and how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units. 
 
-## What are the parts of a Stream Analytics job?
+## What are the parts of a Stream Analytics job? ##
 An Azure Stream Analytics job definition includes inputs, a query, and output. Inputs are from where the job reads the data stream, the query is used to transform the data input stream, and the output is where the job sends the job results to.  
 
 A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure Service Bus Event Hub or in Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md), [Get started using Azure Stream Analytics](stream-analytics-get-started.md), and [Azure Stream Analytics developer guide](../stream-analytics-developer-guide.md).
 
-## What is a streaming unit?
-The resource available for processing Stream Analytics jobs is measured by a streaming unit. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can select up to your quota in streaming units for a Stream Analytics job by using the Azure portal. Each Azure subscription by default has a quota of up to 50 streaming units for all the analytics jobs in a specific region. To increase streaming units for your subscriptions, contact [Microsoft Support](http://support.microsoft.com).
+## Configuring Streaming Units ##
+Streaming Units (SUs) represent the resources and power to execute an Azure Stream Analytics job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput. 
+
+Choosing how many SUs are required for a particular job is depends on the on the partition configuration for the inputs and the query defined for the job.  You can select up to your quota in streaming units for a job by using the Azure portal. Each Azure subscription by default has a quota of up to 50 streaming units for all the analytics jobs in a specific region.  To increase streaming units for your subscriptions, contact [Microsoft Support](http://support.microsoft.com).
 
 The number of streaming units that a job can utilize depends on the partition configuration for the inputs and the query defined for the job. Note also that a valid value for the stream units must be used. The valid values start at 1, 3, 6 and then upwards in increments of 6, as shown below.
 
@@ -35,10 +37,10 @@ The number of streaming units that a job can utilize depends on the partition co
 
 This article will show you how to calculate and tune the query to increase throughput for analytics jobs.
 
-## Calculate the maximum streaming units of a job
+## Calculate the maximum streaming units of a job ##
 The total number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions for each step.
 
-### Steps in a query
+### Steps in a query ###
 A query can have one or many steps. Each step is a sub-query defined by using the WITH keyword. The only query that is outside of the WITH keyword is also counted as a step, for example, the SELECT statement in the following query:
 
 	WITH Step1 AS (
@@ -55,7 +57,7 @@ The previous query has two steps.
 
 > [AZURE.NOTE] This sample query will be explained later in the article.
 
-### Partition a step
+### Partition a step ###
 
 Partitioning a step requires the following conditions:
 
@@ -65,7 +67,7 @@ Partitioning a step requires the following conditions:
 
 When a query is partitioned, the input events will be processed and aggregated in separate partition groups, and outputs events are generated for each of the groups. If a combined aggregate is desirable, you must create a second non-partitioned step to aggregate.
 
-### Calculate the max streaming units for a job
+### Calculate the max streaming units for a job ###
 
 All non-partitioned steps together can scale up to six streaming units for a Stream Analytics job. To add additional streaming units, a step must be partitioned. Each partition can have six streaming units.
 
@@ -109,7 +111,7 @@ All non-partitioned steps together can scale up to six streaming units for a Str
 <td>24 (18 for partitioned steps + 6 for non-partitioned steps)</td></tr>
 </table>
 
-### Example of scale
+### Example of scale ###
 The following query calculates the number of cars going through a toll station with three tollbooths within a three-minute window. This query can be scaled up to six streaming units.
 
 	SELECT COUNT(*) AS Count, TollBoothId
@@ -141,7 +143,7 @@ This query can be scaled to 24 streaming units.
 >[AZURE.NOTE] If you are joining two streams, ensure that the streams are partitioned by the partition key of the column that you do the joins, and you have the same number of partitions in both streams.
 
 
-## Configure Stream Analytics job partition
+## Configure Stream Analytics job partition ##
 
 **To adjust a streaming unit for a job**
 
@@ -153,7 +155,7 @@ This query can be scaled to 24 streaming units.
 ![Azure Stream Analytics configure job scale][img.stream.analytics.configure.scale]
 
 
-## Monitor job performance
+## Monitor job performance ##
 
 Using the management portal, you can track the throughput of a job in Events/second:
 
@@ -161,7 +163,7 @@ Using the management portal, you can track the throughput of a job in Events/sec
 
 Calculate the expected throughput of the workload in Events/second. If the throughput is less than expected, tune the input partition, tune the query, and add additional streaming units to your job.
 
-##ASA Throughput at Scale - Raspberry Pi scenario
+## ASA Throughput at Scale - Raspberry Pi scenario ##
 
 
 To understand how ASA scales in a typical scenario in terms of processing throughput across multiple Streaming Units, here is an experiment that sends sensor data (clients) into Event Hub, ASA processes it and sends alert or statistics as an output to another Event Hub.
@@ -226,11 +228,11 @@ Below are the results with increasing number of Streaming units and correspondin
 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
-## Get help
+## Get help ##
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
-## Next steps
+## Next steps ##
 
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)

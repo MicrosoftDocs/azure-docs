@@ -102,12 +102,9 @@ To use these commands, fill in the values and remove the < and >. Here is an exa
 
 From the display of the Get-AzureInternalLoadBalancer command, note the IP address and make the necessary changes to your servers or DNS records to ensure that traffic gets sent to the VIP.
 
-> IMPORTANT: The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios. The IP address is 168.63.129.16. This IP address should not be blocked by any firewalls, as it can cause unexpected behavior.
-With respect to the Azure ILB, this IP address is used by monitoring probes from the load balancer, to determine health state for VMs in a load balanced set. If a Network Security Group is used to restrict traffic to Azure Virtual Machines in an internally load-balanced set, or is applied to a Virtual Network Subnet, ensure that a Network Security Rule is added to allow traffic from 168.63.129.16.
+>[AZURE.IMPORTANT] The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios. The IP address is 168.63.129.16. This IP address should not be blocked by any firewalls, as it can cause unexpected behavior.
+>With respect to the Azure ILB, this IP address is used by monitoring probes from the load balancer, to determine health state for VMs in a load balanced set. If a Network Security Group is used to restrict traffic to Azure Virtual Machines in an internally load-balanced set, or is applied to a Virtual Network Subnet, ensure that a Network Security Rule is added to allow traffic from 168.63.129.16.
 
-> Monitoring probes from the load balancer to determine health state for VMs in a load balanced set uses IP address 168.63.129.16 The IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to internal platform resources for the bring-your-own IP Virtual Network scenario. 
-
-> The virtual public IP address 168.63.129.16 is used in all regions and will not change. Therefore, it is recommended that this IP be allowed in any local firewall policies. It should not be considered a security risk as only the internal Azure platform can source a message from that address. Not doing so will result unexpected behavior in a variety of scenarios.
 
 
 ## End-to-end examples of internal load balancing
