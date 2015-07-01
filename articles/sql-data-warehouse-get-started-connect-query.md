@@ -64,8 +64,7 @@ This completes the update of Visual Studio 2013.
 ### Update SSDT 
 You might find that you also need to update SSDT. This is quite normal. The SSDT engineers update their plugin very regularly with new features so you will find you have to update from time to time. Again this is a very simple process. To check if you need to update SSDT perform the following steps:
 
-
-1. Open Visual Studio 2013
+1. Open Visual Studio 2013.  
 2. Choose the "Tools" menu and select "Extensions and Updates..."
 3. Navigate through the tree control to "Updates" and "Product Updates"
 4. If there is no update available then you can safely close the "Extensions and Updates" window and proceed to the next task in this quick start.
@@ -83,6 +82,8 @@ This will initiate a download of the latest SSDT version. The image below shows 
 8. Close the "Extensions and Updates" window
 
 You now have an up to date version of Visual Studio 2013 on your desktop with an up to date SSDT extension.
+
+> [AZURE.NOTE] Currently we recommend the use of the [SSDT Preview for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409)
 
 ## Connect with Visual Studio 2013
 If you are running the desired version of Visual Studio you will be able to connect to the SQL Data Warehouse instance in two different ways:

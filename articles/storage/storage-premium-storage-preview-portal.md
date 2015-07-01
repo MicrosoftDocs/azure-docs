@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads"
+	pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads | Microsoft Azure"
 	description="Learn Azure Premium Storage for Disks. Learn how to create a Premium Storage account."
 	services="storage"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="06/30/2015"
 	ms.author="tamram;selcint"/>
 
 

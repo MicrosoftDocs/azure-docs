@@ -11,7 +11,7 @@
 <tags
 	ms.service="hdinsight"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="04/08/2015"
@@ -27,6 +27,11 @@ Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clust
 ## Prerequisites
 
 To complete this tutorial and use the Hadoop tools in Visual Studio, you'll need the following:
+
+- An Azure HDInsight cluster: Either a Linux-based or Windows-based cluster will work with the steps in this document. See one of the following for information on creating a cluster:
+
+	- [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+	- [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)
 
 - A workstation with the following software:
 
@@ -217,4 +222,3 @@ In this article, you have learned how to connect to HDInsight clusters from Visu
 [hdinsight.access.application.logs]: ../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
- 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/30/2015"
 	ms.author="anuragdalmia"/>
 
 #Transform XML documents
@@ -34,6 +34,7 @@ Additional features include:
 - When creating a map, you view a graphical representation of the map, including seeing all the relationships and links you create.
 - Use the **Test Map** feature to add a sample XML message. With a simple click, you can test the map you created, and see the generated output.
 - Upload existing Azure BizTalk Service maps (.trfm) and use all the benefits of the Transform API App.
+- When you create the map, you don't need to add a schema. When your map is ready, add it to the Transform API App and you're ready to go. 
 - Includes support for the XML format.
 
 
