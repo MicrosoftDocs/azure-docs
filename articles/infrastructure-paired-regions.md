@@ -34,8 +34,8 @@ Figure 1 – Azure regional pair diagram
 | Geography     |  Paired Regions  |                  |
 | :-------------| :-------------   | :-------------   |
 | North America | North Central US | South Central US |
-|               | East US          | West US          |
-|               | US East 2        | US Central       |
+| North America | East US          | West US          |
+| North America | US East 2        | US Central       |
 | Europe        | North Europe     | West Europe      |
 | Asia          | South East Asia  | East Asia        |
 | China         | East China       | North China      |
