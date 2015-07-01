@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/19/2015"
+	ms.date=“07/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Get Started with Offline Data Sync in Mobile Services
