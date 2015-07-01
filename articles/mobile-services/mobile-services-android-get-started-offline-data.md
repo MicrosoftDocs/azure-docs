@@ -18,7 +18,7 @@
 
 # Add Offline Data Sync to your Android Mobile Services app
 
-[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 ## Summary
 
