@@ -29,7 +29,7 @@ For example:
 
     ./articles/app-service/media/app-service-enterprise-multichannel-apps/`.
 
-After you've created the folder and added images to it, use the following syntax to create images in your article:
+After you create the folder and added images to it, use the following syntax to create images in your article:
 
 ```
 ![Alt image text](./media/article-name/your-image-filename.png)
