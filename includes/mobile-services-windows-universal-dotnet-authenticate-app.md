@@ -16,7 +16,7 @@
 					// Change 'MobileService' to the name of your MobileServiceClient instance.
 					// Sign-in using Facebook authentication.
                     user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook, true);
                     message = 
                         string.Format("You are now signed in - {0}", user.UserId);
                 }
@@ -59,7 +59,7 @@
 6. In the Windows Phone app project, add the following **Button** elements just just before the element that defines the **Save** button:
 
 		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
-                        Visibility="Visible">Sign in</Button> 
+                        Visibility="Visible" Margin="10, 0, 0, 0">Sign in</Button> 
 
 5. Open the shared App.xaml.cs project file and add the following using statement, if it doesn't already exist:
 

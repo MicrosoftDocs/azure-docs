@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tomfitz"/>
 
 # Provision an API app with a new gateway
@@ -77,8 +77,8 @@ Creates the service hosting plan for the API app.
 
 Creates a web app that hosts the gateway. 
 
-Notice that **kind** is set to **gateway** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. 
-A link is defined between the hosting app and the gateway. The app settings section includes necessary values for hosting the API app.
+Notice that **kind** is set to **gateway** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web apps blade. 
+A link is defined between the hosting web app and the gateway. The app settings section includes necessary values for hosting the API app.
 
 
     {
@@ -165,7 +165,7 @@ The hosting web app is defined as a property of the gateway.
 
 Creates a web app that hosts the API app. 
 
-Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. The app includes an extension 
+Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting an API app. The portal will hide the web app from the browse web apps blade. The app includes an extension 
 to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app.
 
     {

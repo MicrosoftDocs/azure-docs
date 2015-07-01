@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with push notification using a .NET backend mobile service" 
-	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." 
+	pageTitle="Add push notifications to your universal Windows 8.1 app | Azure Mobile Services" 
+	description="Learn how to send push notifications to your universal Windows 8.1 app from your .NET backend mobile service using Azure Notification Hubs." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="07/01/2015" 
 	ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app

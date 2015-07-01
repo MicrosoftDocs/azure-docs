@@ -1,3 +1,5 @@
+The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.
+
 <table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Resource</th>

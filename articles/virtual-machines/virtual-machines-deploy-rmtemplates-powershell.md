@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,7 +37,7 @@ Before you get started, make sure you have Azure PowerShell ready to go.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Understanding Azure Resource Templates and Resource Groups
+## Understanding Azure Resource Manager Templates and Resource Groups
 
 Most applications that are deployed and run in Microsoft Azure are built out of a combination of different cloud resource types (such as one or more VMs and Storage accounts, a SQL database, or a Virtual Network). Azure Resource Manager Templates make it possible for you to deploy and manage these different resources together by using a JSON description of the resources and associated configuration and deployment parameters. 
 
