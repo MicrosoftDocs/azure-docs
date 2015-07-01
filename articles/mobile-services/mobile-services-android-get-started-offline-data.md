@@ -33,7 +33,7 @@ TBD: confusion around new terminology/.... check w prod team
 
 ## What you need to get started
 
-[AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
 
 ## Update the app to support offline features
