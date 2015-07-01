@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="07/01/2015" 
 	ms.author="vinsonyu"/>
 
 # Manage Azure SQL Database Resources with PowerShell
