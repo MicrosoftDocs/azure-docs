@@ -25,7 +25,7 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Virtual Machines and Containers in Azure
 
-Azure offers you great cloud solutions, built on virtual machines -- based on the emulation of physical computer hardware -- to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. In the past few years, largely thanks to  the [Docker](https://www.docker.com) approach to containers and the docker ecosystem, Linux container technology has dramatically expanded the ways you can develop and manage distributed software. Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level -- in addition to the agility that Azure VMs already give you.
+Azure offers you great cloud solutions, built on virtual machines&mdash;based on the emulation of physical computer hardware&mdash;to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. In the past few years, largely thanks to  the [Docker](https://www.docker.com) approach to containers and the docker ecosystem, Linux container technology has dramatically expanded the ways you can develop and manage distributed software. Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level&mdash;in addition to the agility that Azure VMs already give you.
 
 **But that's old news.** The *new* news is that Azure offers you even more Docker goodness:
 
@@ -39,9 +39,9 @@ This article not only discusses these concepts at a high level, it also contains
 
 ## The difference between virtual machines and containers
 
-Virtual machines run inside an isolated hardware virtualization environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, the [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) service handles all that for you: You just create Virtual Machines by choosing the operating system and configuring it to run the way you want -- or by uploading your own custom VM image. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage operating systems and to configure the applications you install and run. Anything running in a virtual machine is hidden from the host operating system and, from the point of view of an application or user running inside a virtual machine, the virtual machine appears to be an autonomous physical computer.
+Virtual machines run inside an isolated hardware virtualization environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, the [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) service handles all that for you: You just create Virtual Machines by choosing the operating system and configuring it to run the way you want&mdash;or by uploading your own custom VM image. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage operating systems and to configure the applications you install and run. Anything running in a virtual machine is hidden from the host operating system and, from the point of view of an application or user running inside a virtual machine, the virtual machine appears to be an autonomous physical computer.
 
-[Linux containers](http://en.wikipedia.org/wiki/LXC) -- which includes those created and hosted using docker tools, and there are other approaches -- do not require or use a hypervisor to provide isolation. Instead, the container host uses the process and file system isolation features of the Linux kernel to expose to the container (and its application) only certain kernel features and its own isolated file system (at a minimum). From the point of view of an application running inside a container, the container appears to be a unique operating system instance. A contained application cannot see processes or any other resources outside of its container. 
+[Linux containers](http://en.wikipedia.org/wiki/LXC)&mdash;which includes those created and hosted using docker tools, and there are other approaches&mdash;do not require or use a hypervisor to provide isolation. Instead, the container host uses the process and file system isolation features of the Linux kernel to expose to the container (and its application) only certain kernel features and its own isolated file system (at a minimum). From the point of view of an application running inside a container, the container appears to be a unique operating system instance. A contained application cannot see processes or any other resources outside of its container. 
 
 Because in this isolation and execution model the kernel of the Docker host computer is shared, and because the disk requirements of the container now do not include an entire operating system, both the start-up time of the container and the required disk storage overhead are much, much smaller. 
 
@@ -53,17 +53,17 @@ That's pretty cool, too.
 
 ### Is this too good to be true?
 
-Well, yes -- and no. Containers, like any other technology, do not magically wipe away all the hard work required by distributed applications. Yet, at the same time containers do really change:
+Well, yes&mdash;and no. Containers, like any other technology, do not magically wipe away all the hard work required by distributed applications. Yet, at the same time containers do really change:
 
 - how fast application code can be developed and shared widely
 - how fast and with what confidence it can be tested
 - how fast and with what confidence it can be deployed
 
-That said, remember containers execute on a container host -- an operating system, and in Azure that means an Azure Virtual Machine. Even if you already love the idea of containers, you're still going to need a VM infrastructure hosting the containers, but the benefits are that containers do not care on which VM they are running (although whether the container wants a Linux or Windows execution environment will be important, for example). 
+That said, remember containers execute on a container host&mdash;an operating system, and in Azure that means an Azure Virtual Machine. Even if you already love the idea of containers, you're still going to need a VM infrastructure hosting the containers, but the benefits are that containers do not care on which VM they are running (although whether the container wants a Linux or Windows execution environment will be important, for example). 
 
 ## What are containers good for?
 
-They're great for many things, but they encourage -- as do [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) and [Azure Service Fabric](service-fabric-overview.md) -- the creation of single-service, [microservice]-oriented distributed applications, in which application design is based on more small, composable parts rather than on larger, more strongly coupled components. 
+They're great for many things, but they encourage&mdash;as do [Azure Cloud Services](http://azure.microsoft.com/services/cloud-services/) and [Azure Service Fabric](service-fabric-overview.md)&mdash;the creation of single-service, [microservice]-oriented distributed applications, in which application design is based on more small, composable parts rather than on larger, more strongly coupled components. 
 
 This is especially true in public cloud environments like Azure, in which you rent VMs when and where you want them. Not only do you get isolation and rapid deployment and orchestration tools, but you can make more efficient application infrastructure decisions. 
 
@@ -92,7 +92,7 @@ IT and operations professionals also benefit from the combination of containers 
 - contained code is verifiably identical
 - contained services can be started, stopped, and moved quickly between development, test, and production environments
 
-Features like these -- and there are more -- excite established businesses, where professional information technology organizations have the job of fitting resources -- including pure processing power -- to the tasks required to not only stay in business, but increase customer satisfaction and reach. Small businesses, ISVs, and startups have exactly the same requirement, but they might describe it differently. 
+Features like these&mdash;and there are more&mdash;excite established businesses, where professional information technology organizations have the job of fitting resources&mdash;including pure processing power&mdash;to the tasks required to not only stay in business, but increase customer satisfaction and reach. Small businesses, ISVs, and startups have exactly the same requirement, but they might describe it differently. 
 
 ## What are virtual machines good for?
 
@@ -107,7 +107,7 @@ The last item is important, because a contained application still requires a spe
 
 ## High-level feature comparison of VMs and containers
 
-The following table describes at a very high level the kind of feature differences that -- without much extra work -- exist between VMs and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs, and that as with all software, extra work provides increased feature support, especially in the area of security.
+The following table describes at a very high level the kind of feature differences that&mdash;without much extra work&mdash;exist between VMs and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs, and that as with all software, extra work provides increased feature support, especially in the area of security.
 
 |   Feature      | VMs | Containers  |   
 | :------------- |-------------| ----------- |   
@@ -123,7 +123,7 @@ The following table describes at a very high level the kind of feature differenc
 
 At this point, any architect, developer, or IT operations specialist might be thinking, "I can automate ALL of this; this really IS Data-Center-As-A-Service!". 
 
-You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage groups of Azure VMs and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can -- and perhaps already have -- automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli.md). 
+You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage groups of Azure VMs and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can&mdash;and perhaps already have&mdash;automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli.md). 
 
 These abilities are often then migrated to tools like [Puppet](https://puppetlabs.com/) and [Chef](https://www.chef.io/) to automate the creation of and configuration for VMs at scale. (There are links to using these tools with Azure [here](#tools-for-working-with-containers).) 
 
@@ -131,7 +131,7 @@ These abilities are often then migrated to tools like [Puppet](https://puppetlab
 
 More recently, Azure released the [Azure resource management](virtual-machines-azurerm-versus-azuresm.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](https://msdn.microsoft.com/library/azure/dn835138.aspx) with the Azure resource management API using:
 
-- the [Azure preview portal using templates](https://github.com/Azure/azure-quickstart-templates) -- hint, use the "DeployToAzure" button
+- the [Azure preview portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
 - the [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - the [Azure PowerShell modules](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
