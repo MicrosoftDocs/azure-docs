@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="BizTalk JSON Encoder" 
-   description="BizTalk JSON Encoder" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
+<properties
+   pageTitle="BizTalk JSON Encoder"
+   description="BizTalk JSON Encoder"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="rajeshramabathiran"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="06/14/2015"
    ms.author="rajram"/>
 
@@ -23,7 +23,7 @@ BizTalk JSON Encode Decode connector helps your app interop between JSON and XML
 To use the BizTalk JSON Encoder, you need to first create an instance of the BizTalk JSON Encoder API app. This can be done either inline while creating a logic app or by selecting the BizTalk JSON Encoder API app from the Azure Marketplace.
 
 ##Using BizTalk JSON Encoder in Logic Apps designer surface
-BizTalk JSON Encoder can be used as an action. It does not have any triggers.
+Follow steps for [Creating a Logic App]. BizTalk JSON Encoder can be used as an action. It does not have any triggers.
 
 ###Action
 - Click on BizTalk JSON Encoder from the right pane
@@ -32,7 +32,7 @@ BizTalk JSON Encoder can be used as an action. It does not have any triggers.
 - Click on ->
 
 	![List of Actions][4]
-- BizTalk JSON Encoder supports only one action. Select *Xml to JSON*
+- BizTalk JSON Encoder supports two actions. Select *Xml to JSON*
 
 	![Xml to JSON input][5]
 - Provide the inputs for the action and configure it
@@ -57,6 +57,7 @@ BizTalk JSON Encoder can be used as an action. It does not have any triggers.
 	</tr>
 </table>
 
+
 The action returns a json representation of the input content.
 
 ## Do more with your Connector
@@ -71,3 +72,6 @@ You can also review performance statistics and control security to the connector
 [4]: ./media/app-service-logic-json-encoder/ListOfActions.PNG
 [5]: ./media/app-service-logic-json-encoder/EncodeInput.PNG
 [6]: ./media/app-service-logic-json-encoder/EncodeConfigured.PNG
+
+<!--Links -->
+[Creating a Logic App]: app-service-logic-create-a-logic-app.md
