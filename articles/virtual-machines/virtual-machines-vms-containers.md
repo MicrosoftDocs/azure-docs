@@ -120,12 +120,13 @@ The following table describes at a very high level the kind of feature differenc
 
 more stuff here
 
-|   Feature      | Hypervisors | Containers  |
+|   Feature      | VMs | Containers  |
 | :------------- |-------------| ----------- |
-| Process Isolation | More or less complete | If root is obtained, container host could be compromised |
+| "Default" security support | to a greater degree | to a slightly lesser degree |
 | Memory on disk required | Complete OS plus apps | App requirements only |
 | Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  |
-| Container Automation | Varies widely depending on OS and apps | [Docker image gallery](https://registry.hub.docker.com/); others
+| Portability | Portable With Proper Preparation | Portable within image format; typically smaller | 
+| Image Automation | Varies widely depending on OS and apps | [Docker registry](https://registry.hub.docker.com/); others
 
 ## Creating and managing groups of VMs and containers
 
