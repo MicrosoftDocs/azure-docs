@@ -330,16 +330,27 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 
 ## Move a resource
 
-To move an existing resource from one resource group to another resource group, use the **Move-AzureResource** command.
+To move an existing resource to another resource group or subscription, use the **Move-AzureResource** command.
+
+The first example shows how to move one resource to a new resource group.
 
     PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+
+The second example shows how to move multiple resources to a new resource group.
+
+    PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
+    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName tfplan5 -ResourceType Microsoft.Web/serverFarms
+    PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
+
+To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
 
 There are some important considerations when moving a resource:
 
 1. You cannot change the location of the resource. The **Move-AzureResource** command only moves the resource to a new resource group. The new resource group may have a different location, but that does not change the location of the resource.
-2. If you are moving a web app, you must also move the app service plan for the web app. It is not possible to have your web app connected to an app service plan that is in a different resource group.
-3. Make sure you are using the latest version of Azure PowerShell. The **Move-AzureResource** command is updated frequently. To update your version, run the Microsoft Web Platform Installer and check if a new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
-4. If you encounter an error, check the audit log for more information about why the resource was not moved. 
+2. The destination resource group should contain only resources that share the same application lifecycle as the resources you are moving.
+3. Not all resources currently support the ability to move to a new subscription. In particular, you cannot move storage accounts of the type **ClassicStorage** or SQL Databases to a new subscription.
+4. Make sure you are using the latest version of Azure PowerShell. The **Move-AzureResource** command is updated frequently. To update your version, run the Microsoft Web Platform Installer and check if a new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+5. The move operation can take a while to complete and during that time your PowerShell prompt will wait until the operation has completed.
 
 ## Delete a resource group
 
