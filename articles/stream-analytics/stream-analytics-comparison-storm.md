@@ -53,12 +53,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    No. Azure Stream Analytics is a Microsoft proprietary offering.
+                    No, Azure Stream Analytics is a Microsoft proprietary offering.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Yes. Apache Storm is an Apache licensed technology.
+                    Yes, Apache Storm is an Apache licensed technology.
                 </p>
             </td>
         </tr>
@@ -87,12 +87,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    No hardware requirement. Azure Stream Analytics is an Azure Service.
+                    There are no hardware requirements. Azure Stream Analytics is an Azure Service.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No hardware requirement. Apache Storm is an Azure Service.
+                    There are no hardware requirements. Apache Storm is an Azure Service.
                 </p>
             </td>
         </tr>
@@ -166,12 +166,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Yes. Easy to use SQL language support.
+                    Yes, an easy to use SQL language support is available.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    No. Users must write code in Java C# or use Trident APIs.
+                    No, users must write code in Java C# or use Trident APIs.
                 </p>
             </td>
         </tr>
@@ -222,7 +222,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    Detailed logs are available for debugging purposes. There are two ways to surface logs to user, via visual studio or user can RDP into the cluster to access logs.
+                    Detailed logs are available for debugging purposes. There are two ways to surface logs to user, via visual Studio or user can RDP into the cluster to access logs.
                 </p>
             </td>
         </tr>
@@ -251,12 +251,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    None
+                    There is no support for extensible code in Stream Analytics.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Yes. Ability to write custom code in C#, Java or other supported languages on Storm.
+                    Yes, there is availability to write custom code in C#, Java or other supported languages on Storm.
                 </p>
             </td>
         </tr>
@@ -289,13 +289,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
                 </p>
             </td>
             <td width="204" valign="top">
-                <p>
-                    Supported input sources: Azure Event Hubs, Azure Blobs.
+                <p>The supported input sources are Azure Event Hubs and Azure Blobs.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Connectors available for Event Hubs, Service Bus, Kafka, etc. Unsupported connectors may be implemented via custom code.
+                    There are connectors available for Event Hubs, Service Bus, Kafka, etc. Unsupported connectors may be implemented via custom code.
                 </p>
             </td>
         </tr>
@@ -307,7 +306,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Avro, JSON, CSV.
+                    Supported input formats are Avro, JSON, CSV.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -341,7 +340,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    UTF-8
+                    Stream Analytics requires UTF-8 data format to be utilized.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -389,12 +388,12 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Via Azure Portal, PowerShell and REST APIs
+                    Deployment is implemented via Azure Portal, PowerShell and REST APIs.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Via Azure Portal, PowerShell, Visual Studio and REST APIs
+                    Depolyment is implemented via Azure Portal, PowerShell, Visual Studio and REST APIs.
                 </p>
             </td>
         </tr>
@@ -406,15 +405,15 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Via Azure Portal and REST APIs
+                    Monitoring is implemented via Azure Portal and REST APIs.
                 </p>
                 <p>
-                    User may configure Azure alerts.
+                    The user may also configure Azure alerts.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Via Storm UI and REST APIs
+                    Monitoring is implemented via Storm UI and REST APIs.
                 </p>
             </td>
         </tr>
@@ -443,7 +442,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="204" valign="top">
                 <p>
-                    Scale up or down number of Streaming Units to increase data processing or optimize costs. 
+                    Users can scale up or down number of Streaming Units to increase data processing or optimize costs.
                 </p>
                 <p>
                     Scale up to 1 GB/s
@@ -451,7 +450,7 @@ While both provide benefits of a PaaS solution, there are a few major distinguis
             </td>
             <td width="246" valign="top">
                 <p>
-                    Scale up or down cluster size to meet needs.
+                    User can scale up or down cluster size to meet needs.
                 </p>
             </td>
         </tr>
