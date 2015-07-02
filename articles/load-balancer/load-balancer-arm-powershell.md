@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a load balancer using Azure Resource Manager | Microsoft Azure "
-   description="how to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create a load balancer resource."
+   description="How to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create a load balancer resource."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
