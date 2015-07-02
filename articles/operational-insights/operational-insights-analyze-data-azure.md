@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2015"
+   ms.date="07/02/2015"
    ms.author="banders"/>
 # Analyze data from servers in Microsoft Azure
 
@@ -290,4 +290,3 @@ In approximately 1 hour you will begin to see data from the storage account avai
 ## Next steps
 
 [Configure Proxy and Firewall settings (Optional)](../operational-insights-proxy-filewall.md)
- 
