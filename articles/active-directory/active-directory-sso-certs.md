@@ -78,4 +78,4 @@ The renewal steps shown below should ideally result in no significant downtime f
 
 ##See Also
 
-[Application Access and Single Sign-On in Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/)
+[Application Access and Single Sign-On in Azure AD](active-directory-appssoaccess-whatis.md)

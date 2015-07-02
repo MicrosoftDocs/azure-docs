@@ -62,7 +62,7 @@ In this scenario, when you have already been logged into Azure AD, and you want 
 
 Azure AD can support federated single sign-on with applications that support the SAML 2.0, WS-Federation, or OpenID connect protocols.
 
-See also: [Managing Certificates for Federated Single Sign-On](https://azure.microsoft.com/documentation/articles/active-directory-sso-certs/)
+See also: [Managing Certificates for Federated Single Sign-On](active-directory-sso-certs.md)
 
 ###Password-based Single Sign-On
 
@@ -94,7 +94,7 @@ For select applications, Azure AD enables automated user provisioning and de-pro
 
 When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application. This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications. In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.
 
-To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](https://azure.microsoft.com/documentation/articles/active-directory-saas-app-provisioning/)
+To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
 
 ##Get started with the Azure AD application gallery
 
