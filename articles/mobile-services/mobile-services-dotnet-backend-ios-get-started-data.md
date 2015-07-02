@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Add Mobile Services to Existing App
@@ -86,4 +86,3 @@ Download the [GetStartedWithData iOS app]. In Xcode, open the project and examin
 
 [Quick Start]: mobile-services-dotnet-backend-ios-get-started.md
 [GetStartedWithData iOS app]: http://go.microsoft.com/fwlink/p/?LinkId=268622
- 

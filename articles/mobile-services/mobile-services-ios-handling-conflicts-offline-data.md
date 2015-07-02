@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center" 
-	description="Learn how to use Azure Mobile Services to handle conflicts when syncing offline data in your iOS application" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center"
+	description="Learn how to use Azure Mobile Services to handle conflicts when syncing offline data in your iOS application"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="07/01/2015" 
 	ms.author="krisragh;donnam"/>
 
 
@@ -129,15 +129,15 @@ The offline sync features in the SDK let you handle such  conflicts via code and
         {
             if (![parent isEqual:self.parentViewController]) {
                 NSNumber *completeValue = [NSNumber numberWithBool:self.itemComplete.selectedSegmentIndex == 0];
-                
+
                 Boolean changed =
                     [self.item valueForKey:@"text"] != [self.itemText text] ||
                     [self.item valueForKey:@"complete"] != completeValue;
-                
+
                 if (changed) {
                     [self.item setValue:[self.itemText text] forKey:@"text"];
                     [self.item setValue:completeValue forKey:@"complete"];
-                    
+
                     self.editCompleteBlock(self.item);
                 }
             }
@@ -149,7 +149,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 2. Add a new view controller for the Todo Item to the storyboard, to the right of the existing **Todo List View Controller**. Set the custom class of this new view controller to **QSItemViewController**. To learn more, see [Adding a Scene to a Storyboard].
 
-3. Add a **Show** segue from the **Todo List View Controller** to the **Todo Item View Controller**. Then, in the Attributes Inspector, set the segue identifier to **detailSegue**. 
+3. Add a **Show** segue from the **Todo List View Controller** to the **Todo Item View Controller**. Then, in the Attributes Inspector, set the segue identifier to **detailSegue**.
 
     Don't create this segue from the any cell or button in the origin view controller. Instead, CTRL + Drag from the view controller icon above the **Todo List View Controller** in the storyboard interface to the  **Todo Item View Controller**:
 
@@ -159,7 +159,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
         Nested push animation can result in corrupted navigation bar
 
-    To learn more about segues, see [Adding a Segue Between Scenes in a Storyboard]. 
+    To learn more about segues, see [Adding a Segue Between Scenes in a Storyboard].
 
 4. Add a text field for item text and a segmented control for the completion status to the new **Todo Item View Controller**, with labels as well. In the segmented control, set the title of **Segment 0** to **Yes** and the title for **Segment 1** to **No**. Connect these new fields to outlets in code. To learn more, see [Build a User Interface] and [Segmented Controls].
 
@@ -188,7 +188,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
         - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
             self.editingItem = [MSCoreDataStore tableItemFromManagedObject:item]; // map from managed object to dictionary
-            
+
             [self performSegueWithIdentifier:@"detailSegue" sender:self];
         }
 
@@ -198,7 +198,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
                 QSItemViewController *ivc = (QSItemViewController *) [segue destinationViewController];
                 ivc.item = [self.editingItem mutableCopy];
-                
+
                 ivc.editCompleteBlock = ^(NSDictionary *editedValue) {
                     [self.todoService updateItem:editedValue completion:^(NSUInteger index) {
                         self.editingItem = nil;
@@ -219,11 +219,11 @@ The offline sync features in the SDK let you handle such  conflicts via code and
         {
             // Set the item to be complete (we need a mutable copy)
             NSMutableDictionary *mutable = [item mutableCopy];
-            
+
             // Update the item in the TodoItem table and remove from the items array when we mark an item as complete
             [self.syncTable update:mutable completion:^(NSError *error) {
                 [self logErrorIfNotNil:error];
-                
+
                 if (completion != nil) {
                     dispatch_async(dispatch_get_main_queue(), completion);
                 }
@@ -415,7 +415,7 @@ The offline sync features in the SDK let you handle such  conflicts via code and
 
 ### <a name="test-app"></a>Test the App
 
-Let's test the application with conflicts! Edit the same item in two different instances of the app running at the same time, or using the app and a REST client. 
+Let's test the application with conflicts! Edit the same item in two different instances of the app running at the same time, or using the app and a REST client.
 
 Perform the refresh gesture in the app instances by dragging from the top. Now you'll see a prompt to reconcile the conflict:
 
@@ -470,4 +470,3 @@ Along the way, you added a **QSUIAlertViewWithBlock** helper class to display an
 [Get Started with Offline Data]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
- 
