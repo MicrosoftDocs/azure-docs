@@ -6,7 +6,7 @@ The following steps will walk you through the creation of the vault used to stor
 1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
 2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.
 
-  ![Create vault](./media/backup-create-vault/createvault1.png)
+    ![Create vault](./media/backup-create-vault/createvault1.png)
 
 3. For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription.
 
@@ -14,11 +14,11 @@ The following steps will walk you through the creation of the vault used to stor
 
 5. Click on **Create Vault** to complete the workflow. It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.
 
-  ![Creatinging Vault](./media/backup-create-vault/creatingvault1.png)
+    ![Creatinging Vault](./media/backup-create-vault/creatingvault1.png)
 
 6. After the backup vault has been created, a message tells you the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.
 
-  ![Creating Vault status](./media/backup-create-vault/backupvaultstatus1.png)
+    ![Creating Vault status](./media/backup-create-vault/backupvaultstatus1.png)
 
 
 ### Azure Backup - Storage Redundancy Options
