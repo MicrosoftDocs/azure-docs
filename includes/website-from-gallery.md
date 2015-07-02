@@ -21,9 +21,9 @@ You'll build a WordPress blog that uses a default template. The following illust
 
     ![Marketplace icon][marketplace]
 
-   Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
+    Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
 	
-	![Create New][5]
+    ![Create New][5]
 	
 3. Select **Web + Mobile**. Search for **WordPress** and click the **WordPress** icon.
 
@@ -55,11 +55,11 @@ You'll build a WordPress blog that uses a default template. The following illust
 	
 1. Click on your new web app to see details about your app.
 
-   ![launch dashboard][10]
+    ![launch dashboard][10]
 
 2. On the **Essentials** page, click either **Browse** or the link under **Url** to open the web app's welcome page.
 
-   ![site URL][browse]
+    ![site URL][browse]
 
 3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
 
