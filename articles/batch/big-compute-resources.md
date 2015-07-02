@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="05/29/2015"
+   ms.date="07/01/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)
@@ -21,17 +21,16 @@ This is a guide to technical resources to help you run your large-scale parallel
 
 ## Solutions options
 
-
 Learn about Big Compute options in Azure, and choose the right approach for your workload and business need.
 
-* [Overview](https://msdn.microsoft.com/library/azure/dn482130.aspx)
+* [Batch and HPC Solutions](batch-hpc-solutions.md)
 
 * [Video: Big Compute in the Cloud with Azure and HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure Batch
 
-[Batch](http://azure.microsoft.com/services/batch/) (Preview) is a platform service that makes it easy to cloud-enable your applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through a variety of languages, stage data to Azure, and build job execution pipelines.
+[Batch](http://azure.microsoft.com/services/batch/) is a platform service that makes it easy to cloud-enable your applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through a variety of languages, stage data to Azure, and build job execution pipelines.
 
 * Sign up for the [Preview](http://azure.microsoft.com/services/preview/)
 
@@ -47,7 +46,7 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 ## HPC cluster solutions
 
-Migrate or extend your existing Windows HPC cluster to run your compute intensive workloads in Azure.  
+Deploy or extend your existing Windows or Linux HPC cluster to Azure to run your compute intensive workloads.  
 
 ### Microsoft HPC Pack
 
@@ -60,6 +59,14 @@ Migrate or extend your existing Windows HPC cluster to run your compute intensiv
 * [Tutorial: Set up a Hybrid Cluster with HPC Pack in Azure](../cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Windows HPC Forums](https://social.microsoft.com/Forums/home?category=windowshpc)
+
+### Linux cluster solutions
+Use these Azure Resource Manager templates to deploy Linux HPC clusters.
+
+* [Spin up a SLURM cluster](http://azure.microsoft.com/documentation/templates/slurm/)
+ and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+
+* [Spin up a Torque cluster](http://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -75,8 +82,7 @@ Migrate or extend your existing Windows HPC cluster to run your compute intensiv
 
 ## Compute intensive instances
 
-Azure offers a [range of sizes](https://msdn.microsoft.com/library/azure/dn197896.aspx), including [A8, A9, A10, and A11 instances](https://msdn.microsoft.com/library/azure/dn689095.aspx), to run your Batch and HPC workloads.
-
+Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md), including compute intensive [A8, A9, A10, and A11 instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), to run your Batch and HPC workloads.
 
 * [A8 and A9 Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
