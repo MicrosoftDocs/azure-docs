@@ -13,30 +13,32 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="05/28/2015"
 	ms.author="krisragh"/>
 
 # Add Authentication to Existing App
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-In this tutorial, you add authentication to the [Mobile Services Quick Start tutorial] using a supported identity provider. You must complete the [Mobile Services Quick Start tutorial] first.
+In this tutorial, you add authentication to the [Mobile Services Quick Start tutorial] using a supported identity provider.
+
+We recommend that you complete the [Mobile Services Quick Start tutorial] first. Alternatively, just download the Quick Start iOS project: click Azure Portal > **Mobile Services** > your mobile service > the cloud sign on top left > **iOS** > **Create a New iOS App** > **Download and run your app** > **Objective-C** > **Download**. Remember to click **Create TodoItem Table** before you click **Download**, if you haven't already created the table.
 
 ##<a name="register"></a>Register App for Authentication
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>Restrict Data Permissions to Authenticated Users
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 ##<a name="add-authentication"></a>Add Authentication to App
 
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
+[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
 
 ##<a name="store-authentication"></a>Store Authentication Tokens in App
 
-[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Next Steps
 
