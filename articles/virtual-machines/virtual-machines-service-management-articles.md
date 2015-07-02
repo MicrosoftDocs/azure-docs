@@ -48,6 +48,8 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 [About VM Configuration Settings](https://msdn.microsoft.com/library/azure/dn763935.aspx)
 
+[Do I need a virtual network?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+
 ## Create
 
 [Create and Upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md)
@@ -112,7 +114,13 @@ This is a list of articles for working with virtual machines in Azure Service Ma
 
 ## Monitor
 
+[Understanding Monitoring Alerts and Notifications in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx)
+
 [Enabling Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)
+
+[Debugging a Cloud Service or Virtual Machine in Visual Studio](https://msdn.microsoft.com/library/azure/ff683670.aspx)
+
+[Using Windows PowerShell Scripts to Publish to Dev and Test Environments](https://msdn.microsoft.com/library/azure/dn642480.aspx)
 
 ## Troubleshoot
 
