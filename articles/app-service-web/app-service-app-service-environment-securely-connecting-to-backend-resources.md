@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>	
 
 # Securely Connecting to Backend Resources from an App Service Environment #
@@ -27,6 +27,12 @@ As another example, sensitive endpoints may run on-premises and be connected to 
 
 For all of these scenarios, apps running on an App Service Environment will be able to securely connect to the various servers and resources.  Outbound traffic from apps running in an App Service Environment to private endpoints in the same virtual network (or connected to the same virtual network), will only flow over the virtual network.  Outbound traffic to private endpoints will not flow over the public Internet.
 
+## Outbound Connectivity and DNS Requirements ##
+Note that for an App Service Environment to function properly, it requires outbound access to Azure Storage as well as Sql Database in the same Azure region.  If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.
+
+Customer may also have custom DNS servers configured in the virtual network.  App Service Environments need to be able to resolve Azure endpoints under *.database.windows.net, *.file.core.windows.net and *.blob.core.windows.net.  
+
+It is also recommended that any custom DNS servers on the virtual network be setup ahead of time prior to creating an App Service Environment.  If a virtual network's DNS configuration is changed while an App Service Environment is being created, that will result in the App Service Environment creation process failing.
 
 ## Connecting to a SQL Server
 A common SQL Server configuration has an endpoint listening on port 1433:

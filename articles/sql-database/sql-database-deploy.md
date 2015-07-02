@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to deploy a SQL Database - Azure" 
-	description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." 
+	pageTitle="How to deploy a SQL Database to SQL Azure" 
+	description="Deploy a SQL Server database to Azure SQL Database using the Wizard in SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="sidneyh" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,32 +13,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="07/01/2015" 
+	ms.author="sidneyh"/>
 
 
+# How to Deploy a SQL Server database to Azure SQL Database
 
+In this article, you'll use the **Deploy Database to Azure SQL Database wizard** to upload a sample database to Azure SQL Database. You must download **SQL Server 2016 Management Studio (CTP 2.1)** for this tutorial.
 
+Estimated time to completion: 15 minutes (includes download time)
 
+> [AZURE.NOTE] This tutorial uses a "school" sample database that is purposefully simple; all of its objects are compatible with Azure SQL Database, eliminating the need to modify or prepare the database for migration. If you are migrating a more complex existing database, you could also consider using the [SQL Database Migration Wizard](http://sqlazuremw.codeplex.com/) and see this [overview](sql-database-cloud-migrate.md).
 
-<h1><a id="howtodeploySQLdb"></a>How to Deploy a Database to Azure</h1>
+## Prerequisites
 
-There are several different ways you can move an on-premises SQL Server database to Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
+A **Microsoft Azure account**. For a free trial, see this [offer](http://azure.microsoft.com/pricing/free-trial/).
 
-The School sample database is conveniently simple; all of its objects are compatible with SQL Database, eliminating the need to modify or prepare a database for migration. As a new administrator, try deploying a simple database first to learn the steps before using your own databases. 
+Download [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx).  (For more information about the tool, see [SQL Server Management Studio - June 2015 Release Notes](https://msdn.microsoft.com/library/mt238486.aspx).)
 
-**Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Azure. Also, consider downloading the Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
+An existing server on Azure SQL Database. For instructions on creating a new database (on a new server), see [Create your first Azure SQL Database](sql-database-get-started.md).
 
+## Create the school database on an on-premises server
 
-<h2><a id="schooldb"></a>How to: Create the school database on an on-premises server</h2>
+Run these scripts in SQL Server Management Studio (SSMS) to create an on-premises version of the "school" database.
 
-Scripts for creating this database can be found in the [Getting Started with SQL Database Administration][]. In this guide, you'll run these scripts in Management Studio to create an on-premises version of the school database.
-
-1. In Management Studio, connect to an on-premises server. Right-click **Databases**, click **New Database**, and enter *school*.
+1. In SSMS, connect to an on-premises server. Right-click **Databases**, click **New Database**, and enter *school*.
 
 2. Right-click on *school*, click **New Query**. 
 
-3. Copy and then execute the Create Schema script from the tutorial. 
+3. Copy and execute this script: 
 
 <div style="width:auto; height:300px; overflow:auto"><pre>
 	-- Create the Department table.
@@ -531,66 +534,62 @@ Next, copy and execute the Insert Data script.
 	VALUES (1061, 30, 4);
 	GO
 </pre></div>
+	
+You now have an on-premises database that you can export to Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Azure, and imports it into SQL Database.
 
-   You now have an on-premises database that you can export to Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Azure, and imports it into SQL Database.
+	
+## Deploy the database to Azure SQL 
+	
+1. In Management Studio, right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to Microsoft Azure SQL Database**.
+2. In **Deployment Settings**, enter a name for the database, such as *school*.
+5. Click **Connect**. To solve problems with connectivity, try this [troubleshooter](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+6. In **Server name**, enter the 10-character server name, followed by **.database.windows.net**
+7. In **Authentication**, choose **SQL Server Authentication**.
+8. Enter the administrator login name and password that you created when provisioning the SQL Database logical server.
+9. Click **Options**.
+10. In Connection Properties, in **Connect to database**, type **master**.
 
+	**Note** You must connect to the **master** database whenever you want to create a database on the Azure SQL Database server. 
+11. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
+12. Click **Next** and click **Finish** to run the wizard.
 
-<h2><a id="deploydb"></a>How to: Deploy to SQL Database</h2>
-
-1. In Management Studio, connect to an on-premises SQL Server instance that has a database you want to migrate.
-
-2. Right-click the school database that you just created, point to **Tasks**, and click **Deploy Database to SQL Azure**.
-
-3. In Deployment Settings, enter a name for the database, such as *school*. 
-
-4. Click **Connect**.
-
-5. In Server name, enter the 10-character server name, followed by .database.windows.net.
-
-6. In Authentication, choose **SQL Server Authentication**.
-
-7. Enter the administrator login name and password that you provisioned when creating the SQL Database logical server.
-
-8. Click **Options**.
-
-9. In Connection Properties, in **Connect to database**, type **master**.
-
-10. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
-
-
-11. Click **Next** and click **Finish** to run the wizard.
-
-
-<h2><a id="verify"></a>How to: Verify database deployment</h2>
-
-1. In Management Studio, in Object Explorer refresh the databases to view the new one you just created.
-
+	
+## How to: Verify database deployment
+	
+1. In Management Studio, under **Object Explorer**, click the **Connect** icon.
+2. In the **Server** name box, type the name of the Azure SQL server, followed by **database.windows.net**
+3. In **Authentication**, select **SQL Server Authenication**.
+4. Enter the administrator login name and password you created when provisioning the server. 
+5. Click the **Options** button.
+6. Click the **Connect to database** dropdown, and click **Browse server**. In the following dialog box, click **Yes** to allow browsing of the server.
+7. Click the **school** database to select it, then click **OK**. 
+8. Then click **Connect**. To solve problems with connectivity, try this [troubleshooter](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 2. Expand the **Databases** folder. You should see the **school** database in the list.
 
-3. Right-click on the school database and click **New Query**.
-
+	**Note** You must connect to the database you want to query. 
+3. Right-click **school** and click **New Query**.
 4. Execute the following query to verify that data is accessible.
 
-<div style="width:auto; height:auto; overflow:auto"><pre>
-	SELECT
-		Course.Title as "Course Title"
-  		,Department.Name as "Department"
-  		,Person.LastName as "Instructor"
-  		,OnsiteCourse.Location as "Location"
-  		,OnsiteCourse.Days as "Days"
-  		,OnsiteCourse.Time as "Time"
-	FROM
- 	 Course
- 	 INNER JOIN Department
-  	  ON Course.DepartmentID = Department.DepartmentID
- 	 INNER JOIN CourseInstructor
- 	   ON Course.CourseID = CourseInstructor.CourseID
- 	 INNER JOIN Person
- 	   ON CourseInstructor.PersonID = Person.PersonID
- 	 INNER JOIN OnsiteCourse
+		SELECT
+			Course.Title as "Course Title"
+				,Department.Name as "Department"
+				,Person.LastName as "Instructor"
+				,OnsiteCourse.Location as "Location"
+				,OnsiteCourse.Days as "Days"
+				,OnsiteCourse.Time as "Time"
+		FROM
+			 Course
+			 INNER JOIN Department
+			  ON Course.DepartmentID = Department.DepartmentID
+			 INNER JOIN CourseInstructor
+			   ON Course.CourseID = CourseInstructor.CourseID
+			 INNER JOIN Person
+			   ON CourseInstructor.PersonID = Person.PersonID
+			 INNER JOIN OnsiteCourse
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
-</pre></div>
+		
+## Next steps
 
-[Getting Started with SQL Database Administration]: /manage/services/sql-databases/getting-started-w-sql-databases/  
+For a tutorial on creating a new Azure SQL database, see [Getting Started with SQL Database Administration](sql-database-get-started.md). For the basics of connecting to an Azure SQL database from a C# app, see [Connect to and query your SQL Database with C#](sql-database-connect-query.md). For more tutorials on connection from various platforms (such as PHP) see [Azure SQL Database Development: How-to Topics](https://msdn.microsoft.com/library/azure/ee621787.aspx).
 
  

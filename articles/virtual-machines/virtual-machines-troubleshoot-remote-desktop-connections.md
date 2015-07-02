@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine" 
-	description="Learn how to restore Remote Desktop (RDP) connectivity to your Azure virtual machine with diagnotics and steps to isolate the source of the problem."
+	description="When you can't connect your Windows-based Azure virtual machine, use these diagnotics and steps to isolate the source of the problem."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -18,7 +19,7 @@
 
 # Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine
 
-This topic describes a methodical approach for correction and root cause determination of Remote Desktop connections to Windows-based Azure virtual machines.
+When you can't connect to Windows-based Azure virtual machines, this article describes a methodical approach for correction and root cause determination of Remote Desktop connections.
 
 ## Step 1: Run the Azure IaaS diagnostics package
 
@@ -35,7 +36,7 @@ If running the Azure IaaS diagnostics package did not correct the problem or you
 
 ## Step 2: Determine the error message from the Remote Desktop client
 
-Use these sections based on the error message you get.
+Use these sections based on the error message you see when attempting to connect.
 
 ### Remote Desktop Connection message window: The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.
 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Getting Started with Microsoft Azure Service Fabric Reliable Actors"
-   description="This tutorial walks you through the steps of creating a canonical HelloWorld service using Reliable Actors."
+   pageTitle="Get Started with Reliable Actors | Microsoft Azure"
+   description="This tutorial walks you through the steps of creating, debugging, and deploying a canonical HelloWorld service using Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -17,12 +17,13 @@
    ms.author="claudioc"/>
 
 # Reliable Actors: The canonical HelloWorld walk-through scenario
+This article explains the basics of Service Fabric Reliable Actors and walks you through creating, debugging, and deploying a simple HelloWorld application in Visual Studio.
 
-## Installation and Setup
+## Installation and setup
 Before starting, make sure you have the Service Fabric development environment setup on your machine.
 Detailed instructions on how to setup the development environment can be found [here](service-fabric-get-started.md).
 
-## Service, Interface and ActorProxy
+## Basic concepts
 In order to get started with Reliable Actors you just need to understand 4 basic concepts:
 
 * **Actor Service**. Reliable Actors are packaged in Services that can be deployed in the Service Fabric infrastructure. A service can host one or more actors. We will go into more details about the trade-offs of one vs. multiple actors per service later. For now let's assume we need to implement only one actor.
@@ -141,7 +142,7 @@ During the deployment process you can see progress in the Output Window
 
 ![][3]
 
-## Application Deployment
+## Application deployment
 From Visual Studio you can also package and deploy the application in the local cluster without having to launch the debugger by selecting the Service Fabric Application project and right-clicking.
 
 ![][4]
@@ -150,7 +151,7 @@ From Visual Studio you can also package and deploy the application in the local 
 * **Remove Deployment**: it can be used to remove an application from the local cluster
 * **Package**: it packages the application. This action can be useful to prepare the application to be deployed on a different cluster, for instance, on Azure.
 
-## Next Steps
+## Next steps
 
 [Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 

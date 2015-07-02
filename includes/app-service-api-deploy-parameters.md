@@ -14,7 +14,7 @@ The name of the gateway you wish to create. The API app gets registered to this 
 
 ### apiAppName
 
-The name of the API app to create.
+The name of the API app to create. The name must contain at least 8 characters and no more than 50 characters.
     
     "apiAppName": {
       "type": "string"
