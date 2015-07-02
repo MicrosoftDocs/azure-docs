@@ -42,7 +42,7 @@ Next, open a command window, and navigate to the AzCopy installation directory o
 
 > [AZURE.NOTE] Beginning with AzCopy version 3.0.0, the AzCopy command-line syntax requires that every parameter be specified to include the parameter name, *e.g.*, `/ParameterName:ParameterValue`.
 
-## Write your first AzCopy command line
+## Write your first AzCopy command
 
 **Upload a file from the file system to Blob storage:**
 	
