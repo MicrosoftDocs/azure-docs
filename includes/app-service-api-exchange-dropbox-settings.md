@@ -1,4 +1,4 @@
-4. In another browser window or tab, go to the [Azure preview portal].
+4. In another browser window or tab, go to the [Azure preview portal](https://portal.azure.com).
 
 3. Go to the **API App** blade for your Dropbox connector. (If you're still on the **Resource Group** blade, just click the Dropbox connector in the diagram.)
 
