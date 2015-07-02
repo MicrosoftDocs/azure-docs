@@ -1,14 +1,14 @@
 1. In **Solution Explorer**, right-click the project (not the solution) and click **Publish**. 
 
-	![Project publish menu option](./media/app-service-api-pub-web-deploy/20-publish-gesture-v3.png)
+	![Project publish menu option](./media/app-service-api-pub-web-create/20-publish-gesture-v3.png)
 
 2. Click the **Profile** tab and click **Microsoft Azure API Apps (Preview)**. 
 
-	![Publish Web dialog](./media/app-service-api-pub-web-deploy/21-select-api-apps-for-deployment-v2.png)
+	![Publish Web dialog](./media/app-service-api-pub-web-create/21-select-api-apps-for-deployment-v2.png)
 
 3. Click **New** to provision a new API App in your Azure subscription.
 
-	![Select Existing API Services dialog](./media/app-service-api-pub-web-deploy/23-publish-to-apiapps-v3.png)
+	![Select Existing API Services dialog](./media/app-service-api-pub-web-create/23-publish-to-apiapps-v3.png)
 
 4. In the **Create an API App** dialog, enter the following:
 
@@ -19,16 +19,16 @@
 	- For **Access Level**, select **Available to Anyone**. You can restrict access later through the Azure preview portal.
 	- For **Region**, select a region close to you.  
 
-	![Configure Microsoft Azure Web App dialog](./media/app-service-api-pub-web-deploy/24-new-api-app-dialog-v3.png)
+	![Configure Microsoft Azure Web App dialog](./media/app-service-api-pub-web-create/24-new-api-app-dialog-v3.png)
 
 5. Click **OK** to create the API App in your subscription. 
 
 	As this process can take a few minutes, Visual Studio displays a confirmation dialog.  
 
-	![API Service Creation Started confirmation message](./media/app-service-api-pub-web-deploy/25-api-provisioning-started-v3.png)
+	![API Service Creation Started confirmation message](./media/app-service-api-pub-web-create/25-api-provisioning-started-v3.png)
 
 6. Click **OK** on the confirmation dialog. 
  
 	The provisioning process creates the resource group and API App in your Azure subscription. Visual Studio shows the progress in the **Azure App Service Activity** window. 
 
-	![Status notification via the Azure App Service Activity window](./media/app-service-api-pub-web-deploy/26-provisioning-success-v3.png)
+	![Status notification via the Azure App Service Activity window](./media/app-service-api-pub-web-create/26-provisioning-success-v3.png)
