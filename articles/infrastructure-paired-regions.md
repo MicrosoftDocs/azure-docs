@@ -50,10 +50,13 @@ Table 1 - Mapping of azure regional pairs
 
 We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.
 
-Figure 1 below shows a hypothetical regional pair. The green numbers highlight the cross-region activities of three Azure services (Azure Compute, Storage, and Database) and how they are configured to replicate across regions. The unique benefits of deploying across paired regions are highlighted by the orange numbers.
+## Regional Pair Example
+Figure 2 below shows a hypothetical regional pair. The green numbers highlight the cross-region activities of three Azure services (Azure Compute, Storage, and Database) and how they are configured to replicate across regions. The unique benefits of deploying across paired regions are highlighted by the orange numbers.
 
 
 ![Overview of Paired Region Benefits](./media/infrastructure-paired-regions/PairedRegionsOverview2.png)
+
+Figure 2 – Hypothetical Azure regional pair
 
 ![1Green](./media/infrastructure-paired-regions/1Green.png) **Azure Compute** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. We recommended you deploy these resources in a paired region for disaster recovery.
 
@@ -64,7 +67,9 @@ Figure 1 below shows a hypothetical regional pair. The green numbers highlight t
 
 ![4Green](./media/infrastructure-paired-regions/4Green.png) **Independent management services** - Azure Resource Manager (ARM) inherently provides logical isolation of service management components across regions – no configuration is required. This means logical failures in one region are less likely to impact another.
 
-**What are the benefits of a paired region?**
+## Benefits of a paired region
+
+As referred to in figure 2.  
 
 ![5Orange](./media/infrastructure-paired-regions/5Orange.png)
 **Physical isolation** – When possible, Azure prefers at least 300 miles of separation between datacenters in a regional pair, although this is not practical or possible in all geographies. Physical datacenter separation reduces the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Isolation is subject to the constraints within the geography (geography size, power/network infrastructure availability, regulations, etc.).
