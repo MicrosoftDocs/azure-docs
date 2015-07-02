@@ -21,6 +21,9 @@
 ##Overview
 This topic presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio. It discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and we assess directions for further development.  
 
+### Acknowledgements
+This experiment was developed and tested by Serge Berger, Princial Data Scientist at Microsoft, and Roger Barga, formerly Product Manager for Microsoft Azure Machine Learning. The Azure documentation team is grateful to them for sharing their learnings in this white paper.
+
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
 
 ##The problem of customer churn
