@@ -98,7 +98,7 @@ If you can access the application, ensure that your Internet edge device is allo
 - The outbound application request traffic from your client computer to the Azure virtual machine.
 - The inbound application response traffic from the Azure virtual machine.
 
-## Next Steps
+## Next Step
 
 If you have run through steps 1 through 3 in this article and need additional help to correct the problem, you can:
 
