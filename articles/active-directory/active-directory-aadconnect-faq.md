@@ -31,5 +31,5 @@
 
 [Azure AD Connect customer support](https://manage.windowsazure.com/?getsupport=true)
 
-- Use this link to contact a Microsoft support professional. We’ll ask you a few questions to help us determine what your support options are. The support options may include email, on-line submission or phone support. 
+- Use this link to get support through the Azure portal. 
 
