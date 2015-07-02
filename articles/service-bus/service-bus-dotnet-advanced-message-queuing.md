@@ -28,17 +28,17 @@ This how-to guide explains how to use the Service Bus brokered messaging feature
 
 This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled "[How to Use Service Bus Queues.](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)"
 
-## Downloading the Service Bus SDK
+## Download the Service Bus SDK
 
 AMQP 1.0 support is available in Service Bus SDK version 2.1 or later. You can download the latest SDK from NuGet at [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
 
-## Coding .NET applications
+## Code .NET applications
 
 By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string as described in the next section. Other than this change, application code remains basically unchanged when using AMQP 1.0.
 
 In the current release there are a few API features that are not supported when using AMQP. These unsupported features are listed later in the section "Unsupported features and restrictions." Some of the advanced configuration settings also have a different meaning when using AMQP. None of these settings are used in this short how-to guide but more details are available in the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx).
 
-### Configuration via App.config
+### Configure via App.config
 
 It is recommended practice for applications to use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the Service Bus **ConnectionString**. This sample application also uses App.config to store the name of the Service Bus messaging entity that it uses.
 
@@ -53,7 +53,7 @@ A sample App.config file is shown below:
   		</appSettings>
 	</configuration>
 
-### Configuring the Service Bus connection string
+### Configure the Service Bus connection string
 
 The value of the **Microsoft.ServiceBus.ConnectionString** setting is the Service Bus connection string that is used to configure the connection to Service Bus. The format is as follows:
 
@@ -63,7 +63,7 @@ Where [namespace] and [SAS key] are obtained from the Azure Management Portal. F
 
 When using AMQP, the connection string is appended with ";TransportType=Amqp", which tells the client library to make its connection to Service Bus using AMQP 1.0.
 
-### Configuring the entity name
+### Configure the entity name
 
 This sample application uses the `EntityName` setting in the **appSettings** section of the App.config file to configure the name of the queue with which the application exchanges messages.
 
@@ -197,7 +197,7 @@ The following example sends and receives messages to and from a Service Bus queu
 	    }
 	}
 
-### Running the application
+### Run the application
 
 Running the application produces output of the form:
 

@@ -24,8 +24,8 @@ Dynamic demand is a reality for today's applications. From seasonal and variable
  
 ## Explore
 
-- [Mcrosoft Azure Service Bus fundamentals](fundamentals-service-bus-hybrid-solutions.md)
-- [Queue-Based load leveling pattern](http://msdn.microsoft.com/library/dn589783.aspx)
+- [Microsoft Azure Service Bus fundamentals](fundamentals-service-bus-hybrid-solutions.md)
+- [Queue-based load leveling pattern](http://msdn.microsoft.com/library/dn589783.aspx)
 - [Competing consumers](http://msdn.microsoft.com/library/dn568101.aspx)
 - [Transportation Solution Provider Screens Commercial Vehicles - Xerox](http://www.microsoft.com/casestudies/Case_Study_Detail.aspx?CaseStudyID=710000000945)
  
