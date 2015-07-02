@@ -10,7 +10,7 @@
 <tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
+	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="get-started-article" 
 	ms.date="07/02/2015"
