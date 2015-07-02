@@ -19,7 +19,7 @@
 
 # Protocol Connectors in Microsoft Azure App Service
 
-< [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
+> [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
 
 ## What is a Protocol Connector
 Protocol connectors are API Apps* that you can use to create apps that communicate using a wide variety of protocols like HTTP, SMTP, FTP, and so on. 
