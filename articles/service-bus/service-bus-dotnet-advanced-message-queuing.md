@@ -13,17 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
-
-
-
-
-
 # How to use AMQP 1.0 with the Service Bus .NET API
-
-## Introduction
 
 The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform, messaging applications.
 
@@ -70,11 +63,11 @@ Where [namespace] and [SAS key] are obtained from the Azure Management Portal. F
 
 When using AMQP, the connection string is appended with ";TransportType=Amqp", which tells the client library to make its connection to Service Bus using AMQP 1.0.
 
-### Configuring the Entity Name
+### Configuring the entity name
 
-This sample application uses the "EntityName" setting in the **appSettings** section of the App.config file to configure the name of the queue with which the application exchanges messages.
+This sample application uses the `EntityName` setting in the **appSettings** section of the App.config file to configure the name of the queue with which the application exchanges messages.
 
-### A simple .NET application using a Service Bus Queue
+### A simple .NET application using a Service Bus queue
 
 The following example sends and receives messages to and from a Service Bus queue.
 
@@ -225,9 +218,9 @@ Running the application produces output of the form:
 
 This guide showed how to send messages to Service Bus using .NET and also how to receive those messages using .NET. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.
 
-Using the sample .NET application described above and a similar Java application taken from a companion guide, [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3), it's possible to exchange messages between .NET and Java. 
+Using the sample .NET application described above and a similar Java application taken from a companion guide, [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md), it's possible to exchange messages between .NET and Java. 
 
-For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx).
+For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/azure/jj841071.aspx).
 
 ### JMS to .NET
 
@@ -299,20 +292,18 @@ The following features of the .NET Service Bus API are not currently supported w
 * Session lock renewal
 * Some minor differences in behavior
 
-For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx). This topic includes a detailed list of unsupported APIs.
+For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/azure/jj841071.aspx). This topic includes a detailed list of unsupported APIs.
 
 ## Summary
 
 This how-to guide showed how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API.
 
-You can also use Service Bus AMQP 1.0 from other languages including Java, C, Python, and PHP. Components built using these languages can exchange messages reliably and at full fidelity using AMQP 1.0 in Service Bus. For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx).
+You can also use Service Bus AMQP 1.0 from other languages including Java, C, Python, and PHP. Components built using these languages can exchange messages reliably and at full fidelity using AMQP 1.0 in Service Bus. For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/azure/jj841071.aspx).
 
 ## Next steps
 
-* [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
-* [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
-* [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx)
-* [How to Use Service Bus Queues](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
-
-[How to Use Service Bus Queues]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
+* [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
+* [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
+* [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/azure/jj841071.aspx)
+* [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
  

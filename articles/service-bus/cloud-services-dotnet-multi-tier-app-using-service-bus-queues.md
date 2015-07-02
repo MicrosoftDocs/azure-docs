@@ -13,20 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/17/2015"
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
-
-
-
-
-# .NET Multi-Tier Application Using Service Bus Queues
+# .NET Multi-Tier application using Service Bus queues
 
 ## Introduction
 
-Developing for Microsoft Azure is easy using Visual Studio 2013 and the
-free Azure SDK for .NET. If you do not already have Visual
-Studio 2013, the SDK will automatically install Visual Studio Express, so you can start developing for Azure entirely for
+Developing for Microsoft Azure is easy using Visual Studio 2013 and the free Azure SDK for .NET. If you do not already have Visual Studio 2013, the SDK will automatically install Visual Studio Express, so you can start developing for Azure entirely for
 free. This guide assumes you have no prior experience using Azure. On completing this tutorial, you will have an application that uses
 multiple Azure resources running in your local environment and
 demonstrating how a multi-tier application works.
@@ -665,7 +659,7 @@ To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
   [35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [sbmsdn]: http://msdn.microsoft.com/library/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/  
   [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
