@@ -36,13 +36,19 @@ It works for a wide variety of app types and platforms: web apps in .NET or J2EE
 
 ## How do I get started?
 
-1. You'll need a subscription in Microsoft Azure. It's free to sign up, and you can choose the free pricing tier of Application Insights. 
+1. You'll need a subscription to [Microsoft Azure](http://azure.com) It's free to sign up, and you can choose the free pricing tier of Application Insights. 
 
 
 2. What development tools are you using? 
 
  * Visual Studio (2013 update 3 or later): Right-click your project in Solution Explorer, and choose **Add Application Insights** if it's there.
  * Otherwise, choose your project type under Get Started in the navigation bar at the left of this page.
+
+Following the guidance in the tools, you'll install an SDK in your project to send telemetry data, and create an Application Insights resource where the data will be analyzed and displayed. 
+
+The SDK includes a number of modules that automatically collect different types of data, such as performance counters and exceptions. You can also use the core API yourself to send telemetry about how your app is being used.
+
+For web apps, you can send data from both the server and the client (whether it's a web page or a device app). The streams will be integrated in the Application Insights portal so that you can correlate events in the different components.
 
 
 
@@ -92,6 +98,30 @@ If your app is a web site or service, there are some optional additions and vari
 * Set up web tests to monitor the availability of your site from points around the world.
 * Instrument an already-live server-side application without rebuilding or redeploying it. This is available for [IIS servers][redfield] and [Azure web apps][azure].
 * Monitor dependency calls that your app makes to other components such as databases or through REST APIs. Available for [IIS servers][redfield] and [Azure web apps][azure].
+
+
+
+
+## Support and feedback
+
+* Questions and Issues:
+ * [Troubleshooting][qna]
+ * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* Bugs:
+ * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
+* Suggestions:
+ * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+
+
+## Videos
+
+
+> [AZURE.VIDEO 218]
+
+> [AZURE.VIDEO usage-monitoring-application-insights]
+
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
 
 <!--Link references-->
