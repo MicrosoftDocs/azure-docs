@@ -152,7 +152,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 ## Backup Limits
 
-[AZURE.INCLUDE [operational-insights-limits](../includes/azure-backup-limits.md)]
+[AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
 ## See Also
 
