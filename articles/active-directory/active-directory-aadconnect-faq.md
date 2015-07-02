@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure AD Connect Troubleshooting" 
-	description="This where you will learn about the various resources available to assist with troubleshooting Azure AD Connect issues" 
+	pageTitle="Azure AD Connect FAQ" 
+	description="This page has frequently asked questions about Azure AD Connect." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -16,7 +16,9 @@
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
-# Troubleshooting for Azure Active Directory Connect
+# Azure Active Directory Connect FAQ
+
+## How can I get help with Azure AD Connect?
 
 [Search the Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
