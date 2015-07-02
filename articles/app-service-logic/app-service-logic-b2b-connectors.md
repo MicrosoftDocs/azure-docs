@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/01/2015" 
 	ms.author="mandia"/>
 
 # Business-to-Business Connectors and API Apps in Microsoft Azure App Service
@@ -206,9 +206,5 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 ## More Connectors
 [BizTalk Integration connectors](app-service-logic-integration-connectors.md)<br/>
-[Enterprise connectors](app-service-logic-enterprise-connectors.md)<br/>
-[Social connectors](app-service-logic-social-connectors.md)<br/>
-[Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
-[App + Data Services connectors](app-service-logic-data-connectors.md)<br/>
 [Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md) 
