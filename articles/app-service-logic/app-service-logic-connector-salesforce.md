@@ -3,7 +3,7 @@
    description="How to use the Salesforce Connector"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="sutalasi"
+   authors="anuragdalmia"
    manager="dwrede"
    editor=""/>
 
