@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Create a VM with Multiple NICs"
-   description="How to create vms with multiple nics"
+   description="Lear how to create and configure vms with multiple nics"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="07/01/2015"
    ms.author="telmos" />
 
 # Create a VM with Multiple NICs
@@ -115,15 +115,17 @@ The instructions below will help you create a Multi-NIC VM containing 3 NICs: a 
 	</VirtualNetworkSite>
 
 
-You need the following prerequisitesbefore trying to run the PowerShell commands in the example.
+You need the following prerequisites before trying to run the PowerShell commands in the example.
 
 - An Azure subscription.
 - A configured virtual network. See [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx) for more information about VNets.
 - The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](../install-configure-powershell).
 
-1. Select a VM image from Azure VM image gallery. Note that images change frequently and are available by region. The image specified in the example below may change or might not be in your region, so be sure to specify the image you need. 
+To create a VM with multiple NICs, follow the steps below:
 
-	    $image = Get-AzureVMImage `
+1. Select a VM image from Azure VM image gallery. Note that images change frequently and are available by region. The image specified in the example below may change or might not be in your region, so be sure to specify the image you need. 
+	    
+		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
 1. Create a VM configuration. 
@@ -152,14 +154,102 @@ You need the following prerequisitesbefore trying to run the PowerShell commands
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE] The VNet that you specify here must already exist (as mentioned in the prerequisites). The example below specifies a virtual network named “MultiNIC-VNet”. 
+>[AZURE.NOTE] The VNet that you specify here must already exist (as mentioned in the prerequisites). The example below specifies a virtual network named **MultiNIC-VNet**. 
 
-## See Also
+## Secondary NIC access to other subnets
 
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+The current model in Azure is that, all NICs in a virtual machine are set up with a default gateway. This allows the NICs to communicate with IP addresses outside their subnet. In Operating systems that use the weak host routing model such as Linux, the internet connectivity will break if the ingress and egress traffic use different NICs.
 
-[Virtual Network Configuration Tasks](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+In order to fix this, Azure will be rolling out an update in the first weeks of July 2015 to the platform which will remove the default gateway from the secondary NICs. This will not impact existing virtual machines until they are rebooted. After the reboot the new settings will take effect, at which point, the traffic flow on the secondary NICs will be limited to be within the same subnet. If the users want to enable secondary NICs to talk outside its own subnet, they will have to add an entry in the routing table to configure the gateway as described below.
 
-[Blog Post - Multiple VM NICs and VNet Appliances in Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
+### Configure Windows VMs
 
- 
+Suppose that you have a Windows VM with two NICs as follows:
+
+- Primary NIC IP address: 192.168.1.4
+- Secondary NIC IP address: 192.168.2.5
+
+The IPv4 route table for this VM would look like this:
+
+	IPv4 Route Table
+	===========================================================================
+	Active Routes:
+	Network Destination        Netmask          Gateway       Interface  Metric
+	          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+	        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+	        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+	  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	    168.63.129.16  255.255.255.255      192.168.1.1      192.168.1.4      6
+	      192.168.1.0    255.255.255.0         On-link       192.168.1.4    261
+	      192.168.1.4  255.255.255.255         On-link       192.168.1.4    261
+	    192.168.1.255  255.255.255.255         On-link       192.168.1.4    261
+	      192.168.2.0    255.255.255.0         On-link       192.168.2.5    261
+	      192.168.2.5  255.255.255.255         On-link       192.168.2.5    261
+	    192.168.2.255  255.255.255.255         On-link       192.168.2.5    261
+	        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+	        224.0.0.0        240.0.0.0         On-link       192.168.1.4    261
+	        224.0.0.0        240.0.0.0         On-link       192.168.2.5    261
+	  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	  255.255.255.255  255.255.255.255         On-link       192.168.1.4    261
+	  255.255.255.255  255.255.255.255         On-link       192.168.2.5    261
+	===========================================================================
+
+Notice that the default route (0.0.0.0) is only available to the primary NIC. You will not be able to access resources outside the subnet for the secondary NIC, as seen below:
+
+	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+	 
+	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+
+To add a default route on the secondary NIC, follow the steps below:
+
+1. From a command prompt, run the command below to identify the index number for the secondary NIC:
+
+		C:\Users\Administrator>route print
+		===========================================================================
+		Interface List
+		 29...00 15 17 d9 b1 6d ......Microsoft Virtual Machine Bus Network Adapter #16
+		 27...00 15 17 d9 b1 41 ......Microsoft Virtual Machine Bus Network Adapter #14
+		  1...........................Software Loopback Interface 1
+		 14...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
+		 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+		===========================================================================
+
+2. Notice the second entry in the table, with an index of 27 (in this example).
+3. From the command prompt, run the **route add** command as shown below. In this example, you are specifying 192.168.2.1 as the default gateway for the secondary NIC:
+
+		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
+
+4. To test connectivity, go back to the command prompt and try to ping a different subnet from the secondary NIC as shown int eh example below:
+
+		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+		 
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+
+5. You can also check your route table to check the newly added route, as shown below:
+
+		C:\Users\Administrator>route print
+
+		...
+
+		IPv4 Route Table
+		===========================================================================
+		Active Routes:
+		Network Destination        Netmask          Gateway       Interface  Metric
+		          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+		          0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.5   5005
+		        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+
+### Configure Linux VMs
+
+For Linux VMs, since the default behavior uses weak host routing, we recommend that the secondary NICs are restricted to traffic flows only within the same subnet. However if certain scenarios demand connectivity outside the subnet, users should enable policy based routing to ensure that the ingress and egress traffic uses the same NIC.
+
+## Next steps
+
+- Learn about the use of [multiple VM NICs and VNet Appliances in Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)

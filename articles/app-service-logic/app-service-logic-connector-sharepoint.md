@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Create a SharePoint Connector to use in your logic app" 
-   description="Create a SharePoint Connector; Using the SharePoint Connector in your logic app" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Create a SharePoint Connector to use in your logic app"
+   description="Create a SharePoint Connector; Using the SharePoint Connector in your logic app"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 # Using the SharePoint Connector in your logic app
 
@@ -24,7 +24,7 @@ The SharePoint Online Connector and SharePoint Server Connector gallery app prov
 
 ## Create a SharePoint Online Connector
 
-A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace: 
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
 1. In the Azure startboard, select **Marketplace**.
 2. Select **API Apps** and search for “SharePoint Online Connector”.
@@ -36,7 +36,7 @@ A connector can be created within a logic app or be created directly from the Az
 Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter: *https://microsoft.sharepoint.com/teams/wabstest*.
 Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
 
-5. When complete, the Package Settings look similar to the following: 
+5. When complete, the Package Settings look similar to the following:
 <br/>
 ![][1]
 
@@ -44,7 +44,7 @@ Once that’s done, you can now create a logic App in the same resource group to
 
 ## Creating a SharePoint Server Connector
 
-A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace: 
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
 1. In the Azure startboard, select **Marketplace**.
 2. Select **API Apps** and search for “SharePoint Server Connector”.
@@ -60,7 +60,7 @@ Password | No | Enter a valid password to connect to SharePoint site, if Authent
 Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
 Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. When complete, the Package Settings look similar to the following: 
+5. When complete, the Package Settings look similar to the following:
 <br/>
 ![][2]
 
@@ -75,7 +75,7 @@ Once your API app is created, you can now use the SharePoint Connector as a trig
 
 2. Open **Triggers and Actions** to open the Logic Apps Designer and configure your workflow. The SharePoint Connector appears in the “Recently Used” section in the gallery on the right hand side. Select it.
 
-3. If SharePoint connector is selected at the start of the logic app, it acts like trigger. Otherwise, actions could be taken on SharePoint account using the connector. 
+3. If SharePoint connector is selected at the start of the logic app, it acts like trigger. Otherwise, actions could be taken on SharePoint account using the connector.
 
 4. When using the SharePoint Online Connector, you have to authenticate and authorize logic apps to perform operations on your behalf. To start the authorization, click **Authorize** on SharePoint Connector:
 <br/>
@@ -104,7 +104,7 @@ Once your API app is created, you can now use the SharePoint Connector as a trig
 ##  Triggers
 Use triggers if you want to initiate a logic app.
 
-> [AZURE.NOTE] Triggers delete the files after reading them. To preserve these files, please enter a value for the archive location. 
+> [AZURE.NOTE] Triggers delete the files after reading them. To preserve these files, please enter a value for the archive location.
 
 ### 1.	New Document In Shared Documents (JSON)
 This trigger is fired when a new document is available in 'Shared Documents'. 
@@ -113,7 +113,7 @@ This trigger is fired when a new document is available in 'Shared Documents'. 
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the existing documents, leave this field empty. 
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the existing documents, leave this field empty.
 Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed documents are archived.
 Overwrite in Archive | No | Check this option to overwrite a file in Archive path if it already exists.
 Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -121,7 +121,7 @@ Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For ex
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Name | Name of the document.
 Content | Content of the document.
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
@@ -136,14 +136,14 @@ This trigger is fired when a new item is added in 'Tasks' list.
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter items in the list. For example, enter: 'Approved Orders'. To process all the all the new items, leave this field empty. 
+View Name | No | Enter a valid view used to filter items in the list. For example, enter: 'Approved Orders'. To process all the all the new items, leave this field empty.
 Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.
 Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 The columns in the list are dynamically populated and shown in the output parameters. | &nbsp;
 
 
@@ -155,7 +155,7 @@ This trigger is fired when a new document is available in 'Shared Documents'. Th
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the all the existing documents, leave this field empty. 
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the all the existing documents, leave this field empty.
 Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list documents are archived.
 Overwrite in Archive | No | Check this option to overwrite a file in Archive path if it already exists.
 Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -163,7 +163,7 @@ Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For ex
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Content | Content of the document.
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
 
@@ -176,14 +176,14 @@ This trigger is fired when a new item is added in 'Tasks' list. The new list ite
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter items in the list. Example: 'Approved Orders'. To process all the new items, leave this field empty. 
+View Name | No | Enter a valid view used to filter items in the list. Example: 'Approved Orders'. To process all the new items, leave this field empty.
 Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.
 Caml Query | No, Advanced | Enter a valid Caml query to filter the list items. For example, enter: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Content | Content of the document.
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
 
@@ -213,7 +213,7 @@ OptionalParam2* | No. Advanced | This is one of the optional parameters to add a
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 ItemId | ItemId of the document added in Document library.
 Status | A successful upload of document returns status code 200 (OK).
 
@@ -232,8 +232,8 @@ Document Relative URI | No | Enter the document URL, relative to 'Shared Documen
 #### Output
 
 Name | Description
---- | --- 
-Content | Document Content 
+--- | ---
+Content | Document Content
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none" or ”base64”)
 Status | A successful action execution returns status code 200 (OK).
 Param1* | This is one of the parameters of a document in the document library.
@@ -256,7 +256,7 @@ Document Relative URI | No | Enter the document URL, relative to 'Shared Documen
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Status | A successful action execution returns status code 200 (OK).
 
 
@@ -278,7 +278,7 @@ OptionalParam2* | No. Advanced | This is one of the required parameters to add a
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 ItemId | ItemId of the List item added.
 Status | A successful insertion of List item returns status code 200 (OK).
 
@@ -302,7 +302,7 @@ OptionalParam2* | No. Advanced | This is one of the required parameters to add a
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Status | A successful update of List item returns status code 200 (OK).
 
 
@@ -319,7 +319,7 @@ ItemId | Yes | ItemId of the List item.
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Column1* | This is one of the parameters in the List.
 Column2* | This is one of the parameters in the List.
 Status | A successful execute of action returns status code 200 (OK).
@@ -340,7 +340,7 @@ ItemId | Yes | ItemId of the List item.
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Status | A successful delete of the list item returns status code 200 (OK).
 
 
@@ -352,13 +352,13 @@ This action lists all the documents in a document library. You can use a View or
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the existing documents, leave this field empty. 
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the existing documents, leave this field empty.
 Caml Query | No | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Documents | Array of all the documents. Each document has the following fields: <ul><li>Documents []</li><li>Name</li><li>Item Id</li><li>Item Full URL</li><li>Advanced</li><li>Item Edit URL</li><li>List Name</li><li>List Full URL</li></ul>
 Status | A successful insertion of List item returns status code 200 (OK).
 
@@ -379,7 +379,7 @@ Force Overwrite | Yes | If set to TRUE and a document exists with the given name
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Output XML | Response of the Upload action in XML format.
 Status | A successful upload of document returns status code 200 (OK).
 
@@ -397,7 +397,7 @@ File Type | Yes | Enter whether the file is a binary file or a text file.
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Output XML | Document Content
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none" or ”base64”)
 Status | A successful action execution returns status code 200 (OK).
@@ -464,7 +464,7 @@ Status | A successful execute of action returns status code 200 (OK).
 
 > [AZURE.NOTE] This step is required only if you are using SharePoint on-premises behind your firewall.
 
-App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SharePoint Server, the Hybrid Connection Manager is required. 
+App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SharePoint Server, the Hybrid Connection Manager is required.
 
 See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
 
@@ -481,4 +481,3 @@ You can also review performance statistics and control security to the connector
 [5]: ./media/app-service-logic-connector-sharepoint/image_4.jpg
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
- 

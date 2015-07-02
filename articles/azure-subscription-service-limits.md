@@ -75,35 +75,19 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
 
 
-## Standard Storage Limits
+## Storage Limits - Standard Storage
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-## Premium Storage Limits
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Total Disk capacity per account</p></td>
-   <td valign="middle"><p>35 TB</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Total Snapshot capacity per account</p></td>
-   <td valign="middle"><p>10 TB</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Max bandwidth per account (ingress + egress)</p></td>
-   <td valign="middle"><p>50 Gbps</p></td>
-</tr>
-</table>
+
+## Storage Limits - Premium Storage
+
+[AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
 
 
 ## Storage Limits - Azure Resource Manager
-
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -160,6 +144,11 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 ## StorSimple System Limits
 
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
+
+
+## Operational Insights Limits
+
+[AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ## See Also
 

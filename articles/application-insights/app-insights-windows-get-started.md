@@ -68,24 +68,21 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 4. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
 
-Example 1:  
+```C#
 
-	C#
-	WindowsAppInitializer.InitializeAsync("PLACE YOUR COPIED IKEY HERE");
+    public App()
+    {
+       // Initialize Application Insights - substitute your own iKey:
+       WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
+            
+       this.InitializeComponent();
+       this.Suspending += OnSuspending;
+    }
 
-Example 2:
+```
+  
 
-	public App()
-	{
-	   // Substitute your instrumentation key:
-	
-	   WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
-	
-	   this.InitializeComponent();
-	   this.Suspending += OnSuspending;
-	}  
-
-**Windows Universal apps**: Repeat the steps for both the Phone and the Store projecct.
+**Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Enable network access for your app
 

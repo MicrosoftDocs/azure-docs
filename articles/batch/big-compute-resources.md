@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/24/2015"
+   ms.date="07/01/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)
@@ -23,7 +23,7 @@ This is a guide to technical resources to help you run your large-scale parallel
 
 Learn about Big Compute options in Azure, and choose the right approach for your workload and business need.
 
-* [Overview](https://msdn.microsoft.com/library/azure/dn482130.aspx)
+* [Batch and HPC Solutions](batch-hpc-solutions.md)
 
 * [Video: Big Compute in the Cloud with Azure and HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
