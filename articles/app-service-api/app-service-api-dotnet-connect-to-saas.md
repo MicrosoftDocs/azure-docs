@@ -179,10 +179,6 @@ You use the same **Publish Web** wizard to deploy your code to the new API app.
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
-### Use the Visual Studio **Publish Web** wizard to deploy your code to the new API app
-
-[AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
-
 ## Configure authentication for incoming calls
 
 For Azure App Service to allow authenticated outgoing calls from the API app, the API app must also require that incoming calls come from authenticated users. This is not a general OAuth 2.0 requirement but is a requirement of the App Service gateway architecture as it is currently implemented.
@@ -205,7 +201,7 @@ To enable your API app to call the Dropbox API, you have to exchange settings be
 
 [AZURE.INCLUDE [app-service-api-create-dropbox-app](../../includes/app-service-api-create-dropbox-app.md)]
 
-### Exchange settings between Dropbox and your API app.
+### Exchange settings between Dropbox and your API app
 
 The screenshots in this section show a DropboxConnector API app, but the portal UI is the same for the SimpleDropbox API app that you're creating in this tutorial. 
 
