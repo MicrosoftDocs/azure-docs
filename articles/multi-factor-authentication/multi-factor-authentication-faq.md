@@ -21,13 +21,13 @@
 Here you will find questions that are frequently asked about Azure Multi-Factor Authentication.  These may include tips or troubleshooting information.  Use the right navigation menu to quickly locate your question.
 
 ## How can I get help with Azure Multi-Factor Authentication?
-[Search the Microsoft Knowledge Base (KB)](http://search.microsoft.com/en-us/supportresults.aspx?form=mssupport&q=phonefactor)
+[Search the Microsoft Knowledge Base (KB)](http://search.microsoft.com/supportresults.aspx?form=mssupport&q=phonefactor)
 
 - Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Microsoft Azure Multi-Factor Authentication Server (Phone Factor).
 
-[Microsoft Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Microsoft Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
 
-- You can search and browse for technical questions and answers from the community or ask your own question by clicking [here](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+- You can search and browse for technical questions and answers from the community or ask your own question by clicking [here](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Password reset](mailto:phonefactorsupport@microsoft.com)
 
@@ -37,7 +37,7 @@ Here you will find questions that are frequently asked about Azure Multi-Factor 
 
 - Use this link to contact a Microsoft support professional. We’ll ask you a few questions to help us determine what your support options are. The support options may include email, on-line submission or phone support. 
 
-[General inquiries about Microsoft Azure Multi-Factor Authentication Server (Phone Factor)](http://azure.microsoft.com/en-us/services/multi-factor-authentication)
+[General inquiries about Microsoft Azure Multi-Factor Authentication Server (Phone Factor)](http://azure.microsoft.com/services/multi-factor-authentication)
 
 - To learn more about Microsoft Azure Multi-Factor Authentication Server (Phone Factor) or if you have questions around how to buy the product and different support options available, please either visit or email [pfsales@microsoft.com](mailto:pfsales@microsoft.com). 
 
