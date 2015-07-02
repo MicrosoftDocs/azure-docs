@@ -48,7 +48,9 @@ Azure AD Connect Health for AD FS supports AD FS 2.0 in Windows Server 2008/2008
 - View performance data to determine capacity planning
 - Detailed views of your AD FS login patterns to determine anomalies or establish baselines for capacity planning
 
+The following video will provide an overview of Azure AD Connect Health:
 
+[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ----------------------------------------------------------------------------------------------------------
 ## Download the Azure AD Connect Health Agent
