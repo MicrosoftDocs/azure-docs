@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/02/2015" 
 	ms.author="patshea123"/>
 
 # What happened to my project?
@@ -37,5 +37,10 @@ The Azure Mobile Services NuGet package was added to your project. As a result, 
 #####Connection string values for Mobile Services
 
 In your App.xaml.cs file, a **MobileServiceClient** object was created with the selected mobile service’s application URL and application key. 
+
+####Mobile Services project added
+
+If a .NET mobile service is created in the Connected Service Provider, then a mobile services project is created and added to the solution.
+
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/) 
