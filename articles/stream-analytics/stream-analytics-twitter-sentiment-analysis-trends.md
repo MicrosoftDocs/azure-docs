@@ -155,7 +155,7 @@ To compare the number of mentions between topics, we'll leverage a [TumblingWind
 
 #### Identifying trending topics: Sliding window
 
-To identify trending topics we'll look for topics that cross a threshold value for mentions in a given amount of time.  For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in 5 seconds using a [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
+To identify trending topics we'll look for topics that cross a threshold value for mentions in a given amount of time.  For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in the last 5 seconds using a [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Change the query in the code editor to:
 
