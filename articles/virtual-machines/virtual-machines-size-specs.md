@@ -51,9 +51,12 @@ The following considerations might help you decide on a size:
 
 ## General Limits
 
-The following table show limits that apply regardless of a VM's size.
+This table show limits that apply regardless of a VM's size, for VMs created with Service Management tools.
+
 
 [AZURE.INCLUDE [azure-virtual-machines-limits](../../includes/azure-virtual-machines-limits.md)]
+
+This table show limits that apply regardless of a VM's size, for VMs created with Resource Manager.
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
