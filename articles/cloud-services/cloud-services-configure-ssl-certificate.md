@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="06/28/2015"
 	ms.author="adegeo"/>
 
 
@@ -30,6 +30,8 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 > [AZURE.NOTE] The procedures in this task apply to Azure Cloud Services; for Websites, see [Configuring an SSL certificate for an Azure website](../web-sites-configure-ssl-certificate.md).
 
 This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
+
+Read [this](cloud-services-how-to-create-deploy.md) first if you have not yet created a cloud service.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -124,31 +126,24 @@ you are using **cspack**, ensure that you don't use the
 **/generateConfigurationFile** flag, as that will overwrite the
 certificate information you just inserted.
 
-## Step 3: Upload the deployment package and certificate
+## Step 3: Upload a certificate
 
 Your deployment package has been updated to use the certificate, and an
 HTTPS endpoint has been added. Now you can upload the package and
 certificate to Azure with the Management Portal.
 
 1. Log into the [Azure Management Portal][]. 
-2. Click **New**, click **Cloud Service**, and then click **Custom Create**.
-3. In the **Create a cloud service** dialog, enter values for the URL, region/affinity group, and subscription. Ensure **Deploy a cloud service package now** is checked, and click the **Next** button.
-3. In the **Publish your cloud service** dialog, enter the required information for your cloud service, select **Production** for the environment, and ensure **Add certificates now** is checked. (If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is checked.) 
+2. Click on **Cloud Services** on the left-side navigation pane.
+3. Click on the desired cloud service.
+4. Click on the **Certificates** tab.
 
-    ![Publish your cloud service][0]
+    ![Click the Certificates tab](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-4.  Click the **Next** button.
-5.  In the **Add Certificate** dialog, enter the location for the SSL
-    certificate .pfx file, the password for the certificate, and click
-    **attach certificate**.  
+5. Click the **Upload** button.
 
-    ![Add certificate][1]
-
-6.  Ensure your certificate is listed in the **Attached Certificates** section.
-
-    ![Attached certificates][4]
-
-7.  Click the **Complete** button to create your cloud service. When the deployment has reached the **Ready** status, you can proceed to the next steps.
+    ![Upload](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
+6. Provide the **File**, **Password**, then click **Complete** (the checkmark).
 
 ## Step 4: Connect to the role instance by using HTTPS
 
