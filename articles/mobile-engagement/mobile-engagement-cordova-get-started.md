@@ -293,22 +293,22 @@ We will now create a simple Push Notification campaign that will send a push to 
 [Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-common/create-mobile-engagement-app.png
-[2]: ./media/mobile-engagement-common/create-azme-popup.png
-[3]: ./media/mobile-engagement-common/app-main-page-select-connection-info.png
-[4]: ./media/mobile-engagement-common/app-connection-info-page.png
-[6]: ./media/mobile-engagement-common/engage-button.png
-[7]: ./media/mobile-engagement-common/clic-monitor-tab.png
-[8]: ./media/mobile-engagement-common/monitor.png
-[10]: ./media/mobile-engagement-common/engage-button.png
-[11]: ./media/mobile-engagement-common/engagement-portal.png
+[1]: ./media/mobile-engagement-cordova-get-started/create-mobile-engagement-app.png
+[2]: ./media/mobile-engagement-cordova-get-started/create-azme-popup.png
+[3]: ./media/mobile-engagement-cordova-get-started/app-main-page-select-connection-info.png
+[4]: ./media/mobile-engagement-cordova-get-started/app-connection-info-page.png
+[6]: ./media/mobile-engagement-cordova-get-started/engage-button.png
+[7]: ./media/mobile-engagement-cordova-get-started/clic-monitor-tab.png
+[8]: ./media/mobile-engagement-cordova-get-started/monitor.png
+[10]: ./media/mobile-engagement-cordova-get-started/engage-button.png
+[11]: ./media/mobile-engagement-cordova-get-started/engagement-portal.png
 [12]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
-[13]: ./media/mobile-engagement-common/new-announcement.png
+[13]: ./media/mobile-engagement-cordova-get-started/new-announcement.png
 [14]: ./media/mobile-engagement-cordova-get-started/campaign-first-params.png
-[15]: ./media/mobile-engagement-common/campaign-content.png
-[16]: ./media/mobile-engagement-common/campaign-create.png
-[17]: ./media/mobile-engagement-common/campaign-activate.png
-[18]: ./media/mobile-engagement-common/engage-button.png
-[19]: ./media/mobile-engagement-common/engagement-portal.png
-[20]: ./media/mobile-engagement-android-get-started/native-push-settings.png
-[21]: ./media/mobile-engagement-android-get-started/api-key.png
+[15]: ./media/mobile-engagement-cordova-get-started/campaign-content.png
+[16]: ./media/mobile-engagement-cordova-get-started/campaign-create.png
+[17]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
+[18]: ./media/mobile-engagement-cordova-get-started/engage-button.png
+[19]: ./media/mobile-engagement-cordova-get-started/engagement-portal.png
+[20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
+[21]: ./media/mobile-engagement-cordova-get-started/api-key.png
