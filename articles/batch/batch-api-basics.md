@@ -41,8 +41,6 @@ When you use the Batch service, you take advantage of the following resources:
 
 - [Pool](#pool)
 
-- [Workitem](#workitem)
-
 - [Job](#job)
 
 - [Task](#task)
@@ -50,6 +48,8 @@ When you use the Batch service, you take advantage of the following resources:
 	- [Start Task](#starttask)
 	
 	- [Job ManagerTask](#jobmanagertask)
+
+- [Workitem](#workitem)
 
 ### <a name="account"></a>Account
 
