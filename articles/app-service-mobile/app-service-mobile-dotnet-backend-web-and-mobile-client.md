@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/10/2015"
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # Create an app with a mobile and web client in Azure App Service

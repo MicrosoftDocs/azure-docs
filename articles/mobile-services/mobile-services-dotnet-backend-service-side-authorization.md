@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Service-side Authorization of Users in Mobile Services with .NET Backend | Mobile Dev Center"
-	description="Learn how to authorize users in .NET backend of Azure Mobile Services"
+	pageTitle="Service-side authorization of users in a .NET backend mobile service | Azure Mobile Services"
+	description="Learn how to restrict access for authorize users in a .NET backend mobile service"
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="krisragh"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="05/10/2015"
+	ms.date="07/02/2015"
 	ms.author="krisragh"/>
 
-# Service-side Authorization of Users in Mobile Services
+# Service-side authorization of users in Mobile Services
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
@@ -34,20 +34,28 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 	>[AZURE.NOTE] To make this data model change and maintain existing data in the database, you must use [Code First Migrations](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-2. In Visual Studio, expand the Controllers folder and open **TodoItemController.cs**. Locate the **PostTodoItem** method and add the following code at the beginning of the method. This code adds the user ID of the authenticated user to the item, before it is inserted into the TodoItem table.
+2. In Visual Studio, expand the Controllers folder,  open **TodoItemController.cs** and add the following using statement: 
 
-			// Get the logged in user
-			var currentUser = User as ServiceUser;
+		using Microsoft.Azure.Mobile.Server.Security;
 
-			// Set the user ID on the item
-			item.UserId = currentUser.Id;
+3. Locate the **PostTodoItem** method and add the following code at the beginning of the method. 
 
-3. Locate the **GetAllTodoItems** method and replace the existing **return** statement with the following line of code. This query filters the returned TodoItem objects so that each user only receives the items that they inserted.
+		// Get the logged in user
+		var currentUser = User as ServiceUser;
+	
+		// Set the user ID on the item
+		item.UserId = currentUser.Id;
+	
+	This code adds the user ID of the authenticated user to the item, before it is inserted into the TodoItem table.
 
-				// Get the logged in user
-				var currentUser = User as ServiceUser;
+3. Locate the **GetAllTodoItems** method and replace the existing **return** statement with the following line of code: 
 
-				return Query().Where(todo => todo.UserId == currentUser.Id);
+		// Get the logged in user
+		var currentUser = User as ServiceUser;
+
+		return Query().Where(todo => todo.UserId == currentUser.Id);
+		
+	This query filters the returned TodoItem objects so that each user only receives the items that they inserted.
 
 4. Republish the mobile service project to Azure.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Add Authentication to Existing App
@@ -81,4 +81,3 @@ Next, learn [how to use the user ID value to filter returned data](mobile-servic
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
