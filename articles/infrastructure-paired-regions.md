@@ -18,7 +18,7 @@
 
 # Improve Business Continuity using Azure Regional Pairs
 
-## Azure paired regions
+## Azure paired regions explained
 
 Azure operates in multiple geographies around the world. An Azure geography is a defined area of the world containing at least one Azure Region. An Azure region is an area within a geography containing one or more datacenters.
 
@@ -50,7 +50,7 @@ Table 1 - Mapping of azure regional pairs
 
 We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.
 
-## Regional Pair Example
+## Regional pair example
 Figure 2 below shows a hypothetical regional pair. The green numbers highlight the cross-region activities of three Azure services (Azure Compute, Storage, and Database) and how they are configured to replicate across regions. The unique benefits of deploying across paired regions are highlighted by the orange numbers.
 
 
