@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What is application access and single sign-on with Azure Active Directory?"
+	pageTitle="What is application access and single sign-on with Azure Active Directory? | Microsoft Azure"
 	description="Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="07/01/2015"
 	ms.author="asmalser-msft"/>
 
 #What is application access and single sign-on with Azure Active Directory?
@@ -91,6 +91,8 @@ For example, if there is an application that is configured to authenticate users
 For select applications, Azure AD enables automated user provisioning and de-provisioning of accounts in third-party SaaS applications from within the Azure Management Portal, using your Windows Server Active Directory or Azure AD identity information. When a user is given permissions in Azure AD for one of these applications, an account can be automatically created (provisioned) in the target SaaS application.
 
 When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application. This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications. In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.
+
+To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](https://azure.microsoft.com/documentation/articles/active-directory-saas-app-provisioning/)
 
 ##Get started with the Azure AD application gallery
 
