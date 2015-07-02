@@ -3,7 +3,7 @@
    description="BizTalk XPath Extractor"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="prkumar"
+   authors="rajram"
    manager="dwrede"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/01/2015"
    ms.author="rajram"/>
 
 #BizTalk XPath Extractor
