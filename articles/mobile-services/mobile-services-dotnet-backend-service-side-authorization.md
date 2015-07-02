@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Service-side Authorization of Users in Mobile Services with .NET Backend | Mobile Dev Center"
-	description="Learn how to authorize users in .NET backend of Azure Mobile Services"
+	pageTitle="Service-side authorization of users in a .NET backend mobile service | Azure Mobile Services"
+	description="Learn how to restrict access for authorize users in a .NET backend mobile service"
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="krisragh"
@@ -16,7 +16,7 @@
 	ms.date="07/02/2015"
 	ms.author="krisragh"/>
 
-# Service-side Authorization of Users in Mobile Services
+# Service-side authorization of users in Mobile Services
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
