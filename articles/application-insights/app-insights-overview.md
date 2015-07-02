@@ -136,6 +136,7 @@ If your app is a web site or service, there are some optional additions and vari
 [knowUsers]: app-insights-overview-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 
