@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2014" 
+	ms.date="07/02/2015" 
 	ms.author="jeannt"/>
 
 # Analyzing Customer Churn by using Azure Machine Learning
@@ -85,7 +85,7 @@ We also captured temporal information for the most recent six months. We analyze
 
 The most important point is that the entire process, including ETL, feature selection, and modeling was implemented in Machine Learning Studio, using data sources in Microsoft Azure.   
 
-The following diagrams illustrate the data that was used:  
+The following diagrams illustrate the data that was used.  
 
 ![][4]
  
@@ -96,6 +96,11 @@ The following diagrams illustrate the data that was used:
  
 *Figure 7: Features extracted from data source*
  
+> Note that this data is private and therefore the model and data cannot be shared. 
+> However, for a similar model using publicly available data, see this sample experiment in the [Model Gallery](http://gallery.azureml.net/): 
+> [Telco Customer Churn](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
+> 
+
 ###Algorithms used in the prototype
 
 We used the following four machine learning algorithms to build the prototype (no customization):  
