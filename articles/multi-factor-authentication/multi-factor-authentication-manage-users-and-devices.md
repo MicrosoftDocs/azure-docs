@@ -2,6 +2,7 @@
 	pageTitle="Azure Multi-Factor Authentication Reports" 
 	description="This describes how to change user settings such as forcing the users to do the proof-up process again." 
 	documentationCenter="" 
+	services="multi-factor-authentication" 
 	authors="billmath" 
 	manager="swadhwa" 
 	editor="curtand"/>
