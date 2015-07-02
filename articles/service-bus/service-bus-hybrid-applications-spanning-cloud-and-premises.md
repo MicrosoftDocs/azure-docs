@@ -34,7 +34,7 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments. M
 - [How to integrate a Mobile Service with a REST Service Bus Relay Service](http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx)
  
 ## Popular
-- [Service Bus Pricing Info](http://azure.microsoft.com/en-us/pricing/details/service-bus/)
+- [Service Bus Pricing Info](http://azure.microsoft.com/pricing/details/service-bus/)
 - [Service Bus Pricing FAQ](http://msdn.microsoft.com/library/azure/Hh667438.aspx)
 - [Service Bus REST API Reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 - [Sign up for a free Azure trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
