@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/3/2015"
+   ms.date="07/03/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
