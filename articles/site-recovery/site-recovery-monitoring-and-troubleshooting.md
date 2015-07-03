@@ -212,8 +212,8 @@ of the error is documented in a separate WIKI page.
 
 ## Setup
 
--   The selected certificate cannot be validated. Please select a
-    different certificate.
+-   [The selected certificate cannot be validated. Please select a
+    different certificate.](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
 
 -   [The VMM server cannot be registered due to an internal error.
     Please refer to the jobs view in the Site Recovery Portal for more
@@ -226,8 +226,8 @@ of the error is documented in a separate WIKI page.
 
 ## Configuration
 
--   Hyper-V host cluster contains at least one static network adapter,
-    or no connected adapters are configured to use DHCP
+-   [Hyper-V host cluster contains at least one static network adapter,
+    or no connected adapters are configured to use DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
 -   [The Hyper-V profile isn't enabled in the Capability Profiles for
     cloud](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
