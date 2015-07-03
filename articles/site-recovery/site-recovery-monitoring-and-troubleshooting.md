@@ -315,8 +315,8 @@ of the error is documented in a separate WIKI page.
 
 Configuration Server (CS), Process Server (PS), Master Targer (MT)
 
--   [The ESX host on which the PS/CS is hosted as a VM fails with a blue
+-   [The ESXi host on which the PS/CS is hosted as a VM fails with a purple
     screen of
-    death.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+    death.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 
