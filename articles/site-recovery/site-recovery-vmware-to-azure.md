@@ -480,7 +480,7 @@ Push installation of the mobility service when adding machines to a protection g
 
 >[AZURE.NOTE] Currently only unplanned failovers are possible for protected VMware virtual machines and Physical Windows or Linux servers. The source machines wont be shut down as part of an unplanned failover. Performing an unplanned failover will stop data replication for the protected servers. You'll need to delete the machines from the protection group and add them again in order to start protecting machines again after performing a failover.
 
-
+>[AZURE.NOTE] If you want to failover without losing any data (Planned failover), ensure that the primary site virtual machines are turned off before you intiiate the failover.
 
 ##Next steps
 
