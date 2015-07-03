@@ -21,4 +21,4 @@
 
 The following table describes the limits and quota enforcements of DocumentDB. 
 
-[AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
+[AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
