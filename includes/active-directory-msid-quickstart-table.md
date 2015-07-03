@@ -1,7 +1,8 @@
-| Microsoft Identity + Office 365 | Microsoft Identity Sign In |
+| Native/Installed Apps | Web Apps & Web APIs |
 | ----------------------- | ------------------------------- |
-| [Call O365 Rest APIs - iOS]()| [Add sign in to an iOS app]()   |
-| [Call O365 Rest APIs - Android]()| [Add sign in to an Android app]()   |
-| [Call O365 Rest APIs - Windows]()| [Add sign in to a Windows app]()   |
-| [Call O365 Rest APIs - SPA]()| [Add sign in to an single page app]()   |
-| | [Secure a custom Web API]()  |
+| [Add Sign-In to an iOS App]()| [Add Sign-In to an AngularJS SPA]()  |
+| [Add Sign-In to an Android App]()| [Add Sign-In to a .NET MVC App]()  |
+| [Add Sign-In to a Windows Universal App]() | [Add Sign-In to a Node JS Web App]() |
+| [Add Sign-In to a Windows Desktop App]()| [Secure a .NET Web API]() |
+| [Call Office 365 Rest APIs from an app]() | [Secure a NodeJS Web API]()   |
+|  | [Call Office 365 REST APIs from the web]() |

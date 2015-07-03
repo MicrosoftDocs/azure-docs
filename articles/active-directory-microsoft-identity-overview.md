@@ -17,35 +17,42 @@
 	ms.author="dastrock"/>
 
 # Introducing Microsoft Identity (Preview)
-Microsoft Identity is the union of the Microsoft Account and Azure Active Directory cloud authentication services.  Microsoft Identity allows developers to write their identity code once and accept user sign-ins from both personal and work/school accounts.
+Microsoft Identity is the union of the Microsoft Account and Azure Active Directory cloud authentication services.
 
 > [AZURE.NOTE]
 This information applies to the Microsoft Identity Public Preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 ## Overview
+In the past, an app developer who wanted to support both Microsoft Accounts and Azure Active Directory was required to integrate with two completely separate systems.  With Microsoft Identity, you write your authentication logic once and users can sign into your app with both their personal and work/school accounts.
 
-In the past, an app developer who wanted to support both Microsoft Accounts and Azure Active Directory accounts was required to integrate with two completely separate systems.  With Microsoft Identity, you can sign users in with both MSA and AAD accounts by performing a single integration, using OAuth 2.0 or OpenID Connect. You'll only need one app registration, one set of endpoints, and one auth library.
+| Register an app at [apps.dev.microsoft.com](apps.dev.microsoft.com) | Learn the auth protocols, [OAuth 2.0]() & [OpenID Connect]() | [Get Started]() with tutorials using our auth libraries |
+| ----------------------- | ------------------------------- | ------------ |
 
 Your apps can also consume a [unified set of Microsoft REST APIs]() using either type of account, including:
+
 - Files through OneDrive and OneDrive for Business
 - Mail, Contacts, and Calendars through Outlook.com and Office 365
-- Users, Groups, and Company Info through Azure AD
+- Users, Groups, and Company Information through Azure Active Directory
 
-With more Microsoft Online services to be added in the near future.  You write your code once and can immediately reach an audience that spans millions of consumer and enterprise users.  
+With more Microsoft Online services to be added in the near future.  One set of code allows you to immediately reach an audience that spans millions of consumer and enterprise users.  Several apps have already begun to bridge the gap between personal and work accounts, including: [Boomerang](), [TripIt](), & [Uber]().
 
 ## Getting Started
-To get your own Microsoft Identity integrated app up & running, try out one of our quick start tutorials below.  
+To get your own Microsoft Identity integrated app up & running, try out one of our quick start tutorials below.
 
 [AZURE.INCLUDE [active-directory-msid-quickstart-table](../includes/active-directory-msid-quickstart-table.md)]
 
-## What's new
-Check back here often to learn about future changes to the Microsoft Identity Preview.
+## What's New
+Check back here often to learn about future changes to the Microsoft Identity Preview.  We'll also tweet about any updates using @MicrosoftIdentity.
+
 - Learn about the [currently supported authentication flows](active-directory-microsoft-identity-scenarios.md).
 - For developers familiar with Azure Active Directory, check out [Azure AD vs. Microsoft Identity](active-directory-microsoft-identity-compare.md).
+- Current [limitations, restrictions and constraints]().
 
 ## Reference
 These links will be useful for exploring the platform in depth:
 
+- Get help on [Stack Overflow using the MSID tag]().
+- Give us your thoughts on the preview using [User Voice]() - we want to hear them!
 - [ADAL Library Reference]()
 - [Microsoft Identity Protocol Reference]()
 - [Microsoft Identity FAQs](active-directory-microsoft-identity-faq.md)
