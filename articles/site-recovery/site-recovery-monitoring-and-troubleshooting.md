@@ -202,3 +202,121 @@ URL at <http://aka.ms/getazuresupport>
     
 -   [Understand & Troubleshoot Hyper-V Replica
     > Guide](http://www.microsoft.com/en-in/download/details.aspx?id=29016) 
+	
+	
+	
+# Common ASR errors and their resolutions
+
+Below are the common errors that you may hit and their resolutions. Each
+of the error is documented in a separate WIKI page.
+
+## Setup
+
+-   The selected certificate cannot be validated. Please select a
+    different certificate.
+
+-   [The VMM server cannot be registered due to an internal error.
+    Please refer to the jobs view in the Site Recovery Portal for more
+    details on the error. Run Setup again to register the
+    server.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
+
+-   [A connection can’t be established to the Hyper-V Recovery Manager
+    vault. Verify the proxy settings or try again
+    later.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+
+## Configuration
+
+-   Hyper-V host cluster contains at least one static network adapter,
+    or no connected adapters are configured to use DHCP
+
+-   [The Hyper-V profile isn't enabled in the Capability Profiles for
+    cloud](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
+
+-   [Protection configuration for '%CloudName;' couldn't be applied. A
+    newly added Hyper-V host or cluster couldn't be configured because
+    cloud protection isn't
+    configured.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
+
+-   [VMM does not have permissions to complete an
+    action](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
+
+## Protection
+
+-   [The operating system is not
+    supported](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
+
+-   [Enable protection failed since Agent not installed on host
+    machine](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
+
+-   [A suitable host for the replica virtual machine can't be found -
+    Due to low compute
+    resources](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
+
+-   [A suitable host for the replica virtual machine can't be found -
+    Due to no logical network
+    attached](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
+
+-   [Cannot connect to the replica host machine - connection could not
+    be
+    established](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
+
+## Recovery
+
+-   VMM cannot complete the host operation -
+
+    -   [Fail over to the selected recovery point for virtual machine:
+        General access denied
+        error.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
+
+    -   [Hyper-V failed to fail over to the selected recovery point for
+        virtual machine: Operation aborted Try a more recent recovery
+        point.
+        (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+
+    -   A connection with the server could not be established
+        (0x00002EFD)
+
+        -   [Hyper-V failed to enable reverse replication for virtual
+            machine](http://social.technet.microsoft.com/wiki/contents/articles/25505.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-reverse-replication-for-virtual-machine.aspx)
+
+        -   [Hyper-V failed to enable replication for virtual machine
+            virtual
+            machine](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx)
+
+    -   [Could not commit failover for virtual
+        machine](http://social.technet.microsoft.com/wiki/contents/articles/25508.could-not-commit-failover-for-virtual-machine.aspx)
+
+-   [The recovery plan contains virtual machines which are not ready for
+    planned
+    failover](http://social.technet.microsoft.com/wiki/contents/articles/25509.the-recovery-plan-contains-virtual-machines-which-are-not-ready-for-planned-failover.aspx)
+
+-   [The virtual machine isn't ready for planned
+    failover](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
+
+-   [Virtual machine is not running and is not powered
+    off](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
+
+-   [Out of band operation happened on a virtual machine
+    and ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)commit failover
+    failed
+
+-   Test Failover
+
+    -   [Failover could not be initiated since test failover is in
+        progress](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
+
+-   Specific to recovery to Azure
+
+    -   [Failover could not be started due to unsupported characters in
+        the VM
+        name](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
+
+## CS, PS, MT
+
+Configuration Server (CS), Process Server (PS), Master Targer (MT)
+
+-   [The ESX host on which the PS/CS is hosted as a VM fails with a blue
+    screen of
+    death.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+
+
