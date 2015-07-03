@@ -205,12 +205,12 @@ URL at <http://aka.ms/getazuresupport>
 	
 	
 	
-# Common ASR errors and their resolutions
+## Common ASR errors and their resolutions
 
 Below are the common errors that you may hit and their resolutions. Each
 of the error is documented in a separate WIKI page.
 
-## Setup
+### Setup
 
 -   [The selected certificate cannot be validated. Please select a
     different certificate.](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
@@ -224,7 +224,7 @@ of the error is documented in a separate WIKI page.
     vault. Verify the proxy settings or try again
     later.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
-## Configuration
+### Configuration
 
 -   [Hyper-V host cluster contains at least one static network adapter,
     or no connected adapters are configured to use DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
@@ -240,7 +240,7 @@ of the error is documented in a separate WIKI page.
 -   [VMM does not have permissions to complete an
     action](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 
-## Protection
+### Protection
 
 -   [The operating system is not
     supported](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
@@ -260,7 +260,7 @@ of the error is documented in a separate WIKI page.
     be
     established](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
 
-## Recovery
+### Recovery
 
 -   VMM cannot complete the host operation -
 
@@ -311,7 +311,7 @@ of the error is documented in a separate WIKI page.
         the VM
         name](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
-## CS, PS, MT
+### Configuration Server, Process Server, Master Target
 
 Configuration Server (CS), Process Server (PS), Master Targer (MT)
 
