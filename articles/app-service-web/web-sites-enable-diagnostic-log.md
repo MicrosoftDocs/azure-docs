@@ -327,7 +327,6 @@ The web server logs are formatted using the [W3C extended log file format](http:
 ##<a name="nextsteps"></a> Next steps
 
 - [How to Monitor Web Apps](/en-us/manage/services/web-sites/how-to-monitor-websites/)
-- [Tutorial - Troubleshooting Web Apps](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
 - [Troubleshooting Azure Web Apps in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 - [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
