@@ -322,7 +322,7 @@ The web server logs are formatted using the [W3C extended log file format](http:
 
 > [AZURE.NOTE] The logs produced by Azure web apps do not support the __s-computername__, __s-ip__, or __cs-version__ fields.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> [AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ##<a name="nextsteps"></a> Next steps
 
