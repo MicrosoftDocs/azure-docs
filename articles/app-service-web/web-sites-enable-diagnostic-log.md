@@ -48,7 +48,7 @@ App Service web apps also log deployment information when you publish content to
 
 ## <a name="enablediag"></a>How to enable diagnostics
 
-To enable diagnostics in the [Azure Management Portal](https://portal.azure.com), go to the blade for your web app and click **Settings > Diagnostics logs**.
+To enable diagnostics in the [Azure preview portal](https://portal.azure.com), go to the blade for your web app and click **Settings > Diagnostics logs**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
