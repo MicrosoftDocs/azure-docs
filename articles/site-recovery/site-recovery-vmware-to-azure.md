@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/03/2015"
 	ms.author="raynew"/>
 
 # Protect on-premises VMware virtual machines or physical servers with Azure Site Recovery
@@ -471,6 +471,8 @@ Push installation of the mobility service when adding machines to a protection g
 3. If required you can customize the plan to create groups and sequence the order in which machines in the recovery plan are failed over. You can also add prompts for manual actions and scripts. The scripts when recovering to Azure can be added by using [Azure Automation Runbooks](site-recovery-runbook-automation.md).
 
 	![Customize recovery plan](./media/site-recovery-vmware-to-azure/ASRVMWare_RP2.png)
+	
+>[AZURE.NOTE] Before you initiate a failover, ensure that your Configuration Server and the Master Target server are running and healthy. If they are unhealthy, the failover will fail.
 
 5. In the **Recovery Plans** page select the plan and click **Unplanned Failover**.
 6. In **Confirm Failover** verify the failover direction (To Azure) and select the recovery point to fail over to.
