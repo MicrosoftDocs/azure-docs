@@ -37,7 +37,7 @@ For example, by excluding certain documents or paths within documents from index
 After reading this article, you'll be able to answer the following questions: 
 
 - How does DocumentDB support indexing of all properties by default?
-- How can I override which properties to included or excluded from indexing?
+- How can I override the properties to include or exclude from indexing?
 - How can I configure the index for eventual updates?
 - How can I configure indexing to perform Order By or range queries?
 
@@ -87,10 +87,10 @@ The following sample shows how to set a custom indexing policy during  the creat
      HTTP/1.1 201 Created
 
 >[AZURE.NOTE] The JSON schema for indexing policy has been changed with the release of REST API version 2015-06-03 to support Range indexes against strings. .NET SDK 1.2.0 and Java, Python, and Node.js SDKs 1.1.0 support the new policy schema. Older SDKs use the REST API version 2015-04-08 and support the older schema of Indexing Policy.
-
->[AZURE.NOTE] The indexing policy of a collection must be specified at the time of creation. Modifying the indexing policy after collection creation is not allowed, but will be supported in a future release of DocumentDB.
-
->[AZURE.NOTE] By default, DocumentDB indexes all paths within documents consistently with a hash index. The internal Timestamp (\_ts) path is stored with a range index.
+>
+>The indexing policy of a collection must be specified at the time of creation. Modifying the indexing policy after collection creation is not allowed, but will be supported in a future release of DocumentDB.
+>
+>By default, DocumentDB indexes all paths within documents consistently with a hash index. The internal Timestamp (\_ts) path is stored with a range index.
 
 ### Automatic indexing
 
@@ -362,10 +362,11 @@ To measure the overhead of indexing on each write operation (create, update, or 
      
      Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
-## Revisions in Indexing Policy
+## Changes to the indexing policy specification
 A change in the schema for indexing policy was introduced on July 7, 2015 with REST API version 2015-06-03. The corresponding classes in the SDK versions have new implementations to match the schema. 
 
-The following changes were implemented in the JSON schema:
+The following changes were implemented in the JSON specification:
+
 - Indexing Policy supports Range indexes for strings
 - Each path can have multiple index definitions, one for each data type
 - Indexing precision supports 1-8 for numbers, 1-100 for strings, and -1 (maximum precision)
