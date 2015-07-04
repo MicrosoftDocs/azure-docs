@@ -149,8 +149,8 @@ Here are some common indexing policies, and their corresponding support for Orde
 
 
 >[AZURE.NOTE] String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03. In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.
-
->[AZURE.NOTE] Prior to REST API version 2015-06-03, the default collection indexing policy was Hash for both strings and numbers. This has been changed to Hash for strings, and Range for numbers. 
+>
+>Prior to REST API version 2015-06-03, the default collection indexing policy was Hash for both strings and numbers. This has been changed to Hash for strings, and Range for numbers. 
 
 For more details see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
