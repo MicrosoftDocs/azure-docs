@@ -17,17 +17,11 @@
 
 # Learning Windows PowerShell Workflow
 
-A Windows PowerShell Workflow is similar to a PowerShell script but has some significant differences that can be confusing to a new user.  This article is intended for users already familiar with PowerShell and briefly explains concepts that you require if you are converting a PowerShell script to a PowerShell Workflow.  
+A workflow is a sequence of programmed, connected steps that perform long-running tasks or require the coordination of multiple steps across multiple devices or managed nodes. The benefits of a workflow over a normal script include the ability to simultaneously perform an action against multiple devices and the ability to automatically recover from failures. A Windows PowerShell Workflow is a Windows PowerShell script that leverages Windows Workflow Foundation. While the workflow is written with Windows PowerShell syntax and launched by Windows PowerShell, it is processed by Windows Workflow Foundation.
+
+A Windows PowerShell Workflow is similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user.  This article is intended for users already familiar with PowerShell and briefly explains concepts that you require if you are converting a PowerShell script to a PowerShell Workflow.  
 
 For complete details on the topics in this article, see [Getting Started with Windows PowerShell Workflow](http://technet.microsoft.com/library/jj134242.aspx).
-
-## Advantages of workflow
-
-The first question you may have is why you would want to bother with PowerShell workflows in the first place since they perform the same basic functionality as PowerShell scripts but with additional complexity.  There are significant advantages though that can increase the reliability and performance of the process that PowerShell is automating.
-
-- Workflows are more resilient than scripts since they can resume from a specific [checkpoint](#checkpoints) after a failure and can even be suspended to wait for manual intervention.  
-
-- Workflows can improve performance by performing multiple processes in [parallel](#parallel-processing). 
 
 
 ## Basic structure of a workflow
@@ -41,8 +35,17 @@ The first step to converting a PowerShell script to a PowerShell workflow is enc
 
 To add parameters to the workflow, use the **Param** keyword just as you would to a script. 
 
+## Code changes
 
-## Positional parameters
+PowerShell workflow code looks almost identical to PowerShell script code except for a few significant changes.  The following sections describe changes that you will need to make to a PowerShell script for it to run in a workflow.
+
+### Activities
+
+An activity is a specific task in a workflow. Just as a script is composed of one or more commands, a workflow is composed of one or more activities that are carried out in a sequence. Windows PowerShell Workflow automatically converts many of the Windows PowerShell cmdlets to activities when it runs a workflow. When you specify one of these cmdlets in your runbook, the corresponding activity is actually run by Windows Workflow Foundation. For those cmdlets without a corresponding activity, Windows PowerShell Workflow automatically runs the cmdlet within an [InlineScript](#inlinescript) activity. There is a set of cmdlets that are excluded and cannot be used in a workflow unless you explicitly include them in an InlineScript block. For further details on these concepts, see [Using Activities in Script Workflows](http://technet.microsoft.com/library/jj574194.aspx).
+
+Workflow activities share a set of common parameters to configure their operation. For details about the workflow common parameters, see [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+
+### Positional parameters
 
 You can't use positional parameters with activities and cmdlets in a workflow.  All this means is that you must use parameter names.
 
@@ -57,7 +60,7 @@ If you try to run this same code in a workflow, you'll get a message like "Param
 		Get-Service | Where-Object -FilterScript {$_.Status -eq "Running"}
 	}
 
-## Deserialized objects
+### Deserialized objects
 
 Objects in workflows are deserialized.  This means that their properties are still available, but not their methods.  For example, consider the following PowerShell code that stops a service using the Stop method of the Service object.
 
@@ -133,7 +136,6 @@ While InlineScript activities may be critical in certain workflows, they do not 
 - InlineScript affects scalability of the workflow since it holds the Windows PowerShell session for the entire length of the InlineScript block.
 
 For further details on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](http://technet.microsoft.com/library/jj574197.aspx) and [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
-
 
 
 ## Parallel processing

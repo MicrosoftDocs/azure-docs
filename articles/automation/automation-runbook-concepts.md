@@ -17,16 +17,17 @@
 
 # Azure Automation runbook concepts
 
+## Types of runbook
+
+There are two types of runbook in Azure Automation, *textual* and *graphical*.  Textual runbooks are for users who prefer to work directly with the PowerShell workflow code either using the textual editor in Azure Automation or an offline editor such as 
+
+
+### Textual runbooks
+
+### Graphical runbooks
+
 Runbooks in Azure Automation are implemented as Windows PowerShell Workflows. 
 
-
-
-This section provides a brief overview of critical features of workflows that are common to Automation runbooks. Complete details on workflows are available in [Getting Started with Windows PowerShell Workflow](http://technet.microsoft.com/library/jj134242.aspx).
-
-
-## Windows PowerShell Workflows
-
-A workflow is a sequence of programmed, connected steps that perform long-running tasks or require the coordination of multiple steps across multiple devices or managed nodes. The benefits of a workflow over a normal script include the ability to simultaneously perform an action against multiple devices and the ability to automatically recover from failures. A Windows PowerShell Workflow is a Windows PowerShell script that leverages Windows Workflow Foundation. While the workflow is written with Windows PowerShell syntax and launched by Windows PowerShell, it is processed by Windows Workflow Foundation.
 
 
 
@@ -38,11 +39,7 @@ The name of the workflow should conform to the Verb-Noun format that is standard
 
 For a complete list of limitations and syntax differences between Windows PowerShell Workflows and Windows PowerShell, see [Syntactic Differences Between Script Workflows and Scripts](http://technet.microsoft.com/library/jj574140.aspx).
 
-## Activities
 
-An activity is a specific task in a workflow. Just as a script is composed of one or more commands, a workflow is composed of one or more activities that are carried out in a sequence. Windows PowerShell Workflow automatically converts many of the Windows PowerShell cmdlets to activities when it runs a workflow. When you specify one of these cmdlets in your runbook, the corresponding activity is actually run by Windows Workflow Foundation. For those cmdlets without a corresponding activity, Windows PowerShell Workflow automatically runs the cmdlet within an [InlineScript](#inlinescript) activity. There is a set of cmdlets that are excluded and cannot be used in a workflow unless you explicitly include them in an InlineScript block. For further details on these concepts, see [Using Activities in Script Workflows](http://technet.microsoft.com/library/jj574194.aspx).
-
-Workflow activities share a set of common parameters to configure their operation. For details about the workflow common parameters, see [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
 ## Integration modules
 

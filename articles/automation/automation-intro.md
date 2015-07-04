@@ -1,6 +1,6 @@
 <properties
 	pageTitle="What is Azure Automation"
-	description="Learn what value Azure Automation provides and resources to get you started in creating and using runbooks."
+	description="Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating and using runbooks."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/24/2015"
+	ms.date="07/06/2015"
 	ms.author="bwren"/>
 
 # What is Azure Automation?
