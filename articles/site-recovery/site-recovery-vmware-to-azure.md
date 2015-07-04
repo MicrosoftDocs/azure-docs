@@ -238,7 +238,7 @@ You can configure a VPN connection to the server as follows:
 
 	1. Initiate a remote desktop connection to the virtual machine. The first time you log on a script will run in a PowerShell window. Don't close it. When it finishes the Host Agent Config tool opens automatically to register the server.
 	2. In **Host Agent Config** specify the internal IP address of the configuration server and port 443. You can use the internal address and private port 443 even if you're not connecting over VPN mode because the virtual machine is attached to the same Azure network as the configuration server. Leave **Use HTTPS** enabled. Enter the passphrase for the configuration server that you noted earlier. Click **OK** to register server. Note that you can ignore the NAT options on the page. They're not used.
-	3. In-case the estimated retention drive usage requires more than 1 TB, configure retention volume (R:) using virtual disk using storage spaces.
+	3. In-case the estimated retention drive usage requires more than 1 TB, configure retention volume (R:) using virtual disk using [storage spaces](http://blogs.technet.com/b/askpfeplat/archive/2013/10/21/storage-spaces-how-to-configure-storage-tiers-with-windows-server-2012-r2.aspx).
 
 	![Windows master target server](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
