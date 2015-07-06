@@ -154,6 +154,9 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
+## Multi-Factor Authentication
+[AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
+
 ## See Also
 
 [Understanding Azure Limits and Increases](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
