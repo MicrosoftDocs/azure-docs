@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/26/2015"
+	ms.date="07/6/2015"
 	ms.author="aashishr"/>
 
 
@@ -24,7 +24,7 @@ Backing up Azure virtual machines involves three key steps:
 
 ![Three steps to backup an Azure virtual machine](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## Discover Azure virtual machines
+## 1. Discover Azure virtual machines
 The discovery process queries Azure for the list of virtual machines in the subscription, along with additional information like the Cloud Service name and the Region.
 
 > [AZURE.NOTE] The discovery process should always be run as the first step. This is to ensure that any new virtual machines added to the subscription are identified.
@@ -37,7 +37,7 @@ The discovery process queries Azure for the list of virtual machines in the subs
   ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Click on the **DISCOVER** button at the bottom of the page.
-  ![discover button](./media/backup-azure-vms/discover-button.png)
+  ![discover button](./media/backup-azure-vms/discover-button-only.png)
 
 4. The discovery process can run for a few minutes while the virtual machines are being tabulated. A toast notification at the bottom of the screen appears while the discovery process is running.
   ![discover vms](./media/backup-azure-vms/discovering-vms.png)
@@ -45,7 +45,7 @@ The discovery process queries Azure for the list of virtual machines in the subs
 5. Once the discovery process is complete, a toast notification appears.
   ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
-## Register Azure virtual machines
+## 2. Register Azure virtual machines
 Before a virtual machine can be protected it needs to be registered with the Azure Backup service. The Registration process has two primary goals:
 
 1. To have the backup extension plugged-in to the VM agent in the virtual machine
@@ -61,8 +61,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine** and click on the select button.
   ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Click on the **REGISTER** button at the bottom of the page.
-  ![register button](./media/backup-azure-vms/register-button.png)
+3. Click on the **REGISTER** button at the bottom of the page.![register button](./media/backup-azure-vms/register-button-only.png)
 
 4. In the **Register Items** pop-up, choose the virtual machines that you would like to register. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
@@ -79,7 +78,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 7. Once the operation is completed, the status in the portal will change to reflect the registered state.
   ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
-## Back up Azure virtual machines
+## 3. Protect: Back up Azure virtual machines
 This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps:
 
 ### To back up Azure virtual machines
