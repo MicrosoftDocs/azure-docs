@@ -137,7 +137,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## RemoteApp Limits
+## Azure RemoteApp Limits
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
