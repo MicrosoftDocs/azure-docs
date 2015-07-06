@@ -18,6 +18,6 @@
 
 # Azure RemoteApp service limits and default values
 
-Information about Azure RemoteApp service limits and default values has been moved to [Azure Subscription and Service Limits, Quotas, and Constraints](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/).
+Information about Azure RemoteApp service limits and default values has been moved to [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
 
  
