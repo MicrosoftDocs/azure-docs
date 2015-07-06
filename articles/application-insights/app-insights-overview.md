@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/02/2015" 
 	ms.author="awills"/>
  
 # What is Application Insights?
 
-Visual Studio Application Insights lets you track the performance and usage of your live web or device application.
+Visual Studio Application Insights is a service with which you can track the performance and usage of your live web or device application.
+
+It works for a wide variety of app types and platforms: web apps in .NET or J2EE, hosted on-premises or in the cloud; device apps on Windows, iOS, Android, OSX and other platforms. For applications with client, server and other components, you can 
 
 * [Detect, triage and diagnose][detect] performance issues and fix them before most of your users are aware.
  *  Alerts on performance changes or crashes.
@@ -29,18 +31,26 @@ Visual Studio Application Insights lets you track the performance and usage of y
  * Page view counts, new and returning users, and other core usage analytics
  * Track your own events to assess usage patterns and the success of each feature.
 
-## How does it work?
+![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
-You install a small SDK in your application, and set up an account in the Application Insights portal. The SDK monitors your app and sends telemetry data to the portal. The portal shows you statistical charts and provides powerful search tools to help you diagnose any problems.
 
-![The Application Insights SDK in your app sends telemetry to your Application Insights resource in the Azure portal.](./media/app-insights-overview/01-scheme.png)
+## How do I get started?
 
-The SDK has several modules which collect telemetry, for example to count users, sessions, and performance. You can also write your own custom code to send telemetry data to the portal. Custom telemetry is particularly useful to trace user stories: you can count events such as button clicks, achievement of particular goals, or user mistakes.
+1. You'll need a subscription to [Microsoft Azure](http://azure.com) It's free to sign up, and you can choose the free pricing tier of Application Insights. 
 
-For ASP.NET servers and Azure web apps, you can also install [Status Monitor][redfield], which has two uses. It lets you:
 
-* Monitor a web app without re-building or re-installing it.
-* Track calls to dependent modules.
+2. What development tools are you using? 
+
+ * Visual Studio (2013 update 3 or later): Right-click your project in Solution Explorer, and choose **Add Application Insights** if it's there.
+ * Otherwise, choose your project type under Get Started in the navigation bar at the left of this page.
+
+Following the guidance in the tools, you'll install an SDK in your project to send telemetry data, and create an Application Insights resource where the data will be analyzed and displayed. 
+
+The SDK includes a number of modules that automatically collect different types of data, such as performance counters and exceptions. You can also use the core API yourself to send telemetry about how your app is being used.
+
+For web apps, you can send data from both the server and the client (whether it's a web page or a device app). The streams will be integrated in the Application Insights portal so that you can correlate events in the different components.
+
+
 
 ## What platforms and languages can it work with?
 
@@ -57,18 +67,21 @@ There are currently SDKs for:
 If your app has client, server and other components, you can instrument them all. The data will be integrated in the Application Insights portal so that, for example, you can correlate events at the client with events at the server.
 
 
-## How would I use it?
+## How does it work?
 
-Both to make sure your app is performing well, and to find out what users are doing with it. Read more:
+You install a small SDK in your application, and set up an account in the Application Insights portal. The SDK monitors your app and sends telemetry data to the portal. The portal shows you statistical charts and provides powerful search tools to help you diagnose any problems.
 
-* [Detect, triage, and diagnose problems][detect]
-* [Analyse the usage of your app][knowUsers]
+![The Application Insights SDK in your app sends telemetry to your Application Insights resource in the Azure portal.](./media/app-insights-overview/01-scheme.png)
 
+The SDK has several modules which collect telemetry, for example to count users, sessions, and performance. You can also write your own custom code to send telemetry data to the portal. Custom telemetry is particularly useful to trace user stories: you can count events such as button clicks, achievement of particular goals, or user mistakes.
 
+For ASP.NET servers and Azure web apps, you can also install [Status Monitor][redfield], which has two uses. It lets you:
 
-## How do I get started?
+* Monitor a web app without re-building or re-installing it.
+* Track calls to dependent modules.
 
-Choose your platform from the Get Started menu on the left. 
+#### Setup overview
+
 
 In all cases, the basic procedure is:
 
@@ -87,6 +100,30 @@ If your app is a web site or service, there are some optional additions and vari
 * Monitor dependency calls that your app makes to other components such as databases or through REST APIs. Available for [IIS servers][redfield] and [Azure web apps][azure].
 
 
+
+
+## Support and feedback
+
+* Questions and Issues:
+ * [Troubleshooting][qna]
+ * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* Bugs:
+ * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
+* Suggestions:
+ * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+
+
+## Videos
+
+
+> [AZURE.VIDEO 218]
+
+> [AZURE.VIDEO usage-monitoring-application-insights]
+
+> [AZURE.VIDEO performance-monitoring-application-insights]
+
+
 <!--Link references-->
 
 [android]:app-insights-android.md
@@ -99,6 +136,7 @@ If your app is a web site or service, there are some optional additions and vari
 [knowUsers]: app-insights-overview-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 

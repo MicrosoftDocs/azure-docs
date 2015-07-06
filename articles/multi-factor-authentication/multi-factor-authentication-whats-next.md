@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
 # Configuring Azure Multi-Factor Authentication
@@ -225,6 +225,10 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 
 In some apps, like Office 2010 or older and Apple Mail you can't use multi-factor authenticaton.  To use these apps, you'll need to use "app passwords" in place of your traditional password.  The app password allows the application to bypass multi-factor authentication and continue working.
 
+>[AZURE.NOTE] Modern Authentication for the Office 2013 Clients
+>
+> Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+
 ### Important things to know about app passwords
 
 The following is an important list of things that you should know about app passwords.
@@ -332,10 +336,3 @@ Additionally users can also create app passwords later on by changing their sett
 8. Copy the app password to the clipboard and paste it into your app.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/myapp.png)</center>
-
-
-
-**Additional Resources**
-
-* [For Users](multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication on MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 

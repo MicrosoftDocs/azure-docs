@@ -19,7 +19,7 @@
 
 # Data Connectors in Microsoft Azure App Service
 
-< [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
+> [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
 
 
 ## What is an App + Data Services API App Connector

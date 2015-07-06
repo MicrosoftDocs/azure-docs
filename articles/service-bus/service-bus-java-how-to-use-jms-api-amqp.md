@@ -6,7 +6,7 @@
 	authors="sethmanheim" 
 	writer="sethm" 
 	manager="timlt" 
-	editor="mattshel"/>
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
 
@@ -22,21 +22,19 @@
 
 # How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
 
-##Introduction
-
 The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform messaging applications.
 
 Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.
 
 This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard. There is a companion How-to guide that explains how to do the same using the Service Bus .NET API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
 
-##Get started with Service Bus
+## Get started with Service Bus
 
 This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md).
 
 **Note**: You must create the queue with partitioning disabled as partitioned queues and topics do not yet have AMQP support. For additional information, see [Partitioning Messaging Entities](http://msdn.microsoft.com/library/azure/dn520246.aspx).
 
-##Downloading the AMQP 1.0 JMS client library
+## Downloading the AMQP 1.0 JMS client library
 
 For information about where to download the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
@@ -47,9 +45,10 @@ You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 dist
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
 
-##Coding Java applications
+## Coding Java applications
 
 ### Java Naming and Directory Interface (JNDI)
+
 JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination. JNDI uses a provider model into which you can plug different directory services to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a properties file of the following format:
 
 	# servicebus.properties - sample JNDI configuration
@@ -64,7 +63,7 @@ JMS uses the Java Naming and Directory Interface (JNDI) to create a separation b
 	queue.QUEUE = queue1
 
 
-<p><strong>Configuring the ConnectionFactory</strong></p>
+#### Configuring the ConnectionFactory
 
 The entry used to define a **ConnectionFactory** in the Qpid Properties File JNDI Provider is of the following format:
 
@@ -127,7 +126,7 @@ Then in order to define a **ConnectionFactory** named "SBCF", the configuration 
 
 	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
 
-<p><strong>Configuring Destinations</strong></p>
+#### Configuring Destinations
 
 The entry used to define a destination in the Qpid Properties File JNDI Provider is of the following format:
 
@@ -155,7 +154,7 @@ Where [jndi\_name] and [physical\_name] have the following meanings:
 
 There are no special APIs or options required when using JMS with Service Bus. However, there are a few restrictions that will be covered later. As with any JMS application, the first thing required is configuration of the JNDI environment, to be able to resolve a **ConnectionFactory** and destinations.
 
-<p><strong>Configuring the JNDI InitialContext</strong></p>
+#### Configuring the JNDI InitialContext
 
 The JNDI environment is configured by passing a hashtable of configuration information into the constructor of the javax.naming.InitialContext class. The two required elements in the hashtable are the class name of the Initial Context Factory and the Provider URL. The following code shows how to configure the JNDI environment to use the Qpid properties file based JNDI Provider with a properties file named **servicebus.properties**.
 
@@ -280,11 +279,11 @@ Running the application produces output of the form:
 	Received message with JMSMessageID = ID:956102171969368961
 	exit
 
-##Cross-platform messaging between JMS and .NET
+## Cross-platform messaging between JMS and .NET
 
 This guide showed how to send and receive messages to and from Service Bus using JMS. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.
 
-Using the sample JMS application described above and a similar .NET application taken from a companion guide, [How to use AMQP 1.0 with the .NET Service Bus .NET API](http://aka.ms/lym3vk), you can exchange messages between .NET and Java. 
+Using the sample JMS application described above and a similar .NET application taken from a companion guide, [How to use AMQP 1.0 with the .NET Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md), you can exchange messages between .NET and Java. 
 
 For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx).
 
@@ -297,7 +296,7 @@ To demonstrate JMS to .NET messaging:
 * Press **Enter** a few times in the Java application console, which will cause messages to be sent.
 * These messages are received by the .NET application.
 
-<p><strong>Output from JMS application</strong></p>
+#### Output from JMS application
 
 	> java SimpleSenderReceiver sendonly
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -306,7 +305,7 @@ To demonstrate JMS to .NET messaging:
 	Sent message with JMSMessageID = ID:1565011046230456854
 	exit
 
-<p><strong>Output from .NET application</strong></p>
+#### Output from .NET application
 
 	> SimpleSenderReceiver.exe	
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -324,7 +323,7 @@ To demonstrate .NET to JMS messaging:
 * Press **Enter** a few times in the .NET application console, which will cause messages to be sent.
 * These messages are received by the Java application.
 
-<p><strong>Output from .NET application</strong></p>
+#### Output from .NET application
 
 	> SimpleSenderReceiver.exe sendonly
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -334,7 +333,7 @@ To demonstrate .NET to JMS messaging:
 	exit
 
 
-<p><strong>Output from JMS application</strong></p>
+#### Output from JMS application
 
 	> java SimpleSenderReceiver	
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -343,7 +342,7 @@ To demonstrate .NET to JMS messaging:
 	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 	exit
 
-##Unsupported features and restrictions
+## Unsupported features and restrictions
 
 The following restrictions exist when using JMS over AMQP 1.0 with Service Bus, namely:
 
@@ -353,17 +352,17 @@ The following restrictions exist when using JMS over AMQP 1.0 with Service Bus, 
 * Temporary destinations, i.e., **TemporaryQueue**, **TemporaryTopic** are not currently supported, along with the **QueueRequestor** and **TopicRequestor** APIs that use them.
 * Transacted sessions and distributed transactions are not supported.
 
-##Summary
+## Summary
 
 This how-to guide showed how to use Service Bus brokered messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0.
 
 You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, Python, and PHP. Components built using these different languages can exchange messages reliably and at full fidelity using the AMQP 1.0 support in Service Bus. For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx).
 
-##Further information
+## Next steps
 
-* [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
-* [How to use AMQP 1.0 with the Service Bus .NET API](http://aka.ms/lym3vk)
+* [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
+* [How to use AMQP 1.0 with the Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/library/jj841071.aspx)
-* [How to Use Service Bus Queues](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
+* [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
 
  

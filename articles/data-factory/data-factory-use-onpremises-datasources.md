@@ -167,7 +167,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 4.	do the following in the JSON pane: 
 	1.	For the **gatewayName** property, enter **adftutorialgateway** to replace all the text inside the double quotes.  
 	2.	If you are using **SQL Authentication**: 
-		1.	For the **connectionString** property, replace **<servername\>**, **<databasename\>**, **<username\>**, and **<password\>** with names of your on-premises SQL server, database, user account, and  password.	
+		1.	For the **connectionString** property, replace **<servername\>**, **<databasename\>**, **<username\>**, and **<password\>** with names of your on-premises SQL server, database, user account, and  password. To specify an instance name, use the escape character: \. For example: **server\\instancename**. 	
 		2.	Remove last two properties (**username** and **password**) from the JSON file and remove the **comma (,)** character at the end of the last line from the remaining JSON script.
 		
 				{

@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Group by options in SQL Data Warehouse | Microsoft Azure"
    description="Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
@@ -180,7 +180,7 @@ By breaking the code up into sections and generating a looping construct the cod
 For more development tips, see [development overview][].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by/sql-data-warehouse-develop-group-by-cube.png
+[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
