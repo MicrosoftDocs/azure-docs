@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/06/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -129,7 +129,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 ## Service Bus Limits
 
-[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
 
 ## Active Directory Limits
