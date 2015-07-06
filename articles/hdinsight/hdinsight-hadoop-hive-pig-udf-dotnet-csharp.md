@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 
-#Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight 
+#Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
 
 Hive and Pig are great for working with data in Azure HDInsight, but sometimes you need a more general-purpose language. Both Hive and Pig allow you to call external code through user-defined functions (UDFs) or streaming.
 
@@ -29,15 +29,15 @@ In this document, learn how to use C# with Hive and Pig.
 
 * Visual Studio with the following versions:
 
-	* Visual Studio 2012 Professional/Premium/Ultimate with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	* Visual Studio 2012 Professional/Premium/Ultimate with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	* Visual Studio 2013 Community/Professional/Premium/Ultimate with <a href="https://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a>
+	* Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
 	* Visual Studio 2015 Preview
 
 * Hadoop on HDInsight cluster - see [Provision an HDInsight cluster](hdinsight-provision-clusters.md) for steps to create a cluster
 
-* Hadoop Tools for Visual Studio. See <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Get started using HDInsight Hadoop Tools for Visual Studio</a> for steps on installing and configuring the tools.
+* Hadoop Tools for Visual Studio. See [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) for steps on installing and configuring the tools.
 
 ##.NET on HDInsight
 
@@ -152,7 +152,7 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 6. Click **Refresh** to refresh the summary until **Job Status** changes to **Completed**. To view the job output, click **Job Output**.
 
-###Pig and C&#35;
+##Pig and C&#35;
 
 ###Create the C# project
 
@@ -193,7 +193,7 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 ###Upload the application
 
-1. Pig streaming expects the application to be local on the cluster file system. Enable Remote Desktop for the HDInsight cluster, and then connect to it by following the instructions at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+1. Pig streaming expects the application to be local on the cluster file system. Enable Remote Desktop for the HDInsight cluster, and then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. Once connected, copy **PigUDF.exe** from the **bin/debug** directory for the PigUDF project on your local machine, and paste it to the **%PIG_HOME%** directory on the cluster.
 
@@ -239,4 +239,3 @@ For other ways to use Pig and Hive, and to learn about using MapReduce, see the 
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
- 

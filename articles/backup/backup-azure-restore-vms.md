@@ -4,7 +4,7 @@
 	description="Learn how to restore an Azure virtual machine"
 	services="backup"
 	documentationCenter=""
-	authors="trinadhk"
+	authors="f2003629"
 	manager="shreeshd"
 	editor=""/>
 
