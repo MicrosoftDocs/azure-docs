@@ -52,33 +52,33 @@ Clicking on the new button has opened up all the service categories within Azure
 
 ### SQL Data Warehouse
 
-As you can see Azure offers lots of data and storage engines. However, this getting started guide is for SQLDW.
+As you can see Azure offers lots of data and storage engines. However, this getting started guide is for SQL Data Warehouse.
 
 - Go ahead and select SQL Data Warehouse.
 
 ## Configure SQL Data Warehouse
 
-To complete the provisioning process all that is left to do is configure SQL Data Warehouse.
+To complete the provisioning process simply configure SQL Data Warehouse.
 
 
 ### Database Name
 
-The first configuration is to name database.
+The first configuration is to name the database.
 
 
 
-- For this quick start name the database "MySQLDW".
+- For this quick start, name the database "MySQLDW".
 
 
-> [AZURE.NOTE] When you create your own database you can of course name it as you wish. It does need to conform to the basic naming requirements of Azure however. 
+> [AZURE.NOTE] When you create your own database you can of course name it as you wish. However, it does need to conform to the basic naming requirements of Azure. 
 
 ### Performance
 
-The performance option is an **important** one. SQL Data Warehouse provides its scalable power via this slider. You can increase or decrease your performance at any time - not just when you configure the cluster. The further you slide to the right the greater the resources at your disposal. If those resources are no longer needed then you can immediately move the slider back; saving on cost. SQL Data Warehouse lets you change your performance profile on demand without having to re-create the cluster or move data.
+The performance option is an **important** one. SQL Data Warehouse provides scalable power via this slider. You can increase or decrease your performance at any time - not just when you configure the data warehouse. The further you slide to the right the greater the resources at your disposal. If those resources are no longer needed then you can immediately move the slider back; saving on cost. SQL Data Warehouse lets you change your performance profile on demand without having to re-create the data warehouse or move data.
 
 - Use the slider now to see how the data warehouse units increase as you slide to the right and decrease as you move back to the left.
 
-- Before leaving this step make sure you have returned the slider back to the left. Your new database is just a small data warehouse so we don't need too much; save your resources for the rest of your trial!
+- Before leaving this step make sure you have returned the slider back to the left. Your new data warehouse is small,  so we don't need too much; save your resources for the rest of your trial!
 
 ### Select Source
 
@@ -88,7 +88,7 @@ This option gives the choice of starting with an empty database. Choose your new
 
 ### Logical Server
 
-Your SQL Data Warehouse database resides on a logical server. The logical server brings consistency of configuration at an instance level for a number of databases and locates the service to an Azure data center.
+Your new SQL Data Warehouse database resides on a logical server. The logical server brings consistency of configuration for a number of databases and locates the service to an Azure data center.
 
 The options that need to be set are:
 1. Server Name
@@ -161,9 +161,9 @@ Now that you have configured the firewall you will be able to make connections f
 Now the SQLDW Service has been successfully provisioned we can move on to learn how to use it.
 
 The next steps are therefore to learn how to:
-1. [Connect and query](sql-data-warehouse-get-started-connect-query.md) the SQLDW database
-2. Export data from the SQLDW database to Azure Blob Storage
-3. Load more data into the SQLDW database
+1. [Connect and query](sql-data-warehouse-get-started-connect-query.md) the data warehouse.
+2. Export data from the data warehouse to Azure blob storage.
+3. Load more data into the data warehouse.
 
 
 <!--Image references-->

@@ -20,7 +20,7 @@
 
 ## Data Definition Language (DDL) statements
 
-- [ALTER DATABASE](https://msdn.microsoft.com/library/ms174269.aspx)
+- [ALTER DATABASE](https://msdn.microsoft.com/en-us/library/mt204042.aspx)
 - [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
 - [ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
 - [ALTER SCHEMA](https://msdn.microsoft.com/library/ms173423.aspx)
