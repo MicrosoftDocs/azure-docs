@@ -76,77 +76,8 @@ Using the native paging support within the DocumentDB SDKs, you can retrieve res
 DocumentDB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon. Please see [What's coming next](#Whats_coming_next) for more details.
 
 ## Configure an indexing policy for Order By
-The easiest way to get started with Order By is by creating a new collection with the "All Range" indexing policy configuration, i.e., a range index against all numbers and strings for all properties, with the maximum required precision. For many workloads, this offers the best query flexibility, with good write performance and low index storage overhead. However, you can tune the indexing policy to best suit your query patterns by configuring just the properties used for sorting with a Range index and maximum index precision. 
 
-Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy in order to use Order By.
-
-Here are some common indexing policies, and their corresponding support for Order By queries:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Indexing Policy</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Support for Order By</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    All Hash
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    All string and numeric properties use Hash indexing. Order By is NOT supported. Has the lowest indexing storage overhead.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    All Range
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    All string and numeric properties use Range indexing with maximum precision. Order By is supported with both numbers and strings. Has a higher index storage overhead.
-                </p>
-            </td>            
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    Default
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    All string properties use Hash indexing, and numeric properties use Range indexing with maximum precision. Order By is supported against numbers, but not strings. Has low indexing storage overhead.
-                </p>
-            </td>
-        </tr>        
-        <tr>
-            <td valign="top">
-                <p>
-                    Your policy (custom)
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Using the SDKs, you can configure specific paths for range indexing and for string/range. Order By is supported for just these properties. Has a low indexing overhead.
-                </p>
-            </td>            
-        </tr>        
-    </tbody>
-</table>
-
+Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can be set for specific paths/properties, data types (strings/numbers) and at different precision values (either maximum precision or a fixed precision value). Since DocumentDB uses Hash indexing as default, you must create a new collection with a custom indexing policy with Range on numbers, strings or both, in order to use Order By. 
 
 >[AZURE.NOTE] String range indexes were introduced on July 7, 2015 with REST API version 2015-06-03. In order to create policies for Order By against strings, you must use SDK version 1.2.0 of the .NET SDK, or version 1.1.0 of the Python, Node.js or Java SDK.
 >
