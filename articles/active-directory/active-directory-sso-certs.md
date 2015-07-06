@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to Manage Federation Certificates in Azure AD | Microsoft Azure"
-	description="TODO"
+	description="Learn how to customize the expiration date for you federation certificates, and how to renew certificates that will soon expire."
 	services="active-directory"
 	documentationCenter=""
 	authors="liviodlc"
