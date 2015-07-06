@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -26,23 +26,23 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 -	One of the following versions of Visual Studio
 
-	-	Visual Studio 2012 with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	-	Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 with <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	-	Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	<a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	-	[Visual Studio 2015 CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
 
 -	Azure SDK 2.5.1 or later
 
--	HDInsight Tools for Visual Studio: See <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
+-	HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
 
--	Apache Storm on HDInsight cluster: See <a href="../hdinsight-storm-getting-started/" target="_blank">Getting started with Apache Storm on HDInsight</a> for steps to create a cluster.
+-	Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-storm-getting-started.md) for steps to create a cluster.
 
 	> [AZURE.NOTE] Currently, the HDInsight Tools for Visual Studio only support Storm on HDInsight versions 3.2 clusters.
 
 ##Create a C# topology
 
-1.	If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
+1.	If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2.	Open Visual Studio, select **File** > **New**, and then **Project**.
 
@@ -58,7 +58,7 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 	-	**Bolt.cs**: An example bolt that keeps a count of numbers emitted by the spout.
 
-	As part of project creation, the latest <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">SCP.NET packages</a> will be downloaded from NuGet.
+	As part of project creation, the latest [SCP.NET packages](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) will be downloaded from NuGet.
 
 In the next sections, you will modify this project into a basic WordCount application.
 
@@ -638,4 +638,3 @@ For more ways to work with HDInsight and more Storm on HDinsight samples, see th
 **Apache HBase on HDInsight**
 
 -	[Getting started with HBase on HDInsight](../hdinsight-hbase-get-started.md)
- 
