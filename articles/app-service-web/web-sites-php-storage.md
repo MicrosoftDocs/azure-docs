@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
 # Create a PHP web app in Azure App Service using Azure Storage
@@ -41,23 +41,24 @@ To install the PHP Client Libraries for Azure via Composer, follow these steps:
 
 1. [Install Git][install-git]
 
-	> [AZURE.NOTE]
-	> On Windows, you will also need to add the Git executable to your PATH environment variable.
+	> [AZURE.NOTE] On Windows, you will also need to add the Git executable to your PATH environment variable.
 
 2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+         {
+             "repositories": [
+                 {
+                     "type": "pear",
+                     "url": "http://pear.php.net"
+                 }
+             ],
+             "require": {
+                 "pear-pear.php.net/mail_mime" : "*",
+                 "pear-pear.php.net/http_request2" : "*",
+                 "pear-pear.php.net/mail_mimedecode" : "*",
+                 "microsoft/windowsazure": "*"
+             }
+         }
 
 3. Download **[composer.phar][composer-phar]** in your project root.
 

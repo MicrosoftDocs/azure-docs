@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
-   ms.author="vagarw"/>
+   ms.date="07/02/2015"
+   ms.author="andalmia"/>
 
 # Using the Box Connector in your logic app
 
