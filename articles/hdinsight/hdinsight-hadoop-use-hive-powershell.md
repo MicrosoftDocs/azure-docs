@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Run Hive queries using PowerShell
@@ -22,7 +22,7 @@
 
 This document provides an example of using Azure PowerShell to run Hive queries in a Hadoop on HDInsight cluster.
 
-> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see <a href="hdinsight-use-hive.md" target="_blank">Use Hive with Hadoop on HDInsight</a>.
+> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
 
 
 ##<a id="prereq"></a>Prerequisites
@@ -34,7 +34,7 @@ To complete the steps in this article, you will need the following.
 
 ##<a id="powershell"></a>Run Hive queries using Azure PowerShell
 
-Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries on HDInsight. Internally, this is accomplished by using REST calls to <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (formerly called Templeton) running on the HDInsight cluster.
+Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries on HDInsight. Internally, this is accomplished by using REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (formerly called Templeton) running on the HDInsight cluster.
 
 The following cmdlets are used when running Hive queries in a remote HDInsight cluster:
 
@@ -142,4 +142,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
- 
