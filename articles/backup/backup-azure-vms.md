@@ -45,7 +45,7 @@ The discovery process queries Azure for the list of virtual machines in the subs
 5. Once the discovery process is complete, a toast notification appears.
   ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
-## 2. Register Azure virtual machines
+##  2. Register Azure virtual machines
 Before a virtual machine can be protected it needs to be registered with the Azure Backup service. The Registration process has two primary goals:
 
 1. To have the backup extension plugged-in to the VM agent in the virtual machine
@@ -69,7 +69,7 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 
     >[AZURE.NOTE] Only the virtual machines that are not registered and are in the same region as the backup vault, will show up.
 
-5. A job is created for each virtual machine that should be registered. The toast notification shows the status of this activity. Click on **View Job** to go to the **Jobs** page.
+5. A job is created for each virtual machine that should be registered. The toast notification shows the status of this activity. Click **View Job** to go to the **Jobs** page.          
   ![register job](./media/backup-azure-vms/register-create-job.png)
 
 6. The virtual machine also appears in the list of registered items and the status of the registration operation is shown
@@ -115,7 +115,7 @@ This step involves setting up a backup and retention policy for the virtual mach
   ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Viewing backup status and details
-Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the Dashboard page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.
+Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the Dashboard page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.  
   ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## Troubleshooting errors
