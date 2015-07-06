@@ -203,9 +203,9 @@ To enable your API app to call the Dropbox API, you have to exchange settings be
 
 ### Exchange settings between Dropbox and your API app
 
-The screenshots in this section show a DropboxConnector API app, but the portal UI is the same for the SimpleDropbox API app that you're creating in this tutorial. 
+The following steps refer to a Dropbox connector API app, but the procedures and UI are the same for the SimpleDropbox API app that you're creating in this tutorial.
 
-If you don't see fields for the Dropbox client ID and client secret on the SimpleDropbox API app's **Authentication** blade, make sure that you restarted the gateway as directed after deploying the API app project to the API app.
+> **Note:** If you don't see fields for the Dropbox client ID and client secret on the SimpleDropbox API app's **Authentication** blade as shown in the screenshot, make sure that you restarted the gateway as directed after deploying the API app project to the API app. The "dropbox" value in the `authentication` property of the *apiapp.json* file that you deployed earlier is what triggers the portal to display these fields.
 
 [AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
