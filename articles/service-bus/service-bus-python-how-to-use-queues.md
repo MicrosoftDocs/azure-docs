@@ -1,4 +1,4 @@
-****<properties 
+<properties 
 	pageTitle="How to use Service Bus queues (Python) - Azure" 
 	description="Learn how to use Azure Service Bus queues from Python." 
 	services="service-bus" 
