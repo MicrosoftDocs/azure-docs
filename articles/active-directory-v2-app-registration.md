@@ -51,4 +51,4 @@ Now that you have a Microsoft app, you can complete one of our quick start
 tutorials to get up & running with Microsoft Identity.  Here are a few
 recommendations:
 
-[AZURE.INCLUDE [active-directory-msid-quickstart-table](../includes/active-directory-msid-quickstart-table.md)]
+[AZURE.INCLUDE [active-directory-v2-quickstart-table](../includes/active-directory-v2-quickstart-table.md)]
