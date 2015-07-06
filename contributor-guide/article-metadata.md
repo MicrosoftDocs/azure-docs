@@ -14,7 +14,7 @@ All Azure technical articles contain two metadata sections - a properties sectio
 The properties section uses this syntax:
 
     <properties
-       pageTitle="Page title that displays in search results and the browser tab"
+       pageTitle="Page title that displays in search results and the browser tab | Microsoft Aure"
        description="Article description that will be displayed on landing pages and in most search results"
        services="service-name"
        documentationCenter="dev-center-name"

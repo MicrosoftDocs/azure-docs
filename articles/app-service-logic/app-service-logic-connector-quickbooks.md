@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="QuickBooks Connector" 
-   description="How to use the QuickBooks Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="QuickBooks Connector"
+   description="How to use the QuickBooks Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/01/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Using the QuickBooks Connector in your Logic App#
@@ -68,7 +68,7 @@ Following are the different actions available in QuickBooks connector.
 		This action deletes specified object from selected entity.
 		</td>
 		</tr>
-		<tr>	
+		<tr>
 		<td>
 		Query
 		</td>
@@ -131,7 +131,7 @@ Let us create a simple logic app that creates an account in QuickBooks and updat
 
 	![][8]
 
-11.	Provide ‘Name’ and 'Account Type' and click ✓. 
+11.	Provide ‘Name’ and 'Account Type' and click ✓.
 
 	![][9]
 
@@ -141,7 +141,7 @@ Let us create a simple logic app that creates an account in QuickBooks and updat
 
 	![][10]
 
-14.	Click on ‘+’ next to ‘Id’ to pick the id value from the output of Create Account action. 
+14.	Click on ‘+’ next to ‘Id’ to pick the id value from the output of Create Account action.
 
 	![][11]
 
@@ -169,6 +169,3 @@ Let us create a simple logic app that creates an account in QuickBooks and updat
 [11]: ./media/app-service-logic-connector-quickbooks/11_Record_ID_from_Create.png
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
-
-
- 
