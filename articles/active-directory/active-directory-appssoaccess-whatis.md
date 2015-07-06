@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What is application access and single sign-on with Azure Active Directory?"
+	pageTitle="What is application access and single sign-on with Azure Active Directory? | Microsoft Azure"
 	description="Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="07/01/2015"
 	ms.author="asmalser-msft"/>
 
 #What is application access and single sign-on with Azure Active Directory?
@@ -62,6 +62,8 @@ In this scenario, when you have already been logged into Azure AD, and you want 
 
 Azure AD can support federated single sign-on with applications that support the SAML 2.0, WS-Federation, or OpenID connect protocols.
 
+See also: [Managing Certificates for Federated Single Sign-On](active-directory-sso-certs.md)
+
 ###Password-based Single Sign-On
 
 Configuring password-based single sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from the third-party SaaS application. When you enable this feature, Azure AD collects and securely stores the user account information and the related password.
@@ -91,6 +93,8 @@ For example, if there is an application that is configured to authenticate users
 For select applications, Azure AD enables automated user provisioning and de-provisioning of accounts in third-party SaaS applications from within the Azure Management Portal, using your Windows Server Active Directory or Azure AD identity information. When a user is given permissions in Azure AD for one of these applications, an account can be automatically created (provisioned) in the target SaaS application.
 
 When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application. This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications. In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.
+
+To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
 
 ##Get started with the Azure AD application gallery
 
