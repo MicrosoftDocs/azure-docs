@@ -28,7 +28,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [Maven](http://maven.apache.org/)
 
-* [An Azure HDInsight cluster with HBase](../hdinsight-hbase-get-started.md#create-hbase-cluster)
+* [An Azure HDInsight cluster with HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
 
 ##Create the project
 
