@@ -16,16 +16,16 @@
 	ms.date="06/15/2015"
 	ms.author="dastrock"/>
 
-# Introducing Microsoft Identity (Preview)
-Microsoft Identity is the union of the Microsoft Account and Azure Active Directory cloud authentication services.
+# Preview: Signing In Microsoft Account & Azure AD users with a single auth endpoint
+In the past, an app developer who wanted to support both Microsoft Accounts and Azure Active Directory was required to integrate with two completely separate systems.  Now you can sign users in with both types of accounts using OpenID Connect or OAuth 2.0 and the  "v2.0" authentication endpoint:
+```
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+https://login.microsoftonline.com/common/oauth2/v2.0/token
+```
 
-> [AZURE.NOTE]
-This information applies to the Microsoft Identity Public Preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+ One simple process allows you to immediately reach an audience that spans millions of users with both personal and work/school accounts.
 
-## Overview
-In the past, an app developer who wanted to support both Microsoft Accounts and Azure Active Directory was required to integrate with two completely separate systems.  With Microsoft Identity, you write your authentication logic once and users can sign into your app with both their personal and work/school accounts.
-
-| Register an app at [apps.dev.microsoft.com](apps.dev.microsoft.com) | Learn the auth protocols, [OAuth 2.0]() & [OpenID Connect]() | [Get Started]() with tutorials using our auth libraries |
+| Register an app at <br> [apps.dev.microsoft.com](apps.dev.microsoft.com) | Learn the auth protocols, <br> [OAuth 2.0]() & [OpenID Connect]() | [Get Started]() with tutorials <br> using our auth libraries |
 | ----------------------- | ------------------------------- | ------------ |
 
 Your apps can also consume a [unified set of Microsoft REST APIs]() using either type of account, including:
@@ -34,7 +34,10 @@ Your apps can also consume a [unified set of Microsoft REST APIs]() using either
 - Mail, Contacts, and Calendars through Outlook.com and Office 365
 - Users, Groups, and Company Information through Azure Active Directory
 
-With more Microsoft Online services to be added in the near future.  One set of code allows you to immediately reach an audience that spans millions of consumer and enterprise users.  Several apps have already begun to bridge the gap between personal and work accounts, including: [Boomerang](), [TripIt](), & [Uber]().
+With more Microsoft Online services to be added in the near future. Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber]().
+
+> [AZURE.NOTE]
+	This information applies to the v2.0 endpoint public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 ## Getting Started
 To get your own Microsoft Identity integrated app up & running, try out one of our quick start tutorials below.
