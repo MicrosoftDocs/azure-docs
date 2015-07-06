@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Microsoft Identity | Microsoft Azure"
-	description="An introduction to developing apps that integrate with Microsoft Identity."
+	pageTitle="v2.0 Endpoint | Microsoft Azure"
+	description="An introduction to building apps with both Microsoft Account and Azure Active Directory sign in."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -18,6 +18,7 @@
 
 # Preview: Signing In Microsoft Account & Azure AD users with a single auth endpoint
 In the past, an app developer who wanted to support both Microsoft Accounts and Azure Active Directory was required to integrate with two completely separate systems.  Now you can sign users in with both types of accounts using OpenID Connect or OAuth 2.0 and the  "v2.0" authentication endpoint:
+
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
