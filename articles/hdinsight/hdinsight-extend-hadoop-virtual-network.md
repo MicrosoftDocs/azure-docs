@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -172,4 +172,3 @@ The following examples demonstrate how to use HDInsight with Azure Virtual Netwo
 * [Use Sqoop with Hadoop in HDInsight](hdinsight-use-sqoop.md) - Provides information on using Sqoop to transfer data with SQL Server over a virtual network.
 
 To learn more about Azure virtual networks, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
- 

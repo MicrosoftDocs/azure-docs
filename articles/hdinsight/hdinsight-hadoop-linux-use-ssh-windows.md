@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Use SSH with Linux-based Hadoop on HDInsight from Windows (preview)
@@ -277,4 +277,3 @@ Now that you understand how to authenticate by using an SSH key, learn how to us
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
- 
