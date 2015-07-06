@@ -53,7 +53,7 @@ Network | Description
 32 Gbps backend, RDMA capable | Enables low latency, high throughput application communication between instances within a single cloud service
 
 
->[AZURE.IMPORTANT]Access to the RDMA network is currently enabled only through applications that use the Microsoft Network Direct interface. See [Access the RDMA network](#access-the-RDMA-network) in this article.
+>[AZURE.IMPORTANT]Access to the RDMA network is currently enabled only through applications that use the Microsoft Network Direct interface. See [Access the RDMA network](#access-the-rdma-network) in this article.
 
 
 A10 and A11 instances have a single, 10 Gbps Ethernet network adapter that connects to Azure services and the Internet.
