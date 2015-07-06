@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/29/2015" 
-    ms.author="roopalik"/>
+    ms.date="07/06/2015" 
+    ms.author="luisca"/>
 
 # Get help from Machine Learning Live Chat Support
 [Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) provides an intuitive interface for building machine learning models. There is a [Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) and [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) to guide you along that way. 
@@ -26,5 +26,8 @@ But sometimes you just need to ask a quick question to unblock you. In [Studio](
 Type in your question and get your answers!
 
 ![Azure ML Chat Dialog](./media/machine-learning-live-chat/AzureMLChat.png)
+
+# Don't see the Live Chat Icon?
+Members of the team are actually answering your question. If you don't see the live chat icon it is because it is not visible outside of working hours. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
