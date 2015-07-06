@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/26/2015"
+   ms.date="07/06/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: How to integrate Salesforce with Azure Active Directory
@@ -26,7 +26,7 @@ This tutorial will show you how to connect your Salesforce environment to your A
 
 2. You must have a valid tenant in [Salesforce.com](https://www.salesforce.com/).
 
-> [AZURE.WARNING] If you are using a Salesforce.com **trial** account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased.
+> [AZURE.IMPORTANT] If you are using a Salesforce.com **trial** account, then you will be unable to configure automated user provisioning. Trial accounts do not have the necessary API access enabled until they are purchased.
 > 
 > You can get around this limitation by using a [free developer account](https://developer.salesforce.com/signup) to complete this tutorial.
 
@@ -214,7 +214,7 @@ You may follow this tutorial using the videos below.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.WARNING] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](https://myapps.microsoft.com/), then sign into the test account, and click on **Salesforce**.
 
