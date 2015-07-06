@@ -173,9 +173,9 @@ For more development tips, see [development overview][].
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: storage/storage-use-azcopy.md
-[ADF Copy]: storage/data-factory-copy-activity.md
-[ADF Copy examples]: data-factory/data-factory-copy-activity-examples.md
+[AZCopy]: ../storage/storage-use-azcopy.md
+[ADF Copy]: ../data-factory/data-factory-copy-activity.md
+[ADF Copy examples]: ../data-factory/data-factory-copy-activity-examples.md
 [development overview]: sql-data-warehouse-develop-overview.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md

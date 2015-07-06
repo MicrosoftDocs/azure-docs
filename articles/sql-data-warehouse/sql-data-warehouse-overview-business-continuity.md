@@ -64,10 +64,10 @@ To learn about the business continuity features of other SQL Database editions, 
 <!--Image references-->
 
 <!--Article references-->
-[business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
+[business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Azure storage redundancy options]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
-[SQL Database business continuity overview]: sql-database-business-continuity.md
+[SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Recover from user error]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
 <!--MSDN references-->
