@@ -50,4 +50,4 @@ Once you create your virtual network, you can add new VMs and PaaS instances to 
 ## Next steps
 -  Learn more about [virtual networks](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx) in Azure. 
 
--  [Add a Virtual Machine](../virtual-machines/virtual-machines-create-custom) to a virtual network.
+-  [Add a Virtual Machine](../virtual-machines/virtual-machines-create-custom.md) to a virtual network.
