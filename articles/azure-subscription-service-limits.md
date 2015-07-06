@@ -129,7 +129,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 ## Service Bus Limits
 
-[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
 
 ## Active Directory Limits
