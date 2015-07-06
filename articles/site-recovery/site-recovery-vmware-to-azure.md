@@ -97,8 +97,8 @@ The process server uses disk based cache. Ensure that there's enough free space 
 **Third-party** | Some deployment components in this scenario depend on third-party software to function properly. For a complete list see [THIRD-PARTY SOFTWARE NOTICES AND INFORMATION](#third-party-software-notices-and-information)
 
 ## Supported Operating Systems
-| **Windows (64 bits)** | Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.                                                                                                   |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Windows (64 bits)** | Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.                                                                                                   |
 | **Linux (64 bits)**   | Centos 6.4, 6.5, 6.6; Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3. |
 
 ## Deployment
