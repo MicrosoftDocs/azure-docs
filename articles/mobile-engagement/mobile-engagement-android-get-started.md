@@ -176,7 +176,7 @@ Download and integrate the SDK library
  			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
-3. In the code you just pasted, replace "<Your application name>" in the label. This is what is displayed in settings menu where user can see services runnings on the device. You can add the word "Service" in that label for example.
+3. In the code you just pasted, replace `"<Your application name>"` in the label. This is what is displayed in settings menu where user can see services running on the device. You can add the word "Service" in that label for example.
 
 ###Send a Screen to Mobile Engagement
 
