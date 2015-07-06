@@ -1,6 +1,16 @@
-<properties title="" pageTitle="Install and set up tools for authoring in GitHub" description="Tools and steps to get set up for authoring Azure content in GitHub." services="contributor-guide" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
+<properties title="" 
+pageTitle="Install and set up tools for authoring in GitHub" 
+description="Tools and steps to get set up for authoring Azure content in GitHub." 
+services="contributor-guide" 
+documentationCenter="" 
+authors="tysonn"  
+manager="carolz" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/19/2015" ms.author="tysonn" />
+<tags ms.service="contributor-guide"
+ ms.devlang="" ms.topic="article"
+  ms.tgt_pltfrm="" ms.workload="" 
+  ms.date="01/19/2015" 
+  ms.author="tysonn" />
 
 #Install and set up tools for authoring in GitHub
 
