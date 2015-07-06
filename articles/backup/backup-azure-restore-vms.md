@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="trinadhk"/>
+	ms.author="f2003629"/>
 
 # Restore a virtual machine
 You can restore a virtual machine to a new VM from the backups stored in Azure backup vault using restore action.
