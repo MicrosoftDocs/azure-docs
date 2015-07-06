@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/03/2015"
 	ms.author="raynew"/>
 
 # Protect on-premises VMware virtual machines or physical servers with Azure Site Recovery
@@ -238,6 +238,7 @@ You can configure a VPN connection to the server as follows:
 
 	1. Initiate a remote desktop connection to the virtual machine. The first time you log on a script will run in a PowerShell window. Don't close it. When it finishes the Host Agent Config tool opens automatically to register the server.
 	2. In **Host Agent Config** specify the internal IP address of the configuration server and port 443. You can use the internal address and private port 443 even if you're not connecting over VPN mode because the virtual machine is attached to the same Azure network as the configuration server. Leave **Use HTTPS** enabled. Enter the passphrase for the configuration server that you noted earlier. Click **OK** to register server. Note that you can ignore the NAT options on the page. They're not used.
+	3. In-case the estimated retention drive usage requires more than 1 TB, configure retention volume (R:) using virtual disk using [storage spaces](http://blogs.technet.com/b/askpfeplat/archive/2013/10/21/storage-spaces-how-to-configure-storage-tiers-with-windows-server-2012-r2.aspx).
 
 	![Windows master target server](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
@@ -354,11 +355,11 @@ You can monitor the protection group as they're created on the **Protected Items
 
 ### Install the Mobility service automatically
 
-When you add machines to a protection group the  Mobility service is automatically pushed and installed on each machine by the process server. You could also choose to manually install the mobility service on your source machines. To learn how to do this refer to [step 14](#step-14-manually-install-the-mobility-service-on-source-machines)
+When you add machines to a protection group the  Mobility service is automatically pushed and installed on each machine by the process server. You could also choose to manually install the mobility service on your source machines. See the sub-section *Install the Mobility service manually* below to learn more.
 
 **To automatically push install the mobility service on Windows servers, you'll need to complete the following prerequisites:** 
 
-1. Latest [patch updates](#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
+1. Latest [patch updates](#step-5-install-latest-updates) for process server should be installed and the process server should be available. 
 2. Ensure network connectivity exists between the source machine and the process server, and that the source machine is accessible from the process server.  
 3. Configure the Windows firewall to allow **File and Printer Sharing** and **Windows Management Instrumentation**. Under Windows Firewall settings, select the option “Allow an app or feature through Firewall” and select the applications as shown in the picture below. For machines that belong to a domain you can configure the firewall policy with a Group Policy Object.
 	![Firewall Settings](./media/site-recovery-vmware-to-azure/ASRVMWare-PushInstall-Firewall.png)<br>
@@ -471,6 +472,8 @@ Push installation of the mobility service when adding machines to a protection g
 3. If required you can customize the plan to create groups and sequence the order in which machines in the recovery plan are failed over. You can also add prompts for manual actions and scripts. The scripts when recovering to Azure can be added by using [Azure Automation Runbooks](site-recovery-runbook-automation.md).
 
 	![Customize recovery plan](./media/site-recovery-vmware-to-azure/ASRVMWare_RP2.png)
+	
+>[AZURE.NOTE] Before you initiate a failover, ensure that your Configuration Server and the Master Target server are running and healthy. If they are unhealthy, the failover will fail.
 
 5. In the **Recovery Plans** page select the plan and click **Unplanned Failover**.
 6. In **Confirm Failover** verify the failover direction (To Azure) and select the recovery point to fail over to.
@@ -478,7 +481,7 @@ Push installation of the mobility service when adding machines to a protection g
 
 >[AZURE.NOTE] Currently only unplanned failovers are possible for protected VMware virtual machines and Physical Windows or Linux servers. The source machines wont be shut down as part of an unplanned failover. Performing an unplanned failover will stop data replication for the protected servers. You'll need to delete the machines from the protection group and add them again in order to start protecting machines again after performing a failover.
 
-
+>[AZURE.NOTE] If you want to failover without losing any data (Planned failover), ensure that the primary site virtual machines are turned off before you intiiate the failover.
 
 ##Next steps
 
