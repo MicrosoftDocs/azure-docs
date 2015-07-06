@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
+   ms.date="07/02/2015"
    ms.author="telmos" />
 
 # Create a VM with Multiple NICs
@@ -147,8 +147,8 @@ To create a VM with multiple NICs, follow the steps below:
 
 1. Specify the subnet and IP address for the default NIC. 
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
-			-IPAddress "10.1.0.100" -VM $vm
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. Create the VM in your virtual network. 
 

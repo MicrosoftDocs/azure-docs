@@ -32,7 +32,7 @@ And for more general information about Machine Learning Studio, see [What is Mac
 
 ##Five steps to create an experiment
 
-In this machine learning tutorial, you'll follow five basic steps to build an experiment in Machine Learning Studio in order to create, train, and score your model:  
+In this machine learning tutorial, you'll follow five basic steps to build an experiment in Machine Learning Studio in order to create, train, and score your model:
 
 - Create a model
 	- [Step 1: Get data]
