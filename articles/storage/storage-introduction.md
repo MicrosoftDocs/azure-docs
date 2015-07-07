@@ -117,9 +117,7 @@ A storage account can contain any number of queues. A queue can contain any numb
 
 ## File Storage (Preview)
 
-Many legacy applications rely on file shares, a dependency that has complicated moving these applications to the cloud. File storage offers cloud-based file shares, so that you can migrate legacy applications to Azure quickly and without costly rewrites. 
-
-Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of application components can mount and access the File storage share simultaneously.
+Azure File storage offers cloud-based SMB 2.1 file shares, so that you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites. With Azure File storage, applications running in Azure virtual machines or cloud services can mount a file share in the cloud, just as a desktop application mounts a typical SMB share. Any number of application components can then mount and access the File storage share simultaneously.
 
 Since a File storage share is a standard SMB 2.1 file share, applications running in Azure can access data in the share via file sytem I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
