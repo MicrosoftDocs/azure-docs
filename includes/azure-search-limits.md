@@ -1,7 +1,7 @@
 <table cellspacing="0" border="1">
 <tr>
-  <th>Object</th>
-  <th>Limit</th>
+  <th align="left" valign="middle">Object</th>
+  <th align="left" valign="middle">Limit</th>
 </tr>
 <tr>
   <td><p>Maximum number of indexes</p></td>
