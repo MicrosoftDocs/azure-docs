@@ -13,10 +13,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 07/09/2015 release of Stream Analytics ##
+
+- Stream Analytics Blob outputs now give users control over naming.
+- Stream Analytics Blob outputs now allow the user to roll out by time
 
 ## Notes for 05/03/2015 release of Stream Analytics ##
 
