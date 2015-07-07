@@ -54,9 +54,9 @@ Then input your information into the fields as shown below for your storage acco
 
 ![image3](./media/stream-analytics-create-inputs/03-stream-analytics-create-inputs.png)
 
-> [AZURE.NOTE]If you check the box of 'Configure Advanced Setting', it leads you to following configuration. Otherwise,  ASA scan all blobs in the container.
+> [AZURE.NOTE]If you check the box of 'Configure Advanced Setting', it leads you to following configuration. Otherwise,  ASA scans all the blobs in the container.
 
-On the next menu, choose prefix pattern for path hierarchy that contains the blob
+On the next menu, choose prefix pattern for path hierarchy that contains the blob.
 
 ![image4](./media/stream-analytics-create-inputs/04-stream-analytics-create-inputs.png)
 
