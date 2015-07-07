@@ -175,7 +175,7 @@ Before publishing your application to App Service Web Apps, the database connect
 
 	![WebMatrix - Publish][edit_publish]
 
-3. Click **Choose and existing site from Microsoft Azure**.
+3. Click **Choose an existing site from Microsoft Azure**.
 
 3. Select the App Service web app you created earlier.
 
