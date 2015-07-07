@@ -126,7 +126,7 @@ You may follow this tutorial using the videos below.
      - Enterprise account: `https://<domain>.my.salesforce.com`
      - Developer account: `https://<domain>-dev-ed.my.salesforce.com`
 
- - Click **Browse** to open the **Choose File to Upload** dialog, select your Salesforce certificate, and then click **Open** to upload the certificate.
+ - Click **Browse** or **Choose File** to open the **Choose File to Upload** dialog, select your Salesforce certificate, and then click **Open** to upload the certificate.
 
  - For **SAML Identity Type**, select **Assertion contains User's salesforce.com username**.
 
