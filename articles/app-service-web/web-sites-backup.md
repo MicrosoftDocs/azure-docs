@@ -24,7 +24,7 @@ The Backup and Restore feature in [Azure App Service Web Apps](http://go.microso
 For information on restoring an Azure web app from backup, see [Restore a web app](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
-## Stuff that gets backed up blah blah 
+## What gets backed up 
 Web Apps can back up the following information:
 
 * Web app configuration
