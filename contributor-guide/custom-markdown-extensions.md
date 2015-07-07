@@ -16,7 +16,7 @@
     ms.tgt_pltfrm="" 
     ms.workload="" 
     ms.date="01/22/2015" 
-    ms.author="tysonn" />
+    ms.author="tysonn"/>
 
 ## Markdown for Azure.microsoft.com
 
@@ -166,7 +166,7 @@ Use technology and platform switchers in technical articles when you author mult
 
 Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers only need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java  
 
-See [Get started with Notification Hubs](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
+See [Get started with Notification Hubs](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created eight versions of the same article, but used selectors to enable navigation across them all.
 
 ![Simple selector example](./media/custom-markdown-extensions/selectors.PNG)
 
@@ -194,13 +194,13 @@ The image above shows the rendering on azure.microsoft.com. On the rendered GitH
 
 ###<a id="two-way-selectors"></a>Two-way selectors
 
-Two-way selectors lets users select a topics from a 2 x n matrix. This is essential when an Azure technology, such as Mobile Services, supports multiple backend platforms as well as multiple clients. Keep in mind the following:
+Two-way selectors lets users select a topics from a two way matrix. This is essential when an Azure technology, such as Mobile Services, supports multiple backend platforms as well as multiple clients. Keep in mind the following:
 
 - While it was designed as `(Platform | Backend)`, the dropwdown text can now be customized.
 - You do not need a list item for every point in your matrix, but do only have an item where a topic URL exists and is not a duplicate.
 - The link can be any URL, although it is generally another GitHub topic.
 
-See [Get started with Mobile Services](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/) to see how the author created 15 versions of the same article (9 mobile client platforms and 2 backend platforms), but used selectors to enable navigation across them all. Note that 3 articles don't have both backend versions.
+See [Get started with Mobile Services](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/) to see how the author created fifteen versions of the same article (nine mobile client platforms and two backend platforms), but used selectors to enable navigation across them all. Note that three articles don't have both backend versions.
 
 ![Two-way selectors example](./media/custom-markdown-extensions/selector-list.png)
 
