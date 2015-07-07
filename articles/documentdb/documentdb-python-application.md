@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article" 
-    ms.date="04/08/2015"
+    ms.date="07/07/2015"
     ms.author="ryancraw"/>
 
 # Build a web application with Python and Flask (MVC) using DocumentDB
