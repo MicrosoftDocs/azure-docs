@@ -21,7 +21,7 @@
 
 You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database logical servers and databases. This topic walks you through common tasks with SSMS. You should already have a logical server and database created in Azure SQL Database before you begin. To get started, read [Create your first Azure SQL Database](sql-database-get-started.md) and then come back.
 
-It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database. Visit [Download SQL Server Management Studio](https://msdn.microsoft.com/en-us/library/mt238290.aspx) to get it. 
+It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database. Visit [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) to get it. 
 
 
 ## Connect to a SQL Database logical server
