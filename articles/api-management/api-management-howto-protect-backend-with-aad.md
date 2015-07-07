@@ -18,13 +18,13 @@
 
 # How to protect a Web API backed with Azure Active Directory and API Management
 
-The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  It showsThis article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
+The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
 
 -	Build a Web API backend and secure it with AAD
 -	Import the API into API Management
 -	Configure the Developer portal to call the API
 -	Configure a desktop application to call the API
--	COnfigure a JWT validation policy to pre-authorize requests
+-	Configure a JWT validation policy to pre-authorize requests
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -34,7 +34,7 @@ To secure your Web API backed using Azure Active Directory you must first have a
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-In this example a directory named **APIMDemo** is created with a default domain named **DemoAPIM.onmicrosoft.com**. This directory is throughout the video.
+In this example a directory named **APIMDemo** is created with a default domain named **DemoAPIM.onmicrosoft.com**. This directory is used throughout the video.
 
 ![Azure Active Directory][api-management-create-aad]
 
@@ -127,13 +127,149 @@ Click the name of the application to configure the required permissions. Navigat
 
 >[AZURE.NOTE] If **Windows** **Azure Active Directory** is not listed under permissions to other applications, click **Add application** and add it from the list.
 
-Stopping at 7:00
-
 ## Import the Web API into API Management
+
+6:40
 
 APIs are configured from the API publisher portal, which is accessed through the Azure management portal. To reach the publisher portal, click **Manage** in the Azure Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API][] tutorial.
 
 ![Publisher portal][api-management-management-console]
+
+Operations can be [added to APIs manually](api-management-howto-add-operations.md), or they can be imported. In this video, operations are imported in Swagger format. 
+
+Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example `"host": "apimaaddemo.azurewebsites.net"` is used.
+
+	{
+	  "swagger": "2.0",
+	  "info": {
+		"title": "Calculator",
+		"description": "Arithmetics over HTTP!",
+		"version": "1.0"
+	  },
+	  "host": "apimaaddemo.azurewebsites.net",
+	  "basePath": "/api",
+	  "schemes": [
+		"http"
+	  ],
+	  "paths": {
+		"/add?a={a}&b={b}": {
+		  "get": {
+			"description": "Responds with a sum of two numbers.",
+			"operationId": "Add two integers",
+			"parameters": [
+			  {
+				"name": "a",
+				"in": "query",
+				"description": "First operand. Default value is <code>51</code>.",
+				"required": true,
+				"default": "51",
+				"enum": [
+				  "51"
+				]
+			  },
+			  {
+				"name": "b",
+				"in": "query",
+				"description": "Second operand. Default value is <code>49</code>.",
+				"required": true,
+				"default": "49",
+				"enum": [
+				  "49"
+				]
+			  }
+			],
+			"responses": {}
+		  }
+		},
+		"/sub?a={a}&b={b}": {
+		  "get": {
+			"description": "Responds with a difference between two numbers.",
+			"operationId": "Subtract two integers",
+			"parameters": [
+			  {
+				"name": "a",
+				"in": "query",
+				"description": "First operand. Default value is <code>100</code>.",
+				"required": true,
+				"default": "100",
+				"enum": [
+				  "100"
+				]
+			  },
+			  {
+				"name": "b",
+				"in": "query",
+				"description": "Second operand. Default value is <code>50</code>.",
+				"required": true,
+				"default": "50",
+				"enum": [
+				  "50"
+				]
+			  }
+			],
+			"responses": {}
+		  }
+		},
+		"/div?a={a}&b={b}": {
+		  "get": {
+			"description": "Responds with a quotient of two numbers.",
+			"operationId": "Divide two integers",
+			"parameters": [
+			  {
+				"name": "a",
+				"in": "query",
+				"description": "First operand. Default value is <code>100</code>.",
+				"required": true,
+				"default": "100",
+				"enum": [
+				  "100"
+				]
+			  },
+			  {
+				"name": "b",
+				"in": "query",
+				"description": "Second operand. Default value is <code>20</code>.",
+				"required": true,
+				"default": "20",
+				"enum": [
+				  "20"
+				]
+			  }
+			],
+			"responses": {}
+		  }
+		},
+		"/mul?a={a}&b={b}": {
+		  "get": {
+			"description": "Responds with a product of two numbers.",
+			"operationId": "Multiply two integers",
+			"parameters": [
+			  {
+				"name": "a",
+				"in": "query",
+				"description": "First operand. Default value is <code>20</code>.",
+				"required": true,
+				"default": "20",
+				"enum": [
+				  "20"
+				]
+			  },
+			  {
+				"name": "b",
+				"in": "query",
+				"description": "Second operand. Default value is <code>5</code>.",
+				"required": true,
+				"default": "5",
+				"enum": [
+				  "5"
+				]
+			  }
+			],
+			"responses": {}
+		  }
+		}
+	  }
+	}
 
 To import the calculator API, click **APIs** from the **API Management** menu on the left, and then click **Import API**.
 
@@ -143,14 +279,22 @@ To import the calculator API, click **APIs** from the **API Management** menu on
 
 Perform the following steps to configure the calculator API.
 
-1. Click **From URL**, enter **http://calcapi.cloudapp.net/calcapi.json** into the **Specification document URL** textbox, and click the **Swagger** radio button.
+1. Click **From file**, browse to the `calculator.json` file you saved, and click the **Swagger** radio button.
 2. Type **calc** into the **Web API URL suffix** textbox.
 3. Click in the **Products (optional)** box and choose **Starter**.
 4. Click **Save** to import the API.
 
 Once the API is imported, the summary page for the API is displayed in the publisher portal.
 
-![API summary][api-management-imported-api-summary]
+7:40 go to the developer portal and try to call the API
+
+![Developer portal][api-management-developer-portal-menu]
+
+![Developer portal][api-management-dev-portal-apis]
+
+![Try it][api-management-dev-portal-try-it]
+
+Stopped at 8:12 - I need the source code to run it and go further
 
 ## Configure an API Management OAuth 2.0 server
 
@@ -170,13 +314,7 @@ Add application, web application, APIMDeveloperPortal. Signon-url (where did the
 
 ## Configure a JWT validation policy to pre-authorize requests
 
-API Management supports multi-region deployment which enables API publishers to distribute a single API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline. 
 
-When an API Management service is created initially, it contains only one [unit][] and resides in a single Azure region, which is designated as the Primary Region. Additional regions can be easily added through Azure Portal. API Management proxy server is deployed to each region and call traffic will be routed to the closest proxy. When a region goes offline, the traffic is automatically re-directed to the next closest proxy. 
-
-> [AZURE.IMPORTANT] Multi-region deployment is only available in the **[Premium][]** tier.
-
-## <a name="add-region"> </a>Deploy an API Management service instance to a new region
 
 
 
@@ -187,7 +325,6 @@ When an API Management service is created initially, it contains only one [unit]
 
 [api-management-import-api]: ./media/api-management-howto-protect-backend-with-aad/api-management-import-api.png
 [api-management-import-new-api]: ./media/api-management-howto-protect-backend-with-aad/api-management-import-new-api.png
-[api-management-imported-api-summary]: ./media/api-management-howto-protect-backend-with-aad/api-management-imported-api-summary.png
 [api-management-create-aad-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-create-aad-menu.png
 [api-management-create-aad]: ./media/api-management-howto-protect-backend-with-aad/api-management-create-aad.png
 [api-management-new-web-app]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-web-app.png
@@ -201,9 +338,9 @@ When an API Management service is created initially, it contains only one [unit]
 [api-management-web-publish]: ./media/api-management-howto-protect-backend-with-aad/api-management-web-publish.png
 [api-management-aad-backend-app]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-backend-app.png
 [api-management-aad-add-permissions]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-add-permissions.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
-[]: ./media/api-management-howto-protect-backend-with-aad/.png
+[api-management-developer-portal-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-developer-portal-menu.png
+[api-management-dev-portal-apis]: ./media/api-management-howto-protect-backend-with-aad/api-management-dev-portal-apis.png
+[api-management-dev-portal-try-it]: ./media/api-management-howto-protect-backend-with-aad/api-management-dev-portal-try-it.png
 []: ./media/api-management-howto-protect-backend-with-aad/.png
 []: ./media/api-management-howto-protect-backend-with-aad/.png
 []: ./media/api-management-howto-protect-backend-with-aad/.png
