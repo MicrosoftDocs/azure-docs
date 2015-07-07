@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/03/2015"
 	ms.author="cephalin"/>
 
 
@@ -52,13 +52,21 @@ It's common practice to store connection strings, authentication credentials, an
 
 Azure App Service allows you to store configuration information as part of the Web Apps runtime environment as **app settings** and **connection strings**. The values are exposed to your application at runtime through *environment variables* for most programming languages. For .NET applications, these values are injected into your .NET configuration at runtime.
 
-**App settings** and **connection strings** are configurable using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) or utilities such as PowerShell or the Azure CLI.
+**App settings** and **connection strings** are configurable using the [Azure preview portal](http://portal.azure.com) or utilities such as PowerShell or the Azure CLI.
 
 For more information on app settings and connection strings, see [Configuring web apps](web-sites-configure.md).
 
 ### FTPS
 
-Azure provides secure FTP access access to the file system for your web app through **FTPS**. This allows you to securely access the application code on the web app as well as diagnostics logs. The FTPS link for your web app can be found on the **Dashboard** page in the [Azure Management Portal](https://manage.windowsazure.com).
+Azure provides secure FTP access access to the file system for your web app through **FTPS**. This allows you to securely access the application code on the web app as well as diagnostics logs. The FTPS link for your web app can be found with the following steps:
+
+1. Open the [Azure preview portal](http://portal.azure.com).
+2. Select **Browse All**.
+3. From the **Browse** blade, select **Web Apps**.
+4. From the **Web Apps** blade, Select the desired web app.
+5. From the web app's blade, select **All settings**.
+6. From the **Settings** blade, select **Properties**.
+7. The FTP and FTPS links are provided on the **Settings** blade. 
 
 For more information on FTPS, see [File Transfer Protocol](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 

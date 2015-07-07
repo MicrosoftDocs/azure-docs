@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="07/01/2015"
+   ms.author="joaoma" />
 
-# About Traffic Manager Load Balancing Methods
+# Traffic Manager routing methods
 
-There are three load balancing methods available in Traffic Manager. Each Traffic Manager profile can use only one load balancing method at a time, although you can select a different load balancing method for your profile at any time.
+There are three routing methods available in Traffic Manager. Each Traffic Manager profile can use only one routing method at a time, although you can select a different routing method for your profile at any time.
 
-It’s important to note that all load balancing methods include endpoint monitoring. After you configure your Traffic Manager profile to specify the load balancing method that best fits your requirements, configure your monitoring settings. When monitoring is correctly configured, Traffic Manager will monitor the state of your endpoints, consisting of cloud services and websites, and won’t send traffic to endpoints it thinks are unavailable. For information about Traffic Manager monitoring, see [About Traffic Manager Monitoring](traffic-manager-monitoring.md). 
+It’s important to note that all routing methods include endpoint monitoring. After you configure your Traffic Manager profile to specify the routing method that best fits your requirements, configure your monitoring settings. When monitoring is correctly configured, Traffic Manager will monitor the state of your endpoints, consisting of cloud services and websites, and won’t send traffic to endpoints it thinks are unavailable. For information about Traffic Manager monitoring, see [About Traffic Manager Monitoring](traffic-manager-monitoring.md). 
 
-The three Traffic Manager load balancing methods are:
+The three Traffic Manager routing methods are:
 
 - **Failover**: Select Failover when you have endpoints in the same or different Azure datacenters (known as regions in the Management Portal) and want to use a primary endpoint for all traffic, but provide backups in case the primary or the backup endpoints are unavailable. For more information, see [Failover load balancing method](#failover-load-balancing-method).
 
