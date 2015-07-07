@@ -100,7 +100,7 @@ If your connectivity provider is not in the list above sections, you can still c
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
 
 ## ExpressRoute system integrators
-Enabling private connectivity to fit your needs can be challenging based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
+Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the System Integrators listed in the table below to assist you with onboarding to ExpressRoute. 
 
 
 |**System Integrator**|**Continent**|
@@ -111,6 +111,6 @@ Enabling private connectivity to fit your needs can be challenging based on the 
 ## Next Steps
 - Verify that you meet the [ExpressRoute prerequisites](expressroute-prerequisites.md).
 - Visit the [FAQ](expressroute-faqs.md) for more information.
-- Select your provider and configure your connection. See 
-[Configure your EXP connection](expressroute-configuring-exps.md) or [Configure your NSP connection](expressroute-configuring-nsps.md) for configuration information.
+- If you want to configure an ExpressRoute connection, see [Configure your EXP connection](expressroute-configuring-exps.md) or [Configure your NSP connection](expressroute-configuring-nsps.md).
+- If you want to configure both a site-to-site VPN connection and ExpressRoute for the same virtual network, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](expressroute-coexist.md).
  
