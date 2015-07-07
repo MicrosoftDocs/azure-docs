@@ -24,8 +24,8 @@ To use the Split/Merge service, you must correctly configure security. The servi
 
 Certificates are configured in two ways. 
 
-1. [To Configure the SSL Certificate][To#Configure#the#SSL#Certificate]
-2. [To Configure Client Certificates][To#Configure#Client#Certificates] 
+1. [To Configure the SSL Certificate](To#Configure#the#SSL#Certificate)
+2. [To Configure Client Certificates](To#Configure#Client#Certificates) 
 
 ## To obtain certificates
 
