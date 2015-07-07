@@ -144,7 +144,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 - The **type** property is set to **CopyActivity**.
 - **MyOnPremTable** is specified as the input (**inputs** tag).
 - **MyAzureBlob** is specified as the output (**outputs** tag)
-- **Transformation** section contains two sub sections: **source** and **sink**. The type for source is set to **SqlSource** and the type for sink is set to **BlobSink**. The **sqlReaderQuery** defines the transformation (projection) to be performed on the source. For details about all the properties, see [JSON Scripting Reference][json-script-reference].
+- **Transformation** section contains two sub sections: **source** and **sink**. The type for source is set to **SqlSource** and the type for sink is set to **BlobSink**. The **sqlReaderQuery** defines the transformation (projection) to be performed on the source. For details about all the properties, see [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx).
 
          
 		{
