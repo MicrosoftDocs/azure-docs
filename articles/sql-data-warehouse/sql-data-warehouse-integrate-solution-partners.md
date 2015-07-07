@@ -51,7 +51,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
+[1]: ./media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
 [birst_logo]: media/sql-data-warehouse-integrate-solution-partners/birst_logo.png
 [bryte_systems_logo]: media/sql-data-warehouse-integrate-solution-partners/bryte_systems_logo.png
 [clearstory_data_logo]: media/sql-data-warehouse-integrate-solution-partners/clearstory_data_logo.png
