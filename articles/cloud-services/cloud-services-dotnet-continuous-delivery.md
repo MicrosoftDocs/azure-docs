@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Continuous delivery for cloud services with TFS in Azure" 
-	description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="Continuous delivery for cloud services with TFS in Azure"
+	description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts."
+	services="cloud-services"
+	documentationCenter=""
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="kempb"/>
 
 # Continuous Delivery for Cloud Services in Azure
@@ -34,7 +34,7 @@ environment and Azure target environments.
 You can also use Visual Studio Online, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][].
 
 Before you start, you should publish your application from Visual Studio.
-This will ensure that all the resources are available and initialized when you 
+This will ensure that all the resources are available and initialized when you
 attempt to automate the publication process.
 
 ## Step 1: Configure the Build Server
@@ -70,7 +70,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
 
     If Visual Studio is not installed on the build server, open a
     command prompt and make sure that MSBuild.exe is accessible on the
-    path. MSBuild is installed with the .NET Framework in the path   
+    path. MSBuild is installed with the .NET Framework in the path
     %WINDIR%\\Microsoft.NET\\Framework\\*Version*. For example, to
     add MSBuild.exe to the PATH environment variable when you have .NET
     Framework 4 installed, type the following command at the command
@@ -78,7 +78,7 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
-2.  At the command prompt, navigate to the folder containing the 
+2.  At the command prompt, navigate to the folder containing the
     Azure project file that you want to build.
 
 3.  Run msbuild with the /target:Publish option as in the following
@@ -166,13 +166,13 @@ steps:
 	in the **Source Control Folder** column, and the status is **Active**.
 
 4.  Choose the **Build Defaults** tab, and under Build controller, verify
-    the name of the build server.  Also, choose the option **Copy build 
+    the name of the build server.  Also, choose the option **Copy build
     output to the following drop folder** and specify the desired drop
     location.
 
 5.  Click the **Process** tab. On the Process tab, choose the default
     template, under **Build**, choose the project if it is not already selected,
-    and expand the **Advanced** section in the **Build** section of the grid. 
+    and expand the **Advanced** section in the **Build** section of the grid.
 
 6.  Choose **MSBuild Arguments**, and set the appropriate MSBuild
     command line arguments as described in Step 2 above. For example,
@@ -481,7 +481,7 @@ piped into the standard build output.
         errors of the script will get written to the build error output.
 
 	11. Correct any errors, indicated by blue exclamation marks. Hover over the
-		exclamation marks to get a hint about the error. Save the workflow to 
+		exclamation marks to get a hint about the error. Save the workflow to
 		clear errors.
 
     The final result of the publish workflow activities will look like
@@ -532,21 +532,21 @@ piped into the standard build output.
 
 9.  Set the parameter property values in the Misc section as follows:
 
-    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'   
+    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'
         *This value is derived from:
         ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'   
+    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'
         *This value is derived from: ($PublishDir)($ProjectName).cspkg*
 
     3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
-    4.  ServiceName = 'mycloudservicename'   
+    4.  ServiceName = 'mycloudservicename'
         *Use the appropriate cloud service name here*
 
     5.  Environment = 'Staging'
 
-    6.  StorageAccountName = 'mystorageaccountname'   
+    6.  StorageAccountName = 'mystorageaccountname'
         *Use the appropriate storage account name here*
 
     7.  SubscriptionDataFileLocation =
@@ -564,7 +564,7 @@ piped into the standard build output.
 
 ### PublishCloudService.ps1 script template
 
-<pre>
+```
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -577,11 +577,11 @@ Param(  $serviceName = "",
         $selectedsubscription = "default",
         $subscriptionDataFile = ""
      )
-      
+
 
 function Publish()
 {
-	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue 
+	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue
     if ($a[0] -ne $null)
     {
         Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
@@ -591,7 +591,7 @@ function Publish()
 	{
 		switch ($alwaysDeleteExistingDeployments)
 	    {
-	        1 
+	        1
 			{
                 switch ($enableDeploymentUpgrade)
                 {
@@ -605,7 +605,7 @@ function Publish()
                         Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Deleting deployment."
 				        DeleteDeployment
                         CreateNewDeployment
-                        
+
                     }
                 } # switch ($enableDeploymentUpgrade)
 			}
@@ -626,13 +626,13 @@ function CreateNewDeployment()
 	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: In progress"
 
 	$opstat = New-AzureDeployment -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName
-	    
+
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
 
     write-progress -id 3 -activity "Creating New Deployment" -completed -Status "Complete"
 	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
-    
+
 	StartInstances
 }
 
@@ -643,10 +643,10 @@ function UpgradeDeployment()
 
     # perform Update-Deployment
 	$setdeployment = Set-AzureDeployment -Upgrade -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName -Force
-    
+
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
-    
+
     write-progress -id 3 -activity "Upgrading Deployment" -completed -Status "Complete"
 	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
 }
@@ -662,7 +662,7 @@ function DeleteDeployment()
 
 	write-progress -id 2 -activity "Deleting Deployment: Complete" -completed -Status $removeDeployment
 	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: Complete"
-	
+
 }
 
 function StartInstances()
@@ -673,13 +673,13 @@ function StartInstances()
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $runstatus = $deployment.Status
 
-    if ($runstatus -ne 'Running') 
+    if ($runstatus -ne 'Running')
     {
 	    $run = Set-AzureDeployment -Slot $slot -ServiceName $serviceName -Status Running
     }
 	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
 	$oldStatusStr = @("") * $deployment.RoleInstanceList.Count
-	
+
 	while (-not(AllInstancesRunning($deployment.RoleInstanceList)))
 	{
 		$i = 1
@@ -717,10 +717,10 @@ function StartInstances()
 
 		$i = $i + 1
 	}
-	
+
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	$opstat = $deployment.Status 
-	
+	$opstat = $deployment.Status
+
 	write-progress -id 4 -activity "Starting Instances" -completed -status $opstat
 	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: $opstat"
 }
@@ -734,7 +734,7 @@ function AllInstancesRunning($roleInstanceList)
 			return $false
 		}
 	}
-	
+
 	return $true
 }
 
@@ -764,11 +764,11 @@ $deploymentUrl = $deployment.Url
 
 Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
-</pre>
+```
 
 ## Next steps
 
-To enable remote debugging when using continuous delivery, see [these instructions](http://go.microsoft.com/fwlink/p/?LinkID=402354). 
+To enable remote debugging when using continuous delivery, see [these instructions](http://go.microsoft.com/fwlink/p/?LinkID=402354).
 
   [Continuous Delivery to Azure by Using Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md  
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
@@ -787,9 +787,8 @@ To enable remote debugging when using continuous delivery, see [these instructio
   [Azure PowerShell cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
-  
+
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
   [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
- 
