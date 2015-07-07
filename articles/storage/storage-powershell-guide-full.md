@@ -261,7 +261,7 @@ The following example runs the [Get-ChildItem](http://technet.microsoft.com/libr
 The following example demonstrates how to download blobs from a container. The example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its primary access key. Then, the example retrieves a blob reference using the [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) cmdlet. Next, the example uses the [Get-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806418.aspx) cmdlet to download blobs into the local destination folder.
 
     #Define the variables.
-	ContainerName = "yourcontainername"
+    $ContainerName = "yourcontainername"
     $DestinationFolder = "C:\DownloadImages"
 
     #Define the storage account and context.
