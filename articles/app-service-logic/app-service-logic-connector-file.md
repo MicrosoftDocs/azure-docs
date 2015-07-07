@@ -71,7 +71,7 @@ Once your API app is created, you can now use the File connector as an action fo
 ## File Connector REST APIs ##
 To use the connector outside of a logic App, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->File Connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector.
 
-	![][7]
+  ![][7]
 
 Details of the APIs can be found at [File Connector API Definition].
 
