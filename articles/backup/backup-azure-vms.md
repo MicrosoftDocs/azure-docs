@@ -61,7 +61,8 @@ Registration is typically a one-time activity. The Azure Backup service seamless
 2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine** and click on the select button.
   ![select workload](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Click on the **REGISTER** button at the bottom of the page.![register button](./media/backup-azure-vms/register-button-only.png)
+3. Click on the **REGISTER** button at the bottom of the page.
+![register button](./media/backup-azure-vms/register-button-only.png)
 
 4. In the **Register Items** pop-up, choose the virtual machines that you would like to register. If there are two or more virtual machines with the same name use the cloud service to distinguish between the virtual machines.
 
