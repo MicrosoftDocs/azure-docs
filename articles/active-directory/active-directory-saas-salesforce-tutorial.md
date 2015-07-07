@@ -118,7 +118,7 @@ You may follow this tutorial using the videos below.
 
 	![Screenshot of the configurations that you should make][14]
 
- - For the **Name** field, type in a friendly name for this configuration. Providing a value for **Name** does automatically populate the **API Name** textbox.
+ - For the **Name** field, type in a friendly name for this configuration. Providing a value for **Name** automatically populate the **API Name** textbox.
 
  - In Azure AD, copy the **Issuer URL** value, and then paste it into the **Issuer** field in Salesforce.
 
