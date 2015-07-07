@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/01/2015" 
+    ms.date="07/06/2015" 
     ms.author="tamram"/>
 
 
@@ -92,12 +92,13 @@ To migrate your VMs, you'll need:
 
 - An Azure subscription, a storage account, and a container in that storage account to copy your VHD to. Note that the destination storage account can be a Standard or Premium Storage account depending on your requirement. 
 - A tool to generalize VHD if you plan to create multiple VM instances from it. For example, sysprep for Windows or virt-sysprep for Ubuntu. 
-- A tool to upload the VHD file to the Storage account. For example, [AzCopy](storage-use-azcopy.md) or [Azure storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). This guide describes steps using the AzCopy tool. 
+- A tool to upload the VHD file to the Storage account. For example, [AzCopy](storage-use-azcopy.md) or [Azure storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). This guide describes copying your VHD using the AzCopy tool. 
 
-	For large amount of data with limited bandwidth, you can consider using the [Microsoft Azure Import/Export service](storage-import-export-service.md) to transfer your data by shipping hard disk drives to an Azure datacenter. You can use the Azure Import/Export service to copy data to a standard storage account only. Once the data is in your standard storage account, you can use either the [Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) or AzCopy to transfer the data to your premium storage account.
-
-- A tool to copy your VHD can be run on an Azure VM in the same region as the VHDs.
-- Microsoft Azure only supports fixed size VHD files. VHDX files or dynamic VHDs are not supported. If you have a dynamic VHD, you can convert it to fixed size using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet.
+> [AZURE.NOTE] For optimal performance, copy your VHD by running one of these tools from an Azure VM that is in the same region as the destination storage account. If you are copying a VHD from an Azure VM in a different region, your performance may be slower.
+>
+> For copying a large amount of data over limited bandwidth, consider using the [Microsoft Azure Import/Export service](storage-import-export-service.md) to transfer your data by shipping hard disk drives to an Azure datacenter. You can use the Azure Import/Export service to copy data to a standard storage account only. Once the data is in your standard storage account, you can use either the [Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) or AzCopy to transfer the data to your premium storage account.
+> 
+> Note that Microsoft Azure only supports fixed size VHD files. VHDX files or dynamic VHDs are not supported. If you have a dynamic VHD, you can convert it to fixed size using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet.
 
 ### Scenarios for preparing VHDs
 
@@ -143,7 +144,7 @@ Create a storage account for maintaining your VHDs. Take into account the follow
 
 ### Copy your VHD from the source
 
-Below we describe some scenarios for copying your VHD from 
+Below we describe some scenarios for copying your VHD.
 
 #### Copy VHD from Azure Storage
 
@@ -234,19 +235,25 @@ Use these PowerShell cmdlets to register your VHD as an Azure Data Disk. Provide
 
 Copy and save the name of this new Azure Data Disk. In the example above, it is *DataDisk*.
 
-### Create DS-series Azure VM  
+### Create an Azure DS-series VM  
 
-Once the OS image or OS disk are registered, you can create a new DS-series Azure VM instance. You will be using the operating system image or operating system disk name that you registered. Select the VM type from the Premium Storage tier. In example below, we are using the *Standard_DS2* VM size.  
+Once the OS image or OS disk are registered, create a new DS-series Azure VM instance. You will be using the operating system image or operating system disk name that you registered. Select the VM type from the Premium Storage tier. In example below, we are using the *Standard_DS2* VM size.  
 
 >[AZURE.NOTE] Update the disk size to make sure it matches your capacity and performance requirements, and the available Azure disk sizes.  
 
 Follow the step by step PowerShell cmdlets below to create the new VM. First, set the common parameters:  
 
+	$serviceName = "yourVM"
+	$location = "location-name" (e.g., West US) 
 	$vmSize ="Standard_DS2"
-	$adminName = "youradmin"
+	$adminUser = "youradmin"
 	$adminPassword = "yourpassword"
 	$vmName ="yourVM"
-	$location = "location-name" (e.g., West US) 
+	$vmSize = "Standard_DS2"
+
+First, create a cloud service in which you will be hosting your new VMs.
+
+	New-AzureService -ServiceName $serviceName -Location $location
 
 Next, depending on your scenario, create the Azure VM instance from either the OS Image or OS Disk that you registered.
 
@@ -254,22 +261,23 @@ Next, depending on your scenario, create the Azure VM instance from either the O
 
 Create the one or more new DS Series Azure VM instances using the **Azure OS Image** that you registered. Specify this OS Image name in the VM configuration when creating new VM as shown below.
 
-	$OSImage = Get-AzureVMImage –ImageName "OSImageName"  
-	$vm = New-AzureVMConfig -Name "NewVM" -InstanceSize
-	$vmSize -ImageName $OSImage.ImageName
+	$OSImage = Get-AzureVMImage –ImageName "OSImageName"	
+
+	$vm = New-AzureVMConfig -Name $vmName –InstanceSize $vmSize -ImageName $OSImage.ImageName
 
 	Add-AzureProvisioningConfig -Windows –AdminUserName $adminUser -Password $adminPassword –VM $vm  
-	New-AzureVM -ServiceName "NewVM"
+
+	New-AzureVM -ServiceName $serviceName -VM $vm	
 
 #### Unique Operating System VHD to create a single Azure VM instance
 
 Create a new DS series Azure VM instance using the **Azure OS Disk** that you registered. Specify this OS Disk name in the VM configuration when creating the new VM as shown below.
 
 	$OSDisk = Get-AzureDisk –DiskName "OSDisk"  
-	$vm = New-AzureVMConfig -Name "NewVM" -InstanceSize $vmSize -DiskName $OSDisk.DiskName
- 
-	Add-AzureProvisioningConfig -Windows –AdminUserName $adminUser -Password $adminPassword –VM $vm  
-	New-AzureVM -ServiceName "NewVM"
+	
+	$vm = New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -DiskName $OSDisk.DiskName
+	
+	New-AzureVM -ServiceName $serviceName –VM $vm
 
 Specify other Azure VM information, such as a cloud service, region, storage account, availability set, and caching policy. Note that the VM instance must be co-located with associated operating system or data disks, so the selected cloud service, region, and storage account must all be in the same location as the underlying VHDs of those disks.  
 
@@ -279,9 +287,11 @@ Lastly, if you have registered data disk VHDs, attach them to the new DS-series 
 
 Use following PowerShell cmdlet to attach data disk to the new VM and specify the caching policy. In example below the caching policy is set to *ReadOnly*.  
 
-	$vmName ="yourVM"
-	$vm = Get-AzureVM -ServiceName $vmName -Name $vmName
-	Add-AzureDataDisk -ImportFrom -DiskName "DataDisk" -LUN 0 –HostCaching ReadOnly –VM $vm | Update-AzureVM  
+	$vm = Get-AzureVM -ServiceName $serviceName -Name $vmName
+
+	Add-AzureDataDisk -ImportFrom -DiskName "DataDisk" -LUN 0 –HostCaching ReadOnly –VM $vm  
+
+	Update-AzureVM  -VM $vm
 
 >[AZURE.NOTE] There may be additional steps necessary to support your application that are not be covered by this guide.
 
