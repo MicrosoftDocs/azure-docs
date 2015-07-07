@@ -13,20 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="06/30/2015"
+	ms.date="07/07/2015"
 	ms.author="kenhoff"/>
 
 # Azure Active Directory Reporting Search
 
 Azure Active Directory provides directory admins the ability to search for user security, activity, and audit events across multiple reports.
 
-To find the search panel, navigate to the Azure Management Portal -> Your Azure Active Directory -> Reports. The panel can be found at the top of the list of reports.
+To find the search panel, navigate to the **Azure Management Portal -> Your Azure Active Directory -> Reports.** The panel can be found at the top of the list of reports.
 
 To search for activity or audit events for a certain user, select a date range in the From and To fields, type in the user's UPN or Display name, and click the checkmark button.
 
 ## Reports included in search
 
-Not all reports are included in search results yet. This table indicates which reports are included, and which ones are coming soon.
+Not all reports are included in search results yet. This table indicates which reports are included.
 
 |	Report											  	|	Included			|
 |	------												|	--------			|
