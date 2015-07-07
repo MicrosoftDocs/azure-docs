@@ -1109,7 +1109,7 @@ The special operator (*) is supported to project the document as-is. When used, 
 	}]
 
 ##ORDER BY Clause
-Like in ANSI-SQL, you can now include an optional Order By clause while querying. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. For a more detailed look at Order By, refer to [DocumentDB Order By Walkthrough](documentdb-orderby.md).
+Like in ANSI-SQL, you can include an optional Order By clause while querying. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. For a more detailed look at Order By, refer to [DocumentDB Order By Walkthrough](documentdb-orderby.md).
 
 For example, here's a query that retrieves families in order of the resident city's name.
 
