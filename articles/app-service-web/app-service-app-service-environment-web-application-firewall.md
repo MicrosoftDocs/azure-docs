@@ -27,7 +27,7 @@ For this document we will configure our App Service Environment behind multiple 
 ![Architecture][Architecture] 
 
 ## Configuring your App Service Environment ##
-To configure an App Service Environment refer to [our documentation](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-how-to-create-an-app-service-environment/) on the subject. Once you have an App Service Environment created, you can create [Web Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/), [API Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-api-apps-why-best-platform/), [Mobile Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop-preview/) and [Logic Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-what-are-logic-apps/) in this environment that will all be protected behind the WAF we configure in the next section.
+To configure an App Service Environment refer to [our documentation](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-how-to-create-an-app-service-environment/) on the subject. Once you have an App Service Environment created, you can create [Web Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/), [API Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-api-apps-why-best-platform/) and [Mobile Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop-preview/) in this environment that will all be protected behind the WAF we configure in the next section.
 
 ## Configuring your Barracuda WAF Cloud Service ##
 Barracuda has a [detailed article](https://techlib.barracuda.com/WAF/AzureDeploy) on deploying its WAF on a virtual machine in Azure. But because we want redundancy and not introduce a single point of failure, you want to deploy at least 2 WAF instance VMs into the same Cloud Service when following these instructions.
@@ -60,6 +60,8 @@ Once you login you should see a dashboard as the one in the image below that wil
 Clicking on the Services tab will let you configure your WAF for services it is protecting. For more details on configuring your Barracuda WAF you can consult [their documentation](https://techlib.barracuda.com/waf/getstarted1). In the example below an Azure Web App serving traffic on HTTP and HTTPS has been configured.
 
 ![Management Add Services][ManagementAddServices]
+
+> Note: Depending on how your applications are configured and what features are being used in your App Service Environment, you will need to forward traffic for TCP ports other than 80 and 443, e.g. if you have IP SSL setup for a Web App.
 
 ## Configuring Windows Azure Traffic Manager (OPTIONAL) ##
 If your application is available in multiple regions, then you would want to load balance them behind [Azure Traffic Manager](http://azure.microsoft.com/en-us/documentation/services/traffic-manager/). To do so you can add and endpoint in the [Azure Management Portal](https://manage.azure.com) using the Cloud Service name for your WAF in the Traffic Manager profile as shown in the image below. 
