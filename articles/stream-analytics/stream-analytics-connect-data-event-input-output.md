@@ -13,13 +13,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/01/2015" 
+	ms.date="07/07/2015" 
 	ms.author="jeffstok"/>
 
-#Connect to inputs and outputs
+# Connect to inputs and outputs
 In this document you will discover the different methods of configuring input sources and output targets for Stream Analytics solutions.
 
-##Using SQL as output
+## Using SQL as output
 
 You can use Azure SQL databases as output for data that is relational in nature or for applications that depend on content being hosted in a database.
 
@@ -71,18 +71,18 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ![graphic10][graphic10]
 
-##Using Event Hubs
+## Using Event Hubs as your output
 
-###Overview
+### Overview
  
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can publish web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining.
 Event Hubs can be used for data egress also.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job.
 
-###Consumer groups
+### Consumer groups
 Each Stream Analytics job input should be configured to have its own event-hub consumer group. When a job contains self-join or multiple outputs, some input may be read by more than one reader, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see Event Hubs developer guide.
 
  
-###Parameters
+### Parameters
  
 There are a few parameters that customers need to configure for Event Hub data streams.  These parameters apply to both Event Hub input and output data streams, unless noted otherwise.
 
@@ -93,13 +93,13 @@ There are a few parameters that customers need to configure for Event Hub data s
 5. Event Hub Consumer Group: Optional parameter for Event Hub inputs.  The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   We recommend using a distinct consumer Group for each Stream Analytics job.
 6. Partition Key Column:  Optional parameter for Event Hub outputs. The data attribute column that is used as the partition key for Event Hub output. 
 
-##Using Azure table output
+## Using Azure Table storage for your output
 
-One can use azure table for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
+One can use Azure Table storage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 For more information see:
   [Introduction to Azure Storage](http://azure.microsoft.com/storage-introduction/)
  
-To start using an Azure Table Storage, you should have the following information about your Table:
+To start using an Azure Table storage, you should have the following information about your Table:
 
 1. Storage account name (if this storage is in a different subscription from your streaming job).
 2. Storage account key (if this storage is in a different subscription from your streaming job).
@@ -153,6 +153,22 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ![graphic19][graphic19]
 
+## Using Blob Storage as an Output
+For an introduction on Azure Blob Storage and its usage, review the article [An introduction to Windows Azure Blob Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/)
+
+To start using an Azure Blog Storage Output, you should have the following information collect about your Table:
+
+1. If your storage is in a different subscription than your streaming job you will need the Storage Account Name and Storage Account Key.
+2. The container name.
+3. The file name prefix.
+4. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+Select output to Blog storage.
+![graphic20][graphic20]
+
+Then fill out the details as shown below:
+![graphic21][graphic21]
+
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
@@ -186,4 +202,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic17]: ./media/stream-analytics-connect-data-event-input-output/17-stream-analytics-connect-data-event-input-output.png
 [graphic18]: ./media/stream-analytics-connect-data-event-input-output/18-stream-analytics-connect-data-event-input-output.png
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
- 
+[graphic20]: ./media/stream-analytics-connect-data-event-input-output/20-stream-analytics-connect-data-event-input-output.png
+[graphic21]: ./media/stream-analytics-connect-data-event-input-output/21-stream-analytics-connect-data-event-input-output.png
+[graphic22]: ./media/stream-analytics-connect-data-event-input-output/22-stream-analytics-connect-data-event-input-output.png
