@@ -23,7 +23,7 @@ To create your end-to-end data warehouse solution, choose from a  wide variety o
 | Partner | Description | More |
 | ------- | ----------- |------|
 | ![][1] |**Attunity**<br>Attunity CloudBeam provides an automated and optimized solution for loading data to  SQL Data Warehouse. With a “click-to-load” design, it simplifies and accelerates both batch loading as well as incremental replication from many heterogeneous databases including SQL Server, Oracle, DB2, Sybase and mySQL. | [ More ][attunity_more]|
- ![birst][2] |**Birst**<br>Birst is a global leader in Cloud BI and Analytics. Enterprises can create a trusted source of data within the context of each key business user. Then, business users throughout the organization can report and analyze information with world-class BI tools.| [More][birst_more] |
+| ![](media/sql-data-warehouse-integrate-solution-partners/birst_logo.png) |**Birst**<br>Birst is a global leader in Cloud BI and Analytics. Enterprises can create a trusted source of data within the context of each key business user. Then, business users throughout the organization can report and analyze information with world-class BI tools.| [More][birst_more] |
 | ![][bryte_systems_logo]|**Bryte Systems**<br>Bryte Systems automates data transfer to SQL Data Warehouse from a variety of databases and sources. Bryte Systems specializes in data movement and integration technologies. They build scalable cloud-based data warehouses and data lakes to uncover insights. | [More][bryte_systems_more] |
 | ![][clearstory_data_logo] |**ClearStory Data**<br>ClearStory Data enables fast-cycle analysis across disparate data stored in SQL Data Warehouse. ClearStory’s integrated Spark-based platform and analytics application speed data access and harmonization of disparate data sets. They enable fast, collaborative exploration that empowers business users to be self-reliant to gain insights.| [More][clearstory_data_more] |
 | ![][coffing_data_warehousing_logo] |**Coffing Data Warehousing**<br>Coffing Data Warehousing provides Nexus Chameleon, a tool with 10 years of design dedicated to querying systems. Nexus is available as a query tool for SQL Data Warehouse. Use Nexus to query  in-house and cloud computers and join data across different platforms. Point-Click-Report! | [More][coffing_data_warehousing_more] |
@@ -49,8 +49,8 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
-[2]: ./media/sql-data-warehouse-integrate-solution-partners/birst_logo.png
+[1]: media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
+[2]: media/sql-data-warehouse-integrate-solution-partners/birst_logo.png
 [bryte_systems_logo]: media/sql-data-warehouse-integrate-solution-partners/bryte_systems_logo.png
 [clearstory_data_logo]: media/sql-data-warehouse-integrate-solution-partners/clearstory_data_logo.png
 [coffing_data_warehousing_logo]: media/sql-data-warehouse-integrate-solution-partners/coffing_data_warehousing_logo.png
