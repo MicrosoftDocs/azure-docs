@@ -72,7 +72,7 @@ Figure 2 – Hypothetical Azure regional pair
 As referred to in figure 2.  
 
 ![5Orange](./media/best-practices-availability-paired-regions/5Orange.png)
-**Physical isolation** – When possible, Azure prefers at least 300 miles of separation between datacenters in a regional pair, although this is not practical or possible in all geographies. Physical datacenter separation reduces the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Isolation is subject to the constraints within the geography (geography size, power/network infrastructure availability, regulations, etc.).
+**Physical isolation** – When possible, Azure prefers at least 300 miles of separation between datacenters in a regional pair, although this is not practical or possible in all geographies. Physical datacenter separation reduces the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Isolation is subject to the constraints within the geography (geography size, power/network infrastructure availability, regulations, etc.). 
 
 ![6Orange](./media/best-practices-availability-paired-regions/6Orange.png)
 **Consistent application state** - If you are using a service that only allows replication to a paired region (such as Geo-Redundant Storage), you should ensure all other services also target the paired region for replication. This ensures a consistent application state during failover.
