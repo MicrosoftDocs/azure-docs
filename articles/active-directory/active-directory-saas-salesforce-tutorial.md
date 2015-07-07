@@ -104,7 +104,7 @@ You may follow this tutorial using the videos below.
 
 	![Click the Edit button][11]
 
-	> [AZURE.WARNING] If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact Salesforce's support in order to have the feature enabled for you.
+	> [AZURE.NOTE] If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact Salesforce's support in order to have the feature enabled for you.
 
 9. Select **SAML Enabled**, and then click **Save**.
 
