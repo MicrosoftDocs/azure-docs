@@ -38,6 +38,7 @@ It is recommended to always encode your mezzanine files into an adaptive bitrate
 If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
 
 
+>[AZURE.NOTE]Before you start referencing media processors, verify that you have the correct media processor ID. For more information, see [Get Media Processors](media-services-rest-get-media-processor.md).
 
 ##Create a job with a single encoding task 
 
@@ -63,7 +64,7 @@ Request:
 	Host: media.windows.net
 
 	
-	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:70bdc2c3-ebf4-42a9-8542-5afc1e55d217",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
 Response:
 	
@@ -118,12 +119,12 @@ In many application scenarios, developers want to create a series of processing 
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5",
+	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
 	         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      },
 	      {  
 	         "Configuration":"H264 Smooth Streaming 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5",
+	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
 	         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-16\"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
 	      }
 	   ]
@@ -256,11 +257,7 @@ If successful, the following response is returned:
 ##Next Steps
 Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](media-services-rest-check-job-progress.md) topic.
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
-[How to: Get a Media Processor Instance]:http://go.microsoft.com/fwlink/?LinkId=301732
-[How to: Upload an Encrypted Asset]:http://go.microsoft.com/fwlink/?LinkId=301733
-[How to: Deliver an Asset by Download]:http://go.microsoft.com/fwlink/?LinkId=301734
-[How to Check Job Progress]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
- 
+
+ ##See Also
+
+[Get Media Processors](media-services-rest-get-media-processor.md)

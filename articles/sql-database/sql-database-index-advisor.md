@@ -34,7 +34,7 @@ Index advisor allows you to spend less time tuning your database performance.
 
 The index advisor is currently in preview and has the following limitations:
 
-- Index recommendations can be automatically created and validated for V12 servers only (recommendations and index creation scripts are provided for V2 servers).
+- Index recommendations can be automatically created and validated for V12 servers only (recommendations and index creation scripts are provided for V12 servers).
 - Recommendations and management are available for non-clustered indexes only.
 
 ## Prerequisites
@@ -108,7 +108,7 @@ For both automatic and manual index creation simply select a recommended index f
 
 ### Automatic index creation (V12 servers only)
 
-If the database is on a V12 server then you can easily create a recommended index by selecting the desired index on the  and then clicking **Create Index**. 
+If the database is on a V12 server then you can easily create a recommended index by selecting the desired index on the portal and then clicking **Create Index**. 
 
 The database remains online during index creation, using Index Advisor to create an index does not take the database offline.
 

@@ -47,6 +47,21 @@ Before you install Azure AD Connect with Express Settings, there are a few thing
 - An Enterprise Administrator account for your local Active Directory
 - Optional:  A test user account to verify synchronization. 
 
+### Hardware requirements for Azure AD Connect
+The table below shows the minimum requirements for the Azure AD Connect computer.
+
+| Number of objects in Active Directory | CPU | Memory | Hard drive size |
+| ------------------------------------- | --- | ------ | --------------- |
+| Fewer than 10,000 | 1.6 GHz | 4 GB | 70 GB |
+| 10,000–50,000 | 1.6 GHz | 4 GB | 70 GB |
+| 50,000–100,000 | 1.6 GHz | 16 GB | 100 GB |
+| For 100,000 or more objects the full version of SQL Server is required|  |  |  |
+| 100,000–300,000 | 1.6 GHz | 32 GB | 300 GB |
+| 300,000–600,000 | 1.6 GHz | 32 GB | 450 GB |
+| More than 600,000 | 1.6 GHz | 32 GB | 500 GB |
+
+
+
 
 For Custom options such as multiple forests or federated sign on, find out about additional requirements [here.](active-directory-aadconnect-get-started-custom.md)
 

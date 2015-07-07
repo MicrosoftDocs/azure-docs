@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/10/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Search for data in Operational Insights
@@ -2270,4 +2270,3 @@ When you use Search to find data, results display various field and facets. Howe
 
 ## Other resources
 Stefan Roth created a handy Search cheat sheet. Check out his [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) to learn more and to download his cheat sheet.
- 

@@ -62,7 +62,7 @@ Be aware that this account is only used to create a service account in Azure AD 
 </center>
 
 ### Connect your directories
-To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions.  This account can be a regular user account because it only needs the default read permissions.  However, depending on your scenario, you may need additional permissions.  For more information see [Azure AD Connect Account Summary](active-directory-addconnect-account-summary.md)
+To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions.  This account can be a regular user account because it only needs the default read permissions.  However, depending on your scenario, you may need additional permissions.  For more information see [Azure AD Connect Account Summary](active-directory-aadconnect-account-summary.md)
 
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 </center>
@@ -136,6 +136,9 @@ These attributes will now be available through Graph:
 </center>
 
 ## User writeback (preview)
+
+> [AZURE.WARNING] If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect
+
 User writeback allows you to take a user created in Azure AD (through the portal, graph, PowerShell, or any other method) and write the user back to on-premises ADDS. To enable the feature, select “User writeback” on the optional features page. You will now be presented with the location where you want these users to be created. The default configuration will create all users in one location in AD DS.
 
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
@@ -145,6 +148,9 @@ The users will be created with a random password so you have to reset the passwo
 >[AZURE.NOTE] Password sync and Password writeback are not compatible with this preview feature.
 
 ## Group writeback (preview)
+
+> [AZURE.WARNING] If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect 
+
 The option for group writeback in optional features will allow you to writeback “Groups in Office 365” to a forest with Exchange installed. This is a new group type which is always mastered in the cloud. You can find this in outlook.office365.com or on myapps.microsoft.com as shown here:
 
 
@@ -166,6 +172,9 @@ This group will be represented as a distribution group in on-premises AD DS. You
 More information can be found [here](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/ ). 
 
 ## Device writeback (preview)
+
+> [AZURE.WARNING] If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect.
+
 The device writeback feature will allow you take a device registered in the cloud, for example in Intune, and have it in AD DS for conditional access. To enable the feature, AD DS must be prepared. If you install AD FS and the device registration service (DRS), DRS provides PowerShell cmdlets to prepare AD for device writeback. If you do not have DRS installed, then you can run C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 as an enterprise admin.
 
 Before you can run the PowerShell cmdlet it must be imported first.

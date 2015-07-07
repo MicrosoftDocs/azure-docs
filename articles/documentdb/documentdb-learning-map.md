@@ -13,7 +13,7 @@
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/08/2015" 
+	ms.date="06/30/2015" 
 	ms.author="anhoh"/>
 
 #Learning Map for Azure DocumentDB

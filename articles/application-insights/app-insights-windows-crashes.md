@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="07/01/2015" 
 	ms.author="awills"/>
 
 # Detect and diagnose crashes in Windows Store and Phone apps with Application Insights
@@ -21,7 +21,7 @@
 
 If your users experience crashes in your app, you'd like to know about it quickly, and you'd like details about what happened. With Application Insights, you can monitor how frequently crashes occur, get alerts when they occur, and investigate reports of individual incidents.
 
-"Crash" means that the application terminates because of an uncaught exception. If your app catches an exception you can report it with the TrackException() API but continue running. In that case, it will not be logged as a crash.
+"Crash" means that the application terminates because of an uncaught exception. If your app catches an exception you can report it with the [TrackException API][apiexceptions] but continue running. In that case, it will not be logged as a crash.
 
 
 ## Monitor crash frequency
@@ -80,6 +80,8 @@ If you build in release configuration, events are stored in the device and sent 
 
 [Detect, triage and diagnose issues with Application Insights][detect]
 
+[Application Insights API][api]
+
 [Capture diagnostic logs][trace]
 
 [Troubleshooting](app-insights-windows-troubleshoot.md)
@@ -89,8 +91,11 @@ If you build in release configuration, events are stored in the device and sent 
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md

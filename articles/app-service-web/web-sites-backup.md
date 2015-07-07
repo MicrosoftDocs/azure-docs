@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="07/03/2015" 
 	ms.author="cephalin"/>
 
 # Back up a web app in Azure App Service
@@ -40,7 +40,7 @@ This information is backed up to the Azure storage account and container that yo
 
 * The Backup and Restore feature requires the site to be in Standard mode. For more information about scaling your web app to use Standard mode, see [Scale a web app in Azure App Service](web-sites-scale.md). Note that Premium mode allows a greater number of daily backups to be performed over the Standard mode.
 
-* The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the web app that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
+* The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the web app that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the [Azure preview portal](http://portal.azure.com), and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
 * The Backup and Restore feature supports up to 10GB of website and database content. An error will be indicated in the Operation Logs if the backup feature cannot proceed because the payload exceeds this limit. 
 
@@ -112,7 +112,7 @@ You can make a manual backup at any time.
 
 Sometimes you don't want to backup everything on your web app. Here are a few examples:
 
--	You [setup weekly backups](web-sites-backup.md#configure-automated-backups) of your web app that contains static content that never changes, such as old blog posts or images.
+-	You [set up weekly backups](web-sites-backup.md#configure-automated-backups) of your web app that contains static content that never changes, such as old blog posts or images.
 -	Your web app has over 10GB of content (that's the max amount you can backup at a time).
 -	You don't want to back up the log files.
 

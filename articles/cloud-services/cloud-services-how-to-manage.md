@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to manage a cloud service - Azure" 
-	description="Learn how to manage cloud services in the Azure Management Portal." 
+	description="Learn how to manage cloud services in the Azure Portal." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="07/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -22,14 +22,18 @@
 
 # How to Manage Cloud Services
 
-In the **Cloud Services** area of the Azure Management Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-manage.md)
+- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+
+In the **Cloud Services** area of the Azure Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 
 ## How to: Update a cloud service role or deployment
 
 If you need to update the application code for your cloud service, use **Update** on the dashboard, **Cloud Services** page, or **Instances** page. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
+1. In the [Azure Portal](https://manage.windowsazure.com/), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
 
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 

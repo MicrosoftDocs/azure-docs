@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Dropbox Connector"
 	description="Get started with Dropbox Connector"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
-	ms.author="adgoda"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 # Using the Dropbox connector in your logic app #
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. 
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.
 
 Dropbox Connector allows you to upload or download files from your Dropbox account.
 
@@ -28,8 +28,8 @@ To use the Dropbox connector, you need to first create an instance of the Dropbo
 1.	Open the Azure Marketplace using the + NEW option at the bottom left of the Azure Portal.
 2.	Browse to “Web and Mobile --> Azure Marketplace” and search for “Dropbox connector”.
 3.	Configure the Dropbox connector as follows:
- 
-	![][1] 
+
+	![][1]
 	- **Location** - choose the geographic location where you would like the connector to be deployed
 	- **Subscription** - choose a subscription you want this connector to be created in
 	- **Resource group** - select or create a resource group where the connector should reside
@@ -43,21 +43,21 @@ To use the Dropbox connector, you need to first create an instance of the Dropbo
 Once your API app is created, you can now use the Dropbox connector as an action for your Logic App. To do this, you need to:
 
 1.	Create a new Logic App and choose the same resource group which has the Dropbox connector.
- 	
+
 	![][2]
-2.	Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow. 
- 	
+2.	Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow.
+
 	![][3]
 3.	The Dropbox connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
- 
+
 	![][4]
 4.	You can drop the Dropbox Connector API app into the editor by clicking on the “Dropbox Connector”. Click on the Authorize button. Provide your Dropbox credentials. Click “Allow”
- 
+
 	![][5]
 	![][6]
 	![][7]
 6.	You can now use Dropbox connector in the flow. You can use the Dropbox action "upload File" to upload a file to your Dropbox account.
- 
+
 	![][8]
 	![][9]
 
@@ -79,4 +79,3 @@ Configure the input properties for "Upload File" action as follows:
 [7]: ./media/app-service-logic-connector-dropbox/img7.PNG
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
- 
