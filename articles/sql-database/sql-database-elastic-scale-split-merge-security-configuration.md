@@ -73,7 +73,7 @@ A SSL certificate is required to encrypt the communication and authenticate the 
 Client certificates are required in order to authenticate requests to the service. Choose the most applicable of the three scenarios below, and execute all its steps:
 
 ### Turn off client certificates
-1.    [Turn Off Client Certificate-Based Authentication][Turn#Off#Client#Certificate-Based#Authentication]
+1.    [Turn Off Client Certificate-Based Authentication](Turn#Off#Client#Certificate-Based#Authentication)
 
 ### Issue new self-signed client certificates
 1.    [Create a Self-Signed Certification Authority](Create#a#Self-Signed#Certification#Authority)
