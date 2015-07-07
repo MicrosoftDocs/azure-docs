@@ -7,7 +7,7 @@
     documentationCenter=""
     authors="tysonn"
     manager="carolz"
-    editor=""/>/>
+    editor=""/>
 
 <tags
     ms.service="contributor-guide"
