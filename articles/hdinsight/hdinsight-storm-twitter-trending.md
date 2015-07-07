@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Determine Twitter trending topics with Apache Storm on HDInsight
@@ -138,4 +138,3 @@ You may also be interested in the following Storm topics:
 For more Storm examples for HDinsight:
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
- 
