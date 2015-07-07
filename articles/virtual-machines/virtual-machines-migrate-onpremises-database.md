@@ -160,19 +160,19 @@ Use this method when you cannot use the Deploy a SQL Server Database to a Micros
 3.	Provision the virtual machine using the steps in [Provisioning a SQL Server Virtual Machine on Azure](../virtual-machines-provision-sql-server/#SSMS).
 4.	Copy your backup file(s) to your VM while connected using remote desktop.
 ###Perform a backup to URL and restore into the Azure virtual machine from the URL
-Use the [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) method when you cannot use the Deploy a SQL Server Database to a Microsoft Azure VM wizard because your backup file is larger than 1 TB and you are migrating from and to SQL Server 2016. For databases smaller than 1 TB, use of the wizard is recommended. For very large databases, the use of the [Windows Import/Export Service](https://azure.microsoft.com/documentation/articles/storage-import-export-service/) is recommended.
+Use the [backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) method when you cannot use the Deploy a SQL Server Database to a Microsoft Azure VM wizard because your backup file is larger than 1 TB and you are migrating from and to SQL Server 2016. For databases smaller than 1 TB, use of the wizard is recommended. For very large databases, the use of the [Windows Import/Export Service](../storage-import-export-service/) is recommended.
 ###Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure virtual machine from URL
 Use this method when you plan to store your database files using the Azure blob storage service. Use the following general steps to migrate a user database using this manual method:
 1.	Detach the database files from the on-premises database instance.
-2.	Copy the detached database files into Azure blob storage using the [AZCopy command-line utility](https://azure.microsoft.com/documentation/articles/storage-use-azcopy/).
+2.	Copy the detached database files into Azure blob storage using the [AZCopy command-line utility](../storage-use-azcopy/).
 3.	Attach the database files from the Azure URL to the SQL Server instance in the Azure VM.
 ###Convert on-premises machine to Hyper-V VHDs, upload to Azure Blob storage, and then deploy a new virtual machine using uploaded VHD
 Use this method to migrate all system and user databases in an on-premises SQL Server instance to Azure virtual machine. Use the following general steps to migrate an entire SQL Server instance using this manual method:
-1.	Convert physical or virtual machines to Hyper-V VHDs by using [Microsoft Virtual Machine Converter](http://technet.microsoft.com/en-us/library/dn873998.aspx).
-2.	Upload VHD files to Azure Storage by using the [Add-AzureVHD cmdlet](https://msdn.microsoft.com/en-us/library/windowsazure/dn495173.aspx).
+1.	Convert physical or virtual machines to Hyper-V VHDs by using [Microsoft Virtual Machine Converter](http://technet.microsoft.com/library/dn873998.aspx).
+2.	Upload VHD files to Azure Storage by using the [Add-AzureVHD cmdlet](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3.	Deploy a new virtual machine by using the uploaded VHD.
-Note: To migrate an entire application, consider using [Azure Site Recovery](http://azure.microsoft.com/en-us/services/site-recovery/)].
+Note: To migrate an entire application, consider using [Azure Site Recovery](../services/site-recovery/)].
 ###Ship hard drive using Windows Import/Export Service
-Use the [Windows Import/Export Service method](https://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account.
+Use the [Windows Import/Export Service method](../storage-import-export-service/) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account.
 
 ## Next Steps
