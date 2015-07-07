@@ -30,7 +30,7 @@ This tutorial will show you how to connect your Salesforce environment to your A
 > 
 > You can get around this limitation by using a [free developer account](https://developer.salesforce.com/signup) to complete this tutorial.
 
-##Video Tutorials
+##Video tutorials
 
 You may follow this tutorial using the videos below.
 
@@ -42,7 +42,7 @@ You may follow this tutorial using the videos below.
 
 > [AZURE.VIDEO integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning]
 
-##Step 1: Add Salesforce to your Directory
+##Step 1: Add Salesforce to your directory
 
 1. In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
 
@@ -70,7 +70,7 @@ You may follow this tutorial using the videos below.
 
 	![Salesforce's Quick Start page in Azure AD][5]
 
-##Step 2: Enable Single Sign-On
+##Step 2: Enable single sign-on
 
 1. Before you can configure single sign-on, you must set up and deploy a custom domain for your Salesforce environment. For instructions on how to do that, see [Set Up a Domain Name](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_setup.htm&language=en_US).
 
@@ -162,7 +162,7 @@ You may follow this tutorial using the videos below.
 
 17. Click **Complete** to close the dialog. To test your configuration, see the section below titled [Assign Users to Salesforce](#step-4-assign-users-to-salesforce).
 
-##Step 3: Enable Automated User Provisioning
+##Step 3: Enable automated user provisioning
 
 1. In the Azure AD Quick Start page for Salesforce, click on the **Configure user provisioning** button.
 
@@ -196,7 +196,7 @@ You may follow this tutorial using the videos below.
 
 	![Type in your email address to receive notifications][26]
 
-##Step 4: Assign Users to Salesforce
+##Step 4: Assign users to Salesforce
 
 1. To test your configuration, start by creating a new test account in the directory.
 
@@ -218,7 +218,7 @@ You may follow this tutorial using the videos below.
 
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](https://myapps.microsoft.com/), then sign into the test account, and click on **Salesforce**.
 
-##See Also
+##See also
 
 - [List of SaaS Application Integration Tutorials](https://msdn.microsoft.com/library/azure/dn893637.aspx)
 - [Application Access in Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
