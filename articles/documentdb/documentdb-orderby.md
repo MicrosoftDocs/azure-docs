@@ -109,10 +109,17 @@ Here's how you can create a collection with indexing for Order By against just t
             Indexes = new Collection<Index> { 
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
-
+    
+    // Use defaults which are:
+    // (a) for strings, use Hash with precision 3 (just equality queries)
+    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
-            Path = "/*" 
+            Path = "/*",
+            Indexes = new Collection<Index> { 
+                new HashIndex(DataType.String) { Precision = 3 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }            
         });
 
 ## Samples
