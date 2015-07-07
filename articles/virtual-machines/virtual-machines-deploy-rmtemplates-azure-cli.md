@@ -97,7 +97,7 @@ You can then manage the overall lifecycle of the group's resources by using Azur
 - Audit operations. 
 - Tag resources with additional meta-data for better tracking. 
 
-You can learn lots more about Azure resource groups and what they can do for you [here](../resource-groups-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md). 
+You can learn lots more about Azure resource groups and what they can do for you [here](../resource-group-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md). 
 
 ## <a id="quick-create-a-vm-in-azure"></a>TASK: Quick-create a VM in Azure
 
@@ -1282,7 +1282,7 @@ Run this command:
 ## <a id="start-a-virtual-machine"></a>TASK: Start a VM
 
 Run this command:
-Azure Resource Manager Overview
+
     azure vm start <group name> <virtual machine name>
 
 ## <a id="attach-a-data-disk"></a>TASK: Attach a Data Disk

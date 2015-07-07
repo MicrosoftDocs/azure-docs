@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="02/20/2015" 
+	ms.date="06/29/2015" 
 	ms.author="bradsev" />
 
 
@@ -294,7 +294,15 @@ The *Results* property is populated only if the job has completed successfully (
 
 A running batch job can be cancelled at any time by calling the designated CancelJob API and passing in the job's id. This would be done for various reasons such as that the job is taking too long to complete. 
 
-The code sample below demonstrates how one can submit and monitor a batch job against an Azure Machine Learning service endpoint:
+
+
+#### Using the [BES SDK](machine-learning-consume-web-services.md#batch-execution-service-sdk)
+
+The [BES SDK Nugget package](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) provides functions that simplify calling BES to score in batch mode. To install the Nuget package, in Visual Studio, go to Tools, then select Nuget Package Manager, and click Package Manager Console. 
+
+AzureML experiments that are published as web services can include web service input modules which means they expect the input to be provided through the web service call in the form of a reference to a blob location. There is also the option of not using a web service input module and using a Reader module instead. In this case, the Reader typically would read from a SQL DB using a query at run time to get the data. Web service parameters can be used to dynamically point to other servers or tables, etc. The SDK supports both of these patterns.
+
+The code sample below demonstrates how you can submit and monitor a batch job against an Azure Machine Learning service endpoint using the BES SDK. Note the comments for details on the settings and calls.
 
 #### **Sample Code**
 
@@ -343,25 +351,27 @@ The code sample below demonstrates how one can submit and monitor a batch job ag
 	            // All of these properties of a BatchJobRequest shown below can be optional, depending on
 	            // your service, so it is not required to specify all with any request.  If you do not want to
 	            // use any of the parameters, a null value should be passed in its place.
-	
-	            // Define the reference to the blob containing your input data. 
-	            // This reference can be defined either based on a SAS uri as show below, or the
-	            // connection string / container / blob name values.
-	            BlobReference inputBlob = BlobReference.CreateFromSasBlobUri(new Uri("YOUR_CUSTOM_OUTPUT_BLOB_SAS_URI", UriKind.Absolute));
-	              
-	            // If desired, one can override the location where the job outputs are to be stored. We can also build
-	            // a BlobReference by passing in the storage account details and name of the blob where we want the output
-	            // to be redirected to.
-	            var outputLocations = new Dictionary<string, BlobReference>
-	            {
-	                {
-	                    "YOUR_OUTPUT_NODE_NAME", 
-	                    BlobReference.CreateFromConnectionStringData(
-	                      connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
-	                      containerName: "YOUR_CONTAINER_NAME",
-	                      blobName: "YOUR_BLOB.csv");
-	                }
-	            };
+	            
+	            // Define the reference to the blob containing your input data. You can refer to this blob by its
+                    // connection string / container / blob name values; alternatively, we also support references 
+                    // based on a blob SAS URI
+                    
+                    BlobReference inputBlob = BlobReference.CreateFromConnectionStringData(connectionString:                                         "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
+                        containerName: "YOUR_CONTAINER_NAME",
+                        blobName: "YOUR_INPUT_BLOB_NAME");
+                              
+                    // If desired, one can override the location where the job outputs are to be stored, by passing in
+                    // the storage account details and name of the blob where we want the output to be redirected to.
+                    
+                    var outputLocations = new Dictionary<string, BlobReference>
+                        {
+                          {
+                           "YOUR_OUTPUT_NODE_NAME", 
+                           BlobReference.CreateFromConnectionStringData(                                     connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
+                                containerName: "YOUR_CONTAINER_NAME",
+                                blobName: "YOUR_DESIRED_OUTPUT_BLOB_NAME")
+                           }
+                        };
 	            
 	            // If applicable, you can also set the global parameters for your service
 	            var globalParameters = new Dictionary<string, string>

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Create a SharePoint connector to use in your logic app" 
-   description="Create a SharePoint connector; Using the SharePoint Connector in your logic app" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Create a SharePoint Connector to use in your logic app"
+   description="Create a SharePoint Connector; Using the SharePoint Connector in your logic app"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,19 +12,19 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/17/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 # Using the SharePoint Connector in your logic app
 
-Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. Microsoft SharePoint connector lets you connect to Microsoft SharePoint Server/SharePoint Online and manage documents and list items. You can perform various actions such as create, update, get and delete on documents and list items. In case of On-Premises SharePoint server, you can provide Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.
+Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. Microsoft SharePoint connector lets you connect to Microsoft SharePoint Server or SharePoint Online and manage documents and list items. You can perform various actions such as create, update, get, and delete on documents and list items. When using on-premises SharePoint server, you enter the Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.
 
 The SharePoint Online Connector and SharePoint Server Connector gallery app provides you Trigger and Actions as mechanisms to interact with SharePoint.
 
 ## Create a SharePoint Online Connector
 
-A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace: 
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
 1. In the Azure startboard, select **Marketplace**.
 2. Select **API Apps** and search for “SharePoint Online Connector”.
@@ -36,15 +36,15 @@ A connector can be created within a logic app or be created directly from the Az
 Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter: *https://microsoft.sharepoint.com/teams/wabstest*.
 Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
 
-5. When complete, the Package Settings look similar to the following: 
+5. When complete, the Package Settings look similar to the following:
 <br/>
 ![][1]
 
 Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Online Connector.
 
-## Create a SharePoint Server Connector
+## Creating a SharePoint Server Connector
 
-A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace: 
+A connector can be created within a logic app or be created directly from the Azure Marketplace. To create a connector from the Marketplace:
 
 1. In the Azure startboard, select **Marketplace**.
 2. Select **API Apps** and search for “SharePoint Server Connector”.
@@ -60,7 +60,7 @@ Password | No | Enter a valid password to connect to SharePoint site, if Authent
 Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
 Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. When complete, the Package Settings look similar to the following: 
+5. When complete, the Package Settings look similar to the following:
 <br/>
 ![][2]
 
@@ -73,19 +73,19 @@ Once your API app is created, you can now use the SharePoint Connector as a trig
 
 1. Create a new Logic App and choose the same resource group that has the SharePoint Connector.
 
-2. Open **Triggers and Actions** to open the Logic Apps Designer and configure your flow. The SharePoint Connector appears in the “Recently Used” section in the gallery on the right hand side. Select it.
+2. Open **Triggers and Actions** to open the Logic Apps Designer and configure your workflow. The SharePoint Connector appears in the “Recently Used” section in the gallery on the right hand side. Select it.
 
-3. If SharePoint connector is selected at the start of the logic app, it acts like trigger. Otherwise, actions could be taken on SharePoint account using the connector. 
+3. If SharePoint connector is selected at the start of the logic app, it acts like trigger. Otherwise, actions could be taken on SharePoint account using the connector.
 
 4. When using the SharePoint Online Connector, you have to authenticate and authorize logic apps to perform operations on your behalf. To start the authorization, click **Authorize** on SharePoint Connector:
 <br/>
 ![][3]
 
-5. Clicking Authorize opens SharePoint’s authentication dialog. Enter the sign in details of the SharePoint account on which you want to perform the operations:
+5. Clicking Authorize would open SharePoint’s authentication dialog. Enter the sign in details of the SharePoint account on which you want to perform the operations:
 <br/>
 ![][4]
 
-6. Grant logic apps access to your account to perform operations on your behalf:
+6. Grant logic apps access to your account to perform operation on your behalf:
 <br/>
 ![][5]
 
@@ -98,14 +98,13 @@ Once your API app is created, you can now use the SharePoint Connector as a trig
 ![][7]
 <br/>
 **Relative URL configured for document list**
-<br/>
 
-> [AZURE.NOTE] For the following triggers, it is assumed that you entered 'Shared Documents, Lists/Task' in the Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
+> [AZURE.NOTE]For the following triggers, it is assumed that you entered 'Shared Documents, Lists/Task' in the Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
 
 ##  Triggers
 Use triggers if you want to initiate a logic app.
 
-> [AZURE.NOTE] Triggers  delete the files after reading them. To preserve these files, enter a value for the archive location. 
+> [AZURE.NOTE] Triggers delete the files after reading them. To preserve these files, please enter a value for the archive location.
 
 ### 1.	New Document In Shared Documents (JSON)
 This trigger is fired when a new document is available in 'Shared Documents'. 
@@ -114,7 +113,7 @@ This trigger is fired when a new document is available in 'Shared Documents'. 
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter documents to be picked. For example, enter 'Approved Orders'. To process all the existing documents, leave this field empty. 
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the existing documents, leave this field empty.
 Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed documents are archived.
 Overwrite in Archive | No | Check this option to overwrite a file in Archive path if it already exists.
 Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -122,7 +121,7 @@ Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For ex
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Name | Name of the document.
 Content | Content of the document.
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
@@ -137,14 +136,14 @@ This trigger is fired when a new item is added in 'Tasks' list.
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter items in the list. For example, enter 'Approved Orders'. To process all the all the new items, leave this field empty. 
+View Name | No | Enter a valid view used to filter items in the list. For example, enter: 'Approved Orders'. To process all the all the new items, leave this field empty.
 Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.
 Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 The columns in the list are dynamically populated and shown in the output parameters. | &nbsp;
 
 
@@ -156,7 +155,7 @@ This trigger is fired when a new document is available in 'Shared Documents'. Th
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter documents to be picked. For example, enter 'Approved Orders'. To process all the all the existing documents, leave this field empty. 
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the all the existing documents, leave this field empty.
 Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list documents are archived.
 Overwrite in Archive | No | Check this option to overwrite a file in Archive path if it already exists.
 Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -164,7 +163,7 @@ Caml Query | No, Advanced | Enter a valid Caml query to filter documents. For ex
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Content | Content of the document.
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
 
@@ -177,20 +176,20 @@ This trigger is fired when a new item is added in 'Tasks' list. The new list ite
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter items in the list. Example: 'Approved Orders'. To process all the new items, leave this field empty. 
+View Name | No | Enter a valid view used to filter items in the list. Example: 'Approved Orders'. To process all the new items, leave this field empty.
 Archive Location | No | Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.
-Caml Query | No, Advanced | Enter a valid Caml query to filter the list items. For example, enter `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+Caml Query | No, Advanced | Enter a valid Caml query to filter the list items. For example, enter: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Content | Content of the document.
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or ”base64”)
 
 
-## Actions
-For the below actions, it is assumed that the user specified 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
+##  Actions
+For the following actions, it is assumed that you entered 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
 
 ### 1. Upload To Shared Documents (JSON)
 
@@ -211,13 +210,14 @@ OptionalParam2* | No. Advanced | This is one of the optional parameters to add a
 
 **Note** All the parameters of the document library are dynamically populated. The mandatory parameters are visible, where the optional parameters are in advanced section.
 
-
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 ItemId | ItemId of the document added in Document library.
 Status | A successful upload of document returns status code 200 (OK).
+
+
  
 
 ### 2. Get From Shared Documents (JSON)
@@ -229,12 +229,11 @@ Name | Required | Description
 --- | --- | ---
 Document Relative URI | No | Enter the document URL, relative to 'Shared Documents'. For example, enter: *myspec1,myfolder/orders*.
 
-
 #### Output
 
 Name | Description
---- | --- 
-Content | Document Content 
+--- | ---
+Content | Document Content
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none" or ”base64”)
 Status | A successful action execution returns status code 200 (OK).
 Param1* | This is one of the parameters of a document in the document library.
@@ -257,7 +256,7 @@ Document Relative URI | No | Enter the document URL, relative to 'Shared Documen
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Status | A successful action execution returns status code 200 (OK).
 
 
@@ -276,11 +275,10 @@ OptionalParam2* | No. Advanced | This is one of the required parameters to add a
 
 **Note** All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
 
- 
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 ItemId | ItemId of the List item added.
 Status | A successful insertion of List item returns status code 200 (OK).
 
@@ -301,11 +299,10 @@ OptionalParam2* | No. Advanced | This is one of the required parameters to add a
 
 **Note**  All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
 
-
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Status | A successful update of List item returns status code 200 (OK).
 
 
@@ -319,11 +316,10 @@ Name | Required | Description
 --- | --- | ---
 ItemId | Yes | ItemId of the List item.
 
-
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Column1* | This is one of the parameters in the List.
 Column2* | This is one of the parameters in the List.
 Status | A successful execute of action returns status code 200 (OK).
@@ -335,18 +331,16 @@ Status | A successful execute of action returns status code 200 (OK).
 
 This action deletes an item from the Item list.
 
- 
 #### Input
 
 Name | Required | Description
 --- | --- | ---
 ItemId | Yes | ItemId of the List item.
 
-
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Status | A successful delete of the list item returns status code 200 (OK).
 
 
@@ -354,18 +348,17 @@ Status | A successful delete of the list item returns status code 200 (OK).
 
 This action lists all the documents in a document library. You can use a View or a Caml query to filter the documents.  
 
- 
 #### Input
 
 Name | Required | Description
 --- | --- | ---
-View Name | No | Enter a valid view used to filter documents to be picked. For example, enter 'Approved Orders'. To process all the existing documents, leave this field empty. 
+View Name | No | Enter a valid view used to filter documents to be picked. For example, enter: 'Approved Orders'. To process all the existing documents, leave this field empty.
 Caml Query | No | Enter a valid Caml query to filter documents. For example, enter:  `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Documents | Array of all the documents. Each document has the following fields: <ul><li>Documents []</li><li>Name</li><li>Item Id</li><li>Item Full URL</li><li>Advanced</li><li>Item Edit URL</li><li>List Name</li><li>List Full URL</li></ul>
 Status | A successful insertion of List item returns status code 200 (OK).
 
@@ -374,7 +367,6 @@ Status | A successful insertion of List item returns status code 200 (OK).
 
 This action uploads new document to 'Shared Documents'. The input document should be an XML payload. The response of the action will be an XML payload.
  
-
 #### Input
 
 Name | Required | Description
@@ -384,11 +376,10 @@ Content | Yes | Content of the document.
 ContentTransferEncoding | Yes | Content Transfer Encoding of the Message. ("none" or "base64”)
 Force Overwrite | Yes | If set to TRUE and a document exists with the given name, it is overwritten.
  
-
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Output XML | Response of the Upload action in XML format.
 Status | A successful upload of document returns status code 200 (OK).
 
@@ -396,7 +387,6 @@ Status | A successful upload of document returns status code 200 (OK).
 
 This action gets the document from the document library given the relative URL (folder structure) of the document.
 
- 
 #### Input
 
 Name | Required | Description
@@ -407,7 +397,7 @@ File Type | Yes | Enter whether the file is a binary file or a text file.
 #### Output
 
 Name | Description
---- | --- 
+--- | ---
 Output XML | Document Content
 ContentTransferEncoding | Content Transfer Encoding of the Message. ("none" or ”base64”)
 Status | A successful action execution returns status code 200 (OK).
@@ -424,7 +414,6 @@ Input XML | Yes | The XML message which contains the values of the fields of the
 
 **Note** All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
 
- 
 #### Output
 
 Name | Description
@@ -445,7 +434,7 @@ ItemID | Yes | ItemId of the List item.
 Input XML | Yes | The XML message which contains the values of the fields of the list item to be inserted. You can use Transform API App to generate the XML message.
 
 **Note** All the parameters of the 'List' are dynamically populated. The mandatory parameters are visible, whereas the optional parameters are in advanced section.
- 
+
 #### Output
 
 Name | Description
@@ -463,7 +452,6 @@ Name | Required | Description
 --- | --- | ---
 ItemID | Yes | ItemId of the List item.
 
-
 #### Output
 
 Name | Description
@@ -476,14 +464,14 @@ Status | A successful execute of action returns status code 200 (OK).
 
 > [AZURE.NOTE] This step is required only if you are using SharePoint on-premises behind your firewall.
 
-App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SharePoint Server, the Hybrid Connection Manager is required. 
+App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SharePoint Server, the Hybrid Connection Manager is required.
 
 See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](app-service-api-manage-in-portal.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png
@@ -493,4 +481,3 @@ You can also review performance statistics and control security to the connector
 [5]: ./media/app-service-logic-connector-sharepoint/image_4.jpg
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
- 

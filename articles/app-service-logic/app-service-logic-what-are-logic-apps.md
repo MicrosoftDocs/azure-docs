@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="What are Logic Apps?" 
 	description="Learn more about App Service Logic Apps" 
-	authors="joshtwist" 
+	authors="klam" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2015"
-	ms.author="jtwist"/>
+	ms.date="07/02/2015"
+	ms.author="klam"/>
 
 #What are Logic Apps?
 
@@ -38,7 +38,7 @@ What's more, with our [BizTalk API][biztalk] apps you can scale to mature integr
 
 - **Compose SaaS easily** - Even composition tasks that are easy to describe are difficult to implement in code. Logic Apps make it a cinch to connect disparate systems. Want to create a task in your CRM software that is based on the activity from your Facebook or Twitter accounts? Want to connect your cloud marketing solution to your on-premises billing system? Logic apps are the fastest, most reliable way to deliver solutions to these problems.
 
-- **Get started quickly from templates** - To help you get started we've provided a gallery of templates that allow you to rapidly create some common solutions. From advanced BizTalk solutions to simple SaaS connectivity, and even a few that are just 'for fun' - the gallery is the fastest way to understand the power of Logic Apps.
+- **Get started quickly from templates** - To help you get started we've provided a [gallery of templates][templates] that allow you to rapidly create some common solutions. From advanced BizTalk solutions to simple SaaS connectivity, and even a few that are just 'for fun' - the gallery is the fastest way to understand the power of Logic Apps.
 
 - **Extensibility baked in** - Don't see the connector you need? Logic Apps are part of the App Service suite and designed to work with API apps; you can easily create your own API app to use as a connector. Build a new app just for you, or share and monetize in the marketplace.
 
@@ -64,7 +64,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
 [connectors]: app-service-logic-use-biztalk-connectors.md
-[tpm]: app-service-logic-create-a-trading-partner-agreement
-[rules]: app-service-logic-use-biztalk-rules
-
+[tpm]: app-service-logic-create-a-trading-partner-agreement.md
+[rules]: app-service-logic-use-biztalk-rules.md
+[templates]: app-service-logic-use-logic-app-templates.md
  

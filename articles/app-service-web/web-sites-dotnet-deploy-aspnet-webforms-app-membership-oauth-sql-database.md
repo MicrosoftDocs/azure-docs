@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="06/30/2015" 
 	ms.author="erikre"/>
 
 
@@ -43,23 +43,19 @@ You'll build a simple contact list web application that is built on ASP.NET 4.5 
 ![Contacts - Edit Page](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
 >[AZURE.NOTE] 
-To complete this tutorial, you need an Azure account. If you don't have an account, you can <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. If you want to get started with Azure before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure for free. No credit card required, no commitments.
+To complete this tutorial, you need an Azure account. If you don't have an account, you can <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. If you want to get started with Azure before signing up for an account, go to [Try App Service](https://tryappservice.azure.com/), where you can immediately create a short-lived ASP.NET starter site in Azure for free. No credit card required, no commitments.
 
 ##Set up the Development Environment 
 To start, set up your development environment by installing the Visual Studio 2013 and the Azure SDK for .NET.
 
 1. Install [Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=306566), if you don't already have it installed.  
-2. Install [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). This tutorial requires Visual Studio 2013 before installing the Azure SDK for Visual Studio 2013.  
-
-	>[AZURE.NOTE]  
-	Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.  
+2. Install [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). This tutorial requires Visual Studio 2013 before installing the Azure SDK for Visual Studio 2013. Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.  
 
 3. If you are prompted to run or save the installation executable, click **Run**.
 4. In the **Web Platform Installer** window, click **Install** and proceed with the installation.  
 	![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
 
-	>[AZURE.NOTE]  
-	If you already have the SDK installed, there will be 0 items to be installed. The number of items to install will be noted at the lower left of the **Web Platform Installer** window.  
+      If you already have the SDK installed, there will be 0 items to be installed. The number of items to install will be noted at the lower left of the **Web Platform Installer** window.  
 
 5. If you don't already have **Visual Studio Update 2**, download and install **[Visual Studio 2013 Update 2](http://www.microsoft.com/download/details.aspx?id=42666)** or higher.  
 
@@ -109,8 +105,7 @@ You have created a web app, but there is no content in it yet. Your next step is
 4. Name your project *ContactManager* and click **OK**.  
 	![New Project Dialog](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms02.png)  
 
-	>[AZURE.NOTE]  
-	The name of the project in this tutorial series is **ContactManager**. It is recommended that you use this exact project name so that the code provided throughout the tutorial series functions as expected.  
+      The name of the project in this tutorial series is **ContactManager**. It is recommended that you use this exact project name so that the code provided throughout the tutorial series functions as expected.  
 
 5. In the **New ASP.NET Project** dialog box, select the **Web Forms** template. Uncheck the **Host in the cloud** check box if it is selected and click **OK**.  
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png)  
@@ -228,7 +223,7 @@ Now that you have created and ran your application locally, it is time to deploy
 	The **Publish Web** dialog box is displayed.  
 
 2. In the **Profile** tab of the **Publish Web** dialog box, click **Azure Web App**.  
-	![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms06.png)  
+	  
 3. If you are not already signed in, click the **Sign In** button in the **Select Existing Web App** dialog box. Once you've finished signing in, select the web app you created in the first part of this tutorial. Click **OK** to continue.  
 	![Select Existing Web Site dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png)  
 Visual Studio will download your publishing settings.
@@ -300,12 +295,12 @@ The following steps will allow you to use the Web Forms Scaffolder.
 	![Add Scaffold dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png)  
 	The **Add Web Forms Pages** dialog box is displayed.  
 
-8. In the **Add Web Forms Pages** dialog box, set the **Model class** to `Contact (ContactManager.Models)`. Set the **Data context class** to `ApplicationDbContext (ContactManager.Models)`. Then click **Add**. 
+8. In the **Add Web Forms Pages** dialog box, set the **Model class** to `Contacts (ContactManager.Models)`. Set the **Data context class** to `ApplicationDbContext (ContactManager.Models)`. Then click **Add**. 
 	![Add Web Forms Pages dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)  
 
 The Web Forms Scaffolder adds a new folder that contains *Default.aspx*, *Delete.aspx*, *Edit.aspx*, and *Insert.aspx* pages. The Web Forms Scaffolder also creates a *DynamicData* folder that contains an *EntityTemplates* folder and a *FieldTemplates* folder. The `ApplicationDbContext` will be used for both the membership database and the contact data.
 
-###Configure the Application to Use the Data Model 
+###Configure the Application to use the Data Model 
 The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created. Also, you will add sample data and a data initializer.  
 
 1. In the **Tools** menu, select **NuGet Package Manager** and then **Package Manager Console**.  
@@ -768,14 +763,11 @@ It is important to know how to view and modify the database directly. Knowing ho
 2. Right-click on **ContactDB** and select **Open in SQL Server Object Explorer**.  
 	![Open in SQL Server Object Explorer menu item](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms32.png)  
 3. If the **Add Firewall Rule** dialog box is displayed, select **Add Firewall Rule**.  
-
-	>[AZURE.NOTE]  
-	If you can't expand **SQL Databases** and can't see **ContactDB** from Visual Studio, you can follow the instructions to open a firewall port or a range of ports. To do this, follow the instructions under **Set up Azure firewall rules** near the end of the [MVC tutorial](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). As an alternative, you can also review the data of the local database by building, running, and adding data to the application locally (**CTRL+F5** from Visual Studio).  
+      If you can't expand **SQL Databases** and can't see **ContactDB** from Visual Studio, you can follow the instructions to open a firewall port or a range of ports. To do this, follow the instructions under **Set up Azure firewall rules** near the end of the [MVC tutorial](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). As an alternative, you can also review the data of the local database by building, running, and adding data to the application locally (**CTRL+F5** from Visual Studio).  
 
 4. If the **Connect to Server** dialog box is displayed, enter the **password** you created at the beginning of this tutorial and press the **Connect** button.  
+      If you don't recall the password, you can find it in your local project file. In **Solution Explorer**, expand the *Properties* folder and then expand the *PublishProfiles* folder. Open the *contactmanager.pubxml* file (your file may be named differently). Search the file for your publishing password.
 
-	>[AZURE.NOTE]  
-	If you don't recall the password, you can find it in your local project file. In **Solution Explorer**, expand the *Properties* folder and then expand the *PublishProfiles* folder. Open the *contactmanager.pubxml* file (your file may be named differently). Search the file for your publishing password.
 5. Expand the **contactDB** database and then expand **Tables**.
 6. Right-click the **dbo.AspNetUsers** table and select **View Data**.  
 	![View Data menu item](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms34.png)  

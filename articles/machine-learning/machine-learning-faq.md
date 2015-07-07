@@ -17,9 +17,9 @@
 	ms.date="05/07/2015" 
 	ms.author="paulettm"/>
 
-#Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilties, limitations, and support
+#Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
 
-This FAQ is answers questions about the Azure Machine Learning, a cloud service for predictive modeling and operationalizing solutions through web services. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support. 
+This FAQ answers questions about Azure Machine Learning, a cloud service for predictive modeling and operationalizing solutions through web services. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support. 
  
 ##General questions
 
@@ -185,7 +185,7 @@ No, there is no REPL environment for Python in the studio.
 ## Web service
 ###Retrainining Models Programmatically
 
-**How do I Retrain AzureML Models programmaticlly?**
+**How do I Retrain AzureML Models programmatically?**
 Use the Retraining APIs. Sample code is available [here](https://azuremlretrain.codeplex.com/).
 
 ###Create

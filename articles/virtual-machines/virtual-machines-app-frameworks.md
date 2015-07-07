@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="06/03/2015"
+   ms.date="07/02/2015"
    ms.author="rasquill"/>
 
 # Application Frameworks using templates
@@ -22,6 +22,7 @@ Use this stuff to create great things, quickly.
 
 | Template Name | Description | View the template | Deploy it right now |
 |:---|:---|:---:|:---:|
+| Deploy 'N' VMs Quickly | This is a Microsoft created template that deploys up to 'N' new VMs (along with a new VNet and storage account). | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/resource-loop-vms-vnet-aset/) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresource-loop-vms-vnet-aset%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Active Directory Forest and Domain | This template deploys 2 new VMs (along with a new VNet, storage account and load balancer) and create a new AD forest and domain. Each VM is created as a DC for the new domain and placed in an availability set and will also have an RDP endpoint added with a public load-balanced IP address. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Apache Webserver | This template uses the Azure Linux CustomScript extension to deploy an Apache web server. The template creates a Ubuntu VM, installs Apache2 and creates a simple HTML file.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 | Couchbase Cluster | This template deploys a Couchbase cluster on Ubuntu virtual machines. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |

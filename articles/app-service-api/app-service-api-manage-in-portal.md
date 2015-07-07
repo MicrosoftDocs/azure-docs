@@ -43,8 +43,8 @@ You use the **API app** blade for the following tasks:
 - Configure update policy - Click **Settings > Application settings**. Default value is **On**. This means that when a new version of the API app is published to the marketplace, your API app will automatically be updated to the new version if it is a non-breaking change.  
 - Configure authentication for outgoing calls from the API app - Click **Settings > Authentication**.  If the API app makes calls to an external service that requires authentication, the required configuration values are entered here. For example, a Dropbox connector requires a client ID and a client secret to access the Dropbox service.
 - Configure [RBAC](../role-based-access-control-configure.md) - Click **Settings > Users**. User access that you configure here determines only who can access the API-app-specific features. To configure RBAC for the web app features, use the **API app host** blade. Normally you would want to keep the RBAC settings for the API app and the API app host in sync. If you give someone access to the API app but not the API app host, they won't be able to use the features on the **API app** blade that actually pertain to the API app host.
-- View API definition - Click **API definition** in the **Summary** section to see a list of the methods exposed by the **API app**.
-- [Install the Hybrid Connection Manager](](../app-service-logic/app-service-logic-hybrid-connection-manager.md). (Applies to built-in connector API apps.) The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and control the security between your Azure resources and your on-premises resources.
+- View API definition - Click **API definition** in the **Summary** section to see a list of the methods exposed by the API app.
+- [Install the Hybrid Connection Manager](../app-service-logic/app-service-logic-hybrid-connection-manager.md). The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and control the security between your Azure resources and your on-premises resources.
 
 ### Tasks you can do on both the API app blade and the API app host blade 
 
@@ -82,7 +82,7 @@ The gateway and gateway host blades share UI the same as the API app and API app
 
 You use the **Gateway Host** blade for all of the tasks that you would do for any web app. For more information, see [Manage web apps in the portal](web-sites-manage.md).  
 
-## How to navigate to API app and gateway blades 
+## <a id="navigate"></a>How to navigate to API app and gateway blades 
 
 One way to get to the **API App** blade is through the Azure portal's browse feature.  In the portal home page, click **Browse > API Apps** to see all the API apps that you can manage. 
 
@@ -130,6 +130,6 @@ To get to an API app in Server Explorer, click **Azure > App Service > [the reso
 
 ## Next steps
 
-This article has shown how to use the Azure portal to perform API app management tasks. 
+This article has shown how to use the Azure portal to perform management tasks for API apps. For API apps that you install from the API app gallery, see also [Manage and monitor your built-in API apps and connectors](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 For information about how to manage API apps by using the command line, see the articles in the **Automate** section of the menu that appears on the left side of the article (on wide browser windows) or at the top of the article (on narrow browser windows).

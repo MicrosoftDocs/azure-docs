@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>	
 
 # How To Control Inbound Traffic to an App Service Environment
@@ -41,6 +41,13 @@ The following is a list of ports used by an App Service Environment:
 - 4016: Used for remote debugging with Visual Studio 2012.  This port can be safely blocked if the feature is not being used.
 - 4018: Used for remote debugging with Visual Studio 2013.  This port can be safely blocked if the feature is not being used.
 - 4020: Used for remote debugging with Visual Studio 2015.  This port can be safely blocked if the feature is not being used.
+
+## Outbound Connectivity and DNS Requirements ##
+Note that for an App Service Environment to function properly, it also requires outbound access to Azure Storage as well as Sql Database in the same Azure region.  If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.
+
+Customer may also have custom DNS servers configured in the virtual network.  App Service Environments need to be able to resolve Azure endpoints under *.database.windows.net, *.file.core.windows.net and *.blob.core.windows.net.  
+
+It is also recommended that any custom DNS servers on the vnet be setup ahead of time prior to creating an App Service Environment.  If a virtual network's DNS configuration is changed while an App Service Environment is being created, that will result in the App Service Environment creation process failing.
 
 ## Creating a Network Security Group ##
 For full details on how network security groups work see the following [information][NetworkSecurityGroups].  The details below touch on highlights of network security groups, with a focus on configuring and applying a network security group to a subnet that contains an App Service Environment.

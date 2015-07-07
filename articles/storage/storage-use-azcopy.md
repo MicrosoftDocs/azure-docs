@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tamram"/>
 
 # Getting Started with the AzCopy Command-Line Utility
@@ -42,12 +42,21 @@ Next, open a command window, and navigate to the AzCopy installation directory o
 
 > [AZURE.NOTE] Beginning with AzCopy version 3.0.0, the AzCopy command-line syntax requires that every parameter be specified to include the parameter name, *e.g.*, `/ParameterName:ParameterValue`.
 
+## Write your first AzCopy command
+
+**Upload a file from the file system to Blob storage:**
+	
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
+
+Note that when copying single file, please specify option /Pattern with the file name. You can find more samples in the later section of this article.
+
+## Introduction to the parameters
+
 Parameters for AzCopy are described in the table below. You can also type one of the following commands from the command line for help in using AzCopy:
 
 - For detailed command-line help for AzCopy: `AzCopy /?`
 - For detailed help with any AzCopy parameter: `AzCopy /?:SourceKey`
 - For command-line examples: `AzCopy /?:Samples` 
-
 
 <table>
   <tr>

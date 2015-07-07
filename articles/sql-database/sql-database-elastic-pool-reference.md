@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/29/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -25,7 +25,7 @@ This reference provides links and details to elastic pool articles and programma
 
 ## Overview
 
-An elastic pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them.
+An elastic pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md). 
 
 
 
@@ -89,14 +89,12 @@ The storage limit of the pool is determined by the amount of DTUs of the pool; e
 
 | property | default value | valid values |
 | :-- | :-- | :-- |
-| Dtu | 200 | 200, 400, 800, 1200 |
+| Dtu | 100 | 100, 200, 400, 800, 1200 |
 | databaseDtuMax | 100 | 10, 20, 50 100 |
 | databaseDtuMin | 0 | 0, 10, 20, 50 |
-| storageMB | 200 GB*  | 200 GB, 400 GB, 800 GB, 1200 GB |
+| storageMB | 100 GB*  | 100 GB, 200 GB, 400 GB, 800 GB, 1200 GB |
 
 *units in API are MB, not GB
-
-If the storage limit of a pool is exceeded, then all of the databases in the pool become read-only. If this occurs try increasing the DTUs or storage of the pool itself, or moving one or more databases out of the pool. To identify and prevent exceeding the pool storage limit you can create an alert in the Portal to trigger when the storage utilization of the pool exceeds a preset value.
 
 ## Worker and session limits
 
@@ -104,6 +102,7 @@ The maximum number of concurrent workers and concurrent sessions supported for a
 
 | DTUs | Max concurrent workers | Max concurrent sessions |
 | :-- | :-- | :-- |
+| 100 | 200 | 2,400 |
 | 200 | 400 | 4,800 |
 | 400 | 800 | 9,600 |
 | 800 | 1,600 | 19,200 |
@@ -195,4 +194,3 @@ The unit DTU price for an elastic pool is higher than the unit DTU price for a s
 
 
 
- 

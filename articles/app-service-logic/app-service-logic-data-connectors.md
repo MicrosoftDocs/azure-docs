@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/01/2015" 
 	ms.author="deonhe"/>
 
 
 # Data Connectors in Microsoft Azure App Service
+
+> [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
 
 
 ## What is an App + Data Services API App Connector
@@ -47,17 +49,6 @@ Here's a brief overview of each of the App and Data Services connectors that are
 <td>Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
 <td>New messages
 <td>Send message
-</tr>
-<tr>
-<td>Azure Storage Table
-<td>Azure Storage Table Connector lets you connect to Azure Storage Table and perform various actions such as Get Entity, Query Entities, Insert Entity, Update Entity, Delete Entity and a trigger to retrieve data.
-<td>New entity
-<td><li>Get Entity
-	<li>Insert entity
-	<li>Delete entity
-	<li>Update entity
-	<li>Query
-
 </tr>
 
 <tr>
@@ -126,17 +117,6 @@ Here's a brief overview of each of the App and Data Services connectors that are
 	<li>Select From Table
 	<li>Delete From Table
 	<li>Call Stored Procedure
-</tr>
-
-<tr>
-<td>MongoDB
-<td>A MongoDB connector lets you create, update, delete, and get documents from a MongoDB collection.
-<td>New document
-<td>	<li>Add Document
-		<li>Update Document
-		<li>Get Documents
-		<li>Upsert Document
-		<li>Delete Document
 </tr>
 
 
@@ -263,11 +243,7 @@ Connectors use either OAuth or user names and passwords.
 
 ## More Connectors
 [BizTalk Integration connectors](app-service-logic-integration-connectors.md) |
-[Enterprise connectors](app-service-logic-enterprise-connectors.md) |
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md) |
-[Social connectors](app-service-logic-social-connectors.md) |
-[Protocol connectors](app-service-logic-protocol-connectors.md) |
-[App and Data Services connectors](app-service-logic-data-connectors.md) |
 [Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
  
