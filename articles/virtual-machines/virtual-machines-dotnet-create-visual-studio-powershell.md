@@ -22,7 +22,7 @@ When you create a web project for an Azure website, you can provision a virtual 
 
 To create a virtual machine when you create a website, follow these steps:
 
-1. In Visual Studio, click **File** > **New Project** > **Web**, and then choose **ASP.NET Web Application** (under the **Visual C#** or **Visual Basic** nodes).
+1. In Visual Studio, click **File** > **Project** > **Web**, and then choose **ASP.NET Web Application** (under the **Visual C#** or **Visual Basic** nodes).
 2. In the **New ASP.NET Project** dialog box, select the type of web application you want, and in the Azure section of the dialog box (in the lower-right corner), make sure that the **Host in the cloud** check box is selected (this check box is labeled **Create remote resources** in some installations).
 
 	![][0]
@@ -32,7 +32,7 @@ To create a virtual machine when you create a website, follow these steps:
 
 	![][2]
 
-5. In the DNS name box, enter a name for the virtual machine. The DNS name must be unique in Azure. If the name you entered isn't available, a red exclamation point appears.
+5. In the **DNS name** box, enter a name for the virtual machine. The DNS name must be unique in Azure. If the name you entered isn't available, a red exclamation point appears.
 6. In the **Image** list, choose the image you want to base the virtual machine on. You can choose any of the standard Azure virtual machine images or your image that you've uploaded to Azure.
 7. Leave the **Enable IIS and Web Deploy** check box selected unless you plan to install a different web server. You won't be able to publish from Visual Studio if you disable Web Deploy. You can add IIS and Web Deploy to any of the packaged Windows Server images, including your own custom images.
 8. In the **Size** list, choose the size of the virtual machine.
