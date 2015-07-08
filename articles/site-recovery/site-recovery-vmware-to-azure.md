@@ -461,7 +461,7 @@ Note that the first four IP addresses in any subnet are reserved for internal Az
 	- Clear **Verify Mobility service software signature** if you want to disable verification when you use automatic push to install the service. Signature verification needs internet connectivity from the process server.
 	- Click **Next**.
 
-	![Register configuration server](./media/site-recovery-vmware-to-azure/ASRVMware_ProcessServerConfigServer.png)
+	![Register configuration server](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerConfigServer.png)
 
 
 11. In **Select Installation Drive** select a cache drive. The process server needs a cache drive with at least 600 GB of free space. Then click **Install**. 
