@@ -399,6 +399,29 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 
 The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
 
+## Track Dependency
+
+The standard dependency-tracking module uses this API to log calls to external dependencies such as databases or REST APIs. The module automatically discovers some external dependencies, but you might want some additional components to be treated in the same way. 
+
+For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+
 ## <a name="defaults"></a>Set defaults for selected custom telemetry
 
 If you just want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
@@ -435,27 +458,6 @@ If you just want to set default property values for some of the custom events th
 Individual telemetry calls can override the default values in their property dictionaries.
 
 
-## Track Dependency
-
-The standard dependency-tracking module uses this API to log calls to external dependencies such as databases or REST APIs. The module automatically discovers some external dependencies, but you might want some additional components to be treated in the same way. 
-
-For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
-
-```C#
-
-            var success = false;
-            var startTime = DateTime.UtcNow;
-            var timer = System.Diagnostics.Stopwatch.StartNew();
-            try
-            {
-                success = dependency.Call();
-            }
-            finally
-            {
-                timer.Stop();
-                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-            }
-```
 
 
 ## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
