@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/07/2015" 
 	ms.author="mandia"/>
 
 # Enterprise Connectors in Microsoft Azure App Service
 
-< [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
+> [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
 
 Microsoft Azure App Service (or App Service for short) includes several connectors that can be used with enterprise systems, like SAP and Marketo. Using these connectors, you can easily connect to an enterprise system, and complete different tasks.
 

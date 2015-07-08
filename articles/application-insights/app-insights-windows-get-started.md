@@ -66,21 +66,29 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 3. Pick **Application Insights for Windows Applications**
 
-4. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
+4. Add an ApplicationInsights.config file to the root of your solution and insert the instrumentation key copied from above. A sample xml for this config file is shown below. **Make sure to mark the ApplicationInsights.config file Build Action to "Content" and Copy to Output Directory to "Copy always"**.
+
+	```xml
+		<?xml version="1.0" encoding="utf-8" ?>
+		<ApplicationInsights>
+			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+		</ApplicationInsights>
+	```
+	
+	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
+
+5. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
 
 ```C#
-
-    public App()
-    {
-       // Initialize Application Insights - substitute your own iKey:
-       WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
-            
-       this.InitializeComponent();
-       this.Suspending += OnSuspending;
-    }
-
+	public App()
+	{
+	   // Add this initilization line. 
+	   WindowsAppInitializer.InitializeAsync();
+	
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
 ```
-  
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 

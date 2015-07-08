@@ -35,7 +35,7 @@ Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
 
 ##Release notes
 
-###4.0.0
+###4.0.0 (07/06/2015)
 
 -   Internal protocol changes to make analytics and push more reliable.
 -   Native push (GCM/ADM) is now also used for in app notifications so you must configure the native push credentials for any type of push campaign.

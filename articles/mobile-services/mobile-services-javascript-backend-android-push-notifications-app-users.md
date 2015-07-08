@@ -78,7 +78,7 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 ##Update the app to log in before registration
 
-[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](../../includes/mobile-services-android-push-notifications-app-users.md)] 
 
 ##Test the app
 
