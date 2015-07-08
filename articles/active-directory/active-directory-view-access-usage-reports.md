@@ -40,7 +40,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
 |	[Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md)					|	May indicate a successful brute force attack.												|
 |	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)					|	May indicate that multiple users are signing in with the same account.						|
-|	Sign ins from IP addresses with suspicious activity	|	May indicate a successful sign in after a sustained intrusion attempt.						|
+|	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
 |	Sign ins from possibly infected devices				|	May indicate an attempt to sign in from possibly infected devices.							|
 |	Irregular sign in activity							|	May indicate events anomalous to users’ sign in patterns.									|
 |	Users with anomalous sign in activity				|	Indicates users whose accounts may have been compromised.									|
@@ -84,14 +84,6 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	RMS enabled application usage						|			|		|	RMS Only	|
 
 ## Report details
-
-### Sign ins from IP addresses with suspicious activity
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>This report includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted. Suspicious activity includes many failed sign in attempts from the same IP address over a short period of time, and other activity that was deemed suspicious. This may indicate that a hacker has been trying to sign in from this IP address.</p><p>Results from this report will show you sign in attempts that were originated from an IP address where suspicious activity was noted, together with the timestamp associated with the sign in.</p> | Directory > Reports tab |
-
-![Sign ins from IP addresses with suspicious activity](./media/active-directory-view-access-usage-reports/signInsFromIPAddressesWithSuspiciousActivity.PNG)]
 
 
 ### Anomalous sign in activity
