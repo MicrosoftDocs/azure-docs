@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -231,6 +231,7 @@ If it's more convenient, you can collect the parameters of an event in a separat
     telemetry.TrackEvent(event);
 
 
+
 #### <a name="timed"></a> Timing events
 
 Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
@@ -433,6 +434,28 @@ If you just want to set default property values for some of the custom events th
     
 Individual telemetry calls can override the default values in their property dictionaries.
 
+
+## Track Dependency
+
+The standard dependency-tracking module uses this API to log calls to external dependencies such as databases or REST APIs. The module automatically discovers some external dependencies, but you might want some additional components to be treated in the same way. 
+
+For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
 
 
 ## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
@@ -692,6 +715,9 @@ If you set any of these values yourself, consider removing the relevant line fro
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
 * **User** Allows users to be counted. In a web app, if there is a cookie, the user Id is taken from that. If there isn't, a new one is generated. If your users have to login to your app, you could set the id from their authenticated ID, so as to provide a more reliable count that is correct even if the user signs in from a different machine. 
 
+
+
+
 ## Limits
 
 There are some limits on the number of metrics and events per application.
@@ -704,6 +730,7 @@ There are some limits on the number of metrics and events per application.
 * *Q: How long is data kept?*
 
     See [Data retention and privacy][data].
+
 
 ## Reference docs
 
