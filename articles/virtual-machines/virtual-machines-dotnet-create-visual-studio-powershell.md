@@ -66,5 +66,5 @@ If you want to customize the publish scripts you created, see more in-depth info
 [2]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_CreateVM.PNG
 [3]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
-[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_CreateVM_Connect.png
+[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
  
