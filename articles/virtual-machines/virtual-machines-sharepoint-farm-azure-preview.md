@@ -1,19 +1,20 @@
 <properties 
 	pageTitle="SharePoint Server Farm" 
-	description="Describes the new SharePoint Server Farm feature available in the Azure Preview Portal" 
+	description="You can quickly create a new SharePoint Server 2013 farm using the SharePoint Server Farm feature in the Azure Preview Portal." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.tgt_pltfrm="vm-windows-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # SharePoint Server Farm
@@ -38,7 +39,7 @@ For the configuration details of both of these farms, see [SharePoint Server Far
  
 To create your SharePoint farm with the SharePoint Server Farm template, do the following:
 
-1. In the [Microsoft Azure Preview Portal](https://portal.azure.com/), click  **New** > **Compute** > **SharePoint Server Farm**. If **SharePoint Server Farm** does not appear, click **New** > **Compute** > **Azure Marketplace**, type **SharePoint** in **Search Everything**, and then click **SharePoint Server Farm**. 
+1. In the [Microsoft Azure Preview Portal](https://portal.azure.com/), click  **New** > **Compute** > **SharePoint Server Farm**. If **SharePoint Server Farm** does not appear, click **New** > **Compute** > **Marketplace**, type **SharePoint** in **Search Compute**, and then click **SharePoint Server Farm**. In the **SharePoint Server Farm** pane, click **Create**.
 2. In the **Create a SharePoint farm** pane, type the name of a resource group.
 3. Type a user name and password for a local administrator account on each virtual machine in your farm. Choose a name and password that is difficult to guess, record it, and store it in a secure location.
 4. If you want the high-availability farm, click **Enable high availability**.
@@ -76,14 +77,13 @@ From the Central Administration SharePoint site, you can configure My sites, Sha
 
 Notes:
 
-- The Azure Preview Portal creates these virtual machines within your subscription.
+- The Azure Preview Portal creates these virtual machines within the specified subscription.
 - The Azure Preview Portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network. 
 - You can administer these servers through Remote Desktop connections. For more information, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
 
-
 ## Azure Resource Manager
 
-SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines in Service Management. To create SharePoint Server 2013 farms in Resource Manager, see [Deploy SharePoint Farms with Azure Resource Manager Templates](virtual-machines-workload-template-sharepoint.md).
 
 ## Additional Resources
 
