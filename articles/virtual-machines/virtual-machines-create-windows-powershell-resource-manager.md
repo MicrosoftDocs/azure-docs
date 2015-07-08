@@ -30,7 +30,7 @@ If you already have installed Azure PowerShell, you will have Azure PowerShell v
 
 	Get-Module azure | format-table version
 
-If you haven't installed Azure PowerShell or you need to update the version of Azure PowerShell installed, use the instructions in [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+If you haven't installed Azure PowerShell or you need to update the version of Azure PowerShell installed, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 Now open an Azure PowerShell command prompt, and sign in to Azure with this command:
 
@@ -140,4 +140,4 @@ Here is an example of what you might see:
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
+[How to install and configure Azure PowerShell](../powershell-install-configure.md)
