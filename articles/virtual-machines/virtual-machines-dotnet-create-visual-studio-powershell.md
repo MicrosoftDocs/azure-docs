@@ -54,6 +54,7 @@ To create a virtual machine when you create a website, follow these steps:
 
 <br/>
 13. (Optional) You can connect to the new virtual machine. In **Server Explorer**, expand the **Virtual Machines** node, choose the node for the virtual machine you created, and on its shortcut menu, choose **Connect with Remote Desktop**.
+
  ![][5]
 
 
