@@ -134,7 +134,7 @@ The following table contains an alphabetical list of StorSimple Snapshot Manager
 | Edit | Click **Backup Policies**, and then right-click a policy in the **Results** pane. | Click **Edit** to change the backup schedule for a volume group. |
 | Export List | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **Export List** to save a list in a comma-separated value (CSV) file. You can then import this file into a spreadsheet application for analysis. |
 | Help | Click any node or result. (This item appears on all **Action** menus and **Actions** panes.) | Click **Help** to open online Help in a separate browser window. |
-| New Window from Here | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **New Window from Here** to open a new StorSimple Snapshot Manager window. | 
+| New Window from Here | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **New Window from Here** to open a new StorSimple Snapshot Manager window.|
 | Refresh | Click any node or result (This item appears on all **Action** menus and **Actions** panes.) | Click **Refresh** to update the currently displayed StorSimple Snapshot Manager window. |
 | Refresh Device | Click the **Devices** node, and right-click a device in the **Results** pane. | Click **Refresh Device** to synchronize a specific connected device with StorSimple Snapshot Manager. |
 | Refresh Devices | Right-click the **Devices** node. | Click **Refresh Devices** to synchronize your list of connected devices with StorSimple Snapshot Manager. |
@@ -226,10 +226,10 @@ The following table describes items that appear on the Help menu.
 
 | Menu item  | Description  |
 |:-----------|:-------------|
-| Help on StorSimple Snapshot Manager | Click **Help on StorSimple Snapshot Manager** to open StorSimple Snapshot Manager help in a separate window. | 
+| Help on StorSimple Snapshot Manager | Click **Help on StorSimple Snapshot Manager** to open StorSimple Snapshot Manager help in a separate window. |
 | Help Topics |Click **Help Topics** to open MMC online help in a separate window. |
 | TechCenter Web Site | Click **TechCenter Web Site** to open the Microsoft TechNet Tech Center home page in a separate window. |
-| About Microsoft Management Console | Click **About Microsoft Management Console** to see which version of the Microsoft Management Console is installed on your system. | 
+| About Microsoft Management Console | Click **About Microsoft Management Console** to see which version of the Microsoft Management Console is installed on your system. |
 | About StorSimple Snapshot Manager | Click **About StorSimple Snapshot Manager** to see which version of the snap-in is installed on your system. |
 
 ## Tool bar
@@ -381,7 +381,7 @@ The **Results** pane is the center pane in the StorSimple Snapshot Manager UI. I
 
 To see the following example, click the **Volume Groups** node in the **Scope** pane. The **Results** pane displays a list of volume groups with details about each group.
 
-![Results pane](./media/storsimple-use-snapshot-manager/) 
+![Results pane](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
 
 **Figure 11: StorSimple Snapshot Manager Results pane**
 
@@ -420,8 +420,8 @@ The following table describes the keys that you can use to navigate the StorSimp
 | Navigation key  | Action  |
 |:----------------|:--------| 
 | Down arrow key | Use the down arrow key to move vertically to the next item in a menu or pane. |
-| Enter | Press the Enter key to complete an action and then proceed to the next step. For example, you can press Enter to select **Next**, **OK**, or **Create**, and then go to the next step in a wizard.| 
-| Esc | Press the Esc key to close a menu or to cancel and close a page.| 
+| Enter | Press the Enter key to complete an action and then proceed to the next step. For example, you can press Enter to select **Next**, **OK**, or **Create**, and then go to the next step in a wizard.|
+| Esc | Press the Esc key to close a menu or to cancel and close a page.|
 | F1 | Press the F1 key to view a help topic for the currently active window.|
 | F5 | Press the F5 key to refresh a node. |
 | F6 | Press the F6 key to move from the **Scope** pane to the **Results** pane.|
@@ -437,7 +437,7 @@ The following table describes the shortcut key combinations for the menu bar. Af
 
 | Shortcut | Result                    | Menu Shortcut Key | Result          |
 |:---------|:--------------------------|:------------------|:----------------|
-| ALT+F    | Opens the **File** menu.  | N | Opens a new console instance.   | 
+| ALT+F    | Opens the **File** menu.  | N | Opens a new console instance.   |
 |          |                           | O | Opens the **Administrative Tools** page. |
 |          |                           | S | Saves the StorSimple Snapshot Manager console.|
 |          |                           | A | Opens the **Save As** page. |
@@ -452,7 +452,7 @@ The following table describes the shortcut key combinations for the menu bar. Af
 | ALT+V    | Opens the **View** menu.  | A | Opens the **Add/Remove Columns** page. |
 |          |                           | U | Opens the **Customize View** page. |
 | ALT+O    | Opens the **Favorites** menu. | A | Opens the **Add to Favorites** page. |
-|          |                           | O | Opens the **Organize Favorites** page.| 
+|          |                           | O | Opens the **Organize Favorites** page.|
 | ALT+W    | Opens the **Window** menu.| N | Opens another StorSimple Snapshot Manager window.|
 |          |                           | C | Displays all open console windows in a cascading style.|
 |          |                           | T | Displays all open console windows in a grid pattern. |
