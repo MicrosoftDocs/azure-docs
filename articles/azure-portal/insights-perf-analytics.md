@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitor application performance" 
+	pageTitle="Monitor Azure web app performance" 
 	description="Chart load and response time, dependency information and set alerts on performance." 
 	services="azure-portal"
     documentationCenter="na"
@@ -15,9 +15,9 @@
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
-# Monitor application performance
+# Monitor Azure web app performance
 
-In the [Azure Portal](http://portal.azure.com) you can set up monitoring to collect the  statistics and details on the application dependencies in your web apps or virtual machines.
+In the [Azure Portal](http://portal.azure.com) you can set up monitoring to collect the  statistics and details on the application dependencies in your [Azure web apps](../app-service-web/app-service-web-overview.md) or [virtual machines](../virtual-machines/virtual-machines-about.md).
 
 Azure supports Application performance monitoring (or, *APM*) by leveraging *extensions*. These extensions are installed into your application and collect the data and report back to the monitoring services. 
 
