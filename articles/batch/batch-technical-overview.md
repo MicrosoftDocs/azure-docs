@@ -71,7 +71,7 @@ Figure 2 shows a simplified workflow to submit an application to a Batch pool wh
 6.	Run the application and monitor the results of the output.
 
 
-### Cloud-enable a compute-intesive app
+### Cloud-enable a compute-intensive app
 
 You can use the Preview Batch Apps API to wrap an existing application so it runs as a service on a pool of compute nodes that Batch manages in the background. The application might be one that runs today on client workstations or a compute cluster. You can develop the service to let users offload peak work to the cloud, or run their work entirely in the cloud. The Batch Apps framework handles the movement of input and output files, the splitting of jobs into tasks, job and task processing, and data persistence.
 
