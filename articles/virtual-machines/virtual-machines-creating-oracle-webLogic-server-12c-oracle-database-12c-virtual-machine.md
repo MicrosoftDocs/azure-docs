@@ -27,7 +27,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 	3. Do not add any endpoints at this time.
 
-9.	Choose or create a resource group. For more information, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).
+9.	Choose or create a resource group. For more information, see [Using the Azure Preview Portal to manage your Azure resources](https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/).
 
 10. Choose a **Subscription**.
 
@@ -43,7 +43,7 @@ Follow the instructions in [Create an Oracle WebLogic Server 12c virtual machine
 ##Additional resources
 [Miscellaneous considerations for Oracle virtual machine images](miscellaneous-considerations-for-oracle-virtual-machine-images-new-article.md)
 
-[List of Oracle virtual machine images](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+[List of Oracle virtual machine images](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-oracle-list-oracle-virtual-machine-images/)
 
 [Connecting to Oracle Database from a Java Application](http://docs.oracle.com/cd/E11882_01/appdev.112/e12137/getconn.htm#TDPJD136)
 
