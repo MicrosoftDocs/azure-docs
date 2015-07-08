@@ -76,27 +76,35 @@ For more information about each workflow, click the appropriate entry in the tab
 |---|---|---|
 |Create a service</br>Delete a service</br>Get the service registration key</br>Regenerate the service registration key|StorSimple Manager service|[Deploy a StorSimple Manager service](storsimple-manage-service)
 |Change the service data encryption key</br>View the operation logs|StorSimple Manager service → Dashboard|[Use StorSimple Manager service dashboard](https://azure.microsoft.com/en-us/documentation/articles/storsimple-service-dashboard/)|
-|Deactivate a device</br>Delete a device</br>Disaster recovery and device failover|StorSimple Manager service → Devices|[Deactivate or delete a device]()</br></br>[Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery)
-|List backups for a volume</br>Select a backup set</br>Delete a backup set</br>Clone a volume</br>Restore a backup set|StorSimple Manager service → Backup Catalog|[Manage backups](storsimple-manage-backups)</br></br></br>[Clone a volume](storsimple-clone-volume)</br>[Restore a backup set](storsimple-restore-from-backup-set)
-|About  storage accounts</br>Add a storage account</br>Edit a storage account</br>Delete a storage account</br>Key rotation of storage accounts</br></br>About bandwidth templates</br>Add a bandwidth template</br>Edit a bandwidth template</br>Delete a bandwidth template</br>Use a default bandwidth template</br>Create an all-day bandwidth template that starts at a specified time</br></br>About access control records</br>Create an access control record</br>Edit an access control record</br>Delete an access control record|StorSimple Manager service → Configure|[Manage storage accounts](storsimple-manage-storage-accounts)</br></br></br></br>[Manage bandwidth templates](storsimple-manage-bandwidth-templates)</br></br></br></br></br></br></br>[Manage access control records](storsimple-manage-acrs)|
+|Deactivate a device</br>Delete a device|StorSimple Manager service → Devices|[Deactivate or delete a device]()|
+|Disaster recovery and device failover|StorSimple Manager service → Devices|[Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery)|
+|List backups for a volume</br>Select a backup set</br>Delete a backup set|StorSimple Manager service → Backup Catalog|[Manage backups](storsimple-manage-backups)|
+|Clone a volume|StorSimple Manager service → Backup Catalog|[Clone a volume](storsimple-clone-volume)|
+|Restore a backup set|StorSimple Manager service → Backup Catalog|[Restore a backup set](storsimple-restore-from-backup-set)|
+|About  storage accounts</br>Add a storage account</br>Edit a storage account</br>Delete a storage account</br>Key rotation of storage accounts</br></br></br></br>|StorSimple Manager service → Configure|[Manage storage accounts](storsimple-manage-storage-accounts)|
+|About bandwidth templates</br>Add a bandwidth template</br>Edit a bandwidth template</br>Delete a bandwidth template</br>Use a default bandwidth template</br>Create an all-day bandwidth template that starts at a specified time|StorSimple Manager service → Configure|[Manage bandwidth templates](storsimple-manage-bandwidth-templates)|
+|About access control records</br>Create an access control record</br>Edit an access control record</br>Delete an access control record|StorSimple Manager service → Configure|[Manage access control records](storsimple-manage-acrs)|
 |View job details</br>Cancel a job|StorSimple Manager service → Jobs|[Manage jobs](storsimple-manage-jobs)
 |Receive alert notifications</br>Manage alerts</br>Review alerts|StorSimple Manager service → Alerts|[Manage alerts on your StorSimple device](storsimple-manage-alerts)
 |View connected initiators</br>Find the device serial number</br>Find the target IQN|StorSimple Manager service → Devices → Dashboard|
 |Monitor|StorSimple Manager service → Devices → Monitor|
 |Add a volume container</br>Modify a volume container</br>Delete a volume container|StorSimple Manager service → Devices → Volume Containers|[Manage volume containers](storsimple-manage-volume-containers)|
 |Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume|StorSimple Manager service → Devices → Volume Containers → Volumes|[Manage volumes](storsimple-manage-volumes)|
-|Configure device settings</br>Configure time settings</br>Configure DNS settings</br>View web proxy settings</br>Configure network interfaces</br>Configure Snapshot Manager</br>Configure device administrator password</br>Configure remote management</br>Configure alert settings</br></br>Configure CHAP for your StorSimple device|Management Portal → Devices → Configure|[Configure CHAP for your StorSimple device](https://msdn.microsoft.com/library/dn772351.aspx)
+|Configure device settings</br>Configure time settings</br>Configure DNS settings</br>View web proxy settings</br>Configure network interfaces</br>Configure Snapshot Manager</br>Configure device administrator password</br>Configure remote management</br>Configure alert settings|Management Portal → Devices → Configure||
+|Configure CHAP for your StorSimple device|Management Portal → Devices → Configure|[Configure CHAP for your StorSimple device](https://msdn.microsoft.com/library/dn772351.aspx)|
 |Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules|Management Portal → Devices → Backup policies|[Manage backup policies](storsimple-manage-backup-policies)|
-|Manage device controllers</br>Monitor hardware status (on-premises device only)</br>Create a support package</br>Install software updates|Management Portal → Devices → Maintenance|
+|Manage device controllers</br>Monitor hardware status (on-premises device only)|Management Portal → Devices → Maintenance|
+|Create a support package |Management Portal → Devices → Maintenance| |
+|Install software updates|Management Portal → Devices → Maintenance| |
 
 ##Next steps
 If you experience any issues with the day-to-day operation of your StorSimple device or any of its hardware components, refer to:
 
-- [Troubleshoot an operational device](https://azure.microsoft.com/en-us/documentation/articles/storsimple-troubleshoot-operational-device/)
-- [Use StorSimple monitoring indicator LEDs](https://azure.microsoft.com/en-us/documentation/articles/storsimple-monitoring-indicators/)
+- [Troubleshoot an operational device](storsimple-troubleshoot-operational-device/)
+- [Use StorSimple monitoring indicator LEDs](storsimple-monitoring-indicators/)
 - [Use alerts and errors quick reference](https://msdn.microsoft.com/library/azure/dn905365.aspx)
 
 
-If you continue to see issues, you want to:
+For technical assistance:
 
 -  [Contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx)
