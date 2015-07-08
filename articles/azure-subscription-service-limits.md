@@ -143,7 +143,7 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## RemoteApp Limits
+## Azure RemoteApp Limits
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
