@@ -184,13 +184,13 @@ If you can create a Remote Desktop connection with a virtual machine in the same
 - The endpoint configuration for Remote Desktop traffic on the target virtual machine. The private TCP port of the endpoint must match the TCP port on which the Remote Desktop Services service on the virtual machine is listening, which by default is 3389.
 - The ACL for the Remote Desktop traffic endpoint on the target virtual machine. ACLs allow you to specify allowed or denied incoming traffic from the Internet based on its source IP address. Misconfigured ACLs can prevent incoming Remote Desktop traffic to the endpoint. Examine your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server is allowed. For more information, see [What is a Network Access Control List (ACL)?](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-acl/).
 
-To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint, choosing a random port in the range 49152–65535 for the external port number. For more information, see [Set up endpoints on a virtual machine in Azure](virtual-machines-set-up-endpoints.md).
+To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint, choosing a random port in the range 49152–65535 for the external port number. For more information, see [How to set up endpoints to a virtual machine](virtual-machines-set-up-endpoints.md).
 
 ### <a id="nsgs"></a>Source 4: Network Security Groups
 
 Network Security Groups allow you have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Examine your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed.
 
-For more information, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md).
+For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 ### Source 5: Windows-based Azure virtual machine
 
