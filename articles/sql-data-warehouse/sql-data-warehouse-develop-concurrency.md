@@ -209,6 +209,7 @@ Open a connection to the master database for your SQL Data Warehouse and execute
 
 ```
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
+
 CREATE USER newperson for LOGIN newperson
 ```
 
