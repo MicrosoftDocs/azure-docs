@@ -77,6 +77,17 @@ Below is a walkthrough to configure an Event hub as an input. To start using an 
 	- The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   It is recommended to use a distinct consumer Group for each Stream Analytics job.
 5. What serialization format is utilized for the data (Avro, CSV, JSON).
 
+First select **ADD INPUT** from the Inputs page of the Stream Analytics job.
+
+![image5](./media/stream-analytics-connect-data-event-inputs/05-stream-analytics-create-inputs.png)
+
+Then input the information into the fields as shown below for the Event hub.
+
+![image5](./media/stream-analytics-connect-data-event-inputs/05-stream-analytics-create-inputs.png)
+
+Then validate the event serialization format is correct for the data stream.
+
+![image5](./media/stream-analytics-connect-data-event-inputs/05-stream-analytics-create-inputs.png)
 
 
 ## Get help
