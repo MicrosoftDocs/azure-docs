@@ -117,6 +117,12 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 
+## Search Limits
+
+[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+
+For additional details on Azure Search limits, see [Limits and Constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+
 ## SQL Database Limits
 
 [AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
@@ -137,7 +143,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## RemoteApp Limits
+## Azure RemoteApp Limits
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
@@ -153,6 +159,9 @@ For additional details on storage account limits, see [Azure Storage Scalability
 ## Backup Limits
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+##Multi-Factor Authentication
+[AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ## See Also
 
