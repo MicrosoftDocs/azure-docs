@@ -23,7 +23,7 @@ Microsoft Azure AD Application Proxy lets you publish applications, such as Shar
 
 This section walks you through enabling Microsoft Azure AD Application Proxy for your cloud directory in Azure AD, installing the Application Proxy Connector on your private network, registering the Connector with your Microsoft Azure AD tenant subscription.
 
-##Application Proxy Prerequisites
+##Application Proxy prerequisites
 Before you can enable and use Application Proxy services, you need to have:
 
 - An Microsoft Azure administrator account. If you don’t’ have one, you can get one here.
@@ -52,7 +52,7 @@ If your firewall enforces traffic according to originating users, open these por
 	![Enable Application Proxy](http://i.imgur.com/87woFzq.png) <p>
 4. Click Download now at the bottom of the screen. This will take you to the download page. Read and accept the license terms and click Download to save the Windows Installer file (.exe) for the Application Proxy Connector. 
 
-##Step 2: Install and Register the Connector
+##Step 2: Install and register the Connector
 1. Run AADApplicationProxyConnectorInstaller.exe on the server you prepared (see Application Proxy prerequisites).
 2. Follow the instructions in the wizard to install.
 3. During installation you will be prompted to register the Connector with your active Application Proxy account.
@@ -70,7 +70,7 @@ If you want to uninstall the Connector, after uninstalling the Connector service
 
 
 
-## Additional Resources
+## Additional resources
 
 * [Sign up for Azure as an organization](..sign-up-organization.md)
 * [Azure Identity](..fundamentals-identity.md)
