@@ -116,7 +116,7 @@ For details on this report, check out [Sign ins from IP addresses with suspiciou
 | :-------------     | :-------        |
 | <p>Use this report when you want to see sign ins from devices on which some malware (malicious software) may be running. We correlate IP addresses of sign ins against IP addresses from which an attempt was made to contact a malware server.</p><p>Recommendation: Since this report assumes an IP address was associated with the same device in both cases, we recommend that you contact the user and scan the user's device to be certain.</p><p>For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Directory > Reports tab |
 
-![Sign ins from possibly infected devices](./media/active-directory-view-access-usage-reports/signInsFromPossiblyInfectedDevices.PNG)]
+![Sign ins from possibly infected devices](./media/active-directory-view-access-usage-reports/signInsFromPossiblyInfectedDevices.PNG)
 
 
 ### Users with anomalous sign in activity
@@ -125,7 +125,7 @@ For details on this report, check out [Sign ins from IP addresses with suspiciou
 | :-------------     | :-------        |
 | <p>Use this report when you want to view all user accounts for which anomalous sign in activity has been identified. This report includes data from all other anomalous activity reports. Results from this report will show you details about the user, the reason why the sign in event was identified as anomalous, the date and time, and other relevant information about the event.</p> | Directory > Reports tab |
 
-![Users with anomalous sign in activity](./media/active-directory-view-access-usage-reports/usersWithAnomalousSignInActivity.PNG)]
+![Users with anomalous sign in activity](./media/active-directory-view-access-usage-reports/usersWithAnomalousSignInActivity.PNG)
 
 
 ## Integrated Application reports
@@ -136,7 +136,7 @@ For details on this report, check out [Sign ins from IP addresses with suspiciou
 | :-------------     | :-------        |
 | Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. | Directory > Reports tab |
 
-![Application usage summary](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)]
+![Application usage summary](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
 ### Application usage: detailed
@@ -159,7 +159,7 @@ For details on this report, check out [Sign ins from IP addresses with suspiciou
 | :-------------     | :-------        |
 | Use this to monitor errors that occur during the synchronization of accounts from SaaS applications to Azure Active Directory. | Directory > Reports tab |
 
-![Account provisioning errors](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)]
+![Account provisioning errors](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
 
 
 ## User-specific reports
@@ -202,7 +202,7 @@ Only certain types of sign in events will appear in the User Activity report.
 | :-------------     | :-------        |
 | Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days. <br /> For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) | Directory > Reports tab |
 
-![Audit report](./media/active-directory-view-access-usage-reports/auditReport.PNG)]
+![Audit report](./media/active-directory-view-access-usage-reports/auditReport.PNG)
 
 
 ### Groups activity report
@@ -211,7 +211,7 @@ Only certain types of sign in events will appear in the User Activity report.
 | :-------------     | :-------        |
 | Shows all activity for the self-service managed groups in your directory. | Directory > Users > <i>User</i> > Devices tab |
 
-![Self service groups activity](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)]
+![Self service groups activity](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
 
 ### Password reset registration activity report
@@ -220,7 +220,7 @@ Only certain types of sign in events will appear in the User Activity report.
 | :-------------     | :-------        |
 | Shows all password reset registrations that have occurred in your organization | Directory > Reports tab |
 
-![Password reset registration activity](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)]
+![Password reset registration activity](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
 
 
 ### Password reset activity
@@ -229,7 +229,7 @@ Only certain types of sign in events will appear in the User Activity report.
 | :-------------     | :-------        |
 | Shows all password reset attempts that have occurred in your organization. | Directory > Reports tab |
 
-![Password reset activity](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)]
+![Password reset activity](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
 
 
 ## Things to consider if you suspect security breach
