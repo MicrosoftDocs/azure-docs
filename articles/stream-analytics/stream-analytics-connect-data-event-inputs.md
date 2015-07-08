@@ -36,37 +36,48 @@ For example if the job has a reference input configured in the portal with the p
 ## Creation of a data stream input
 Creating a data stream input will present the user with two choices, **Event Hub** or **Blob storage**.
 
-### Creating a Blob Storage input
+### Creating a Blob storage input data stream
 
-In this example we'll configure Blog storage as our input. To start using an Azure Blog storage input, you should have the following information collect about your Table:
+Below is a walkthrough to configure Blog storage as an input. To start using an Azure Blog storage input, the user should have the following information collect about the Table:
 
-1. If your storage is in a different subscription than your streaming job you will need the Storage Account Name and Storage Account Key.
+1. If the storage account is in a different subscription than the streaming job the user will need the Storage Account Name and Storage Account Key.
 2. The container name.
 3. The file name prefix.
 4. What serialization format is utilized for the data (Avro, CSV, JSON).
 
 On the inputs tab of the Stream Analytics job, click **ADD INPUT** and then select the default option, **Data stream**.
-![image1](./media/stream-analytics-create-inputs/01-stream-analytics-create-inputs.png)
+![image1](./media/stream-analytics-connect-data-event-inputs/01-stream-analytics-create-inputs.png)
 
 Next select **Blob storage**
 
-![image2](./media/stream-analytics-create-inputs/02-stream-analytics-create-inputs.png)
+![image2](./media/stream-analytics-connect-data-event-inputs/02-stream-analytics-create-inputs.png)
 
-Then input your information into the fields as shown below for your storage account.
+Then input the information into the fields as shown below for the storage account.
 
-![image3](./media/stream-analytics-create-inputs/03-stream-analytics-create-inputs.png)
+![image3](./media/stream-analytics-connect-data-event-inputs/03-stream-analytics-create-inputs.png)
 
-> [AZURE.NOTE]If you check the box of 'Configure Advanced Setting', it leads you to following configuration. Otherwise,  ASA scans all the blobs in the container.
+> [AZURE.NOTE]If the user checks the box of 'Configure Advanced Setting', it leads to following the configuration. Otherwise,  ASA will scan all the blobs in the container.
 
 On the next menu, choose prefix pattern for path hierarchy that contains the blob.
 
-![image4](./media/stream-analytics-create-inputs/04-stream-analytics-create-inputs.png)
+![image4](./media/stream-analytics-connect-data-event-inputs/04-stream-analytics-create-inputs.png)
 
-Now choose the correct serialization setting for your data. The options are JSON, CSV, and Avro.
+Now choose the correct serialization setting for the data. The options are JSON, CSV, and Avro.
 
-![image5](./media/stream-analytics-create-inputs/05-stream-analytics-create-inputs.png)
+![image5](./media/stream-analytics-connect-data-event-inputs/05-stream-analytics-create-inputs.png)
 
-### Creating an Event hub input
+### Creating an Event hub input data stream
+
+Below is a walkthrough to configure an Event hub as an input. To start using an Event hub input, the user should have the following information collect about the Table:
+
+1. The name of the Service Bus Namespace. 
+2. The name of the Event hub.
+3. The Event hub Policy Name.
+4. Optional: Event Hub Consumer Group name.
+	- The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   It is recommended to use a distinct consumer Group for each Stream Analytics job.
+5. What serialization format is utilized for the data (Avro, CSV, JSON).
+
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
