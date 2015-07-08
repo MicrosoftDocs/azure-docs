@@ -1,5 +1,5 @@
 <properties
-   pageTitle="REST-Based Application Lifecycle Sample"
+   pageTitle="REST-Based Application Lifecycle Sample | Microsoft Azure"
    description="A Microsoft Azure Service Fabric sample that shows the Application Lifecycle by using the Service Fabric REST interface."
    services="service-fabric"
    documentationCenter=".net"
