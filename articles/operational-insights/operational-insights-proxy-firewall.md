@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/04/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Configure proxy and firewall settings for Operational Insights
@@ -189,4 +189,3 @@ Use the following procedures to register your Operations Manager management grou
 ![add counters](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in Operational Insights and the configured log collection policy.
 ![Performance Monitor showing activity](./media/operational-insights-proxy-firewall/sendingdata2.png)
- 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
 # Connect millions of things to the cloud
@@ -21,14 +21,14 @@
 Smart and connected "things" increasingly proliferate in modern technology ecosystems. Sensors in cars, homes, infrastructure, and appliances produce new opportunities to provide improved product quality, expanded services, and new customer engagement models. Microsoft Azure Service Bus can help you connect this emerging "Internet of things."
 
 ## Explore
-- [Event Hubs](http://msdn.microsoft.com/library/dn789973.aspx)
+- [Event Hubs](event-hubs-overview.md)
 - [Sharding Pattern](http://msdn.microsoft.com/library/dn589797.aspx)
-- [Service Bus and AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx)
+- [Service Bus and AMQP 1.0](http://msdn.microsoft.com/library/azure/jj841071.aspx)
 - [Introduction to Service Bus](http://azure.microsoft.com/documentation/services/service-bus/)
  
 ## Build
-- [Partitioning Messaging Entities](http://msdn.microsoft.com/library/dn520246.aspx)
-- [Service Bus Topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Partitioning messaging entities](http://msdn.microsoft.com/library/azure/dn520246.aspx)
+- [Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - [Using Apache Qpid Proton C with Azure Service Bus on Linux and Windows](http://msdn.microsoft.com/library/dn235560.aspx) 
  
 ## Popular

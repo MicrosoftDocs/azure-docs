@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/06/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -117,6 +117,12 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 
+## Search Limits
+
+[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+
+For additional details on Azure Search limits, see [Limits and Constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+
 ## SQL Database Limits
 
 [AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
@@ -129,7 +135,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 ## Service Bus Limits
 
-[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
 
 ## Active Directory Limits
@@ -137,7 +143,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## RemoteApp Limits
+## Azure RemoteApp Limits
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
@@ -149,6 +155,10 @@ For additional details on storage account limits, see [Azure Storage Scalability
 ## Operational Insights Limits
 
 [AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
+
+## Backup Limits
+
+[AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
 ## See Also
 

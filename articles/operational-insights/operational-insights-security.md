@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="07/02/2015"
 	ms.author="banders"/>
 
 # Operational Insights security
@@ -155,4 +155,3 @@ The Operational Insights service processes the raw data, and the aggregated proc
 ### 4. Use Operational Insights to access the data
 
 You can sign in to Operational Insights by using the account you set up previously. All traffic between Operational Insights and the Operational Insights service is sent over a secure HTTPS channel.
- 

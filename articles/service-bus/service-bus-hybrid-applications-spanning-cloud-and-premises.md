@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
 # Enable Hybrid Applications Spanning Cloud and Premises
 
-Hybrid cloud/on-premises applications are a reality of modern IT environments. Service Bus helps you leverage existing on-premises assets and create reliable and secure solutions to augment and expand your current infrastructure.
+Hybrid cloud/on-premises applications are a reality of modern IT environments. Microsoft Azure Service Bus helps you leverage existing on-premises assets and create reliable and secure solutions to augment and expand your current infrastructure.
 
 ## Explore
 
@@ -34,8 +34,9 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments. S
 - [How to integrate a Mobile Service with a REST Service Bus Relay Service](http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx)
  
 ## Popular
-- [Service Bus Pricing FAQ](http://msdn.microsoft.com/library/Hh667438.aspx)
-- [Service Bus REST API Reference](http://msdn.microsoft.com/library/hh780717.aspx)
+- [Service Bus Pricing Info](http://azure.microsoft.com/pricing/details/service-bus/)
+- [Service Bus Pricing FAQ](http://msdn.microsoft.com/library/azure/Hh667438.aspx)
+- [Service Bus REST API Reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 - [Sign up for a free Azure trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Related services

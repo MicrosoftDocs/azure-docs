@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/09/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Operations Manager considerations with Operational Insights
@@ -227,4 +227,3 @@ Use the following steps to set the account when you connect Operational Insights
 ## Geographic locations
 
 If you want to analyze data from servers in diverse geographic locations, consider having one management group per location. This can improve the performance of data transfer from the agent to the management group.
- 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Use MapReduce in Hadoop on HDInsight
@@ -191,4 +191,3 @@ Although MapReduce provides powerful diagnostic abilities, it can be a bit chall
 [powershell-install-configure]: ../powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
- 
