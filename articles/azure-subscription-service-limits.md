@@ -97,7 +97,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 
-## App Service (Websites) Limits
+## App Service Limits - Web Apps, Mobile Apps, API Apps, Logic Apps
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
