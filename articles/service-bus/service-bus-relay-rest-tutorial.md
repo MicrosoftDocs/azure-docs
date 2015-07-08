@@ -45,82 +45,82 @@ The primary difference between a basic Service Bus contract and a REST-style con
 
 1. Open Visual Studio as an administrator: right-click the program in the Start menu, and then click **Run as administrator**.
 
-1. Create a new console application project. Click the **File** menu and select **New**, then **Project**. In the **New Project** dialog, click **Visual C#** (if **Visual C#** does not appear, look under **Other Languages**), select the **Console Application** template, and name it **ImageListener**. Use the default **Location**. Click **OK** to create the project.
+2. Create a new console application project. Click the **File** menu and select **New**, then **Project**. In the **New Project** dialog, click **Visual C#** (if **Visual C#** does not appear, look under **Other Languages**), select the **Console Application** template, and name it **ImageListener**. Use the default **Location**. Click **OK** to create the project.
 
-1. For a C# project, Visual Studio creates a `Program.cs` file. This class contains an empty `Main()` method, required for a console application project to build correctly.
+3. For a C# project, Visual Studio creates a `Program.cs` file. This class contains an empty `Main()` method, required for a console application project to build correctly.
 
-1. Add a reference to **System.ServiceModel.dll** to the project:
+4. Add a reference to **System.ServiceModel.dll** to the project:
 	1. In **Solution Explorer**, right-click the **References** folder under the project folder and then click **Add Reference**. 
 	2. Click the **.NET** tab in the **Add Reference** dialog and scroll down until you see **System.ServiceModel**. Select it, then click **OK**.
 
-1. Repeat the previous step to add a reference to the **System.ServiceModel.Web.dll** assembly.
+5. Repeat the previous step to add a reference to the **System.ServiceModel.Web.dll** assembly.
 
-1. Add `using` statements for the **System.ServiceModel**, **System.ServiceModel.Channels**, **System.ServiceModel.Web**, and **System.IO** namespaces.
+6. Add `using` statements for the **System.ServiceModel**, **System.ServiceModel.Channels**, **System.ServiceModel.Web**, and **System.IO** namespaces.
 
-  ```c
-  using System.ServiceModel;
-  using System.ServiceModel.Channels;
-  using System.ServiceModel.Web;
-  using System.IO;
-  ```
+	```c
+  	using System.ServiceModel;
+  	using System.ServiceModel.Channels;
+  	using System.ServiceModel.Web;
+  	using System.IO;
+	```
 
 	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) is the namespace that enables programmatic access to basic features of WCF. Service Bus uses many of the objects and attributes of WCF to define service contracts. You will use this namespace in most of your Service Bus relay applications. Similarly, [System.ServiceModel.Channels](https://msdn.microsoft.com/en-us/library/system.servicemodel.channels.aspx) helps define the channel, which is the object through which you communicate with Service Bus and the client web browser. Finally, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contains the types that enable you to create web-based applications.
 
 7. Rename the namespace for the program from the Visual Studio default to **Microsoft.ServiceBus.Samples**.
 
-  ```c
-  namespace Microsoft.ServiceBus.Samples
-  {
-	 	 ...
-  ```
+ 	```c
+	namespace Microsoft.ServiceBus.Samples
+	{
+		...
+	```
 
-1. Directly after the namespace declaration, define a new interface named **IImageContract** and apply the **ServiceContractAttribute** attribute to the interface with a value of `http://samples.microsoft.com/ServiceModel/Relay/`. The namespace value differs from the namespace that you use throughout the scope of your code. The namespace value is used as a unique identifier for this contract, and should have version information. For more information, see [Service Versioning](http://go.microsoft.com/fwlink/?LinkID=180498). Specifying the namespace explicitly prevents the default namespace value from being added to the contract name.
+8. Directly after the namespace declaration, define a new interface named **IImageContract** and apply the **ServiceContractAttribute** attribute to the interface with a value of `http://samples.microsoft.com/ServiceModel/Relay/`. The namespace value differs from the namespace that you use throughout the scope of your code. The namespace value is used as a unique identifier for this contract, and should have version information. For more information, see [Service Versioning](http://go.microsoft.com/fwlink/?LinkID=180498). Specifying the namespace explicitly prevents the default namespace value from being added to the contract name.
 
-  ```c
-  [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
-  public interface IImageContract
-  {
-  }
-  ```
+	```c
+	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
+	public interface IImageContract
+	{
+	}
+	```
 
-1. Within the `IImageContract` interface, declare a method for the single operation the `IImageContract` contract exposes in the interface and apply the `OperationContractAttribute` attribute to the method that you want to expose as part of the public Service Bus contract.
+9. Within the `IImageContract` interface, declare a method for the single operation the `IImageContract` contract exposes in the interface and apply the `OperationContractAttribute` attribute to the method that you want to expose as part of the public Service Bus contract.
 
-  ```c
-  public interface IImageContract
-  {
-      [OperationContract]
-      Stream GetImage();
-  }
-  ```
+	```c
+	public interface IImageContract
+	{
+		[OperationContract]
+		Stream GetImage();
+	}
+	```
 
-1. Next to the **OperationContract** attribute, apply the **WebGet** attribute.
+10. Next to the **OperationContract** attribute, apply the **WebGet** attribute.
 
-  ```c
-  public interface IImageContract
-  {
-      [OperationContract, WebGet]
-      Stream GetImage();
-  }
-  ```
+	```c
+	public interface IImageContract
+	{
+		[OperationContract, WebGet]
+		Stream GetImage();
+	}
+	```
 
-  Doing so enables Service Bus to route HTTP GET requests to **GetImage**, and to translate the return values of **GetImage** into an HTTP GETRESPONSE reply. Later in the tutorial, you will use a web browser to access this method, and to display the image in the browser.
+	Doing so enables Service Bus to route HTTP GET requests to **GetImage**, and to translate the return values of **GetImage** into an HTTP GETRESPONSE reply. Later in the tutorial, you will use a web browser to access this method, and to display the image in the browser.
 
-1. Directly after the `IImageContract` definition, declare a channel that inherits from both the `IImageContract` and `IClientChannel` interfaces:
+11. Directly after the `IImageContract` definition, declare a channel that inherits from both the `IImageContract` and `IClientChannel` interfaces:
 		
-  ```c
-  [ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-  public interface IImageContract
-  {
-      [OperationContract, WebGet]
-      Stream GetImage();
-  }
+	```c
+	[ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	public interface IImageContract
+	{
+		[OperationContract, WebGet]
+		Stream GetImage();
+	}
   
-  public interface IImageChannel : IImageContract, IClientChannel { }
-  ```
+	public interface IImageChannel : IImageContract, IClientChannel { }
+	```
 
-  A channel is the WCF object through which the service and client pass information to each other. Later, you will create the channel in your host application. Service Bus then uses this channel to pass the HTTP GET requests from the browser to your **GetImage** implementation. Service Bus also uses the channel to take the **GetImage** return value and translate it into an HTTP GETRESPONSE for the client browser.
+	A channel is the WCF object through which the service and client pass information to each other. Later, you will create the channel in your host application. Service Bus then uses this channel to pass the HTTP GET requests from the browser to your **GetImage** implementation. Service Bus also uses the channel to take the **GetImage** return value and translate it into an HTTP GETRESPONSE for the client browser.
 
-1. From the **Build** menu, click **Build Solution** to confirm the accuracy of your work so far.
+12. From the **Build** menu, click **Build Solution** to confirm the accuracy of your work so far.
 
 ### Example
 
@@ -167,157 +167,159 @@ As with the previous steps, there is very little difference between implementing
 
 1. Create a new class named **ImageService** directly after the definition of the **IImageContract** interface. The **ImageService** class implements the **IImageContract** interface. 
 
-  ```c
-  class ImageService : IImageContract
-  {
-  }
-  ```
-Similar to other interface implementations, you can implement the definition in a different file. However, for this tutorial, the implementation appears in the same file as the interface definition and `Main()` method.
+	```c
+	class ImageService : IImageContract
+	{
+	}
+	```
+	Similar to other interface implementations, you can implement the definition in a different file. However, for this tutorial, the implementation appears in the same file as the interface definition and `Main()` method.
 
-1. Apply the [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) attribute to the **IImageService** class to indicate that the class is an implementation of a WCF contract:
+2. Apply the [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) attribute to the **IImageService** class to indicate that the class is an implementation of a WCF contract:
 
-  ```c
-  [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-  class ImageService : IImageContract
-  {
-  }
-  ```
-As mentioned previously, this namespace is not a traditional namespace. Instead, it is part of the WCF architecture that identifies the contract. For more information, see the [Data Contract Names](https://msdn.microsoft.com/library/ms731045.aspx) topic in the WCF documentation.
+	```c
+	[ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	class ImageService : IImageContract
+	{
+	}
+	```
 
-1. Add a .jpg image to your project.  
+	As mentioned previously, this namespace is not a traditional namespace. Instead, it is part of the WCF architecture that identifies the contract. For more information, see the [Data Contract Names](https://msdn.microsoft.com/library/ms731045.aspx) topic in the WCF documentation.
 
-  This is a picture that the service displays in the receiving browser. Right-click your project, then click **Add**. Then click **Existing Item**. Use the **Add Existing Item** dialog to browse to an appropriate .jpg, and then click **Add**.
+3. Add a .jpg image to your project.  
+
+	This is a picture that the service displays in the receiving browser. Right-click your project, then click **Add**. Then click **Existing Item**. Use the **Add Existing Item** dialog to browse to an appropriate .jpg, and then click **Add**.
     
-  When adding the file, make sure that **All Files** is selected in the drop-down list next to the **File name:** field. The rest of this tutorial assumes that the name of the image is "image.jpg". If you have a different file, you will have to rename the image, or change your code to compensate.
+	When adding the file, make sure that **All Files** is selected in the drop-down list next to the **File name:** field. The rest of this tutorial assumes that the name of the image is "image.jpg". If you have a different file, you will have to rename the image, or change your code to compensate.
 
-1. To make sure that the running service can find the image file, in Solution Explorer right-click the image file. In the **Properties** pane, set **Copy to Output Directory** to **Copy if newer**.
+4. To make sure that the running service can find the image file, in Solution Explorer right-click the image file. In the **Properties** pane, set **Copy to Output Directory** to **Copy if newer**.
 
-1. Add references to the **System.Drawing.dll**, **System.Runtime.Serialization.dll**, and **Microsoft.ServiceBus.dll** assemblies to the project, and also add the following associated `using` statements:  
+5. Add references to the **System.Drawing.dll**, **System.Runtime.Serialization.dll**, and **Microsoft.ServiceBus.dll** assemblies to the project, and also add the following associated `using` statements:  
 
-  ```c
-  using System.Drawing;
-  using System.Drawing.Imaging;
-  using Microsoft.ServiceBus;
-  using Microsoft.ServiceBus.Web;
-  ```
+	```c
+	using System.Drawing;
+	using System.Drawing.Imaging;
+	using Microsoft.ServiceBus;
+	using Microsoft.ServiceBus.Web;
+	```
 
-1. In the **ImageService** class, add the following constructor that loads the bitmap and prepares to send it to the client browser: 
+6. In the **ImageService** class, add the following constructor that loads the bitmap and prepares to send it to the client browser: 
 
-  ```c
-  class ImageService : IImageContract
-  {
-      const string imageFileName = "image.jpg";
+	```c
+	class ImageService : IImageContract
+	{
+		const string imageFileName = "image.jpg";
   
-      Image bitmap;
+		Image bitmap;
   
-      public ImageService()
-      {
-          this.bitmap = Image.FromFile(imageFileName);
-      }
-  }
-  ```
-1. Directly after the previous code, add the following **GetImage** method in the **ImageService** class to return an HTTP message that contains the image:
+		public ImageService()
+		{
+			this.bitmap = Image.FromFile(imageFileName);
+		}
+	}
+	```
 
-  ```c
-  public Stream GetImage()
-  {
-     MemoryStream stream = new MemoryStream();
-     this.bitmap.Save(stream, ImageFormat.Jpeg);
-  
-     stream.Position = 0;
-     WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
-  
-     return stream;
-  }
-  ```
-  
-  This implementation uses **MemoryStream** to retrieve the image and prepare it for streaming to the browser. It starts the stream position at zero, declares the stream content as a jpeg, and streams the information.
+7. Directly after the previous code, add the following **GetImage** method in the **ImageService** class to return an HTTP message that contains the image:
 
-1. From the **Build** menu, click **Build Solution**.
+	```c
+	public Stream GetImage()
+	{
+		MemoryStream stream = new MemoryStream();
+		this.bitmap.Save(stream, ImageFormat.Jpeg);
+  
+		stream.Position = 0;
+		WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
+  
+		return stream;
+	}
+	```
+  
+	This implementation uses **MemoryStream** to retrieve the image and prepare it for streaming to the browser. It starts the stream position at zero, declares the stream content as a jpeg, and streams the information.
+
+8. From the **Build** menu, click **Build Solution**.
 
 ### To define the configuration for running the web service on Service Bus
 
 1. Right-click the **ImageListener** project. Then click **Add**, then **New Item**.
 
-1. In Solution Explorer, double-click **App.config**, which currently contains the following XML elements:
+2. In Solution Explorer, double-click **App.config**, which currently contains the following XML elements:
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8" ?>
-  <configuration>
-  </configuration>
-  ```
+	```xml
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	</configuration>
+	```
   
-  The configuration file resembles a WCF configuration file, and includes the service name, endpoint (that is, the location Service Bus exposes for clients and hosts to communicate with each other), and binding (the type of protocol that is used to communicate). The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) binding, which is not part of the .NET Framework. For more information about how to configure a Service Bus application, see [Configuring a WCF Service to Register with Service Bus](https://msdn.microsoft.com/library/ee173579.aspx).
+	The configuration file resembles a WCF configuration file, and includes the service name, endpoint (that is, the location Service Bus exposes for clients and hosts to communicate with each other), and binding (the type of protocol that is used to communicate). The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) binding, which is not part of the .NET Framework. For more information about how to configure a Service Bus application, see [Configuring a WCF Service to Register with Service Bus](https://msdn.microsoft.com/library/ee173579.aspx).
   
 
-1. Add a `<system.serviceModel>` XML element to the App.config file. This is a WCF element that defines one or more services. Here, it is used to define the service name and endpoint.
+3. Add a `<system.serviceModel>` XML element to the App.config file. This is a WCF element that defines one or more services. Here, it is used to define the service name and endpoint.
   
-  ```xml
-  <?xml version="1.0" encoding="utf-8" ?>
-  <configuration>
-    <system.serviceModel>
+	```xml
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+		<system.serviceModel>
       
-    </system.serviceModel>
+		</system.serviceModel>
     
-  </configuration>
-  ```
+	</configuration>
+	```
 
-1. Within the `system.serviceModel` element, add a `<bindings>` element that has the following content. This defines the bindings used in the application. You can define multiple bindings, but for this tutorial you are defining only one.
+4. Within the `system.serviceModel` element, add a `<bindings>` element that has the following content. This defines the bindings used in the application. You can define multiple bindings, but for this tutorial you are defining only one.
   
-  ```xml
-  <bindings>
-    <!-- Application Binding -->
-    <webHttpRelayBinding>
-      <binding name="default">
-        <security relayClientAuthenticationType="None" />
-      </binding>
-    </webHttpRelayBinding>
-  </bindings>
-  ```
+	```xml
+	<bindings>
+		<!-- Application Binding -->
+		<webHttpRelayBinding>
+			<binding name="default">
+				<security relayClientAuthenticationType="None" />
+			</binding>
+		</webHttpRelayBinding>
+	</bindings>
+	```
   
-  This step defines a Service Bus [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) binding with **relayClientAuthenticationType** set to **None**. This setting indicates that an endpoint using this binding does not require a client credential.
+	This step defines a Service Bus [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) binding with **relayClientAuthenticationType** set to **None**. This setting indicates that an endpoint using this binding does not require a client credential.
 
-1. After the `<bindings>` element, add a `<services>` element. Similar to the bindings, you can define multiple services in a single configuration file. However, for this tutorial, you define only one.
+5. After the `<bindings>` element, add a `<services>` element. Similar to the bindings, you can define multiple services in a single configuration file. However, for this tutorial, you define only one.
   
-  ```xml
-  <services>
-    <!-- Application Service -->
-    <service name="Microsoft.ServiceBus.Samples.ImageService"
+	```xml
+	<services>
+		<!-- Application Service -->
+		<service name="Microsoft.ServiceBus.Samples.ImageService"
              behaviorConfiguration="default">
-      <endpoint name="RelayEndpoint"
-                contract="Microsoft.ServiceBus.Samples.IImageContract"
-                binding="webHttpRelayBinding"
-                bindingConfiguration="default"
-                behaviorConfiguration="sbTokenProvider"
-                address="" />
-    </service>
-  </services>
-  ```
+			<endpoint name="RelayEndpoint"
+					contract="Microsoft.ServiceBus.Samples.IImageContract"
+					binding="webHttpRelayBinding"
+					bindingConfiguration="default"
+					behaviorConfiguration="sbTokenProvider"
+					address="" />
+		</service>
+	</services>
+	```
   
-  This step configures a service that uses the previously defined default **webHttpRelayBinding**. It also uses the default **sbTokenProvider**, which is defined in the next step.
+	This step configures a service that uses the previously defined default **webHttpRelayBinding**. It also uses the default **sbTokenProvider**, which is defined in the next step.
 
-1. After the `<services>` element, create a `<behaviors>` element with the following content, replacing "SAS_KEY" with the *Shared Access Signature* (SAS) key you obtained from the Azure management portal in Step 1.
+6. After the `<services>` element, create a `<behaviors>` element with the following content, replacing "SAS_KEY" with the *Shared Access Signature* (SAS) key you obtained from the Azure management portal in Step 1.
   
-  ```xml
-  <behaviors>
-    <endpointBehaviors>
-      <behavior name="sbTokenProvider">
-        <transportClientEndpointBehavior>
-          <tokenProvider>
-            <sharedAccessSignature keyName="RootManageSharedAccessKey" key="SAS_KEY" />
-          </tokenProvider>
-        </transportClientEndpointBehavior>
-      </behavior>
-    </endpointBehaviors>
-    <serviceBehaviors>
-      <behavior name="default">
-        <serviceDebug httpHelpPageEnabled="false" httpsHelpPageEnabled="false" />
-      </behavior>
-    </serviceBehaviors>
-  </behaviors>
-  ```
+	```xml
+	<behaviors>
+		<endpointBehaviors>
+			<behavior name="sbTokenProvider">
+				<transportClientEndpointBehavior>
+					<tokenProvider>
+						<sharedAccessSignature keyName="RootManageSharedAccessKey" key="SAS_KEY" />
+					</tokenProvider>
+				</transportClientEndpointBehavior>
+			</behavior>
+			</endpointBehaviors>
+			<serviceBehaviors>
+				<behavior name="default">
+					<serviceDebug httpHelpPageEnabled="false" httpsHelpPageEnabled="false" />
+				</behavior>
+			</serviceBehaviors>
+	</behaviors>
+	```
   
-1. From the **Build** menu, click **Build Solution** to build the entire solution.
+7. From the **Build** menu, click **Build Solution** to build the entire solution.
 
 ### Example
 
@@ -441,51 +443,50 @@ This step describes how to run a web service using a console application on Serv
 
 1. In the `Main()` function declaration, create a variable to store the namespace of your Service Bus project.
 
- ```c
- string serviceNamespace = "InsertServiceNamespaceHere";
- ```
-  Service Bus uses the name of your namespace to create a unique URI.
+	```c
+	string serviceNamespace = "InsertServiceNamespaceHere";
+	```
+	Service Bus uses the name of your namespace to create a unique URI.
 
-1. Create a `Uri` instance for the base address of the service that is based on the namespace.
+2. Create a `Uri` instance for the base address of the service that is based on the namespace.
 
-  ```c
-  Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
-  ```
+	```c
+	Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
+	```
 
 ### To create and configure the web service host
 
 1. Create the web service host, using the URI address created earlier in this section.
 
-  ```c
-  WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
-  ```
-  The service host is the WCF object that instantiates the host application. This example passes it the type of host you want to create (an **ImageService**), and also the address at which you want to expose the host application.
+	```c
+	WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
+	```
+	The service host is the WCF object that instantiates the host application. This example passes it the type of host you want to create (an **ImageService**), and also the address at which you want to expose the host application.
 
 ### To run the web service host
 
 1. Open the service.
 
-  ```c
-  host.Open();
-  ```
-  The service is now running.
+	```c
+	host.Open();
+	```
+	The service is now running.
 
-1. Display a message indicating that the service is running, and how to stop the service.
+2. Display a message indicating that the service is running, and how to stop the service.
 
-  ```c
-  Console.WriteLine("Copy the following address into a browser to see the image: ");
-  Console.WriteLine(address + "GetImage");
-  Console.WriteLine();
-  Console.WriteLine("Press [Enter] to exit");
-  Console.ReadLine();
-  ```
+	```c
+	Console.WriteLine("Copy the following address into a browser to see the image: ");
+	Console.WriteLine(address + "GetImage");
+	Console.WriteLine();
+	Console.WriteLine("Press [Enter] to exit");
+	Console.ReadLine();
+	```
 
-1. When finished, close the service host.
+3. When finished, close the service host.
 
-  ```c
-  host.Close();
-  ```  
-
+	```c
+	host.Close();
+	```  
 ## Example
 
 The following example includes the service contract and implementation from previous steps in the tutorial and hosts the service in a console application. Compile the following code into an executable named **ImageListener.exe**:
@@ -562,11 +563,10 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### Compiling the Code
+### Compiling the code
 
 After building the solution, do the following to run the application:
 
 1. From a command prompt, run the service (ImageListener\bin\Debug\ImageListener.exe).
 
-1. Copy and paste the address from the command prompt into a browser to see the image.
-
+2. Copy and paste the address from the command prompt into a browser to see the image.
