@@ -20,8 +20,8 @@
 
 ## Notes for 07/09/2015 release of Stream Analytics ##
 
-- Stream Analytics Blob outputs now give users control over naming.
-- Stream Analytics Blob outputs now allow the user to roll out by time
+- Stream Analytics Blob outputs now allow specifying a **PATH PREFIX PATTERN** which allows customization of the output data path folder structure by **DATE** and **TIME** variables.
+- Stream Analytics Blob outputs now allow the user to specify rolling output in time increments specified by the user.
 
 ## Notes for 05/03/2015 release of Stream Analytics ##
 
