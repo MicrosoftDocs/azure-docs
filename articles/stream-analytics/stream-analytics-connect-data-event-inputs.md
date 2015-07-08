@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/07/2015" 
+	ms.date="07/08/2015" 
 	ms.author="jeffstok"/>
 
-# Create Stream Analytics inputs
+# Connect Stream Analytics inputs
 
 ## Understanding Stream Analytics inputs
 When creating a Stream Analytics job, the user must understand the type of data being analyzed. As long as the job is composed of at least single streaming data source, Stream Analytics jobs can process it. If the data also includes additional auxiliary data sources or even stored time-based events, it is important to understand the two input methods for Stream Analytics and which is appropriate for each dataset in the present use case.
@@ -27,7 +27,7 @@ At a basic level, Stream Analytics job definitions must include at least one dat
 Alternately, Azure Blob storage can be used as an input source for ingesting bulk data. Because blobs are generally data at rest and therefore are not streaming, Stream Analytics jobs ingesting blobs will not be temporal in nature **unless** the records in the blob contain timestamps.
 
 ## Reference data inputs
-Stream Analytics also supports a second type of input source: reference data. This is auxiliary data typically used for performing correlation and lookups, and the data here is usually static or infrequently changed. Azure Blob storage is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
+Stream Analytics also supports a second type of input source data knowns as reference data. This is auxiliary data which is typically used for performing correlation and lookups, and the data here is usually static or infrequently changed. Azure Blob storage is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
 
 To enable support for refreshing reference data the user may specify a list of blobs in the input configuration using the {date} and {time} tokens inside the path pattern. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone.
 
@@ -35,6 +35,8 @@ For example if the job has a reference input configured in the portal with the p
 
 ## Creation of a data stream input
 Creating a data stream input will present the user with two choices, **Event Hub** or **Blob storage**.
+
+### Creating a Blob Storage input
 
 In this example we'll configure Blog storage as our input. To start using an Azure Blog storage input, you should have the following information collect about your Table:
 
@@ -63,6 +65,8 @@ On the next menu, choose prefix pattern for path hierarchy that contains the blo
 Now choose the correct serialization setting for your data. The options are JSON, CSV, and Avro.
 
 ![image5](./media/stream-analytics-create-inputs/05-stream-analytics-create-inputs.png)
+
+### Creating an Event hub input
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

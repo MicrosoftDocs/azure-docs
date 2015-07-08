@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connect to inputs and outputs | Microsoft Azure" 
-	description="Learn how to connect to and configure the input sources and output targets for Stream Analytics solutions." 
+	pageTitle="Create Stream Analytics Outputs | Microsoft Azure" 
+	description="Learn how to connect to and configure the output targets for Stream Analytics solutions." 
 	documentationCenter="" 
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,11 +13,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/07/2015" 
+	ms.date="07/08/2015" 
 	ms.author="jeffstok"/>
 
-# Connect to inputs and outputs
-In this document you will discover the different methods of configuring input sources and output targets for Stream Analytics solutions.
+# Connect Stream Analytics outputs
+
+## Understanding Stream Analytics outputs
+In this document you will discover the different methods of configuring output targets for Stream Analytics solutions.
 
 ## Using SQL as output
 
