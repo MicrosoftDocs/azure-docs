@@ -486,7 +486,8 @@ This step describes how to run a web service using a console application on Serv
 
 	```c
 	host.Close();
-	```  
+	```
+
 ## Example
 
 The following example includes the service contract and implementation from previous steps in the tutorial and hosts the service in a console application. Compile the following code into an executable named **ImageListener.exe**:
@@ -570,3 +571,11 @@ After building the solution, do the following to run the application:
 1. From a command prompt, run the service (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Copy and paste the address from the command prompt into a browser to see the image.
+
+## Next steps
+
+Now that you've built an application that uses the Service Bus relay service, see the following topics to learn more about relayed messaging:
+
+- [Azure Service Bus Architectural Overview](fundamentals-service-bus-hybrid-solutions.md#relays)
+
+- [How to Use the Service Bus Relay Service](service-bus-dotnet-how-to-use-relay.md)
