@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 
-# Publish Applications Using Azure AD Application Proxy
+# Publish applications using Azure AD Application Proxy
 
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](https://msdn.microsoft.com/library/azure/dn532272.aspx).
 
@@ -27,7 +27,7 @@ This section walks you through the steps necessary to publish applications that 
 
 > [AZURE.NOTE] To verify that the Connector is running properly, the first application you publish should be any website accessible from within your private network to assure users can access it from the Internet, before publishing an actual application.
 
-## Publish an App Using the Wizard
+## Publish an app using the wizard
 
 1. Open a browser of your choice and go to the Azure Management Portal.
 2. In the left pane of the Azure Management Portal, click the Active Directory tab.
@@ -51,7 +51,7 @@ To finish the wizard, click the check mark at the bottom of the screen. The appl
 
 
 
-## Assign Users and Groups to the Application
+## Assign users and groups to the application
 
 1. For apps that are preauthenticated, you must assign users and groups that will have access to the app. <p>For apps that are passthrough, access is available for all users. However, in order for a user to see the app in their application list, you must assign the app to that user.
 2. After finishing the Add App wizard, the App Proxy Quick Start page is displayed. To assign users, click **Assign users**.
@@ -60,7 +60,7 @@ To finish the wizard, click the check mark at the bottom of the screen. The appl
 
 > [AZURE.NOTE] For Integrated Windows Authentication apps, you can assign only users and groups that are synced from your on-prem Active Directory. Users logging in using a Microsoft account and guests cannot be assigned for apps published with Azure Active Directory Application Proxy. Make sure the users you assign log in with their credentials that are part of the same domain as the app you are publishing.
 
-## Advanced Configuration
+## Advanced configuration
 
 1. You can modify published apps or configure advanced options, such as SSO to on-prem applications, from the **Configure** page.
 	![Advanced configuration](http://i.imgur.com/FhbRvoq.png)
@@ -83,7 +83,7 @@ If you disable Application Proxy services after you have published applications,
 To view an application and make sure it is accessible, double-click the name of the application. If the Application Proxy service is disabled and the application is not available, a warning message appears at the top of the screen.
 To delete an application, select an application in the list, and then click **Delete**.
 
-## Additional Resources
+## Additional resources
 
 * [About Kerberos constrained delegation](http://technet.microsoft.com/library/cc995228.aspx)
 
