@@ -239,7 +239,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 	- Select the Azure network on which the server should be located. 
 	- Specify the internal IP address and subnet to assign to the server. Note that the first four IP addresses in any subnet are reserved for internal Azure usage. Use any other available IP address.
 	
-	![Deploy configuration server](./media/site-recovery-vmware-to-azure/ASRVMWare_CSDetails2.png)
+	![Deploy configuration server](./media/site-recovery-vmware-to-azure/ASRVMware_CSDetails2.png)
 
 5. When you click **OK** a standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service with a reserved public IP address. You can monitor progress in the **Jobs** tab.
 
@@ -272,7 +272,7 @@ The configuration server is deployed in an automatically created Azure cloud ser
 
 4. In **MySQL Server Details** create credentials to log onto the MySQL server instance.
 
-	![MySQL credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_REgistrationMySQLPWD.png)
+	![MySQL credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationMySQLPWD.png)
 
 5. In **Select Network Configuration** select **VPN mode** if the configuration server is connected to an Azure virtual network that's connects to your on-premises network over site-to-site VPN.
 
