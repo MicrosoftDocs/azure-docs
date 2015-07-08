@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SharePoint Server Farm" 
-	description="You can quikcly create a new SharePoint Server 2013 farm using the SharePoint Server Farm feature in the Azure Preview Portal." 
+	description="You can quickly create a new SharePoint Server 2013 farm using the SharePoint Server Farm feature in the Azure Preview Portal." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
