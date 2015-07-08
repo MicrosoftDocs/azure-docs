@@ -143,7 +143,7 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## RemoteApp Limits
+## Azure RemoteApp Limits
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
@@ -159,6 +159,9 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 ## Backup Limits
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+##Multi-Factor Authentication
+[AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ## See Also
 
