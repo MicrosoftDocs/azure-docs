@@ -35,6 +35,7 @@ Method | Used for
 [`TrackException`](#track-exception)|Log exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces.
 [`TrackRequest`](#track-request)| Log the frequency and duration of server requests for performance analysis.
 [`TrackTrace`](#track-trace)|Diagnostic log messages. You can also capture 3rd-party logs.
+[`TrackDependency`](#track-dependency)|Log the duration and frequency of calls to external components on which your app depends.
 
 You can [attach properties and metrics](#properties) to most of these telemetry calls. 
 
@@ -421,6 +422,7 @@ For example, if you build your code with an assembly that you didn't write yours
             }
 ```
 
+To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Set defaults for selected custom telemetry
 

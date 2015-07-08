@@ -74,7 +74,7 @@ You can add tests for as many URLs as you like. For example, as well as testing 
 
 ### <a name="monitor"></a>3. View availability reports
 
-After 1-2 minutes, click Refresh on the availability blade. (It doesn't refresh automatically.)
+After 1-2 minutes, click Refresh on the availability/web tests blade. (It doesn't refresh automatically.)
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
