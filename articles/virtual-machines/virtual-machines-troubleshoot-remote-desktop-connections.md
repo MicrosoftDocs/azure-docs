@@ -1,24 +1,25 @@
-<properties 
+﻿<properties 
 	pageTitle="Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine" 
-	description="Learn how to restore Remote Desktop (RDP) connectivity to your Azure virtual machine with diagnotics and steps to isolate the source of the problem."
+	description="If you can't connect your Windows-based Azure virtual machine, use these diagnotics and steps to isolate the source of the problem."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine
 
-This topic describes a methodical approach for correction and root cause determination of Remote Desktop connections to Windows-based Azure virtual machines.
+If you can't connect to Windows-based Azure virtual machines, this article describes a methodical approach for correction and root cause determination of Remote Desktop connections.
 
 ## Step 1: Run the Azure IaaS diagnostics package
 
@@ -35,7 +36,7 @@ If running the Azure IaaS diagnostics package did not correct the problem or you
 
 ## Step 2: Determine the error message from the Remote Desktop client
 
-Use these sections based on the error message you get.
+Use these sections based on the error message you see when attempting to connect.
 
 ### Remote Desktop Connection message window: The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.
 
@@ -170,11 +171,11 @@ Work with your network administrator to correct the settings of your organizatio
 
 ### Source 3: Cloud service endpoint and ACL
 
-To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for Azure Service Management-based virtual machines, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.
+To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created in Service Management, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
  
-> [AZURE.NOTE] For Azure Resource Manager-based virtual machines, skip to [Source 4: Network Security Groups](#nsgs).
+> [AZURE.NOTE] For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#nsgs).
 
 If you do not have another virtual machine in the same cloud service or virtual network, you can easily create a new one. For more information, see [Create a virtual machine running Windows in Azure](virtual-machines-windows-tutorial.md). Delete the extra virtual machine when you are done with your testing.
 
@@ -189,7 +190,7 @@ To eliminate the endpoint as a source of the problem, remove the current endpoin
 
 Network Security Groups allow you have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Examine your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed.
 
-For more information, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+For more information, see [About Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
 ### Source 5: Windows-based Azure virtual machine
 
@@ -209,7 +210,7 @@ Try the connection from your computer again. If you are not successful, these ar
 - The Windows Firewall or other local firewall has an outbound rule that is preventing Remote Desktop traffic.
 - Intrusion detection or network monitoring software running on the Azure virtual machine is preventing Remote Desktop connections.
 
-To correct these possible problems for Azure Service Management-based virtual machines, you can use a remote PowerShell session to the Azure virtual machine. First, you must install a certificate for the virtual machine's hosting cloud service. Go to [Configures Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) and download the **InstallWinRMCertAzureVM.ps1** script file to a folder on your local computer.
+To correct these possible problems for virtual machines created in Service Management, you can use a remote PowerShell session to the Azure virtual machine. First, you must install a certificate for the virtual machine's hosting cloud service. Go to [Configures Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) and download the **InstallWinRMCertAzureVM.ps1** script file to a folder on your local computer.
 
 Next, install Azure PowerShell if you haven't already. See [How to install and configure Azure PowerShell](../install-configure-powershell.md).
 
@@ -283,3 +284,5 @@ For information about using Azure Support, see the [Microsoft Azure Support FAQ]
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
 [Troubleshoot Secure Shell (SSH) Connections to a Linux-based Azure Virtual Machine](virtual-machines-troubleshoot-ssh-connections.md) 
+
+[Troubleshoot Access to an Application Running on an Azure Virtual Machine](virtual-machines-troubleshoot-access-application.md)

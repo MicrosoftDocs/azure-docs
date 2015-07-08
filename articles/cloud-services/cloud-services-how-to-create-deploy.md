@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,9 +21,13 @@
 
 # How to Create and Deploy a Cloud Service
 
-The Azure Management Portal provides two ways for you to create and deploy a cloud service: **Quick Create** and **Custom Create**.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-create-deploy.md)
+- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
 
-This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure Management Portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**.
+The Azure portal provides two ways for you to create and deploy a cloud service: **Quick Create** and **Custom Create**.
+
+This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**.
 
 > [AZURE.NOTE] If you plan to publish your cloud service from Visual Studio Online (VSO), use Quick Create, and then set up VSO publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
@@ -120,7 +124,7 @@ Three cloud service features require special configurations before you export a 
 
 5. If the cloud service will include any roles with only one instance, select the **Deploy even if one or more roles contain a single instance** check box to enable the deployment to proceed.
 
- Azure can only guarantee 99.95 percent access to the cloud service during maintenance and service updates if every role has at least two instances. If needed, you can add additional role instances on the **Scale** page after you deploy the cloud service. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
+    Azure can only guarantee 99.95 percent access to the cloud service during maintenance and service updates if every role has at least two instances. If needed, you can add additional role instances on the **Scale** page after you deploy the cloud service. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
 
 6. Click **OK** (checkmark) to begin the cloud service deployment.
 
@@ -138,7 +142,8 @@ Three cloud service features require special configurations before you export a 
 
 2. Under **quick glance**, click the site URL to open your cloud service in a web browser.
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  

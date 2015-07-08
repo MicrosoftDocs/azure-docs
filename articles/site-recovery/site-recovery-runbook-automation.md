@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="03/31/2015"
+   ms.date="07/03/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -312,6 +312,14 @@ Once the script is ready, you can add it to the recovery plan that you created e
 4.  In the Azure Runbooks, select the runbook you authored.
 
 ![](media/site-recovery-runbook-automation/16.png)
+
+## Primary side scripts
+
+When you are executing a failover to Azure, you can also choose to execute primary side scripts. These scripts will run on the VMM server during failover. 
+Primary side scripts are only available only for pre-shutdown and post shutdown stages. This is because we expect the primary site to be typically unavailable when a disaster strikes.
+During an unplanned failover, only if you opt in for primary site operations, it will attempt to run the primary side scripts. If they are not reachable or timeout, the failover will continue to recover the virtual machines.
+Primary side scripts are un-available for VMware/Physical/Hyper-v Sites without VMM protected to Azure - while you failover to Azure.
+However, when you failback from Azure to on-premises, priamry side scripts (Runbooks) can be used for all targets except VMware.
 
 ## Test the recovery plan
 

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Using the SQL Connector in Microsoft Azure App Service" 
-   description="How to use the SQL Connector" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Using the SQL Connector in Microsoft Azure App Service"
+   description="How to use the SQL Connector"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,25 +12,25 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="06/30/2015"
-   ms.author="sutalasi"/>
+   ms.author="sameerch"/>
 
 
 # Microsoft SQL Connector
 
-Connect to an on-premises SQL Server or an Azure SQL Database to create and change your information or data. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the SQL Connector in your workflow, you can achieve a variety of scenarios. For example, you can: 
+Connect to an on-premises SQL Server or an Azure SQL Database to create and change your information or data. Connectors can be used in Logic Apps to retrieve, process, or push data as a part of a "workflow". When you use the SQL Connector in your workflow, you can achieve a variety of scenarios. For example, you can:
 
-- Expose a section of the data residing in your SQL database using a web or mobile application. 
+- Expose a section of the data residing in your SQL database using a web or mobile application.
 - Insert data into a SQL database table for storage. For example, you can enter employee records, update sales orders, and so on.
-- Get data from SQL and use it in a business process. For example, you can get customer records and put those customer records in SalesForce. 
+- Get data from SQL and use it in a business process. For example, you can get customer records and put those customer records in SalesForce.
 
 ## Triggers and Actions
-*Triggers* are events that happen. For example, when an order is updated or when a new customer is added. An *Action* is the result of the trigger. For example, when an order is updated, send an alert to the salesperson. Or, when a new customer is added, send a welcome email to the new customer. 
+*Triggers* are events that happen. For example, when an order is updated or when a new customer is added. An *Action* is the result of the trigger. For example, when an order is updated, send an alert to the salesperson. Or, when a new customer is added, send a welcome email to the new customer.
 
-The SQL Connector can be used as a trigger or an action in a logic app and supports data in JSON and XML formats. For every table included in your package settings (more on that later in this topic), there is a set of JSON actions and a set of XML actions. 
+The SQL Connector can be used as a trigger or an action in a logic app and supports data in JSON and XML formats. For every table included in your package settings (more on that later in this topic), there is a set of JSON actions and a set of XML actions.
 
-The SQL Connector has the following Triggers and Actions available: 
+The SQL Connector has the following Triggers and Actions available:
 
 Triggers | Actions
 --- | ---
@@ -49,18 +49,18 @@ A connector can be created within a logic app or be created directly from the Az
 --- | --- | ---
 Server Name | Yes | Enter the SQL Server name. For example, enter *SQLserver/sqlexpress* or *SQLserver.mydomain.com*.
 Port | No | Default is 1433.
-User Name | Yes | Enter a user name that can log into the SQL Server. If connecting to an on-premises SQL Server, enter SQL Authentication credentials. 
+User Name | Yes | Enter a user name that can log into the SQL Server. If connecting to an on-premises SQL Server, enter SQL Authentication credentials.
 Password | Yes | Enter the user name password.
 Database Name | Yes | Enter the database you are connecting. For example, you can enter *Customers* or *dbo/orders*.
-On-Premises | Yes | Default is False. Enter False if connecting to an Azure SQL database. Enter True if connecting to an on-premises SQL Server. 
+On-Premises | Yes | Default is False. Enter False if connecting to an Azure SQL database. Enter True if connecting to an on-premises SQL Server.
 Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
-Partner Server Name | No | If the primary server is unavailable, you can enter a partner server as an alternate or backup server. 
-Tables | No | List the database tables that can be updated by the connector. For example, enter *OrdersTable* or *EmployeeTable*. If no tables are entered, all tables can be used. Valid tables and/or Stored Procedures are required to use this connector as an action. 
-Stored Procedures | No | Enter an existing stored procedure that can be called by the connector. For example, enter *sp_IsEmployeeEligible* or *sp_CalculateOrderDiscount*. Valid tables and/or Stored Procedures are required to use this connector as an action. 
-Data Available Query | For trigger support | SQL statement to determine whether any data is available for polling a SQL Server database table. This should return a numeric value representing the number of rows of data available. Example: SELECT COUNT(*) from table_name. 
-Poll Data Query | For trigger support | The SQL statement to poll the SQL Server database table. You can enter any number of SQL statements separated by a semicolon. This statement is executed transactionally and only committed when the data is safely stored in your logic app. Example: SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Note**<br/>You must provide a poll statement that avoids an infinite loop by deleting, moving or updating selected data to ensure that same data isn't polled again. 
+Partner Server Name | No | If the primary server is unavailable, you can enter a partner server as an alternate or backup server.
+Tables | No | List the database tables that can be updated by the connector. For example, enter *OrdersTable* or *EmployeeTable*. If no tables are entered, all tables can be used. Valid tables and/or Stored Procedures are required to use this connector as an action.
+Stored Procedures | No | Enter an existing stored procedure that can be called by the connector. For example, enter *sp_IsEmployeeEligible* or *sp_CalculateOrderDiscount*. Valid tables and/or Stored Procedures are required to use this connector as an action.
+Data Available Query | For trigger support | SQL statement to determine whether any data is available for polling a SQL Server database table. This should return a numeric value representing the number of rows of data available. Example: SELECT COUNT(*) from table_name.
+Poll Data Query | For trigger support | The SQL statement to poll the SQL Server database table. You can enter any number of SQL statements separated by a semicolon. This statement is executed transactionally and only committed when the data is safely stored in your logic app. Example: SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Note**<br/>You must provide a poll statement that avoids an infinite loop by deleting, moving or updating selected data to ensure that same data isn't polled again.
 
-5. When complete, the Package Settings look similar to the following: 
+5. When complete, the Package Settings look similar to the following:
 <br/>
 ![][1]  
 
@@ -79,25 +79,25 @@ To use the SQL connector as a trigger, enter the **Data Available Query** and **
 
 #### Poll Data Query Example
 
-	SELECT *, GetData() as 'PollTime' FROM [Order] 
-		WHERE OrderStatus = 'ProcessedForCollection' 
-		ORDER BY Id DESC; 
-	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk' 
-		WHERE Id = 
+	SELECT *, GetData() as 'PollTime' FROM [Order]
+		WHERE OrderStatus = 'ProcessedForCollection'
+		ORDER BY Id DESC;
+	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk'
+		WHERE Id =
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Add the Trigger
 1. When creating or editing a logic app, select the SQL Connector you created as the trigger. This lists the available triggers: **Poll Data (JSON)** and **Poll Data (XML)**:
 <br/>
-![][5] 
+![][5]
 
 2. Select the **Poll Data (JSON)** trigger, enter the frequency, and click the ✓:
 <br/>
-![][6] 
+![][6]
 
 3. The trigger now appears as configured in the logic app. The output(s) of the trigger are shown and can be used as inputs in any subsequent actions:
 <br/>
-![][7] 
+![][7]
 
 ## Use the Connector as an Action
 Using our simple logic app scenario that polls data from a SQL table, adds the data in another table, and updates the data.
@@ -106,19 +106,19 @@ To use the SQL Connector as an action, enter the name of the Tables and/or Store
 
 1. After your trigger (or choose 'run this logic manually'), add the SQL connector you created from the gallery. Select one of the Insert actions, like *Insert Into TempEmployeeDetails (JSON)*:
 <br/>
-![][8] 
+![][8]
 
 2. Enter the input values of the record to be inserted, and click on the ✓:
 <br/>
-![][9] 
+![][9]
 
 3. From the gallery, select the same SQL connector you created. As an action, select the Update action on the same table, like *Update EmployeeDetails*:
 <br/>
-![][11] 
+![][11]
 
 4. Enter the input values for the update action, and click on the ✓:
 <br/>
-![][12] 
+![][12]
 
 You can test the logic app by adding a new record in the table that is being polled.
 
@@ -139,7 +139,7 @@ Fields (in Select query) | <ul><li>Valid column names separated by commas. No ta
 
 > [AZURE.NOTE] This step is required only if you are using SQL Server on-premises behind your firewall.
 
-App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SQL Server, the Hybrid Connection Manager is required. 
+App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SQL Server, the Hybrid Connection Manager is required.
 
 See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
 
@@ -162,6 +162,3 @@ You can also review performance statistics and control security to the connector
 [10]: ./media/app-service-logic-connector-sql/LogicApp6.png
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
-
-
- 

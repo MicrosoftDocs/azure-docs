@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
 	ms.topic="article" 
-	ms.date="02/10/2015"
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -99,5 +99,5 @@ Now you are ready to run the applications.
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Event Hubs Overview]: event-hubs-overview.md
  

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Explore Operational Insights security and audit data
@@ -103,4 +103,3 @@ Any auditing data that you want to collect and send to Operational Insights is f
 **Use AppLocker to gather auditing data**
 
 In addition to local policy settings, if you use AppLocker to gather auditing data, Operational Insights will gather the data and then you can view it.
- 

@@ -58,6 +58,8 @@ Now that you have node-gyp installed, navigate to your directory *YourProjectDir
 
 Next, navigate to the directory **build\release**. Copy the **sqlserver.node** file and paste it into the **msnodesql\lib** directory. Replace the old file if necessary.
 
+Check out our [team blog](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx) and [video](https://www.youtube.com/watch?v=kQo_L-D_zk8) to learn how to install and setup aforementioned requirements.
+
 
 ### Create a database and retrieve your connection string
  
