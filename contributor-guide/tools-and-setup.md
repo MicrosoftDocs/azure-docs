@@ -1,6 +1,16 @@
-<properties title="" pageTitle="Install and set up tools for authoring in GitHub" description="Tools and steps to get set up for authoring Azure content in GitHub." services="contributor-guide" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
+<properties title="" 
+pageTitle="Install and set up tools for authoring in GitHub" 
+description="Tools and steps to get set up for authoring Azure content in GitHub." 
+services="contributor-guide" 
+documentationCenter="" 
+authors="tysonn"  
+manager="carolz" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/19/2015" ms.author="tysonn" />
+<tags ms.service="contributor-guide"
+ ms.devlang="" ms.topic="article"
+  ms.tgt_pltfrm="" ms.workload="" 
+  ms.date="01/19/2015" 
+  ms.author="tysonn" />
 
 #Install and set up tools for authoring in GitHub
 
@@ -17,7 +27,8 @@ If you're unfamiliar with Git, you might want to review some Git terminology. Tâ
 - [Install Git for Windows]
 - [Enable two-factor authentication]
 - [Install a markdown editor]
-- [Fork the repository and copy it to your computer]
+ -[Configure Atom]  
+ -[Fork the repository and copy it to your computer]
 - [Configure your user name and email locally]
 - [Next steps]
 
@@ -124,6 +135,11 @@ We author content using simple "markdown" notation in the files, rather than com
 
 - **Prose**: This is a lightweight, elegant, on-line, and open source markdown editor that offers a preview. Visit [http://prose.io](http://prose.io) and authorize Prose in your repository.
 
+## Configure Atom
+
+Atom defaults to using 2 spaces for tabs.  If you leave it at the default of two, your article will look as expected in local preview, but it will not render correctly when itâ€™s imported into Azure.
+
+To view a preview of your edits in Atom, turn on the preview function (Packages>Markdown Preview>Toggle Preview).
 
 ## Fork the repository and copy it to your computer
 
