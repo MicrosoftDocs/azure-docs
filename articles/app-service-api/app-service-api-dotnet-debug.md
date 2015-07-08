@@ -126,9 +126,9 @@ There may be times when you want to debug your API app locally; for example, to 
 	* Go to the gateway login URL and enter credentials to log in.
 	* Get the Zumo token value from the x-zumo-auth cookie.
 	* Add an x-zumo-auth header to your request, and set its value to the x-zumo-auth cookie value.
-	* Submit the request.
+	* Submit the request.<br/><br/>
 
-	> **Note:** When you're running locally, Azure cannot control access to the API app to ensure that only authenticated users can execute its methods. When you run in Azure, all traffic intended for the API app is routed through the gateway, and the gateway doesn't pass on unauthenticated requests. When you run locally there is no redirection, which means that unauthenticated requests are not prevented from accessing the API app.  The value of authenticating as described above is that you can successfully execute authentication-related code in the API app, such as code that retrieves information about the logged-on user. For information about how API app authentication works, see [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md#azure-app-service-gateway).
+	> **Note:** When you're running locally, Azure cannot control access to the API app to ensure that only authenticated users can execute its methods. When you run in Azure, all traffic intended for the API app is routed through the gateway, and the gateway doesn't pass on unauthenticated requests. There is no redirection when you run locally, which means that unauthenticated requests are not prevented from accessing the API app.  The value of authenticating as described above is that you can successfully execute authentication-related code in the API app, such as code that retrieves information about the logged-on user. For more information about how the gateway handles authentication for API apps, see [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md#azure-app-service-gateway).
 
 ## Next steps
 
