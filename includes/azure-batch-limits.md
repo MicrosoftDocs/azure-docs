@@ -15,7 +15,7 @@
    <td valign="middle"><p>10,000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Compute nodes per Batch account</p></td>
+   <td valign="middle"><p>Pools per Batch account</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>5000</p></td>
 </tr>
@@ -26,4 +26,4 @@
 </tr>
 </table>
 <sup>1</sup> The number of cores per Batch account can be increased, but the maximum number is unspecified. Contact customer support to discuss increase options.
-<sup>2</sup> Includes one-time active or running jobs and active job schedules.
+<sup>2</sup> Includes run-once active jobs and active job schedules.
