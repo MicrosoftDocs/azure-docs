@@ -38,8 +38,8 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Report												|	Description																					|
 |	------												|	-----																						|
 |	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
-|	[Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md)					|	May indicate a successful brute force attack.												|
-|	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)					|	May indicate that multiple users are signing in with the same account.						|
+|	[Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
+|	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
 |	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
 |	Sign ins from possibly infected devices				|	May indicate an attempt to sign in from possibly infected devices.							|
 |	Irregular sign in activity							|	May indicate events anomalous to users’ sign in patterns.									|
@@ -84,6 +84,22 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	RMS enabled application usage						|			|		|	RMS Only	|
 
 ## Report details
+
+### Sign ins from unknown sources
+
+For details on this report, check out [Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md).
+
+### Sign ins after multiple failures
+
+For details on this report, check out [Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md).
+
+### Sign ins from multiple geographies
+
+For details on this report, check out [Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md).
+
+### Sign ins from IP addresses with suspicious activity
+
+For details on this report, check out [Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
 
 
 ### Anomalous sign in activity
