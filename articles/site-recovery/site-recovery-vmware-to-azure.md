@@ -452,7 +452,7 @@ Note that the first four IP addresses in any subnet are reserved for internal Az
 
 8.	In **NIC Selection for Process Server** select the network adapter that the process server should use.
 
-	![Select adapter](./media/site-recovery-vmware-to-azure/ASRVMware_ProcessServerNICSelection.png)
+	![Select adapter](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerNICSelection.png)
 
 9.	In **Configuration Server Details**:
 
