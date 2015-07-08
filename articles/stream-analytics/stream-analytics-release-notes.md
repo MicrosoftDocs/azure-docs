@@ -20,8 +20,19 @@
 
 ## Notes for 07/09/2015 release of Stream Analytics ##
 
-- Stream Analytics Blob outputs now allow specifying a **PATH PREFIX PATTERN** which allows customization of the output data path folder structure by **DATE** and **TIME** variables.
-- Stream Analytics Blob outputs now allow the user to specify rolling output in time increments specified by the user.
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>Custom Blob Output Partitioning</td>
+<td>Blob storage outputs now allow an option to specify the frequency that output blobs are written and the structure and format of the output data path folder structure. </td>
+</tr>
+</table>
 
 ## Notes for 05/03/2015 release of Stream Analytics ##
 
