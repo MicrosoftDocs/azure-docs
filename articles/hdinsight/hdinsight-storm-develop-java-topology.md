@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/08/2015"
    ms.author="larryfr"/>
 
 #Develop Java-based topologies for a basic word-count application with Apache Storm and Maven on HDInsight
@@ -30,7 +30,7 @@ After completing the steps in this document, you will have a basic topology that
 
 * A text editor such as Notepad, <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a>. Or you can use an integrated development environment (IDE) such as <a href="https://eclipse.org/" target="_blank">Eclipse</a> (version Luna or later).
 
-	> [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Eclipse that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
+	> [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
 
 ##Configure environment variables
 
