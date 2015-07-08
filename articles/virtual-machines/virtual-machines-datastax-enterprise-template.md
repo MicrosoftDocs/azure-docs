@@ -35,7 +35,7 @@ Once the deployment is complete, you can access the Datastax Operations Center V
 > [AZURE.NOTE] The certificate used in the deployment is a self-signed certificate that will create a browser warning. You can follow the process on the [Datastax](http://www.datastax.com/) web site for replacing the certificate with your own SSL certificate.
 
 Before diving into more details related to the Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.
-<!-- In one of the following automated content provider tokens, see "Step 1: Verify the Azure CLI version" section. In this section, we can't use a colon in this way to introduce a code example. Can you contact owner of tokens and request an update? Same issue with section titled "Step 4: Place your Azure CLI in the ARM mode".-->
+
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
