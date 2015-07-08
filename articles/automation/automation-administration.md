@@ -60,8 +60,3 @@ You cannot retrieve the value for encrypted variables or the password field of c
 
 You cannot export certificates from Azure Automation.  You must ensure that any certificates are available outside of Azure.
 
-## Related articles
-
-- [Creating or Importing a Runbook](https://msdn.microsoft.com/library/dn643637.aspx)
-- [Automation assets](https://msdn.microsoft.com/library/dn939988.aspx)
-- [Azure cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) 

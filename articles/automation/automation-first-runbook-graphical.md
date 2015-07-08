@@ -30,7 +30,7 @@ To complete this tutorial, you will need the following.
 - An Azure virtual machine.  We will stop and start this machine so it should not be production.
 - [Azure Active Directory user and Credential asset](automation-configuring.md) to authenticate to Azure resources.  This user must have permission to start and stop the virtual machine.
 
-### Step 1 - Create new runbook
+## Step 1 - Create new runbook
 
 We'll by creating a simple runbook that outputs the text *Hello World*.
 
@@ -44,7 +44,7 @@ The Automation account page gives you a quick view of the resources in this acco
 ![New runbook](media/automation-first-runbook-graphical/new-runbook.png)
 5. Click **Create** to create the runbook and open the graphical editor.
 
-### Step 2 - Add activities to the runbook
+## Step 2 - Add activities to the runbook
 
 The Library control on the left side of the editor allows you to select activities add to your runbook.  We're going to add a **Write-Output** cmdlet to output our text from the runbook.
 
@@ -64,7 +64,7 @@ The **Data source** dropdown provides different sources that you use to populate
 11.   Save the runbook by clicking **Save**.<br>
 ![Save runbook](media/automation-first-runbook-graphical/runbook-edit-toolbar-save.png)
 
-### Step 3 - Test the runbook
+## Step 3 - Test the runbook
 
 Before we publish the runbook to make it available in production, we want to test it to make sure that it works properly.  When you test a runbook, you run its **Draft** version and view its output interactively.  
  
@@ -78,7 +78,7 @@ The job status will start as *Queued* indicating that it is waiting for a runboo
 5. Close the Test pane to return to the canvas.
 
 
-### Step 4 - Publish and start the runbook
+## Step 4 - Publish and start the runbook
 
 The runbook that we just created is still in Draft mode. We need to publish it before we can run it in production.  When you publish a runbook, you overwrite the existing Published version with the Draft version.  In our case, we don't have a Published version yet because we just created the runbook. 
 
@@ -102,7 +102,7 @@ The options across the top allow us to start the runbook, schedule it to start a
 ![Jobs](media/automation-first-runbook-graphical/runbook-control-jobs.png) 
 9. You can click on this job to open the same Job pane that we viewed when we started the runbook.  This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
-### Step 5 - Add authentication to manage Azure resources
+## Step 5 - Add authentication to manage Azure resources
 
 We've tested and published our runbook, but so far it doesn't do anything useful.  We want to have it manage Azure resources.  It won't be able to do that though unless we have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites).  We do that with the **Set-AzureAccount** cmdlet.
 
@@ -122,7 +122,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 17.  Click **OK** twice to return to the canvas.
 
 
-### Step 6 - Add activity to start a virtual machine
+## Step 6 - Add activity to start a virtual machine
 
 We'll now add a **Start-AzureVM** activity to start a virtual machine.  You can pick any virtual machine in your Azure subscription, and for now we'll be hardcoding that name into the cmdlet.  
 
@@ -140,7 +140,7 @@ Note that **Name** and **ServiceName** have exclamation points next them.  This 
 10. Click **Start** to start the test.  Once it completes, check that the virtual machine was started.
 
 
-### Step 7 - Add an input parameter to the runbook
+## Step 7 - Add an input parameter to the runbook
 
 Our runbook currently starts the virtual machine that we specified in the **Start-AzureVM** cmdlet, but our runbook would be more useful if we could specify the virtual machine when the runbook is started.  We will now add an input parameter to the runbook to provide that functionality.
 
@@ -163,7 +163,7 @@ Our runbook currently starts the virtual machine that we specified in the **Star
 ![Start Runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
 14.  When the runbook completes, check that the virtual machine was started.
 
-### Step 8 - Create a conditional link
+## Step 8 - Create a conditional link
 
 We will now modify the runbook so that it will only attempt to start the runbook if it is not already started.  We'll do this by adding a **Get-AzureVM** cmdlet to the runbook that will include the current state of the virtual machine.  We'll then add a conditional link that will only run **Start-AzureVM** if the current running state is stopped.  If the runbook isn't stopped, then output a message.
 
