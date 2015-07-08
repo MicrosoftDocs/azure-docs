@@ -26,7 +26,7 @@ Type in your question and get your answers!
 
 ![Azure ML Chat Dialog](./media/machine-learning-live-chat/AzureMLChat.png)
 
-# Don't see the Live Chat Icon?
+## Don't see the Live Chat Icon?
 Members of the team are actually answering your question. If you don't see the live chat icon it is because it is not visible outside of working hours. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
