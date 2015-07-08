@@ -16,7 +16,7 @@
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
-# What is Auzre Multi-Factor Authentciation?
+# What is Auzre Multi-Factor Authentication?
 Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:
 
 - Something you know (typically a password)
