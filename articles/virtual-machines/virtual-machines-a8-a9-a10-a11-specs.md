@@ -42,8 +42,6 @@ A9 and A11 | Intel® Xeon® E5-2670<br/>16 cores @ 2.6 GHz | DDR3-1600 MHz<br/>1
 
 >[AZURE.NOTE]Additional processor details including supported instruction set extensions are at the Intel.com website. For VM storage capacities and disk details, see [Sizes for Virtual Machines](virtual-machines-size-specs.md).
 
->[AZURE.NOTE]The A8 – A11 VM sizes are only available in the Standard pricing tier.
-
 ### Network adapters
 
 A8 and A9 instances have two network adapters, which connect to the following two backend Azure networks.
@@ -117,6 +115,8 @@ MPI | MS-MPI 2012 R2 or later, either standalone or installed via HPC Pack 2012 
 
 
 ## Additional things to know
+
+* The A8 – A11 VM sizes are only available in the Standard pricing tier.
 
 * You can't resize an existing Azure VM to the A8, A9, A10, or A11 size.
 
