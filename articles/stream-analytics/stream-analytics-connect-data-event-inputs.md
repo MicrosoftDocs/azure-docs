@@ -75,7 +75,7 @@ Below is a walkthrough to configure an Event hub as an input. To start using an 
 3. The Event hub Policy Name.
 4. Optional: Event Hub Consumer Group name.
 	- The Consumer Group to ingest data from the Event Hub. If not specified, Stream Analytics jobs will use the Default Consumer Group to ingest data from the Event Hub.   It is recommended to use a distinct consumer Group for each Stream Analytics job.
-5. What serialization format is utilized for the data (Avro, CSV, JSON).
+5. What serialization format is utilized for the data stream (Avro, CSV, JSON).
 
 First select **ADD INPUT** from the Inputs page of the Stream Analytics job.
 
