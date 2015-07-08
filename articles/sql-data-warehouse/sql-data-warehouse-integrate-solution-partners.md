@@ -20,6 +20,7 @@
 
 To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools. This article lists partner companies that have solutions for SQL Data Warehouse.
 
+![][1]
 
 | Partner | Description | More |
 | ------- | ----------- |------|
