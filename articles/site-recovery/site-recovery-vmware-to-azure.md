@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/08/2015"
 	ms.author="raynew"/>
 
 # Set up protection between on-premises VMware virtual machines or physical servers and Azure
@@ -268,7 +268,7 @@ The configuration server is deployed in an automatically created Azure cloud ser
 
 3. In **Third-Party Software Installation** click **I Accept** to download and install MySQL.
 
-	![MySQL install](./media/site-recovery-vmware-to-azure/ASRVMWare_REgistrationMySQLEULA.png)
+	![MySQL install](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationMySQLEULA.png)
 
 4. In **MySQL Server Details** create credentials to log onto the MySQL server instance.
 
