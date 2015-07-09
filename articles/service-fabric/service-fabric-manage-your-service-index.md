@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Manage a Service Fabric service"
+   pageTitle="Manage a Service Fabric service | Microsoft Azure"
    description="Conceptual information and tutorials that help you understand how to manage a Service Fabric service."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/08/2015"
    ms.author="ryanwi"/>
 
 # Manage a Service Fabric service
