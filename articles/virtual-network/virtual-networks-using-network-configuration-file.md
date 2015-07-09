@@ -47,8 +47,9 @@ When you export, all of the settings for the virtual networks in your subscripti
 2. In the Management Portal, on the bottom of the **networks** page, click **Export**. 
 3. On the **Export network configuration** window, verify that you have selected the subscription for which you want to export your network settings. Then, click the checkmark on the lower right. 
 4. When you are prompted, save the *NetworkConfig.xml* file to the location of your choice.
-### To import your network settings
 
+
+### To import your network settings
 
 1. In the **Management Portal**, in the navigation pane on the bottom left, click **New**.
 2. Click **Network Services** -> **Virtual Network** -> **Import Configuration**.
