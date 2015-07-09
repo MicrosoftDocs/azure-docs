@@ -220,4 +220,6 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 
 - When onboarding an Azure VM for management with Azure Automation DSC using `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, or the Azure Automation DSC VM extension in the Azure preview portal, if registration fails with **The computer name was not specified and the configuration directory does not have any configuration files**, this is a false alarm and the VM registration actually succeeded. Successful registration can be verified using the `Get-AzureAutomationDscNode` cmdlet.
 
- 
+- When onboarding an Azure VM for management with Azure Automation DSC using `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, or the Azure Automation DSC VM extension in the Azure preview portal, it could take up to an hour for the VM to show up as a DSC node in Azure Automation. This is due to the installation of Windows Management Framework 5.0 on the VM by the Azure VM DSC extension, which is required to onboard the VM to Azure Automation DSC.
+
+- DSC nodes onboarded to Azure Automation DSC will initially show a 'Compliant' status, even if they are not actually compliant with the DSC node configuration they are mapped to. After a node performs its first pull and sends its first DSC report to Azure Automation DSC, the status of the node should be correct.
