@@ -7,7 +7,7 @@ The storage emulator supports a single fixed account and a well-known authentica
 >
 > Note that the storage emulator supports connection via HTTP only. However, HTTPS is the recommended protocol for accessing resources in an Azure production storage account.
  
-### Connect to the emulator account using a shortcut
+#### Connect to the emulator account using a shortcut
 
 The easiest way to connect to the storage emulator from your application is to configure a connection string from within your application's configuration file that references the shortcut `UseDevelopmentStorage=true`. Here's an example of a connection string to the storage emulator in an app.config file: 
 
@@ -15,7 +15,7 @@ The easiest way to connect to the storage emulator from your application is to c
       <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
     </appSettings>
 
-### Connect to the emulator account using the well-known account name and key
+#### Connect to the emulator account using the well-known account name and key
 
 To create a connection string that references the emulator account name and key, note that you must specify the endpoints for each of the services that you wish to use from the emulator in the connection string. This is necessary so that the connection string will reference the emulator endpoints, which are different than those for a production storage account. For example, the value of your connection string will look like this:
 
@@ -27,7 +27,7 @@ To create a connection string that references the emulator account name and key,
 
 This value is identical to the shortcut shown above, `UseDevelopmentStorage=true`.
 
-### Specify an HTTP proxy
+#### Specify an HTTP proxy
 
 You can also specify an HTTP proxy to use when you're testing your service against the storage emulator. This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services. To specify a proxy, add the `DevelopmentStorageProxyUri` option to the connection string, and set its value to the proxy URI. For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:
 
