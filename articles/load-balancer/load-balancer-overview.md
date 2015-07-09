@@ -82,6 +82,7 @@ Azure Load balancer configuration supports full cone NAT for UDP. Full cone NAT 
 >
 >You can have up to a maximum of 64k connections from cloud service (across all VM's within the cloud service) to a remote service. 
 
+
 **Support for multiple load balanced IP for Virtual machines**
 
 You can get more than one load balanced public IP address assigned to a set of Virtual machines. With this ability you can host multiple SSL websites and/or multiple SQL Always on Availability group listeners on the same set of Virtual machines. See more at [multiple VIP's per cloud service](load-balancer-multivip.md)
