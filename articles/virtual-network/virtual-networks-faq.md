@@ -17,4 +17,4 @@
 
 # Virtual Network FAQ
 
-[AZURE.INCLUDE [virtual-networks-vnet-faq-include](../../includes/virtual-networks-faq-include.md)]
+[AZURE.INCLUDE [virtual-networks-vnet-faq-include](../../includes/virtual-networks-vnet-faq-include.md)]
