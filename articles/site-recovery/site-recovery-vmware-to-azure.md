@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="07/09/2015"
 	ms.author="raynew"/>
 
 # Set up protection between on-premises VMware virtual machines or physical servers and Azure
@@ -63,6 +63,7 @@ Here's what you'll need:
 **Azure Site Recovery vault** | Set up after you've subscribed to the Site Recovery service. | You register servers in a Site Recovery vault. The vault coordinates and orchestrates data replication, failover, and recovery between your on-premises site and Azure.
 **Replication mechanism** | <p>**Over the Internet**—Communicates and replicates data from protected on-premises servers and Azure using a secure SSL/TLS communication channel over a public internet connection. This is the default option.</p><p>**VPN/ExpressRoute**—Communicates and replicates data between on-premises servers and Azure over a VPN connection. You'll need to set up a site-to-site VPN or an [ExpressRoute](../expressroute-introduction.md) connection between the on-premises site and your Azure network.</p><p>You'll select how you want to replicate during Site Recovery deployment. You can't change the mechanism after it's configured without impacting protection on already protected servers.| <p>Neither option requires you to open any inbound network ports on protected machines. All network communication is initiated from the on-premises site.</p> 
 
+You can learn more about Site Recovery components, Providers and agents in [Site Recovery Components](site-recovery-components.md).
 
 ## Capacity planning
 
@@ -86,7 +87,7 @@ Main areas for considerations are:
 Table 1 summarizes the virtual machine sizes for the configuration and master target servers.
 
 **Component** | **Deployed Azure instances** | **Cores** | **Memory** | **Max disks** | **Disk size**
---- | --- | --- | --- | --- | 
+--- | --- | --- | --- | --- | ---
 Configuration server | Standard A3 | 4 | 7 GB | 8 | 1023 GB
 Master target server | Standard A4 | 8 | 14 GB | 16 | 1023 GB
  | Standard D14 | 16 | 112 GB | 32 | 1023 GB
@@ -104,7 +105,7 @@ Generally process server sizing depends on the daily change rate across all prot
 Table 2 provides a summary of the process server guidelines.
 
 **Data change rate** | **CPU** | **Memory** | **Cache disk size**| **Cache disk throughput** | **Bandwidth ingress/egress**
---- | --- | --- | --- | --- | 
+--- | --- | --- | --- | --- | ---
 < 300 GB | 4 vCPUs (2 sockets * 2 cores @ 2.5GHz) | 4 GB | 600 GB | 7 to 10 MB per second | 30 Mbps/21 Mbps
 300 to 600 GB | 8 vCPUs (2 sockets * 4 cores @ 2.5GHz) | 6 GB | 600 GB | 11 to 15 MB per second | 60 Mbps/42 Mbps
 600 GB to 1 TB | 12 vCPUs (2 sockets * 6 cores @ 2.5GHz) | 8 GB | 600 GB | 16 to 20 MB per second | 100 Mbps/70 Mbps
@@ -125,10 +126,10 @@ Each configuration server can support up to 100 source machines with 3-4 volumes
 
 #### Master target server and storage account considerations
 
-The storage for each master target server is comprised of an OS disk, a retention volume, and data disks. The retention drive maintains the journal of disk changes for the duration of the retention window defined in the Site Recovery portal.  Refer to Table 1 for the virtual machine properties of the master target server. Table 3 shows  how the disks of A4 are used.
+The storage for each master target server is comprised of an OS disk, a retention volume, and data disks. The retention drive maintains the journal of disk changes for the duration of the retention window defined in the Site Recovery portal.  Refer to Table 1 for the virtual machine properties of the master target server. Table 3 shows how the disks of A4 are used.
 
 **Instance** | **OS disk** | **Retention** | **Data disks**
---- | --- | --- | 
+--- | --- | --- | ---
  | | **Retention** | **Data disks**
 Standard A4 | 1 disk (1 * 1023 GB) | 1 disk ( 1 * 1023 GB) | 15 disks (15 * 1023 GB)
 Standard D14 |  1 disk (1 * 1023 GB) | 1 disk ( 1 * 1023 GB) | 31 disks (15 * 1023 GB)
@@ -152,28 +153,9 @@ Note that:
 	- If there's a source machine with 5 disks and each disk generates 120 IOPS (8K size) on the source, this translates to 240 IOPS per disk (2 operations on the target disk per source IO). 240 IOPS is within the Azure per disk IOPS limit of 500.
 	- On the retention volume, this becomes 120 * 5 = 600 IOPS and this can become a bottle neck. In this scenario, a good strategy would be to add more disks to the retention volume and span it across, as a RAID stripe configuration. This will improve performance because the IOPS are distributed across multiple drives. The number of drives to be added to the retention volume will be as follows:
 		- Total IOPS from source environment / 500
-		- Or total churn per day from source environment (uncompressed) / 287 GB. 
-		- This example is based on an 8K write size. For sizes, use the following table.
+		- Total churn per day from source environment (uncompressed) / 287 GB. 287 GB is the maximum throughput supported by a target disk per day. This metric will vary based on the write size with a factor of 8K, because in this case 8K is thee assumed write size. For example, if the write size is 4K then throughput will be 287/2. And if the write size is 16K then throughput will be 287*2.
+- The number of storage accounts required = total source IOPs/10000.
 
-**Write size** | **IOPs** | **Throughput (MB per second)** | **Data churn**
---- | --- | --- | 
-4 K |  440 | 1.8 | 152 GB
-8 K |  420 | 3.4 | 287 GB
-16 K |  390 | 6.4 | 540 GB
-32 K |  351 | 11.5 | 970 GB
-64 K |  324 | 21.3 | 1.8 TB
-128 K |  310 | 36 | 3 TB
-256 K |  295 | 77 | 6.3 TB
-512 K |  195 | 103 | 8.5 TB
-1 MB|  107 | 112 | 9.2 TB
-
-**Table 4**
-
-Where:
-
-- The number of storage accounts required = total source IOPs / (IOPs per disk * 2).
-- Calculate IOPs per disk using the table.
-- There's a multiplication of 2 because each source IOP incurs 2 IOPs (requests) on the storage account.
 
 ## Before you start
 
@@ -484,12 +466,20 @@ If you didn't disable signature verification for the Mobility service when you r
 
 Before proceeding, ensure that you have the latest updates installed. Remember to install the updates in the following order:
 
-1. Log onto the configuration server using the **Virtual Machines** page in Azure and download the latest update from: [http://go.microsoft.com/fwlink/?LinkID=533809](http://go.microsoft.com/fwlink/?LinkID=533809). Follow the installer instructions to install the update
-2. On the server that you installed the process server, download the latest update from [http://go.microsoft.com/fwlink/?LinkID=533810](http://go.microsoft.com/fwlink/?LinkID=533810) and install it using the installer instructions
-3.	On the master target server install the latest update:
+1. Configuration server
+2. Process server
+3. Master target server
 
-	- For Windows master target server(s), log onto the Windows master target server(s) using the **Virtual Machines** page in Azure and download the latest update from [http://go.microsoft.com/fwlink/?LinkID=533811](http://go.microsoft.com/fwlink/?LinkID=533811). Follow the installer instructions to install the update.
-	- For Linux master target server(s), copy the installer tar file that is available at [http://go.microsoft.com/fwlink/?LinkID=533812](http://go.microsoft.com/fwlink/?LinkID=533812) using a SFTP client. Alternatively you can log onto the Linux master target server(s) using the **Virtual Machines** page in Azure use wget to download the file. Extract the files from the gzipped installer and run the command “sudo ./install” to install the update
+You can get the updates on the Site Recovery **Dashboard **. For Linux installation extract the files from the gzipped installer and run the command “sudo ./install” to install the update
+
+If you are running virtual machines or physical servers that already have the Mobility service installed, you can get updates for the service as follows:
+
+- Either download updates for the service as follows:
+	- [Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
+	- [RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
+	- [OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
+	- [SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
+- Alternatively after updating the process server you can get the updated version of the Mobility service from the  C:\pushinstallsvc\repository folder on the process server.
 
 
 ## Step 6: Add vCenter servers or ESXi hosts
@@ -559,9 +549,6 @@ When you add machines to a protection group the Mobility service is automaticall
 	![Firewall settings](./media/site-recovery-vmware-to-azure/ASRVMWare_PushInstallFirewall.png)
 
 4. The account used to perform the push installation must be in the Administrators group on the machine you want to protect. These credentials are only used for push installation of the Mobility service and you'll provide them when you add a machine to a protection group.
-
-	![Mobility credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png)
-
 5. If the provided account isn't a domain account you'll need to disable Remote User Access control on the local machine. To do this add the LocalAccountTokenFilterPolicy DWORD registry entry with a value of 1 under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. To add the registry entry from a CLI open cmd or powershell and enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
 
 **Automatically push install the mobility service on Linux servers:**
@@ -592,10 +579,10 @@ The software packages used to install the Mobility service are on the process se
 
 | Source operating system                           	| Mobility service package on process server                                                           	|
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
-| Windows Server (64 bit only)                      	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe`         |
-| CentOS 6.4, 6.5, 6.6 (64 bit only)                	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.2.0.0_RHEL6-64_PREVIEW_20Mar2015_Release.tar.gz`     |
-| SUSE Linux Enterprise Server 11 SP3 (64 bit only) 	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.2.0.0_SLES11-SP3-64_PREVIEW_20Mar2015_Release.tar.gz`|
-| Oracle Enterprise Linux 6.4, 6.5 (64 bit only)    	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.2.0.0_OL6-64_PREVIEW_20Mar2015_Release.tar.gz`       |
+| Windows Server (64 bit only)                      	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe`         |
+| CentOS 6.4, 6.5, 6.6 (64 bit only)                	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_Release.tar.gz`     |
+| SUSE Linux Enterprise Server 11 SP3 (64 bit only) 	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_Release.tar.gz`|
+| Oracle Enterprise Linux 6.4, 6.5 (64 bit only)    	| `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_Release.tar.gz`       |
 
 
 **To install the Mobility service manually on a Windows server**, do the following:
@@ -665,21 +652,19 @@ To enable protection you add virtual machines and physical servers to a protecti
 Add machines as follows:
 
 1. **Protected Items** > **Protection Group** > **Machines** tab. Click **ADD MACHINES**. As a best practice we recommend that protection groups should mirror your workloads so that you add machines running a specific application to the same group.
-1. In **Select Virtual Machines** do the following:
-
-	- **Physical servers**: To protect physical servers, in the **Add Physical Machines** wizard provide the IP address and friendly name. Then select the operating system family.
+2. In **Select Virtual Machines** if you're protecting physical servers, in the **Add Physical Machines** wizard provide the IP address and friendly name. Then select the operating system family.
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_PhysicalProtect.png)
 
-	- **VMware**: To protect VMware virtual machines select a vCenter server that's managing your virtual machines (or the EXSi host on which they're running) and then select the machines.
-	 
-		![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
+3. In **Select Virtual Machines** if you're protecting VMware virtual machines, select a vCenter server that's managing your virtual machines (or the EXSi host on which they're running), and then select the machines.
 
-3. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all virtual machines.
+	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)	
+
+4. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all virtual machines.
 
 	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
-4. In **Specify Credentials** specify the credentials for installing the Mobility service on protected machines. The credentials are needed for automatic installation of the Mobility service. If you can't select an account make sure you set one up as described in Step 2. Note that this account can't be accessed by Azure. For Windows server the account should have administrator privileges on the source server. For Linux the account must be root.
+4. In **Specify Accounts** select the account you want to use for installing the Mobility service on protected machines. The account credentials are needed for automatic installation of the Mobility service. If you can't select an account make sure you set one up as described in Step 2. Note that this account can't be accessed by Azure. For Windows server the account should have administrator privileges on the source server. For Linux the account must be root.
 
 	![Linux credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_VMMobilityInstall.png)
 

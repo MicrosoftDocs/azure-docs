@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -80,6 +80,12 @@ In this example, it's clear that the `Reports/Employees` request results in the 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/04-failingReq.png)
 
 Additionally if you want to also see what other events were happening during this time, you can check **Include events with undefined properties**.
+
+## Remove bot and web test traffic
+
+Use the filter **Real or synthetic traffic** and check **Real**.
+
+You can also filter by **Source of synthetic traffic**.
 
 ## Inspect individual occurrences
 
