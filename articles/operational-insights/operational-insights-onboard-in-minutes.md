@@ -37,7 +37,7 @@ You can create a Microsoft Operations Management Suite workspace using the Micro
 
 You're ready to get started with the Operations Management Suite portal.
 
-You can learn more about setting up your workspace and linking existing Azure accounts to workspaces created with the Operations Management Suite at [Set up your workspace and manage settings](operational-insights-setup-workspace.md)
+You can learn more about setting up your workspace and linking existing Azure accounts to workspaces created with the Operations Management Suite at [Set up your workspace and manage settings](operational-insights-setup-workspace.md).
 
 ## Sign up quickly using Microsoft Azure
 
@@ -78,7 +78,8 @@ To choose solutions and connect the servers that you want to manage, click on th
 5. During installation, you can click **Advanced** to optionally setup your proxy server and provide authentication information. Click **Next** button to return to the workspace information screen.
 6. Click **Next** to validate your Workspace ID and Key. If any errors are found, you can click **Back** to make corrections. When your Workspace ID and Key are validated, click **Install** to complete the agent installation.
 7. Log back in to the Operations Management Suite portal, and click the **Settings** tile on the Overview page. A green check mark icon will appear when the agents communicate with the Operations Management Suite service. Initially, this takes about 5-10 minutes.
->[AZURE.NOTE] The capacity management and configuration assessment solutions are not currently supported by servers connected directly to the Operations Management Suite.
+
+> [AZURE.NOTE] The capacity management and configuration assessment solutions are not currently supported by servers connected directly to the Operations Management Suite.
 
 You can also connect the agent to System Center Operations Manager 2012 SP1 and later. To do so, you can select **Connect the agent to System Center Operations Manager**. When you choose that option, you send data to the service without requiring additional hardware or load on your management groups.
 
