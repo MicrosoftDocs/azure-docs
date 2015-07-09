@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/07/2015" 
+	ms.date="07/09/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
