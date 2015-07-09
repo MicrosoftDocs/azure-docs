@@ -660,7 +660,7 @@ Add machines as follows:
 
 	- **VMware**: To protect VMware virtual machines select a vCenter server that's managing your virtual machines (or the EXSi host on which they're running) and then select the machines.
 	 
-		![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
+	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
 
 3. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all virtual machines.
 
