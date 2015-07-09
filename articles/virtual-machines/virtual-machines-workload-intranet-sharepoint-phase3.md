@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""/>
-<!--Global comment: For Title and headings, sentence-case caps it required. For title you likely will use the following (I updated later section to "Next step" and "Additional resources"): SharePoint Intranet Farm Workload Phase 3: Configure SQL Server infrastructure  -->
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -37,7 +37,7 @@ Use the following block of PowerShell commands to create the virtual machines fo
 Recall that you defined Table M in [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md) and Tables V, S, A, and C in [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell command prompt.
-<!--IN the next example, we can't use "AD". Possible options: "Azure Active Directory" or "Active Directory Domain Services"  -->
+
 	# Create the first SQL server
 	$vmName="<Table M – Item 3 - Virtual machine name column>"
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
@@ -165,7 +165,7 @@ For both SQL server computers and for the cluster majority node, run the followi
 	Install-WindowsFeature Failover-Clustering -IncludeManagementTools
 
 Due to current non-RFC-compliant behavior by DHCP in Azure, creation of a Windows Server Failover Cluster (WSFC) cluster can fail. For details, search for "WSFC cluster behavior in Azure networking" in High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines. However, there is a workaround. Use the following steps to create the cluster.
-<!-- In previous paragraph, add inline link to "High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines" online documentation (Very likely not an option)?-->
+
 1.	Log on to the primary SQL Server virtual machine with the **sp_install** account.
 2.	From the Start screen, type **Failover**, and then click **Failover Cluster Manager**.
 3.	In the left pane, right-click **Failover Cluster Manager**, and then click **Create Cluster**.
@@ -190,7 +190,7 @@ If a machine cannot be added, and the error message is "the Remote Registry is n
 21.	On the Confirmation page, click **Next**.
 22.	On the Summary page, click **Finish**.
 23.	In the left pane, click **Nodes**. You should see all three computers listed.
-<!--In the previous procedure, if page names appear in UI, wrap all page names in bold typeface.  -->
+
 ## Enable AlwaysOn Availability Groups
 
 The next step is to enable AlwaysOn Availability Groups using the SQL Server Configuration Manager. Note that an availability group in SQL Server differs from an Azure availability set. An availability group contains databases that are highly-available and recoverable. An Azure availability set allocates virtual machines to different fault domains. For more information about fault domains, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability.md).
@@ -205,7 +205,7 @@ Use these steps to enable AlwaysOn Availability Groups on SQL Server.
 6.	Click the virtual-machines-manage-availability tab, then type [Domain]**\sqlservice** in **Account Name**. Type the sqlservice account password in **Password** and **Confirm password**, and then click **OK**.
 7.	In the message window, click **Yes** to restart the SQL Server service.
 8.	Log on to the secondary SQL server and repeat this process.
-<!-- In previous step 6, wrap tab name in bold typeface if name appears in UI. -->
+
 The next diagram shows the configuration resulting from the successful completion of this phase, with placeholder computer names.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase3/workload-spsqlao_03.png)
