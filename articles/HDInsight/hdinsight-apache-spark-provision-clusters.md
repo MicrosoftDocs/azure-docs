@@ -705,7 +705,7 @@ Typically, you provision an HDInsight cluster, run the jobs, and then delete the
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
 [hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-storm-get-started]: ../hdinsight-storm-getting-started/
 
 [azure-management-portal]: https://manage.windowsazure.com/
