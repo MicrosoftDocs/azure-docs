@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/07/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mimig"/>
 
 # Create a DocumentDB collection using the Azure preview portal
