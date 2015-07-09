@@ -89,12 +89,15 @@ For more information about each workflow, click the appropriate entry in the tab
 |Monitor|StorSimple Manager service → Devices → Monitor|
 |Add a volume container</br>Modify a volume container</br>Delete a volume container|StorSimple Manager service → Devices → Volume Containers|[Manage volume containers](storsimple-manage-volume-containers)|
 |Add a volume</br>Modify a volume</br>Take a volume offline</br>Delete a volume</br>Monitor a volume|StorSimple Manager service → Devices → Volume Containers → Volumes|[Manage volumes](storsimple-manage-volumes)|
-|Configure device settings</br>Configure time settings</br>Configure DNS settings</br>View web proxy settings</br>Configure network interfaces</br>Configure Snapshot Manager password</br>Configure device administrator password</br>Configure remote management</br>Configure alert settings|StorSimple Manager service → Devices → Configure||
+|Configure device settings</br>Configure time settings</br>Configure DNS settings</br>View web proxy settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure||
+|View web proxy settings|StorSimple Manager service → Devices → Configure|Configure web proxy for your device|
+|Configure remote management|StorSimple Manager service → Devices → Configure|Connect remotely to your StorSimple device|
+|Configure alert settings|StorSimple Manager service → Devices → Configure||
 |Configure CHAP for your StorSimple device|StorSimple Manager service → Devices → Configure|[Configure CHAP for your StorSimple device](https://msdn.microsoft.com/library/dn772351.aspx)|
 |Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules|StorSimple Manager service → Devices → Backup policies|[Manage backup policies](storsimple-manage-backup-policies)|
-|Manage device controllers|StorSimple Manager service → Devices → Maintenance|
-|Monitor hardware status (on-premises device only)|StorSimple Manager service → Devices → Maintenance| |
-|Create a support package |StorSimple Manager service → Devices → Maintenance| |
+|Manage device controllers|StorSimple Manager service → Devices → Maintenance|Stop, start or shut down your device controller|
+|Monitor hardware status (on-premises device only)|StorSimple Manager service → Devices → Maintenance|
+|Create a support package|StorSimple Manager service → Devices → Maintenance| |
 |Install software updates|StorSimple Manager service → Devices → Maintenance| |
 
 ##Next steps
