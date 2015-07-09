@@ -17,7 +17,7 @@
 
 # Deactivate and delete a StorSimple device
 
-This tutorial explains how to remove a device from service by deactivating it and then deleting it.
+This tutorial explains how to remove a StorSimple device from service by deactivating it and then deleting it.
 
 >[AZURE.NOTE] You must deactivate a device before you can delete it.
 
@@ -37,19 +37,19 @@ If you are interested in deleting the device completely and do not want to retai
 
 1. Prior to deactivating a device, you must delete all the volume containers (and the volumes) associated with the device. You can only delete volume containers after you have deleted the associated backups.
 
-2. Deactivate the device. Go to [deactivate a device](#deactivate-a-device) for instructions.
+2. Deactivate the device. Go to [Steps to deactivate](#steps-to-deactivate) for instructions.
 
-3. After deactivation, you can delete the device completely. Go to [delete a device](#delete-a-device) for instructions.
+3. After deactivation, you can delete the device completely. Go to [Delete a device](#delete-a-device) for instructions.
 
 ### Deactivate and retain data
 
 If you are interested in deleting the device but want to retain the device data, then do the following:  
 
-1. Deactivate the device. All the volume containers and the snapshots of the device will remain. Go to [deactivate the device](#deactivate-a-device) for instructions.
+1. Deactivate the device. All the volume containers and the snapshots of the device will remain. Go to [Steps to deactivate](#steps-to-deactivate) for instructions.
 
 2. You can now fail over the volume containers and the associated snapshots. For procedures, see [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md)
 
-3. After deactivation and failover, you can delete the device completely. Go to [delete a device](#delete-a-device) for instructions.
+3. After deactivation and failover, you can delete the device completely. Go to [Delete a device](#delete-a-device) for instructions.
 
 ### Steps to deactivate
 
@@ -88,5 +88,6 @@ You can delete only those devices that have been deactivated. Deleting a device 
 It may take a few minutes for the device to be deleted.
 
 ## Next steps
-To restore the deactivated device to factory defaults refer to https://msdn.microsoft.com/en-us/library/dn772373.aspx
+To restore the deactivated device to factory defaults, refer to [Reset the device to factory default settings](https://msdn.microsoft.com/library/dn772373.aspx).
+
 For technical assistance, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
