@@ -39,20 +39,9 @@ Just as with Azure Storage in the cloud, every request that you make against the
 
 ### Authentication with Shared Key credentials
 
-The storage emulator supports a single fixed account and a well-known authentication key for Shared Key authentication. This account and key are the only Shared Key credentials permitted for use with the storage emulator. They are:
+[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-    Account name: devstoreaccount1
-    Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
-    
-> [AZURE.NOTE] The authentication key supported by the storage emulator is intended only for testing the functionality of your client authentication code. It does not serve any security purpose. You cannot use your production storage account and key with the storage emulator. Also note that you should not use the development account with production data.
-
-To connect to the storage emulator from your application, configure a connection string from within your application's configuration file that references `UseDevelopmentStorage=true`. Here's an example of a connection string to the storage emulator in an app.config file: 
-
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-For details on how to configure and store the connection string, see [Storing your connection string](storage-configure-connection-string.md#storing-your-connection-string) and [Create a connection string to the storage emulator](storage-configure-connection-string.md#create-a-connection-string-to-the-storage-emulator). 
+For more details on connection strings, see [Configure a Connection String to Azure Storage](storage-configure-connection-string.md). 
 
 ### Authentication with a shared access signature 
 

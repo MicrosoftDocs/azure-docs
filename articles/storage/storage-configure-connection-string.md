@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tamram"/>
 
 # Configure Azure Storage Connection Strings
@@ -41,15 +41,7 @@ You can use the Azure [CloudConfigurationManager](https://msdn.microsoft.com/lib
 
 ## Create a connection string to the storage emulator
 
-The storage emulator account is a local account with a well-known name and key. You can use a shortcut string format, `UseDevelopmentStorage=true`, to refer to the storage emulator from within a connection string. For example, a connection string to the storage emulator in an app.config will look like this: 
-
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-You can also specify an HTTP proxy to use when you're testing your service against the storage emulator. This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services. To specify a proxy, add the `DevelopmentStorageProxyUri` option to the connection string, and set its value to the proxy URI. For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:
-
-    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
 See [Use the Azure Storage Emulator for Development and Testing](storage-use-emulator.md) for more information about the storage emulator.
 
