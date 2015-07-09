@@ -33,7 +33,7 @@ Here are some common scenarios that you might run into with your Spark cluster, 
 
 ### My Spark cluster on HDInsight is slow
 
-Apache Spark cluster in HDInsight is designed for multi-tenancy, so resources are split across multiple components (notebooks, job server, etc). This allows you to use all Spark components concurrently without worrying about any component not able to get resources to run, but each component will be slower since resources are fragmented.  This can be adjusted based on your needs.
+Apache Spark cluster in HDInsight is designed for multi-tenancy, so resources are split across multiple components (notebooks, job server, etc). This allows you to use all Spark components concurrently without worrying about any component not able to get resources to run, but each component will be slower since resources are fragmented.  This can be adjusted based on your needs. 
 
 
 ### I only use IPython with the Spark cluster. How can I allocate all resources to it?

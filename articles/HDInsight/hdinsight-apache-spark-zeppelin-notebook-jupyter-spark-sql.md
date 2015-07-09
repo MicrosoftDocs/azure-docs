@@ -26,7 +26,7 @@ Learn how to provision an Apache Spark cluster in HDInsight using the Quick Crea
 
 **Prerequisites:**
 
-Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/en-us/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##<a name="storage"></a>Create an Azure Storage account
 

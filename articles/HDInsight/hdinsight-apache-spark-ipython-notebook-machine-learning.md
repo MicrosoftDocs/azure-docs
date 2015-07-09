@@ -25,12 +25,12 @@ Learn how to build a machine learning application using an Apache Spark cluster 
 
 You must have the following:
 
-- An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/en-us/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - An Apache Spark cluster. For instructions, see [Provision Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
 
 ##<a name="data"></a>Show me the data
 
-Before we start building the application, let us understand the structure of the data and the kind of analysis we will do on the data.
+Before we start building the application, let us understand the structure of the data and the kind of analysis we will do on the data. 
 
 In this article, we use the sample **HVAC.csv** data file that is available on all HDInsight clusters by default at **\HdiSamples\SensorSampleData\hvac**. Download and open the CSV file to get a snapshot of the data.  
 
