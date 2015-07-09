@@ -40,13 +40,6 @@ To learn more, you can:
 ## Supported sources and sinks
 The Copy Activity supports the following data movement scenarios: 
 
-- Copy data from an Azure Blob to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, or SQL Server on IaaS.
-- Copy data from an Azure SQL Database to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS
-- Copy data from an Azure Table to an Azure Blob, Azure Table, or Azure SQL Database.
-- Copy data from an On-premises SQL Server/SQL Server on IaaS to Azure Blob or Azure SQL Database
-- Copy data from an On-premises Oracle database to an Azure blob
-- Copy data from an On-premises file system to Azure Blob
- 
 
 <table border="1">	
 	<tr>
