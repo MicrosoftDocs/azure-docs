@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Import data to DocumentDB | Azure" 
-	description="Learn how to use the open source DocumentDB data migration tool to import data to DocumentDB from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, and DocumentDB collections." 
+	description="Learn how to use the open source DocumentDB data migration tool to import data to DocumentDB from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and DocumentDB collections." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="johnmac" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/10/2015" 
 	ms.author="stbaro"/>
 
 # Import data to DocumentDB #
 
-This article shows you how to use the open source DocumentDB data migration tool to import data to [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, and DocumentDB collections.
+This article shows you how to use the open source DocumentDB data migration tool to import data to [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections.
 
 After reading this article, you'll be able to answer the following questions:  
 
@@ -27,6 +27,7 @@ After reading this article, you'll be able to answer the following questions:
 -	How can I import SQL Server data to DocumentDB?
 -	How can I import MongoDB data to DocumentDB?
 -	How can I import data from Azure Table storage to DocumentDB?
+-	How can I import data from Amazon DynamoDB to DocumentDB?
 -	How can I migrate data between DocumentDB collections?
 
 ##<a id="Prerequisites"></a>Prerequisites ##
@@ -44,6 +45,7 @@ The DocumentDB Data Migration tool is an open source solution that imports data 
 - SQL Server
 - CSV files
 - Azure Table storage
+- Amazon DynamoDB
 - DocumentDB collections
 
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command line (dt.exe).  In fact, there is an option to output the associated command after setting up an import through the UI.  Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import.  Keep reading to learn more about source options, sample command lines to import from each source, target options, and viewing import results.
@@ -221,6 +223,34 @@ Here is a command line sample to import from Azure Table storage:
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
+##<a id="DynamoDBSource"></a>Import from Amazon DynamoDB ##
+
+The Amazon DynamoDB source importer option allows you to import from an individual Amazon DynamoDB table and optionally filter the entities to be imported.  Several templates are provided so that setting up an import is as easy as possible.
+
+![Screenshot of Amazon DynamoDB source options](./media/documentdb-import-data/dynamodbsource1.png)
+
+![Screenshot of Amazon DynamoDB source options](./media/documentdb-import-data/dynamodbsource2.png)
+
+The format of the Amazon DynamoDB connection string is:
+
+	ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
+
+> [AZURE.NOTE] Use the Verify command to ensure that the Amazon DynamoDB instance specified in the connection string field can be accessed. 
+
+Here is a command line sample to import from Amazon DynamoDB:
+
+	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
+
+##<a id="BlobImport"></a>Import files from Azure Blob storage##
+
+The JSON file, MongoDB export file, and CSV file source importer options allow you to import one or more files from Azure Blob storage.  After specifying a Blob container URL and Account Key, simply provide a regular expression to select the file(s) to import.
+
+![Screenshot of Blob file source options](./media/documentdb-import-data/blobsource.png)
+
+Here is command line sample to import JSON files from Azure Blob storage:
+
+	dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
+
 ##<a id="DocumentDBSource"></a>Import from DocumentDB ##
 
 The DocumentDB source importer option allows you to import data from one or more DocumentDB collections and optionally filter documents using a query.  
@@ -366,11 +396,26 @@ The DocumentDB - Sequential record importer has the following additional advance
 
 > [AZURE.TIP] The import tool defaults to connection mode DirectTcp.  If you experience firewall issues, switch to connection mode Gateway, as it only requires port 443.
 
+##<a id="IndexingPolicy"></a>Specify Indexing Policy when Creating DocumentDB Collections ##
+
+When you allow the migration tool to create collections during import, you can specify the indexing policy of the collections.  In the advanced options section of the DocumentDB Bulk import and DocumentDB Sequential record options, navigate to the Indexing Policy section.
+
+![Screenshot of DocumentDB Indexing Policy advanced options](./media/documentdb-import-data/indexingpolicy1.png)
+
+Using the Indexing Policy advanced option, you can select an indexing policy file, manually enter an indexing policy, or select from a set of default templates (by right clicking in the indexing policy textbox).
+
+![Screenshot of DocumentDB Indexing Policy advanced options](./media/documentdb-import-data/indexingpolicy2.png)
+
+> [AZURE.NOTE] If you do not specify an indexing policy, then the default policy will be applied.  Read more about DocumentDB indexing policies [here](documentdb-indexing-policies.md). 
+
+
 ## Export to JSON file
 
-The DocumentDB JSON exporter allows you to export any of the available source options to a JSON file that contains an array of JSON documents.  The tool will handle the export for you, or you can choose to view the resulting migration command and run the command yourself.
+The DocumentDB JSON exporter allows you to export any of the available source options to a JSON file that contains an array of JSON documents.  The tool will handle the export for you, or you can choose to view the resulting migration command and run the command yourself.  The resulting JSON file may be stored locally or in Azure Blob storage.
 
-![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/jsontarget.png)
+![Screenshot of DocumentDB JSON local file export option](./media/documentdb-import-data/jsontarget.png)
+
+![Screenshot of DocumentDB JSON Azure Blob storage export option](./media/documentdb-import-data/jsontarget2.png)
 
 You may optionally choose to prettify the resulting JSON, which will increase the size of the resulting document while making the contents more human readable.
 
