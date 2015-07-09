@@ -10,10 +10,10 @@
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.tgt_pltfrm="vm-windows-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 
@@ -41,7 +41,7 @@ Here are the configuration details:
 -	Storage account: Specified during the initial configuration.
 -	Virtual network 	
 	-   Type: Cloud-only	
-    -	Address space: 192.168.16.0/26    
+    -	Address space: 10.0.0.0/26    
 
 - Virtual machines
 	-	*HostNamePrefix*-DC (AD DS domain controller)
@@ -62,14 +62,14 @@ Here are the configuration details:
 	-	Size: A5 (default)
 	-	Database access account name: Specified during the initial configuration.
 	-	Database access account password: Specified during the initial configuration.
-	-	SQL Server service account name: Specified during the initial configuration.
+	-	SQL Server service account name: sqlservice (default)
 	-	SQL Server service account password: Specified during the initial configuration.
 
 - SharePoint server
 	-	Virtual machine image: SharePoint Server 2013 Trial.
 	-	Host name prefix: Specified during the initial configuration.
 	-	Size: A2 (default)
-	-	SharePoint farm account name: Specified during the initial configuration.
+	-	SharePoint farm account name: sp_farm (default)
 	-	SharePoint farm account password: Specified during the initial configuration.
 	-	SharePoint farm passphrase: Specified during the initial configuration.
 
@@ -87,7 +87,7 @@ Here are the configuration details:
 -	Storage account: Specified during the initial configuration.
 -	Virtual network	
 	-	Type: Cloud-only
-	-	Address space: 192.168.16.0/26	
+	-	Address space: 10.0.0.0/26	
 
 -	Virtual machines
 	-	*HostNamePrefix*-DC1 (AD DS domain controller)
@@ -111,23 +111,25 @@ Here are the configuration details:
 -	SQL Servers
 	-	Virtual machine image: SQL Server 2014 RTM Enterprise on Windows Server 2012 R2.
 	-	Host name prefix: Specified during the initial configuration.
-	-	Size: A5 (default)
+	-	Size: A5 (default) for SQL servers, A0 (default) for the file share witness
 	-	Database access account name: Specified during the initial configuration.
 	-	Database access account password: Specified during the initial configuration.
-	-	SQL Server service account name: Specified during the initial configuration.
+	-	SQL Server service account name: sqlservice (default)
 	-	SQL Server service account password: Specified during the initial configuration.
 
 -	SharePoint servers
 	-	Virtual machine image: SharePoint Server 2013 Trial.
 	-	Host name prefix: Specified during the initial configuration.
 	-	Size: A2 (default)
-	-	SharePoint farm account name: Specified during the initial configuration.
-	-	SharePoint farm account password: Specified during the initial configuration.		
+	-	SharePoint farm account name: sp_farm (default)
+	-	SharePoint farm account password: Specified during the initial configuration.	
 	-	SharePoint farm passphrase: Specified during the initial configuration.
 
-> [AZURE.NOTE] The SharePoint servers are created from the SharePoint Server 2013 Trail image. To
-continue using the virtual machine after the trial expiration, you need to
-convert the installation to use a Retail or Volume License key for either the Standard or Enterprise editions of SharePoint Server 2013.
+> [AZURE.NOTE] The SharePoint servers are created from the SharePoint Server 2013 Trail image. To continue using the virtual machine after the trial expiration, you need to convert the installation to use a Retail or Volume License key for either the Standard or Enterprise editions of SharePoint Server 2013.
+
+## Azure Resource Manager
+
+The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines in Service Management. To create SharePoint Server 2013 farms in Resource Manager, see [Deploy SharePoint Farms with Azure Resource Manager Templates](virtual-machines-workload-template-sharepoint.md).
 
 ## Additional Resources
 

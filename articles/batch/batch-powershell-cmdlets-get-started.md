@@ -13,25 +13,24 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="05/29/2015"
+   ms.date="07/08/2015"
    ms.author="danlep"/>
 
 # Get started with Azure Batch PowerShell cmdlets
-This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch workitems, jobs, and tasks.
+This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch jobs, tasks, and other details.
 
 For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
-
+a
 
 ## Prerequisites
 
-* **Batch Preview** - Sign up for the [Batch preview](https://account.windowsazure.com/PreviewFeatures), if you haven't already, to work with the service.
 * **Azure PowerShell** - See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for prerequisites and download and installation instructions. Batch cmdlets were introduced in version 0.8.10 and later versions.
 
 ## Use the Batch cmdlets
 
 Use standard procedures to start Azure PowerShell and [connect to your Azure subscriptions](../powershell-install-configure.md#Connect). Additionally:
 
-* **Select Azure subscription** - If you have more than subscription, select the subscription where you added the Batch Preview feature:
+* **Select Azure subscription** - If you have more than subscription, select a subscription:
 
     ```
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
@@ -90,9 +89,9 @@ Remove-AzureBatchAccount -AccountName <account_name>
 
 When prompted, confirm you want to remove the account. Account removal can take some time to complete.
 
-## Query for workitems, jobs, and tasks
+## Query for jobs, tasks, and other details
 
-Use cmdlets such as **Get-AzureBatchWorkItem**, **Get-AzureBatchJob**, **Get-AzureBatchTask**, and **Get-AzureBatchPool** to query for entities created under a Batch account.
+Use cmdlets such as **Get-AzureBatchJob**, **Get-AzureBatchTask**, and **Get-AzureBatchPool** to query for entities created under a Batch account.
 
 To use these cmdlets, you first need to create an AzureBatchContext object to store your account name and keys:
 
@@ -102,40 +101,33 @@ $context = Get-AzureBatchAccountKeys "<account_name>"
 
 You pass this context into cmdlets that interact with the Batch service by using the **BatchContext** parameter.
 
-> [AZURE.NOTE] By default, the account's primary key is used for authentication, but you can explicitly select the key to use by changing your BatchAccountContext object’s **KeyInUse** property:
-```$context.KeyInUse = "Secondary"```.
+> [AZURE.NOTE] By default, the account's primary key is used for authentication, but you can explicitly select the key to use by changing your BatchAccountContext object’s **KeyInUse** property: `$context.KeyInUse = "Secondary"`.
 
 
 ### Query for data
 
-As an example, use **Get-AzureBatchWorkItem** to find your workitems. By default this queries for all workitems under your account, assuming you already stored the BatchAccountContext object in *$context*:
-
-```
-Get-AzureBatchWorkItem -BatchContext $context
-```
-
-The same can be done with other entities, such as pools:
+As an example, use **Get-AzureBatchPools** to find your pools. By default this queries for all pools under your account, assuming you already stored the BatchAccountContext object in *$context*:
 
 ```
 Get-AzureBatchPool -BatchContext $context
 ```
 ### Use an OData filter
 
-You can supply an OData filter using the **Filter** parameter to find only the objects you’re interested in. For example, you can find all workitems with names starting with “myWork”:
+You can supply an OData filter using the **Filter** parameter to find only the objects you’re interested in. For example, you can find all pools with names starting with “myPool”:
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'"
-Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
+$filter = "startswith(name,'myPool')"
+Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 This method is not as flexible as using “Where-Object” in a local pipeline. However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth.
 
 ### Use the Name parameter
 
-An alternative to an OData filter is to use the **Name** parameter. To query for a specific workitem named "myWorkItem":
+An alternative to an OData filter is to use the **Name** parameter. To query for a specific pool named "myPool":
 
 ```
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
+Get-AzureBatchPool -Name "myPool" -BatchContext $context
 
 ```
 The **Name** parameter supports only full-name search, not wildcards or OData-style filters.
@@ -145,7 +137,7 @@ The **Name** parameter supports only full-name search, not wildcards or OData-st
 Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, you can find all tasks under your account:
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### Use the MaxCount parameter
@@ -153,7 +145,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 By default, each cmdlet returns a maximum of 1000 objects. If you reach this limit, you can either refine your filter to bring back fewer objects, or explicitly set a maximum using the **MaxCount** parameter. For example:
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
+Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 ```
 

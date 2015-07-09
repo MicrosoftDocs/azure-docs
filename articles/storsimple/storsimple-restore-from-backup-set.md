@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Restore a StorSimple volume from a backup set"
+   pageTitle="Restore a StorSimple volume from a backup set" | Microsoft Azure
    description="Explains how to use the backup catalog to restore a StorSimple volume from a backup set."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # Restore a StorSimple volume from a backup set
