@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/17/2015"
+ ms.date="07/06/2015"
  ms.author="larryfr"/>
 
 # Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight
@@ -288,4 +288,3 @@ Now that you have learned how to use Scalding to create MapReduce jobs for HDIns
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
- 

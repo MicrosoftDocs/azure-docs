@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="josephd"/>
 
 
@@ -192,7 +193,7 @@ This is your current configuration.
  
 Your SharePoint intranet farm in a hybrid cloud environment is now ready for testing.
 
-## Additional Resources
+## Additional resources
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
@@ -208,5 +209,5 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 
 [Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
 
-[Azure Infrastructure Services Implementation Guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  

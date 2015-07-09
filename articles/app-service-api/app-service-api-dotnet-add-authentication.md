@@ -88,61 +88,13 @@ When you go to the resource group's blade in the [Azure preview portal], you can
 
 To configure your API app to accept only authenticated requests, you'll set its accessibility to **Public (authenticated)** and you'll configure the gateway to require authentication from a provider such as Azure Active Directory, Google, or Facebook.
 
-1. Go back to the **API App** blade for the API app that you want to protect.
+[AZURE.INCLUDE [app-service-api-config-auth](../../includes/app-service-api-config-auth.md)]
 
-2. In the **API App** blade, click **Settings**, and then click **Application settings**.
-
-	![Click Settings](./media/app-service-api-dotnet-add-authentication/clicksettings.png)
-
-	![Click Application settings](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
-
-3. In the **Application Settings** blade, change **Access Level** to **Public (authenticated)**, and then click **Save**.
-
-	![Click Basic settings](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
-
-	You have now protected the API app from unauthenticated access. Next you have to configure the gateway to specify which authentication provider to use.
+You have now protected the API app from unauthenticated access. Next you have to configure the gateway to specify which authentication provider to use.
 
 ### <a id="gateway"></a>Configure the gateway to use an authentication provider
 
-4. Scroll left back to the **API App** blade, and then click the link to the gateway.
-
-	![Click gateway](./media/app-service-api-dotnet-add-authentication/gateway.png)
-
-7. In the **Gateway** blade, click **Settings**, and then click **Identity**.
-
-	![Click Settings](./media/app-service-api-dotnet-add-authentication/clicksettingsingateway.png)
-
-	![Click Identity](./media/app-service-api-dotnet-add-authentication/clickidentity.png)
-
-	From the **Identity** blade you can navigate to different blades for configuring authentication using Azure Active Directory and several other providers.
-
-	![Identity blade](./media/app-service-api-dotnet-add-authentication/identityblade.png)
-  
-3. Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider. These articles were written for mobile apps, but the procedures are the same for API apps. Some of the procedures require you to use the [Azure portal]. 
-
- - [Microsoft Account](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Facebook login](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Twitter login](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Google login](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
-
-As an example, the following screen shots show what you should see in the [Azure portal] pages and [Azure preview portal] blades after you have set up Azure Active Directory authentication.
-
-In the Azure preview portal, The **Azure Active Directory** blade has a **Client ID** from the application you created in the Azure Active Directory tab of the Azure portal, and **Allowed Tenants** has your Azure Active Directory tenant (for example, "contoso.onmicrosoft.com").
-
-![Azure Active Directory blade](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
-
-In the Azure portal, the **Configure** tab for the application you created in the **Azure Active Directory** tab has the **Sign-on URL**, **App ID URI**, and **Reply URL** from the **Azure Active Directory** blade in the Azure preview portal.
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
-
-(The Reply URL in the image shows the same URL twice, once with `http:` and once with `https:`.)
+[AZURE.INCLUDE [app-service-api-gateway-config-auth](../../includes/app-service-api-gateway-config-auth.md)]
 
 ## Verify that authentication works
 
@@ -191,6 +143,8 @@ In the Azure portal, the **Configure** tab for the application you created in th
 	![Login completed](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+
+	If you have enabled the Swagger UI, you can also go to the Swagger UI page now. However, you'll see a red **ERROR** icon at the bottom right corner of the page, and if you click the icon you'll see a message saying that the Swagger JSON file is inaccessible. This is because Swagger makes an AJAX call without including the Zumo token to try to retrieve the JSON file. This does not prevent the Swagger UI page from working.
 
 ## Use Postman to send a Post request
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Run Pig jobs from a Remote Desktop connection
@@ -34,7 +34,7 @@ To complete the steps in this article, you will need the following.
 
 ##<a id="connect"></a>Connect with Remote Desktop
 
-Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 ##<a id="pig"></a>Use the Pig command
 
@@ -134,4 +134,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
- 

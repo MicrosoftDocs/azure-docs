@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # What is Application Insights?
@@ -33,22 +33,6 @@ It works for a wide variety of app types and platforms: web apps in .NET or J2EE
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
-
-## How do I get started?
-
-1. You'll need a subscription to [Microsoft Azure](http://azure.com) It's free to sign up, and you can choose the free pricing tier of Application Insights. 
-
-
-2. What development tools are you using? 
-
- * Visual Studio (2013 update 3 or later): Right-click your project in Solution Explorer, and choose **Add Application Insights** if it's there.
- * Otherwise, choose your project type under Get Started in the navigation bar at the left of this page.
-
-Following the guidance in the tools, you'll install an SDK in your project to send telemetry data, and create an Application Insights resource where the data will be analyzed and displayed. 
-
-The SDK includes a number of modules that automatically collect different types of data, such as performance counters and exceptions. You can also use the core API yourself to send telemetry about how your app is being used.
-
-For web apps, you can send data from both the server and the client (whether it's a web page or a device app). The streams will be integrated in the Application Insights portal so that you can correlate events in the different components.
 
 
 
@@ -80,26 +64,26 @@ For ASP.NET servers and Azure web apps, you can also install [Status Monitor][re
 * Monitor a web app without re-building or re-installing it.
 * Track calls to dependent modules.
 
-#### Setup overview
+### What's the overhead?
+
+The impact on your performance is very small. Tracking calls non-blocking, and are batched and sent in a separate thread. 
 
 
-In all cases, the basic procedure is:
+## How do I get started?
 
-1. Create an Application Insights resource in [Azure][portal] (and get its instrumentation key).
-2. Instrument your application with the appropriate SDK (and configure it with the instrumentation key).
-3. Run your application  either in debug mode or live.
-4. See the results in your resource in [Azure][portal].
+1. You'll need a subscription to [Microsoft Azure](http://azure.com) It's free to sign up, and you can choose the free pricing tier of Application Insights. 
 
-In some cases an plug-in is available for your IDE (such as Visual Studio or Eclipse) that performs the first two steps for you. But you can always go through the procedure manually.
+2. Sign into [Azure Preview Portal](http://portal.azure.com)
+3. Create an Application Insights resource. This is where you'll see data from your app.
 
-If your app is a web site or service, there are some optional additions and variations on the basic procedure:
+    ![Add, Developer Services, Application Insights.](./media/app-insights-overview/11-new.png)
 
-* Add an SDK both to the server-side application, and to the client [device][windows] or [web page][client]. The telemetry data is merged in the portal so that you can correlate events at the two ends.
-* Set up web tests to monitor the availability of your site from points around the world.
-* Instrument an already-live server-side application without rebuilding or redeploying it. This is available for [IIS servers][redfield] and [Azure web apps][azure].
-* Monitor dependency calls that your app makes to other components such as databases or through REST APIs. Available for [IIS servers][redfield] and [Azure web apps][azure].
+    Choose your application type.
+
+4. In your new resource, click any empty chart to open the Quick Start guide. This explains how to install the SDK in your app. If it's a web app, you'll also find out how to add the SDK to web pages, and to set up availability tests.
 
 
+For more details, choose your app type under Get Started in the navigation bar on the left of this page.
 
 
 ## Support and feedback

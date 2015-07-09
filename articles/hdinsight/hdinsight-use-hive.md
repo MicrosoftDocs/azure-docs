@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Learn what is Hive and how to use HiveQL | Microsoft Azure"
-	description="Learn about Apache Hive and how to use it with Hadoop in HDInsight. Choose how to run your Hive job, and use HiveQL to analyze a sample Apache log4j file." 
+	description="Learn about Apache Hive and how to use it with Hadoop in HDInsight. Choose how to run your Hive job, and use HiveQL to analyze a sample Apache log4j file."
 	keywords="hiveql,what is hive"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/23/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 # Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file
@@ -24,7 +24,7 @@
 
 In this tutorial, you'll learn how to use Apache Hive in Hadoop on HDInsight, and choose how to run your Hive job. You'll also learn about HiveQL and how to analyze a sample Apache log4j file.
 
-##<a id="why"></a>What is Hive and why use it? 
+##<a id="why"></a>What is Hive and why use it?
 [Apache Hive](http://hive.apache.org/) is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of data by using HiveQL (a query language similar to SQL). Hive can be used to interactively explore your data or to create reusable batch processing jobs.
 
 Hive allows you to project structure on largely unstructured data. After you define the structure, you can use Hive to query that data without knowledge of Java or MapReduce. **HiveQL** (the Hive query language) allows you to write queries with statements that are similar to T-SQL.
@@ -162,4 +162,3 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
- 

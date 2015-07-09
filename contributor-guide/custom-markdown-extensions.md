@@ -1,22 +1,22 @@
-<properties 
-    title="required" 
-    pageTitle="Custom markdown extensions used in our technical articles" 
-    description="Lists the custom markdown extensions that enable embedded videos, notes and tips, reusable content, and other item in azure.microsoft.com technical articles." 
-    services="" 
-    solutions="" 
-    documentationCenter="" 
-    authors="tysonn" 
-    manager="carolz" 
+<properties
+    title="required"
+    pageTitle="Custom markdown extensions used in our technical articles"
+    description="Lists the custom markdown extensions that enable embedded videos, notes and tips, reusable content, and other item in azure.microsoft.com technical articles."
+    services=""
+    solutions=""
+    documentationCenter=""
+    authors="tysonn"
+    manager="carolz"
     editor=""/>/>
 
-<tags 
-    ms.service="contributor-guide" 
-    ms.devlang="" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="" 
-    ms.workload="" 
-    ms.date="01/22/2015" 
-    ms.author="tysonn" />
+<tags
+    ms.service="contributor-guide"
+    ms.devlang=""
+    ms.topic="article"
+    ms.tgt_pltfrm=""
+    ms.workload=""
+    ms.date="01/22/2015"
+    ms.author="tysonn"/>
 
 ## Markdown for Azure.microsoft.com
 
@@ -194,7 +194,7 @@ The image above shows the rendering on azure.microsoft.com. On the rendered GitH
 
 ###<a id="two-way-selectors"></a>Two-way selectors
 
-Two-way selectors lets users select a topics from a 2 x n matrix. This is essential when an Azure technology, such as Mobile Services, supports multiple backend platforms as well as multiple clients. Keep in mind the following:
+Two-way selectors lets users select a topics from a two way matrix. This is essential when an Azure technology, such as Mobile Services, supports multiple backend platforms as well as multiple clients. Keep in mind the following:
 
 - While it was designed as `(Platform | Backend)`, the dropwdown text can now be customized.
 - You do not need a list item for every point in your matrix, but do only have an item where a topic URL exists and is not a duplicate.
