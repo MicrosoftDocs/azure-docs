@@ -38,7 +38,7 @@ Azure considers a subnet that has something deployed to it as "in use". When a s
 
 
 ## Export and import virtual network settings using the Management Portal  
-You can import an export network configuration settings contained in your network configuration file by using PowerShell or the Management Portal. The instructions below will help you export and import using the Management Portal. 
+You can import and export network configuration settings contained in your network configuration file by using PowerShell or the Management Portal. The instructions below will help you export and import using the Management Portal. 
 
 ### To export your network settings
 When you export, all of the settings for the virtual networks in your subscription will be written to an .xml file. 
