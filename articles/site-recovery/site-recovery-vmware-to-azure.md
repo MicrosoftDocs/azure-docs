@@ -153,7 +153,7 @@ Note that:
 	- If there's a source machine with 5 disks and each disk generates 120 IOPS (8K size) on the source, this translates to 240 IOPS per disk (2 operations on the target disk per source IO). 240 IOPS is within the Azure per disk IOPS limit of 500.
 	- On the retention volume, this becomes 120 * 5 = 600 IOPS and this can become a bottle neck. In this scenario, a good strategy would be to add more disks to the retention volume and span it across, as a RAID stripe configuration. This will improve performance because the IOPS are distributed across multiple drives. The number of drives to be added to the retention volume will be as follows:
 		- Total IOPS from source environment / 500
-		- CTotal churn per day from source environment (uncompressed) / 287 GB. 287 GB is the maximum throughput supported by a target disk per day. This metric will vary based on the write size with a factor of 8K, because in this case 8K is thee assumed write size. For example, if the write size is 4K then throughput will be 287/2. And if the write size is 16K then throughput will be 287*2.
+		- Total churn per day from source environment (uncompressed) / 287 GB. 287 GB is the maximum throughput supported by a target disk per day. This metric will vary based on the write size with a factor of 8K, because in this case 8K is thee assumed write size. For example, if the write size is 4K then throughput will be 287/2. And if the write size is 16K then throughput will be 287*2.
 - The number of storage accounts required = total source IOPs/10000.
 
 
@@ -657,6 +657,7 @@ Add machines as follows:
 	- **Physical servers**: To protect physical servers, in the **Add Physical Machines** wizard provide the IP address and friendly name. Then select the operating system family.
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_PhysicalProtect.png)
+	
 
 	- **VMware**: To protect VMware virtual machines select a vCenter server that's managing your virtual machines (or the EXSi host on which they're running) and then select the machines.
 	 
