@@ -15,7 +15,7 @@
    ms.date="05/27/2015"
    ms.author="joaoma" />
 
-# Traffic Manager Overview
+# What is Traffic Manager?
 
 Microsoft Azure Traffic Manager allows you to control the distribution of user traffic to your specified endpoints, which can include Azure cloud services, websites, and other endpoints. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your Azure cloud services or websites can be running in different datacenters across the world.
 
