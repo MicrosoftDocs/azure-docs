@@ -38,9 +38,9 @@ Collections do not have to be created using the preview portal, you can also cre
 
 7. Select one of the following **Indexing Policies**. 
 
-	- **Default**. This policy is best when you're performing equality queries for strings, and using ORDER BY, which performs range and equality queries on numbers. This policy has a lower index storage overhead than **Hash** or **Range**.
-	- **Hash**. This policy is best when you're performing equality queries for both numbers and strings. This policy has a lower index storage overhead when compared to **Default** and **Range**.
-	- **Range**. This policy is best when you're using ORDER BY, which performs range and equality queries on both numbers and strings. This policy has a higher index storage overhead than **Default** and **Hash**.
+	- **Default**. This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers.  This policy has a lower index storage overhead than **Range**.
+	- **Hash**. This policy is best when you’re performing equality queries for both numbers and strings.  This policy has the lowest index storage overhead.
+	- **Range**. This policy is best you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than **Default** or **Hash**.
 
 	For more information about the indexing policies, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
