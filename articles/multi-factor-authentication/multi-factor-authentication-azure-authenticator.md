@@ -18,7 +18,7 @@
 
 
 #What is Azure Authenticator?
-Azure Authenticator is simply a phone app, available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) that allows the following:
+Azure Authenticator is a simple to use phone app, available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) that can be used with following:
 
 - Multi-Factor Authentication - allows you to secure your accounts with two-step verification. With two-step verification, you sign in using something you know (your password) and something you have (your mobile device).
 - Work Account - allows you to turn your Android phone or tablet into a trusted device and provide Single Sign-On (SSO) to company applications. Your IT administrator may require you to add a work account in order to access company resources. SSO lets you sign in once and automatically avail of signing in across all applications your company has made available to you. 
