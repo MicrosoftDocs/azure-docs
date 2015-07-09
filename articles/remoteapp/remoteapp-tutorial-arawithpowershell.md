@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
-   ms.author="guscatal;spatnaik"/>
+   ms.date="07/07/2015"
+   ms.author="guscatal;spatnaik;elizapo"/>
 
 
 
-Getting started in Azure RemoteApp with Powershell
+# Getting started in Azure RemoteApp with Powershell
 =====================================
 
 
-Get the cmdlets 
+## Get the cmdlets 
 -------------
 First we need to download Azure Powershell commandlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp ones are included in it.
 
-Configure Azure cmdlets to use your subscription
+## Configure Azure cmdlets to use your subscription
 ------------------
 Follow [this guide](../powershell-install-configure.md) so you can use the cmdlets against your Azure subscription.
 
-Create a cloud collection
+## Create a cloud collection
 --------------------
 It's simple, run the following command:
 
@@ -49,6 +49,7 @@ After the collection is done, you can add users to the collection with the follo
 
 And you're done! That user should be able to connect to the application using the Azure RemoteApp client found [here](https://www.remoteapp.windowsazure.com/).
 
+## Available cmdlets
 There are lots of other commands that we have, the documentation for them will be coming shortly:
 
 Basic RemoteApp Collection  cmdlets: 

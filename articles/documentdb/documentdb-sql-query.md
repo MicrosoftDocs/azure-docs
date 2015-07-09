@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="07/06/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
@@ -70,7 +70,7 @@ Here's a second document with one subtle difference – `givenName` and `familyN
 	    "children": [
 	        {
 	            "familyName": "Merriam", 
-	             "givenName": "Jesse", 
+	            "givenName": "Jesse", 
 	            "gender": "female", "grade": 1,
 	            "pets": [
 	                { "givenName": "Goofy" },
@@ -137,7 +137,7 @@ Now consider the case where we need to reformat the JSON output in a different s
 	}]
 
 
-The next query returns all the given names of children in the family whose id matches `WakefieldFamily`.
+The next query returns all the given names of children in the family whose id matches `WakefieldFamily` ordered by the city of residence.
 
 **Query**
 
@@ -145,7 +145,7 @@ The next query returns all the given names of children in the family whose id ma
 	FROM Families f 
 	JOIN c IN f.children 
 	WHERE f.id = 'WakefieldFamily'
-	ORDER BY f.creationDate ASC
+	ORDER BY f.address.city ASC
 
 **Results**
 
@@ -1109,7 +1109,30 @@ The special operator (*) is supported to project the document as-is. When used, 
 	}]
 
 ##ORDER BY Clause
-Like in ANSI-SQL, you can now include an optional Order By clause while querying. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. For example, here's a query that retrieves families in order of creation date (stored as epoch time in seconds).
+Like in ANSI-SQL, you can include an optional Order By clause while querying. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. For a more detailed look at Order By, refer to [DocumentDB Order By Walkthrough](documentdb-orderby.md).
+
+For example, here's a query that retrieves families in order of the resident city's name.
+
+**Query**
+
+	SELECT f.id, f.address.city
+	FROM Families f 
+	ORDER BY f.address.city
+	
+**Results**
+	
+	[
+	  {
+	    "id": "WakefieldFamily",
+	    "city": "NY"
+	  },
+	  {
+	    "id": "AndersenFamily",
+	    "city": "Seattle"	
+	  }
+	]
+
+And here's a query that retrieves families in order of creation date, which is stored as a number representing the epoch time, i.e, elapsed time since Jan 1, 1970 in seconds.
 
 **Query**
 
@@ -1129,6 +1152,7 @@ Like in ANSI-SQL, you can now include an optional Order By clause while querying
 	    "creationDate": 1431620472	
 	  }
 	]
+	
 ##Advanced Concepts
 ###Iteration
 A new construct was added via the **IN** keyword in DocumentDB SQL to provide support for iterating over JSON arrays. The FROM source provides support for iteration. Let's start with the following example:
@@ -2481,3 +2505,4 @@ The following example show how to use the queryDocuments in the JavaScript serve
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
  
+

@@ -35,10 +35,11 @@ To programmatically access blobs in ASP.NET 5 projects, you need to add the foll
 
 1. Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 
-		using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
+		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. Use the following code to get the configuration setting.
 

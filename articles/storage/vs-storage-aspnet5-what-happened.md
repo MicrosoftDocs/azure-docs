@@ -43,7 +43,7 @@ This package adds the following .NET references:
 - `System.Data`
 - `System.Spatial`
 
-Also, the NuGet package **Microsoft.Framework.ConfigurationModel.Json** was added.
+Also, the NuGet package **Microsoft.Framework.Configuration.Json** was added.
 
 #####Connection string for Azure Storage added 
 In the config.json file of your project, an element was created with the selected storage account's connection string and key.
