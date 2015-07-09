@@ -652,18 +652,14 @@ To enable protection you add virtual machines and physical servers to a protecti
 Add machines as follows:
 
 1. **Protected Items** > **Protection Group** > **Machines** tab. Click **ADD MACHINES**. As a best practice we recommend that protection groups should mirror your workloads so that you add machines running a specific application to the same group.
-1. In **Select Virtual Machines** do the following:
-
-	- **Physical servers**: To protect physical servers, in the **Add Physical Machines** wizard provide the IP address and friendly name. Then select the operating system family.
+2. In **Select Virtual Machines** if you're protecting physical servers, in the **Add Physical Machines** wizard provide the IP address and friendly name. Then select the operating system family.
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_PhysicalProtect.png)
-	
 
-	- **VMware**: To protect VMware virtual machines select a vCenter server that's managing your virtual machines (or the EXSi host on which they're running) and then select the machines.
-	 
-	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
+3. In **Select Virtual Machines** if you're protecting VMware virtual machines, select a vCenter server that's managing your virtual machines (or the EXSi host on which they're running) and then select the machines.
+	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)	
 
-3. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all virtual machines.
+4. In **Specify Target Resources** select the master target servers and storage to use for replication and select whether the settings should be used for all virtual machines.
 
 	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
