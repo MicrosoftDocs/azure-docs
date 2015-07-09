@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="07/09/2015"
+   ms.author="joaoma" />
 
 # Disable, Enable, or Delete a Profile
 

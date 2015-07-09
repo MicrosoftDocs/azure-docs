@@ -226,10 +226,37 @@ Here is an example:
 ILB is supported for both Virtual machines and Cloud Services
 An ILB endpoint created in a Cloud Service that is outside a Regional Virtual Network will be accessible only within the Cloud Service.
 
-The ILB configuration has to be set during the creation of the first deployment in the Cloud Service, as shown in the cmdlet sample below.
+The ILB configuration has to be set during the creation of the first deployment in the Cloud Service, as shown in the sample below.
 
-### Create a local ILB Object
-	$myilbconfig = New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName "MyILB"
+[AZURE.IMPORTANT] pre-requesite to run the steps below is to have a virtual network already created for the cloud deployment. You will need the virtual network name and subnet name to create the ILB.
+
+### Step 1
+
+Open the configuration file (.cscfg) for your cloud deployment in visual studio and add the following section to create the ILB. 
+
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="name of the load balancer">
+	      <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+ 
+More information about the load balancer schema see [add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx)
+
+### Step 2
+
+
+Change the service definition (.csdef) file to add endpoints to the ILB. The moment a role instance is created, the service definition file will add the role to the ILB.
+
+
+	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+	  </Endpoints>
+	</WorkerRole>
+
 
 ### Add Internal Load Balancer for a new service
 
