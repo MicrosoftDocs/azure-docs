@@ -19,7 +19,7 @@
 
 #Injecting custom data into an Azure virtual machine
 
-Injecting a script or other data into an Azure virtual machine when it is being provisioned is a very common scenario, regardless of whether the operating system is Microsoft Windows or a Linux distribution. This topic describes how to:
+Injecting a script or other data into an Azure virtual machine when it is being provisioned is a very common scenario, regardless of whether the operating system is Windows or a Linux distribution. This topic describes how to:
 
 - Inject data into an Azure virtual machine when it is being provisioned
 
@@ -63,9 +63,8 @@ If your Azure virtual machine is from an Ubuntu or CoreOS image, then you can us
 
 In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md) for more information.
 
-However, on the Ubuntu Cloud Images we must use cloud-init to configure the resource disk (aka "ephemeral" disk) and swap partition.  Please see the following page on the Ubuntu wiki for more details:
+However, on the Ubuntu Cloud Images we must use cloud-init to configure the resource disk (aka "ephemeral" disk) and swap partition.  See [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409) for details.
 
- - [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
