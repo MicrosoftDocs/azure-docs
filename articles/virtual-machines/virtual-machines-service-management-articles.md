@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Articles for Classic Virtual Machines | Microsoft Azure"
-	description="Lists the articles to help you create and manage Azure Service Management-based (classic) virtual machines."
+	pageTitle="Articles for Virtual Machines in Service Management | Microsoft Azure"
+	description="Lists the articles to help you create and manage virtual machines in Azure Service Management."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -12,13 +12,13 @@
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="06/25/2015"
+	ms.date="06/30/2015"
 	ms.author="danlep"/>
 
-# Articles for Classic Virtual Machines
-This is a list of articles for working with classic Azure virtual machines, which are based on Azure Service Management. Microsoft recommends the use of Azure Resource Manager-based virtual machines. For an explanation of the advantages of Resource Manager, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
+# Articles for Virtual Machines in Service Management
+This is a list of articles for working with virtual machines in Azure Service Management. For new deployments, Microsoft recommends the use of Azure Resource Manager-based virtual machines and other resources. For an explanation of the advantages of Resource Manager, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
 
 ## Get Started
 
@@ -44,7 +44,11 @@ This is a list of articles for working with classic Azure virtual machines, whic
 
 ## Plan
 
+[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
 [About VM Configuration Settings](https://msdn.microsoft.com/library/azure/dn763935.aspx)
+
+[Do I need a virtual network?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
 ## Create
 
@@ -110,11 +114,19 @@ This is a list of articles for working with classic Azure virtual machines, whic
 
 ## Monitor
 
+[Understanding Monitoring Alerts and Notifications in Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx)
+
 [Enabling Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)
+
+[Debugging a Cloud Service or Virtual Machine in Visual Studio](https://msdn.microsoft.com/library/azure/ff683670.aspx)
+
+[Using Windows PowerShell Scripts to Publish to Dev and Test Environments](https://msdn.microsoft.com/library/azure/dn642480.aspx)
 
 ## Troubleshoot
 
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md)
+
+[Troubleshoot Secure Shell (SSH) Connections to a Linux-based Azure Virtual Machine](virtual-machines-troubleshoot-ssh-connections.md)
 
 ## Reference
 
@@ -122,4 +134,4 @@ This is a list of articles for working with classic Azure virtual machines, whic
 
 [Service Management REST APIs](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-[Azure CLI Commands for Service Management](../virtual-machines-command-line-tools.md)
+[Azure CLI Commands for Service Management](virtual-machines-command-line-tools.md)

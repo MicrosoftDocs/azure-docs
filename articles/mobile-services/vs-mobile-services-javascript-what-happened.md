@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/02/2015" 
 	ms.author="patshea123"/>
 
 # What happened to my project?
@@ -24,11 +24,24 @@
 
 ###<span id="whathappened">What happened to my project?</id>
 
-#####References Added
+#####NuGet package added
 
-The Azure Mobile Service library was added to your project in the form of a **MobileServices.js** file.
+The **WindowsAzure.MobileServices.WinJS** NuGet package was installed, including the Azure Mobile Service library in the `js\MobileServices.js` file.
   
 #####Connection string values for Mobile Services 
 
 In the `services\mobileServices\settings` folder, a new JavaScript (.js) file with a **MobileServiceClient** was generated that contains the selected mobile service's application URL and application key.  
+
+
+#####References added to default.html
+
+References to `MobileServices.js` and the settings file were added to `default.html`.  
+
+
+#####Connected services files added
+
+In the services folder, Connected Services configuration files were added.
+
+
+
  

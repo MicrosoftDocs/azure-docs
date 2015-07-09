@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Set up your workspace and manage settings
@@ -197,4 +197,3 @@ If you are an administrator, and there are multiple users associated with the wo
 2. Select one of the reasons for closing your workspace, or enter a different reason in the text box.
 
 3. Click **Close workspace**.
- 

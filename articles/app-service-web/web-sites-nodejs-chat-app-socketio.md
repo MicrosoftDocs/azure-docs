@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="mwasson"/>
 
 
@@ -95,7 +95,7 @@ Follow these steps to create an Azure web app, enable Git publishing, and then e
 
 		git push azure master
 
-	You will receive status messages as modules are imported on the server. Once this process has completed, the application will be hosted on your Azure web app.
+	When prompted, enter your credentials from step 2. You will receive status messages as modules are imported on the server. Once this process has completed, the application will be hosted on your Azure web app.
 
  	> [AZURE.NOTE] During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.
 
@@ -265,7 +265,7 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		  </system.webServer>
 		</configuration>
 
-	> [AZURE.NOTE] If your application uses an entry point other than **app.js**, you must replace all occurrences of **app.js** with the correct entry point. For example, replacing **app.js** with **server.js**.
+	If your application uses an entry point other than **app.js**, you must replace all occurrences of **app.js** with the correct entry point. For example, replacing **app.js** with **server.js**.
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 

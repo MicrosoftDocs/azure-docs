@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/23/2015"
+   ms.date="06/29/2015"
    ms.author="rajram"/>
 
-# About the AS2 Connector
+# Microsoft AS2 Connector
 Microsoft Azure AS2 Connector lets you receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet. Security is achieved using digital certificates and encryption.
 
 ## Triggers and Actions
@@ -29,7 +29,7 @@ Triggers | Actions
 Receive & Decode | Encode & Send
 
 ## Requirements to Get Started
-These items must be created by you before they can be used by the AS2 connector. These requirements include:
+The following items must be created by you before they can be used by the AS2 connector:
 
 Requirement | Description
 --- | ---
@@ -59,31 +59,28 @@ Trading partners are the entities involved in B2B (Business-to-Business) communi
 
 Steps involved in creating a trading partner agreement are documented [here][2].
 
-## Using the AS2 Connector in Logic Apps
-AS2 Connector can be used either as a trigger or as an action.
+## Use the Connector as a Trigger
 
-### Triggers
-1. Open your Logic Apps workflow designer.
-2. Select your AS2 Connector from the right pane:
+1. When creating or editing a logic app, select the AS2 Connector you created from the right pane:
 <br/>
 ![Trigger settings][3]
 
-3. Click the right arrow →:
+2. Click the right arrow →:
 <br/>
 ![Trigger options][4]
 
-4. The AS2 Connector exposes a single trigger. Select *Receive & Decode*: 
+3. The AS2 Connector exposes a single trigger. Select *Receive & Decode*: 
 <br/>
 ![Receive and decode input][5]
 
-5. This trigger has no inputs. Click the right arrow →: 
+4. This trigger has no inputs. Click the right arrow →: 
 <br/>
 ![Receive and decode configured][6]
 
 As part of the output, the connector returns the AS2 payload as well as the AS2-specific metadata.
 
-### Actions
-1. Select your AS2 Connector from the right pane:
+## Use the Connector as an Action
+1. After your trigger (or choose 'run this logic manually'), add the AS2 connector you created from the right pane:
 <br/>
 ![Action settings][7]
 
@@ -91,7 +88,7 @@ As part of the output, the connector returns the AS2 payload as well as the AS2-
 <br/>
 ![List of Actions][8]
 
-3. AS2 connector supports only one action. Select *Encode and Send*:
+3. The AS2 connector supports only one action. Select *Encode and Send*:
 <br/>
 ![Encode and send input][9]
 
@@ -116,7 +113,7 @@ More on logic apps at [What are Logic Apps?](app-service-logic-what-are-logic-ap
 
 Create the API Apps using REST APIs. See [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
 
 <!--References -->
 [1]: app-service-logic-connector-tpm.md

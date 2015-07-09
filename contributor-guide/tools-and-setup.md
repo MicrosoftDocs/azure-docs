@@ -1,6 +1,16 @@
-<properties title="" pageTitle="Install and set up tools for authoring in GitHub" description="Tools and steps to get set up for authoring Azure content in GitHub." services="contributor-guide" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="carolz" />
+<properties title="" 
+pageTitle="Install and set up tools for authoring in GitHub" 
+description="Tools and steps to get set up for authoring Azure content in GitHub." 
+services="contributor-guide" 
+documentationCenter="" 
+authors="tysonn"  
+manager="carolz" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/19/2015" ms.author="tysonn" />
+<tags ms.service="contributor-guide"
+ ms.devlang="" ms.topic="article"
+  ms.tgt_pltfrm="" ms.workload="" 
+  ms.date="01/19/2015" 
+  ms.author="tysonn" />
 
 #Install and set up tools for authoring in GitHub
 
@@ -17,7 +27,8 @@ If you're unfamiliar with Git, you might want to review some Git terminology. T�
 - [Install Git for Windows]
 - [Enable two-factor authentication]
 - [Install a markdown editor]
-- [Fork the repository and copy it to your computer]
+ -[Configure Atom]  
+ -[Fork the repository and copy it to your computer]
 - [Configure your user name and email locally]
 - [Next steps]
 
@@ -94,6 +105,7 @@ You can accept the default settings; if you want the commands to be available wi
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/gitbashinstall.png)
 
+(Note: This is not the same as "Github for Windows". "Github for Windows" is a different GUI-based tool that will also work if you want to read up on yourself. [https://windows.github.com/](https://windows.github.com/)) 
 
 ## Enable two-factor authentication
 
@@ -117,12 +129,17 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor.
 
-- We recommend GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. **Note**: Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure.
+- We recommend GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. **Note**: Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure. You find this setting under File-Settings in the Editor Settings section with the title "Tab Length". You will probably also want to turn on Soft Wrap in this section too, which does the same as "word wrap" in Notepad. Also, the hotkey Ctrl-Shift-M toggles the preview HTML view. It's and extra package under Packages-Markdown Preview menu option. 
 
 - **Notepad**: You can use Notepad for a very lightweight option.
 
 - **Prose**: This is a lightweight, elegant, on-line, and open source markdown editor that offers a preview. Visit [http://prose.io](http://prose.io) and authorize Prose in your repository.
 
+## Configure Atom
+
+Atom defaults to using 2 spaces for tabs.  If you leave it at the default of two, your article will look as expected in local preview, but it will not render correctly when it’s imported into Azure.
+
+To view a preview of your edits in Atom, turn on the preview function (Packages>Markdown Preview>Toggle Preview).
 
 ## Fork the repository and copy it to your computer
 

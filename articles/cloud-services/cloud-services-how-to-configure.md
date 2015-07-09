@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="06/29/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,30 +21,33 @@
 
 # How to Configure Cloud Services
 
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-configure.md)
+- [Azure Preview Portal](cloud-services-how-to-configure-portal.md)
+
 You can configure the most commonly used settings for a cloud service in the Azure Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
 You can also enable a Remote Desktop connection to one or all roles running in your cloud service.  Remote Desktop allows you to access the desktop of your application while it is running and troubleshoot and diagnose problems.  You can enable a Remote Desktop connection to your role even if you did not configure the service definition file (.csdef) for Remote Desktop during application development.  There is no need to redeploy your application in order to enable a Remote Desktop connection.
 
 Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
 
-## Update the cloud service configuration
+## Change a cloud service
 
-1. In the [Azure Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
+1. In the [Azure Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
 
     ![Configuration Page](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
     
     On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances. 
 
-2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](../how-to-monitor-a-cloud-service.md).
-
+2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring.
 
 3. For service roles (grouped by role), you can update the following settings:
     
-    >**Settings**<br/>
-    Modify the values of miscellaneous configuration settings that are specified in the *ConfigurationSettings* elements of the service configuration (.cscfg) file.
-    
-    >**Certificates**<br/>
-    Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first upload the new certificate (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
+    >**Settings**  
+    >Modify the values of miscellaneous configuration settings that are specified in the *ConfigurationSettings* elements of the service configuration (.cscfg) file.
+    >
+    >**Certificates**  
+    >Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first upload the new certificate (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
 
 4. In **operating system**, you can change the operating system family or version for role instances, or choose **Automatic** to enable automatic updates of the current operating system version. The operating system settings apply to web roles and worker roles, but do not affect Virtual Machines.
 
@@ -58,23 +61,23 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 5. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) **Save** and **Discard** are added to the command bar after you change a setting.
 
-### To update a cloud service configuration file manually
+## Update a cloud service configuration file
 
 1. Download a cloud service configuration file (.cscfg) with the current configuration. On the **Configure** page for the cloud service, click **Download**. Then click **Save**, or click **Save As** to save the file.
 
 2. After you update the service configuration file, upload and apply the configuration updates:
 
-    a. On the **Configure** page, click **Upload**.
+    1. On the **Configure** page, click **Upload**.
     
-    ![Upload Configuration](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
+        ![Upload Configuration](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
     
-    b. In **Configuration file**, use **Browse** to select the updated .cscfg file.
+    2. In **Configuration file**, use **Browse** to select the updated .cscfg file.
     
-    c. If your cloud service contains any roles that have only one instance, select the **Apply configuration even if one or more roles contain a single instance** check box to enable the configuration updates for the roles to proceed.
+    3. If your cloud service contains any roles that have only one instance, select the **Apply configuration even if one or more roles contain a single instance** check box to enable the configuration updates for the roles to proceed.
     
-    Unless you define at least two instances of every role, Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
+        Unless you define at least two instances of every role, Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
     
-    d. Click **OK** (checkmark). 
+    4. Click **OK** (checkmark). 
 
 
 ## Configure remote access to role instances
@@ -87,7 +90,7 @@ On the **Configure** page for your cloud service, you can enable Remote Desktop 
 
 Add **Import** elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Azure, and specify the certificate in the service configuration file. For more information, see [Set Up a Remote Desktop Connection for a Role in Azure][].
 
-###To enable or modify Remote Access for role instances in the Management Portal###
+### To enable or modify Remote Access for role instances in the Management Portal
 
 1. Click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
 
@@ -117,13 +120,13 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 6. To connect to a role instance:
     
-    a. Click **Instances** to open the **Instances** page.
+    1. Click **Instances** to open the **Instances** page.
     
-    b. Select a role instance that has Remote Desktop configured.
+    2. Select a role instance that has Remote Desktop configured.
     
-    c. Click **Connect**, and follow the instructions to open the desktop. 
+    3. Click **Connect**, and follow the instructions to open the desktop. 
     
-    d. Click **Open** and then **Connect** to start the Remote Desktop connection.
+    4. Click **Open** and then **Connect** to start the Remote Desktop connection.
 
 ### To disable Remote Access for role instances in the Management Portal
 

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/24/2015" 
+	ms.date="07/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -25,7 +25,7 @@ This reference provides links and details to elastic pool articles and programma
 
 ## Overview
 
-An elastic pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them.
+An elastic pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md). 
 
 
 
@@ -41,6 +41,7 @@ An elastic pool is a collection of database throughput units (DTUs), and storage
 
 - The pricing tier for an elastic pool in the current preview is Standard.  
 - Import of a database directly into an elastic pool is not supported. You can import into a stand-alone database and then move the database into a pool. Export of a database from within a pool is supported.
+- Each elastic pool can have a maximum 100 databases.
 
 
 ## List of articles
@@ -111,11 +112,10 @@ The maximum number of concurrent workers and concurrent sessions supported for a
 
 ## Azure Resource Manager limitations
 
-An elastic pool requires an Azure SQL Database V12 server. Servers are located within a resource group.
+Azure SQL Database V12 servers are located in resource groups.
 
 - Each resource group can have a maximum 800 servers.
 - Each server can have a maximum 800 elastic pools.
-- Each elastic pool can have a maximum 100 databases.
 
 
 ## Latency of elastic pool operations

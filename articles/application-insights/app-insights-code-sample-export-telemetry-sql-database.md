@@ -247,13 +247,15 @@ Replace the existing run method, and choose the interval you prefer. It should b
               case "PageViewPerformance":
     
               if (dict.ContainsKey("clientPerformance"))
-                {GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
+                {
+                  GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
     	        }
     
               if (dict.ContainsKey("context_custom_dimensions"))
               {
                 if (dict["context_custom_dimensions"].GetType() == typeof(System.Dynamic.ExpandoObject[]))
-                {GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
+                {
+                  GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
                 }
               }
     

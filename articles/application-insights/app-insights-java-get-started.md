@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="06/30/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights in a Java web project
@@ -107,29 +107,18 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 Manually add the SDK:
 
-1. Download the [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
-2. Extract the following binaries from the zip file, and add them to your project:
- * applicationinsights-core
- * applicationinsights-web
- * annotation-detector
- * commons-codec
- * commons-io
- * commons-lang
- * commons-logging
- * guava
- * httpclient
- * httpcore
- * jsr305
+1. Download the [Application Insights SDK for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
+2. Extract the binaries from the zip file, and add them to your project.
 
 Questions...
 
-* *What's the relationship between the `-core` and `-web` components?*
+* *What's the relationship between the `-core` and `-web` components in the zip?*
 
- * `applicationinsights-core` gives you the bare API with no automatic telemetry. 
- * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. 
+ * `applicationinsights-core` gives you the bare API. You always need this. 
+ * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this if you don't want this telemetry automatically collected - for example if you want to write your own.
 
 * *To update the SDK*
- * Download the latest [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones.
+ * Download the latest [Application Insights SDK for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones.
  * Changes are described in the [SDK release notes](app-insights-release-notes-java.md).
 
 
