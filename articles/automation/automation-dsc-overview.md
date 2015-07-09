@@ -69,7 +69,7 @@ Running (compiling) a DSC configuration will produce one or more DSC node config
 
 Azure Automation DSC allows you to import, author, and compile DSC configurations in Azure Automation, similar to how runbooks can be imported, authored, and started in Azure Automation.
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/en-us/library/mt244122.aspx) for management of DSC configurations:
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of DSC configurations:
 
 - `Get-AzureAutomationDscConfiguration`
 - `Import-AzureAutomationDscConfiguration`
@@ -82,7 +82,7 @@ When a DSC Configuration is compiled, one or more node configurations are produc
 
 PS DSC nodes become aware of node configurations they should enact via either DSC push, or pull methods. Azure Automation DSC relies on the DSC pull method, where nodes request node configurations they should apply from Azure Automation DSC pull servers. Because the nodes make the request to Azure Automation DSC, they nodes can be behind firewalls, have all inbound ports closed, etc. They only need outbound access to the Internet.
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/en-us/library/mt244122.aspx) for management of DSC node configurations: `Get-AzureAutomationDscNodeConfiguration`
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of DSC node configurations: `Get-AzureAutomationDscNodeConfiguration`
 
 
 ###Node###
@@ -91,7 +91,7 @@ A DSC node is any computer that's configuration is managed by DSC. This could be
 
 Azure Automation DSC makes onboarding of nodes for management by Azure Automation DSC easy, and allows changing of the node configuration assigned to each node server-side, so next time a node checks the server for instructions it will assume a different role and change how it is configured to match. Nodes also report their status and configuration compliance to Azure Automation DSC.
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/en-us/library/mt244122.aspx) for management of DSC nodes:
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of DSC nodes:
 
 -	`Get-AzureAutomationDscNode`  
 -	`Register-AzureAutomationDscNode` (used to onboard Azure v2 VMs as nodes)
@@ -137,7 +137,7 @@ PowerShell:
         ConfigurationFunction = "RegistrationMetaConfig.ps1\RegistrationMetaConfig"
 
         # update these DSC agent configurations if these defaults are not what you want. 
-        # See https://technet.microsoft.com/en-us/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
+        # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
         Properties = @{
             RegistrationKey = $RegistrationInfo.PrimaryKey
             RegistrationUrl = $RegistrationInfo.Endpoint
@@ -168,7 +168,7 @@ DSC resources can also be imported as part of PowerShell Modules to extend the s
 
 Azure Automation DSC ships with all the same built-in DSC resources as does PS DSC. Additional resources can be added to Azure Automation DSC by importing PowerShell modules containing the resources into Azure Automation.
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/en-us/library/mt244122.aspx) for management of DSC Nodes:
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of DSC Nodes:
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -185,7 +185,7 @@ A compilation job in Azure Automation DSC is an instance of compilation of a con
 >[AZURE.NOTE] Just like runbooks, configurations can be published. This is not related to putting DSC items onto the Azure Automation DSC pull server. Compilation jobs cause DSC items to be placed on the Azure Automation DSC pull server. For more information on “publishing” in Azure Automation, see [Publishing a Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
 
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/en-us/library/mt244122.aspx) for management of compilation jobs:
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of compilation jobs:
 
 -	`Get-AzureAutomationDscCompilationJob`
 -	`Get-AzureAutomationDscCompilationJobOutput`
