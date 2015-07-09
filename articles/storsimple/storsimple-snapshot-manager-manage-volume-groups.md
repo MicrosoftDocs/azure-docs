@@ -140,4 +140,4 @@ Use the following procedure to delete a volume group.
 
 ## Next steps
 
-[Use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies).
+[Use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies.md).

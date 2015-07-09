@@ -19,27 +19,7 @@
 
 ## Overview
 
-StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment.
-
-You can use StorSimple Snapshot Manager to configure backup schedules and retention policies, generate on-demand backups, and clone or restore volumes. StorSimple Snapshot Manager takes backups in the form of incremental snapshots, and uses the Windows Volume Shadow Copy Service (VSS) to ensure that data is backed up and restored in an application-consistent manner. (For more information, see Integration with Windows Volume Shadow Copy Service in the StorSimple Snapshot Manager Administrator's Guide.)
-
-This tutorial explains how to use StorSimple Snapshot Manager to connect and manage devices and perform the following tasks:
-
-- Add or replace a device 
-- Connect a device and verify imports 
-- Refresh connected devices 
-- Authenticate a device 
-- View device details 
-- Refresh an individual device 
-- Delete a device configuration 
-- Change an expired device password
-- Replace a failed device
-
->[AZURE.NOTE] For general information about using the StorSimple Snapshot Manager interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md)
-
-## Connect and manage devices
-
-You can use nodes in the **Scope** pane to verify imported StorSimple device data and refresh connected storage devices. Additionally, when you click the **Devices** node, you can see a list of connected devices and corresponding status information in the **Results** pane.
+You can use nodes in the StorSimple Snapshot Manager **Scope** pane to verify imported StorSimple device data and refresh connected storage devices. Additionally, when you click the **Devices** node, you can see a list of connected devices and corresponding status information in the **Results** pane.
 
 ![Connected devices](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
@@ -73,6 +53,19 @@ If you click the **Devices** node and then right-click a device name in the **Re
 
 >[AZURE.NOTE] All of these actions are also available in the **Actions** pane.
  
+This tutorial explains how to use StorSimple Snapshot Manager to connect and manage devices and perform the following tasks:
+
+- Add or replace a device 
+- Connect a device and verify imports 
+- Refresh connected devices 
+- Authenticate a device 
+- View device details 
+- Refresh an individual device 
+- Delete a device configuration 
+- Change an expired device password
+- Replace a failed device
+
+>[AZURE.NOTE] For general information about using the StorSimple Snapshot Manager interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md)
 ## Add or replace a device
 
 Use the following procedure to add or replace a StorSimple device.
@@ -265,5 +258,5 @@ If a StorSimple device fails and is replaced by a standby (failover) device, use
 
 ## Next steps
 
-Learn how to use [StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes).
+[Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md).
 

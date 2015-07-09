@@ -73,12 +73,11 @@ StorSimple Snapshot Manager displays the following message while it creates the 
 
 ![Automatic snapshot message](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png) 
 
->[AZURE.IMPORTANT] You cannot delete a volume that is part of a volume group. The delete option is unavailable. 
+>[AZURE.IMPORTANT] You cannot delete a volume that is part of a volume group. The delete option is unavailable. <br>
 
 #### To restore a volume
 
 1. Click the desktop icon to start StorSimple Snapshot Manager. 
-
 
 2. In the **Scope** pane, expand the **Backup Catalog** node, expand a volume group, and then click **Local Snapshots** or **Cloud Snapshots**. A list of backup snapshots appears in the **Results** pane. 
 
@@ -116,13 +115,13 @@ Use the following procedure to create a duplicate (clone) of a volume or volume 
 
     4. Click **Create**.
 
-5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Use StorSimple Snapshot Manager to manage volumes](storsimple-snapshot-manager-manage-volumes.md). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
+5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
 
 ## Delete a backup
 
 Use the following procedure to delete a snapshot from the backup catalog. 
 
->[AZURE.NOTE] Deleting a snapshot deletes the backed up data associated with the snapshot. However, the process of cleaning up data from the cloud may take some time.
+>[AZURE.NOTE] Deleting a snapshot deletes the backed up data associated with the snapshot. However, the process of cleaning up data from the cloud may take some time.<br>
  
 #### To delete a backup
 
@@ -162,7 +161,7 @@ Before you begin, make sure that you have a current backup of the volume group. 
 
    4. Click **Create**. 
 
-5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Use StorSimple Snapshot Manager to manage volumes](storsimple-snapshot-manager-manage-volumes.md). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. 
+5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. 
 
     If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
 
@@ -210,4 +209,4 @@ You should regularly back up the StorSimple Snapshot Manager database on the hos
 
 ## Next steps
 
-Learn more about the [StorSimple Snapshot Manager](storsimple-what-is-snapshot-manager-.md) 
+Learn more about [how the StorSimple Snapshot Manager works](storsimple-what-is-snapshot-manager.md).

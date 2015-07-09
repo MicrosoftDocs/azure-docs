@@ -29,10 +29,6 @@ StorSimple Snapshot Manager can be installed on computers that are running the W
 
 Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Microsoft Management Console (MMC), make sure that the Microsoft Azure StorSimple device and host server are configured correctly. This tutorial describes configuration requirements, as well as procedures for installing and upgrading StorSimple Snapshot Manager.
 
-- [Configure prerequisites](#configure-prerequisites) 
-- [Install a new StorSimple Snapshot Manager](#install-a-new-storsimple-snapshot-manager) 
-- [Upgrade or reinstall StorSimple Snapshot Manager](#upgrade-or-reinstall-storsimple-snapshot-manager) 
-
 ## Configure prerequisites
 
 The following steps provide a high-level overview of configuration tasks that you must complete before you install the StorSimple Snapshot Manager. For complete Microsoft Azure StorSimple configuration information, including system requirements and checklists, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
@@ -63,7 +59,7 @@ The following steps provide a high-level overview of configuration tasks that yo
     - Mirrored dynamic volumes (RAID 1)
     - Cluster-shared volumes
  
-    For information about creating volumes on the StorSimple device or StorSimple virtual device, go to [Step 6: Create a volume](storsimple-deployment-walkthrough.md/#to-create-a-volume).
+    For information about creating volumes on the StorSimple device or StorSimple virtual device, go to "Step 6: Create a volume," in [Deploy your on-premises StorSimple device ](storsimple-deployment-walkthrough.md).
 
 ## Install a new StorSimple Snapshot Manager
 
@@ -103,7 +99,7 @@ Use the following steps to install StorSimple Snapshot Manager.
 
 4. When the extraction is finished, the destination folder opens. Double-click the application setup icon that appears in the destination folder.
 
-5. When the Setup Successful message appears, click Close. You should see the StorSimple Snapshot Manager icon on your desktop.
+5. When the **Setup Successful** message appears, click **Close**. You should see the StorSimple Snapshot Manager icon on your desktop.
 
     ![desktop icon](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png) 
 
@@ -117,13 +113,13 @@ Use the following steps to connect StorSimple Snapshot Manager to a StorSimple d
 
     ![StorSimple Snapshot Manager user interface](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png) 
 
-    - The **Scope** pane (the left pane) contains a list of nodes organized in a tree structure. You can expand some nodes to select a view or specific data related to that node. Click the arrow icon to expand or collapse a node. Right-click an item in the Scope pane to see a list of available actions for that item. 
+    - The **Scope** pane (the left pane) contains a list of nodes organized in a tree structure. You can expand some nodes to select a view or specific data related to that node. Click the arrow icon to expand or collapse a node. Right-click an item in the **Scope** pane to see a list of available actions for that item. 
 
     - The **Results** pane (the center pane) contains detailed status information about the node, view, or data that you selected in the **Scope** pane.
 
     - The **Actions** pane lists the operations that you can perform on the node, view, or data that you selected in the **Scope** pane.
 
-For a complete description of the StorSimple Snapshot Manager user interface, see [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
+    For a complete description of the StorSimple Snapshot Manager user interface, see [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
 
 2. In the **Scope** pane, right-click the **Devices** node, and then click **Configure a device**. The **Configure a Device** dialog box appears.
 
@@ -201,11 +197,11 @@ Use the following steps to create and save a copy of the StorSimple Snapshot Man
 
    4. In the right pane, under **Microsoft StorSimple Management Service**, click **Stop the service**.
 
-    ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
+        ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
 2. Browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
 
-   >[AZURE.NOTE] ProgramData is a hidden folder.
+    >[AZURE.NOTE] ProgramData is a hidden folder.
 
 3. Find the catalog XML file, copy the file, and store the copy in a safe location or in the cloud.
 
@@ -221,7 +217,7 @@ Use the following steps to create and save a copy of the StorSimple Snapshot Man
 
 ### Step 3: Reinstall StorSimple Snapshot Manager and restore the database
 
-To reinstall StorSimple Snapshot Manager, see the procedures in [Install a new StorSimple Snapshot Manager](#install-a-new-storsimple-snapshot-manager). Then, use the following steps to restore the StorSimple Snapshot Manager database.
+To reinstall StorSimple Snapshot Manager, follow the steps in [Install a new StorSimple Snapshot Manager](#install-a-new-storsimple-snapshot-manager). Then, use the following procedure to restore the StorSimple Snapshot Manager database.
 
 #### To restore the database
 
@@ -237,7 +233,7 @@ To reinstall StorSimple Snapshot Manager, see the procedures in [Install a new S
 
 2. Browse to C:\ProgramData\Microsoft\StorSimple\BACatalog. 
 
-   >[AZURE.NOTE] ProgramData is a hidden folder.
+     >[AZURE.NOTE] ProgramData is a hidden folder.
 
 3. Delete the catalog XML file, and replace it with the version that you saved earlier.
 
@@ -251,6 +247,6 @@ To reinstall StorSimple Snapshot Manager, see the procedures in [Install a new S
 
 ## Next steps
 
-To learn more about the StorSimple Snapshot Manager, go to [What is the StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+To learn more about StorSimple Snapshot Manager, go to [What is the StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
-To learn more about the StorSimple Snapshot Manager user interface, go to [Use the StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md)
+To learn more about the StorSimple Snapshot Manager user interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md)
