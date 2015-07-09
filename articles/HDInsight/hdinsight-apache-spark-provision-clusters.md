@@ -520,7 +520,7 @@ Before using the command-line interface, you must configure connectivity between
 
 		azure account download
 
-	![HDI.Linux.CLIAccountDownloadImport](./media/hdinsight-provision-clusters/HDI.Linux.CLIAccountDownloadImport.png)
+	
 
 	The command launches the webpage to download the publish settings file from. If the webpage does not open, click the link in the terminal window to open the browser page and log in to the portal. 
 
