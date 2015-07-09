@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""/>
-<!--In pageTitle, pls use lowercase caps (sentence-case caps) for "Virtual Machine".  -->
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -64,7 +64,7 @@ Here are some examples of ImageFamily values for Windows-based computers:
 - Windows Server 2008 R2 SP1
 - Windows Server Technical Preview
 - SQL Server 2012 SP1 Enterprise on Windows Server 2012
-<!-- Update previous list with current product names? -->
+
 If you find the image you are looking for, open a fresh instance of the text editor of your choice or the PowerShell Integrated Scripting Environment (ISE). Copy the following into the new text file or the PowerShell ISE, substituting the ImageFamily value.
 
 	$family="<ImageFamily value>"
