@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Enterprise Connectors in Microsoft Azure App Service
@@ -157,7 +157,6 @@ Some of the enterprise connectors us OAuth security. When you add the connector 
 
 
 ## More Connectors
-[BizTalk Integration connectors](app-service-logic-integration-connectors.md)<br/>
-[Business-to-Business connectors](app-service-logic-b2b-connectors.md)<br/>
+
 [Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md) 
