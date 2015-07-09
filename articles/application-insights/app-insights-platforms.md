@@ -58,7 +58,7 @@
 
 +	[Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J, or Logback](app-insights-java-trace-logs.md)
-
++   [Semantic Logging](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 
 ## <a name="projects"></a> Build your own SDK
 
