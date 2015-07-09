@@ -74,7 +74,7 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 ##<a id="portal"></a> Using the Azure portal
 
-Spark clusters on HDInsight use an Azure Blob storage container as the default file system. An Azure Storage account located on the same data center is required before you can create an HDInsight cluster. For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating an Azure Storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+Spark clusters on HDInsight use an Azure Blob storage container as the default file system. An Azure Storage account located on the same data center is required before you can create an HDInsight cluster. For more information, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 **To create an HDInsight cluster by using the Custom Create option**
 
@@ -134,7 +134,7 @@ Spark clusters on HDInsight use an Azure Blob storage container as the default f
 		</td></tr>
 	</table>
 
-	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
+	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows** **Azure Services**, click **Yes**, and then click **Save**.
 
     Click the right arrow.
 
@@ -721,7 +721,7 @@ Typically, you provision an HDInsight cluster, run the jobs, and then delete the
 [hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 
 
