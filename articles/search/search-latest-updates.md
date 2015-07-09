@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
@@ -86,9 +86,9 @@ Visit [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p
 
 This version was the public preview release for Azure Search, providing the following core features:
 
-- REST API for index and document operations. The majority of this API version is intact in 2015-02-28. The documentation for version `2014-07-31-Preview` can be found at [Azure Search Service REST API Version 2014-07-31](../search-api-2014-07-31-preview.md).
+- REST API for index and document operations. The majority of this API version is intact in 2015-02-28. The documentation for version `2014-07-31-Preview` can be found at [Azure Search Service REST API Version 2014-07-31](search-api-2014-07-31-preview.md).
 
-- Scoring profiles for tuning search results. A scoring profile adds criteria used to compute search scores. The documentation for this feature can be found at [Azure Search Service Scoring Profiles REST API Version 2014-07-31](../search-api-scoring-profiles-2014-07-31-preview.md).
+- Scoring profiles for tuning search results. A scoring profile adds criteria used to compute search scores. The documentation for this feature can be found at [Azure Search Service Scoring Profiles REST API Version 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md).
 
 - Geospatial support has been available from the beginning, provided through the `Edm.GeographyPoint` data type that has been part of Azure Search since its inception.
 
@@ -102,7 +102,7 @@ This version was the public preview release for Azure Search, providing the foll
 ##Management api-version 2014-07-31-Preview
 **Released: 2014 October**
 
-The preview release of [Management REST API](../search-management-api-2014-07-31-preview.md) was added to support service administration programmatically. It is versioned independently of the service REST API.
+The preview release of [Management REST API](search-management-api-2014-07-31-preview.md) was added to support service administration programmatically. It is versioned independently of the service REST API.
 
 
  
