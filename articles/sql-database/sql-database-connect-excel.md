@@ -52,6 +52,10 @@ Connect Excel to an Azure SQL Database and create a report over the data in the 
 
 	![success][4]
 
+## Next steps
+
+If you are a Software as a Service (SaaS) developer, learn about [Elastic Database pools](sql-database-elastic-pool.md). You can easily manage large collections of databases using [Elastic Database jobs](sql-database-elastic-jobs-overview.md).
+
 <!--Image references-->
 [1]: ./media/sql-database-connect-excel/connect-to-database-server.png
 [2]: ./media/sql-database-connect-excel/import-data.png
