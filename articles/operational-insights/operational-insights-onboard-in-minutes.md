@@ -70,7 +70,7 @@ To choose solutions and connect the servers that you want to manage, click on th
 
 ## Optionally, connect servers directly to the Operations Management Suite by installing an agent
 1. In the Get Started view, click **Connect a data source** node and then click **Download Windows Agent**. You can only install the agent on Windows Server 2008 SP 1 or above or on Windows 7 SP1 or above. Servers need to have an x64 architecture.
-2. Install the agent on one or more servers. You can install agents one-by-one, or using a more automated method with a [custom script](operational-insights-direct-agent.md/#configure-the-microsoft-monitoring-agent-optional), or you can use an existing software distribution solution that you might have.
+2. Install the agent on one or more servers. You can install agents one-by-one, or using a more automated method with a [custom script](https://azure.microsoft.com/documentation/articles/operational-insights-direct-agent/#configure-the-microsoft-monitoring-agent-optional), or you can use an existing software distribution solution that you might have.
 3. After you agree to the license agreement and you choose your installation folder, select **Connect the agent to Microsoft Azure Operational Insights**.  
     ![agent setup](./media/operational-insights-onboard-in-minutes/agent.png)
 4. On the next page, you are asked for your Workspace ID and Workspace Key. Your Workspace ID and key are displayed on the screen where you downloaded the agent file.  
