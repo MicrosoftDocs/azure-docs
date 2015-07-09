@@ -1,21 +1,3 @@
-[Virtual Network Basics](#virtual-network-basics)
-
-[Virtual Network Configuration](#virtual-network-configuration)
-
-[Virtual Network Cross-premises Connectivity](https://azure.microsoft.com/documentation/articles/vpn-gateway-vpn-faq/)
-
-[Multi-site and VNet-to-VNet Connections](https://azure.microsoft.com/documentation/articles/vpn-gateway-vpn-faq/#multi-site-and-vnet-to-vnet-connectivity)
-
-[Virtual Network and Name Resolution (DNS)](#virtual-network-and-name-resolution-dns)
-
-[Virtual Network and Virtual Machines](#virtual-network-and-virtual-machines)
-
-[Virtual Network and Services](#virtual-network-and-services)
-
-[Virtual Network and Security](#virtual-network-and-security)
-
-[APIs, Schemas, and Tools](#apis-schemas-and-tools)
-
 ## Virtual Network Basics
 
 ### What is an Azure Virtual network (VNet)?
