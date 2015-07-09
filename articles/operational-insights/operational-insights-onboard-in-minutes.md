@@ -56,8 +56,10 @@ You can learn more about setting up your workspace and linking existing workspac
 
 ## Getting started with the Operations Management Suite portal
 To choose solutions and connect the servers that you want to manage, click on the **Get Started** tile and follow the steps below:  
-![create workspace and link subscription](./media/operational-insights-onboard-in-minutes/get-started.png)
-- Select the solutions you would like to use and then click **Add selected Solutions**.
+
+![create workspace and link subscription](./media/operational-insights-onboard-in-minutes/get-started.png)  
+
+- Select the solutions you would like to use and then click **Add selected Solutions**.  
     ![solutions](./media/operational-insights-onboard-in-minutes/solutions.png)
 - Choose the how you would like to connect to your server environment to gather data:
     - Connect any Windows Server or client directly by installing an agent.
