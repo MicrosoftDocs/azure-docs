@@ -22,7 +22,3 @@
 ## Virtual Network Cross-premises Connectivity (VPNs)
 
 For the latest FAQ on virtual network VPNs, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
-
-## Multi-Site and VNet-to-VNet Connectivity
-
-For the latest FAQ on virtual network multi-site and VNet-to-VNet connectivity, see [Multi-site and VNet-to-VNet connectivity](vpn-gateway-vpn-faq.md#multi-site-and-vnet-to-vnet-connectivity) in the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
