@@ -109,7 +109,7 @@ The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for web
 <li>In the IIS Authentication section, click the Trusted IPs tab.</li> 
 <li>Click the Add… button.</li>
 <li>When the Add Trusted IPs dialog box appears, select the Single IP, IP range or Subnet radio button.</li>
-<li>Enter the IP address, range of IP addresses or subnet that should be whitelisted. If entering a subnet, select the appropriate Netmask and click the OK button. The whitelist has now been added.</li>
+<li>Enter the IP address, range of IP addresses or subnet that should be whitelisted. If entering a subnet, select the appropriate Netmask and click the OK button. The trusted ip has now been added.</li>
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
