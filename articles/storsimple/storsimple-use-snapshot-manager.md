@@ -35,7 +35,7 @@ The console window has five major elements. Click the appropriate link for a com
 - [Tool bar](#tool-bar) 
 - [Scope pane](#scope-pane) 
 - [Results pane](#results-pane) 
-- [Actions pane](actions-pane) 
+- [Actions pane](#actions-pane) 
 
 Additionally, the StorSimple Snapshot Manager supports [keyboard navigation and a number of shortcuts](#keyboard-navigation-and-shortcuts).
 
@@ -47,7 +47,7 @@ The StorSimple Snapshot Manager user interface supports the accessibility featur
 
 - For a description of the MMC accessibility features, go to [Accessibility for MMC 3.0](https://technet.microsoft.com/library/cc766075.aspx)
 
-- For a description of the StorSimple Snapshot Manager accessibility features, go to [StorSimple Snapshot Manager keyboard navigation and shortcuts](https://msdn.microsoft.com/library/azure/dn772341.aspx).
+- For a description of the StorSimple Snapshot Manager accessibility features, go to [Keyboard navigation and shortcuts](#keyboard-navigation-and-shortcuts).
 
 ## Menu bar
 
@@ -266,7 +266,7 @@ The **Scope** pane contains a series of clickable objects (nodes) organized in a
 
 - To view the status or contents of a node, click the node name. The information appears in the **Results** pane. 
 
-The Scope pane contains the following nodes: 
+The **Scope** pane contains the following nodes: 
 
 - [Devices node](#devices-node) 
 - [Volumes node](#volumes-node) 
@@ -328,7 +328,7 @@ Backup policies are job schedules for local and cloud snapshots. Use the **Backu
 - To see a list of backup policies, click **Backup Policies** in the **Scope** pane. The list of backup policies, together with information about each policy, appears in the **Results** pane.
 
 >[AZURE.NOTE] You can retain a maximum of 64 backups.
- 
+<br>
 ### Backup Catalog node
 
 The **Backup Catalog** node contains lists of on-site and off-site backups of Azure StorSimple volumes. This node is organized by volume group, and each volume group container contains separate structures for local snapshots (the Local Snapshots node) and cloud snapshots (the Cloud Snapshots node). When expanded, each volume group container lists all the successful backups that were taken interactively or by a configured policy.

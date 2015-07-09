@@ -25,7 +25,7 @@ You can use nodes in the StorSimple Snapshot Manager **Scope** pane to verify im
 
 **Figure 1: StorSimple Snapshot Manager connected device** 
 
-Depending on your **View** selections, the **Results** pane shows the following information about each device. (For more information about configuring a view, see [View menu](storsimple-use-snapshot-manager.md/#view-menu).
+Depending on your **View** selections, the **Results** pane shows the following information about each device. (For more information about configuring a view, see [View menu](storsimple-use-snapshot-manager.md/#view-menu) in [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
 
 
 | Results column  |Description          |
@@ -250,7 +250,7 @@ If a StorSimple device fails and is replaced by a standby (failover) device, use
 
 5. Start StorSimple Snapshot Manager. 
 
-6. To configure the new StorSimple device, complete the steps in "Step 2: Connect a StorSimple device" in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md/#to-connect-storsimple-snapshot-manager-to-a-device). 
+6. To configure the new StorSimple device, complete the steps in "Step 2: Connect a StorSimple device" in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
 
 7. Right-click the top-level node in the **Scope** pane (StorSimple Snapshot Manager in the example), and then click **Toggle Imports Display**. 
 

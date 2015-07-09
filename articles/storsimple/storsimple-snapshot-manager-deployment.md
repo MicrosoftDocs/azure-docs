@@ -21,19 +21,23 @@
 
 The StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment. With StorSimple Snapshot Manager, you can manage Microsoft Azure StorSimple on-premises and cloud storage as if it were a fully integrated storage system, thus simplifying backup and restore processes and reducing costs. 
 
+This tutorial describes configuration requirements, as well as procedures for installing, removing, and upgrading StorSimple Snapshot Manager.
+
+## StorSimple Snapshot Manager installation
+
 StorSimple Snapshot Manager can be installed on computers that are running the Windows Server® 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 operating system.
 
 >[AZURE.NOTE] On servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0. 
 
-## StorSimple Snapshot Manager installation
-
-Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Microsoft Management Console (MMC), make sure that the Microsoft Azure StorSimple device and host server are configured correctly. This tutorial describes configuration requirements, as well as procedures for installing and upgrading StorSimple Snapshot Manager.
+Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Microsoft Management Console (MMC), make sure that the Microsoft Azure StorSimple device and host server are configured correctly. 
 
 ## Configure prerequisites
 
-The following steps provide a high-level overview of configuration tasks that you must complete before you install the StorSimple Snapshot Manager. For complete Microsoft Azure StorSimple configuration information, including system requirements and checklists, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+The following steps provide a high-level overview of configuration tasks that you must complete before you install the StorSimple Snapshot Manager. For complete Microsoft Azure StorSimple configuration and setup information, including system requirements and step-by-step instructions, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT] Before you begin, review the deployment checklist and deployment prerequisites in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+>[AZURE.IMPORTANT] Before you begin, review the pre-installation checklist
+> and deployment prerequisites in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+<br>
  
 ### Before you install StorSimple Snapshot Manager
 
@@ -59,7 +63,7 @@ The following steps provide a high-level overview of configuration tasks that yo
     - Mirrored dynamic volumes (RAID 1)
     - Cluster-shared volumes
  
-    For information about creating volumes on the StorSimple device or StorSimple virtual device, go to "Step 6: Create a volume," in [Deploy your on-premises StorSimple device ](storsimple-deployment-walkthrough.md).
+    For information about creating volumes on the StorSimple device or StorSimple virtual device, go to "Step 6: Create a volume," in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
 ## Install a new StorSimple Snapshot Manager
 
@@ -127,7 +131,7 @@ Use the following steps to connect StorSimple Snapshot Manager to a StorSimple d
 
 3. In the **Device** list box, select the IP address of the Microsoft Azure StorSimple device or virtual device. In the **Password** text box, type the StorSimple Snapshot Manager password that you created for the device in the Microsoft Azure Management Portal. Click **OK**.
 
-4. StorSimple Snapshot Manager searches for the device that you identified. If the device is available, StorSimple Snapshot Manager adds a connection. Go to [Step 3: Verify the connection to the device](#to-verify-the-connection) to confirm that the connection was added successfully.
+4. StorSimple Snapshot Manager searches for the device that you identified. If the device is available, StorSimple Snapshot Manager adds a connection. You can [verify the connection to the device](#to-verify-the-connection) to confirm that the connection was added successfully.
 
     If the device is unavailable for any reason, StorSimple Snapshot Manager returns an error message. Click **OK** to close the error message, and then click **Cancel** to close the **Configure a Device** dialog box.
 
@@ -247,6 +251,6 @@ To reinstall StorSimple Snapshot Manager, follow the steps in [Install a new Sto
 
 ## Next steps
 
-To learn more about StorSimple Snapshot Manager, go to [What is the StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+To learn more about StorSimple Snapshot Manager, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 To learn more about the StorSimple Snapshot Manager user interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md)

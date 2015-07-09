@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="v-sharos" />
 
 
@@ -22,13 +22,7 @@
 
 The **Jobs** node in the **Scope** pane shows the **Scheduled**, **Last 24 hours**, and **Running** backup tasks that you initiated interactively or by a configured policy. 
 
-This tutorial explains how you can use the **Jobs** node to complete the following tasks:
-
-- View scheduled jobs 
-
-- View recent jobs 
-
-- View currently running jobs 
+This tutorial explains how you can use the **Jobs** node to display information about scheduled, recent, and currently running backup jobs. (The list of jobs and corresponding information appears in the **Results** pane.) Additionally, you can right-click a listed job and see a context menu that lists available actions.
 
 ## View scheduled jobs
 

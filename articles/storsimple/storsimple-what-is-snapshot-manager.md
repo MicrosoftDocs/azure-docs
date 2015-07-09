@@ -143,7 +143,7 @@ You can use the StorSimple Snapshot Manager to monitor and manage upcoming, sche
 
 For information about monitoring backup jobs, go to [Use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-## StorSimple Snapshot Manager workflows 
+## StorSimple Snapshot Manager tasks and workflows 
 
 The following table provides a summary of the common management tasks and workflows that you can perform with StorSimple Snapshot Manager.
 
@@ -161,4 +161,4 @@ The following table provides a summary of the common management tasks and workfl
 
 ## Next steps
 
-Download [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+[Download StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).

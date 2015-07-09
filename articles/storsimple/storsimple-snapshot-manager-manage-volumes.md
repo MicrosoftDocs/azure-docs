@@ -21,7 +21,7 @@
 
 You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** pane) to select volumes and view information about them. The volumes are presented as drives that correspond to the volumes mounted by the host. The **Volumes** node shows local volumes and volume types that are supported by Azure StorSimple, including volumes discovered through the use of iSCSI and a device. 
 
-For more information about supported volumes, see [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
+For more information about supported volumes, see [Support for multiple volume types](storsimple-what-is-snapshot-manager.md/#support-for-multiple-volume-types) in [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
 
 ![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
@@ -113,7 +113,7 @@ Use the following procedure to view information about local and Azure StorSimple
 Use the following procedure to delete a volume from StorSimple Snapshot Manager.
 
 >[AZURE.NOTE] You cannot delete a volume if it is part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
-
+<br>
 #### To delete a volume
 
 1. Click the desktop icon to start StorSimple Snapshot Manager.

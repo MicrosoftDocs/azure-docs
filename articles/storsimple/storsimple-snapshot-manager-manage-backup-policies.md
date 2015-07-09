@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to create and manage backup policies
 
 ## Overview
 
-A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types and backup policies](storsimple-what-is-snapshot-manager.md/#backup-types-and-backup-policies).
+A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types and backup policies](storsimple-what-is-snapshot-manager.md/#backup-types-and-backup-policies) in [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
 
 This tutorial explains how to:
 

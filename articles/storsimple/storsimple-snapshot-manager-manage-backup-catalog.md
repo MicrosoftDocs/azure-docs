@@ -115,7 +115,7 @@ Use the following procedure to create a duplicate (clone) of a volume or volume 
 
     4. Click **Create**.
 
-5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
+5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Mount volumes](storsimple-snapshot-manager-manage-volumes.md/#mount-volumes) in [Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
 
 ## Delete a backup
 
@@ -161,7 +161,7 @@ Before you begin, make sure that you have a current backup of the volume group. 
 
    4. Click **Create**. 
 
-5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. 
+5. When the cloning process is finished, you must initialize the cloned volume. Start Server Manager, and then start Disk Management. For detailed instructions, see [Mount volumes](storsimple-snapshot-manager-manage-volumes.md/#mount-volumes) in [Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md). After it is initialized, the volume will be listed under the **Volumes** node in the **Scope** pane. 
 
     If you do not see the volume listed, refresh the list of volumes (right-click the **Volumes** node, and then click **Refresh**).
 
@@ -209,4 +209,4 @@ You should regularly back up the StorSimple Snapshot Manager database on the hos
 
 ## Next steps
 
-Learn more about [how the StorSimple Snapshot Manager works](storsimple-what-is-snapshot-manager.md).
+See the available [StorSimple Snapshot Manager tasks and workflows](storsimple-what-is-snapshot-manager.md/#storsimple-snapshot-manager-tasks-and-workflows).
