@@ -81,7 +81,7 @@ Now, copy the following Azure PowerShell script into a text editor. Fill in your
 	$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-Finally, copy the previous script to the clipboard and then right-click your open Azure PowerShell command prompt. This issues the script as a series of AzurePowerShell commands, prompts you for the name and password of the local administrator account, and creates your Azure virtual machine.
+Finally, copy the previous script to the clipboard and then right-click your open Azure PowerShell command prompt. This issues the script as a series of Azure PowerShell commands, prompts you for the name and password of the local administrator account, and creates your Azure virtual machine.
 
 Here is an example of what you might see:
 
