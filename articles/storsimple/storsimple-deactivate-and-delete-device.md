@@ -47,7 +47,7 @@ If you are interested in deleting the device but want to retain the device data,
 
 1. Deactivate the device. All the volume containers and the snapshots of the device will remain. Go to [Steps to deactivate](#steps-to-deactivate) for instructions.
 
-2. You can now fail over the volume containers and the associated snapshots. For procedures, see [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md)
+2. You can now fail over the volume containers and the associated snapshots. For procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md)
 
 3. After deactivation and failover, you can delete the device completely. Go to [Delete a device](#delete-a-device) for instructions.
 
@@ -88,6 +88,6 @@ You can delete only those devices that have been deactivated. Deleting a device 
 It may take a few minutes for the device to be deleted.
 
 ## Next steps
-To restore the deactivated device to factory defaults, refer to [Reset the device to factory default settings](https://msdn.microsoft.com/library/dn772373.aspx).
+To restore the deactivated device to factory defaults, go to [Reset the device to factory default settings](https://msdn.microsoft.com/library/dn772373.aspx).
 
 For technical assistance, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
