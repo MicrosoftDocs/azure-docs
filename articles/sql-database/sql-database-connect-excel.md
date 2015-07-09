@@ -45,9 +45,12 @@ Connect Excel to an Azure SQL Database and create a report over the data in the 
 8. In the **Import Data** dialog, select **PivotChart** and click **OK**.
 
 	![Select Import Data][2]
-9. In the PivotChart Fields, select the following configuration to create a report for the count of products per category.
-10.	Success looks like the following:
+9. In the **PivotChart Fields** dialog, select the following configuration to create a report for the count of products per category.
 
+	![Configuration][3]
+10.	Success looks like this:
+
+	![success][4]
 
 <!--Image references-->
 [1]: ./media/sql-database-connect-excel/connect-to-database-server.png
