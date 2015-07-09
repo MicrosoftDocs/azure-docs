@@ -14,8 +14,8 @@
 	ms.topic="get-started-article"
 	ms.date="06/03/2015"
 	ms.author="kathydav"/>
-<!--In pageTitle, initial caps are used erroneously for "Virtual Machine Running". Pls ensure that lowercase is used. URL: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-tutorial/    -->
-# Create a Virtual Machine Running Windows in the Azure Preview Portal#
+
+# Create a virtual machine running Windows in the Azure Preview Portal#
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](virtual-machines-windows-tutorial.md)
@@ -37,13 +37,13 @@ Using Windows Server 2012 R2 Datacenter as an example, you can create a VM to tr
 1. Sign in to the [Preview portal](https://portal.azure.com).
 
 2. On the Hub menu, click **New**.
-<!-- IN step 2, use bold typeface if "Hub" appears in UI  -->
+
 3. In the **New** blade, click **Compute** **>** **Windows Server 2012 R2 Datacenter**.
 
 	![Select a VM image from the Marketplace](./media/virtual-machines-windows-tutorial/marketplace_portal.png)
 
-4. On the **Create VM** blade, fill in the **Host Name** you want for the VM, the administrative **User Name**, and a strong **Password**. **User Name** refers to the administrative account that you'll use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**. If you forget the password, you can reset it using [these instructions](virtual-machines-windows-reset-password.md).
-<!--IN step 4, we can't use bold typeface to show emphasis in this text string: "You'll need the user name and password". Perhaps set up in Note paragraph? Also in step 4, I added END punctuation.   -->
+4. On the **Create VM** blade, fill in the **Host Name** you want for the VM, the administrative **User Name**, and a strong **Password**. **User Name** refers to the administrative account that you'll use to manage the server. Create a password that's hard for others to guess but that you can remember. You'll need the user name and password to log on to the virtual machine. If you forget the password, you can reset it using [these instructions](virtual-machines-windows-reset-password.md).
+
 	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial/create_vm_name_pwd_portal.png)
 
 5. Review the default settings, such as the **Pricing Tier** and **Optional Configuration**. These choices affect the size of VM as well as networking options such as domain membership. For example, to try out Premium Storage on a virtual machine, you'll need to pick a region and size that supports it. For your first virtual machine, the defaults are usually fine.
@@ -82,10 +82,10 @@ After you create the VM, you'll want to log on to it so you can manage its setti
 
 To learn more about configuring Windows virtual machines on Azure, see these articles:
 
-[Connect Virtual Machines with a Virtual Network or Cloud Service](cloud-services-connect-virtual-machine.md)
+[Connect virtual machines with a Virtual Network or Cloud Service](cloud-services-connect-virtual-machine.md)
 
-[Attach Data Disks to a Virtual Machine](storage-windows-attach-disk.md)
+[Attach Data Disks to a virtual machine](storage-windows-attach-disk.md)
 
-[Manage the Availability of Virtual Machines](../manage-availability-virtual-machines.md)
+[Manage the availability of virtual machines](../manage-availability-virtual-machines.md)
 
 [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
