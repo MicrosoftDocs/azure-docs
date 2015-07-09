@@ -28,6 +28,7 @@ After reading this article, you'll be able to answer the following questions:
 -	How can I import MongoDB data to DocumentDB?
 -	How can I import data from Azure Table storage to DocumentDB?
 -	How can I import data from Amazon DynamoDB to DocumentDB?
+-	How can I import data from HBase to DocumentDB
 -	How can I migrate data between DocumentDB collections?
 
 ##<a id="Prerequisites"></a>Prerequisites ##
@@ -46,6 +47,7 @@ The DocumentDB Data Migration tool is an open source solution that imports data 
 - CSV files
 - Azure Table storage
 - Amazon DynamoDB
+- HBase
 - DocumentDB collections
 
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command line (dt.exe).  In fact, there is an option to output the associated command after setting up an import through the UI.  Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import.  Keep reading to learn more about source options, sample command lines to import from each source, target options, and viewing import results.
@@ -288,7 +290,25 @@ Here are some command line samples to import from DocumentDB:
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionTier:S3
 
 	#Export a DocumentDB collection to a JSON file
-	dt.exe /s:DocumentDB /s.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+
+##<a id="HBaseSource"></a>Import from HBase ##
+
+The HBase source importer option allows you to import data from an HBase table and optionally filter the data. Several templates are provided so that setting up an import is as easy as possible. 
+
+![Screenshot of HBase source options](./media/documentdb-import-data/hbasesource1.png)
+
+![Screenshot of HBase source options](./media/documentdb-import-data/hbasesource2.png)
+
+The format of the HBase Stargate connection string is:
+
+	ServiceURL=<server-address>;Username=<username>;Password=<password>
+
+> [AZURE.NOTE] Use the Verify command to ensure that the HBase instance specified in the connection string field can be accessed. 
+
+Here is a command line sample to import from HBase:
+
+	dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
 ##<a id="DocumentDBBulkTarget"></a>Import to DocumentDB (Bulk Import) ##
 
