@@ -281,12 +281,3 @@ Yes. You can use REST APIs to manage VNets and cross-premises connectivity. More
 ### Is there tooling support for VNets?
 
 Yes. You can use PowerShell and command line tools for a variety of platforms. More information can be found [here](http://go.microsoft.com/fwlink/?LinkId=317721).
-
-## Virtual Network Cross-premises Connectivity (VPNs)
-
-For the latest FAQ on virtual network VPNs, see the [VPN Gateway FAQ](./vpn-gateway-vpn-faq/).
-
-## Multi-Site and VNet-to-VNet Connectivity
-
-For the latest FAQ on virtual network multi-site and VNet-to-VNet connectivity, see [Multi-site and VNet-to-VNet connectivity](./vpn-gateway-vpn-faq/#multi-site-and-vnet-to-vnet-connectivity) in the [VPN Gateway FAQ](./vpn-gateway-vpn-faq).
-
