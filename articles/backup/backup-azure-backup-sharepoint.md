@@ -128,7 +128,7 @@ Once you have configured DPM and the SharePoint farm as explained above, SharePo
 
 12. Similar to disk, an initial reference point replica needs to be created in Azure. Select your preferred option for creating the initial backup copy to Azure and click **Next**.
 
-  ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
+    ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 
 13. Review your selected settings on the **Summary** page and click **Create Group**. You will see a success message once the protection group has been created.
 
@@ -199,11 +199,12 @@ In the example below, the *Recovering SharePoint item* has been accidentally del
 ## Restore a SharePoint database from Azure using DPM
 
 1. To recover a SharePoint content database, navigate through various recovery points (as shown above) and select the recovery point to you want to recover.
-![DPM SharePoint Protection8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
+
+    ![DPM SharePoint Protection8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
 
 2. Double-click the SharePoint recovery point to show the available SharePoint catalog information.
 
-  > [AZURE.NOTE] Since the SharePoint farm is protected for long term retention in Azure, no catalog information (meta data) is available on the DPM Server. As a result, whenever a point-in-time SharePoint content database needs to be recovered you need to re-catalog the SharePoint farm.
+    > [AZURE.NOTE] Since the SharePoint farm is protected for long term retention in Azure, no catalog information (meta data) is available on the DPM Server. As a result, whenever a point-in-time SharePoint content database needs to be recovered you need to re-catalog the SharePoint farm.
 
 3. Click **Re-catalog**.
 
@@ -221,7 +222,7 @@ In the example below, the *Recovering SharePoint item* has been accidentally del
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 
-5. At this point, follow the [recovery steps above](#restore-a-sharepoint-item-from-disk-using-DPM) for recovering a Sharepoint content database from disk.
+5. At this point, follow the [recovery steps above](#restore-a-sharepoint-item-from-disk-using-DPM.md) for recovering a Sharepoint content database from disk.
 
 ## FAQs
 Q: Which versions of DPM support SQL 2014 and SQL 2012 (SP2)<br>
