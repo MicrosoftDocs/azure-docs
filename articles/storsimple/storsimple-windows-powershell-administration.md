@@ -1,4 +1,5 @@
-<  pageTitle="Administer your device using Windows PowerShell for StorSimple"
+<properties 
+   pageTitle="Administer your device using Windows PowerShell for StorSimple"
    description="Learn how to manage your StorSimple device using the Windows PowerShell for StorSimple"
    services="storsimple"
    documentationCenter="NA"
