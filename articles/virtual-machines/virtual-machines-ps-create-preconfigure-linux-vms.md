@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines
@@ -22,11 +23,11 @@
 - [Azure Portal](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Linux-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Linux-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
+These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Linux-based Azure virtual machine in Service Management by using a building block approach. You can use this process to quickly create a command set for a new Linux-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
-These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
+These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to Azure PowerShell or you just want to know what values to specify for successful configuration. Advanced Azure PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-For the companion topic to configure Windows-based virtual machines, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md).
+For the companion topic to configure Windows-based virtual machines, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ## Step 1: Install Azure PowerShell
 
@@ -245,7 +246,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 	$vnetname="AZDatacenter"
 	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-## Additional Resources
+## Additional resources
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -255,8 +256,8 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
-[How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md)
+[How to log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md)
 
-[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
+[Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
  

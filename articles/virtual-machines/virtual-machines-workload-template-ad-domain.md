@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Deploy a Highly-Available Active Directory domain with an Azure Resource Manager Template" 
-	description="Easily deploy two servers acting as Active Directory domain controllers with a Resource Manager Template and the Azure Preview Portal, Azure PowerShell, or the Azure CLI." 
+	pageTitle="Deploy a highly-available Active Directory Domain Services domain with an Azure Resource Manager template" 
+	description="Easily deploy two servers acting as Active Directory Domain Services domain controllers with a Resource Manager Template and the Azure Preview portal, Azure PowerShell, or the Azure CLI." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -11,14 +11,14 @@
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2015" 
 	ms.author="josephd"/>
 
 
-# Deploy a Highly-Available Active Directory domain with an Azure Resource Manager Template
+# Deploy a highly-available Active Directory Domain Services domain with an Azure Resource Manager template
 
 Use the instructions in this article to deploy a highly-available Active Directory domain using a Resource Manager template. This template creates two virtual machines in a new virtual network on the same subnet.
 
@@ -26,7 +26,7 @@ Use the instructions in this article to deploy a highly-available Active Directo
 
 You can run the template with the Azure Preview Portal, Azure PowerShell, or the Azure CLI.
  
-## Azure Preview Portal
+## Azure Preview portal
 
 To deploy this workload using a Resource Manager template and the Azure Preview Portal, click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
@@ -37,7 +37,7 @@ To deploy this workload using a Resource Manager template and the Azure Preview 
 3.	If needed, click **Subscription** and select the correct Azure subscription.
 4.	Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
 5.	If needed, click **Resource group location** and select the correct Azure location.
-6.	If needed, click Legal terms to review the terms and agreement for using the template.
+6.	If needed, click **Legal terms** to review the terms and agreement for using the template.
 7.	Click **Create**.
 
 Depending on the template, it can take some time for Azure to build the workload. When the template execution is complete, you have a new two-server Active Directory domain in your existing or new resource group.
@@ -89,18 +89,18 @@ Here is an example.
 
 When you run the **azure group deployment create** command, you will be prompted to supply the values for a series of parameters. When you have specified all the parameter values, Azure creates and configures the virtual machines. 
 
-When the template execution is complete, you have a new, two-server Active Directory domain configuration in your new resource group.
+When the template execution is complete, you have a new, two-server Active Directory Domain Services domain configuration in your new resource group.
 
 
 ## Additional Resources
 
-[Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Deploy and manage virtual machines using Azure Resource Manager Templates and Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
 [Azure Resource Manager Overview](../resource-group-overview.md)
 
-[Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+[Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 

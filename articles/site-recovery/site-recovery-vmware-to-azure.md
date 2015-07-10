@@ -56,7 +56,7 @@ Here's what you'll need:
 **Component** | **Deployment** | **Details**
 --- | --- | ---
 **Configuration server** | <p>Deploy as a Azure standard A3 virtual machine in the same subscription as Site Recovery.</p> <p>You set up in the Site Recovery portal</p> | This server coordinates communication between protected machines, the process server, and master target servers in Azure. It sets up replication and coordinates recovery in Azure when failover occurs.
-**Master target server** | <p>Deploy as Azure virtual machine — Either a Windows server based on a Windows Server 2012 R2 gallery image (to protect Windows machines) or as a Linux server based on a OpenLogic CentOS 6.6 gallery image (to protect Linux machines).</p> <p>Two sizing options are available – standard A3 and standard D14.<p><p>The server is connected to the same Azure network as the configuration server.</p><p>You set up in the Site Recovery portal</p> | <p>It receives and retains replicated data from your protected machines using attached VHDs created on blob storage in your Azure storage account.</p>   
+**Master target server** | <p>Deploy as Azure virtual machine — Either a Windows server based on a Windows Server 2012 R2 gallery image (to protect Windows machines) or as a Linux server based on a OpenLogic CentOS 6.6 gallery image (to protect Linux machines).</p> <p>Two sizing options are available – standard A4 and standard D14.<p><p>The server is connected to the same Azure network as the configuration server.</p><p>You set up in the Site Recovery portal</p> | <p>It receives and retains replicated data from your protected machines using attached VHDs created on blob storage in your Azure storage account.</p>   
 **Process server** | <p>Deploy as an on-premises virtual or physical server running Windows Server 2012 R2</p> <p>We recommend it's placed on the same network and LAN segment as the machines that you want to protect, but it can run on a different network as long as protected machines have L3 network visibility to it.<p>You set it up and register it to the configuration server in the Site Recovery portal.</p> | <p>Protected machines send replication data to the on-premises process server. It has a disk-based cache to cache replication data that it receives. It performs a number of actions on that data.</p><p>It optimizes data by caching, compressing, and encrypting it before sending it on to the master target server.</p><p>It handles push installation of the Mobility Service.</p><p>It performs automatic discovery of VMware virtual machines.</p>
 **On-premises machines** | On-premises virtual  machines running on a VMware hypervisor, or physical servers running Windows or Linux. | You set up replication settings that apply to virtual machines and servers. You can fail over an individual machine or more commonly, as part of a recovery plan containing multiple virtual machines that fail over together.
 **Mobility service** | <p>Installs on each virtual machine or physical server you want to protect</p><p>Can be installed manually or pushed and installed automation by the process server. | The service takes a VSS snapshot of data on each protected machine and moves it to the process server, which in turn replicates it to the master target server.
@@ -329,19 +329,6 @@ Note that:
 - A VPN connection uses the internal IP address of the server together with the endpoint private ports.
 - It's a one-time decision to decide whether to connect (control and replication data) from your on-premises servers to the various component servers (configuration server, master target server) running in Azure over a VPN connection or the internet. You can't change this setting afterwards. If you do you'll need to redeploy the scenario and reprotect your machines.  
 
-#### Configure a VPN connection (optional) 
-
-If you do want to use a VPN or ExpressRoute connection do the following:
-
-1. Learn more here if you don't currently have a connection set up:
-
-	- [ExpressRoute or VPN - What's right for me](http://azure.microsoft.com/blog/2014/06/10/expressroute-or-virtual-network-vpn-whats-right-for-me/)
-	- [Configure a site-to-site connection to an Azure virtual machine](../vpn-gateway-site-to-site-create.md)
-	- [Configure ExpressRoute](../expressroute-configuring-exps.md)
-2. In the vault click **Servers** > **Configuration Servers** > configuration server > **Configure**.
-3. In **Connectivity Settings** ensure that the **Connectivity Type** is set to **VPN**. Note that if you have VPN set up and no internet access from the on-premises site, make sure you select the VPN option. If you don't, the process server won't be able to send replication data to the master target server on its public endpoints.
-
-	![Enable VPN](./media/site-recovery-vmware-to-azure/ASRVMWare_EnableVPN.png)
 
 ## Step 3: Deploy the master target server
 
@@ -408,12 +395,12 @@ Note that the first four IP addresses in any subnet are reserved for internal Az
 
 2. Copy the downloaded zip file to the server on which you're going to install the process server. The zip file contains two installation files:
 
-	- Microsoft-ASR_CX_TP_8.2.0.0_Windows*
-	- Microsoft-ASR_CX_8.2.0.0_Windows*
+	- Microsoft-ASR_CX_TP_8.3.0.0_Windows*
+	- Microsoft-ASR_CX_8.3.0.0_Windows*
 
 3. Unzip the archive and copy the installation files to a location on the server.
-4. Run the **Microsoft-ASR_CX_TP_8.2.0.0_Windows*** installation file and follow the instructions. This installs third-party components needed for the deployment.
-5. Then run **Microsoft-ASR_CX_8.2.0.0_Windows***.
+4. Run the **Microsoft-ASR_CX_TP_8.3.0.0_Windows*** installation file and follow the instructions. This installs third-party components needed for the deployment.
+5. Then run **Microsoft-ASR_CX_8.3.0.0_Windows***.
 6. On the **Server Mode** page select **Process Server**.
 
 	![Server Selection Mode](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -475,10 +462,10 @@ You can get the updates on the Site Recovery **Dashboard **. For Linux installat
 If you are running virtual machines or physical servers that already have the Mobility service installed, you can get updates for the service as follows:
 
 - Either download updates for the service as follows:
-	- [Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
-	- [RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
-	- [OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
-	- [SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
+	- [Windows Server (64 bit only)](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
+	- [CentOS 6.4,6.5,6.6 (64 bit only)](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
+	- [Oracle Enterprise Linux 6.4,6.5 (64 bit only)](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
+	- [SUSE Linux Enterprise Server SP3 (64 bit only)](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
 - Alternatively after updating the process server you can get the updated version of the Mobility service from the  C:\pushinstallsvc\repository folder on the process server.
 
 

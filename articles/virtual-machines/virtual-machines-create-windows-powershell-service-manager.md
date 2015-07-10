@@ -1,24 +1,25 @@
 <properties 
-	pageTitle="Create and Manage a Windows Virtual Machine with PowerShell and Azure Service Management" 
-	description="Use Azure PowerShell to quickly create a new Windows virtual machine." 
+	pageTitle="Create and manage a Windows virtual machine in Service Management with Azure PowerShell." 
+	description="Use Azure PowerShell to quickly create a new Windows virtual machine in Service Management and perform management functions." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# Create and Manage a Windows Virtual Machine with PowerShell and Azure Service Management
+# Create and manage a Windows virtual machine in Service Management with Azure PowerShell
 
-This article describes how to create and manage a Windows-based Azure Virtual Machine using Azure Service Management and PowerShell.
+This article describes how to create and manage Windows-based Azure virtual machines in Service Management with Azure PowerShell.
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
@@ -89,8 +90,9 @@ Next, copy the following set of PowerShell commands to a text editor, such as No
 
 	$vmName="<machine name>"
 	$csName="<cloud service name>"
-	$locName="<Azure location>"
-	$vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd"
+	$locName="<Azure location>"	
+	$image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	New-AzureVM –ServiceName $csName –Location $locName -VMs $vm
@@ -103,7 +105,12 @@ Here is an example of what running the command set looks like.
 	PS C:\> $vmName="PSTest"
 	PS C:\> $csName=" TestCS-Tailspin"
 	PS C:\> $locName="West US"
-	PS C:\> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd"
+	PS C:\> $image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	VERBOSE: 3:01:17 PM - Begin Operation: Get-AzureVMImage
+	VERBOSE: 3:01:22 PM - Completed Operation: Get-AzureVMImage
+	VERBOSE: 3:01:22 PM - Begin Operation: Get-AzureVMImage
+	VERBOSE: 3:01:23 PM - Completed Operation: Get-AzureVMImage
+	PS C:\> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
 	PS C:\> $cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	PS C:\> $vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.
 	GetNetworkCredential().Password
@@ -180,15 +187,16 @@ You'll also need to decide whether to attach a new disk or one that contains dat
 
 To attach a new disk, run this command:
 
-    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> | Update-AzureVM
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB <disk size> -DiskLabel "<label name>" -LUN <LUN number> -VM $vm | Update-AzureVM
 
-To attach an existing data disks, run this command:
+To attach an existing data disk, run this command:
 
-    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
+    Add-AzureDataDisk -Import -DiskName "<existing disk name>" -LUN <LUN number> | Update-AzureVM
 
 To attach data disks from an existing .vhd file in blob storage, run this command:
 
-    Add-AzureDataDisk -ImportFrom -MediaLocation  "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" -DiskLabel "<main>" -LUN <0> | Update-AzureVM
+    $diskLoc="https://mystorage.blob.core.windows.net/mycontainer/" + "<existing disk name>" + ".vhd"
+	Add-AzureDataDisk -ImportFrom -MediaLocation  $diskLoc -DiskLabel "<label name>" -LUN <LUN number> | Update-AzureVM
 
 ## Additional Resources
 
@@ -200,6 +208,5 @@ To attach data disks from an existing .vhd file in blob storage, run this comman
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
-[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
+[Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
  

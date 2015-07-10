@@ -168,6 +168,10 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 
 [AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
+## Key Vault Limits
+
+[AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
+
 ## Multi-Factor Authentication
 
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]

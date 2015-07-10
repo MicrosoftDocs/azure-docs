@@ -38,7 +38,7 @@ Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML
 ### <a id="Verbs"></a>Twilio Verbs
 The API makes use of Twilio verbs; for example, the **&lt;Say&gt;** verb instructs Twilio to audibly deliver a message on a call.
 
-The following is a list of Twilio verbs. Learn about the other verbs and capabilities via [Twilio Markup Language documentation][http://www.twilio.com/docs/api/twiml].
+The following is a list of Twilio verbs. Learn about the other verbs and capabilities via [Twilio Markup Language documentation](http://www.twilio.com/docs/api/twiml).
 
 * **&lt;Dial&gt;**: Connects the caller to another phone.
 * **&lt;Gather&gt;**: Collects numeric digits entered on the telephone keypad.
