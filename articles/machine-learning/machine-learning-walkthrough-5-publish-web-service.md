@@ -41,6 +41,7 @@ To do this, we need to:
 - Publish the scoring experiment as a web service
 
 But first, we need to trim this experiment down a little. We currently have two different models in the experiment, but we now need to select one model to publish.  
+
 Let's say we've decided that the boosted tree model was the better model to use. So the first thing to do is remove the [Two-Class Support Vector Machine][two-class-support-vector-machine] module and the modules that were used for training it. You may want to make a copy of the experiment first by clicking **Save As** at the bottom of the experiment canvas.
 
 We need to delete the following modules:  
