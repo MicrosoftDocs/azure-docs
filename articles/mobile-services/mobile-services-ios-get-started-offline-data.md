@@ -123,13 +123,13 @@ When using the Core Data offline store, you need to define particular tables and
 
     #### MS_TableOperations
 
-    | Attribute  |    Type     |
-    |----------- |   ------    |
-    | id         | Integer 64  |
-    | itemId     | String      |
-    | properties | Binary Data |
-    | table      | String      |
-    | tableKind  | Integer 16  |
+    | Attribute     |    Type     |
+    |-------------- |   ------    |
+    | id (required) | Integer 64  |
+    | itemId        | String      |
+    | properties    | Binary Data |
+    | table         | String      |
+    | tableKind     | Integer 16  |
 
     #### MS_TableOperationErrors
 
