@@ -3,7 +3,7 @@
 	description="Describes the two different types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="cherylmc" 
+	authors="joaoma" 
 	manager="adinah" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/16/2015" 
-	ms.author="cherylmc"/>
+	ms.author="joaoma"/>
 
 
 # Load Balancing for Azure Infrastructure Services#
