@@ -222,7 +222,7 @@ In the example below, the *Recovering SharePoint item* has been accidentally del
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 
-5. At this point, follow the [recovery steps above](#restore-a-sharepoint-item-from-disk-using-DPM.md) for recovering a Sharepoint content database from disk.
+5. At this point, follow the [recovery steps above](#Restore-a-SharePoint-item-from-disk-using-DPM) for recovering a Sharepoint content database from disk.
 
 ## FAQs
 Q: Which versions of DPM support SQL 2014 and SQL 2012 (SP2)<br>
