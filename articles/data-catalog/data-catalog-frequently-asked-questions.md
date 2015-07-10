@@ -93,7 +93,9 @@ The specific properties will differ from data source to data source, but in gene
 
 > [AZURE.IMPORTANT] Azure Data Catalog does not move or copy your data to the cloudAzure. Registering assets from a data source will copy the assets’ metadata to Azure, but the data remains in the existing data source location. The only exception to this rule is if a user chooses to upload preview records when registering assets. In this case, up to 20 records will be copied from each asset, and stored as a snapshot in **Azure Data Catalog**.
 
-> [AZURE.NOTE] For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the **Azure Data Catalog** publishing application will extract that property value. For SQL Server relational databases, which lack a first-class **Description** property, the **Azure Data Catalog** publishing application will extract the value from the ms_description extended property for objects and columns. For additional information, see TechNet [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx). 
+<br/>
+
+> [AZURE.NOTE] For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the **Azure Data Catalog** publishing application will extract that property value. For SQL Server relational databases, which lack a first-class **Description** property, the **Azure Data Catalog** publishing application will extract the value from the ms_description extended property for objects and columns. For more information, see TechNet [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx). 
 
 ## Q: How long should it take for newly registered assets to appear in Azure Data Catalog?
 
