@@ -98,7 +98,7 @@ First, retrieve new lists of packages with the following command.
 
     sudo apt-get update
 
-Install [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][tornado] and other IPython's dependencies with the following commands.
+Install [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] and other IPython's dependencies with the following commands.
 
     sudo apt-get install python-matplotlib
     sudo apt-get install python-tornado
@@ -114,7 +114,7 @@ using the Windows PowerShell to run all command-line actions.
 
 1.  Download and install the latest 32-bit version of [Python 2.7][].  You will need to add `C:\Python27` and `C:\Python27\Scripts` to your `PATH` environment variable.
 
-1.  Install [Tornado][tornado] and [PyZMQ][pyZMQ] and other IPython's dependencies with the following commands.
+1.  Install [Tornado][Tornado] and [PyZMQ][PyZMQ] and other IPython's dependencies with the following commands.
 
         easy_install tornado
         easy_install pyzmq
@@ -331,7 +331,7 @@ profiling and parallel computing integration.
 
 
 
-[tornado]:      http://www.tornadoweb.org/          "Tornado"
+[Tornado]:      http://www.tornadoweb.org/          "Tornado"
 [PyZMQ]:        https://github.com/zeromq/pyzmq     "PyZMQ"
 [NumPy]:        http://www.numpy.org/               "NumPy"
 [Matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
