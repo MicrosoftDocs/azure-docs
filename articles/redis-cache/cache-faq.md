@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/09/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -217,7 +217,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 -	Microsoft Patterns & Practices has the following guidance.
 	-	[Caching guidance](https://github.com/mspnp/azure-guidance/blob/master/Caching.md).
 	-	[Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance)
--	[Common cache patterns with Azure Redis Cache](cache-howto-common-cache-patterns/)
+-	[Common cache patterns with Azure Redis Cache](cache-howto-common-cache-patterns.md)
 
 <a name="cache-reference"></a>
 ## Why doesn't Azure Redis Cache have an MSDN class library reference like some of the other Azure services?
