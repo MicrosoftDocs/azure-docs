@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="07/08/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Debug an API App in Azure App Service
@@ -68,7 +68,7 @@ There may be times when you want to debug your API app locally; for example, to 
 
 1. In Visual Studio, open the API app project's *web.config* file. 
  
-2. In your browser, navigate to the [Azure preview portal](http://portal.azure.com). 
+2. In your browser, navigate to the [Azure preview portal](https://portal.azure.com). 
 
 3. Click the **Browse** button on the sidebar and select **API Apps**. 
 
@@ -109,11 +109,26 @@ There may be times when you want to debug your API app locally; for example, to 
 
 	![Setting breakpoints](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
 
-11. Click &lt;F5> to start a Visual Studio debugging session. When the browser loads the page, you should see an error message. Add */swagger* to the end of the URL in your browser's address bar and press &lt;Enter>.
+11. Press F5 to start a Visual Studio debugging session.
+ 
+13.  If the API app's access level is set to **Public (anonymous)**, you can use the Swagger UI page to test.
 
-12. Once the Swagger UI has loaded, click the **Get** verb on the browser window to display the schema for the Contact object, and then click **Try it Out**. Visual Studio will now stop program execution on the breakpoints you set earlier, and you can debug your controller's logic. 
+	* When the browser loads the page, you see an error message. Add */swagger* to the end of the URL in your browser's address bar and press Enter.
 
-	![Try it out](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+	* Once the Swagger UI has loaded, click the **Get** verb on the browser window to display the schema for the Contact object, and then click **Try it Out**.
+
+		Visual Studio will now stop program execution on the breakpoints you set earlier, and you can debug your controller's logic. 
+
+		![Try it out](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+
+14.	If the API app's access level is set to **Public (authenticated)**, you'll need to authenticate and use a browser tool following the procedures shown in [Protect an API app](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request) for a Post request, that is:
+
+	* Go to the gateway login URL and enter credentials to log in.
+	* Get the Zumo token value from the x-zumo-auth cookie.
+	* Add an x-zumo-auth header to your request, and set its value to the x-zumo-auth cookie value.
+	* Submit the request.
+
+	**Note:** When you're running locally, Azure cannot control access to the API app to ensure that only authenticated users can execute its methods. When you run in Azure, all traffic intended for the API app is routed through the gateway, and the gateway doesn't pass on unauthenticated requests. There is no redirection when you run locally, which means that unauthenticated requests are not prevented from accessing the API app.  The value of authenticating as described above is that you can successfully execute authentication-related code in the API app, such as code that retrieves information about the logged-on user. For more information about how the gateway handles authentication for API apps, see [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md#azure-app-service-gateway).
 
 ## Next steps
 
