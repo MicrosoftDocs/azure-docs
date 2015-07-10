@@ -1,4 +1,4 @@
-<properties title="" 
+<properties 
 pageTitle="Install and set up tools for authoring in GitHub" 
 description="Tools and steps to get set up for authoring Azure content in GitHub." 
 services="contributor-guide" 
@@ -6,9 +6,12 @@ documentationCenter=""
 authors="tysonn"  
 manager="carolz" />
 
-<tags ms.service="contributor-guide"
- ms.devlang="" ms.topic="article"
-  ms.tgt_pltfrm="" ms.workload="" 
+<tags 
+ms.service="contributor-guide"
+ ms.devlang="" 
+ ms.topic="article"
+  ms.tgt_pltfrm="" 
+  ms.workload="" 
   ms.date="01/19/2015" 
   ms.author="tysonn" />
 
@@ -20,17 +23,17 @@ If you're unfamiliar with Git, you might want to review some Git terminology: [h
 
 ## Contents
 
-- [Create a GitHub account and set up your profile]
-- [Sign up for Disqus]
-- [Determine whether you really need to follow the rest of these steps]
-- [Permissions in GitHub]
-- [Install Git for Windows]
-- [Enable two-factor authentication]
-- [Install a markdown editor]
- -[Configure Atom]  
- -[Fork the repository and copy it to your computer]
-- [Configure your user name and email locally]
-- [Next steps]
+- [Create a GitHub account and set up your profile](#create-a-github-account-and-set-up-your-profile)
+- [Sign up for Disqus](#sign-up-for-disqus)
+- [Determine whether you really need to follow the rest of these steps](#determine-whether-you-really-need-to-follow-the-rest-of-these-steps)
+- [Permissions in GitHub](#permissions-in-github)
+- [Install Git for Windows](#install-git-for-windows)
+- [Enable two-factor authentication](#enable-two-factor-authentication)
+- [Install a markdown editor](#install-a-markdown-editor)
+- [Configure Atom](#configure-atom)
+- [Fork the repository and copy it to your computer](#fork-the-repository-and-copy-it-to-your-computer)
+- [Configure your user name and email locally](#configure-your-user-name-and-email-locally)
+- [Next steps](#next-steps)
 
 ## Create a GitHub account and set up your profile
 
@@ -49,7 +52,7 @@ Your profile should resemble this profile:
 <p align="center">
  ![GitHub profile example](./media/tools-and-setup/githubprofile.png)
 
-##Sign up for Disqus
+## Sign up for Disqus
 
 Every published Azure technical article has a comment stream provided by the Disqus service.
 
