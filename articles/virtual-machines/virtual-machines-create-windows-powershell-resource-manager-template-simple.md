@@ -5,15 +5,16 @@
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Create Windows virtual machine with Resource Manager template and Azure PowerShell
