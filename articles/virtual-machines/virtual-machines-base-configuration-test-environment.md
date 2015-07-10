@@ -1,24 +1,27 @@
 <properties 
 	pageTitle="Base Configuration Test Environment" 
-	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Azure." 
+	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Base Configuration Test Environment
 
-This topic provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using computers running Windows Server 2012 R2. You can use the resulting test environment:
+This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Service Management. 
+
+You can use the resulting test environment:
 
 - For application development and testing.
 - The [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
@@ -245,9 +248,9 @@ This is your final configuration.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png) 
 
-Your base configuration in Azure is now ready for application developement and testing or for additional test environments, such as the [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). 
+Your base configuration in Azure is now ready for application development and testing or for additional test environments, such as the [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). 
 
-## Additional Resources
+## Additional resources
 
 [Hybrid cloud test environments](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 

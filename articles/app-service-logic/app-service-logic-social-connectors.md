@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Social Connectors in Microsoft Azure App Service
 
-< [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
+> [AZURE.NOTE] This topic is being retired. Refer to the [Connectors and API Apps List ](app-service-logic-connectors-list.md) to see all the available built-in Connectors and API apps. 
 
 ## What is a Social API App Connector
 Social connectors are "API Apps" that can connect to social applications and perform several *Actions* on behalf of the authenticated user. Most connectors can also be configured with a *Trigger*. Triggers are events (similar to events in the .NET Framework) that can be configured on some connectors. Triggers can then initiate the actions that have been configured for the connector (or any other connector). For example, an instance of the Twitter connector can be configured with a *new message* trigger where the trigger is defined as any new tweet that mentions @VisualStudio. This trigger can then be configured to initiate an *Action* to retweet the tweet. 
@@ -154,11 +154,6 @@ Connectors use either OAuth or user names and passwords.
 
 ## More Connectors
 
-[BizTalk Integration connectors](app-service-logic-integration-connectors.md) |
-[Enterprise connectors](app-service-logic-enterprise-connectors.md) |
-[Business-to-Business connectors](app-service-logic-b2b-connectors.md) |
-[Protocol connectors](app-service-logic-protocol-connectors.md) |
-[App + Data Services connectors](app-service-logic-data-connectors.md) |
 [Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
  
