@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -88,13 +88,13 @@ You may be wondering why we left the UCI German Credit Card Data dataset in the 
 
 It's true that the service doesn't need the original credit card data. But it does need the schema for that data, which includes information such as how many columns there are and which columns are numeric. This schema information is necessary in order to interpret the user's data. We leave these components connected so that the scoring module will have the dataset schema when the service is running. The data isn't used, just the schema.  
 
-Run the experiment one last time (click **RUN**). If you want to verify that the model is still working, right-click the output of the [Score Model][score-model] module and select **Visualize**. You'll see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities").  
+Run the experiment one last time (click **RUN**). If you want to verify that the model is still working, click the output of the [Score Model][score-model] module and select **View Results**. You'll see that the original data is displayed, along with the credit risk value ("Scored Labels") and the scoring probability value ("Scored Probabilities").  
 
 ##Publish the web service
 
-To publish a web service derived from our experiment, click **PUBLISH WEB SERVICE** below the canvas and click **YES** when prompted. Machine Learning Studio publishes the experiment as a web service on the Machine Learning staging server, and takes you to the service dashboard.   
+To publish a web service derived from our experiment, click **PUBLISH WEB SERVICE** below the canvas. Machine Learning Studio publishes the experiment as a web service and takes you to the service dashboard.   
 
-> [AZURE.TIP] You can update the web service after you've published it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **UPDATE SCORING EXPERIMENT**. When you publish the experiment again, it will replace the web service, now using your updated model.  
+> [AZURE.TIP] You can update the web service after you've published it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **PUBLISH WEB SERVVICE**. When you publish the experiment again, it will replace the web service, now using your updated model.  
 
 You can configure the service by clicking the **CONFIGURATION** tab. Here you can modify the service name (it's given the experiment name by default) and give it a description. You can also give more friendly labels for the input and output columns.  
 
