@@ -99,15 +99,15 @@ In this exercise you will use the Azure Data Catalog portal to discover register
 
 **Azure Data Catalog** has the following search options:
 
--	Keyword search
--	Filter
--	Advanced search
+- Keyword search
+- Filter
+- Advanced search
 
 You can also refine what data assets to view. **Azure Data Catalog** has the following view options:
 
--	View properties
--	View columns
--	View preview
+- View properties
+- View columns
+- View preview
 
 For this example, you will use a keyword search. **Azure Data Catalog** search has several query techniques. This example will use a **Grouping** search query.
 
