@@ -280,10 +280,6 @@ Following the same values from the example above, let's add the values to the se
 
 The network traffic  will be load balanced using testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80. 
 
-## Add Internal Load Balancer for a new service
-
-	New-AzureVMConfig -Name "Instance1" -InstanceSize Small -ImageName <imagename> | Add-AzureProvisioningConfig -Windows -AdminUsername <username> -Password <password> | New-AzureVM -ServiceName "Website2" -InternalLoadBalancerConfig $myilbconfig -Location "West US"
-
 
 ## Removing ILB configuration
 
