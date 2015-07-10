@@ -228,7 +228,7 @@ An ILB endpoint created in a Cloud Service that is outside a Regional Virtual Ne
 
 The ILB configuration has to be set during the creation of the first deployment in the Cloud Service, as shown in the sample below.
 
->[AZURE.IMPORTANT] pre-requisite to run the steps below is to have a virtual network already created for the cloud deployment. You will need the virtual network name and subnet name to create the ILB.
+>[AZURE.IMPORTANT] prerequisite to run the steps below is to have a virtual network already created for the cloud deployment. You will need the virtual network name and subnet name to create the ILB.
 
 ### Step 1
 
