@@ -24,7 +24,7 @@
 
 When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Machine Learning Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/), and others are included as examples of various types of data typically used in machine learning. 
 
-Some of these data sets are available in Azure Blob storage. For these data sets the table below provides a direct link. You can use these data sets in your experiments by using the [Reader][reader] module - to see an example of how to access a dataset, view the properties of the [Reader][reader] module in the sample experiment associated with the dataset.
+Some of these data sets are available in Azure Blob storage. For these data sets the table below provides a direct link. You can use these data sets in your experiments by using the [Reader][reader] module.
 
 The rest of these sample data sets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
 You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
