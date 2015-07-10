@@ -17,7 +17,7 @@
    ms.author="claudioc"/>
 
 # Introduction to Azure Service Fabric Actors
-The Reliable Actors API is one of two high-level frameworks provided by [Service Fabric](service-fabric-technical-overview.md), along with the [Reliable Serivces API](service-fabric-reliable-services-introduction.md).
+The Reliable Actors API is one of two high-level frameworks provided by [Service Fabric](service-fabric-technical-overview.md), along with the [Reliable Services API](service-fabric-reliable-services-introduction.md).
 
 Based on the Actor pattern, the Reliable Actors API provides an asynchronous, single-threaded programming model that simplifies your code while still taking advantage of the scalability and reliability guarantees provided by Service Fabric.
 
