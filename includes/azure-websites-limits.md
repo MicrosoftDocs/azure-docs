@@ -78,10 +78,10 @@
 <tr>
    <td valign="middle"><p>Bandwidth</p></td>
    <td valign="middle"><p>165 MB</p></td>
-   <td valign="middle"><p>Unlimited, pay at standard [data transfer rates](/pricing/details/data-transfers/)</p></td>
-   <td valign="middle"><p>Unlimited, pay at standard data transfer rates</p></td>
-   <td valign="middle"><p>Unlimited, pay at standard data transfer rates</p></td>
-   <td valign="middle"><p>Unlimited, pay at standard data transfer rates</p></td>
+   <td valign="middle"><p>Unlimited, [data transfer rates](/pricing/details/data-transfers/) apply</p></td>
+   <td valign="middle"><p>Unlimited, data transfer rates apply</p></td>
+   <td valign="middle"><p>Unlimited, data transfer rates apply</p></td>
+   <td valign="middle"><p>Unlimited, data transfer rates apply</p></td>
 </tr><tr>
    <td valign="middle"><p>Application architecture</p></td>
    <td valign="middle"><p>32-bit</p></td>
