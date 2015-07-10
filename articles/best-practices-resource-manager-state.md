@@ -10,7 +10,7 @@
 <tags
 	ms.service="azure-resource-manager"
 	ms.workload="multiple"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2015"
@@ -171,7 +171,7 @@ value of *templateBaseUrl* with the known name of the shared resources template.
 concatenated to specify the known configuration template location stored in the *vmTemplate* property.
 
 The benefit of this approach is you can easily move, fork, or use the template as a base for a new one. If the template location changes, you only need to change the static variable 
-in the one place — the main template — which passes it throughout the templates.
+in the one place â€” the main template â€” which passes it throughout the templates.
 
     "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
     "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
@@ -348,7 +348,7 @@ system image reference as shown below:
         }
     },
 
-Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM—entirely or based 
+Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VMâ€”entirely or based 
 on the preference of a template consumer.
 
 ##### vmScripts
@@ -363,7 +363,7 @@ each individual node, an installation that runs after all nodes are deployed, an
 
 This example is from a template used to deploy MongoDB, which requires an arbiter to deliver high availability. The *arbiterNodeInstallCommand* has been added to *vmScripts* to install the arbiter.
 
-The variables section is where you’ll find the variables that define the specific text to execute the script with the proper values.
+The variables section is where youâ€™ll find the variables that define the specific text to execute the script with the proper values.
 
     "vmScripts": {
         "scriptsToDownload": [
