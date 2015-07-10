@@ -24,7 +24,7 @@
 - [PowerShell - Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-This tutorial shows you how easy it is to create an Azure virtual machine (VM) resource in just a few minutes in the Azure Preview portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the VM in Azure Resource Manager, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
+This tutorial shows you how easy it is to create an Azure virtual machine (VM) in just a few minutes in the Azure Preview portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the VM in Azure Resource Manager, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
 You can also create VMs using your own images, with Resource Manager templates, or with automation tools. To learn about the different methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).
 
@@ -61,7 +61,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Configure VM basics](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>{AZURE.NOTE}**User name** refers to the administrative account that you'll use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**.
+	>{AZURE.NOTE]**User name** refers to the administrative account that you'll use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**.
 
 2. Click **Size** and select an appropriate VM size for your needs. Each size specifies the number of compute cores, memory, and other features, such as support for Premium Storage, which will affect the price. Azure recommends certain sizes automatically depending on the image you choose.
 
@@ -87,7 +87,7 @@ After you create the VM, you'll want to log on to it so you can manage its setti
 
 1. If you haven't already done so, sign in to the [Preview portal](https://portal.azure.com).
 
-2. Click your VM on the Startboard. If you need to find it, click **Browse All** > **Recent resources** or **Browse All** > **Virtual machines**. Then, select your VM from the list.
+2. Click your VM on the Startboard. If you need to find it, click **Browse All** > **Recent** or **Browse All** > **Virtual machines**. Then, select your VM from the list.
 
 3. On the VM blade, click **Connect**.
 
