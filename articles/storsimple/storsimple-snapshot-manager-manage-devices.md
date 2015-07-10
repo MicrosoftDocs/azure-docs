@@ -220,7 +220,7 @@ If a StorSimple device fails and is replaced by a standby (failover) device, use
 
 #### To connect to a new device after failover
 
-1. Reconfigure the iSCSI connection to the new device. For instructions, go to [Step 7: Mount, initialize, and format a volume](storsimple-deployment-walkthrough.md#step-7:-mount,-initialize,-and-format-a-volume) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
+1. Reconfigure the iSCSI connection to the new device. For instructions, go to [Step 7: Mount, initialize, and format a volume](storsimple-deployment-walkthrough.md#to-mount,-initialize,-and-format-a-volume) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
 
 >[AZURE.NOTE] If the new StorSimple device has the same IP address as the old one, you might be able to connect the old configuration. 
 
