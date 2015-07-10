@@ -246,7 +246,7 @@ Open the service configuration file (.cscfg) for your cloud deployment in visual
 	</NetworkConfiguration>
  
 
-Let's add the values for the network configuration file to show how it will look like. In the example, let's assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
+Let's add the values for the network configuration file to show how it will look like. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
 
 	<NetworkConfiguration>
 	  <LoadBalancers>
