@@ -3,7 +3,7 @@
    description="Describes programming with Azure Event Hubs using the Azure .NET SDK."
    services="event-hubs"
    documentationCenter="na"
-   authors="sethm"
+   authors="sethmanheim"
    manager="timlt"
    editor="" />
 <tags 

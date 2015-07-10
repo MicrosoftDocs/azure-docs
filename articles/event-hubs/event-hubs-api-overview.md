@@ -3,7 +3,7 @@
    description="A summary of some of the key Event Hubs .NET client APIs. "
    services="event-hubs"
    documentationCenter="na"
-   authors="sethm"
+   authors="sethmanheim"
    manager="timlt"
    editor="" />
 <tags 
