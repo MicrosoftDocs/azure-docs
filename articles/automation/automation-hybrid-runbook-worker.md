@@ -108,7 +108,7 @@ You can use use [Credential](http://msdn.microsoft.com/library/dn940015.aspx) an
 
 	Restart-Computer -ComputerName $Computer  -Credential $Cred
 
-You can also leverage [InlineScript](automation-runbook-concepts.md#inline-script) which will allow you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](http://technet.microsoft.com/library/jj129719.aspx).
+You can also leverage [InlineScript](automation-powershell-workflow.md#inline-script) which will allow you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](http://technet.microsoft.com/library/jj129719.aspx).
 
 
 ### Authoring and testing runbooks
