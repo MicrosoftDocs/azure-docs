@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="07/10/2015"
 	ms.author="sammehta"; "jimpark"/>
 
 
@@ -192,7 +192,7 @@ In the example below, the *Recovering SharePoint item* has been accidentally del
 
 12. Now select the **Monitoring** tab in the **DPM Administrator Console** to view the *Status* of the recovery.
 
-    ![Recovery Status](./media/backup-azure-backup-sharepoint/recovery-monitoring1.png)
+    ![Recovery Status](./media/backup-azure-backup-sharepoint/recovery-monitoring.png)
 
     >[AZURE.NOTE] The file is now restored. You can refresh the SharePoint site to check the restored file.
 
