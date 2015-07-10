@@ -54,13 +54,13 @@ When you access the Windows PowerShell interface of your StorSimple device throu
 
 The banner message contains basic StorSimple device information such as the model, name, installed software version, and status of the controller you are accessing. The following image shows an example of a banner message.
 
-![Serial Banner Message](./media/serial-console/IC741098.png)
+![Serial Banner Message](./media/storsimple-windows-powershell-administration/IC741098.png)
 
 [AZURE.IMPORTANT] **You can use the banner message to identify whether the controller you are connected to is Active or Passive.**
 
 The following image shows the various runspace options that are available in the serial console menu.
 
-![Register Your Device 2](./media/serial-console/IC740906.png)
+![Register Your Device 2](./media/storsimple-windows-powershell-administration/IC740906.png)
 
 You can choose from the following settings:
 
@@ -104,7 +104,7 @@ Make sure that you use the following PuTTY settings to connect to the Windows Po
 	|Initial state of numeric keypad|Normal|
 	|Enable extra keyboard features|Control-Alt is different from AltGr|
 
-	![Supported Putty Settings](./media/putty-settings/IC740877.png)
+	![Supported Putty Settings](./media/storsimple-windows-powershell-administration/IC740877.png)
 
 1. Click Apply.
 
@@ -114,7 +114,7 @@ Make sure that you use the following PuTTY settings to connect to the Windows Po
 
 1. Under Handling of line drawing characters, select Use Unicode line drawing code points. The following illustration shows the correct PuTTY selections.
 
-	![UTF Putty Settings](./media/putty-settings/IC740878.png)
+	![UTF Putty Settings](./media/storsimple-windows-powershell-administration/IC740878.png)
 
 1. Click Apply.
 
