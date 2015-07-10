@@ -25,7 +25,7 @@ This topic describes how to manage and share state within an Azure Resource Mana
 In addition to single-value parameters, you can use complex objects as a parameters in an Azure Resource Manager template. With complex objects, you can implement and reference collections of data for a specific area 
 such as t-shirt size (for describing a virtual machine), network settings, operating system (OS) settings, and availability settings.
 
-The following example shows to define variables that contain complex objects for representing collections of data. The collections define values that used for virtual machine size, network settings, 
+The following example shows to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, 
 operating system settings and availability settings.
 
     "tshirtSizeLarge": {
@@ -101,7 +101,7 @@ value for `variables('tshirtSize').vmTemplate`.
             "value": "[parameters('replicatorPassword')]"
           },
           "osSettings": {
-						"value": "[variables('osSettings')]"
+	    "value": "[variables('osSettings')]"
           },
           "subnet": {
             "value": "[variables('networkSettings').subnets.data]"
@@ -151,7 +151,7 @@ Name | Value | Description
 ---- | ----- | -----------
 location	| String from a constrained list of Azure regions	| The location where the resources will be deployed.
 storageAccountNamePrefix	| String	| Unique DNS name for the Storage Account where the VM's disks will be placed
-domainName	| String	| Domain name of the publicly accessible jumpbox VM in the format: `{domainName}.{location}.cloudapp.com` For example: `mydomainname.westus.cloudapp.azure.com`
+domainName	| String	| Domain name of the publicly accessible jumpbox VM in the format: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com**
 adminUsername	| String	| Username for the VMs
 adminPassword	| String	| Password for the VMs
 tshirtSize	| String from a constrained list of offered t-shirt sizes	| The named scale unit size to provision. For example, "Small", "Medium", "Large"
@@ -177,7 +177,7 @@ in the one place — the main template — which passes it throughout the templa
     "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
     "tshirtSizeSmall": {
       "vmSize": "Standard_A1",
-			"diskSize": 1023,
+      "diskSize": 1023,
       "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
       "vmCount": 2,
       "slaveCount": 1,
@@ -188,7 +188,7 @@ in the one place — the main template — which passes it throughout the templa
         "map": [0,0],
         "jumpbox": 0
       }
-
+    }
 
 #### Generated variables
 
