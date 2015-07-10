@@ -61,7 +61,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Configure VM basics](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>{AZURE.NOTE]**User name** refers to the administrative account that you'll use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**.
+	>[AZURE.NOTE]**User name** refers to the administrative account that you'll use to manage the server. Create a password that's hard for others to guess but that you can remember. **You'll need the user name and password to log on to the virtual machine**.
 
 2. Click **Size** and select an appropriate VM size for your needs. Each size specifies the number of compute cores, memory, and other features, such as support for Premium Storage, which will affect the price. Azure recommends certain sizes automatically depending on the image you choose.
 
