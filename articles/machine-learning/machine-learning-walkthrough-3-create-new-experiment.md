@@ -35,7 +35,9 @@ We need to create a new experiment in ML Studio that uses the dataset we uploade
 
 1.	In ML Studio, click **+NEW** at the bottom of the window.
 2.	Select **EXPERIMENT**, and then select "Blank Experiment". Select the default experiment name at the top of the canvas and rename it to something meaningful
+
 	> [AZURE.TIP] It's a good practice to fill in **Summary** and **Description** for the experiment in the **Properties** pane. These properties give you the chance to document the experiment so that anyone who looks at it later will understand your goals and methodology.
+
 3.	In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
 4.	Find the dataset you created under **My Datasets** and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
 
@@ -57,7 +59,11 @@ The [Metadata Editor][metadata-editor] module is used to change the metadata ass
 7.	Click the **OK** checkmark. 
 8.	Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following:  
 
+<!-- try the same thing without upper-case 
 		Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+-->
+
+		status of checking account, duration in months, credit history, purpose, credit amount, savings account/bond, present employment since, installment rate in percentage of disposable income, personal status and sex, other debtors, present residence since, property, age in years, other installment plans, housing, number of existing credits, job, number of people providing maintenance for, telephone, foreign worker, credit risk  
 
 The Properties pane will look like this:
 
