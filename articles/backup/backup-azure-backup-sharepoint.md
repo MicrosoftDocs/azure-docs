@@ -223,7 +223,7 @@ In the example below, the *Recovering SharePoint item* has been accidentally del
 
 5. At this point, follow the [recovery steps above](#restore-a-sharepoint-item-from-disk-using-DPM) for recovering a Sharepoint content database from disk.
 
-# FAQs
+## FAQs
 Q: Which versions of DPM support SQL 2014 and SQL 2012 (SP2)<br>
 A: DPM 2012 R2 with Update Rollup 4 supports the same
 
