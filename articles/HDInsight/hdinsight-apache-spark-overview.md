@@ -20,12 +20,18 @@
  
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. Spark is also compatible with Azure Blob storage (WASB) so your existing data stored in Azure can easily be processed via Spark.
 
+When you provision a Spark cluster in HDInsight, you provision Azure compute resources with Spark installed and configured. It only takes about ten minutes to provision a Spark cluster in HDInsight. The data to be processed is stored in Azure Blob storage. See [Use Azure Blob Storage with HDInsight][hdinsight-storage].
+
 ![Apache Spark on Azure HDInsight](./media/hdinsight-apache-spark-overview/SparkArchitecture.png  "Apache Spark on Azure HDInsight")
 
 
-Want to get started with Apache Spark on Azure HDInsight. See [QuickStart: Provision a Spark cluster on HDInsight and run sample applications using Jupyter and Zeppelin](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
+**Want to get started with Apache Spark on Azure HDInsight?** See [QuickStart: Provision a Spark cluster on HDInsight and run sample applications using Jupyter and Zeppelin](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
-An Apache Spark cluster in HDInsight abstracts the big data implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you provision a cluster, you provision Azure compute resources with Spark installed and configured. It only takes about ten minutes to provision a Spark cluster in HDInsight. The data to be processed is stored in Azure Blob storage. For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage].
+
+
+Watch a quick overview video describing Apache Spark on Azure HDInsight.
+
+> [AZURE.VIDEO announcing-apache-spark-on-azure-hdinsight]
 
 ## Why use Spark on Azure HDInsight? 
 
