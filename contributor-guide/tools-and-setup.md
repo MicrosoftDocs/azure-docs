@@ -30,7 +30,7 @@ If you're unfamiliar with Git, you might want to review some Git terminology: [h
 - [Install Git for Windows](#install-git-for-windows)
 - [Enable two-factor authentication](#enable-two-factor-authentication)
 - [Install a markdown editor](#install-a-markdown-editor)
-- [Configure Atom](#configure-Atom)
+- [Configure Atom](#configure-atom)
 - [Fork the repository and copy it to your computer](#fork-the-repository-and-copy-it-to-your-computer)
 - [Configure your user name and email locally](#configure-your-user-name-and-email-locally)
 - [Next steps](#next-steps)
