@@ -98,6 +98,9 @@ The final stage of this tutorial is to build and run your new app.
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
+* [Get started with data]
+	<br/>Learn how to add a new table to a mobile service, then read and write against that table.
+
 * [Get started with offline data sync]
   <br/>Learn how the quickstart uses offline data sync to make the app responsive and robust.
 
@@ -134,4 +137,3 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
