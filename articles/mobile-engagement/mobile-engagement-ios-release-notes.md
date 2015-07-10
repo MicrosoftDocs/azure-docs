@@ -41,8 +41,3 @@
 -   Removed API to send and receive messages between devices.
 -   Security improvements.
 -   SmartAd tracking removed.
-<<<<<<< HEAD:articles/mobile-engagement/mobile-engagement-ios-release-notes.md
-
- 
-=======
->>>>>>> #3946246:Update documentation for GA iOS SDK:articles/mobile-engagement-ios-release-notes.md
