@@ -328,7 +328,6 @@ Backup policies are job schedules for local and cloud snapshots. Use the **Backu
 - To see a list of backup policies, click **Backup Policies** in the **Scope** pane. The list of backup policies, together with information about each policy, appears in the **Results** pane.
 
 >[AZURE.NOTE] You can retain a maximum of 64 backups.
-<br>
 
 
 ### Backup Catalog node
