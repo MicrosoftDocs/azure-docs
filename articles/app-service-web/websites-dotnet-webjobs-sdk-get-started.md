@@ -250,11 +250,11 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 	The complete URL will consist of what you enter here plus .azurewebsites.net (as shown next to the **Web app name** text box). For example, if the web app name is ContosoAds, the URL will be ContosoAds.azurewebsites.net.
 
-9. In the **App Service plan** drop-down list choose **Create new App Service plan**.
+9. In the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) drop-down list choose **Create new App Service plan**.
 
 11. Enter a name for the App Service plan, such as ContosoAdsPlan.
 
-9. In the **Resource group** drop-down list choose **Create new resource group**.
+9. In the [Resource group](../resource-group-overview.md) drop-down list choose **Create new resource group**.
 
 11. Enter a name for the resource group, such as ContosoAdsGroup.
 
