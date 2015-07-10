@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="07/10/2015" 
 	ms.author="jgao"/>
 
 
@@ -62,7 +62,7 @@ To access job logs on the secondary head node in the event that it has become th
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
 
-## Donfigure the size of the head node
+## Configure the size of the head node
 The head nodes are allocated as large virtual machines (VMs) by default. This size is adequate for the management of most Hadoop jobs run on the cluster. But there are scenarios that may require extra-large VMs for the head nodes. One example is when the cluster has to manage a large number of small Oozie jobs. 
 
 Extra-large VMs can be configured by using either Azure PowerShell cmdlets or the HDInsight SDK.
