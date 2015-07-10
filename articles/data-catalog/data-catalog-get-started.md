@@ -98,11 +98,13 @@ In this exercise you will use the Azure Data Catalog portal to discover register
 **Azure Data Catalog** has a simple but powerful search syntax that enables you to easily build queries that return the data the users need. For details about **Azure Data Catalog**, see Search syntax reference. 
 
 **Azure Data Catalog** has the following search options:
+
 -	Keyword search
 -	Filter
 -	Advanced search
 
 You can also refine what data assets to view. **Azure Data Catalog** has the following view options:
+
 -	View properties
 -	View columns
 -	View preview
