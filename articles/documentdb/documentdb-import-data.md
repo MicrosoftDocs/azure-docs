@@ -424,6 +424,13 @@ When you allow the migration tool to create collections during import, you can s
 
 Using the Indexing Policy advanced option, you can select an indexing policy file, manually enter an indexing policy, or select from a set of default templates (by right clicking in the indexing policy textbox).
 
+The policy templates the tool provides are:
+
+- Default.  This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers.  This policy has a lower index storage overhead than Range.
+- Hash. This policy is best when you’re performing equality queries for both numbers and strings.  This policy has the lowest index storage overhead.
+- Range. This policy is best you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than Default or Hash.
+
+
 ![Screenshot of DocumentDB Indexing Policy advanced options](./media/documentdb-import-data/indexingpolicy2.png)
 
 > [AZURE.NOTE] If you do not specify an indexing policy, then the default policy will be applied.  Read more about DocumentDB indexing policies [here](documentdb-indexing-policies.md). 
