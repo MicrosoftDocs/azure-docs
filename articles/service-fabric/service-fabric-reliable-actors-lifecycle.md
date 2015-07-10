@@ -18,7 +18,7 @@
 
 
 #Actor lifecycle and Garbage Collection
-An Actor is activated when first call is made to it and its deactivated(Garbage Collected by Actors runtime) if it is not used for some period of time. To configure this time period please see section on Actor Garbage Collection below.
+An Actor is activated when the first call is made to it and it is deactivated (Garbage Collected by Actors runtime) if it is not used for some period of time. To configure this time period please see section on Actor Garbage Collection below.
 
 What happens on Actor Activation?
 
@@ -89,3 +89,4 @@ Please note that an actor will never get garbage collected while it is executing
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
+ 
