@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 # Get started configuring an internal load balancer
@@ -232,7 +232,9 @@ The ILB configuration has to be set during the creation of the first deployment 
 
 ### Step 1
 
-Open the configuration file (.cscfg) for your cloud deployment in visual studio and add the following section to create the ILB. 
+Open the service configuration file (.cscfg) for your cloud deployment in visual studio and add the following section to create the ILB under the last "</Role>" item for the network configuration. 
+
+
 
 
 	<NetworkConfiguration>
@@ -243,6 +245,17 @@ Open the configuration file (.cscfg) for your cloud deployment in visual studio 
 	  </LoadBalancers>
 	</NetworkConfiguration>
  
+
+Let's add the values for the network configuration file to show how it will look like. In the example, let's assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="testLB">
+	      <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+
 More information about the load balancer schema see [add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx)
 
 ### Step 2
@@ -257,11 +270,19 @@ Change the service definition (.csdef) file to add endpoints to the ILB. The mom
 	  </Endpoints>
 	</WorkerRole>
 
+Following the same values from the example above, let's add the values to the service definition file 
 
-### Add Internal Load Balancer for a new service
+	<WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+	  </Endpoints>
+	</WorkerRole>
+
+The network traffic  will be load balanced using testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80. 
+
+## Add Internal Load Balancer for a new service
 
 	New-AzureVMConfig -Name "Instance1" -InstanceSize Small -ImageName <imagename> | Add-AzureProvisioningConfig -Windows -AdminUsername <username> -Password <password> | New-AzureVM -ServiceName "Website2" -InternalLoadBalancerConfig $myilbconfig -Location "West US"
-
 
 
 ## Removing ILB configuration
@@ -293,6 +314,7 @@ Here is an example:
 
 	$svc="AZ-LOB1"
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
+
 
 
 ## Additional information about ILB cmdlets
