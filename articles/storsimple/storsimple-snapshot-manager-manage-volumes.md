@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to view and manage volumes
@@ -21,7 +21,7 @@
 
 You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** pane) to select volumes and view information about them. The volumes are presented as drives that correspond to the volumes mounted by the host. The **Volumes** node shows local volumes and volume types that are supported by Azure StorSimple, including volumes discovered through the use of iSCSI and a device. 
 
-For more information about supported volumes, see [Support for multiple volume types](storsimple-what-is-snapshot-manager.md/#support-for-multiple-volume-types) in [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
+For more information about supported volumes, see [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
 ![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
@@ -198,13 +198,13 @@ Before you begin:
 
 - Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
-- Install and configure StorSimple Snapshot Manager. For more information, see [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+- Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 - Configure two volumes on the StorSimple device. (In the examples, the available volumes are **Disk 1** and **Disk 2**.) 
 
 ### Step 1: Use Disk Management to create a dynamic mirrored volume
 
-Disk Management is a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, see [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
+Disk Management is a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
 
 #### To create a dynamic mirrored volume
 

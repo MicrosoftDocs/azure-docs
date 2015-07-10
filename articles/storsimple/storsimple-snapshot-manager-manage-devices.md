@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to connect and manage StorSimple devices
@@ -25,7 +25,7 @@ You can use nodes in the StorSimple Snapshot Manager **Scope** pane to verify im
 
 **Figure 1: StorSimple Snapshot Manager connected device** 
 
-Depending on your **View** selections, the **Results** pane shows the following information about each device. (For more information about configuring a view, see [View menu](storsimple-use-snapshot-manager.md/#view-menu) in [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
+Depending on your **View** selections, the **Results** pane shows the following information about each device. (For more information about configuring a view, go to [View menu](storsimple-use-snapshot-manager.md#view-menu).
 
 
 | Results column  |Description          |
@@ -220,7 +220,7 @@ If a StorSimple device fails and is replaced by a standby (failover) device, use
 
 #### To connect to a new device after failover
 
-1. Reconfigure the iSCSI connection to the new device. For instructions, see "Step 7: Mount, initialize, and format a volume" in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
+1. Reconfigure the iSCSI connection to the new device. For instructions, go to [Step 7: Mount, initialize, and format a volume](storsimple-deployment-walkthrough.md#step-7:-mount,-initialize,-and-format-a-volume) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
 
 >[AZURE.NOTE] If the new StorSimple device has the same IP address as the old one, you might be able to connect the old configuration. 
 
@@ -250,7 +250,7 @@ If a StorSimple device fails and is replaced by a standby (failover) device, use
 
 5. Start StorSimple Snapshot Manager. 
 
-6. To configure the new StorSimple device, complete the steps in "Step 2: Connect a StorSimple device" in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
+6. To configure the new StorSimple device, complete the steps in [Step 2: Connect a StorSimple device](storsimple-snapshot-manager-deployment.md#step-2:-connect-a-storsimple-device) in [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md). 
 
 7. Right-click the top-level node in the **Scope** pane (StorSimple Snapshot Manager in the example), and then click **Toggle Imports Display**. 
 

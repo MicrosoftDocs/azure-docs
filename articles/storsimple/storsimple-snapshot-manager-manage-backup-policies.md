@@ -19,14 +19,12 @@
 
 ## Overview
 
-A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types and backup policies](storsimple-what-is-snapshot-manager.md/#backup-types-and-backup-policies) in [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
+A backup policy creates a schedule for backing up volume data locally or in the cloud. When you create a backup policy, you can also specify a retention policy. (You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types and backup policies](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies).
 
 This tutorial explains how to:
 
 - Create a backup policy 
-
 - Edit a backup policy 
-
 - Delete a backup policy 
 
 ## Create a backup policy

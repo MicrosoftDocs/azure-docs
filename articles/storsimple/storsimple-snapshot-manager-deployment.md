@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="v-sharos" />
 
 # Deploy StorSimple Snapshot Manager
@@ -35,8 +35,8 @@ Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Mi
 
 The following steps provide a high-level overview of configuration tasks that you must complete before you install the StorSimple Snapshot Manager. For complete Microsoft Azure StorSimple configuration and setup information, including system requirements and step-by-step instructions, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT] Before you begin, review the pre-installation checklist
-> and deployment prerequisites in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+>[AZURE.IMPORTANT] Before you begin, review the [pre-installation checklist](storsimple-deployment-walkthrough.md#pre-installation-checklist) and
+> and [deployment prerequisites](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 <br>
  
 ### Before you install StorSimple Snapshot Manager
