@@ -101,8 +101,6 @@ See the following illustration.
 
 **Figure 2: Windows Volume Shadow Copy Service process** 
 
-Top of page 
- 
 ## Backup types and backup policies
 
 With StorSimple Snapshot Manager, you can back up data and store it locally and in the cloud. You can use StorSimple Snapshot Manager to back up data immediately, or you can use a backup policy to create a schedule for taking backups automatically. Backup policies also enable you to specify how many snapshots will be retained. 

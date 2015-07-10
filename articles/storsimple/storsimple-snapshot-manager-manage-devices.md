@@ -66,6 +66,8 @@ This tutorial explains how to use StorSimple Snapshot Manager to connect and man
 - Replace a failed device
 
 >[AZURE.NOTE] For general information about using the StorSimple Snapshot Manager interface, go to [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md)
+
+
 ## Add or replace a device
 
 Use the following procedure to add or replace a StorSimple device.
