@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/10/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.author="joaoma" />
 
 # Disable or Enable a Traffic Manager Endpoint
 
