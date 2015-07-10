@@ -1,4 +1,4 @@
-   pageTitle="Administer your device using Windows PowerShell for StorSimple"
+<  pageTitle="Administer your device using Windows PowerShell for StorSimple"
    description="Learn how to manage your StorSimple device using the Windows PowerShell for StorSimple"
    services="storsimple"
    documentationCenter="NA"
@@ -66,7 +66,7 @@ You can choose from the following settings:
 
 1. **Log in with full access**
 This option allows you to connect (with the proper credentials) to the SSAdminConsole runspace on the local controller. (The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.) 
-This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](https://msdn.microsoft.com/en-us/library/dn757804.aspx). This option connects to a runspace on the local controller.
+This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](https://msdn.microsoft.com/library/dn757804.aspx). This option connects to a runspace on the local controller.
 
 1. **Log in to peer controller with full access**
 This option is the same as option 1, except that you can connect (with the proper credentials) to the SSAdminConsole runspace on the peer controller. Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).
