@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="07/08/2015"
+	 ms.date="07/10/2015"
 	 ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - FAQ
@@ -157,7 +157,7 @@ A11. No. Once we make the change in our service, you will be notified through ou
 **Q12. Why is the amount of data transferred in backup not equal to the amount of data I backed up?**<br/>
 A12. All the data that is backed up is compressed and encrypted before being transferred. You can expect 30-40% compression benefits depending on the type of data being backed up.
 
-## Recoveries
+## Recovery
 **Q1. How many recoveries can I perform on the data that is backed up to Azure?**<br/>
 A1. There is no limit on the number of recoveries from Azure Backup.
 
