@@ -157,7 +157,7 @@ From Visual Studio you can also package and deploy the application in the local 
 ## Next steps
 
 [Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
-[Actors APIs Reference Documentation](https://msdn.microsoft.com/en-us/library/azure/dn971626.aspx)
+[Actors APIs Reference Documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 [Sample code](https://github.com/Azure/servicefabric-samples)
 
 
