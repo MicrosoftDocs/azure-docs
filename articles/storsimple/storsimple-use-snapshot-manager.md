@@ -329,6 +329,8 @@ Backup policies are job schedules for local and cloud snapshots. Use the **Backu
 
 >[AZURE.NOTE] You can retain a maximum of 64 backups.
 <br>
+
+
 ### Backup Catalog node
 
 The **Backup Catalog** node contains lists of on-site and off-site backups of Azure StorSimple volumes. This node is organized by volume group, and each volume group container contains separate structures for local snapshots (the Local Snapshots node) and cloud snapshots (the Cloud Snapshots node). When expanded, each volume group container lists all the successful backups that were taken interactively or by a configured policy.

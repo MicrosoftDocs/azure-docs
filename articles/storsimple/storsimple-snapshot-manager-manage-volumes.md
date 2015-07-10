@@ -21,7 +21,7 @@
 
 You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** pane) to select volumes and view information about them. The volumes are presented as drives that correspond to the volumes mounted by the host. The **Volumes** node shows local volumes and volume types that are supported by Azure StorSimple, including volumes discovered through the use of iSCSI and a device. 
 
-For more information about supported volumes, see [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
+For more information about supported volumes, go to [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
 ![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
@@ -156,7 +156,7 @@ Before you begin:
 
 - Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
-- Install and configure StorSimple Snapshot Manager. For more information, see [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+- Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 #### To configure backup of a basic volume
 
