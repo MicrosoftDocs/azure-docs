@@ -185,5 +185,5 @@ To learn more about Event Hubs scenarios, visit these links:
 The .NET API references are here:
 
 - [Service Bus and Event Hubs .NET API reference](https://msdn.microsoft.com/library/jj933424.aspx)
-- [Event processor host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
+- [Event processor host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 - 

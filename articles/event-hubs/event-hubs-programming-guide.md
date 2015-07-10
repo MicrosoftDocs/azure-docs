@@ -105,7 +105,7 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 
 It is important to note that a single batch must not exceed the 256 KB limit of an event. Additionally, each message in the batch uses the same publisher identity. It is the responsibility of the sender to ensure that the batch does not exceed the maximum event size. If it does, a client **Send** error is generated.
 
-## SendAsync and send at scale
+## Send asynchronously and send at scale
 
 You can also send events to an Event Hub asynchronously. Sending asynchronously can increase the rate at which a client is able to send events. Both the [Send](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.send.aspx) and [SendBatch](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.sendbatch.aspx) methods are available in asynchronous versions that return a [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) object. While this technique can increase throughput, it can also cause the client to continue to send events even while it is being throttled by the Event Hubs service and can result in the client experiencing failures or lost messages if not properly implemented. In addition, you can use the [RetryPolicy](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.cliententity.retrypolicy.aspx) property on the client to control client retry options.
 
@@ -150,7 +150,7 @@ With respect to a specific partition, the messages are received in the order in 
 
 It is important to note that a single partition within a consumer group cannot have more than 5 concurrent readers connected at any time. As readers connect or become disconnected, their sessions might stay active for several minutes before the service recognizes that they have disconnected. During this time, reconnecting to a partition may fail. For a complete example of writing a direct receiver for Event Hubs, see the [Service Bus Event Hubs Direct Receivers](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) sample.
 
-### EventProcessorHost
+### Event processor host
 
 The [EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx) class processes data from Event Hubs. You should use this implementation when building event readers on the .NET platform. [EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx) provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.
 
@@ -183,4 +183,4 @@ To learn more about Event Hubs scenarios, visit these links:
 - [Event Hubs API overview](event-hubs-api-overview.md)
 - [Event Hubs overview](event-hubs-overview.md)
 - [Event Hubs Code Samples](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
-- [Event processor host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
+- [Event processor host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
