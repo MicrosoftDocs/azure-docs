@@ -25,7 +25,7 @@
 The [IPython project](http://ipython.org) provides a collection of tools for scientific computing that include powerful interactive shells, high-performance and easy to use parallel libraries and a web-based environment called the IPython Notebook. The Notebook provides a working environment for interactive computing that combines code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying.
 
 Whether you're absolutely new to Python and want to learn it in a fun, interactive environment or do some serious parallel/technical computing, the IPython Notebook is a great choice. As an illustration of its capabilities, the
-following screenshot shows the IPython Notebook being used, in combination with the SciPy and matplotlib packages, to analyze the structure of a sound recording.
+following screenshot shows the IPython Notebook being used, in combination with the SciPy and Matplotlib packages, to analyze the structure of a sound recording.
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
 
@@ -82,7 +82,7 @@ its dependencies.
 To install IPython and its dependencies, SSH into the Linux VM, complete
 the following steps.
 
-Install [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] and other IPython's dependencies with the following commands.
+Install [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] and other IPython's dependencies with the following commands.
 
     sudo zypper install python-matplotlib
     sudo zypper install python-tornado
@@ -98,7 +98,7 @@ First, retrieve new lists of packages with the following command.
 
     sudo apt-get update
 
-Install [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] and other IPython's dependencies with the following commands.
+Install [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][tornado] and other IPython's dependencies with the following commands.
 
     sudo apt-get install python-matplotlib
     sudo apt-get install python-tornado
@@ -114,7 +114,7 @@ using the Windows PowerShell to run all command-line actions.
 
 1.  Download and install the latest 32-bit version of [Python 2.7][].  You will need to add `C:\Python27` and `C:\Python27\Scripts` to your `PATH` environment variable.
 
-1.  Install [Tornado][tornado] and [PyZMQ][pyzmq] and other IPython's dependencies with the following commands.
+1.  Install [Tornado][tornado] and [PyZMQ][pyZMQ] and other IPython's dependencies with the following commands.
 
         easy_install tornado
         easy_install pyzmq
@@ -123,9 +123,9 @@ using the Windows PowerShell to run all command-line actions.
         easy_install python-dateutil
         easy_install pyparsing
 
-1.  Download and install [NumPy][numpy] using the `.exe` binary installer available on their website.  As of this writing, the latest version is numpy-1.9.1-win32-superpack-python2.7.exe.
+1.  Download and install [NumPy][NumPy] using the `.exe` binary installer available on their website.  As of this writing, the latest version is numpy-1.9.1-win32-superpack-python2.7.exe.
 
-1.  Install [Matplotlib][matplotlib] with the following command.
+1.  Install [Matplotlib][Matplotlib] with the following command.
 
         pip install matplotlib==1.4.2
 
@@ -255,7 +255,7 @@ The area marked with an `In []:` prompt is the input area, and here you can
 type any valid Python code and it will execute when you hit `Shift-Enter` or
 click on the "Play" icon (the right-pointing triangle in the toolbar).
 
-Since we have configured the notebook to start with NumPy and matplotlib support
+Since we have configured the notebook to start with NumPy and Matplotlib support
 automatically, you can even produce figures as shown in the next screenshot.
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-004.png)
