@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 # What is Traffic Manager?
@@ -162,7 +162,7 @@ To add a Traffic Manager profile as an endpoint and configure the minimum number
 
 If you want the figures in this topic as PowerPoint sides for your own presentation on Traffic Manager or to modify for your own purposes, see [Traffic Manager figures in MSDN documentation](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-## See Also
+## Next Steps
 
 [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 

@@ -36,7 +36,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 1. Click the endpoint that you want to enable, and then click **Enable** at the bottom of the page.
 1. Traffic will start flowing to the service again as dictated by the profile.
 
-## See Also
+## Next Steps
 
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 

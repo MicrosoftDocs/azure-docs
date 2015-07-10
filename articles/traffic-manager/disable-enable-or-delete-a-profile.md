@@ -45,7 +45,7 @@ You can disable an existing Traffic Manager profile so that it will not refer us
 1. clicking the column next to the profile. Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.
 1. After selecting the profile, click Delete at the bottom of the page.
 
-## See Also
+## Next Steps
 
 [Traffic Manager](../traffic-manager.md)
 
