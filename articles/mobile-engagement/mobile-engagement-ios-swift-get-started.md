@@ -44,7 +44,7 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 <!--
 ##<a id="register"></a>Enable Apple Push Notification Service
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[WACOM.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 -->
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your app
