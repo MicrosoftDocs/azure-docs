@@ -82,8 +82,8 @@ This is an early version of this article.  The final version will go into more d
 [1]: ./media/active-directory-devhowto-auth-using-any-aad/multi-tenant-aad.png
 
 <!--Reference style links -->
-[ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
-[ACOM-Auth-scenarios]: active-directory-authentication-scenarios.md
+[ACOM-How-To-Integrate]: ./active-directory-how-to-integrate.md
+[ACOM-Auth-scenarios]: ./active-directory-authentication-scenarios.md
 [Azure-portal]: https://manage.windowsazure.com
 [GH1]: https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
 [GH2]: https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
