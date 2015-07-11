@@ -86,7 +86,7 @@ The following code samples show you how to authenticate user accounts from any A
 	- build a .Net MVC Web app client 
 	- provide a registration/sign-up experience
 	- use the ASP.Net OpenID Connect OWIN middleware and the Active Directory 
-		
+
 - [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet] [GH2] is a .Net MVC Web sample that shows you how to:
 	- build a .Net MVC Web app client and Web API client 
 	- call a web API that is secured using Azure AD 
