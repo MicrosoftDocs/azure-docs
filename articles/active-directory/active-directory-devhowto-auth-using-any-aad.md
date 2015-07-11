@@ -18,17 +18,19 @@
 
 # How to enable your application to authenticate any Azure Active Directory user
 
-This is the first in a series of "HowTo" articles, directed toward Software as a Service (SaaS) application developers. SaaS applications are typically built by Cloud Service Vendor (CSV) or Independent Software Vendor (ISV) developers, who need to make their applications available as a shared service to multiple organizations, vs. an application dedicated to a single organization.  
+This article is directed toward Software as a Service (SaaS) application developers. SaaS applications are typically built by Cloud Service Vendor (CSV) or Independent Software Vendor (ISV) developers, who need to make their applications available as a shared service to multiple organizations, vs. an application dedicated to a single organization.  
 
 Whether you've set out to build a SaaS application from the start, need to convert your application to SaaS architecture, or want to explore integration with Azure Active Directory (AD), this article will help you understand the role Azure AD can play in your authentication design and implementation.
 
 ## Overview
 
-### Defining multi-tenant
-For the purposes of this article, let's define SaaS in terms of a ***multi-tenant*** application architecture: one that needs to share it's code across ***multiple*** organizations, while enforcing secure/isolated data access on a per-organization basis (aka: ***tenant***).  Once a user is authenticated, the application can access user data in a secure fashion, operating under the context of the user's identity.  Let's also assume that we have 2 SaaS applications in the mix:
+### Multi-tenancy
+SaaS applications are typically architected using a ***multi-tenant*** design: sharing  their code across ***multiple*** organizations, while enforcing secure/isolated data access on a per-organization basis (aka: ***tenant***). For the purposes of this article, let's assume that we have 2 SaaS applications in the mix:
  
-- your SaaS application, which uses multi-tenancy to partition/secure *user* data 
-- Azure AD, which uses multi-tenancy to partion/secure *directory* data
+- A line-of-business (LOB) application, which uses multi-tenancy to partition/secure *business* data. Once a user is authenticated, the application can access data in a secure fashion under the context of the authenticated user. 
+- Azure AD, which uses multi-tenancy to partion/secure *directory* data.  Later we will see how other SaaS applications can use separate tenants to manage/authenticate their users.
+
+Although it's beyond the scope of this article, an LOB application could provide components that represent one or more [OAuth 2.0] [OAuth-2] roles, including "Client", and  "Resource Server".  While the Azure AD tenant would be considered the "Authorization Server". Later we will explore code samples that illustrate practical implementations of these roles.
 
 ### Integrating with multiple Azure AD tenants
 With those definitions, the opportunity for leveraging Azure AD to authenticate your application's users becomes clearer.  Specifically, for the set of organizations/tenants that subscribe to both your application AND Microsoft Azure, you can design your application to delegate authentication of all of those users to their Azure AD tenant. That means any new subscribers that also have an Azure subscription, can authenticate using their Azure AD credentials going forward, with no additional architectural or coding changes required. When you consider the user base that already has Azure AD credentials (including Office 365 subscribers, for example), this creates a huge opportunity that could be appealing to both you and your subscribers.
@@ -116,4 +118,5 @@ For more information about how the protocols work in this scenario and other sce
 [GH1]: https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
 [GH2]: https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
 [GH3]: https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore
+[OAuth-2]: http://tools.ietf.org/html/rfc6749
  
