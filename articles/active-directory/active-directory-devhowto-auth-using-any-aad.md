@@ -24,13 +24,16 @@ Whether you've set out to build a SaaS application from the start, need to conve
 
 ## Overview
 
+### Defining multi-tenant
 For the purposes of this article, let's define SaaS in terms of a ***multi-tenant*** application architecture: one that needs to share it's code across ***multiple*** organizations, while enforcing secure/isolated data access on a per-organization basis (aka: ***tenant***).  Once a user is authenticated, the application can access user data in a secure fashion, operating under the context of the user's identity.  Let's also assume that we have 2 SaaS applications in the mix:
  
 - your SaaS application, which uses multi-tenancy to partition/secure *user* data 
 - Azure AD, which uses multi-tenancy to partion/secure *directory* data
 
+### Integrating with multiple Azure AD tenants
 With those definitions, the opportunity for leveraging Azure AD to authenticate your application's users becomes clearer.  Specifically, for the set of organizations/tenants that subscribe to both your application AND Microsoft Azure, you can design your application to delegate authentication of all of those users to their Azure AD tenant. That means any new subscribers that also have an Azure subscription, can authenticate using their Azure AD credentials going forward, with no additional architectural or coding changes required. When you consider the user base that already has Azure AD credentials (including Office 365 subscribers, for example), this creates a huge opportunity that could be appealing to both you and your subscribers.
 
+### A real world example
 Finally, let's reinforce these concepts by considering the topology that exists between the large multi-tenant SaaS applications found in Office 365 and their relationship to Azure AD, and comparing it with a simple Azure scenario.  When you sign up for an Azure subscription, you automatically get an Azure AD tenant, which the subscription *trusts* for it's identity needs.  Applications you build in Azure are also assigned to the subscription, allowing them to take advantage of your Azure AD tenant for user account management and authentication.  In the same way that an Azure application accesses Azure AD services through a subscription, Office 365 SaaS tenants are *also* associated with their  Azure AD tenant through a subscription, for user account management and authentication.  Further, any common subscribers between Office 365 and our Azure application, can use their Office 365 credentials to authenticate with our Azure application, just by enabling our Azure application to be aware of multiple Azure AD tenants.
 
 ![O365-AD-Topology][1]
