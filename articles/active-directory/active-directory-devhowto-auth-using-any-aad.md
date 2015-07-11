@@ -36,7 +36,7 @@ Finally, let's reinforce these concepts by considering the topology that exists 
 ![O365-AD-Topology][1]
 
 ## Prerequisites
-As we walk through the relevant concepts for this scenario, we will prescriptively show you how to apply those concepts using a set of related code samples, reinforcing the concepts. It is assumed that you have a basic understanding of Azure AD, including [why/how you would integrate your application with Azure AD] [ACOM-How-To-Integrate], as well as the [basics of Azure AD authentication and supported authentication scenarios](active-directory-authentication-scenarios.md).
+As we walk through the relevant concepts for this scenario, we will prescriptively show you how to apply those concepts using a set of related code samples, reinforcing the concepts. It is assumed that you have a basic understanding of Azure AD, including [why/how you would integrate your application with Azure AD] [ACOM-How-To-Integrate], as well as the [basics of Azure AD authentication and supported authentication scenarios] [ACOM-Auth-scenarios].
 
 You should also be comfortable editing your Azure AD tenant's application configurations in the [Azure portal][Azure-portal]
 
@@ -83,6 +83,7 @@ This is an early version of this article.  The final version will go into more d
 
 <!--Reference style links -->
 [ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
+[ACOM-Auth-scenarios]: active-directory-authentication-scenarios.md
 [Azure-portal]: https://manage.windowsazure.com
 [GH1]: https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
 [GH2]: https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
