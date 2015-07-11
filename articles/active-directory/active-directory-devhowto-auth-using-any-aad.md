@@ -67,15 +67,35 @@ This is an early version of this article.  The final version will go into more d
 
 - Issuer/Token Validation - must be handled by your application
 
-- Managing the sign-in experience and best practices
+- Managing the sign-up/sign-in experience and best practices
 	- The user should be presented with a form that walks them through the registration process. Here they can choose if they want to follow the "admin consent" flow (the app gets provisioned for all the users in one organization - requiring the user to sign up using an administrator) or the "user consent" flow (the app gets provisioned for one user only). 
 
 	- When they attempt to authenticate, they will be transferred to the Azure AD portal, to sign in as the user they want to use for consenting. If the user is from an Azure AD tenant that is different from the one associate with your application, they will be presented with a consent page.
 
-- Multi-tenant Code samples
-	- [Github One] [GH1]
-	- [Github Two] [GH2]
-	- [Github Three] [GH3]
+- The following code samples show you how to authenticate user accounts from any Azure Active Directory tenant, by implementing authentication for various types of client applications, including a Web app, Web API, and Native client
+
+	- [WebApp-MultiTenant-OpenIdConnect-DotNet] [GH1] is a .Net MVC Web sample that also shows you how to:
+		- build a .Net MVC Web app client 
+		- provide a registration/sign-up experience
+		- use the ASP.Net OpenID Connect OWIN middleware and the Active Directory 
+		
+	- [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet] [GH2] is a .Net MVC Web sample that shows you how to:
+		- build a .Net MVC Web app client and Web API client 
+		- call a web API that is secured using Azure AD 
+		- provide a registration/sign-up experience
+		- use the ASP.Net OpenID Connect OWIN middleware and the Active Directory 
+		- leverage the authorization code received at sign in time to invoke the Graph API
+
+	- [NativeClient-WebAPI-MultiTenant-WindowsStore] [GH3] is a Windows Store application  and Web API sample that shows you how to
+		- build a Native Windows store client and Web API client
+		- call a web API that is secured using Azure AD 
+		- provide a registration/sign-up experience
+		- use the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol, which is sent to the web API to authenticate the user
+
+	For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD] [ACOM-Auth-scenarios]
+
+
+For more information about how the protocols work in this scenario and other scenarios, see the Authentication Scenarios for Azure AD document.
 
 ## Next steps
 
