@@ -84,7 +84,7 @@ You should also be comfortable editing your Azure AD tenant's application config
 [How to integrate an application with Azure AD](active-directory-how-to-integrate).
 
 <!--Image references-->
-[1]: ../media/active-directory-devhowto-auth-using-any-aad/multi-tenant-aad.png
+[1]: ./media/active-directory-devhowto-auth-using-any-aad/multi-tenant-aad.png
 
 <!--Reference style links -->
 [ACOM-How-To-Integrate]: active-directory-how-to-integrate
