@@ -16,7 +16,7 @@
    ms.date="07/10/2015"
    ms.author="sstein"/>
 
-# Create and manage a SQL Database with the .NET Client Library
+# Create and manage a SQL Database with the SQL Management SDK
 
 > [AZURE.SELECTOR]
 - [Manage with PowerShell](sql-database-command-line-tools.md)
@@ -34,9 +34,9 @@ This article will show you how to create everything you need except for the Azur
 > [AZURE.NOTE] The client library is currently in preview.
 
 
-## Prerequisites
+## Installing the required libraries
 
-You need to install the following packages using the package manager console:
+You need to install the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console):
 
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
@@ -47,16 +47,18 @@ You need to install the following packages using the package manager console:
 
 ## Configure your credentials by authenticating with Azure Active Directory
 
-First you must establish access to your Azure account. The Azure Resource Management (ARM) REST APIs use Azure Active Directory (AAD) for authentication rather than the certificates used by the earlier Azure Service Management REST APIs.
+First you must establish access to your Azure account. The [Azure Resource Management (ARM) REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use [Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/mt168838.aspx) (AAD) for authentication rather than the certificates used by the earlier [Azure Service Management REST APIs](https://msdn.microsoft.com/library/azure/dn948465.aspx).
 
-To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created.  If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure management portal](https://manage.windowsazure.com/).  
+To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure management portal](https://manage.windowsazure.com/). 
+
+To create a new application and register it in the correct active directory do the following:
 
 Scroll the menu on the left side to locate the **Active Directory** service and open it.
 
    ![AAD][1]
 
 
-### Identify the domain
+### Identify the domain name
 
 Select the **DOMAINS** tab and note the domain name which you will need to enter in your client code.  A default domain name will typically be a URI of the form <domain>.onmicrosoft.com. 
 
@@ -64,24 +66,24 @@ Select the **DOMAINS** tab and note the domain name which you will need to enter
 
 First register your application with the following steps.
 
-- Select the Applications tab and select Add to register a new application.
-- In the dialog select the option to Add an application my organization is developing   
-- Provide a Name by which your client application will be known in the directory.  This will be used, for example, when granting access to the application to users. 
-- Identify the Type of application.  For a command line or windows client select NATIVE CLIENT APPLICATION. 
-- Provide a Redirect URI.  The value does not need to be a physical endpoint, but must be a valid URI.  The following can be used urn:ietf:wg:oauth:2.0:oob.  Make a note of this value as it will be used in your code.
-- Complete the wizard which creates the application and then make a note of the client ID which is on the Quick Start page for the application under UPDATE YOUR CODE and on the Configuration page.  
+- Select the **Applications** tab and select **Add** to register a new application.
+- In the dialog select the option to **Add an application my organization is developing**.   
+- Provide a Name by which your client application will be known in the directory. This will be used, for example, when granting access to the application to users. 
+- Identify the Type of application.  For a command line or windows client select **NATIVE CLIENT APPLICATION**. 
+- Provide a Redirect URI.  The value does not need to be a physical endpoint, but must be a valid URI.  The following can be used **urn:ietf:wg:oauth:2.0:oob**.  Make a note of this value as you will use it in your code.
+- Complete the wizard which creates the application and then make a note of the client ID which is on the Quick Start page for the application under **UPDATE YOUR CODE** and on the Configuration page.  
 
 Once the client application is registered you can grant it access to other applications or APIs.  You do this on the Configure page of the application.
 
-- Scroll to the bottom of the page and under permissions to other applications click on the Add application button
-- Ensure Show Microsoft Apps is selected in the drop down
+- Scroll to the bottom of the page and under permissions to other applications click on the Add application button.
+- Ensure **Show Microsoft Apps** is selected in the drop down.
 - Select Windows Azure Service Management API and then complete the wizard.
 
 With the API selected you now need to grant the specific permissions required to access this API by checking the box alongside Access Azure Service Management (preview) in the drop down in the application list.
 
    ![permissions][2]
 
-Finally save your changes before leaving the page.
+Save your changes before leaving the page.
 
 **Additional AAD Resources**  
 
@@ -90,7 +92,7 @@ Additional information about using Azure Active Directory for authentication can
 
 ### Retrieve your access token 
 
-
+You only need to do this once while your credentials are cached. You will need to establish credentials again after they are expired.
 
 
         /// <summary>
@@ -116,8 +118,11 @@ Additional information about using Azure Active Directory for authentication can
 
 ## Create a resource group, server, and firewall rule
 
+A resource group is a container that holds related resources for an application. Azure SQL Databases and servers are contained in resource groups. Before creating or working with a SQL database you must first create a resource group, a server, and then you must configure a new firewall rule to allow clients to access the server and databases.
+
 
 ### Create a resource group
+
 
 
             // Create a resource management client 
@@ -138,7 +143,7 @@ Additional information about using Azure Active Directory for authentication can
 
 ### Create a server 
 
-Elastic pools are created inside Azure SQL Database servers. If you already have a server you can go to the next step, or you can run the following command to create a new V12 server. Replace the ServerName with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use whatever valid location you choose.
+SQL databases are created in servers. The server name must be globally unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. You can edit the  command to use whatever valid location you choose.
 
 
             //create a SQL Database management client
@@ -162,15 +167,11 @@ Elastic pools are created inside Azure SQL Database servers. If you already have
 
 
 
-
-When you run this command...  
-
-
 ### Configure a server firewall rule to allow access to the server
 
 Establish a firewall rule to access the server. Run the following command replacing the start and end IP addresses with valid values for your computer.
 
-If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all azure traffic access to the server.
+If your server needs to allow access to other Azure services, CAN WE DO THIS HERE?? to add a special firewall rule and allow all azure traffic access to the server.
 
             // Create a firewall rule on the server to allow TDS connections 
             FirewallRuleCreateOrUpdateProperties firewallProperties = new FirewallRuleCreateOrUpdateProperties()
@@ -193,7 +194,7 @@ For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.c
 
 ## Create a database
 
-Now you have a resource group, a server, and a firewall rule configured so you can access the server. The following command will create the elastic pool. This command creates a pool that shares a total of 400 DTUs. Each database in the pool is guaranteed to always have 10 DTUs available (DatabaseDtuMin). Individual databases in the pool can consume a maximum of 100 DTUs (DatabaseDtuMax). For detailed parameter explanations, see [Azure SQL Database elastic pools](sql-database-elastic-pool.md). 
+Now you have a resource group, a server, and a firewall rule configured so you can access the server. The following command will create a SQL database. 
 
 
             // Create a database
@@ -212,7 +213,6 @@ Now you have a resource group, a server, and a firewall rule configured so you c
 
 
 
-
 ## Change the service tier and performance level of a database
 
 
@@ -223,10 +223,20 @@ Now you have a resource group, a server, and a firewall rule configured so you c
             databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database1", databaseParameters);
 
 
+## List all databases on a server
 
-### Create or add elastic databases into a pool
+            // List databases on the server
+            DatabaseListResponse dbListOnServer = sqlClient.Databases.List("ResourceGroup1", "abc-server1");
+            Console.WriteLine("Databases on Server {0}", "abc-server1");
+            foreach (Database db in dbListOnServer)
+            {
+                Console.WriteLine("  Database {0}, Service Objective {1}", db.Name, db.Properties.ServiceObjective);
+            }
 
-The elastic pool created in the previous step is empty, it has no databases in it. The following sections show how to create new databases inside of the elastic pool, and also how to add existing databases into the pool.
+
+## Create and manage elastic database pools
+
+
 
 
 ### Create an elastic database pool
@@ -254,7 +264,6 @@ To create a new elastic database pool, ...
 
 
 
-
 ### Move an existing database into an elastic pool
 
 To move an existing database into an elastic pool,... 
@@ -270,6 +279,7 @@ To move an existing database into an elastic pool,...
 
 ### Create a new database in an elastic database pool
 
+To create a new database directly in an elastic pool,...
 
             // create a new database in the pool
 
@@ -280,15 +290,6 @@ To move an existing database into an elastic pool,...
 
 
 
-### List all databases on a server
-
-            // List databases on the server
-            DatabaseListResponse dbListOnServer = sqlClient.Databases.List("ResourceGroup1", "abc-server1");
-            Console.WriteLine("Databases on Server {0}", "abc-server1");
-            foreach (Database db in dbListOnServer)
-            {
-                Console.WriteLine("  Database {0}, Service Objective {1}", db.Name, db.Properties.ServiceObjective);
-            }
 
 ### List all databases in an elastic pool
 
@@ -302,16 +303,6 @@ To move an existing database into an elastic pool,...
             }
 
 
-
-
-
-### Get the status of elastic pool operations
-
-### Get the status of moving an elastic database into and out of an elastic pool
-
-### Get resource consumption metrics for an elastic pool
-
-### Get resource consumption metrics for an elastic database
 
 
 
