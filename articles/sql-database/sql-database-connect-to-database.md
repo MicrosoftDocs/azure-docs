@@ -25,7 +25,7 @@ These are the steps to connect to a Microsoft Azure SQL Database using SQL Serve
 ## Prerequisites
 * An Azure SQL Database provisioned and running. To create a new SQL Database, see [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
 * The administrator name and password for the SQL Database.
-* SQL Server Management Studio 2014. To get the tool, see [Download SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx).
+* The latest version of SQL Server Management Studio (SSMS). To get the tool, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 * Configure the firewall settings for the database. See [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
 ## To connect to an instance of SQL Database
