@@ -101,11 +101,11 @@ Additional information about using Azure Active Directory for authentication can
         {
             AuthenticationContext authContext = new AuthenticationContext
                 ("https://login.windows.net/" /* AAD URI */ 
-                + "billgibsonoutlook451.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                + "username.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "09b728f8-80a1-4572-8419-27400009c304" /* application client ID from AAD*/, 
+                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/, 
                 new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
                 PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
@@ -121,7 +121,7 @@ Additional information about using Azure Active Directory for authentication can
 
 
             // Create a resource management client 
-            ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("9d4c1f6b-d0e2-4046-94e7-4db5ccb64a44" /*subscription id*/, token.AccessToken ));
+            ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
 
             // Resource group parameters
             ResourceGroup resourceGroupParameters = new ResourceGroup()
@@ -142,7 +142,7 @@ Elastic pools are created inside Azure SQL Database servers. If you already have
 
 
             //create a SQL Database management client
-            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("9d4c1f6b-d0e2-4046-94e7-4db5ccb64a44" /* Subscription id*/, token.AccessToken));
+            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken));
 
             // Create a server
             ServerCreateOrUpdateProperties serverProperties = new ServerCreateOrUpdateProperties ()
@@ -343,7 +343,7 @@ To move an existing database into an elastic pool,...
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "01234567-8901-2345-6789-012345678901" /* application client ID from AAD*/, 
+                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/, 
                 new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
                 PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
@@ -360,7 +360,7 @@ To move an existing database into an elastic pool,...
             Console.WriteLine("");
 
             // Create a resource management client 
-            ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("01234567-8901-2345-6789-012345678901" /*subscription id*/, token.AccessToken ));
+            ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
 
             // Resource group parameters
             ResourceGroup resourceGroupParameters = new ResourceGroup()
