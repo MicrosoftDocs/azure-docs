@@ -53,53 +53,54 @@ This is an early version of this article.  The final version will go into more d
 
 ## Best practices
 ### Azure AD application configuration
-	- App ID URI: provides a unique/logical identifier which AAD associates with this application. In order to configure this application as Multi-Tenant, the "App ID URI" must be in a verified custom domain for an external user to grant your application access to their AAD data (ie:  xxxx.Test.OnMicrosoft.Com , if your directory domain is  Test.OnMicrosoft.Com ). It must also be unique within your directory, and therefore not being used as the "App ID URI" for any other applications.
 
-	- Multi-Tenant: must be set to "yes", indicating that your application requires consent from owners of multiple AAD tenants, to grant access to their directories. 
+- App ID URI: provides a unique/logical identifier which AAD associates with this application. In order to configure this application as Multi-Tenant, the "App ID URI" must be in a verified custom domain for an external user to grant your application access to their AAD data (ie:  xxxx.Test.OnMicrosoft.Com , if your directory domain is  Test.OnMicrosoft.Com ). It must also be unique within your directory, and therefore not being used as the "App ID URI" for any other applications.
+
+- Multi-Tenant: must be set to "yes", indicating that your application requires consent from owners of multiple AAD tenants, to grant access to their directories. 
 
 ### Consent experience 
-	- on first use (consider dev, ITPro, end user experiences)
-	- User vs. Admin consent
-		- Users can consent to the app if it only needs access to personal permissions, otherwise needs admin consent
-		- once the app is consented it will appear in the user's tenant (if it’s a web app)
+
+- on first use (consider dev, ITPro, end user experiences)
+- User vs. Admin consent
+	- Users can consent to the app if it only needs access to personal permissions, otherwise needs admin consent
+	- once the app is consented it will appear in the user's tenant (if it’s a web app)
 
 ### Known clients 
-	- by topology
+- by topology
 
 ### Authenticating with the Common Endpoint 
-	- required when you're authenticating with multiple Azure AD tenants because you don't know which Azure AD tenant your users belong to.
+- required when you're authenticating with multiple Azure AD tenants because you don't know which Azure AD tenant your users belong to.
 
-### Issuer/Token Validation - must be handled by your application
+### Issuer/Token Validation 
+- must be handled by your application
 
 ### Managing the sign-up/sign-in experience and best practices
-	- The user should be presented with a form that walks them through the registration process. Here they can choose if they want to follow the "admin consent" flow (the app gets provisioned for all the users in one organization - requiring the user to sign up using an administrator) or the "user consent" flow (the app gets provisioned for one user only). 
+- The user should be presented with a form that walks them through the registration process. Here they can choose if they want to follow the "admin consent" flow (the app gets provisioned for all the users in one organization - requiring the user to sign up using an administrator) or the "user consent" flow (the app gets provisioned for one user only). 
 
-	- When they attempt to authenticate, they will be transferred to the Azure AD portal, to sign in as the user they want to use for consenting. If the user is from an Azure AD tenant that is different from the one associate with your application, they will be presented with a consent page.
+- When they attempt to authenticate, they will be transferred to the Azure AD portal, to sign in as the user they want to use for consenting. If the user is from an Azure AD tenant that is different from the one associate with your application, they will be presented with a consent page.
 
-### The following code samples show you how to authenticate user accounts from any Azure Active Directory tenant, by implementing authentication for various types of client applications, including a Web app, Web API, and Native client
+### Code samples
+The following code samples show you how to authenticate user accounts from any Azure Active Directory tenant, by implementing authentication for various types of client applications, including a Web app, Web API, and Native client
 
-	- [WebApp-MultiTenant-OpenIdConnect-DotNet] [GH1] is a .Net MVC Web sample that also shows you how to:
-		- build a .Net MVC Web app client 
-		- provide a registration/sign-up experience
-		- use the ASP.Net OpenID Connect OWIN middleware and the Active Directory 
+- [WebApp-MultiTenant-OpenIdConnect-DotNet] [GH1] is a .Net MVC Web sample that also shows you how to:
+	- build a .Net MVC Web app client 
+	- provide a registration/sign-up experience
+	- use the ASP.Net OpenID Connect OWIN middleware and the Active Directory 
 		
-	- [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet] [GH2] is a .Net MVC Web sample that shows you how to:
-		- build a .Net MVC Web app client and Web API client 
-		- call a web API that is secured using Azure AD 
-		- provide a registration/sign-up experience
-		- use the ASP.Net OpenID Connect OWIN middleware and the Active Directory 
-		- leverage the authorization code received at sign in time to invoke the Graph API
+- [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet] [GH2] is a .Net MVC Web sample that shows you how to:
+	- build a .Net MVC Web app client and Web API client 
+	- call a web API that is secured using Azure AD 
+	- provide a registration/sign-up experience
+	- use the ASP.Net OpenID Connect OWIN middleware and the Active Directory 
+	- leverage the authorization code received at sign in time to invoke the Graph API
 
-	- [NativeClient-WebAPI-MultiTenant-WindowsStore] [GH3] is a Windows Store application  and Web API sample that shows you how to
-		- build a Native Windows store client and Web API client
-		- call a web API that is secured using Azure AD 
-		- provide a registration/sign-up experience
-		- use the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol, which is sent to the web API to authenticate the user
+- [NativeClient-WebAPI-MultiTenant-WindowsStore] [GH3] is a Windows Store application  and Web API sample that shows you how to
+	- build a Native Windows store client and Web API client
+	- call a web API that is secured using Azure AD 
+	- provide a registration/sign-up experience
+	- use the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol, which is sent to the web API to authenticate the user
 
-	For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD] [ACOM-Auth-scenarios]
-
-
-For more information about how the protocols work in this scenario and other scenarios, see the Authentication Scenarios for Azure AD document.
+For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD] [ACOM-Auth-scenarios]
 
 ## Next steps
 
