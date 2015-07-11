@@ -41,9 +41,8 @@ As we walk through the relevant concepts for this scenario, we will prescriptive
 You should also be comfortable editing your Azure AD tenant's application configurations in the [Azure portal][Azure-portal]
 
 
-> [AZURE!NOTE] This is an early version of this article.  The final version will go 
-> into more depth on each of the topics discussed below, relating each to a corresponding
-> code sample
+> [AZURE.NOTE] 
+This is an early version of this article.  The final version will go into more depth on each of the topics discussed below, providing narrative for the corresponding implementations in the code samples.
 
 ## Best practices
 - Azure AD application configuration
