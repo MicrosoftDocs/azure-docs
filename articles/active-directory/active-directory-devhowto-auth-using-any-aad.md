@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="7/15/2015"
+   ms.date="07/15/2015"
    ms.author="bryanla;skwan"/>
 
 # How to enable your application to authenticate any Azure Active Directory user
