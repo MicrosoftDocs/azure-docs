@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2015"
+   ms.date="07/13/2015"
    ms.author="cherylmc" />
 
 # About VPN gateways
@@ -72,9 +72,9 @@ Configure your virtual network. For cross-premises connections, see the followin
 - [Configure a point-to-site VPN connection to an Azure Virtual Network](vpn-gateway-point-to-site-create.md)
 - [Configure a site-to-site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
 
-If you want to configure a VPN gateway, see [Configure a VPN gateway](http://go.microsoft.com/fwlink/p/?LinkId=615106).
+If you want to configure a VPN gateway, see [Configure a VPN gateway](vpn-gateway-configure-vpn-gateway-mp.md).
 
-If you want to change your VPN gateway type, see [Change a virtual network VPN gateway type](http://go.microsoft.com/fwlink/p/?LinkId=615109).
+If you want to change your VPN gateway type, see [Change a virtual network VPN gateway routing type](vpn-gateway-configure-vpn-gateway-mp.md).
 
 If you want to connect multiple sites to a virtual network, see [Connect multiple on-premises sites to a virtual network](http://go.microsoft.com/fwlink/p/?LinkID=615106).
 
