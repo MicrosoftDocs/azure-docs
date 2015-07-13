@@ -81,7 +81,7 @@ Once the client application is registered you can grant it access to other appli
 
 - Scroll to the bottom of the page and under permissions to other applications click on the Add application button.
 - Ensure **Show Microsoft Apps** is selected in the drop down.
-- Select Windows Azure Service Management API and then complete the wizard.
+- Select Azure Service Management API and then complete the wizard.
 
 With the API selected you now need to grant the specific permissions required to access this API by checking the box alongside Access Azure Service Management (preview) in the drop down in the application list.
 
