@@ -24,7 +24,8 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
-## Limits and the Azure Resource Manager
+
+### Limits and the Azure Resource Manager
 
 It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Using resource groups to manage your Azure resources](resource-group-portal.md).
 
@@ -38,8 +39,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-
-## Subscription Limits - Azure Resource Manager
+### Subscription Limits - Azure Resource Manager
 
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
@@ -56,7 +56,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
-## Virtual Machines Limits - Azure Resource Manager
+### Virtual Machines Limits - Azure Resource Manager
 
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
@@ -68,26 +68,28 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 
-## Networking Limits – Azure Resource Manager
+### Networking Limits – Azure Resource Manager
 
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
 [AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
 
 
-## Storage Limits - Standard Storage
+## Storage Limits
+
+### Standard Storage Limits 
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
 
 
-## Storage Limits - Premium Storage
+### Premium Storage Limits
 
 [AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
 
 
-## Storage Limits - Azure Resource Manager
+### Storage Limits - Azure Resource Manager
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -126,6 +128,12 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 
 [AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
 
+For additional details on SQL Database limits, please see the following topics:
+
+ - [Azure SQL Database Service Tiers (Editions)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
+ - [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx)
+ - [Database Throughput Unit (DTU) Quotas](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
+ - [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md)
 
 ## Media Services Limits
 
