@@ -219,7 +219,7 @@ After creating a resource group, a server, and a firewall rule, the following co
 
 ## Change the service tier and performance level of a database
 
-To change the service tier and performance level of a database set the Edition and RequestedServiceObjectiveName properties. The following sets a SQL database to the Standard (S0) level:
+To change the service tier and performance level of a database, set the Edition and RequestedServiceObjectiveName properties. The following sets a SQL database to the Standard (S0) level:
 
             // Update the service objective of the database
             databaseProperties.Edition = "Standard";
@@ -230,7 +230,7 @@ To change the service tier and performance level of a database set the Edition a
 
 ## List all databases on a server
 
-Pass the server and resource group names to the Databases.List method:
+To list all databases on a server, pass the server and resource group names to the Databases.List method:
 
             // List databases on the server
             DatabaseListResponse dbListOnServer = sqlClient.Databases.List("ResourceGroup1", "abc-server1");
@@ -247,22 +247,22 @@ Pass the server and resource group names to the Databases.List method:
 To create a new pool:
 
 
-            // Create an elastic database pool
-            ElasticPoolCreateOrUpdateProperties poolProperties = new ElasticPoolCreateOrUpdateProperties()
-            {
-                Edition = "Standard",
-                Dtu = 100,
-                DatabaseDtuMin = 0,
-                DatabaseDtuMax = 100
-            };
+    // Create an elastic database pool
+    ElasticPoolCreateOrUpdateProperties poolProperties = new ElasticPoolCreateOrUpdateProperties()
+    {
+        Edition = "Standard",
+        Dtu = 100,
+        DatabaseDtuMin = 0,
+        DatabaseDtuMax = 100
+    };
 
-            ElasticPoolCreateOrUpdateParameters poolParameters = new ElasticPoolCreateOrUpdateParameters()
-            {
-                Location = "South Central US",
-                Properties = poolProperties
-            };
+    ElasticPoolCreateOrUpdateParameters poolParameters = new ElasticPoolCreateOrUpdateParameters()
+    {
+        Location = "South Central US",
+        Properties = poolProperties
+    };
 
-            var poolResult = sqlClient.ElasticPools.CreateOrUpdate("ResourceGroup1", "abc-server1", "ElasticPool1", poolParameters);
+    var poolResult = sqlClient.ElasticPools.CreateOrUpdate("ResourceGroup1", "abc-server1", "ElasticPool1", poolParameters);
 
 
 
@@ -272,11 +272,11 @@ To create a new pool:
 To move an existing database into a pool:
 
 
-            // update database service objective to add the database to a pool
-            databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
-            databaseProperties.ElasticPoolName = "ElasticPool1";
+    // update database service objective to add the database to a pool
+    databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
+    databaseProperties.ElasticPoolName = "ElasticPool1";
 
-            databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database1", databaseParameters);
+    databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database1", databaseParameters);
 
 
 
@@ -284,12 +284,11 @@ To move an existing database into a pool:
 
 To create a new database directly in a pool:
 
-            // create a new database in the pool
+    // create a new database in the pool
+    databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
+    databaseProperties.ElasticPoolName = "ElasticPool1";
 
-            databaseProperties.RequestedServiceObjectiveName = "ElasticPool";
-            databaseProperties.ElasticPoolName = "ElasticPool1";
-
-            databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database2", databaseParameters);
+    databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database2", databaseParameters);
 
 
 
@@ -298,15 +297,27 @@ To create a new database directly in a pool:
 
 To list all databases in a pool:
 
-            //List databases in the elastic pool
-            DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("ResourceGroup1", "abc-server1", "ElasticPool1");
-            Console.WriteLine("Databases in Elastic Pool {0}", "abc-server1.ElasticPool1");
-            foreach (Database db in dbListInPool)
-            {
-                Console.WriteLine("  Database {0}", db.Name);
-            }
+    //List databases in the elastic pool
+    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("ResourceGroup1", "abc-server1", "ElasticPool1");
+    Console.WriteLine("Databases in Elastic Pool {0}", "abc-server1.ElasticPool1");
+    foreach (Database db in dbListInPool)
+    {
+        Console.WriteLine("  Database {0}", db.Name);
+    }
+
+## Delete a server
+
+To delete a server (which also deletes the databases and any elastic database pools on the server), run the following code:
+
+    var serverOperationResponse = sqlClient.Servers.Delete("ResourceGroup1", "abc-server1");
 
 
+## Delete a resource group
+
+To delete a resource group:
+
+    // Delete the resource group
+    var resourceOperationResponse = resourceClient.ResourceGroups.Delete("ResourceGroup1");
 
 
 
