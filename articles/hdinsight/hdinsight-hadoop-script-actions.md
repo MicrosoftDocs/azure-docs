@@ -3,7 +3,7 @@
 	description="Learn how to customize Hadoop clusters with Script Action." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="bradsev"/> 
+	ms.date="07/09/2015" 
+	ms.author="jgao"/> 
 
 # Script Action development with HDInsight 
 
@@ -24,7 +24,7 @@ Script Action can be deployed from Azure PowerShell or by using the HDInsight .N
 
 
 
-## <a name="bestPracticeScripting"></a>Best practices for script development
+## Best practices for script development
 
 When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
 
@@ -62,7 +62,7 @@ An HDInsight Script Action command runs on both head nodes when the head-node ro
 ### <a name="bPS6"></a>Configure the custom components to use Azure Blob storage
 The custom components that you install on the cluster nodes might have a default configuration to use Hadoop Distributed File System (HDFS) storage. You should change the configuration to use Azure Blob storage instead. On a cluster re-image, the HDFS file system gets formatted and you would lose any data that is stored there. Using Azure Blob storage instead ensures that your data will be retained.
 
-## <a name="helpermethods"></a>Helper methods for custom scripts 
+## Helper methods for custom scripts 
 
 Script Action provides the following helper methods that you can use while writing custom scripts.
 
@@ -86,11 +86,11 @@ Helper method | Description
 **Test-IsHDIDataNode** | Check if the computer where the script executes is a data node.
 **Edit-HDIConfigFile** | Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml.
 
-## <a name="commonusage"></a>Common usage patterns
+## Common usage patterns
 
 This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.
 
-### Setting environment variables
+### Configure environment variables
 
 Often in script action development, you will feel the need to set environment variables. For instance, a most likely scenario is when you download a binary from an external site, install it on the cluster, and add the location of where it is installed to your ‘PATH’ environment variable. The following snippet shows you how to set environment variables in the custom script.
 
@@ -107,7 +107,7 @@ Scripts used to customize a cluster needs to either be in the default storage ac
 
 In this example, you must ensure that the container 'somecontainer' in storage account 'somestorageaccount' is publicly accessible. Otherwise, the script will throw a ‘Not Found’ exception and fail.
 
-### Throwing exception for failed cluster deployment
+### Throw exception for failed cluster deployment
 
 If you want to get accurately notified of the fact that cluster customization did not succeed as expected, it is important to throw an exception and fail the cluster provisioning. For instance, you might want to process a file if it exists and handle the error case where the file does not exist. This would ensure that the script exits gracefully and the state of the cluster is correctly known. The following snippet gives an example of how to achieve this:
 
@@ -130,7 +130,7 @@ In this snippet, if the file did not exist, it would lead to a state where the s
 	}
 
 
-## <a name="deployScript"></a>Checklist for deploying a script action
+## Checklist for deploying a script action
 Here are the steps we took when preparing to deploy these scripts:
 
 1. Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment. This can be any of the default or additional Storage accounts specified at the time of cluster deployment, or any other publicly accessible storage container.
@@ -141,12 +141,12 @@ Here are the steps we took when preparing to deploy these scripts:
 6. In the event that OS-level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so that they can pick up any OS-level settings, such as the environment variables set in the scripts.
 
 
-## <a name="runScriptAction"></a>How to run a script action
+## >Run script actions
 
 You can use Script Actions to customize HDInsight clusters by using the Azure portal, Azure PowerShell, or the HDInsight .NET SDK. For instructions, see [How to use Script Action](../hdinsight-hadoop-customize-cluster/#howto). 
 
 
-## <a name="sampleScripts"></a>Custom script samples
+## Custom script samples
 
 Microsoft provides sample scripts to install components on an HDInsight cluster. The sample scripts and instructions on how to use them are available at the links below:
 
@@ -157,7 +157,7 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 
 > [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
-## <a name="testScript"></a>How to test your custom script with the HDInsight Emulator
+## Test custom scripts with the HDInsight Emulator
 
 A straight-forward way to test a custom script before using it in the HDInsight Script Action command is to run it on the HDInsight Emulator. You can install the HDInsight Emulator locally or on an Azure infrastructure as a service (IaaS) Windows Server 2012 R2 VM or on a local machine and observe if the script behaves correctly. Note that the Windows Server 2012 R2 VM is the same VM that HDInsight uses for its nodes.
 
@@ -189,7 +189,7 @@ When you're using the Spark and R clusters, data files needed may not be present
 Note that in some cases a custom script may actually depend on HDInsight components, such as detecting whether certain Hadoop services are up. In this case, you will have to test your custom scripts by deploying them on an actual HDInsight cluster.
 
 
-## <a name="debugScript"></a>How to debug your custom script
+## Debug custom scripts
 
 The script error logs are stored, along with other output, in the default Storage account that you specified for the cluster at its creation. The logs are stored in a table with the name *u<\cluster-name-fragment><\time-stamp>setuplog*. These are aggregated logs that have records from all of the nodes (head node and worker nodes) on which the script runs in the cluster.
 
@@ -238,7 +238,7 @@ In this log, it is clear that the Spark script action has been executed on the V
 In the event that an execution failure occurs, the output describing it will also be contained in this log file. The information provided in these logs should be helpful in debugging script problems that may arise.
 
 
-## <a name="seeAlso"></a>See also
+## See also
 
 [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize] 
 

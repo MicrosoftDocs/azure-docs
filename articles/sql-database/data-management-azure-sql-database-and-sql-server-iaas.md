@@ -237,10 +237,6 @@ Thank you all for bringing this article to life!
    <td valign="middle">Links to the library documentation.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj879332.aspx">Azure SQL Database and SQL Server -- Performance and Scalability Compared and Contrasted</p></td>
-   <td valign="middle">This article explains performance differences and troubleshooting techniques when using Azure SQL Database and SQL Server running on-premises or in a VM. </td>   
-</tr>
-<tr>
    <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines</p></td>
    <td valign="middle">This article discusses the most common application patterns that apply to SQL Server in Azure VMs and also hybrid scenarios including Azure SQL Database. </td>   
 </tr>

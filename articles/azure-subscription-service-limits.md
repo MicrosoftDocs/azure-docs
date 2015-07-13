@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="07/08/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -97,12 +97,11 @@ For additional details on storage account limits, see [Azure Storage Scalability
 [AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 
-## Web Apps (Websites) Limits
+## App Service Limits - Web Apps, Mobile Apps, API Apps, Logic Apps
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-
-## Batch Preview Limits
+## Batch Limits
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
@@ -143,7 +142,7 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## RemoteApp Limits
+## Azure RemoteApp Limits
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
@@ -159,6 +158,9 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 ## Backup Limits
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+##Multi-Factor Authentication
+[AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ## See Also
 
