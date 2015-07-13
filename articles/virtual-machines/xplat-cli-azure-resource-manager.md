@@ -71,8 +71,8 @@ You can start adding resources to this group after this, and use it to configure
 
 There are two ways to create virtual machines in the arm mode:
 
-1. Using individual Azure CLI commands
-2. Using resource group Templates
+1. Using individual Azure CLI commands.
+2. Using resource group Templates.
 
 Be sure to create at least one resource group before you start with any of these methods.
 
@@ -102,11 +102,11 @@ The Network Interface Card or NIC needs a subnet and a virtual network to be cre
 
 	azure network vnet create "testrg" "testvnet" "westus"
 
-You can then create a subnet in this virtual network by using **network vnet subnet create** command.
+You can then create a subnet in this virtual network by using the **network vnet subnet create** command.
 
 	azure network vnet subnet create "testrg" "testvnet" "testsubnet"
 
-You should be able to create an NIC using these resources with **network nic create** command.
+You should be able to create an NIC using these resources with the **network nic create** command.
 
 	azure network nic create "testrg" "testnic" "westus" -k "testsubnet" -m "testvnet" -p "testip"
 
@@ -135,7 +135,7 @@ Finally, choose an OS image from the list that looks something like the followin
 	data:    CoreOS     CoreOS       Alpha        475.1.0          westus    CoreOS:CoreOS:Alpha:475.1.0
 	data:    CoreOS     CoreOS       Alpha        490.0.0          westus    CoreOS:CoreOS:Alpha:490.0.0
 
-Save the URN name of the image you want to load on your virtual machine. You'll use it later in article.
+Save the URN name of the image you want to load on your virtual machine. You'll use it later in the article.
 
 #### Creating a virtual machine
 
