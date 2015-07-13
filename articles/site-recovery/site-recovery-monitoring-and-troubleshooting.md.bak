@@ -16,16 +16,11 @@
 	ms.date="07/03/2015" 
 	ms.author="anbacker"/>
 	
-# Monitor and troubleshoot protection for VMware, VMM, Hyper-V and Physical sites
+# Monitor and troubleshoot protection for VMM and Hyper-V sites
 
 This Monitoring and Troubleshooting Guide enables you to learn tracking the replication health and troubleshooting techniques for Azure Site Recovery.
 
 ## Understanding the components
-
-### VMware/Physical Site Deployment for replication between on-premises & Azure.
-To setup DR between on-premises VMware/Physical machine; Configuration Server, Master Target and Process Server needs to configured. While enabling protection for the source service Azure Site Recovery will install Mobility service. Post on-premises outage once the source server fails-over to Azure, customers needs to setup a Process Server in Azure and a Master Target server on-premises to protect the source server back to rebuilt on-premises. 
-
-![](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 
 ### VMM Site Deployment for replication between on-premises site.
 
@@ -114,15 +109,7 @@ Note: If there are any active operations which are in-progress or failed
 then navigate to the JOBS view as mentioned earlier to view the JOB
 specific error.
 
-## Event Viewer
-
-| Scenarios               	| Event Sources                                                                                                                                                                                        	|
-|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| VMM Site Protection     	|  VMM Server <ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> Hyper-V Host <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (For Azure as Target)</li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
-| Hyper-V Site Protection 	| <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li> **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li>	**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
-
-
-## Troubleshoot on-premises Hyper-V issues
+## Troubleshoot on-premises issues
 
 Connect to the on-premises Hyper-V manager console, select the virtual
 machine and see the replication health.
@@ -134,7 +121,14 @@ Replication Health* to see the details.
 
 ![](media/site-recovery-monitoring-and-troubleshooting/image13.png)
 
-### Hyper-V Replication Logging Options
+#### Event Viewer
+
+| Scenarios               	| Event Sources                                                                                                                                                                                        	|
+|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| VMM Site Protection     	|  VMM Server <ul><li> **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** </li></ul> Hyper-V Host <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (For Azure as Target)</li><li> **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li></ul> |
+| Hyper-V Site Protection 	| <ul><li> **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** </li><li> **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** </li><li>	**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** </li><ul>|
+
+#### Hyper-V Replication Logging Options
 
 All events pertaining to Hyper-V Replica are logged in the
 Hyper-V-VMMS\\Admin log located under **Applications and Services
@@ -160,7 +154,7 @@ disabling the log, and then save the log and re-open it in Event Viewer
 or use other tools to convert it as desired.
 
 
-## Understanding the Hyper-V virtual machine protection & recovery life cycle
+## Understanding the virtual machine life cycle
 
 ![](media/site-recovery-monitoring-and-troubleshooting/image17.png)
 
