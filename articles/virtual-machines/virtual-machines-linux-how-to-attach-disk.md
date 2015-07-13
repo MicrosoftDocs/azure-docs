@@ -3,7 +3,7 @@
 	description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -141,4 +141,3 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
- 
