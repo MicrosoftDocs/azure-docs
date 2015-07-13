@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Build a prototype application for Azure Search
@@ -51,7 +51,7 @@ To upload data and schema files using the code in the prototype sample applicati
 
     Running the prototype sample application, with the built-in sample data files, will create in one index named "musicstoreindex", containing 246 documents, at 278 KB on your Azure Search service. Later in this walkthrough, you'll replace this index with a new one using Adventure Works data that will consume up to ## documents and ## MB.
 
-2. [Download the prototype builder solution]( http://go.microsoft.com/fwlink/p/?LinkId=536479). This is a Visual Studio 2013 solution in C# that builds a console application used to create, load, and query an index. If you don't have Visual Studio, you can get the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) version.
+2. [Download the prototype builder solution](http://go.microsoft.com/fwlink/p/?LinkId=536479). This is a Visual Studio 2013 solution in C# that builds a console application used to create, load, and query an index. If you don't have Visual Studio, you can get the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) version.
 
 3. Edit app.config to add configuration settings that target your Search service and api-key. 
 

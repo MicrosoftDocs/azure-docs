@@ -1,28 +1,29 @@
 <properties 
-	pageTitle="Create a Windows virtual machine with Azure Resource Manager and PowerShell" 
+	pageTitle="Create a Windows virtual machine with Resource Manager and Azure PowerShell" 
 	description="Use the Resource Management mode of Azure PowerShell to easily create a new Windows virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# Create a Windows virtual machine with Azure Resource Manager and PowerShell
+# Create a Windows virtual machine with Resource Manager and Azure PowerShell
 
-This topic describes how to quickly create a Windows-based Azure virtual machine using Azure Resource Manager and PowerShell.
+This topic describes how to quickly create a Windows-based Azure virtual machine using Azure Resource Manager and Azure PowerShell.
 
 [AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
 
-- [Create a Windows virtual machine with PowerShell and Azure Service Management](virtual-machines-create-windows-powershell-service-manager.md)
+- [Create a Windows virtual machine with Azure PowerShell and Service Management](virtual-machines-create-windows-powershell-service-manager.md)
 
 ## Create the Windows virtual machine
 
@@ -135,6 +136,8 @@ Here is an example of you might see:
 [Azure Resource Manager Overview](../resource-group-overview.md)
 
 [Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
+
+[Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 [Create a Windows virtual machine with PowerShell and Azure Service Management](virtual-machines-create-windows-powershell-service-manager.md)
 

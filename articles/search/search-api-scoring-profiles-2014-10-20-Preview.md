@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/19/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
       
 #Scoring Profiles (Azure Search REST API Version 2014-10-20-Preview)#

@@ -40,7 +40,7 @@ To use this scoring profile, your query is formulated to specify the profile on 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)]().
+This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Click [Example](#bkmk_ex) to review a more detailed example of a scoring profile.
 
@@ -64,8 +64,6 @@ Relevancy-based ordering is also implemented through scoring profiles. Consider 
 As noted, customized scoring is implemented through scoring profiles defined in an index schema. 
 
 This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.
-
-[Try this example]().
 
     {
       "name": "musicstoreindex",
@@ -169,7 +167,7 @@ Functions can only be applied to fields that are defined in the fields collectio
 </table>
 </font>
 
-After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index (Azure Search API)]() and [Add or Update Documents (Azure Search API)]() for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
+After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index (Azure Search API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) and [Add or Update Documents (Azure Search API)](https://msdn.microsoft.com/library/azure/dn798930.aspx) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 ##Template
 This section shows the syntax and template for scoring profiles. Refer to [Index attribute reference](#bkmk_indexref) in the next section for descriptions of the attributes.
@@ -268,7 +266,7 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents (Azure Search API)]() for descriptions of query parameters.</td>
+<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents (Azure Search API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) for descriptions of query parameters.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>A number that indicates the distance in kilometers from the reference location where the boosting range ends.</td>
 </tr><tr>
@@ -322,8 +320,6 @@ The following table provides several examples.
 </tr>
 </tbody>
 </table>
-
-For more examples, see [XML Schema: Datatypes (W3.org web site)]().
 
 **See Also**
 

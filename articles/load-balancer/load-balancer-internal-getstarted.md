@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 # Get started configuring an internal load balancer
@@ -102,7 +102,7 @@ To use these commands, fill in the values and remove the < and >. Here is an exa
 
 From the display of the Get-AzureInternalLoadBalancer command, note the IP address and make the necessary changes to your servers or DNS records to ensure that traffic gets sent to the VIP.
 
->[AZURE.IMPORTANT] The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios. The IP address is 168.63.129.16. This IP address should not be blocked by any firewalls, as it can cause unexpected behavior.
+>[AZURE.NOTE] The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios. The IP address is 168.63.129.16. This IP address should not be blocked by any firewalls, as it can cause unexpected behavior.
 >With respect to the Azure ILB, this IP address is used by monitoring probes from the load balancer, to determine health state for VMs in a load balanced set. If a Network Security Group is used to restrict traffic to Azure Virtual Machines in an internally load-balanced set, or is applied to a Virtual Network Subnet, ensure that a Network Security Rule is added to allow traffic from 168.63.129.16.
 
 
@@ -226,15 +226,59 @@ Here is an example:
 ILB is supported for both Virtual machines and Cloud Services
 An ILB endpoint created in a Cloud Service that is outside a Regional Virtual Network will be accessible only within the Cloud Service.
 
-The ILB configuration has to be set during the creation of the first deployment in the Cloud Service, as shown in the cmdlet sample below.
+The ILB configuration has to be set during the creation of the first deployment in the Cloud Service, as shown in the sample below.
 
-### Create a local ILB Object
-	$myilbconfig = New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName "MyILB"
+>[AZURE.IMPORTANT] prerequisite to run the steps below is to have a virtual network already created for the cloud deployment. You will need the virtual network name and subnet name to create the ILB.
 
-### Add Internal Load Balancer for a new service
+### Step 1
 
-	New-AzureVMConfig -Name "Instance1" -InstanceSize Small -ImageName <imagename> | Add-AzureProvisioningConfig -Windows -AdminUsername <username> -Password <password> | New-AzureVM -ServiceName "Website2" -InternalLoadBalancerConfig $myilbconfig -Location "West US"
+Open the service configuration file (.cscfg) for your cloud deployment in visual studio and add the following section to create the ILB under the last "</Role>" item for the network configuration. 
 
+
+
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="name of the load balancer">
+	      <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+ 
+
+Let's add the values for the network configuration file to show how it will look like. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="testLB">
+	      <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+
+More information about the load balancer schema see [add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx)
+
+### Step 2
+
+
+Change the service definition (.csdef) file to add endpoints to the ILB. The moment a role instance is created, the service definition file will add the role to the ILB.
+
+
+	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+	  </Endpoints>
+	</WorkerRole>
+
+Following the same values from the example above, let's add the values to the service definition file 
+
+	<WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+	  </Endpoints>
+	</WorkerRole>
+
+The network traffic  will be load balanced using testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80. 
 
 
 ## Removing ILB configuration
@@ -266,6 +310,7 @@ Here is an example:
 
 	$svc="AZ-LOB1"
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
+
 
 
 ## Additional information about ILB cmdlets
