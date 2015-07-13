@@ -23,9 +23,7 @@ When creating a Stream Analytics job, one of the considerations is how the outpu
 
 ## Using SQL as output
 
-You can use Azure SQL databases as output for data that is relational in nature or for applications that depend on content being hosted in a database.
-
-[http://azure.microsoft.com/services/sql-database/](http://azure.microsoft.com/services/sql-database/)
+You can use Azure SQL databases as output for data that is relational in nature or for applications that depend on content being hosted in a database. For more information on Azure SQL databases see [Azure SQL Databases](http://azure.microsoft.com/services/sql-database/).
 
 To start using an Azure SQL database, you should have the following information about your database:
 
@@ -77,7 +75,7 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ### Overview
  
-Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. Their robust handling of high numbers of events also make them perfect for job output.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job.
+Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. Their robust handling of high numbers of events also make them perfect for job output.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job. For further details on Event Hubs visit the portal at [Event Hubs](https://azure.microsoft.com/services/event-hubs/ "Event Hubs").
 
 ### Consumer groups
 Each Stream Analytics job output should be configured to have its own event-hub consumer group. When a job contains self-join or multiple outputs, some output may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/library/azure/dn789972.aspx "Event Hubs Programming Guide").
@@ -96,11 +94,8 @@ There are a few parameters that customers need to configure for Event Hub data s
 
 ## Using Azure Table storage for your output
 
-One can use Azure Table storage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
+Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval. For further information on Azure Table storage visit [Azure Table storage](./articles/storage/storage-introduction.md).
 
-For more information see:
-  [Introduction to Azure Storage](http://azure.microsoft.com/storage-introduction/)
- 
 To start using an Azure Table storage, you should have the following information about your Table:
 
 1. Storage account name (if this storage is in a different subscription from your streaming job).
@@ -134,7 +129,7 @@ Enter the Azure Table information on the next page. The output alias is the name
 ![graphic14][graphic14]
 ![graphic15][graphic15]
 
-Batch Size is the number of records for a batch operation, leave it as default if you are not familiar of it, or refer to [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details 
+Batch Size is the number of records for a batch operation, leave it as default if you are not familiar of it, or refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details.
 
 
 If you are using a Azure storage that exists within the same subscription you're using, you can select "Use Storage Account from Current Subscription", and select the Storage Account from the dropdown.
@@ -157,7 +152,7 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ## Using Blob Storage as an Output
 
-For an introduction on Azure Blob Storage and its usage, review the article [An introduction to Windows Azure Blob Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/)
+For an introduction on Azure Blob Storage and its usage, review the article [An introduction to Windows Azure Blob Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/).
 
 To start using an Azure Blog Storage Output, you should have the following information collect about your Table:
 
