@@ -416,7 +416,7 @@ The DocumentDB - Sequential record importer has the following additional advance
 
 > [AZURE.TIP] The import tool defaults to connection mode DirectTcp.  If you experience firewall issues, switch to connection mode Gateway, as it only requires port 443.
 
-##<a id="IndexingPolicy"></a>Specify Indexing Policy when Creating DocumentDB Collections ##
+##<a id="IndexingPolicy"></a>Specify an indexing policy when creating DocumentDB collections ##
 
 When you allow the migration tool to create collections during import, you can specify the indexing policy of the collections.  In the advanced options section of the DocumentDB Bulk import and DocumentDB Sequential record options, navigate to the Indexing Policy section.
 
