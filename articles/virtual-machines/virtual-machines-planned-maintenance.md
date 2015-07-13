@@ -68,6 +68,7 @@ East China | North China
 Japan East | Japan West
 Brazil South | South Central US
 Australia Southeast | Australia East
+US Gov Iowa | US Gov Virginia
 
 For example, during a planned maintenance rollout, Azure will not rollout an update to West US if East US is under maintenance at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US.
 
