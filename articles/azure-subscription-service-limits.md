@@ -101,7 +101,6 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-
 ## Batch Limits
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
@@ -160,20 +159,7 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-## API Management Limits
-
-[AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
-
-## Azure Redis Cache Limits
-
-[AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
-
-## Key Vault Limits
-
-[AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
-
-## Multi-Factor Authentication
-
+##Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ## See Also

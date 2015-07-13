@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="07/13/2015"
 	ms.author="danlep"/>
 
 
@@ -114,27 +114,28 @@ To create a Batch account in the portal:
 
 2. Click **New** > **Compute** > **Marketplace** > **Everything**, and then enter *Batch* in the search box.
 
-![Batch in the Marketplace][marketplace_portal]
+	![Batch in the Marketplace][marketplace_portal]
 
 3. Click **Batch Service** in the search results, and then click **Create**.
 
 4. In the **New Batch Account** blade, enter the following information:
 
-	* In **Account Name**, enter a unique name to use in the Batch account URL.
+	a. In **Account Name**, enter a unique name to use in the Batch account URL.
+
 	>[AZURE.NOTE]The Batch account name must be unique to Azure, contain between 3 and 24 characters, and use lowercase letters and numbers only.
 
-	* Click **Resource group** to select an existing resource group for the account, or create a new one.
+	b. Click **Resource group** to select an existing resource group for the account, or create a new one.
 
-	* If you have more than one subscription, click **Subscription** to select an available subscription where the account will be created.
+	c. If you have more than one subscription, click **Subscription** to select an available subscription where the account will be created.
 
-	* In **Location**, select an Azure region in which Batch is available.
+	d. In **Location**, select an Azure region in which Batch is available.
 
 	![Create a Batch account][account_portal]
 
 5. Click **Create** to complete the account creation.
 
 
-After the account is created, you can find it in the portal to manage access keys and other settings.
+After the account is created, you can find it in the portal to manage access keys and other settings. For example, click the key icon to manage the access keys.
 
 ![Batch account keys][account_keys]
 
