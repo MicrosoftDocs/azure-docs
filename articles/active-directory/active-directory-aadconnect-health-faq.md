@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/12/2015" 
+	ms.date="07/12/2015" />
 
 
-#Azure AD Connect Health Frequently Asked Questions (FAQ)
+# Azure AD Connect Health Frequently Asked Questions (FAQ)
 
 This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
 
@@ -82,7 +82,7 @@ Perform any time prior to running Register-AdHealthAgent (The final step of Inst
 
  
 
-Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/en-us/library/kd3cf2ex(v=vs.110).aspx).
+Additional <defaultProxy> information can be found [here](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
 
 This settings configures .NET applications system-wide to use your explicitly defined proxy when makeing http .NET requests. Modifying each individual app.config is not recommended because it will be undone during auto update. You only have to change one file and it will persist through updates if you only modify machine.config.
 
