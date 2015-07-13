@@ -13,7 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/12/2015"/> 
+	ms.date="07/12/2015"
+	ms.author="billmath"/> 
 
 # Azure AD Connect Health Operations
 
