@@ -44,7 +44,7 @@ The **bcp** command line executable is a Microsoft utility that allows for data 
 PolyBase is a Microsoft technology that simplifies data analysis by providing a way to query Hadoop and Azure Storage blob storage, all with standard Transact-SQL and without using MapReduce. PolyBase can also load data from Azure blob storage into SQL Data Warehouse. To get started, follow the [Load with PolyBase][] tutorial.
 
 ### SQL Server Integration Services (SSIS)
-[SSIS][] is a platform for building enterprise-level data integration and transformation solutions. To build packages that connect to SQL Data Warehouse, use the standard [OLE DB destination adapter][].
+[SSIS][] is a platform for building enterprise-level data integration and transformation solutions. To build packages that connect to SQL Data Warehouse, use the standard [OLE DB destination adapter][] using an ADO.Net connection manager.
 
 ### 3rd party tools
 SQL Data Warehouse supports leading industry solutions for data loading. For more details, see our list of [solution partners][].
