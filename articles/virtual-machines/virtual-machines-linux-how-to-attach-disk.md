@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/29/2015"
-	ms.author="dkshir/>
+	ms.author="dkshir"/>
 
 # How to Attach a Data Disk to a Linux Virtual Machine
 
