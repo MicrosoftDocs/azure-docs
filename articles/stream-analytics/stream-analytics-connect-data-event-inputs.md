@@ -19,7 +19,7 @@
 # Connect Stream Analytics inputs
 
 ## Understanding Stream Analytics inputs
-When creating a Stream Analytics job, the user must understand the type of data being analyzed. As long as the job is composed of at least single streaming data source, Stream Analytics jobs can process it. If the data also includes additional auxiliary data sources or even stored time-based events, it is important to understand the two input methods for Stream Analytics and which is appropriate for each dataset in the present use case.
+When creating a Stream Analytics job, the user must understand the type of data being analyzed. As long as the job is composed of at least a single streaming data source, Stream Analytics jobs can process it. If the data also includes additional auxiliary data sources or even stored time-based events, it is important to understand the two input methods for Stream Analytics and which is appropriate for each dataset in the present use case.
 
 ## Data stream inputs
 At a basic level, Stream Analytics job definitions must include at least one data stream input source to be consumed and transformed by the job. Azure Blob storage and Azure Event Hubs are supported as data stream input sources. Azure Event Hubs input sources are used to collect event streams from multiple devices and services
