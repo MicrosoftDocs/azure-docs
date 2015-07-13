@@ -68,6 +68,15 @@ Now choose the correct serialization setting for the data. The options are JSON,
 
 ## Creating an Event hub input data stream
 
+### Overview
+
+Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can publish web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining. Event Hubs can be used for data egress also.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job.
+
+### Consumer groups
+Each Stream Analytics job output should be configured to have its own event-hub consumer group. When a job contains self-join or multiple outputs, some input may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/en-us/library/azure/dn789972.aspx "Event Hubs Programming Guide").
+
+### Walkthrough
+
 Below is a walkthrough to configure an Event hub as an input. To start using an Event hub input, the user should have the following information collect about the Table:
 
 1. The name of the Service Bus Namespace. 
