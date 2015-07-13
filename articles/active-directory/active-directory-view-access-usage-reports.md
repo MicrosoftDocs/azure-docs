@@ -43,7 +43,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
 |	[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)				|	May indicate an attempt to sign in from possibly infected devices.							|
 |	[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md)							|	May indicate events anomalous to users’ sign in patterns.									|
-|	Users with anomalous sign in activity				|	Indicates users whose accounts may have been compromised.									|
+|	[Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)				|	Indicates users whose accounts may have been compromised.									|
 |	Users with leaked credentials						|	Users with leaked credentials																|
 |	Audit report										|	Audited events in your directory															|
 |	Password reset activity								|	Provides a detailed view of password resets that occur in your organization.				|
@@ -106,23 +106,13 @@ For details on this report, check out [Sign ins from IP addresses with suspiciou
 
 For details on this report, check out [Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md).
 
-
-
-
 ### Sign ins from possibly infected devices
 
 For details on this report, check out [Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
 
-
-
 ### Users with anomalous sign in activity
 
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>Use this report when you want to view all user accounts for which anomalous sign in activity has been identified. This report includes data from all other anomalous activity reports. Results from this report will show you details about the user, the reason why the sign in event was identified as anomalous, the date and time, and other relevant information about the event.</p> | Directory > Reports tab |
-
-![Users with anomalous sign in activity](./media/active-directory-view-access-usage-reports/usersWithAnomalousSignInActivity.PNG)
-
+For details on this report, check out [Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
 
 ## Integrated Application reports
 
