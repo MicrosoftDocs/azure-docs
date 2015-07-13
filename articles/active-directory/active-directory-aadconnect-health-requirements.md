@@ -17,7 +17,7 @@
 	ms.author="billmath"/>
 
 # Azure Active Directory Health Requirements
-
+The following documentation is a list of requirements that must be met before you can get going with Azure AD Connect Health.
 
 
 
