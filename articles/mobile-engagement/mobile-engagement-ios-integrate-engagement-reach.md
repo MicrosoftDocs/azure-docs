@@ -98,49 +98,26 @@ If it's not done already, you need to register your application to receive push 
 			  [application registerForRemoteNotifications];
 			}
 			else {
-
 			  [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 			}
 
 Then, You need to provide to Engagement the device token returned by Apple servers. This is done in the method named `application:didRegisterForRemoteNotificationsWithDeviceToken:` in your application delegate:
 
-			- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+			- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 			{
 			    [[EngagementAgent shared] registerDeviceToken:deviceToken];
 			}
 
-Finally, you have to inform the Engagement SDK when your application receives a remote notification. To do that, just call the method `applicationDidReceiveRemoteNotification:` in your application delegate:
+Finally, you have to inform the Engagement SDK when your application receives a remote notification. To do that, just call the method `applicationDidReceiveRemoteNotification:fetchCompletionHandler:` in your application delegate:
 
-			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+			- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
 			{
-			    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
+  				[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 			}
 
-### Final step
 
-Once all these steps have been completed, you application is ready to receive Engagement push messages at any time.
+> [AZURE.IMPORTANT] By default, Engagement Reach controls the completionHandler. If you want to manually respond to the `handler` block in your code, you can pass nil for the `handler` argument and control the completion block yourself. See the `UIBackgroundFetchResult` type for a list of possible values.
 
-But you may want to display something to the end user when your application is launched in response to the arrival of an Engagement push message. We provide three more delegate methods in the `AEPushDelegate` protocol for this:
-
-			-(void)willRetrieveLaunchMessage;
-			-(void)didFailToRetrieveLaunchMessage;
-			-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
-
-`willRetrieveLaunchMessage`
-
-> When the user launched the application in response to the arrival of a push message, this method is called just after application launch to indicate that the complete message is being retrieved. This is a good opportunity to display a loading message to the end user.
-
-`didFailToRetrieveLaunchMessage`
-
-> This method is called when message retrieval has failed. At this point you should probably display a message to the end user indicating that something failed.
-
-`didReceiveLaunchMessage:`
-
-> This method is called when the push message that launched the application has been received. Use this opportunity to hide any loading message and display appropriate content to the end user.
-
-You'll need to set a push delegate once Engagement has been initialized:
-
-			[[EngagementAgent shared] setPushDelegate:self];
 
 ### Full example
 
@@ -149,7 +126,7 @@ Here is a full example of integration:
 			#pragma mark -
 			#pragma mark Application lifecycle
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+			- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 			{
 			  /* Reach module */
 			  AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
@@ -167,44 +144,14 @@ Here is a full example of integration:
 			  return YES;
 			}
 
-			- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+			- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 			{
 			  [[EngagementAgent shared] registerDeviceToken:deviceToken];
 			}
 
-			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+			- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
 			{
 			  [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
-			}
-
-
-			#pragma mark -
-			#pragma mark Engagement push delegate
-
-			-(void)willRetrieveLaunchMessage
-			{
-			  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-			}
-
-			-(void)didReceiveLaunchMessage:(AEPushMessage *)launchMessage
-			{
-			  /* Hide network activity indicator */
-			  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-			}
-
-			-(void)didFailToRetrieveLaunchMessage
-			{
-			  /* Hide network activity indicator */
-			  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
-			  /* Display an error alert */
-			  UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil)
-			                         message:NSLocalizedString(@"Could not retrieve message.", nil)
-			                         delegate:nil
-			                         cancelButtonTitle:NSLocalizedString(@"Close", nil)
-			                         otherButtonTitles:nil];
-			  [alert show];
-			  [alert release];
 			}
 
 ##How to customize campaigns

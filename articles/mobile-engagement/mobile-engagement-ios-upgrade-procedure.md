@@ -25,6 +25,14 @@ For each new version of the SDK you must first replace (remove and re-import in 
 ##From 2.0.0 to 3.0.0
 If you are using Reach in your application, you must add `remote-notification` value to the `UIBackgroundModes` array in your Info.plist file in order to receive remote notifications.
 
+The method `application:applicationDidReceiveRemoteNotification:` needs to be replaced by `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` in your application delegate.
+
+The following delegate methods has been deprecated and you need to removed them from your application delegate:
+
+	-(void)willRetrieveLaunchMessage;
+	-(void)didFailToRetrieveLaunchMessage;
+	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
+
 ##From 1.16.0 to 2.0.0
 The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.
 If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.16 first then apply the following procedure.
@@ -62,4 +70,3 @@ Examples:
 -   The class `CapptainTableViewController` is renamed to `EngagementTableViewController`.
 -   The class `CapptainUtils` is renamed to `EngagementUtils`.
 -   The class `CapptainViewController` is renamed to `EngagementViewController`.
- 

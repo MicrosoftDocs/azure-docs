@@ -217,16 +217,16 @@ The following sections will setup your app to receive them.
 
 2. Add the `application:didRegisterForRemoteNotificationsWithDeviceToken` method as follows:
 
-		(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+		- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 		{
  			[[EngagementAgent shared] registerDeviceToken:deviceToken];
 		}
 
-3. Add the `didReceiveRemoteNotification` method as follows:
+3. Add the `didReceiveRemoteNotification:fetchCompletionHandler` method as follows:
 
-		(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
 		{
-		    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
+			[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 		}
 
 ###Grant access to your Push Certificate to Mobile Engagement

@@ -255,11 +255,11 @@ The following sections will setup your app to receive them.
 			EngagementAgent.shared().registerDeviceToken(deviceToken)
 		}
 
-3. Add the `didReceiveRemoteNotification` method as follows:
+3. Add the `didReceiveRemoteNotification:fetchCompletionHandler:` method as follows:
 
-		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
 		{
-			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo)
+			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, completionHandler)
 		}
 
 ###Grant access to your Push Certificate to Mobile Engagement
