@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Use StorSimple Snapshot Manager to administer your StorSimple solution | Microsoft Azure"
-   description="Describes how to use StorSimple Snapshot Manager to manage devices and backups."
+   description="Provides links to more information about StorSimple Snapshot Manager solution administration tasks and workflows."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
