@@ -241,17 +241,13 @@ Pass the server and resource group names to the Databases.List method:
             }
 
 
-## Create and manage elastic database pools
+
+## Create an elastic database pool
+
+To create a new pool:
 
 
-
-
-### Create an elastic database pool
-
-To create a new elastic database pool, ...
-
-
-            // Create an elastic pool
+            // Create an elastic database pool
             ElasticPoolCreateOrUpdateProperties poolProperties = new ElasticPoolCreateOrUpdateProperties()
             {
                 Edition = "Standard",
@@ -271,7 +267,7 @@ To create a new elastic database pool, ...
 
 
 
-### Move an existing database into an elastic database pool
+## Move an existing database into an elastic database pool
 
 To move an existing database into a pool:
 
@@ -284,7 +280,7 @@ To move an existing database into a pool:
 
 
 
-### Create a new database in an elastic database pool
+## Create a new database in an elastic database pool
 
 To create a new database directly in a pool:
 
@@ -298,7 +294,7 @@ To create a new database directly in a pool:
 
 
 
-### List all databases in an elastic database pool
+## List all databases in an elastic database pool
 
 To list all databases in a pool:
 
@@ -314,7 +310,7 @@ To list all databases in a pool:
 
 
 
-## Sample Console Application
+## Sample console application
 
 
     using System;
