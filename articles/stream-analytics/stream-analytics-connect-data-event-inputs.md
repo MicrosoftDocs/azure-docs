@@ -36,7 +36,7 @@ For example if the job has a reference input configured in the portal with the p
 ## Creation of a data stream input
 Creating a data stream input will present the user with two choices, **Event Hub** or **Blob storage**.
 
-### Creating a Blob storage input data stream
+## Creating a Blob storage input data stream
 
 Below is a walkthrough to configure Blog storage as an input. To start using an Azure Blog storage input, the user should have the following information collect about the Table:
 
@@ -66,7 +66,7 @@ Now choose the correct serialization setting for the data. The options are JSON,
 
 ![image5](./media/stream-analytics-connect-data-event-inputs/05-stream-analytics-create-inputs.png)
 
-### Creating an Event hub input data stream
+## Creating an Event hub input data stream
 
 Below is a walkthrough to configure an Event hub as an input. To start using an Event hub input, the user should have the following information collect about the Table:
 
