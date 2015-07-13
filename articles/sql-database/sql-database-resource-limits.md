@@ -59,7 +59,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Logins
 
-| Test | Test |
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | SQL Database governs the limit on the number of concurrent logins that can be established to a database. When the concurrent login limit for a database is reached, new login requests to the database are denied and error code 10928 is returned. |
 | **Error code** | **10928**: Resource ID: 3. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. |
@@ -70,6 +70,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Memory Usage
 
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | When there are sessions waiting on memory grants for 20 seconds or more, sessions consuming greater than 16 MB of memory grant for more than 20 seconds are terminated in the descending order of time the resource has been held, so that the oldest session is terminated first. Termination of sessions stops as soon as the required memory becomes available. |
 | **Error code** | **40553**: The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows. |
@@ -79,6 +80,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Sessions
 
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | SQL Database governs the limit on the number of concurrent sessions that can be established to a database. When concurrent session limit for a database is reached, new connections to the database are denied and user will receive error code 10928. However, the existing sessions to the database are not terminated. |
 | **Error code** | **10928**: Resource ID: 2. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. |
@@ -89,6 +91,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Tempdb
 
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | Your requests on tempdb can be denied due to any of the following three conditions:<br><br>**State 1:** When a session uses more than 5 GB of tempdb space, the session is terminated.<br><br>**State 2:** Transactions in tempdb with logs beyond 2 GB size are truncated. Example operations that can consume log space in tempdb: insert, update, delete, merge, create index.<br><br>**State 3:** The uncommitted transactions in tempdb can block the truncation of log files. To prevent this, the distance from the oldest active transaction log sequence number (LSN) to the tail of the log (current LSN) in tempdb cannot exceed 20% of the size of the log file. When violated, the offending transaction in tempdb is terminated and rolled back so that the log can be truncated. |
 | **Error code** | **40551**: The session has been terminated because of excessive tempdb usage. Try modifying your query to reduce the temporary table space usage. |
@@ -98,6 +101,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Transaction Duration
 
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | Transactions request locks on resources like rows, pages, or tables, on which the transaction is dependent and then free the locks when they no longer have a dependency on the locked resources. Your requests can be denied due to any of the following two conditions:State 1: If a transaction has been running for more than 24 hours, it is terminated.State 2: If a transaction locks a resource required by an underlying system task for more than 20 seconds, it is terminated. |
 | **Error code** | **40549**: Session is terminated because you have a long-running transaction. Try shortening your transaction. |
@@ -107,6 +111,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Transaction Lock Count
 
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | Sessions consuming greater than one million locks are terminated. |
 | **Error code** | **40550**: The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction.  |
@@ -116,6 +121,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Transaction Log Length
 
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | Your requests could be denied due to any of the following two conditions:<br><br>**State 1:** SQL Database supports transactions generating log of up to 2 GB in size. Transactions with logs beyond this limit are truncated. Example operations that can consume log space in this volume: insert, update, delete, merge, create index.<br><br>**State 2:** The uncommitted transactions can block the truncation of log files. To prevent this, the distance from the oldest active transaction log sequence number (LSN) to the tail of the log (current LSN) cannot exceed 20% of the size of the log file. When violated, the offending transaction is terminated and rolled back so that the log can be truncated. |
 | **Error code** | **40552**: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction. |
@@ -125,6 +131,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Worker Threads (max concurrent requests)
 
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | SQL Database governs the limit on the number of worker threads (concurrent requests) to a database. Any database with more than the allowed limit of concurrent requests will receive error 10928, and further requests on this database can be denied. |
 | **Error codes** | **10928**: Resource ID: 1. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance.<br><br>**10929**: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later. |
