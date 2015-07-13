@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure Forced Tunneling for Microsoft Azure VNet Gateways"
+   pageTitle="Configure Forced Tunneling for Microsoft Azure VPN Gateways"
    description="If you have a virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. "
    services="vpn-gateway"
    documentationCenter="na"
@@ -15,7 +15,7 @@
    ms.date="07/13/2015"
    ms.author="cherylmc" />
 
-# About Forced Tunneling
+# About forced tunneling
 
 Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a site-to-site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
@@ -25,7 +25,7 @@ The following diagram illustrates how forced tunneling works.
 
 In the example above, the Frontend subnet is not forced tunneled. The workloads in the Frontend subnet can continue to accept and respond to customer requests from the Internet directly. The Mid-tier and Backend subnets are forced tunneled. Any outbound connections from these two subnets to the Internet will be forced or redirected back to an on-premises site via one of the S2S VPN tunnels. This allows you to restrict and inspect Internet access from your Virtual Machines or Cloud Services in Azure, while continuing to enable your multi-tier service architecture required. You also have the option to apply forced tunneling to the entire virtual networks if there are no Internet-facing workloads in your virtual networks.
 
-## Requirements and Considerations
+## Requirements and considerations
 
 Forced tunneling in Azure is configured via Virtual Network User-Defined Routes. Redirecting traffic to an on premises site is expressed as a Default Route to the Azure VPN gateway. The following section lists the current limitation of the routing table and routes for an Azure Virtual Network:
 
@@ -47,7 +47,7 @@ Forced tunneling in Azure is configured via Virtual Network User-Defined Routes.
 
 - Note that ExpressRoute Forced Tunneling is not configured via this mechanism, but instead, is enabled by customers advertising a default route via the ExpressRoute BGP peering sessions. Please see the [ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/) for more information.
 
-## How to Configure Forced Tunneling
+## How to configure forced tunneling
 
 The instructions below will help you specify forced tunneling in a virtual network. The configuration steps correspond to the virtual network example below. This virtual network, MultiTier-VNet, has 3 subnets: *Frontend*, *Midtier*, and *Backend* subnets, with 4 cross premises connections: *DefaultSiteHQ*, and 3 *Branches*. The following configuration steps will set the *DefaultSiteHQ* as the default site connection for forced tunneling, and configure the *Midtier* and *Backend* subnets to use forced tunneling.
 
