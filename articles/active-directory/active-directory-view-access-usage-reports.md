@@ -46,14 +46,17 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md)							|	May indicate events anomalous to users’ sign in patterns.									|
 |	[Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)				|	Indicates users whose accounts may have been compromised.									|
 |	Users with leaked credentials						|	Users with leaked credentials																|
+|	**Activity logs**
 |	Audit report										|	Audited events in your directory															|
 |	Password reset activity								|	Provides a detailed view of password resets that occur in your organization.				|
 |	Password reset registration activity				|	Provides a detailed view of password reset registrations that occur in your organization.	|
 |	Self service groups activity						|	Provides an activity log to all group self service activity in your directory				|
+|	**Integrated applications**
 |	Application usage									|	Provides a usage summary for all SaaS applications integrated with your directory.			|
 |	Account provisioning activity						|	Provides a history of attempts to provision accounts to external applications.				|
 |	Password rollover status							|	Provides a detailed overview of automatic password rollover status of SaaS applications.	|
 |	Account provisioning errors							|	Indicates an impact to users’ access to external applications.								|
+|	**Rights managment**
 |	RMS usage											|	Provides a summary for Rights Management usage												|
 |	Most active RMS users								|	Lists top 1000 active users who accessed RMS-protected files								|
 |	RMS device usage									|	Lists devices used for accessing RMS-protected files										|
@@ -63,6 +66,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 
 |	Report												|	Free	|	Basic	|	Premium		|
 |	------												|	----	|	-----	|	--------	|
+|	**Anomalous activity reports**
 |	Sign ins from unknown sources						|	✓		|	✓	|	✓			|
 |	Sign ins after multiple failures					|	✓		|	✓	|	✓			|
 |	Sign ins from multiple geographies					|	✓		|	✓	|	✓			|
@@ -71,14 +75,17 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Irregular sign in activity							|			|		|	✓			|
 |	Users with anomalous sign in activity				|			|		|	✓			|
 |	Users with leaked credentials						|			|		|	✓			|
+|	**Activity logs**
 |	Audit report										|			|		|	✓			|
 |	Password reset activity								|			|		|	✓			|
 |	Password reset registration activity				|			|		|	✓			|
 |	Self service groups activity						|			|		|	✓			|
+|	**Integrated applications**
 |	Application usage									|			|		|	✓			|
 |	Account provisioning activity						|	✓		|	✓	|	✓			|
 |	Password rollover status							|			|		|	✓			|
 |	Account provisioning errors							|	✓		|	✓	|	✓			|
+|	**Rights managment**
 |	RMS usage											|			|		|	RMS Only	|
 |	Most active RMS users								|			|		|	RMS Only	|
 |	RMS device usage									|			|		|	RMS Only	|
