@@ -25,7 +25,7 @@
 
 This article describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the arm mode.  
 
->[AZURE.NOTE] To create and manage Azure resources on the command-line, you will need an Azure account ([free trial here](http://azure.microsoft.com/pricing/free-trial/)). You will also need to [install the Azure CLI](../xplat-cli-install.md), and to [log on to use Azure resources associated with your account](../xplat-cli-connect.md). If you've done these things, you're ready to go.
+>[AZURE.NOTE] To create and manage Azure resources on the command line, you will need an Azure account ([free trial here](http://azure.microsoft.com/pricing/free-trial/)). You will also need to [install the Azure CLI](../xplat-cli-install.md), and to [log on to use Azure resources associated with your account](../xplat-cli-connect.md). If you've done these things, you're ready to go.
 
 ## Azure resources
 
@@ -92,7 +92,7 @@ This is the basic approach to configure and create a virtual machine as per your
 
 #### Creating a public IP resource
 
-You will need to create a public IP so you can SSH into your new virtual machine for any meaningful work. Creating a public IP is straightforward. The command needs a resource group, a name for your public IP resource and a location, in that order. For example,
+You will need to create a public IP so you can SSH into your new virtual machine for any meaningful work. Creating a public IP is straightforward. The command needs a resource group, a name for your public IP resource and a location, in that order.
 
 	azure network public-ip create "testrg" "testip" "westus"
 
@@ -116,15 +116,15 @@ For more imformation on the **network** commands, see command-line help or [Usin
 
 #### Finding the operating system image
 
-Currently, you can only find an operating system based on the publisher of the image. In other words, you must run this command to find a list of OS image publishers in your desired location,
+Currently, you can only find an operating system based on the publisher of the image. In other words, you must run the following command to find a list of OS image publishers in your desired location.
 
 	azure vm image list-publishers "westus"
 
-Then choose a publisher from the list, and find the list of images by that publisher by running, for example,
+Then choose a publisher from the list, and find the list of images by that publisher by running the following command.
 
 	azure vm image list "westus" "CoreOS"
 
-Finally, choose an OS image from the list that looks something like this:
+Finally, choose an OS image from the list that looks something like the following example.
 
 	info:    Executing command **vm image list**
 	warn:    The parameters --offer and --sku if specified will be ignored
@@ -158,11 +158,11 @@ You should be able to start this virtual machine by running the following comman
 
 	azure vm start "testrg" "testvm"
 
-Then SSH into it by using the **ssh username@ipaddress** command. To quickly look up the IP address of your public IP resource, use this command:
+Then SSH into it by using the **ssh username@ipaddress** command. To quickly look up the IP address of your public IP resource, use the following command.
 
 	azure network public-ip show "testrg" "testip"
 
-Managing this virtual machine is easy with **vm** commands; for more information, visit [Using the Azure CLI with Azure Resource Management](azure-cli-arm-commands.md).
+Managing this virtual machine is easy with **vm** commands. For more information, visit [Using the Azure CLI with Azure Resource Management](azure-cli-arm-commands.md).
 
 ### **vm quick-create** shortcut
 
@@ -331,13 +331,13 @@ While templates allow you to declare group-wide changes in configuration, someti
 
 ## Logging
 
-To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list last operation performed on the group. To view all operations, use the optional `--all` parameter. For the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group 'MyGroup'.
+To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list the last operation performed on the group. To view all operations, use the optional `--all` parameter. For the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group 'MyGroup'.
 
 	azure group log show mygroup --all
 
 ## Next steps
 
-* For more information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][clisetup].
+* For information on using the Azure Command-Line Interface (Azure CLI), see [Install and Configure the Azure CLI][clisetup].
 * For information on working with Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 * For imformation on working with Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm]
 
