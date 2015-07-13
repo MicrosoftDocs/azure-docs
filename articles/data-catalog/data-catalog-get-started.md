@@ -2,13 +2,13 @@
    pageTitle="Azure Data Catalog get started with data catalog"
    description="End-to-end tutorial of the scenarios and capabilities of Azure Data Catalog"
    documentationCenter=""
-   services="cloud services"
+   services="data-catalog"
    authors="dvana"
    manager="mblythe"
    editor=""
    tags=""/>
 <tags
-   ms.service="cloud-services"
+   ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
