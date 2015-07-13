@@ -83,7 +83,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	RMS device usage									|			|		|	RMS Only	|
 |	RMS enabled application usage						|			|		|	RMS Only	|
 
-## Report details
+## Anomalous activity reports
 
 ### Sign ins from unknown sources
 
@@ -101,7 +101,6 @@ For details on this report, check out [Sign ins from multiple geographies](activ
 
 For details on this report, check out [Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
 
-
 ### Irregular sign in activity
 
 For details on this report, check out [Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md).
@@ -114,7 +113,9 @@ For details on this report, check out [Sign ins from possibly infected devices](
 
 For details on this report, check out [Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
 
-## Integrated Application reports
+<!-- Users with leaked credentials goes here -->
+
+## Integrated applications reports
 
 ### Application usage: summary
 
