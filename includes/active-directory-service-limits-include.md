@@ -2,7 +2,7 @@ Here are the usage constraints and other service limits for the Azure Active Dir
 
 | Category | limits | Conditions |
 |---|---|---|
-| Directories | A single user can only be associated with a maximum of 20 Azure Active Directory directories | Any one of the following: <br /><br />- If a single user creates 20 directories.<br /><br />- If a single user is added to 20 directories as a member.<br /><br />- If a single user creates 10 directories and later is added by others to 10 different directories. |
+| Directories | A single user can only be associated with a maximum of 20 Azure Active Directory directories | Examples of possible combinations: <br /><br />- A single user creates 20 directories.<br /><br />- A single user is added to 20 directories as a member.<br /><br />A single user creates 10 directories and later is added by others to 10 different directories. |
 |  Objects | No limits | Only for users assigned licenses for Azure Active Directory Premium or Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune, or any other Microsoft online service that relies on Azure Active Directory for directory services.
 | Objects | A maximum of 500,000 objects can be used in a single directory | Only for users of the Free edition of Azure Active Directory. |
 | Objects | A non-admin user can create no more than 250 objects. |  <br /><br /> |
