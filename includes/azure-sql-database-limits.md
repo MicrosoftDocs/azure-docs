@@ -45,6 +45,6 @@
 </tr>
 </table>
 
-<sup>1</sup>SQL Database has performance tiers, such as Basic, Standard, and Premium. Standard and Premium are also divided into performance levels. For detailed limits per tier and service level, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/en-us/library/azure/dn741336.aspx).
+<sup>1</sup>SQL Database has performance tiers, such as Basic, Standard, and Premium. Standard and Premium are also divided into performance levels. For detailed limits per tier and service level, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx).
 
 <sup>2</sup>If the transaction locks a resource required by an underlying system task, then the max duration is 20 seconds.

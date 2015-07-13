@@ -23,7 +23,7 @@ Azure SQL Database monitors the usage of the shared resources, such as the trans
 
 ## Resource Limits Summary Table
 
-The following table provides a summary of the limits for each resource beyond which Azure SQL Database denies request or terminates connections to the affected resource, and an error code is returned. In some cases the service tier (Basic, Standard, Premium) and performance level determine the exact limit. In those cases, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/en-us/library/azure/dn741336.aspx).
+The following table provides a summary of the limits for each resource beyond which Azure SQL Database denies request or terminates connections to the affected resource, and an error code is returned. In some cases the service tier (Basic, Standard, Premium) and performance level determine the exact limit. In those cases, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx).
 
 [AZURE.INCLUDE [azure-sql-database-limits](../../includes/azure-sql-database-limits.md)]
 
@@ -52,7 +52,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 | :--- | :--- |
 | **Condition** | When the database space allotted to a user database is full, the user gets a database full error. |
 | **Error code** | **40544**: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. |
-| **Limit** | Depends on the [Service Tier and Performance Level](https://msdn.microsoft.com/en-us/library/azure/dn741336.aspx). |
+| **Limit** | Depends on the [Service Tier and Performance Level](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
 | **Type of requests denied** | Non-Select DML (Insert, Update, Merge that inserts or updates). |
 | **Recommendation** | Use DELETE/DROP statements to remove data from the database until the size of the database is under the limit. |
 
@@ -61,7 +61,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 | :--- | :--- |
 | **Condition** | SQL Database governs the limit on the number of concurrent logins that can be established to a database. When the concurrent login limit for a database is reached, new login requests to the database are denied and error code 10928 is returned. |
 | **Error code** | **10928**: Resource ID: 3. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. |
-| **Limit** | Depends on the [Service Tier and Performance Level](https://msdn.microsoft.com/en-us/library/azure/dn741336.aspx). |
+| **Limit** | Depends on the [Service Tier and Performance Level](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
 | **Recommendation** | Check dm_exec_connections to view which user connections are currently active.<br><br>Back-off and retry login after 10 seconds. |
 
 > [AZURE.NOTE] The Resource ID value in the error message indicates the resource for which limit has been reached. For logins, Resource ID = 3.
@@ -80,7 +80,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 | :--- | :--- |
 | **Condition** | SQL Database governs the limit on the number of concurrent sessions that can be established to a database. When concurrent session limit for a database is reached, new connections to the database are denied and user will receive error code 10928. However, the existing sessions to the database are not terminated. |
 | **Error code** | **10928**: Resource ID: 2. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. |
-| **Limit** | Depends on the [Service Tier and Performance Level](https://msdn.microsoft.com/en-us/library/azure/dn741336.aspx). |
+| **Limit** | Depends on the [Service Tier and Performance Level](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
 | **Recommendation** | Check dm_exec_requests to view which user requests are currently executing. |
 
 > [AZURE.NOTE] The Resource ID value in the error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.
@@ -126,7 +126,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 | :--- | :--- |
 | **Condition** | SQL Database governs the limit on the number of worker threads (concurrent requests) to a database. Any database with more than the allowed limit of concurrent requests will receive error 10928, and further requests on this database can be denied. |
 | **Error codes** | **10928**: Resource ID: 1. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance.<br><br>**10929**: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later. |
-| **Limit** | For Basic, Standard, and Premium tiers, it depends on the [Performance Level](https://msdn.microsoft.com/en-us/library/azure/dn741336.aspx). For older Web/Business edition databases, the maximum limit of concurrent requests is 180 and might be less depending on system activity. |
+| **Limit** | For Basic, Standard, and Premium tiers, it depends on the [Performance Level](https://msdn.microsoft.com/library/azure/dn741336.aspx). For older Web/Business edition databases, the maximum limit of concurrent requests is 180 and might be less depending on system activity. |
 | **Recommendation** | Check dm_exec_requests to view which user requests are currently executing.<br><br>Back-off and retry request after 10 seconds. |
 
 > [AZURE.NOTE] The Resource ID value in the error message indicates the resource for which limit has been reached. For worker threads, Resource ID = 1.
@@ -137,8 +137,8 @@ In certain scenarios like the usage of federated database feature, it is possibl
 
 ## See Also
 
-[Azure SQL Database Resource Management](https://msdn.microsoft.com/en-us/library/azure/dn338083.aspx)
+[Azure SQL Database Resource Management](https://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-[Error Messages (Azure SQL Database)](https://msdn.microsoft.com/en-us/library/azure/ff394106.aspx)
+[Error Messages (Azure SQL Database)](https://msdn.microsoft.com/library/azure/ff394106.aspx)
 
-[Azure SQL Database Best Practices to Prevent Request Denials or Connection Termination](https://msdn.microsoft.com/en-us/library/azure/dn338082.aspx)
+[Azure SQL Database Best Practices to Prevent Request Denials or Connection Termination](https://msdn.microsoft.com/library/azure/dn338082.aspx)
