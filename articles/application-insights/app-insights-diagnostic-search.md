@@ -95,7 +95,7 @@ Add that request name to the filter set, and you can then inspect individual occ
 
 For Request events, the details show exceptions that occurred while the request was being processed.
 
-Click through an exception to see its detail.
+Click through an exception to see its detail, including the stack trace.
 
 ![Click an exception](./media/app-insights-diagnostic-search/06-callStack.png)
 

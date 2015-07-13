@@ -31,7 +31,7 @@ For other types, such as Java web apps or device apps, you can write your own mo
 The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:
 
 * SQL databases
-* ASP.NET web and wcf services
+* ASP.NET web and WCF services that use HTTP-based bindings
 * Local or remote HTTP calls
 * Azure DocumentDb, table, blob storage, and queue
 
