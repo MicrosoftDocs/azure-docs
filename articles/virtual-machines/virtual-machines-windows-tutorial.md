@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/10/2015"
+	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
 # Create a Virtual Machine running Windows in the Azure Preview Portal#
@@ -33,23 +33,17 @@ You can also create VMs using your own images, with Resource Manager templates, 
 
 ## Select the image
 
-Go to the Azure Marketplace in the Preview portal to find the Windows Server VM image you want. In Preview if you want to create the VM in Resource Manager, you first have to **Filter** in the Marketplace for the Resource Manager compute stack. After applying the Resource Manager filter, you can choose one of Azure's recommended images or another image in the Marketplace.
+Go to the Azure Marketplace in the Preview portal to find the Windows Server VM image you want.
 
 1. Sign in to the [Preview portal](https://portal.azure.com).
 
-2. On the Hub menu, click **New** > **Compute** > **Marketplace**.
+2. On the Hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
 
 	![Marketplace](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
-3. Although you'll see Windows Server 2012 R2 Datacenter among the recommended items, click **Filter**. (If you go ahead and select an image without filtering, you'll create the VM in Azure Service Management by default.)
+	>[AZURE.TIP] To find additional images, click **Markeplace** and then search or filter for available items.
 
-	![VMs in the Marketplace](./media/virtual-machines-windows-tutorial/marketplace_portal.png)
-
-4. On the **Filter** blade, check **Resource Manager** under **Compute stack**. This ensures you'll create the VM in Azure Resource Manager. You can select subcategories, publishers, and other attributes to narrow your search. Then click **Update**.
-
-	![Marketplace Filter](./media/virtual-machines-windows-tutorial/marketplace_filter.png)
-
-1. Enter **Windows Server 2012 R2 Datacenter** in the Search box to see matching items. The list you see could differ from this one because of your subscription and because the Marketplace updates frequently. Scroll to find the image you want, click it, and then click **Create**.
+3. On the **Windows Server 2012 R2 Datacenter** page, select **Use the Resource Manager stack** to create the VM in Azure Resource Manager. (For most new workloads we recommend the Resource Manager stack. For considerations see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).) Then click **Create**.
 
 	![Search in the Marketplace](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
