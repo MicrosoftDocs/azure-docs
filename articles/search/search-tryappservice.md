@@ -86,7 +86,7 @@ If you haven’t started your 1-hour session yet, follow these steps to get star
 Since the search index is fully operational, a good first step is to try out a few queries. Azure 
 Search supports all of the standard search operators (+, -, |), quotation marks for literal matches, wildcard (*), and precedence operators. You can review the query syntax reference for the full list of operators.
 
-- Start with a wildcard search by adding an asterisk (*). This tells you how many documents are found in the index: 2,262,578.
+- Start with a wildcard search by adding an asterisk (`*`). This tells you how many documents are found in the index: 2,262,578.
 - Next, enter "Yellowstone", then add "+center", "+building", and "-ND" to progressively narrow search results to just the Yellowstone visitor centers, excluding those in North Dakota: `Yellowstone +center +building -ND`.  
 - Try a search phrase that combines precedence operators and string matching: `statue+(park+MT)`. You should see results similar to the screenshot below. Notice that facet categories appear under Feature Class, offering self-directed filtering through faceted navigation, a feature commonly found in most search applications.
 
@@ -96,12 +96,12 @@ Ready to move on? Let’s change a few lines of code to see the impact on full-t
 
 ##Change searchMode.All
 
-Azure Search has a configurable **searchMode** property that you can use to control search operator behavior. Valid values for this property are *Any* (default) or *All*. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) for more guidance on setting these options.
+Azure Search has a configurable **searchMode** property that you can use to control search operator behavior. Valid values for this property are `Any` (default) or `All`. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) for more guidance on setting these options.
 
 - **searchMode.Any** stipulates that any match on a search term is sufficient to include an item in the search results. If your search phrase is `Yellowstone visitor center`, then any document containing any of these terms is included in the search results. This mode is biased towards *recall*.
 - **searchModel.All**, used in this sample, requires that all of the specified terms be present in the document. This mode is more stringent than **searchMode.Any**, but if you favor *precision* over recall, it is probably the right choice for your application. 
 
-> [AZURE.NOTE] **searchMode.Any** works best when query construction consists mostly of phrases, with minimal use of operators. A general rule of thumb is that people searching consumer applications, such as e-commerce sites, tend to use just terms, whereas people searching on content or data are more likely to include operators in the search phrase. If you believe searches are likely to include operators, particularly the NOT (-) operator, start with **searchModel.All**. In contrast, your other choice, **searchMode.Any** will *OR* the *NOT* operator with other search terms, which can dramatically expand rather than trim results. The example below can help you understand the difference.
+> [AZURE.NOTE] **searchMode.Any** works best when query construction consists mostly of phrases, with minimal use of operators. A general rule of thumb is that people searching consumer applications, such as e-commerce sites, tend to use just terms, whereas people searching on content or data are more likely to include operators in the search phrase. If you believe searches are likely to include operators, particularly the `NOT (-)` operator, start with **searchModel.All**. In contrast, your other choice, **searchMode.Any** will `OR` the `NOT` operator with other search terms, which can dramatically expand rather than trim results. The example below can help you understand the difference.
 
 In this task, you will change the **searchMode** and compare search outcomes based on mode.
 
@@ -123,13 +123,13 @@ It’s a pretty big difference. Instead of seven search results, you get over tw
 
     ![][11]
  
-The behavior you’re observing is due to the inclusion *NOT* operator (in this case, "-ND"), which is *OR*’d when **searchMode** is set to *Any*.
+The behavior you’re observing is due to the inclusion `NOT` operator (in this case, "-ND"), which is *OR'd* rather than *AND'd* when **searchMode** is set to `Any`.
 
-Given this configuration, the search results include hits for the search terms Yellowstone, center, and building, but also every document that is *NOT* North Dakota. Since there are only 13,081 documents containing the phrase North Dakota, almost all of the dataset is returned.
+Given this configuration, the search results include hits for the search terms `Yellowstone`, `center`, and `building`, but also every document that is `NOT North Dakota`. Since there are only 13,081 documents containing the phrase `North Dakota`, almost all of the dataset is returned.
 
-Admittedly, this is perhaps an unlikely scenario, but it illustrates the effects of **searchMode** on search phrases that include the *NOT* operator, so it’s useful to understand why the behavior occurs and how to change it if this is not what you want.
+Admittedly, this is perhaps an unlikely scenario, but it illustrates the effects of **searchMode** on search phrases that include the `NOT` operator, so it’s useful to understand why the behavior occurs and how to change it if this is not what you want.
 
-To continue with this tutorial, revert **searchMode** back to its original value (set to *All* on line 39), run the program, and use the rebuilt app for the remaining tasks.
+To continue with this tutorial, revert **searchMode** back to its original value (set to `All` on line 39), run the program, and use the rebuilt app for the remaining tasks.
  
 ##Add a global filter for Washington State
 
