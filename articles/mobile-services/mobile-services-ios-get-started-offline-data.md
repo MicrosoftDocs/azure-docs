@@ -123,46 +123,47 @@ When using the Core Data offline store, you need to define particular tables and
 
     #### MS_TableOperations
 
-    | Attribute  |    Type     |
-    |----------- |   ------    |
-    | id         | Integer 64  |
-    | itemId     | String      |
-    | properties | Binary Data |
-    | table      | String      |
-    | tableKind  | Integer 16  |
+    | Attribute     |    Type     |
+    |-------------- |   ------    |
+    | id (required) | Integer 64  |
+    | itemId        | String      |
+    | properties    | Binary Data |
+    | table         | String      |
+    | tableKind     | Integer 16  |
 
     #### MS_TableOperationErrors
 
-    | Attribute   |    Type     |
-    |------------ | ----------  |
-    | id          | String      |
-    | operationId | Integer 64  |
-    | properties  | Binary Data |
-    | tableKind   | Integer 16  |
+    | Attribute     |    Type     |
+    |-------------- | ----------  |
+    | id (required) | String      |
+    | operationId   | Integer 64  |
+    | properties    | Binary Data |
+    | tableKind     | Integer 16  |
 
     #### MS_TableConfig
 
 
-    | Attribute  |    Type     |
-    |----------- | ----------  |
-    | id         | String      |
-    | key        | String      |
-    | keyType    | Integer 64  |
-    | table      | String      |
-    | value      | String      |
+    | Attribute     |    Type     |
+    |-------------- | ----------  |
+    | id (required) | String      |
+    | key           | String      |
+    | keyType       | Integer 64  |
+    | table         | String      |
+    | value         | String      |
 
     ### Data Table
 
     #### TodoItem
 
-    | Attribute    |  Type   |
-    |-----------   |  ------ |
-    | id           | String  |
-    | complete     | Boolean |
-    | text         | String  |
-    | ms_createdAt | Date    |
-    | ms_updatedAt | Date    |
-    | ms_version   | String  |
+    | Attribute     |  Type   | Note                                                   | 
+    |-------------- |  ------ | -------------------------------------------------------|
+    | id (required) | String  | primary key in remote store (required)                 |
+    | complete      | Boolean | todo item field                                        |
+    | text          | String  | todo item field                                        |
+    | ms_createdAt  | Date    | (optional) maps to __createdAt system property         |
+    | ms_updatedAt  | Date    | (optional) maps to __updatedAt system property         |
+    | ms_version    | String  | (optional) used to detect conflicts, maps to __version |
+
 
 
 ## <a name="setup-sync"></a>Change Sync Behavior of App
@@ -191,7 +192,7 @@ In this section, you modify the app so that it does not sync on app start, or wh
 
 In this section, you will turn of Wi-Fi in the simulator to create an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile service.
 
-1. Turn off Wi-Fi in the iOS simulator. This simulates an offlien scenario.
+1. Turn off the internet connection on your Mac. Turning off WiFi in just iOS simulator may not have an effect, since the simulator may still use the host Mac's internet connection, so turn off internet for the computer itself. This simulates an offline scenario.
 
 2. Add some todo items or complete some items. Quit the simulator (or forcibly close the app) and restart. Verify that your changes have been persisted. Notice that the data items are still displayed because they are held in the local Core Data store.
 

@@ -1,0 +1,1 @@
+>[AZURE.NOTE] This is an **Azure Mobile Apps** topic. Looking for [Mobile Services documentation](/documentation/services/mobile-services/)? <br/><br/> Mobile Apps is currently in Preview and is not yet recommended for production use. SDK and API contracts are subject to change even within minor version releases. For production apps, consider Mobile Services instead.

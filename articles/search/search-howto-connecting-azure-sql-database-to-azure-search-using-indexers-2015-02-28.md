@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/18/2015" 
+	ms.date="07/08/2015" 
 	ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search Using Indexers#

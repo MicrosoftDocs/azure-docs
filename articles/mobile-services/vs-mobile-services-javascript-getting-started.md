@@ -84,7 +84,7 @@ Update a row in a data table. In this example, todoItem is the updated item, and
 
 Delete a row in a data table. Call the [done]() method on the returned [Promise]() object to get a copy of the inserted object and handle any errors.
 
-	todoTable.delete(todoItem).done(function (item) {
+	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
