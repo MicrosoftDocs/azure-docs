@@ -97,7 +97,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 | **Error code** | **40551**: The session has been terminated because of excessive tempdb usage. Try modifying your query to reduce the temporary table space usage. |
 | **Limit** | **State 1:** 5 GB of tempdb space <br><br> **State 2:** 2 GB per transaction in tempdb <br><br>**State 3:** 20% of total log space in tempdb |
 | **Type of requests denied** | Any DDL or DML statements on tempdb. |
-| **Recommendation** | Modify queries to reduce the temporary table space usage, drop temporary objects after they are no longer needed, truncate tables or remove unused tables.Reduce the size of data in your transaction in tempdb by reducing the number of rows or splitting the operation into multiple transactions. |
+| **Recommendation** | Modify queries to reduce the temporary table space usage, drop temporary objects after they are no longer needed, truncate tables, or remove unused tables. Reduce the size of data in your transaction in tempdb by reducing the number of rows or splitting the operation into multiple transactions. |
 
 ## Transaction Duration
 
