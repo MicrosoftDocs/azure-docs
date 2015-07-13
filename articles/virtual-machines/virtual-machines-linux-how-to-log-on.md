@@ -3,7 +3,7 @@
 	description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="squillace" 
+	authors="squillace"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/16/2015"
-	ms.author="kathydav"/>
+	ms.author="rasquill"/>
 
 
 

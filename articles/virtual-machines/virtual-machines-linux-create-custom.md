@@ -3,7 +3,7 @@
 	description="Learn how to create a custom virtual machine running Linux in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="dsk-2015" 
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/23/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 #How to Create a Custom Virtual Machine Running Linux in Azure
 

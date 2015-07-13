@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/11/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 
 # How to Capture a Linux Virtual Machine to Use as a Template##

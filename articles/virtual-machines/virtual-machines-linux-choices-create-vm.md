@@ -3,7 +3,7 @@
 	description="Lists the different ways to create a Linux virtual machine and gives links to instructions."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="dsk-2015" 
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@ ms.service="virtual-machines"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
 	ms.date="05/14/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # Different Ways to Create a Linux Virtual Machine
 
