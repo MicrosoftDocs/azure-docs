@@ -3,7 +3,7 @@
 	description="Learn how to install MongoDB on an Azure VM running Windows Server."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/06/2015"
-	ms.author="kathydav"/>
+	ms.date="07/13/2015"
+	ms.author="kathydav, dsk-2015"/>
 
 #Install MongoDB on a virtual machine running Windows Server
 
@@ -30,10 +30,10 @@ This article covers how to:
 ## Create a virtual machine running Windows Server
 
 Follow these instructions to create a virtual machine in the Management Portal:
- 
+
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
-> [AZURE.NOTE] You can add an endpoint for MongoDB while creating the virtual machine. You can configure it as following:
+> [AZURE.NOTE] You can add an endpoint for MongoDB while creating the virtual machine, and configure it as following:
 > - Name it **Mongo**
 > - Use **TCP** as the protocol
 > - Set both the public and private ports to **27017**.
@@ -43,15 +43,15 @@ To provide a storage for the virtual machine, attach a data disk and then initia
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-For instructions on initalizing the disk, see "How to: Initialize a new data disk in Windows Server" in [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md).
+For instructions on initializing the disk, see "How to: Initialize a new data disk in Windows Server" in [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md).
 
 ## Install and run MongoDB on the virtual machine
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ##Summary
-In this tutorial you learned how to create a Windows Server virtual machine, remotely connect to it, and attach a data disk.  You also learned how to install and configure MongoDB on the Windows virtual machine. For more information on MongoDB, see the [MongoDB Documentation][MongoDocs].
+In this tutorial you learned how to create a Windows Server virtual machine, remotely connect to it, and attach a data disk.  You also learned how to install and configure MongoDB on the Windows virtual machine. You can now access MongoDB on the Windows virtual machine, by following the advanced topics on the [MongoDB Documentation][MongoDocs].
 
-[MongoDocs]: http://www.mongodb.org/display/DOCS/Home
+[MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
