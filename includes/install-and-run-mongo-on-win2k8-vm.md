@@ -83,7 +83,7 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 	![Endpoints][Image9]
 
-> [AZURE.NOTE] The port 27017 is the default port used by MongoDB. You can change this by the --port subcommand when starting the mongod.exe server. Make sure to give the same port number in the firewall as well as the "Mongo" endpoint in above instructions.
+> [AZURE.NOTE] The port 27017 is the default port used by MongoDB. You can change this by the _--port_ subcommand when starting the mongod.exe server. Make sure to give the same port number in the firewall as well as the "Mongo" endpoint in the above instructions.
 
 [MongoDownloads]: http://www.mongodb.org/downloads
 
