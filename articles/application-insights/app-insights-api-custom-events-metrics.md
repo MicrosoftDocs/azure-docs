@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -369,7 +369,7 @@ You can also call it yourself if you want to simulate requests in a context wher
 
 ## Track Exception
 
-Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic].
+Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic]. The reports include the stack traces.
 
 *C#*
 

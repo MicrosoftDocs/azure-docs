@@ -36,7 +36,7 @@ By default each Media Services account can have one active encoding task at a ti
 
 ##<a id="media_encoder_standard"></a>Media Encoder Standard
 
-[Formats Supported by the Media Encoder Standard](media-services-azure-media-encoder-standard-formats.md)  – Discusses the file and stream formats supported by **Media Encoder Standard**.
+[Formats Supported by the Media Encoder Standard](media-services-media-encoder-standard-formats.md)  – Discusses the file and stream formats supported by **Media Encoder Standard**.
 
 **Media Encoder Standard** is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?LinkId=618336) or custom presets that are based on [these](http://go.microsoft.com/fwlink/?LinkId=618336) presets.
 
