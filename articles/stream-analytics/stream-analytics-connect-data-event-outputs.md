@@ -19,7 +19,7 @@
 # Connect Stream Analytics outputs
 
 ## Understanding Stream Analytics outputs
-In this document you will discover the different methods of configuring output targets for Stream Analytics solutions.
+When creating a Stream Analytics job, one of the considerations is how the output of the job is consumed. Who are the consumers of the data transformation and what tool(s) will they be using to analyze the output? Azure Stream Analytics provides five different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Power BI and Table storage. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
 
 ## Using SQL as output
 
@@ -77,11 +77,10 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ### Overview
  
-Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can publish web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining.
-Event Hubs can be used for data egress also.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job.
+Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. Their robust handling of high numbers of events also make them perfect for job output.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job.
 
 ### Consumer groups
-Each Stream Analytics job input should be configured to have its own event-hub consumer group. When a job contains self-join or multiple outputs, some input may be read by more than one reader, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see Event Hubs developer guide.
+Each Stream Analytics job output should be configured to have its own event-hub consumer group. When a job contains self-join or multiple outputs, some output may be read by more than one reader downstream, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see the [Event Hubs Programming Guide](https://msdn.microsoft.com/en-us/library/azure/dn789972.aspx "Event Hubs Programming Guide").
 
  
 ### Parameters
@@ -98,6 +97,7 @@ There are a few parameters that customers need to configure for Event Hub data s
 ## Using Azure Table storage for your output
 
 One can use Azure Table storage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
+
 For more information see:
   [Introduction to Azure Storage](http://azure.microsoft.com/storage-introduction/)
  
@@ -156,6 +156,7 @@ In this example, the credentials that were provided were incorrect. You can corr
 ![graphic19][graphic19]
 
 ## Using Blob Storage as an Output
+
 For an introduction on Azure Blob Storage and its usage, review the article [An introduction to Windows Azure Blob Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/)
 
 To start using an Azure Blog Storage Output, you should have the following information collect about your Table:
