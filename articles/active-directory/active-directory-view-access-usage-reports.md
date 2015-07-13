@@ -42,7 +42,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
 |	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
 |	[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)				|	May indicate an attempt to sign in from possibly infected devices.							|
-|	Irregular sign in activity							|	May indicate events anomalous to users’ sign in patterns.									|
+|	[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md)							|	May indicate events anomalous to users’ sign in patterns.									|
 |	Users with anomalous sign in activity				|	Indicates users whose accounts may have been compromised.									|
 |	Users with leaked credentials						|	Users with leaked credentials																|
 |	Audit report										|	Audited events in your directory															|
@@ -102,11 +102,10 @@ For details on this report, check out [Sign ins from multiple geographies](activ
 For details on this report, check out [Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
 
 
-### Anomalous sign in activity
+### Irregular sign in activity
 
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>This report includes sign ins that have been identified as “anomalous” by our machine learning algorithms. Reasons for marking a sign in attempt as irregular include unexpected sign in locations, time of day and locations or a combination of these. This may indicate that a hacker has been trying to sign in using this account. The machine learning algorithm classifies events as “anomalous” or “suspicious”, where “suspicious” indicates a higher likelihood of a security breach.</p><p>Results from this report will show you these sign ins, together with the classification, location and a timestamp associated with each sign in.</p><p>We will send an email notification to the global admins if we encounter 10 or more anomalous sign in events within a span of 30 days or less. Please be sure to include aad-alerts-noreply@mail.windowsazure.com in your safe senders list.</p> | Directory > Reports tab |
+For details on this report, check out [Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md).
+
 
 
 
