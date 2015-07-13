@@ -115,6 +115,44 @@ For details on this report, check out [Users with anomalous sign in activity](ac
 
 <!-- Users with leaked credentials goes here -->
 
+
+
+## Activity logs
+
+### Audit report
+
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days. <br /> For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) | Directory > Reports tab |
+
+![Audit report](./media/active-directory-view-access-usage-reports/auditReport.PNG)
+
+### Password reset activity
+
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all password reset attempts that have occurred in your organization. | Directory > Reports tab |
+
+![Password reset activity](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
+
+### Password reset registration activity
+
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all password reset registrations that have occurred in your organization | Directory > Reports tab |
+
+![Password reset registration activity](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
+
+### Self service groups activity
+
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all activity for the self-service managed groups in your directory. | Directory > Users > <i>User</i> > Devices tab |
+
+![Self service groups activity](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
+
+
+
 ## Integrated applications reports
 
 ### Application usage: summary
@@ -183,39 +221,7 @@ Only certain types of sign in events will appear in the User Activity report.
 
 
 
-## Activity logs
 
-### Audit report
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days. <br /> For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) | Directory > Reports tab |
-
-![Audit report](./media/active-directory-view-access-usage-reports/auditReport.PNG)
-
-### Password reset activity
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows all password reset attempts that have occurred in your organization. | Directory > Reports tab |
-
-![Password reset activity](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
-
-### Password reset registration activity
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows all password reset registrations that have occurred in your organization | Directory > Reports tab |
-
-![Password reset registration activity](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
-
-### Self service groups activity
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows all activity for the self-service managed groups in your directory. | Directory > Users > <i>User</i> > Devices tab |
-
-![Self service groups activity](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
 
 
