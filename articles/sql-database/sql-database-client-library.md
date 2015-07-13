@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Create and manage SQL Database with the Azure SQL Database Library for .NET" 
-   description="This article shows you how to create and manage an Azure SQL Database using the the Azure SQL Database Library for .NET (SQL Management SDK)." 
+   description="This article shows you how to create and manage an Azure SQL Database using the the Azure SQL Database Library for .NET." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -24,16 +24,16 @@
 
 ## Overview
 
-This article shows you how to create and manage an SQL Management SDK client library. (If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to this article.)
+This article shows you how to create and manage SQL Database using the Azure SQL Database Library for .NET.
 
-Code snippets to create a server, firewall rule, databases and an elastic database pool are broken out and explained. A sample console application brings all the commands together in the section at the bottom of this article.
+Code snippets to create a server, firewall rule, databases, and an elastic database pool are broken out for clarity. A sample console application brings all the commands together in the section at the bottom of this article.
 
-The Azure SQL Database library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) APIs so snippets for authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) and creating a resource group are provided as well.
+The Azure SQL Database library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API so snippets for authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) and creating a resource group are provided as well.
  
+If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to this article.
 
 
-
-> [AZURE.NOTE] The SQL Database Management SDK is currently in preview.
+> [AZURE.NOTE] The SQL Database Library for .NET is currently in preview.
 
 
 ## Installing the required libraries
@@ -48,8 +48,6 @@ Get the SQL Database Management libraries by installing the following packages u
 
 
 ## Configure your credentials by authenticating with Azure Active Directory
-
-instructions for  (AAD).
 
 First you must establish access to your Azure account by setting up the required authentication. The [Azure Resource Management (ARM) REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs.
 
@@ -70,18 +68,18 @@ Select the **DOMAINS** tab and note the domain name which you will need to enter
 
 First register your application with the following steps.
 
-- Select the **Applications** tab and select **Add** to register a new application.
-- In the dialog select the option to **Add an application my organization is developing**.   
-- Provide a Name by which your client application will be known in the directory. This will be used, for example, when granting access to the application to users. 
-- Identify the Type of application.  For a command line or windows client select **NATIVE CLIENT APPLICATION**. 
-- Provide a Redirect URI.  The value does not need to be a physical endpoint, but must be a valid URI.  The following can be used **urn:ietf:wg:oauth:2.0:oob**.  Make a note of this value as you will use it in your code.
-- Complete the wizard which creates the application and then make a note of the client ID which is on the Quick Start page for the application under **UPDATE YOUR CODE** and on the Configuration page.  
+1. Select the **Applications** tab and select **Add** to register a new application.
+1. In the dialog select the option to **Add an application my organization is developing**.   
+1. Provide a Name by which your client application will be known in the directory. This will be used, for example, when granting access to the application to users. 
+1. Identify the Type of application.  For a command line or windows client select **NATIVE CLIENT APPLICATION**. 
+1. Provide a Redirect URI.  The value does not need to be a physical endpoint, but must be a valid URI.  The following can be used **urn:ietf:wg:oauth:2.0:oob**.  Make a note of this value as you will use it in your code.
+1. Complete the wizard which creates the application and then make a note of the client ID which is on the Quick Start page for the application under **UPDATE YOUR CODE** and on the Configuration page.  
 
 Once the client application is registered you can grant it access to other applications or APIs.  You do this on the Configure page of the application.
 
-- Scroll to the bottom of the page and under permissions to other applications click on the Add application button.
-- Ensure **Show Microsoft Apps** is selected in the drop down.
-- Select Azure Service Management API and then complete the wizard.
+1. Scroll to the bottom of the page and under permissions to other applications click on the Add application button.
+1. Ensure **Show Microsoft Apps** is selected in the drop down.
+1. Select Azure Service Management API and then complete the wizard.
 
 With the API selected you now need to grant the specific permissions required to access this API by checking the box alongside Access Azure Service Management (preview) in the drop down in the application list.
 
@@ -99,24 +97,24 @@ Additional information about using Azure Active Directory for authentication can
 You only need to do this once while your credentials are cached. You will need to establish credentials again after they are expired.
 
 
-        /// <summary>
-        /// Prompts for user credentials when first run or if the cached credentials have expired.
-        /// </summary>
-        /// <returns>The access token from AAD.</returns>
-        private static AuthenticationResult GetAccessToken()
-        {
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */ 
+    /// <summary>
+    /// Prompts for user credentials when first run or if the cached credentials have expired.
+    /// </summary>
+    /// <returns>The access token from AAD.</returns>
+    private static AuthenticationResult GetAccessToken()
+    {
+        AuthenticationContext authContext = new AuthenticationContext
+            ("https://login.windows.net/" /* AAD URI */ 
                 + "username.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
-            AuthenticationResult token = authContext.AcquireToken
-                ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
+        AuthenticationResult token = authContext.AcquireToken
+            ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
                 "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/, 
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
-                PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
+        PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
-            return token;
-        }
+        return token;
+    }
 
 
 
@@ -129,17 +127,17 @@ A resource group is a container that holds related resources for an application.
 
 
 
-            // Create a resource management client 
-            ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
-
-            // Resource group parameters
-            ResourceGroup resourceGroupParameters = new ResourceGroup()
-            {
-                Location = "South Central US"
-            };
-
-            //Create a resource group
-            var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("ResourceGroup1", resourceGroupParameters);
+    // Create a resource management client 
+    ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
+    
+    // Resource group parameters
+    ResourceGroup resourceGroupParameters = new ResourceGroup()
+    {
+        Location = "South Central US"
+    };
+    
+    //Create a resource group
+    var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("ResourceGroup1", resourceGroupParameters);
 
 
 
@@ -150,24 +148,24 @@ A resource group is a container that holds related resources for an application.
 SQL databases are contained in servers. The server name must be globally unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
 
 
-            //create a SQL Database management client
-            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken));
+    //create a SQL Database management client
+    SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken));
 
-            // Create a server
-            ServerCreateOrUpdateProperties serverProperties = new ServerCreateOrUpdateProperties ()
-            {
-                AdministratorLogin = "ServerAdmin",
-                AdministratorLoginPassword = "P@ssword1",
-                Version = "12.0"
-            };
+    // Create a server
+    ServerCreateOrUpdateProperties serverProperties = new ServerCreateOrUpdateProperties ()
+    {
+        AdministratorLogin = "ServerAdmin",
+        AdministratorLoginPassword = "P@ssword1",
+        Version = "12.0"
+    };
 
-            ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
-            {
-                Location = "South Central US",
-                Properties = serverProperties 
-            };
+    ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
+    {
+        Location = "South Central US",
+        Properties = serverProperties 
+    };
 
-            var serverResult = sqlClient.Servers.CreateOrUpdate("ResourceGroup1", "abc-server1", serverParameters);
+    var serverResult = sqlClient.Servers.CreateOrUpdate("ResourceGroup1", "abc-server1", serverParameters);
 
 
 
@@ -177,19 +175,19 @@ Establish a firewall rule to access the server. Run the following command replac
 
 If your server needs to allow access to other Azure services, add a special firewall rule and allow all azure traffic access to the server.
 
-            // Create a firewall rule on the server to allow TDS connections 
-            FirewallRuleCreateOrUpdateProperties firewallProperties = new FirewallRuleCreateOrUpdateProperties()
-            {
-                StartIpAddress = "0.0.0.0",
-                EndIpAddress = "255.255.255.255"
-            };
+    // Create a firewall rule on the server to allow TDS connections 
+    FirewallRuleCreateOrUpdateProperties firewallProperties = new FirewallRuleCreateOrUpdateProperties()
+    {
+        StartIpAddress = "0.0.0.0",
+        EndIpAddress = "255.255.255.255"
+    };
 
-            FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
-            {
-                Properties = firewallProperties
-            };
+    FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
+    {
+        Properties = firewallProperties
+    };
 
-            var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("ResourceGroup1", "abc-server1", "FirewallRule1", firewallParameters);
+    var firewallResult = sqlClient.FirewallRules.CreateOrUpdate("ResourceGroup1", "abc-server1", "FirewallRule1", firewallParameters);
 
 
 
@@ -201,19 +199,19 @@ For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.c
 After creating a resource group, a server, and a firewall rule, the following command will create a SQL database: 
 
 
-            // Create a database
-            DatabaseCreateOrUpdateProperties databaseProperties = new DatabaseCreateOrUpdateProperties()
-            {
-                Edition = "Basic"
-            };
+    // Create a database
+    DatabaseCreateOrUpdateProperties databaseProperties = new DatabaseCreateOrUpdateProperties()
+    {
+        Edition = "Basic"
+    };
 
-            DatabaseCreateOrUpdateParameters databaseParameters = new DatabaseCreateOrUpdateParameters()
-            {
-                Location = "South Central US",
-                Properties = databaseProperties
-            };
+    DatabaseCreateOrUpdateParameters databaseParameters = new DatabaseCreateOrUpdateParameters()
+    {
+        Location = "South Central US",
+        Properties = databaseProperties
+    };
 
-            var databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database1", databaseParameters);
+    var databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database1", databaseParameters);
 
 
 
@@ -221,24 +219,24 @@ After creating a resource group, a server, and a firewall rule, the following co
 
 To change the service tier and performance level of a database, set the Edition and RequestedServiceObjectiveName properties. The following sets a SQL database to the Standard (S0) level:
 
-            // Update the service objective of the database
-            databaseProperties.Edition = "Standard";
-            databaseProperties.RequestedServiceObjectiveName = "S0";
+    // Update the service objective of the database
+    databaseProperties.Edition = "Standard";
+    databaseProperties.RequestedServiceObjectiveName = "S0";
 
-            databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database1", databaseParameters);
+    databaseResult = sqlClient.Databases.CreateOrUpdate("ResourceGroup1", "abc-server1", "Database1", databaseParameters);
 
 
 ## List all databases on a server
 
 To list all databases on a server, pass the server and resource group names to the Databases.List method:
 
-            // List databases on the server
-            DatabaseListResponse dbListOnServer = sqlClient.Databases.List("ResourceGroup1", "abc-server1");
-            Console.WriteLine("Databases on Server {0}", "abc-server1");
-            foreach (Database db in dbListOnServer)
-            {
-                Console.WriteLine("  Database {0}, Service Objective {1}", db.Name, db.Properties.ServiceObjective);
-            }
+    // List databases on the server
+    DatabaseListResponse dbListOnServer = sqlClient.Databases.List("ResourceGroup1", "abc-server1");
+    Console.WriteLine("Databases on Server {0}", "abc-server1");
+    foreach (Database db in dbListOnServer)
+    {
+        Console.WriteLine("  Database {0}, Service Objective {1}", db.Name, db.Properties.ServiceObjective);
+    }
 
 
 
@@ -322,6 +320,7 @@ To delete a resource group:
 
 
 ## Sample console application
+
 
 
     using System;
