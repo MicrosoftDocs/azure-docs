@@ -132,7 +132,7 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 
 ## Next steps
 
-For more information please see: [Get started with Azure DNS](http://azure.microsoft.com/en-us/documentation/articles/dns-getstarted-create-dnszone) and [Delegate Domain to Azure DNS](http://azure.microsoft.com/en-us/documentation/articles/dns-domain-delegation) 
+For more information please see: [Get started with Azure DNS](../dns/dns-getstarted-create-dnszone) and [Delegate Domain to Azure DNS](../dns/dns-domain-delegation) 
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
