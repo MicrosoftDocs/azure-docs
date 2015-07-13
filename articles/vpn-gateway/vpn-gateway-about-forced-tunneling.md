@@ -93,7 +93,7 @@ The instructions below will help you specify forced tunneling in a virtual netwo
 
 - A configured virtual network. 
 
-- The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](../install-configure-powershell).
+- The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
 
 Use the following procedure to configure forced tunneling.
 
