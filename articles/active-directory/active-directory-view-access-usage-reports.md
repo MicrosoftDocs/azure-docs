@@ -37,6 +37,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 
 |	Report												|	Description																					|
 |	------												|	-----																						|
+|	**Anomalous activity reports**
 |	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
 |	[Sign ins after multiple failures](active-directory-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
 |	[Sign ins from multiple geographies](active-directory-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
@@ -83,6 +84,14 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	RMS device usage									|			|		|	RMS Only	|
 |	RMS enabled application usage						|			|		|	RMS Only	|
 
+
+
+
+
+
+
+
+
 ## Anomalous activity reports
 
 ### Sign ins from unknown sources
@@ -114,6 +123,12 @@ For details on this report, check out [Sign ins from possibly infected devices](
 For details on this report, check out [Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
 
 <!-- Users with leaked credentials goes here -->
+
+
+
+
+
+
 
 
 
@@ -153,6 +168,14 @@ For details on this report, check out [Users with anomalous sign in activity](ac
 
 
 
+
+
+
+
+
+
+
+
 ## Integrated applications reports
 
 ### Application usage: summary
@@ -187,6 +210,13 @@ For details on this report, check out [Users with anomalous sign in activity](ac
 ![Account provisioning errors](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
 
 
+
+
+
+
+
+
+
 ## User-specific reports
 
 ### Devices
@@ -218,6 +248,9 @@ Only certain types of sign in events will appear in the User Activity report.
 | Sign ins to an Azure AD Application Proxy app that has been added to the directory	| No (Coming soon)	|
 
 > Note: To reduce the amount of noise in this report, sign ins to the [Lync/Skype for Business](http://products.office.com/en-us/skype-for-business/online-meetings) native app and by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
+
+
+
 
 
 
