@@ -49,6 +49,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Database Size
 
+| &nbsp; | More Information |
 | :--- | :--- |
 | **Condition** | When the database space allotted to a user database is full, the user gets a database full error. |
 | **Error code** | **40544**: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. |
@@ -58,6 +59,7 @@ The remainder of this topic explains possible error codes in more detail, includ
 
 ## Logins
 
+| Test | Test |
 | :--- | :--- |
 | **Condition** | SQL Database governs the limit on the number of concurrent logins that can be established to a database. When the concurrent login limit for a database is reached, new login requests to the database are denied and error code 10928 is returned. |
 | **Error code** | **10928**: Resource ID: 3. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. |
