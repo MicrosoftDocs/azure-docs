@@ -57,29 +57,29 @@ If you haven’t started your 1-hour session yet, follow these steps to get star
 2. Click **Next**.
 3. Choose the **ASP.NET + Azure Search Site** template.
 
-    ![1]
+    ![][1]
 
 4. Click **Create**.
 5. Choose a login method and provide the username and password.
 
-    ![2]
+    ![][2]
 
 6. Wait while the site is provisioned. When it’s ready, you will see a page similar to this one. Each page shows a running clock so that you always know how much time you have left.
 
-    ![3]
+    ![][3]
 
 7. Choose **Edit with Visual Studio Online** to view the solution and browse the site. 
 9. In Visual Studio Online, expand the session options at the top of the page, and then click **Browse Web Site**.
 
-    ![4]
+    ![][4]
 
 10. You should see the getting started page for your Azure Search web site. Click the **Get Started** button to open the site.
 
-    ![5]
+    ![][5]
 
 11. An ASP.NET web site opens in the browser, providing a search box. Enter a familiar term to search on, such as *Yellowstone* or a well-known mountain like *Mount Rainier*. Starting with a familiar landmark makes it easier to evaluate the results.
 
-    ![6]
+    ![][6]
 
 
 ##What to do first
@@ -90,7 +90,7 @@ Search supports all of the standard search operators (+, -, |), quotation marks 
 - Next, enter "Yellowstone", then add "+center", "+building", and "-ND" to progressively narrow search results to just the Yellowstone visitor centers, excluding those in North Dakota: `Yellowstone +center +building -ND`.  
 - Try a search phrase that combines precedence operators and string matching: `statue+(park+MT)`. You should see results similar to the screenshot below. Notice that facet categories appear under Feature Class, offering self-directed filtering through faceted navigation, a feature commonly found in most search applications.
 
-    ![7]
+    ![][7]
 
 Ready to move on? Let’s change a few lines of code to see the impact on full-text search operations.
 
@@ -107,21 +107,21 @@ In this task, you will change the **searchMode** and compare search outcomes bas
 
 1. Open the browser window containing the sample application, choose **Connect to Visual Studio Online**.
 
-    ![8]
+    ![][8]
 
 2. Open **Search.cshtml**, find `searchMode.All` on line 39 and change it to `searchMode.Any`.
 
-    ![9]
+    ![][9]
 
 3. In the jump bar to the right, click **Run**.
 
-    ![10]
+    ![][10]
  
 In the rebuilt application window, enter a search term that you’ve used before, such as `Yellowstone +center +building -ND`, and compare the before-and-after results of changes to **searchMode**.
 
 It’s a pretty big difference. Instead of seven search results, you get over two million. 
 
-    ![11]
+    ![][11]
  
 The behavior you’re observing is due to the inclusion *NOT* operator (in this case, "-ND"), which is *OR*’d when **searchMode** is set to *Any*.
 
@@ -160,7 +160,7 @@ Filters are specified using OData syntax and are frequently used with faceted na
 
 4. Type the wildcard (*) to return a count. Notice that the results are now limited to 42,411 items, which are all of the documents for all of the geographical features in Washington State.
 
-    ![12]
+    ![][12]
 
 ##Next steps
 
@@ -181,7 +181,7 @@ To learn more about Azure Search, visit our [documentation page](http://azure.mi
 
 The following screenshot shows the schema used to create the index used in this template.
  
-    ![13]
+    ![][13]
 
 ###Schema.json file
 
