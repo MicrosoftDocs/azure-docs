@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="07/13/2015"
 	ms.author="mmercuri"/>
 
 # Best Practices for Handling State in Azure Resource Manager Templates
@@ -22,10 +22,10 @@ This topic describes how to manage and share state within an Azure Resource Mana
 
 ## Using complex objects to share state
 
-In addition to single-value parameters, you can use complex objects as a parameters in an Azure Resource Manager template. With complex objects, you can implement and reference collections of data for a specific area 
+In addition to single-value parameters, you can use complex objects as parameters in an Azure Resource Manager template. With complex objects, you can implement and reference collections of data for a specific area 
 such as t-shirt size (for describing a virtual machine), network settings, operating system (OS) settings, and availability settings.
 
-The following example shows to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, 
+The following example shows how to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, 
 operating system settings and availability settings.
 
     "tshirtSizeLarge": {
@@ -77,7 +77,7 @@ operating system settings and availability settings.
     }
 
 You can then reference these variables later in the template. The ability to reference named-variables and their properties simplifies the template syntax, 
-and makes it easy to understand context. The following example defines a resource to deploy by using the objects above to set values. For example, note that the VM size is set by retrieving the value 
+and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown above to set values. For example, note that the VM size is set by retrieving the value 
 for `variables('tshirtSize').vmSize` while the value for the disk size is retrieved from `variables('tshirtSize').diskSize`. In addition, the URI for a linked template is set with the 
 value for `variables('tshirtSize').vmTemplate`.
 
@@ -164,14 +164,14 @@ When connecting to linked templates, you will often use a mix of static and gene
 
 #### Static variables
 
-Static variables are often used to provide base values, such as URLs, that are used throughout a template or as values that are used to compose values for dyamic variables.
+Static variables are often used to provide base values, such as URLs, that are used throughout a template or as values that are used to compose values for dynamic variables.
 
 In the template excerpt below, *templateBaseUrl* specifies the root location for the template in GitHub. The next line builds a new variable *sharedTemplateUrl* that concatenates the 
 value of *templateBaseUrl* with the known name of the shared resources template. Below that, a complex object variable is used to store a t-shirt size, where the *templateBaseUrl* is 
 concatenated to specify the known configuration template location stored in the *vmTemplate* property.
 
 The benefit of this approach is you can easily move, fork, or use the template as a base for a new one. If the template location changes, you only need to change the static variable 
-in the one place — the main template — which passes it throughout the templates.
+in the one place â€” the main template â€” which passes it throughout the templates.
 
     "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
     "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
@@ -348,7 +348,7 @@ system image reference as shown below:
         }
     },
 
-Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM—entirely or based 
+Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VMâ€”entirely or based 
 on the preference of a template consumer.
 
 ##### vmScripts
@@ -363,7 +363,7 @@ each individual node, an installation that runs after all nodes are deployed, an
 
 This example is from a template used to deploy MongoDB, which requires an arbiter to deliver high availability. The *arbiterNodeInstallCommand* has been added to *vmScripts* to install the arbiter.
 
-The variables section is where you’ll find the variables that define the specific text to execute the script with the proper values.
+The variables section is where youâ€™ll find the variables that define the specific text to execute the script with the proper values.
 
     "vmScripts": {
         "scriptsToDownload": [
