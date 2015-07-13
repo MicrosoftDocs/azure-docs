@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create and manage a SQL Database elastic database pool with REST API Client Library" 
-   description="Create and manage a SQL Database elastic database pool with REST API Client Library" 
+   pageTitle="Create and manage SQL Database with the Azure SQL Database Library for .NET" 
+   description="This article shows you how to create and manage an Azure SQL Database using the the Azure SQL Database Library for .NET (SQL Management SDK)." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,7 +16,7 @@
    ms.date="07/10/2015"
    ms.author="sstein"/>
 
-# Create and manage a SQL Database with the SQL Management SDK
+# Create and manage SQL Database with the Azure SQL Database Library for .NET
 
 > [AZURE.SELECTOR]
 - [Manage with PowerShell](sql-database-command-line-tools.md)
@@ -24,19 +24,21 @@
 
 ## Overview
 
-This article shows you how to create and manage a SQL Database using the client library.
+This article shows you how to create and manage an SQL Management SDK client library. (If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to this article.)
+
+Code snippets to create a server, firewall rule, databases and an elastic database pool are broken out and explained. A sample console application brings all the commands together in the section at the bottom of this article.
+
+The Azure SQL Database library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) APIs so snippets for authenticating with [Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/mt168838.aspx) (AAD) and creating a resource group are provided as well.
+ 
 
 
-The individual code snippets are broken out and explained for clarity. A sample console application brings all the commands together in the section at the bottom of this article.
 
-This article will show you how to create everything you need except for the Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
-
-> [AZURE.NOTE] The client library is currently in preview.
+> [AZURE.NOTE] The SQL Database Management SDK is currently in preview.
 
 
 ## Installing the required libraries
 
-You need to install the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console):
+Get the SQL Database Management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console):
 
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
@@ -47,7 +49,9 @@ You need to install the following packages using the [package manager console](h
 
 ## Configure your credentials by authenticating with Azure Active Directory
 
-First you must establish access to your Azure account. The [Azure Resource Management (ARM) REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use [Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/mt168838.aspx) (AAD) for authentication rather than the certificates used by the earlier [Azure Service Management REST APIs](https://msdn.microsoft.com/library/azure/dn948465.aspx).
+instructions for  (AAD).
+
+First you must establish access to your Azure account by setting up the required authentication. The [Azure Resource Management (ARM) REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs.
 
 To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure management portal](https://manage.windowsazure.com/). 
 
@@ -143,7 +147,7 @@ A resource group is a container that holds related resources for an application.
 
 ### Create a server 
 
-SQL databases are created in servers. The server name must be globally unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. You can edit the  command to use whatever valid location you choose.
+SQL databases are contained in servers. The server name must be globally unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
 
 
             //create a SQL Database management client
@@ -169,9 +173,9 @@ SQL databases are created in servers. The server name must be globally unique to
 
 ### Configure a server firewall rule to allow access to the server
 
-Establish a firewall rule to access the server. Run the following command replacing the start and end IP addresses with valid values for your computer.
+Establish a firewall rule to access the server. Run the following command replacing the start and end IP addresses with valid values for your computer:
 
-If your server needs to allow access to other Azure services, CAN WE DO THIS HERE?? to add a special firewall rule and allow all azure traffic access to the server.
+If your server needs to allow access to other Azure services, add a special firewall rule and allow all azure traffic access to the server.
 
             // Create a firewall rule on the server to allow TDS connections 
             FirewallRuleCreateOrUpdateProperties firewallProperties = new FirewallRuleCreateOrUpdateProperties()
@@ -194,7 +198,7 @@ For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.c
 
 ## Create a database
 
-Now you have a resource group, a server, and a firewall rule configured so you can access the server. The following command will create a SQL database. 
+After creating a resource group, a server, and a firewall rule, the following command will create a SQL database: 
 
 
             // Create a database
@@ -215,6 +219,7 @@ Now you have a resource group, a server, and a firewall rule configured so you c
 
 ## Change the service tier and performance level of a database
 
+To change the service tier and performance level of a database set the Edition and RequestedServiceObjectiveName properties. The following sets a SQL database to the Standard (S0) level:
 
             // Update the service objective of the database
             databaseProperties.Edition = "Standard";
@@ -224,6 +229,8 @@ Now you have a resource group, a server, and a firewall rule configured so you c
 
 
 ## List all databases on a server
+
+Pass the server and resource group names to the Databases.List method:
 
             // List databases on the server
             DatabaseListResponse dbListOnServer = sqlClient.Databases.List("ResourceGroup1", "abc-server1");
@@ -264,9 +271,9 @@ To create a new elastic database pool, ...
 
 
 
-### Move an existing database into an elastic pool
+### Move an existing database into an elastic database pool
 
-To move an existing database into an elastic pool,... 
+To move an existing database into a pool:
 
 
             // update database service objective to add the database to a pool
@@ -279,7 +286,7 @@ To move an existing database into an elastic pool,...
 
 ### Create a new database in an elastic database pool
 
-To create a new database directly in an elastic pool,...
+To create a new database directly in a pool:
 
             // create a new database in the pool
 
@@ -291,8 +298,9 @@ To create a new database directly in an elastic pool,...
 
 
 
-### List all databases in an elastic pool
+### List all databases in an elastic database pool
 
+To list all databases in a pool:
 
             //List databases in the elastic pool
             DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("ResourceGroup1", "abc-server1", "ElasticPool1");
@@ -310,7 +318,6 @@ To create a new database directly in an elastic pool,...
 
 
     using System;
-    
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
     using Microsoft.Azure.Management.Resources.Models;
@@ -345,7 +352,7 @@ To create a new database directly in an elastic pool,...
         {
             var token = GetAccessToken();
             
-            // Who am I?
+            // List token information
             Console.WriteLine("Identity is {0} {1}", token.UserInfo.GivenName, token.UserInfo.FamilyName);
             Console.WriteLine("Token expires on {0}", token.ExpiresOn);
             Console.WriteLine("");
@@ -365,7 +372,7 @@ To create a new database directly in an elastic pool,...
             Console.WriteLine("Resource group {0} create or update completed with status code {1} ", resourceGroupResult.ResourceGroup.Name, resourceGroupResult.StatusCode);
 
             //create a SQL Database management client
-            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("01234567-8901-2345-6789-012345678901" /* Subscription id*/, token.AccessToken));
+            SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* Subscription id*/, token.AccessToken));
 
             // Create a server
             ServerCreateOrUpdateProperties serverProperties = new ServerCreateOrUpdateProperties ()
@@ -500,14 +507,15 @@ To create a new database directly in an elastic pool,...
 
 
 
-## Next steps
-
-After ...
 
 
 ## Additional Resources
 
-For more information about this, see [that](link).
+[SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+
+[Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
+
+
 
 
 <!--Image references-->
