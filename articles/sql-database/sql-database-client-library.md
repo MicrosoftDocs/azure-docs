@@ -24,11 +24,9 @@
 
 ## Overview
 
-This article shows you how to create and manage SQL Database using the Azure SQL Database Library for .NET.
+This article provides commands to perform many Azure SQL Database management tasks using C#. Individual code snippets to create a server, firewall rule, databases, and an elastic database pool are broken out for clarity. A sample console application brings all the commands together in the section at the bottom of this article.
 
-Code snippets to create a server, firewall rule, databases, and an elastic database pool are broken out for clarity. A sample console application brings all the commands together in the section at the bottom of this article.
-
-The Azure SQL Database library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API so snippets for authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) and creating a resource group are provided as well.
+The Azure SQL Database Library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) API so snippets for authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) and creating a resource group are provided as well.
  
 If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to this article.
 
