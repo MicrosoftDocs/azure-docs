@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
+	ms.date="07/13/2015"
 	ms.author="mwasson"/>
 
 # Configure a custom domain name in Azure App Service
@@ -29,7 +29,7 @@
 
 When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
-For a production web app, you probably want users to see a custom domain name. This article explains how to reserve or configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
+For a production web app, you probably want users to see a custom domain name. This article explains how to reserve or configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). 
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -72,7 +72,8 @@ Skip this step if you are creating a CNAME record. To create an A record, you ne
 3.	Click the **Web Apps** blade.
 4.	Click the name of your web app.
 5.	In the **Essentials** page, click **All settings**.
-6.	Click **Custom domains and SSL**. The IP address is located towards the bottom of the page (just above the **SSL Bindings** section).
+6.	Click **Custom domains and SSL**. 
+7.	In the **Custom domains and SSL** blade, click **Bring External Domains"**. The IP address is located at the bottom of this part.
 
 ## Create the DNS records
 
