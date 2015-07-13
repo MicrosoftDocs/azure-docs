@@ -24,6 +24,8 @@ The key scenario for this API app is when you want the lifecycle of the code tha
 
 On the other hand, if you want a reusable snippet of code that has a lifecycle independent of the Logic app, then you should use the WebJobs API app to create simple code expressions and call them from your Logic app.
 
+Finally, if you want to include any additional packages, you will also need to use the WebJobs API app, as you can not add any libraries using the JavaScript API App. 
+
 ##Creating a JavaScript API App
 To use the JavaScript API App, you need to first create an instance of the JavaScript API app. This can be done either inline while creating a logic app or by selecting the JavaScript API app from the Azure Marketplace.
 
@@ -55,7 +57,7 @@ For example, imagine you are using the Office 365 trigger **New Email**. That re
 	...
 	"Attachments" : [
 		{
-			"name" : "awesomePicture.png",
+			"name" : "Picture.png",
 			"content" : {
 				"ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
 				"ContentType" : "image/png",
@@ -63,7 +65,7 @@ For example, imagine you are using the Office 365 trigger **New Email**. That re
 			}
 		},	
 		{
-			"name" : "awesomeFile.txt",
+			"name" : "File.txt",
 			"content" : {
 				"ContentData" : "Don't worry, be happy!",
 				"ContentType" : "text/plain",
@@ -72,6 +74,7 @@ For example, imagine you are using the Office 365 trigger **New Email**. That re
 		}	
 	]
 }
+```
 
 But, you want to upload these attachments to a Yammer post. Unfortunately, the schema for Yammer attachments is slightly different. Now, you can now parse this inside your Logic app. For the context object just pass: `@triggerBody()`, and for the expression, pass:
 
