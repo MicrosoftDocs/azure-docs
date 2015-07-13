@@ -45,7 +45,7 @@ Data used in search operations is stored with your search service in Azure, wher
 
 In the [Try Azure App Service](https://tryappservice.azure.com/) option, the ASP.NET + Azure Search Site template provides source code for the Web application, modifiable in Visual Studio Online (available as a part of the one-hour session). No separate development tools are required to view or change the code.
 
-Code is written in C#, using the [Azure Search .NET client library](https://msdn.microsoft.com/en-us/library/dn951165.aspx) to execute queries against the index, provide faceted navigation, and display counts and search results in a web page.
+Code is written in C#, using the [Azure Search .NET client library](https://msdn.microsoft.com/library/dn951165.aspx) to execute queries against the index, provide faceted navigation, and display counts and search results in a web page.
 
 Other code, not included in the template, was used to build and load the USGS search index. Because the service is read-only, all operations requiring write-access had to be completed in advance. You can see a [copy of the schema](#schema) used to build the schema at the end of this article.
 
@@ -96,7 +96,7 @@ Ready to move on? Let’s change a few lines of code to see the impact on full-t
 
 ##Change searchMode.All
 
-Azure Search has a configurable **searchMode** property that you can use to control search operator behavior. Valid values for this property are *Any* (default) or *All*. See [Simple Query Syntax](https://msdn.microsoft.com/en-us/library/dn798920.aspx) for more guidance on setting these options.
+Azure Search has a configurable **searchMode** property that you can use to control search operator behavior. Valid values for this property are *Any* (default) or *All*. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) for more guidance on setting these options.
 
 - **searchMode.Any** stipulates that any match on a search term is sufficient to include an item in the search results. If your search phrase is `Yellowstone visitor center`, then any document containing any of these terms is included in the search results. This mode is biased towards *recall*.
 - **searchModel.All**, used in this sample, requires that all of the specified terms be present in the document. This mode is more stringent than **searchMode.Any**, but if you favor *precision* over recall, it is probably the right choice for your application. 
@@ -135,7 +135,7 @@ To continue with this tutorial, revert **searchMode** back to its original value
 
 Normally, if you wanted to search over a subset of available data, you would set the filter at the data source when importing data. For learning purposes, working with read-only data, we’ll set the filter in our application to return just the documents that include Washington State.
 
-1. Open Search.cshtml, find the SearchParameters code block (starting on line 36) and add a comment line plus filter.
+1. Open Search.cshtml, find the **SearchParameters** code block (starting on line 36) and add a comment line plus filter.
 
         var sp = new SearchParameters
         {
@@ -168,14 +168,15 @@ Now that you have made a series of one-line code changes, you might want to try 
 
 Other Azure Search functionality that you should explore includes creating and updating indexes, which adds the ability to:
 
-- [Define scoring profiles](https://msdn.microsoft.com/en-us/library/dn798928.aspx) used for tuning search scores so that high-value items show up first.
-- [Define Suggesters](https://msdn.microsoft.com/en-us/library/mt131377.aspx) that add auto-complete or type-ahead query suggestions in response to user input.
-- [Define indexers](https://msdn.microsoft.com/en-us/library/dn946891.aspx) that update your index automatically whenever the data source is Azure SQL Database or Azure DocumentDB.
+- [Define scoring profiles](https://msdn.microsoft.com/library/dn798928.aspx) used for tuning search scores so that high-value items show up first.
+- [Define Suggesters](https://msdn.microsoft.com/library/mt131377.aspx) that add auto-complete or type-ahead query suggestions in response to user input.
+- [Define indexers](https://msdn.microsoft.com/library/dn946891.aspx) that update your index automatically whenever the data source is Azure SQL Database or Azure DocumentDB.
 
 To perform all these tasks, you’ll need an Azure subscription so that you can create and populate indexes in a service. For more information about how to sign up for a free trial, visit [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-To learn more about Azure Search, visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) on [http://azure.microsoft.com](http://azure.microsoft.com) or check out any number of [samples and videos](https://msdn.microsoft.com/en-us/library/dn818681.aspx) that explore the full range of Azure Search functionality.
+To learn more about Azure Search, visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) on [http://azure.microsoft.com](http://azure.microsoft.com) or check out any number of [samples and videos](https://msdn.microsoft.com/library/dn818681.aspx) that explore the full range of Azure Search functionality.
 
+<a name="Schema"></a>
 ##About the schema
 
 The following screenshot shows the schema used to create the index used in this template.
