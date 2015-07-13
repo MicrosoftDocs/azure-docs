@@ -148,4 +148,7 @@ Use the following procedure to configure forced tunneling.
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
+## Next Steps
+
+You can add virtual machines to your virtual network. See [How to Create a Custom Virtual Machine](../virtual-machines/virtual-machines-create-custom.md).
 
