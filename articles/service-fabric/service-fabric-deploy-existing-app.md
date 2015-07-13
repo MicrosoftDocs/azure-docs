@@ -92,9 +92,10 @@ In order to deploy an application using, for instance, the powershell cmdlets, t
 			\data
 
 The root contains the applicationmanifest.xml file that defines the application. A subdirectory for each service included in the application is used to contain all the artifacts that the service requires: The servicemanifest.xml and, typically 3 directories:
-	* code: contains the service code
-	* config: contains a settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.
-	* Data: an additional directory to store additional local data that service may need. Note: Data should be used to store only ephymeral data, Service Fabric does not copy/replicate changes to the data directory if the service needs to be relocated, for instance, during failover. 
+
+* code: contains the service code
+* config: contains a settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.
+* Data: an additional directory to store additional local data that service may need. Note: Data should be used to store only ephymeral data, Service Fabric does not copy/replicate changes to the data directory if the service needs to be relocated, for instance, during failover. 
 
 Note: You can use any arbitrary directory name for Code, Config and Data. You should need to make sure to use the same value in the ApplicationManifest file. 
 
