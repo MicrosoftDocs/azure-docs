@@ -28,7 +28,7 @@ This article shows you how to create and manage an SQL Management SDK client lib
 
 Code snippets to create a server, firewall rule, databases and an elastic database pool are broken out and explained. A sample console application brings all the commands together in the section at the bottom of this article.
 
-The Azure SQL Database library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) APIs so snippets for authenticating with [Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/mt168838.aspx) (AAD) and creating a resource group are provided as well.
+The Azure SQL Database library for .NET is an [Azure Resource Management](resource-group-overview.md) (ARM) APIs so snippets for authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) and creating a resource group are provided as well.
  
 
 
