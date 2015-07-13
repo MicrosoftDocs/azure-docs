@@ -1,6 +1,6 @@
 Here are the usage constraints and other service limits for the Azure Active Directory service.
 
-| Category | limits | Conditions |
+| Category | Limits | Conditions |
 |---|---|---|
 | Directories | A single user can only be associated with a maximum of 20 Azure Active Directory directories | Examples of possible combinations: <br /><br />- A single user creates 20 directories.<br /><br />- A single user is added to 20 directories as a member.<br /><br />A single user creates 10 directories and later is added by others to 10 different directories. |
 |  Objects | No limits | Only for users assigned licenses for Azure Active Directory Premium or Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune, or any other Microsoft online service that relies on Azure Active Directory for directory services.
