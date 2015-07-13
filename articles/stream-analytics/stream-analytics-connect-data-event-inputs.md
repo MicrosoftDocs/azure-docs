@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/08/2015" 
+	ms.date="07/13/2015" 
 	ms.author="jeffstok"/>
 
 # Connect Stream Analytics inputs
