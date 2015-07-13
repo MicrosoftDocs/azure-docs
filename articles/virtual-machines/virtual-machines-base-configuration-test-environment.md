@@ -24,8 +24,8 @@ This article provides you with step-by-step instructions to create the Base Conf
 You can use the resulting test environment:
 
 - For application development and testing.
-- The [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
-- And extend it with additional virtual machines and Azure services for a test environment of your own design.
+- For the [simulated hybrid cloud environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- To extend it with additional virtual machines and Azure services for a test environment of your own design.
 
 The Base Configuration test environment consists of the Corpnet subnet in a cloud-only Azure Virtual Network named TestLab that simulates a simplified, private intranet connected to the Internet.
 
